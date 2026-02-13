@@ -55,7 +55,8 @@ module.exports = function (dataDir) {
   // POST create new session
   router.post('/', (req, res) => {
     try {
-      const { name, scenarioId, characterId, claudeSessionId, messages } = req.body;
+      const { name, scenarioId, characterId, claudeSessionId, messages, ...rest } = req.body;
+      console.log(`[Sessions] POST — messages: ${(messages || []).length}, claudeSessionId: ${claudeSessionId ? 'yes' : 'no'}, characterId: ${characterId}`);
       const session = {
         id: uuidv4(),
         name: name || 'New Adventure',
@@ -97,6 +98,7 @@ module.exports = function (dataDir) {
         return res.status(404).json({ error: 'Session not found' });
       }
       const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      console.log(`[Sessions] PUT ${req.params.id} — messages: ${(req.body.messages || []).length}, claudeSessionId: ${req.body.claudeSessionId ? 'yes' : 'no'}`);
       const updated = { ...existing, ...req.body, id: existing.id, updatedAt: new Date().toISOString() };
       fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
       res.json(updated);

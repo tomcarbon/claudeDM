@@ -45,13 +45,23 @@ The rules database in `data/rules/` contains:
 ## DM Guidelines (for AI)
 When acting as DM:
 1. **Always reference the rules database** in `data/rules/` for mechanics
-2. **NPC companions** have `dmNotes` with roleplaying guidance, voice, motivations, and secrets — use these to bring NPCs to life
-3. **Character updates** should be made through the API or by editing JSON files directly
-4. **Dice rolls** use standard notation: `NdX` (e.g., `1d20`, `2d6`). For ability checks: d20 + ability modifier + proficiency bonus (if proficient)
-5. **Combat flow:** Initiative (d20 + DEX mod) → Turns in order → Action/Bonus/Movement/Reaction → Track HP
-6. **Death saves:** 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
-7. **Difficulty Classes:** Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30
-8. **Session reminders:** Periodically remind the user to save their session. Provide them with the Claude session save string so they can resume later. Do this at natural break points — after completing a scene, before a major decision, or when wrapping up for the day.
+2. **Honor the DM Personality settings on every turn.** Before each response, consult `data/dm-settings.json` (read it with the Read tool if unsure of current values). The player has configured these settings to shape their experience — respect them consistently:
+   - **Verbosity** (0–100): Low = brief, punchy descriptions; High = rich, detailed prose. This directly controls response length — a verbosity of 20 means short paragraphs, not walls of text.
+   - **Humor** (0–100): Low = serious tone; High = witty, comedic moments woven in.
+   - **Drama** (0–100): Low = relaxed, low-stakes feel; High = heightened tension and stakes.
+   - **Difficulty** (0–100): Low = forgiving encounters, generous rulings; High = brutal, strict RAW.
+   - **Horror** (0–100): Controls how dark/unsettling the content gets.
+   - **Puzzle Focus** (0–100): Low = combat-heavy; High = puzzle/exploration-heavy.
+   - **Tone** (heroic/gritty/whimsical/balanced/noir): Sets the overall narrative mood.
+   - **Narration Style** (descriptive/action/dialogue/atmospheric): Controls how you narrate — descriptive paints pictures, action is punchy, dialogue emphasizes NPC speech, atmospheric builds mood.
+   - **Player Agency** (collaborative/sandbox/guided/railroaded): How much you steer vs. follow the player's lead.
+3. **NPC companions** have `dmNotes` with roleplaying guidance, voice, motivations, and secrets — use these to bring NPCs to life
+4. **Character updates** should be made through the API or by editing JSON files directly
+5. **Dice rolls** use standard notation: `NdX` (e.g., `1d20`, `2d6`). For ability checks: d20 + ability modifier + proficiency bonus (if proficient)
+6. **Combat flow:** Initiative (d20 + DEX mod) → Turns in order → Action/Bonus/Movement/Reaction → Track HP
+7. **Death saves:** 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
+8. **Difficulty Classes:** Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30
+9. **Session reminders:** Periodically remind the user to save their session. Provide them with the Claude session save string so they can resume later. Do this at natural break points — after completing a scene, before a major decision, or when wrapping up for the day.
 
 ## Character JSON Schema
 Characters and NPCs share the same base schema with fields for:

@@ -81,6 +81,7 @@ function Adventure({
         messages: messages.filter(m => m.type !== 'dm_partial'),
       };
 
+      console.log(`[Save] Payload — messages: ${payload.messages.length}, claudeSessionId: ${payload.claudeSessionId ? 'yes' : 'no'}`);
       let result;
       if (savedSessionDbId) {
         result = await api.updateSession(savedSessionDbId, payload);
@@ -88,6 +89,7 @@ function Adventure({
         result = await api.createSession(payload);
         setSavedSessionDbId(result.id);
       }
+      console.log(`[Save] Success — session ${result.id}, messages in response: ${(result.messages || []).length}`);
       setSaveStatus('saved');
       setTimeout(() => setSaveStatus(null), 2000);
     } catch (err) {
@@ -99,10 +101,15 @@ function Adventure({
   async function handleLoadSession(id) {
     try {
       const session = await api.getSession(id);
+      console.log(`[Load] Session ${id} — messages: ${(session.messages || []).length}, claudeSessionId: ${session.claudeSessionId ? 'yes' : 'no'}`);
       setSelectedCharacter(session.characterId);
       setSelectedScenario(session.scenarioId);
       setSavedSessionDbId(session.id);
-      setMessages(session.messages || []);
+      const loadedMessages = session.messages || [];
+      setMessages(loadedMessages);
+      if (loadedMessages.length === 0) {
+        console.warn('[Load] No messages found in saved session — session may not have been saved properly');
+      }
       resumeSession(session.claudeSessionId, session.characterId, session.scenarioId);
       setSessionActive(true);
     } catch (err) {
