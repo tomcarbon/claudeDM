@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { api } from '../api/client';
-import useWebSocket from '../hooks/useWebSocket';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
@@ -10,14 +9,23 @@ const STATUS_CONFIG = {
   error: { label: 'Error', className: 'status-error' },
 };
 
-function Adventure() {
-  const { messages, status, permissionRequest, sendMessage, startSession, sendPermission } = useWebSocket();
+function Adventure({
+  ws,
+  sessionActive,
+  setSessionActive,
+  selectedCharacter,
+  setSelectedCharacter,
+  selectedScenario,
+  setSelectedScenario,
+  savedSessionDbId,
+  setSavedSessionDbId,
+}) {
+  const { messages, setMessages, status, sessionId, permissionRequest, sendMessage, startSession, sendPermission, resumeSession } = ws;
   const [input, setInput] = useState('');
   const [characters, setCharacters] = useState([]);
   const [scenarios, setScenarios] = useState([]);
-  const [selectedCharacter, setSelectedCharacter] = useState('');
-  const [selectedScenario, setSelectedScenario] = useState('');
-  const [sessionActive, setSessionActive] = useState(false);
+  const [savedSessions, setSavedSessions] = useState([]);
+  const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const storyRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -33,6 +41,13 @@ function Adventure() {
     }
   }, [messages]);
 
+  // Load saved sessions for setup screen
+  useEffect(() => {
+    if (!sessionActive) {
+      api.getSessions().then(setSavedSessions).catch(() => {});
+    }
+  }, [sessionActive]);
+
   // Focus input when session starts
   useEffect(() => {
     if (sessionActive && inputRef.current) {
@@ -42,6 +57,7 @@ function Adventure() {
 
   function handleStartSession() {
     if (!selectedCharacter || !selectedScenario) return;
+    setSavedSessionDbId(null);
     startSession(selectedCharacter, selectedScenario);
     setSessionActive(true);
 
@@ -50,6 +66,48 @@ function Adventure() {
     const character = characters.find(c => c.id === selectedCharacter);
     const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Set the scene and begin the story.`;
     setTimeout(() => sendMessage(openingPrompt), 500);
+  }
+
+  async function handleSave() {
+    setSaveStatus('saving');
+    try {
+      const scenario = scenarios.find(s => s.id === selectedScenario);
+      const name = `${scenario?.title || 'Adventure'} — ${new Date().toLocaleDateString()}`;
+      const payload = {
+        name,
+        claudeSessionId: sessionId,
+        characterId: selectedCharacter,
+        scenarioId: selectedScenario,
+        messages: messages.filter(m => m.type !== 'dm_partial'),
+      };
+
+      let result;
+      if (savedSessionDbId) {
+        result = await api.updateSession(savedSessionDbId, payload);
+      } else {
+        result = await api.createSession(payload);
+        setSavedSessionDbId(result.id);
+      }
+      setSaveStatus('saved');
+      setTimeout(() => setSaveStatus(null), 2000);
+    } catch (err) {
+      console.error('Save failed:', err);
+      setSaveStatus(null);
+    }
+  }
+
+  async function handleLoadSession(id) {
+    try {
+      const session = await api.getSession(id);
+      setSelectedCharacter(session.characterId);
+      setSelectedScenario(session.scenarioId);
+      setSavedSessionDbId(session.id);
+      setMessages(session.messages || []);
+      resumeSession(session.claudeSessionId, session.characterId, session.scenarioId);
+      setSessionActive(true);
+    } catch (err) {
+      console.error('Load failed:', err);
+    }
   }
 
   function handleSend() {
@@ -118,6 +176,25 @@ function Adventure() {
         >
           {status === 'disconnected' ? 'Connecting...' : 'Begin Adventure'}
         </button>
+
+        {savedSessions.length > 0 && (
+          <div className="setup-group" style={{ marginTop: '2rem' }}>
+            <label>Load Saved Session</label>
+            <div className="setup-options">
+              {savedSessions.map(s => (
+                <button
+                  key={s.id}
+                  className="option-card"
+                  onClick={() => handleLoadSession(s.id)}
+                  disabled={status === 'disconnected'}
+                >
+                  <strong>{s.name}</strong>
+                  <span>{s.messageCount} messages — {new Date(s.updatedAt).toLocaleDateString()}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -134,6 +211,13 @@ function Adventure() {
           <span className="adventure-scenario">{activeScenario?.title}</span>
           <span className="adventure-character">{activeCharacter?.name}</span>
         </div>
+        <button
+          className="btn-save"
+          onClick={handleSave}
+          disabled={saveStatus === 'saving' || status === 'disconnected'}
+        >
+          {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'saved' ? 'Saved!' : 'Save'}
+        </button>
         <div className={`status-indicator ${statusInfo.className}`}>
           <span className="status-dot" />
           <span className="status-label">{statusInfo.label}</span>

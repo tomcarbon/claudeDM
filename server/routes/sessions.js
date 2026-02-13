@@ -22,12 +22,16 @@ module.exports = function (dataDir) {
           id: data.id,
           name: data.name,
           scenarioId: data.scenarioId,
+          characterId: data.characterId,
           createdAt: data.createdAt,
           updatedAt: data.updatedAt,
-          playerCount: data.players.length,
+          playerCount: (data.players || []).length,
+          messageCount: (data.messages || []).length,
           status: data.status,
         };
       });
+      // Sort by most recently updated
+      sessions.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
       res.json(sessions);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -51,11 +55,14 @@ module.exports = function (dataDir) {
   // POST create new session
   router.post('/', (req, res) => {
     try {
-      const { name, scenarioId, characterId } = req.body;
+      const { name, scenarioId, characterId, claudeSessionId, messages } = req.body;
       const session = {
         id: uuidv4(),
         name: name || 'New Adventure',
         scenarioId: scenarioId || null,
+        characterId: characterId || null,
+        claudeSessionId: claudeSessionId || null,
+        messages: messages || [],
         status: 'active',
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),

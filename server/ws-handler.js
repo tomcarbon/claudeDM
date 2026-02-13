@@ -39,6 +39,17 @@ function attachWebSocket(server, dataDir) {
           break;
         }
 
+        case 'session_resume': {
+          characterId = msg.characterId || null;
+          scenarioId = msg.scenarioId || null;
+          if (msg.claudeSessionId) {
+            engine.sessionId = msg.claudeSessionId;
+          }
+          send('session_status', { status: 'idle' });
+          console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}`);
+          break;
+        }
+
         case 'user_message': {
           if (processing) {
             send('error', { error: 'Already processing a message. Please wait.' });

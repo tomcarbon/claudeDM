@@ -418,6 +418,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border);
   margin-bottom: 0.75rem;
@@ -600,6 +601,26 @@
 }
 .btn-send:hover:not(:disabled) {
   opacity: 0.85;
+}
+
+.btn-save {
+  padding: 0.4rem 1rem;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-save:hover:not(:disabled) {
+  background: var(--gold);
+  color: var(--bg-dark, #1a1a2e);
+}
+.btn-save:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* ===== Permission Modal ===== */

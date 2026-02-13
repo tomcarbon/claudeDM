@@ -122,13 +122,26 @@ export default function useWebSocket() {
     }
   }, []);
 
+  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({
+        type: 'session_resume',
+        claudeSessionId,
+        characterId,
+        scenarioId,
+      }));
+    }
+  }, []);
+
   return {
     messages,
+    setMessages,
     status,
     sessionId,
     permissionRequest,
     sendMessage,
     startSession,
     sendPermission,
+    resumeSession,
   };
 }
