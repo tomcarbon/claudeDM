@@ -35,4 +35,11 @@ export const api = {
   // DM Settings
   getDmSettings: () => fetchJson('/dm-settings'),
   updateDmSettings: (data) => fetchJson('/dm-settings', { method: 'PUT', body: JSON.stringify(data) }),
+
+  // Sessions (multiplayer-ready)
+  getSessions: () => fetchJson('/sessions'),
+  getSession: (id) => fetchJson(`/sessions/${id}`),
+  createSession: (data) => fetchJson('/sessions', { method: 'POST', body: JSON.stringify(data) }),
+  updateSession: (id, data) => fetchJson(`/sessions/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  addPlayerToSession: (id, data) => fetchJson(`/sessions/${id}/players`, { method: 'POST', body: JSON.stringify(data) }),
 };

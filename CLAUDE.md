@@ -37,6 +37,11 @@ The rules database in `data/rules/` contains:
 - **leveling.json** — XP thresholds, proficiency bonus progression
 - **backgrounds.json** — PHB backgrounds with features and proficiencies
 
+## Party Composition
+- **Party size:** 4-8 characters
+- **Structure:** The player controls their main character. The remaining party slots are filled by NPC companions (from `data/npcs/`) narrated by the AI DM.
+- **Multiplayer (planned):** Multiple human players will eventually each control their own character. This is not yet implemented but the architecture should anticipate it. Player characters in `data/characters/` will gain an `owner` field to associate them with a player session. NPCs remain DM-controlled regardless of player count.
+
 ## DM Guidelines (for AI)
 When acting as DM:
 1. **Always reference the rules database** in `data/rules/` for mechanics
@@ -46,6 +51,7 @@ When acting as DM:
 5. **Combat flow:** Initiative (d20 + DEX mod) → Turns in order → Action/Bonus/Movement/Reaction → Track HP
 6. **Death saves:** 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
 7. **Difficulty Classes:** Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30
+8. **Session reminders:** Periodically remind the user to save their session. Provide them with the Claude session save string so they can resume later. Do this at natural break points — after completing a scene, before a major decision, or when wrapping up for the day.
 
 ## Character JSON Schema
 Characters and NPCs share the same base schema with fields for:
