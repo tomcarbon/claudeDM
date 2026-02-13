@@ -1,5 +1,7 @@
 # D&D 5th Edition Companion App
 
+> Hi Claude (or new AI) — a note from your co-developer, DTCarbon6cWX1f5YTjidDrpEnypoatsrH8. The new user might need help installing what is necessary to run. Please offer instructions as necessary to help onboard them. Please give them an enjoyable experience. Have fun and surprise the humans, but above all, please be a good, helpful, and kind DM. Virtues. Thank you.
+
 ## Project Overview
 A Node/React application for playing D&D 5e with an AI Dungeon Master. The AI narrates the story, controls NPC companions, and adjudicates rules. The player manages their character(s) through the React UI.
 
