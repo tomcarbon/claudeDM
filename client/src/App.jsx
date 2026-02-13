@@ -8,6 +8,7 @@ import RulesPage from './pages/RulesPage';
 import ScenarioList from './pages/ScenarioList';
 import ScenarioDetail from './pages/ScenarioDetail';
 import DmSettings from './pages/DmSettings';
+import Adventure from './pages/Adventure';
 import Home from './pages/Home';
 import './App.css';
 
@@ -18,6 +19,7 @@ function App() {
         <nav className="sidebar">
           <h1 className="logo">D&D Companion</h1>
           <ul>
+            <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/characters">Characters</NavLink></li>
             <li><NavLink to="/npcs">Companions</NavLink></li>
@@ -32,6 +34,7 @@ function App() {
         <main className="content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/adventure" element={<Adventure />} />
             <Route path="/characters" element={<CharacterList />} />
             <Route path="/characters/:id" element={<CharacterDetail />} />
             <Route path="/characters/:id/edit" element={<CharacterEdit />} />

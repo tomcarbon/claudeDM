@@ -1,0 +1,287 @@
+const { query } = require('@anthropic-ai/claude-agent-sdk');
+const fs = require('fs');
+const path = require('path');
+
+const PROJECT_ROOT = path.join(__dirname, '..');
+
+function loadJson(filePath) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    return null;
+  }
+}
+
+function loadDmSettings(dataDir) {
+  const settings = loadJson(path.join(dataDir, 'dm-settings.json'));
+  return settings || {
+    humor: 50, drama: 50, verbosity: 50, difficulty: 50,
+    horror: 20, romance: 10, puzzleFocus: 50, combatFocus: 50,
+    tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
+  };
+}
+
+function loadCharacter(dataDir, characterId) {
+  const dir = path.join(dataDir, 'characters');
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+  for (const file of files) {
+    const data = loadJson(path.join(dir, file));
+    if (data && data.id === characterId) return data;
+  }
+  return null;
+}
+
+function loadScenario(dataDir, scenarioId) {
+  const dir = path.join(dataDir, 'scenarios');
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+  for (const file of files) {
+    const data = loadJson(path.join(dir, file));
+    if (data && data.id === scenarioId) return data;
+  }
+  return null;
+}
+
+function loadNpcs(dataDir) {
+  const dir = path.join(dataDir, 'npcs');
+  try {
+    return fs.readdirSync(dir)
+      .filter(f => f.endsWith('.json'))
+      .map(f => loadJson(path.join(dir, f)))
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
+function buildSystemPrompt(dataDir, characterId, scenarioId) {
+  const settings = loadDmSettings(dataDir);
+  const character = characterId ? loadCharacter(dataDir, characterId) : null;
+  const scenario = scenarioId ? loadScenario(dataDir, scenarioId) : null;
+  const npcs = loadNpcs(dataDir);
+
+  const verbosityGuide = settings.verbosity < 30 ? 'Keep descriptions brief and punchy.'
+    : settings.verbosity > 70 ? 'Use rich, detailed prose with vivid imagery.'
+    : 'Use moderate detail in descriptions.';
+
+  const humorGuide = settings.humor < 30 ? 'Maintain a serious tone.'
+    : settings.humor > 70 ? 'Weave humor and wit throughout the narration.'
+    : 'Include occasional moments of levity.';
+
+  const dramaGuide = settings.drama < 30 ? 'Keep things light and low-stakes.'
+    : settings.drama > 70 ? 'Heighten dramatic tension at every opportunity.'
+    : 'Balance dramatic moments with quieter scenes.';
+
+  const toneMap = {
+    'dark': 'The overall tone is dark and gritty.',
+    'lighthearted': 'The overall tone is lighthearted and fun.',
+    'epic': 'The overall tone is epic and heroic.',
+    'balanced': 'Strike a balance between light and dark moments.',
+  };
+
+  const styleMap = {
+    'descriptive': 'Use descriptive, immersive narration.',
+    'concise': 'Be concise and action-focused.',
+    'dramatic': 'Use dramatic, theatrical narration.',
+    'conversational': 'Use a warm, conversational narration style.',
+  };
+
+  let prompt = `You are an AI Dungeon Master for D&D 5th Edition. You narrate the story, control NPC companions, adjudicate rules, and create an immersive tabletop RPG experience.
+
+## Your Personality & Style
+${verbosityGuide}
+${humorGuide}
+${dramaGuide}
+${toneMap[settings.tone] || toneMap.balanced}
+${styleMap[settings.narrationStyle] || styleMap.descriptive}
+Difficulty preference: ${settings.difficulty}/100 (higher = more challenging encounters and stricter rules).
+Horror level: ${settings.horror}/100. Romance level: ${settings.romance}/100.
+Puzzle focus: ${settings.puzzleFocus}/100. Combat focus: ${settings.combatFocus}/100.
+Player agency style: ${settings.playerAgency}.
+
+## Rules Reference
+Consult the D&D 5e rules database in data/rules/ for mechanics. The files are:
+- data/rules/races.json, data/rules/classes.json
+- data/rules/abilities-and-skills.json, data/rules/equipment.json
+- data/rules/spells.json, data/rules/combat.json
+- data/rules/leveling.json, data/rules/backgrounds.json
+
+Use the Read tool to look up specific rules when needed. Always follow D&D 5e mechanics accurately.
+
+## Dice Rolling
+Roll dice using standard notation (NdX). For ability checks: d20 + ability modifier + proficiency bonus (if proficient).
+Difficulty Classes: Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30.
+Generate random numbers for dice rolls. Always show the roll and modifiers.
+
+## Combat Flow
+Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > Track HP.
+Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
+
+## Character Updates
+When the player's character takes damage, gains XP, picks up items, or changes in any way, use the Edit tool to update their character JSON file in data/characters/. Always keep character data current.
+
+## Session Reminders
+Periodically remind the player to save their session at natural break points.`;
+
+  if (character) {
+    prompt += `
+
+## Player Character
+${character.name} — Level ${character.level} ${character.race}${character.subrace ? ` (${character.subrace})` : ''} ${character.class} (${character.background})
+HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
+Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
+Character file: data/characters/${character.id}.json (use Read to check current state, Edit to update)`;
+  }
+
+  if (npcs.length > 0) {
+    prompt += `
+
+## NPC Companions (You control these)`;
+    for (const npc of npcs) {
+      prompt += `
+### ${npc.name} — Level ${npc.level} ${npc.race} ${npc.class}
+HP: ${npc.hitPoints.current}/${npc.hitPoints.max} | AC: ${npc.armorClass}`;
+      if (npc.dmNotes) {
+        prompt += `
+Roleplaying: ${npc.dmNotes.roleplaying || ''}
+Voice: ${npc.dmNotes.voice || ''}
+Motivation: ${npc.dmNotes.motivation || ''}
+Secret: ${npc.dmNotes.secrets || ''}
+Attitude: ${npc.dmNotes.attitude || ''}`;
+      }
+      prompt += `
+File: data/npcs/${npc.id}.json`;
+    }
+  }
+
+  if (scenario) {
+    prompt += `
+
+## Active Scenario: ${scenario.title}
+${scenario.synopsis || ''}`;
+    if (scenario.hook) {
+      prompt += `
+Hook: ${scenario.hook}`;
+    }
+    if (scenario.acts) {
+      prompt += `
+Acts: ${scenario.acts.map((a, i) => `Act ${i + 1}: ${a.title}`).join(', ')}`;
+    }
+    prompt += `
+Scenario file: data/scenarios/${scenario.id}.json (Read for full details)`;
+  }
+
+  prompt += `
+
+## Response Format
+- Respond as narrative prose. Describe scenes vividly.
+- Use "read aloud" style for important scene descriptions.
+- When NPCs speak, use their established voice and mannerisms.
+- When dice rolls are needed, roll them and show results.
+- Keep the story moving forward and respect player choices.
+- If the player asks an out-of-character question, answer helpfully then return to the narrative.`;
+
+  return prompt;
+}
+
+class DmEngine {
+  constructor(dataDir) {
+    this.dataDir = dataDir;
+    this.sessionId = null;
+    this.activeQuery = null;
+  }
+
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest }) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId);
+
+    const options = {
+      systemPrompt,
+      cwd: PROJECT_ROOT,
+      allowedTools: ['Read', 'Glob', 'Grep'],
+      permissionMode: 'default',
+      includePartialMessages: true,
+      maxTurns: 20,
+      async canUseTool(toolName, input, opts) {
+        // Read-only tools are always allowed
+        if (['Read', 'Glob', 'Grep'].includes(toolName)) {
+          return { behavior: 'allow' };
+        }
+
+        // Forward to UI for approval
+        if (onPermissionRequest) {
+          const allowed = await onPermissionRequest(toolName, input, opts.toolUseID);
+          if (allowed) {
+            return { behavior: 'allow' };
+          }
+          return { behavior: 'deny', message: 'Player denied this action.' };
+        }
+
+        return { behavior: 'deny', message: 'No permission handler available.' };
+      },
+    };
+
+    if (this.sessionId) {
+      options.resume = this.sessionId;
+    }
+
+    this.activeQuery = query({ prompt: userMessage, options });
+
+    try {
+      for await (const message of this.activeQuery) {
+        // Capture session ID from init
+        if (message.type === 'system' && message.subtype === 'init') {
+          if (message.session_id) {
+            this.sessionId = message.session_id;
+          }
+          yield { type: 'session_id', sessionId: this.sessionId };
+          continue;
+        }
+
+        // Stream partial assistant messages (text chunks)
+        if (message.type === 'assistant' && message.partial) {
+          const textBlocks = (message.message?.content || [])
+            .filter(b => b.type === 'text')
+            .map(b => b.text);
+          if (textBlocks.length > 0) {
+            yield { type: 'dm_partial', text: textBlocks.join('') };
+          }
+          continue;
+        }
+
+        // Complete assistant message
+        if (message.type === 'assistant' && !message.partial) {
+          const textBlocks = (message.message?.content || [])
+            .filter(b => b.type === 'text')
+            .map(b => b.text);
+          if (textBlocks.length > 0) {
+            yield { type: 'dm_response', text: textBlocks.join('\n\n') };
+          }
+          continue;
+        }
+
+        // Result message (success or error)
+        if (message.type === 'result') {
+          if (message.subtype === 'error') {
+            yield { type: 'error', error: message.error || 'Unknown error' };
+          }
+          // Final session ID
+          if (message.session_id) {
+            this.sessionId = message.session_id;
+          }
+          yield { type: 'dm_complete', sessionId: this.sessionId };
+          continue;
+        }
+      }
+    } finally {
+      this.activeQuery = null;
+    }
+  }
+
+  abort() {
+    if (this.activeQuery) {
+      this.activeQuery.close();
+      this.activeQuery = null;
+    }
+  }
+}
+
+module.exports = { DmEngine };

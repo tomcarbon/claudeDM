@@ -6,6 +6,12 @@ function Home() {
         Your D&D 5th Edition companion awaits. Choose your path:
       </p>
       <div className="card-grid" style={{ marginTop: '1.5rem' }}>
+        <a href="/adventure" className="card card-adventure">
+          <h3>Start Adventure</h3>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>
+            Begin a text adventure with the AI Dungeon Master. Choose your character, pick a scenario, and step into the story.
+          </p>
+        </a>
         <a href="/characters" className="card">
           <h3>Characters</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>

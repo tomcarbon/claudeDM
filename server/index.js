@@ -1,12 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const http = require('http');
 const charactersRouter = require('./routes/characters');
 const npcsRouter = require('./routes/npcs');
 const rulesRouter = require('./routes/rules');
 const scenariosRouter = require('./routes/scenarios');
 const dmSettingsRouter = require('./routes/dm-settings');
 const sessionsRouter = require('./routes/sessions');
+const { attachWebSocket } = require('./ws-handler');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -31,6 +33,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(PORT, () => {
+const server = http.createServer(app);
+attachWebSocket(server, DATA_DIR);
+
+server.listen(PORT, () => {
   console.log(`D&D Companion server running on http://localhost:${PORT}`);
 });
