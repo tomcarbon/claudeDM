@@ -4,6 +4,8 @@ const path = require('path');
 const charactersRouter = require('./routes/characters');
 const npcsRouter = require('./routes/npcs');
 const rulesRouter = require('./routes/rules');
+const scenariosRouter = require('./routes/scenarios');
+const dmSettingsRouter = require('./routes/dm-settings');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -16,6 +18,8 @@ const DATA_DIR = path.join(__dirname, '..', 'data');
 app.use('/api/characters', charactersRouter(DATA_DIR));
 app.use('/api/npcs', npcsRouter(DATA_DIR));
 app.use('/api/rules', rulesRouter(DATA_DIR));
+app.use('/api/scenarios', scenariosRouter(DATA_DIR));
+app.use('/api/dm-settings', dmSettingsRouter(DATA_DIR));
 
 // Serve static build in production
 if (process.env.NODE_ENV === 'production') {

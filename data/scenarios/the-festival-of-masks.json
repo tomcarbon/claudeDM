@@ -1,0 +1,305 @@
+{
+  "id": "b7d4f2a1-8c3e-4f9b-a1d5-2e6f8b0c3d7a",
+  "title": "The Festival of Masks",
+  "subtitle": "Behind Every Mask, Another Face; Behind Every Face, A Lie",
+  "levelRange": "1-2",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Saltmere, the City of Tides",
+    "description": "A prosperous coastal trading city built on a series of limestone terraces descending to a bustling harbor, Saltmere is famous for its annual Festival of Masks — a three-day celebration where citizens and visitors don elaborate masks and revel in anonymity. The city's winding streets are draped in colored silks, its canals strung with paper lanterns, and every square hosts musicians, acrobats, and merchant stalls selling exotic wares from distant shores.",
+    "atmosphere": "The festival transforms Saltmere into a kaleidoscope of color, sound, and misdirection, where identities blur and secrets travel freely behind painted facades. Laughter echoes through narrow alleyways alongside whispered conspiracies, and the ever-present scent of sea salt mingles with roasting spices and floral perfumes. Beneath the celebration's joyful surface, however, runs an undercurrent of tension — old rivalries, trade disputes, and political maneuvering all intensify when faces are hidden and tongues loosed by festival wine.",
+    "keyLocations": [
+      {
+        "name": "The Grand Promenade",
+        "description": "Saltmere's main thoroughfare during the festival, a wide boulevard running from the upper terraces down to the harbor, lined with merchant stalls, performance stages, and food vendors. During the festival's height, thousands of masked revelers crowd the Promenade in a slow-moving river of humanity, making it both the best place to gather information and the easiest place to disappear.",
+        "features": [
+          "Performance stages every hundred feet with acrobats, musicians, and theatrical troupes",
+          "Merchant stalls selling masks, curios, and imported goods from across the sea",
+          "Elevated viewing platforms reserved for wealthy patrons and city officials"
+        ],
+        "encounters": [
+          "Pickpockets working the crowd (DC 13 Perception to notice, DC 12 Sleight of Hand to catch)",
+          "A masked street performer who witnessed the night of the merchant's 'death' and can be persuaded to share what they saw"
+        ],
+        "secrets": [
+          "The viewing platform reserved for the merchant Aldric Voss has been deliberately positioned to overlook the alley where the 'murder' took place — part of his staged crime scene"
+        ]
+      },
+      {
+        "name": "The Driftwood Inn",
+        "description": "A ramshackle but charming harborside inn built from salvaged ship timbers, the Driftwood is where visiting merchants and sailors stay during the festival. Its common room is a cramped, raucous space where deals are struck, rumors flow like cheap wine, and the innkeeper Cora Tidewatcher keeps a sharp ear on everything said under her roof.",
+        "features": [
+          "A common room with mismatched furniture and walls decorated with salvaged ship figureheads",
+          "Private dining alcoves separated by threadbare curtains that do little to muffle conversation",
+          "A back door opening onto the harbor docks for discreet arrivals and departures"
+        ],
+        "encounters": [
+          "Gathering rumors from festival-goers and sailors about the merchant Aldric Voss and his rivals",
+          "An argument between two of the suspects that the party can overhear from an adjacent alcove"
+        ],
+        "secrets": [
+          "Cora Tidewatcher was paid 20 gold by Aldric Voss to provide him with an alibi for the night of his supposed death — she is the weakest link in his deception"
+        ]
+      },
+      {
+        "name": "Aldric Voss's Warehouse",
+        "description": "A large stone warehouse near the harbor docks, ostensibly sealed and under guard since the merchant's death. Inside, crates of imported silks and spices fill the ground floor, but a hidden cellar contains evidence of Voss's scheme — forged documents, a duplicate of the stolen relic, and supplies for an extended disappearance.",
+        "features": [
+          "Ground floor packed with legitimate trade goods worth a small fortune",
+          "A hired guard (commoner stats) watching the front entrance who can be talked past or distracted",
+          "A hidden trapdoor beneath a stack of silk crates leading to the concealed cellar"
+        ],
+        "encounters": [
+          "Breaking in or talking past the guard",
+          "Discovering the hidden cellar and piecing together the evidence of the faked death"
+        ],
+        "secrets": [
+          "The cellar contains a forged last will and testament naming Voss's business partner as the relic thief, a chest of traveling supplies, and a map with a route to a village three days south where Voss planned to start a new identity"
+        ]
+      },
+      {
+        "name": "The Temple of Umberlee",
+        "description": "A dramatic clifftop temple overlooking the harbor, dedicated to the capricious sea goddess Umberlee. The stolen relic — a golden trident called the Tidecaller's Fork — was taken from the temple's inner sanctum during the festival's opening ceremony. The temple's high priestess, Sister Ondara, is furious and has offered a substantial reward for the relic's return.",
+        "features": [
+          "An open-air sanctum with a commanding view of the harbor and city below",
+          "Tidal pools within the temple that rise and fall with the ocean, used in religious ceremonies",
+          "An inner vault where the Tidecaller's Fork was kept, its lock picked cleanly with no signs of forced entry"
+        ],
+        "encounters": [
+          "Examining the crime scene at the inner vault for clues",
+          "Speaking with Sister Ondara about the relic's significance and who might want it"
+        ],
+        "secrets": [
+          "The Tidecaller's Fork is not actually a holy relic but a very convincing fake that was switched in years ago — the real trident was sold by a previous priest. Aldric Voss discovered this and stole the fake to use as leverage against the temple."
+        ]
+      },
+      {
+        "name": "The Moonbridge Canal",
+        "description": "A narrow canal running through Saltmere's lower terraces, spanned by an arched stone bridge where the climactic chase through the festival crowds takes place. During the festival, the canal is filled with decorated gondolas and the bridge is packed with revelers, creating a chaotic obstacle course of masked celebrants, street performers, and festival decorations.",
+        "features": [
+          "The arched Moonbridge with stone railings and festival streamers",
+          "Decorated gondolas that can be commandeered or leapt between",
+          "Narrow alleyways branching off from both sides of the canal, offering escape routes and shortcuts"
+        ],
+        "encounters": [
+          "The climactic chase scene through festival crowds, across the bridge, and along the canal",
+          "A final confrontation with Aldric Voss, who is disguised and trying to flee the city by gondola"
+        ],
+        "secrets": [
+          "A secret passage beneath the bridge connects to the old smuggling tunnels under the city — Voss's planned escape route if the gondola fails"
+        ]
+      }
+    ]
+  },
+  "synopsis": "During Saltmere's celebrated Festival of Masks, a wealthy merchant named Aldric Voss is found dead in an alley and a sacred relic is stolen from the Temple of Umberlee. The party is drawn into the investigation, interviewing four suspects with alibis, motives, and secrets of their own. As they peel back layers of deception, they discover the shocking truth: the 'victim' faked his own death as part of an elaborate scheme to steal the relic, frame a rival, and disappear with a new identity. The adventure culminates in a dramatic chase through the festival crowds as the party races to catch Voss before he escapes the city.",
+  "hook": "The party is enjoying Saltmere's Festival of Masks when screams erupt from a nearby alley. They find a masked body in merchant's clothing, a jeweled dagger in its back, and a panicked crowd scattering in all directions. The city watch arrives moments later but is overwhelmed by festival security duties. Captain Reva Ashford, recognizing the party as capable outsiders untainted by local politics, deputizes them on the spot and asks them to investigate before the trail goes cold amid the festival chaos. Sister Ondara of the Temple of Umberlee offers 100 gold for the return of the stolen Tidecaller's Fork, which disappeared the same night.",
+  "acts": [
+    {
+      "title": "Act 1: A Death at the Festival",
+      "description": "The party discovers the 'body,' is deputized by the city watch, examines the crime scene, and begins interviewing suspects. This act establishes the mystery, introduces the four suspects, and plants clues that something about the murder does not add up.",
+      "objectives": [
+        "Examine the crime scene in the alley",
+        "Learn the identity of the victim (Aldric Voss, wealthy merchant)",
+        "Interview the four primary suspects",
+        "Visit the Temple of Umberlee to examine the relic theft scene"
+      ],
+      "scenes": [
+        {
+          "name": "The Body in the Alley",
+          "description": "The party encounters the crime scene — a masked body in expensive merchant's clothing, a jeweled dagger, and a crowd of frightened festival-goers. The city watch captain deputizes them and shares initial observations. Close examination reveals subtle inconsistencies that hint the scene was staged.",
+          "readAloud": "\"The festival's music seems distant and wrong as you push through the gathering crowd into a narrow alley between a spice merchant's stall and a silk draper's shop. A figure lies face-down on the cobblestones, dressed in rich blue velvet, a festival mask of painted porcelain still covering the upper half of their face. A jeweled dagger protrudes from between the shoulder blades, and a pool of dark liquid — blood, you realize — spreads slowly across the ancient stone. A woman in city watch armor pushes through the crowd behind you, takes one look at the scene, and swears under her breath. 'That's Aldric Voss's clothing,' she mutters. 'The wealthiest merchant in Saltmere, dead on the biggest night of the year. This is going to be a nightmare.'\"",
+          "skillChecks": [
+            { "skill": "Medicine", "dc": 14, "success": "The blood pooling seems wrong — it is too uniform and slightly too dark, as if it was poured rather than flowing from a wound. The body is also unusually stiff for someone recently killed, suggesting it has been dead much longer than the scene implies, or is not a real body at all.", "failure": "The victim appears to have been stabbed in the back and died quickly. Nothing unusual stands out about the body." },
+            { "skill": "Investigation", "dc": 13, "success": "The jeweled dagger is theatrical quality — real gemstones but a dulled blade incapable of piercing flesh. The 'wound' beneath the clothing is a clever prosthetic appliance attached to the body's back. This death was staged.", "failure": "The dagger appears to be the murder weapon, and the scene looks like a straightforward stabbing." },
+            { "skill": "Perception", "dc": 15, "success": "You notice a faint trail of the same dark 'blood' leading away from the body toward a side passage, as if someone recently left the scene carrying a container of the stuff. Fresh boot prints in the puddle lead in that direction.", "failure": "The alley appears to have only one entrance, and the crowd has trampled any useful tracks." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Captain Reva Ashford is brisk, competent, and frustrated. She knows Saltmere's politics well enough to suspect this will be complicated. She provides the party with a writ of investigation and suggests starting with Voss's known rivals. If the party discovers the death is staged, Ashford is shocked but adapts quickly, recognizing this changes the investigation from a murder case to a fraud.",
+          "loot": [
+            "Writ of Investigation from Captain Ashford (grants authority to question citizens and enter Voss's properties)",
+            "The jeweled theatrical dagger (worth 25 gp for the gemstones)"
+          ]
+        },
+        {
+          "name": "The Four Suspects",
+          "description": "The party interviews four suspects, each with motive, opportunity, and alibis of varying strength. Each suspect has their own secrets and personality, and the conversations should feel like a web of half-truths, genuine grievances, and festival intrigue.",
+          "readAloud": "\"Captain Ashford provides you with a list of four names — people who had known conflicts with Aldric Voss, each with reason to wish the merchant ill. 'Start with these,' she says, adjusting her sword belt. 'But remember, during the Festival of Masks, everyone is someone else. Trust the evidence, not the faces.' She pauses, then adds with a grim smile, 'Especially since half the city is wearing someone else's face tonight.'\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 12, "success": "You detect that Lysara Moonveil, the rival merchant, is genuinely surprised and upset by Voss's death — her grief seems authentic, which weakens her motive.", "failure": "Lysara seems guarded and evasive, which could indicate guilt or simply caution." },
+            { "skill": "Persuasion", "dc": 13, "success": "Dorian Blacktide, the disgruntled former business partner, admits he confronted Voss earlier that day about unpaid debts but insists he left the argument peacefully. He reveals that Voss had been behaving strangely for weeks — selling off assets, canceling contracts, and visiting the harbor at odd hours.", "failure": "Dorian is hostile and uncooperative, insisting he has nothing to say and demanding you leave." },
+            { "skill": "Intimidation", "dc": 14, "success": "Serek the Fence, a small-time smuggler who Voss used for under-the-table deals, nervously reveals that Voss paid him to acquire a set of forged identity documents two weeks ago — papers for a man named 'Edric Marsh' with Voss's physical description.", "failure": "Serek clams up and refuses to discuss his business dealings, threatening to disappear if pressed further." },
+            { "skill": "Insight", "dc": 13, "success": "Maren Duskwell, Voss's estranged wife, seems more angry than grieving. She reveals Voss recently changed his will to leave everything to the Temple of Umberlee rather than her, which she found suspicious and infuriating.", "failure": "Maren presents a composed facade of appropriate grief that reveals nothing useful." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Each suspect should feel like a distinct character with their own voice and demeanor. Lysara is proud and sharp-tongued. Dorian is bitter and resentful. Serek is nervous and slippery. Maren is cold and controlled. None of them committed murder because no murder occurred, but each has secrets that make them look suspicious. The key clues are Dorian's revelation about Voss's strange behavior and Serek's admission about the forged documents.",
+          "loot": []
+        },
+        {
+          "name": "The Temple Crime Scene",
+          "description": "The party visits the Temple of Umberlee to examine where the Tidecaller's Fork was stolen from. Sister Ondara provides context about the relic and the theft, while the crime scene reveals that the thief had intimate knowledge of the temple's layout and security — knowledge only an insider or major donor like Aldric Voss would possess.",
+          "readAloud": "\"The Temple of Umberlee perches on the clifftop like a ship's prow cutting through stone, its open-air sanctum lashed by salt wind and spray from the waves crashing far below. Sister Ondara, a weathered woman with the bearing of a ship captain, leads you through halls decorated with coral and driftwood to the inner vault. The heavy door stands open, its lock picked with surgical precision — not a scratch on the mechanism. Inside, an empty display pedestal sits beneath a shaft of moonlight, the indentation where the golden trident rested still visible in the velvet lining. 'The Tidecaller's Fork has protected this city for generations,' Ondara says, her voice tight with controlled fury. 'Without it, Umberlee's favor is uncertain, and the storms will come.'\"",
+          "skillChecks": [
+            { "skill": "Investigation", "dc": 14, "success": "The lock was picked by an expert, but you find a tiny fragment of blue velvet caught in the mechanism — the same shade as the clothing on the body in the alley. The thief was wearing Aldric Voss's distinctive blue velvet.", "failure": "The lock was picked cleanly. You find no physical evidence left by the thief." },
+            { "skill": "Religion", "dc": 12, "success": "You notice the display pedestal's velvet lining shows an indentation that does not quite match a trident's shape — the tines are slightly too close together, as if the displayed item was a replica rather than the genuine article.", "failure": "The pedestal seems ordinary, designed to hold a trident-shaped relic." },
+            { "skill": "Perception", "dc": 13, "success": "You spot a donation plaque on the vault wall listing major contributors to the temple. Aldric Voss's name appears prominently, and beside it, a notation indicates he was granted 'patron access' to the inner sanctum — meaning he knew the layout and had legitimate reason to be near the vault.", "failure": "The vault appears to be a secure space that would be difficult for an outsider to access." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Sister Ondara is a true believer but also politically savvy. She suspects the theft is connected to the murder and wants both resolved. She does not know the trident is a fake — that secret died with the previous high priest. If confronted with evidence that the trident might not be genuine, she becomes defensive but ultimately more concerned about the political implications than the theological ones.",
+          "loot": [
+            "Sister Ondara provides the party with a potion of healing and a blessing of Umberlee (advantage on one saving throw against water-based hazards, single use)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Unmasking the Truth",
+      "description": "The party follows the trail of evidence to Aldric Voss's warehouse, where they discover proof that the death was staged and the relic theft was part of an elaborate escape plan. They must piece together the full picture and determine that the 'victim' is still alive and planning to flee the city.",
+      "objectives": [
+        "Investigate Aldric Voss's warehouse for evidence",
+        "Discover the hidden cellar and Voss's escape plan",
+        "Confront Cora Tidewatcher at the Driftwood Inn about Voss's alibi",
+        "Determine Voss's current location and plan to intercept him"
+      ],
+      "scenes": [
+        {
+          "name": "Breaking Into the Warehouse",
+          "description": "The party infiltrates Voss's supposedly sealed warehouse, deals with the hired guard, and discovers the hidden cellar containing proof of the staged death and relic theft. The evidence paints a clear picture: Voss faked his death, stole the trident to use as leverage or sell, and planned to vanish with a new identity.",
+          "readAloud": "\"Voss's warehouse squats near the harbor docks, a solid stone building with iron-barred windows and a heavy oak door. A bored-looking guard sits on a crate outside, whittling a piece of driftwood and occasionally glancing up at passersby. A seal of the city watch has been placed on the door — officially, this is a dead man's property under legal protection until the estate is settled. But you know better. Somewhere inside these walls are the answers you need, and the festival crowds provide perfect cover for your approach.\"",
+          "skillChecks": [
+            { "skill": "Deception", "dc": 12, "success": "You convince the guard you are estate assessors sent by the magistrate. He lets you in without question and returns to his whittling.", "failure": "The guard is suspicious and refuses entry. You will need to find another way in or persuade him more forcefully." },
+            { "skill": "Stealth", "dc": 14, "success": "You slip around to the warehouse's harbor-side wall and find an unlocked window large enough to climb through, entering without alerting the guard.", "failure": "You knock over a stack of crates while climbing through the window, alerting the guard who comes to investigate." },
+            { "skill": "Investigation", "dc": 13, "success": "You notice scuff marks on the floor where the silk crates have been repeatedly moved and replaced, revealing the trapdoor to the hidden cellar beneath.", "failure": "The warehouse appears to be filled with ordinary trade goods. You may need to search more thoroughly." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The cellar is the smoking gun. Inside, the party finds: forged identity documents for 'Edric Marsh,' a chest of traveling clothes and supplies, a duplicate Tidecaller's Fork (revealing Voss planned to keep the original and leave the fake behind), a coded ledger detailing Voss's debts and the business rivals he wanted to frame, and a map showing an escape route to a village called Dunmere, three days south along the coast. Play up the moment of realization — the victim is the villain.",
+          "loot": [
+            "Voss's coded ledger (evidence for Captain Ashford, worth a favor from the city watch)",
+            "A forged Tidecaller's Fork (silver-plated brass, worth 15 gp as a curiosity)",
+            "A pouch of 30 gp in travel funds",
+            "A disguise kit (missing several components, recently used)"
+          ]
+        },
+        {
+          "name": "Cora's Confession",
+          "description": "Armed with evidence from the warehouse, the party confronts Cora Tidewatcher at the Driftwood Inn. Under pressure, she admits Voss paid her to provide a false alibi and reveals that he is hiding in the city, waiting for a gondola arranged to take him out of the harbor during the festival's climactic fireworks display — when all eyes will be on the sky.",
+          "readAloud": "\"The Driftwood Inn's common room is packed with festival revelers, their laughter and singing making it easy to find a quiet corner where no one will overhear. Cora Tidewatcher stands behind the bar, her capable hands polishing glasses with mechanical efficiency, but her eyes flicker to the door every few seconds with the unmistakable look of someone expecting trouble. When she sees you approaching with purpose in your stride and evidence in your hands, the color drains from her weathered face. She sets down the glass carefully, as if afraid her trembling hands might drop it, and says, very quietly, 'I was wondering when someone would figure it out.'\"",
+          "skillChecks": [
+            { "skill": "Intimidation", "dc": 11, "success": "Cora breaks down quickly and provides everything she knows: Voss's plan, his current hiding spot in a rented room above a chandler's shop near the Moonbridge Canal, and the timing of his escape — during the midnight fireworks.", "failure": "Cora admits to providing a false alibi but claims she does not know where Voss is now, which is a lie." },
+            { "skill": "Persuasion", "dc": 13, "success": "Cora confesses willingly, expressing guilt about her involvement. She adds a detail Voss did not intend her to know: she overheard him arranging for 'insurance' — a hired thug waiting at the Moonbridge in case anyone tries to stop him.", "failure": "Cora provides basic information about the gondola escape but withholds the detail about the hired muscle." },
+            { "skill": "Insight", "dc": 12, "success": "You sense Cora's guilt is genuine — she was in financial trouble and Voss exploited her desperation. She is more victim than accomplice and will cooperate fully if treated with understanding rather than threats.", "failure": "Cora seems like a willing co-conspirator, making it harder to distinguish her level of involvement." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Cora is a sympathetic figure who made a bad choice out of financial desperation. She runs the inn alone since her husband died at sea, and Voss offered her enough gold to keep the business afloat for a year. She did not know about the relic theft — she thought she was just helping a man escape bad debts. How the party treats her may affect Captain Ashford's disposition toward them later. Ashford respects mercy shown to minor players.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Chase",
+      "description": "The party races to intercept Aldric Voss before he escapes Saltmere during the festival's climactic fireworks. This act is a dynamic chase through crowded festival streets, across the Moonbridge Canal, and onto the harbor gondolas, culminating in a confrontation with Voss and his hired muscle.",
+      "objectives": [
+        "Locate Aldric Voss before he reaches his escape gondola",
+        "Navigate the festival crowds during the chase",
+        "Defeat or bypass Voss's hired thug at the Moonbridge",
+        "Apprehend Voss and recover the Tidecaller's Fork",
+        "Return the relic to Sister Ondara and report to Captain Ashford"
+      ],
+      "scenes": [
+        {
+          "name": "The Midnight Chase",
+          "description": "As the festival's fireworks begin, the party spots Voss in disguise making his way through the crowded Grand Promenade toward the Moonbridge Canal. A frantic chase erupts through the festival crowds, with Voss using the chaos of the celebration to throw obstacles in the party's path. Street performers, food carts, and surging crowds become a living obstacle course.",
+          "readAloud": "\"The first firework screams into the sky above Saltmere and explodes in a shower of golden sparks, and ten thousand masked faces turn upward in unison. In that moment, you spot him — a figure in a nondescript brown cloak moving against the crowd's flow, heading downhill toward the canal with purposeful urgency. His mask is plain, his clothing ordinary, but you recognize the blue velvet gloves he has not thought to change and the distinctive rolling gait of a man accustomed to ship decks. Aldric Voss, very much alive, is thirty yards away and moving fast. The crowd surges around another burst of fireworks, and the chase is on.\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 13, "success": "You vault over a food cart and push through a knot of dancers, closing the distance to Voss by half.", "failure": "You collide with a festival-goer and get tangled in a streamer, losing ground as Voss pulls ahead." },
+            { "skill": "Acrobatics", "dc": 14, "success": "You nimbly weave through the crowd, sliding under a performer's stilts and leaping over a stack of festival crates to cut off Voss's path to the canal.", "failure": "You stumble on the uneven cobblestones and crash into a mask vendor's stall, showering the area in painted porcelain." },
+            { "skill": "Perception", "dc": 12, "success": "You spot a shortcut through a side alley that will bring you out ahead of Voss at the Moonbridge, allowing you to set up an ambush.", "failure": "You lose sight of Voss in the crowd and must spend a crucial round relocating him." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 thug (Voss's hired muscle, stationed at the Moonbridge)"],
+              "difficulty": "Easy",
+              "tactics": "The thug attempts to block the party on the Moonbridge, using his size to control the narrow bridge while Voss continues toward the gondola. He fights defensively, prioritizing Dodge actions to buy time rather than dealing damage. He surrenders if reduced to half hit points.",
+              "terrain": "The Moonbridge — a narrow stone arch over the canal, packed with revelers watching fireworks. The crowd provides three-quarters cover but also means stray attacks risk hitting bystanders. The canal below is 15 feet down and 5 feet deep."
+            }
+          ],
+          "roleplayNotes": "This scene should feel cinematic and breathless. Use the festival environment actively — fireworks creating bursts of light and shadow, masked crowds that part and reform like waves, musicians whose songs create a surreal soundtrack to the chase. Voss is clever but panicking; he overturns obstacles and tries to use bystanders as shields. He is not violent — he is a schemer, not a fighter — and will try to talk his way out if cornered.",
+          "loot": []
+        },
+        {
+          "name": "Confrontation on the Water",
+          "description": "Voss reaches his waiting gondola and pushes off into the canal as the party closes in. The final confrontation takes place on the water — leaping between gondolas, scrambling across mooring ropes, or cutting off the canal's exit to the harbor. When caught, Voss bargains desperately, offering money and secrets in exchange for his freedom.",
+          "readAloud": "\"Voss leaps into a sleek black gondola moored beneath the Moonbridge, shoving the gondolier aside and grabbing the pole himself. 'Push off! Push off now!' he screams, and the boat lurches away from the canal wall into the dark water. Above you, fireworks paint the sky in crimson and gold, their reflections shattering across the canal's surface like broken stained glass. Voss drives the pole into the water with desperate strength, the gondola picking up speed as it shoots toward the harbor mouth and the open sea beyond. Other gondolas crowd the canal — festival boats strung with lanterns and packed with celebrating couples — forming a maze of hulls and oars between you and the fleeing merchant.\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 13, "success": "You leap from the canal wall onto a passing gondola and begin making your way across the floating maze toward Voss's boat, leaping from vessel to vessel.", "failure": "You land badly on a gondola, rocking it violently and spilling its startled passengers into the canal. You stay dry but lose a round untangling yourself." },
+            { "skill": "Persuasion", "dc": 15, "success": "You shout across the water, appealing to Voss's self-preservation. You convince him that the city watch has already been alerted and the harbor is sealed — continuing to run will only make things worse. He stops rowing and surrenders.", "failure": "Voss shouts back that he has nothing to lose and keeps rowing." },
+            { "skill": "Sleight of Hand", "dc": 14, "success": "You snag a mooring rope from a nearby piling and lasso it around Voss's gondola, jerking it to a halt in the canal.", "failure": "The rope slips free and Voss's gondola continues toward the harbor mouth." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 Aldric Voss (use noble stats, no armor, armed with a rapier he is mediocre at using)"],
+              "difficulty": "Easy",
+              "tactics": "Voss fights only as a last resort and poorly at that. He uses his rapier defensively, taking the Dodge action when possible, and tries to shove characters off the gondola into the canal rather than injure them. He surrenders the moment it is clear he cannot escape, switching to pleading and bargaining.",
+              "terrain": "Gondolas on the canal — unstable footing (DC 10 Acrobatics to maintain balance during attacks), 5 ft deep water on all sides, other festival gondolas providing obstacles and platforms. A fall into the water requires a DC 10 Athletics check to climb back onto a gondola."
+            }
+          ],
+          "roleplayNotes": "When caught, Voss is pathetic rather than threatening. He reveals his motivation: he was drowning in debts to dangerous people, his rivals were circling, and he stole the trident because he discovered it was a fake — meaning the temple had been defrauding the city for years. He planned to use this knowledge as leverage in his new life. He begs the party not to hand him over to the temple, fearing Ondara's wrath. The party must decide: turn him in to the watch, let him go, or broker a deal. The Tidecaller's Fork (the original fake from the temple) is in a waterproof case beneath his gondola's seat.",
+          "loot": [
+            "The Tidecaller's Fork (the temple's fake relic, silver-plated brass with gold leaf)",
+            "A waterproof leather case containing 40 gp and a letter of introduction to a contact in Dunmere",
+            "Voss's signet ring worth 10 gp"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Aldric Voss",
+      "role": "Villain / False Victim",
+      "description": "A middle-aged human merchant with thinning auburn hair, shrewd gray eyes, and the smooth manners of a man who has spent his life making deals. His expensive clothing is always slightly rumpled, as if he dresses well but cannot quite be bothered to maintain the facade perfectly. Behind his genial smile lies a calculating mind currently running on desperation and dwindling options.",
+      "motivation": "Voss is drowning in debts to the Saltmere underworld and losing ground to business rivals. He concocted the fake death scheme to escape his creditors, frame his rival Dorian Blacktide for murder, and disappear with a new identity. The relic theft was opportunistic — he discovered the Tidecaller's Fork was a fake and stole it as insurance, planning to expose the temple's fraud if anyone ever tracked him down."
+    },
+    {
+      "name": "Captain Reva Ashford",
+      "role": "Quest Giver / Authority Figure",
+      "description": "A tall, athletic woman in her early forties with close-cropped dark hair and a scar running from her left ear to her jaw, earned in a dockside brawl years ago. She wears her city watch armor like a second skin and speaks with the clipped efficiency of someone who has no time for nonsense but a deep well of patience for genuine effort.",
+      "motivation": "Ashford wants the case solved quickly and cleanly to prevent festival panic and political fallout. She is honest, competent, and frustrated by the limitations of investigating during a festival when half the city is wearing masks. She respects the party's autonomy but expects regular updates and will intervene if they go too far."
+    },
+    {
+      "name": "Sister Ondara",
+      "role": "Quest Giver / Complication",
+      "description": "The high priestess of Umberlee's temple in Saltmere, Ondara is a formidable woman with salt-streaked black hair, storm-gray eyes, and a voice that carries the weight of the sea. She dresses in robes of deep blue and green, and her bearing suggests she is more accustomed to commanding ships than conducting sermons.",
+      "motivation": "Ondara wants the Tidecaller's Fork returned to maintain the temple's prestige and Umberlee's supposed protection over the city. She does not know the trident is a fake — if confronted with this truth, she will be furious but will try to suppress the information to protect the temple's reputation. She may become an antagonist if the party threatens to reveal the fraud."
+    },
+    {
+      "name": "Cora Tidewatcher",
+      "role": "Reluctant Accomplice / Information Source",
+      "description": "A weathered woman in her fifties with calloused hands, kind eyes perpetually shadowed by worry, and the practical demeanor of someone who has kept a struggling business afloat through sheer stubbornness. She runs the Driftwood Inn alone and treats her regulars like family, which makes her betrayal of their trust all the more painful to her.",
+      "motivation": "Cora agreed to provide Voss's alibi because she was months behind on the inn's taxes and facing foreclosure. The 20 gold Voss paid her was enough to buy another season. She feels genuine guilt about her involvement and will cooperate fully if the party shows her mercy rather than judgment."
+    }
+  ],
+  "rewards": {
+    "xp": 400,
+    "gold": "100 gp total (100 gp reward from Sister Ondara for returning the Tidecaller's Fork)",
+    "items": [
+      "Blessing of Umberlee (advantage on one saving throw against water-based hazards, single use)",
+      "Potion of Healing",
+      "Voss's theatrical jeweled dagger (25 gp value)",
+      "Writ of Investigation (may grant future favors with Saltmere's city watch)"
+    ],
+    "story": "The party has solved Saltmere's most dramatic festival scandal in years, earning a reputation as clever investigators in a city that values wit and cunning. Captain Ashford considers them trusted allies, and their handling of Voss, Cora, and the temple's secret will ripple through Saltmere's political landscape. If they exposed the fake trident, the temple faces a crisis of faith. If they kept the secret, they hold leverage over a powerful institution. Aldric Voss's underworld creditors are still out there, and they may come looking for whoever disrupted their debtor's escape plan."
+  },
+  "twists": [
+    "The 'victim' Aldric Voss faked his own death and is actually the architect of the entire scheme. The murder is a fraud, the body a staged prop, and the merchant is very much alive and planning to flee the city with a new identity.",
+    "The sacred Tidecaller's Fork stolen from the Temple of Umberlee is itself a fake — the genuine relic was sold by a corrupt previous high priest years ago. Voss discovered this and stole the fake as leverage, meaning the party must decide what to do with this dangerous secret.",
+    "Cora Tidewatcher, the seemingly uninvolved innkeeper, is a key piece of the puzzle — Voss's paid alibi and the weakest link in his deception. Her confession unlocks the final act of the adventure.",
+    "None of the four suspects are guilty of murder, because no murder was committed. Each suspect's secrets and hostilities are real but ultimately irrelevant to the central crime, serving as red herrings that make the investigation feel more complex and realistic."
+  ],
+  "dmTips": [
+    "Track information the party has gathered using a simple clue checklist. The key clues needed to solve the mystery are: the staged blood (Medicine DC 14), the theatrical dagger (Investigation DC 13), the forged documents (from Serek or the warehouse), and the false alibi (from Cora). If the party has at least three of these four, they should be able to piece together the truth.",
+    "If the party gets stuck, use Cora Tidewatcher as a pressure valve. Have her seek the party out, wracked with guilt, and offer partial information that nudges them toward the warehouse. Alternatively, Captain Ashford can share that the 'body' has disappeared from the morgue, raising obvious questions.",
+    "The chase scene in Act 3 should use a skill challenge format: require 5 successes before 3 failures to catch Voss before he reaches the harbor. Each round, a different party member can attempt a relevant skill check against the listed DCs. Failures mean Voss gains ground and may escape entirely, forcing the party to track him to Dunmere in a potential follow-up adventure.",
+    "Play up the Festival of Masks as a thematic element. Everyone is wearing a metaphorical mask in this adventure: Voss is masking his survival, the temple is masking the relic's true nature, Cora is masking her guilt, and each suspect is masking their own secrets. Let the players feel clever when they see through the disguises.",
+    "The moral complexity of this adventure is its strength. Voss is a villain but a sympathetic one — a desperate man who hurt no one physically. Cora is an accomplice but a victim of circumstance. The temple is a victim of theft but also perpetrating a fraud. Let the party navigate these gray areas without imposing a single 'correct' resolution."
+  ]
+}

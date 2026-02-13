@@ -27,4 +27,12 @@ export const api = {
   // Rules
   getRuleCategories: () => fetchJson('/rules'),
   getRule: (category) => fetchJson(`/rules/${category}`),
+
+  // Scenarios
+  getScenarios: () => fetchJson('/scenarios'),
+  getScenario: (id) => fetchJson(`/scenarios/${id}`),
+
+  // DM Settings
+  getDmSettings: () => fetchJson('/dm-settings'),
+  updateDmSettings: (data) => fetchJson('/dm-settings', { method: 'PUT', body: JSON.stringify(data) }),
 };

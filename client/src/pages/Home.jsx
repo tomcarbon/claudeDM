@@ -18,10 +18,22 @@ function Home() {
             Meet the AI-narrated companions who will join your quest.
           </p>
         </a>
+        <a href="/scenarios" className="card">
+          <h3>Scenarios</h3>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>
+            Browse adventure modules — dungeon crawls, mysteries, wilderness survival, and more.
+          </p>
+        </a>
         <a href="/rules" className="card">
           <h3>Rules Reference</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>
             Browse the D&D 5e rules database — races, classes, spells, combat, and more.
+          </p>
+        </a>
+        <a href="/dm-settings" className="card">
+          <h3>DM Personality</h3>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>
+            Tune your AI Dungeon Master — humor, drama, verbosity, tone, and style.
           </p>
         </a>
       </div>
