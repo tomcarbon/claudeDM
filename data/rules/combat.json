@@ -1,0 +1,95 @@
+{
+  "initiative": {
+    "description": "At the beginning of every combat, each participant makes a Dexterity check to determine their place in the initiative order.",
+    "formula": "d20 + Dexterity modifier",
+    "tie_breaking": "The DM decides the order among tied participants."
+  },
+  "turn_structure": {
+    "movement": "You can move a distance up to your speed. You can break up your movement, using some before and after your action.",
+    "action": "You can take one action on your turn. Common actions: Attack, Cast a Spell, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object.",
+    "bonus_action": "Various class features, spells, and other abilities let you take an additional action on your turn called a bonus action. You can only take one bonus action per turn.",
+    "reaction": "A reaction is an instant response to a trigger. You get one reaction per round. Opportunity attacks and some spells use reactions.",
+    "free_interaction": "You can interact with one object for free during your turn (draw a weapon, open a door, etc.)."
+  },
+  "actions_in_combat": {
+    "attack": "Make one melee or ranged attack. Some features grant multiple attacks.",
+    "cast_a_spell": "Cast a spell with a casting time of 1 action.",
+    "dash": "Gain extra movement equal to your speed for the current turn.",
+    "disengage": "Your movement doesn't provoke opportunity attacks for the rest of the turn.",
+    "dodge": "Until the start of your next turn, any attack roll made against you has disadvantage if you can see the attacker, and you make Dexterity saving throws with advantage.",
+    "help": "You aid another creature in completing a task, giving them advantage on their next ability check, or you aid them in attacking a creature within 5 feet of you.",
+    "hide": "Make a Dexterity (Stealth) check to try to hide.",
+    "ready": "Prepare an action to trigger in response to a specific circumstance. Uses your reaction when triggered.",
+    "search": "Make a Wisdom (Perception) or Intelligence (Investigation) check to find something.",
+    "use_an_object": "Interact with a second object or use a more complex object."
+  },
+  "attack_rolls": {
+    "melee": "d20 + Strength modifier + proficiency bonus (if proficient with weapon)",
+    "ranged": "d20 + Dexterity modifier + proficiency bonus (if proficient with weapon)",
+    "finesse_weapons": "Use either Strength or Dexterity modifier for attack and damage.",
+    "critical_hit": "Rolling a natural 20 always hits. Roll all damage dice twice.",
+    "critical_miss": "Rolling a natural 1 always misses.",
+    "advantage": "Roll 2d20, take the higher result.",
+    "disadvantage": "Roll 2d20, take the lower result."
+  },
+  "damage": {
+    "formula": "Damage die + ability modifier (same modifier used for attack roll)",
+    "damage_types": ["Acid", "Bludgeoning", "Cold", "Fire", "Force", "Lightning", "Necrotic", "Piercing", "Poison", "Psychic", "Radiant", "Slashing", "Thunder"],
+    "resistance": "Take half damage (rounded down) from the damage type.",
+    "vulnerability": "Take double damage from the damage type.",
+    "immunity": "Take no damage from the damage type."
+  },
+  "cover": {
+    "half_cover": "+2 bonus to AC and Dexterity saving throws. A target has half cover if an obstacle blocks at least half its body.",
+    "three_quarters_cover": "+5 bonus to AC and Dexterity saving throws. A target has three-quarters cover if about three-quarters of it is covered.",
+    "total_cover": "Can't be targeted directly by an attack or spell. A target has total cover if completely concealed."
+  },
+  "opportunity_attacks": {
+    "description": "When a hostile creature you can see moves out of your reach, you can use your reaction to make one melee attack against it.",
+    "exceptions": "Doesn't trigger if the creature Disengages, is teleported, or is moved without using its movement/action/reaction."
+  },
+  "two_weapon_fighting": {
+    "description": "When you take the Attack action with a light melee weapon in one hand, you can use a bonus action to attack with a different light melee weapon in the other hand.",
+    "damage": "You don't add your ability modifier to the damage of the bonus attack, unless that modifier is negative."
+  },
+  "grappling": {
+    "initiate": "Use the Attack action to make a special melee attack: a grapple. Make a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check.",
+    "escape": "A grappled creature can use its action to escape. Make a Strength (Athletics) or Dexterity (Acrobatics) check contested by your Strength (Athletics).",
+    "effect": "A grappled creature's speed becomes 0. Moving a grappled creature costs double movement."
+  },
+  "shoving": {
+    "description": "Use the Attack action to make a special melee attack to shove a creature. Make a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics).",
+    "effects": ["Knock the creature prone", "Push the creature 5 feet away from you"]
+  },
+  "death_saving_throws": {
+    "trigger": "When you start your turn with 0 hit points, you must make a death saving throw (d20, no modifiers).",
+    "success": "10 or higher. Three successes: you become stable.",
+    "failure": "9 or lower. Three failures: you die.",
+    "natural_1": "Counts as two failures.",
+    "natural_20": "You regain 1 hit point.",
+    "damage_at_0hp": "Taking damage while at 0 HP causes one death save failure. A critical hit causes two failures.",
+    "instant_death": "If damage reduces you to 0 HP and the remaining damage equals or exceeds your hit point maximum, you die instantly."
+  },
+  "conditions": [
+    { "name": "Blinded", "effects": ["Can't see, automatically fails checks requiring sight", "Attack rolls against the creature have advantage", "The creature's attack rolls have disadvantage"] },
+    { "name": "Charmed", "effects": ["Can't attack the charmer or target them with harmful abilities/spells", "The charmer has advantage on social interaction checks against the creature"] },
+    { "name": "Deafened", "effects": ["Can't hear, automatically fails checks requiring hearing"] },
+    { "name": "Frightened", "effects": ["Disadvantage on ability checks and attack rolls while the source of fear is within line of sight", "Can't willingly move closer to the source of fear"] },
+    { "name": "Grappled", "effects": ["Speed becomes 0, can't benefit from any bonus to speed", "Ends if the grappler is incapacitated or moved out of reach"] },
+    { "name": "Incapacitated", "effects": ["Can't take actions or reactions"] },
+    { "name": "Invisible", "effects": ["Impossible to see without special senses; heavily obscured for hiding", "Attack rolls against the creature have disadvantage", "The creature's attack rolls have advantage"] },
+    { "name": "Paralyzed", "effects": ["Incapacitated, can't move or speak", "Automatically fails Strength and Dexterity saving throws", "Attack rolls have advantage", "Melee hits within 5 feet are critical hits"] },
+    { "name": "Petrified", "effects": ["Transformed to stone; weight increases x10, stops aging", "Incapacitated, can't move or speak, unaware of surroundings", "Attack rolls have advantage", "Automatically fails Strength and Dexterity saves", "Resistance to all damage, immune to poison and disease"] },
+    { "name": "Poisoned", "effects": ["Disadvantage on attack rolls and ability checks"] },
+    { "name": "Prone", "effects": ["Disadvantage on attack rolls", "Melee attacks within 5 feet have advantage, ranged attacks have disadvantage", "Must spend half movement to stand up"] },
+    { "name": "Restrained", "effects": ["Speed becomes 0", "Attack rolls against have advantage", "The creature's attack rolls have disadvantage", "Disadvantage on Dexterity saving throws"] },
+    { "name": "Stunned", "effects": ["Incapacitated, can't move, can speak only falteringly", "Automatically fails Strength and Dexterity saves", "Attack rolls against have advantage"] },
+    { "name": "Unconscious", "effects": ["Incapacitated, can't move or speak, unaware of surroundings", "Drops whatever it's holding, falls prone", "Automatically fails Strength and Dexterity saves", "Attack rolls have advantage", "Melee hits within 5 feet are critical hits"] }
+  ],
+  "healing": {
+    "hit_dice": "During a short rest, you can spend Hit Dice to recover HP. Roll each Hit Die and add your Constitution modifier.",
+    "short_rest": "A period of at least 1 hour of downtime. Can spend Hit Dice to heal.",
+    "long_rest": "A period of at least 8 hours. Regain all lost HP and up to half your total Hit Dice (minimum 1). Can't benefit from more than one long rest in 24 hours.",
+    "stabilizing": "You can use an action to administer first aid (DC 10 Wisdom (Medicine) check) to stabilize a creature at 0 HP. A stable creature doesn't make death saving throws but remains unconscious."
+  }
+}

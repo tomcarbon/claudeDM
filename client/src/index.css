@@ -1,0 +1,61 @@
+:root {
+  --bg-dark: #1a1a2e;
+  --bg-card: #16213e;
+  --bg-sidebar: #0f3460;
+  --accent: #e94560;
+  --accent-hover: #ff6b81;
+  --gold: #f0c040;
+  --text: #eee;
+  --text-muted: #999;
+  --border: #2a2a4a;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--bg-dark);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+a:hover { color: var(--accent-hover); }
+
+button {
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  padding: 0.5em 1em;
+  font-size: 0.9em;
+  font-family: inherit;
+  background: var(--bg-sidebar);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+button.danger { background: #8b0000; }
+button.danger:hover { background: #c0392b; }
+
+input, select, textarea {
+  background: var(--bg-dark);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4em 0.6em;
+  font-family: inherit;
+  font-size: 0.9em;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+h1, h2, h3 { color: var(--gold); }

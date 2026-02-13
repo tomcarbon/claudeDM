@@ -1,0 +1,121 @@
+{
+  "backgrounds": [
+    {
+      "name": "Acolyte",
+      "skill_proficiencies": ["Insight", "Religion"],
+      "tool_proficiencies": [],
+      "languages": 2,
+      "equipment": ["A holy symbol", "A prayer book or prayer wheel", "5 sticks of incense", "Vestments", "Common clothes", "Belt pouch with 15 gp"],
+      "feature": "Shelter of the Faithful",
+      "feature_description": "As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your companions can expect free healing and care at a temple of your faith."
+    },
+    {
+      "name": "Charlatan",
+      "skill_proficiencies": ["Deception", "Sleight of Hand"],
+      "tool_proficiencies": ["Disguise kit", "Forgery kit"],
+      "languages": 0,
+      "equipment": ["Fine clothes", "Disguise kit", "Tools of the con of your choice", "Belt pouch with 15 gp"],
+      "feature": "False Identity",
+      "feature_description": "You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona."
+    },
+    {
+      "name": "Criminal",
+      "skill_proficiencies": ["Deception", "Stealth"],
+      "tool_proficiencies": ["One type of gaming set", "Thieves' tools"],
+      "languages": 0,
+      "equipment": ["A crowbar", "Dark common clothes including a hood", "Belt pouch with 15 gp"],
+      "feature": "Criminal Contact",
+      "feature_description": "You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact."
+    },
+    {
+      "name": "Entertainer",
+      "skill_proficiencies": ["Acrobatics", "Performance"],
+      "tool_proficiencies": ["Disguise kit", "One type of musical instrument"],
+      "languages": 0,
+      "equipment": ["A musical instrument", "The favor of an admirer", "Costume", "Belt pouch with 15 gp"],
+      "feature": "By Popular Demand",
+      "feature_description": "You can always find a place to perform, and you receive free lodging and food of a modest or comfortable standard as long as you perform each night."
+    },
+    {
+      "name": "Folk Hero",
+      "skill_proficiencies": ["Animal Handling", "Survival"],
+      "tool_proficiencies": ["One type of artisan's tools", "Vehicles (land)"],
+      "languages": 0,
+      "equipment": ["A set of artisan's tools", "A shovel", "An iron pot", "Common clothes", "Belt pouch with 10 gp"],
+      "feature": "Rustic Hospitality",
+      "feature_description": "Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them."
+    },
+    {
+      "name": "Guild Artisan",
+      "skill_proficiencies": ["Insight", "Persuasion"],
+      "tool_proficiencies": ["One type of artisan's tools"],
+      "languages": 1,
+      "equipment": ["A set of artisan's tools", "A letter of introduction from your guild", "Traveler's clothes", "Belt pouch with 15 gp"],
+      "feature": "Guild Membership",
+      "feature_description": "Your guild offers lodging and food if necessary, and pays for your funeral if needed. You have access to guild halls and the political power of the guild."
+    },
+    {
+      "name": "Hermit",
+      "skill_proficiencies": ["Medicine", "Religion"],
+      "tool_proficiencies": ["Herbalism kit"],
+      "languages": 1,
+      "equipment": ["A scroll case full of notes from your studies", "A winter blanket", "Common clothes", "Herbalism kit", "5 gp"],
+      "feature": "Discovery",
+      "feature_description": "The quiet seclusion of your extended hermitage gave you access to a unique and powerful discovery. It might be a great truth about the cosmos, the deities, or the forces of nature."
+    },
+    {
+      "name": "Noble",
+      "skill_proficiencies": ["History", "Persuasion"],
+      "tool_proficiencies": ["One type of gaming set"],
+      "languages": 1,
+      "equipment": ["Fine clothes", "Signet ring", "Scroll of pedigree", "Purse with 25 gp"],
+      "feature": "Position of Privilege",
+      "feature_description": "Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, and people assume you have the right to be wherever you are."
+    },
+    {
+      "name": "Outlander",
+      "skill_proficiencies": ["Athletics", "Survival"],
+      "tool_proficiencies": ["One type of musical instrument"],
+      "languages": 1,
+      "equipment": ["A staff", "A hunting trap", "A trophy from an animal you killed", "Traveler's clothes", "Belt pouch with 10 gp"],
+      "feature": "Wanderer",
+      "feature_description": "You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. You can find food and fresh water for yourself and up to five other people each day."
+    },
+    {
+      "name": "Sage",
+      "skill_proficiencies": ["Arcana", "History"],
+      "tool_proficiencies": [],
+      "languages": 2,
+      "equipment": ["Bottle of black ink", "Quill", "Small knife", "A letter from a dead colleague posing a question you have not yet been able to answer", "Common clothes", "Belt pouch with 10 gp"],
+      "feature": "Researcher",
+      "feature_description": "When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it."
+    },
+    {
+      "name": "Sailor",
+      "skill_proficiencies": ["Athletics", "Perception"],
+      "tool_proficiencies": ["Navigator's tools", "Vehicles (water)"],
+      "languages": 0,
+      "equipment": ["A belaying pin (club)", "50 feet of silk rope", "A lucky charm", "Common clothes", "Belt pouch with 10 gp"],
+      "feature": "Ship's Passage",
+      "feature_description": "When you need to, you can secure free passage on a sailing ship for yourself and your adventuring companions. The ship might be one you served on previously, or one whose captain owes you a favor."
+    },
+    {
+      "name": "Soldier",
+      "skill_proficiencies": ["Athletics", "Intimidation"],
+      "tool_proficiencies": ["One type of gaming set", "Vehicles (land)"],
+      "languages": 0,
+      "equipment": ["An insignia of rank", "A trophy taken from a fallen enemy", "A set of bone dice or deck of cards", "Common clothes", "Belt pouch with 10 gp"],
+      "feature": "Military Rank",
+      "feature_description": "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank."
+    },
+    {
+      "name": "Urchin",
+      "skill_proficiencies": ["Sleight of Hand", "Stealth"],
+      "tool_proficiencies": ["Disguise kit", "Thieves' tools"],
+      "languages": 0,
+      "equipment": ["A small knife", "A map of the city you grew up in", "A pet mouse", "A token to remember your parents by", "Common clothes", "Belt pouch with 10 gp"],
+      "feature": "City Secrets",
+      "feature_description": "You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you and companions you lead can travel between any two locations in the city twice as fast as your speed would normally allow."
+    }
+  ]
+}

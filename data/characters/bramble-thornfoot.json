@@ -1,0 +1,64 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440003",
+  "name": "Bramble Thornfoot",
+  "race": "Halfling",
+  "subrace": "Lightfoot",
+  "class": "Rogue",
+  "level": 1,
+  "background": "Criminal",
+  "alignment": "Chaotic Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": { "score": 10, "modifier": 0 },
+    "dexterity": { "score": 17, "modifier": 3 },
+    "constitution": { "score": 12, "modifier": 1 },
+    "intelligence": { "score": 13, "modifier": 1 },
+    "wisdom": { "score": 11, "modifier": 0 },
+    "charisma": { "score": 14, "modifier": 2 }
+  },
+  "hitPoints": { "max": 9, "current": 9 },
+  "armorClass": 14,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["dexterity", "intelligence"],
+  "skills": ["Acrobatics", "Deception", "Sleight of Hand", "Stealth", "Thieves' Tools", "Perception", "Investigation"],
+  "languages": ["Common", "Halfling", "Thieves' Cant"],
+  "equipment": [
+    "Leather armor",
+    "Two daggers",
+    "Shortsword",
+    "Shortbow",
+    "Quiver of 20 arrows",
+    "Burglar's pack",
+    "Thieves' tools",
+    "A crowbar",
+    "A set of dark common clothes including a hood",
+    "A belt pouch containing 15 gp"
+  ],
+  "weapons": [
+    { "name": "Shortsword", "attackBonus": 5, "damage": "1d6+3", "damageType": "piercing" },
+    { "name": "Shortbow", "attackBonus": 5, "damage": "1d6+3", "damageType": "piercing" },
+    { "name": "Dagger", "attackBonus": 5, "damage": "1d4+3", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Leather armor", "type": "light" },
+  "features": [
+    "Expertise (Stealth, Thieves' Tools - double proficiency bonus)",
+    "Sneak Attack (1d6 extra damage once per turn when you have advantage or an ally is within 5 ft of target)",
+    "Lucky (reroll natural 1s on attack rolls, ability checks, or saving throws)",
+    "Brave (advantage on saving throws against being frightened)",
+    "Halfling Nimbleness (move through the space of any creature that is a size larger)",
+    "Naturally Stealthy (can attempt to hide when obscured by a creature at least one size larger)"
+  ],
+  "traits": [
+    "Criminal Contact (reliable contact who acts as liaison to a network of criminals)"
+  ],
+  "spells": null,
+  "personality": {
+    "traits": "I always have a plan for what to do when things go wrong. The first thing I do in a new place is note the locations of everything valuable -- and where the exits are.",
+    "ideals": "Freedom. Chains are meant to be broken, as are those who would forge them.",
+    "bonds": "I owe a debt to the thieves' guild that trained me, and I may never be able to fully repay it.",
+    "flaws": "When I see something valuable, I can't think about anything but how to steal it. I have a hard time trusting anyone."
+  },
+  "appearance": "A wiry halfling of 3'2\" with messy chestnut hair, bright green eyes, and a crooked grin that never quite reaches his eyes. He wears dark, well-worn leather armor with numerous hidden pockets. A thin scar crosses the bridge of his nose, and his nimble fingers are never still, always fidgeting with a coin or lockpick.",
+  "backstory": "Bramble grew up on the streets of Waterdeep's Dock Ward after his family's produce cart was destroyed in a turf war between rival guilds. Taken in by a fence named Old Copper Kess, he learned the arts of burglary and pickpocketing before he was tall enough to reach a door handle. After a job went sideways and his mentor was arrested, Bramble skipped town with the guild's cut, and now stays one step ahead of both the law and the people he once called family."
+}

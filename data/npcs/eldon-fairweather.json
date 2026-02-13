@@ -1,0 +1,141 @@
+{
+  "id": "a3f7c2e1-8d4b-4f6a-9e1c-3b5d7f9a2c4e",
+  "name": "Eldon Fairweather",
+  "race": "Gnome",
+  "subrace": "Rock Gnome",
+  "class": "Wizard",
+  "level": 1,
+  "background": "Sage",
+  "alignment": "Neutral Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 8,
+    "current": 8
+  },
+  "armorClass": 11,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Gnomish",
+    "Draconic",
+    "Elvish"
+  ],
+  "equipment": [
+    "Quarterstaff",
+    "Component pouch",
+    "Scholar's pack",
+    "Spellbook",
+    "Bottle of black ink",
+    "Quill",
+    "Small knife",
+    "Letter from a dead colleague posing a question you have not yet been able to answer",
+    "Set of common clothes",
+    "Belt pouch containing 10 gp",
+    "Tinker's tools",
+    "A collection of small clockwork toys and half-finished gadgets"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff",
+      "attackBonus": 1,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Fire Bolt",
+      "attackBonus": 5,
+      "damage": "1d10",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Darkvision (60 ft)",
+    "Gnome Cunning (advantage on INT, WIS, CHA saving throws against magic)",
+    "Artificer's Lore (double proficiency on History checks related to magic items, alchemical objects, or technological devices)",
+    "Tinker (can construct Tiny clockwork devices using tinker's tools)",
+    "Arcane Recovery (recover spell slots on short rest, up to 1 level of slots)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Gnome Cunning",
+    "Artificer's Lore",
+    "Tinker"
+  ],
+  "spells": {
+    "spellcastingAbility": "Intelligence",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Fire Bolt",
+      "Mending",
+      "Prestidigitation"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Detect Magic",
+        "Identify",
+        "Mage Armor",
+        "Shield",
+        "Find Familiar",
+        "Thunderwave"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak incredibly fast when I'm excited about an idea, which is almost always. I'm constantly fiddling with some device or scribbling diagrams on any available surface, including other people's belongings.",
+    "ideals": "Knowledge. The pursuit of understanding how things work is the noblest calling. Every mechanism, every spell, every creature has a design worth studying.",
+    "bonds": "I am searching for the Coglattice, a legendary gnomish artifact said to be able to replicate any mechanical device ever conceived. My late mentor, Professor Wimbly Sparkgear, dedicated her life to finding it.",
+    "flaws": "I get so absorbed in my projects that I completely ignore danger, social cues, and basic necessities like eating and sleeping. I also have a terrible habit of 'borrowing' interesting components from other people's gear."
+  },
+  "appearance": "A small, wiry gnome standing just over 3 feet tall with wild, white-streaked copper hair that sticks out at improbable angles. His eyes are a vivid emerald green, magnified by a pair of multi-lensed brass goggles perpetually perched on his forehead. His fingers are stained with ink and grease, and his robes are covered in scorch marks, chemical stains, and dozens of tiny pockets stuffed with tools, gears, and scraps of parchment. A mechanical bronze beetle sits on his shoulder, occasionally whirring and clicking.",
+  "backstory": "Eldon spent forty years as an assistant researcher at the Gnomish Athenaeum of Tinkered Wonders before a laboratory explosion destroyed his wing of the institution and most of his life's work. Among the wreckage, he found a fragment of a map his late mentor, Professor Wimbly Sparkgear, had hidden inside a clockwork puzzle box -- a map pointing toward the Coglattice, a mythical gnomish artifact capable of replicating any mechanical design ever conceived. Now Eldon travels the world following the trail of clues his mentor left behind, funding his research by offering his arcane and mechanical expertise to adventuring parties. He tells everyone he's simply a wandering scholar, but the truth is he's racing against a rival faction of gnomish treasure hunters who would use the Coglattice for war.",
+  "dmNotes": {
+    "roleplaying": "Eldon should be played as a rapid-fire chatterbox who is genuinely brilliant but socially oblivious. He interrupts conversations to point out interesting architectural details or to ask if anyone has a spare copper spring. When casting spells, describe them as having a mechanical, tinkered quality -- his Fire Bolt shoots from a finger-mounted brass nozzle, his Shield spell manifests as interlocking clockwork plates. He often narrates his own thought process aloud. In combat, he hangs back and supports, but gets dangerously curious about enemy magic or devices.",
+    "voice": "Speaks very quickly with short, clipped sentences that tumble over each other. Uses technical jargon constantly. Often trails off mid-sentence when a new thought strikes him. Pitch rises when excited. Example: 'Yes, yes, the door -- fascinating hinge mechanism, by the way, pre-Sundering design if I'm not mistaken -- but yes, the trap. Three pressure plates, a counterweight, and if my calculations are -- oh, is that a geode? Anyway, don't step there.'",
+    "motivations": "Primary: Find the Coglattice before his rivals do. Secondary: Document and understand every interesting mechanism, spell, or creature he encounters. Tertiary: Prove that his mentor was right and restore her academic reputation. He genuinely cares about his companions but will occasionally prioritize a fascinating discovery over group safety.",
+    "secrets": "He is searching for the Coglattice, a lost gnomish artifact of immense power. He has a partial map hidden inside a clockwork puzzle box he carries. A rival faction called the Ironwrights is also searching for it and has already tried to ambush him once. He does not know that the Coglattice is sentient and will choose its own wielder.",
+    "attitude": "Friendly and enthusiastic toward everyone by default. Warms up quickly to anyone who shows interest in his work. Becomes protective of companions over time. Slightly dismissive of purely martial solutions ('Yes, you could hit it with an axe, OR we could analyze the resonance frequency of its crystalline structure and...'). Uncomfortable around anti-intellectualism."
+  }
+}

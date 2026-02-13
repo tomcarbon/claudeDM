@@ -1,0 +1,145 @@
+{
+  "id": "b8d4e6f2-1a3c-4e7b-8f2d-6c9a1e3b5d7f",
+  "name": "Sister Mirael",
+  "race": "Elf",
+  "subrace": "Wood Elf",
+  "class": "Druid",
+  "level": 1,
+  "background": "Hermit",
+  "alignment": "Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 14,
+  "speed": 35,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Nature",
+    "Perception",
+    "Religion",
+    "Survival"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Druidic",
+    "Sylvan"
+  ],
+  "equipment": [
+    "Wooden shield",
+    "Scimitar",
+    "Leather armor",
+    "Explorer's pack",
+    "Druidic focus (a staff wound with living ivy)",
+    "Herbalism kit",
+    "A scroll case stuffed full of notes from her studies and prayers",
+    "A winter blanket",
+    "Set of common clothes",
+    "5 gp",
+    "A small pouch of dried medicinal herbs"
+  ],
+  "weapons": [
+    {
+      "name": "Scimitar",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Produce Flame",
+      "attackBonus": 5,
+      "damage": "1d8",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "Leather armor + Shield",
+    "type": "light"
+  },
+  "features": [
+    "Darkvision (60 ft)",
+    "Keen Senses (proficiency in Perception)",
+    "Fey Ancestry (advantage on saves against being charmed, immune to magical sleep)",
+    "Trance (4 hours of meditation instead of 8 hours sleep)",
+    "Mask of the Wild (can attempt to hide when only lightly obscured by natural phenomena)",
+    "Fleet of Foot (base walking speed 35 ft)",
+    "Druidic (secret druid language)",
+    "Discovery (Hermit feature: a unique and powerful discovery about the nature of the cosmos, the deities, or the forces of nature)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Keen Senses",
+    "Fey Ancestry",
+    "Trance",
+    "Mask of the Wild",
+    "Fleet of Foot"
+  ],
+  "spells": {
+    "spellcastingAbility": "Wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Produce Flame",
+      "Druidcraft"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Healing Word",
+        "Entangle",
+        "Faerie Fire",
+        "Goodberry",
+        "Thunderwave",
+        "Speak with Animals"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak in metaphors drawn from nature, and I often pause for long silences before responding, as though listening to something no one else can hear. I find more comfort in the company of animals and plants than in the company of people.",
+    "ideals": "Balance. The natural world exists in a delicate equilibrium. Every action sends ripples through the web of life, and it is my duty to ensure those ripples do not become storms.",
+    "bonds": "The forest I called home for decades sheltered me when I had nowhere else to go. I will protect wild places and the creatures within them, even at cost to myself. I also carry guilt for what my former circle did.",
+    "flaws": "I am slow to trust and even slower to share what troubles me. I carry a terrible secret about my former druid circle, and the weight of it makes me withdraw from others just when they need me most."
+  },
+  "appearance": "A slender wood elf with deep brown skin the color of walnut bark and long, dark green hair woven with small leaves and seed pods that seem to change with the seasons. Her eyes are a pale, luminous amber, and they carry a weight of sorrow that contrasts with her otherwise serene expression. She wears weathered leather armor beneath a cloak of woven moss and bark fibers, and carries a staff of pale birchwood around which living ivy grows and curls of its own accord. A faint scent of rain-soaked earth and wildflowers follows her wherever she goes.",
+  "backstory": "Mirael served for over a century as a tender of the Greenveil Circle, a druid conclave deep in the Whisperwood that maintained the ancient wards protecting the forest from a sealed corruption beneath the earth. When the circle's elder, Archdruid Thessyn, grew desperate to strengthen the failing wards, he led the others in a blood pact with a dark fey entity, trading their moral compass for raw power. Mirael refused and fled in the night, but not before witnessing the pact twist her former companions into something cold and fanatical. Now she wanders as a hermit healer, offering her gifts to those in need while staying ahead of the Greenveil hunters who consider her a traitor and a loose end. She joined with adventurers hoping that strength in numbers might protect her -- and that she might one day find the power to undo what Thessyn has done.",
+  "dmNotes": {
+    "roleplaying": "Mirael should feel like a still pond -- calm on the surface but with great depth beneath. She rarely speaks first, but when she does, her words carry weight. She uses nature metaphors almost exclusively: 'The river does not fight the stone; it flows around it' or 'Even the deepest roots began as fragile tendrils.' She is the group's moral compass but not preachy -- she leads by example. In natural environments, she visibly relaxes and becomes more talkative. In cities or dungeons, she becomes tense and terse. She instinctively tends to wounds without being asked.",
+    "voice": "Soft-spoken and measured, with long pauses between thoughts. Her voice has a musical, lilting quality typical of elves but carries an undercurrent of sadness. She never raises her voice in anger -- instead she becomes very, very quiet. When she does speak at length, it is poetic and deliberate. Example: '...The hawk does not hate the mouse. It simply follows its nature. But what happens when a creature chooses to act against its nature? That... that is where true darkness begins.'",
+    "motivations": "Primary: Stay hidden from the Greenveil Circle's hunters who want to silence her. Secondary: Find a way to break the dark pact and save her former companions from themselves. Tertiary: Protect the natural world wherever she can, one small act at a time. She is drawn to the party because she is lonely, though she would never admit it.",
+    "secrets": "Her former druid circle, the Greenveil, made a blood pact with a dark fey entity called the Thornmother. The pact gave them immense power but is slowly corrupting them into servants of the Thornmother's will. Mirael knows the location of the sealed corruption the wards protect, and the Greenveil hunters want to capture her to ensure she cannot reveal the truth. Her Hermit Discovery is that the sealed corruption and the Thornmother are connected -- the pact is actually weakening the wards, not strengthening them.",
+    "attitude": "Reserved and watchful at first, warming very slowly. She respects actions far more than words. She is drawn to characters who show kindness to animals or reverence for nature. She is uncomfortable around warlocks and characters with dark pacts (a painful reminder). She will not willingly enter a deal or bargain with any supernatural entity. Once trust is earned, she is fiercely devoted and will risk her life for companions without hesitation."
+  }
+}

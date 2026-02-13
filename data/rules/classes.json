@@ -1,0 +1,567 @@
+{
+  "classes": [
+    {
+      "name": "Barbarian",
+      "hit_die": "d12",
+      "primary_ability": "Strength",
+      "saving_throws": ["Strength", "Constitution"],
+      "armor_proficiencies": ["Light armor", "Medium armor", "Shields"],
+      "weapon_proficiencies": ["Simple weapons", "Martial weapons"],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Greataxe"],
+          "choice_2": ["Any martial melee weapon"]
+        },
+        {
+          "choice_1": ["Two handaxes"],
+          "choice_2": ["Any simple weapon"]
+        },
+        {
+          "default": ["Explorer's pack", "Four javelins"]
+        }
+      ],
+      "hit_points_at_1st_level": "12 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d12 (or 7) + Constitution modifier per barbarian level after 1st",
+      "level_1_features": [
+        {
+          "name": "Rage",
+          "description": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you aren't wearing heavy armor: You have advantage on Strength checks and Strength saving throws. When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian (+2 at level 1). You have resistance to bludgeoning, piercing, and slashing damage. Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action. You have 2 rages at 1st level.",
+          "rages_per_level": {
+            "1": 2, "3": 3, "6": 4, "12": 5, "17": 6, "20": "Unlimited"
+          },
+          "rage_damage_per_level": {
+            "1": 2, "9": 3, "16": 4
+          }
+        },
+        {
+          "name": "Unarmored Defense",
+          "description": "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit."
+        }
+      ]
+    },
+    {
+      "name": "Bard",
+      "hit_die": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": ["Dexterity", "Charisma"],
+      "armor_proficiencies": ["Light armor"],
+      "weapon_proficiencies": ["Simple weapons", "Hand crossbows", "Longswords", "Rapiers", "Shortswords"],
+      "tool_proficiencies": ["Three musical instruments of your choice"],
+      "skill_choices": {
+        "choose": 3,
+        "from": ["Any"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Rapier"],
+          "choice_2": ["Longsword"],
+          "choice_3": ["Any simple weapon"]
+        },
+        {
+          "choice_1": ["Diplomat's pack"],
+          "choice_2": ["Entertainer's pack"]
+        },
+        {
+          "choice_1": ["Lute"],
+          "choice_2": ["Any musical instrument"]
+        },
+        {
+          "default": ["Leather armor", "Dagger"]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per bard level after 1st",
+      "spellcasting": {
+        "ability": "Charisma",
+        "cantrips_known_at_1st": 2,
+        "spells_known_at_1st": 4,
+        "spell_slots_at_1st": { "1st": 2 },
+        "ritual_casting": true,
+        "spellcasting_focus": "Musical instrument"
+      },
+      "level_1_features": [
+        {
+          "name": "Spellcasting",
+          "description": "You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are part of your vast repertoire, magic that you can tune to different situations. Charisma is your spellcasting ability."
+        },
+        {
+          "name": "Bardic Inspiration",
+          "description": "You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6. Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest."
+        }
+      ]
+    },
+    {
+      "name": "Cleric",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom",
+      "saving_throws": ["Wisdom", "Charisma"],
+      "armor_proficiencies": ["Light armor", "Medium armor", "Shields"],
+      "weapon_proficiencies": ["Simple weapons"],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["History", "Insight", "Medicine", "Persuasion", "Religion"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Mace"],
+          "choice_2": ["Warhammer (if proficient)"]
+        },
+        {
+          "choice_1": ["Scale mail"],
+          "choice_2": ["Leather armor"],
+          "choice_3": ["Chain mail (if proficient)"]
+        },
+        {
+          "choice_1": ["Light crossbow and 20 bolts"],
+          "choice_2": ["Any simple weapon"]
+        },
+        {
+          "choice_1": ["Priest's pack"],
+          "choice_2": ["Explorer's pack"]
+        },
+        {
+          "default": ["Shield", "Holy symbol"]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per cleric level after 1st",
+      "spellcasting": {
+        "ability": "Wisdom",
+        "cantrips_known_at_1st": 3,
+        "spell_preparation": "You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. You can prepare a number of spells equal to your Wisdom modifier + your cleric level (minimum of one spell).",
+        "spell_slots_at_1st": { "1st": 2 },
+        "ritual_casting": true,
+        "spellcasting_focus": "Holy symbol"
+      },
+      "level_1_features": [
+        {
+          "name": "Spellcasting",
+          "description": "As a conduit for divine power, you can cast cleric spells. Wisdom is your spellcasting ability for your cleric spells."
+        },
+        {
+          "name": "Divine Domain",
+          "description": "Choose one domain related to your deity. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels. Domains include: Knowledge, Life, Light, Nature, Tempest, Trickery, War."
+        }
+      ]
+    },
+    {
+      "name": "Druid",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom",
+      "saving_throws": ["Intelligence", "Wisdom"],
+      "armor_proficiencies": ["Light armor", "Medium armor", "Shields (druids will not wear armor or use shields made of metal)"],
+      "weapon_proficiencies": ["Clubs", "Daggers", "Darts", "Javelins", "Maces", "Quarterstaffs", "Scimitars", "Sickles", "Slings", "Spears"],
+      "tool_proficiencies": ["Herbalism kit"],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Wooden shield"],
+          "choice_2": ["Any simple weapon"]
+        },
+        {
+          "choice_1": ["Scimitar"],
+          "choice_2": ["Any simple melee weapon"]
+        },
+        {
+          "default": ["Leather armor", "Explorer's pack", "Druidic focus"]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per druid level after 1st",
+      "spellcasting": {
+        "ability": "Wisdom",
+        "cantrips_known_at_1st": 2,
+        "spell_preparation": "You prepare the list of druid spells that are available for you to cast, choosing from the druid spell list. You can prepare a number of spells equal to your Wisdom modifier + your druid level (minimum of one spell).",
+        "spell_slots_at_1st": { "1st": 2 },
+        "ritual_casting": true,
+        "spellcasting_focus": "Druidic focus"
+      },
+      "level_1_features": [
+        {
+          "name": "Druidic",
+          "description": "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic."
+        },
+        {
+          "name": "Spellcasting",
+          "description": "Drawing on the divine essence of nature itself, you can cast spells to shape that essence to your will. Wisdom is your spellcasting ability for your druid spells."
+        }
+      ]
+    },
+    {
+      "name": "Fighter",
+      "hit_die": "d10",
+      "primary_ability": "Strength or Dexterity",
+      "saving_throws": ["Strength", "Constitution"],
+      "armor_proficiencies": ["All armor", "Shields"],
+      "weapon_proficiencies": ["Simple weapons", "Martial weapons"],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Chain mail"],
+          "choice_2": ["Leather armor", "Longbow", "20 arrows"]
+        },
+        {
+          "choice_1": ["A martial weapon and a shield"],
+          "choice_2": ["Two martial weapons"]
+        },
+        {
+          "choice_1": ["Light crossbow and 20 bolts"],
+          "choice_2": ["Two handaxes"]
+        },
+        {
+          "choice_1": ["Dungeoneer's pack"],
+          "choice_2": ["Explorer's pack"]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per fighter level after 1st",
+      "level_1_features": [
+        {
+          "name": "Fighting Style",
+          "description": "You adopt a particular style of fighting as your specialty. Choose one: Archery (+2 bonus to attack rolls with ranged weapons), Defense (+1 bonus to AC while wearing armor), Dueling (+2 bonus to damage rolls when wielding a melee weapon in one hand and no other weapons), Great Weapon Fighting (reroll 1 or 2 on damage dice with two-handed/versatile melee weapons), Protection (impose disadvantage on attack roll against adjacent ally using your reaction and shield), Two-Weapon Fighting (add ability modifier to the damage of the second attack)."
+        },
+        {
+          "name": "Second Wind",
+          "description": "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. Once you use this feature, you must finish a short or long rest before you can use it again."
+        }
+      ]
+    },
+    {
+      "name": "Monk",
+      "hit_die": "d8",
+      "primary_ability": "Dexterity and Wisdom",
+      "saving_throws": ["Strength", "Dexterity"],
+      "armor_proficiencies": [],
+      "weapon_proficiencies": ["Simple weapons", "Shortswords"],
+      "tool_proficiencies": ["One type of artisan's tools or one musical instrument"],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Shortsword"],
+          "choice_2": ["Any simple weapon"]
+        },
+        {
+          "choice_1": ["Dungeoneer's pack"],
+          "choice_2": ["Explorer's pack"]
+        },
+        {
+          "default": ["10 darts"]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per monk level after 1st",
+      "level_1_features": [
+        {
+          "name": "Unarmored Defense",
+          "description": "While you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier."
+        },
+        {
+          "name": "Martial Arts",
+          "description": "Your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons (shortswords and any simple melee weapons that don't have the two-handed or heavy property). You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield: You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons. You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon (this die increases at higher levels). When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.",
+          "martial_arts_die_by_level": {
+            "1": "d4", "5": "d6", "11": "d8", "17": "d10"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Paladin",
+      "hit_die": "d10",
+      "primary_ability": "Strength and Charisma",
+      "saving_throws": ["Wisdom", "Charisma"],
+      "armor_proficiencies": ["All armor", "Shields"],
+      "weapon_proficiencies": ["Simple weapons", "Martial weapons"],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["A martial weapon and a shield"],
+          "choice_2": ["Two martial weapons"]
+        },
+        {
+          "choice_1": ["Five javelins"],
+          "choice_2": ["Any simple melee weapon"]
+        },
+        {
+          "choice_1": ["Priest's pack"],
+          "choice_2": ["Explorer's pack"]
+        },
+        {
+          "default": ["Chain mail", "Holy symbol"]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per paladin level after 1st",
+      "level_1_features": [
+        {
+          "name": "Divine Sense",
+          "description": "The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type but not the identity of any being whose presence you sense. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated. You can use this feature a number of times equal to 1 + your Charisma modifier. You regain all expended uses when you finish a long rest."
+        },
+        {
+          "name": "Lay on Hands",
+          "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5. As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool. Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it."
+        }
+      ]
+    },
+    {
+      "name": "Ranger",
+      "hit_die": "d10",
+      "primary_ability": "Dexterity and Wisdom",
+      "saving_throws": ["Strength", "Dexterity"],
+      "armor_proficiencies": ["Light armor", "Medium armor", "Shields"],
+      "weapon_proficiencies": ["Simple weapons", "Martial weapons"],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 3,
+        "from": ["Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Scale mail"],
+          "choice_2": ["Leather armor"]
+        },
+        {
+          "choice_1": ["Two shortswords"],
+          "choice_2": ["Two simple melee weapons"]
+        },
+        {
+          "choice_1": ["Dungeoneer's pack"],
+          "choice_2": ["Explorer's pack"]
+        },
+        {
+          "default": ["Longbow", "Quiver of 20 arrows"]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per ranger level after 1st",
+      "level_1_features": [
+        {
+          "name": "Favored Enemy",
+          "description": "You have significant experience studying, tracking, hunting, and even talking to a certain type of enemy. Choose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two races of humanoid as favored enemies. You have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them. You also learn one language of your choice that is spoken by your favored enemies, if they speak one at all."
+        },
+        {
+          "name": "Natural Explorer",
+          "description": "You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, swamp, or the Underdark. While traveling for an hour or more in your favored terrain, you gain the following benefits: difficult terrain doesn't slow your group's travel, your group can't become lost except by magical means, even when you are engaged in another activity while traveling you remain alert to danger, if you are traveling alone you can move stealthily at a normal pace, when you forage you find twice as much food as you normally would, and while tracking other creatures you also learn their exact number, their sizes, and how long ago they passed through the area."
+        }
+      ]
+    },
+    {
+      "name": "Rogue",
+      "hit_die": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": ["Dexterity", "Intelligence"],
+      "armor_proficiencies": ["Light armor"],
+      "weapon_proficiencies": ["Simple weapons", "Hand crossbows", "Longswords", "Rapiers", "Shortswords"],
+      "tool_proficiencies": ["Thieves' tools"],
+      "skill_choices": {
+        "choose": 4,
+        "from": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Rapier"],
+          "choice_2": ["Shortsword"]
+        },
+        {
+          "choice_1": ["Shortbow and quiver of 20 arrows"],
+          "choice_2": ["Shortsword"]
+        },
+        {
+          "choice_1": ["Burglar's pack"],
+          "choice_2": ["Dungeoneer's pack"],
+          "choice_3": ["Explorer's pack"]
+        },
+        {
+          "default": ["Leather armor", "Two daggers", "Thieves' tools"]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per rogue level after 1st",
+      "level_1_features": [
+        {
+          "name": "Expertise",
+          "description": "Choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies."
+        },
+        {
+          "name": "Sneak Attack",
+          "description": "You know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The extra damage increases as you gain levels (1d6 at 1st, increases by 1d6 every odd level)."
+        },
+        {
+          "name": "Thieves' Cant",
+          "description": "During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly. In addition, you understand a set of secret signs and symbols used to convey short, simple messages."
+        }
+      ]
+    },
+    {
+      "name": "Sorcerer",
+      "hit_die": "d6",
+      "primary_ability": "Charisma",
+      "saving_throws": ["Constitution", "Charisma"],
+      "armor_proficiencies": [],
+      "weapon_proficiencies": ["Daggers", "Darts", "Slings", "Quarterstaffs", "Light crossbows"],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Light crossbow and 20 bolts"],
+          "choice_2": ["Any simple weapon"]
+        },
+        {
+          "choice_1": ["Component pouch"],
+          "choice_2": ["Arcane focus"]
+        },
+        {
+          "choice_1": ["Dungeoneer's pack"],
+          "choice_2": ["Explorer's pack"]
+        },
+        {
+          "default": ["Two daggers"]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per sorcerer level after 1st",
+      "spellcasting": {
+        "ability": "Charisma",
+        "cantrips_known_at_1st": 4,
+        "spells_known_at_1st": 2,
+        "spell_slots_at_1st": { "1st": 2 },
+        "ritual_casting": false,
+        "spellcasting_focus": "Arcane focus"
+      },
+      "level_1_features": [
+        {
+          "name": "Spellcasting",
+          "description": "An event in your past, or in the life of a parent or ancestor, left an indelible mark on you, infusing you with arcane magic. This font of magic, whatever its origin, fuels your spells. Charisma is your spellcasting ability for your sorcerer spells."
+        },
+        {
+          "name": "Sorcerous Origin",
+          "description": "Choose a sorcerous origin, which describes the source of your innate magical power: Draconic Bloodline or Wild Magic. Your choice grants you features at 1st level and again at 6th, 14th, and 18th level."
+        }
+      ]
+    },
+    {
+      "name": "Warlock",
+      "hit_die": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": ["Wisdom", "Charisma"],
+      "armor_proficiencies": ["Light armor"],
+      "weapon_proficiencies": ["Simple weapons"],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Light crossbow and 20 bolts"],
+          "choice_2": ["Any simple weapon"]
+        },
+        {
+          "choice_1": ["Component pouch"],
+          "choice_2": ["Arcane focus"]
+        },
+        {
+          "choice_1": ["Scholar's pack"],
+          "choice_2": ["Dungeoneer's pack"]
+        },
+        {
+          "default": ["Leather armor", "Any simple weapon", "Two daggers"]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per warlock level after 1st",
+      "spellcasting": {
+        "ability": "Charisma",
+        "cantrips_known_at_1st": 2,
+        "spells_known_at_1st": 2,
+        "spell_slots_at_1st": { "1st": 1 },
+        "pact_magic": "All spell slots are the same level and regain on a short rest",
+        "ritual_casting": false,
+        "spellcasting_focus": "Arcane focus"
+      },
+      "level_1_features": [
+        {
+          "name": "Otherworldly Patron",
+          "description": "You have struck a bargain with an otherworldly being of your choice: the Archfey, the Fiend, or the Great Old One. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level."
+        },
+        {
+          "name": "Pact Magic",
+          "description": "Your arcane research and the magic bestowed on you by your patron have given you facility with spells. You have 1 spell slot at 1st level. All warlock spell slots are the same level (1st level at character levels 1-2). You regain all expended spell slots when you finish a short or long rest. Charisma is your spellcasting ability."
+        }
+      ]
+    },
+    {
+      "name": "Wizard",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence",
+      "saving_throws": ["Intelligence", "Wisdom"],
+      "armor_proficiencies": [],
+      "weapon_proficiencies": ["Daggers", "Darts", "Slings", "Quarterstaffs", "Light crossbows"],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": ["Quarterstaff"],
+          "choice_2": ["Dagger"]
+        },
+        {
+          "choice_1": ["Component pouch"],
+          "choice_2": ["Arcane focus"]
+        },
+        {
+          "choice_1": ["Scholar's pack"],
+          "choice_2": ["Explorer's pack"]
+        },
+        {
+          "default": ["Spellbook"]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per wizard level after 1st",
+      "spellcasting": {
+        "ability": "Intelligence",
+        "cantrips_known_at_1st": 3,
+        "spellbook_spells_at_1st": 6,
+        "spell_preparation": "You prepare the list of wizard spells that are available for you to cast. You can prepare a number of spells equal to your Intelligence modifier + your wizard level (minimum of one spell).",
+        "spell_slots_at_1st": { "1st": 2 },
+        "ritual_casting": true,
+        "spellcasting_focus": "Arcane focus"
+      },
+      "level_1_features": [
+        {
+          "name": "Spellcasting",
+          "description": "As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power. Intelligence is your spellcasting ability for your wizard spells."
+        },
+        {
+          "name": "Arcane Recovery",
+          "description": "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher."
+        }
+      ]
+    }
+  ]
+}

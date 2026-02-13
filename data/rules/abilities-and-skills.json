@@ -1,0 +1,159 @@
+{
+  "abilities": [
+    {
+      "name": "Strength",
+      "abbreviation": "STR",
+      "description": "Strength measures bodily power, athletic training, and the extent to which you can exert raw physical force. A Strength check can model any attempt to lift, push, pull, or break something, to force your body through a space, or to otherwise apply brute force to a situation.",
+      "common_uses": ["Melee attack rolls (most)", "Melee damage rolls (most)", "Carrying capacity", "Pushing/dragging/lifting", "Athletic contests"],
+      "skills": ["Athletics"]
+    },
+    {
+      "name": "Dexterity",
+      "abbreviation": "DEX",
+      "description": "Dexterity measures agility, reflexes, and balance. A Dexterity check can model any attempt to move nimbly, quickly, or quietly, or to keep from falling on tricky footing.",
+      "common_uses": ["Ranged attack rolls", "Finesse weapon attack rolls", "AC calculation", "Initiative rolls", "Dexterity saving throws (dodging)"],
+      "skills": ["Acrobatics", "Sleight of Hand", "Stealth"]
+    },
+    {
+      "name": "Constitution",
+      "abbreviation": "CON",
+      "description": "Constitution measures health, stamina, and vital force. Constitution checks are uncommon, and no skills apply to Constitution checks, because the endurance this ability represents is largely passive rather than involving a specific effort on the part of a character or monster.",
+      "common_uses": ["Hit points", "Concentration checks", "Enduring harsh conditions", "Going without food or water", "Holding your breath"],
+      "skills": []
+    },
+    {
+      "name": "Intelligence",
+      "abbreviation": "INT",
+      "description": "Intelligence measures mental acuity, accuracy of recall, and the ability to reason. An Intelligence check comes into play when you need to draw on logic, education, memory, or deductive reasoning.",
+      "common_uses": ["Spellcasting ability (Wizard)", "Recalling lore", "Deductive reasoning", "Estimating value", "Communicating with creatures without shared language"],
+      "skills": ["Arcana", "History", "Investigation", "Nature", "Religion"]
+    },
+    {
+      "name": "Wisdom",
+      "abbreviation": "WIS",
+      "description": "Wisdom reflects how attuned you are to the world around you and represents perceptiveness and intuition. A Wisdom check might reflect an effort to read body language, understand someone's feelings, notice things about the environment, or care for an injured person.",
+      "common_uses": ["Spellcasting ability (Cleric, Druid, Ranger)", "Perception checks", "Insight checks", "Sensing motives", "Noticing environmental details"],
+      "skills": ["Animal Handling", "Insight", "Medicine", "Perception", "Survival"]
+    },
+    {
+      "name": "Charisma",
+      "abbreviation": "CHA",
+      "description": "Charisma measures your ability to interact effectively with others. It includes such factors as confidence and eloquence, and it can represent a charming or commanding personality.",
+      "common_uses": ["Spellcasting ability (Bard, Paladin, Sorcerer, Warlock)", "Social interactions", "Leadership", "Performing", "Deceiving others"],
+      "skills": ["Deception", "Intimidation", "Performance", "Persuasion"]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "ability": "Dexterity",
+      "description": "Your Dexterity (Acrobatics) check covers your attempt to stay on your feet in a tricky situation, such as when you're trying to run across a sheet of ice, balance on a tightrope, or stay upright on a rocking ship's deck. The DM might also call for a Dexterity (Acrobatics) check to see if you can perform acrobatic stunts, including dives, rolls, somersaults, and flips."
+    },
+    {
+      "name": "Animal Handling",
+      "ability": "Wisdom",
+      "description": "When there is any question whether you can calm down a domesticated animal, keep a mount from getting spooked, or intuit an animal's intentions, the DM might call for a Wisdom (Animal Handling) check. You also make a Wisdom (Animal Handling) check to control your mount when you attempt a risky maneuver."
+    },
+    {
+      "name": "Arcana",
+      "ability": "Intelligence",
+      "description": "Your Intelligence (Arcana) check measures your ability to recall lore about spells, magic items, eldritch symbols, magical traditions, the planes of existence, and the inhabitants of those planes."
+    },
+    {
+      "name": "Athletics",
+      "ability": "Strength",
+      "description": "Your Strength (Athletics) check covers difficult situations you encounter while climbing, jumping, or swimming. Examples include attempting to climb a sheer or slippery cliff, avoiding hazards while scaling a wall, or clinging to a surface while something is trying to knock you off."
+    },
+    {
+      "name": "Deception",
+      "ability": "Charisma",
+      "description": "Your Charisma (Deception) check determines whether you can convincingly hide the truth, either verbally or through your actions. This deception can encompass everything from misleading others through ambiguity to telling outright lies."
+    },
+    {
+      "name": "History",
+      "ability": "Intelligence",
+      "description": "Your Intelligence (History) check measures your ability to recall lore about historical events, legendary people, ancient kingdoms, past disputes, recent wars, and lost civilizations."
+    },
+    {
+      "name": "Insight",
+      "ability": "Wisdom",
+      "description": "Your Wisdom (Insight) check decides whether you can determine the true intentions of a creature, such as when searching out a lie or predicting someone's next move. Doing so involves gleaning clues from body language, speech habits, and changes in mannerisms."
+    },
+    {
+      "name": "Intimidation",
+      "ability": "Charisma",
+      "description": "When you attempt to influence someone through overt threats, hostile actions, and physical violence, the DM might ask you to make a Charisma (Intimidation) check. Examples include trying to pry information out of a prisoner, convincing street thugs to back down from a confrontation, or using the edge of a broken bottle to convince a sneering vizier to reconsider a decision."
+    },
+    {
+      "name": "Investigation",
+      "ability": "Intelligence",
+      "description": "When you look around for clues and make deductions based on those clues, you make an Intelligence (Investigation) check. You might deduce the location of a hidden object, discern from the appearance of a wound what kind of weapon dealt it, or determine the weakest point in a tunnel that could cause it to collapse."
+    },
+    {
+      "name": "Medicine",
+      "ability": "Wisdom",
+      "description": "A Wisdom (Medicine) check lets you try to stabilize a dying companion or diagnose an illness."
+    },
+    {
+      "name": "Nature",
+      "ability": "Intelligence",
+      "description": "Your Intelligence (Nature) check measures your ability to recall lore about terrain, plants and animals, the weather, and natural cycles."
+    },
+    {
+      "name": "Perception",
+      "ability": "Wisdom",
+      "description": "Your Wisdom (Perception) check lets you spot, hear, or otherwise detect the presence of something. It measures your general awareness of your surroundings and the keenness of your senses. You might try to hear a conversation through a closed door, eavesdrop under an open window, or hear monsters moving stealthily in the forest."
+    },
+    {
+      "name": "Performance",
+      "ability": "Charisma",
+      "description": "Your Charisma (Performance) check determines how well you can delight an audience with music, dance, acting, storytelling, or some other form of entertainment."
+    },
+    {
+      "name": "Persuasion",
+      "ability": "Charisma",
+      "description": "When you attempt to influence someone or a group of people with tact, social graces, or good nature, the DM might ask you to make a Charisma (Persuasion) check. Typically, you use persuasion when acting in good faith, to foster friendships, make cordial requests, or exhibit proper etiquette."
+    },
+    {
+      "name": "Religion",
+      "ability": "Intelligence",
+      "description": "Your Intelligence (Religion) check measures your ability to recall lore about deities, rites and prayers, religious hierarchies, holy symbols, and the practices of secret cults."
+    },
+    {
+      "name": "Sleight of Hand",
+      "ability": "Dexterity",
+      "description": "Whenever you attempt an act of legerdemain or manual trickery, such as planting something on someone else or concealing an object on your person, make a Dexterity (Sleight of Hand) check. The DM might also call for a Dexterity (Sleight of Hand) check to determine whether you can lift a coin purse off another person or slip something out of another person's pocket."
+    },
+    {
+      "name": "Stealth",
+      "ability": "Dexterity",
+      "description": "Make a Dexterity (Stealth) check when you attempt to conceal yourself from enemies, slink past guards, slip away without being noticed, or sneak up on someone without being seen or heard."
+    },
+    {
+      "name": "Survival",
+      "ability": "Wisdom",
+      "description": "The DM might ask you to make a Wisdom (Survival) check to follow tracks, hunt wild game, guide your group through frozen wastelands, identify signs that owlbears live nearby, predict the weather, or avoid quicksand and other natural hazards."
+    }
+  ],
+  "ability_score_modifiers": {
+    "description": "To determine an ability modifier, subtract 10 from the ability score and then divide the result by 2 (round down).",
+    "table": {
+      "1": -5, "2": -4, "3": -4, "4": -3, "5": -3, "6": -2, "7": -2, "8": -1, "9": -1,
+      "10": 0, "11": 0, "12": 1, "13": 1, "14": 2, "15": 2, "16": 3, "17": 3,
+      "18": 4, "19": 4, "20": 5, "21": 5, "22": 6, "23": 6, "24": 7, "25": 7,
+      "26": 8, "27": 8, "28": 9, "29": 9, "30": 10
+    }
+  },
+  "passive_checks": {
+    "description": "A passive check is a special kind of ability check that doesn't involve any die rolls. Such a check can represent the average result for a task done repeatedly, such as searching for secret doors over and over again, or can be used when the DM wants to secretly determine whether the characters succeed at something without rolling dice.",
+    "formula": "10 + all modifiers that normally apply to the check. If the character has advantage on the check, add 5. For disadvantage, subtract 5."
+  },
+  "difficulty_classes": {
+    "very_easy": 5,
+    "easy": 10,
+    "medium": 15,
+    "hard": 20,
+    "very_hard": 25,
+    "nearly_impossible": 30
+  }
+}

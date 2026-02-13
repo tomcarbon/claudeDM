@@ -1,0 +1,18 @@
+{
+  "name": "dnd-companion",
+  "version": "1.0.0",
+  "description": "D&D 5th Edition Companion App - DM'd by AI",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/index.js",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.0",
+    "concurrently": "^8.2.0"
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "races": [
+    {
+      "name": "Human",
+      "ability_score_increase": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 1,
+        "intelligence": 1,
+        "wisdom": 1,
+        "charisma": 1
+      },
+      "age": "Humans reach adulthood in their late teens and live less than a century.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": ["Common", "one extra language of your choice"],
+      "traits": [],
+      "subraces": [],
+      "description": "Humans are the most adaptable and ambitious people among the common races. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds."
+    },
+    {
+      "name": "Elf",
+      "ability_score_increase": {
+        "dexterity": 2
+      },
+      "age": "Elves reach physical maturity at about the same age as humans but consider themselves adult around 100. They can live to be 750 years old.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": ["Common", "Elvish"],
+      "traits": [
+        {
+          "name": "Darkvision",
+          "description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        },
+        {
+          "name": "Keen Senses",
+          "description": "You have proficiency in the Perception skill."
+        },
+        {
+          "name": "Fey Ancestry",
+          "description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        },
+        {
+          "name": "Trance",
+          "description": "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+        }
+      ],
+      "subraces": [
+        {
+          "name": "High Elf",
+          "ability_score_increase": {
+            "intelligence": 1
+          },
+          "traits": [
+            {
+              "name": "Elf Weapon Training",
+              "description": "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+            },
+            {
+              "name": "Cantrip",
+              "description": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+            },
+            {
+              "name": "Extra Language",
+              "description": "You can speak, read, and write one extra language of your choice."
+            }
+          ]
+        },
+        {
+          "name": "Wood Elf",
+          "ability_score_increase": {
+            "wisdom": 1
+          },
+          "speed": 35,
+          "traits": [
+            {
+              "name": "Elf Weapon Training",
+              "description": "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+            },
+            {
+              "name": "Fleet of Foot",
+              "description": "Your base walking speed increases to 35 feet."
+            },
+            {
+              "name": "Mask of the Wild",
+              "description": "You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+            }
+          ]
+        },
+        {
+          "name": "Drow (Dark Elf)",
+          "ability_score_increase": {
+            "charisma": 1
+          },
+          "traits": [
+            {
+              "name": "Superior Darkvision",
+              "description": "Your darkvision has a radius of 120 feet."
+            },
+            {
+              "name": "Sunlight Sensitivity",
+              "description": "You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."
+            },
+            {
+              "name": "Drow Magic",
+              "description": "You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day. When you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells."
+            },
+            {
+              "name": "Drow Weapon Training",
+              "description": "You have proficiency with rapiers, shortswords, and hand crossbows."
+            }
+          ]
+        }
+      ],
+      "description": "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it."
+    },
+    {
+      "name": "Dwarf",
+      "ability_score_increase": {
+        "constitution": 2
+      },
+      "age": "Dwarves mature at the same rate as humans, but they're considered young until they reach the age of 50. On average, they live about 350 years.",
+      "size": "Medium",
+      "speed": 25,
+      "languages": ["Common", "Dwarvish"],
+      "traits": [
+        {
+          "name": "Darkvision",
+          "description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        },
+        {
+          "name": "Dwarven Resilience",
+          "description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+        },
+        {
+          "name": "Dwarven Combat Training",
+          "description": "You have proficiency with the battleaxe, handaxe, light hammer, and warhammer."
+        },
+        {
+          "name": "Tool Proficiency",
+          "description": "You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools."
+        },
+        {
+          "name": "Stonecunning",
+          "description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check."
+        },
+        {
+          "name": "Dwarven Speed",
+          "description": "Your speed is not reduced by wearing heavy armor."
+        }
+      ],
+      "subraces": [
+        {
+          "name": "Hill Dwarf",
+          "ability_score_increase": {
+            "wisdom": 1
+          },
+          "traits": [
+            {
+              "name": "Dwarven Toughness",
+              "description": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+            }
+          ]
+        },
+        {
+          "name": "Mountain Dwarf",
+          "ability_score_increase": {
+            "strength": 2
+          },
+          "traits": [
+            {
+              "name": "Dwarven Armor Training",
+              "description": "You have proficiency with light and medium armor."
+            }
+          ]
+        }
+      ],
+      "description": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal."
+    },
+    {
+      "name": "Halfling",
+      "ability_score_increase": {
+        "dexterity": 2
+      },
+      "age": "A halfling reaches adulthood at the age of 20 and generally lives into the middle of their second century.",
+      "size": "Small",
+      "speed": 25,
+      "languages": ["Common", "Halfling"],
+      "traits": [
+        {
+          "name": "Lucky",
+          "description": "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+        },
+        {
+          "name": "Brave",
+          "description": "You have advantage on saving throws against being frightened."
+        },
+        {
+          "name": "Halfling Nimbleness",
+          "description": "You can move through the space of any creature that is of a size larger than yours."
+        }
+      ],
+      "subraces": [
+        {
+          "name": "Lightfoot",
+          "ability_score_increase": {
+            "charisma": 1
+          },
+          "traits": [
+            {
+              "name": "Naturally Stealthy",
+              "description": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+            }
+          ]
+        },
+        {
+          "name": "Stout",
+          "ability_score_increase": {
+            "constitution": 1
+          },
+          "traits": [
+            {
+              "name": "Stout Resilience",
+              "description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+            }
+          ]
+        }
+      ],
+      "description": "The diminutive halflings survive in a world full of larger creatures by avoiding notice or, barring that, avoiding offense."
+    },
+    {
+      "name": "Gnome",
+      "ability_score_increase": {
+        "intelligence": 2
+      },
+      "age": "Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years.",
+      "size": "Small",
+      "speed": 25,
+      "languages": ["Common", "Gnomish"],
+      "traits": [
+        {
+          "name": "Darkvision",
+          "description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        },
+        {
+          "name": "Gnome Cunning",
+          "description": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+        }
+      ],
+      "subraces": [
+        {
+          "name": "Forest Gnome",
+          "ability_score_increase": {
+            "dexterity": 1
+          },
+          "traits": [
+            {
+              "name": "Natural Illusionist",
+              "description": "You know the minor illusion cantrip. Intelligence is your spellcasting ability for it."
+            },
+            {
+              "name": "Speak with Small Beasts",
+              "description": "Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts."
+            }
+          ]
+        },
+        {
+          "name": "Rock Gnome",
+          "ability_score_increase": {
+            "constitution": 1
+          },
+          "traits": [
+            {
+              "name": "Artificer's Lore",
+              "description": "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply."
+            },
+            {
+              "name": "Tinker",
+              "description": "You have proficiency with artisan's tools (tinker's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours unless you spend 1 hour repairing it. You can have up to three devices active at a time. Options: Clockwork Toy, Fire Starter, Music Box."
+            }
+          ]
+        }
+      ],
+      "description": "A gnome's energy and enthusiasm for living shines through every inch of their tiny body."
+    },
+    {
+      "name": "Half-Elf",
+      "ability_score_increase": {
+        "charisma": 2,
+        "two_other_abilities": 1
+      },
+      "age": "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, often exceeding 180 years.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": ["Common", "Elvish", "one extra language of your choice"],
+      "traits": [
+        {
+          "name": "Darkvision",
+          "description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        },
+        {
+          "name": "Fey Ancestry",
+          "description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        },
+        {
+          "name": "Skill Versatility",
+          "description": "You gain proficiency in two skills of your choice."
+        }
+      ],
+      "subraces": [],
+      "description": "Half-elves combine what some say are the best qualities of their elf and human parents."
+    },
+    {
+      "name": "Half-Orc",
+      "ability_score_increase": {
+        "strength": 2,
+        "constitution": 1
+      },
+      "age": "Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": ["Common", "Orc"],
+      "traits": [
+        {
+          "name": "Darkvision",
+          "description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        },
+        {
+          "name": "Menacing",
+          "description": "You gain proficiency in the Intimidation skill."
+        },
+        {
+          "name": "Relentless Endurance",
+          "description": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest."
+        },
+        {
+          "name": "Savage Attacks",
+          "description": "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+        }
+      ],
+      "subraces": [],
+      "description": "Half-orcs' grayish pigmentation, sloping foreheads, jutting jaws, prominent teeth, and towering builds make their orcish heritage plain for all to see."
+    },
+    {
+      "name": "Tiefling",
+      "ability_score_increase": {
+        "intelligence": 1,
+        "charisma": 2
+      },
+      "age": "Tieflings mature at the same rate as humans but live a few years longer.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": ["Common", "Infernal"],
+      "traits": [
+        {
+          "name": "Darkvision",
+          "description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        },
+        {
+          "name": "Hellish Resistance",
+          "description": "You have resistance to fire damage."
+        },
+        {
+          "name": "Infernal Legacy",
+          "description": "You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once per day. When you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells."
+        }
+      ],
+      "subraces": [],
+      "description": "Tieflings are derived from human bloodlines, and in the broadest possible sense, they still look human. However, their infernal heritage has left a clear imprint on their appearance."
+    },
+    {
+      "name": "Dragonborn",
+      "ability_score_increase": {
+        "strength": 2,
+        "charisma": 1
+      },
+      "age": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": ["Common", "Draconic"],
+      "traits": [
+        {
+          "name": "Draconic Ancestry",
+          "description": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type.",
+          "ancestry_table": [
+            { "dragon": "Black", "damage_type": "Acid", "breath_weapon": "5 by 30 ft. line (Dex. save)" },
+            { "dragon": "Blue", "damage_type": "Lightning", "breath_weapon": "5 by 30 ft. line (Dex. save)" },
+            { "dragon": "Brass", "damage_type": "Fire", "breath_weapon": "5 by 30 ft. line (Dex. save)" },
+            { "dragon": "Bronze", "damage_type": "Lightning", "breath_weapon": "5 by 30 ft. line (Dex. save)" },
+            { "dragon": "Copper", "damage_type": "Acid", "breath_weapon": "5 by 30 ft. line (Dex. save)" },
+            { "dragon": "Gold", "damage_type": "Fire", "breath_weapon": "15 ft. cone (Dex. save)" },
+            { "dragon": "Green", "damage_type": "Poison", "breath_weapon": "15 ft. cone (Con. save)" },
+            { "dragon": "Red", "damage_type": "Fire", "breath_weapon": "15 ft. cone (Dex. save)" },
+            { "dragon": "Silver", "damage_type": "Cold", "breath_weapon": "15 ft. cone (Con. save)" },
+            { "dragon": "White", "damage_type": "Cold", "breath_weapon": "15 ft. cone (Con. save)" }
+          ]
+        },
+        {
+          "name": "Breath Weapon",
+          "description": "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation. When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can't use it again until you complete a short or long rest."
+        },
+        {
+          "name": "Damage Resistance",
+          "description": "You have resistance to the damage type associated with your draconic ancestry."
+        }
+      ],
+      "subraces": [],
+      "description": "Dragonborn look very much like dragons standing erect in humanoid form, though they lack wings or a tail."
+    }
+  ]
+}

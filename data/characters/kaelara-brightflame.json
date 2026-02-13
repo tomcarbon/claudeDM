@@ -1,0 +1,70 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440004",
+  "name": "Kaelara Brightflame",
+  "race": "Human",
+  "subrace": "",
+  "class": "Cleric",
+  "level": 1,
+  "background": "Acolyte",
+  "alignment": "Neutral Good",
+  "experience": 0,
+  "abilities": {
+    "strength": { "score": 14, "modifier": 2 },
+    "dexterity": { "score": 10, "modifier": 0 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 11, "modifier": 0 },
+    "wisdom": { "score": 16, "modifier": 3 },
+    "charisma": { "score": 13, "modifier": 1 }
+  },
+  "hitPoints": { "max": 10, "current": 10 },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["wisdom", "charisma"],
+  "skills": ["Insight", "Medicine", "Religion", "Persuasion"],
+  "languages": ["Common", "Celestial", "Dwarvish"],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Warhammer",
+    "Holy symbol (amulet of Lathander)",
+    "Priest's pack",
+    "A prayer book",
+    "5 sticks of incense",
+    "Vestments",
+    "A set of common clothes",
+    "A belt pouch containing 15 gp"
+  ],
+  "weapons": [
+    { "name": "Warhammer", "attackBonus": 4, "damage": "1d8+2", "damageType": "bludgeoning" }
+  ],
+  "armor": { "name": "Chain mail and shield", "type": "heavy" },
+  "features": [
+    "Spellcasting (Wisdom-based, prepare Wis mod + cleric level spells per day)",
+    "Divine Domain: Life",
+    "Bonus Proficiency (heavy armor from Life Domain)",
+    "Disciple of Life (healing spells restore additional 2 + spell level HP)",
+    "Shelter of the Faithful (can find shelter at temples of Lathander)"
+  ],
+  "traits": [
+    "Ritual Casting (can cast cleric spells as rituals if prepared)"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": ["Sacred Flame", "Spare the Dying", "Guidance"],
+    "level1": {
+      "slots": 2,
+      "known": ["Bless", "Cure Wounds", "Healing Word", "Shield of Faith", "Bless (domain)", "Cure Wounds (domain)"]
+    }
+  },
+  "personality": {
+    "traits": "I see omens in every event and action. Nothing happens by chance. I quote sacred texts and proverbs in almost every situation.",
+    "ideals": "Charity. I always try to help those in need, no matter the personal cost.",
+    "bonds": "I will do anything to protect the temple where I was raised and the people who took me in.",
+    "flaws": "I put too much trust in those who wield power within my temple's hierarchy. I judge others harshly, and myself even more severely."
+  },
+  "appearance": "A tall, athletic woman of 5'10\" with warm bronze skin and close-cropped black hair. Her dark brown eyes radiate calm determination. She wears polished chain mail over robes of white and gold, with the sunburst symbol of Lathander displayed prominently on her shield. Faint burn scars on her hands speak of hours tending sacred flames.",
+  "backstory": "Kaelara was left at the Temple of the Morninglord as an infant, wrapped in a blood-stained soldier's cloak. Raised by the priests, she showed an early aptitude for divine magic and a fierce protective instinct for the other orphans. When plague struck a nearby village and the temple elders debated whether to intervene, Kaelara gathered supplies and marched out alone, saving a dozen lives through prayer and sheer stubbornness. Her superiors recognized both her gift and her willfulness, and sent her into the world to serve Lathander where the need is greatest."
+}
