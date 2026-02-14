@@ -118,7 +118,13 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.detail-header-info {
+  flex: 1;
+  min-width: 0;
 }
 
 .detail-header h2 {
@@ -128,6 +134,41 @@
 .detail-meta {
   color: var(--text-muted);
   font-size: 0.95em;
+}
+
+/* Profile pictures */
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.profile-pic-thumb {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.profile-pic-placeholder {
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.profile-pic-thumb.profile-pic-placeholder {
+  font-size: 1.2em;
 }
 
 .detail-section {

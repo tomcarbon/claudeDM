@@ -34,7 +34,7 @@ function NpcDetail() {
   return (
     <div>
       <div className="detail-header">
-        <div>
+        <div className="detail-header-info">
           <h2>{npc.name}</h2>
           <div className="detail-meta">
             Level {npc.level} {npc.subrace ? `${npc.subrace} ` : ''}{npc.race} {npc.class}
@@ -42,6 +42,11 @@ function NpcDetail() {
             {npc.alignment && ` | ${npc.alignment}`}
           </div>
         </div>
+        {npc.profilePic ? (
+          <img src={npc.profilePic} alt={npc.name} className="profile-pic" />
+        ) : (
+          <div className="profile-pic profile-pic-placeholder">?</div>
+        )}
       </div>
 
       <StatBlock abilities={npc.abilities} />

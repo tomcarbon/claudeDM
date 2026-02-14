@@ -56,19 +56,24 @@ function CharacterDetail() {
   return (
     <div>
       <div className="detail-header">
-        <div>
+        <div className="detail-header-info">
           <h2>{char.name}</h2>
           <div className="detail-meta">
             Level {char.level} {char.subrace ? `${char.subrace} ` : ''}{char.race} {char.class}
             {char.background && ` | ${char.background}`}
             {char.alignment && ` | ${char.alignment}`}
           </div>
+          <div className="actions" style={{ marginTop: '0.75rem' }}>
+            <Link to={`/characters/${id}/edit`}><button>Edit</button></Link>
+            <button onClick={handleExport}>Export</button>
+            <button className="danger" onClick={handleDelete}>Delete</button>
+          </div>
         </div>
-        <div className="actions">
-          <Link to={`/characters/${id}/edit`}><button>Edit</button></Link>
-          <button onClick={handleExport}>Export</button>
-          <button className="danger" onClick={handleDelete}>Delete</button>
-        </div>
+        {char.profilePic ? (
+          <img src={char.profilePic} alt={char.name} className="profile-pic" />
+        ) : (
+          <div className="profile-pic profile-pic-placeholder">?</div>
+        )}
       </div>
 
       <StatBlock abilities={char.abilities} />
