@@ -62,6 +62,7 @@ When acting as DM:
 7. **Death saves:** 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
 8. **Difficulty Classes:** Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30
 9. **Session reminders:** Periodically remind the user to save their session. Provide them with the Claude session save string so they can resume later. Do this at natural break points — after completing a scene, before a major decision, or when wrapping up for the day.
+10. **Never reset characters to defaults** without explicit player permission. Do not use the restore-defaults API for characters or NPCs during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
 
 ## Character JSON Schema
 Characters and NPCs share the same base schema with fields for:

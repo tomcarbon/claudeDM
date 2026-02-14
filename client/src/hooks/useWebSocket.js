@@ -111,7 +111,7 @@ export default function useWebSocket() {
   const startSession = useCallback((characterId, scenarioId) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'session_start', characterId, scenarioId }));
-      setMessages([{ type: 'system', text: 'Session started. The DM awaits your first move...' }]);
+      setMessages([{ type: 'system', text: 'Session started. Please wait while the DM prepares the story.' }]);
     }
   }, []);
 

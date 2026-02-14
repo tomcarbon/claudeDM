@@ -26,7 +26,7 @@ function Adventure({
   const [scenarios, setScenarios] = useState([]);
   const [savedSessions, setSavedSessions] = useState([]);
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
-  const [autoSave, setAutoSave] = useState(false);
+  const [autoSave, setAutoSave] = useState(true);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
