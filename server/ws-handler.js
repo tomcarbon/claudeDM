@@ -11,6 +11,7 @@ function attachWebSocket(server, dataDir) {
     let characterId = null;
     let scenarioId = null;
     let processing = false;
+    let messageHistory = []; // Track conversation for resume fallback
 
     // Pending permission requests: toolUseID -> { resolve }
     const pendingPermissions = new Map();
@@ -45,8 +46,12 @@ function attachWebSocket(server, dataDir) {
           if (msg.claudeSessionId) {
             engine.sessionId = msg.claudeSessionId;
           }
+          // Store message history for resume fallback
+          if (msg.messages && Array.isArray(msg.messages)) {
+            messageHistory = msg.messages;
+          }
           send('session_status', { status: 'idle' });
-          console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}`);
+          console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, history: ${messageHistory.length} messages`);
           break;
         }
 
@@ -64,9 +69,11 @@ function attachWebSocket(server, dataDir) {
           send('session_status', { status: 'thinking' });
 
           try {
+            messageHistory.push({ type: 'player', text: msg.text.trim() });
             const stream = engine.run(msg.text.trim(), {
               characterId,
               scenarioId,
+              messageHistory,
               onPermissionRequest: (toolName, input, toolUseID) => {
                 return new Promise((resolve) => {
                   const description = describeToolUse(toolName, input);
@@ -83,6 +90,7 @@ function attachWebSocket(server, dataDir) {
                   send('dm_partial', { text: event.text });
                   break;
                 case 'dm_response':
+                  messageHistory.push({ type: 'dm', text: event.text });
                   send('dm_response', { text: event.text });
                   break;
                 case 'dm_complete':

@@ -1,3 +1,7 @@
+// Allow the Claude Agent SDK to spawn Claude Code subprocesses
+// even when this server is launched from within a Claude Code session
+delete process.env.CLAUDECODE;
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');

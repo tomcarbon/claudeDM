@@ -232,10 +232,9 @@ class DmEngine {
     this.xpMcpServer = createXpMcpServer(dataDir);
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest }) {
+  _buildOptions(characterId, scenarioId, onPermissionRequest) {
     const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId);
-
-    const options = {
+    return {
       systemPrompt,
       cwd: PROJECT_ROOT,
       allowedTools: ['Read', 'Glob', 'Grep', 'Edit'],
@@ -245,17 +244,12 @@ class DmEngine {
       maxTurns: 20,
       effort: 'medium',
       async canUseTool(toolName, input, opts) {
-        // Read-only tools are always allowed
         if (['Read', 'Glob', 'Grep'].includes(toolName)) {
           return { behavior: 'allow' };
         }
-
-        // MCP tools (AwardXP etc.) are always allowed
         if (toolName.startsWith('mcp__')) {
           return { behavior: 'allow' };
         }
-
-        // Forward to UI for approval
         if (onPermissionRequest) {
           const allowed = await onPermissionRequest(toolName, input, opts.toolUseID);
           if (allowed) {
@@ -263,20 +257,15 @@ class DmEngine {
           }
           return { behavior: 'deny', message: 'Player denied this action.' };
         }
-
         return { behavior: 'deny', message: 'No permission handler available.' };
       },
     };
+  }
 
-    if (this.sessionId) {
-      options.resume = this.sessionId;
-    }
-
-    this.activeQuery = query({ prompt: userMessage, options });
-
+  async *_streamQuery(prompt, options) {
+    this.activeQuery = query({ prompt, options });
     try {
       for await (const message of this.activeQuery) {
-        // Capture session ID from init
         if (message.type === 'system' && message.subtype === 'init') {
           if (message.session_id) {
             this.sessionId = message.session_id;
@@ -284,8 +273,6 @@ class DmEngine {
           yield { type: 'session_id', sessionId: this.sessionId };
           continue;
         }
-
-        // Stream partial assistant messages (text chunks)
         if (message.type === 'assistant' && message.partial) {
           const textBlocks = (message.message?.content || [])
             .filter(b => b.type === 'text')
@@ -295,8 +282,6 @@ class DmEngine {
           }
           continue;
         }
-
-        // Complete assistant message
         if (message.type === 'assistant' && !message.partial) {
           const textBlocks = (message.message?.content || [])
             .filter(b => b.type === 'text')
@@ -306,13 +291,10 @@ class DmEngine {
           }
           continue;
         }
-
-        // Result message (success or error)
         if (message.type === 'result') {
           if (message.subtype === 'error') {
             yield { type: 'error', error: message.error || 'Unknown error' };
           }
-          // Final session ID
           if (message.session_id) {
             this.sessionId = message.session_id;
           }
@@ -323,6 +305,35 @@ class DmEngine {
     } finally {
       this.activeQuery = null;
     }
+  }
+
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory }) {
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest);
+
+    if (this.sessionId) {
+      options.resume = this.sessionId;
+      try {
+        yield* this._streamQuery(userMessage, options);
+        return;
+      } catch (err) {
+        // Stale session — fall back to a fresh session with history context
+        console.warn(`[DM] Resume failed (${err.message}), starting fresh session with history`);
+        this.sessionId = null;
+      }
+    }
+
+    // Fresh session — if we have message history, prepend it as context
+    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest);
+    let prompt = userMessage;
+    if (messageHistory && messageHistory.length > 0) {
+      const recap = messageHistory
+        .filter(m => m.type === 'player' || m.type === 'dm')
+        .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
+        .join('\n\n');
+      prompt = `[SESSION RESUMED — Here is the story so far. Continue from where we left off.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${userMessage}`;
+    }
+
+    yield* this._streamQuery(prompt, freshOptions);
   }
 
   abort() {

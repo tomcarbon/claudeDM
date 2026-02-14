@@ -135,7 +135,7 @@ function Adventure({
       if (loadedMessages.length === 0) {
         console.warn('[Load] No messages found in saved session — session may not have been saved properly');
       }
-      resumeSession(session.claudeSessionId, session.characterId, session.scenarioId);
+      resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages);
       setSessionActive(true);
     } catch (err) {
       console.error('Load failed:', err);

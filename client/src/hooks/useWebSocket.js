@@ -122,13 +122,14 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId) => {
+  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({
         type: 'session_resume',
         claudeSessionId,
         characterId,
         scenarioId,
+        messages: savedMessages || [],
       }));
     }
   }, []);
