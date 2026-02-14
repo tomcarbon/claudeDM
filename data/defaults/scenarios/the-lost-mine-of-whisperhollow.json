@@ -1,0 +1,343 @@
+{
+  "id": "a3c7e1f0-4b2d-4e8a-9f6c-1d3e5a7b9c0e",
+  "title": "The Lost Mine of Whisperhollow",
+  "subtitle": "What Was Sealed Below Was Never Meant to Be Forgotten",
+  "levelRange": "1-2",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Whisperhollow and the Ironvein Mine",
+    "description": "A quiet mountain hamlet nestled in a narrow valley, Whisperhollow was once a thriving dwarven mining settlement built around the legendary Ironvein Mine. The town has dwindled to a few dozen families who eke out a living from sheep herding and meager trade, haunted by the memory of the mine's sudden closure forty years ago. Strange echoes have begun reverberating from the sealed mine entrance at night, and the ground itself seems to hum with a deep, resonant vibration that rattles windowpanes and unsettles livestock.",
+    "atmosphere": "A pervasive sense of forgotten grandeur and creeping unease hangs over the valley like morning fog that never quite burns away. The ruins of once-prosperous dwarven stonework peek through overgrown hillsides, and the wind through the valley carries faint sounds that could be distant singing or merely the groaning of old stone. At night, pale luminescence sometimes flickers behind the mine's sealed iron doors, visible from the village square.",
+    "keyLocations": [
+      {
+        "name": "The Village of Whisperhollow",
+        "description": "A cluster of stone-and-timber buildings huddled around a central well, their rooflines sagging with age but their hearths still warm. The Pickaxe & Pint tavern serves as the village's social hub, where weathered locals nurse ales and swap increasingly anxious stories about the noises from the mine.",
+        "features": [
+          "Central well with dwarven rune carvings along its inner rim",
+          "The Pickaxe & Pint tavern with a mining-themed interior and a faded map of the Ironvein tunnels behind the bar",
+          "A small shrine to Moradin maintained by the village elder, Brenna Stonemantle"
+        ],
+        "encounters": [
+          "Roleplaying with nervous villagers who share conflicting stories about why the mine was sealed",
+          "A minor tremor shakes the village during the party's first night, cracking the well's stonework and revealing hidden runes"
+        ],
+        "secrets": [
+          "The well's rune carvings are a prayer of guardianship, not a warning of danger, suggesting the mine was sealed to protect something precious",
+          "Brenna Stonemantle's grandmother was the last mine overseer and left behind a journal hidden beneath the shrine's altar stone"
+        ]
+      },
+      {
+        "name": "The Sealed Mine Entrance",
+        "description": "A massive set of iron double doors set into the mountainside, green with verdigris and reinforced with bands of cold iron engraved with dwarven protective wards. The doors were welded shut decades ago, but the welds have begun to crack and flake, and a thin draft of warm, mineral-scented air seeps through the widening gaps. The stonework around the doors bears deep claw marks that appear to have been made from the inside.",
+        "features": [
+          "Cold iron doors with cracking welds and protective ward engravings",
+          "A small antechamber beyond the doors containing rusted mining equipment and a collapsed guard post",
+          "Bioluminescent lichen growing in the cracks, pulsing with a faint heartbeat rhythm"
+        ],
+        "encounters": [
+          "Opening the doors requires solving the first rune lock or a DC 18 Strength check to force them",
+          "Two giant rats nest in the antechamber and attack when disturbed"
+        ],
+        "secrets": [
+          "The claw marks were made by miners trying to get OUT during the sealing, not by something trying to get in — the miners volunteered to stay behind as guardians"
+        ]
+      },
+      {
+        "name": "The Upper Tunnels",
+        "description": "A labyrinth of partially collapsed mining shafts supported by rotting timber beams and rusted iron bracings. Abandoned mining carts sit on corroded rails, and the walls glitter faintly with residual mineral deposits that catch torchlight in unsettling ways. The air is thick with dust and the skittering sounds of creatures that have made these tunnels their home for decades.",
+        "features": [
+          "Unstable ceiling sections that collapse if loud noises are made (DC 13 Dexterity save, 1d6 bludgeoning)",
+          "An intact mining cart on rails that can be ridden deeper into the mine but is difficult to stop (DC 14 Strength)",
+          "Veins of strange blue-silver ore that hum when touched"
+        ],
+        "encounters": [
+          "A nest of four giant rats in an old supply room",
+          "Two cave spiders lurking in web-choked side passages",
+          "An animated pickaxe and shovel that attack intruders near the second rune lock"
+        ],
+        "secrets": [
+          "The blue-silver ore is starsteel, an incredibly rare material that the dwarves discovered and were sworn to protect",
+          "A hidden passage behind a collapsed wall leads to the miners' final camp, where skeletal remains sit in peaceful repose around a shrine"
+        ]
+      },
+      {
+        "name": "The Underground River Crossing",
+        "description": "The tunnels open into a vast natural cavern bisected by a swift underground river of crystal-clear water that flows from an unseen source deeper in the mountain. A collapsed stone bridge spans half the distance, its remaining pillars carved with dwarven faces that seem to watch passersby with solemn stone eyes. The river is chest-deep and bitterly cold, with a current strong enough to sweep an unwary traveler downstream into darkness.",
+        "features": [
+          "Collapsed bridge requiring Athletics DC 13 to leap the gap or DC 11 to ford the river (failure means being swept 30 feet downstream)",
+          "Dwarven face carvings that whisper warnings in Dwarvish when approached",
+          "A small island in the river with a locked chest containing emergency supplies left by the original miners"
+        ],
+        "encounters": [
+          "The river current itself serves as a hazard encounter",
+          "A swarm of bats disturbed by the party's light sources erupts from the cavern ceiling"
+        ],
+        "secrets": [
+          "The whispering faces recite a poem that contains the solution to the final rune lock in the deep chambers"
+        ]
+      },
+      {
+        "name": "The Deep Sanctuary",
+        "description": "A cathedral-like natural cavern deep beneath the mountain, its ceiling lost in shadow above massive stalagmite columns that have been carved into pillars depicting dwarven history. At the chamber's center sits a raised stone dais holding a crystalline geode the size of a horse, pulsing with warm golden light — the Heart of the Mountain, a sacred relic the dwarves discovered and swore to protect. A creature of living shadow circles the dais, bound here as guardian but slowly going mad from decades of isolation.",
+        "features": [
+          "The Heart of the Mountain geode radiating warm light that pushes back magical darkness within 30 feet",
+          "Carved history pillars that tell the story of the dwarves' discovery and their sacred oath",
+          "A final rune lock on the dais that, when solved, calms the shadow guardian"
+        ],
+        "encounters": [
+          "The Shadow Guardian — a shadow creature that attacks anything approaching the Heart but can be pacified through the rune lock puzzle",
+          "Animated mining equipment (two pickaxes, a cart) that serve as the shadow's unwitting servants"
+        ],
+        "secrets": [
+          "The shadow creature is the spirit of the last mine overseer, Thrain Stonemantle, Brenna's ancestor, who gave his life to become the Heart's eternal guardian",
+          "The Heart of the Mountain is a shard of divine power left by Moradin himself, and removing it would collapse the mountain"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The adventurers arrive in the declining village of Whisperhollow, drawn by rumors of strange sounds emanating from a mine sealed shut forty years ago. As they investigate the village and pry open the mine's secrets, they discover that the Ironvein Mine was not sealed to keep monsters in, but to protect a sacred dwarven relic — the Heart of the Mountain — from the outside world. The party must navigate collapsed tunnels filled with vermin and animated mining equipment, solve ancient rune locks, cross a treacherous underground river, and ultimately face a shadow creature that was once the mine's last guardian, driven to madness by decades of lonely vigil.",
+  "hook": "A desperate letter from the village elder Brenna Stonemantle reaches the party at a nearby trading post, pleading for help. The ground shakes nightly, livestock refuse to graze near the old mine, and three villagers who went to investigate the noises two weeks ago have not returned. Brenna offers the village's meager savings and warns that if the situation is not resolved soon, the remaining families will abandon Whisperhollow forever, leaving whatever stirs beneath the mountain unwatched.",
+  "acts": [
+    {
+      "title": "Act 1: Echoes in the Valley",
+      "description": "The party arrives in Whisperhollow, meets the villagers, gathers information about the mine's history, and prepares to breach the sealed entrance. This act emphasizes investigation, social interaction, and building a sense of dread as the party learns that the mine's closure was more complex than simple danger.",
+      "objectives": [
+        "Speak with Brenna Stonemantle and learn the official history of the mine's closure",
+        "Gather rumors and clues from villagers at the Pickaxe & Pint",
+        "Discover Brenna's grandmother's journal beneath the shrine",
+        "Open the sealed mine doors"
+      ],
+      "scenes": [
+        {
+          "name": "Arrival in Whisperhollow",
+          "description": "The party arrives in the village as evening falls, finding a community on edge. Shuttered windows line the main street, and the only light spills from the Pickaxe & Pint tavern where anxious voices carry into the cool mountain air.",
+          "readAloud": "\"The road narrows as you climb into the valley, the mountains pressing close on either side like the walls of a corridor. Whisperhollow reveals itself gradually — first a crumbling stone wall, then scattered cottages with dark windows, and finally a modest village square dominated by an ancient well. The only sign of life is a weathered tavern called the Pickaxe & Pint, its swinging sign creaking in the mountain breeze. From somewhere deep in the earth beneath your feet, you feel more than hear a low, rhythmic vibration, like the heartbeat of the mountain itself.\"",
+          "skillChecks": [
+            { "skill": "Perception", "dc": 12, "success": "You notice faint blue-white light flickering behind the sealed mine doors up the hillside, pulsing in time with the vibrations beneath your feet.", "failure": "The village seems quiet and unremarkable, if a bit run-down." },
+            { "skill": "History", "dc": 14, "success": "You recall that Whisperhollow was once renowned for producing starsteel, an extraordinarily rare ore prized by dwarven smiths, before the mine was abruptly abandoned.", "failure": "You vaguely recall this area had some mining significance, but the details escape you." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The villagers are frightened but welcoming, desperate for outside help. Old Tormund at the bar claims the mine is cursed and should be left alone. Young Elara, the shepherd, insists the missing villagers must be found. Play up the contrast between fear and hope in the community.",
+          "loot": []
+        },
+        {
+          "name": "The Elder's Plea and the Hidden Journal",
+          "description": "Brenna Stonemantle, the elderly village leader, meets with the party privately at the shrine to Moradin, sharing what she knows and what she suspects. If the party gains her trust, she reveals her grandmother's hidden journal, which contains crucial information about the mine's true purpose.",
+          "readAloud": "\"Brenna leads you to a small stone shrine behind her cottage, its walls carved with the stern face of Moradin, the dwarven god of the forge. Candles flicker around a simple altar, and the old woman's hands tremble as she turns to face you. 'My grandmother sealed that mine,' she says, her voice barely above a whisper. 'She never told us why — only that some things are worth more than gold, and some doors are closed out of love, not fear.' She glances at the altar stone, and you notice fresh scratches around its edges, as if someone has recently tried to move it.\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 12, "success": "Brenna trusts you enough to reveal the altar stone can be moved, and beneath it lies her grandmother's leather-bound journal describing the Heart of the Mountain.", "failure": "Brenna remains guarded about her family's secrets but still asks for your help with the mine." },
+            { "skill": "Investigation", "dc": 14, "success": "You notice the altar stone sits on a hidden pivot mechanism and can be swung aside to reveal a hollow compartment containing an old journal wrapped in oilcloth.", "failure": "The shrine appears to be a simple place of worship with nothing unusual about its construction." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Brenna is torn between her duty to keep her family's secret and her fear for the village's survival. She knows more than she initially lets on. If the party is respectful of dwarven customs and the shrine, she warms to them quickly. The journal is written in Dwarvish and describes the Heart of the Mountain as a 'gift from the Soulforger himself' that must never be moved or claimed.",
+          "loot": [
+            "Grandmother Stonemantle's journal (quest item, written in Dwarvish)",
+            "A small silver holy symbol of Moradin worth 15 gp"
+          ]
+        },
+        {
+          "name": "Breaching the Seal",
+          "description": "The party approaches the mine entrance and must deal with the sealed doors. The dwarven rune lock presents the first puzzle, and the antechamber beyond holds the first signs of what lurks within. The remains of the three missing villagers' lanterns and supplies are found just inside, but the villagers themselves are nowhere to be seen.",
+          "readAloud": "\"The mine entrance looms before you, set into the mountainside like a wound in the rock. Two massive iron doors, green with age and webbed with cracks in their ancient welds, stand as the last barrier between the village and whatever stirs below. Dwarven runes circle the door frame in an unbroken ring, their edges still sharp despite decades of weathering. As you approach, the vibration in the ground intensifies, and the runes begin to glow with a faint blue-silver light, as if responding to your presence. Three bedrolls and a shattered lantern lie abandoned at the door's base — the missing villagers made it this far.\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 13, "success": "You recognize the runes as a protective ward sequence. By tracing them in the correct order — following the pattern of Moradin's hammer strikes as depicted in dwarven lore — the doors can be opened without force.", "failure": "The runes are clearly magical but their purpose and activation method remain unclear to you." },
+            { "skill": "Athletics", "dc": 18, "success": "With tremendous effort, you wrench the weakened doors open, though the noise echoes deep into the tunnels and alerts creatures within.", "failure": "The doors hold fast, their cold iron frames unyielding despite the cracked welds." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 giant rats"],
+              "difficulty": "Easy",
+              "tactics": "The giant rats emerge from behind overturned crates in the antechamber, attacking the nearest light source. They flee if reduced to half hit points.",
+              "terrain": "Cramped antechamber with overturned crates, rusted equipment, and a collapsed guard post providing half cover."
+            }
+          ],
+          "roleplayNotes": "This is a transition scene from investigation to dungeon exploration. Build tension as the doors open and stale air rushes out. The missing villagers' abandoned gear should raise questions — they entered but did not return, yet there are no signs of violence at the entrance.",
+          "loot": [
+            "Salvageable rope (50 ft) from the missing villagers' supplies",
+            "3 torches and a tinderbox",
+            "A hand-drawn map of the upper tunnels (partially accurate, missing secret passages)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Into the Dark",
+      "description": "The party ventures into the mine's upper tunnels, facing environmental hazards, vermin, and animated mining equipment as they solve the second rune lock and navigate toward the underground river. The missing villagers are found alive but trapped in a side chamber, having been corralled there by the animated equipment.",
+      "objectives": [
+        "Navigate the unstable upper tunnels",
+        "Defeat or avoid the creatures infesting the mine",
+        "Solve the second rune lock to access the lower levels",
+        "Find and rescue the three missing villagers",
+        "Cross the underground river"
+      ],
+      "scenes": [
+        {
+          "name": "The Infested Tunnels",
+          "description": "The upper mine tunnels are a maze of partially collapsed shafts, thick with dust and the skittering of unseen creatures. Giant rats and cave spiders have claimed these passages as their territory, and the strange blue-silver ore in the walls hums with an energy that makes the hairs on the party's necks stand on end.",
+          "readAloud": "\"Beyond the antechamber, the mine opens into a network of tunnels that branch and twist into the mountain's heart. Timber supports groan overhead, and the air tastes of dust and old stone. Your light catches glimmers in the walls — veins of an unusual blue-silver ore that seems to pulse with inner light when you draw near. Rusted rails run along the tunnel floor, and somewhere ahead, you hear the grinding of metal on stone, rhythmic and purposeful, as if someone — or something — is still working the mine.\"",
+          "skillChecks": [
+            { "skill": "Survival", "dc": 12, "success": "You track footprints in the dust — the missing villagers came this way, heading deeper before veering sharply into a side passage as if fleeing something.", "failure": "The dust is too disturbed to make out any clear tracks." },
+            { "skill": "Perception", "dc": 14, "success": "You spot the cave spider webs before walking into them, giving the party a chance to prepare or find an alternate route.", "failure": "You walk directly into the spider ambush." },
+            { "skill": "Stealth", "dc": 13, "success": "You move quietly enough to avoid triggering the unstable ceiling in the narrow passage.", "failure": "A loud footstep sends cracks racing across the ceiling. Everyone must make a DC 13 Dexterity save or take 1d6 bludgeoning damage from falling debris." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 giant rats", "2 cave spiders (use giant wolf spider stats)"],
+              "difficulty": "Medium",
+              "tactics": "The spiders lurk on the ceiling in webs, dropping onto the rear of the party while the rats swarm from a side tunnel to attack the front. The spiders attempt to use their web ability to restrain characters carrying light sources, plunging sections of the tunnel into darkness.",
+              "terrain": "Narrow tunnels (5-10 ft wide) with rusted mine cart rails, timber supports, and thick cobwebs. The rails are a tripping hazard (DC 10 Dexterity or fall prone when moving more than half speed)."
+            }
+          ],
+          "roleplayNotes": "Emphasize the claustrophobic atmosphere and the sense that the mine itself is almost alive. The humming ore reacts to strong emotions — it glows brighter when the party is afraid or angry, dimmer when they are calm. This foreshadows the Heart of the Mountain's nature.",
+          "loot": [
+            "A chunk of starsteel ore worth 25 gp to the right buyer",
+            "Spider silk that can be harvested (DC 12 Nature) for use as high-quality rope"
+          ]
+        },
+        {
+          "name": "The Miners' Last Stand and the Second Lock",
+          "description": "The party discovers the missing villagers trapped in a reinforced supply chamber, barricaded in by animated mining equipment that patrols the corridor outside. Freeing them requires dealing with the enchanted tools, and nearby, the second rune lock bars passage to the lower levels where the deep sanctuary awaits.",
+          "readAloud": "\"The tunnel opens into a wider junction where three passages meet. In one, you see the faint glow of a dying torch and hear desperate voices calling out. A barricade of overturned carts and timber beams blocks the passage entrance, and on this side of the barricade, a pair of pickaxes float in the air, their heads swinging in slow, menacing arcs as they patrol back and forth like tireless sentinels. Against the far wall, a stone door is carved with a ring of dwarven runes identical in style to those at the mine entrance — another lock, another puzzle standing between you and the depths below.\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 14, "success": "You recognize the animation magic on the tools is tied to the mine's protective enchantments — they are guardians, not attackers, responding to unauthorized intrusion. Speaking the dwarven word for 'friend' or presenting Moradin's holy symbol causes them to stand down.", "failure": "The animated tools appear to be hostile constructs that must be destroyed." },
+            { "skill": "Investigation", "dc": 15, "success": "The second rune lock's sequence is hinted at by markings on the supply room walls — the trapped villagers had been trying to solve it before they were cornered, and their partial work gives you advantage on the Arcana check to open it.", "failure": "The rune lock remains inscrutable without additional clues." },
+            { "skill": "Arcana", "dc": 14, "success": "You complete the rune sequence and the stone door grinds open, revealing a spiraling passage descending toward the sound of rushing water.", "failure": "The runes flash red and reset. You may try again but the animated tools become agitated, making further attempts more dangerous." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 animated pickaxes (use flying sword stats)", "1 animated mining cart (use rug of smothering stats, reflavored as a charging cart)"],
+              "difficulty": "Medium",
+              "tactics": "The pickaxes engage the nearest threats while the mining cart attempts to charge down the tunnel at anyone approaching the barricade. If the dwarven word for 'friend' is spoken or Moradin's symbol is presented, all animated objects immediately cease hostility and return to dormant positions.",
+              "terrain": "Wide junction (20 ft) with three branching tunnels, overturned cart barricade, and mine cart rails. The rails allow the animated cart to charge in straight lines at double speed."
+            }
+          ],
+          "roleplayNotes": "The three missing villagers — Haldor, Miri, and young Tam — are frightened but unharmed. They explain they entered the mine out of curiosity, made it this far before the animated tools cornered them. Tam, a child of twelve, says the pickaxes never actually attacked them, just wouldn't let them leave or go deeper. This is another clue that the mine's defenses are protective, not malicious.",
+          "loot": [
+            "A dwarven steel pickaxe of fine craftsmanship worth 20 gp",
+            "A healer's kit found in the supply room (7 uses remaining)",
+            "Haldor offers his lucky copper ring as thanks (a ring of minor warmth — the wearer never feels uncomfortably cold)"
+          ]
+        },
+        {
+          "name": "The River Crossing",
+          "description": "The spiral passage descends to a vast underground cavern split by a rushing river of crystal-clear water. The remnants of a dwarven bridge offer a treacherous path across, and the carved stone faces along its pillars whisper cryptic words to those who listen closely — words that hold the key to the final rune lock in the deep sanctuary.",
+          "readAloud": "\"The passage spirals downward for what feels like an eternity before opening into a cavern so vast your light cannot find its ceiling. Before you, a river of impossibly clear water rushes through the darkness, its surface catching your light like liquid glass. The remains of a stone bridge arc across the torrent — half collapsed, its broken span ending abruptly over the churning current. The bridge's surviving pillars are carved into the likenesses of stern dwarven faces, their stone eyes seeming to follow you. As you step closer, you hear it — whispered words in Dwarvish, barely audible over the river's roar, emanating from the carved mouths of the stone sentinels.\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 13, "success": "You leap the gap in the bridge, landing safely on the far side.", "failure": "You fall short and plunge into the icy river, taking 1d4 cold damage and being swept 30 feet downstream. A DC 12 Athletics check is needed to swim to shore." },
+            { "skill": "Perception", "dc": 12, "success": "You make out the whispered Dwarvish words clearly: 'Heart remembers, stone endures, light returns to darkened doors.' This is the passphrase for the final rune lock.", "failure": "The whispers are lost in the sound of the river — you catch fragments but not enough to piece together the message." },
+            { "skill": "Acrobatics", "dc": 11, "success": "You carefully balance across the remaining bridge supports, avoiding the gap entirely.", "failure": "You slip on the wet stone and must make a DC 13 Dexterity save to catch yourself before falling into the river." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene is about atmosphere and puzzle-solving rather than combat. The river crossing should feel perilous but surmountable. The whispering faces are the spirits of the bridge's builders, still faithfully guarding the path to the sanctuary. If a character addresses them respectfully in Dwarvish, the faces repeat their message more clearly.",
+          "loot": [
+            "A locked chest on the river island containing 30 gp, two potions of healing, and a scroll of shield",
+            "Smooth river stones that glow faintly blue when held (decorative, worth 5 gp each, 4 available)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: Heart of the Mountain",
+      "description": "The party enters the deep sanctuary and confronts the shadow guardian — the tormented spirit of Thrain Stonemantle, last overseer of the mine. They must choose whether to fight the creature, solve the final rune lock to pacify it, or find another way to lay the guardian to rest and decide the fate of the Heart of the Mountain.",
+      "objectives": [
+        "Enter the Deep Sanctuary",
+        "Confront the Shadow Guardian",
+        "Solve the final rune lock or find another way to pacify the guardian",
+        "Decide the fate of the Heart of the Mountain",
+        "Return to Whisperhollow with news of what lies beneath"
+      ],
+      "scenes": [
+        {
+          "name": "The Cathedral of Stone",
+          "description": "The party emerges into the awe-inspiring Deep Sanctuary, a natural cavern transformed by dwarven hands into a cathedral of carved stone pillars and soaring darkness. The Heart of the Mountain pulses at the chamber's center, its golden light warm and inviting, but a creature of living shadow circles it endlessly, keening with a sound like grief given voice.",
+          "readAloud": "\"The tunnel opens and the world falls away. You stand at the threshold of a cavern so immense it could hold a castle within its walls. Stalagmites as thick as ancient oaks have been carved into pillars depicting dwarven history — the forging of the first weapons, the founding of great halls, the discovery of something radiant in the deep dark. And there, at the chamber's heart, you see it: a crystalline geode the size of a warhorse, split open to reveal an interior blazing with warm golden light that pushes back the darkness like a miniature sun. Around it, a creature of pure shadow circles endlessly, its form shifting between something vaguely dwarven and something formless and anguished. It turns eyeless sockets toward you and releases a sound that is not a scream but a sob — ancient, exhausted, and utterly alone.\"",
+          "skillChecks": [
+            { "skill": "Religion", "dc": 13, "success": "You recognize the Heart of the Mountain as a divine relic — a shard of Moradin's creative power, left in the world to anchor and protect this mountain. Removing it would be catastrophic.", "failure": "The geode is clearly magical and immensely powerful, but its exact nature eludes you." },
+            { "skill": "Insight", "dc": 12, "success": "The shadow creature's movements are not predatory — they are protective and ritualistic. It is guarding the Heart, not threatening it. Its anguish comes from isolation, not malice.", "failure": "The creature appears hostile and territorial, circling the geode like a predator guarding its kill." },
+            { "skill": "Arcana", "dc": 14, "success": "Speaking the passphrase from the bridge faces while touching the rune lock on the dais will complete the protective ward circuit and pacify the guardian, giving it the peace it has been denied for decades.", "failure": "The rune lock on the dais is clearly the final puzzle, but its solution remains unclear." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 shadow (the Shadow Guardian)", "2 animated pickaxes (flying sword stats)"],
+              "difficulty": "Hard",
+              "tactics": "The Shadow Guardian engages the party if they approach the Heart aggressively or fail to solve the rune lock. It uses its Strength Drain attack and tries to stay within the Heart's light, which paradoxically sustains it even as it causes the shadow pain. The animated pickaxes defend the perimeter. If the rune lock passphrase is spoken, all hostility immediately ceases. If reduced to 0 HP, the shadow does not die but dissipates temporarily, reforming in 1d4 rounds — it can only truly be laid to rest through the rune lock.",
+              "terrain": "Vast cavern (100 ft diameter) with carved stalagmite pillars providing cover, a raised stone dais at center with the Heart of the Mountain. The Heart's light creates bright light in a 30-foot radius and dim light for 30 feet beyond that. The shadow has disadvantage on attacks while in bright light but cannot willingly leave the Heart's radius."
+            }
+          ],
+          "roleplayNotes": "This is the emotional climax of the adventure. The shadow guardian is tragic, not villainous. It was once Thrain Stonemantle, who sacrificed his life to become an eternal guardian of the Heart. Decades of isolation have eroded his mind, leaving only the compulsion to protect and an overwhelming loneliness. If the party solves the rune lock, Thrain's spirit briefly manifests in his true dwarven form, thanks them, and asks them to tell his granddaughter Brenna that 'the vigil is kept, and the heart endures.' Then he fades peacefully into the golden light.",
+          "loot": [
+            "Thrain's Warhammer — a +1 warhammer that glows faintly gold in the presence of divine magic",
+            "A starsteel ingot worth 50 gp, left as an offering on the dais",
+            "A dwarven cloak clasp shaped like a mountain peak (25 gp, heirloom value to the Stonemantle family)"
+          ]
+        },
+        {
+          "name": "Return to the Light",
+          "description": "With the guardian at peace and the Heart of the Mountain secure, the party must decide what to tell Whisperhollow and how to ensure the sanctuary remains protected. The mine's animated guardians stand down permanently, and the journey back to the surface is uneventful but contemplative, as the weight of what they have witnessed sinks in.",
+          "readAloud": "\"As Thrain's spirit fades into the Heart's golden light, a profound silence settles over the sanctuary. The animated tools clatter to the ground, lifeless. The blue-silver veins in the walls pulse once, brilliantly, then settle into a steady, peaceful glow. The vibrations that shook Whisperhollow have stilled. As you make your way back through the tunnels, you notice the mine feels different — not threatening, but solemn, like walking through a cathedral after the congregation has gone. When you finally emerge into daylight, blinking against the sun, the entire village is waiting at the mine entrance, Brenna Stonemantle at their fore, her old eyes searching your faces for answers.\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 12, "success": "You convince the village to become stewards of the Heart of the Mountain, continuing the guardianship that Thrain and the original miners began. This gives the village new purpose and a sacred duty.", "failure": "The villagers are uncertain about the responsibility and may need more convincing or proof of the Heart's importance." },
+            { "skill": "Deception", "dc": 14, "success": "If the party chooses to conceal the Heart's existence and simply report the mine is clear, the villagers accept the story without question.", "failure": "Brenna senses you are holding something back and presses for the truth." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the denouement. Let the players decide what to tell the village. Brenna will weep if told about her grandfather Thrain's sacrifice and his final message. The party's choices here determine Whisperhollow's future — will it become a place of sacred guardianship, or will the secret be buried again? There is no wrong answer, but the consequences differ. If the village takes up the guardianship, Whisperhollow will slowly prosper as Moradin's blessing flows through the Heart. If the secret is buried, the mine will eventually need new guardians.",
+          "loot": [
+            "Brenna's reward: 45 gp (the village's savings) and a standing invitation to Whisperhollow",
+            "If the party returns Thrain's cloak clasp to Brenna, she gifts them a family heirloom: a potion of greater healing her grandmother brewed decades ago"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Brenna Stonemantle",
+      "role": "Quest Giver / Village Elder",
+      "description": "A stout, silver-haired dwarven woman in her late years, Brenna carries herself with quiet dignity despite the weight of worry on her shoulders. She wears a simple apron over practical clothing and keeps a well-worn holy symbol of Moradin tucked into her belt, her fingers finding it unconsciously whenever she is anxious.",
+      "motivation": "Brenna wants to protect her village and uncover the truth about her grandmother's decision to seal the mine. She suspects the mine holds something important but fears what that knowledge might cost. Above all, she hopes to learn the fate of her grandfather Thrain, who she was told died in a mining accident but whose body was never recovered."
+    },
+    {
+      "name": "Old Tormund",
+      "role": "Local Color / Red Herring",
+      "description": "A grizzled human man with a wild gray beard and rheumy eyes perpetually narrowed in suspicion, Tormund has been the Pickaxe & Pint's most dedicated patron for thirty years. He claims to hear the voices of dead miners in the walls at night and insists the mine is cursed by a vengeful spirit, spreading fear with his dramatic stories.",
+      "motivation": "Tormund genuinely believes the mine is cursed and wants it left alone. He lost his brother in the original sealing and carries survivor's guilt. His stories are exaggerated but come from a place of real grief and fear. He is not a villain but an obstacle to rational investigation."
+    },
+    {
+      "name": "Elara Windmere",
+      "role": "Ally / Guide",
+      "description": "A young human shepherd in her early twenties with sun-browned skin and keen hazel eyes, Elara knows the mountain paths better than anyone in the village. She is practical, brave, and impatient with superstition, and she has been the most vocal advocate for investigating the mine rather than fleeing.",
+      "motivation": "Elara's younger brother Tam is one of the three missing villagers. She would go into the mine herself if she could, but Brenna asked her to wait for the adventurers. She will offer to guide the party to the mine entrance and share what she knows about the mountain's geography."
+    },
+    {
+      "name": "Thrain Stonemantle (The Shadow Guardian)",
+      "role": "Antagonist / Tragic Figure",
+      "description": "In life, Thrain was a broad-shouldered dwarven mine overseer with a booming laugh and a fierce devotion to his clan. In undeath, he is a tortured shadow, his form flickering between a vaguely dwarven silhouette and a shapeless darkness that weeps and rages in equal measure. Forty years of solitary guardianship have worn his mind to a razor's edge of instinct and anguish.",
+      "motivation": "Thrain voluntarily gave his life to become the Heart of the Mountain's eternal guardian after the dwarves decided the relic was too important and too dangerous to leave unprotected. His original devotion has curdled into something between duty and madness. He attacks intruders not out of malice but because he can no longer distinguish between threats and visitors. He longs for release but cannot abandon his post."
+    }
+  ],
+  "rewards": {
+    "xp": 450,
+    "gold": "150 gp total (45 gp from Brenna's reward, 30 gp from river chest, 50 gp starsteel ingot, 25 gp cloak clasp value)",
+    "items": [
+      "Thrain's Warhammer (+1 warhammer, glows near divine magic)",
+      "2 Potions of Healing",
+      "Scroll of Shield",
+      "Ring of Minor Warmth (no mechanical benefit, narrative comfort item)",
+      "Grandmother Stonemantle's Journal (plot item, contains lore about starsteel and the Heart of the Mountain)"
+    ],
+    "story": "The party has uncovered the truth behind Whisperhollow's sealed mine and laid a tormented guardian to rest. Their choices regarding the Heart of the Mountain and what they tell the village will shape the settlement's future for generations. If the party establishes the village as guardians, they gain a safe haven and allies in the mountains. Word of their deeds may attract the attention of dwarven clans interested in the starsteel or the Heart, leading to future adventures."
+  },
+  "twists": [
+    "The mine was sealed not to keep danger contained but to PROTECT a sacred relic — the Heart of the Mountain — from the outside world. Everything the villagers believe about the mine being cursed or dangerous is a misunderstanding of the truth.",
+    "The shadow creature terrorizing the mine is not a monster but the spirit of Brenna's own grandfather, who sacrificed himself to become the Heart's eternal guardian. He can be saved through compassion rather than combat.",
+    "The animated mining equipment is not hostile — it is part of the mine's protective ward system, designed to coral intruders away from the Heart without killing them. The missing villagers were corralled, not attacked.",
+    "The starsteel ore in the mine walls is connected to the Heart of the Mountain and could be worth a fortune, creating a temptation for the party: do they report its existence and risk the Heart's safety, or keep the secret?"
+  ],
+  "dmTips": [
+    "Use sound design to build atmosphere throughout the adventure. The vibrations, the humming ore, the whispering bridge faces, and the shadow's keening should create a soundscape that shifts from ominous to melancholy as the true nature of the mine is revealed.",
+    "If the party tries to remove the Heart of the Mountain, have the cavern begin to collapse immediately. This is not a treasure to be claimed but a sacred trust to be honored. Make this clear through environmental storytelling before they make the attempt.",
+    "The rune lock puzzles can be simplified or made more complex depending on your group. At minimum, the party needs the passphrase from the bridge faces to resolve the final confrontation peacefully. If they missed that clue, allow Religion or History checks to reconstruct it from the carved pillars in the sanctuary.",
+    "Thrain's shadow should be played sympathetically. Describe his attacks as desperate and confused rather than predatory. If a character speaks to him kindly or mentions Brenna's name, have the shadow hesitate for one round, giving the party a chance to try a non-combat solution.",
+    "The three missing villagers serve as both a rescue objective and a source of information. They overheard the animated tools speaking fragments of Dwarvish and may have partial clues to the rune locks. Use them to feed hints to a stuck party without making the solutions feel handed to them."
+  ]
+}

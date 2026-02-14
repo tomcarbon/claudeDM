@@ -107,6 +107,20 @@ module.exports = function (dataDir) {
     }
   });
 
+  // DELETE session
+  router.delete('/:id', (req, res) => {
+    try {
+      const filePath = path.join(sessionsDir, `${req.params.id}.json`);
+      if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ error: 'Session not found' });
+      }
+      fs.unlinkSync(filePath);
+      res.json({ success: true });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
   // POST add player to session (multiplayer prep)
   router.post('/:id/players', (req, res) => {
     try {

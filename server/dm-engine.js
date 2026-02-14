@@ -196,7 +196,7 @@ class DmEngine {
     const options = {
       systemPrompt,
       cwd: PROJECT_ROOT,
-      allowedTools: ['Read', 'Glob', 'Grep'],
+      allowedTools: ['Read', 'Glob', 'Grep', 'Edit'],
       permissionMode: 'default',
       includePartialMessages: true,
       maxTurns: 20,

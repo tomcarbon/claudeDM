@@ -9,6 +9,7 @@ import RulesPage from './pages/RulesPage';
 import ScenarioList from './pages/ScenarioList';
 import ScenarioDetail from './pages/ScenarioDetail';
 import DmSettings from './pages/DmSettings';
+import Settings from './pages/Settings';
 import Adventure from './pages/Adventure';
 import Home from './pages/Home';
 import useWebSocket from './hooks/useWebSocket';
@@ -39,6 +40,7 @@ function AppContent() {
         <div className="sidebar-divider" />
         <ul>
           <li><NavLink to="/dm-settings">DM Personality</NavLink></li>
+          <li><NavLink to="/settings">Settings</NavLink></li>
         </ul>
       </nav>
       <main className="content">
@@ -66,6 +68,7 @@ function AppContent() {
           <Route path="/scenarios/:id" element={<ScenarioDetail />} />
           <Route path="/rules" element={<RulesPage />} />
           <Route path="/dm-settings" element={<DmSettings />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </main>
     </div>

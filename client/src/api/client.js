@@ -36,10 +36,14 @@ export const api = {
   getDmSettings: () => fetchJson('/dm-settings'),
   updateDmSettings: (data) => fetchJson('/dm-settings', { method: 'PUT', body: JSON.stringify(data) }),
 
+  // Settings
+  restoreDefaults: (scope) => fetchJson(`/settings/restore-defaults${scope ? `?scope=${scope}` : ''}`, { method: 'POST' }),
+
   // Sessions (multiplayer-ready)
   getSessions: () => fetchJson('/sessions'),
   getSession: (id) => fetchJson(`/sessions/${id}`),
   createSession: (data) => fetchJson('/sessions', { method: 'POST', body: JSON.stringify(data) }),
   updateSession: (id, data) => fetchJson(`/sessions/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteSession: (id) => fetchJson(`/sessions/${id}`, { method: 'DELETE' }),
   addPlayerToSession: (id, data) => fetchJson(`/sessions/${id}/players`, { method: 'POST', body: JSON.stringify(data) }),
 };

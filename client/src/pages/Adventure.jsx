@@ -26,8 +26,10 @@ function Adventure({
   const [scenarios, setScenarios] = useState([]);
   const [savedSessions, setSavedSessions] = useState([]);
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
+  const [autoSave, setAutoSave] = useState(false);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
+  const prevMessageCountRef = useRef(0);
 
   useEffect(() => {
     api.getCharacters().then(setCharacters).catch(() => {});
@@ -47,6 +49,18 @@ function Adventure({
       api.getSessions().then(setSavedSessions).catch(() => {});
     }
   }, [sessionActive]);
+
+  // Auto-save when messages change
+  useEffect(() => {
+    const completedMessages = messages.filter(m => m.type !== 'dm_partial');
+    const count = completedMessages.length;
+    if (autoSave && count > 0 && count !== prevMessageCountRef.current) {
+      prevMessageCountRef.current = count;
+      handleSave();
+    } else if (!autoSave) {
+      prevMessageCountRef.current = count;
+    }
+  }, [messages, autoSave]);
 
   // Focus input when session starts
   useEffect(() => {
@@ -98,6 +112,17 @@ function Adventure({
     }
   }
 
+  async function handleDeleteSession(e, id) {
+    e.stopPropagation();
+    if (!window.confirm('Delete this saved session? This cannot be undone.')) return;
+    try {
+      await api.deleteSession(id);
+      setSavedSessions(prev => prev.filter(s => s.id !== id));
+    } catch (err) {
+      console.error('Delete failed:', err);
+    }
+  }
+
   async function handleLoadSession(id) {
     try {
       const session = await api.getSession(id);
@@ -115,6 +140,19 @@ function Adventure({
     } catch (err) {
       console.error('Load failed:', err);
     }
+  }
+
+  function handleExportStory() {
+    const storyMessages = messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system');
+    if (storyMessages.length === 0) return;
+    const text = storyMessages.map(m => m.text).join('\n\n');
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${activeScenario?.title || 'Adventure'}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
   function handleSend() {
@@ -189,15 +227,32 @@ function Adventure({
             <label>Load Saved Session</label>
             <div className="setup-options">
               {savedSessions.map(s => (
-                <button
-                  key={s.id}
-                  className="option-card"
-                  onClick={() => handleLoadSession(s.id)}
-                  disabled={status === 'disconnected'}
-                >
-                  <strong>{s.name}</strong>
-                  <span>{s.messageCount} messages — {new Date(s.updatedAt).toLocaleDateString()}</span>
-                </button>
+                <div key={s.id} className="option-card" style={{ position: 'relative' }}>
+                  <button
+                    className="option-card-inner"
+                    onClick={() => handleLoadSession(s.id)}
+                    disabled={status === 'disconnected'}
+                    style={{ all: 'unset', cursor: 'pointer', display: 'flex', flexDirection: 'column', width: '100%' }}
+                  >
+                    <strong>{s.name}</strong>
+                    <span>{s.messageCount} messages — {new Date(s.updatedAt).toLocaleDateString()}</span>
+                  </button>
+                  <button
+                    className="btn-delete-session"
+                    onClick={(e) => handleDeleteSession(e, s.id)}
+                    title="Delete session"
+                    style={{
+                      position: 'absolute', top: '0.4rem', right: '0.4rem',
+                      background: 'none', border: 'none', cursor: 'pointer',
+                      color: 'var(--text-muted)', fontSize: '1rem', padding: '0.2rem 0.4rem',
+                      borderRadius: '4px', lineHeight: 1,
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#e74c3c'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
+                  >
+                    &times;
+                  </button>
+                </div>
               ))}
             </div>
           </div>
@@ -225,6 +280,21 @@ function Adventure({
         >
           {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'saved' ? 'Saved!' : 'Save'}
         </button>
+        <button
+          className="btn-save"
+          onClick={handleExportStory}
+          disabled={messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system').length === 0}
+        >
+          Export
+        </button>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.85rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
+          <input
+            type="checkbox"
+            checked={autoSave}
+            onChange={e => setAutoSave(e.target.checked)}
+          />
+          Auto-save
+        </label>
         <div className={`status-indicator ${statusInfo.className}`}>
           <span className="status-dot" />
           <span className="status-label">{statusInfo.label}</span>

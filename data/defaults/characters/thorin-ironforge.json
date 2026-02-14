@@ -1,0 +1,63 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440001",
+  "name": "Thorin Ironforge",
+  "race": "Dwarf",
+  "subrace": "Mountain Dwarf",
+  "class": "Fighter",
+  "level": 1,
+  "background": "Soldier",
+  "alignment": "Lawful Good",
+  "experience": 0,
+  "abilities": {
+    "strength": { "score": 16, "modifier": 3 },
+    "dexterity": { "score": 12, "modifier": 1 },
+    "constitution": { "score": 16, "modifier": 3 },
+    "intelligence": { "score": 10, "modifier": 0 },
+    "wisdom": { "score": 13, "modifier": 1 },
+    "charisma": { "score": 8, "modifier": -1 }
+  },
+  "hitPoints": { "max": 13, "current": 13 },
+  "armorClass": 18,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["strength", "constitution"],
+  "skills": ["Athletics", "Intimidation", "Perception", "Survival"],
+  "languages": ["Common", "Dwarvish"],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Battleaxe",
+    "Two handaxes",
+    "Explorer's pack",
+    "An insignia of rank",
+    "A trophy taken from a fallen enemy (a broken orc blade)",
+    "A set of bone dice",
+    "A set of common clothes",
+    "A belt pouch containing 10 gp"
+  ],
+  "weapons": [
+    { "name": "Battleaxe", "attackBonus": 5, "damage": "1d8+3", "damageType": "slashing" },
+    { "name": "Handaxe", "attackBonus": 5, "damage": "1d6+3", "damageType": "slashing" }
+  ],
+  "armor": { "name": "Chain mail", "type": "heavy" },
+  "features": [
+    "Fighting Style: Defense (+1 AC while wearing armor)",
+    "Second Wind (bonus action, regain 1d10+1 HP, once per short rest)",
+    "Darkvision (60 ft)",
+    "Dwarven Resilience (advantage on saves vs. poison, resistance to poison damage)",
+    "Stonecunning (double proficiency on History checks related to stonework)"
+  ],
+  "traits": [
+    "Dwarven Combat Training (proficient with battleaxe, handaxe, light hammer, warhammer)",
+    "Dwarven Armor Training (proficient with light and medium armor)"
+  ],
+  "spells": null,
+  "personality": {
+    "traits": "I can stare down a hell hound without flinching. I enjoy being strong and like breaking things.",
+    "ideals": "Greater Good. Our lot is to lay down our lives in defense of others.",
+    "bonds": "I fight for those who cannot fight for themselves, just as my father did before me.",
+    "flaws": "I have little respect for anyone who is not a proven warrior, and my bluntness often offends."
+  },
+  "appearance": "A stocky, broad-shouldered dwarf standing 4'5\" tall with a braided auburn beard adorned with iron rings. A jagged scar runs across his left cheek, and his deep-set brown eyes carry the weight of many battles. He wears well-maintained chain mail with a clan sigil hammered into the breastplate.",
+  "backstory": "Thorin served for decades in the Ironforge clan's shield wall, defending the mountain holds against goblinoid raids and worse. After a devastating attack left his company shattered and his captain slain, Thorin took up his fallen leader's battleaxe and swore an oath to carry the fight beyond the mountain walls. Now he wanders the surface world, seeking worthy causes and worthy foes in equal measure."
+}

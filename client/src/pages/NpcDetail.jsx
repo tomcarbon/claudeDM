@@ -10,10 +10,21 @@ function NpcDetail() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
+    setError(null);
     api.getNpc(id)
       .then(setNpc)
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
+  }, [id]);
+
+  // Refetch when the page regains focus (e.g. navigating back from adventure)
+  useEffect(() => {
+    const handleFocus = () => {
+      api.getNpc(id).then(setNpc).catch(() => {});
+    };
+    window.addEventListener('focus', handleFocus);
+    return () => window.removeEventListener('focus', handleFocus);
   }, [id]);
 
   if (loading) return <div className="loading">Loading...</div>;

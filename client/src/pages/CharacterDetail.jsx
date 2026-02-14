@@ -11,10 +11,21 @@ function CharacterDetail() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
+    setError(null);
     api.getCharacter(id)
       .then(setChar)
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
+  }, [id]);
+
+  // Refetch when the page regains focus (e.g. navigating back from adventure)
+  useEffect(() => {
+    const handleFocus = () => {
+      api.getCharacter(id).then(setChar).catch(() => {});
+    };
+    window.addEventListener('focus', handleFocus);
+    return () => window.removeEventListener('focus', handleFocus);
   }, [id]);
 
   const handleDelete = async () => {

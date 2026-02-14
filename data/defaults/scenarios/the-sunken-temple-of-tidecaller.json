@@ -1,0 +1,332 @@
+{
+  "id": "d1f6b4c3-2e8a-4d7b-c9f3-4a0e1b5d7c2f",
+  "title": "The Sunken Temple of Tidecaller",
+  "subtitle": "The Sea Does Not Give Up Its Prisoners Willingly",
+  "levelRange": "1-2",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Brinewatch and the Tidecaller's Deep",
+    "description": "Brinewatch is a weathered fishing village perched on a rocky headland overlooking a stretch of coastline known for treacherous currents, hidden reefs, and an underwater shelf that drops into abyssal depths a mere half-mile from shore. The village has fished these waters for generations, but in the last month, the sea has been returning things it should have kept — strange coral-encrusted artifacts in the fishermen's nets, shredded netting that looks like it was cut by claws, and a growing sense that something enormous is shifting in the deep water beyond the shelf.",
+    "atmosphere": "A raw, salt-scoured unease pervades Brinewatch, carried on winds that taste of brine and something older, like the breath of the ocean floor itself. The village's grey stone cottages huddle against the headland as if bracing for a wave that has not yet arrived, and the fishermen who still dare to go out return with haunted eyes and holds full of fish that have strange bite marks and luminous scales. At night, a faint green-blue glow is visible beneath the waves offshore, pulsing like a slow heartbeat from the direction of the underwater shelf.",
+    "keyLocations": [
+      {
+        "name": "Brinewatch Village",
+        "description": "A hardy fishing community of perhaps forty souls, built from local grey stone and driftwood on a windswept headland. The village centers around a stone quay where fishing boats are moored, a smokehouse that processes the day's catch, and the Salt Barrel tavern where fishermen gather to drink and argue about whether the strange occurrences are divine punishment, natural phenomena, or something worse.",
+        "features": [
+          "The stone quay with six fishing boats, two of which have been damaged by something from below",
+          "The Salt Barrel tavern with walls hung with nautical charts, harpoons, and a mounted sea serpent skull of dubious authenticity",
+          "A small shrine to a sea god maintained by the village elder, decorated with offerings of fish and coral"
+        ],
+        "encounters": [
+          "Gathering information from the fishermen about the strange catches and the underwater glow",
+          "Examining the artifacts pulled from the sea — corroded bronze implements, coral-encrusted jewelry, and fragments of carved stone bearing unfamiliar pictograms"
+        ],
+        "secrets": [
+          "The village elder, Old Maren, recognizes the pictograms from stories her grandmother told — they are the language of an ancient sea-dwelling civilization that worshipped something called the Tidecaller, a herald of a forgotten ocean deity",
+          "The damaged boats were not struck from below — something climbed up their hulls from the water, examined the vessels, and climbed back down, leaving claw marks and barnacle residue"
+        ]
+      },
+      {
+        "name": "The Tidal Caves",
+        "description": "A network of sea-carved caves accessible from the base of the headland at low tide, their entrances swallowed by the ocean when the tide rises. The caves are slick with brine and alive with tidal pools, their walls encrusted with barnacles and anemones that glow faintly in the darkness. At the caves' deepest point, a partially submerged passage leads down to the temple entrance — but the passage floods completely at high tide, creating a natural timer for exploration.",
+        "features": [
+          "Slippery rock surfaces requiring Acrobatics checks (DC 12) to traverse safely",
+          "Tidal pools containing bioluminescent creatures that provide dim light",
+          "A partially submerged passage connecting the caves to the temple, passable only at low tide (6-hour window)"
+        ],
+        "encounters": [
+          "Navigating the treacherous cave terrain without slipping into deep tidal pools",
+          "A giant crab guarding the passage to the temple entrance"
+        ],
+        "secrets": [
+          "Sahuagin claw marks on the cave walls near the temple passage indicate the fish-people have been using this route regularly, suggesting they are actively working in the temple below"
+        ]
+      },
+      {
+        "name": "The Temple Antechamber",
+        "description": "The first chamber of the sunken temple, half-flooded with knee-deep seawater that sloshes with the distant rhythm of the tides above. Massive coral-encrusted columns support a vaulted ceiling covered in mosaic tiles depicting the ocean in all its moods — calm, stormy, and something darker, a vast shape moving beneath stylized waves. The chamber serves as a transitional space between the natural caves and the temple proper, and its architecture is alien — organic curves rather than straight lines, as if the builders thought in terms of currents rather than walls.",
+        "features": [
+          "Knee-deep seawater that rises slowly as the tide comes in, creating urgency",
+          "Mosaic ceiling depicting oceanic scenes and the silhouette of an enormous creature beneath the waves",
+          "Coral-encrusted columns with alcoves containing offerings of shell, bone, and corroded bronze"
+        ],
+        "encounters": [
+          "A pair of sahuagin scouts patrolling the antechamber",
+          "Deciphering the mosaic to understand the temple's purpose and the identity of the Tidecaller"
+        ],
+        "secrets": [
+          "The mosaic's darkest panel shows the enormous shape bound in chains of light, held in place by a circular structure that resembles the temple itself — the temple is a prison, and the chains are its walls"
+        ]
+      },
+      {
+        "name": "The Hall of Currents",
+        "description": "A long corridor connecting the antechamber to the inner sanctum, designed with cunning hydraulic engineering that channels seawater through narrow slots in the walls, creating powerful cross-currents that push intruders back toward the entrance. The corridor is waist-deep in water, the current is strong enough to require effort to wade through, and the walls are carved with warnings in the ancient pictographic language — pleas to turn back, descriptions of what lies ahead, and prayers for the prison to hold.",
+        "features": [
+          "Waist-deep seawater with strong cross-currents (DC 13 Athletics to move at half speed, or be pushed back 10 feet)",
+          "Carved wall warnings in ancient pictograms describing the Tidecaller's imprisonment",
+          "Pressure-plate traps that open wall slots, releasing additional water surges (DC 14 Perception to spot, DC 12 Dexterity save or be knocked prone)"
+        ],
+        "encounters": [
+          "Navigating the cross-currents while avoiding the pressure-plate traps",
+          "A sahuagin attempting to disable the temple's hydraulic defenses from within a wall alcove"
+        ],
+        "secrets": [
+          "The hydraulic defenses were designed to keep things IN, not out — the currents push toward the entrance to prevent whatever is imprisoned deeper in the temple from escaping. The sahuagin are systematically dismantling these defenses."
+        ]
+      },
+      {
+        "name": "The Inner Sanctum — The Tidecaller's Prison",
+        "description": "The heart of the temple, a vast domed chamber that is mostly submerged, with only a raised stone platform at its center above the waterline. Chains of faintly glowing magical energy stretch from the chamber's walls to converge on a massive coral formation at the platform's center — and within the coral, something moves. The Tidecaller, a herald of a forgotten sea deity, stirs in its ancient prison, its movements causing the water to churn and the chains to vibrate with a sound like singing. The sahuagin have gathered here, working to sever the chains and free their imprisoned master.",
+        "features": [
+          "A raised stone platform (15 ft diameter) surrounded by deep water (10 ft deep)",
+          "Chains of magical energy connecting the walls to the central coral prison, humming with power",
+          "The coral prison itself — a massive organic structure pulsing with bioluminescence, something vast shifting within"
+        ],
+        "encounters": [
+          "The final confrontation with the sahuagin raiding party",
+          "A choice: reinforce the prison chains or allow the sahuagin to continue their work"
+        ],
+        "secrets": [
+          "The Tidecaller is not evil — it is a messenger of a neutral ocean deity, imprisoned millennia ago by surface-dwelling civilizations who feared the sea's power. The sahuagin's desire to free it is not malicious but devout. However, freeing the Tidecaller now, after millennia of imprisonment, would cause catastrophic tidal surges that could destroy Brinewatch and the entire coastline."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Strange artifacts in fishing nets and something damaging boats from below draw the adventurers to the coastal village of Brinewatch, where an ancient horror is stirring beneath the waves. Investigation leads them through treacherous tidal caves into a partially submerged temple that was built not as a place of worship but as a prison — a cage for the Tidecaller, a powerful herald of a forgotten sea deity. Sahuagin scouts have discovered the temple and are working to free their imprisoned master, believing they are performing a sacred duty. The party must navigate rising tides, slippery terrain, and underwater passages to reach the temple's heart and stop the sahuagin before the Tidecaller breaks free and unleashes catastrophic tidal forces on the coastline.",
+  "hook": "A fisherman named Corwin arrives at the party's location, soaking wet and shaking, carrying a barnacle-encrusted bronze medallion he pulled from his net that morning. The medallion depicts a humanoid figure wrapped in chains beneath ocean waves, and when Corwin touched it, he heard a voice in his mind — vast, ancient, and pleading for release. His nets were shredded by something in the water, his boat's hull bears claw marks from something that climbed aboard during the night, and three other Brinewatch fishermen have reported similar experiences. The village is offering 200 gold pieces in pooled savings to anyone who can discover what is happening beneath their waters and stop it before the fishing season — and the village — is ruined.",
+  "acts": [
+    {
+      "title": "Act 1: Something Beneath the Waves",
+      "description": "The party arrives in Brinewatch, investigates the strange occurrences, examines the recovered artifacts, and prepares to explore the tidal caves at low tide. This act builds atmosphere, introduces the coastal setting and its dangers, and provides the party with enough information to understand they are dealing with something ancient and aquatic.",
+      "objectives": [
+        "Arrive in Brinewatch and speak with the fishermen",
+        "Examine the recovered artifacts and damaged boats",
+        "Consult with Old Maren about the ancient pictograms",
+        "Learn about the tidal caves and their connection to the underwater disturbances",
+        "Prepare for the tidal cave exploration during the next low tide window"
+      ],
+      "scenes": [
+        {
+          "name": "The Village on Edge",
+          "description": "The party arrives in Brinewatch to find a fishing community unraveling. Half the boats are not going out, the fishermen who do return with damaged nets and strange stories, and the village elder is burning offerings at the sea shrine day and night. The artifacts pulled from the water are unlike anything the villagers have seen, and the underwater glow grows brighter each night.",
+          "readAloud": "\"Brinewatch clings to its headland like a limpet to a rock, grey stone buildings hunched against the sea wind under a sky the color of old pewter. The harbor below holds six fishing boats, two listing at their moorings with deep gouges scored along their waterlines. A knot of fishermen stands on the quay, arguing in raised voices that carry up the cliff path. As you approach, one of them — a sun-weathered man with salt-stiff hair — breaks from the group and strides toward you, holding out a corroded bronze disc the size of his palm. 'You look like the sort who deal in strange things,' he says without preamble. 'Because things have gotten very strange indeed. Look at this — pulled it from my net this morning, and when I touched it, something spoke inside my head. Something old and angry and trapped.' He holds the medallion out, and even from arm's length, you can feel a vibration emanating from it, like the hum of a plucked string that never stops.\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 13, "success": "The medallion is a ward token — one of many that were once placed around a magical containment structure. Its removal from the seabed has weakened whatever barrier it was part of. The pleading voice Corwin heard is likely the imprisoned entity testing the weakened bonds.", "failure": "The medallion is clearly magical and very old, but its specific purpose is unclear." },
+            { "skill": "History", "dc": 14, "success": "You recall fragmentary references in old texts to coastal civilizations that built 'chain-temples' beneath the waves — structures designed to imprison powerful entities using networks of magical wards anchored to the ocean floor. These temples were supposed to be permanent, but millennia of tidal erosion could weaken any structure.", "failure": "The medallion's symbols are from a civilization you cannot identify — something predating current historical records." },
+            { "skill": "Investigation", "dc": 12, "success": "Examining the damaged boats, you find the claw marks are too precise for a predatory attack — they follow the hull's structural lines, as if something was studying the boat's construction. You also find a single scale caught in the hull planking: iridescent green-blue, the size of a coin, and unmistakably from a sahuagin.", "failure": "The damage to the boats looks like it could have been caused by large marine predators striking the hulls from below." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The fishermen are frightened and divided. Some want to abandon Brinewatch entirely, while others insist the disturbances will pass if they simply avoid fishing near the shelf. Corwin is the most proactive, having already sent for help. Old Maren is the key information source — she recognizes the pictograms from her grandmother's stories and can explain the concept of the Tidecaller, though her information is incomplete and mixed with legend.",
+          "loot": [
+            "The bronze ward medallion (quest item, hums when near sahuagin or the temple)",
+            "A set of detailed nautical charts showing the underwater shelf and the approximate location of the tidal cave entrances",
+            "Old Maren provides a waterproofed pouch containing a potion of water breathing (1 hour duration)"
+          ]
+        },
+        {
+          "name": "Into the Tidal Caves",
+          "description": "At low tide, the party descends the headland to the exposed cave entrances and begins navigating the treacherous tidal cave system. Slippery rocks, deep tidal pools, bioluminescent creatures, and the ever-present awareness that the tide will return in six hours create a tense exploration sequence. A giant crab guards the passage leading down to the temple.",
+          "readAloud": "\"The tide retreats like a curtain being drawn, revealing the mouth of the caves at the headland's base — jagged openings in the dark rock, dripping with seaweed and alive with the clicking of crabs and the gentle surge of trapped water. The air inside is cool and heavy with salt, and every surface gleams wetly in the light of your torches. Tidal pools dot the cave floor like windows into another world, their depths home to anemones, starfish, and tiny creatures that pulse with soft blue-green light. The walls narrow as you go deeper, the ceiling dropping until you are wading through ankle-deep water that swirls with each distant pulse of the ocean. Ahead, the passage descends, and the water deepens. Somewhere below and beyond, you feel the medallion in your pack begin to vibrate with renewed urgency.\"",
+          "skillChecks": [
+            { "skill": "Acrobatics", "dc": 12, "success": "You navigate the slippery rocks with sure footing, avoiding the deeper tidal pools and unstable rock shelves.", "failure": "Your foot slides on a barnacle-covered surface and you fall, taking 1d4 bludgeoning damage and landing in a waist-deep tidal pool. A DC 10 Athletics check is needed to climb out on the slippery rocks." },
+            { "skill": "Perception", "dc": 13, "success": "You spot fresh claw marks on the cave walls — sahuagin tracks, heading deeper, made within the last tide cycle. At least three of the creatures have passed through recently.", "failure": "The cave walls are covered in natural scratches and erosion patterns that make it difficult to distinguish any specific tracks." },
+            { "skill": "Nature", "dc": 12, "success": "You estimate the tide will begin returning in approximately four hours, giving the party a clear deadline for how long they can spend in the caves and temple before the passages flood. You also identify safe high-ground positions where the party could wait out a tide if necessary, though it would mean being trapped for six hours.", "failure": "You know the tide will return eventually but cannot estimate the timing precisely enough to plan around it." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 giant crab"],
+              "difficulty": "Easy",
+              "tactics": "The giant crab lurks in a deep tidal pool near the temple passage, attacking anything that enters its territory. It uses its claws to grapple and drag opponents into the deeper water where it has advantage. If reduced to half HP, it retreats into a crevice too narrow to follow.",
+              "terrain": "Tidal cave — slippery rocks (DC 12 Acrobatics when moving more than half speed), tidal pools of varying depth (ankle-deep to chest-deep), dim light from bioluminescent creatures. The temple passage is partially submerged (waist-deep) and descends at a steep angle."
+            }
+          ],
+          "roleplayNotes": "The tidal caves should feel like a threshold between the familiar surface world and something alien and ancient. The bioluminescence, the echoing water sounds, and the gradual descent create a sense of leaving the world above behind. Emphasize the ticking clock of the tide — the party knows the water will return, and every minute spent exploring is a minute less for the temple below.",
+          "loot": [
+            "A cache of sahuagin supplies hidden in a cave alcove: dried fish, a coral knife (dagger stats), and 15 gp worth of sea-polished gemstones",
+            "Bioluminescent algae that can be collected (DC 11 Nature) and used as a light source for 8 hours (dim light, 10-foot radius)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Drowned Halls",
+      "description": "The party enters the partially submerged temple, navigating its flooded corridors, deciphering its ancient warnings, and encountering the sahuagin scouts who are systematically dismantling the temple's defenses. The rising water level creates increasing urgency as the party pushes deeper toward the inner sanctum.",
+      "objectives": [
+        "Enter the temple antechamber and examine the mosaic",
+        "Navigate the Hall of Currents and its hydraulic traps",
+        "Defeat or avoid the sahuagin scouts",
+        "Learn the true purpose of the temple — it is a prison, not a place of worship",
+        "Reach the inner sanctum before the water level makes further progress impossible"
+      ],
+      "scenes": [
+        {
+          "name": "The Temple Antechamber",
+          "description": "The party emerges from the tidal passage into the first chamber of the sunken temple — a vast space of alien architecture, half-flooded and decorated with mosaic tiles that tell the story of the Tidecaller's imprisonment. Sahuagin scouts patrol the chamber, and the rising water serves as a constant reminder that time is not on the party's side.",
+          "readAloud": "\"The passage opens and you find yourself standing in a drowned cathedral. Water laps at your knees, reflecting the faint glow of the mosaic tiles that cover every inch of the vaulted ceiling above. The images are breathtaking and terrible — vast ocean panoramas showing storms, calms, and in the darkest panels, an immense shape moving beneath stylized waves, bound in chains of golden light. Columns of coral-encrusted stone rise from the water like the ribs of a leviathan, and between them, the chamber stretches into darkness. The water is warmer here than in the caves, and it pulses with the same slow rhythm as the glow you saw from the village — a heartbeat, you realize. Something in this temple has a heartbeat, and it is very much alive.\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 14, "success": "The mosaic depicts the construction of this temple as a prison for a being called the Tidecaller — a herald of a forgotten sea deity. The chains of light represent binding wards woven into the temple's architecture. The ward tokens, like the medallion Corwin found, are anchor points for these chains. As they are removed or eroded, the prison weakens.", "failure": "The mosaic shows an ancient civilization building this structure around a large sea creature, but the specific details of its purpose are unclear." },
+            { "skill": "Stealth", "dc": 13, "success": "You spot the sahuagin scouts before they notice you — two fish-like humanoids wading through the chamber, using coral tools to pry ward tokens from the column bases. You have a chance to ambush them or avoid them entirely.", "failure": "The sahuagin detect your torchlight reflecting off the water and turn to face you, hissing in their guttural language and drawing weapons." },
+            { "skill": "Religion", "dc": 13, "success": "The temple's design incorporates sacred geometry associated with binding rituals — the columns are positioned to create overlapping fields of containment energy. Each column that loses its ward token weakens the overall prison. You count at least four columns with empty token slots.", "failure": "The temple clearly serves a religious purpose, but its specific theological traditions are unfamiliar." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 sahuagin"],
+              "difficulty": "Medium",
+              "tactics": "The sahuagin fight in the water, using their superior aquatic mobility to circle the party. They attempt to separate party members by positioning themselves on opposite sides of columns and attacking from two directions. If one is killed, the other dives underwater and attempts to flee toward the inner sanctum to warn the others. In waist-deep water, the sahuagin have advantage on attack rolls, and non-aquatic creatures have disadvantage.",
+              "terrain": "Temple antechamber — knee- to waist-deep water (difficult terrain for non-aquatic creatures), coral-encrusted columns providing cover, dim light from mosaic tiles. The sahuagin can move at full speed in the water and can hold their breath indefinitely."
+            }
+          ],
+          "roleplayNotes": "If a sahuagin is captured alive, it speaks broken Common and is fanatically devoted to freeing the Tidecaller. It calls the party 'land-walkers' with contempt and insists they are interfering with a sacred liberation. It will not betray its companions but may inadvertently reveal information about how many sahuagin are in the temple (six total, including these two) and that their 'tide priestess' is leading the ritual in the inner sanctum.",
+          "loot": [
+            "2 coral-tipped spears (function as spears, worth 5 gp each for the coral craftsmanship)",
+            "A ward token pried from a column (quest item — can be replaced to strengthen the prison)",
+            "A pouch of 10 gp in sea-polished coins from ancient civilizations"
+          ]
+        },
+        {
+          "name": "The Hall of Currents",
+          "description": "The party navigates the temple's trapped corridor, fighting cross-currents, avoiding pressure-plate water traps, and encountering a sahuagin working to disable the hydraulic defenses. The water is deeper here and the current stronger, testing the party's physical abilities and problem-solving skills under pressure.",
+          "readAloud": "\"Beyond the antechamber, a long corridor stretches into the dark, its walls carved with dense lines of pictographic text — warnings, you realize, written so thickly they overlap and repeat, a chorus of ancient voices screaming TURN BACK in a language older than any you know. The water here is waist-deep and moving — cross-currents surge through narrow slots in the walls, pushing against you with surprising force, as if the temple itself is trying to push you back toward the entrance. Ahead, you can hear the rhythmic clang of metal on stone — someone is working deeper in the corridor, and the currents pulse with each impact, growing weaker as whatever they are doing takes effect.\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 13, "success": "You brace against the cross-currents and push forward, making slow but steady progress through the flooded corridor. You move at half speed but remain upright and in control.", "failure": "The current catches you off-balance and pushes you back 10 feet toward the entrance. You must try again or find another way to reduce the current's strength." },
+            { "skill": "Perception", "dc": 14, "success": "You spot a pressure plate beneath the water's surface, disguised as a regular floor tile. Avoiding it prevents an additional water surge that would have filled the corridor to chest depth.", "failure": "You step on the pressure plate, and jets of water blast from the wall slots, raising the water level to your chest and requiring a DC 12 Dexterity save to avoid being knocked prone." },
+            { "skill": "Acrobatics", "dc": 12, "success": "You find footholds on the carved wall surfaces above the waterline and move along them like a climber, avoiding the worst of the currents entirely.", "failure": "The barnacle-covered walls are too slippery to climb, and you are forced to wade through the currents like everyone else." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 sahuagin"],
+              "difficulty": "Easy",
+              "tactics": "A single sahuagin is wedged in a wall alcove, using a coral tool to disable a hydraulic mechanism. It attacks only if confronted directly, fighting from the alcove where it has three-quarters cover from the water. If the party lets it finish its work, the corridor's cross-currents weaken significantly, making passage easier but also weakening the temple's defenses against the Tidecaller's escape.",
+              "terrain": "Flooded corridor — waist- to chest-deep water with strong cross-currents, narrow wall slots creating jets, pressure plates on the floor. The sahuagin's alcove is above the waterline and provides excellent cover."
+            }
+          ],
+          "roleplayNotes": "This scene presents a tactical dilemma: stopping the sahuagin preserves the temple's defenses but makes the corridor harder to navigate; letting it work makes passage easier but weakens the prison. The carved warnings on the walls become increasingly desperate as the party moves deeper, shifting from formal warnings to raw pleas. If anyone can read them, they describe the Tidecaller as 'the Voice of the Deep, whose song drowns cities and whose wake reshapes coastlines.'",
+          "loot": [
+            "A coral tool of sahuagin make (functions as thieves' tools for underwater mechanisms, worth 20 gp)",
+            "Another ward token found in the disabled mechanism (quest item)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Tidecaller's Prison",
+      "description": "The party reaches the inner sanctum and confronts the sahuagin tide priestess and her remaining warriors as they work to sever the final binding chains holding the Tidecaller. The rising water, the pulsing prison, and the sahuagin's religious fervor create a climactic encounter where the party must fight on an isolated stone platform surrounded by deep water while deciding the fate of an ancient imprisoned being.",
+      "objectives": [
+        "Enter the inner sanctum",
+        "Defeat the sahuagin tide priestess and her warriors",
+        "Decide the fate of the Tidecaller — reinforce the prison or allow its release",
+        "Escape the temple before the rising tide floods the passages completely",
+        "Return to Brinewatch with the outcome"
+      ],
+      "scenes": [
+        {
+          "name": "The Heart of the Prison",
+          "description": "The party emerges onto the raised stone platform at the inner sanctum's center, surrounded by deep water and the glowing chains of the Tidecaller's prison. The sahuagin tide priestess leads three warriors in a ritual to sever the chains, and the coral prison at the platform's center pulses with increasing intensity as the binding weakens. The Tidecaller stirs within, its movements sending waves across the flooded chamber.",
+          "readAloud": "\"The corridor ends abruptly, opening into a domed chamber so vast the walls are lost in blue-green darkness. Water stretches in every direction — deep, black, and alive with currents that swirl around a raised stone platform at the chamber's center, connected to the corridor by a narrow stone causeway barely above the waterline. Chains of pure light stretch from the dome's walls to the platform, converging on a massive formation of living coral that pulses with each thrum of the heartbeat you have felt since entering the temple. Something moves within the coral — something immense, shifting with the slow patience of tides, pressing against its prison with inexorable force. On the platform, four figures work by the chains' glow: three sahuagin warriors and a fourth wearing a headdress of shells and bone — a priestess, her webbed hands tracing patterns of dissolution against the nearest chain, which flickers and dims with each pass. She turns at your approach, baring needle teeth in what might be a smile or a snarl, and hisses, 'You are too late, land-walkers. The Tidecaller wakes, and the sea will reclaim what was stolen.'\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 15, "success": "You understand the binding mechanism — the ward tokens you have collected can be placed in the empty slots on the platform's column bases to reinforce the chains. Each token placed strengthens the prison and weakens the Tidecaller's attempts to break free. Placing all recovered tokens will fully restore the binding.", "failure": "The chains are clearly magical bindings, but you cannot determine how to reinforce them without more study." },
+            { "skill": "Persuasion", "dc": 16, "success": "You appeal to the tide priestess's devotion, arguing that freeing the Tidecaller in its current state — maddened by millennia of imprisonment — would result in destruction that even the sahuagin could not survive. The coastline would be devastated, including the sahuagin's own underwater settlements. The priestess hesitates, her certainty cracking.", "failure": "The priestess is unmoved by surface-dweller reasoning. Her faith in the Tidecaller's mercy is absolute, and she redoubles her efforts to break the chains." },
+            { "skill": "Athletics", "dc": 13, "success": "You cross the narrow causeway to the platform without losing your footing despite the waves generated by the Tidecaller's movements.", "failure": "A wave surges across the causeway, and you must make a DC 12 Dexterity save or be swept into the deep water surrounding the platform (10 ft deep, DC 12 Athletics to climb back onto the causeway)." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 sahuagin priestess (use sahuagin stats with the following additions: 2 first-level spell slots, can cast command and sanctuary)", "2 sahuagin warriors"],
+              "difficulty": "Hard",
+              "tactics": "The priestess continues her ritual to sever chains while the two warriors defend her, positioning themselves on the causeway to block the party's approach to the platform. The warriors use their natural swimming ability to flank by diving into the water and climbing onto the platform from the opposite side. The priestess uses command ('Flee') to force attackers off the platform into the deep water. If the party begins replacing ward tokens, the priestess abandons her ritual to attack whoever is reinforcing the prison. She fights to the death; the warriors flee if she falls.",
+              "terrain": "Inner sanctum — raised stone platform (15 ft diameter) surrounded by deep water (10 ft), connected to the corridor by a narrow causeway (5 ft wide, 20 ft long). The causeway is slippery (DC 12 Acrobatics to maintain footing when hit by an attack or wave). The deep water is the sahuagin's domain — they have full movement and attack capabilities while submerged. Bright light from the binding chains illuminates the platform; everything beyond is dim light."
+            }
+          ],
+          "roleplayNotes": "The Tidecaller itself does not participate in combat but its presence dominates the scene. Each round, waves pulse outward from the coral prison, the chains flicker, and the entire chamber shakes. If a character touches the coral, they hear the Tidecaller's voice — ancient, weary, and confused, asking what has happened to the world above and why it was imprisoned. The Tidecaller is not malevolent but its release would be catastrophic regardless of its intentions, like a tidal wave that means no harm but destroys everything in its path.",
+          "loot": [
+            "The tide priestess's shell-and-bone headdress (worth 30 gp, functions as a holy symbol for ocean deities)",
+            "A pearl of power (single use — recovers one expended spell slot of 1st level)",
+            "Ancient gold coins fused together by coral growth (80 gp value when separated)",
+            "A coral trident of sahuagin make (functions as a trident, deals an extra 1 cold damage on a hit while in or near saltwater)"
+          ]
+        },
+        {
+          "name": "Racing the Tide",
+          "description": "With the sahuagin defeated and the Tidecaller's prison reinforced or compromised, the party must escape the temple as the real-world tide floods the caves and passages. This is a tense skill-challenge escape sequence back through the rising water, culminating in the party emerging from the caves as the tide crashes in behind them.",
+          "readAloud": "\"The last chain flares bright — stabilized or severed, the consequence of your choice reverberating through the temple's ancient bones. The chamber shudders, and a deep groan resonates through the stone as the structure settles into its new equilibrium. But there is no time to reflect — the water is rising, not just from the Tidecaller's movements but from the real and indifferent tide above. The corridor behind you is already chest-deep and climbing. The temple, which the sea swallowed millennia ago, is being swallowed again, and you are inside it. You have minutes, not hours, to reach the surface before the tidal caves become the tidal depths.\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 13, "success": "You power through the rising water in the Hall of Currents, the cross-currents now weaker but the water level much higher, reaching the antechamber before the corridor is fully submerged.", "failure": "The water rises above your head in the corridor, forcing you to swim the final stretch. You take 1d4 cold damage from exhaustion and swallow seawater, gaining one level of exhaustion." },
+            { "skill": "Survival", "dc": 12, "success": "You remember the safe route through the tidal caves and navigate by memory even as the rising water changes the cave's familiar geography, reaching the exit just as the water reaches the cave mouth.", "failure": "You take a wrong turn in the flooding caves and must backtrack, losing precious minutes and ending up swimming the last stretch through fully submerged passages." },
+            { "skill": "Constitution saving throw", "dc": 12, "success": "You hold your breath long enough to swim through the final submerged passage and emerge, gasping, into open air and daylight.", "failure": "You inhale water during the final swim, taking 1d6 damage and emerging coughing and choking but alive." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene should feel like a breathless race against nature itself. The tide is not malicious — it is simply indifferent, the same force that has shaped these caves for millennia, now threatening to claim the party as it reclaims its territory. If the party reinforced the prison, they emerge to find the sea calmer than it has been in weeks, the underwater glow fading to nothing. If they weakened or destroyed the prison, they emerge to find the sea churning with unnatural energy, waves building higher than they should, and a deep thrumming from beneath the water that promises the Tidecaller's awakening is only a matter of time.",
+          "loot": [
+            "Any remaining loot from previous chambers that was not collected can be grabbed during the escape (DM's discretion based on time pressure)"
+          ]
+        },
+        {
+          "name": "Return to Brinewatch",
+          "description": "The party returns to Brinewatch, battered and waterlogged, to report their findings and collect their reward. The village's reaction depends on the outcome — relief if the prison held, growing terror if it did not. Old Maren has ancient lore to share about what comes next, either way.",
+          "readAloud": "\"You crawl onto the rocks above the tideline, salt-crusted and exhausted, the roar of the incoming tide thundering in the caves behind you. The climb back to Brinewatch feels endless, but the village lights above guide you like stars. When you stagger through the village gate, every fisherman, spouse, and child in Brinewatch is waiting, drawn by some instinct that told them tonight was the night that mattered. Old Maren stands at the front, her rheumy eyes sharp as flint, reading your faces for the answer to the question no one dares to ask. The medallion in your pack has gone silent — whether that means the prison holds or the prisoner has outgrown its need to call for help, only time will tell.\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 12, "success": "You explain the situation clearly enough that the village understands the ongoing threat — or the resolved one — and takes appropriate measures. If the prison holds, they agree to protect the remaining ward tokens and report any further disturbances. If it weakened, they begin preparations to evacuate to higher ground.", "failure": "The villagers are confused by the talk of ancient prisons and sea heralds, but they trust that the party dealt with the immediate threat." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Old Maren is the voice of ancient wisdom in this final scene. She shares her grandmother's stories about the Tidecaller with new gravity — legends of a being whose voice could calm or enrage the seas, whose imprisonment was necessary but whose suffering weighs on the conscience of any who know the full story. If the party reinforced the prison, Maren thanks them but notes that the Tidecaller's prison will weaken again in time — someone will need to maintain it. If they weakened it, she sighs and says the sea always takes back what is its own, but the coast has survived storms before.",
+          "loot": [
+            "200 gp reward from the village (pooled savings as promised)",
+            "Old Maren's waterproof pouch (a useful item for coastal adventures)",
+            "Corwin offers his grandfather's fishing spear — a harpoon of fine make worth 25 gp, or usable as a javelin with +1 to attack rolls against aquatic creatures (minor magic from decades of use on enchanted waters)"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Old Maren",
+      "role": "Quest Giver / Lore Source",
+      "description": "A tiny, ancient woman with skin like tanned leather and eyes the pale blue of shallow water over sand, Maren has outlived two husbands, three boats, and every other elder in Brinewatch. She walks with a driftwood cane carved with wave patterns and speaks in a voice roughened by decades of sea wind, each word chosen with the precision of someone who has learned that some things should not be said carelessly.",
+      "motivation": "Maren carries the weight of ancestral knowledge about the Tidecaller's prison and feels responsible for maintaining awareness of the threat beneath the waves. She called for the party's help when the artifacts began surfacing because she recognized the ward tokens from her grandmother's stories and understood what their displacement meant. She wants the prison reinforced and the village protected, but she also harbors quiet sympathy for the imprisoned Tidecaller."
+    },
+    {
+      "name": "Corwin",
+      "role": "Ally / Guide",
+      "description": "A stocky fisherman in his thirties with arms like hawsers and a sun-burned face that creases easily into a smile despite recent weeks of fear and sleepless nights. He is the most experienced sailor in Brinewatch and the one who found the first ward medallion, an experience that shook him deeply — hearing a voice in his mind was something he never expected and is still processing.",
+      "motivation": "Corwin wants his village safe and his livelihood restored. He is brave, practical, and willing to guide the party to the tidal caves, though he will not enter the temple itself unless pressed — the voice he heard in the medallion genuinely terrified him, and he is honest enough to admit it. He respects the party's courage and will help however he can from the surface."
+    },
+    {
+      "name": "The Tide Priestess (Vaalketh)",
+      "role": "Antagonist / True Believer",
+      "description": "A sahuagin priestess with iridescent scales of deep blue-green, ceremonial scars etched across her fins in patterns representing ocean currents, and a headdress of shells and bone that marks her rank. She moves through water with effortless grace and regards surface-dwellers with a mixture of contempt and pity — to her, they are creatures who chose to abandon the sea and have been diminished by that choice ever since.",
+      "motivation": "Vaalketh genuinely believes freeing the Tidecaller is a sacred duty. In sahuagin theology, the Tidecaller is a divine messenger unjustly imprisoned by surface-dwellers who feared the sea's power. She does not seek destruction for its own sake — she seeks to right what she sees as an ancient wrong. Her faith is absolute, and she will die rather than abandon her mission. She is not evil in a cosmic sense, but the consequences of her success would be catastrophic for the surface world."
+    },
+    {
+      "name": "The Tidecaller (imprisoned)",
+      "role": "Background Presence / Moral Complication",
+      "description": "An entity of immense power imprisoned within a coral formation at the temple's heart, the Tidecaller is felt rather than seen — a presence that manifests as thrumming vibrations, surging water, and a vast, weary voice that speaks directly into the minds of those who touch its prison. Its true form is unknown, but the mosaics depict something between a leviathan and a humanoid figure, draped in currents and crowned with foam.",
+      "motivation": "The Tidecaller wants freedom, but after millennia of imprisonment, its understanding of the surface world is nil. It does not comprehend that its release would cause catastrophic tidal surges — it simply wants the pain of confinement to end. If communicated with, it expresses confusion, loneliness, and a fading memory of its purpose as a messenger between the sea deity and the mortal world. It is tragic rather than threatening, but its power is beyond anything the party can control."
+    }
+  ],
+  "rewards": {
+    "xp": 500,
+    "gold": "200 gp total (village reward of 200 gp, plus approximately 135 gp in ancient treasure and sahuagin valuables found in the temple)",
+    "items": [
+      "Coral Trident (trident, +1 cold damage on hit while near saltwater)",
+      "Corwin's Harpoon (javelin, +1 to attack rolls against aquatic creatures)",
+      "Pearl of Power (single use, recovers one 1st-level spell slot)",
+      "Potion of Water Breathing (if unused from Old Maren)",
+      "Tide Priestess's Shell Headdress (30 gp, functions as ocean deity holy symbol)",
+      "Bronze Ward Medallion (quest item with potential future significance)"
+    ],
+    "story": "The party has confronted an ancient threat beneath the waves and made a choice about the fate of an imprisoned divine herald. If they reinforced the prison, Brinewatch is safe for now, but the Tidecaller's prison will need periodic maintenance — the party may be called upon again, or may need to find a more permanent solution. If they weakened the prison, the coastline faces an escalating threat as the Tidecaller works toward its own release, and the party may need to find another way to deal with the situation before catastrophe strikes. The sahuagin will not forget the party's interference — surviving members of Vaalketh's cult will seek revenge or redouble their efforts at the temple. The ward medallion Corwin found may be the key to locating other chain-temples along the coast, suggesting this is merely the first chapter of a larger story about ancient imprisonments and the things the sea has been keeping."
+  },
+  "twists": [
+    "The sunken temple is not a place of worship but a PRISON built by an ancient civilization to contain the Tidecaller, a powerful herald of a forgotten sea deity. Everything about the temple — its location, its traps, its hydraulic defenses — is designed to keep something IN, not to keep intruders OUT.",
+    "The sahuagin are not random raiders but devout worshippers on a sacred mission to FREE their imprisoned deity's herald. Their actions are religiously motivated rather than predatory, making them antagonists with a sympathetic — if catastrophically dangerous — goal.",
+    "The Tidecaller itself is not evil but simply too powerful and too confused by millennia of imprisonment to be safely released. Its freedom would cause catastrophic tidal surges not out of malice but simply as a natural consequence of its immense power moving through the ocean after an age of stillness.",
+    "The artifacts the fishermen have been pulling from the sea are ward tokens — anchor points for the prison's magical binding chains. Their removal by tidal erosion and fishing nets has been slowly weakening the prison for years, meaning the current crisis is partly the villagers' own inadvertent doing."
+  ],
+  "dmTips": [
+    "Use the rising tide as a persistent tension mechanic throughout the adventure. From the moment the party enters the tidal caves, keep them aware of the clock. Describe the water level rising incrementally in each scene — ankle-deep in the caves, knee-deep in the antechamber, waist-deep in the Hall of Currents, chest-deep during the escape. This natural timer creates urgency without requiring artificial pressure.",
+    "The underwater and partially submerged combat is the adventure's unique challenge. Remind players that fighting in water deeper than waist height imposes disadvantage on melee weapon attacks (except for daggers, javelins, shortswords, spears, and tridents) and that ranged weapon attacks automatically miss beyond normal range. The sahuagin exploit these rules ruthlessly — make sure the players understand the tactical disadvantage they are operating under.",
+    "The Tidecaller should be felt, not fought. Describe its presence through environmental effects — the water surging, the walls vibrating, a deep thrumming that the party feels in their bones. If a character touches the coral prison, give them a brief telepathic impression of the Tidecaller's emotional state: confusion, pain, loneliness, and a vast, unfocused yearning for the open ocean. This builds the moral complexity without requiring the party to face an enemy they cannot possibly defeat.",
+    "The sahuagin tide priestess Vaalketh is the adventure's true antagonist, but she should not be played as a villain. She is a zealot performing what she believes is a holy act of liberation. If the party speaks to her, she explains her position with genuine conviction. She pities the surface-dwellers for their ignorance but does not hate them. This makes the confrontation more interesting than a simple fight against evil.",
+    "If the party decides to free the Tidecaller instead of reinforcing the prison, do not prevent them — but show consequences immediately. The sea begins to churn as they escape, waves grow unnaturally large, and by the time they reach Brinewatch, a storm is building on the horizon that looks like nothing natural. This sets up a future adventure where the party must deal with the consequences of their choice, possibly by finding another way to communicate with or redirect the awakening Tidecaller."
+  ]
+}

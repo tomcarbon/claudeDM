@@ -1,0 +1,138 @@
+{
+  "id": "d7f2b4a6-3c8e-4d1f-a5b7-9e3c1d5f7a2b",
+  "name": "Pip Whistledown",
+  "race": "Halfling",
+  "subrace": "Stout Halfling",
+  "class": "Monk",
+  "level": 1,
+  "background": "Folk Hero",
+  "alignment": "Lawful Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 10,
+    "current": 10
+  },
+  "armorClass": 15,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Acrobatics",
+    "Animal Handling",
+    "Insight",
+    "Stealth",
+    "Survival"
+  ],
+  "languages": [
+    "Common",
+    "Halfling",
+    "Dwarvish"
+  ],
+  "equipment": [
+    "Shortsword",
+    "10 darts",
+    "Dungeoneer's pack",
+    "A set of artisan's tools (cook's utensils)",
+    "A shovel",
+    "An iron pot",
+    "A set of common clothes",
+    "Belt pouch containing 10 gp",
+    "A small carved wooden figure of a badger (good luck charm)",
+    "A worn recipe book from his grandmother"
+  ],
+  "weapons": [
+    {
+      "name": "Unarmed Strike",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Shortsword",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dart",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None (Unarmored Defense: 10 + DEX + WIS)",
+    "type": "none"
+  },
+  "features": [
+    "Lucky (reroll natural 1s on attack rolls, ability checks, or saving throws)",
+    "Brave (advantage on saving throws against being frightened)",
+    "Halfling Nimbleness (can move through the space of any creature that is of a size larger than yours)",
+    "Stout Resilience (advantage on saving throws against poison, resistance to poison damage)",
+    "Unarmored Defense (AC = 10 + DEX modifier + WIS modifier when not wearing armor)",
+    "Martial Arts (use DEX for unarmed strikes and monk weapons, unarmed strikes deal 1d4, bonus action unarmed strike after Attack action)",
+    "Rustic Hospitality (Folk Hero feature: can find a place to hide, rest, or recuperate among commoners)"
+  ],
+  "traits": [
+    "Lucky",
+    "Brave",
+    "Halfling Nimbleness",
+    "Stout Resilience",
+    "Unarmored Defense",
+    "Martial Arts"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am relentlessly cheerful, even in dire circumstances. I believe every problem has a solution, and usually that solution involves a cup of tea and a good chat. I also cook for the group whether they ask me to or not.",
+    "ideals": "Justice. Nobody should have to live in fear of those who are supposed to protect them. The strong have a duty to defend the weak, and the law exists to serve the people, not the powerful.",
+    "bonds": "I witnessed Lord Castien Merrow murder his own steward in cold blood to cover up his embezzlement. I reported it, and now the lord's men hunt me. I will see justice done, no matter how long it takes.",
+    "flaws": "My relentless optimism sometimes blinds me to genuine danger, and I tend to trust people far more than I should. I also refuse to leave anyone behind, even when tactical retreat is the wiser option."
+  },
+  "appearance": "A compact, muscular halfling standing 3 feet 2 inches tall with a round, sun-browned face that seems permanently set in a warm, dimpled grin. His curly chestnut hair is kept short and neat, and his bright hazel eyes sparkle with an irrepressible good humor. Despite his small stature, he moves with a coiled, precise grace that hints at the deadly speed he's capable of. He wears simple, practical clothing in earthy tones -- a belted tunic, sturdy trousers, and no shoes (as is halfling custom). His hands and feet are covered in thick calluses from years of martial training, and a faded scar across his knuckles is the only hint that this cheerful cook is also a formidable fighter.",
+  "backstory": "Pip grew up in the quiet farming village of Bramblewood, where he was known as the best cook in three counties and the winner of the annual harvest wrestling competition seven years running. His life changed the night he was delivering a late supper to Greymoor Manor and accidentally witnessed Lord Castien Merrow strangle his steward, Aldric Penne, in the lord's study over a ledger full of embezzlement records. Pip fled into the night, but not before Merrow's guards spotted him. The lord declared Pip a thief and murderer, putting a bounty on his head and sending hired killers after him. Pip escaped thanks to a wandering monk named Brother Cael who taught him to channel his natural quickness into a fighting art during their months of travel together. Now Pip wanders from town to town, helping those in need and biding his time until he can find a way to expose Lord Merrow's crimes, all while keeping one step ahead of the bounty hunters.",
+  "dmNotes": {
+    "roleplaying": "Pip is the heart of any group. Play him as genuinely, infectiously cheerful -- not naive, but choosing hope deliberately even when he knows how dark the world can be. He cooks for the party during rests (always with enthusiastic narration), tells stories from Bramblewood, and checks on everyone's emotional well-being. He calls everyone 'friend' within five minutes of meeting them. In combat, the cheerful mask drops and he becomes startlingly efficient and focused, flipping and striking with a precision that shocks anyone seeing it for the first time. After combat, the grin comes right back. He should feel like a warm hearth in human form -- but occasionally, when he thinks no one is watching, let the smile slip and show the fear and loneliness underneath.",
+    "voice": "Warm, bright, and conversational with a slight rural accent. Uses folksy expressions and homespun wisdom. Peppers conversation with food metaphors. Laughs easily and often. Example: 'Well now, that's a bit of a pickle, isn't it? But as my gran always said, even the toughest turnip softens up eventually -- you just need the right pot and a bit of patience. Speaking of which, anyone hungry? I found some wild thyme back there that would go lovely with those rabbits.' When scared or serious, his voice gets very quiet and steady.",
+    "motivations": "Primary: Survive long enough to bring Lord Merrow to justice and clear his name. Secondary: Protect and care for his companions -- he's adopted the party as his new family. Tertiary: Find Brother Cael, who disappeared suddenly six months ago. He genuinely believes in the goodness of people and wants to prove that one small halfling can make a difference.",
+    "secrets": "He witnessed Lord Castien Merrow of Greymoor murder his steward Aldric Penne. Merrow is a well-connected noble with allies in several cities, and has put a 200 gold bounty on Pip (described as a halfling thief and murderer). Bounty hunters occasionally recognize Pip or hear about him through tavern gossip. The evidence Pip needs -- the embezzlement ledger -- is still locked in Merrow's study. Brother Cael, Pip's monk mentor, vanished without explanation and Pip fears the worst.",
+    "attitude": "Open, trusting, and warm to almost everyone. He gives people the benefit of the doubt even when they don't deserve it. He is particularly drawn to people who seem sad or lost, and will go out of his way to cheer them up. He becomes cold and determined when confronted with bullies, corrupt authority, or anyone who abuses power over the helpless. He never starts a fight, but he will absolutely finish one. He is embarrassed by his bounty and changes the subject when his past comes up."
+  }
+}

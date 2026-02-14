@@ -1,0 +1,71 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440005",
+  "name": "Zephyr Shadowmend",
+  "race": "Half-Elf",
+  "subrace": "",
+  "class": "Bard",
+  "level": 1,
+  "background": "Entertainer",
+  "alignment": "Chaotic Good",
+  "experience": 0,
+  "abilities": {
+    "strength": { "score": 9, "modifier": -1 },
+    "dexterity": { "score": 14, "modifier": 2 },
+    "constitution": { "score": 13, "modifier": 1 },
+    "intelligence": { "score": 12, "modifier": 1 },
+    "wisdom": { "score": 10, "modifier": 0 },
+    "charisma": { "score": 18, "modifier": 4 }
+  },
+  "hitPoints": { "max": 9, "current": 9 },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["dexterity", "charisma"],
+  "skills": ["Acrobatics", "Deception", "Performance", "Persuasion", "Perception", "Insight"],
+  "languages": ["Common", "Elvish", "Sylvan"],
+  "equipment": [
+    "Leather armor",
+    "Rapier",
+    "Dagger",
+    "Lute",
+    "Diplomat's pack",
+    "A favor of an admirer (a love letter)",
+    "A costume",
+    "A belt pouch containing 15 gp"
+  ],
+  "weapons": [
+    { "name": "Rapier", "attackBonus": 4, "damage": "1d8+2", "damageType": "piercing" },
+    { "name": "Dagger", "attackBonus": 4, "damage": "1d4+2", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Leather armor", "type": "light" },
+  "features": [
+    "Spellcasting (Charisma-based)",
+    "Bardic Inspiration (d6, grant to ally within 60 ft, Charisma modifier times per long rest = 4/day)",
+    "Darkvision (60 ft)",
+    "Fey Ancestry (advantage on saves vs. being charmed, immune to magical sleep)",
+    "Skill Versatility (two bonus skill proficiencies)",
+    "By Popular Demand (can always find a place to perform for free lodging and food)"
+  ],
+  "traits": [
+    "Half-Elf Versatility (two extra skill proficiencies: Perception, Insight)",
+    "Tool Proficiencies (lute, flute, drum)"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 14,
+    "spellAttackBonus": 6,
+    "cantrips": ["Vicious Mockery", "Minor Illusion"],
+    "level1": {
+      "slots": 2,
+      "known": ["Healing Word", "Faerie Fire", "Dissonant Whispers", "Charm Person"]
+    }
+  },
+  "personality": {
+    "traits": "I know a story relevant to almost every situation. Whenever I come to a new place, I collect local rumors and spread gossip.",
+    "ideals": "Beauty. When I perform, I make the world better than it was. Art should uplift and inspire.",
+    "bonds": "My lute is my most treasured possession -- it belonged to my elven mother, who disappeared when I was young.",
+    "flaws": "I can't resist a pretty face, and my tongue often makes promises my sword can't keep. A scandal involving a noble's spouse follows me from city to city."
+  },
+  "appearance": "A lithe, graceful half-elf of 5'7\" with tousled dark auburn hair, one green eye and one amber eye, and an easy, disarming smile. Their features blend human warmth with elven sharpness. They wear a deep emerald leather jacket over their armor, adorned with silver embroidery, and carry a beautifully carved rosewood lute across their back.",
+  "backstory": "Born to an elven bard and a human merchant in a bustling port city, Zephyr learned early that a clever word could open more doors than a crowbar. When their mother vanished under mysterious circumstances, their father grew distant, and Zephyr took to the tavern circuit, trading songs for coin and secrets for favors. Their performances are legendary in at least three cities -- as are the hasty departures that followed certain romantic entanglements with people of influence."
+}

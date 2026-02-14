@@ -1,0 +1,134 @@
+{
+  "id": "c5e9a1d3-2b6f-4c8d-9a3e-7d1b4f6c8e2a",
+  "name": "Drak \"Copperhand\" Voss",
+  "race": "Human",
+  "subrace": "",
+  "class": "Ranger",
+  "level": 1,
+  "background": "Outlander",
+  "alignment": "Chaotic Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 14,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 9,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 11,
+    "current": 11
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Animal Handling",
+    "Athletics",
+    "Nature",
+    "Perception",
+    "Stealth",
+    "Survival"
+  ],
+  "languages": [
+    "Common",
+    "Orc",
+    "Goblin"
+  ],
+  "equipment": [
+    "Scale mail",
+    "Two shortswords",
+    "Longbow",
+    "Quiver with 20 arrows",
+    "Explorer's pack",
+    "A staff",
+    "Hunting trap",
+    "A set of traveler's clothes",
+    "Belt pouch containing 10 gp",
+    "A trophy from a beast he killed (a dire wolf fang on a leather cord)",
+    "A copper-plated leather glove on his left hand (conceals burn scars)",
+    "A leather jess and falconer's glove for Talon"
+  ],
+  "weapons": [
+    {
+      "name": "Longbow",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortsword",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortsword (off-hand)",
+      "attackBonus": 5,
+      "damage": "1d6",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Scale mail",
+    "type": "medium"
+  },
+  "features": [
+    "Favored Enemy: Humanoids (advantage on Survival checks to track, Intelligence checks to recall information about them)",
+    "Natural Explorer: Forest (double proficiency on INT and WIS checks in favored terrain, difficult terrain doesn't slow group, can't become lost except by magic, remain alert to danger while foraging/navigating, can move stealthily at normal pace when alone, find twice as much food when foraging, learn exact number/size of creatures tracked)",
+    "Wanderer (Outlander feature: excellent memory for maps and geography, can find food and water for self and up to 5 others each day)",
+    "Pet Hawk: Talon (uses Hawk stat block, AC 13, HP 1, Perception +4, Keen Sight)"
+  ],
+  "traits": [
+    "Favored Enemy: Humanoids",
+    "Natural Explorer: Forest"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I speak in short, blunt sentences and let my actions do most of the talking. I always position myself where I can watch the exits, and I sleep with one hand on my blade.",
+    "ideals": "Redemption. I've done terrible things, and every life I save pushes back against the darkness of my past. A person isn't defined by what they've done, but by what they choose to do next.",
+    "bonds": "Talon, my hawk, is my oldest and most trusted companion. He found me half-dead in the Greenwood after I left the Red Axes, and we've been inseparable since. I also owe a debt to the old ranger who taught me a better way to live.",
+    "flaws": "I cannot bring myself to talk about my past, and the guilt eats at me. When I see bandits, I become reckless and violent -- I'm not fighting them, I'm fighting who I used to be."
+  },
+  "appearance": "A weathered, broad-shouldered human man in his mid-thirties with a square jaw, cropped dark hair, and deep-set grey eyes that seem to be constantly scanning for threats. A jagged scar runs from his left temple down across his cheek. His left hand is always covered by a distinctive copper-plated leather glove that hides severe burn scars -- the origin of his nickname. He wears well-maintained but heavily worn scale mail over dark traveling leathers, and moves with the quiet, deliberate gait of someone accustomed to stalking prey. A red-tailed hawk named Talon is almost always perched on his shoulder or circling overhead.",
+  "backstory": "Drak Voss spent five years as an enforcer for the Red Axes, a brutal bandit company that terrorized trade roads in the northern reaches. He earned the name 'Copperhand' after a raid gone wrong left his left hand badly burned -- a merchant's wife had thrown a pot of molten copper at him as he kicked in her door, and the name stuck as a mark of infamy. The screams of that woman and her children haunted Drak until he finally deserted the Red Axes during a raid on a refugee caravan, cutting down two of his former brothers to protect the fleeing families. Left for dead by the bandits who pursued him, Drak was found by an old ranger named Harsk who nursed him back to health and taught him to use his skills for protection rather than predation. Harsk died two winters ago, and now Drak walks the wilds alone with only Talon for company, hiring on with adventuring parties and caravan guards, trying to balance a ledger he fears can never be made even.",
+  "dmNotes": {
+    "roleplaying": "Drak is a man of few words and heavy silences. Play him as stoic and watchful -- he's always the one who notices the tracks, hears the twig snap, spots the ambush. He communicates a lot through grunts, nods, and pointed looks. When he does speak at length, it carries weight because it's so rare. He is visibly uncomfortable in cities and around authority figures. He is gentle with animals and children, revealing a tenderness that contrasts sharply with his rough exterior. In combat, he is efficient, tactical, and ruthless -- but he will always try to give enemies a chance to surrender. He talks to Talon as though the hawk understands him (and Talon seems to).",
+    "voice": "Low, gravelly, and sparse. Speaks in sentence fragments and short declarations. Avoids flowery language entirely. Long pauses. Occasional dry, dark humor that catches people off guard. Example: 'Tracks. Six of them. Headed east. Three hours old.' Or when asked about his past: '...I was someone else. He's dead now.' When something amuses him, he doesn't laugh -- one corner of his mouth twitches up for half a second.",
+    "motivations": "Primary: Atone for his years as a bandit by protecting the innocent. Secondary: Ensure the Red Axes can never hurt anyone again (they're still active under new leadership). Tertiary: Honor old Harsk's memory by living as the ranger taught him. He secretly fears he is irredeemable and clings to every good deed as proof that he's changed.",
+    "secrets": "He was a member of the Red Axes bandit company for five years and personally participated in robberies, arson, and worse. There is likely still a bounty on 'Copperhand Voss' in several northern territories. The copper glove hides burn scars from a raid -- a reminder of the harm he caused. If the party encounters the Red Axes or his name is recognized, his past will come crashing back. He killed two former companions when he deserted and the Red Axes want revenge.",
+    "attitude": "Wary and distant at first, but once he decides the party members are good people, he becomes fiercely, quietly loyal -- the kind of person who says nothing but steps in front of an arrow meant for a companion. He respects competence and courage. He despises cruelty, bullying, and those who prey on the weak (because he used to be one of them). He is uncomfortable with praise and deflects compliments. He bonds most easily with other outcasts and people seeking second chances."
+  }
+}
