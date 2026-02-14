@@ -1,6 +1,8 @@
-const { query } = require('@anthropic-ai/claude-agent-sdk');
+const { query, createSdkMcpServer, tool } = require('@anthropic-ai/claude-agent-sdk');
+const { z } = require('zod/v4');
 const fs = require('fs');
 const path = require('path');
+const { awardXp } = require('./xp-utils');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 
@@ -172,6 +174,18 @@ Scenario file: data/scenarios/${scenario.id}.json (Read for full details)`;
 
   prompt += `
 
+## XP & Leveling
+At the end of each combat encounter:
+1. Look up each defeated enemy's CR in the monster_xp_by_cr table (data/rules/leveling.json) to get their XP value.
+2. Sum the total XP from all defeated enemies.
+3. Divide the total XP equally among all surviving party members (PCs and NPC companions).
+4. Use the AwardXP tool for each character/NPC that should receive XP — do NOT manually edit XP fields.
+5. Announce how much XP each character gained. If a level-up occurs, narrate it dramatically and congratulate the player.
+
+For non-combat milestones (quest completion, major story beats), award scenario-defined XP from the scenario's rewards section using the same AwardXP tool.`;
+
+  prompt += `
+
 ## Response Format
 - Respond as narrative prose. Describe scenes vividly.
 - Use "read aloud" style for important scene descriptions.
@@ -183,11 +197,39 @@ Scenario file: data/scenarios/${scenario.id}.json (Read for full details)`;
   return prompt;
 }
 
+function createXpMcpServer(dataDir) {
+  return createSdkMcpServer({
+    name: 'dnd-xp',
+    version: '1.0.0',
+    tools: [
+      tool(
+        'AwardXP',
+        'Award experience points to a character. Handles XP addition, level-up detection, and character file updates automatically. Use this after combat encounters or milestone rewards.',
+        { characterId: z.string(), xp: z.number() },
+        async (args) => {
+          try {
+            const result = awardXp(dataDir, args.characterId, args.xp);
+            return {
+              content: [{ type: 'text', text: JSON.stringify(result) }],
+            };
+          } catch (err) {
+            return {
+              content: [{ type: 'text', text: `Error: ${err.message}` }],
+              isError: true,
+            };
+          }
+        }
+      ),
+    ],
+  });
+}
+
 class DmEngine {
   constructor(dataDir) {
     this.dataDir = dataDir;
     this.sessionId = null;
     this.activeQuery = null;
+    this.xpMcpServer = createXpMcpServer(dataDir);
   }
 
   async *run(userMessage, { characterId, scenarioId, onPermissionRequest }) {
@@ -197,12 +239,19 @@ class DmEngine {
       systemPrompt,
       cwd: PROJECT_ROOT,
       allowedTools: ['Read', 'Glob', 'Grep', 'Edit'],
+      mcpServers: { 'dnd-xp': this.xpMcpServer },
       permissionMode: 'default',
       includePartialMessages: true,
       maxTurns: 20,
+      effort: 'medium',
       async canUseTool(toolName, input, opts) {
         // Read-only tools are always allowed
         if (['Read', 'Glob', 'Grep'].includes(toolName)) {
+          return { behavior: 'allow' };
+        }
+
+        // MCP tools (AwardXP etc.) are always allowed
+        if (toolName.startsWith('mcp__')) {
           return { behavior: 'allow' };
         }
 

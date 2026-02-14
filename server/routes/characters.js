@@ -2,6 +2,49 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const { awardXp } = require('../xp-utils');
+
+function validateCharacter(data) {
+  const errors = [];
+
+  for (const field of ['name', 'race', 'class']) {
+    if (typeof data[field] !== 'string' || !data[field].trim()) {
+      errors.push(`${field} is required and must be a non-empty string`);
+    }
+  }
+
+  if (typeof data.level !== 'number' || data.level < 1 || data.level > 20) {
+    errors.push('level is required and must be a number between 1 and 20');
+  }
+
+  const abilityNames = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'];
+  if (typeof data.abilities !== 'object' || data.abilities === null) {
+    errors.push('abilities is required and must be an object');
+  } else {
+    for (const stat of abilityNames) {
+      const a = data.abilities[stat];
+      if (!a || typeof a !== 'object') {
+        errors.push(`abilities.${stat} is required and must be an object`);
+      } else {
+        if (typeof a.score !== 'number') errors.push(`abilities.${stat}.score must be a number`);
+        if (typeof a.modifier !== 'number') errors.push(`abilities.${stat}.modifier must be a number`);
+      }
+    }
+  }
+
+  if (typeof data.hitPoints !== 'object' || data.hitPoints === null) {
+    errors.push('hitPoints is required and must be an object');
+  } else {
+    if (typeof data.hitPoints.max !== 'number') errors.push('hitPoints.max must be a number');
+    if (typeof data.hitPoints.current !== 'number') errors.push('hitPoints.current must be a number');
+  }
+
+  if (typeof data.armorClass !== 'number') {
+    errors.push('armorClass is required and must be a number');
+  }
+
+  return errors.length === 0 ? { valid: true } : { valid: false, errors };
+}
 
 module.exports = function (dataDir) {
   const router = express.Router();
@@ -22,6 +65,43 @@ module.exports = function (dataDir) {
       const characters = readAllCharacters();
       res.json(characters);
     } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // POST import character (must be before /:id)
+  router.post('/import', (req, res) => {
+    try {
+      const data = { ...req.body };
+      const result = validateCharacter(data);
+      if (!result.valid) {
+        return res.status(400).json({ error: 'Validation failed', errors: result.errors });
+      }
+      delete data.id;
+      delete data._filename;
+      data.id = uuidv4();
+      const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const filename = `${slug}.json`;
+      fs.writeFileSync(path.join(charDir, filename), JSON.stringify(data, null, 2));
+      res.status(201).json(data);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // POST award XP to a character (must be before /:id)
+  router.post('/:id/award-xp', (req, res) => {
+    try {
+      const { xp } = req.body;
+      if (typeof xp !== 'number' || xp <= 0) {
+        return res.status(400).json({ error: 'xp must be a positive number' });
+      }
+      const result = awardXp(dataDir, req.params.id, xp);
+      res.json(result);
+    } catch (err) {
+      if (err.message.startsWith('Character not found')) {
+        return res.status(404).json({ error: err.message });
+      }
       res.status(500).json({ error: err.message });
     }
   });

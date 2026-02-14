@@ -7,7 +7,9 @@ async function fetchJson(url, options = {}) {
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: res.statusText }));
-    throw new Error(err.error || res.statusText);
+    const error = new Error(err.error || res.statusText);
+    if (err.errors) error.errors = err.errors;
+    throw error;
   }
   return res.json();
 }
@@ -19,6 +21,7 @@ export const api = {
   createCharacter: (data) => fetchJson('/characters', { method: 'POST', body: JSON.stringify(data) }),
   updateCharacter: (id, data) => fetchJson(`/characters/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteCharacter: (id) => fetchJson(`/characters/${id}`, { method: 'DELETE' }),
+  importCharacter: (data) => fetchJson('/characters/import', { method: 'POST', body: JSON.stringify(data) }),
 
   // NPCs
   getNpcs: () => fetchJson('/npcs'),

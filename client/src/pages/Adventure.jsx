@@ -155,6 +155,57 @@ function Adventure({
     URL.revokeObjectURL(url);
   }
 
+  function handleExportSession() {
+    const payload = {
+      name: `${scenarios.find(s => s.id === selectedScenario)?.title || 'Adventure'} — ${new Date().toLocaleDateString()}`,
+      characterId: selectedCharacter,
+      scenarioId: selectedScenario,
+      messages: messages.filter(m => m.type !== 'dm_partial'),
+      exportedAt: new Date().toISOString(),
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${payload.name.replace(/[^a-z0-9]+/gi, '-')}.session.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  async function handleImportSession(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      if (!file.name.endsWith('.json')) {
+        alert('Please select a .session.json file exported via "Export Session". Plain text story exports (.txt) cannot be imported.');
+        return;
+      }
+      const text = await file.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        alert('This file is not valid JSON. Please use a .session.json file exported via "Export Session" (not "Export Story").');
+        return;
+      }
+      if (!data.messages || !Array.isArray(data.messages)) {
+        alert('Invalid session file: missing messages array. Please use a file exported via "Export Session".');
+        return;
+      }
+      const result = await api.createSession({
+        name: data.name || file.name,
+        characterId: data.characterId || null,
+        scenarioId: data.scenarioId || null,
+        messages: data.messages,
+      });
+      setSavedSessions(prev => [result, ...prev]);
+    } catch (err) {
+      alert(`Import failed: ${err.message}`);
+    }
+    // Reset file input so same file can be re-imported
+    e.target.value = '';
+  }
+
   function handleSend() {
     const text = input.trim();
     if (!text || status === 'thinking') return;
@@ -222,41 +273,54 @@ function Adventure({
           {status === 'disconnected' ? 'Connecting...' : 'Begin Adventure'}
         </button>
 
-        {savedSessions.length > 0 && (
-          <div className="setup-group" style={{ marginTop: '2rem' }}>
-            <label>Load Saved Session</label>
-            <div className="setup-options">
-              {savedSessions.map(s => (
-                <div key={s.id} className="option-card" style={{ position: 'relative' }}>
-                  <button
-                    className="option-card-inner"
-                    onClick={() => handleLoadSession(s.id)}
-                    disabled={status === 'disconnected'}
-                    style={{ all: 'unset', cursor: 'pointer', display: 'flex', flexDirection: 'column', width: '100%' }}
-                  >
-                    <strong>{s.name}</strong>
-                    <span>{s.messageCount} messages — {new Date(s.updatedAt).toLocaleDateString()}</span>
-                  </button>
-                  <button
-                    className="btn-delete-session"
-                    onClick={(e) => handleDeleteSession(e, s.id)}
-                    title="Delete session"
-                    style={{
-                      position: 'absolute', top: '0.4rem', right: '0.4rem',
-                      background: 'none', border: 'none', cursor: 'pointer',
-                      color: 'var(--text-muted)', fontSize: '1rem', padding: '0.2rem 0.4rem',
-                      borderRadius: '4px', lineHeight: 1,
-                    }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#e74c3c'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
-                  >
-                    &times;
-                  </button>
-                </div>
-              ))}
-            </div>
+        <div className="setup-group" style={{ marginTop: '2rem' }}>
+          <label>Load Saved Session</label>
+          <div className="setup-options">
+            {savedSessions.map(s => (
+              <div key={s.id} className="option-card" style={{ position: 'relative' }}>
+                <button
+                  className="option-card-inner"
+                  onClick={() => handleLoadSession(s.id)}
+                  disabled={status === 'disconnected'}
+                  style={{ all: 'unset', cursor: 'pointer', display: 'flex', flexDirection: 'column', width: '100%' }}
+                >
+                  <strong>{s.name}</strong>
+                  <span>{s.messageCount} messages — {new Date(s.updatedAt).toLocaleDateString()}</span>
+                </button>
+                <button
+                  className="btn-delete-session"
+                  onClick={(e) => handleDeleteSession(e, s.id)}
+                  title="Delete session"
+                  style={{
+                    position: 'absolute', top: '0.4rem', right: '0.4rem',
+                    background: 'none', border: 'none', cursor: 'pointer',
+                    color: 'var(--text-muted)', fontSize: '1rem', padding: '0.2rem 0.4rem',
+                    borderRadius: '4px', lineHeight: 1,
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#e74c3c'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
+                >
+                  &times;
+                </button>
+              </div>
+            ))}
           </div>
-        )}
+          <label
+            className="btn-primary"
+            style={{
+              display: 'inline-block', marginTop: '0.75rem', cursor: 'pointer',
+              fontSize: '0.9rem', padding: '0.5rem 1.2rem',
+            }}
+          >
+            Import Session File
+            <input
+              type="file"
+              accept=".json,.session.json"
+              onChange={handleImportSession}
+              style={{ display: 'none' }}
+            />
+          </label>
+        </div>
       </div>
     );
   }
@@ -285,7 +349,14 @@ function Adventure({
           onClick={handleExportStory}
           disabled={messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system').length === 0}
         >
-          Export
+          Export Story
+        </button>
+        <button
+          className="btn-save"
+          onClick={handleExportSession}
+          disabled={messages.filter(m => m.type !== 'dm_partial').length === 0}
+        >
+          Export Session
         </button>
         <label style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.85rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
           <input

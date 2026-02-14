@@ -28,6 +28,17 @@ function CharacterDetail() {
     return () => window.removeEventListener('focus', handleFocus);
   }, [id]);
 
+  const handleExport = () => {
+    const { _filename, ...exportData } = char;
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${char.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const handleDelete = async () => {
     if (!window.confirm(`Delete ${char.name}? This cannot be undone.`)) return;
     try {
@@ -55,6 +66,7 @@ function CharacterDetail() {
         </div>
         <div className="actions">
           <Link to={`/characters/${id}/edit`}><button>Edit</button></Link>
+          <button onClick={handleExport}>Export</button>
           <button className="danger" onClick={handleDelete}>Delete</button>
         </div>
       </div>
