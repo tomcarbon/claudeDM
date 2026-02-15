@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { api } from '../api/client';
+import Lobby from './Lobby';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
@@ -20,35 +21,56 @@ function Adventure({
   savedSessionDbId,
   setSavedSessionDbId,
 }) {
-  const { messages, setMessages, status, sessionId, permissionRequest, sendMessage, startSession, sendPermission, resumeSession } = ws;
+  const {
+    messages, setMessages, status, sessionId, permissionRequest,
+    sendMessage, startSession, sendPermission, resumeSession,
+    // Multiplayer
+    gameCode, players, isHost, myPlayerId, gamePhase, combatState,
+    startGame, leaveGame,
+  } = ws;
+
   const [input, setInput] = useState('');
   const [characters, setCharacters] = useState([]);
   const [scenarios, setScenarios] = useState([]);
   const [savedSessions, setSavedSessions] = useState([]);
-  const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
+  const [saveStatus, setSaveStatus] = useState(null);
   const [autoSave, setAutoSave] = useState(true);
+  const [showSoloSetup, setShowSoloSetup] = useState(false);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
+  const isNearBottomRef = useRef(true);
 
   useEffect(() => {
     api.getCharacters().then(setCharacters).catch(() => {});
     api.getScenarios().then(setScenarios).catch(() => {});
   }, []);
 
-  // Auto-scroll to bottom
+  // Track whether user is near the bottom of the story area
   useEffect(() => {
-    if (storyRef.current) {
+    const el = storyRef.current;
+    if (!el) return;
+    function onScroll() {
+      const threshold = 80;
+      isNearBottomRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < threshold;
+    }
+    el.addEventListener('scroll', onScroll);
+    return () => el.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Auto-scroll only if user is already near the bottom
+  useEffect(() => {
+    if (storyRef.current && isNearBottomRef.current) {
       storyRef.current.scrollTop = storyRef.current.scrollHeight;
     }
   }, [messages]);
 
   // Load saved sessions for setup screen
   useEffect(() => {
-    if (!sessionActive) {
+    if (!sessionActive && gamePhase === 'none') {
       api.getSessions().then(setSavedSessions).catch(() => {});
     }
-  }, [sessionActive]);
+  }, [sessionActive, gamePhase]);
 
   // Auto-save when messages change
   useEffect(() => {
@@ -62,12 +84,19 @@ function Adventure({
     }
   }, [messages, autoSave]);
 
-  // Focus input when session starts
+  // Focus input when session starts or game starts playing
   useEffect(() => {
-    if (sessionActive && inputRef.current) {
+    if ((sessionActive || gamePhase === 'playing') && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [sessionActive]);
+  }, [sessionActive, gamePhase]);
+
+  // Transition to active when multiplayer game starts
+  useEffect(() => {
+    if (gamePhase === 'playing' && !sessionActive) {
+      setSessionActive(true);
+    }
+  }, [gamePhase]);
 
   function handleStartSession() {
     if (!selectedCharacter || !selectedScenario) return;
@@ -75,7 +104,6 @@ function Adventure({
     startSession(selectedCharacter, selectedScenario);
     setSessionActive(true);
 
-    // Auto-send the opening prompt
     const scenario = scenarios.find(s => s.id === selectedScenario);
     const character = characters.find(c => c.id === selectedCharacter);
     const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Set the scene and begin the story.`;
@@ -93,6 +121,8 @@ function Adventure({
         characterId: selectedCharacter,
         scenarioId: selectedScenario,
         messages: messages.filter(m => m.type !== 'dm_partial'),
+        gameCode: gameCode || undefined,
+        players: players.length > 0 ? players : undefined,
       };
 
       console.log(`[Save] Payload — messages: ${payload.messages.length}, claudeSessionId: ${payload.claudeSessionId ? 'yes' : 'no'}`);
@@ -202,7 +232,6 @@ function Adventure({
     } catch (err) {
       alert(`Import failed: ${err.message}`);
     }
-    // Reset file input so same file can be re-imported
     e.target.value = '';
   }
 
@@ -222,11 +251,61 @@ function Adventure({
 
   const statusInfo = STATUS_CONFIG[status] || STATUS_CONFIG.disconnected;
 
-  // Setup screen
-  if (!sessionActive) {
+  // Determine if input should be disabled due to combat turn
+  const isMyTurn = !combatState || !combatState.inCombat || combatState.activePlayerId === myPlayerId;
+  const inputDisabled = status === 'thinking' || status === 'awaiting_permission' || !isMyTurn;
+
+  // Get placeholder text
+  let placeholderText;
+  if (status === 'thinking') {
+    placeholderText = 'The DM is narrating...';
+  } else if (combatState?.inCombat && !isMyTurn) {
+    placeholderText = `Waiting for ${combatState.activePlayerName}'s turn...`;
+  } else {
+    placeholderText = 'What do you do?';
+  }
+
+  // Get message sender name for multiplayer
+  function getPlayerSenderName(msg) {
+    if (msg.playerName) {
+      return msg.characterName ? `${msg.playerName} (${msg.characterName})` : msg.playerName;
+    }
+    return activeCharacter?.name || 'You';
+  }
+
+  // Determine if a player message is from this client
+  function isOwnMessage(msg) {
+    if (msg.playerId && myPlayerId) return msg.playerId === myPlayerId;
+    return true; // Solo mode: all player messages are own
+  }
+
+  const isMultiplayer = gameCode && players.length > 1;
+
+  // Setup screen: show lobby for multiplayer, or original setup for solo
+  if (!sessionActive && gamePhase !== 'playing') {
+    // Show multiplayer lobby by default, with option to switch to solo
+    if (!showSoloSetup) {
+      return (
+        <Lobby
+          ws={ws}
+          onStartSolo={() => setShowSoloSetup(true)}
+        />
+      );
+    }
+
+    // Solo setup (original flow)
     return (
       <div className="adventure-setup">
-        <h2>Begin Your Adventure</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h2>Solo Adventure</h2>
+          <button
+            className="btn-save"
+            onClick={() => setShowSoloSetup(false)}
+            style={{ fontSize: '0.85em' }}
+          >
+            Back to Multiplayer
+          </button>
+        </div>
         <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
           Choose your character and scenario, then step into the story.
         </p>
@@ -335,7 +414,12 @@ function Adventure({
       <div className="adventure-header">
         <div className="adventure-info">
           <span className="adventure-scenario">{activeScenario?.title}</span>
-          <span className="adventure-character">{activeCharacter?.name}</span>
+          {!isMultiplayer && (
+            <span className="adventure-character">{activeCharacter?.name}</span>
+          )}
+          {gameCode && (
+            <span className="adventure-game-code" title="Game code">{gameCode}</span>
+          )}
         </div>
         <button
           className="btn-save"
@@ -372,13 +456,43 @@ function Adventure({
         </div>
       </div>
 
+      {/* Combat banner */}
+      {combatState?.inCombat && (
+        <div className="combat-banner">
+          <div className="combat-label">COMBAT</div>
+          <div className="combat-turn-order">
+            {combatState.turnOrder.map((t, i) => (
+              <span
+                key={i}
+                className={`combat-turn-name${t.playerId === combatState.activePlayerId ? ' active' : ''}`}
+              >
+                {t.playerName}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Player list sidebar for multiplayer */}
+      {isMultiplayer && (
+        <div className="player-sidebar">
+          {players.map(p => (
+            <div key={p.playerId} className={`player-sidebar-item${!p.connected ? ' disconnected' : ''}`}>
+              <span className="player-sidebar-name">{p.playerName}</span>
+              <span className="player-sidebar-char">{p.characterName}</span>
+              {!p.connected && <span className="player-status-dot" title="Disconnected" />}
+            </div>
+          ))}
+        </div>
+      )}
+
       {/* Story area */}
       <div className="story-area" ref={storyRef}>
         {messages.map((msg, i) => (
           <div key={i} className={`story-message story-${msg.type}`}>
             {msg.type === 'player' && (
-              <div className="message-player">
-                <span className="message-sender">{activeCharacter?.name || 'You'}</span>
+              <div className={`message-player${isMultiplayer && !isOwnMessage(msg) ? ' message-other-player' : ''}`}>
+                <span className="message-sender">{getPlayerSenderName(msg)}</span>
                 <p>{msg.text}</p>
               </div>
             )}
@@ -404,18 +518,25 @@ function Adventure({
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder={status === 'thinking' ? 'The DM is narrating...' : 'What do you do?'}
-          disabled={status === 'thinking' || status === 'awaiting_permission'}
+          placeholder={placeholderText}
+          disabled={inputDisabled}
           rows={1}
         />
         <button
           className="btn-send"
           onClick={handleSend}
-          disabled={!input.trim() || status === 'thinking'}
+          disabled={!input.trim() || status === 'thinking' || !isMyTurn}
         >
           Send
         </button>
       </div>
+
+      {/* Reconnecting overlay */}
+      {status === 'disconnected' && (sessionActive || gamePhase === 'playing') && (
+        <div className="reconnect-overlay">
+          <div className="reconnect-message">Reconnecting...</div>
+        </div>
+      )}
 
       {/* Permission modal */}
       {permissionRequest && (

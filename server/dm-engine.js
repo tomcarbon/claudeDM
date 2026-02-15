@@ -55,11 +55,35 @@ function loadNpcs(dataDir) {
   }
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId) {
+function formatCharacterBlock(character, playerName) {
+  const label = playerName ? `${character.name} (played by ${playerName})` : character.name;
+  return `### ${label} — Level ${character.level} ${character.race}${character.subrace ? ` (${character.subrace})` : ''} ${character.class} (${character.background})
+HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
+Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
+Character file: data/characters/${character.id}.json (use Read to check current state, Edit to update)`;
+}
+
+// players: array of {characterId, playerName} or a single characterId string (backward compat)
+function buildSystemPrompt(dataDir, players, scenarioId) {
   const settings = loadDmSettings(dataDir);
-  const character = characterId ? loadCharacter(dataDir, characterId) : null;
   const scenario = scenarioId ? loadScenario(dataDir, scenarioId) : null;
   const npcs = loadNpcs(dataDir);
+
+  // Normalize players to array format
+  let playerEntries;
+  if (typeof players === 'string') {
+    // Backward compat: single characterId string
+    const char = loadCharacter(dataDir, players);
+    playerEntries = char ? [{ character: char, playerName: null }] : [];
+  } else if (Array.isArray(players)) {
+    playerEntries = players
+      .map(p => ({ character: loadCharacter(dataDir, p.characterId), playerName: p.playerName }))
+      .filter(p => p.character);
+  } else {
+    playerEntries = [];
+  }
+
+  const isMultiplayer = playerEntries.length > 1;
 
   const verbosityGuide = settings.verbosity < 30 ? 'Keep descriptions brief and punchy.'
     : settings.verbosity > 70 ? 'Use rich, detailed prose with vivid imagery.'
@@ -119,19 +143,48 @@ Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > T
 Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
 
 ## Character Updates
-When the player's character takes damage, gains XP, picks up items, or changes in any way, use the Edit tool to update their character JSON file in data/characters/. Always keep character data current.
+When any character takes damage, gains XP, picks up items, or changes in any way, use the Edit tool to update their character JSON file in data/characters/. Always keep character data current.
 
 ## Session Reminders
-Periodically remind the player to save their session at natural break points.`;
+Periodically remind the players to save their session at natural break points.`;
 
-  if (character) {
+  // Player characters section
+  if (playerEntries.length === 1 && !isMultiplayer) {
+    const { character, playerName } = playerEntries[0];
     prompt += `
 
 ## Player Character
-${character.name} — Level ${character.level} ${character.race}${character.subrace ? ` (${character.subrace})` : ''} ${character.class} (${character.background})
-HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
-Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
-Character file: data/characters/${character.id}.json (use Read to check current state, Edit to update)`;
+${formatCharacterBlock(character, playerName)}`;
+  } else if (playerEntries.length > 0) {
+    prompt += `
+
+## Player Characters`;
+    for (const { character, playerName } of playerEntries) {
+      prompt += `
+${formatCharacterBlock(character, playerName)}`;
+    }
+  }
+
+  // Multiplayer instructions
+  if (isMultiplayer) {
+    prompt += `
+
+## Multiplayer
+This is a multiplayer session with ${playerEntries.length} human players. Each player's messages are prefixed with "[PlayerName / CharacterName]:".
+- Address all players and their characters in your narration.
+- When a player takes an action, narrate the result for the whole party.
+- During exploration and roleplay, any player can act freely.
+- Keep all characters involved in the narrative — give each player moments to shine.
+- When waiting for a specific player's input, address them by name.
+
+## Combat Turns (Multiplayer)
+When combat begins:
+1. Roll initiative for all combatants (PCs, NPCs, and enemies).
+2. Use the CombatControl tool with action "start_combat" and provide the initiative order (including NPCs/enemies you control).
+3. After each player's turn resolves, use CombatControl with "next_turn" to advance to the next combatant.
+4. For NPC/enemy turns in the order, narrate their actions and then call "next_turn" to advance.
+5. When combat ends, use CombatControl with "end_combat" to return to free-form exploration.
+During combat, only the active player can send actions. Other players must wait their turn.`;
   }
 
   if (npcs.length > 0) {
@@ -192,35 +245,83 @@ For non-combat milestones (quest completion, major story beats), award scenario-
 - When NPCs speak, use their established voice and mannerisms.
 - When dice rolls are needed, roll them and show results.
 - Keep the story moving forward and respect player choices.
-- If the player asks an out-of-character question, answer helpfully then return to the narrative.`;
+- If a player asks an out-of-character question, answer helpfully then return to the narrative.`;
 
   return prompt;
 }
 
-function createXpMcpServer(dataDir) {
-  return createSdkMcpServer({
-    name: 'dnd-xp',
-    version: '1.0.0',
-    tools: [
+function createMcpServer(dataDir, combatController) {
+  const tools = [
+    tool(
+      'AwardXP',
+      'Award experience points to a character. Handles XP addition, level-up detection, and character file updates automatically. Use this after combat encounters or milestone rewards.',
+      { characterId: z.string(), xp: z.number() },
+      async (args) => {
+        try {
+          const result = awardXp(dataDir, args.characterId, args.xp);
+          let summary = `Awarded ${args.xp} XP to ${result.name} (${result.previousXp} → ${result.newXp} XP).`;
+          if (result.leveledUp) {
+            summary += ` LEVEL UP! ${result.name} is now level ${result.newLevel} (was level ${result.previousLevel})!`;
+          } else {
+            summary += ` Level ${result.newLevel} (no change).`;
+          }
+          return {
+            content: [{ type: 'text', text: summary }],
+          };
+        } catch (err) {
+          return {
+            content: [{ type: 'text', text: `Error: ${err.message}` }],
+            isError: true,
+          };
+        }
+      }
+    ),
+  ];
+
+  // Add CombatControl tool if a controller is provided (multiplayer)
+  if (combatController) {
+    tools.push(
       tool(
-        'AwardXP',
-        'Award experience points to a character. Handles XP addition, level-up detection, and character file updates automatically. Use this after combat encounters or milestone rewards.',
-        { characterId: z.string(), xp: z.number() },
+        'CombatControl',
+        'Control combat flow in multiplayer. Use start_combat to begin initiative-based turns, next_turn to advance to the next combatant, end_combat to return to free-form exploration.',
+        {
+          action: z.enum(['start_combat', 'next_turn', 'end_combat']),
+          turnOrder: z.array(z.object({
+            characterId: z.string().describe('Character or NPC ID'),
+            playerName: z.string().describe('Player display name, or "DM" for NPC/enemy combatants'),
+            initiative: z.number().describe('Initiative roll result'),
+          })).optional().describe('Required for start_combat. Initiative order for all combatants.'),
+        },
         async (args) => {
           try {
-            const result = awardXp(dataDir, args.characterId, args.xp);
-            return {
-              content: [{ type: 'text', text: JSON.stringify(result) }],
-            };
+            let result;
+            switch (args.action) {
+              case 'start_combat':
+                if (!args.turnOrder || args.turnOrder.length === 0) {
+                  return { content: [{ type: 'text', text: 'Error: turnOrder is required for start_combat.' }], isError: true };
+                }
+                result = combatController.startCombat(args.turnOrder);
+                break;
+              case 'next_turn':
+                result = combatController.nextTurn();
+                break;
+              case 'end_combat':
+                result = combatController.endCombat();
+                break;
+            }
+            return { content: [{ type: 'text', text: result }] };
           } catch (err) {
-            return {
-              content: [{ type: 'text', text: `Error: ${err.message}` }],
-              isError: true,
-            };
+            return { content: [{ type: 'text', text: `Error: ${err.message}` }], isError: true };
           }
         }
-      ),
-    ],
+      )
+    );
+  }
+
+  return createSdkMcpServer({
+    name: 'dnd-tools',
+    version: '1.0.0',
+    tools,
   });
 }
 
@@ -229,16 +330,25 @@ class DmEngine {
     this.dataDir = dataDir;
     this.sessionId = null;
     this.activeQuery = null;
-    this.xpMcpServer = createXpMcpServer(dataDir);
+    this.mcpServer = null; // Lazily created when combatController is known
   }
 
-  _buildOptions(characterId, scenarioId, onPermissionRequest) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId);
+  _getMcpServer(combatController) {
+    // Recreate if combatController changes (e.g. first call vs subsequent)
+    if (!this.mcpServer) {
+      this.mcpServer = createMcpServer(this.dataDir, combatController);
+    }
+    return this.mcpServer;
+  }
+
+  _buildOptions(players, scenarioId, onPermissionRequest, combatController) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, players, scenarioId);
+    const mcpServer = this._getMcpServer(combatController);
     return {
       systemPrompt,
       cwd: PROJECT_ROOT,
       allowedTools: ['Read', 'Glob', 'Grep', 'Edit'],
-      mcpServers: { 'dnd-xp': this.xpMcpServer },
+      mcpServers: { 'dnd-tools': mcpServer },
       permissionMode: 'default',
       includePartialMessages: true,
       maxTurns: 20,
@@ -307,8 +417,10 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory }) {
-    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest);
+  async *run(userMessage, { players, scenarioId, onPermissionRequest, messageHistory, combatController }) {
+    // Support backward compat: if characterId is passed instead of players
+    const playerData = players || [];
+    const options = this._buildOptions(playerData, scenarioId, onPermissionRequest, combatController);
 
     if (this.sessionId) {
       options.resume = this.sessionId;
@@ -323,12 +435,18 @@ class DmEngine {
     }
 
     // Fresh session — if we have message history, prepend it as context
-    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest);
+    const freshOptions = this._buildOptions(playerData, scenarioId, onPermissionRequest, combatController);
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
       const recap = messageHistory
         .filter(m => m.type === 'player' || m.type === 'dm')
-        .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
+        .map(m => {
+          if (m.type === 'player') {
+            const name = m.playerName ? `${m.playerName} / ${m.characterName || 'Unknown'}` : 'PLAYER';
+            return `${name}: ${m.text}`;
+          }
+          return `DM: ${m.text}`;
+        })
         .join('\n\n');
       prompt = `[SESSION RESUMED — Here is the story so far. Continue from where we left off.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${userMessage}`;
     }

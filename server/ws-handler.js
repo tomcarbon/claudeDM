@@ -1,20 +1,11 @@
 const { WebSocketServer } = require('ws');
-const { DmEngine } = require('./dm-engine');
 
-function attachWebSocket(server, dataDir) {
+function attachWebSocket(server, dataDir, manager) {
   const wss = new WebSocketServer({ server, path: '/ws' });
 
   wss.on('connection', (ws) => {
     console.log('[WS] Client connected');
-
-    const engine = new DmEngine(dataDir);
-    let characterId = null;
-    let scenarioId = null;
-    let processing = false;
-    let messageHistory = []; // Track conversation for resume fallback
-
-    // Pending permission requests: toolUseID -> { resolve }
-    const pendingPermissions = new Map();
+    let playerId = null;
 
     function send(type, payload = {}) {
       if (ws.readyState === ws.OPEN) {
@@ -32,94 +23,172 @@ function attachWebSocket(server, dataDir) {
       }
 
       switch (msg.type) {
-        case 'session_start': {
-          characterId = msg.characterId || null;
-          scenarioId = msg.scenarioId || null;
-          send('session_status', { status: 'idle' });
-          console.log(`[WS] Session started — character: ${characterId}, scenario: ${scenarioId}`);
-          break;
-        }
-
-        case 'session_resume': {
-          characterId = msg.characterId || null;
-          scenarioId = msg.scenarioId || null;
-          if (msg.claudeSessionId) {
-            engine.sessionId = msg.claudeSessionId;
-          }
-          // Store message history for resume fallback
-          if (msg.messages && Array.isArray(msg.messages)) {
-            messageHistory = msg.messages;
-          }
-          send('session_status', { status: 'idle' });
-          console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, history: ${messageHistory.length} messages`);
-          break;
-        }
-
-        case 'user_message': {
-          if (processing) {
-            send('error', { error: 'Already processing a message. Please wait.' });
+        // --- Multiplayer: create a new game ---
+        case 'create_game': {
+          const { playerName, characterId, scenarioId } = msg;
+          if (!playerName || !characterId || !scenarioId) {
+            send('error', { error: 'Missing playerName, characterId, or scenarioId.' });
             return;
           }
-          if (!msg.text || !msg.text.trim()) {
-            send('error', { error: 'Empty message.' });
-            return;
-          }
-
-          processing = true;
-          send('session_status', { status: 'thinking' });
-
           try {
-            messageHistory.push({ type: 'player', text: msg.text.trim() });
-            const stream = engine.run(msg.text.trim(), {
-              characterId,
-              scenarioId,
-              messageHistory,
-              onPermissionRequest: (toolName, input, toolUseID) => {
-                return new Promise((resolve) => {
-                  const description = describeToolUse(toolName, input);
-                  pendingPermissions.set(toolUseID, { resolve });
-                  send('permission_request', { toolUseID, toolName, description, input });
-                  send('session_status', { status: 'awaiting_permission' });
-                });
-              },
-            });
+            const room = manager.createRoom(dataDir, scenarioId);
+            playerId = room.addPlayer(ws, playerName, characterId, true);
+            manager.registerPlayer(playerId, room.gameCode);
+            send('game_created', { gameCode: room.gameCode, playerId });
+            send('session_status', { status: 'idle' });
+            console.log(`[WS] Game created — code: ${room.gameCode}, host: ${playerName}`);
+          } catch (err) {
+            send('error', { error: err.message });
+          }
+          break;
+        }
 
-            for await (const event of stream) {
-              switch (event.type) {
-                case 'dm_partial':
-                  send('dm_partial', { text: event.text });
-                  break;
-                case 'dm_response':
-                  messageHistory.push({ type: 'dm', text: event.text });
-                  send('dm_response', { text: event.text });
-                  break;
-                case 'dm_complete':
-                  send('dm_complete', { sessionId: event.sessionId });
-                  break;
-                case 'session_id':
-                  send('session_id', { sessionId: event.sessionId });
-                  break;
-                case 'error':
-                  send('error', { error: event.error });
-                  break;
+        // --- Multiplayer: join an existing game ---
+        case 'join_game': {
+          const { gameCode, playerName, characterId } = msg;
+          if (!gameCode || !playerName || !characterId) {
+            send('error', { error: 'Missing gameCode, playerName, or characterId.' });
+            return;
+          }
+          const room = manager.getRoom(gameCode);
+          if (!room) {
+            send('error', { error: `No game found with code: ${gameCode.toUpperCase()}` });
+            return;
+          }
+          try {
+            playerId = room.addPlayer(ws, playerName, characterId, false);
+            manager.registerPlayer(playerId, room.gameCode);
+            send('game_joined', { gameCode: room.gameCode, playerId });
+            send('session_status', { status: 'idle' });
+            // Send existing message history to the joining player
+            if (room.messageHistory.length > 0) {
+              send('message_history', { messages: room.messageHistory });
+            }
+            console.log(`[WS] Player joined — code: ${room.gameCode}, player: ${playerName}`);
+          } catch (err) {
+            send('error', { error: err.message });
+          }
+          break;
+        }
+
+        // --- Multiplayer: rejoin after disconnect ---
+        case 'rejoin_game': {
+          const { gameCode, playerName } = msg;
+          const room = manager.getRoom(gameCode);
+          if (!room) {
+            send('error', { error: `No active game with code: ${(gameCode || '').toUpperCase()}` });
+            return;
+          }
+          const existing = room.findPlayerByName(playerName);
+          if (existing) {
+            playerId = existing.playerId;
+            room.reconnectPlayer(playerId, ws);
+            send('game_joined', { gameCode: room.gameCode, playerId, rejoined: true });
+            send('session_status', { status: room.processing ? 'thinking' : 'idle' });
+            console.log(`[WS] Player rejoined — code: ${room.gameCode}, player: ${playerName}`);
+          } else {
+            send('error', { error: `No player named "${playerName}" in game ${gameCode.toUpperCase()}` });
+          }
+          break;
+        }
+
+        // --- Multiplayer: leave game ---
+        case 'leave_game': {
+          if (playerId) {
+            const room = manager.getRoomForPlayer(playerId);
+            if (room) {
+              const empty = room.removePlayer(playerId);
+              manager.unregisterPlayer(playerId);
+              if (empty) {
+                manager.scheduleDestroy(room.gameCode);
               }
             }
-          } catch (err) {
-            console.error('[WS] Engine error:', err);
-            send('error', { error: err.message || 'DM engine error' });
-          } finally {
-            processing = false;
-            send('session_status', { status: 'idle' });
+            playerId = null;
           }
           break;
         }
 
+        // --- Multiplayer: host starts the adventure ---
+        case 'start_game': {
+          const room = playerId ? manager.getRoomForPlayer(playerId) : null;
+          if (!room) {
+            send('error', { error: 'Not in a game.' });
+            return;
+          }
+          const player = room.players.get(playerId);
+          if (!player || !player.isHost) {
+            send('error', { error: 'Only the host can start the game.' });
+            return;
+          }
+          room.broadcast('game_started', {});
+          // Auto-send the opening prompt
+          const { scenarioId } = room;
+          const playerList = room.getPlayerList();
+          const charNames = playerList.map(p => p.characterName).join(', ');
+          const openingText = msg.openingPrompt || `Begin the adventure. The party consists of: ${charNames}. Set the scene and begin the story.`;
+          await room.handleMessage(playerId, { type: 'user_message', text: openingText });
+          break;
+        }
+
+        // --- Player message (works for both solo and multiplayer) ---
+        case 'user_message': {
+          const room = playerId ? manager.getRoomForPlayer(playerId) : null;
+          if (!room) {
+            send('error', { error: 'Not in a game. Create or join one first.' });
+            return;
+          }
+          await room.handleMessage(playerId, msg);
+          break;
+        }
+
+        // --- Permission response (host only) ---
         case 'permission_response': {
-          const pending = pendingPermissions.get(msg.toolUseID);
-          if (pending) {
-            pendingPermissions.delete(msg.toolUseID);
-            pending.resolve(msg.allowed === true);
-            send('session_status', { status: 'thinking' });
+          const room = playerId ? manager.getRoomForPlayer(playerId) : null;
+          if (room) {
+            room.handlePermissionResponse(playerId, msg.toolUseID, msg.allowed);
+          }
+          break;
+        }
+
+        // --- Solo backward compat: session_start auto-creates a game ---
+        case 'session_start': {
+          const characterId = msg.characterId || null;
+          const scenarioId = msg.scenarioId || null;
+          if (!characterId || !scenarioId) {
+            send('error', { error: 'Missing characterId or scenarioId.' });
+            return;
+          }
+          try {
+            const room = manager.createRoom(dataDir, scenarioId);
+            playerId = room.addPlayer(ws, 'Player', characterId, true);
+            manager.registerPlayer(playerId, room.gameCode);
+            send('game_created', { gameCode: room.gameCode, playerId });
+            send('session_status', { status: 'idle' });
+            console.log(`[WS] Solo session started — code: ${room.gameCode}, character: ${characterId}`);
+          } catch (err) {
+            send('error', { error: err.message });
+          }
+          break;
+        }
+
+        // --- Solo backward compat: session_resume ---
+        case 'session_resume': {
+          const { characterId, scenarioId, claudeSessionId, messages } = msg;
+          try {
+            const room = manager.createRoom(dataDir, scenarioId);
+            if (claudeSessionId) {
+              room.engine.sessionId = claudeSessionId;
+            }
+            if (messages && Array.isArray(messages)) {
+              room.messageHistory = messages;
+            }
+            playerId = room.addPlayer(ws, 'Player', characterId, true);
+            manager.registerPlayer(playerId, room.gameCode);
+            send('game_created', { gameCode: room.gameCode, playerId });
+            send('session_status', { status: 'idle' });
+            console.log(`[WS] Solo session resumed — code: ${room.gameCode}, claude: ${claudeSessionId}`);
+          } catch (err) {
+            send('error', { error: err.message });
           }
           break;
         }
@@ -131,12 +200,15 @@ function attachWebSocket(server, dataDir) {
 
     ws.on('close', () => {
       console.log('[WS] Client disconnected');
-      engine.abort();
-      // Reject any pending permissions
-      for (const [, pending] of pendingPermissions) {
-        pending.resolve(false);
+      if (playerId) {
+        const room = manager.getRoomForPlayer(playerId);
+        if (room) {
+          const allDisconnected = room.disconnectPlayer(playerId);
+          if (allDisconnected) {
+            manager.scheduleDestroy(room.gameCode);
+          }
+        }
       }
-      pendingPermissions.clear();
     });
 
     ws.on('error', (err) => {
@@ -146,19 +218,6 @@ function attachWebSocket(server, dataDir) {
 
   console.log('[WS] WebSocket server attached at /ws');
   return wss;
-}
-
-function describeToolUse(toolName, input) {
-  switch (toolName) {
-    case 'Edit':
-      return `Edit file: ${input.file_path || 'unknown'}`;
-    case 'Write':
-      return `Write file: ${input.file_path || 'unknown'}`;
-    case 'Bash':
-      return `Run command: ${(input.command || '').substring(0, 100)}`;
-    default:
-      return `Use tool: ${toolName}`;
-  }
 }
 
 module.exports = { attachWebSocket };

@@ -14,6 +14,7 @@ const dmSettingsRouter = require('./routes/dm-settings');
 const sessionsRouter = require('./routes/sessions');
 const settingsRouter = require('./routes/settings');
 const { attachWebSocket } = require('./ws-handler');
+const { GameRoomManager } = require('./game-room');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -40,7 +41,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const server = http.createServer(app);
-attachWebSocket(server, DATA_DIR);
+const roomManager = new GameRoomManager();
+attachWebSocket(server, DATA_DIR, roomManager);
 
 server.listen(PORT, () => {
   console.log(`D&D Companion server running on http://localhost:${PORT}`);

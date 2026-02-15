@@ -23,6 +23,7 @@ module.exports = function (dataDir) {
           name: data.name,
           scenarioId: data.scenarioId,
           characterId: data.characterId,
+          gameCode: data.gameCode || null,
           createdAt: data.createdAt,
           updatedAt: data.updatedAt,
           playerCount: (data.players || []).length,
@@ -55,19 +56,20 @@ module.exports = function (dataDir) {
   // POST create new session
   router.post('/', (req, res) => {
     try {
-      const { name, scenarioId, characterId, claudeSessionId, messages, ...rest } = req.body;
-      console.log(`[Sessions] POST — messages: ${(messages || []).length}, claudeSessionId: ${claudeSessionId ? 'yes' : 'no'}, characterId: ${characterId}`);
+      const { name, scenarioId, characterId, claudeSessionId, messages, gameCode, players: incomingPlayers, ...rest } = req.body;
+      console.log(`[Sessions] POST — messages: ${(messages || []).length}, claudeSessionId: ${claudeSessionId ? 'yes' : 'no'}, characterId: ${characterId}, gameCode: ${gameCode || 'none'}`);
       const session = {
         id: uuidv4(),
         name: name || 'New Adventure',
         scenarioId: scenarioId || null,
         characterId: characterId || null,
         claudeSessionId: claudeSessionId || null,
+        gameCode: gameCode || null,
         messages: messages || [],
         status: 'active',
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        players: [
+        players: incomingPlayers || [
           {
             id: uuidv4(),
             characterId,
