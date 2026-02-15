@@ -276,8 +276,8 @@ function Adventure({
         <div className="setup-group" style={{ marginTop: '2rem' }}>
           <label>Load Saved Session</label>
           <div className="setup-options">
-            {savedSessions.map(s => (
-              <div key={s.id} className="option-card" style={{ position: 'relative' }}>
+            {savedSessions.map((s, i) => (
+              <div key={`${s.id}-${i}`} className="option-card" style={{ position: 'relative' }}>
                 <button
                   className="option-card-inner"
                   onClick={() => handleLoadSession(s.id)}
