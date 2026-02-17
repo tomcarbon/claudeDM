@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3001/api';
+const API_BASE = `http://${window.location.hostname}:3001/api`;
 
 async function fetchJson(url, options = {}) {
   const res = await fetch(`${API_BASE}${url}`, {
