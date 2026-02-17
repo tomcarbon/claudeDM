@@ -24,6 +24,9 @@ function Adventure({
   const [input, setInput] = useState('');
   const [characters, setCharacters] = useState([]);
   const [scenarios, setScenarios] = useState([]);
+  const [campaigns, setCampaigns] = useState([]);
+  const [mode, setMode] = useState('scenarios'); // 'scenarios' | 'campaigns'
+  const [selectedCampaign, setSelectedCampaign] = useState(null);
   const [savedSessions, setSavedSessions] = useState([]);
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
@@ -34,6 +37,7 @@ function Adventure({
   useEffect(() => {
     api.getCharacters().then(setCharacters).catch(() => {});
     api.getScenarios().then(setScenarios).catch(() => {});
+    api.getCampaigns().then(setCampaigns).catch(() => {});
   }, []);
 
   // Auto-scroll to bottom
@@ -70,23 +74,49 @@ function Adventure({
   }, [sessionActive]);
 
   function handleStartSession() {
-    if (!selectedCharacter || !selectedScenario) return;
-    setSavedSessionDbId(null);
-    startSession(selectedCharacter, selectedScenario);
-    setSessionActive(true);
-
-    // Auto-send the opening prompt
-    const scenario = scenarios.find(s => s.id === selectedScenario);
     const character = characters.find(c => c.id === selectedCharacter);
-    const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Set the scene and begin the story.`;
-    setTimeout(() => sendMessage(openingPrompt), 500);
+
+    if (mode === 'campaigns') {
+      if (!selectedCharacter || !selectedCampaign) return;
+      // Use campaign ID as the scenario ID for session save/load compatibility
+      setSavedSessionDbId(null);
+      setSelectedScenario(selectedCampaign);
+      startSession(selectedCharacter, selectedCampaign);
+      setSessionActive(true);
+
+      const campaign = campaigns.find(c => c.id === selectedCampaign);
+      const openingPrompt = `You are running an open-world campaign: "${campaign?.title || 'The Shattered Coast'}". My character is ${character?.name || 'Unknown'}.
+
+This is a free-exploration campaign, not a linear scenario. Here's how to run it:
+- Drop the party at a random wilderness location on the Shattered Coast (choose from: Central Grasslands, Southern Plains, Northern Foothills, Western Crossroads, or Eastern Trail)
+- Describe the surrounding terrain, what the party can see on the horizon, and any immediate points of interest
+- The party can travel freely in any direction — there is no set quest or path
+- Scattered across the region are settlements and adventure locations (Saltmere, Thornfield, Whisperhollow, Brinewatch) that the party may discover through travel
+- When the party approaches a settlement, run its associated scenario storyline organically
+- Between settlements, improvise wilderness events: random encounters, weather, foraging, ruins, travelers, wildlife, and environmental storytelling
+- Use the exploration rules: each day of travel, consider weather, encounters, and discoveries
+- Let the player drive the direction — be a sandbox DM
+
+Set the opening scene now. Describe where the party wakes up, what they see, and what choices lie before them.`;
+      setTimeout(() => sendMessage(openingPrompt), 500);
+    } else {
+      if (!selectedCharacter || !selectedScenario) return;
+      setSavedSessionDbId(null);
+      startSession(selectedCharacter, selectedScenario);
+      setSessionActive(true);
+
+      const scenario = scenarios.find(s => s.id === selectedScenario);
+      const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Set the scene and begin the story.`;
+      setTimeout(() => sendMessage(openingPrompt), 500);
+    }
   }
 
   async function handleSave() {
     setSaveStatus('saving');
     try {
       const scenario = scenarios.find(s => s.id === selectedScenario);
-      const name = `${scenario?.title || 'Adventure'} — ${new Date().toLocaleDateString()}`;
+      const campaign = campaigns.find(c => c.id === selectedScenario);
+      const name = `${campaign?.title || scenario?.title || 'Adventure'} — ${new Date().toLocaleDateString()}`;
       const payload = {
         name,
         claudeSessionId: sessionId,
@@ -150,7 +180,7 @@ function Adventure({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${activeScenario?.title || 'Adventure'}.txt`;
+    a.download = `${activeCampaign?.title || activeScenario?.title || 'Adventure'}.txt`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -228,7 +258,7 @@ function Adventure({
       <div className="adventure-setup">
         <h2>Begin Your Adventure</h2>
         <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-          Choose your character and scenario, then step into the story.
+          Choose your character and a scenario or campaign, then step into the story.
         </p>
 
         <div className="setup-selections">
@@ -249,25 +279,56 @@ function Adventure({
           </div>
 
           <div className="setup-group">
-            <label>Scenario</label>
-            <div className="setup-options">
-              {scenarios.map(s => (
-                <button
-                  key={s.id}
-                  className={`option-card${selectedScenario === s.id ? ' selected' : ''}`}
-                  onClick={() => setSelectedScenario(s.id)}
-                >
-                  <strong>{s.title}</strong>
-                  <span>{s.synopsis ? s.synopsis.substring(0, 80) + '...' : ''}</span>
-                </button>
-              ))}
+            <div className="mode-toggle">
+              <button
+                className={`mode-toggle-btn${mode === 'scenarios' ? ' active' : ''}`}
+                onClick={() => { setMode('scenarios'); setSelectedCampaign(null); }}
+              >
+                Scenarios
+              </button>
+              <button
+                className={`mode-toggle-btn${mode === 'campaigns' ? ' active' : ''}`}
+                onClick={() => { setMode('campaigns'); setSelectedScenario(null); }}
+              >
+                Campaigns
+              </button>
             </div>
+
+            {mode === 'scenarios' ? (
+              <div className="setup-options">
+                {scenarios.map(s => (
+                  <button
+                    key={s.id}
+                    className={`option-card${selectedScenario === s.id ? ' selected' : ''}`}
+                    onClick={() => setSelectedScenario(s.id)}
+                  >
+                    <strong>{s.title}</strong>
+                    <span>{s.synopsis ? s.synopsis.substring(0, 80) + '...' : ''}</span>
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="setup-options">
+                {campaigns.map(c => (
+                  <button
+                    key={c.id}
+                    className={`option-card campaign-card${selectedCampaign === c.id ? ' selected' : ''}`}
+                    onClick={() => setSelectedCampaign(c.id)}
+                  >
+                    <strong>{c.title}</strong>
+                    <span className="campaign-subtitle">{c.subtitle}</span>
+                    <span className="campaign-meta">Levels {c.levelRange} &middot; {c.estimatedSessions} sessions</span>
+                    <span>{c.synopsis ? c.synopsis.substring(0, 100) + '...' : ''}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
         <button
           className="btn-primary begin-btn"
-          disabled={!selectedCharacter || !selectedScenario || status === 'disconnected'}
+          disabled={!selectedCharacter || (mode === 'scenarios' ? !selectedScenario : !selectedCampaign) || status === 'disconnected'}
           onClick={handleStartSession}
         >
           {status === 'disconnected' ? 'Connecting...' : 'Begin Adventure'}
@@ -328,13 +389,14 @@ function Adventure({
   // Active adventure screen
   const activeCharacter = characters.find(c => c.id === selectedCharacter);
   const activeScenario = scenarios.find(s => s.id === selectedScenario);
+  const activeCampaign = campaigns.find(c => c.id === selectedScenario);
 
   return (
     <div className="adventure-container">
       {/* Session info bar */}
       <div className="adventure-header">
         <div className="adventure-info">
-          <span className="adventure-scenario">{activeScenario?.title}</span>
+          <span className="adventure-scenario">{activeCampaign?.title || activeScenario?.title}</span>
           <span className="adventure-character">{activeCharacter?.name}</span>
         </div>
         <button

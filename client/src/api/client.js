@@ -35,6 +35,10 @@ export const api = {
   getScenarios: () => fetchJson('/scenarios'),
   getScenario: (id) => fetchJson(`/scenarios/${id}`),
 
+  // Campaigns
+  getCampaigns: () => fetchJson('/campaigns'),
+  getCampaign: (id) => fetchJson(`/campaigns/${id}`),
+
   // DM Settings
   getDmSettings: () => fetchJson('/dm-settings'),
   updateDmSettings: (data) => fetchJson('/dm-settings', { method: 'PUT', body: JSON.stringify(data) }),

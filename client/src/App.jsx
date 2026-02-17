@@ -12,6 +12,7 @@ import DmSettings from './pages/DmSettings';
 import Settings from './pages/Settings';
 import Adventure from './pages/Adventure';
 import Home from './pages/Home';
+import WorldMapPage from './pages/WorldMapPage';
 import useWebSocket from './hooks/useWebSocket';
 import './App.css';
 
@@ -35,6 +36,7 @@ function AppContent() {
           <li><NavLink to="/characters">Characters</NavLink></li>
           <li><NavLink to="/npcs">Companions</NavLink></li>
           <li><NavLink to="/scenarios">Scenarios</NavLink></li>
+          <li><NavLink to="/world-map">World Map</NavLink></li>
           <li><NavLink to="/rules">Rules</NavLink></li>
         </ul>
         <div className="sidebar-divider" />
@@ -66,6 +68,7 @@ function AppContent() {
           <Route path="/npcs/:id" element={<NpcDetail />} />
           <Route path="/scenarios" element={<ScenarioList />} />
           <Route path="/scenarios/:id" element={<ScenarioDetail />} />
+          <Route path="/world-map" element={<WorldMapPage />} />
           <Route path="/rules" element={<RulesPage />} />
           <Route path="/dm-settings" element={<DmSettings />} />
           <Route path="/settings" element={<Settings />} />

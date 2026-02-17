@@ -30,6 +30,12 @@ function Home() {
             Browse adventure modules — dungeon crawls, mysteries, wilderness survival, and more.
           </p>
         </a>
+        <a href="/world-map" className="card">
+          <h3>World Map</h3>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>
+            Explore The Shattered Coast — view scenario locations across the realm.
+          </p>
+        </a>
         <a href="/rules" className="card">
           <h3>Rules Reference</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>

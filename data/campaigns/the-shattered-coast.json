@@ -1,0 +1,47 @@
+{
+  "id": "shattered-coast-open-world",
+  "title": "The Shattered Coast",
+  "subtitle": "Open-World Wilderness Exploration",
+  "type": "open-world",
+  "levelRange": "1-3",
+  "estimatedSessions": "10+",
+  "synopsis": "Forge your own path across the untamed Shattered Coast. No quest board, no predetermined route — just you, the wild, and whatever you stumble into. Towns hide secrets, dungeons lurk beneath hillsides, and the wilderness itself has stories to tell.",
+  "hook": "Your party arrives at the edge of civilization with little more than rumor and resolve. The Shattered Coast stretches before you — a patchwork of windswept plains, ancient forests, and crumbling coastal cliffs. Somewhere out there lie lost mines, sunken temples, masked festivals, and worse. But the road is yours to choose.",
+  "setting": {
+    "name": "The Shattered Coast",
+    "description": "A rugged frontier region where civilization clings to scattered settlements separated by miles of untamed wilderness. The coastline is fractured by ancient cataclysm, leaving dramatic sea cliffs, hidden coves, and treacherous tidal flats. Inland, rolling grasslands give way to dense forests and rocky foothills. Old roads connect the settlements, but bandits, beasts, and stranger things make travel perilous.",
+    "atmosphere": "A land of stark beauty and quiet danger. The wind carries salt from the sea and whispers from the hills. Every horizon promises discovery — or disaster.",
+    "regions": [
+      {
+        "name": "The Central Grasslands",
+        "description": "Wide open plains dotted with standing stones and the occasional shepherd's hut. Easy travel but exposed — you can see for miles, and so can anything watching you."
+      },
+      {
+        "name": "The Wyldwood",
+        "description": "A dense, ancient forest in the northwest. The canopy blocks the sun, and the undergrowth hides wolf dens, druid circles, and older things."
+      },
+      {
+        "name": "The Ironvein Foothills",
+        "description": "Rocky hills in the northeast, riddled with old mine shafts and caves. The dwarves abandoned most of them decades ago, but not everything underground left with them."
+      },
+      {
+        "name": "The Southern Coast",
+        "description": "Salt-sprayed cliffs and fishing villages. The tides here are unpredictable, and locals whisper about lights beneath the waves."
+      }
+    ]
+  },
+  "linkedScenarios": [
+    "b7d4f2a1-8c3e-4f9b-a1d5-2e6f8b0c3d7a",
+    "c9e5a3b2-1d7f-4a6c-b8e2-3f9d0c4e6a1b",
+    "a3c7e1f0-4b2d-4e8a-9f6c-1d3e5a7b9c0e",
+    "d1f6b4c3-2e8a-4d7b-c9f3-4a0e1b5d7c2f"
+  ],
+  "wildernessStarts": [
+    { "x": 40, "y": 45, "label": "Central Grasslands" },
+    { "x": 35, "y": 60, "label": "Southern Plains" },
+    { "x": 50, "y": 35, "label": "Northern Foothills" },
+    { "x": 30, "y": 50, "label": "Western Crossroads" },
+    { "x": 55, "y": 55, "label": "Eastern Trail" }
+  ],
+  "explorationRules": "The party travels across a hex-style wilderness. Each day of travel, roll for weather, random encounters, and discoveries. Settlements are visible from a distance and can be approached or bypassed. Scenario locations trigger their full storylines when the party arrives and engages. Between locations, the DM improvises wilderness events: foraging, camping, weather hazards, wandering merchants, ruins, and wildlife."
+}

@@ -427,6 +427,50 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 0.5rem;
 }
+/* Mode toggle (Scenarios / Campaigns) */
+.mode-toggle {
+  display: inline-flex;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+  margin-bottom: 0.75rem;
+}
+.mode-toggle-btn {
+  padding: 0.45rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mode-toggle-btn:hover {
+  color: var(--text);
+}
+.mode-toggle-btn.active {
+  background: var(--gold);
+  color: var(--bg-dark, #1a1a2e);
+}
+
+/* Campaign card extras */
+.campaign-card {
+  min-height: 110px;
+}
+.campaign-subtitle {
+  color: var(--gold) !important;
+  font-size: 0.75em !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.campaign-meta {
+  font-size: 0.75em !important;
+  opacity: 0.7;
+}
+
 .btn-primary.begin-btn {
   margin-top: 1.5rem;
   padding: 0.8rem 2rem;
@@ -739,4 +783,107 @@
 }
 .btn-deny:hover {
   background: #c0392b;
+}
+
+/* ===== World Map ===== */
+.world-map-container {
+  max-width: 900px;
+}
+.world-map-container.compact {
+  max-width: 600px;
+}
+.world-map-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.world-map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+}
+.map-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+}
+.map-marker-dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--marker-color, var(--gold));
+  border: 2px solid white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+  margin: 0 auto;
+}
+.map-marker:hover .map-marker-dot,
+.map-marker.hovered .map-marker-dot {
+  transform: scale(1.4);
+}
+.map-marker-label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(100% + 6px);
+  background: rgba(22, 33, 62, 0.95);
+  border: 1px solid var(--marker-color, var(--gold));
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  white-space: nowrap;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.map-marker:hover .map-marker-label,
+.map-marker.hovered .map-marker-label {
+  opacity: 1;
+}
+.map-marker-label strong {
+  display: block;
+  color: var(--marker-color, var(--gold));
+  font-size: 0.85em;
+}
+.map-marker-label span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75em;
+}
+
+/* Party marker on map */
+.map-party-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+}
+.map-party-dot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid white;
+  box-shadow: 0 0 12px var(--gold), 0 0 4px rgba(0, 0, 0, 0.5);
+  animation: party-pulse 2s infinite;
+  margin: 0 auto;
+}
+.map-party-label {
+  display: block;
+  font-size: 0.7em;
+  color: var(--gold);
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+@keyframes party-pulse {
+  0%, 100% { box-shadow: 0 0 12px var(--gold), 0 0 4px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 20px var(--gold), 0 0 8px rgba(0, 0, 0, 0.5); }
 }
