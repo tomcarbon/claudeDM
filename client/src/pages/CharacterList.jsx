@@ -35,6 +35,55 @@ function CharacterList() {
     e.target.value = '';
   };
 
+  const handleExportEmpty = () => {
+    const template = {
+      name: "",
+      race: "",
+      subrace: "",
+      class: "",
+      level: 1,
+      background: "",
+      alignment: "",
+      experience: 0,
+      abilities: {
+        strength:     { score: 10, modifier: 0 },
+        dexterity:    { score: 10, modifier: 0 },
+        constitution: { score: 10, modifier: 0 },
+        intelligence: { score: 10, modifier: 0 },
+        wisdom:       { score: 10, modifier: 0 },
+        charisma:     { score: 10, modifier: 0 }
+      },
+      hitPoints: { max: 10, current: 10 },
+      armorClass: 10,
+      speed: 30,
+      proficiencyBonus: 2,
+      savingThrows: [],
+      skills: [],
+      languages: ["Common"],
+      equipment: [],
+      weapons: [],
+      armor: { name: "", type: "none" },
+      features: [],
+      traits: [],
+      spells: null,
+      personality: {
+        traits: "",
+        ideals: "",
+        bonds: "",
+        flaws: ""
+      },
+      appearance: "",
+      backstory: ""
+    };
+    const blob = new Blob([JSON.stringify(template, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'empty-character.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   if (loading) return <div className="loading">Loading characters...</div>;
   if (error) return <div className="error">Error: {error}</div>;
 
@@ -42,7 +91,7 @@ function CharacterList() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2>Player Characters</h2>
-        <div>
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
           <input
             type="file"
             accept=".json"
@@ -50,6 +99,7 @@ function CharacterList() {
             onChange={handleImport}
             style={{ display: 'none' }}
           />
+          <button onClick={handleExportEmpty}>Export Empty Character</button>
           <button onClick={() => fileInputRef.current.click()}>Import Character</button>
         </div>
       </div>
