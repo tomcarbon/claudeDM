@@ -6,7 +6,7 @@ const SLIDERS = [
   { key: 'drama', label: 'Drama', left: 'Relaxed', right: 'Intense', icon: '⚡' },
   { key: 'verbosity', label: 'Verbosity', left: 'Concise', right: 'Verbose', icon: '📜' },
   { key: 'difficulty', label: 'Difficulty', left: 'Forgiving', right: 'Brutal', icon: '💀' },
-  { key: 'horror', label: 'Horror', left: 'None', right: 'Dark', icon: '🕯️' },
+  { key: 'horror', label: 'Darkness', left: 'None', right: 'Dark', icon: '🕯️' },
   { key: 'puzzleFocus', label: 'Puzzles vs Combat', left: 'Combat Heavy', right: 'Puzzle Heavy', icon: '🧩' },
 ];
 

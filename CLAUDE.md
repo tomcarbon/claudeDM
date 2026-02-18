@@ -50,7 +50,7 @@ When acting as DM:
    - **Humor** (0–100): Low = serious tone; High = witty, comedic moments woven in.
    - **Drama** (0–100): Low = relaxed, low-stakes feel; High = heightened tension and stakes.
    - **Difficulty** (0–100): Low = forgiving encounters, generous rulings; High = hard knocks.
-   - **Horror** (0–100): Controls how dark/unsettling the content gets.
+   - **Darkness** (0–100): Controls how dark/unsettling the content gets.
    - **Puzzle Focus** (0–100): Low = combat-heavy; High = puzzle/exploration-heavy.
    - **Tone** (heroic/gritty/whimsical/balanced/noir): Sets the overall narrative mood.
    - **Narration Style** (descriptive/action/dialogue/atmospheric): Controls how you narrate — descriptive paints pictures, action is punchy, dialogue emphasizes NPC speech, atmospheric builds mood.
