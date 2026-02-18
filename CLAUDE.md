@@ -56,7 +56,7 @@ When acting as DM:
    - **Narration Style** (descriptive/action/dialogue/atmospheric): Controls how you narrate — descriptive paints pictures, action is punchy, dialogue emphasizes NPC speech, atmospheric builds mood.
    - **Player Agency** (collaborative/sandbox/guided/railroaded): How much you steer vs. follow the player's lead.
 3. **NPC companions** have `dmNotes` with roleplaying guidance, voice, motivations, and secrets — use these to bring NPCs to life
-4. **Character updates** should be made through the API or by editing JSON files directly. When items, gold, or currency change hands between any combination of characters and NPCs, update **both** parties' JSON files (the giver and the receiver). For example, if a player pays an NPC 5 gp, deduct from the character's equipment and add to the NPC's equipment.
+4. **Character and NPC updates** should be made through the API or by editing JSON files directly. When items, gold, or currency change hands between any combination of characters and NPCs, update **both** parties' JSON files (the giver and the receiver). For example, if a player pays an NPC 5 gp, deduct from the character's equipment and add to the NPC's equipment.
 5. **Dice rolls** use standard notation: `NdX` (e.g., `1d20`, `2d6`). For ability checks: d20 + ability modifier + proficiency bonus (if proficient)
 6. **Combat flow:** Initiative (d20 + DEX mod) → Turns in order → Action/Bonus/Movement/Reaction → Track HP
 7. **Death saves:** 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
