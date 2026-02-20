@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { api } from '../api/client';
+import { usePlayer } from '../context/PlayerContext';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
@@ -21,6 +22,7 @@ function Adventure({
   setSavedSessionDbId,
 }) {
   const { messages, setMessages, status, sessionId, permissionRequest, sendMessage, startSession, sendPermission, resumeSession } = ws;
+  const { player } = usePlayer();
   const [input, setInput] = useState('');
   const [characters, setCharacters] = useState([]);
   const [scenarios, setScenarios] = useState([]);
@@ -123,6 +125,8 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
         characterId: selectedCharacter,
         scenarioId: selectedScenario,
         messages: messages.filter(m => m.type !== 'dm_partial'),
+        playerEmail: player?.email || null,
+        playerName: player?.name || null,
       };
 
       console.log(`[Save] Payload — messages: ${payload.messages.length}, claudeSessionId: ${payload.claudeSessionId ? 'yes' : 'no'}`);
@@ -393,122 +397,122 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
 
   return (
     <div className="adventure-container">
-      {/* Session info bar */}
-      <div className="adventure-header">
-        <div className="adventure-info">
-          <span className="adventure-scenario">{activeCampaign?.title || activeScenario?.title}</span>
-          <span className="adventure-character">{activeCharacter?.name}</span>
-        </div>
-        <button
-          className="btn-save"
-          onClick={handleSave}
-          disabled={saveStatus === 'saving' || status === 'disconnected'}
-        >
-          {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'saved' ? 'Saved!' : 'Save'}
-        </button>
-        <button
-          className="btn-save"
-          onClick={handleExportStory}
-          disabled={messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system').length === 0}
-        >
-          Export Story
-        </button>
-        <button
-          className="btn-save"
-          onClick={handleExportSession}
-          disabled={messages.filter(m => m.type !== 'dm_partial').length === 0}
-        >
-          Export Session
-        </button>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.85rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
-          <input
-            type="checkbox"
-            checked={autoSave}
-            onChange={e => setAutoSave(e.target.checked)}
-          />
-          Auto-save
-        </label>
-        <div className={`status-indicator ${statusInfo.className}`}>
-          <span className="status-dot" />
-          <span className="status-label">{statusInfo.label}</span>
-        </div>
-      </div>
-
-      {/* Story area */}
-      <div className="story-area" ref={storyRef}>
-        {messages.map((msg, i) => (
-          <div key={i} className={`story-message story-${msg.type}`}>
-            {msg.type === 'player' && (
-              <div className="message-player">
-                <span className="message-sender">{activeCharacter?.name || 'You'}</span>
-                <p>{msg.text}</p>
-              </div>
-            )}
-            {(msg.type === 'dm' || msg.type === 'dm_partial') && (
-              <div className="message-dm">
-                <span className="message-sender">Dungeon Master</span>
-                <div className="dm-narration">{msg.text}</div>
-                {msg.type === 'dm_partial' && <span className="typing-cursor" />}
-              </div>
-            )}
-            {msg.type === 'system' && (
-              <div className="message-system">{msg.text}</div>
-            )}
+        {/* Session info bar */}
+        <div className="adventure-header">
+          <div className="adventure-info">
+            <span className="adventure-scenario">{activeCampaign?.title || activeScenario?.title}</span>
+            <span className="adventure-character">{activeCharacter?.name}</span>
           </div>
-        ))}
-      </div>
+          <button
+            className="btn-save"
+            onClick={handleSave}
+            disabled={saveStatus === 'saving' || status === 'disconnected'}
+          >
+            {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'saved' ? 'Saved!' : 'Save'}
+          </button>
+          <button
+            className="btn-save"
+            onClick={handleExportStory}
+            disabled={messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system').length === 0}
+          >
+            Export Story
+          </button>
+          <button
+            className="btn-save"
+            onClick={handleExportSession}
+            disabled={messages.filter(m => m.type !== 'dm_partial').length === 0}
+          >
+            Export Session
+          </button>
+          <label style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.85rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              checked={autoSave}
+              onChange={e => setAutoSave(e.target.checked)}
+            />
+            Auto-save
+          </label>
+          <div className={`status-indicator ${statusInfo.className}`}>
+            <span className="status-dot" />
+            <span className="status-label">{statusInfo.label}</span>
+          </div>
+        </div>
 
-      {/* Input area */}
-      <div className="adventure-input-bar">
-        <textarea
-          ref={inputRef}
-          className="adventure-input"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder={status === 'thinking' ? 'The DM is narrating...' : 'What do you do?'}
-          disabled={status === 'thinking' || status === 'awaiting_permission'}
-          rows={1}
-        />
-        <button
-          className="btn-send"
-          onClick={handleSend}
-          disabled={!input.trim() || status === 'thinking'}
-        >
-          Send
-        </button>
-      </div>
+        {/* Story area */}
+        <div className="story-area" ref={storyRef}>
+          {messages.map((msg, i) => (
+            <div key={i} className={`story-message story-${msg.type}`}>
+              {msg.type === 'player' && (
+                <div className="message-player">
+                  <span className="message-sender">{activeCharacter?.name || 'You'}</span>
+                  <p>{msg.text}</p>
+                </div>
+              )}
+              {(msg.type === 'dm' || msg.type === 'dm_partial') && (
+                <div className="message-dm">
+                  <span className="message-sender">Dungeon Master</span>
+                  <div className="dm-narration">{msg.text}</div>
+                  {msg.type === 'dm_partial' && <span className="typing-cursor" />}
+                </div>
+              )}
+              {msg.type === 'system' && (
+                <div className="message-system">{msg.text}</div>
+              )}
+            </div>
+          ))}
+        </div>
 
-      {/* Permission modal */}
-      {permissionRequest && (
-        <div className="permission-overlay">
-          <div className="permission-modal">
-            <h3>The DM Requests Permission</h3>
-            <p className="permission-description">{permissionRequest.description}</p>
-            <p className="permission-tool">Tool: <code>{permissionRequest.toolName}</code></p>
-            {permissionRequest.input?.file_path && (
-              <p className="permission-detail">File: <code>{permissionRequest.input.file_path}</code></p>
-            )}
-            {permissionRequest.input?.command && (
-              <p className="permission-detail">Command: <code>{permissionRequest.input.command}</code></p>
-            )}
-            <div className="permission-actions">
-              <button
-                className="btn-allow"
-                onClick={() => sendPermission(permissionRequest.toolUseID, true)}
-              >
-                Allow
-              </button>
-              <button
-                className="btn-deny"
-                onClick={() => sendPermission(permissionRequest.toolUseID, false)}
-              >
-                Deny
-              </button>
+        {/* Input area */}
+        <div className="adventure-input-bar">
+          <textarea
+            ref={inputRef}
+            className="adventure-input"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder={status === 'thinking' ? 'The DM is narrating...' : 'What do you do?'}
+            disabled={status === 'thinking' || status === 'awaiting_permission'}
+            rows={1}
+          />
+          <button
+            className="btn-send"
+            onClick={handleSend}
+            disabled={!input.trim() || status === 'thinking'}
+          >
+            Send
+          </button>
+        </div>
+
+        {/* Permission modal */}
+        {permissionRequest && (
+          <div className="permission-overlay">
+            <div className="permission-modal">
+              <h3>The DM Requests Permission</h3>
+              <p className="permission-description">{permissionRequest.description}</p>
+              <p className="permission-tool">Tool: <code>{permissionRequest.toolName}</code></p>
+              {permissionRequest.input?.file_path && (
+                <p className="permission-detail">File: <code>{permissionRequest.input.file_path}</code></p>
+              )}
+              {permissionRequest.input?.command && (
+                <p className="permission-detail">Command: <code>{permissionRequest.input.command}</code></p>
+              )}
+              <div className="permission-actions">
+                <button
+                  className="btn-allow"
+                  onClick={() => sendPermission(permissionRequest.toolUseID, true)}
+                >
+                  Allow
+                </button>
+                <button
+                  className="btn-deny"
+                  onClick={() => sendPermission(permissionRequest.toolUseID, false)}
+                >
+                  Deny
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
 }

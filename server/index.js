@@ -14,6 +14,8 @@ const campaignsRouter = require('./routes/campaigns');
 const dmSettingsRouter = require('./routes/dm-settings');
 const sessionsRouter = require('./routes/sessions');
 const settingsRouter = require('./routes/settings');
+const playersRouter = require('./routes/players');
+const createChatRouter = require('./routes/chat');
 const { attachWebSocket } = require('./ws-handler');
 
 const app = express();
@@ -32,6 +34,10 @@ app.use('/api/campaigns', campaignsRouter(DATA_DIR));
 app.use('/api/dm-settings', dmSettingsRouter(DATA_DIR));
 app.use('/api/sessions', sessionsRouter(DATA_DIR));
 app.use('/api/settings', settingsRouter(DATA_DIR));
+app.use('/api/players', playersRouter(DATA_DIR));
+
+const { router: chatRouter, appendMessage: appendChatMessage } = createChatRouter(DATA_DIR);
+app.use('/api/chat', chatRouter);
 
 // Serve static build in production
 if (process.env.NODE_ENV === 'production') {
@@ -42,7 +48,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const server = http.createServer(app);
-attachWebSocket(server, DATA_DIR);
+attachWebSocket(server, DATA_DIR, { appendChatMessage });
 
 server.listen(PORT, () => {
   console.log(`D&D Companion server running on http://localhost:${PORT}`);

@@ -46,6 +46,15 @@ export const api = {
   // Settings
   restoreDefaults: (scope) => fetchJson(`/settings/restore-defaults${scope ? `?scope=${scope}` : ''}`, { method: 'POST' }),
 
+  // Players / Auth
+  playerLogin: (email, password) => fetchJson('/players/login', { method: 'POST', body: JSON.stringify({ email, password }) }),
+  playerRegister: (email, name, password) => fetchJson('/players/register', { method: 'POST', body: JSON.stringify({ email, name, password }) }),
+  playerChangePassword: (email, currentPassword, newPassword) => fetchJson('/players/password', { method: 'PUT', body: JSON.stringify({ email, currentPassword, newPassword }) }),
+
+  // Chat (persistent, day-based)
+  getChatMessages: (date) => fetchJson(`/chat${date ? `?date=${encodeURIComponent(date)}` : ''}`),
+  getChatDates: () => fetchJson('/chat/dates'),
+
   // Sessions (multiplayer-ready)
   getSessions: () => fetchJson('/sessions'),
   getSession: (id) => fetchJson(`/sessions/${id}`),

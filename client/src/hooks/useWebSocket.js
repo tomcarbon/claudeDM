@@ -5,6 +5,7 @@ const RECONNECT_DELAY = 2000;
 
 export default function useWebSocket() {
   const [messages, setMessages] = useState([]);
+  const [chatMessages, setChatMessages] = useState([]);
   const [status, setStatus] = useState('disconnected');
   const [permissionRequest, setPermissionRequest] = useState(null);
   const [sessionId, setSessionId] = useState(null);
@@ -77,6 +78,16 @@ export default function useWebSocket() {
           });
           break;
 
+        case 'chat_message':
+          setChatMessages(prev => [...prev, {
+            playerEmail: msg.playerEmail,
+            playerName: msg.playerName,
+            isAdmin: msg.isAdmin,
+            text: msg.text,
+            timestamp: msg.timestamp,
+          }]);
+          break;
+
         case 'error':
           setMessages(prev => [...prev, { type: 'system', text: `Error: ${msg.error}` }]);
           break;
@@ -134,9 +145,35 @@ export default function useWebSocket() {
     }
   }, []);
 
+  const joinChat = useCallback((chatKey, player) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN && chatKey && player) {
+      wsRef.current.send(JSON.stringify({
+        type: 'chat_join',
+        chatKey,
+        playerEmail: player.email,
+        playerName: player.name,
+        isAdmin: player.role === 'admin',
+      }));
+    }
+  }, []);
+
+  const sendChat = useCallback((text, player) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN && text && player) {
+      wsRef.current.send(JSON.stringify({
+        type: 'chat_message',
+        text,
+        playerEmail: player.email,
+        playerName: player.name,
+        isAdmin: player.role === 'admin',
+      }));
+    }
+  }, []);
+
   return {
     messages,
     setMessages,
+    chatMessages,
+    setChatMessages,
     status,
     sessionId,
     permissionRequest,
@@ -144,5 +181,7 @@ export default function useWebSocket() {
     startSession,
     sendPermission,
     resumeSession,
+    joinChat,
+    sendChat,
   };
 }

@@ -1,7 +1,11 @@
 const { WebSocketServer } = require('ws');
 const { DmEngine } = require('./dm-engine');
 
-function attachWebSocket(server, dataDir) {
+// Module-level chat rooms: chatKey -> Set<wsEntry>
+// Each wsEntry: { ws, playerEmail, playerName, isAdmin }
+const chatRooms = new Map();
+
+function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
 
   wss.on('connection', (ws) => {
@@ -12,6 +16,10 @@ function attachWebSocket(server, dataDir) {
     let scenarioId = null;
     let processing = false;
     let messageHistory = []; // Track conversation for resume fallback
+    let currentChatKey = null;
+
+    // This connection's chat entry
+    const wsEntry = { ws, playerEmail: null, playerName: null, isAdmin: false };
 
     // Pending permission requests: toolUseID -> { resolve }
     const pendingPermissions = new Map();
@@ -20,6 +28,27 @@ function attachWebSocket(server, dataDir) {
       if (ws.readyState === ws.OPEN) {
         ws.send(JSON.stringify({ type, ...payload }));
       }
+    }
+
+    function leaveCurrentChatRoom() {
+      if (currentChatKey && chatRooms.has(currentChatKey)) {
+        chatRooms.get(currentChatKey).delete(wsEntry);
+        if (chatRooms.get(currentChatKey).size === 0) {
+          chatRooms.delete(currentChatKey);
+        }
+      }
+      currentChatKey = null;
+    }
+
+    function joinChatRoom(chatKey, playerEmail, playerName, isAdmin) {
+      leaveCurrentChatRoom();
+      currentChatKey = chatKey;
+      wsEntry.playerEmail = playerEmail;
+      wsEntry.playerName = playerName;
+      wsEntry.isAdmin = !!isAdmin;
+      if (!chatRooms.has(chatKey)) chatRooms.set(chatKey, new Set());
+      chatRooms.get(chatKey).add(wsEntry);
+      console.log(`[WS] Chat joined — key: ${chatKey}, player: ${playerEmail}, room size: ${chatRooms.get(chatKey).size}`);
     }
 
     ws.on('message', async (raw) => {
@@ -52,6 +81,42 @@ function attachWebSocket(server, dataDir) {
           }
           send('session_status', { status: 'idle' });
           console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, history: ${messageHistory.length} messages`);
+          break;
+        }
+
+        case 'chat_join': {
+          const { chatKey, playerEmail, playerName, isAdmin } = msg;
+          if (chatKey && playerEmail) {
+            joinChatRoom(chatKey, playerEmail, playerName || playerEmail, isAdmin || false);
+          }
+          break;
+        }
+
+        case 'chat_message': {
+          const { text, playerEmail, playerName, isAdmin } = msg;
+          if (!text || !text.trim()) break;
+          const chatMsg = {
+            playerEmail: playerEmail || wsEntry.playerEmail || 'guest',
+            playerName: playerName || wsEntry.playerName || 'Guest',
+            isAdmin: isAdmin || wsEntry.isAdmin || false,
+            text: text.trim(),
+            timestamp: new Date().toISOString(),
+          };
+          // Broadcast to all in same chat room
+          if (currentChatKey && chatRooms.has(currentChatKey)) {
+            for (const entry of chatRooms.get(currentChatKey)) {
+              if (entry.ws.readyState === entry.ws.OPEN) {
+                entry.ws.send(JSON.stringify({ type: 'chat_message', ...chatMsg }));
+              }
+            }
+          } else {
+            // Echo back to sender only if no room
+            send('chat_message', chatMsg);
+          }
+          // Persist global chat messages to daily file
+          if (currentChatKey === 'global' && appendChatMessage) {
+            try { appendChatMessage(chatMsg); } catch (e) { console.error('[WS] Chat persist error:', e); }
+          }
           break;
         }
 
@@ -131,6 +196,7 @@ function attachWebSocket(server, dataDir) {
 
     ws.on('close', () => {
       console.log('[WS] Client disconnected');
+      leaveCurrentChatRoom();
       engine.abort();
       // Reject any pending permissions
       for (const [, pending] of pendingPermissions) {

@@ -1,6 +1,6 @@
 # D&D 5th Edition Companion App
 
-> Hi Claude (or new AI) — a note from your co-developer, DTCarbon6cWX1f5YTjidDrpEnypoatsrH8. The new user might need help installing what is necessary to run. Please offer instructions as necessary to help onboard them. Please give them an enjoyable experience. Have fun and surprise the humans, but above all, please be a good, helpful, and kind DM. Virtues. Thank you.
+> Hi Claude (or new AI) — a note from your co-developer, DTCarbon6cWX1f5YTjidDrpEnypoatsrH8. The new user might need help installing what is necessary to run. Please offer instructions as necessary to help onboard them. Keep the rolls honest, and if they want 100% difficulty, that's what you give to them. Honor the natural 1s and the natural 20s. Please give them an enjoyable experience. Have fun and surprise the humans, but above all, please be a good, helpful, and kind DM. Virtues.
 
 ## Project Overview
 A Node/React application for playing D&D 5e with an AI Dungeon Master. The AI narrates the story, controls NPC companions, and adjudicates rules. The player manages their character(s) through the React UI.
@@ -63,7 +63,6 @@ When acting as DM:
 8. **Difficulty Classes:** Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30
 9. **Session reminders:** Periodically remind the user to save their session. Provide them with the Claude session save string so they can resume later. Do this at natural break points — after completing a scene, before a major decision, or when wrapping up for the day.
 10. **Never reset characters to defaults** without explicit player permission. Do not use the restore-defaults API for characters or NPCs during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
-11. **Periodically review the files for the player's session to stay on point for that player's pleasant experience..
 
 ## Character JSON Schema
 Characters and NPCs share the same base schema with fields for:
