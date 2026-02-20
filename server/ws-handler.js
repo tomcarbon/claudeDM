@@ -8,6 +8,24 @@ const chatRooms = new Map();
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
 
+  function broadcastSystemMessage(chatKey, text) {
+    const systemMsg = {
+      type: 'chat_system',
+      text,
+      timestamp: new Date().toISOString(),
+    };
+    if (chatRooms.has(chatKey)) {
+      for (const entry of chatRooms.get(chatKey)) {
+        if (entry.ws.readyState === entry.ws.OPEN) {
+          entry.ws.send(JSON.stringify(systemMsg));
+        }
+      }
+    }
+    if (chatKey === 'global' && appendChatMessage) {
+      try { appendChatMessage({ isSystem: true, text, timestamp: systemMsg.timestamp }); } catch (e) { console.error('[WS] Chat persist error:', e); }
+    }
+  }
+
   wss.on('connection', (ws) => {
     console.log('[WS] Client connected');
 
@@ -33,6 +51,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     function leaveCurrentChatRoom() {
       if (currentChatKey && chatRooms.has(currentChatKey)) {
         chatRooms.get(currentChatKey).delete(wsEntry);
+        if (wsEntry.playerName) {
+          broadcastSystemMessage(currentChatKey, `player ${wsEntry.playerName} has left.`);
+        }
         if (chatRooms.get(currentChatKey).size === 0) {
           chatRooms.delete(currentChatKey);
         }
@@ -48,6 +69,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       wsEntry.isAdmin = !!isAdmin;
       if (!chatRooms.has(chatKey)) chatRooms.set(chatKey, new Set());
       chatRooms.get(chatKey).add(wsEntry);
+      broadcastSystemMessage(chatKey, `player ${playerName} has joined.`);
       console.log(`[WS] Chat joined — key: ${chatKey}, player: ${playerEmail}, room size: ${chatRooms.get(chatKey).size}`);
     }
 

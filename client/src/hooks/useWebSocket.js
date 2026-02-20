@@ -88,6 +88,14 @@ export default function useWebSocket() {
           }]);
           break;
 
+        case 'chat_system':
+          setChatMessages(prev => [...prev, {
+            isSystem: true,
+            text: msg.text,
+            timestamp: msg.timestamp,
+          }]);
+          break;
+
         case 'error':
           setMessages(prev => [...prev, { type: 'system', text: `Error: ${msg.error}` }]);
           break;

@@ -124,15 +124,21 @@ export default function PlayerChat({ chatMessages, onSend }) {
               </div>
             ) : (
               displayMessages.map((msg, i) => (
-                <div key={i} className={`chat-msg${msg.isAdmin ? ' chat-msg-admin' : ''}`}>
-                  <span className="chat-msg-sender">
-                    {msg.playerName}
-                    {msg.timestamp && (
-                      <span className="chat-msg-time">{formatTime(msg.timestamp)}</span>
-                    )}
-                  </span>
-                  <span className="chat-msg-text">{msg.text}</span>
-                </div>
+                msg.isSystem ? (
+                  <div key={i} className="chat-msg chat-msg-system">
+                    <span className="chat-msg-system-text">{msg.text}</span>
+                  </div>
+                ) : (
+                  <div key={i} className={`chat-msg${msg.isAdmin ? ' chat-msg-admin' : ''}`}>
+                    <span className="chat-msg-sender">
+                      {msg.playerName}
+                      {msg.timestamp && (
+                        <span className="chat-msg-time">{formatTime(msg.timestamp)}</span>
+                      )}
+                    </span>
+                    <span className="chat-msg-text">{msg.text}</span>
+                  </div>
+                )
               ))
             )}
             {!selectedDate && <div ref={messagesEndRef} />}

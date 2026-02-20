@@ -20,6 +20,18 @@
   margin-bottom: 1.5rem;
   text-align: center;
   color: var(--gold);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sidebar .logo-sub {
+  font-size: 0.5em;
+  font-weight: normal;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  font-style: italic;
 }
 
 .sidebar ul {
@@ -1196,6 +1208,16 @@
 
 .chat-msg-admin .chat-msg-text {
   color: #e74c3c;
+}
+
+.chat-msg-system {
+  text-align: center;
+}
+
+.chat-msg-system-text {
+  font-size: 0.8em;
+  color: #f0c040;
+  font-style: italic;
 }
 
 .chat-input-bar {

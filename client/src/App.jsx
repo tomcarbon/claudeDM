@@ -52,7 +52,7 @@ function AppContent() {
   return (
     <div className="app">
       <nav className="sidebar">
-        <h1 className="logo">D&D Companion</h1>
+        <h1 className="logo">D&D Companion<span className="logo-sub">single player demo</span></h1>
         <ul>
           <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
           <li><NavLink to="/">Home</NavLink></li>
