@@ -1,9 +1,29 @@
 const API_BASE = `http://${window.location.hostname}:3001/api`;
 
+function getPlayerHeaders() {
+  try {
+    const raw = localStorage.getItem('dnd_player');
+    if (!raw) return {};
+    const player = JSON.parse(raw);
+    const headers = {};
+    if (player?.email) headers['X-Player-Email'] = player.email;
+    if (player?.role) headers['X-Player-Role'] = player.role;
+    return headers;
+  } catch {
+    return {};
+  }
+}
+
 async function fetchJson(url, options = {}) {
+  const headers = {
+    'Content-Type': 'application/json',
+    ...getPlayerHeaders(),
+    ...(options.headers || {}),
+  };
+
   const res = await fetch(`${API_BASE}${url}`, {
-    headers: { 'Content-Type': 'application/json' },
     ...options,
+    headers,
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: res.statusText }));

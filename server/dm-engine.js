@@ -5,6 +5,11 @@ const path = require('path');
 const { awardXp } = require('./xp-utils');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
+const SHUFFLE_TIMEZONE = 'America/Los_Angeles';
+
+const SHUFFLE_TONE_OPTIONS = ['heroic', 'gritty', 'whimsical', 'balanced', 'noir'];
+const SHUFFLE_NARRATION_OPTIONS = ['descriptive', 'action', 'dialogue', 'atmospheric'];
+const SHUFFLE_AGENCY_OPTIONS = ['collaborative', 'sandbox', 'guided', 'railroaded'];
 
 function loadJson(filePath) {
   try {
@@ -14,13 +19,79 @@ function loadJson(filePath) {
   }
 }
 
+function pacificDateKey(date = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: SHUFFLE_TIMEZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(date);
+
+  const year = parts.find((p) => p.type === 'year')?.value || '1970';
+  const month = parts.find((p) => p.type === 'month')?.value || '01';
+  const day = parts.find((p) => p.type === 'day')?.value || '01';
+  return `${year}-${month}-${day}`;
+}
+
+function hashSeed(text) {
+  let hash = 2166136261;
+  for (let i = 0; i < text.length; i += 1) {
+    hash ^= text.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function createRng(seedText) {
+  let state = hashSeed(seedText) || 1;
+  return function next() {
+    state ^= state << 13;
+    state ^= state >>> 17;
+    state ^= state << 5;
+    return ((state >>> 0) / 4294967296);
+  };
+}
+
+function randomPercent(rng) {
+  const step = 5;
+  const maxSteps = 100 / step;
+  return Math.floor(rng() * (maxSteps + 1)) * step;
+}
+
+function pickOne(options, rng) {
+  return options[Math.floor(rng() * options.length)];
+}
+
+function applyDailyShuffle(settings) {
+  if (!settings.aiDailyShuffle) return settings;
+
+  const dayKey = pacificDateKey();
+  const rng = createRng(`dm-personality:${dayKey}`);
+
+  return {
+    ...settings,
+    humor: randomPercent(rng),
+    drama: randomPercent(rng),
+    verbosity: randomPercent(rng),
+    difficulty: randomPercent(rng),
+    horror: randomPercent(rng),
+    romance: randomPercent(rng),
+    puzzleFocus: randomPercent(rng),
+    combatFocus: randomPercent(rng),
+    tone: pickOne(SHUFFLE_TONE_OPTIONS, rng),
+    narrationStyle: pickOne(SHUFFLE_NARRATION_OPTIONS, rng),
+    playerAgency: pickOne(SHUFFLE_AGENCY_OPTIONS, rng),
+  };
+}
+
 function loadDmSettings(dataDir) {
   const settings = loadJson(path.join(dataDir, 'dm-settings.json'));
-  return settings || {
+  const baseSettings = settings || {
     humor: 50, drama: 50, verbosity: 50, difficulty: 50,
     horror: 20, romance: 10, puzzleFocus: 50, combatFocus: 50,
-    tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
+    tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
   };
+  return applyDailyShuffle(baseSettings);
 }
 
 function loadCharacter(dataDir, characterId) {
@@ -77,11 +148,18 @@ function buildSystemPrompt(dataDir, characterId, scenarioId) {
     'dark': 'The overall tone is dark and gritty.',
     'lighthearted': 'The overall tone is lighthearted and fun.',
     'epic': 'The overall tone is epic and heroic.',
+    'heroic': 'The overall tone is epic and heroic.',
+    'gritty': 'The overall tone is bleak, dangerous, and grounded.',
+    'whimsical': 'The overall tone is playful, magical, and light.',
+    'noir': 'The overall tone is mysterious, shadowy, and tense.',
     'balanced': 'Strike a balance between light and dark moments.',
   };
 
   const styleMap = {
     'descriptive': 'Use descriptive, immersive narration.',
+    'action': 'Use punchy, action-focused narration with momentum.',
+    'dialogue': 'Lean heavily on dialogue and strong NPC voices.',
+    'atmospheric': 'Prioritize mood, tension, and environmental detail.',
     'concise': 'Be concise and action-focused.',
     'dramatic': 'Use dramatic, theatrical narration.',
     'conversational': 'Use a warm, conversational narration style.',

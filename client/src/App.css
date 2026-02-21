@@ -34,6 +34,13 @@
   font-style: italic;
 }
 
+.app-version {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
 .sidebar ul {
   list-style: none;
 }
@@ -276,6 +283,23 @@
 .sidebar-divider {
   border-top: 1px solid var(--border);
   margin: 1rem 0;
+}
+
+.sidebar-section-label {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: -0.2rem 0 0.6rem;
+  text-align: left;
+  padding: 0 0.4rem;
+}
+
+.sidebar-section-sub {
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  margin-left: 0.2rem;
 }
 
 /* DM Settings - Sliders */

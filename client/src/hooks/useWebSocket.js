@@ -15,6 +15,7 @@ export default function useWebSocket() {
   const reconnectTimer = useRef(null);
   const partialTextRef = useRef('');
   const currentChatKeyRef = useRef(null);
+  const pendingResumeRef = useRef(null);
 
   const connect = useCallback(function connectWebSocket() {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
@@ -24,6 +25,10 @@ export default function useWebSocket() {
 
     ws.onopen = () => {
       setStatus('idle');
+      if (pendingResumeRef.current) {
+        ws.send(JSON.stringify(pendingResumeRef.current));
+        pendingResumeRef.current = null;
+      }
     };
 
     ws.onmessage = (event) => {
@@ -140,6 +145,7 @@ export default function useWebSocket() {
   }, []);
 
   const startSession = useCallback((characterId, scenarioId) => {
+    pendingResumeRef.current = null;
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'session_start', characterId, scenarioId }));
       setMessages([{ type: 'system', text: 'Session started. Please wait while the DM prepares the story.' }]);
@@ -154,14 +160,17 @@ export default function useWebSocket() {
   }, []);
 
   const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages) => {
+    const payload = {
+      type: 'session_resume',
+      claudeSessionId,
+      characterId,
+      scenarioId,
+      messages: savedMessages || [],
+    };
+    pendingResumeRef.current = payload;
     if (wsRef.current?.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify({
-        type: 'session_resume',
-        claudeSessionId,
-        characterId,
-        scenarioId,
-        messages: savedMessages || [],
-      }));
+      wsRef.current.send(JSON.stringify(payload));
+      pendingResumeRef.current = null;
     }
   }, []);
 

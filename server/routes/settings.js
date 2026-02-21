@@ -1,10 +1,12 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { requireAdmin } = require('../admin-auth');
 
 module.exports = function (dataDir) {
   const router = express.Router();
   const defaultsDir = path.join(dataDir, 'defaults');
+  const adminOnly = requireAdmin(dataDir);
 
   const SCOPES = ['characters', 'npcs', 'scenarios', 'dm-settings'];
 
@@ -16,7 +18,7 @@ module.exports = function (dataDir) {
   }
 
   // POST /api/settings/restore-defaults
-  router.post('/restore-defaults', (req, res) => {
+  router.post('/restore-defaults', adminOnly, (req, res) => {
     try {
       const scopeParam = req.query.scope;
       const scopes = scopeParam

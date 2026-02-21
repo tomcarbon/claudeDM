@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { api } from '../api/client';
+import { usePlayer } from '../context/PlayerContext';
 
 const SLIDERS = [
   { key: 'humor', label: 'Humor', left: 'Serious', right: 'Comedic', icon: '🎭' },
@@ -33,10 +34,14 @@ const AGENCY_OPTIONS = [
 ];
 
 function DmSettings() {
+  const { player } = usePlayer();
   const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const isAdmin = player?.role === 'admin';
+  const isShuffleEnabled = !!settings?.aiDailyShuffle;
+  const canEdit = isAdmin && !isShuffleEnabled;
 
   useEffect(() => {
     api.getDmSettings()
@@ -44,32 +49,38 @@ function DmSettings() {
       .catch(() => setSettings({
         humor: 50, drama: 50, verbosity: 50, difficulty: 50,
         horror: 20, puzzleFocus: 50, tone: 'balanced',
-        narrationStyle: 'descriptive', playerAgency: 'collaborative',
+        narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
       }))
       .finally(() => setLoading(false));
   }, []);
 
   const updateSlider = (key, value) => {
+    if (!canEdit) return;
     setSettings(prev => ({ ...prev, [key]: parseInt(value) }));
     setSaved(false);
   };
 
   const updateOption = (key, value) => {
+    if (!canEdit) return;
     setSettings(prev => ({ ...prev, [key]: value }));
     setSaved(false);
   };
 
   const handleSave = async () => {
+    if (!canEdit) return;
     setSaving(true);
     try {
       await api.updateDmSettings(settings);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
-    } catch {}
+    } catch (err) {
+      console.error('Failed to save DM settings:', err);
+    }
     setSaving(false);
   };
 
   const handlePreset = (preset) => {
+    if (!canEdit) return;
     const presets = {
       classic: { humor: 30, drama: 60, verbosity: 60, difficulty: 50, horror: 20, puzzleFocus: 50, tone: 'heroic', narrationStyle: 'descriptive', playerAgency: 'guided' },
       comedic: { humor: 90, drama: 30, verbosity: 70, difficulty: 30, horror: 5, puzzleFocus: 40, tone: 'whimsical', narrationStyle: 'dialogue', playerAgency: 'collaborative' },
@@ -88,15 +99,26 @@ function DmSettings() {
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
         Customize how your AI Dungeon Master narrates, reacts, and runs the game.
       </p>
+      {!isAdmin && (
+        <p style={{ color: 'var(--text-muted)', margin: '0 0 1.5rem' }}>
+          Read-only mode: only admin can change DM Personality settings.
+          {isShuffleEnabled ? ' AI shuffle is currently enabled and rotates personality daily at midnight Pacific time.' : ''}
+        </p>
+      )}
+      {isAdmin && isShuffleEnabled && (
+        <p style={{ color: 'var(--text-muted)', margin: '0 0 1.5rem' }}>
+          AI shuffle is enabled in admin settings, so manual edits are locked until shuffle is turned off.
+        </p>
+      )}
 
       {/* Presets */}
       <div className="detail-section">
         <h3>Quick Presets</h3>
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
-          <button onClick={() => handlePreset('classic')}>Classic Fantasy</button>
-          <button onClick={() => handlePreset('comedic')}>Comedic Romp</button>
-          <button onClick={() => handlePreset('darkSouls')}>Dark & Brutal</button>
-          <button onClick={() => handlePreset('mystery')}>Mystery & Noir</button>
+          <button onClick={() => handlePreset('classic')} disabled={!canEdit}>Classic Fantasy</button>
+          <button onClick={() => handlePreset('comedic')} disabled={!canEdit}>Comedic Romp</button>
+          <button onClick={() => handlePreset('darkSouls')} disabled={!canEdit}>Dark & Brutal</button>
+          <button onClick={() => handlePreset('mystery')} disabled={!canEdit}>Mystery & Noir</button>
         </div>
       </div>
 
@@ -117,6 +139,7 @@ function DmSettings() {
                   value={settings[s.key]}
                   onChange={e => updateSlider(s.key, e.target.value)}
                   className="dm-slider"
+                  disabled={!canEdit}
                 />
                 <span className="slider-end-label">{s.right}</span>
               </div>
@@ -134,6 +157,7 @@ function DmSettings() {
               key={opt.value}
               className={`option-card ${settings.tone === opt.value ? 'selected' : ''}`}
               onClick={() => updateOption('tone', opt.value)}
+              disabled={!canEdit}
             >
               <strong>{opt.label}</strong>
               <span>{opt.desc}</span>
@@ -151,6 +175,7 @@ function DmSettings() {
               key={opt.value}
               className={`option-card ${settings.narrationStyle === opt.value ? 'selected' : ''}`}
               onClick={() => updateOption('narrationStyle', opt.value)}
+              disabled={!canEdit}
             >
               <strong>{opt.label}</strong>
               <span>{opt.desc}</span>
@@ -168,6 +193,7 @@ function DmSettings() {
               key={opt.value}
               className={`option-card ${settings.playerAgency === opt.value ? 'selected' : ''}`}
               onClick={() => updateOption('playerAgency', opt.value)}
+              disabled={!canEdit}
             >
               <strong>{opt.label}</strong>
               <span>{opt.desc}</span>
@@ -178,7 +204,7 @@ function DmSettings() {
 
       {/* Save */}
       <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <button onClick={handleSave} disabled={saving}>
+        <button onClick={handleSave} disabled={saving || !canEdit}>
           {saving ? 'Saving...' : 'Save Settings'}
         </button>
         {saved && <span style={{ color: '#27ae60' }}>Settings saved!</span>}

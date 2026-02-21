@@ -11,6 +11,36 @@ const STATUS_CONFIG = {
   error: { label: 'Error', className: 'status-error' },
 };
 
+function normalizeSavedMessages(rawMessages) {
+  if (!Array.isArray(rawMessages)) return [];
+
+  return rawMessages.map((entry) => {
+    if (typeof entry === 'string') {
+      return { type: 'system', text: entry };
+    }
+    if (!entry || typeof entry !== 'object') return null;
+
+    const inferredType = entry.type
+      || (entry.role === 'user' || entry.role === 'player' ? 'player'
+        : entry.role === 'assistant' || entry.role === 'dm' ? 'dm'
+          : entry.role === 'system' ? 'system'
+            : null);
+
+    const text = typeof entry.text === 'string'
+      ? entry.text
+      : (typeof entry.content === 'string'
+        ? entry.content
+        : (typeof entry.message === 'string' ? entry.message : ''));
+
+    if (!text) return null;
+
+    return {
+      type: ['system', 'player', 'dm', 'dm_partial'].includes(inferredType) ? inferredType : 'system',
+      text,
+    };
+  }).filter(Boolean);
+}
+
 function Adventure({
   ws,
   sessionActive,
@@ -33,6 +63,7 @@ function Adventure({
   const [savedSessions, setSavedSessions] = useState([]);
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
+  const [loadingSessionId, setLoadingSessionId] = useState(null);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
@@ -159,13 +190,14 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
   }
 
   async function handleLoadSession(id) {
+    setLoadingSessionId(id);
     try {
       const session = await api.getSession(id);
       console.log(`[Load] Session ${id} — messages: ${(session.messages || []).length}, claudeSessionId: ${session.claudeSessionId ? 'yes' : 'no'}`);
       setSelectedCharacter(session.characterId);
       setSelectedScenario(session.scenarioId);
       setSavedSessionDbId(session.id);
-      const loadedMessages = session.messages || [];
+      const loadedMessages = normalizeSavedMessages(session.messages);
       setMessages(loadedMessages);
       if (loadedMessages.length === 0) {
         console.warn('[Load] No messages found in saved session — session may not have been saved properly');
@@ -174,6 +206,9 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       setSessionActive(true);
     } catch (err) {
       console.error('Load failed:', err);
+      alert(`Load failed: ${err.message}`);
+    } finally {
+      setLoadingSessionId(null);
     }
   }
 
@@ -229,11 +264,16 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
         alert('Invalid session file: missing messages array. Please use a file exported via "Export Session".');
         return;
       }
+      const normalizedMessages = normalizeSavedMessages(data.messages);
+      if (normalizedMessages.length === 0) {
+        alert('Invalid session file: no usable messages found.');
+        return;
+      }
       const result = await api.createSession({
         name: data.name || file.name,
         characterId: data.characterId || null,
         scenarioId: data.scenarioId || null,
-        messages: data.messages,
+        messages: normalizedMessages,
         playerEmail: player?.email || data.playerEmail || null,
         playerName: player?.name || data.playerName || null,
       });
@@ -351,12 +391,21 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
                 <button
                   className="option-card-inner"
                   onClick={() => handleLoadSession(s.id)}
-                  disabled={status === 'disconnected'}
-                  style={{ all: 'unset', cursor: 'pointer', display: 'flex', flexDirection: 'column', width: '100%' }}
+                  disabled={loadingSessionId === s.id}
+                  style={{
+                    all: 'unset',
+                    cursor: loadingSessionId === s.id ? 'wait' : 'pointer',
+                    opacity: loadingSessionId === s.id ? 0.7 : 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%',
+                  }}
                 >
                   <strong>{s.name}</strong>
                   <span>Player: {s.playerName || s.playerEmail || 'Unknown'}</span>
-                  <span>{s.messageCount} messages — {new Date(s.updatedAt).toLocaleDateString()}</span>
+                  <span>
+                    {loadingSessionId === s.id ? 'Loading...' : `${s.messageCount} messages — ${new Date(s.updatedAt).toLocaleDateString()}`}
+                  </span>
                 </button>
                 <button
                   className="btn-delete-session"

@@ -140,9 +140,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         case 'session_resume': {
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
-          if (msg.claudeSessionId) {
-            engine.sessionId = msg.claudeSessionId;
-          }
+          engine.sessionId = msg.claudeSessionId || null;
           // Store message history for resume fallback
           if (msg.messages && Array.isArray(msg.messages)) {
             messageHistory = msg.messages;

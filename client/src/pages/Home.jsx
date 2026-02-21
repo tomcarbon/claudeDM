@@ -12,6 +12,12 @@ function Home() {
             Begin a text adventure with the AI Dungeon Master. Choose your character, pick a scenario, and step into the story.
           </p>
         </a>
+        <a href="/whats-new" className="card">
+          <h3>What&apos;s New</h3>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>
+            See release notes, version history, and recent feature updates.
+          </p>
+        </a>
         <a href="/characters" className="card">
           <h3>Characters</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>

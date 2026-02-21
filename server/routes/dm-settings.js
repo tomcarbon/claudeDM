@@ -1,10 +1,12 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { requireAdmin } = require('../admin-auth');
 
 module.exports = function (dataDir) {
   const router = express.Router();
   const settingsFile = path.join(dataDir, 'dm-settings.json');
+  const adminOnly = requireAdmin(dataDir);
 
   const defaultSettings = {
     humor: 50,
@@ -18,6 +20,7 @@ module.exports = function (dataDir) {
     tone: 'balanced',
     narrationStyle: 'descriptive',
     playerAgency: 'collaborative',
+    aiDailyShuffle: false,
   };
 
   function readSettings() {
@@ -35,7 +38,7 @@ module.exports = function (dataDir) {
   });
 
   // PUT update DM settings
-  router.put('/', (req, res) => {
+  router.put('/', adminOnly, (req, res) => {
     try {
       const updated = { ...readSettings(), ...req.body };
       fs.writeFileSync(settingsFile, JSON.stringify(updated, null, 2));
