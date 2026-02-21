@@ -6,14 +6,17 @@ const RECONNECT_DELAY = 2000;
 export default function useWebSocket() {
   const [messages, setMessages] = useState([]);
   const [chatMessages, setChatMessages] = useState([]);
+  const [onlinePlayers, setOnlinePlayers] = useState([]);
+  const [selfChatConnectionId, setSelfChatConnectionId] = useState(null);
   const [status, setStatus] = useState('disconnected');
   const [permissionRequest, setPermissionRequest] = useState(null);
   const [sessionId, setSessionId] = useState(null);
   const wsRef = useRef(null);
   const reconnectTimer = useRef(null);
   const partialTextRef = useRef('');
+  const currentChatKeyRef = useRef(null);
 
-  const connect = useCallback(() => {
+  const connect = useCallback(function connectWebSocket() {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
 
     const ws = new WebSocket(WS_URL);
@@ -96,6 +99,13 @@ export default function useWebSocket() {
           }]);
           break;
 
+        case 'chat_participants':
+          if (!currentChatKeyRef.current || msg.chatKey === currentChatKeyRef.current) {
+            setOnlinePlayers(Array.isArray(msg.participants) ? msg.participants : []);
+            setSelfChatConnectionId(msg.selfConnectionId ?? null);
+          }
+          break;
+
         case 'error':
           setMessages(prev => [...prev, { type: 'system', text: `Error: ${msg.error}` }]);
           break;
@@ -104,7 +114,9 @@ export default function useWebSocket() {
 
     ws.onclose = () => {
       setStatus('disconnected');
-      reconnectTimer.current = setTimeout(connect, RECONNECT_DELAY);
+      setOnlinePlayers([]);
+      setSelfChatConnectionId(null);
+      reconnectTimer.current = setTimeout(connectWebSocket, RECONNECT_DELAY);
     };
 
     ws.onerror = () => {
@@ -154,6 +166,7 @@ export default function useWebSocket() {
   }, []);
 
   const joinChat = useCallback((chatKey, player) => {
+    currentChatKeyRef.current = chatKey || null;
     if (wsRef.current?.readyState === WebSocket.OPEN && chatKey && player) {
       wsRef.current.send(JSON.stringify({
         type: 'chat_join',
@@ -182,6 +195,8 @@ export default function useWebSocket() {
     setMessages,
     chatMessages,
     setChatMessages,
+    onlinePlayers,
+    selfChatConnectionId,
     status,
     sessionId,
     permissionRequest,

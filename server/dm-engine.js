@@ -119,7 +119,7 @@ Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > T
 Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
 
 ## Character Updates
-When the player's character takes damage, gains XP, picks up items, or changes in any way, use the Edit tool to update their character JSON file in data/characters/. Always keep character data current.
+When the player's character takes damage, picks up items, or changes in any way, use the Edit tool to update their character JSON file in data/characters/. For XP changes, use the AwardXP tool instead of manual edits. Always keep character data current.
 
 ## Session Reminders
 Periodically remind the player to save their session at natural break points.`;
@@ -131,7 +131,8 @@ Periodically remind the player to save their session at natural break points.`;
 ${character.name} — Level ${character.level} ${character.race}${character.subrace ? ` (${character.subrace})` : ''} ${character.class} (${character.background})
 HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
 Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
-Character file: data/characters/${character.id}.json (use Read to check current state, Edit to update)`;
+Character file: data/characters/${character.id}.json (use Read to check current state, Edit to update)
+Character ID for AwardXP: ${character.id}`;
   }
 
   if (npcs.length > 0) {
@@ -151,7 +152,8 @@ Secret: ${npc.dmNotes.secrets || ''}
 Attitude: ${npc.dmNotes.attitude || ''}`;
       }
       prompt += `
-File: data/npcs/${npc.id}.json`;
+File: data/npcs/${npc.id}.json
+Character ID for AwardXP: ${npc.id}`;
     }
   }
 
@@ -237,7 +239,7 @@ class DmEngine {
     return {
       systemPrompt,
       cwd: PROJECT_ROOT,
-      allowedTools: ['Read', 'Glob', 'Grep', 'Edit'],
+      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-xp__AwardXP'],
       mcpServers: { 'dnd-xp': this.xpMcpServer },
       permissionMode: 'default',
       includePartialMessages: true,

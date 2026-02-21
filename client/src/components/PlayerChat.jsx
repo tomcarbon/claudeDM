@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useLayoutEffect, useRef } from 'react';
 import { usePlayer } from '../context/PlayerContext';
 import { api } from '../api/client';
+import RichText from './RichText';
 
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
@@ -16,7 +17,36 @@ function todayStr() {
   return new Date().toISOString().split('T')[0];
 }
 
-export default function PlayerChat({ chatMessages, onSend }) {
+function isGuestName(name) {
+  const normalized = (name || '').trim().toLowerCase();
+  return !normalized || normalized === 'guest';
+}
+
+function formatOnlinePlayers(onlinePlayers, selfChatConnectionId) {
+  const participants = Array.isArray(onlinePlayers) ? onlinePlayers : [];
+  const guestTotal = participants.reduce((count, participant) =>
+    count + (isGuestName(participant?.playerName) ? 1 : 0), 0
+  );
+  let guestIndex = 0;
+
+  return participants.map((participant) => {
+    const name = (participant?.playerName || '').trim();
+    const isYou = participant?.connectionId === selfChatConnectionId;
+    if (isGuestName(name)) {
+      guestIndex += 1;
+      return {
+        name: guestTotal > 1 ? `Guest ${guestIndex}` : 'Guest',
+        isYou,
+      };
+    }
+    return {
+      name,
+      isYou,
+    };
+  });
+}
+
+export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnectionId, onSend }) {
   const { player } = usePlayer();
   const [input, setInput] = useState('');
   const [archiveOpen, setArchiveOpen] = useState(false);
@@ -24,16 +54,21 @@ export default function PlayerChat({ chatMessages, onSend }) {
   const [selectedDate, setSelectedDate] = useState(null); // null = live today
   const [archivedMessages, setArchivedMessages] = useState([]);
   const [loadingArchive, setLoadingArchive] = useState(false);
-  const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   const displayMessages = selectedDate ? archivedMessages : chatMessages;
+  const onlineDisplayNames = formatOnlinePlayers(onlinePlayers, selfChatConnectionId);
   const today = todayStr();
 
-  // Auto-scroll to bottom in live view
-  useEffect(() => {
-    if (!selectedDate && messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+  // Keep latest live message fully visible.
+  useLayoutEffect(() => {
+    if (selectedDate) return;
+    const container = messagesContainerRef.current;
+    if (!container) return;
+    const frame = requestAnimationFrame(() => {
+      container.scrollTop = container.scrollHeight;
+    });
+    return () => cancelAnimationFrame(frame);
   }, [chatMessages, selectedDate]);
 
   function handleOpenArchive() {
@@ -113,7 +148,21 @@ export default function PlayerChat({ chatMessages, onSend }) {
           {selectedDate && (
             <div className="chat-date-banner">{formatDate(selectedDate)} — read only</div>
           )}
-          <div className="chat-messages">
+          <div className="chat-online-box">
+            <div className="chat-online-title">Players Online ({onlineDisplayNames.length})</div>
+            {onlineDisplayNames.length === 0 ? (
+              <div className="chat-online-empty">No players online.</div>
+            ) : (
+              <div className="chat-online-list">
+                {onlineDisplayNames.map((name, index) => (
+                  <span key={`${name.name}-${index}`} className="chat-online-player">
+                    {name.name}{name.isYou ? ' (You)' : ''}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="chat-messages" ref={messagesContainerRef}>
             {loadingArchive ? (
               <div className="chat-empty">Loading...</div>
             ) : displayMessages.length === 0 ? (
@@ -126,7 +175,7 @@ export default function PlayerChat({ chatMessages, onSend }) {
               displayMessages.map((msg, i) => (
                 msg.isSystem ? (
                   <div key={i} className="chat-msg chat-msg-system">
-                    <span className="chat-msg-system-text">{msg.text}</span>
+                    <RichText as="span" className="chat-msg-system-text" text={msg.text} />
                   </div>
                 ) : (
                   <div key={i} className={`chat-msg${msg.isAdmin ? ' chat-msg-admin' : ''}`}>
@@ -136,12 +185,12 @@ export default function PlayerChat({ chatMessages, onSend }) {
                         <span className="chat-msg-time">{formatTime(msg.timestamp)}</span>
                       )}
                     </span>
-                    <span className="chat-msg-text">{msg.text}</span>
+                    <RichText as="div" className="chat-msg-text" text={msg.text} />
                   </div>
                 )
               ))
             )}
-            {!selectedDate && <div ref={messagesEndRef} />}
+            {!selectedDate && <div className="chat-scroll-spacer" aria-hidden="true" />}
           </div>
           {!selectedDate && (
             <div className="chat-input-bar">

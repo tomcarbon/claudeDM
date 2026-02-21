@@ -175,7 +175,7 @@ export default function PlayerLogin() {
       <form onSubmit={handleLogin} className="player-form">
         <input
           type="text"
-          placeholder="Email"
+          placeholder="Your Name"
           value={email}
           onChange={e => setEmail(e.target.value)}
           className="player-input"

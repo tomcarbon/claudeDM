@@ -103,6 +103,8 @@ function AppContent() {
       <div className="chat-sidebar">
         <PlayerChat
           chatMessages={ws.chatMessages}
+          onlinePlayers={ws.onlinePlayers}
+          selfChatConnectionId={ws.selfChatConnectionId}
           onSend={(text) => ws.sendChat(text, player)}
         />
       </div>

@@ -18,11 +18,14 @@ module.exports = function (dataDir) {
       const files = fs.readdirSync(sessionsDir).filter(f => f.endsWith('.json'));
       const sessions = files.map(f => {
         const data = JSON.parse(fs.readFileSync(path.join(sessionsDir, f), 'utf-8'));
+        const ownerPlayer = (data.players || []).find(p => p.role === 'owner') || (data.players || [])[0] || {};
         return {
           id: data.id,
           name: data.name,
           scenarioId: data.scenarioId,
           characterId: data.characterId,
+          playerName: data.playerName || ownerPlayer.name || null,
+          playerEmail: data.playerEmail || ownerPlayer.email || null,
           createdAt: data.createdAt,
           updatedAt: data.updatedAt,
           playerCount: (data.players || []).length,
@@ -55,7 +58,7 @@ module.exports = function (dataDir) {
   // POST create new session
   router.post('/', (req, res) => {
     try {
-      const { name, scenarioId, characterId, claudeSessionId, messages, ...rest } = req.body;
+      const { name, scenarioId, characterId, claudeSessionId, messages, playerEmail, playerName } = req.body;
       console.log(`[Sessions] POST — messages: ${(messages || []).length}, claudeSessionId: ${claudeSessionId ? 'yes' : 'no'}, characterId: ${characterId}`);
       const session = {
         id: uuidv4(),
@@ -64,6 +67,8 @@ module.exports = function (dataDir) {
         characterId: characterId || null,
         claudeSessionId: claudeSessionId || null,
         messages: messages || [],
+        playerEmail: playerEmail || null,
+        playerName: playerName || null,
         status: 'active',
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
@@ -71,6 +76,8 @@ module.exports = function (dataDir) {
           {
             id: uuidv4(),
             characterId,
+            email: playerEmail || null,
+            name: playerName || null,
             role: 'owner',
             joinedAt: new Date().toISOString(),
           }

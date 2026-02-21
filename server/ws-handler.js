@@ -4,6 +4,25 @@ const { DmEngine } = require('./dm-engine');
 // Module-level chat rooms: chatKey -> Set<wsEntry>
 // Each wsEntry: { ws, playerEmail, playerName, isAdmin }
 const chatRooms = new Map();
+let nextConnectionId = 1;
+
+function getRoomParticipants(chatKey) {
+  if (!chatRooms.has(chatKey)) return [];
+  return Array.from(chatRooms.get(chatKey))
+    .filter(entry => entry.ws.readyState === entry.ws.OPEN)
+    .map(entry => ({
+      playerEmail: entry.playerEmail || 'guest',
+      playerName: entry.playerName || 'Guest',
+      isAdmin: !!entry.isAdmin,
+      connectionId: entry.connectionId,
+    }));
+}
+
+function shouldBroadcastJoinMessage(playerName, isAdmin) {
+  if (isAdmin) return false;
+  const normalizedName = (playerName || '').trim().toLowerCase();
+  return normalizedName !== 'guest' && normalizedName !== 'admin';
+}
 
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
@@ -26,6 +45,21 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     }
   }
 
+  function broadcastChatParticipants(chatKey) {
+    const participants = getRoomParticipants(chatKey);
+    if (!chatRooms.has(chatKey)) return;
+    for (const entry of chatRooms.get(chatKey)) {
+      if (entry.ws.readyState === entry.ws.OPEN) {
+        entry.ws.send(JSON.stringify({
+          type: 'chat_participants',
+          chatKey,
+          participants,
+          selfConnectionId: entry.connectionId,
+        }));
+      }
+    }
+  }
+
   wss.on('connection', (ws) => {
     console.log('[WS] Client connected');
 
@@ -37,7 +71,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     let currentChatKey = null;
 
     // This connection's chat entry
-    const wsEntry = { ws, playerEmail: null, playerName: null, isAdmin: false };
+    const wsEntry = {
+      ws,
+      playerEmail: null,
+      playerName: null,
+      isAdmin: false,
+      connectionId: nextConnectionId++,
+    };
 
     // Pending permission requests: toolUseID -> { resolve }
     const pendingPermissions = new Map();
@@ -50,12 +90,15 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
     function leaveCurrentChatRoom() {
       if (currentChatKey && chatRooms.has(currentChatKey)) {
-        chatRooms.get(currentChatKey).delete(wsEntry);
+        const room = chatRooms.get(currentChatKey);
+        room.delete(wsEntry);
         if (wsEntry.playerName) {
           broadcastSystemMessage(currentChatKey, `player ${wsEntry.playerName} has left.`);
         }
-        if (chatRooms.get(currentChatKey).size === 0) {
+        if (room.size === 0) {
           chatRooms.delete(currentChatKey);
+        } else {
+          broadcastChatParticipants(currentChatKey);
         }
       }
       currentChatKey = null;
@@ -69,7 +112,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       wsEntry.isAdmin = !!isAdmin;
       if (!chatRooms.has(chatKey)) chatRooms.set(chatKey, new Set());
       chatRooms.get(chatKey).add(wsEntry);
-      broadcastSystemMessage(chatKey, `player ${playerName} has joined.`);
+      if (shouldBroadcastJoinMessage(playerName, wsEntry.isAdmin)) {
+        broadcastSystemMessage(chatKey, `player ${playerName} has joined.`);
+      }
+      broadcastChatParticipants(chatKey);
       console.log(`[WS] Chat joined — key: ${chatKey}, player: ${playerEmail}, room size: ${chatRooms.get(chatKey).size}`);
     }
 

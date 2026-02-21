@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
+import RichText from '../components/RichText';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
@@ -195,6 +196,8 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       characterId: selectedCharacter,
       scenarioId: selectedScenario,
       messages: messages.filter(m => m.type !== 'dm_partial'),
+      playerEmail: player?.email || null,
+      playerName: player?.name || null,
       exportedAt: new Date().toISOString(),
     };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
@@ -231,6 +234,8 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
         characterId: data.characterId || null,
         scenarioId: data.scenarioId || null,
         messages: data.messages,
+        playerEmail: player?.email || data.playerEmail || null,
+        playerName: player?.name || data.playerName || null,
       });
       setSavedSessions(prev => [result, ...prev]);
     } catch (err) {
@@ -350,6 +355,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
                   style={{ all: 'unset', cursor: 'pointer', display: 'flex', flexDirection: 'column', width: '100%' }}
                 >
                   <strong>{s.name}</strong>
+                  <span>Player: {s.playerName || s.playerEmail || 'Unknown'}</span>
                   <span>{s.messageCount} messages — {new Date(s.updatedAt).toLocaleDateString()}</span>
                 </button>
                 <button
@@ -451,7 +457,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
               {(msg.type === 'dm' || msg.type === 'dm_partial') && (
                 <div className="message-dm">
                   <span className="message-sender">Dungeon Master</span>
-                  <div className="dm-narration">{msg.text}</div>
+                  <RichText as="div" className="dm-narration" text={msg.text} />
                   {msg.type === 'dm_partial' && <span className="typing-cursor" />}
                 </div>
               )}
