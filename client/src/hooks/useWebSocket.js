@@ -8,6 +8,7 @@ export default function useWebSocket() {
   const [chatMessages, setChatMessages] = useState([]);
   const [onlinePlayers, setOnlinePlayers] = useState([]);
   const [selfChatConnectionId, setSelfChatConnectionId] = useState(null);
+  const [sessionAccess, setSessionAccess] = useState({ sessionDbId: null, canWrite: false, readOnly: true });
   const [status, setStatus] = useState('disconnected');
   const [permissionRequest, setPermissionRequest] = useState(null);
   const [sessionId, setSessionId] = useState(null);
@@ -16,6 +17,7 @@ export default function useWebSocket() {
   const partialTextRef = useRef('');
   const currentChatKeyRef = useRef(null);
   const pendingResumeRef = useRef(null);
+  const pendingWatchRef = useRef(null);
 
   const connect = useCallback(function connectWebSocket() {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
@@ -28,6 +30,9 @@ export default function useWebSocket() {
       if (pendingResumeRef.current) {
         ws.send(JSON.stringify(pendingResumeRef.current));
         pendingResumeRef.current = null;
+      }
+      if (pendingWatchRef.current) {
+        ws.send(JSON.stringify(pendingWatchRef.current));
       }
     };
 
@@ -86,6 +91,18 @@ export default function useWebSocket() {
           });
           break;
 
+        case 'session_player_message':
+          setMessages(prev => [...prev, { type: 'player', text: msg.text }]);
+          break;
+
+        case 'session_access':
+          setSessionAccess({
+            sessionDbId: msg.sessionDbId || null,
+            canWrite: msg.canWrite === true,
+            readOnly: msg.readOnly !== false,
+          });
+          break;
+
         case 'chat_message':
           setChatMessages(prev => [...prev, {
             playerEmail: msg.playerEmail,
@@ -121,6 +138,7 @@ export default function useWebSocket() {
       setStatus('disconnected');
       setOnlinePlayers([]);
       setSelfChatConnectionId(null);
+      setSessionAccess(prev => ({ ...prev, canWrite: false, readOnly: true }));
       reconnectTimer.current = setTimeout(connectWebSocket, RECONNECT_DELAY);
     };
 
@@ -146,9 +164,32 @@ export default function useWebSocket() {
 
   const startSession = useCallback((characterId, scenarioId) => {
     pendingResumeRef.current = null;
+    pendingWatchRef.current = null;
+    setSessionAccess({ sessionDbId: null, canWrite: true, readOnly: false });
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'session_start', characterId, scenarioId }));
       setMessages([{ type: 'system', text: 'Session started. Please wait while the DM prepares the story.' }]);
+    }
+  }, []);
+
+  const watchSession = useCallback((sessionDbId, player) => {
+    if (!sessionDbId) {
+      pendingWatchRef.current = null;
+      if (wsRef.current?.readyState === WebSocket.OPEN) {
+        wsRef.current.send(JSON.stringify({ type: 'session_unwatch' }));
+      }
+      setSessionAccess({ sessionDbId: null, canWrite: false, readOnly: true });
+      return;
+    }
+    const payload = {
+      type: 'session_watch',
+      sessionDbId,
+      playerEmail: player?.email || null,
+      playerName: player?.name || null,
+    };
+    pendingWatchRef.current = payload;
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify(payload));
     }
   }, []);
 
@@ -213,6 +254,8 @@ export default function useWebSocket() {
     startSession,
     sendPermission,
     resumeSession,
+    watchSession,
+    sessionAccess,
     joinChat,
     sendChat,
   };

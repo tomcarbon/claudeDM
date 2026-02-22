@@ -58,6 +58,9 @@ export const api = {
   // Campaigns
   getCampaigns: () => fetchJson('/campaigns'),
   getCampaign: (id) => fetchJson(`/campaigns/${id}`),
+  createCampaign: (data) => fetchJson('/campaigns', { method: 'POST', body: JSON.stringify(data) }),
+  updateCampaign: (id, data) => fetchJson(`/campaigns/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteCampaign: (id) => fetchJson(`/campaigns/${id}`, { method: 'DELETE' }),
 
   // DM Settings
   getDmSettings: () => fetchJson('/dm-settings'),

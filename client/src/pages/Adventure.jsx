@@ -52,7 +52,19 @@ function Adventure({
   savedSessionDbId,
   setSavedSessionDbId,
 }) {
-  const { messages, setMessages, status, sessionId, permissionRequest, sendMessage, startSession, sendPermission, resumeSession } = ws;
+  const {
+    messages,
+    setMessages,
+    status,
+    sessionId,
+    permissionRequest,
+    sendMessage,
+    startSession,
+    sendPermission,
+    resumeSession,
+    watchSession,
+    sessionAccess,
+  } = ws;
   const { player } = usePlayer();
   const [input, setInput] = useState('');
   const [characters, setCharacters] = useState([]);
@@ -63,10 +75,12 @@ function Adventure({
   const [savedSessions, setSavedSessions] = useState([]);
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
+  const [sessionReadOnly, setSessionReadOnly] = useState(false);
   const [loadingSessionId, setLoadingSessionId] = useState(null);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
+  const isGuest = !player?.email;
 
   useEffect(() => {
     api.getCharacters().then(setCharacters).catch(() => {});
@@ -88,17 +102,25 @@ function Adventure({
     }
   }, [sessionActive]);
 
+  useEffect(() => {
+    if (!savedSessionDbId || !sessionAccess.sessionDbId) return;
+    if (sessionAccess.sessionDbId === savedSessionDbId) {
+      setSessionReadOnly(sessionAccess.readOnly === true);
+    }
+  }, [savedSessionDbId, sessionAccess]);
+
   // Auto-save when messages change
   useEffect(() => {
     const completedMessages = messages.filter(m => m.type !== 'dm_partial');
     const count = completedMessages.length;
-    if (autoSave && count > 0 && count !== prevMessageCountRef.current) {
+    if (!sessionReadOnly && autoSave && count > 0 && count !== prevMessageCountRef.current) {
       prevMessageCountRef.current = count;
       handleSave();
     } else if (!autoSave) {
       prevMessageCountRef.current = count;
     }
-  }, [messages, autoSave]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [messages, autoSave, sessionReadOnly]);
 
   // Focus input when session starts
   useEffect(() => {
@@ -108,7 +130,12 @@ function Adventure({
   }, [sessionActive]);
 
   function handleStartSession() {
+    if (isGuest) {
+      alert('Please log in to start a new session.');
+      return;
+    }
     const character = characters.find(c => c.id === selectedCharacter);
+    setSessionReadOnly(false);
 
     if (mode === 'campaigns') {
       if (!selectedCharacter || !selectedCampaign) return;
@@ -146,6 +173,14 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
   }
 
   async function handleSave() {
+    if (isGuest) {
+      alert('Please log in to save sessions.');
+      return;
+    }
+    if (sessionReadOnly) {
+      alert('This session is read-only. Only the original creator can save changes.');
+      return;
+    }
     setSaveStatus('saving');
     try {
       const scenario = scenarios.find(s => s.id === selectedScenario);
@@ -169,11 +204,14 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
         result = await api.createSession(payload);
         setSavedSessionDbId(result.id);
       }
+      watchSession(result.id, player);
+      setSessionReadOnly(result.readOnly === true);
       console.log(`[Save] Success — session ${result.id}, messages in response: ${(result.messages || []).length}`);
       setSaveStatus('saved');
       setTimeout(() => setSaveStatus(null), 2000);
     } catch (err) {
       console.error('Save failed:', err);
+      if (err?.message) alert(`Save failed: ${err.message}`);
       setSaveStatus(null);
     }
   }
@@ -197,12 +235,17 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       setSelectedCharacter(session.characterId);
       setSelectedScenario(session.scenarioId);
       setSavedSessionDbId(session.id);
+      const readOnly = session.readOnly === true || session.canWrite === false;
+      setSessionReadOnly(readOnly);
       const loadedMessages = normalizeSavedMessages(session.messages);
       setMessages(loadedMessages);
       if (loadedMessages.length === 0) {
         console.warn('[Load] No messages found in saved session — session may not have been saved properly');
       }
-      resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages);
+      watchSession(session.id, player);
+      if (!readOnly) {
+        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages);
+      }
       setSessionActive(true);
     } catch (err) {
       console.error('Load failed:', err);
@@ -247,6 +290,11 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
   async function handleImportSession(e) {
     const file = e.target.files?.[0];
     if (!file) return;
+    if (isGuest) {
+      alert('Please log in to import sessions.');
+      e.target.value = '';
+      return;
+    }
     try {
       if (!file.name.endsWith('.json')) {
         alert('Please select a .session.json file exported via "Export Session". Plain text story exports (.txt) cannot be imported.');
@@ -287,7 +335,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
 
   function handleSend() {
     const text = input.trim();
-    if (!text || status === 'thinking') return;
+    if (!text || status === 'thinking' || sessionReadOnly) return;
     sendMessage(text);
     setInput('');
   }
@@ -377,11 +425,16 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
 
         <button
           className="btn-primary begin-btn"
-          disabled={!selectedCharacter || (mode === 'scenarios' ? !selectedScenario : !selectedCampaign) || status === 'disconnected'}
+          disabled={isGuest || !selectedCharacter || (mode === 'scenarios' ? !selectedScenario : !selectedCampaign) || status === 'disconnected'}
           onClick={handleStartSession}
         >
-          {status === 'disconnected' ? 'Connecting...' : 'Begin Adventure'}
+          {status === 'disconnected' ? 'Connecting...' : (isGuest ? 'Login Required to Begin' : 'Begin Adventure')}
         </button>
+        {isGuest && (
+          <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
+            Guests can browse and view saved sessions, but cannot create new sessions or campaigns.
+          </p>
+        )}
 
         <div className="setup-group" style={{ marginTop: '2rem' }}>
           <label>Load Saved Session</label>
@@ -403,33 +456,36 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
                 >
                   <strong>{s.name}</strong>
                   <span>Player: {s.playerName || s.playerEmail || 'Unknown'}</span>
+                  <span>{s.canWrite === false ? 'Read only' : 'Editable'}</span>
                   <span>
                     {loadingSessionId === s.id ? 'Loading...' : `${s.messageCount} messages — ${new Date(s.updatedAt).toLocaleDateString()}`}
                   </span>
                 </button>
-                <button
-                  className="btn-delete-session"
-                  onClick={(e) => handleDeleteSession(e, s.id)}
-                  title="Delete session"
-                  style={{
-                    position: 'absolute', top: '0.4rem', right: '0.4rem',
-                    background: 'none', border: 'none', cursor: 'pointer',
-                    color: 'var(--text-muted)', fontSize: '1rem', padding: '0.2rem 0.4rem',
-                    borderRadius: '4px', lineHeight: 1,
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#e74c3c'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
-                >
-                  &times;
-                </button>
+                {s.canWrite !== false && (
+                  <button
+                    className="btn-delete-session"
+                    onClick={(e) => handleDeleteSession(e, s.id)}
+                    title="Delete session"
+                    style={{
+                      position: 'absolute', top: '0.4rem', right: '0.4rem',
+                      background: 'none', border: 'none', cursor: 'pointer',
+                      color: 'var(--text-muted)', fontSize: '1rem', padding: '0.2rem 0.4rem',
+                      borderRadius: '4px', lineHeight: 1,
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#e74c3c'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
+                  >
+                    &times;
+                  </button>
+                )}
               </div>
             ))}
           </div>
           <label
             className="btn-primary"
             style={{
-              display: 'inline-block', marginTop: '0.75rem', cursor: 'pointer',
-              fontSize: '0.9rem', padding: '0.5rem 1.2rem',
+              display: 'inline-block', marginTop: '0.75rem', cursor: isGuest ? 'not-allowed' : 'pointer',
+              fontSize: '0.9rem', padding: '0.5rem 1.2rem', opacity: isGuest ? 0.6 : 1,
             }}
           >
             Import Session File
@@ -437,6 +493,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
               type="file"
               accept=".json,.session.json"
               onChange={handleImportSession}
+              disabled={isGuest}
               style={{ display: 'none' }}
             />
           </label>
@@ -457,11 +514,12 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
           <div className="adventure-info">
             <span className="adventure-scenario">{activeCampaign?.title || activeScenario?.title}</span>
             <span className="adventure-character">{activeCharacter?.name}</span>
+            {sessionReadOnly && <span className="adventure-character">Read only</span>}
           </div>
           <button
             className="btn-save"
             onClick={handleSave}
-            disabled={saveStatus === 'saving' || status === 'disconnected'}
+            disabled={sessionReadOnly || saveStatus === 'saving' || status === 'disconnected'}
           >
             {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'saved' ? 'Saved!' : 'Save'}
           </button>
@@ -483,6 +541,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
             <input
               type="checkbox"
               checked={autoSave}
+              disabled={sessionReadOnly}
               onChange={e => setAutoSave(e.target.checked)}
             />
             Auto-save
@@ -525,14 +584,14 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder={status === 'thinking' ? 'The DM is narrating...' : 'What do you do?'}
-            disabled={status === 'thinking' || status === 'awaiting_permission'}
+            placeholder={sessionReadOnly ? 'Viewing live session (read-only)' : (status === 'thinking' ? 'The DM is narrating...' : 'What do you do?')}
+            disabled={sessionReadOnly || status === 'thinking' || status === 'awaiting_permission'}
             rows={1}
           />
           <button
             className="btn-send"
             onClick={handleSend}
-            disabled={!input.trim() || status === 'thinking'}
+            disabled={sessionReadOnly || !input.trim() || status === 'thinking'}
           >
             Send
           </button>

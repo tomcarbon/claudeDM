@@ -16,6 +16,7 @@ module.exports = function (dataDir) {
     horror: 20,
     romance: 10,
     puzzleFocus: 50,
+    playerAutonomy: 50,
     combatFocus: 50,
     tone: 'balanced',
     narrationStyle: 'descriptive',

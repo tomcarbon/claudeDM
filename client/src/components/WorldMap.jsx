@@ -16,12 +16,12 @@ const LOCATIONS = [
   {
     id: 'thornfield',
     name: 'Thornfield',
-    subtitle: 'The Wyldwood',
+    subtitle: 'The Whisperwood',
     scenarioId: 'c9e5a3b2-1d7f-4a6c-b8e2-3f9d0c4e6a1b',
     scenario: 'Wolves of the Wyldwood',
     x: 19,
     y: 38,
-    color: '#27ae60',
+    color: '#f1c40f',
   },
   {
     id: 'whisperhollow',
@@ -31,12 +31,12 @@ const LOCATIONS = [
     scenario: 'The Lost Mine of Whisperhollow',
     x: 64,
     y: 24,
-    color: '#8e44ad',
+    color: '#27ae60',
   },
   {
     id: 'brinewatch',
     name: 'Brinewatch',
-    subtitle: "Tidecaller's Deep",
+    subtitle: "Talonspire's Deep",
     scenarioId: 'd1f6b4c3-2e8a-4d7b-c9f3-4a0e1b5d7c2f',
     scenario: 'The Sunken Temple of Tidecaller',
     x: 77,
@@ -84,7 +84,8 @@ function WorldMap({ onLocationClick, interactive = true, partyLocation, compact 
             <span className="map-marker-dot" />
             <div className="map-marker-label">
               <strong>{loc.name}</strong>
-              <span>{loc.scenario}</span>
+              <span>{loc.subtitle}</span>
+              <span className="map-marker-scenario">{loc.scenario}</span>
             </div>
           </div>
         ))}
@@ -102,7 +103,32 @@ function WorldMap({ onLocationClick, interactive = true, partyLocation, compact 
             <span className="map-party-label">You are here</span>
           </div>
         )}
+
+        <div className="map-crossroads-label" style={{ left: '49%', top: '49%' }}>
+          <strong>Crossroads</strong>
+          <span>Central Junction</span>
+        </div>
       </div>
+
+      {!compact && (
+        <div className="map-legend-panel" aria-label="Updated map key">
+          <h3>Updated Key</h3>
+          <p>Scenario to area mapping:</p>
+          <ul className="map-legend-list">
+            {LOCATIONS.map(loc => (
+              <li key={`legend-${loc.id}`}>
+                <span className="map-legend-swatch" style={{ '--marker-color': loc.color }} />
+                <div className="map-legend-text">
+                  <strong>{loc.scenario}</strong>
+                  <span>
+                    {loc.name} - {loc.subtitle}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

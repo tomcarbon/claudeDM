@@ -1,9 +1,13 @@
 const { WebSocketServer } = require('ws');
+const fs = require('fs');
+const path = require('path');
 const { DmEngine } = require('./dm-engine');
 
 // Module-level chat rooms: chatKey -> Set<wsEntry>
 // Each wsEntry: { ws, playerEmail, playerName, isAdmin }
 const chatRooms = new Map();
+// Session watch rooms: sessionDbId -> Set<wsEntry>
+const sessionRooms = new Map();
 let nextConnectionId = 1;
 
 function getRoomParticipants(chatKey) {
@@ -24,8 +28,15 @@ function shouldBroadcastJoinMessage(playerName, isAdmin) {
   return normalizedName !== 'guest' && normalizedName !== 'admin';
 }
 
+function getSessionOwnerEmail(session) {
+  const ownerPlayer = (session.players || []).find(p => p.role === 'owner') || (session.players || [])[0] || {};
+  const value = session.ownerEmail || session.playerEmail || ownerPlayer.email || null;
+  return value ? String(value).trim().toLowerCase() : null;
+}
+
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
+  const sessionsDir = path.join(dataDir, 'sessions');
 
   function broadcastSystemMessage(chatKey, text) {
     const systemMsg = {
@@ -60,6 +71,27 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     }
   }
 
+  function readSessionByDbId(sessionDbId) {
+    if (!sessionDbId) return null;
+    const filePath = path.join(sessionsDir, `${sessionDbId}.json`);
+    if (!fs.existsSync(filePath)) return null;
+    try {
+      return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    } catch {
+      return null;
+    }
+  }
+
+  function broadcastSessionMessage(sessionDbId, type, payload = {}, excludedEntry = null) {
+    if (!sessionDbId || !sessionRooms.has(sessionDbId)) return;
+    for (const entry of sessionRooms.get(sessionDbId)) {
+      if (entry === excludedEntry) continue;
+      if (entry.ws.readyState === entry.ws.OPEN) {
+        entry.ws.send(JSON.stringify({ type, sessionDbId, ...payload }));
+      }
+    }
+  }
+
   wss.on('connection', (ws) => {
     console.log('[WS] Client connected');
 
@@ -69,6 +101,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     let processing = false;
     let messageHistory = []; // Track conversation for resume fallback
     let currentChatKey = null;
+    let currentSessionDbId = null;
+    let currentSessionCanWrite = false;
 
     // This connection's chat entry
     const wsEntry = {
@@ -104,6 +138,31 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       currentChatKey = null;
     }
 
+    function leaveCurrentSessionRoom() {
+      if (currentSessionDbId && sessionRooms.has(currentSessionDbId)) {
+        const room = sessionRooms.get(currentSessionDbId);
+        room.delete(wsEntry);
+        if (room.size === 0) {
+          sessionRooms.delete(currentSessionDbId);
+        }
+      }
+      currentSessionDbId = null;
+      currentSessionCanWrite = false;
+    }
+
+    function joinSessionRoom(sessionDbId, canWrite) {
+      leaveCurrentSessionRoom();
+      currentSessionDbId = sessionDbId;
+      currentSessionCanWrite = !!canWrite;
+      if (!sessionRooms.has(sessionDbId)) sessionRooms.set(sessionDbId, new Set());
+      sessionRooms.get(sessionDbId).add(wsEntry);
+    }
+
+    function broadcastToSessionWatchers(type, payload = {}) {
+      if (!currentSessionDbId) return;
+      broadcastSessionMessage(currentSessionDbId, type, payload, wsEntry);
+    }
+
     function joinChatRoom(chatKey, playerEmail, playerName, isAdmin) {
       leaveCurrentChatRoom();
       currentChatKey = chatKey;
@@ -130,6 +189,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
       switch (msg.type) {
         case 'session_start': {
+          leaveCurrentSessionRoom();
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
           send('session_status', { status: 'idle' });
@@ -186,7 +246,53 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           break;
         }
 
+        case 'session_watch': {
+          const requestedSessionId = String(msg.sessionDbId || '').trim();
+          if (!requestedSessionId) {
+            leaveCurrentSessionRoom();
+            send('session_access', { sessionDbId: null, canWrite: false, readOnly: true });
+            break;
+          }
+
+          const session = readSessionByDbId(requestedSessionId);
+          if (!session) {
+            send('error', { error: 'Session not found for live watch.' });
+            break;
+          }
+
+          const msgEmail = String(msg.playerEmail || '').trim().toLowerCase();
+          if (msgEmail) {
+            wsEntry.playerEmail = msgEmail;
+            if (!wsEntry.playerName && msg.playerName) {
+              wsEntry.playerName = msg.playerName;
+            }
+          }
+
+          const ownerEmail = getSessionOwnerEmail(session);
+          const requesterEmail = String(wsEntry.playerEmail || '').trim().toLowerCase();
+          const canWrite = !!ownerEmail && !!requesterEmail && ownerEmail === requesterEmail;
+
+          joinSessionRoom(requestedSessionId, canWrite);
+          send('session_access', {
+            sessionDbId: requestedSessionId,
+            ownerEmail,
+            canWrite,
+            readOnly: !canWrite,
+          });
+          break;
+        }
+
+        case 'session_unwatch': {
+          leaveCurrentSessionRoom();
+          send('session_access', { sessionDbId: null, canWrite: false, readOnly: true });
+          break;
+        }
+
         case 'user_message': {
+          if (currentSessionDbId && !currentSessionCanWrite) {
+            send('error', { error: 'This session is read-only. Only the creator can send messages.' });
+            return;
+          }
           if (processing) {
             send('error', { error: 'Already processing a message. Please wait.' });
             return;
@@ -198,9 +304,15 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
           processing = true;
           send('session_status', { status: 'thinking' });
+          broadcastToSessionWatchers('session_status', { status: 'thinking' });
 
           try {
-            messageHistory.push({ type: 'player', text: msg.text.trim() });
+            const playerText = msg.text.trim();
+            messageHistory.push({ type: 'player', text: playerText });
+            broadcastToSessionWatchers('session_player_message', {
+              text: playerText,
+              timestamp: new Date().toISOString(),
+            });
             const stream = engine.run(msg.text.trim(), {
               characterId,
               scenarioId,
@@ -219,28 +331,35 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               switch (event.type) {
                 case 'dm_partial':
                   send('dm_partial', { text: event.text });
+                  broadcastToSessionWatchers('dm_partial', { text: event.text });
                   break;
                 case 'dm_response':
                   messageHistory.push({ type: 'dm', text: event.text });
                   send('dm_response', { text: event.text });
+                  broadcastToSessionWatchers('dm_response', { text: event.text });
                   break;
                 case 'dm_complete':
                   send('dm_complete', { sessionId: event.sessionId });
+                  broadcastToSessionWatchers('dm_complete', { sessionId: event.sessionId });
                   break;
                 case 'session_id':
                   send('session_id', { sessionId: event.sessionId });
+                  broadcastToSessionWatchers('session_id', { sessionId: event.sessionId });
                   break;
                 case 'error':
                   send('error', { error: event.error });
+                  broadcastToSessionWatchers('error', { error: event.error });
                   break;
               }
             }
           } catch (err) {
             console.error('[WS] Engine error:', err);
             send('error', { error: err.message || 'DM engine error' });
+            broadcastToSessionWatchers('error', { error: err.message || 'DM engine error' });
           } finally {
             processing = false;
             send('session_status', { status: 'idle' });
+            broadcastToSessionWatchers('session_status', { status: 'idle' });
           }
           break;
         }
@@ -263,6 +382,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     ws.on('close', () => {
       console.log('[WS] Client disconnected');
       leaveCurrentChatRoom();
+      leaveCurrentSessionRoom();
       engine.abort();
       // Reject any pending permissions
       for (const [, pending] of pendingPermissions) {

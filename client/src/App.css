@@ -912,6 +912,89 @@
   color: var(--text-muted);
   font-size: 0.75em;
 }
+.map-marker-label .map-marker-scenario {
+  color: var(--gold);
+  margin-top: 0.15rem;
+}
+
+.map-crossroads-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: rgba(22, 33, 62, 0.9);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 0.35rem 0.55rem;
+  text-align: center;
+  pointer-events: none;
+  z-index: 2;
+}
+.map-crossroads-label strong {
+  display: block;
+  color: var(--gold);
+  font-size: 0.82em;
+  line-height: 1.1;
+}
+.map-crossroads-label span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.68em;
+  line-height: 1.1;
+}
+
+.map-legend-panel {
+  margin-top: 0.9rem;
+  background: rgba(22, 33, 62, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+}
+.map-legend-panel h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95em;
+  color: var(--gold);
+}
+.map-legend-panel p {
+  margin: 0 0 0.55rem;
+  color: var(--text-muted);
+  font-size: 0.8em;
+}
+.map-legend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.map-legend-list li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+}
+.map-legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--marker-color, var(--gold));
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  margin-top: 0.28rem;
+  flex-shrink: 0;
+}
+.map-legend-text strong {
+  display: block;
+  font-size: 0.82em;
+  color: #f5f5f5;
+}
+.map-legend-text span {
+  display: block;
+  font-size: 0.76em;
+  color: var(--text-muted);
+}
+.map-legend-text em {
+  display: block;
+  font-size: 0.72em;
+  color: #caa94f;
+  font-style: normal;
+}
 
 /* Party marker on map */
 .map-party-marker {
@@ -944,6 +1027,18 @@
 @keyframes party-pulse {
   0%, 100% { box-shadow: 0 0 12px var(--gold), 0 0 4px rgba(0, 0, 0, 0.5); }
   50% { box-shadow: 0 0 20px var(--gold), 0 0 8px rgba(0, 0, 0, 0.5); }
+}
+
+@media (max-width: 640px) {
+  .map-crossroads-label {
+    padding: 0.25rem 0.4rem;
+  }
+  .map-crossroads-label strong {
+    font-size: 0.72em;
+  }
+  .map-crossroads-label span {
+    font-size: 0.62em;
+  }
 }
 
 /* ===== Player Login Box (sidebar) ===== */

@@ -9,6 +9,7 @@ const SLIDERS = [
   { key: 'difficulty', label: 'Difficulty', left: 'Forgiving', right: 'Brutal', icon: '💀' },
   { key: 'horror', label: 'Darkness', left: 'None', right: 'Dark', icon: '🕯️' },
   { key: 'puzzleFocus', label: 'Puzzles vs Combat', left: 'Combat Heavy', right: 'Puzzle Heavy', icon: '🧩' },
+  { key: 'playerAutonomy', label: 'Player Autonomy', left: 'DM Drives Story', right: 'Player Drives Story', icon: '🧭' },
 ];
 
 const TONE_OPTIONS = [
@@ -48,7 +49,7 @@ function DmSettings() {
       .then(setSettings)
       .catch(() => setSettings({
         humor: 50, drama: 50, verbosity: 50, difficulty: 50,
-        horror: 20, puzzleFocus: 50, tone: 'balanced',
+        horror: 20, puzzleFocus: 50, playerAutonomy: 50, tone: 'balanced',
         narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
       }))
       .finally(() => setLoading(false));
@@ -82,10 +83,10 @@ function DmSettings() {
   const handlePreset = (preset) => {
     if (!canEdit) return;
     const presets = {
-      classic: { humor: 30, drama: 60, verbosity: 60, difficulty: 50, horror: 20, puzzleFocus: 50, tone: 'heroic', narrationStyle: 'descriptive', playerAgency: 'guided' },
-      comedic: { humor: 90, drama: 30, verbosity: 70, difficulty: 30, horror: 5, puzzleFocus: 40, tone: 'whimsical', narrationStyle: 'dialogue', playerAgency: 'collaborative' },
-      darkSouls: { humor: 10, drama: 90, verbosity: 40, difficulty: 90, horror: 80, puzzleFocus: 50, tone: 'gritty', narrationStyle: 'atmospheric', playerAgency: 'sandbox' },
-      mystery: { humor: 30, drama: 70, verbosity: 70, difficulty: 50, horror: 40, puzzleFocus: 80, tone: 'noir', narrationStyle: 'dialogue', playerAgency: 'collaborative' },
+      classic: { humor: 30, drama: 60, verbosity: 60, difficulty: 50, horror: 20, puzzleFocus: 50, playerAutonomy: 40, tone: 'heroic', narrationStyle: 'descriptive', playerAgency: 'guided' },
+      comedic: { humor: 90, drama: 30, verbosity: 70, difficulty: 30, horror: 5, puzzleFocus: 40, playerAutonomy: 60, tone: 'whimsical', narrationStyle: 'dialogue', playerAgency: 'collaborative' },
+      darkSouls: { humor: 10, drama: 90, verbosity: 40, difficulty: 90, horror: 80, puzzleFocus: 50, playerAutonomy: 70, tone: 'gritty', narrationStyle: 'atmospheric', playerAgency: 'sandbox' },
+      mystery: { humor: 30, drama: 70, verbosity: 70, difficulty: 50, horror: 40, puzzleFocus: 80, playerAutonomy: 50, tone: 'noir', narrationStyle: 'dialogue', playerAgency: 'collaborative' },
     };
     setSettings(prev => ({ ...prev, ...presets[preset] }));
     setSaved(false);

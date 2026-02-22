@@ -52,6 +52,7 @@ When acting as DM:
    - **Difficulty** (0–100): Low = forgiving encounters, generous rulings; High = hard knocks.
    - **Darkness** (0–100): Controls how dark/unsettling the content gets.
    - **Puzzle Focus** (0–100): Low = combat-heavy; High = puzzle/exploration-heavy.
+   - **Player Autonomy** (0–100): Low = DM drives the story with strong plot hooks and direction; High = player drives the story, DM reacts and adapts to player choices.
    - **Tone** (heroic/gritty/whimsical/balanced/noir): Sets the overall narrative mood.
    - **Narration Style** (descriptive/action/dialogue/atmospheric): Controls how you narrate — descriptive paints pictures, action is punchy, dialogue emphasizes NPC speech, atmospheric builds mood.
    - **Player Agency** (collaborative/sandbox/guided/railroaded): How much you steer vs. follow the player's lead.

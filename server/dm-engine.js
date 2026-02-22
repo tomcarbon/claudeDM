@@ -77,6 +77,7 @@ function applyDailyShuffle(settings) {
     horror: randomPercent(rng),
     romance: randomPercent(rng),
     puzzleFocus: randomPercent(rng),
+    playerAutonomy: randomPercent(rng),
     combatFocus: randomPercent(rng),
     tone: pickOne(SHUFFLE_TONE_OPTIONS, rng),
     narrationStyle: pickOne(SHUFFLE_NARRATION_OPTIONS, rng),
@@ -88,7 +89,7 @@ function loadDmSettings(dataDir) {
   const settings = loadJson(path.join(dataDir, 'dm-settings.json'));
   const baseSettings = settings || {
     humor: 50, drama: 50, verbosity: 50, difficulty: 50,
-    horror: 20, romance: 10, puzzleFocus: 50, combatFocus: 50,
+    horror: 20, romance: 10, puzzleFocus: 50, playerAutonomy: 50, combatFocus: 50,
     tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
   };
   return applyDailyShuffle(baseSettings);
@@ -176,6 +177,7 @@ ${styleMap[settings.narrationStyle] || styleMap.descriptive}
 Difficulty preference: ${settings.difficulty}/100 (higher = more challenging encounters and stricter rules).
 Horror level: ${settings.horror}/100. Romance level: ${settings.romance}/100.
 Puzzle focus: ${settings.puzzleFocus}/100. Combat focus: ${settings.combatFocus}/100.
+Player autonomy: ${settings.playerAutonomy}/100 (0 = DM drives the story with strong plot hooks and direction; 100 = player drives the story, DM reacts and adapts to player choices).
 Player agency style: ${settings.playerAgency}.
 
 ## Rules Reference
