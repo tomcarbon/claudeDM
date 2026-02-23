@@ -430,6 +430,19 @@
   color: var(--gold);
 }
 
+/* DM Settings - Quick Presets */
+.quick-preset-btn.active {
+  border-color: var(--gold);
+  background: rgba(240, 192, 64, 0.12);
+  color: var(--gold);
+}
+
+.quick-preset-btn.active:hover {
+  border-color: var(--gold);
+  background: rgba(240, 192, 64, 0.2);
+  color: var(--gold);
+}
+
 /* Scenario - Read Aloud Box */
 .read-aloud-box {
   background: rgba(240, 192, 64, 0.08);

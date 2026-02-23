@@ -65,6 +65,9 @@ export const api = {
   // DM Settings
   getDmSettings: () => fetchJson('/dm-settings'),
   updateDmSettings: (data) => fetchJson('/dm-settings', { method: 'PUT', body: JSON.stringify(data) }),
+  resetDmSettings: () => fetchJson('/dm-settings/mine', { method: 'DELETE' }),
+  getGlobalDmSettings: () => fetchJson('/dm-settings/global'),
+  updateGlobalDmSettings: (data) => fetchJson('/dm-settings/global', { method: 'PUT', body: JSON.stringify(data) }),
 
   // Settings
   restoreDefaults: (scope) => fetchJson(`/settings/restore-defaults${scope ? `?scope=${scope}` : ''}`, { method: 'POST' }),

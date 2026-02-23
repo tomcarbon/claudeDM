@@ -62,11 +62,12 @@ function pickOne(options, rng) {
   return options[Math.floor(rng() * options.length)];
 }
 
-function applyDailyShuffle(settings) {
+function applyDailyShuffle(settings, playerEmail) {
   if (!settings.aiDailyShuffle) return settings;
 
   const dayKey = pacificDateKey();
-  const rng = createRng(`dm-personality:${dayKey}`);
+  const seedSuffix = playerEmail ? `:${String(playerEmail).trim().toLowerCase()}` : '';
+  const rng = createRng(`dm-personality:${dayKey}${seedSuffix}`);
 
   return {
     ...settings,
@@ -85,14 +86,22 @@ function applyDailyShuffle(settings) {
   };
 }
 
-function loadDmSettings(dataDir) {
-  const settings = loadJson(path.join(dataDir, 'dm-settings.json'));
-  const baseSettings = settings || {
+function loadDmSettings(dataDir, playerEmail) {
+  // Try per-user settings first, fall back to global
+  let userSettings = null;
+  if (playerEmail) {
+    const slug = String(playerEmail).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const userFile = path.join(dataDir, 'dm-settings', `${slug}.json`);
+    userSettings = loadJson(userFile);
+  }
+  const globalSettings = loadJson(path.join(dataDir, 'dm-settings.json'));
+  const defaults = {
     humor: 50, drama: 50, verbosity: 50, difficulty: 50,
     horror: 20, romance: 10, puzzleFocus: 50, playerAutonomy: 50, combatFocus: 50,
     tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
   };
-  return applyDailyShuffle(baseSettings);
+  const baseSettings = { ...defaults, ...(globalSettings || {}), ...(userSettings || {}) };
+  return applyDailyShuffle(baseSettings, playerEmail);
 }
 
 function loadCharacter(dataDir, characterId) {
@@ -127,8 +136,8 @@ function loadNpcs(dataDir) {
   }
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId) {
-  const settings = loadDmSettings(dataDir);
+function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail) {
+  const settings = loadDmSettings(dataDir, playerEmail);
   const character = characterId ? loadCharacter(dataDir, characterId) : null;
   const scenario = scenarioId ? loadScenario(dataDir, scenarioId) : null;
   const npcs = loadNpcs(dataDir);
@@ -314,8 +323,8 @@ class DmEngine {
     this.xpMcpServer = createXpMcpServer(dataDir);
   }
 
-  _buildOptions(characterId, scenarioId, onPermissionRequest) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId);
+  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail);
     return {
       systemPrompt,
       cwd: PROJECT_ROOT,
@@ -389,8 +398,8 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory }) {
-    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest);
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail }) {
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail);
 
     if (this.sessionId) {
       options.resume = this.sessionId;
@@ -405,7 +414,7 @@ class DmEngine {
     }
 
     // Fresh session — if we have message history, prepend it as context
-    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest);
+    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail);
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
       const recap = messageHistory

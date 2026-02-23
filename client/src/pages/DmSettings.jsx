@@ -34,19 +34,64 @@ const AGENCY_OPTIONS = [
   { value: 'railroaded', label: 'On Rails', desc: 'Tight narrative, less deviation, cinematic experience' },
 ];
 
+const QUICK_PRESETS = {
+  classic: {
+    label: 'Classic Fantasy',
+    values: {
+      humor: 30, drama: 60, verbosity: 60, difficulty: 50, horror: 20,
+      puzzleFocus: 50, playerAutonomy: 40, tone: 'heroic', narrationStyle: 'descriptive', playerAgency: 'guided',
+    },
+  },
+  comedic: {
+    label: 'Comedic Romp',
+    values: {
+      humor: 90, drama: 30, verbosity: 70, difficulty: 30, horror: 5,
+      puzzleFocus: 40, playerAutonomy: 60, tone: 'whimsical', narrationStyle: 'dialogue', playerAgency: 'collaborative',
+    },
+  },
+  darkSouls: {
+    label: 'Dark & Brutal',
+    values: {
+      humor: 10, drama: 90, verbosity: 40, difficulty: 90, horror: 80,
+      puzzleFocus: 50, playerAutonomy: 70, tone: 'gritty', narrationStyle: 'atmospheric', playerAgency: 'sandbox',
+    },
+  },
+  mystery: {
+    label: 'Mystery & Noir',
+    values: {
+      humor: 30, drama: 70, verbosity: 70, difficulty: 50, horror: 40,
+      puzzleFocus: 80, playerAutonomy: 50, tone: 'noir', narrationStyle: 'dialogue', playerAgency: 'collaborative',
+    },
+  },
+};
+
+function getMatchingPreset(settings) {
+  if (!settings) return null;
+  const match = Object.entries(QUICK_PRESETS).find(([, preset]) =>
+    Object.entries(preset.values).every(([key, value]) => settings[key] === value)
+  );
+  return match ? match[0] : null;
+}
+
 function DmSettings() {
   const { player } = usePlayer();
   const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const isAdmin = player?.role === 'admin';
+  const [resetting, setResetting] = useState(false);
+  const [isPersonalized, setIsPersonalized] = useState(false);
+  const isLoggedIn = !!player?.email && player.email !== 'guest';
   const isShuffleEnabled = !!settings?.aiDailyShuffle;
-  const canEdit = isAdmin && !isShuffleEnabled;
+  const canEdit = isLoggedIn && !isShuffleEnabled;
+  const activePreset = getMatchingPreset(settings);
 
   useEffect(() => {
     api.getDmSettings()
-      .then(setSettings)
+      .then((data) => {
+        setIsPersonalized(!!data._isPersonalized);
+        setSettings(data);
+      })
       .catch(() => setSettings({
         humor: 50, drama: 50, verbosity: 50, difficulty: 50,
         horror: 20, puzzleFocus: 50, playerAutonomy: 50, tone: 'balanced',
@@ -71,7 +116,9 @@ function DmSettings() {
     if (!canEdit) return;
     setSaving(true);
     try {
-      await api.updateDmSettings(settings);
+      const result = await api.updateDmSettings(settings);
+      setIsPersonalized(!!result._isPersonalized);
+      setSettings(result);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch (err) {
@@ -80,15 +127,25 @@ function DmSettings() {
     setSaving(false);
   };
 
+  const handleReset = async () => {
+    if (!isLoggedIn) return;
+    setResetting(true);
+    try {
+      const result = await api.resetDmSettings();
+      setIsPersonalized(false);
+      setSettings(result);
+      setSaved(false);
+    } catch (err) {
+      console.error('Failed to reset DM settings:', err);
+    }
+    setResetting(false);
+  };
+
   const handlePreset = (preset) => {
     if (!canEdit) return;
-    const presets = {
-      classic: { humor: 30, drama: 60, verbosity: 60, difficulty: 50, horror: 20, puzzleFocus: 50, playerAutonomy: 40, tone: 'heroic', narrationStyle: 'descriptive', playerAgency: 'guided' },
-      comedic: { humor: 90, drama: 30, verbosity: 70, difficulty: 30, horror: 5, puzzleFocus: 40, playerAutonomy: 60, tone: 'whimsical', narrationStyle: 'dialogue', playerAgency: 'collaborative' },
-      darkSouls: { humor: 10, drama: 90, verbosity: 40, difficulty: 90, horror: 80, puzzleFocus: 50, playerAutonomy: 70, tone: 'gritty', narrationStyle: 'atmospheric', playerAgency: 'sandbox' },
-      mystery: { humor: 30, drama: 70, verbosity: 70, difficulty: 50, horror: 40, puzzleFocus: 80, playerAutonomy: 50, tone: 'noir', narrationStyle: 'dialogue', playerAgency: 'collaborative' },
-    };
-    setSettings(prev => ({ ...prev, ...presets[preset] }));
+    const selected = QUICK_PRESETS[preset];
+    if (!selected) return;
+    setSettings(prev => ({ ...prev, ...selected.values }));
     setSaved(false);
   };
 
@@ -100,15 +157,20 @@ function DmSettings() {
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
         Customize how your AI Dungeon Master narrates, reacts, and runs the game.
       </p>
-      {!isAdmin && (
+      {!isLoggedIn && (
         <p style={{ color: 'var(--text-muted)', margin: '0 0 1.5rem' }}>
-          Read-only mode: only admin can change DM Personality settings.
+          Log in to customize your DM Personality settings.
           {isShuffleEnabled ? ' AI shuffle is currently enabled and rotates personality daily at midnight Pacific time.' : ''}
         </p>
       )}
-      {isAdmin && isShuffleEnabled && (
+      {isLoggedIn && isShuffleEnabled && (
         <p style={{ color: 'var(--text-muted)', margin: '0 0 1.5rem' }}>
-          AI shuffle is enabled in admin settings, so manual edits are locked until shuffle is turned off.
+          AI shuffle is enabled, so manual edits are locked until shuffle is turned off.
+        </p>
+      )}
+      {isLoggedIn && !isShuffleEnabled && (
+        <p style={{ color: isPersonalized ? '#27ae60' : 'var(--text-muted)', margin: '0 0 1.5rem' }}>
+          {isPersonalized ? '🎨 Your personal DM settings' : '🌐 Using global defaults'}
         </p>
       )}
 
@@ -116,10 +178,16 @@ function DmSettings() {
       <div className="detail-section">
         <h3>Quick Presets</h3>
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
-          <button onClick={() => handlePreset('classic')} disabled={!canEdit}>Classic Fantasy</button>
-          <button onClick={() => handlePreset('comedic')} disabled={!canEdit}>Comedic Romp</button>
-          <button onClick={() => handlePreset('darkSouls')} disabled={!canEdit}>Dark & Brutal</button>
-          <button onClick={() => handlePreset('mystery')} disabled={!canEdit}>Mystery & Noir</button>
+          {Object.entries(QUICK_PRESETS).map(([presetKey, preset]) => (
+            <button
+              key={presetKey}
+              className={`quick-preset-btn ${activePreset === presetKey ? 'active' : ''}`}
+              onClick={() => handlePreset(presetKey)}
+              disabled={!canEdit}
+            >
+              {preset.label}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -203,11 +271,16 @@ function DmSettings() {
         </div>
       </div>
 
-      {/* Save */}
-      <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+      {/* Save / Reset */}
+      <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
         <button onClick={handleSave} disabled={saving || !canEdit}>
           {saving ? 'Saving...' : 'Save Settings'}
         </button>
+        {isPersonalized && isLoggedIn && (
+          <button onClick={handleReset} disabled={resetting} style={{ background: 'var(--bg-tertiary, #555)' }}>
+            {resetting ? 'Resetting...' : 'Reset to Defaults'}
+          </button>
+        )}
         {saved && <span style={{ color: '#27ae60' }}>Settings saved!</span>}
       </div>
     </div>

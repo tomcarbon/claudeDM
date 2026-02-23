@@ -30,8 +30,18 @@ function getAuthenticatedPlayer(dataDir, req) {
   };
 }
 
+function requirePlayer(dataDir) {
+  return (req, res, next) => {
+    const player = getAuthenticatedPlayer(dataDir, req);
+    if (!player) return res.status(401).json({ error: 'Login required.' });
+    req.player = player;
+    next();
+  };
+}
+
 module.exports = {
   getPlayerEmailFromRequest,
   readPlayers,
   getAuthenticatedPlayer,
+  requirePlayer,
 };

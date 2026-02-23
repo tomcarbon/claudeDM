@@ -317,6 +317,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               characterId,
               scenarioId,
               messageHistory,
+              playerEmail: wsEntry.playerEmail,
               onPermissionRequest: (toolName, input, toolUseID) => {
                 return new Promise((resolve) => {
                   const description = describeToolUse(toolName, input);

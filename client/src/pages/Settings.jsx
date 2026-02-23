@@ -10,7 +10,7 @@ function Settings() {
   const [shuffleSaved, setShuffleSaved] = useState(false);
 
   useEffect(() => {
-    api.getDmSettings()
+    api.getGlobalDmSettings()
       .then((settings) => setShuffleEnabled(!!settings?.aiDailyShuffle))
       .catch(() => setShuffleEnabled(false))
       .finally(() => setLoadingShuffle(false));
@@ -21,7 +21,7 @@ function Settings() {
     setSavingShuffle(true);
     setShuffleSaved(false);
     try {
-      await api.updateDmSettings({ aiDailyShuffle: nextValue });
+      await api.updateGlobalDmSettings({ aiDailyShuffle: nextValue });
       setShuffleEnabled(nextValue);
       setShuffleSaved(true);
       setTimeout(() => setShuffleSaved(false), 3000);
