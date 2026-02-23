@@ -41,6 +41,27 @@ function normalizeSavedMessages(rawMessages) {
   }).filter(Boolean);
 }
 
+function formatSavedSessionDate(timestamp) {
+  if (!timestamp) return 'Unknown date';
+  const parsed = new Date(timestamp);
+  if (Number.isNaN(parsed.getTime())) return 'Unknown date';
+  return parsed.toLocaleDateString([], {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+function formatSavedSessionTime(timestamp) {
+  if (!timestamp) return '';
+  const parsed = new Date(timestamp);
+  if (Number.isNaN(parsed.getTime())) return '';
+  return parsed.toLocaleTimeString([], {
+    hour: 'numeric',
+    minute: '2-digit',
+  });
+}
+
 function Adventure({
   ws,
   sessionActive,
@@ -458,8 +479,11 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
                   <span>Player: {s.playerName || s.playerEmail || 'Unknown'}</span>
                   <span>{s.canWrite === false ? 'Read only' : 'Editable'}</span>
                   <span>
-                    {loadingSessionId === s.id ? 'Loading...' : `${s.messageCount} messages — ${new Date(s.updatedAt).toLocaleDateString()}`}
+                    {loadingSessionId === s.id ? 'Loading...' : `${s.messageCount} messages — ${formatSavedSessionDate(s.updatedAt)}`}
                   </span>
+                  {loadingSessionId !== s.id && (
+                    <span className="saved-session-time">{formatSavedSessionTime(s.updatedAt)}</span>
+                  )}
                 </button>
                 {s.canWrite !== false && (
                   <button
