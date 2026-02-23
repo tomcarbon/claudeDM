@@ -291,7 +291,7 @@ For non-combat milestones (quest completion, major story beats), award scenario-
 function createXpMcpServer(dataDir) {
   return createSdkMcpServer({
     name: 'dnd-xp',
-    version: '1.0.0',
+    version: '1.0.2',
     tools: [
       tool(
         'AwardXP',

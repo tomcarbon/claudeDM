@@ -1,10 +1,26 @@
-export const CURRENT_VERSION = '1.0.1';
+export const CURRENT_VERSION = '1.0.2';
 
 export const CHANGELOG = [
   {
+    version: '1.0.2',
+    date: '2026-02-23',
+    title: 'Current Release',
+    compareFrom: '1.0.1',
+    compareRef: '3c6d5e3 ("admin hardening sections")',
+    highlights: [
+      'Stricter session and campaign ownership enforcement with clear read-only metadata for non-owners.',
+      'Adventure flow now respects read-only mode for save/start/import actions and auto-save behavior.',
+      'Expanded DM personality controls with presets, Player Autonomy tuning, and clearer per-player vs global state.',
+      'Admin controls now include global DM personality shuffle handling and restore-default coverage for DM settings.',
+      'Campaign setup and API integration were expanded for smoother create/list/update/delete workflows.',
+      'World map presentation refreshed with updated art, clearer region labels, and legend/hover readability polish.',
+      'Session list now includes time details, plus startup hardening for missing `data/characters` directory.',
+    ],
+  },
+  {
     version: '1.0.1',
     date: '2026-02-21',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.0',
     compareRef: '76e2c07 ("change horror to darkness")',
     highlights: [
