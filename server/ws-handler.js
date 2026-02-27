@@ -159,24 +159,36 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
       switch (msg.type) {
         case 'session_start': {
+          if (!msg.playerEmail) {
+            send('error', { error: 'playerEmail is required to start a session.' });
+            break;
+          }
           leaveCurrentSessionRoom();
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
+          wsEntry.playerEmail = msg.playerEmail;
+          if (msg.playerName) wsEntry.playerName = msg.playerName;
           send('session_status', { status: 'idle' });
-          console.log(`[WS] Session started — character: ${characterId}, scenario: ${scenarioId}`);
+          console.log(`[WS] Session started — character: ${characterId}, scenario: ${scenarioId}, player: ${wsEntry.playerEmail}`);
           break;
         }
 
         case 'session_resume': {
+          if (!msg.playerEmail) {
+            send('error', { error: 'playerEmail is required to resume a session.' });
+            break;
+          }
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
           engine.sessionId = msg.claudeSessionId || null;
+          wsEntry.playerEmail = msg.playerEmail;
+          if (msg.playerName) wsEntry.playerName = msg.playerName;
           // Store message history for resume fallback
           if (msg.messages && Array.isArray(msg.messages)) {
             messageHistory = msg.messages;
           }
           send('session_status', { status: 'idle' });
-          console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, history: ${messageHistory.length} messages`);
+          console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, player: ${wsEntry.playerEmail}, history: ${messageHistory.length} messages`);
           break;
         }
 

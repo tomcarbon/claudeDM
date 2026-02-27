@@ -1,21 +1,27 @@
 import { useState, useEffect, useRef } from 'react';
 import { api } from '../api/client';
+import { usePlayer } from '../context/PlayerContext';
 import CharacterCard from '../components/CharacterCard';
 
 function CharacterList() {
+  const { player } = usePlayer();
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const fileInputRef = useRef(null);
 
   const loadCharacters = () => {
+    if (!player) {
+      setLoading(false);
+      return;
+    }
     api.getCharacters()
       .then(setCharacters)
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => { loadCharacters(); }, []);
+  useEffect(() => { loadCharacters(); }, [player]);
 
   const handleImport = async (e) => {
     const file = e.target.files[0];
@@ -84,6 +90,7 @@ function CharacterList() {
     URL.revokeObjectURL(url);
   };
 
+  if (!player) return <div style={{ padding: '2rem' }}><h2>Player Characters</h2><p style={{ color: 'var(--text-muted)' }}>Please log in to view your characters.</p></div>;
   if (loading) return <div className="loading">Loading characters...</div>;
   if (error) return <div className="error">Error: {error}</div>;
 

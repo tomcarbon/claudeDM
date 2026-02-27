@@ -162,12 +162,18 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const startSession = useCallback((characterId, scenarioId) => {
+  const startSession = useCallback((characterId, scenarioId, player) => {
     pendingResumeRef.current = null;
     pendingWatchRef.current = null;
     setSessionAccess({ sessionDbId: null, canWrite: true, readOnly: false });
     if (wsRef.current?.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify({ type: 'session_start', characterId, scenarioId }));
+      wsRef.current.send(JSON.stringify({
+        type: 'session_start',
+        characterId,
+        scenarioId,
+        playerEmail: player?.email || null,
+        playerName: player?.name || null,
+      }));
       setMessages([{ type: 'system', text: 'Session started. Please wait while the DM prepares the story.' }]);
     }
   }, []);
@@ -200,13 +206,15 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages) => {
+  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages, player) => {
     const payload = {
       type: 'session_resume',
       claudeSessionId,
       characterId,
       scenarioId,
       messages: savedMessages || [],
+      playerEmail: player?.email || null,
+      playerName: player?.name || null,
     };
     pendingResumeRef.current = payload;
     if (wsRef.current?.readyState === WebSocket.OPEN) {

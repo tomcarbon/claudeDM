@@ -1,20 +1,29 @@
 import { useEffect, useState } from 'react';
 import { api } from '../api/client';
+import { usePlayer } from '../context/PlayerContext';
 
 function Settings() {
+  const { player } = usePlayer();
+  const isAdmin = player?.role === 'admin';
   const [restoring, setRestoring] = useState(false);
   const [restored, setRestored] = useState(false);
   const [loadingShuffle, setLoadingShuffle] = useState(true);
   const [savingShuffle, setSavingShuffle] = useState(false);
   const [shuffleEnabled, setShuffleEnabled] = useState(false);
   const [shuffleSaved, setShuffleSaved] = useState(false);
+  const [resetting, setResetting] = useState(null); // 'characters' | 'npcs' | 'all' | null
+  const [resetDone, setResetDone] = useState(null);
 
   useEffect(() => {
+    if (!isAdmin) {
+      setLoadingShuffle(false);
+      return;
+    }
     api.getGlobalDmSettings()
       .then((settings) => setShuffleEnabled(!!settings?.aiDailyShuffle))
       .catch(() => setShuffleEnabled(false))
       .finally(() => setLoadingShuffle(false));
-  }, []);
+  }, [isAdmin]);
 
   const handleShuffleToggle = async (e) => {
     const nextValue = e.target.checked;
@@ -47,6 +56,23 @@ function Settings() {
     setRestoring(false);
   };
 
+  const handleResetMyData = async (scope) => {
+    const labels = { all: 'all characters and NPCs', characters: 'all characters', npcs: 'all NPCs' };
+    if (!window.confirm(`Reset ${labels[scope]} to defaults? Your current game progress for these will be lost.`)) {
+      return;
+    }
+    setResetting(scope);
+    setResetDone(null);
+    try {
+      await api.resetMyData(scope);
+      setResetDone(scope);
+      setTimeout(() => setResetDone(null), 3000);
+    } catch (err) {
+      alert('Reset failed: ' + err.message);
+    }
+    setResetting(null);
+  };
+
   return (
     <div>
       <h2>Settings</h2>
@@ -55,39 +81,72 @@ function Settings() {
       </p>
 
       <div className="detail-section">
-        <h3>DM Personality Automation</h3>
+        <h3>Reset My Data</h3>
         <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
-          Enable AI shuffle to rotate DM Personality at midnight Pacific time (PDT/PST) every day.
-          When enabled, manual edits on the DM Personality page are locked.
+          Reset your personal character and NPC data to defaults. This will undo any XP, equipment, or stat changes from gameplay. Session history is preserved.
         </p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <input
-              type="checkbox"
-              checked={shuffleEnabled}
-              onChange={handleShuffleToggle}
-              disabled={loadingShuffle || savingShuffle}
-            />
-            AI shuffle of DM Personality on 24 hour basis
-          </label>
-          {loadingShuffle && <span style={{ color: 'var(--text-muted)' }}>Loading...</span>}
-          {savingShuffle && <span style={{ color: 'var(--text-muted)' }}>Saving...</span>}
-          {!savingShuffle && shuffleSaved && <span style={{ color: '#27ae60' }}>Saved!</span>}
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <button
+            onClick={() => handleResetMyData('characters')}
+            disabled={resetting !== null}
+          >
+            {resetting === 'characters' ? 'Resetting...' : 'Reset All Characters'}
+          </button>
+          <button
+            onClick={() => handleResetMyData('npcs')}
+            disabled={resetting !== null}
+          >
+            {resetting === 'npcs' ? 'Resetting...' : 'Reset All NPCs'}
+          </button>
+          <button
+            className="danger"
+            onClick={() => handleResetMyData('all')}
+            disabled={resetting !== null}
+          >
+            {resetting === 'all' ? 'Resetting...' : 'Reset Everything'}
+          </button>
+          {resetDone && <span style={{ color: '#27ae60' }}>Reset complete!</span>}
         </div>
       </div>
 
-      <div className="detail-section">
-        <h3>Restore to Defaults</h3>
-        <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
-          Reset game data to its original state. This will overwrite any changes made during gameplay.
-        </p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <button onClick={handleRestore} disabled={restoring}>
-            {restoring ? 'Restoring...' : 'Restore All to Defaults'}
-          </button>
-          {restored && <span style={{ color: '#27ae60' }}>Defaults restored!</span>}
-        </div>
-      </div>
+      {isAdmin && (
+        <>
+          <div className="detail-section">
+            <h3>DM Personality Automation</h3>
+            <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
+              Enable AI shuffle to rotate DM Personality at midnight Pacific time (PDT/PST) every day.
+              When enabled, manual edits on the DM Personality page are locked.
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <input
+                  type="checkbox"
+                  checked={shuffleEnabled}
+                  onChange={handleShuffleToggle}
+                  disabled={loadingShuffle || savingShuffle}
+                />
+                AI shuffle of DM Personality on 24 hour basis
+              </label>
+              {loadingShuffle && <span style={{ color: 'var(--text-muted)' }}>Loading...</span>}
+              {savingShuffle && <span style={{ color: 'var(--text-muted)' }}>Saving...</span>}
+              {!savingShuffle && shuffleSaved && <span style={{ color: '#27ae60' }}>Saved!</span>}
+            </div>
+          </div>
+
+          <div className="detail-section">
+            <h3>Admin: Restore Global Defaults</h3>
+            <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
+              Reset global game data to its original state. This affects the default templates, not individual player data.
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <button onClick={handleRestore} disabled={restoring}>
+                {restoring ? 'Restoring...' : 'Restore All to Defaults'}
+              </button>
+              {restored && <span style={{ color: '#27ae60' }}>Defaults restored!</span>}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

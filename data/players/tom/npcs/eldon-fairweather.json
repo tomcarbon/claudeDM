@@ -1,0 +1,143 @@
+{
+  "id": "a3f7c2e1-8d4b-4f6a-9e1c-3b5d7f9a2c4e",
+  "name": "Eldon Fairweather",
+  "race": "Gnome",
+  "subrace": "Rock Gnome",
+  "class": "Wizard",
+  "level": 1,
+  "background": "Sage",
+  "alignment": "Neutral Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 8,
+    "current": 8
+  },
+  "armorClass": 11,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Gnomish",
+    "Draconic",
+    "Elvish"
+  ],
+  "equipment": [
+    "Quarterstaff",
+    "Component pouch",
+    "Scholar's pack",
+    "Spellbook",
+    "Bottle of black ink",
+    "Quill",
+    "Small knife",
+    "Letter from a dead colleague posing a question you have not yet been able to answer",
+    "Set of common clothes",
+    "Belt pouch containing 10 gp",
+    "Tinker's tools",
+    "A collection of small clockwork toys and half-finished gadgets"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff",
+      "attackBonus": 1,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Fire Bolt",
+      "attackBonus": 5,
+      "damage": "1d10",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Darkvision (60 ft)",
+    "Gnome Cunning (advantage on INT, WIS, CHA saving throws against magic)",
+    "Artificer's Lore (double proficiency on History checks related to magic items, alchemical objects, or technological devices)",
+    "Tinker (can construct Tiny clockwork devices using tinker's tools)",
+    "Arcane Recovery (recover spell slots on short rest, up to 1 level of slots)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Gnome Cunning",
+    "Artificer's Lore",
+    "Tinker"
+  ],
+  "spells": {
+    "spellcastingAbility": "Intelligence",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Fire Bolt",
+      "Mending",
+      "Prestidigitation"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Detect Magic",
+        "Identify",
+        "Mage Armor",
+        "Shield",
+        "Find Familiar",
+        "Thunderwave"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak incredibly fast when I'm excited about an idea, which is almost always. I'm constantly fiddling with some device or scribbling diagrams on any available surface, including other people's belongings.",
+    "ideals": "Knowledge. The pursuit of understanding how things work is the noblest calling. Every mechanism, every spell, every creature has a design worth studying.",
+    "bonds": "I am searching for the Coglattice, a legendary gnomish artifact said to be able to replicate any mechanical device ever conceived. My late mentor, Professor Wimbly Sparkgear, dedicated her life to finding it.",
+    "flaws": "I get so absorbed in my projects that I completely ignore danger, social cues, and basic necessities like eating and sleeping. I also have a terrible habit of 'borrowing' interesting components from other people's gear."
+  },
+  "appearance": "A small, wiry gnome standing just over 3 feet tall with wild, white-streaked copper hair that sticks out at improbable angles. His eyes are a vivid emerald green, magnified by a pair of multi-lensed brass goggles perpetually perched on his forehead. His fingers are stained with ink and grease, and his robes are covered in scorch marks, chemical stains, and dozens of tiny pockets stuffed with tools, gears, and scraps of parchment. A mechanical bronze beetle sits on his shoulder, occasionally whirring and clicking.",
+  "backstory": "Eldon spent forty years as an assistant researcher at the Gnomish Athenaeum of Tinkered Wonders before a laboratory explosion destroyed his wing of the institution and most of his life's work. Among the wreckage, he found a fragment of a map his late mentor, Professor Wimbly Sparkgear, had hidden inside a clockwork puzzle box -- a map pointing toward the Coglattice, a mythical gnomish artifact capable of replicating any mechanical design ever conceived. Now Eldon travels the world following the trail of clues his mentor left behind, funding his research by offering his arcane and mechanical expertise to adventuring parties. He tells everyone he's simply a wandering scholar, but the truth is he's racing against a rival faction of gnomish treasure hunters who would use the Coglattice for war.",
+  "dmNotes": {
+    "roleplaying": "Eldon should be played as a rapid-fire chatterbox who is genuinely brilliant but socially oblivious. He interrupts conversations to point out interesting architectural details or to ask if anyone has a spare copper spring. When casting spells, describe them as having a mechanical, tinkered quality -- his Fire Bolt shoots from a finger-mounted brass nozzle, his Shield spell manifests as interlocking clockwork plates. He often narrates his own thought process aloud. In combat, he hangs back and supports, but gets dangerously curious about enemy magic or devices.",
+    "voice": "Speaks very quickly with short, clipped sentences that tumble over each other. Uses technical jargon constantly. Often trails off mid-sentence when a new thought strikes him. Pitch rises when excited. Example: 'Yes, yes, the door -- fascinating hinge mechanism, by the way, pre-Sundering design if I'm not mistaken -- but yes, the trap. Three pressure plates, a counterweight, and if my calculations are -- oh, is that a geode? Anyway, don't step there.'",
+    "motivations": "Primary: Find the Coglattice before his rivals do. Secondary: Document and understand every interesting mechanism, spell, or creature he encounters. Tertiary: Prove that his mentor was right and restore her academic reputation. He genuinely cares about his companions but will occasionally prioritize a fascinating discovery over group safety.",
+    "secrets": "He is searching for the Coglattice, a lost gnomish artifact of immense power. He has a partial map hidden inside a clockwork puzzle box he carries. A rival faction called the Ironwrights is also searching for it and has already tried to ambush him once. He does not know that the Coglattice is sentient and will choose its own wielder.",
+    "attitude": "Friendly and enthusiastic toward everyone by default. Warms up quickly to anyone who shows interest in his work. Becomes protective of companions over time. Slightly dismissive of purely martial solutions ('Yes, you could hit it with an axe, OR we could analyze the resonance frequency of its crystalline structure and...'). Uncomfortable around anti-intellectualism."
+  },
+  "profilePic": "data:image/png;base64,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",
+  "status": "alive"
+}

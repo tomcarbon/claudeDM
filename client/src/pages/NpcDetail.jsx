@@ -31,13 +31,29 @@ function NpcDetail() {
   if (error) return <div className="error">Error: {error}</div>;
   if (!npc) return <div className="error">NPC not found</div>;
 
+  const isDead = npc.status === 'dead';
+
   return (
     <div>
+      {isDead && (
+        <div style={{
+          background: '#2c1810', border: '1px solid #8b4513', borderRadius: '8px',
+          padding: '1rem 1.25rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem',
+        }}>
+          <span style={{ fontSize: '1.5rem' }}>{'\u{1F480}'}</span>
+          <div>
+            <strong style={{ color: '#e74c3c' }}>Deceased</strong>
+            <p style={{ margin: '0.25rem 0 0', color: 'var(--text-muted)', fontSize: '0.9em' }}>
+              This companion has fallen in battle.
+            </p>
+          </div>
+        </div>
+      )}
       <div className="detail-header">
         <div className="detail-header-info">
-          <h2>{npc.name}</h2>
+          <h2>{isDead && '\u{1F480} '}{npc.name}</h2>
           <div className="detail-meta">
-            Level {npc.level} {npc.subrace ? `${npc.subrace} ` : ''}{npc.race} {npc.class}
+            {isDead ? 'Deceased \u2014 ' : ''}Level {npc.level} {npc.subrace ? `${npc.subrace} ` : ''}{npc.race} {npc.class}
             {npc.background && ` | ${npc.background}`}
             {npc.alignment && ` | ${npc.alignment}`}
           </div>

@@ -55,7 +55,7 @@ function AppContent() {
   return (
     <div className="app">
       <nav className="sidebar">
-        <h1 className="logo">D&D Companion<span className="logo-sub">single player demo</span></h1>
+        <h1 className="logo">D&D Companion<span className="logo-sub">Single Player Demo</span></h1>
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
@@ -75,7 +75,7 @@ function AppContent() {
         <ul>
           <li><NavLink to="/whats-new">What&apos;s New</NavLink></li>
           <li><NavLink to="/dm-settings">DM Personality</NavLink></li>
-          {isAdmin && <li><NavLink to="/settings">Settings</NavLink></li>}
+          {player && <li><NavLink to="/settings">Settings</NavLink></li>}
         </ul>
         <div className="sidebar-divider" />
         <div className="app-version">v{CURRENT_VERSION}</div>
@@ -110,7 +110,7 @@ function AppContent() {
           <Route path="/world-map" element={<WorldMapPage />} />
           <Route path="/rules" element={<RulesPage />} />
           <Route path="/dm-settings" element={<DmSettings />} />
-          <Route path="/settings" element={isAdmin ? <Settings /> : <Navigate to="/" replace />} />
+          <Route path="/settings" element={player ? <Settings /> : <Navigate to="/" replace />} />
         </Routes>
       </main>
       <div className="chat-sidebar">

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { getPlayerCharactersDir, getPlayerNpcsDir } = require('./player-data');
 
 function loadJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -21,13 +22,18 @@ function listJsonFiles(dir) {
   }
 }
 
-function collectMatches(dataDir, characterRef) {
+function collectMatches(dataDir, characterRef, playerEmail) {
   const ref = normalize(characterRef);
   const refSlug = slugify(characterRef);
-  const candidateDirs = [
-    { kind: 'character', dir: path.join(dataDir, 'characters') },
-    { kind: 'npc', dir: path.join(dataDir, 'npcs') },
-  ];
+  const candidateDirs = playerEmail
+    ? [
+        { kind: 'character', dir: getPlayerCharactersDir(dataDir, playerEmail) },
+        { kind: 'npc', dir: getPlayerNpcsDir(dataDir, playerEmail) },
+      ]
+    : [
+        { kind: 'character', dir: path.join(dataDir, 'characters') },
+        { kind: 'npc', dir: path.join(dataDir, 'npcs') },
+      ];
 
   const exactIdMatches = [];
   const looseMatches = [];
@@ -64,8 +70,8 @@ function collectMatches(dataDir, characterRef) {
   return looseMatches;
 }
 
-function findCharacterOrNpcFile(dataDir, characterRef) {
-  const matches = collectMatches(dataDir, characterRef);
+function findCharacterOrNpcFile(dataDir, characterRef, playerEmail) {
+  const matches = collectMatches(dataDir, characterRef, playerEmail);
   if (matches.length === 0) return null;
   if (matches.length > 1) {
     const options = matches.map(m => `${m.data.name} (${m.data.id})`).join(', ');
@@ -74,8 +80,8 @@ function findCharacterOrNpcFile(dataDir, characterRef) {
   return matches[0];
 }
 
-function awardXp(dataDir, characterId, xpAmount) {
-  const result = findCharacterOrNpcFile(dataDir, characterId);
+function awardXp(dataDir, characterId, xpAmount, playerEmail) {
+  const result = findCharacterOrNpcFile(dataDir, characterId, playerEmail);
   if (!result) {
     throw new Error(`Character not found: ${characterId}`);
   }

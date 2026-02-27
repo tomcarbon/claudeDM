@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { awardXp } = require('../xp-utils');
+const { requirePlayer } = require('../player-auth');
+const { getPlayerCharactersDir, ensurePlayerDataExists } = require('../player-data');
 
 function validateCharacter(data) {
   const errors = [];
@@ -48,9 +50,19 @@ function validateCharacter(data) {
 
 module.exports = function (dataDir) {
   const router = express.Router();
-  const charDir = path.join(dataDir, 'characters');
+  const playerAuth = requirePlayer(dataDir);
 
-  function readAllCharacters() {
+  // Apply auth to all routes
+  router.use(playerAuth);
+
+  function getCharDir(req) {
+    const dir = getPlayerCharactersDir(dataDir, req.player.email);
+    ensurePlayerDataExists(dataDir, req.player.email);
+    return dir;
+  }
+
+  function readAllCharacters(req) {
+    const charDir = getCharDir(req);
     const files = fs.readdirSync(charDir).filter(f => f.endsWith('.json'));
     return files.map(f => {
       const data = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
@@ -62,7 +74,7 @@ module.exports = function (dataDir) {
   // GET all characters
   router.get('/', (req, res) => {
     try {
-      const characters = readAllCharacters();
+      const characters = readAllCharacters(req);
       res.json(characters);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -72,6 +84,7 @@ module.exports = function (dataDir) {
   // POST import character (must be before /:id)
   router.post('/import', (req, res) => {
     try {
+      const charDir = getCharDir(req);
       const data = { ...req.body };
       const result = validateCharacter(data);
       if (!result.valid) {
@@ -96,7 +109,7 @@ module.exports = function (dataDir) {
       if (typeof xp !== 'number' || xp <= 0) {
         return res.status(400).json({ error: 'xp must be a positive number' });
       }
-      const result = awardXp(dataDir, req.params.id, xp);
+      const result = awardXp(dataDir, req.params.id, xp, req.player.email);
       res.json(result);
     } catch (err) {
       if (err.message.startsWith('Character not found')) {
@@ -109,7 +122,7 @@ module.exports = function (dataDir) {
   // GET single character by id
   router.get('/:id', (req, res) => {
     try {
-      const characters = readAllCharacters();
+      const characters = readAllCharacters(req);
       const char = characters.find(c => c.id === req.params.id);
       if (!char) return res.status(404).json({ error: 'Character not found' });
       res.json(char);
@@ -121,6 +134,7 @@ module.exports = function (dataDir) {
   // POST create new character
   router.post('/', (req, res) => {
     try {
+      const charDir = getCharDir(req);
       const char = { ...req.body, id: uuidv4() };
       const slug = char.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const filename = `${slug}.json`;
@@ -134,7 +148,8 @@ module.exports = function (dataDir) {
   // PUT update character
   router.put('/:id', (req, res) => {
     try {
-      const characters = readAllCharacters();
+      const charDir = getCharDir(req);
+      const characters = readAllCharacters(req);
       const char = characters.find(c => c.id === req.params.id);
       if (!char) return res.status(404).json({ error: 'Character not found' });
 
@@ -151,7 +166,8 @@ module.exports = function (dataDir) {
   // DELETE character
   router.delete('/:id', (req, res) => {
     try {
-      const characters = readAllCharacters();
+      const charDir = getCharDir(req);
+      const characters = readAllCharacters(req);
       const char = characters.find(c => c.id === req.params.id);
       if (!char) return res.status(404).json({ error: 'Character not found' });
 

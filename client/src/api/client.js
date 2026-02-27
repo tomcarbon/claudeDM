@@ -71,6 +71,7 @@ export const api = {
 
   // Settings
   restoreDefaults: (scope) => fetchJson(`/settings/restore-defaults${scope ? `?scope=${scope}` : ''}`, { method: 'POST' }),
+  resetMyData: (scope, id) => fetchJson(`/settings/reset-my-data?scope=${scope}${id ? `&id=${id}` : ''}`, { method: 'POST' }),
 
   // Players / Auth
   playerLogin: (email, password) => fetchJson('/players/login', { method: 'POST', body: JSON.stringify({ email, password }) }),

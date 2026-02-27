@@ -13,11 +13,18 @@ A Node/React application for playing D&D 5e with an AI Dungeon Master. The AI na
 ## Data Structure
 ```
 data/
-├── characters/   # Player characters (editable via UI)
-├── npcs/         # NPC companions (DM-controlled, includes dmNotes)
-├── rules/        # D&D 5e rules database (races, classes, spells, combat, etc.)
-└── scenarios/    # Campaign scenarios and encounters
+├── players/                      # Per-player isolated game data
+│   └── <email-slug>/            # e.g. "tom", "jane-example-com"
+│       ├── characters/          # Player's personal character copies
+│       └── npcs/                # Player's personal NPC copies
+├── defaults/                    # Templates for new players (source of truth for resets)
+│   ├── characters/
+│   └── npcs/
+├── rules/                       # D&D 5e rules database (shared, read-only)
+└── scenarios/                   # Campaign scenarios and encounters (shared)
 ```
+
+**Per-Player Isolation:** Each player has their own copy of characters and NPCs under `data/players/<slug>/`. When the DM modifies a character (XP, HP, equipment), it only affects that player's files. The `data/defaults/` directory holds pristine templates used when provisioning new players or resetting data.
 
 ## Running the App
 ```bash
@@ -39,8 +46,8 @@ The rules database in `data/rules/` contains:
 
 ## Party Composition
 - **Party size:** 4-8 characters
-- **Structure:** The player controls their main character. The remaining party slots are filled by NPC companions (from `data/npcs/`) narrated by the AI DM.
-- **Multiplayer (planned):** Multiple human players will eventually each control their own character. This is not yet implemented but the architecture should anticipate it. Player characters in `data/characters/` will gain an `owner` field to associate them with a player session. NPCs remain DM-controlled regardless of player count.
+- **Structure:** The player controls their main character. The remaining party slots are filled by NPC companions narrated by the AI DM.
+- **Multiplayer:** Each player gets isolated copies of characters and NPCs under `data/players/<slug>/`. Changes to one player's data never affect another player's data. NPCs remain DM-controlled regardless of player count.
 
 ## DM Guidelines (for AI)
 When acting as DM:
@@ -57,12 +64,13 @@ When acting as DM:
    - **Narration Style** (descriptive/action/dialogue/atmospheric): Controls how you narrate — descriptive paints pictures, action is punchy, dialogue emphasizes NPC speech, atmospheric builds mood.
    - **Player Agency** (collaborative/sandbox/guided/railroaded): How much you steer vs. follow the player's lead.
 3. **NPC companions** have `dmNotes` with roleplaying guidance, voice, motivations, and secrets — use these to bring NPCs to life
-4. **Character and NPC updates** should be made through the API or by editing JSON files directly. When items, gold, or currency change hands between any combination of characters and NPCs, update **both** parties' JSON files (the giver and the receiver). For example, if a player pays an NPC 5 gp, deduct from the character's equipment and add to the NPC's equipment. **File Verification:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth.
+4. **Character and NPC updates** should be made through the API or by editing JSON files directly. Character/NPC files are located at `data/players/<slug>/characters/` and `data/players/<slug>/npcs/` (the system prompt provides exact paths). When items, gold, or currency change hands between any combination of characters and NPCs, update **both** parties' JSON files (the giver and the receiver). For example, if a player pays an NPC 5 gp, deduct from the character's equipment and add to the NPC's equipment. **File Verification:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth.
 5. **Dice rolls** use standard notation: `NdX` (e.g., `1d20`, `2d6`). For ability checks: d20 + ability modifier + proficiency bonus (if proficient)
 6. **Combat flow:** Initiative (d20 + DEX mod) → Turns in order → Action/Bonus/Movement/Reaction → Track HP
 7. **Death saves:** 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
 8. **Difficulty Classes:** Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30
 9. **Never reset characters to defaults** without explicit player permission. Do not use the restore-defaults API for characters or NPCs during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
+10. **Death tracking:** All characters and NPCs have a `"status"` field (`"alive"` or `"dead"`). When a character dies (3 failed death saves, instant death, etc.), use the Edit tool to set `"status": "dead"` in their JSON file. Dead characters remain in the data but are excluded from new session character selection. Players can reset dead characters to defaults via Settings.
 
 ## Post-Encounter Checklist (MANDATORY)
 After EVERY combat encounter, skill challenge, or significant event, you MUST complete this checklist before continuing the narrative. Do NOT move on to the next scene until all applicable steps are done. The player should never have to ask "do we get XP?"
@@ -159,7 +167,7 @@ Lots of emoticon icons please, including skulls, some of my friends seem to like
 
 ## Character JSON Schema
 Characters and NPCs share the same base schema with fields for:
-- `id`, `name`, `race`, `subrace`, `class`, `level`, `background`, `alignment`
+- `id`, `name`, `status` ("alive" | "dead"), `race`, `subrace`, `class`, `level`, `background`, `alignment`
 - `abilities` (object with score/modifier for each of 6 stats)
 - `hitPoints` (max/current), `armorClass`, `speed`, `proficiencyBonus`
 - `savingThrows`, `skills`, `languages`, `equipment`, `weapons`, `armor`

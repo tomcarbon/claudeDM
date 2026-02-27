@@ -1,0 +1,133 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440002",
+  "name": "Lyralei Moonwhisper",
+  "status": "alive",
+  "race": "Elf",
+  "subrace": "High Elf",
+  "class": "Wizard",
+  "level": 1,
+  "background": "Sage",
+  "alignment": "Neutral Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 7,
+    "current": 7
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "intelligence",
+    "wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Draconic",
+    "Celestial"
+  ],
+  "equipment": [
+    "Quarterstaff",
+    "Component pouch",
+    "Scholar's pack",
+    "Spellbook",
+    "A bottle of black ink",
+    "A quill",
+    "A small knife",
+    "A letter from a dead colleague posing a question you have not yet been able to answer",
+    "A set of common clothes",
+    "A belt pouch containing 10 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff",
+      "attackBonus": 1,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Fire Bolt (cantrip)",
+      "attackBonus": 5,
+      "damage": "1d10",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Arcane Recovery (once per long rest after short rest, recover spell slots up to half wizard level rounded up)",
+    "Darkvision (60 ft)",
+    "Fey Ancestry (advantage on saves vs. being charmed, immune to magical sleep)",
+    "Trance (4 hours of meditation instead of 8 hours sleep)",
+    "Keen Senses (proficiency in Perception)"
+  ],
+  "traits": [
+    "Elf Weapon Training (proficient with longsword, shortsword, shortbow, longbow)",
+    "Cantrip (High Elf bonus cantrip: Prestidigitation)"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Fire Bolt",
+      "Mage Hand",
+      "Prestidigitation",
+      "Light"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Magic Missile",
+        "Shield",
+        "Detect Magic",
+        "Mage Armor",
+        "Sleep",
+        "Thunderwave"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I use polysyllabic words that convey the impression of great erudition. There's nothing I like more than a good mystery.",
+    "ideals": "Knowledge. The path to power and self-improvement is through knowledge.",
+    "bonds": "I have an ancient text that holds terrible secrets that must not fall into the wrong hands.",
+    "flaws": "I am easily distracted by the promise of information, sometimes to my peril. I overlook obvious solutions in favor of complicated ones."
+  },
+  "appearance": "A slender elf of 5'9\" with silver-white hair that falls to her waist and pale violet eyes that seem to shimmer faintly in low light. Her robes are deep midnight blue embroidered with constellations in silver thread, and her fingers are perpetually stained with ink. A crystal pendant around her neck pulses with a faint arcane glow.",
+  "backstory": "Lyralei spent two centuries studying at the Moonwhisper Academy, a secluded elven library-fortress dedicated to preserving arcane knowledge. When she discovered a partially burned manuscript referencing a lost school of magic, her mentor encouraged her to venture into the wider world to find the remaining fragments. She left the academy's sheltered halls with more theoretical knowledge than practical experience, eager to test her spells against real challenges.",
+  "profilePic": "data:image/png;base64,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"
+}

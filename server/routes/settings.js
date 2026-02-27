@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { requireAdmin } = require('../admin-auth');
+const { requirePlayer } = require('../player-auth');
+const { resetPlayerData, resetSingleEntity } = require('../player-data');
 
 module.exports = function (dataDir) {
   const router = express.Router();
@@ -43,6 +45,29 @@ module.exports = function (dataDir) {
       }
 
       res.json({ restored });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // POST /api/settings/reset-my-data — player resets their own data
+  const playerOnly = requirePlayer(dataDir);
+  router.post('/reset-my-data', playerOnly, (req, res) => {
+    try {
+      const scope = req.query.scope || 'all';
+      const id = req.query.id;
+
+      if (id && (scope === 'character' || scope === 'npc')) {
+        resetSingleEntity(dataDir, req.player.email, scope, id);
+        return res.json({ reset: scope, id });
+      }
+
+      if (['all', 'characters', 'npcs'].includes(scope)) {
+        resetPlayerData(dataDir, req.player.email, scope);
+        return res.json({ reset: scope });
+      }
+
+      res.status(400).json({ error: 'Invalid scope. Use: all, characters, npcs, character (with id), or npc (with id).' });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

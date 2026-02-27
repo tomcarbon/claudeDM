@@ -3,6 +3,7 @@ const { z } = require('zod/v4');
 const fs = require('fs');
 const path = require('path');
 const { awardXp } = require('./xp-utils');
+const { emailToSlug, getPlayerCharactersDir, getPlayerNpcsDir } = require('./player-data');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SHUFFLE_TIMEZONE = 'America/Los_Angeles';
@@ -104,13 +105,20 @@ function loadDmSettings(dataDir, playerEmail) {
   return applyDailyShuffle(baseSettings, playerEmail);
 }
 
-function loadCharacter(dataDir, characterId) {
-  const dir = path.join(dataDir, 'characters');
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-  for (const file of files) {
-    const data = loadJson(path.join(dir, file));
-    if (data && data.id === characterId) return data;
-  }
+function loadCharacter(dataDir, characterId, playerEmail) {
+  const dir = playerEmail
+    ? getPlayerCharactersDir(dataDir, playerEmail)
+    : path.join(dataDir, 'characters');
+  try {
+    const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+    for (const file of files) {
+      const data = loadJson(path.join(dir, file));
+      if (data && data.id === characterId) {
+        data._filename = file;
+        return data;
+      }
+    }
+  } catch { /* dir may not exist */ }
   return null;
 }
 
@@ -124,12 +132,18 @@ function loadScenario(dataDir, scenarioId) {
   return null;
 }
 
-function loadNpcs(dataDir) {
-  const dir = path.join(dataDir, 'npcs');
+function loadNpcs(dataDir, playerEmail) {
+  const dir = playerEmail
+    ? getPlayerNpcsDir(dataDir, playerEmail)
+    : path.join(dataDir, 'npcs');
   try {
     return fs.readdirSync(dir)
       .filter(f => f.endsWith('.json'))
-      .map(f => loadJson(path.join(dir, f)))
+      .map(f => {
+        const data = loadJson(path.join(dir, f));
+        if (data) data._filename = f;
+        return data;
+      })
       .filter(Boolean);
   } catch {
     return [];
@@ -138,9 +152,14 @@ function loadNpcs(dataDir) {
 
 function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail) {
   const settings = loadDmSettings(dataDir, playerEmail);
-  const character = characterId ? loadCharacter(dataDir, characterId) : null;
+  const character = characterId ? loadCharacter(dataDir, characterId, playerEmail) : null;
   const scenario = scenarioId ? loadScenario(dataDir, scenarioId) : null;
-  const npcs = loadNpcs(dataDir);
+  const npcs = loadNpcs(dataDir, playerEmail);
+
+  // Compute player-scoped paths for file references
+  const slug = playerEmail ? emailToSlug(playerEmail) : null;
+  const charPathPrefix = slug ? `data/players/${slug}/characters` : 'data/characters';
+  const npcPathPrefix = slug ? `data/players/${slug}/npcs` : 'data/npcs';
 
   const verbosityGuide = settings.verbosity < 30 ? 'Keep descriptions brief and punchy.'
     : settings.verbosity > 70 ? 'Use rich, detailed prose with vivid imagery.'
@@ -200,7 +219,7 @@ YOU ARE RUNNING **${character.name}**'s CAMPAIGN. Do NOT confuse this with any o
 ${character.name} — Level ${character.level} ${character.race}${character.subrace ? ` (${character.subrace})` : ''} ${character.class} (${character.background})
 HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
 Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
-Character file: data/characters/${character.id}.json (use Read to check current state, Edit to update)
+Character file: ${charPathPrefix}/${character._filename || (character.id + '.json')} (use Read to check current state, Edit to update)
 Character ID for AwardXP: ${character.id}`;
   }
 
@@ -242,7 +261,10 @@ Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > T
 Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
 
 ## Character Updates
-When the player's character takes damage, picks up items, or changes in any way, use the Edit tool to update their character JSON file in data/characters/. For XP changes, use the AwardXP tool instead of manual edits. Always keep character data current.
+When the player's character takes damage, picks up items, or changes in any way, use the Edit tool to update their character JSON file in ${charPathPrefix}/. For XP changes, use the AwardXP tool instead of manual edits. Always keep character data current.
+
+## Death Tracking
+When a character or NPC dies (3 failed death saves, instant death, etc.), use the Edit tool to set "status": "dead" in their JSON file. Dead characters remain in the data but are marked as deceased. Valid status values: "alive" or "dead".
 
 **FILE VERIFICATION:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth — if they don't match the story, the data is wrong.
 
@@ -305,7 +327,7 @@ Secret: ${npc.dmNotes.secrets || ''}
 Attitude: ${npc.dmNotes.attitude || ''}`;
       }
       prompt += `
-File: data/npcs/${npc.id}.json
+File: ${npcPathPrefix}/${npc._filename || (npc.id + '.json')}
 Character ID for AwardXP: ${npc.id}`;
     }
   }
@@ -337,7 +359,7 @@ For non-combat milestones (quest completion, major story beats), award scenario-
   return prompt;
 }
 
-function createXpMcpServer(dataDir) {
+function createXpMcpServer(dataDir, playerEmail) {
   return createSdkMcpServer({
     name: 'dnd-xp',
     version: '1.0.2',
@@ -348,7 +370,7 @@ function createXpMcpServer(dataDir) {
         { characterId: z.string(), xp: z.number() },
         async (args) => {
           try {
-            const result = awardXp(dataDir, args.characterId, args.xp);
+            const result = awardXp(dataDir, args.characterId, args.xp, playerEmail);
             return {
               content: [{ type: 'text', text: JSON.stringify(result) }],
             };
@@ -429,16 +451,27 @@ class DmEngine {
     this.dataDir = dataDir;
     this.sessionId = null;
     this.activeQuery = null;
-    this.xpMcpServer = createXpMcpServer(dataDir);
+    this.playerEmail = null;
+    this._xpMcpServer = null;
+  }
+
+  _getXpMcpServer(playerEmail) {
+    // Recreate if playerEmail changed
+    if (!this._xpMcpServer || this.playerEmail !== playerEmail) {
+      this.playerEmail = playerEmail;
+      this._xpMcpServer = createXpMcpServer(this.dataDir, playerEmail);
+    }
+    return this._xpMcpServer;
   }
 
   _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail) {
     const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail);
+    const xpMcpServer = this._getXpMcpServer(playerEmail);
     return {
       systemPrompt,
       cwd: PROJECT_ROOT,
       allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-xp__AwardXP'],
-      mcpServers: { 'dnd-xp': this.xpMcpServer },
+      mcpServers: { 'dnd-xp': xpMcpServer },
       permissionMode: 'default',
       includePartialMessages: true,
       maxTurns: 20,
@@ -528,7 +561,7 @@ class DmEngine {
     if (messageHistory && messageHistory.length > 0) {
       const recap = buildSmartRecap(messageHistory);
       // Build identity-enriched resume header
-      const character = characterId ? loadCharacter(this.dataDir, characterId) : null;
+      const character = characterId ? loadCharacter(this.dataDir, characterId, playerEmail) : null;
       const scenario = scenarioId ? loadScenario(this.dataDir, scenarioId) : null;
       const charLabel = character ? `${character.name} (Level ${character.level} ${character.race} ${character.class})` : 'Unknown character';
       const scenarioLabel = scenario ? scenario.title : 'Unknown scenario';
