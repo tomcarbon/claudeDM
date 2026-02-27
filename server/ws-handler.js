@@ -22,12 +22,6 @@ function getRoomParticipants(chatKey) {
     }));
 }
 
-function shouldBroadcastJoinMessage(playerName, isAdmin) {
-  if (isAdmin) return false;
-  const normalizedName = (playerName || '').trim().toLowerCase();
-  return normalizedName !== 'guest' && normalizedName !== 'admin';
-}
-
 function getSessionOwnerEmail(session) {
   const ownerPlayer = (session.players || []).find(p => p.role === 'owner') || (session.players || [])[0] || {};
   const value = session.ownerEmail || session.playerEmail || ownerPlayer.email || null;
@@ -37,24 +31,6 @@ function getSessionOwnerEmail(session) {
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
   const sessionsDir = path.join(dataDir, 'sessions');
-
-  function broadcastSystemMessage(chatKey, text) {
-    const systemMsg = {
-      type: 'chat_system',
-      text,
-      timestamp: new Date().toISOString(),
-    };
-    if (chatRooms.has(chatKey)) {
-      for (const entry of chatRooms.get(chatKey)) {
-        if (entry.ws.readyState === entry.ws.OPEN) {
-          entry.ws.send(JSON.stringify(systemMsg));
-        }
-      }
-    }
-    if (chatKey === 'global' && appendChatMessage) {
-      try { appendChatMessage({ isSystem: true, text, timestamp: systemMsg.timestamp }); } catch (e) { console.error('[WS] Chat persist error:', e); }
-    }
-  }
 
   function broadcastChatParticipants(chatKey) {
     const participants = getRoomParticipants(chatKey);
@@ -126,9 +102,6 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       if (currentChatKey && chatRooms.has(currentChatKey)) {
         const room = chatRooms.get(currentChatKey);
         room.delete(wsEntry);
-        if (wsEntry.playerName) {
-          broadcastSystemMessage(currentChatKey, `player ${wsEntry.playerName} has left.`);
-        }
         if (room.size === 0) {
           chatRooms.delete(currentChatKey);
         } else {
@@ -171,9 +144,6 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       wsEntry.isAdmin = !!isAdmin;
       if (!chatRooms.has(chatKey)) chatRooms.set(chatKey, new Set());
       chatRooms.get(chatKey).add(wsEntry);
-      if (shouldBroadcastJoinMessage(playerName, wsEntry.isAdmin)) {
-        broadcastSystemMessage(chatKey, `player ${playerName} has joined.`);
-      }
       broadcastChatParticipants(chatKey);
       console.log(`[WS] Chat joined — key: ${chatKey}, player: ${playerEmail}, room size: ${chatRooms.get(chatKey).size}`);
     }

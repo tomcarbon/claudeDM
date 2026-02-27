@@ -22,6 +22,11 @@ function isGuestName(name) {
   return !normalized || normalized === 'guest';
 }
 
+function isPresenceSystemMessage(text) {
+  const normalized = String(text || '').trim().toLowerCase();
+  return /^player .+ has (joined|left)\.$/.test(normalized);
+}
+
 function formatOnlinePlayers(onlinePlayers, selfChatConnectionId) {
   const participants = Array.isArray(onlinePlayers) ? onlinePlayers : [];
   const guestTotal = participants.reduce((count, participant) =>
@@ -56,7 +61,10 @@ export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnec
   const [loadingArchive, setLoadingArchive] = useState(false);
   const messagesContainerRef = useRef(null);
 
-  const displayMessages = selectedDate ? archivedMessages : chatMessages;
+  const rawMessages = selectedDate ? archivedMessages : chatMessages;
+  const displayMessages = rawMessages.filter(msg =>
+    !(msg?.isSystem && isPresenceSystemMessage(msg.text))
+  );
   const onlineDisplayNames = formatOnlinePlayers(onlinePlayers, selfChatConnectionId);
   const today = todayStr();
 

@@ -187,7 +187,41 @@ Difficulty preference: ${settings.difficulty}/100 (higher = more challenging enc
 Horror level: ${settings.horror}/100. Romance level: ${settings.romance}/100.
 Puzzle focus: ${settings.puzzleFocus}/100. Combat focus: ${settings.combatFocus}/100.
 Player autonomy: ${settings.playerAutonomy}/100 (0 = DM drives the story with strong plot hooks and direction; 100 = player drives the story, DM reacts and adapts to player choices).
-Player agency style: ${settings.playerAgency}.
+Player agency style: ${settings.playerAgency}.`;
+
+  // --- Campaign identity block (highest salience — placed before rules) ---
+  if (character) {
+    prompt += `
+
+## ⚠️ CAMPAIGN IDENTITY — READ THIS FIRST
+YOU ARE RUNNING **${character.name}**'s CAMPAIGN. Do NOT confuse this with any other player's campaign. Every detail you narrate must be consistent with ${character.name}'s story, companions, and history.
+
+## Player Character
+${character.name} — Level ${character.level} ${character.race}${character.subrace ? ` (${character.subrace})` : ''} ${character.class} (${character.background})
+HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
+Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
+Character file: data/characters/${character.id}.json (use Read to check current state, Edit to update)
+Character ID for AwardXP: ${character.id}`;
+  }
+
+  if (scenario) {
+    prompt += `
+
+## Active Scenario: ${scenario.title}
+${scenario.synopsis || ''}`;
+    if (scenario.hook) {
+      prompt += `
+Hook: ${scenario.hook}`;
+    }
+    if (scenario.acts) {
+      prompt += `
+Acts: ${scenario.acts.map((a, i) => `Act ${i + 1}: ${a.title}`).join(', ')}`;
+    }
+    prompt += `
+Scenario file: data/scenarios/${scenario.id}.json (Read for full details)`;
+  }
+
+  prompt += `
 
 ## Rules Reference
 Consult the D&D 5e rules database in data/rules/ for mechanics. The files are:
@@ -210,19 +244,49 @@ Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 
 ## Character Updates
 When the player's character takes damage, picks up items, or changes in any way, use the Edit tool to update their character JSON file in data/characters/. For XP changes, use the AwardXP tool instead of manual edits. Always keep character data current.
 
+**FILE VERIFICATION:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth — if they don't match the story, the data is wrong.
+
+## Post-Encounter Checklist (MANDATORY)
+After EVERY combat encounter or significant event, complete ALL applicable steps before continuing the narrative. The player should NEVER have to ask "do we get XP?"
+
+**After Combat:**
+1. Calculate XP: look up each defeated enemy's CR in data/rules/leveling.json → monster_xp_by_cr. Sum total XP, divide equally among ALL surviving party members (PCs + NPCs). Use AwardXP tool for each. If AwardXP errors, update manually via Edit. **XP PARITY: Every party member present MUST receive identical XP. Never award different amounts to PCs vs NPCs. If you discover an XP gap, equalize immediately.**
+2. Describe loot found. The player should NEVER have to ask "don't we get any loot?" CR-based guidelines: CR 0-1 = a few gp + common items; CR 2-4 = 20-120 gp + mundane equipment; CR 5+ = 40-240 gp + possible magic items. Humanoids always carry weapons, armor, and a coin purse. Let player decide distribution, then Edit all recipient files.
+3. Update inventory via Edit: items gained, items consumed (potions, scrolls), ammunition spent (arrows, bolts — always deduct), gold changes for ALL parties.
+4. Update hitPoints.current for anyone who took damage.
+5. Announce clearly: XP per character, items found, level-ups, current XP progress (e.g. "450/900 XP").
+
+**After Non-Combat Milestones:** Award milestone XP via AwardXP. Update inventory. Note story rewards (reputations, tokens, alliances).
+
+**After Long Rests:** Restore all characters to max HP via Edit. Reset per-rest abilities.
+
+**Session-End Checklist (MANDATORY — when player says they're stopping/saving):**
+Before providing the save-point summary, you MUST: (1) Award any pending XP from encounters/milestones since the last award. (2) Write a chapter summary if a story arc concluded. (3) Read each character/NPC JSON file and verify level, XP, HP, equipment, and gold match narrative state — fix discrepancies via Edit. (4) Then provide the save-point summary.
+
+**Item Tracking Rules:**
+- Ammunition MUST be deducted when used (e.g. "Arrows (20)" → "Arrows (18)")
+- Consumables MUST be removed when used
+- Two-sided transactions: update BOTH giver and receiver files
+- Track quantities: "Jar of pickles (12)", "Rations (5)", "Arrows (18)"
+- Show gold math: "47 gp ÷ 6 = 7 gp each, 5 gp to party fund"
+
+## Chapter Summaries (MANDATORY — Write These Proactively)
+At the end of each major story chapter (completing a town questline, finishing a dungeon, resolving a plot thread), write a chapter summary using this EXACT header format. Do NOT wait for the player to ask. Write one proactively whenever a chapter ends. If 20+ DM messages have passed without a summary, check if one is overdue. Without summaries, campaigns WILL get confused.
+
+## 📜 Chapter Summary: [Title]
+**Days [X-Y]** | **Location:** [Location]
+**Events:** [3-6 sentence narrative summary]
+**Key Decisions:** [Player choices and consequences]
+**NPCs Met/Changed:** [New/changed NPCs]
+**Rewards:** [Items, gold, XP, special tokens]
+**XP Earned:** [Total XP this chapter, current progress]
+**Active Plot Threads:** [Unresolved hooks, mysteries]
+**Party Status:** [HP, level, notable inventory, party composition]
+
+This lets the DM efficiently reconstruct context when resuming long campaigns.
+
 ## Session Reminders
 Periodically remind the player to save their session at natural break points.`;
-
-  if (character) {
-    prompt += `
-
-## Player Character
-${character.name} — Level ${character.level} ${character.race}${character.subrace ? ` (${character.subrace})` : ''} ${character.class} (${character.background})
-HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
-Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
-Character file: data/characters/${character.id}.json (use Read to check current state, Edit to update)
-Character ID for AwardXP: ${character.id}`;
-  }
 
   if (npcs.length > 0) {
     prompt += `
@@ -246,23 +310,6 @@ Character ID for AwardXP: ${npc.id}`;
     }
   }
 
-  if (scenario) {
-    prompt += `
-
-## Active Scenario: ${scenario.title}
-${scenario.synopsis || ''}`;
-    if (scenario.hook) {
-      prompt += `
-Hook: ${scenario.hook}`;
-    }
-    if (scenario.acts) {
-      prompt += `
-Acts: ${scenario.acts.map((a, i) => `Act ${i + 1}: ${a.title}`).join(', ')}`;
-    }
-    prompt += `
-Scenario file: data/scenarios/${scenario.id}.json (Read for full details)`;
-  }
-
   prompt += `
 
 ## XP & Leveling
@@ -273,7 +320,9 @@ At the end of each combat encounter:
 4. Use the AwardXP tool for each character/NPC that should receive XP — do NOT manually edit XP fields.
 5. Announce how much XP each character gained. If a level-up occurs, narrate it dramatically and congratulate the player.
 
-For non-combat milestones (quest completion, major story beats), award scenario-defined XP from the scenario's rewards section using the same AwardXP tool.`;
+**XP PARITY RULE:** Every party member present MUST receive identical XP — PCs and NPCs alike. Never award different amounts. If you discover an XP gap between party members, equalize it immediately by awarding the difference.
+
+For non-combat milestones (quest completion, major story beats), award scenario-defined XP from the scenario's rewards section using the same AwardXP tool. XP parity applies to milestones too.`;
 
   prompt += `
 
@@ -313,6 +362,66 @@ function createXpMcpServer(dataDir) {
       ),
     ],
   });
+}
+
+const CHAPTER_SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
+const MAX_RECENT_MESSAGES = 60;
+
+/**
+ * Build a smart recap from message history.
+ * If chapter summaries exist, use them for older content and only include
+ * full messages from the most recent chapter. This dramatically reduces
+ * context size for long campaigns (e.g. 866K → ~50K).
+ */
+function buildSmartRecap(messageHistory) {
+  const messages = messageHistory.filter(m => m.type === 'player' || m.type === 'dm');
+
+  // Find all chapter summary indices
+  const summaryIndices = [];
+  for (let i = 0; i < messages.length; i++) {
+    if (messages[i].type === 'dm' && CHAPTER_SUMMARY_PATTERN.test(messages[i].text)) {
+      summaryIndices.push(i);
+    }
+  }
+
+  // No chapter summaries found — fall back to truncated raw history
+  if (summaryIndices.length === 0) {
+    // For very long sessions without summaries, take the first few and last chunk
+    if (messages.length > MAX_RECENT_MESSAGES) {
+      const opening = messages.slice(0, 4)
+        .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
+        .join('\n\n');
+      const recent = messages.slice(-MAX_RECENT_MESSAGES)
+        .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
+        .join('\n\n');
+      return `${opening}\n\n[... earlier messages omitted for brevity ...]\n\n${recent}`;
+    }
+    return messages
+      .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
+      .join('\n\n');
+  }
+
+  // Chapter summaries exist — use them for older content
+  const lastSummaryIdx = summaryIndices[summaryIndices.length - 1];
+  const parts = [];
+
+  // Collect all chapter summaries (compact representation of older story)
+  parts.push('=== CHAPTER SUMMARIES (previous story arcs) ===');
+  for (const idx of summaryIndices) {
+    parts.push(messages[idx].text);
+  }
+  parts.push('=== END OF CHAPTER SUMMARIES ===');
+
+  // Include full messages only from after the last chapter summary
+  const recentMessages = messages.slice(lastSummaryIdx + 1);
+  if (recentMessages.length > 0) {
+    parts.push('\n=== CURRENT CHAPTER (full detail) ===');
+    for (const m of recentMessages) {
+      parts.push(m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`);
+    }
+  }
+
+  return parts.join('\n\n');
 }
 
 class DmEngine {
@@ -417,11 +526,13 @@ class DmEngine {
     const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail);
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
-      const recap = messageHistory
-        .filter(m => m.type === 'player' || m.type === 'dm')
-        .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
-        .join('\n\n');
-      prompt = `[SESSION RESUMED — Here is the story so far. Continue from where we left off.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${userMessage}`;
+      const recap = buildSmartRecap(messageHistory);
+      // Build identity-enriched resume header
+      const character = characterId ? loadCharacter(this.dataDir, characterId) : null;
+      const scenario = scenarioId ? loadScenario(this.dataDir, scenarioId) : null;
+      const charLabel = character ? `${character.name} (Level ${character.level} ${character.race} ${character.class})` : 'Unknown character';
+      const scenarioLabel = scenario ? scenario.title : 'Unknown scenario';
+      prompt = `[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${userMessage}`;
     }
 
     yield* this._streamQuery(prompt, freshOptions);
