@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented here.
 
+## [1.0.3] - 2026-02-26
+Changes since `1.0.2` (starting after commit `98bb2b4`, "v1.0.2 fix missing characters and sessions folder on install"):
+
+- Added per-player data isolation: each player gets their own copy of characters and NPCs under `data/players/<slug>/`, preventing cross-player data conflicts.
+- Added automatic player data provisioning from `data/defaults/` on first login.
+- Added migration script (`scripts/migrate-player-data.js`) for moving existing data into the new per-player directory structure.
+- Updated character and NPC API routes to serve player-specific data based on login context.
+- Updated DM engine to build player-aware context, serving correct character/NPC files per player session.
+- Added `status` field ("alive" / "dead") to all character and NPC templates for persistent death tracking.
+- Expanded CLAUDE.md with mandatory post-encounter checklists, chapter summaries, session-end checklists, and detailed item tracking rules.
+
 ## [1.0.2] - 2026-02-23
 Changes since `1.0.1` (starting after commit `3c6d5e3`, "admin hardening sections"):
 

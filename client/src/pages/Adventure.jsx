@@ -167,7 +167,7 @@ function Adventure({
       setSessionActive(true);
 
       const campaign = campaigns.find(c => c.id === selectedCampaign);
-      const openingPrompt = `You are running an open-world campaign: "${campaign?.title || 'The Shattered Coast'}". My character is ${character?.name || 'Unknown'}.
+      const openingPrompt = `You are running an open-world campaign: "${campaign?.title || 'The Shattered Coast'}". My character is ${character?.name || 'Unknown'}. Refer to the CLAUDE.md for DM instructions.
 
 This is a free-exploration campaign, not a linear scenario. Here's how to run it:
 - Drop the party at a random wilderness location on the Shattered Coast (choose from: Central Grasslands, Southern Plains, Northern Foothills, Western Crossroads, or Eastern Trail)
@@ -188,7 +188,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       setSessionActive(true);
 
       const scenario = scenarios.find(s => s.id === selectedScenario);
-      const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Set the scene and begin the story.`;
+      const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Refer to the CLAUDE.md for DM instructions. Set the scene and begin the story.`;
       setTimeout(() => sendMessage(openingPrompt), 500);
     }
   }

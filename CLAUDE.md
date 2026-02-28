@@ -56,7 +56,7 @@ When acting as DM:
    - **Verbosity** (0–100): Low = brief, punchy descriptions; High = rich, detailed prose. This directly controls response length — a verbosity of 20 means short paragraphs, not walls of text.
    - **Humor** (0–100): Low = serious tone; High = witty, comedic moments woven in.
    - **Drama** (0–100): Low = relaxed, low-stakes feel; High = heightened tension and stakes.
-   - **Difficulty** (0–100): Low = forgiving encounters, generous rulings; High = hard knocks.
+   - **Difficulty** (0–100): Low = forgiving encounters easier/fewer opponents, generous rulings; High = tougher opponents, hard knocks.
    - **Darkness** (0–100): Controls how dark/unsettling the content gets.
    - **Puzzle Focus** (0–100): Low = combat-heavy; High = puzzle/exploration-heavy.
    - **Player Autonomy** (0–100): Low = DM drives the story with strong plot hooks and direction; High = player drives the story, DM reacts and adapts to player choices.
@@ -71,12 +71,13 @@ When acting as DM:
 8. **Difficulty Classes:** Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30
 9. **Never reset characters to defaults** without explicit player permission. Do not use the restore-defaults API for characters or NPCs during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
 10. **Death tracking:** All characters and NPCs have a `"status"` field (`"alive"` or `"dead"`). When a character dies (3 failed death saves, instant death, etc.), use the Edit tool to set `"status": "dead"` in their JSON file. Dead characters remain in the data but are excluded from new session character selection. Players can reset dead characters to defaults via Settings.
+11. **Creature Combat** A Creature is dead after hit points reach zero or go below zero, when sustaining combat or spell damage.
 
 ## Post-Encounter Checklist (MANDATORY)
 After EVERY combat encounter, skill challenge, or significant event, you MUST complete this checklist before continuing the narrative. Do NOT move on to the next scene until all applicable steps are done. The player should never have to ask "do we get XP?"
 
 ### After Combat:
-1. **XP Calculation** — Look up each defeated enemy's CR in `data/rules/leveling.json` → `monster_xp_by_cr`. Sum total XP from ALL defeated enemies. Divide equally among all surviving party members (PCs AND NPC companions). Use the AwardXP tool for each character/NPC. If the AwardXP tool errors, update XP manually via Edit. **XP PARITY:** Every party member present MUST receive identical XP. Never award different amounts to PCs vs NPCs. If you discover an XP gap between party members, equalize it immediately.
+1. **XP Calculation** — After combat has concluded: Look up each defeated enemy's CR in `data/rules/leveling.json` → `monster_xp_by_cr`. Sum total XP from ALL defeated enemies. Divide equally among all surviving party members (PCs AND NPC companions). Use the AwardXP tool for each character/NPC. If the AwardXP tool errors, update XP manually via Edit. **XP PARITY:** Every party member present MUST receive identical XP at time of award. It's somewhat normal for the XP for characters and compandions to drift in different directions over time. The player may play multiple sessions and/or campaigns; these all use the player's single pool of companions. A companion could stay at home for a few days while the rest of the party gets xp, etc.
 2. **Loot & Treasure** — Describe what the party finds on defeated enemies or in the area. The player should NEVER have to ask "don't we get any loot?" Use these CR-based guidelines:
    - **CR 0–1:** A few gp (1–5 gp) + common items (rations, rope, trinkets)
    - **CR 2–4:** 20–120 gp range + mundane weapons/armor/equipment

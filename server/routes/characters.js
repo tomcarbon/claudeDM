@@ -64,11 +64,16 @@ module.exports = function (dataDir) {
   function readAllCharacters(req) {
     const charDir = getCharDir(req);
     const files = fs.readdirSync(charDir).filter(f => f.endsWith('.json'));
-    return files.map(f => {
-      const data = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
-      data._filename = f;
-      return data;
-    });
+    return files.reduce((chars, f) => {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
+        data._filename = f;
+        chars.push(data);
+      } catch (err) {
+        console.error(`Skipping ${f}: invalid JSON — ${err.message}`);
+      }
+      return chars;
+    }, []);
   }
 
   // GET all characters

@@ -20,11 +20,16 @@ module.exports = function (dataDir) {
   function readAllNpcs(req) {
     const npcDir = getNpcDir(req);
     const files = fs.readdirSync(npcDir).filter(f => f.endsWith('.json'));
-    return files.map(f => {
-      const data = JSON.parse(fs.readFileSync(path.join(npcDir, f), 'utf-8'));
-      data._filename = f;
-      return data;
-    });
+    return files.reduce((npcs, f) => {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(npcDir, f), 'utf-8'));
+        data._filename = f;
+        npcs.push(data);
+      } catch (err) {
+        console.error(`Skipping ${f}: invalid JSON — ${err.message}`);
+      }
+      return npcs;
+    }, []);
   }
 
   // GET all NPCs (strip secrets/dmNotes for player-facing view)

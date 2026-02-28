@@ -5,10 +5,10 @@
   "race": "Elf",
   "subrace": "High Elf",
   "class": "Wizard",
-  "level": 1,
+  "level": 5,
   "background": "Sage",
   "alignment": "Neutral Good",
-  "experience": 0,
+  "experience": 8093,
   "abilities": {
     "strength": {
       "score": 8,
@@ -23,8 +23,8 @@
       "modifier": 1
     },
     "intelligence": {
-      "score": 17,
-      "modifier": 3
+      "score": 19,
+      "modifier": 4
     },
     "wisdom": {
       "score": 12,
@@ -36,12 +36,12 @@
     }
   },
   "hitPoints": {
-    "max": 7,
-    "current": 7
+    "max": 27,
+    "current": 27
   },
-  "armorClass": 12,
+  "armorClass": 15,
   "speed": 30,
-  "proficiencyBonus": 2,
+  "proficiencyBonus": 3,
   "savingThrows": [
     "intelligence",
     "wisdom"
@@ -79,8 +79,8 @@
     },
     {
       "name": "Fire Bolt (cantrip)",
-      "attackBonus": 5,
-      "damage": "1d10",
+      "attackBonus": 7,
+      "damage": "2d10",
       "damageType": "fire"
     }
   ],
@@ -89,11 +89,14 @@
     "type": "none"
   },
   "features": [
-    "Arcane Recovery (once per long rest after short rest, recover spell slots up to half wizard level rounded up)",
+    "Arcane Recovery (once per long rest after short rest, recover spell slots totaling up to 3 levels)",
     "Darkvision (60 ft)",
     "Fey Ancestry (advantage on saves vs. being charmed, immune to magical sleep)",
     "Trance (4 hours of meditation instead of 8 hours sleep)",
-    "Keen Senses (proficiency in Perception)"
+    "Keen Senses (proficiency in Perception)",
+    "Arcane Tradition: School of Evocation",
+    "Evocation Savant (halved gold and time to copy evocation spells into spellbook)",
+    "Sculpt Spells (when casting evocation spell, choose up to 5 creatures to automatically succeed on saves and take no damage)"
   ],
   "traits": [
     "Elf Weapon Training (proficient with longsword, shortsword, shortbow, longbow)",
@@ -101,8 +104,8 @@
   ],
   "spells": {
     "spellcastingAbility": "intelligence",
-    "spellSaveDC": 13,
-    "spellAttackBonus": 5,
+    "spellSaveDC": 15,
+    "spellAttackBonus": 7,
     "cantrips": [
       "Fire Bolt",
       "Mage Hand",
@@ -110,14 +113,32 @@
       "Light"
     ],
     "level1": {
-      "slots": 2,
+      "slots": 4,
       "known": [
         "Magic Missile",
         "Shield",
         "Detect Magic",
         "Mage Armor",
         "Sleep",
-        "Thunderwave"
+        "Thunderwave",
+        "Burning Hands"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "known": [
+        "Scorching Ray",
+        "Misty Step",
+        "Shatter",
+        "Mirror Image"
+      ]
+    },
+    "level3": {
+      "slots": 2,
+      "known": [
+        "Fireball",
+        "Lightning Bolt",
+        "Counterspell"
       ]
     }
   },
