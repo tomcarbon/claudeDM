@@ -3,7 +3,7 @@ export const CURRENT_VERSION = '1.0.3';
 export const CHANGELOG = [
   {
     version: '1.0.3',
-    date: '2026-02-26',
+    date: '2026-02-28',
     title: 'Current Release',
     compareFrom: '1.0.2',
     compareRef: '98bb2b4 ("v1.0.2 fix missing characters and sessions folder on install")',
@@ -15,6 +15,17 @@ export const CHANGELOG = [
       'DM engine now builds player-aware context, serving the correct character/NPC files for each player\'s session.',
       'Character death tracking: all characters and NPCs now carry a `status` field ("alive" or "dead") for persistent death state.',
       'Expanded CLAUDE.md DM guidelines with mandatory post-encounter checklists, chapter summaries, session-end checklists, and detailed item tracking rules.',
+      'Mobile party chat: floating action button opens a slide-over chat panel on narrow screens (≤1100px).',
+      'World map legend label cleaned up ("Updated Key" → "Key").',
+      'Cryptographic dice rolling: new RollDice MCP tool uses `crypto.randomInt()` for true uniform randomness — no more AI-biased rolls. Per-player "Realistic Dice" toggle in Settings.',
+      'Smart auto-scroll in Adventure and Party Chat — scrolling up to read history is now respected; a scroll-to-bottom button appears when you\'re not at the latest message.',
+      'Subrace display fix: eliminated redundant labels like "High Elf Elf" — now correctly shows "High Elf" across character cards, detail pages, adventure setup, and DM narration.',
+      'Custom favicon (D&D icon) and page title ("D&D Session") replace the Vite defaults.',
+      'MCP tools server renamed from `dnd-xp` to `dnd-tools` with version bump to 1.0.3.',
+      'Player Agency expanded to 5 tiers (Railroaded → Guided → Collaborative → Freeform → Sandbox). Player Autonomy now auto-derives from the Agency selection and displays as a read-only slider.',
+      'DM settings cleanup: removed unused `romance` and `combatFocus` sliders from defaults and engine. Quick presets updated to match the new agency/autonomy mapping.',
+      'DM engine narration cleanup: removed legacy tone and narration style mappings that were no longer selectable in the UI.',
+      'CLAUDE.md refinements: improved item-count tracking rules (pickles, arrows, torches), added convention to reference CLAUDE.md after each player turn.',
     ],
   },
   {

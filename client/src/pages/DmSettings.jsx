@@ -9,8 +9,15 @@ const SLIDERS = [
   { key: 'difficulty', label: 'Difficulty', left: 'Forgiving', right: 'Brutal', icon: '💀' },
   { key: 'horror', label: 'Darkness', left: 'None', right: 'Dark', icon: '🕯️' },
   { key: 'puzzleFocus', label: 'Puzzles vs Combat', left: 'Combat Heavy', right: 'Puzzle Heavy', icon: '🧩' },
-  { key: 'playerAutonomy', label: 'Player Autonomy', left: 'DM Drives Story', right: 'Player Drives Story', icon: '🧭' },
 ];
+
+const AGENCY_TO_AUTONOMY = {
+  railroaded: 0,
+  guided: 25,
+  collaborative: 50,
+  freeform: 75,
+  sandbox: 100,
+};
 
 const TONE_OPTIONS = [
   { value: 'heroic', label: 'Heroic', desc: 'Epic quests, noble deeds, triumph over evil' },
@@ -28,10 +35,11 @@ const NARRATION_OPTIONS = [
 ];
 
 const AGENCY_OPTIONS = [
-  { value: 'collaborative', label: 'Collaborative', desc: 'DM and players shape the story together' },
-  { value: 'sandbox', label: 'Sandbox', desc: 'Total freedom — the world reacts to your choices' },
-  { value: 'guided', label: 'Guided', desc: 'Clear objectives and plot hooks, gentle steering' },
   { value: 'railroaded', label: 'On Rails', desc: 'Tight narrative, less deviation, cinematic experience' },
+  { value: 'guided', label: 'Guided', desc: 'Clear objectives and plot hooks, gentle steering' },
+  { value: 'collaborative', label: 'Collaborative', desc: 'DM and players shape the story together' },
+  { value: 'freeform', label: 'Freeform', desc: 'Player leads the story, DM enriches and responds' },
+  { value: 'sandbox', label: 'Sandbox', desc: 'Total freedom — the world reacts to your choices' },
 ];
 
 const QUICK_PRESETS = {
@@ -39,21 +47,21 @@ const QUICK_PRESETS = {
     label: 'Classic Fantasy',
     values: {
       humor: 30, drama: 60, verbosity: 60, difficulty: 50, horror: 20,
-      puzzleFocus: 50, playerAutonomy: 40, tone: 'heroic', narrationStyle: 'descriptive', playerAgency: 'guided',
+      puzzleFocus: 50, playerAutonomy: 25, tone: 'heroic', narrationStyle: 'descriptive', playerAgency: 'guided',
     },
   },
   comedic: {
     label: 'Comedic Romp',
     values: {
       humor: 90, drama: 30, verbosity: 70, difficulty: 30, horror: 5,
-      puzzleFocus: 40, playerAutonomy: 60, tone: 'whimsical', narrationStyle: 'dialogue', playerAgency: 'collaborative',
+      puzzleFocus: 40, playerAutonomy: 50, tone: 'whimsical', narrationStyle: 'dialogue', playerAgency: 'collaborative',
     },
   },
   darkSouls: {
     label: 'Dark & Brutal',
     values: {
       humor: 10, drama: 90, verbosity: 40, difficulty: 90, horror: 80,
-      puzzleFocus: 50, playerAutonomy: 70, tone: 'gritty', narrationStyle: 'atmospheric', playerAgency: 'sandbox',
+      puzzleFocus: 50, playerAutonomy: 100, tone: 'gritty', narrationStyle: 'atmospheric', playerAgency: 'sandbox',
     },
   },
   mystery: {
@@ -108,7 +116,11 @@ function DmSettings() {
 
   const updateOption = (key, value) => {
     if (!canEdit) return;
-    setSettings(prev => ({ ...prev, [key]: value }));
+    const updates = { [key]: value };
+    if (key === 'playerAgency' && AGENCY_TO_AUTONOMY[value] !== undefined) {
+      updates.playerAutonomy = AGENCY_TO_AUTONOMY[value];
+    }
+    setSettings(prev => ({ ...prev, ...updates }));
     setSaved(false);
   };
 
@@ -253,7 +265,7 @@ function DmSettings() {
         </div>
       </div>
 
-      {/* Player Agency */}
+      {/* Player Agency + Autonomy */}
       <div className="detail-section" style={{ marginTop: '1.5rem' }}>
         <h3>Player Agency</h3>
         <div className="option-grid">
@@ -268,6 +280,24 @@ function DmSettings() {
               <span>{opt.desc}</span>
             </button>
           ))}
+        </div>
+        <div className="slider-grid" style={{ marginTop: '1rem' }}>
+          <div className="slider-row read-only">
+            <div className="slider-label">
+              <span>🧭 Player Autonomy</span>
+              <span className="slider-value">{settings.playerAutonomy}%</span>
+            </div>
+            <div className="slider-track-container">
+              <span className="slider-end-label">DM Drives Story</span>
+              <input
+                type="range" min="0" max="100" step="5"
+                value={settings.playerAutonomy}
+                className="dm-slider"
+                disabled
+              />
+              <span className="slider-end-label">Player Drives Story</span>
+            </div>
+          </div>
         </div>
       </div>
 

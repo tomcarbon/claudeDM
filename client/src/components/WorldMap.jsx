@@ -111,8 +111,8 @@ function WorldMap({ onLocationClick, interactive = true, partyLocation, compact 
       </div>
 
       {!compact && (
-        <div className="map-legend-panel" aria-label="Updated map key">
-          <h3>Updated Key</h3>
+        <div className="map-legend-panel" aria-label="Map key">
+          <h3>Key</h3>
           <p>Scenario to area mapping:</p>
           <ul className="map-legend-list">
             {LOCATIONS.map(loc => (

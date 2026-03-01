@@ -53,7 +53,7 @@ function NpcDetail() {
         <div className="detail-header-info">
           <h2>{isDead && '\u{1F480} '}{npc.name}</h2>
           <div className="detail-meta">
-            {isDead ? 'Deceased \u2014 ' : ''}Level {npc.level} {npc.subrace ? `${npc.subrace} ` : ''}{npc.race} {npc.class}
+            {isDead ? 'Deceased \u2014 ' : ''}Level {npc.level} {npc.subrace ? (npc.subrace.toLowerCase().includes(npc.race.toLowerCase()) ? npc.subrace : `${npc.subrace} ${npc.race}`) : npc.race} {npc.class}
             {npc.background && ` | ${npc.background}`}
             {npc.alignment && ` | ${npc.alignment}`}
           </div>

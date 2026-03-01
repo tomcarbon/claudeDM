@@ -31,6 +31,7 @@ function AppContent() {
   const [selectedCharacter, setSelectedCharacter] = useState('');
   const [selectedScenario, setSelectedScenario] = useState('');
   const [savedSessionDbId, setSavedSessionDbId] = useState(null);
+  const [mobileChatOpen, setMobileChatOpen] = useState(false);
 
   const onAdventure = location.pathname === '/adventure';
   const isAdmin = player?.role === 'admin';
@@ -121,6 +122,22 @@ function AppContent() {
           onSend={(text) => ws.sendChat(text, player)}
         />
       </div>
+      {mobileChatOpen && (
+        <div className="mobile-chat-overlay" onClick={(e) => { if (e.target === e.currentTarget) setMobileChatOpen(false); }}>
+          <div className="mobile-chat-panel">
+            <button className="mobile-chat-close" onClick={() => setMobileChatOpen(false)}>✕</button>
+            <PlayerChat
+              chatMessages={ws.chatMessages}
+              onlinePlayers={ws.onlinePlayers}
+              selfChatConnectionId={ws.selfChatConnectionId}
+              onSend={(text) => ws.sendChat(text, player)}
+            />
+          </div>
+        </div>
+      )}
+      <button className="mobile-chat-fab" onClick={() => setMobileChatOpen(true)} title="Party Chat">
+        💬
+      </button>
     </div>
   );
 }

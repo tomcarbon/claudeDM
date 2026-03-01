@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import RichText from '../components/RichText';
@@ -101,7 +101,17 @@ function Adventure({
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
+  const isNearBottomRef = useRef(true);
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
   const isGuest = !player?.email;
+
+  const scrollToBottom = useCallback(() => {
+    const container = storyRef.current;
+    if (!container) return;
+    isNearBottomRef.current = true;
+    setShowScrollBtn(false);
+    container.scrollTop = container.scrollHeight;
+  }, []);
 
   useEffect(() => {
     api.getCharacters().then(setCharacters).catch(() => {});
@@ -109,11 +119,62 @@ function Adventure({
     api.getCampaigns().then(setCampaigns).catch(() => {});
   }, []);
 
-  // Auto-scroll to bottom
-  useEffect(() => {
-    if (storyRef.current) {
-      storyRef.current.scrollTop = storyRef.current.scrollHeight;
-    }
+  // Track whether the user has scrolled away from the bottom.
+  // Listen for wheel/touchstart events in addition to scroll events so that
+  // user intent is captured immediately — before the next useLayoutEffect can
+  // fire and override the user's scroll-up with an auto-scroll to bottom.
+  useLayoutEffect(() => {
+    const container = storyRef.current;
+    if (!container) return;
+    const threshold = 150;
+
+    const handleScroll = () => {
+      const nearBottom =
+        container.scrollHeight - container.scrollTop - container.clientHeight < threshold;
+      isNearBottomRef.current = nearBottom;
+      setShowScrollBtn(!nearBottom);
+    };
+
+    // Wheel-up immediately signals the user wants to read earlier messages.
+    // This fires before the browser updates scrollTop, closing the race window
+    // where rapid streaming updates could override a scroll-up attempt.
+    const handleWheel = (e) => {
+      if (e.deltaY < 0) {
+        isNearBottomRef.current = false;
+        setShowScrollBtn(true);
+      }
+    };
+
+    // On touch devices, any touch on the story area means manual control.
+    const handleTouchStart = () => {
+      const gap = container.scrollHeight - container.scrollTop - container.clientHeight;
+      if (gap > threshold) {
+        isNearBottomRef.current = false;
+        setShowScrollBtn(true);
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    container.addEventListener('wheel', handleWheel, { passive: true });
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      container.removeEventListener('wheel', handleWheel);
+      container.removeEventListener('touchstart', handleTouchStart);
+    };
+  }, []);
+
+  // Only auto-scroll when the user is already near the bottom.
+  // Deferred via requestAnimationFrame so the browser can process any pending
+  // user scroll/wheel events first (prevents the streaming race condition).
+  useLayoutEffect(() => {
+    if (!isNearBottomRef.current) return;
+    const container = storyRef.current;
+    if (!container) return;
+    const frame = requestAnimationFrame(() => {
+      container.scrollTop = container.scrollHeight;
+    });
+    return () => cancelAnimationFrame(frame);
   }, [messages]);
 
   // Load saved sessions for setup screen
@@ -357,6 +418,9 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
   function handleSend() {
     const text = input.trim();
     if (!text || status === 'thinking' || sessionReadOnly) return;
+    // User just sent a message — they want to see the response, so force auto-scroll
+    isNearBottomRef.current = true;
+    setShowScrollBtn(false);
     sendMessage(text);
     setInput('');
   }
@@ -390,7 +454,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
                   onClick={() => setSelectedCharacter(c.id)}
                 >
                   <strong>{c.name}</strong>
-                  <span>Level {c.level} {c.race} {c.class}</span>
+                  <span>Level {c.level} {c.subrace ? (c.subrace.toLowerCase().includes(c.race.toLowerCase()) ? c.subrace : `${c.subrace} ${c.race}`) : c.race} {c.class}</span>
                 </button>
               ))}
             </div>
@@ -599,6 +663,11 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
             </div>
           ))}
         </div>
+        {showScrollBtn && (
+          <button className="scroll-to-bottom-btn" onClick={scrollToBottom} title="Scroll to latest">
+            &#x25BC;
+          </button>
+        )}
 
         {/* Input area */}
         <div className="adventure-input-bar">

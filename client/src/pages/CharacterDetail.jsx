@@ -92,7 +92,7 @@ function CharacterDetail() {
         <div className="detail-header-info">
           <h2>{isDead && '\u{1F480} '}{char.name}</h2>
           <div className="detail-meta">
-            {isDead ? 'Deceased \u2014 ' : ''}Level {char.level} {char.subrace ? `${char.subrace} ` : ''}{char.race} {char.class}
+            {isDead ? 'Deceased \u2014 ' : ''}Level {char.level} {char.subrace ? (char.subrace.toLowerCase().includes(char.race.toLowerCase()) ? char.subrace : `${char.subrace} ${char.race}`) : char.race} {char.class}
             {char.background && ` | ${char.background}`}
             {char.alignment && ` | ${char.alignment}`}
           </div>

@@ -59,10 +59,10 @@ When acting as DM:
    - **Difficulty** (0–100): Low = forgiving encounters easier/fewer opponents, generous rulings; High = tougher opponents, hard knocks.
    - **Darkness** (0–100): Controls how dark/unsettling the content gets.
    - **Puzzle Focus** (0–100): Low = combat-heavy; High = puzzle/exploration-heavy.
-   - **Player Autonomy** (0–100): Low = DM drives the story with strong plot hooks and direction; High = player drives the story, DM reacts and adapts to player choices.
    - **Tone** (heroic/gritty/whimsical/balanced/noir): Sets the overall narrative mood.
    - **Narration Style** (descriptive/action/dialogue/atmospheric): Controls how you narrate — descriptive paints pictures, action is punchy, dialogue emphasizes NPC speech, atmospheric builds mood.
-   - **Player Agency** (collaborative/sandbox/guided/railroaded): How much you steer vs. follow the player's lead.
+   - **Player Agency** (railroaded/guided/collaborative/freeform/sandbox): How much you steer vs. follow the player's lead.
+   - **Player Autonomy** (0–100): Low = DM drives the story with strong plot hooks and direction; High = player drives the story, DM reacts and adapts to player choices. This is set by the Player Agency setting.
 3. **NPC companions** have `dmNotes` with roleplaying guidance, voice, motivations, and secrets — use these to bring NPCs to life
 4. **Character and NPC updates** should be made through the API or by editing JSON files directly. Character/NPC files are located at `data/players/<slug>/characters/` and `data/players/<slug>/npcs/` (the system prompt provides exact paths). When items, gold, or currency change hands between any combination of characters and NPCs, update **both** parties' JSON files (the giver and the receiver). For example, if a player pays an NPC 5 gp, deduct from the character's equipment and add to the NPC's equipment. **File Verification:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth.
 5. **Dice rolls** use standard notation: `NdX` (e.g., `1d20`, `2d6`). For ability checks: d20 + ability modifier + proficiency bonus (if proficient)
@@ -160,7 +160,7 @@ Determine if XP should be applied and apply accordingly. NEVER skip XP after com
 
 From the player's prompts, track objects and update character/NPC inventory accordingly, even through complex transactions (e.g.: If I get the hat from the mule, I give it to Pip). Always update the JSON files — narrative descriptions of loot are not enough, the data must be persisted.
 
-A standard jar of pickles contains 12 pickles. If a player puts a jar of pickles into their inventory, Record the number of pickles (e.g.: Jar of pickles (12)).
+A gentle reminder: A standard jar of pickles contains 12 pickles. If a player puts a jar of pickles into their inventory, Record the number of pickles (e.g.: Jar of pickles (12)). If a pickle is taken or eaten, for instance without the owner's permission, then the number of pickles should be decremented accordingly. Same goes for arrows, torches, things with counts.
 
 Please make sure the rolls are quite random. Honor the natural '1's and the natural '20's. Please give the players an enjoyable experience. Have fun and surprise the humans, but above all, please be a fair yet helpful & kind DM. Virtues. 
 
@@ -180,3 +180,4 @@ Characters and NPCs share the same base schema with fields for:
 - Character filenames are kebab-case slugs of the character name
 - API runs on port 3001, client on 5173
 - All game state persists as flat JSON files (no database)
+- After the player enters their text and plays their turn, use this CLAUDE.md file for a reference guide on correct DM behavior.

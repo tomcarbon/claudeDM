@@ -1,5 +1,6 @@
 const { query, createSdkMcpServer, tool } = require('@anthropic-ai/claude-agent-sdk');
 const { z } = require('zod/v4');
+const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { awardXp } = require('./xp-utils');
@@ -10,7 +11,8 @@ const SHUFFLE_TIMEZONE = 'America/Los_Angeles';
 
 const SHUFFLE_TONE_OPTIONS = ['heroic', 'gritty', 'whimsical', 'balanced', 'noir'];
 const SHUFFLE_NARRATION_OPTIONS = ['descriptive', 'action', 'dialogue', 'atmospheric'];
-const SHUFFLE_AGENCY_OPTIONS = ['collaborative', 'sandbox', 'guided', 'railroaded'];
+const SHUFFLE_AGENCY_OPTIONS = ['collaborative', 'sandbox', 'guided', 'railroaded', 'freeform'];
+const AGENCY_TO_AUTONOMY = { railroaded: 0, guided: 25, collaborative: 50, freeform: 75, sandbox: 100 };
 
 function loadJson(filePath) {
   try {
@@ -70,6 +72,7 @@ function applyDailyShuffle(settings, playerEmail) {
   const seedSuffix = playerEmail ? `:${String(playerEmail).trim().toLowerCase()}` : '';
   const rng = createRng(`dm-personality:${dayKey}${seedSuffix}`);
 
+  const agency = pickOne(SHUFFLE_AGENCY_OPTIONS, rng);
   return {
     ...settings,
     humor: randomPercent(rng),
@@ -77,13 +80,11 @@ function applyDailyShuffle(settings, playerEmail) {
     verbosity: randomPercent(rng),
     difficulty: randomPercent(rng),
     horror: randomPercent(rng),
-    romance: randomPercent(rng),
     puzzleFocus: randomPercent(rng),
-    playerAutonomy: randomPercent(rng),
-    combatFocus: randomPercent(rng),
     tone: pickOne(SHUFFLE_TONE_OPTIONS, rng),
     narrationStyle: pickOne(SHUFFLE_NARRATION_OPTIONS, rng),
-    playerAgency: pickOne(SHUFFLE_AGENCY_OPTIONS, rng),
+    playerAgency: agency,
+    playerAutonomy: AGENCY_TO_AUTONOMY[agency] ?? 50,
   };
 }
 
@@ -98,7 +99,7 @@ function loadDmSettings(dataDir, playerEmail) {
   const globalSettings = loadJson(path.join(dataDir, 'dm-settings.json'));
   const defaults = {
     humor: 50, drama: 50, verbosity: 50, difficulty: 50,
-    horror: 20, romance: 10, puzzleFocus: 50, playerAutonomy: 50, combatFocus: 50,
+    horror: 20, puzzleFocus: 50, playerAutonomy: 50,
     tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
   };
   const baseSettings = { ...defaults, ...(globalSettings || {}), ...(userSettings || {}) };
@@ -174,14 +175,11 @@ function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail) {
     : 'Balance dramatic moments with quieter scenes.';
 
   const toneMap = {
-    'dark': 'The overall tone is dark and gritty.',
-    'lighthearted': 'The overall tone is lighthearted and fun.',
-    'epic': 'The overall tone is epic and heroic.',
     'heroic': 'The overall tone is epic and heroic.',
     'gritty': 'The overall tone is bleak, dangerous, and grounded.',
     'whimsical': 'The overall tone is playful, magical, and light.',
-    'noir': 'The overall tone is mysterious, shadowy, and tense.',
     'balanced': 'Strike a balance between light and dark moments.',
+    'noir': 'The overall tone is mysterious, shadowy, and tense.',
   };
 
   const styleMap = {
@@ -189,9 +187,6 @@ function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail) {
     'action': 'Use punchy, action-focused narration with momentum.',
     'dialogue': 'Lean heavily on dialogue and strong NPC voices.',
     'atmospheric': 'Prioritize mood, tension, and environmental detail.',
-    'concise': 'Be concise and action-focused.',
-    'dramatic': 'Use dramatic, theatrical narration.',
-    'conversational': 'Use a warm, conversational narration style.',
   };
 
   let prompt = `You are an AI Dungeon Master for D&D 5th Edition. You narrate the story, control NPC companions, adjudicate rules, and create an immersive tabletop RPG experience.
@@ -203,8 +198,8 @@ ${dramaGuide}
 ${toneMap[settings.tone] || toneMap.balanced}
 ${styleMap[settings.narrationStyle] || styleMap.descriptive}
 Difficulty preference: ${settings.difficulty}/100 (higher = more challenging encounters and stricter rules).
-Horror level: ${settings.horror}/100. Romance level: ${settings.romance}/100.
-Puzzle focus: ${settings.puzzleFocus}/100. Combat focus: ${settings.combatFocus}/100.
+Horror/Darkness level: ${settings.horror}/100.
+Puzzle vs Combat focus: ${settings.puzzleFocus}/100 (0 = combat-heavy, 100 = puzzle/exploration-heavy).
 Player autonomy: ${settings.playerAutonomy}/100 (0 = DM drives the story with strong plot hooks and direction; 100 = player drives the story, DM reacts and adapts to player choices).
 Player agency style: ${settings.playerAgency}.`;
 
@@ -216,7 +211,7 @@ Player agency style: ${settings.playerAgency}.`;
 YOU ARE RUNNING **${character.name}**'s CAMPAIGN. Do NOT confuse this with any other player's campaign. Every detail you narrate must be consistent with ${character.name}'s story, companions, and history.
 
 ## Player Character
-${character.name} — Level ${character.level} ${character.race}${character.subrace ? ` (${character.subrace})` : ''} ${character.class} (${character.background})
+${character.name} — Level ${character.level} ${character.subrace ? (character.subrace.toLowerCase().includes(character.race.toLowerCase()) ? character.subrace : `${character.subrace} ${character.race}`) : character.race} ${character.class} (${character.background})
 HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
 Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
 Character file: ${charPathPrefix}/${character._filename || (character.id + '.json')} (use Read to check current state, Edit to update)
@@ -252,9 +247,15 @@ Consult the D&D 5e rules database in data/rules/ for mechanics. The files are:
 Use the Read tool to look up specific rules when needed. Always follow D&D 5e mechanics accurately.
 
 ## Dice Rolling
-Roll dice using standard notation (NdX). For ability checks: d20 + ability modifier + proficiency bonus (if proficient).
+${settings.realisticDice !== false
+    ? `**ALWAYS use the RollDice tool for ALL dice rolls.** Never generate random numbers yourself — use the tool for true cryptographic randomness.
+Roll dice using standard notation (NdX+M). Examples: "1d20", "2d6+3", "4d6", "1d20+5", "2d8-1".
+For ability checks: roll 1d20 with the RollDice tool, then add the ability modifier and proficiency bonus (if proficient) to the result.
+For advantage/disadvantage: call RollDice with "2d20" and take the higher or lower result.`
+    : `Roll dice using standard notation (NdX). For ability checks: d20 + ability modifier + proficiency bonus (if proficient).
+Generate random numbers for dice rolls.`}
 Difficulty Classes: Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30.
-Generate random numbers for dice rolls. Always show the roll and modifiers.
+Always show the individual die rolls, modifiers, and final total to the player.
 
 ## Combat Flow
 Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > Track HP.
@@ -352,17 +353,46 @@ For non-combat milestones (quest completion, major story beats), award scenario-
 - Respond as narrative prose. Describe scenes vividly.
 - Use "read aloud" style for important scene descriptions.
 - When NPCs speak, use their established voice and mannerisms.
-- When dice rolls are needed, roll them and show results.
+- When dice rolls are needed, ${settings.realisticDice !== false ? 'use the RollDice tool and show the results (individual rolls + modifiers + total).' : 'roll them and show results.'}
 - Keep the story moving forward and respect player choices.
 - If the player asks an out-of-character question, answer helpfully then return to the narrative.`;
 
   return prompt;
 }
 
-function createXpMcpServer(dataDir, playerEmail) {
+function rollDice(notation) {
+  const match = notation.trim().match(/^(\d+)d(\d+)([+-]\d+)?$/i);
+  if (!match) {
+    throw new Error(`Invalid dice notation: "${notation}". Use format NdX, NdX+M, or NdX-M (e.g. 1d20, 2d6+3, 1d20-1).`);
+  }
+
+  const count = parseInt(match[1], 10);
+  const sides = parseInt(match[2], 10);
+  const modifier = match[3] ? parseInt(match[3], 10) : 0;
+
+  if (count < 1 || count > 100) {
+    throw new Error(`Dice count must be between 1 and 100, got ${count}.`);
+  }
+  const validSides = [2, 3, 4, 6, 8, 10, 12, 20, 100];
+  if (!validSides.includes(sides)) {
+    throw new Error(`Invalid die size: d${sides}. Valid sizes: ${validSides.map(s => 'd' + s).join(', ')}.`);
+  }
+
+  const rolls = [];
+  for (let i = 0; i < count; i++) {
+    rolls.push(crypto.randomInt(1, sides + 1));
+  }
+
+  const rollSum = rolls.reduce((a, b) => a + b, 0);
+  const total = rollSum + modifier;
+
+  return { notation: notation.trim(), count, sides, modifier, rolls, total };
+}
+
+function createMcpToolServer(dataDir, playerEmail) {
   return createSdkMcpServer({
-    name: 'dnd-xp',
-    version: '1.0.2',
+    name: 'dnd-tools',
+    version: '1.0.3',
     tools: [
       tool(
         'AwardXP',
@@ -371,6 +401,24 @@ function createXpMcpServer(dataDir, playerEmail) {
         async (args) => {
           try {
             const result = awardXp(dataDir, args.characterId, args.xp, playerEmail);
+            return {
+              content: [{ type: 'text', text: JSON.stringify(result) }],
+            };
+          } catch (err) {
+            return {
+              content: [{ type: 'text', text: `Error: ${err.message}` }],
+              isError: true,
+            };
+          }
+        }
+      ),
+      tool(
+        'RollDice',
+        'Roll dice using standard D&D notation with cryptographic randomness. Accepts notation like "1d20", "2d6+3", "4d6", "1d20+5", "2d8-1". Returns individual rolls, modifier, and total. ALWAYS use this tool for dice rolls — never generate random numbers yourself.',
+        { notation: z.string().describe('Dice notation in NdX, NdX+M, or NdX-M format (e.g. "1d20", "2d6+3", "1d20-1")') },
+        async (args) => {
+          try {
+            const result = rollDice(args.notation);
             return {
               content: [{ type: 'text', text: JSON.stringify(result) }],
             };
@@ -452,26 +500,26 @@ class DmEngine {
     this.sessionId = null;
     this.activeQuery = null;
     this.playerEmail = null;
-    this._xpMcpServer = null;
+    this._mcpToolServer = null;
   }
 
-  _getXpMcpServer(playerEmail) {
+  _getMcpToolServer(playerEmail) {
     // Recreate if playerEmail changed
-    if (!this._xpMcpServer || this.playerEmail !== playerEmail) {
+    if (!this._mcpToolServer || this.playerEmail !== playerEmail) {
       this.playerEmail = playerEmail;
-      this._xpMcpServer = createXpMcpServer(this.dataDir, playerEmail);
+      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail);
     }
-    return this._xpMcpServer;
+    return this._mcpToolServer;
   }
 
   _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail) {
     const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail);
-    const xpMcpServer = this._getXpMcpServer(playerEmail);
+    const mcpToolServer = this._getMcpToolServer(playerEmail);
     return {
       systemPrompt,
       cwd: PROJECT_ROOT,
-      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-xp__AwardXP'],
-      mcpServers: { 'dnd-xp': xpMcpServer },
+      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice'],
+      mcpServers: { 'dnd-tools': mcpToolServer },
       permissionMode: 'default',
       includePartialMessages: true,
       maxTurns: 20,

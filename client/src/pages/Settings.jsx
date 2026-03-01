@@ -11,18 +11,39 @@ function Settings() {
   const [savingShuffle, setSavingShuffle] = useState(false);
   const [shuffleEnabled, setShuffleEnabled] = useState(false);
   const [shuffleSaved, setShuffleSaved] = useState(false);
+  const [realisticDice, setRealisticDice] = useState(true);
+  const [loadingDice, setLoadingDice] = useState(true);
+  const [savingDice, setSavingDice] = useState(false);
+  const [diceSaved, setDiceSaved] = useState(false);
   const [resetting, setResetting] = useState(null); // 'characters' | 'npcs' | 'all' | null
   const [resetDone, setResetDone] = useState(null);
 
   useEffect(() => {
     if (!isAdmin) {
       setLoadingShuffle(false);
-      return;
+    } else {
+      api.getGlobalDmSettings()
+        .then((settings) => {
+          setShuffleEnabled(!!settings?.aiDailyShuffle);
+        })
+        .catch(() => {
+          setShuffleEnabled(false);
+        })
+        .finally(() => {
+          setLoadingShuffle(false);
+        });
     }
-    api.getGlobalDmSettings()
-      .then((settings) => setShuffleEnabled(!!settings?.aiDailyShuffle))
-      .catch(() => setShuffleEnabled(false))
-      .finally(() => setLoadingShuffle(false));
+    // Load per-user dice setting for all players
+    api.getDmSettings()
+      .then((settings) => {
+        setRealisticDice(settings?.realisticDice !== false);
+      })
+      .catch(() => {
+        setRealisticDice(true);
+      })
+      .finally(() => {
+        setLoadingDice(false);
+      });
   }, [isAdmin]);
 
   const handleShuffleToggle = async (e) => {
@@ -38,6 +59,21 @@ function Settings() {
       alert('Failed to update AI shuffle setting: ' + err.message);
     }
     setSavingShuffle(false);
+  };
+
+  const handleDiceToggle = async (e) => {
+    const nextValue = e.target.checked;
+    setSavingDice(true);
+    setDiceSaved(false);
+    try {
+      await api.updateDmSettings({ realisticDice: nextValue });
+      setRealisticDice(nextValue);
+      setDiceSaved(true);
+      setTimeout(() => setDiceSaved(false), 3000);
+    } catch (err) {
+      alert('Failed to update dice mode: ' + err.message);
+    }
+    setSavingDice(false);
   };
 
   const handleRestore = async () => {
@@ -106,6 +142,28 @@ function Settings() {
             {resetting === 'all' ? 'Resetting...' : 'Reset Everything'}
           </button>
           {resetDone && <span style={{ color: '#27ae60' }}>Reset complete!</span>}
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Dice Rolling Mode</h3>
+        <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
+          Realistic mode uses cryptographic randomness for all dice rolls — true uniform distribution including nat 1s and nat 20s.
+          When off, the AI generates dice values naturally (tends toward average results, fewer extremes). In other words, uncheck the box for EASY MODE.
+        </p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <input
+              type="checkbox"
+              checked={realisticDice}
+              onChange={handleDiceToggle}
+              disabled={loadingDice || savingDice}
+            />
+            Realistic dice (cryptographic RNG)
+          </label>
+          {loadingDice && <span style={{ color: 'var(--text-muted)' }}>Loading...</span>}
+          {savingDice && <span style={{ color: 'var(--text-muted)' }}>Saving...</span>}
+          {!savingDice && diceSaved && <span style={{ color: '#27ae60' }}>Saved!</span>}
         </div>
       </div>
 

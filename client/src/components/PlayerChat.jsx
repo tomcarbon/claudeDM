@@ -68,9 +68,25 @@ export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnec
   const onlineDisplayNames = formatOnlinePlayers(onlinePlayers, selfChatConnectionId);
   const today = todayStr();
 
-  // Keep latest live message fully visible.
+  // Only auto-scroll if the user is already near the bottom;
+  // if they've scrolled up to read earlier messages, leave them alone.
+  const isNearBottomRef = useRef(true);
+
+  useLayoutEffect(() => {
+    const container = messagesContainerRef.current;
+    if (!container) return;
+    const handleScroll = () => {
+      const threshold = 150;
+      isNearBottomRef.current =
+        container.scrollHeight - container.scrollTop - container.clientHeight < threshold;
+    };
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useLayoutEffect(() => {
     if (selectedDate) return;
+    if (!isNearBottomRef.current) return;
     const container = messagesContainerRef.current;
     if (!container) return;
     const frame = requestAnimationFrame(() => {

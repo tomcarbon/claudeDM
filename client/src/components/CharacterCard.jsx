@@ -22,7 +22,7 @@ function CharacterCard({ character, basePath = '/characters' }) {
             {isDead && '\u{1F480} '}{name}
           </h3>
           <div className="detail-meta">
-            {isDead ? 'Deceased \u2014 ' : ''}Level {level} {subrace ? `${subrace} ` : ''}{race} {cls}
+            {isDead ? 'Deceased \u2014 ' : ''}Level {level} {subrace ? (subrace.toLowerCase().includes(race.toLowerCase()) ? subrace : `${subrace} ${race}`) : race} {cls}
           </div>
           <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', fontSize: '0.85em' }}>
             <span>AC: <strong>{armorClass}</strong></span>
