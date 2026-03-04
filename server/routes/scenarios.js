@@ -4,11 +4,20 @@ const path = require('path');
 
 module.exports = function (dataDir) {
   const router = express.Router();
-  const scenarioDir = path.join(dataDir, 'scenarios');
+
+  function getScenarioDir(req) {
+    const campaignId = req.campaignId || 'demo';
+    const campaignScenarios = path.join(dataDir, 'campaigns', campaignId, 'scenarios');
+    if (fs.existsSync(campaignScenarios)) return campaignScenarios;
+    // Fallback to legacy flat dir
+    return path.join(dataDir, 'scenarios');
+  }
 
   // GET all scenarios (summary view)
   router.get('/', (req, res) => {
     try {
+      const scenarioDir = getScenarioDir(req);
+      if (!fs.existsSync(scenarioDir)) return res.json([]);
       const files = fs.readdirSync(scenarioDir).filter(f => f.endsWith('.json'));
       const scenarios = files.map(f => {
         const data = JSON.parse(fs.readFileSync(path.join(scenarioDir, f), 'utf-8'));
@@ -31,6 +40,8 @@ module.exports = function (dataDir) {
   // GET full scenario by id
   router.get('/:id', (req, res) => {
     try {
+      const scenarioDir = getScenarioDir(req);
+      if (!fs.existsSync(scenarioDir)) return res.status(404).json({ error: 'Scenario not found' });
       const files = fs.readdirSync(scenarioDir).filter(f => f.endsWith('.json'));
       for (const f of files) {
         const data = JSON.parse(fs.readFileSync(path.join(scenarioDir, f), 'utf-8'));

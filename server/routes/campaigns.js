@@ -6,13 +6,34 @@ const { getAuthenticatedPlayer } = require('../player-auth');
 
 function readCampaignEntries(campaignDir) {
   if (!fs.existsSync(campaignDir)) return [];
-  const files = fs.readdirSync(campaignDir).filter(f => f.endsWith('.json'));
   const entries = [];
+  // Scan subdirectories for campaign.json files (new structure)
+  const subdirs = fs.readdirSync(campaignDir).filter(d => {
+    try { return fs.statSync(path.join(campaignDir, d)).isDirectory(); } catch { return false; }
+  });
+  for (const dir of subdirs) {
+    const campaignFile = path.join(campaignDir, dir, 'campaign.json');
+    if (fs.existsSync(campaignFile)) {
+      try {
+        const data = JSON.parse(fs.readFileSync(campaignFile, 'utf-8'));
+        entries.push({ filePath: campaignFile, data });
+      } catch (err) {
+        console.error(`[Campaigns] Failed to parse ${dir}/campaign.json:`, err.message);
+      }
+    }
+  }
+  // Also scan for legacy flat JSON files (backwards compat)
+  const files = fs.readdirSync(campaignDir).filter(f => f.endsWith('.json'));
   for (const file of files) {
     const filePath = path.join(campaignDir, file);
     try {
+      const stat = fs.statSync(filePath);
+      if (!stat.isFile()) continue;
       const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      entries.push({ filePath, data });
+      // Skip if already found via subdir scan
+      if (!entries.some(e => e.data.id === data.id)) {
+        entries.push({ filePath, data });
+      }
     } catch (err) {
       console.error(`[Campaigns] Failed to parse ${file}:`, err.message);
     }

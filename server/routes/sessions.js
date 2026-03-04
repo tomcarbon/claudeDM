@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
+const { getPlayerSessionsDir, ensurePlayerDataExists } = require('../player-data');
 
 function getOwnerPlayer(session) {
   return (session.players || []).find(p => p.role === 'owner')
@@ -67,20 +68,28 @@ function withSessionAccess(session, requester) {
 
 module.exports = function (dataDir) {
   const router = express.Router();
-  const sessionsDir = path.join(dataDir, 'sessions');
 
-  // Ensure sessions directory exists
-  if (!fs.existsSync(sessionsDir)) {
-    fs.mkdirSync(sessionsDir, { recursive: true });
+  function getSessionsDir(req) {
+    const requester = getAuthenticatedPlayer(dataDir, req);
+    if (!requester) {
+      // Guest fallback — legacy global dir (read-only)
+      const fallback = path.join(dataDir, 'sessions');
+      if (!fs.existsSync(fallback)) fs.mkdirSync(fallback, { recursive: true });
+      return fallback;
+    }
+    const dir = getPlayerSessionsDir(dataDir, requester.email, req.campaignId);
+    ensurePlayerDataExists(dataDir, requester.email, req.campaignId);
+    return dir;
   }
 
   // GET all sessions
   router.get('/', (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
-      const files = fs.readdirSync(sessionsDir).filter(f => f.endsWith('.json'));
+      const dir = getSessionsDir(req);
+      const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
       const sessions = files.map(f => {
-        const data = JSON.parse(fs.readFileSync(path.join(sessionsDir, f), 'utf-8'));
+        const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
         return summarizeSession(data, requester);
       });
       // Sort by most recently updated
@@ -95,7 +104,7 @@ module.exports = function (dataDir) {
   router.get('/:id', (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
-      const filePath = path.join(sessionsDir, `${req.params.id}.json`);
+      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
       if (!fs.existsSync(filePath)) {
         return res.status(404).json({ error: 'Session not found' });
       }
@@ -147,7 +156,7 @@ module.exports = function (dataDir) {
         log: [],
       };
       fs.writeFileSync(
-        path.join(sessionsDir, `${session.id}.json`),
+        path.join(getSessionsDir(req), `${session.id}.json`),
         JSON.stringify(session, null, 2)
       );
       res.status(201).json(withSessionAccess(session, requester));
@@ -163,7 +172,7 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot modify sessions.' });
       }
-      const filePath = path.join(sessionsDir, `${req.params.id}.json`);
+      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
       if (!fs.existsSync(filePath)) {
         return res.status(404).json({ error: 'Session not found' });
       }
@@ -208,7 +217,7 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot delete sessions.' });
       }
-      const filePath = path.join(sessionsDir, `${req.params.id}.json`);
+      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
       if (!fs.existsSync(filePath)) {
         return res.status(404).json({ error: 'Session not found' });
       }
@@ -230,7 +239,7 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot modify sessions.' });
       }
-      const filePath = path.join(sessionsDir, `${req.params.id}.json`);
+      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
       if (!fs.existsSync(filePath)) {
         return res.status(404).json({ error: 'Session not found' });
       }

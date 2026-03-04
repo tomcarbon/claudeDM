@@ -1,0 +1,67 @@
+{
+  "id": "campaign1",
+  "title": "Depths of the Underdark",
+  "subtitle": "Into the Lightless Depths Below",
+  "type": "open-world",
+  "levelRange": "3-12",
+  "estimatedSessions": "20+",
+  "synopsis": "Descend into the vast, alien world beneath the surface where bioluminescent fungi light caverns the size of cities, ancient evils stir in the darkness, and entire civilizations thrive far from the sun. From the strange beauty of the Fungal Caverns to the terrifying domain of an elder brain, the party must navigate treacherous alliances, mind-bending horrors, and the ever-present threat of the mind flayers whose tendrils of influence reach through every level of the Underdark.",
+  "hook": "A series of disappearances in the surface settlements above has been traced to tunnels leading deep underground. The party is recruited by a desperate council of elders to investigate, but what begins as a rescue mission quickly becomes something far more dangerous. The Underdark is vast, its inhabitants hostile, and something ancient and terrible is weaving a web of psychic influence that threatens both the world below and the world above.",
+  "setting": {
+    "name": "The Underdark",
+    "description": "A sprawling network of subterranean caverns, tunnels, and underground seas stretching miles beneath the surface world. The Underdark is a realm of perpetual darkness broken only by bioluminescent fungi, glowing crystals, and the eerie light of faerzress — the ambient magical radiation unique to the deep places. It is home to drow, duergar, mind flayers, myconids, kuo-toa, and stranger things still. The air is thick with spores, the water tastes of minerals, and danger lurks in every shadow.",
+    "atmosphere": "An alien, claustrophobic world of stunning beauty and constant danger. Cathedral-sized caverns open without warning, underground rivers roar through lightless passages, and the silence between sounds is oppressive and absolute. The Underdark does not care about surface-world morality — here, survival is the only virtue.",
+    "regions": [
+      {
+        "name": "The Fungal Caverns",
+        "description": "A vast network of caverns dominated by towering mushroom forests that glow in shifting hues of blue, violet, and green. The air is thick with spores, and the myconid communities here maintain a fragile peace with the surrounding dangers. Zurkhwood trees grow sixty feet tall, and the ground is soft with decomposing organic matter."
+      },
+      {
+        "name": "The Drow Territories",
+        "description": "Fortified outposts and patrol routes controlled by House Despana, a militaristic drow house seeking to expand its influence. Obsidian towers rise from cavern floors, connected by web-bridges and guarded by driders and enslaved creatures. The architecture is beautiful and cruel in equal measure."
+      },
+      {
+        "name": "The Sunless Sea",
+        "description": "A vast underground ocean stretching beyond sight, its black waters lit from below by phosphorescent creatures and volcanic vents. Islands of stone dot the surface, home to kuo-toa settlements and stranger things. The aboleth Ssylurex lurks in the deepest trenches, manipulating the kuo-toa through dreams and visions."
+      },
+      {
+        "name": "The Illithid Enclave",
+        "description": "The domain of the mind flayers, a nightmarish colony built into the walls of an immense vertical cavern. Brain-shaped architecture pulses with psychic energy, intellect devourers patrol the perimeter, and at the colony's heart sits the elder brain — a vast pool of cerebral fluid housing a consciousness of terrifying intelligence and ambition."
+      }
+    ]
+  },
+  "linkedScenarios": [
+    "ud-scenario-001",
+    "ud-scenario-002",
+    "ud-scenario-003",
+    "ud-scenario-004"
+  ],
+  "wildernessStarts": [
+    {
+      "x": 45,
+      "y": 30,
+      "label": "Cavern Descent Entrance"
+    },
+    {
+      "x": 35,
+      "y": 45,
+      "label": "Fungal Caverns Edge"
+    },
+    {
+      "x": 55,
+      "y": 50,
+      "label": "Drow Territory Border"
+    },
+    {
+      "x": 40,
+      "y": 65,
+      "label": "Sunless Sea Shore"
+    },
+    {
+      "x": 60,
+      "y": 75,
+      "label": "Deep Tunnels"
+    }
+  ],
+  "explorationRules": "The party navigates the Underdark through a network of tunnels and caverns. Travel between regions takes 1-3 days depending on route. Each day of travel, roll for random encounters (fungi hazards, roaming patrols, cave-ins, underground rivers), foraging opportunities (edible mushrooms, clean water sources), and navigation checks (getting lost in the featureless tunnels). Faerzress zones cause wild magic surges and interfere with teleportation and divination. The party must manage light sources carefully — darkvision helps but cannot reveal color or fine detail. Between scenario locations, the DM improvises Underdark events: mushroom harvesting, encounters with deep gnome traders, ruins of ancient civilizations, and the ever-present psychic whispers from the elder brain growing stronger as the party descends deeper."
+}

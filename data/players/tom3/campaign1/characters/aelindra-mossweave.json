@@ -1,0 +1,161 @@
+{
+  "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
+  "name": "Aelindra Mossweave",
+  "status": "alive",
+  "race": "Elf",
+  "subrace": "Wood Elf",
+  "class": "Druid",
+  "level": 3,
+  "background": "Hermit",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 18,
+      "modifier": 4
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 14,
+  "speed": 35,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Nature",
+    "Perception",
+    "Medicine",
+    "Survival",
+    "Religion"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Druidic",
+    "Undercommon",
+    "Sylvan"
+  ],
+  "equipment": [
+    "Wooden shield",
+    "Scimitar",
+    "Leather armor",
+    "Explorer's pack",
+    "Druidic focus (a staff wrapped in living moss)",
+    "A scroll case stuffed full of notes from studying fungal ecosystems",
+    "A winter blanket",
+    "A set of common clothes",
+    "Herbalism kit",
+    "Belt pouch containing 5 gp",
+    "A pressed surface flower preserved in resin (keepsake from home)",
+    "Pouch of dried Underdark herbs and fungi"
+  ],
+  "weapons": [
+    {
+      "name": "Scimitar",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Produce Flame (ranged spell attack)",
+      "attackBonus": 6,
+      "damage": "1d8",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "Leather armor and wooden shield",
+    "type": "light"
+  },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Keen Senses (proficiency in Perception)",
+    "Fey Ancestry (advantage on saves vs. charm, immune to magical sleep)",
+    "Trance (4-hour meditation replaces 8-hour sleep)",
+    "Elf Weapon Training (proficiency with longsword, shortsword, shortbow, longbow)",
+    "Fleet of Foot (base walking speed 35 ft.)",
+    "Mask of the Wild (attempt to hide when lightly obscured by natural phenomena)",
+    "Druidic (secret language of druids)",
+    "Spellcasting (Wisdom-based, prepare WIS mod + druid level spells per day)",
+    "Wild Shape (2 uses per short/long rest, transform into beasts of CR 1/4 or lower with no swim speed, for up to 1 hour)",
+    "Druid Circle: Circle of the Land (Underdark)",
+    "Bonus Cantrip (from Circle of the Land)",
+    "Natural Recovery (recover spell slots with combined level up to 2 on a short rest, once per day)",
+    "Circle Spells: Spider Climb, Web (always prepared, don't count against prepared limit)",
+    "Discovery (Hermit feature: discovered a fundamental truth about the interconnection of surface and Underdark ecosystems)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Keen Senses",
+    "Fey Ancestry",
+    "Trance",
+    "Fleet of Foot",
+    "Mask of the Wild",
+    "Wild Shape",
+    "Natural Recovery"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 14,
+    "spellAttackBonus": 6,
+    "cantrips": [
+      "Druidcraft",
+      "Produce Flame",
+      "Guidance"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Cure Wounds",
+        "Healing Word",
+        "Faerie Fire",
+        "Thunderwave",
+        "Speak with Animals",
+        "Detect Magic",
+        "Entangle"
+      ]
+    },
+    "level2": {
+      "slots": 2,
+      "known": [
+        "Spider Climb (Circle Spell, always prepared)",
+        "Web (Circle Spell, always prepared)",
+        "Barkskin",
+        "Lesser Restoration"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak to plants and fungi as though they can understand me, and I am convinced they respond in their own way. I am calm and patient, preferring to observe before acting. I find the Underdark's alien beauty as captivating as any surface forest.",
+    "ideals": "Balance. All ecosystems are connected. The surface and the deep places are two halves of one living world, and both deserve protection and understanding.",
+    "bonds": "I followed root networks and underground streams into the Underdark seeking the legendary Deeproot, an ancient tree said to connect the surface to the deepest caverns. I believe finding it could heal a blight spreading through my homeland forest.",
+    "flaws": "I am so fascinated by the Underdark's fungal ecosystems that I sometimes lose sight of immediate dangers. I struggle with the moral ambiguity of the deep places, where predation and parasitism are simply how things work. I can be naive about the motivations of intelligent creatures."
+  },
+  "appearance": "A slender wood elf woman of 5'6\" with copper-brown skin and long auburn hair threaded with braids of dried moss and tiny luminescent mushrooms she has cultivated. Her green eyes have a dreamy, far-off quality, as though she is always listening to something others cannot hear. She wears supple leather armor stained with earth tones, and her druidic focus is a gnarled oak staff wrapped in a living sleeve of Underdark moss that she has carefully nurtured. Small pouches of herbs, seeds, and fungal samples hang from every available strap and buckle. Her bare feet are calloused and tough, adapted to walking on stone.",
+  "backstory": "Aelindra served as a guardian of the Mossheart Grove in the great forest of Cormanthor, tending the ancient trees and communing with the spirits of nature. When a mysterious blight began killing the oldest trees, Aelindra followed the dying root networks underground, convinced the corruption was coming from below. She discovered vast fungal ecosystems thriving in the Underdark, alien but beautiful, and began to understand that the surface and the deep places were two parts of one interconnected web of life. The deeper she went, the more she became convinced that somewhere in the Underdark grew the legendary Deeproot, an impossibly ancient tree that bridged the surface and the deep. She believes finding it could reverse the blight killing her homeland. Now she wanders the Underdark, studying its ecology, befriending its strange inhabitants, and searching for the Deeproot, all while adapting her surface druidic traditions to the fungal wilds of the deep."
+}

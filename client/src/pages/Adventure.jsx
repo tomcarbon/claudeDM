@@ -72,6 +72,7 @@ function Adventure({
   setSelectedScenario,
   savedSessionDbId,
   setSavedSessionDbId,
+  campaignId,
 }) {
   const {
     messages,
@@ -224,7 +225,7 @@ function Adventure({
       // Use campaign ID as the scenario ID for session save/load compatibility
       setSavedSessionDbId(null);
       setSelectedScenario(selectedCampaign);
-      startSession(selectedCharacter, selectedCampaign, player);
+      startSession(selectedCharacter, selectedCampaign, player, campaignId);
       setSessionActive(true);
 
       const campaign = campaigns.find(c => c.id === selectedCampaign);
@@ -245,7 +246,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
     } else {
       if (!selectedCharacter || !selectedScenario) return;
       setSavedSessionDbId(null);
-      startSession(selectedCharacter, selectedScenario, player);
+      startSession(selectedCharacter, selectedScenario, player, campaignId);
       setSessionActive(true);
 
       const scenario = scenarios.find(s => s.id === selectedScenario);
@@ -326,7 +327,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       }
       watchSession(session.id, player);
       if (!readOnly) {
-        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player);
+        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, campaignId);
       }
       setSessionActive(true);
     } catch (err) {

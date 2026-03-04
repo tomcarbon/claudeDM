@@ -22,13 +22,13 @@ function listJsonFiles(dir) {
   }
 }
 
-function collectMatches(dataDir, characterRef, playerEmail) {
+function collectMatches(dataDir, characterRef, playerEmail, campaignId) {
   const ref = normalize(characterRef);
   const refSlug = slugify(characterRef);
   const candidateDirs = playerEmail
     ? [
-        { kind: 'character', dir: getPlayerCharactersDir(dataDir, playerEmail) },
-        { kind: 'npc', dir: getPlayerNpcsDir(dataDir, playerEmail) },
+        { kind: 'character', dir: getPlayerCharactersDir(dataDir, playerEmail, campaignId) },
+        { kind: 'npc', dir: getPlayerNpcsDir(dataDir, playerEmail, campaignId) },
       ]
     : [
         { kind: 'character', dir: path.join(dataDir, 'characters') },
@@ -70,8 +70,8 @@ function collectMatches(dataDir, characterRef, playerEmail) {
   return looseMatches;
 }
 
-function findCharacterOrNpcFile(dataDir, characterRef, playerEmail) {
-  const matches = collectMatches(dataDir, characterRef, playerEmail);
+function findCharacterOrNpcFile(dataDir, characterRef, playerEmail, campaignId) {
+  const matches = collectMatches(dataDir, characterRef, playerEmail, campaignId);
   if (matches.length === 0) return null;
   if (matches.length > 1) {
     const options = matches.map(m => `${m.data.name} (${m.data.id})`).join(', ');
@@ -80,8 +80,8 @@ function findCharacterOrNpcFile(dataDir, characterRef, playerEmail) {
   return matches[0];
 }
 
-function awardXp(dataDir, characterId, xpAmount, playerEmail) {
-  const result = findCharacterOrNpcFile(dataDir, characterId, playerEmail);
+function awardXp(dataDir, characterId, xpAmount, playerEmail, campaignId) {
+  const result = findCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId);
   if (!result) {
     throw new Error(`Character not found: ${characterId}`);
   }

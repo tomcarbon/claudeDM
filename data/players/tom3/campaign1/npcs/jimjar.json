@@ -1,0 +1,150 @@
+{
+  "id": "d4d5d6d7-e8e9-4f0f-1a2a-3b3b4c4c5d5d",
+  "name": "Jimjar",
+  "status": "alive",
+  "race": "Gnome",
+  "subrace": "Deep Gnome (Svirfneblin)",
+  "class": "Rogue",
+  "level": 3,
+  "background": "Charlatan",
+  "alignment": "Chaotic Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 15,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Sleight of Hand (expertise, +7)",
+    "Persuasion (expertise, +7)",
+    "Stealth",
+    "Deception",
+    "Perception",
+    "Insight"
+  ],
+  "languages": [
+    "Common",
+    "Gnomish",
+    "Undercommon",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Rapier",
+    "Shortbow",
+    "Arrows (20)",
+    "Thieves' tools",
+    "Burglar's pack",
+    "Two daggers",
+    "A set of fine clothes",
+    "A disguise kit",
+    "A set of loaded dice",
+    "A set of marked cards",
+    "A lucky copper coin (always bets with it first)",
+    "Belt pouch containing 25 gp",
+    "A tattered betting ledger"
+  ],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortbow",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Darkvision (120 ft., Superior Darkvision as deep gnome)",
+    "Gnome Cunning (advantage on INT, WIS, and CHA saves against magic)",
+    "Stone Camouflage (advantage on Stealth checks in rocky terrain)",
+    "Expertise (Sleight of Hand, Persuasion: double proficiency bonus)",
+    "Sneak Attack (2d6 extra damage once per turn with finesse/ranged weapon with advantage or adjacent ally)",
+    "Thieves' Cant (secret language of rogues)",
+    "Cunning Action (bonus action to Dash, Disengage, or Hide)",
+    "Roguish Archetype: Thief",
+    "Fast Hands (use Cunning Action to make Sleight of Hand check, use thieves' tools to disarm trap or open lock, or use an object)",
+    "Second-Story Work (climbing doesn't cost extra movement; running jump distance increases by DEX modifier in feet)",
+    "False Identity (Charlatan feature: established second identity with documentation and disguises)"
+  ],
+  "traits": [
+    "Superior Darkvision",
+    "Gnome Cunning",
+    "Stone Camouflage",
+    "Sneak Attack",
+    "Cunning Action",
+    "Fast Hands",
+    "Second-Story Work"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I cannot resist making a bet, even in the most inappropriate circumstances. I flash a mischievous grin that makes it impossible to tell if I am joking or serious. I am relentlessly optimistic and treat every setback as just another bet that didn't pay off.",
+    "ideals": "Luck. Life is a gamble, and the universe rewards those bold enough to roll the dice. Fortune favors the audacious, and I intend to be the most audacious creature in the Underdark.",
+    "bonds": "I was expelled from Blingdenstone's merchant guild for running an elaborate betting ring. I owe significant debts to several dangerous individuals across the Underdark, but I always believe the next big score will square things up.",
+    "flaws": "My gambling addiction is genuine and sometimes dangerous. I will bet on anything, including outcomes that affect the party's safety. I cannot hold onto gold, and I sometimes make promises I cannot keep. I use humor to deflect from genuine emotional connection."
+  },
+  "appearance": "A wiry, energetic deep gnome standing 3'4\" with slate-gray skin that seems perpetually in motion, as though he cannot hold still. His dark eyes sparkle with irrepressible mischief, and a crooked grin rarely leaves his face. His bald head is covered in a pattern of small scars from various misadventures, and his long, nimble fingers are always fidgeting with a coin, a die, or a card. He wears surprisingly well-maintained studded leather armor over practical clothes, with an absurd number of hidden pockets sewn into every garment. A rapier hangs at his hip with a handle wrapped in lucky charms and trinkets.",
+  "backstory": "Jimjar grew up in Blingdenstone, the great svirfneblin city, where he was supposed to follow in his family's respectable gem-trading business. Instead, he discovered the thrill of gambling at an early age and never looked back. He ran dice games in the mining tunnels, bet on cave cricket races, and eventually established an underground (in every sense) betting ring that attracted gamblers from across the Underdark. His operation grew too large and too visible, and when the Blingdenstone council discovered the extent of his activities, including several rigged games that had swindled prominent citizens, Jimjar was expelled from the merchant guild and strongly encouraged to leave town. He took to the tunnels with a grin and a pocketful of loaded dice, offering bets to anyone who would take them. His gambling has led him into and out of trouble in equal measure. He owes money to duergar merchants, drow fence operators, and at least one very angry fire giant. Despite this, Jimjar maintains an unshakeable belief that the next bet will be the big one.",
+  "dmNotes": {
+    "roleplaying": "Jimjar is comic relief with depth. Play him as irrepressibly cheerful, quick-witted, and always ready with a bet. 'I bet you 5 gold we survive this.' 'I bet you 2 gold the next tunnel goes left.' 'I bet you 10 gold that fungus is poisonous.' He should offer bets constantly, on everything from combat outcomes to weather to which party member snores loudest. The bets should be charming and funny, never mean-spirited. Beneath the compulsive gambling is a genuinely brave and loyal companion. When things get truly dangerous, Jimjar's humor sharpens rather than disappears, and he has a knack for finding creative solutions to problems. He is an excellent scout and trap-finder, and his streetwise instincts have saved groups before. His gambling addiction is real, though, and should occasionally create genuine tension when he makes a bet at the worst possible moment or owes the wrong person money.",
+    "voice": "Quick, bright, and chatty with a rapid-fire delivery that barely pauses for breath. Uses gambling metaphors for everything. Laughs easily and often, usually at his own jokes. Example: 'Right, so here is how I see it. We can go through the spider tunnels, odds about three to one against us, or the flooded passage, which I give us even money on drowning. Me personally? I like those spider odds. Tell you what, I bet 5 gold we make it through without losing anyone. Any takers? No? You lot are no fun.' When being serious, which is rare, his voice drops and the jokes stop completely, which should be alarming because it means things are genuinely bad.",
+    "motivations": "Primary: Win the big score, whatever that means this week. Secondary: Stay one step ahead of the various creatures he owes money to across the Underdark. Tertiary: Despite his best efforts to keep things light, he genuinely cares about his companions and will risk himself to protect them, though he would frame it as a bet. Secretly, he gambles to fill a void left by his exile from Blingdenstone, the only real home he has ever known.",
+    "secrets": "Jimjar's expulsion from Blingdenstone was more painful than he lets on. His family officially disowned him, and his younger sister Nixie, the only family member who still cared, gave him the lucky copper coin he always carries. He has not seen her in three years and thinks about her more than he would ever admit. He owes approximately 200 gp collectively to dangerous creditors across the Underdark, and occasionally encounters their enforcers. His loaded dice are masterwork forgeries that have saved his life more than once. He also has an almost supernatural luck that goes beyond loaded dice, and he sometimes wins bets he absolutely should not, which he attributes to destiny but which is actually connected to the wild magical energies seeping through the Underdark.",
+    "attitude": "Friendly, irreverent, and impossible to dislike for long. Jimjar treats everyone as a potential betting partner and potential friend, in that order. He is especially warm toward other gnomes and shows genuine delight at meeting Blingdenstone natives. He is wary of duergar (bad debts) and cautiously respectful of drow (healthy survival instinct). He defuses tension with humor, sometimes at inappropriate moments, and has a talent for getting people to smile despite themselves. When someone is genuinely distressed, he drops the comedian act and is surprisingly kind and perceptive."
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
+  "name": "Grok Stonefist",
+  "status": "alive",
+  "race": "Half-Orc",
+  "subrace": "",
+  "class": "Barbarian",
+  "level": 3,
+  "background": "Outlander",
+  "alignment": "Chaotic Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 18,
+      "modifier": 4
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 38,
+    "current": 38
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Perception",
+    "Intimidation",
+    "Survival"
+  ],
+  "languages": [
+    "Common",
+    "Orc",
+    "Gnomish",
+    "Undercommon"
+  ],
+  "equipment": [
+    "Greataxe",
+    "Handaxe (2)",
+    "Explorer's pack",
+    "Javelin (4)",
+    "A staff",
+    "A hunting trap",
+    "A trophy from a cave bear (claw necklace)",
+    "A set of traveler's clothes",
+    "Belt pouch containing 10 gp",
+    "A small carved stone figurine made by his gnome foster parents"
+  ],
+  "weapons": [
+    {
+      "name": "Greataxe",
+      "attackBonus": 6,
+      "damage": "1d12+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Handaxe",
+      "attackBonus": 6,
+      "damage": "1d6+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Javelin",
+      "attackBonus": 6,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None (Unarmored Defense: 10 + DEX + CON)",
+    "type": "none"
+  },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Menacing (proficiency in Intimidation)",
+    "Relentless Endurance (drop to 1 HP instead of 0 once per long rest)",
+    "Savage Attacks (extra damage die on critical melee hits)",
+    "Rage (3 rages per long rest, +2 rage damage, advantage on STR checks/saves, resistance to bludgeoning/piercing/slashing while raging)",
+    "Unarmored Defense (AC = 10 + DEX modifier + CON modifier)",
+    "Reckless Attack (advantage on STR melee attacks for the turn, but attacks against you have advantage until your next turn)",
+    "Danger Sense (advantage on DEX saves against effects you can see, such as traps and spells, while not blinded, deafened, or incapacitated)",
+    "Primal Path: Path of the Berserker",
+    "Frenzy (while raging, you can make a single melee weapon attack as a bonus action on each turn; suffer one level of exhaustion when rage ends)",
+    "Wanderer (Outlander feature: excellent memory for maps and geography, can find food and fresh water for up to 6 people each day)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Relentless Endurance",
+    "Savage Attacks",
+    "Menacing",
+    "Rage",
+    "Unarmored Defense",
+    "Reckless Attack",
+    "Danger Sense",
+    "Frenzy"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am surprisingly gentle for someone my size, often speaking softly and carefully choosing my words. I become fiercely protective when friends are threatened, and the transition from calm to fury is startlingly fast. I have a deep appreciation for craftsmanship and stonework, a gift from my gnome upbringing.",
+    "ideals": "Protection. The strong exist to shield the weak. My foster parents taught me that true strength is measured not in how hard you hit, but in what you choose to defend.",
+    "bonds": "The deep gnome community of Blingdenstone took me in as an orphaned infant and raised me as their own. I owe everything to my foster parents, Tibbledorf and Wrenni. When the settlement was threatened by drow raids, I swore to become its shield.",
+    "flaws": "My rage frightens me. When the berserker fury takes hold, I lose myself completely, and I fear one day I will hurt someone I love. I also struggle with my orcish heritage, ashamed of the violence in my blood, and sometimes overcompensate by being too passive when decisive action is needed."
+  },
+  "appearance": "A towering half-orc standing 6'4\" with pale green-gray skin and a powerful, barrel-chested frame. His tusks are modest by orcish standards, and his brown eyes carry an unexpected warmth. His black hair is pulled back in a thick braid adorned with small stone beads carved by deep gnome artisans. Despite his intimidating size, his body language is often surprisingly contained and gentle. He wears no armor, relying on his thick hide and instincts, and carries a massive greataxe with a head of dark iron across his back. Faded geometric tattoos in the svirfneblin style run along his forearms.",
+  "backstory": "Grok was found as a mewling, abandoned infant in a collapsed tunnel near Blingdenstone. The deep gnome scouts who discovered him debated leaving the half-orc child to fate, but the elder Tibbledorf Glimmerstone insisted they bring him home. Grok grew up as the only creature over four feet tall in a community of three-foot gnomes, sleeping in a specially enlarged burrow and learning to move carefully in spaces built for people a fraction of his size. The gnomes taught him their language, their crafts, and their values. But when orcish raiders attacked outlying tunnels, something primal awoke in Grok. He flew into a berserker rage that terrified friend and foe alike, single-handedly driving back the raiders but collapsing afterward in exhaustion and shame. The gnome elders, understanding what he was, helped him learn to channel his fury rather than fear it. Now Grok serves as Blingdenstone's protector and emissary to the wider Underdark, a half-orc with the heart of a gnome and the fury of a berserker."
+}

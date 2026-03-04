@@ -106,9 +106,9 @@ function loadDmSettings(dataDir, playerEmail) {
   return applyDailyShuffle(baseSettings, playerEmail);
 }
 
-function loadCharacter(dataDir, characterId, playerEmail) {
+function loadCharacter(dataDir, characterId, playerEmail, campaignId) {
   const dir = playerEmail
-    ? getPlayerCharactersDir(dataDir, playerEmail)
+    ? getPlayerCharactersDir(dataDir, playerEmail, campaignId)
     : path.join(dataDir, 'characters');
   try {
     const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
@@ -123,19 +123,25 @@ function loadCharacter(dataDir, characterId, playerEmail) {
   return null;
 }
 
-function loadScenario(dataDir, scenarioId) {
-  const dir = path.join(dataDir, 'scenarios');
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-  for (const file of files) {
-    const data = loadJson(path.join(dir, file));
-    if (data && data.id === scenarioId) return data;
+function loadScenario(dataDir, scenarioId, campaignId) {
+  // Try campaign-specific scenarios first, then fall back to legacy global dir
+  const campaignDir = path.join(dataDir, 'campaigns', campaignId || 'demo', 'scenarios');
+  const dirs = [campaignDir, path.join(dataDir, 'scenarios')];
+  for (const dir of dirs) {
+    try {
+      const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+      for (const file of files) {
+        const data = loadJson(path.join(dir, file));
+        if (data && data.id === scenarioId) return data;
+      }
+    } catch { /* dir may not exist */ }
   }
   return null;
 }
 
-function loadNpcs(dataDir, playerEmail) {
+function loadNpcs(dataDir, playerEmail, campaignId) {
   const dir = playerEmail
-    ? getPlayerNpcsDir(dataDir, playerEmail)
+    ? getPlayerNpcsDir(dataDir, playerEmail, campaignId)
     : path.join(dataDir, 'npcs');
   try {
     return fs.readdirSync(dir)
@@ -151,16 +157,17 @@ function loadNpcs(dataDir, playerEmail) {
   }
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail) {
+function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId) {
+  const cid = campaignId || 'demo';
   const settings = loadDmSettings(dataDir, playerEmail);
-  const character = characterId ? loadCharacter(dataDir, characterId, playerEmail) : null;
-  const scenario = scenarioId ? loadScenario(dataDir, scenarioId) : null;
-  const npcs = loadNpcs(dataDir, playerEmail);
+  const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid) : null;
+  const scenario = scenarioId ? loadScenario(dataDir, scenarioId, cid) : null;
+  const npcs = loadNpcs(dataDir, playerEmail, cid);
 
   // Compute player-scoped paths for file references
   const slug = playerEmail ? emailToSlug(playerEmail) : null;
-  const charPathPrefix = slug ? `data/players/${slug}/characters` : 'data/characters';
-  const npcPathPrefix = slug ? `data/players/${slug}/npcs` : 'data/npcs';
+  const charPathPrefix = slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
+  const npcPathPrefix = slug ? `data/players/${slug}/${cid}/npcs` : 'data/npcs';
 
   const verbosityGuide = settings.verbosity < 30 ? 'Keep descriptions brief and punchy.'
     : settings.verbosity > 70 ? 'Use rich, detailed prose with vivid imagery.'
@@ -232,7 +239,7 @@ Hook: ${scenario.hook}`;
 Acts: ${scenario.acts.map((a, i) => `Act ${i + 1}: ${a.title}`).join(', ')}`;
     }
     prompt += `
-Scenario file: data/scenarios/${scenario.id}.json (Read for full details)`;
+Scenario file: data/campaigns/${cid}/scenarios/ (Read for full details)`;
   }
 
   prompt += `
@@ -410,7 +417,7 @@ function rollDice(notation) {
   return { notation: notation.trim(), count, sides, modifier, rolls, total };
 }
 
-function createMcpToolServer(dataDir, playerEmail, diceResults) {
+function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId) {
   return createSdkMcpServer({
     name: 'dnd-tools',
     version: '1.0.3',
@@ -421,7 +428,7 @@ function createMcpToolServer(dataDir, playerEmail, diceResults) {
         { characterId: z.string(), xp: z.number() },
         async (args) => {
           try {
-            const result = awardXp(dataDir, args.characterId, args.xp, playerEmail);
+            const result = awardXp(dataDir, args.characterId, args.xp, playerEmail, campaignId);
             return {
               content: [{ type: 'text', text: JSON.stringify(result) }],
             };
@@ -526,22 +533,24 @@ class DmEngine {
     this.sessionId = null;
     this.activeQuery = null;
     this.playerEmail = null;
+    this.campaignId = null;
     this._mcpToolServer = null;
     this._diceResults = [];
   }
 
-  _getMcpToolServer(playerEmail) {
-    // Recreate if playerEmail changed
-    if (!this._mcpToolServer || this.playerEmail !== playerEmail) {
+  _getMcpToolServer(playerEmail, campaignId) {
+    // Recreate if playerEmail or campaignId changed
+    if (!this._mcpToolServer || this.playerEmail !== playerEmail || this.campaignId !== campaignId) {
       this.playerEmail = playerEmail;
-      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults);
+      this.campaignId = campaignId;
+      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults, campaignId);
     }
     return this._mcpToolServer;
   }
 
-  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail);
-    const mcpToolServer = this._getMcpToolServer(playerEmail);
+  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId);
+    const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId);
     return {
       systemPrompt,
       cwd: PROJECT_ROOT,
@@ -627,8 +636,8 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail }) {
-    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail);
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId }) {
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId);
 
     if (this.sessionId) {
       options.resume = this.sessionId;
@@ -643,13 +652,13 @@ class DmEngine {
     }
 
     // Fresh session — if we have message history, prepend it as context
-    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail);
+    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId);
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
       const recap = buildSmartRecap(messageHistory);
       // Build identity-enriched resume header
-      const character = characterId ? loadCharacter(this.dataDir, characterId, playerEmail) : null;
-      const scenario = scenarioId ? loadScenario(this.dataDir, scenarioId) : null;
+      const character = characterId ? loadCharacter(this.dataDir, characterId, playerEmail, campaignId) : null;
+      const scenario = scenarioId ? loadScenario(this.dataDir, scenarioId, campaignId) : null;
       const charLabel = character ? `${character.name} (Level ${character.level} ${character.race} ${character.class})` : 'Unknown character';
       const scenarioLabel = scenario ? scenario.title : 'Unknown scenario';
       prompt = `[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${userMessage}`;

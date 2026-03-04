@@ -1,0 +1,312 @@
+{
+  "id": "ud-scenario-001",
+  "title": "The Fungal Caverns",
+  "subtitle": "Where the Spores Whisper and the Dead Walk",
+  "levelRange": "3-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The Bioluminescent Depths",
+    "description": "A sprawling underground ecosystem dominated by towering zurkhwood mushrooms, carpets of bioluminescent lichen, and an air so thick with spores that every breath carries the taste of earth and decay. The Fungal Caverns are hauntingly beautiful — cathedral ceilings dripping with glowing stalactites, rivers of luminescent slime flowing between mushroom groves, and the gentle pulse of myconid rapport spores creating a communal consciousness that permeates the air. But beauty and danger intertwine here: spore zombies shamble through the darker groves, a mad alchemist has been experimenting with the local fungi, and the delicate ecological balance teeters on the edge of catastrophe.",
+    "atmosphere": "An otherworldly garden of alien beauty, where every surface glows with soft bioluminescence in hues of blue, violet, and pale green. The silence is broken only by the soft pop of releasing spores, the distant drip of water, and occasionally the shuffling footsteps of things that should not be walking. The air itself feels alive, carrying emotions and fragments of thought from the myconid rapport network.",
+    "keyLocations": [
+      {
+        "name": "The Descent Tunnels",
+        "description": "A network of natural tunnels leading from the surface world into the Underdark proper. The walls transition from familiar stone to strange, organic-looking rock veined with phosphorescent minerals. The temperature rises as the party descends, and the first mushrooms begin appearing — small at first, then larger, until the tunnels open into the caverns proper.",
+        "features": [
+          "Gradual transition from surface stone to Underdark geology",
+          "First encounters with Underdark flora — glowing lichen, tiny mushrooms, cave moss",
+          "A collapsed section requiring Athletics DC 13 to navigate or Investigation DC 14 to find a bypass tunnel",
+          "Faint psychic whispers at the edges of perception (DC 15 Wisdom save or gain 1 level of unease)"
+        ],
+        "encounters": [
+          "A patrol of 3 giant fire beetles — their glands provide natural light sources",
+          "A swarm of bats disturbed by the party's descent"
+        ],
+        "secrets": [
+          "The psychic whispers are the first tendrils of the elder brain's influence, reaching far from its domain — a thread that connects all four scenarios",
+          "Scratched warnings in Undercommon on the tunnel walls warn of 'the dreaming one below'"
+        ]
+      },
+      {
+        "name": "Sporegarden — The Myconid Grove",
+        "description": "A vast cavern filled with a forest of zurkhwood mushrooms, some reaching sixty feet tall. At the grove's heart sits a myconid sovereign and its circle, a peaceful community of fungal beings who communicate through rapport spores — clouds of psychic particles that create a shared consciousness among those who breathe them. The myconids are gentle, curious, and deeply concerned about the corruption spreading through their caverns.",
+        "features": [
+          "Zurkhwood forest with mushrooms of all sizes, some bioluminescent, some edible, some toxic",
+          "The Rapport Circle — a clearing where the myconid sovereign holds audience, communicating through spore-images rather than words",
+          "A healing pool fed by mineral-rich water filtered through fungal root systems (restores 2d4+2 HP once per long rest)",
+          "Mushroom varieties: bluecap (edible, slightly hallucinogenic), nightlight (glows for 8 hours when picked), torchstalk (bursts into flame when struck)"
+        ],
+        "encounters": [
+          "Roleplaying with the myconid sovereign through rapport spores — an alien but beautiful form of communication where thoughts and emotions are shared directly",
+          "A young myconid sprout (Stool) attaches itself to the party as a guide"
+        ],
+        "secrets": [
+          "The sovereign knows that the corruption is coming from a surface alchemist named Basidia who has been experimenting with a rare fungus called Zuggtmoy's Tears, which can animate dead tissue",
+          "The myconids have sensed the elder brain's psychic probing and are terrified — they call it 'the Great Dreamer' and believe it will eventually consume all minds in the Underdark"
+        ]
+      },
+      {
+        "name": "The Rotgrove",
+        "description": "A section of the fungal caverns that has been corrupted by Basidia's experiments. The mushrooms here are twisted and discolored, weeping a black ichor that smells of decay. Spore zombies — the reanimated corpses of unfortunate travelers and creatures, held together by fungal growth — wander aimlessly through the rotting grove, attacking anything warm-blooded that enters their territory.",
+        "features": [
+          "Corrupted mushrooms that release toxic spores (DC 12 Constitution save or take 1d6 poison damage and be poisoned for 1 minute)",
+          "Sticky fungal webbing across pathways (DC 13 Strength to break free if caught)",
+          "Dim bioluminescence in sickly yellow-green instead of the healthy blue-violet of normal caverns",
+          "Pools of black ichor that bubble and hiss"
+        ],
+        "encounters": [
+          "4 spore zombies (use zombie stats with additional: on death, release a 10-ft cloud of spores, DC 11 Constitution save or take 1d4 poison damage)",
+          "2 violet fungi lurking among corrupted mushroom clusters",
+          "A shambling mound that has absorbed fungal growth and radiates corruption"
+        ],
+        "secrets": [
+          "The spore zombies still carry fragments of their former lives' equipment — searching them reveals a merchant's ledger mentioning deliveries to 'the alchemist below'",
+          "The corruption is spreading and will reach Sporegarden within days if not stopped"
+        ]
+      },
+      {
+        "name": "Basidia's Laboratory",
+        "description": "A natural cave system converted into an alchemical laboratory by the mad surface alchemist Basidia Mold, a gnome who descended into the Underdark years ago seeking rare fungi for her research. Her obsession with Zuggtmoy's Tears — a parasitic fungus capable of animating dead tissue — has driven her to madness. The lab is filled with bubbling vials, restrained spore zombies on tables, shelves of fungal specimens, and notes written in increasingly erratic handwriting.",
+        "features": [
+          "Alchemical workbenches with active experiments (some volatile — DC 14 Investigation to safely examine)",
+          "Cages containing restrained spore zombies used as test subjects",
+          "A locked chest (DC 15 Thieves' Tools) containing Basidia's research notes and 3 potions of healing",
+          "A small shrine to Zuggtmoy, demon queen of fungi, with fresh offerings"
+        ],
+        "encounters": [
+          "Basidia herself — a gnome alchemist (use mage stats, CR 6, but weakened to CR 3 from fungal corruption; replace fire spells with poison/necrotic variants)",
+          "Her 'children' — 2 spore zombies and 1 fungal-enhanced quaggoth that serves as her bodyguard"
+        ],
+        "secrets": [
+          "Basidia's notes reveal she was originally hired by the drow of House Despana to develop biological weapons — connecting to scenario 2",
+          "Among her specimens is a sample of illithid brain tissue she acquired from a 'trader in the deep' — she notes it resists all fungal colonization, hinting at the mind flayers' immunity and the elder brain connection"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party descends into the Underdark for the first time, entering a world of alien beauty and hidden danger. The bioluminescent Fungal Caverns offer a surreal welcome, but a spreading corruption threatens the peaceful myconid community of Sporegarden. Guided by a young myconid sprout named Stool, the adventurers must navigate spore zombie-infested groves and track down the source of the rot: a mad surface alchemist named Basidia Mold who has been experimenting with a demonic parasitic fungus. Along the way, they discover threads connecting to larger threats — drow military ambitions and the distant psychic presence of something vast and intelligent lurking in the deepest reaches of the Underdark.",
+  "hook": "The party's descent into the Underdark — whether pursuing missing surface-dwellers, seeking ancient ruins, or following other leads — brings them to the edge of the Fungal Caverns. The first thing they encounter is beauty: a cavern ceiling glittering with bioluminescent fungi like an underground starfield. The second thing they encounter is a myconid sprout, desperately projecting images of danger, death, and a plea for help through its rapport spores. Something is killing the Fungal Caverns, and the myconids cannot fight it alone.",
+  "acts": [
+    {
+      "title": "Act 1: Into the Glowing Dark",
+      "description": "The party descends into the Underdark and reaches the Fungal Caverns, encountering the alien ecosystem for the first time. They meet the myconid community at Sporegarden, learn about the corruption threatening their home, and gain a guide in the form of Stool, a young myconid sprout.",
+      "objectives": [
+        "Navigate the descent tunnels into the Underdark",
+        "Reach the Fungal Caverns and experience the bioluminescent ecosystem",
+        "Make peaceful contact with the myconid sovereign at Sporegarden",
+        "Learn about the corruption spreading through the caverns",
+        "Accept Stool as a guide"
+      ],
+      "scenes": [
+        {
+          "name": "The Long Way Down",
+          "description": "The party navigates the descent tunnels from the surface into the Underdark, encountering the first signs of the alien world below. The transition is gradual but unmistakable — the air grows warmer, the stone changes texture, and the first bioluminescent organisms begin to appear.",
+          "readAloud": "\"The tunnel descends at a steady angle, the worked stone of the surface giving way to natural rock that feels somehow different under your hands — smoother, almost organic. The air grows warmer with each step, carrying a loamy scent like rich soil after rain. Then you see it: the first glimmer. A patch of lichen on the tunnel wall, glowing with a soft blue light that pulses gently, like breathing. As you descend further, more patches appear — blue, violet, pale green — until the tunnel walls shimmer with a galaxy of tiny lights. The passage opens ahead into something vast, and a wash of warm, spore-laden air carries the faintest whisper of... thoughts? Emotions? Something brushes against your mind like a half-remembered dream and is gone.\"",
+          "skillChecks": [
+            { "skill": "Nature", "dc": 12, "success": "You recognize many of the fungi species from academic texts — most are harmless, some are edible, and a few should be avoided. You identify bluecap mushrooms as a safe food source.", "failure": "The fungi are beautiful but utterly alien to you. You cannot distinguish safe varieties from dangerous ones." },
+            { "skill": "Perception", "dc": 14, "success": "You notice scratched warnings in Undercommon on the tunnel walls: crude symbols warning of 'walking dead' and 'the rot' deeper in the caverns.", "failure": "The tunnel walls seem unremarkable beyond their bioluminescent decoration." },
+            { "skill": "Arcana", "dc": 15, "success": "The faint psychic sensation you felt is faerzress — the ambient magical radiation of the Underdark. It interferes with teleportation and divination magic, but there is something else beneath it, something intentional and probing.", "failure": "The strange mental sensation passes without explanation." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 giant fire beetles"],
+              "difficulty": "Easy",
+              "tactics": "The fire beetles are territorial but not aggressive unless threatened. They defend the tunnel junction where they nest. Their glowing glands are valuable as natural light sources (glow for 1d6 days after removal).",
+              "terrain": "Narrow tunnel (10 ft wide) opening into a small junction cavern (30 ft across). Stalactites provide partial cover. The floor is uneven with small pools of mineral water."
+            }
+          ],
+          "roleplayNotes": "This scene should establish the wonder and alienness of the Underdark. Make the beauty tangible — describe the way bioluminescence reflects off crystal formations, the strange warmth of the deep earth, the unfamiliar sounds. Also begin planting the seeds of unease: the psychic whisper, the distant shuffling sounds, the warnings scratched into stone. The Underdark is beautiful but it is not safe.",
+          "loot": [
+            "3 giant fire beetle glands (glow like torches for 1d6 days, worth 5 gp each to alchemists)",
+            "Edible bluecap mushrooms (4 days of rations for the party)",
+            "A lost adventurer's pack found in a side tunnel: 50 ft rope, 2 pitons, a waterskin, and a journal describing the 'mushroom people' deeper in (written in Common)"
+          ]
+        },
+        {
+          "name": "The Sovereign's Welcome",
+          "description": "The party arrives at Sporegarden, the myconid community, and must navigate first contact with beings who communicate through psychic spore-clouds rather than speech. The myconid sovereign shares visions of the corruption threatening the caverns and asks for help.",
+          "readAloud": "\"The tunnel opens into a cathedral of living light. Mushrooms tower above you — zurkhwood trees sixty feet tall, their caps spreading like canopies over a forest floor carpeted in softly glowing moss. Smaller fungi in every color imaginable cluster at their bases, pulsing with gentle light. And among them, walking slowly on stumpy legs, are the mushroom people. Myconids. They range from sprouts no taller than your knee to adults the size of a human, their cap-heads swaying as they turn to regard you with eyeless faces. One — the largest, its cap a deep royal purple — steps forward. A cloud of shimmering golden spores drifts from its cap toward you. As the spores settle on your skin, images bloom in your mind: a grove of healthy mushrooms withering to black rot. Walking corpses wreathed in poisonous spores. A small figure hunched over bubbling vials in a cave. And beneath it all, a feeling of desperate, wordless pleading.\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 11, "success": "The rapport spores carry genuine emotion alongside the images. The sovereign is afraid — not for itself, but for its community. The corruption is spreading and the myconids are pacifists by nature, unable to fight back.", "failure": "The psychic communication is disorienting and you struggle to parse the alien emotions from the images." },
+            { "skill": "Nature", "dc": 13, "success": "You understand the rapport spore mechanism — it creates a temporary shared consciousness. The more you relax and open your mind, the clearer the communication becomes. You can send images back by concentrating.", "failure": "The spore communication remains one-way and somewhat confusing." },
+            { "skill": "Medicine", "dc": 14, "success": "The images of corruption remind you of parasitic fungal infections you have studied. Whatever is causing this is not natural — it has been deliberately cultivated.", "failure": "The corruption appears to be some kind of fungal disease, but its exact nature is unclear." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This should be one of the most memorable roleplaying encounters of the campaign. Myconid communication through rapport spores is alien and beautiful — describe it as shared dreaming, where thoughts and feelings are conveyed through images, sensations, and emotions rather than words. The sovereign is wise and ancient but gentle, its 'voice' in the rapport like warm rain. The young sprout Stool is curious and brave, constantly projecting images of excitement and questions at the party. If the party agrees to help, the sovereign shares its knowledge of the caverns and assigns Stool as a guide. Play up the wonder of communicating with truly alien minds.",
+          "loot": [
+            "Gift from the sovereign: 4 nightlight mushrooms (glow softly for 8 hours when picked, no heat, worth 2 gp each)",
+            "Healing spores from the sovereign (functions as a potion of healing, single use)",
+            "A zurkhwood staff carved by the myconids (quarterstaff, weighs half as much as normal)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Spreading Rot",
+      "description": "The party ventures into the corrupted sections of the Fungal Caverns, fighting spore zombies and navigating hazardous terrain. They track the corruption to its source and gather evidence of the mad alchemist's involvement.",
+      "objectives": [
+        "Enter the Rotgrove and survive its hazards",
+        "Defeat or avoid the spore zombies",
+        "Find evidence pointing to the source of the corruption",
+        "Navigate through toxic fungal terrain",
+        "Locate Basidia's laboratory"
+      ],
+      "scenes": [
+        {
+          "name": "The Rotgrove",
+          "description": "The party enters the corrupted section of the caverns where Basidia's experiments have twisted the natural fungal ecosystem into something toxic and dangerous. Spore zombies wander the blighted grove, and the air itself is hazardous.",
+          "readAloud": "\"The beauty of Sporegarden dies here. A visible line in the cavern floor marks where healthy, glowing fungi give way to something sick — mushrooms leaning at wrong angles, their caps weeping black ichor, their glow a nauseating yellow-green instead of the healthy blue-violet. The air thickens, carrying a sweet-rot stench that makes your eyes water. Stool presses close to the party, its rapport spores projecting images of fear and revulsion. Ahead, in the sickly light, something moves — a humanoid shape lurching between the corrupted mushrooms, its body held together by networks of fungal growth that pulse with each shambling step. It was a dwarf once. Now it is something else entirely.\"",
+          "skillChecks": [
+            { "skill": "Constitution save", "dc": 12, "success": "You hold your breath or resist the toxic spores in the air, suffering no ill effects.", "failure": "The toxic spores burn your lungs and cloud your vision. You take 1d6 poison damage and are poisoned for 1 minute." },
+            { "skill": "Survival", "dc": 13, "success": "You find a path through the Rotgrove that minimizes exposure to the worst of the toxic spores, granting the party advantage on Constitution saves against the poisonous air.", "failure": "You blunder into the thickest concentration of toxic spores, forcing additional Constitution saves." },
+            { "skill": "Investigation", "dc": 12, "success": "Among the remains of a spore zombie, you find a merchant's ledger mentioning deliveries of alchemical supplies to 'B.M., the deep laboratory' — a lead on the source of the corruption.", "failure": "The spore zombies' possessions are too degraded by fungal growth to yield useful information." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 spore zombies (zombie stats, additional: on death burst 10-ft spore cloud, DC 11 Con save or 1d4 poison damage)", "2 violet fungi"],
+              "difficulty": "Medium",
+              "tactics": "The spore zombies are drawn to warmth and light, converging on whoever is carrying a torch or light source. They attack mindlessly but their death-burst spore clouds create area denial. The violet fungi remain stationary among the corrupted mushrooms, lashing out with rotting appendages at anyone who passes within 10 feet. Stool can warn the party about the violet fungi with frantic rapport spore images if given a chance.",
+              "terrain": "Corrupted mushroom grove (60 ft across). Sticky fungal webbing creates difficult terrain in patches. Pools of black ichor are scattered throughout (stepping in one requires DC 10 Dex save or fall prone). Visibility is reduced to 30 ft due to airborne spores."
+            }
+          ],
+          "roleplayNotes": "Contrast the horror of the Rotgrove with the beauty of Sporegarden to emphasize what is being lost. The spore zombies should be pitiable as well as threatening — they were people once. Stool is terrified but brave, staying with the party and projecting images of the corruption's edge creeping closer to its home each day. This scene should build urgency: if the source is not found and stopped, Sporegarden will be consumed.",
+          "loot": [
+            "Merchant's ledger (quest item, points to Basidia's laboratory)",
+            "2 intact potions found on a spore zombie's remains (potion of healing, potion of poison resistance)",
+            "A dwarven-made mining pick of good quality (light hammer stats, worth 15 gp)",
+            "Violet fungus extract (DC 14 Nature to harvest safely, worth 25 gp to an alchemist, can be used as a contact poison)"
+          ]
+        },
+        {
+          "name": "The Trail to Madness",
+          "description": "Following the clues from the Rotgrove, the party tracks the corruption to its source, navigating increasingly dangerous terrain as they approach Basidia's hidden laboratory. A guardian creature blocks the approach.",
+          "readAloud": "\"Stool guides you deeper into the corrupted zone, its rapport spores tinged with anxiety. The corruption intensifies — the mushrooms here are grotesquely overgrown, their caps splitting open to reveal pulsing interior cavities that breathe out clouds of foul spores. Fungal tendrils have woven across the tunnel ahead like a living barrier, and from beyond it you hear the clink of glass, the bubble of liquid, and a high-pitched voice muttering to itself in a stream of fragmented sentences. 'Yes, yes, the tissue accepts the compound... no, no, wrong ratio... Zuggtmoy whispers the correct proportions, we must listen, we must LISTEN...' A low growl echoes from the fungal barrier — something large is guarding the passage beyond.\"",
+          "skillChecks": [
+            { "skill": "Stealth", "dc": 14, "success": "You approach the fungal barrier without alerting the guardian on the other side, gaining a surprise round if combat begins.", "failure": "A misstep sends a cascade of loose stones rattling down the tunnel. The guardian is alert and ready." },
+            { "skill": "Nature", "dc": 13, "success": "You identify a natural solvent among the cavern's flora — a type of acid-secreting mushroom whose juices can dissolve the fungal barrier quietly over several minutes.", "failure": "The fungal barrier must be hacked through manually, which will certainly alert whatever is on the other side." },
+            { "skill": "Arcana", "dc": 15, "success": "The muttering voice is performing alchemical rituals with a religious component — whoever this is, they are not merely experimenting but worshipping. The mentions of Zuggtmoy identify the demon queen of fungi as their patron.", "failure": "The voice seems to be that of a deeply disturbed alchemist, but the specifics of their work are unclear." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 quaggoth (enhanced with fungal armor: +2 AC, regenerates 5 HP per round unless fire damage is dealt)"],
+              "difficulty": "Medium",
+              "tactics": "The fungal-enhanced quaggoth guards the approach to Basidia's lab with savage loyalty. It uses its claws and attempts to grapple opponents, dragging them toward pools of toxic ichor. Its fungal enhancements give it unnatural resilience — it regenerates unless fire is applied. It fights to the death, driven by fungal influence rather than self-preservation.",
+              "terrain": "Narrow tunnel (15 ft wide) with fungal barrier at one end and the laboratory entrance at the other. Toxic ichor pools provide hazards (1d4 acid damage per round of contact). Fungal tendrils on the walls can be grabbed and pulled to create distractions."
+            }
+          ],
+          "roleplayNotes": "Build the tension as the party approaches the laboratory. Basidia's muttering should be audible and disturbing — a brilliant mind unraveled by obsession and demonic influence. The quaggoth guardian is pitiable too, its natural ferocity twisted and amplified by fungal corruption. If the party captures it alive and removes the fungal growth (DC 15 Medicine), the quaggoth regains its senses but is confused and hostile until calmed.",
+          "loot": [
+            "Quaggoth's fungal armor fragments (worth 10 gp as alchemical components)",
+            "A set of crude but effective climbing tools found near the quaggoth's nest (grants advantage on Athletics checks to climb)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Mad Alchemist",
+      "description": "The party confronts Basidia Mold in her laboratory, either fighting her or finding a way to reach the person she once was beneath the madness. They must stop the corruption at its source and discover the connections to larger threats in the Underdark.",
+      "objectives": [
+        "Enter Basidia's laboratory",
+        "Confront the mad alchemist",
+        "Stop the corruption at its source by destroying or purifying the Zuggtmoy's Tears samples",
+        "Recover Basidia's research notes revealing connections to the drow and mind flayers",
+        "Return to Sporegarden with news of the corruption's end"
+      ],
+      "scenes": [
+        {
+          "name": "The Laboratory of Madness",
+          "description": "The party enters Basidia's laboratory and confronts the gnome alchemist who has been corrupting the Fungal Caverns. The encounter can go several ways: combat, negotiation with a madwoman, or an attempt to break through the demonic influence controlling her.",
+          "readAloud": "\"Beyond the guardian's lair, the cave opens into a chamber that was once a natural grotto but has been transformed into a nightmare workshop. Stone tables are covered with bubbling alchemical apparatus — glass tubes, copper distillers, ceramic pots seething with foul-smelling compounds. Along one wall, three stone slabs hold restrained spore zombies, their bodies pierced with needles and tubes feeding glowing liquids into their fungal-laced flesh. Shelves overflow with jars of fungal specimens, notes pinned to the walls in overlapping layers, and at the far end, a small shrine — a mushroom carved from black stone, surrounded by offerings of decay. And there, hunched over a workbench, is the alchemist. She is a gnome, barely three feet tall, her skin mottled with patches of fungal growth, her eyes wide and fever-bright. She turns to face you, and her expression cycles through surprise, fear, anger, and something like relief in the space of a heartbeat. 'Visitors!' she breathes. 'Have you come to see? Have you come to understand? She speaks to me, you know. The Queen of Rot. She shows me how to make the dead dance. Would you like to see them dance?'\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 16, "success": "You reach the remnants of Basidia's rational mind beneath the madness. She breaks down, weeping, and confesses that she was hired by the drow but the fungus infected her mind. She will help destroy the Zuggtmoy's Tears if protected from the shrine's influence.", "failure": "Basidia's madness is too deep to penetrate with words alone. She becomes agitated and hostile." },
+            { "skill": "Religion", "dc": 14, "success": "You recognize the shrine as a focal point for Zuggtmoy's influence. Destroying it would weaken the demonic hold on Basidia's mind and stop the corruption from spreading further.", "failure": "The shrine is clearly religious in nature but its specific function and how to neutralize it are unclear." },
+            { "skill": "Investigation", "dc": 13, "success": "Among the chaos of Basidia's notes, you find her original research commission — a letter from a drow named Ilvara of House Despana, requesting 'biological agents for pacification of slave populations.' You also find notes about illithid brain tissue samples.", "failure": "The notes are too disorganized and written in increasingly illegible handwriting to yield clear information." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 Basidia Mold (use mage stats, CR 3, replace spell list: cantrips — poison spray, acid splash, mage hand; 1st level — ray of sickness, fog cloud, detect magic; 2nd level — ray of enfeeblement, web)", "2 spore zombies (released from restraints)"],
+              "difficulty": "Hard",
+              "tactics": "Basidia fights from behind her workbenches, using web and fog cloud to control the battlefield while her spore zombies engage in melee. She uses ray of sickness and poison spray against anyone approaching. If the shrine is destroyed (AC 10, 15 HP), Basidia becomes confused and loses concentration on all spells for 1 round. If reduced to half HP, she casts fog cloud to cover her retreat toward the shrine, where she attempts to call on Zuggtmoy for power (this fails — the demon queen does not answer). She surrenders if cornered and the shrine is destroyed.",
+              "terrain": "Laboratory cavern (40 ft by 30 ft). Stone workbenches provide half cover. Alchemical apparatus is volatile — a miss by 5+ near a workbench causes an explosion (5-ft radius, DC 12 Dex save, 2d6 fire damage). The shrine radiates an aura of corruption (creatures within 10 ft must succeed on DC 12 Wisdom save at the start of their turn or have disadvantage on attack rolls for that turn)."
+            }
+          ],
+          "roleplayNotes": "Basidia is a tragic villain — a brilliant alchemist whose curiosity led her too deep and too far. She was hired by the drow for legitimate (if unethical) research, but discovered Zuggtmoy's Tears and became obsessed. The demonic fungus infected her mind, twisting her scientific drive into religious fervor. If the party destroys the shrine and subdues Basidia without killing her, there is a chance to save her — she carries vital information about the drow's plans and has encountered mind flayer agents. If killed, her notes still provide the connections. Stool watches the confrontation from a safe distance, projecting images of hope.",
+          "loot": [
+            "Basidia's research notes (quest item — reveals drow connection and mind flayer tissue samples)",
+            "Letter from Ilvara of House Despana (quest item — connects to scenario 2)",
+            "3 potions of healing found in the locked chest",
+            "Alchemist's supplies (complete set, worth 50 gp)",
+            "Ring of Poison Resistance (rare, attuned — grants resistance to poison damage and advantage on saves against poison)",
+            "45 gp in mixed coins from Basidia's payment chest",
+            "3 vials of antitoxin"
+          ]
+        },
+        {
+          "name": "Return to the Light",
+          "description": "With the corruption stopped at its source, the party returns to Sporegarden to share the news. The myconid sovereign rewards them and shares what it knows about the deeper Underdark, setting up the journey ahead.",
+          "readAloud": "\"The return through the Rotgrove is different. Already the corruption seems to be receding — the sickly yellow-green glow fading, replaced by the natural bioluminescence slowly reasserting itself. It will take time, but the Fungal Caverns will heal. When you emerge into Sporegarden, the myconid sovereign is waiting. It extends its rapport spores, and the images that wash over your mind are warm and golden — sunrise over mushroom forests, new growth pushing through clean soil, a small sprout dancing with joy. Gratitude, deep and wordless and overwhelming. Then the sovereign's spores shift, carrying new images: dark water stretching to an unseen horizon. Towers of obsidian connected by spider-silk bridges. And deeper still, something pulsing in the dark — a vast, alien intelligence that watches and waits and hungers. The sovereign's message is clear: the corruption in the caverns was only a symptom. The true sickness lies deeper.\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 12, "success": "The sovereign's warning images carry layers of meaning. The dark water is the Sunless Sea. The obsidian towers are a drow stronghold. And the pulsing intelligence is something the sovereign has sensed for years, growing stronger — the elder brain.", "failure": "The images are vivid but their specific meaning is hard to parse. You understand that greater dangers lie deeper in the Underdark." },
+            { "skill": "Persuasion", "dc": 11, "success": "The sovereign agrees to provide ongoing support — the party can return to Sporegarden for rest, healing, and resupply throughout their Underdark journey.", "failure": "The sovereign is grateful but cautious about promising ongoing support. It will help if the party returns but makes no guarantees." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the denouement of the first scenario and the setup for the rest of the campaign. The mood should be one of hard-won victory tempered by the knowledge that much greater challenges lie ahead. The myconid sovereign's warning images should foreshadow scenarios 2, 3, and 4 without being too specific. Stool, if it has bonded with the party, may volunteer to continue as their guide deeper into the Underdark. The party should feel accomplished but aware that they have only scratched the surface — literally — of the Underdark's dangers.",
+          "loot": [
+            "Sovereign's gift: Sporegarden Medallion (carved mushroom pendant — when held, allows the bearer to project simple images through rapport spores to myconids, also functions as a pass of friendship in myconid communities)",
+            "6 days of fungal rations (assorted edible mushrooms, nutritious if bland)",
+            "2 potions of healing (myconid-brewed, delivered in mushroom-cap containers)",
+            "A zurkhwood shield (functions as a normal shield, weighs half as much, worth 15 gp)"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "The Myconid Sovereign",
+      "role": "Quest Giver / Ally",
+      "description": "An ancient myconid standing nearly seven feet tall, its cap a deep royal purple shot through with veins of gold bioluminescence. It communicates solely through rapport spores, sharing complex thoughts as cascading images, emotions, and sensations. Its movements are slow and deliberate, carrying the weight of centuries of accumulated wisdom.",
+      "motivation": "The sovereign wants to protect its community from the spreading corruption. It is a pacifist by nature and cannot bring itself to violence, but it recognizes that the party can do what it cannot. It also fears the growing psychic presence of the elder brain, which it has sensed probing the edges of the rapport network for years."
+    },
+    {
+      "name": "Stool",
+      "role": "Guide / Companion",
+      "description": "A young myconid sprout barely two feet tall, with a bright blue cap and an irrepressible curiosity about everything. Stool communicates through rapid-fire rapport spore images that are enthusiastic but sometimes jumbled — like trying to have a conversation with an excited child who speaks in pictures instead of words.",
+      "motivation": "Stool wants to help the party save its home and is fascinated by the surface-worlders. It has never been beyond the Fungal Caverns and dreams of seeing the wider Underdark. If allowed to continue with the party, it will prove a loyal and surprisingly brave companion."
+    },
+    {
+      "name": "Basidia Mold",
+      "role": "Antagonist / Tragic Figure",
+      "description": "A forest gnome alchemist in her middle years, barely three feet tall, with wild white hair matted with fungal growth and bright, feverish eyes that shift between brilliant clarity and vacant madness. Patches of fungal tissue have colonized her skin, and she speaks in rapid, fragmented sentences that veer between scientific brilliance and religious ecstasy. She was once a respected researcher before obsession and demonic influence consumed her mind.",
+      "motivation": "Basidia was originally hired by drow House Despana to develop biological weapons using Underdark fungi. Her research led her to discover Zuggtmoy's Tears, a parasitic fungus connected to the demon queen of fungi. The fungus infected her mind, turning her from a scientist into a cultist. She believes she is on the verge of a breakthrough that will unlock the secrets of life and death. In lucid moments, she knows she has gone mad and is terrified of what she has become."
+    }
+  ],
+  "rewards": {
+    "xp": 1200,
+    "gold": "110 gp total (45 gp from Basidia's chest, various loot items worth approximately 65 gp)",
+    "items": [
+      "Ring of Poison Resistance (rare, requires attunement)",
+      "Sporegarden Medallion (allows rapport spore communication with myconids)",
+      "Alchemist's Supplies (complete set)",
+      "5 Potions of Healing (2 from Basidia's chest, 2 from myconids, 1 from sovereign)",
+      "3 Vials of Antitoxin",
+      "Basidia's Research Notes (plot item — connects to scenarios 2 and 4)",
+      "Letter from Ilvara of House Despana (plot item — connects to scenario 2)",
+      "Zurkhwood Shield (half-weight shield)"
+    ],
+    "story": "The party has saved the myconid community of Sporegarden and gained their first true allies in the Underdark. They have uncovered connections between the drow military and biological weapons research, and found evidence of mind flayer involvement in the deeper Underdark. The myconid sovereign's warning has given them a glimpse of the greater threats awaiting them below. Sporegarden serves as a safe haven for future rests and resupply."
+  },
+  "twists": [
+    "The corruption in the Fungal Caverns is not natural but was caused by a surface-world alchemist hired by the drow — the Underdark's dangers are often manufactured by its inhabitants rather than inherent to the environment.",
+    "Basidia is not simply evil but a victim of demonic influence through the Zuggtmoy's Tears fungus. She can potentially be saved, turning a villain into an ally who provides critical information about the drow and mind flayers.",
+    "The myconid rapport network has detected the elder brain's psychic probing — establishing early that the mind flayer threat underlies everything in the Underdark and connecting all four scenarios.",
+    "Basidia's possession of illithid brain tissue samples hints at a connection between the drow weapons program and the mind flayers — a thread that will unravel in scenarios 2 and 4."
+  ],
+  "dmTips": [
+    "The myconid rapport spore communication is the signature feature of this scenario. Make it immersive — describe it as dreaming while awake, where images, emotions, and sensations wash over the characters. Use vivid sensory descriptions: 'You taste honey and feel warm sunlight, and you understand this means welcome' or 'A sharp tang of copper and the sensation of falling — danger, urgency, please help.'",
+    "The Rotgrove should feel genuinely unsettling after the beauty of Sporegarden. Describe the corruption in visceral terms — mushrooms weeping black ichor, the sweet-rot smell, spore zombies whose faces still show expressions of pain or surprise from when they died. Make the players want to stop this.",
+    "Basidia Mold works best as a tragic villain rather than a cartoon one. In combat, have her alternate between tactical intelligence and moments of raving madness. If the party tries to talk her down, reward the effort — breaking through her madness should feel like a real achievement.",
+    "Stool is the emotional heart of this scenario. Play them as brave, curious, and endearingly enthusiastic. Their rapport spore images should be vivid and sometimes amusingly literal — if they want to say 'be careful,' they might project an image of someone tripping and falling. Use Stool to build attachment so the party cares about protecting the myconid community.",
+    "Seed the connections to future scenarios naturally through Basidia's notes and the sovereign's visions. The drow connection (scenario 2) should feel like a direct lead. The mind flayer connection (scenario 4) should be more mysterious — a hint of something vast and patient waiting in the deep."
+  ]
+}

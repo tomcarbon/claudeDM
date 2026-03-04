@@ -174,7 +174,7 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const startSession = useCallback((characterId, scenarioId, player) => {
+  const startSession = useCallback((characterId, scenarioId, player, campaignId) => {
     pendingResumeRef.current = null;
     pendingWatchRef.current = null;
     setSessionAccess({ sessionDbId: null, canWrite: true, readOnly: false });
@@ -183,6 +183,7 @@ export default function useWebSocket() {
         type: 'session_start',
         characterId,
         scenarioId,
+        campaignId: campaignId || null,
         playerEmail: player?.email || null,
         playerName: player?.name || null,
       }));
@@ -218,12 +219,13 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages, player) => {
+  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages, player, campaignId) => {
     const payload = {
       type: 'session_resume',
       claudeSessionId,
       characterId,
       scenarioId,
+      campaignId: campaignId || null,
       messages: savedMessages || [],
       playerEmail: player?.email || null,
       playerName: player?.name || null,

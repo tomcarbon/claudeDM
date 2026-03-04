@@ -30,7 +30,7 @@ function getSessionOwnerEmail(session) {
 
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
-  const sessionsDir = path.join(dataDir, 'sessions');
+  const playersDir = path.join(dataDir, 'players');
 
   function broadcastChatParticipants(chatKey) {
     const participants = getRoomParticipants(chatKey);
@@ -49,13 +49,28 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
   function readSessionByDbId(sessionDbId) {
     if (!sessionDbId) return null;
-    const filePath = path.join(sessionsDir, `${sessionDbId}.json`);
-    if (!fs.existsSync(filePath)) return null;
+    const filename = `${sessionDbId}.json`;
+    // Search across all player/campaign session dirs
     try {
-      return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-    } catch {
-      return null;
+      const playerSlugs = fs.existsSync(playersDir) ? fs.readdirSync(playersDir) : [];
+      for (const slug of playerSlugs) {
+        const playerDir = path.join(playersDir, slug);
+        let campaigns;
+        try { campaigns = fs.readdirSync(playerDir).filter(d => fs.statSync(path.join(playerDir, d)).isDirectory()); } catch { continue; }
+        for (const cid of campaigns) {
+          const sessPath = path.join(playerDir, cid, 'sessions', filename);
+          if (fs.existsSync(sessPath)) {
+            return JSON.parse(fs.readFileSync(sessPath, 'utf-8'));
+          }
+        }
+      }
+    } catch { /* ignore */ }
+    // Fallback: check legacy global sessions dir
+    const legacyPath = path.join(dataDir, 'sessions', filename);
+    if (fs.existsSync(legacyPath)) {
+      try { return JSON.parse(fs.readFileSync(legacyPath, 'utf-8')); } catch { /* ignore */ }
     }
+    return null;
   }
 
   function broadcastSessionMessage(sessionDbId, type, payload = {}, excludedEntry = null) {
@@ -74,6 +89,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     const engine = new DmEngine(dataDir);
     let characterId = null;
     let scenarioId = null;
+    let campaignId = null;
     let processing = false;
     let messageHistory = []; // Track conversation for resume fallback
     let currentChatKey = null;
@@ -166,10 +182,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           leaveCurrentSessionRoom();
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
+          campaignId = msg.campaignId || null;
           wsEntry.playerEmail = msg.playerEmail;
           if (msg.playerName) wsEntry.playerName = msg.playerName;
           send('session_status', { status: 'idle' });
-          console.log(`[WS] Session started — character: ${characterId}, scenario: ${scenarioId}, player: ${wsEntry.playerEmail}`);
+          console.log(`[WS] Session started — character: ${characterId}, scenario: ${scenarioId}, campaign: ${campaignId}, player: ${wsEntry.playerEmail}`);
           break;
         }
 
@@ -180,6 +197,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           }
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
+          campaignId = msg.campaignId || null;
           engine.sessionId = msg.claudeSessionId || null;
           wsEntry.playerEmail = msg.playerEmail;
           if (msg.playerName) wsEntry.playerName = msg.playerName;
@@ -188,7 +206,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             messageHistory = msg.messages;
           }
           send('session_status', { status: 'idle' });
-          console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, player: ${wsEntry.playerEmail}, history: ${messageHistory.length} messages`);
+          console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, campaign: ${campaignId}, player: ${wsEntry.playerEmail}, history: ${messageHistory.length} messages`);
           break;
         }
 
@@ -298,6 +316,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             const stream = engine.run(msg.text.trim(), {
               characterId,
               scenarioId,
+              campaignId,
               messageHistory,
               playerEmail: wsEntry.playerEmail,
               onPermissionRequest: (toolName, input, toolUseID) => {

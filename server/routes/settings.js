@@ -57,14 +57,16 @@ module.exports = function (dataDir) {
       const scope = req.query.scope || 'all';
       const id = req.query.id;
 
+      const campaignId = req.campaignId;
+
       if (id && (scope === 'character' || scope === 'npc')) {
-        resetSingleEntity(dataDir, req.player.email, scope, id);
-        return res.json({ reset: scope, id });
+        resetSingleEntity(dataDir, req.player.email, scope, id, campaignId);
+        return res.json({ reset: scope, id, campaignId });
       }
 
       if (['all', 'characters', 'npcs'].includes(scope)) {
-        resetPlayerData(dataDir, req.player.email, scope);
-        return res.json({ reset: scope });
+        resetPlayerData(dataDir, req.player.email, scope, campaignId);
+        return res.json({ reset: scope, campaignId });
       }
 
       res.status(400).json({ error: 'Invalid scope. Use: all, characters, npcs, character (with id), or npc (with id).' });

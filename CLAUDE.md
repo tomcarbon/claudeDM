@@ -15,16 +15,35 @@ A Node/React application for playing D&D 5e with an AI Dungeon Master. The AI na
 data/
 ├── players/                      # Per-player isolated game data
 │   └── <email-slug>/            # e.g. "tom", "jane-example-com"
-│       ├── characters/          # Player's personal character copies
-│       └── npcs/                # Player's personal NPC copies
+│       ├── demo/                # Campaign-specific player data
+│       │   ├── characters/      # Player's personal character copies for demo campaign
+│       │   ├── npcs/            # Player's personal NPC copies for demo campaign
+│       │   └── sessions/        # Player's saved sessions for demo campaign
+│       └── campaign1/           # Another campaign's data
+│           ├── characters/
+│           ├── npcs/
+│           └── sessions/
 ├── defaults/                    # Templates for new players (source of truth for resets)
-│   ├── characters/
-│   └── npcs/
+│   ├── demo/
+│   │   ├── characters/
+│   │   └── npcs/
+│   └── campaign1/
+│       ├── characters/
+│       └── npcs/
+├── campaigns/                   # Campaign metadata and scenarios
+│   ├── demo/
+│   │   ├── campaign.json        # Campaign metadata
+│   │   └── scenarios/           # Demo campaign scenarios
+│   └── campaign1/
+│       ├── campaign.json
+│       └── scenarios/           # Underdark campaign scenarios
 ├── rules/                       # D&D 5e rules database (shared, read-only)
-└── scenarios/                   # Campaign scenarios and encounters (shared)
+└── dm-settings.json             # Global DM personality settings
 ```
 
-**Per-Player Isolation:** Each player has their own copy of characters and NPCs under `data/players/<slug>/`. When the DM modifies a character (XP, HP, equipment), it only affects that player's files. The `data/defaults/` directory holds pristine templates used when provisioning new players or resetting data.
+**Campaign Isolation:** All player data (characters, NPCs, sessions) is scoped per-campaign. When a player selects campaign "demo", all API requests include an `X-Campaign-Id: demo` header, and the server routes to `data/players/<slug>/demo/`. Campaign "campaign1" (Depths of the Underdark) uses `data/players/<slug>/campaign1/`. There is zero crossover between campaigns.
+
+**Per-Player Isolation:** Each player has their own copy of characters and NPCs under `data/players/<slug>/<campaignId>/`. When the DM modifies a character (XP, HP, equipment), it only affects that player's files for that campaign. The `data/defaults/<campaignId>/` directory holds pristine templates used when provisioning new players or resetting data.
 
 ## Running the App
 ```bash

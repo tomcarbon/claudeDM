@@ -1,0 +1,156 @@
+{
+  "id": "c3c4c5c6-d7d8-4e9e-0f1f-2a2a3b3b4c4c",
+  "name": "Sarith Kzekarit",
+  "status": "alive",
+  "race": "Elf",
+  "subrace": "Drow (Dark Elf)",
+  "class": "Rogue",
+  "level": 3,
+  "background": "Criminal",
+  "alignment": "Neutral Evil",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Stealth (expertise, +7)",
+    "Deception (expertise, +6)",
+    "Perception",
+    "Investigation",
+    "Sleight of Hand",
+    "Acrobatics"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Undercommon",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Shortsword",
+    "Shortsword (off-hand)",
+    "Hand crossbow",
+    "Crossbow bolts (20)",
+    "Thieves' tools",
+    "Burglar's pack",
+    "Two daggers",
+    "A dark cloak with a hood",
+    "A set of dark common clothes",
+    "Belt pouch containing 15 gp",
+    "A set of loaded dice",
+    "A small vial of drow poison (1)"
+  ],
+  "weapons": [
+    {
+      "name": "Shortsword",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Hand Crossbow",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Superior Darkvision (120 ft.)",
+    "Sunlight Sensitivity (disadvantage on attack rolls and Perception checks in direct sunlight)",
+    "Fey Ancestry (advantage on saves vs. charm, immune to magical sleep)",
+    "Trance (4-hour meditation replaces 8-hour sleep)",
+    "Keen Senses (proficiency in Perception)",
+    "Drow Magic (dancing lights cantrip; faerie fire 1/day at 3rd level)",
+    "Drow Weapon Training (proficiency with rapiers, shortswords, hand crossbows)",
+    "Expertise (Stealth, Deception: double proficiency bonus)",
+    "Sneak Attack (2d6 extra damage once per turn with finesse/ranged weapon with advantage or adjacent ally)",
+    "Thieves' Cant (secret language of rogues)",
+    "Cunning Action (bonus action to Dash, Disengage, or Hide)",
+    "Roguish Archetype: Assassin",
+    "Assassinate (advantage on attack rolls against creatures that haven't taken a turn yet; any hit against a surprised creature is a critical hit)",
+    "Criminal Contact (Criminal feature: a reliable contact who acts as liaison to the criminal underworld)"
+  ],
+  "traits": [
+    "Superior Darkvision",
+    "Sunlight Sensitivity",
+    "Fey Ancestry",
+    "Trance",
+    "Sneak Attack",
+    "Cunning Action",
+    "Assassinate"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 4,
+    "cantrips": [
+      "Dancing Lights (Drow Magic)"
+    ],
+    "level1": {
+      "slots": 0,
+      "known": [
+        "Faerie Fire (Drow Magic, 1/day)"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak in clipped, sardonic sentences and keep my emotions tightly controlled. I trust no one and expect betrayal as a matter of course. I observe far more than I share and file away every detail for future use.",
+    "ideals": "Survival. Loyalty is a luxury. Morality is a construct. The only constant in the Underdark is that the strong consume the weak, and I intend to survive.",
+    "bonds": "I was once a warrior of House Kzekarit before being cast out for a crime I did commit but refuse to discuss. I carry a deep shame that I masks with bitterness and contempt. Something is growing inside me, and I fear what it means.",
+    "flaws": "I am prone to sudden outbursts of paranoid aggression. I hear whispers that no one else can hear, and they are getting louder. I push people away before they can get close enough to hurt me or see what I am becoming."
+  },
+  "appearance": "A gaunt, sharp-featured drow male of 5'7\" with ebony skin drawn tight over angular cheekbones. His white hair is unkempt and lank, falling in ragged curtains around a face that might once have been handsome but is now hollowed by stress and sleeplessness. His red eyes burn with a feverish intensity, darting constantly as though tracking threats only he can see. A faint network of gray-green discoloration, like branching veins, is visible along his neck and left arm, partially hidden by his dark cloak. He moves with a predator's practiced silence, every step deliberate and watchful. His studded leather armor is well-maintained but bears the scars of hard use.",
+  "backstory": "Sarith was a mid-ranking warrior of the minor drow House Kzekarit in Menzoberranzan. Ambitious and ruthless, he climbed the ranks through a combination of genuine skill and strategic betrayal. His downfall came when he murdered a rival warrior during what was supposed to be a non-lethal training exercise, an act witnessed by a priestess of Lolth. Rather than face punishment, Sarith fled into the Underdark tunnels. During his flight, he stumbled through a patch of strange fungi pulsing with an eerie, unnatural energy. The spores invaded his lungs and blood, and since then, something has been growing inside him. He hears whispers at the edges of his consciousness, feels alien impulses that are not his own. The gray-green discoloration spreading across his skin is the outward sign of a demonic fungal infection linked to Zuggtmoy, the Demon Queen of Fungi. Sarith does not fully understand what is happening to him, only that he is changing, and he is terrified.",
+  "dmNotes": {
+    "roleplaying": "Sarith is the party's most morally ambiguous companion. Play him as bitter, sardonic, and perpetually suspicious, but not one-dimensionally evil. He is a survivor first and foremost, and his cruelty is born from a drow culture that rewards it. Beneath the cynicism is genuine fear about the infection spreading through his body. He has moments of unexpected competence and even reluctant helpfulness, especially in combat. He knows the Underdark intimately and his tactical advice is often sound, even if delivered with condescension. The infection should manifest as increasing symptoms: occasional twitches, moments where he pauses mid-sentence as though listening to something, and periodic outbursts of irrational hostility followed by confusion. He does NOT know the infection is linked to Zuggtmoy. He hides the spreading discoloration under his cloak and becomes hostile if anyone notices it.",
+    "voice": "Clipped, sardonic, and dripping with drow superiority. Uses cutting observations and backhanded compliments. Speaks in a low, measured tone that rarely rises in volume but can cut like a blade. Example: 'Oh, how delightful. Another tunnel full of things that want to kill us. I suggest the large one goes first. That is what large ones are for.' When the infection pulses, his speech becomes fragmented and his eyes unfocus: 'We should... the spores are... no. Nothing. We should keep moving. Now.' He never says please or thank you unless he is being deeply sarcastic.",
+    "motivations": "Primary: Survive and find a cure for whatever is happening to his body. Secondary: Maintain his independence and never be captured or enslaved again. Tertiary: Despite himself, he has begun to feel something approaching loyalty toward companions who prove their competence. He will never admit this. He is also drawn, against his will, toward Neverlight Grove, where the source of his infection calls to him.",
+    "secrets": "Sarith murdered a fellow drow warrior named Velkyn during a training exercise and fled Menzoberranzan to avoid execution. He is infected with demonic spores linked to Zuggtmoy, the Demon Queen of Fungi. The infection is slowly taking over his mind. He hears Zuggtmoy's whispered promises of transcendence and perfection through fungal communion, and each day it becomes harder to resist. The gray-green discoloration on his skin is spreading. He feels compelled to travel toward Neverlight Grove, though he does not understand why. Eventually, if the infection is not cured, Sarith will become a spore servant, a fungal zombie completely under Zuggtmoy's control. He also has contacts in the drow criminal underworld who could be useful or dangerous.",
+    "attitude": "Guarded, hostile, and sardonic with everyone. He respects competence and strength, and will grudgingly cooperate with anyone who proves useful. He despises weakness and will mock or belittle companions who show vulnerability, though he occasionally catches himself and feels something he refuses to identify as guilt. He is most hostile toward other drow (seeing them as reminders of his failure) and most tolerant of non-humanoid party members like Stool and Glabbagool, who do not trigger his ingrained social hierarchies. When the infection flares, his attitude shifts unpredictably between paranoid hostility and eerie calm."
+  }
+}

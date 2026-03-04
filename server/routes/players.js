@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { provisionPlayerDefaults } = require('../player-data');
+const { provisionAllCampaignDefaults } = require('../player-data');
 
 function hashPassword(password) {
   return crypto.createHash('sha256').update(password).digest('hex');
@@ -62,7 +62,7 @@ module.exports = function (dataDir) {
     };
     writePlayers(players);
     // Provision per-player character/NPC data from defaults
-    try { provisionPlayerDefaults(dataDir, key); } catch (e) { console.error('[Players] Provision error:', e); }
+    try { provisionAllCampaignDefaults(dataDir, key); } catch (e) { console.error('[Players] Provision error:', e); }
     res.status(201).json(safePlayer(players[key]));
   });
 

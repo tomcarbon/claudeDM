@@ -56,8 +56,8 @@ module.exports = function (dataDir) {
   router.use(playerAuth);
 
   function getCharDir(req) {
-    const dir = getPlayerCharactersDir(dataDir, req.player.email);
-    ensurePlayerDataExists(dataDir, req.player.email);
+    const dir = getPlayerCharactersDir(dataDir, req.player.email, req.campaignId);
+    ensurePlayerDataExists(dataDir, req.player.email, req.campaignId);
     return dir;
   }
 

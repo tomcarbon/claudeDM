@@ -21,8 +21,11 @@ const { attachWebSocket } = require('./ws-handler');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const { campaignContext } = require('./campaign-context');
+
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
+app.use(campaignContext());
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 

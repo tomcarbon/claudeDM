@@ -14,10 +14,20 @@ function getPlayerHeaders() {
   }
 }
 
+function getCampaignHeader() {
+  try {
+    const cid = localStorage.getItem('dnd_campaign');
+    return cid ? { 'X-Campaign-Id': cid } : {};
+  } catch {
+    return {};
+  }
+}
+
 async function fetchJson(url, options = {}) {
   const headers = {
     'Content-Type': 'application/json',
     ...getPlayerHeaders(),
+    ...getCampaignHeader(),
     ...(options.headers || {}),
   };
 

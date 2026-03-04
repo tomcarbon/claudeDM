@@ -1,0 +1,153 @@
+{
+  "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c",
+  "name": "Kael Ashwhisper",
+  "status": "alive",
+  "race": "Tiefling",
+  "subrace": "",
+  "class": "Warlock",
+  "level": 3,
+  "background": "Charlatan",
+  "alignment": "Chaotic Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 18,
+      "modifier": 4
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Arcana",
+    "Deception",
+    "Investigation",
+    "Sleight of Hand",
+    "Persuasion"
+  ],
+  "languages": [
+    "Common",
+    "Infernal",
+    "Abyssal",
+    "Undercommon"
+  ],
+  "equipment": [
+    "Leather armor",
+    "Two daggers",
+    "Light crossbow",
+    "Crossbow bolts (20)",
+    "Arcane focus (a black iron rod etched with Underdark sigils)",
+    "Dungeoneer's pack",
+    "A set of fine clothes",
+    "A disguise kit",
+    "A set of weighted dice",
+    "A signet ring of an invented identity",
+    "Belt pouch containing 15 gp",
+    "A stoppered vial of phosphorescent ink"
+  ],
+  "weapons": [
+    {
+      "name": "Eldritch Blast",
+      "attackBonus": 6,
+      "damage": "1d10",
+      "damageType": "force"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Light Crossbow",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Hellish Resistance (resistance to fire damage)",
+    "Infernal Legacy (thaumaturgy cantrip; hellish rebuke as 2nd-level spell 1/day at 3rd level)",
+    "Otherworldly Patron: The Fiend (reflavored as The Dweller in Darkness, an ancient Underdark entity)",
+    "Pact Magic (2 spell slots, all at 2nd level, regain on short rest)",
+    "Dark One's Blessing (gain temporary HP equal to CHA mod + warlock level when you reduce a hostile creature to 0 HP)",
+    "Eldritch Invocations: Agonizing Blast (add CHA modifier to Eldritch Blast damage), Devil's Sight (see normally in magical and nonmagical darkness to 120 ft.)",
+    "Pact Boon: Pact of the Chain (find familiar: imp reflavored as a small shadow creature)",
+    "False Identity (Charlatan feature: established a second identity including documentation, established acquaintances, and disguises)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Hellish Resistance",
+    "Infernal Legacy",
+    "Dark One's Blessing",
+    "Agonizing Blast",
+    "Devil's Sight",
+    "Pact of the Chain"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 14,
+    "spellAttackBonus": 6,
+    "cantrips": [
+      "Eldritch Blast",
+      "Minor Illusion",
+      "Thaumaturgy (Infernal Legacy)"
+    ],
+    "level1": {
+      "slots": 0,
+      "known": [
+        "Hellish Rebuke (Infernal Legacy, 1/day as 2nd-level)"
+      ]
+    },
+    "level2": {
+      "slots": 2,
+      "known": [
+        "Hex",
+        "Charm Person",
+        "Darkness",
+        "Hold Person"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I lie about almost everything, even when there's no reason to. It's a reflex born of a lifetime of survival through deception. I flash a charming grin at every opportunity, but my eyes rarely match my smile. I speak to my shadow familiar like it's an old friend.",
+    "ideals": "Freedom. Rules and laws are just tools the powerful use to control the weak. I answer to no one but myself, and maybe to the voice in the dark that gave me my power. Maybe.",
+    "bonds": "I made my pact with the Dweller in Darkness, an ancient entity that whispers from the deepest crevices of the Underdark. I don't fully understand what it wants, but the power it gives me has kept me alive. I owe a significant debt to a deep gnome merchant who helped me fake my death when surface authorities caught up with me.",
+    "flaws": "I cannot resist a good con, even when the stakes are too high. My patron's whispers are growing louder and more insistent, and I am not entirely sure whose agenda I am serving anymore. I trust my charm more than I should and underestimate genuinely dangerous opponents."
+  },
+  "appearance": "A lean, angular tiefling man standing 5'11\" with dusky red-gray skin and short, swept-back horns that curve like a ram's. His eyes are solid amber with no visible pupils, giving him an unsettling, inhuman gaze. His dark hair is slicked back and his pointed beard is neatly trimmed, giving him the appearance of a down-on-his-luck noble. He wears well-fitted leather armor under a dark cloak with an impractical but stylish high collar. A black iron rod etched with strange sigils serves as his arcane focus, and a small, shadowy creature occasionally flickers in and out of visibility near his shoulder, his pact familiar.",
+  "backstory": "Kael grew up on the streets of Waterdeep, a tiefling orphan surviving through quick wits, quicker fingers, and an easy smile. He ran cons and petty schemes across the Sword Coast, always one step ahead of the law, until a particularly ambitious scam on a merchant guild went catastrophically wrong. Fleeing for his life, he stumbled into a cave system that led deep underground. Lost and starving in the Underdark, on the verge of death, he heard a voice in the absolute darkness. It offered power in exchange for service. Kael, ever the pragmatist, accepted. The Dweller in Darkness, whatever it truly is, flooded him with eldritch power and whispered secrets of shadow and flame. Now Kael navigates the Underdark with unnatural ease, his Devil's Sight piercing even magical darkness. He tells everyone a different story about how he ended up below the surface. The truth is he's afraid to go back, afraid of what he owes above, and increasingly uncertain about what he owes below."
+}

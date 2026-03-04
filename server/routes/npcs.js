@@ -12,8 +12,8 @@ module.exports = function (dataDir) {
   router.use(playerAuth);
 
   function getNpcDir(req) {
-    const dir = getPlayerNpcsDir(dataDir, req.player.email);
-    ensurePlayerDataExists(dataDir, req.player.email);
+    const dir = getPlayerNpcsDir(dataDir, req.player.email, req.campaignId);
+    ensurePlayerDataExists(dataDir, req.player.email, req.campaignId);
     return dir;
   }
 

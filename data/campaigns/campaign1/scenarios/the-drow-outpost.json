@@ -1,0 +1,320 @@
+{
+  "id": "ud-scenario-002",
+  "title": "The Drow Outpost",
+  "subtitle": "Webs of Steel and Shadow",
+  "levelRange": "5-7",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Velkynvelve and the Drow Territories",
+    "description": "The drow outpost of Velkynvelve is a military installation carved into the walls of an immense vertical cavern, connected by web-bridges of magically reinforced spider silk and stairs cut into the living rock. House Despana uses it as a forward operating base for slaving operations, a staging ground for territorial expansion, and — as the party will discover — a research facility connected to the biological weapons program uncovered in scenario 1. The outpost is a masterwork of drow engineering: elegant, functional, and deeply cruel, with slave pens hanging over the cavern's edge and interrogation chambers hidden behind walls of polished obsidian.",
+    "atmosphere": "Cold, controlled, and menacing. The drow outpost is a place of whispered conspiracies, casual cruelty, and suffocating hierarchy. Every interaction is a power play, every courtesy a knife behind a smile. The architecture is hauntingly beautiful — flowing obsidian curves, purple faerzress lighting, silvered spider motifs — but beauty serves power here, and power serves House Despana.",
+    "keyLocations": [
+      {
+        "name": "The Approach — Web Bridge Canyon",
+        "description": "A deep canyon spanned by massive web-bridges connecting tunnel systems on either side. The bridges are guarded by drow sentries and phase spiders that nest in the canyon walls. Below, a river of lava provides dim reddish light and makes the air shimmer with heat.",
+        "features": [
+          "Web-bridges 200 feet above a lava river — falling is almost certainly fatal",
+          "Phase spiders nesting in the canyon walls, sometimes phasing in and out of the Ethereal Plane",
+          "Drow sentry posts at each bridge anchor point",
+          "A hidden maintenance tunnel running beneath the bridges (DC 16 Perception or DC 14 Investigation to find)"
+        ],
+        "encounters": [
+          "2 drow guards patrolling the near bridge anchor",
+          "1 phase spider that phases in near intruders if the alarm is raised",
+          "A trapped section of bridge (DC 14 Perception to spot, DC 13 Dexterity save to avoid, 3d6 falling damage into a web-net 50 feet below — captured, not killed)"
+        ],
+        "secrets": [
+          "The maintenance tunnels are used by deep gnome spies from Blingdenstone who have been monitoring drow troop movements",
+          "The phase spiders have been partially domesticated by the drow and can be calmed with certain alchemical pheromones found in the sentry posts"
+        ]
+      },
+      {
+        "name": "Velkynvelve — The Outpost Proper",
+        "description": "The main outpost built into the cavern wall, a vertical settlement of platforms, chambers, and walkways connected by stairs and ropes. The upper levels house officers' quarters, a shrine to Lolth, and the commander's chambers. The middle levels contain barracks, armories, and the research laboratory. The lower levels hold the slave pens, interrogation chambers, and storage.",
+        "features": [
+          "Multi-level construction carved into cavern walls — three main tiers connected by stairs and rope ladders",
+          "A shrine to Lolth with a massive spider idol whose crystal eyes seem to follow movement",
+          "Slave pens hanging over the cavern edge, accessible only by retractable bridges",
+          "A hidden research laboratory behind false walls in the middle tier (DC 16 Investigation to find)",
+          "An armory with drow weapons and a locked case (DC 17 Thieves' Tools) containing a +1 shortsword"
+        ],
+        "encounters": [
+          "Commander Ilvara Mizzrym — a drow priestess of Lolth (use priestess of Lolth stats) who runs the outpost",
+          "Lieutenant Shoor Vandree — her second-in-command and lover, a skilled drow warrior",
+          "Jorlan Duskryn — a scarred, disgraced drow warrior bitter about his demotion, a potential ally",
+          "12-15 drow warriors and 4 drow elite warriors stationed throughout the outpost"
+        ],
+        "secrets": [
+          "Ilvara has been diverting resources from House Despana's military operations to fund the biological weapons research, a betrayal that would cost her everything if discovered",
+          "Jorlan Duskryn was disfigured in a failed experiment and holds a burning grudge against Ilvara — he will help the party if he believes they can hurt her",
+          "The research lab contains correspondence with mind flayer agents trading biological samples — the drow are unknowingly serving the elder brain's agenda"
+        ]
+      },
+      {
+        "name": "The Slave Pens",
+        "description": "Cramped cages of zurkhwood and iron hanging from the cavern wall over the abyss below, accessible only by retractable bridges controlled from the guard station above. The slaves are a mix of surface dwellers, deep gnomes, and other Underdark peoples captured in drow raids. Conditions are brutal — minimal food, no light, and constant fear.",
+        "features": [
+          "6 hanging cages, each holding 3-5 prisoners",
+          "Retractable bridges controlled by a lever mechanism in the guard station (DC 13 to operate quietly)",
+          "A crude escape tunnel hidden behind a loose stone in cage 4 (DC 15 Perception), dug by a previous prisoner but incomplete",
+          "Guard station with 2 drow warriors on watch at all times"
+        ],
+        "encounters": [
+          "Roleplaying with prisoners who provide intelligence about the outpost's routines, guard changes, and weaknesses",
+          "A svirfneblin prisoner named Topsy who knows the way to Blingdenstone and can guide the party through the deeper tunnels"
+        ],
+        "secrets": [
+          "One of the prisoners is actually a doppelganger planted by the mind flayers to observe drow operations — it will attempt to escape with the party and report back to the elder brain",
+          "The incomplete escape tunnel in cage 4 leads to the maintenance tunnels beneath the outpost, connecting to the deep gnome spy network"
+        ]
+      },
+      {
+        "name": "The Drider's Lair",
+        "description": "Below the outpost, in a web-choked cavern accessible only through a narrow passage from the lowest level, dwells a drider — a drow cursed by Lolth and transformed into a monstrous half-drow, half-spider creature. Ilvara uses it as a threat to maintain discipline and as a guard against approach from below. The drider is Jorlan's former mentor, twisted by Lolth's punishment for questioning the priestess's authority.",
+        "features": [
+          "A cavern draped in thick spider webs (difficult terrain throughout)",
+          "The drider's nest at the center, surrounded by the desiccated remains of its victims",
+          "A passage leading deeper into the Underdark — the escape route if the party frees the slaves",
+          "Cocoons hanging from the ceiling containing preserved valuables from the drider's victims"
+        ],
+        "encounters": [
+          "1 drider (CR 6) — a formidable opponent that combines drow magic with spider abilities"
+        ],
+        "secrets": [
+          "The drider retains fragments of its former personality and can be reasoned with briefly if addressed by its former name (Dhaunae) — it will not help the party fight the drow but may let them pass in exchange for a mercy killing",
+          "Among the drider's cocoons is a journal from a mind flayer agent, detailing the trade agreement between the illithids and House Despana — critical evidence for scenario 4"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Following the trail from Basidia's research notes, the party approaches the drow outpost of Velkynvelve, a military installation run by the ruthless priestess Ilvara Mizzrym. The outpost serves as a slaving station and, secretly, a node in a biological weapons program connected to the mind flayers. The party must infiltrate the outpost, navigate drow politics (finding a potential ally in the disgraced warrior Jorlan Duskryn), free enslaved prisoners, and uncover the deeper connection between the drow and the illithid colony. The scenario climaxes with an escape through the drider's lair into the deeper Underdark, with the drow in pursuit.",
+  "hook": "Basidia's research notes and the letter from Ilvara of House Despana point to the drow outpost of Velkynvelve as the source of the biological weapons commission. Whether the party seeks to shut down the weapons program, rescue captured surface dwellers, or simply needs to pass through drow territory to reach the deeper Underdark, Velkynvelve stands in their path. Deep gnome scouts encountered in the tunnels confirm that the outpost has been unusually active lately — more slaves arriving, more patrols, and strange visitors from the deep.",
+  "acts": [
+    {
+      "title": "Act 1: Spider's Welcome",
+      "description": "The party approaches Velkynvelve and must find a way into the outpost — whether through stealth, disguise, deception, or force. They encounter the outpost's outer defenses and begin to understand the drow power structure.",
+      "objectives": [
+        "Scout the approach to Velkynvelve",
+        "Navigate or bypass the web-bridge canyon defenses",
+        "Gain entry to the outpost (infiltration, capture, or assault)",
+        "Assess the outpost's strength and identify key NPCs"
+      ],
+      "scenes": [
+        {
+          "name": "The Canyon Crossing",
+          "description": "The party must cross the web-bridge canyon to reach Velkynvelve, dealing with drow sentries, phase spiders, and the vertiginous terrain.",
+          "readAloud": "\"The tunnel opens onto a ledge overlooking a sight that stops you cold. A canyon yawns before you, hundreds of feet deep, its bottom glowing with the sullen red light of a lava river far below. Heat shimmers rise in waves, making the far wall ripple like a mirage. Spanning the chasm are bridges of spider silk — not delicate strands but cables as thick as your arm, woven into walkways wide enough for two abreast. They sway gently in the thermals, and where the heat-shimmer clears, you can see figures on the far side: slender, dark-skinned, white-haired. Drow. Two sentries stand at the far anchor point, their hands resting on the hilts of their swords, their expressions bored and watchful in equal measure. And in the canyon walls themselves, something shifts — a spider the size of a horse, its form flickering between solid and translucent as it phases in and out of visibility.\"",
+          "skillChecks": [
+            { "skill": "Stealth", "dc": 15, "success": "You find a maintenance tunnel beneath the bridges and cross the canyon undetected, emerging behind the sentry post.", "failure": "The sentries spot your approach. Whether they raise the alarm depends on how quickly you act." },
+            { "skill": "Deception", "dc": 16, "success": "Posing as traders, mercenaries, or envoys from another drow house, you convince the sentries to grant you passage. They remain suspicious but allow entry.", "failure": "The sentries see through the disguise and demand you surrender your weapons. Refusing triggers combat." },
+            { "skill": "Perception", "dc": 14, "success": "You spot the phase spider before it spots you, and notice the trap section of bridge — a section rigged to collapse and drop intruders into a web-net below.", "failure": "The phase spider's presence goes unnoticed until it attacks, and the bridge trap catches you off guard." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 drow warriors", "1 phase spider"],
+              "difficulty": "Medium",
+              "tactics": "The drow fight defensively at the bridge anchor, using their hand crossbows with poisoned bolts (DC 13 Constitution save or be poisoned for 1 hour) to keep enemies at range on the bridge. The phase spider phases in behind the party to attack from the rear, phasing out to the Ethereal Plane when damaged and reappearing elsewhere. If the alarm is raised, reinforcements arrive in 1d4+1 rounds.",
+              "terrain": "Web-bridge (10 ft wide, 200 ft long) over lava canyon. High winds impose disadvantage on ranged attacks beyond 60 ft. The bridge sways — moving more than half speed requires DC 10 Acrobatics or fall prone. The bridge has AC 12 and 30 HP — if destroyed, creatures on it fall."
+            }
+          ],
+          "roleplayNotes": "Emphasize the alien grandeur of the drow engineering and the constant sense of danger. The web-bridges are beautiful and terrifying. The drow sentries should be played as professional soldiers — bored with routine duty but lethal when engaged. The phase spider adds an unpredictable element. If the party is captured rather than killed, they are taken to the slave pens — this is a valid path through the scenario.",
+          "loot": [
+            "2 drow hand crossbows with 10 poisoned bolts each",
+            "2 sets of drow chain mail (disintegrates in sunlight after 1 hour of exposure)",
+            "A sentry log listing patrol schedules and shift changes (provides advantage on Stealth checks within the outpost)",
+            "Phase spider venom gland (DC 14 Nature to harvest, worth 50 gp to an alchemist)"
+          ]
+        },
+        {
+          "name": "The Enemy of My Enemy",
+          "description": "Inside the outpost, the party encounters the complex web of drow politics and finds a potential ally in Jorlan Duskryn, a scarred warrior with a vendetta against Commander Ilvara.",
+          "readAloud": "\"Velkynvelve from the inside is a masterwork of cruel elegance. Obsidian platforms jut from the cavern wall at staggered heights, connected by stairs carved from the living rock and rope bridges swaying over the abyss. Purple faerzress light pools in crystal sconces, casting everything in a twilight glow. Drow move with silent purpose — warriors in dark chain, servants keeping their eyes down, and above it all, on the highest platform, the spider shrine gleams with reflected light. A drow approaches you — not from the front, where the warriors watch, but from a shadowed alcove to your left. Half his face is a ruin of scar tissue, one eye milky and blind, the skin pulled tight and shiny as melted wax. But his remaining eye burns with sharp intelligence. 'You are not here by accident,' he murmurs, his voice barely audible over the ambient sounds of the outpost. 'Neither am I. Perhaps we can be useful to each other.'\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 13, "success": "Jorlan's hatred of Ilvara is genuine and deep. His offer of alliance comes from a place of real grievance, not a trap. However, his loyalty is to himself first — he will betray the party if it serves his survival.", "failure": "Jorlan's motivations remain unclear. He could be a genuine ally or leading you into a trap." },
+            { "skill": "Persuasion", "dc": 14, "success": "You convince Jorlan that helping you will also serve his vendetta against Ilvara. He provides detailed information about the outpost layout, guard rotations, and the hidden research laboratory.", "failure": "Jorlan provides only general information, holding back details as insurance until he sees the party prove their capability." },
+            { "skill": "Investigation", "dc": 15, "success": "While exploring the outpost (with Jorlan's help or independently), you locate the hidden research laboratory behind false walls in the middle tier, finding the correspondence with mind flayer agents.", "failure": "The research laboratory remains hidden. You may still find evidence of the drow-illithid connection through other means." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Jorlan is a complex NPC — bitter, pragmatic, and dangerous, but genuinely wronged. He was Ilvara's favored lieutenant until a failed experiment in the research lab left him disfigured. Ilvara replaced him with Shoor Vandree and treats Jorlan with contempt. He wants revenge but values his own skin above all else. Play him as smart, cautious, and always calculating the angles. The party's time inside the outpost should feel like a heist or spy thriller — every conversation is a minefield, every corridor might hide an observer, and the clock is ticking.",
+          "loot": [
+            "Jorlan's intelligence: a hand-drawn map of the outpost with guard positions marked",
+            "A key to the slave pen guard station (taken from a guard Jorlan has bribed)",
+            "Knowledge of a secret passage from the middle tier to the drider's lair below"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Chains and Shadows",
+      "description": "The party works to free the slaves, uncover the research laboratory, and gather evidence of the drow-illithid connection. The political tensions within the outpost provide opportunities but also dangers.",
+      "objectives": [
+        "Free the prisoners from the slave pens",
+        "Locate and investigate the hidden research laboratory",
+        "Gather evidence of the drow-mind flayer connection",
+        "Prepare an escape route for the freed prisoners",
+        "Deal with the doppelganger among the prisoners (if discovered)"
+      ],
+      "scenes": [
+        {
+          "name": "Breaking Chains",
+          "description": "The party moves to free the enslaved prisoners, navigating guard patrols and the dangerous terrain of the hanging slave pens.",
+          "readAloud": "\"The slave pens are a horror. Zurkhwood cages reinforced with iron bars hang from the cavern wall over the abyss, connected to the outpost by retractable bridges — pull the bridge back and the prisoners are stranded in their cages with nothing but darkness below. Inside, you can see figures huddled together for warmth: a pair of svirfneblin deep gnomes, several human surface dwellers with the haunted eyes of the long-imprisoned, a dwarf with a fierce scowl, and others. The guard station sits above, where two drow warriors keep watch with the casual cruelty of long practice — occasionally dropping small stones into the cages to hear the prisoners flinch.\"",
+          "skillChecks": [
+            { "skill": "Stealth", "dc": 14, "success": "You reach the guard station without being detected and can neutralize the guards before they raise the alarm.", "failure": "A guard spots your approach. You have one round to act before they sound the alarm." },
+            { "skill": "Thieves' Tools", "dc": 13, "success": "You pick the locks on the slave pen cages quickly and quietly.", "failure": "The lock proves stubborn. The noise of your attempts risks alerting the guards." },
+            { "skill": "Persuasion", "dc": 12, "success": "You calm the frightened prisoners, organizing them for an efficient and quiet escape.", "failure": "The prisoners are panicked and difficult to control. Their noise risks detection." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 drow warriors (guard station)", "1 drow elite warrior (patrol that may discover the escape)"],
+              "difficulty": "Medium",
+              "tactics": "The guard station drow use hand crossbows with poisoned bolts and attempt to retract the bridges if they detect a breakout, stranding the party and prisoners over the abyss. The elite warrior on patrol investigates any unusual sounds and will raise the alarm if not dealt with quickly. Combat here should be fast and tense — every round risks detection.",
+              "terrain": "Slave pen area: narrow walkways (5 ft wide) along the cavern wall, retractable bridges (10 ft long, 5 ft wide) to hanging cages, guard station (15 ft by 15 ft platform) above. Falling from the walkways means 200+ ft drop into darkness."
+            }
+          ],
+          "roleplayNotes": "The slave pen scene should emphasize the cruelty of the drow and create emotional stakes. The prisoners are desperate, frightened, and some are injured. Among them is Topsy, a svirfneblin scout who knows the tunnels well and can serve as a guide. Make the escape feel urgent — every moment risks discovery. The doppelganger, if present, behaves like a terrified prisoner and does nothing suspicious unless directly investigated with Insight (DC 17 to sense something is wrong).",
+          "loot": [
+            "Guard station equipment: 2 hand crossbows, 20 poisoned bolts, keys to all cells",
+            "Bridge control mechanism (can be sabotaged to prevent pursuit: DC 13 Thieves' Tools)",
+            "A confiscated gear chest containing the prisoners' personal effects (mostly worthless but includes a gem pouch with 3 moonstone gems worth 15 gp each)"
+          ]
+        },
+        {
+          "name": "The Hidden Laboratory",
+          "description": "The party discovers and investigates the hidden research laboratory, finding evidence that connects the drow biological weapons program to the mind flayers.",
+          "readAloud": "\"Behind a section of wall that swings open on hidden hinges — Jorlan's directions were precise — you find a room that should not exist. While the rest of the outpost is open to the cavern air, this chamber is sealed, its walls lined with sheets of worked copper that hum faintly with contained magic. Alchemical apparatus similar to Basidia's lab but far more sophisticated fills stone tables. But it is the specimens that stop you cold: on the central table, suspended in a jar of amber fluid, floats a brain. Not a normal brain — this one trails tentacle-like appendages, and even preserved, it seems to pulse with a faint internal light. Beside it, correspondence written in flowing Elvish script and a second set of notes in a language of sharp, angular symbols that seems to writhe when you try to focus on it.\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 14, "success": "The angular symbols are Qualith — the written language of the mind flayers, 'read' through touch rather than sight. The preserved brain is from an illithid. This laboratory is a joint operation.", "failure": "The strange language is unreadable and the preserved specimen is clearly not from any creature you recognize." },
+            { "skill": "Investigation", "dc": 13, "success": "The correspondence reveals a trade agreement: the drow provide biological test subjects and fungal specimens, and the mind flayers provide psionic enhancement research. Both sides believe they are manipulating the other.", "failure": "The correspondence is partially encoded and you can only glean fragments — enough to know there is a connection but not its full extent." },
+            { "skill": "History", "dc": 15, "success": "You recognize references in the notes to the elder brain — the central intelligence of a mind flayer colony. The research suggests the elder brain is seeking ways to extend its psychic reach beyond the colony, and the drow are unknowingly helping it achieve this goal.", "failure": "The references to a 'cerebral sovereign' in the notes are unclear." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene is about discovery and growing dread. The hidden lab should feel like finding the evidence room in a conspiracy thriller. The mind flayer brain specimen is disturbing and should be described with visceral detail. The correspondence paints a picture of two predatory species each trying to use the other, but the underlying truth is that the elder brain is playing a longer game than anyone suspects. Basidia's notes from scenario 1 find their counterpart here — the pieces of a much larger puzzle are coming together.",
+          "loot": [
+            "Drow-illithid correspondence (quest item — critical evidence for scenario 4)",
+            "Preserved mind flayer brain specimen (worth 200 gp to the right buyer, or invaluable as leverage against the drow)",
+            "2 potions of greater healing found in the lab supplies",
+            "A psionic resonator (wondrous item, uncommon — when activated as an action, creates a 15-ft sphere of psychic static for 1 minute; creatures within have disadvantage on Wisdom saves; 3 charges, regains 1d3 at dawn)",
+            "Research notes on psionic enhancement (quest item)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Great Escape",
+      "description": "The party's infiltration is discovered or they choose to make their move, leading to a dramatic escape from Velkynvelve through the drider's lair and into the deeper Underdark with the drow in pursuit.",
+      "objectives": [
+        "Escape from Velkynvelve with the freed prisoners",
+        "Navigate through or past the drider's lair",
+        "Evade drow pursuit into the deeper Underdark",
+        "Ensure the safety of the freed prisoners",
+        "Set the stage for the journey to the Sunless Sea"
+      ],
+      "scenes": [
+        {
+          "name": "Web and Fang",
+          "description": "The escape route leads through the drider's lair below the outpost. The party must deal with the drider — a tragic figure of drow punishment — while the alarm spreads through the outpost above.",
+          "readAloud": "\"The secret passage descends sharply, the worked stone giving way to natural cavern draped in thick layers of spider silk. The air is close and smells of venom and old death. Ahead, the passage opens into a wider space, and you hear movement — the clicking of many legs on stone. The drider emerges from the shadows: the torso of a drow woman rising from the body of a massive spider, eight legs picking their way through the webs with terrible grace. Her face might have been beautiful once — now it is frozen in an expression of permanent anguish, her eyes burning with hatred and madness. She raises her hands, dark energy crackling between her fingers. Behind you, from above, you hear the alarm horns of Velkynvelve begin to sound.\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 16, "success": "Addressing the drider by her former name — Dhaunae — reaches a fragment of the person she once was. She will not help fight the drow, but she will let the party pass through her lair and even delay pursuers.", "failure": "The drider is too far gone in madness and hatred. Combat is unavoidable." },
+            { "skill": "Athletics", "dc": 14, "success": "You navigate the web-choked cavern quickly, avoiding the worst of the sticky webbing that would slow your escape.", "failure": "The thick webbing catches at your feet and armor. Your movement is halved as you struggle through the drider's lair." },
+            { "skill": "Survival", "dc": 13, "success": "Beyond the drider's lair, you find the tunnel that leads deeper into the Underdark and identify the most defensible route to slow any pursuit.", "failure": "The tunnels beyond are a maze. Without a clear path, you risk getting lost and being caught by the pursuing drow." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 drider (CR 6)"],
+              "difficulty": "Hard",
+              "tactics": "The drider uses darkness and web spells to control the battlefield, then attacks with her longbow from the shadows before closing to melee with her bite (1d8 + poison) and longsword. She targets spellcasters first, recognizing them as the greatest threat. If reduced to half HP, she retreats into the webs and uses guerrilla tactics. If the party mentions Jorlan or her former name, she hesitates for one round, losing her action.",
+              "terrain": "Web-choked cavern (50 ft by 40 ft). Thick webs create difficult terrain throughout. Web strands can be cut (AC 10, 5 HP) or burned (vulnerable to fire, but fire in a web-filled space is dangerous — DC 12 Dex save in 10-ft radius, 2d6 fire damage). The drider can move through webs without impediment."
+            }
+          ],
+          "roleplayNotes": "The drider encounter should feel like the tragic climax of the drow storyline. Dhaunae was once Jorlan's mentor and friend, transformed into a monster by Ilvara's cruelty and Lolth's curse. If the party learns her story (from Jorlan or through Insight), the fight becomes more complicated emotionally. A mercy killing is a valid and narratively powerful resolution — Dhaunae cannot be restored but she can be freed from her torment. The ticking clock of the alarm adds urgency: every round spent in combat or conversation is a round closer to drow reinforcements arriving.",
+          "loot": [
+            "Drider's lair: 2 cocoons containing preserved valuables — a gold necklace (30 gp), a silver ring set with onyx (25 gp), and a mind flayer agent's journal (quest item)",
+            "Dhaunae's longsword (+1 longsword if the party gives her a merciful end — the blade's enchantment activates as she dies, a final gift from the warrior she once was)",
+            "Mind flayer journal (quest item — details the trade agreement and hints at the elder brain's location)"
+          ]
+        },
+        {
+          "name": "Into the Deep",
+          "description": "The party emerges from the drider's lair into the deeper Underdark, putting distance between themselves and Velkynvelve while the drow organize pursuit. The freed prisoners provide leads to the next destination: the Sunless Sea.",
+          "readAloud": "\"The tunnels beyond the drider's lair twist and descend, and the sounds of pursuit — booted feet, barked commands in Elvish, the clicking of spider legs — slowly fade behind you. The freed prisoners press close, their faces a mix of relief and lingering terror. Topsy, the svirfneblin scout, takes the lead, her dark eyes reading the stone with an ease born of a lifetime underground. 'This way,' she whispers, her small hand pointing down a passage where the air carries the scent of salt and something vast. 'The Darklake. The underground sea. The drow do not patrol its waters — they fear what lives beneath.' Behind you, far behind now but not far enough, the alarm horns of Velkynvelve still sound, their notes echoing through the stone like the cries of angry gods.\"",
+          "skillChecks": [
+            { "skill": "Survival", "dc": 13, "success": "You help the group navigate the tunnel maze efficiently, putting maximum distance between the party and pursuit while conserving energy.", "failure": "Wrong turns and dead ends slow the group. The drow pursuit closes the gap." },
+            { "skill": "Stealth (group check)", "dc": 12, "success": "The group moves quietly enough to avoid detection by drow tracking patrols.", "failure": "The group is too large and frightened to move silently. A drow scouting party detects your trail." },
+            { "skill": "Perception", "dc": 14, "success": "You notice signs of mind flayer passage in the tunnels — smoothed walls, faint psychic traces, and a symbol carved into the stone that Qualith-readers would recognize as a territorial marker.", "failure": "The tunnels seem natural and unremarkable." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 drow warriors (pursuit patrol)", "1 drow elite warrior (patrol leader)"],
+              "difficulty": "Medium",
+              "tactics": "This is a running fight — the drow catch up and attack from behind while the party protects the fleeing prisoners. The drow use poisoned crossbow bolts to disable stragglers, then close for melee. The patrol leader directs tactics and will attempt to capture rather than kill, intending to bring the party back to Ilvara. If two drow are defeated, the survivors break off to report the party's heading.",
+              "terrain": "Tunnel network (10-15 ft wide, multiple branches). The party can use chokepoints for defense but must keep moving to protect the prisoners. Side tunnels offer opportunities for ambush. The terrain gradually transitions from carved drow tunnels to natural Underdark passages."
+            }
+          ],
+          "roleplayNotes": "This is a transitional scene that bridges scenarios 2 and 3. The tone should be tense but ultimately hopeful — the party has dealt a blow to the drow, freed prisoners, and gathered critical intelligence. The freed prisoners should be grateful and provide organic exposition: Topsy knows about the Sunless Sea and the kuo-toa who worship there. The hints of mind flayer territorial markers deepen the elder brain thread. End on a note of weary victory and the promise of new dangers ahead.",
+          "loot": [
+            "Drow pursuit patrol: 4 hand crossbows, 30 poisoned bolts, 4 shortswords, 20 gp in drow coins",
+            "The patrol leader carries a sending stone keyed to Commander Ilvara (single use, potentially useful for misdirection)",
+            "Topsy's knowledge: safe routes to the Sunless Sea, locations of food and water sources, warnings about kuo-toa territories"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Commander Ilvara Mizzrym",
+      "role": "Primary Antagonist",
+      "description": "A drow priestess of Lolth who commands Velkynvelve with iron authority and velvet cruelty. Tall and striking even by drow standards, she wears spider-silk robes over mithral chain and carries a tentacle rod — a symbol of Lolth's favor. Her voice is soft and her smile is constant, making her cruelty all the more chilling. She views everyone as pieces in a game she intends to win.",
+      "motivation": "Ilvara is ambitious and pragmatic. She runs the biological weapons research as a secret project to gain leverage within House Despana, trading with mind flayer agents for psionic enhancement knowledge. She does not realize she is being manipulated by the elder brain — she believes she is using the illithids. If the party escapes, she will pursue them relentlessly to protect her secrets."
+    },
+    {
+      "name": "Jorlan Duskryn",
+      "role": "Potential Ally / Wild Card",
+      "description": "A drow warrior whose face was half-destroyed in a laboratory accident, costing him his rank, his status, and Ilvara's favor. Where he was once handsome and proud, he is now scarred and bitter, nursing a hatred for Ilvara that burns hotter than the lava river below the outpost. His remaining eye misses nothing.",
+      "motivation": "Jorlan wants revenge on Ilvara above all else. He will help the party if their goals align with hurting her, but he is drow to the core — pragmatic, self-interested, and willing to betray anyone if it serves his survival. He is a useful but dangerous ally."
+    },
+    {
+      "name": "Dhaunae the Drider",
+      "role": "Obstacle / Tragic Figure",
+      "description": "Once a proud drow warrior and Jorlan's mentor, Dhaunae was transformed into a drider — half-drow, half-spider — as punishment for challenging Ilvara's authority. She dwells in tormented exile beneath the outpost, too broken to fight the drow but too bound by Lolth's curse to leave. Her remaining drow features are frozen in permanent anguish.",
+      "motivation": "Dhaunae is trapped between madness and grief. She attacks intruders on instinct but retains enough of her former self to be reached, briefly, if addressed with compassion. She would welcome death as release but cannot seek it herself."
+    },
+    {
+      "name": "Topsy",
+      "role": "Guide / Rescued Prisoner",
+      "description": "A svirfneblin (deep gnome) scout from Blingdenstone, small even by gnome standards, with oversized dark eyes that see well in the Underdark. She was captured by a drow patrol while scouting and has been in the slave pens for weeks. Despite her ordeal, she maintains a quiet, stubborn courage.",
+      "motivation": "Topsy wants to return to Blingdenstone but recognizes that the safest path is with the adventuring party. She knows the Underdark tunnels well and can guide the party toward the Sunless Sea. She is also carrying intelligence about drow troop movements that her superiors in Blingdenstone need."
+    }
+  ],
+  "rewards": {
+    "xp": 3000,
+    "gold": "200 gp total (drow equipment, laboratory valuables, drider hoard, pursuit patrol gear)",
+    "items": [
+      "+1 Longsword (Dhaunae's blade, if mercy killing is performed)",
+      "+1 Shortsword (from the outpost armory, if accessed)",
+      "Psionic Resonator (uncommon wondrous item — psychic static field)",
+      "Drow-illithid correspondence (quest item)",
+      "Mind flayer agent's journal (quest item)",
+      "Research notes on psionic enhancement (quest item)",
+      "2 Potions of Greater Healing",
+      "Sending stone keyed to Ilvara (single use)",
+      "Preserved mind flayer brain specimen (valuable/leverage)"
+    ],
+    "story": "The party has struck a significant blow against the drow, freeing prisoners and uncovering the secret alliance between House Despana and the mind flayers. Ilvara will pursue them, creating an ongoing threat. The evidence gathered connects the biological weapons program to the elder brain's agenda, deepening the campaign's central mystery. The party has gained allies among the freed prisoners and a guide to the Sunless Sea."
+  },
+  "twists": [
+    "The drow outpost is not merely a slaving station but a node in a joint drow-illithid research program — both sides believe they are manipulating the other, but the elder brain is playing the longest game.",
+    "One of the freed prisoners is a doppelganger planted by the mind flayers to spy on drow operations. If the party does not discover it, the doppelganger will report their movements to the elder brain, potentially compromising their approach in scenario 4.",
+    "The drider guarding the escape route is Jorlan's former mentor — if the party has formed an alliance with Jorlan, this creates a painful moral choice between combat efficiency and compassion.",
+    "Ilvara's pursuit of the party is not just about recapturing escaped prisoners — she is desperately trying to prevent her secret research program from being exposed to House Despana's leadership, which would mean her execution."
+  ],
+  "dmTips": [
+    "Velkynvelve works best as a heist/infiltration scenario rather than a dungeon crawl. Encourage stealth, social manipulation, and planning over direct combat — the party is outnumbered and outgunned in a straight fight against the full outpost garrison.",
+    "Jorlan is the key to making the political intrigue work. Play him as intelligent, bitter, and always calculating. He should feel like a genuine character with his own agenda, not a quest-giver NPC. His hatred of Ilvara is real and personal — use it to create uncomfortable moral choices about how far the party is willing to use a damaged person.",
+    "The doppelganger among the prisoners is a slow-burn element that pays off in scenario 4. Do not reveal it easily — it behaves exactly like a frightened prisoner unless actively investigated. If discovered, it fights to escape rather than fighting to the death, as its intelligence is more valuable to the elder brain than its combat ability.",
+    "The drider encounter should be emotionally complex. If the party has learned about Dhaunae from Jorlan, the fight becomes a mercy mission rather than a monster battle. Reward players who find non-combat solutions or who give Dhaunae a dignified end.",
+    "Commander Ilvara should be established as a recurring antagonist. Even if the party never confronts her directly in this scenario, her presence should be felt — through her orders, her reputation, and the fear she inspires in her subordinates and prisoners. She will pursue the party into scenario 3."
+  ]
+}

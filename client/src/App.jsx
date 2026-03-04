@@ -16,6 +16,7 @@ import Home from './pages/Home';
 import WorldMapPage from './pages/WorldMapPage';
 import useWebSocket from './hooks/useWebSocket';
 import { PlayerProvider, usePlayer } from './context/PlayerContext';
+import { CampaignProvider, useCampaign } from './context/CampaignContext';
 import PlayerLogin from './components/PlayerLogin';
 import PlayerChat from './components/PlayerChat';
 import { api } from './api/client';
@@ -26,6 +27,7 @@ function AppContent() {
   const location = useLocation();
   const ws = useWebSocket();
   const { player } = usePlayer();
+  const { campaignId } = useCampaign();
   const [sessionActive, setSessionActive] = useState(false);
   const globalChatJoinedRef = useRef(null);
   const [selectedCharacter, setSelectedCharacter] = useState('');
@@ -56,7 +58,7 @@ function AppContent() {
   return (
     <div className="app">
       <nav className="sidebar">
-        <h1 className="logo">D&D Companion<span className="logo-sub">Single Player Demo</span></h1>
+        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : 'Single Player Demo'}</span></h1>
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
@@ -95,6 +97,7 @@ function AppContent() {
             setSelectedScenario={setSelectedScenario}
             savedSessionDbId={savedSessionDbId}
             setSavedSessionDbId={setSavedSessionDbId}
+            campaignId={campaignId}
           />
         </div>
         <Routes>
@@ -146,7 +149,9 @@ function App() {
   return (
     <BrowserRouter>
       <PlayerProvider>
-        <AppContent />
+        <CampaignProvider>
+          <AppContent />
+        </CampaignProvider>
       </PlayerProvider>
     </BrowserRouter>
   );
