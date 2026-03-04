@@ -4,10 +4,11 @@ const WS_URL = `ws://${window.location.hostname}:3001/ws`;
 const RECONNECT_DELAY = 2000;
 
 function formatDiceRoll(msg) {
-  const { notation, rolls, modifier, total } = msg;
+  const { notation, rolls, modifier, total, label } = msg;
   const rollsStr = rolls.length > 1 ? `[${rolls.join(', ')}]` : `${rolls[0]}`;
   const modStr = modifier > 0 ? ` + ${modifier}` : modifier < 0 ? ` - ${Math.abs(modifier)}` : '';
-  return `${notation}: ${rollsStr}${modStr} = ${total}`;
+  const prefix = label ? `${label} — ` : '';
+  return `${prefix}${notation}: ${rollsStr}${modStr} = ${total}`;
 }
 
 export default function useWebSocket() {

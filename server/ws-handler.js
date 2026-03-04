@@ -322,12 +322,14 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                     rolls: event.rolls,
                     modifier: event.modifier,
                     total: event.total,
+                    label: event.label,
                   });
                   broadcastToSessionWatchers('dice_roll', {
                     notation: event.notation,
                     rolls: event.rolls,
                     modifier: event.modifier,
                     total: event.total,
+                    label: event.label,
                   });
                   break;
                 case 'dm_response':

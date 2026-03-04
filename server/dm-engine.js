@@ -243,6 +243,7 @@ Consult the D&D 5e rules database in data/rules/ for mechanics. The files are:
 - data/rules/abilities-and-skills.json, data/rules/equipment.json
 - data/rules/spells.json, data/rules/combat.json
 - data/rules/leveling.json, data/rules/backgrounds.json
+- data/rules/monsters.json — Full SRD bestiary (334 monsters with complete stat blocks, organized by challenge rating). Use this to look up monster stats for encounters: AC, HP, abilities, attacks, special abilities, legendary actions, etc.
 
 Use the Read tool to look up specific rules when needed. Always follow D&D 5e mechanics accurately.
 
@@ -250,6 +251,7 @@ Use the Read tool to look up specific rules when needed. Always follow D&D 5e me
 ${settings.realisticDice !== false
     ? `**ALWAYS use the RollDice tool for ALL dice rolls.** Never generate random numbers yourself — use the tool for true cryptographic randomness.
 Roll dice using standard notation (NdX+M). Examples: "1d20", "2d6+3", "4d6", "1d20+5", "2d8-1".
+**ALWAYS provide a label** (1-3 words) describing what each roll is for. Examples: "Pip initiative", "Rat 2 attack", "Goblin damage", "Perception check", "Death save".
 For ability checks: roll 1d20 with the RollDice tool, then add the ability modifier and proficiency bonus (if proficient) to the result.
 For advantage/disadvantage: call RollDice with "2d20" and take the higher or lower result.`
     : `Roll dice using standard notation (NdX). For ability checks: d20 + ability modifier + proficiency bonus (if proficient).
@@ -433,11 +435,15 @@ function createMcpToolServer(dataDir, playerEmail, diceResults) {
       ),
       tool(
         'RollDice',
-        'Roll dice using standard D&D notation with cryptographic randomness. Accepts notation like "1d20", "2d6+3", "4d6", "1d20+5", "2d8-1". Returns individual rolls, modifier, and total. ALWAYS use this tool for dice rolls — never generate random numbers yourself.',
-        { notation: z.string().describe('Dice notation in NdX, NdX+M, or NdX-M format (e.g. "1d20", "2d6+3", "1d20-1")') },
+        'Roll dice using standard D&D notation with cryptographic randomness. Accepts notation like "1d20", "2d6+3", "4d6", "1d20+5", "2d8-1". Returns individual rolls, modifier, and total. ALWAYS use this tool for dice rolls — never generate random numbers yourself. ALWAYS provide a short label (1-3 words) describing what the roll is for.',
+        {
+          notation: z.string().describe('Dice notation in NdX, NdX+M, or NdX-M format (e.g. "1d20", "2d6+3", "1d20-1")'),
+          label: z.string().optional().describe('Short label (1-3 words) for the roll, e.g. "Pip initiative", "Rat 2 attack", "Perception check"'),
+        },
         async (args) => {
           try {
             const result = rollDice(args.notation);
+            if (args.label) result.label = args.label;
             if (diceResults) diceResults.push(result);
             return {
               content: [{ type: 'text', text: JSON.stringify(result) }],
