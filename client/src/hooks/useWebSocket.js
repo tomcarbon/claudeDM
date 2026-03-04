@@ -3,6 +3,13 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 const WS_URL = `ws://${window.location.hostname}:3001/ws`;
 const RECONNECT_DELAY = 2000;
 
+function formatDiceRoll(msg) {
+  const { notation, rolls, modifier, total } = msg;
+  const rollsStr = rolls.length > 1 ? `[${rolls.join(', ')}]` : `${rolls[0]}`;
+  const modStr = modifier > 0 ? ` + ${modifier}` : modifier < 0 ? ` - ${Math.abs(modifier)}` : '';
+  return `${notation}: ${rollsStr}${modStr} = ${total}`;
+}
+
 export default function useWebSocket() {
   const [messages, setMessages] = useState([]);
   const [chatMessages, setChatMessages] = useState([]);
@@ -42,6 +49,10 @@ export default function useWebSocket() {
       switch (msg.type) {
         case 'session_status':
           setStatus(msg.status);
+          break;
+
+        case 'dice_roll':
+          setMessages(prev => [...prev, { type: 'dice_roll', text: formatDiceRoll(msg) }]);
           break;
 
         case 'dm_partial':

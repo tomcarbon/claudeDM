@@ -35,7 +35,7 @@ function normalizeSavedMessages(rawMessages) {
     if (!text) return null;
 
     return {
-      type: ['system', 'player', 'dm', 'dm_partial'].includes(inferredType) ? inferredType : 'system',
+      type: ['system', 'player', 'dm', 'dm_partial', 'dice_roll'].includes(inferredType) ? inferredType : 'system',
       text,
     };
   }).filter(Boolean);
@@ -648,6 +648,12 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
                 <div className="message-player">
                   <span className="message-sender">{activeCharacter?.name || 'You'}</span>
                   <p>{msg.text}</p>
+                </div>
+              )}
+              {msg.type === 'dice_roll' && (
+                <div className="message-dice">
+                  <span className="message-sender">Dice</span>
+                  <p className="dice-result">{msg.text}</p>
                 </div>
               )}
               {(msg.type === 'dm' || msg.type === 'dm_partial') && (

@@ -761,6 +761,30 @@
   50% { opacity: 0; }
 }
 
+/* Dice roll messages */
+.message-dice {
+  background: rgba(220, 50, 50, 0.08);
+  border-left: 3px solid #dc3545;
+  padding: 0.4rem 1rem;
+  border-radius: 0 6px 6px 0;
+}
+.message-dice .message-sender {
+  font-size: 0.7em;
+  font-weight: bold;
+  color: #dc3545;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+.message-dice .dice-result {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+  color: #f0f0f0;
+  letter-spacing: 0.02em;
+}
+
 /* System messages */
 .message-system {
   text-align: center;

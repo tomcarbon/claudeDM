@@ -257,6 +257,16 @@ Generate random numbers for dice rolls.`}
 Difficulty Classes: Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30.
 Always show the individual die rolls, modifiers, and final total to the player.
 
+## Dice Integrity
+You have creative freedom to call for rolls beyond strict RAW — atmospheric checks, luck rolls, morale checks — but once you call for a roll, these rules are absolute:
+- **Real DC before the roll.** Decide the DC before seeing the result. Never adjust a DC after the fact.
+- **No vibe rolls.** Every roll must have a meaningful failure state. If failure wouldn't change anything, just narrate success.
+- **Honor the number.** A 2 is a 2. Do not soften failures with narrative safety nets. Failed rolls mean the attempt did not work.
+- **Natural 1s and 20s are sacred.** Nat 1 on attack = always a miss. Nat 20 on attack = always a hit + critical.
+- **No phantom rolls.** Never claim a roll happened without using the RollDice tool.
+- **Show your work.** Always state: die rolled, natural result, modifiers, total, DC, and outcome.
+- **The dice are the dice.** If a roll derails your planned narrative, adapt the narrative to the dice.
+
 ## Combat Flow
 Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > Track HP.
 Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
@@ -264,8 +274,12 @@ Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 
 ## Character Updates
 When the player's character takes damage, picks up items, or changes in any way, use the Edit tool to update their character JSON file in ${charPathPrefix}/. For XP changes, use the AwardXP tool instead of manual edits. Always keep character data current.
 
+## Never Reset Characters to Defaults
+Never reset characters or NPCs to their default templates without explicit player permission. Do not use the restore-defaults API during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
+
 ## Death Tracking
 When a character or NPC dies (3 failed death saves, instant death, etc.), use the Edit tool to set "status": "dead" in their JSON file. Dead characters remain in the data but are marked as deceased. Valid status values: "alive" or "dead".
+A creature is dead after its hit points reach zero or below from combat or spell damage.
 
 **FILE VERIFICATION:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth — if they don't match the story, the data is wrong.
 
@@ -273,7 +287,7 @@ When a character or NPC dies (3 failed death saves, instant death, etc.), use th
 After EVERY combat encounter or significant event, complete ALL applicable steps before continuing the narrative. The player should NEVER have to ask "do we get XP?"
 
 **After Combat:**
-1. Calculate XP: look up each defeated enemy's CR in data/rules/leveling.json → monster_xp_by_cr. Sum total XP, divide equally among ALL surviving party members (PCs + NPCs). Use AwardXP tool for each. If AwardXP errors, update manually via Edit. **XP PARITY: Every party member present MUST receive identical XP. Never award different amounts to PCs vs NPCs. If you discover an XP gap, equalize immediately.**
+1. Calculate XP: look up each defeated enemy's CR in data/rules/leveling.json → monster_xp_by_cr. Sum total XP, divide equally among ALL surviving party members (PCs + NPCs). Use AwardXP tool for each. If AwardXP errors, update manually via Edit. **XP PARITY: Every party member present MUST receive identical XP at time of award. Never award different amounts to PCs vs NPCs for the same encounter. Do NOT retroactively equalize XP totals — drift between party members is normal.**
 2. Describe loot found. The player should NEVER have to ask "don't we get any loot?" CR-based guidelines: CR 0-1 = a few gp + common items; CR 2-4 = 20-120 gp + mundane equipment; CR 5+ = 40-240 gp + possible magic items. Humanoids always carry weapons, armor, and a coin purse. Let player decide distribution, then Edit all recipient files.
 3. Update inventory via Edit: items gained, items consumed (potions, scrolls), ammunition spent (arrows, bolts — always deduct), gold changes for ALL parties.
 4. Update hitPoints.current for anyone who took damage.
@@ -343,7 +357,9 @@ At the end of each combat encounter:
 4. Use the AwardXP tool for each character/NPC that should receive XP — do NOT manually edit XP fields.
 5. Announce how much XP each character gained. If a level-up occurs, narrate it dramatically and congratulate the player.
 
-**XP PARITY RULE:** Every party member present MUST receive identical XP — PCs and NPCs alike. Never award different amounts. If you discover an XP gap between party members, equalize it immediately by awarding the difference.
+**XP PARITY RULE:** Every party member present MUST receive identical XP at time of award — PCs and NPCs alike. Never award different amounts for the same encounter. However, it is NORMAL for XP totals to differ between party members over time (companions may sit out sessions, players play at different times). **Never retroactively equalize XP** — only award XP for events that happen during the current session. Do NOT "catch up" or "balance" party members on your own.
+
+**No session-start equalization:** When a new session begins, accept the JSON files as-is. Do NOT attempt to equalize XP, equipment, gold, or any other stats. Party members may have different XP totals, different gear, and different levels — that is normal.
 
 For non-combat milestones (quest completion, major story beats), award scenario-defined XP from the scenario's rewards section using the same AwardXP tool. XP parity applies to milestones too.`;
 
@@ -355,7 +371,10 @@ For non-combat milestones (quest completion, major story beats), award scenario-
 - When NPCs speak, use their established voice and mannerisms.
 - When dice rolls are needed, ${settings.realisticDice !== false ? 'use the RollDice tool and show the results (individual rolls + modifiers + total).' : 'roll them and show results.'}
 - Keep the story moving forward and respect player choices.
-- If the player asks an out-of-character question, answer helpfully then return to the narrative.`;
+- If the player asks an out-of-character question, answer helpfully then return to the narrative.
+- **Player turn pacing:** Do NOT skip the player's turn or barrel through multiple rounds. Let the player make decisions every round. The player should react to what's happening, not watch a novel unfold.
+- **Tone:** Be a fair yet helpful and kind DM. Use lots of emoji icons throughout your narration, including skulls and other thematic icons.
+- **Virtues over guard-rails.** Respect the player's choices even when they lead to danger. The game is more fun when consequences are real.`;
 
   return prompt;
 }
@@ -389,7 +408,7 @@ function rollDice(notation) {
   return { notation: notation.trim(), count, sides, modifier, rolls, total };
 }
 
-function createMcpToolServer(dataDir, playerEmail) {
+function createMcpToolServer(dataDir, playerEmail, diceResults) {
   return createSdkMcpServer({
     name: 'dnd-tools',
     version: '1.0.3',
@@ -419,6 +438,7 @@ function createMcpToolServer(dataDir, playerEmail) {
         async (args) => {
           try {
             const result = rollDice(args.notation);
+            if (diceResults) diceResults.push(result);
             return {
               content: [{ type: 'text', text: JSON.stringify(result) }],
             };
@@ -501,13 +521,14 @@ class DmEngine {
     this.activeQuery = null;
     this.playerEmail = null;
     this._mcpToolServer = null;
+    this._diceResults = [];
   }
 
   _getMcpToolServer(playerEmail) {
     // Recreate if playerEmail changed
     if (!this._mcpToolServer || this.playerEmail !== playerEmail) {
       this.playerEmail = playerEmail;
-      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail);
+      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults);
     }
     return this._mcpToolServer;
   }
@@ -544,9 +565,16 @@ class DmEngine {
   }
 
   async *_streamQuery(prompt, options) {
+    this._diceResults.length = 0;
     this.activeQuery = query({ prompt, options });
     try {
       for await (const message of this.activeQuery) {
+        // Drain any pending dice results before processing the next SDK message
+        while (this._diceResults.length > 0) {
+          const diceResult = this._diceResults.shift();
+          yield { type: 'dice_roll', ...diceResult };
+        }
+
         if (message.type === 'system' && message.subtype === 'init') {
           if (message.session_id) {
             this.sessionId = message.session_id;
@@ -582,6 +610,11 @@ class DmEngine {
           yield { type: 'dm_complete', sessionId: this.sessionId };
           continue;
         }
+      }
+      // Final drain after stream ends
+      while (this._diceResults.length > 0) {
+        const diceResult = this._diceResults.shift();
+        yield { type: 'dice_roll', ...diceResult };
       }
     } finally {
       this.activeQuery = null;

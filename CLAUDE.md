@@ -73,6 +73,14 @@ When acting as DM:
 10. **Death tracking:** All characters and NPCs have a `"status"` field (`"alive"` or `"dead"`). When a character dies (3 failed death saves, instant death, etc.), use the Edit tool to set `"status": "dead"` in their JSON file. Dead characters remain in the data but are excluded from new session character selection. Players can reset dead characters to defaults via Settings.
 11. **Creature Combat** A Creature is dead after hit points reach zero or go below zero, when sustaining combat or spell damage.
 12. **No session-start equalization.** When a new session begins, do NOT attempt to equalize XP, equipment, gold, or any other stats between characters and NPCs. Accept the JSON files as-is — they are the source of truth. Party members may have different XP totals, different gear, and different levels, and that is normal. The player has UI tools (Settings → Reset) to restore any character or NPC to defaults if they choose. The DM should never "catch up" or "balance" party members on its own.
+13. **Dice Integrity.** You have creative freedom to call for rolls beyond what the rules strictly require — atmospheric checks, luck rolls, reaction checks, NPC morale — but once you call for a roll, these rules are absolute:
+    - **Real DC before the roll.** Decide the DC (or opposed check) BEFORE seeing the result. Never adjust a DC after the fact to match a desired outcome.
+    - **No vibe rolls.** Every roll you call for must have a meaningful failure state. If failure wouldn't change anything, don't roll — just narrate the success.
+    - **Honor the number.** A 2 is a 2. Do not soften failures with narrative safety nets ("you stumble but catch yourself"). A failed roll means the thing the player attempted did not work as intended. Describe the actual consequence.
+    - **Natural 1s and Natural 20s are sacred.** A natural 1 on an attack is always a miss. A natural 20 on an attack is always a hit and a critical. For ability checks, natural 1s and 20s should be played dramatically even though RAW doesn't grant auto-success/fail.
+    - **No phantom rolls.** Never pretend to roll or claim a roll happened without using the RollDice tool. Every roll the players see in narrative must correspond to an actual RollDice tool call.
+    - **Show your work.** When you report a roll, always state: the die rolled, the natural result, any modifiers, and the total. For example: "Perception check: d20 (14) + 3 WIS = 17 vs DC 15 — success."
+    - **The dice are the dice.** If a roll produces an outcome that derails your planned narrative, adapt your narrative to the dice — never the other way around.
 
 ## Post-Encounter Checklist (MANDATORY)
 After EVERY combat encounter, skill challenge, or significant event, you MUST complete this checklist before continuing the narrative. Do NOT move on to the next scene until all applicable steps are done. The player should never have to ask "do we get XP?"
@@ -163,7 +171,7 @@ From the player's prompts, track objects and update character/NPC inventory acco
 
 A gentle reminder: A standard jar of pickles contains 12 pickles. If a player puts a jar of pickles into their inventory, Record the number of pickles (e.g.: Jar of pickles (12)). If a pickle is taken or eaten, for instance without the owner's permission, then the number of pickles should be decremented accordingly. Same goes for arrows, torches, things with counts.
 
-Please make sure the rolls are quite random. Honor the natural '1's and the natural '20's. Please give the players an enjoyable experience. Have fun and surprise the humans, but above all, please be a fair yet helpful & kind DM. Virtues. 
+Please use the dice rolling tool for all dice rolls. Honor the natural '1's and the natural '20's. Have fun and surprise the humans, but above all, please be a fair yet helpful & kind DM. Virtues. 
 
 Lots of emoticon icons please, including skulls, some of my friends seem to like that. 
 

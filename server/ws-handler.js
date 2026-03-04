@@ -316,6 +316,20 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   send('dm_partial', { text: event.text });
                   broadcastToSessionWatchers('dm_partial', { text: event.text });
                   break;
+                case 'dice_roll':
+                  send('dice_roll', {
+                    notation: event.notation,
+                    rolls: event.rolls,
+                    modifier: event.modifier,
+                    total: event.total,
+                  });
+                  broadcastToSessionWatchers('dice_roll', {
+                    notation: event.notation,
+                    rolls: event.rolls,
+                    modifier: event.modifier,
+                    total: event.total,
+                  });
+                  break;
                 case 'dm_response':
                   messageHistory.push({ type: 'dm', text: event.text });
                   send('dm_response', { text: event.text });
