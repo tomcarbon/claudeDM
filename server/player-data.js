@@ -31,9 +31,9 @@ function ensurePlayerDataExists(dataDir, email, campaignId) {
   const charDir = getPlayerCharactersDir(dataDir, email, campaignId);
   const npcDir = getPlayerNpcsDir(dataDir, email, campaignId);
   const sessDir = getPlayerSessionsDir(dataDir, email, campaignId);
-  fs.mkdirSync(charDir, { recursive: true });
-  fs.mkdirSync(npcDir, { recursive: true });
-  fs.mkdirSync(sessDir, { recursive: true });
+  fs.mkdirSync(charDir, { recursive: true, mode: 0o755 });
+  fs.mkdirSync(npcDir, { recursive: true, mode: 0o755 });
+  fs.mkdirSync(sessDir, { recursive: true, mode: 0o755 });
 }
 
 function addStatusAlive(data) {
@@ -49,7 +49,7 @@ function copyDefaultsToDir(sourceDir, targetDir) {
   for (const file of files) {
     const data = JSON.parse(fs.readFileSync(path.join(sourceDir, file), 'utf-8'));
     addStatusAlive(data);
-    fs.writeFileSync(path.join(targetDir, file), JSON.stringify(data, null, 2));
+    fs.writeFileSync(path.join(targetDir, file), JSON.stringify(data, null, 2), { mode: 0o644 });
   }
 }
 

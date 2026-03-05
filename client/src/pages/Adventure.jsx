@@ -118,7 +118,11 @@ function Adventure({
     api.getCharacters().then(setCharacters).catch(() => {});
     api.getScenarios().then(setScenarios).catch(() => {});
     api.getCampaigns().then(setCampaigns).catch(() => {});
-  }, []);
+    // Reset selections when campaign changes so stale picks from another campaign don't persist
+    setSelectedCharacter('');
+    setSelectedScenario('');
+    setSelectedCampaign(null);
+  }, [campaignId, setSelectedCharacter, setSelectedScenario]);
 
   // Track whether the user has scrolled away from the bottom.
   // Listen for wheel/touchstart events in addition to scroll events so that
@@ -178,12 +182,12 @@ function Adventure({
     return () => cancelAnimationFrame(frame);
   }, [messages]);
 
-  // Load saved sessions for setup screen
+  // Load saved sessions for setup screen (re-fetch when campaign changes)
   useEffect(() => {
     if (!sessionActive) {
       api.getSessions().then(setSavedSessions).catch(() => {});
     }
-  }, [sessionActive]);
+  }, [sessionActive, campaignId]);
 
   useEffect(() => {
     if (!savedSessionDbId || !sessionAccess.sessionDbId) return;
@@ -229,16 +233,18 @@ function Adventure({
       setSessionActive(true);
 
       const campaign = campaigns.find(c => c.id === selectedCampaign);
-      const openingPrompt = `You are running an open-world campaign: "${campaign?.title || 'The Shattered Coast'}". My character is ${character?.name || 'Unknown'}. Refer to the CLAUDE.md for DM instructions.
+      const settingName = campaign?.setting?.name || campaign?.title || 'Unknown';
+      const startLocations = campaign?.wildernessStarts?.map(s => s.label).join(', ') || 'a random location';
+      const openingPrompt = `You are running an open-world campaign: "${campaign?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}.
 
 This is a free-exploration campaign, not a linear scenario. Here's how to run it:
-- Drop the party at a random wilderness location on the Shattered Coast (choose from: Central Grasslands, Southern Plains, Northern Foothills, Western Crossroads, or Eastern Trail)
-- Describe the surrounding terrain, what the party can see on the horizon, and any immediate points of interest
+- Drop the party at a random starting location in ${settingName} (choose from: ${startLocations})
+- Describe the surrounding terrain, what the party can see, and any immediate points of interest
 - The party can travel freely in any direction — there is no set quest or path
-- Scattered across the region are settlements and adventure locations (Saltmere, Thornfield, Whisperhollow, Brinewatch) that the party may discover through travel
-- When the party approaches a settlement, run its associated scenario storyline organically
-- Between settlements, improvise wilderness events: random encounters, weather, foraging, ruins, travelers, wildlife, and environmental storytelling
-- Use the exploration rules: each day of travel, consider weather, encounters, and discoveries
+- Scattered across the region are adventure locations linked to this campaign's scenarios that the party may discover through travel
+- When the party approaches a scenario location, run its associated storyline organically
+- Between locations, improvise events: random encounters, environmental hazards, foraging, ruins, travelers, wildlife, and environmental storytelling
+- Use the exploration rules: ${campaign?.explorationRules || 'each day of travel, consider encounters and discoveries'}
 - Let the player drive the direction — be a sandbox DM
 
 Set the opening scene now. Describe where the party wakes up, what they see, and what choices lie before them.`;
@@ -250,7 +256,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       setSessionActive(true);
 
       const scenario = scenarios.find(s => s.id === selectedScenario);
-      const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Refer to the CLAUDE.md for DM instructions. Set the scene and begin the story.`;
+      const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Set the scene and begin the story.`;
       setTimeout(() => sendMessage(openingPrompt), 500);
     }
   }
@@ -492,7 +498,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
               </div>
             ) : (
               <div className="setup-options">
-                {campaigns.map(c => (
+                {campaigns.filter(c => c.id === campaignId).map(c => (
                   <button
                     key={c.id}
                     className={`option-card campaign-card${selectedCampaign === c.id ? ' selected' : ''}`}

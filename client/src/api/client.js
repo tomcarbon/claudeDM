@@ -52,6 +52,7 @@ export const api = {
   updateCharacter: (id, data) => fetchJson(`/characters/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteCharacter: (id) => fetchJson(`/characters/${id}`, { method: 'DELETE' }),
   importCharacter: (data) => fetchJson('/characters/import', { method: 'POST', body: JSON.stringify(data) }),
+  rollCharacter: () => fetchJson('/characters/roll', { method: 'POST' }),
 
   // NPCs
   getNpcs: () => fetchJson('/npcs'),

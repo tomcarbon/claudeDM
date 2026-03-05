@@ -5,6 +5,9 @@ const { v4: uuidv4 } = require('uuid');
 const { awardXp } = require('../xp-utils');
 const { requirePlayer } = require('../player-auth');
 const { getPlayerCharactersDir, ensurePlayerDataExists } = require('../player-data');
+const { generateRandomCharacter } = require('../character-generator');
+
+const MAX_CHARACTERS = 50;
 
 function validateCharacter(data) {
   const errors = [];
@@ -90,6 +93,10 @@ module.exports = function (dataDir) {
   router.post('/import', (req, res) => {
     try {
       const charDir = getCharDir(req);
+      const characters = readAllCharacters(req);
+      if (characters.length >= MAX_CHARACTERS) {
+        return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
+      }
       const data = { ...req.body };
       const result = validateCharacter(data);
       if (!result.valid) {
@@ -102,6 +109,28 @@ module.exports = function (dataDir) {
       const filename = `${slug}.json`;
       fs.writeFileSync(path.join(charDir, filename), JSON.stringify(data, null, 2));
       res.status(201).json(data);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // POST roll a random character
+  router.post('/roll', (req, res) => {
+    try {
+      const charDir = getCharDir(req);
+      const characters = readAllCharacters(req);
+      if (characters.length >= MAX_CHARACTERS) {
+        return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
+      }
+      const character = generateRandomCharacter(dataDir);
+      const slug = character.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      let filename = `${slug}.json`;
+      // Avoid filename collisions
+      if (fs.existsSync(path.join(charDir, filename))) {
+        filename = `${slug}-${Date.now()}.json`;
+      }
+      fs.writeFileSync(path.join(charDir, filename), JSON.stringify(character, null, 2));
+      res.status(201).json(character);
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -140,6 +169,10 @@ module.exports = function (dataDir) {
   router.post('/', (req, res) => {
     try {
       const charDir = getCharDir(req);
+      const characters = readAllCharacters(req);
+      if (characters.length >= MAX_CHARACTERS) {
+        return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
+      }
       const char = { ...req.body, id: uuidv4() };
       const slug = char.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const filename = `${slug}.json`;

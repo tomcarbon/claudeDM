@@ -8,6 +8,7 @@ function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [rolling, setRolling] = useState(false);
   const fileInputRef = useRef(null);
 
   const loadCharacters = () => {
@@ -39,6 +40,18 @@ function CharacterList() {
       }
     }
     e.target.value = '';
+  };
+
+  const handleRoll = async () => {
+    setRolling(true);
+    try {
+      await api.rollCharacter();
+      loadCharacters();
+    } catch (err) {
+      alert('Roll failed: ' + err.message);
+    } finally {
+      setRolling(false);
+    }
   };
 
   const handleExportEmpty = () => {
@@ -108,10 +121,13 @@ function CharacterList() {
           />
           <button onClick={handleExportEmpty}>Export Empty Character</button>
           <button onClick={() => fileInputRef.current.click()}>Import Character</button>
+          <button onClick={handleRoll} disabled={rolling || characters.length >= 50}>
+            {rolling ? 'Rolling...' : 'Roll New Character'}
+          </button>
         </div>
       </div>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
-        {characters.length} characters available. Click to view details or edit.
+        {characters.length}/50 characters. Click to view details or edit.
       </p>
       <div className="card-grid">
         {characters.map(c => (
