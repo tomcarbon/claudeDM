@@ -5,7 +5,7 @@ const CAMPAIGN_CARDS = [
   { label: 'Start Adventure', desc: 'Begin a text adventure with the AI Dungeon Master.', path: '/adventure', className: 'card-adventure' },
   { label: 'Characters', desc: 'View, edit, and manage your player characters.', path: '/characters' },
   { label: 'NPC Companions', desc: 'Meet the AI-narrated companions who will join your quest.', path: '/npcs' },
-  { label: 'Scenarios', desc: 'Browse adventure modules for this campaign.', path: '/scenarios' },
+  { label: 'Scenarios (spoilers!)', desc: 'Browse adventure modules for this campaign.', path: '/scenarios' },
   { label: 'World Map', desc: 'Explore the campaign world map.', path: '/world-map' },
   { label: 'Rules Reference', desc: 'Browse the D&D 5e rules database.', path: '/rules' },
   { label: 'DM Personality', desc: 'Tune your AI Dungeon Master — humor, drama, verbosity, tone, and style.', path: '/dm-settings' },
@@ -19,7 +19,7 @@ function CampaignCards({ campaignId, locked }) {
   function handleClick(card) {
     if (locked) return;
     selectCampaign(campaignId);
-    navigate(card.path);
+    navigate(card.path, card.path === '/adventure' ? { state: { resetSession: true } } : undefined);
   }
 
   return (
@@ -72,6 +72,16 @@ function Home() {
           <p className="tier-subtitle">Descend into the subterranean world of drow, fungi forests, and ancient evils. Levels 3–12.</p>
         </div>
         <CampaignCards campaignId="campaign1" locked={false} />
+      </div>
+
+      {/* ── Madness in Wonderland (Active Campaign) ── */}
+      <div className="tier-box tier-premium">
+        <div className="tier-header">
+          <span className="tier-badge tier-badge-premium">Premium</span>
+          <h3 className="tier-title">Madness in Wonderland</h3>
+          <p className="tier-subtitle">Through the Looking Glass into an Alice-inspired Feywild demiplane of riddles, madness, and tyranny. Levels 5–15.</p>
+        </div>
+        <CampaignCards campaignId="wonderland" locked={false} />
       </div>
 
       {/* ── Premium Campaigns (Locked) ── */}

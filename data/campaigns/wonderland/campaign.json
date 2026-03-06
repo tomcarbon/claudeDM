@@ -1,0 +1,67 @@
+{
+  "id": "wonderland",
+  "title": "Madness in Wonderland",
+  "subtitle": "Through the Looking Glass and Into the Impossible",
+  "type": "open-world",
+  "levelRange": "5-15",
+  "estimatedSessions": "20+",
+  "synopsis": "A shattered looking glass has torn open a rift to Wonderland, a Feywild demiplane where logic bends, time fractures, and madness wears a crown. What was once a realm of whimsy and wonder has fallen under the iron rule of the Queen of Hearts, whose Vorpal Guard enforces her impossible decrees with lethal precision. The Cheshire Cat grins from shadows that shouldn't exist, the Mad Hatter is trapped in an eternal tea party by a broken clock, and somewhere in the Tulgey Wood, the Jabberwock stirs in its lair of bones and broken dreams. The party must navigate a world where riddles are weapons, size is negotiable, and the only rule is that there are no rules — except the Queen's. Fail her croquet match and it's off with your heads. Solve the mystery of the Shattered Glass to find your way home — or be lost in Wonderland forever.",
+  "hook": "A massive looking glass in the ruins of an abandoned wizard's tower has begun to glow with impossible light. Animals have been seen walking upright near the ruins, speaking in riddles before vanishing. A white rabbit in a waistcoat was spotted by villagers, muttering about being 'terribly late.' When the party investigates the tower, the mirror pulls them through — a tumbling, spinning fall through kaleidoscope darkness — and they land hard in a hallway of doors where nothing is the right size, the walls whisper nonsense, and a grinning cat floating in midair tells them: 'We're all mad here. But you'll fit right in.'",
+  "setting": {
+    "name": "Wonderland",
+    "description": "A Feywild demiplane of impossible geography, where forests grow upside down, rivers flow uphill, and the sky shifts between chess-board patterns and playing-card suits. Wonderland was once a place of pure creative chaos — beautiful, strange, and harmless. But the Queen of Hearts seized control, imposing her tyrannical order on a realm that was never meant to be ordered. The result is a land at war with itself: pockets of wild, joyful nonsense surrounded by the Queen's rigid, terrifying domain. Size-shifting magic permeates everything — eat the wrong mushroom and you're sixty feet tall; drink the wrong potion and you fit in a teacup. Time itself is broken in places, looping and stuttering where the Hatter's curse has spread. The inhabitants are fey creatures shaped like playing cards, talking animals, animate objects, and stranger things — all living under the Queen's shadow.",
+    "atmosphere": "A fever dream of beauty and menace. Colors are too vivid, sounds too sharp, shadows too deep. The air tastes of treacle and lightning. Flowers sing (badly), chess pieces march in formation, and the trees have opinions. Wonderland seduces with whimsy and kills with absurdity. The deeper you go, the more the madness feels like it's seeping into your own mind — and the harder it becomes to remember what 'normal' ever meant.",
+    "regions": [
+      {
+        "name": "The Rabbit Warren & Pool of Tears",
+        "description": "The entry zone of Wonderland — a vast underground network of tunnels, locked doors, and impossible spaces where size-shifting potions and cakes line glass tables. The Pool of Tears is a saltwater lake formed from the tears of those who grew too large and wept. Caucus races circle its shores endlessly, and the creatures here are nervous, hurried, and prone to giving contradictory directions. Glass-key puzzles and shrinking corridors make navigation a constant challenge."
+      },
+      {
+        "name": "The Tulgey Wood & Cheshire Reaches",
+        "description": "A vast, ancient forest where the trees are sentient and opinionated, paths rearrange themselves between footsteps, and the Cheshire Cat watches from impossible angles. The deeper wood — the Tulgey reaches — is darker and more dangerous, home to the Jabberwock, the Bandersnatch, and other beasts from the old poems. Tweedledee and Tweedledum guard a crossroads that leads everywhere and nowhere. The Cheshire Cat is neither ally nor enemy but something more dangerous: genuinely helpful in the most unhelpful possible way."
+      },
+      {
+        "name": "The Mad Tea Quarter",
+        "description": "A pocket of Wonderland where time has been broken by the Hatter's feud with Time itself. The tea party never ends, the clock always reads six o'clock, and the same moment loops and stutters in an eternal, maddening repetition. The March Hare's manor is a labyrinth of rooms that shift and rearrange. The Dormouse sleeps through everything but knows secrets from his dreams. Breaking the temporal curse requires solving the Hatter's original riddle — the one Time refused to forgive."
+      },
+      {
+        "name": "The Queen's Domain",
+        "description": "The Palace of Hearts rises from manicured gardens where white roses are painted red by terrified card-soldiers. The croquet grounds are a killing field disguised as a lawn party, where flamingo mallets, hedgehog balls, and card-soldier wickets make the game impossible — and losing means execution. The throne room is a courtroom where the Queen holds endless trials with predetermined verdicts. The Vorpal Guard — elite card-knights wielding enchanted blades — enforce the Queen's will with mechanical precision. Beneath the palace lies the Looking Glass Chamber, where the shattered mirror that brought the party to Wonderland waits to be restored."
+      }
+    ]
+  },
+  "linkedScenarios": [
+    "wl-scenario-001",
+    "wl-scenario-002",
+    "wl-scenario-003",
+    "wl-scenario-004"
+  ],
+  "wildernessStarts": [
+    {
+      "x": 50,
+      "y": 25,
+      "label": "The Rabbit Hole Entrance"
+    },
+    {
+      "x": 35,
+      "y": 40,
+      "label": "Pool of Tears Shore"
+    },
+    {
+      "x": 30,
+      "y": 55,
+      "label": "Tulgey Wood Edge"
+    },
+    {
+      "x": 55,
+      "y": 60,
+      "label": "Mad Tea Quarter Gates"
+    },
+    {
+      "x": 50,
+      "y": 80,
+      "label": "Queen's Garden Walls"
+    }
+  ],
+  "explorationRules": "Wonderland defies conventional navigation. Paths between regions shift and rearrange — a successful DC 14 Wisdom (Survival) check keeps the party on course, while failure leads to whimsical but potentially dangerous detours (tea with talking flowers, an argument with a philosophizing caterpillar, a caucus race that deposits the party somewhere unexpected). Size-shifting zones are common: the DM should roll 1d6 when entering a new area — on a 1, the party encounters a size anomaly (shrinking doorways, giant insects, miniaturized buildings). Wonderland's fey nature means that food and drink may have magical effects (roll on the Wonderland Consumables table). Time flows strangely — what feels like hours may be days, or vice versa. The Queen's patrols of card-soldiers grow more frequent as the party approaches her domain. Between scenario locations, the DM improvises Wonderland encounters: riddle-speaking doorknobs, chess-piece border disputes, singing flower gardens with sharp thorns, animate furniture with grudges, and the ever-present grin of the Cheshire Cat appearing in unexpected places with cryptic advice."
+}

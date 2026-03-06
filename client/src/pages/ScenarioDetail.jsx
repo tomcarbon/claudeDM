@@ -24,7 +24,7 @@ function ScenarioDetail() {
     <div>
       <div className="detail-header">
         <div>
-          <h2>{scenario.title}</h2>
+          <h2>{scenario.title} (spoilers!)</h2>
           {scenario.subtitle && (
             <div style={{ color: 'var(--accent)', fontStyle: 'italic', marginTop: '0.3rem' }}>{scenario.subtitle}</div>
           )}

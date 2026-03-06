@@ -1,0 +1,558 @@
+{
+  "id": "wl-scenario-003",
+  "title": "A Mad Tea Party",
+  "subtitle": "Time Waits for No One — Except When It Does",
+  "levelRange": "9-11",
+  "estimatedSessions": 5,
+  "setting": {
+    "name": "The Mad Tea Quarter",
+    "description": "A warped district of Wonderland where the laws of time have shattered like a dropped pocket watch. The clock always reads six o'clock. Teacups refill themselves with cold, bitter dregs. The same scone crumbles for the thousandth time. The Mad Hatter, the March Hare, and the Dormouse sit at a table that stretches beyond the horizon, trapped in an eternal loop by a curse laid by Time itself. The Hatter once tried to 'kill Time' during a disastrous musical performance for the Queen of Hearts, and Time — a living, spiteful entity in Wonderland — took terrible offense, freezing the entire Tea Quarter at the stroke of six. Days do not pass here. Candles do not burn down. Wounds do not heal naturally. And the tea party never, ever ends.",
+    "atmosphere": "A place of frozen whimsy curdled into horror. The perpetual golden light of six o'clock tea-time bathes everything in amber, casting long shadows that never move. Clocks litter the landscape — mounted on trees, embedded in cobblestones, growing from flower beds — all frozen at six. The air smells of bergamot and dust. Conversations loop and stutter. Laughter erupts at nothing and cuts off mid-syllable. There is a manic, desperate energy to the Tea Quarter, as if the very land is trying to scream but can only repeat the same note forever. Temporal echoes — translucent, flickering ghosts of past tea party guests — wander the streets, endlessly repeating their final moments before the curse took hold.",
+    "keyLocations": [
+      {
+        "name": "The Broken Clock Tower",
+        "description": "A towering structure of brass, mahogany, and crystal that once regulated all of Wonderland's time from this district. Its massive clock face — thirty feet in diameter — is frozen at precisely 6:00, its hands fused in place by crystallized time that resembles amber quartz growing over the mechanisms. The tower's interior is a vertical labyrinth of enormous gears, pendulums the size of ship masts, and escapement mechanisms that hum with trapped temporal energy. Four critical gears have been removed and scattered across the Tea Quarter by Time's curse. Restoring them is the mechanical key to breaking the curse, but the tower itself is guarded by a Time Elemental — a being of pure temporal energy that ages or de-ages anything it touches.",
+        "features": [
+          "The Grand Clock Face: thirty feet across, frozen at 6:00, with crystallized time growing over the hands like amber fungus",
+          "The Gear Chamber: a vertical shaft through the tower's core containing the main mechanism — four gear slots sit empty, their housings crackling with residual temporal energy",
+          "Temporal Crystal Growths: clusters of amber-like crystallized time grow throughout the tower, some containing frozen moments — a butterfly mid-flight, a drop of rain suspended, a laugh caught in crystal",
+          "The Pendulum Hall: massive pendulums hang motionless in a cathedral-like space, their chains wrapped in crystallized time. If the party frees even one pendulum, it begins swinging and briefly creates a 'time bubble' where natural time flows (healing works, rests are possible, 10-minute duration)",
+          "The Observation Deck: atop the tower, providing a view of the entire Tea Quarter. From here, the locations of the scattered gears can be spotted with a successful Perception check"
+        ],
+        "encounters": [
+          "The Time Elemental guardian (reskinned air elemental with temporal abilities) patrols the Gear Chamber and attacks anyone attempting to restore gears",
+          "Temporal traps throughout the tower: patches of accelerated time (aging 1d10 years on failed DC 15 Constitution save, reversed when the curse breaks), zones of frozen time (DC 14 Strength to push through, or be paralyzed for 1 round), and time loops (a corridor that resets your position to the entrance unless you walk it backward)",
+          "A cluster of temporal echoes in the Pendulum Hall, reliving the moment the curse struck — they are not hostile but their panicked movements create hazardous zones of temporal distortion"
+        ],
+        "secrets": [
+          "The Time Elemental is not a servant of Time — it is a fragment of the Hatter's own temporal essence, torn from him by the curse. Defeating it does not destroy it; the energy must be returned to the Hatter to fully restore him",
+          "One of the crystallized time formations contains a frozen moment showing the Hatter's original performance for the Queen — watching it reveals that the Queen deliberately sabotaged the performance, making the Hatter's offense against Time partly her fault",
+          "The tower's observation deck contains a brass telescope that, when looked through, shows the Tea Quarter as it was before the curse — a vibrant, joyous place. This vision grants inspiration to any character who views it"
+        ]
+      },
+      {
+        "name": "The Endless Table",
+        "description": "The tea party itself — the cursed heart of the Tea Quarter. A single table stretching into infinity in both directions, set with an endless parade of chipped teacups, cracked saucers, stale scones, and rancid butter. Every sixth place setting is pristine and untouched, waiting for a guest who will never arrive. The Mad Hatter, the March Hare, and the Dormouse sit at the head of the table (which is also somehow the middle and the end), trapped in an endlessly repeating conversation about ravens and writing desks, butter and watches, and why a raven is like a writing desk. They are aware of the loop but powerless to break it — each cycle, the Hatter grows a little more desperate, the March Hare a little more manic, and the Dormouse sinks a little deeper into sleep. The party must sit down, participate in the tea party's bizarre etiquette, and earn the Hatter's trust to learn the truth about the curse.",
+        "features": [
+          "The Infinite Table: stretches beyond sight in both directions, with place settings for thousands. Moving along the table always brings you back to the Hatter's seat after 1d6 minutes — space loops here just as time does",
+          "The Repeating Conversation: every 10 minutes (real time), the conversation resets to 'Why is a raven like a writing desk?' and the cycle begins again. Characters who have heard the loop before can predict what comes next and use this knowledge",
+          "The Treacherous Teaware: the teapots pour themselves (sometimes on laps), the sugar tongs snap at fingers, the butter knife spreads butter on everything (including weapons and armor). These are not hostile, just chaotically animated by the curse",
+          "Clean Cup Protocol: periodically, the March Hare shouts 'Clean cup! Move down!' and everyone must shift one seat to the right. Refusing triggers a fey compulsion (DC 14 Wisdom save or be teleported to a random seat at the table)",
+          "The Dormouse's Teapot: the Dormouse sleeps inside an enormous teapot. It occasionally mumbles prophetic fragments in its sleep — these are clues about the curse, the gears' locations, and the nature of Time"
+        ],
+        "encounters": [
+          "The Tea Party Etiquette Challenge (complex social encounter): the party must navigate Wonderland's nonsensical tea party rules — answering riddles with non-answers, accepting impossible offers gracefully, and never, ever asking for more tea (you must wait for it to be offered, even though it is always offered). Breaking etiquette invokes fey consequences: polymorphing into a teacup (DC 15 Charisma save), shrinking to 6 inches tall (DC 14 Constitution save, lasts 1 hour), or being cursed to speak only in rhyme (DC 13 Wisdom save, lasts until next long rest)",
+          "Temporal echoes of past guests occasionally materialize at the table, overlapping with the party's seats and creating moments of confusion and temporal dissonance — the party must determine which guests are real and which are echoes",
+          "If the party offends the March Hare badly enough (three etiquette failures), he challenges the offender to a duel with butter knives (which he wields with terrifying proficiency)"
+        ],
+        "secrets": [
+          "The answer to 'Why is a raven like a writing desk?' is the key to earning the Hatter's trust. There is no correct answer — the correct response is to say 'I haven't the slightest idea,' which is what Alice once said. This demonstrates understanding of Wonderland's logic: some questions are more important than their answers",
+          "The Hatter's tea has a unique property — drinking it grants a temporary immunity to the time-freeze effect, allowing the drinker to move freely through frozen-time zones in the Clock Tower for 1 hour",
+          "Hidden beneath the Hatter's seat is a journal he has been writing during the brief moments between loop resets — it contains his increasingly fragmented but brilliant analysis of the curse and how to break it, including the location of two of the four missing gears"
+        ]
+      },
+      {
+        "name": "The March Hare's Manor",
+        "description": "A sprawling house that was once a charming countryside estate but has been twisted by the curse into a non-Euclidean labyrinth. The exterior looks like a house wearing a house as a hat, with chimneys sprouting from windowsills and doors opening onto rooftops. Inside, the architecture rearranges itself whenever no one is looking — rooms swap positions, corridors reverse direction, and staircases lead to where they started. The March Hare lived here before the curse and knows its original layout, but the cursed version follows dream-logic rather than architecture. Each room contains a fragment of the March Hare's pre-curse life, distorted by madness and temporal decay.",
+        "features": [
+          "The Butter Workshop: the March Hare's former workshop, now coated in an inch of rancid butter that is also somehow fresh. The best butter, he insists. Buried in the butter is one of the four clock gears, but extracting it requires navigating a room where the floor is frictionless and the furniture attacks anyone who touches the butter without asking permission",
+          "The Half Room: a room where everything is exactly half of what it should be — half a table, half a chair, half a painting showing half a landscape. A mirror on one wall shows the other halves. Reaching through the mirror (DC 15 Arcana check) retrieves items from the 'other half,' including half of a map that, when combined with its reflection, shows the location of the third clock gear",
+          "The Corridor of Futures: a hallway lined with mirrors that show possible futures rather than reflections. Each mirror shows a different outcome of the party's quest — some triumphant, some catastrophic. One mirror shows the true face of Time, providing advantage on Insight checks during the final confrontation",
+          "The Birthday Armory: the March Hare celebrates his un-birthday 364 days a year, and each un-birthday he receives a weapon. This room contains 364 weapons of every conceivable type, mounted on walls, hanging from chandeliers, and piled in corners. Most are mundane, but a few are magical, and the March Hare will trade weapons for 'proper un-birthday presents' (anything given sincerely counts)",
+          "The Shifting Nursery: a children's room that rearranges itself into a different configuration every time the door opens. Inside, temporal echoes of the March Hare's children play endlessly — a heart-wrenching reminder that the curse trapped more than just the tea party guests"
+        ],
+        "encounters": [
+          "The Labyrinth Navigation: the manor rearranges itself every time the party looks away (or blinks — the March Hare suggests they simply stop blinking). Navigation requires creative problem-solving: marking walls, using mirrors, walking backward, or convincing the house to cooperate (DC 16 Persuasion, because houses have feelings in Wonderland)",
+          "Animated Birthday Presents in the armory: 4 animated suits of armor and 2 flying swords that activate when anyone touches a weapon without the March Hare's permission. The March Hare finds this hilarious",
+          "A temporal guardian — a paradox creature that exists in two moments simultaneously (use phase spider stats with temporal flavor) — guards the clock gear in the Butter Workshop. It can attack from the past or future, requiring the party to fight it in the present while anticipating strikes from other moments"
+        ],
+        "secrets": [
+          "The March Hare is not truly mad — he is heartbroken. The curse trapped his family in the Shifting Nursery as temporal echoes, and he has spent decades trying to reach them. His manic behavior is a coping mechanism. If the party acknowledges his grief, he becomes a powerful and loyal ally",
+          "The manor responds to emotion rather than logic. Rooms rearrange based on the strongest emotion felt by occupants — fear leads to traps, curiosity to treasures, compassion to the Nursery, and determination to the exits. A calm, focused party can navigate efficiently",
+          "Hidden in the Birthday Armory behind 364 mundane weapons is the March Hare's true weapon: a vorpal butter knife that he once used to defend Wonderland. He will only reveal it if the party earns his complete trust"
+        ]
+      },
+      {
+        "name": "The Dormouse's Dreamscape",
+        "description": "The Dormouse is not merely sleeping — it is dreaming the Tea Quarter into continued existence. Its dreams are a pocket dimension accessible only through the Dormouse's enormous teapot, and only with the Hatter's help (he knows the 'lullaby key' that opens the dreaming). Inside, the Dreamscape is a surreal, shifting landscape of half-formed memories, symbolic imagery, and dream-logic puzzles. It is here that the truth of the curse is laid bare: Time is not merely offended — Time is wounded, and the wound festers at the heart of the Dreamscape in a place called the Temporal Sanctum. The party must navigate the dream, reach the Sanctum, and apologize to Time on the Hatter's behalf — but Time does not forgive easily, and the Sanctum is guarded by the accumulated nightmares of every tea party guest who has ever been trapped in the loop.",
+        "features": [
+          "The Memory Gardens: floating islands of the Dormouse's memories, connected by bridges made of lullabies (you must hum to keep them solid). Each island contains a memory of Wonderland before the curse — beautiful, vibrant, and heartbreaking by contrast. Some memories contain clues to navigating deeper into the Dreamscape",
+          "The Treacle Well: a dream-version of the treacle well from the Dormouse's stories. Drinking from it grants visions of truth (as per the Divination spell, one question per character). But the well is guarded by three dream-sisters who demand a story in exchange — and the story must be sad enough to make the well weep",
+          "The Nightmare Thickets: regions of the Dreamscape corrupted by the curse, manifesting as thorny, twisted landscapes populated by nightmare creatures. These represent the fears and despairs of the trapped tea party guests, given monstrous form",
+          "The Temporal Sanctum: at the Dreamscape's heart, a cathedral of frozen moments — walls made of crystallized seconds, a floor of stopped heartbeats, and at its center, a wounded figure: the Avatar of Time, slumped on a throne of broken clocks, bleeding temporal energy that sustains the curse. Time is not a villain here but a being in pain, and the curse is its reflexive response to being wounded by the Hatter's careless words",
+          "Dream Logic Rules: in the Dreamscape, belief shapes reality. A character who truly believes they can fly can fly (Wisdom DC 15 to maintain belief). A character who fears falling will fall. Weapons work only if the wielder believes in them. Spells require conviction rather than components"
+        ],
+        "encounters": [
+          "The Nightmare Guardians: 3 dream creatures (use shadow demon stats) that patrol the Thickets, attacking with fear-based abilities. They can only be permanently destroyed by confronting and acknowledging the fears they represent (roleplay challenge combined with combat)",
+          "The Avatar of Time (boss encounter): a towering figure of shifting ages — simultaneously ancient and newborn, its form flickering between moments. It fights with temporal abilities: aging touch, time stop zones, summoning temporal echoes of past enemies the party has faced. CR 10-11. It can be defeated in combat, but the curse only breaks if the party also delivers a genuine apology. Combat alone leaves Time wounded but vengeful, and the curse returns in 1d4 days",
+          "The Treacle Well sisters (social encounter): three ethereal figures who speak in unison and demand emotional payment. They are not hostile but are unyielding in their requirement for a sad story. The quality of the story (DM adjudication, assisted by Persuasion or Performance DC 14) determines the quality of the divination received"
+        ],
+        "secrets": [
+          "The Dormouse is the most powerful entity in the Tea Quarter — its dream sustains everything, including the curse. If the Dormouse fully awakens, the entire Tea Quarter collapses into temporal chaos. This is both a threat and a potential last resort",
+          "The Avatar of Time can be reasoned with but not deceived. It knows the Hatter acted carelessly, not maliciously, but the wound to Time was real and requires real acknowledgment. A successful apology requires the party to understand WHY the Hatter's words hurt (Investigation or Insight DC 14 in the Sanctum reveals this: the Hatter said 'I could murder Time' during his song, and in Wonderland, words have literal power — he genuinely wounded Time)",
+          "If the party restores all four gears to the Clock Tower AND delivers the apology to Time, the curse breaks completely and permanently. If they do only one or the other, the curse weakens but does not break — the clock advances to 6:01 but no further, buying the Tea Quarter years but not freedom"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party enters the Mad Tea Quarter, a region of Wonderland where time has been frozen at six o'clock by a curse. The Mad Hatter once carelessly wounded Time itself during a performance, and Time retaliated by trapping the entire district in an eternal tea party. The temporal curse creates unique challenges: combat encounters that loop and reset, stuttering initiative orders, and ghostly temporal echoes of past guests reliving their final moments. To break the curse, the party must recover four scattered clock gears from across the Tea Quarter, navigate the March Hare's labyrinthine manor, earn the trust of the trapped tea party hosts, enter the Dormouse's Dreamscape to reach the Temporal Sanctum, and deliver a genuine apology to the wounded Avatar of Time. Along the way, they discover that madness in Wonderland is often just grief wearing a funny hat, and that even Time can be hurt by careless words.",
+  "hook": "As the party travels deeper into Wonderland, the shadows stop moving. Their own footsteps echo before they take them. A pocket watch in someone's pack begins ticking backward, then stops entirely — frozen at 6:00. The path ahead leads through a wrought-iron gate shaped like a clock face, beyond which a golden, perpetual sunset illuminates a district of crooked houses, cobblestone streets littered with broken timepieces, and the distant sound of china clinking and manic laughter that loops every ten minutes, cutting off mid-syllable before starting again. A temporal echo — a translucent, flickering figure in fine clothes — stumbles past them, desperately checking a watch that reads 6:00, murmuring 'Late, late, always six, never seven, late for everything, on time for nothing' before dissolving into amber sparks. The only way forward is through the Tea Quarter, and the only way through is to break the curse.",
+  "acts": [
+    {
+      "title": "Act 1: Six O'Clock Forever",
+      "description": "The party arrives in the Tea Quarter and experiences the time loop firsthand. They encounter temporal echoes, navigate streets where cause and effect are unreliable, and eventually find their way to the Endless Table where the Mad Hatter, March Hare, and Dormouse are trapped in their eternal tea party. The party must participate in the tea party's bizarre social rituals to earn the Hatter's trust and learn the nature of the curse. This act establishes the temporal mechanics, introduces the key NPCs, and sets up the three-part quest to break the curse: recover the gears, navigate the manor, and apologize to Time.",
+      "objectives": [
+        "Navigate the time-locked Tea Quarter and understand its temporal mechanics",
+        "Reach the Endless Table and meet the Hatter, March Hare, and Dormouse",
+        "Participate in the tea party etiquette challenge without triggering fey curses",
+        "Earn the Hatter's trust and learn the history of the curse",
+        "Discover the three-part plan to break the curse: gears, manor, and apology",
+        "Obtain the Hatter's enchanted tea for navigating frozen-time zones"
+      ],
+      "scenes": [
+        {
+          "name": "Through the Clock Gate",
+          "description": "The party enters the Tea Quarter and immediately experiences the disorienting effects of frozen time. Shadows don't move, fires don't burn down, and temporal echoes wander the streets in confused loops. The party must navigate to the Endless Table while dealing with temporal hazards and gaining their first understanding of the curse's mechanics.",
+          "readAloud": "\"You pass through the clock-face gate and the world lurches. Your shadow freezes mid-step while your body continues forward, then snaps to catch up with a disorienting jolt. The street beyond is paved with cobblestones embedded with clock faces, every single one reading 6:00. The light is wrong — a perpetual golden sunset that casts long shadows westward, yet the shadows never creep or shift. Candles in windows burn at the same height they have burned for decades, their wax never dripping. A temporal echo — a woman in a blue dress — walks past you carrying a cake, turns a corner, and immediately walks past you again carrying the same cake. Then again. And again. From deeper in the Quarter comes the sound of clinking china, a burst of laughter that cuts off sharply, then clinking china and the same laugh again. The entire district is stuck on a single moment, playing it back like a music box with a broken spring.\"",
+          "skillChecks": [
+            {
+              "skill": "Arcana",
+              "dc": 14,
+              "success": "You sense the temporal magic saturating the area and understand its nature — this is not an illusion or a slow effect but a genuine temporal freeze. Time literally does not pass here. Natural healing, long rests, and duration-based effects do not function normally. However, the freeze is imperfect — it loops rather than stopping, meaning there are brief 'reset moments' every 10 minutes when the loop restarts. During these moments, about 6 seconds of real time passes.",
+              "failure": "The strange environment is disorienting but you cannot determine its magical nature precisely."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "You notice that the temporal echoes follow set paths and can be predicted. You also spot a less-traveled side street that leads more directly toward the sound of the tea party, avoiding the denser echo zones.",
+              "failure": "The echoes are everywhere and unpredictable, making navigation confusing. Add 30 minutes of wandering to your approach."
+            },
+            {
+              "skill": "Survival",
+              "dc": 15,
+              "success": "You realize the broken clocks on the street function as a kind of trail — the ones closest to the Endless Table are cracked more severely, as if the time-freeze is strongest near the curse's epicenter. Following the most damaged clocks leads you straight to the tea party.",
+              "failure": "The disorienting environment makes it difficult to maintain a sense of direction."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 temporal echoes (use ghost stats, CR 4 each, with the following modifications: replace Horrifying Visage with Temporal Displacement — target must make DC 13 Wisdom save or be shunted 1 round into the past, losing their next turn as they 'catch up' to the present)"],
+              "difficulty": "Medium",
+              "tactics": "The temporal echoes are not intentionally hostile — they are fragments of trapped guests who lash out in confusion when the party disrupts their loop by interacting with them. They phase through walls and attack erratically, sometimes striking at where a character was moments ago rather than where they are now. They can be turned by Channel Divinity or dispersed by dealing radiant damage, but they reform in 1d4 hours as long as the curse persists.",
+              "terrain": "Narrow cobblestone streets lined with frozen-in-time market stalls. Clock faces embedded in the ground create difficult terrain (DC 12 Dexterity or stumble). Temporal distortion zones appear randomly — stepping into one forces a DC 13 Constitution save or the character ages 1d6 years (cosmetic, reversed when the curse breaks). Buildings can be entered for cover but their interiors may loop back to the street."
+            }
+          ],
+          "roleplayNotes": "Establish the uncanny horror of frozen time early. Everything here is a parody of a normal afternoon — the light is too golden, the air smells too perfectly of tea and scones, and the silence between the looping sounds is oppressive. Temporal echoes should be pitiable rather than frightening — they are victims, not monsters. If a character tries to speak to an echo, it responds with the same pre-programmed phrase regardless of the question, then continues its loop. One echo near the Endless Table is different: a young man who seems more aware than the others, whispering 'Find the Hatter, find the Hatter' before resetting. This is a clue that the Hatter is the key to understanding the curse.",
+          "loot": [
+            "A frozen-time crystal (small, glowing amber shard) worth 50 gp to an arcane collector, found embedded in a clock face",
+            "A temporal echo's pocket watch — non-magical but beautifully crafted, worth 25 gp",
+            "A map of the Tea Quarter drawn by a previous visitor, partially accurate but with annotations warning 'DO NOT ANSWER THE RIDDLE WRONG' and 'THE BUTTER IS A LIE'"
+          ]
+        },
+        {
+          "name": "The Eternal Tea Party",
+          "description": "The party arrives at the Endless Table and must navigate the mad social encounter of the tea party. The Hatter, March Hare, and Dormouse are trapped in their loop but are somewhat aware of visitors. The party must participate in the nonsensical etiquette, answer riddles, avoid fey curses, and ultimately earn the Hatter's trust by demonstrating an understanding of Wonderland logic.",
+          "readAloud": "\"The street opens into a vast clearing — or perhaps the clearing was always here and the street was merely pretending to lead somewhere else. Before you stretches a table. And stretches. And stretches. It runs from here to the horizon and presumably beyond, set with thousands upon thousands of place settings — chipped cups, cracked saucers, tarnished spoons, and plates piled with scones that crumble to dust at the slightest vibration. Every sixth seat is pristine, as if waiting for someone important who never arrives.\n\nAt the table's head sits a figure in a magnificent but threadbare top hat, his eyes wild and ringed with exhaustion, his fingers drumming an erratic rhythm on the table's edge. To his left, a creature that might be a hare if hares were the size of men and twice as manic, its ears twitching independently as it shoves butter into a pocket watch with a knife. To the Hatter's right, an enormous teapot trembles slightly, and from within comes the soft murmur of something sleeping and dreaming.\n\nThe Hatter's eyes snap to you. For a moment — just a heartbeat — the madness in them recedes and you see something raw and desperate. Then the loop takes him and he grins too widely.\n\n'No room! No room!' he and the March Hare cry in unison, despite the infinite empty chairs stretching into eternity.\n\nThe tea party has been expecting you. It has been expecting everyone, forever.\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "You perceive the pattern beneath the madness. The Hatter's erratic behavior is a cage, not his nature — between loops, for a fraction of a second, his eyes are clear and anguished. The tea party's rules are not random but follow a strict internal logic: Wonderland logic, where the most absurd answer is the correct one and sincerity is the only real currency.",
+              "failure": "The tea party appears to be genuine madness with no underlying structure or meaning."
+            },
+            {
+              "skill": "Performance",
+              "dc": 13,
+              "success": "You adapt to the tea party's rhythm, participating in the nonsense conversation with flair and confidence. The Hatter notices and is delighted — your turn is skipped during the next etiquette challenge.",
+              "failure": "Your attempts to participate feel stilted and forced. The March Hare declares your performance 'too sensible by half' and demands you wear the butter as a hat."
+            },
+            {
+              "skill": "Charisma (Persuasion)",
+              "dc": 15,
+              "success": "During a brief lucid moment between loops, you reach the Hatter with genuine empathy. He drops the manic act and speaks clearly for 30 seconds, sharing the most critical information: the curse can be broken by restoring the clock gears AND apologizing to Time in the Temporal Sanctum. He gives you a vial of his enchanted tea.",
+              "failure": "The Hatter wants to trust you but the loop drags him back before he can share everything. You learn about the gears but not the Temporal Sanctum — that information must be obtained elsewhere."
+            },
+            {
+              "skill": "Wisdom Save",
+              "dc": 14,
+              "success": "You resist the fey compulsion of the 'Clean Cup' protocol and maintain your seat, impressing the Hatter with your willpower.",
+              "failure": "You are teleported to a random seat 1d100 places down the table and must spend a round finding your way back, navigating past animated teapots and confused temporal echoes."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["The March Hare's Butter Knife Duel (use gladiator stats, CR 5, but reskinned as the March Hare fighting with two butter knives — he uses reckless, theatrical attacks and treats the duel as sport rather than combat, laughing the entire time)"],
+              "difficulty": "Medium (optional — only triggers if the party commits 3+ etiquette violations)",
+              "tactics": "The March Hare fights with manic joy, not malice. He uses mobile, acrobatic attacks, leaping on and off the table, throwing teacups as improvised weapons, and sliding across the butter-slicked surface with perfect balance. He yields after taking half damage and declares the offender 'a worthy un-birthday guest.' If reduced to 0, the loop resets him to full health after 10 minutes. This duel can also be resolved by offering the March Hare a 'proper un-birthday present' (any sincere gift) or winning a riddle contest.",
+              "terrain": "The Endless Table — difficult terrain due to teacups, plates, and spilled tea. The table surface is partially butter-slicked (DC 12 Dexterity or fall prone). Chairs can be used as improvised weapons or cover. The table stretches infinitely, so the March Hare can always retreat and re-engage from an unexpected direction."
+            }
+          ],
+          "roleplayNotes": "This scene is the social heart of the act and potentially the entire scenario. The tea party is simultaneously funny, sad, and dangerous. Play the Hatter as a brilliant man trapped in a role he cannot escape — his riddles and nonsense contain genuine wisdom, encrypted by the curse. The March Hare is outwardly joyful but his laughter has a desperate edge; he is terrified of the silence between loops. The Dormouse mumbles prophetic fragments from inside its teapot: 'Treacle, treacle, down the well... the gears remember what the clock forgot... Time bleeds in the dreaming...' Each of these fragments is a genuine clue. The most important moment is when the party must answer 'Why is a raven like a writing desk?' — the answer is 'I haven't the slightest idea.' Saying this unlocks the Hatter's trust because it demonstrates acceptance of mystery without needing to control it, which is the opposite of what the Hatter did when he tried to 'kill Time.' Wonderland rewards those who embrace its impossibility.",
+          "loot": [
+            "The Hatter's Enchanted Tea (1d4+1 doses) — drinking a dose grants immunity to the time-freeze effect for 1 hour, allowing free movement through frozen-time zones",
+            "A self-stirring silver spoon (worth 30 gp, minor magical curiosity)",
+            "The Hatter's Hidden Journal (found beneath his seat if the party investigates) — contains the locations of 2 of the 4 missing clock gears and fragments of the Hatter's research on the curse"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Manor of Madness",
+      "description": "Armed with the Hatter's trust and enchanted tea, the party ventures into the March Hare's Manor to recover the scattered clock gears and piece together the full picture of the curse. The manor is a non-Euclidean labyrinth that shifts when unobserved, filled with rooms that operate on dream-logic, animated guardians, and emotional resonance puzzles. The party must also earn the March Hare's trust by discovering his hidden grief and helping him reach the Shifting Nursery where echoes of his family are trapped. Two of the four clock gears are hidden within the manor, and clues to the remaining two are scattered throughout its impossible architecture.",
+      "objectives": [
+        "Navigate the March Hare's shifting labyrinth",
+        "Recover 2 clock gears from the manor (Butter Workshop and Half Room)",
+        "Discover the March Hare's hidden grief and earn his full trust",
+        "Find clues to the remaining 2 gears' locations",
+        "Survive the manor's animated guardians and temporal hazards",
+        "Optionally: help the March Hare reach the Shifting Nursery for a powerful emotional reward"
+      ],
+      "scenes": [
+        {
+          "name": "The House That Madness Built",
+          "description": "The party approaches and enters the March Hare's Manor, immediately encountering its reality-warping properties. Rooms shift, corridors loop, and the house itself seems to have an emotional awareness that reacts to the party's state of mind.",
+          "readAloud": "\"The March Hare's Manor defies architecture the way the Hare himself defies sanity. From the outside, it appears to be a charming country house wearing another house as a hat, with chimneys sprouting from window sills, doors opening onto nothing but sky, and a front gate that is somehow also the back gate if you look at it from the wrong angle. The March Hare produces a key made of butter, inserts it into a keyhole that wasn't there a moment ago, and turns it with a squelching sound.\n\n'Home sweet home!' he declares as the door opens onto a corridor that stretches upward like a chimney. 'Mind the gravity — it gets confused around teatime. Which is, of course, always.'\n\nHe steps inside and walks up the vertical corridor as casually as if it were a garden path. From somewhere deep in the house comes the sound of a clock ticking — the only working clock you've heard in the Tea Quarter — keeping time with the regularity of a heartbeat.\"",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "You realize the manor rearranges based on the strongest emotion felt by its occupants. By consciously focusing on a specific emotion, you can influence which rooms the corridors lead to — curiosity leads to the interesting rooms (Half Room, Corridor of Futures), fear leads to traps and guardians, determination leads to the gears.",
+              "failure": "The manor's shifting seems completely random and disorienting. Navigation takes twice as long and you stumble into 1d2 additional hazard rooms."
+            },
+            {
+              "skill": "Perception",
+              "dc": 15,
+              "success": "You notice subtle markers the March Hare has scratched into doorframes over the decades — a system of notches and symbols that indicate what each room contained before the curse distorted it. Using these, you can navigate with reasonable accuracy.",
+              "failure": "The manor's interior is a bewildering maze with no visible navigation aids."
+            },
+            {
+              "skill": "Arcana",
+              "dc": 16,
+              "success": "You detect that the single ticking clock you hear is coming from the deepest part of the manor — the Shifting Nursery. It is the March Hare's emotional anchor, and it represents the one thing the time-freeze could not fully stop: a parent's love. Following the ticking leads to the Nursery.",
+              "failure": "The ticking seems to come from everywhere and nowhere, offering no navigational guidance."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The manor is a character in itself — play it as alive, confused, and somewhat sympathetic. It groans when rooms shift, sighs when corridors extend, and occasionally produces helpful architecture (a convenient alcove, a door where a wall was) when the party shows kindness or determination. The March Hare is a hyperactive but helpful guide who narrates constantly, warns of dangers a half-second too late ('Mind the — oh, you've found the trap floor'), and deflects any question about the Nursery or his family with forced cheer and subject changes. The deeper into the manor the party goes, the more the March Hare's facade cracks.",
+          "loot": [
+            "A jar of never-drying butter (minor magical curiosity, can lubricate any mechanism, worth 15 gp)",
+            "A pair of March Hare slippers found in an entryway closet (when worn, the wearer cannot be knocked prone, worth 75 gp)"
+          ]
+        },
+        {
+          "name": "The Butter Workshop and the Birthday Armory",
+          "description": "The party navigates to two critical rooms in the manor. The Butter Workshop contains the first clock gear, embedded in a block of enchanted butter and guarded by a paradox creature. The Birthday Armory offers weapons and potential combat as the party deals with animated suits of armor defending the March Hare's collection.",
+          "readAloud": "\"The corridor deposits you — possibly against its will — into a room that is emphatically a workshop, if workshops were designed by someone who believed butter was the solution to every engineering problem. Workbenches are coated in the stuff. Tools are preserved in it. The walls glisten with a sheen that is half butter, half madness. And there, embedded in a translucent block of enchanted butter at the room's center like a fly in amber, gleams a brass gear the size of a dinner plate, its teeth still slowly turning despite being frozen in place.\n\nFrom the butter block, something shifts. A shape that is both there and not-there — existing in this moment and another simultaneously, its outline flickering between a spider-like form and something geometric and impossible — uncurls from atop the block and fixes you with four eyes that each look at a different point in time.\"",
+          "skillChecks": [
+            {
+              "skill": "Sleight of Hand",
+              "dc": 16,
+              "success": "You manage to extract the clock gear from the enchanted butter without disturbing the paradox creature's web of temporal threads, avoiding combat entirely.",
+              "failure": "The butter shifts as you reach in, alerting the paradox creature which immediately attacks."
+            },
+            {
+              "skill": "Nature",
+              "dc": 13,
+              "success": "You realize the enchanted butter has preservative properties — anything coated in it is protected from temporal effects. Coating your weapons in butter grants them the ability to deal full damage to temporal creatures for 1 hour.",
+              "failure": "It's butter. Weird butter, but you can't determine any special properties."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "In the Birthday Armory, you offer the March Hare a sincere un-birthday present (any item given genuinely counts). He is deeply moved and offers a weapon of the party's choice from his collection — up to a +1 weapon of any type.",
+              "failure": "The March Hare doesn't feel the gift is sincere enough. 'An un-birthday present must come from the heart, not the inventory!' He remains friendly but doesn't offer his best weapons."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 paradox creature (use phase spider stats, CR 3, with the following modifications: replace Ethereal Jaunt with Temporal Phase — the creature shifts 1 round into the future or past, becoming invisible and intangible for 1 round before reappearing and attacking with advantage. Its bite deals an additional 1d8 force damage as temporal energy.)"],
+              "difficulty": "Medium",
+              "tactics": "The paradox creature attacks from multiple temporal angles — it phases out, then attacks from behind the party when it reappears. It prioritizes spellcasters because their magic disrupts its temporal phasing. If the party coats weapons in enchanted butter, the creature cannot phase while in melee range of a buttered weapon. It retreats to the ceiling when below half HP and attempts hit-and-run temporal phases.",
+              "terrain": "The Butter Workshop: 30x40 ft room with butter-slicked floor (DC 12 Dexterity to avoid falling prone when moving more than half speed). Workbenches provide half cover. The enchanted butter block at center provides full cover but is slippery. The butter on the floor counts as difficult terrain."
+            },
+            {
+              "enemies": ["4 animated suits of armor (CR 1 each)", "2 flying swords (CR 1/4 each)"],
+              "difficulty": "Medium-Hard",
+              "tactics": "The animated birthday presents activate when anyone touches a weapon without the March Hare's explicit permission. The suits of armor form a defensive line while the flying swords harry the flanks. They do not pursue beyond the Armory's threshold. If the March Hare commands them to stand down (earned through trust), they immediately deactivate.",
+              "terrain": "The Birthday Armory: a 50x50 ft room crammed with 364 weapons on every surface. Weapon racks create narrow corridors (5 ft wide). Knocked-over racks create difficult terrain. The massive variety of weapons means improvised weapons are everywhere — the DM should describe creative chaos as animated armor grabs nearby weapons mid-fight."
+            }
+          ],
+          "roleplayNotes": "The Butter Workshop is weird even by Wonderland standards — lean into the absurdity. The March Hare is completely unselfconscious about the butter, insisting it is 'the best butter' and that anyone who questions its presence simply lacks vision. The Birthday Armory is a chance for levity and shopping — the March Hare loves talking about his un-birthday presents and can provide a backstory for almost every weapon ('This axe was given to me by a butterfly who thought it was Tuesday. It was, in fact, Thursday. The axe remembers.'). If a character asks about the Shifting Nursery at this point, the March Hare's smile falters. 'We don't go there,' he says quietly, before forcing his grin back. 'More tea?'",
+          "loot": [
+            "Clock Gear #1 (quest item — recovered from the Butter Workshop)",
+            "Up to 1 weapon of the party's choice from the Birthday Armory (+1 weapon if the un-birthday present is accepted, mundane weapon otherwise)",
+            "A pot of enchanted butter (3 doses — coating a weapon allows it to deal full damage to incorporeal/temporal creatures for 1 hour per dose)",
+            "A decorative butter knife with a pearl handle (mundane, worth 10 gp)"
+          ]
+        },
+        {
+          "name": "The Half Room and the Corridor of Futures",
+          "description": "The party discovers the Half Room and its mirror portal, and navigates the Corridor of Futures to find the second clock gear. The Half Room is a puzzle encounter requiring creative thinking, while the Corridor provides visions that grant tactical advantages for the final confrontation.",
+          "readAloud": "\"The door opens onto impossibility. You stand in half a room. Not a room cut in half — that would make too much sense — but a room where everything is precisely one half of itself. Half a table. Half a chair. Half a painting showing half a sunset over half an ocean. The floor is half — you can see the void beneath where the other half should be. On the far wall, a full-length mirror shows the room's other half, perfect and complete, reflected as if it exists in the glass. And there, reflected in the mirror but not present in the room, sits the other half of a brass clock gear.\n\nFrom the mirror, your reflections wave at you. Not mimicking your movements — waving independently, with the amused expressions of people who know something you do not.\"",
+          "skillChecks": [
+            {
+              "skill": "Arcana",
+              "dc": 15,
+              "success": "You understand the mirror is a portal to a reflected half-dimension. Objects can be retrieved by reaching through, but the mirror only allows passage of one hand at a time, and anything fully reflected in the mirror (your whole body) gets pulled through. You can safely retrieve the half-gear by reaching through while standing at an angle that only reflects your arm.",
+              "failure": "The mirror's properties are unclear. Touching it without understanding risks being pulled into the reflection entirely — DC 14 Strength save to pull yourself back if this happens."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "You find the room-side half of the clock gear hidden under the half-table. Combining both halves (from the room and the mirror) creates a complete gear that hums with temporal energy.",
+              "failure": "The room-side half of the gear remains hidden. The party must use other means to locate it, or settle for only the mirror half (which is insufficient alone)."
+            },
+            {
+              "skill": "Wisdom (Insight)",
+              "dc": 13,
+              "success": "In the Corridor of Futures, you focus on the mirror showing the confrontation with Time in the Temporal Sanctum. You see a vision of the successful apology and understand what Time needs to hear — the apology must acknowledge that words have power, that 'killing time' is not a jest in a place where Time lives, and that carelessness with powerful words is a form of violence. This grants advantage on the Persuasion check to apologize to Time in Act 3.",
+              "failure": "The mirrors show too many conflicting futures and you cannot focus on any single one clearly enough to gain useful information."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The Half Room is a puzzle scene meant to reward creative thinking. There are multiple ways to retrieve the gear — reaching through the mirror carefully, breaking the mirror (which collapses the half-room and deposits everything in a heap, including the gear, but also 2d6 bludgeoning damage from falling debris), or convincing your reflection to hand it over (Persuasion DC 16 — your reflection has its own personality and enjoys being asked nicely). The Corridor of Futures should be played as atmospheric and contemplative — each mirror shows a possible future, some hopeful and some dire. One mirror shows the party celebrating the curse's end. Another shows the Tea Quarter in ruins. A third shows a future where the party never came and the loop eventually consumed all of Wonderland. Use these visions to build motivation and emotional stakes.",
+          "loot": [
+            "Clock Gear #2 (quest item — assembled from two halves in the Half Room)",
+            "A shard of future-glass from the Corridor (when held, grants advantage on one Initiative roll per long rest — the holder briefly sees 6 seconds into the future)",
+            "A half-crown coin from the Half Room (worth 25 gp to a curiosity collector, or 50 gp if the party can find the other half, which exists somewhere in Wonderland)"
+          ]
+        },
+        {
+          "name": "The Shifting Nursery",
+          "description": "The emotional climax of Act 2. The party discovers or is led to the Shifting Nursery, where temporal echoes of the March Hare's children are trapped in an endless loop of play. The March Hare's facade finally breaks, and helping him reach his family earns the party his complete trust and the knowledge of where the remaining two gears are hidden.",
+          "readAloud": "\"The ticking grows louder. Behind a door that the manor seems reluctant to reveal — it takes three tries, the house offering a broom closet and a bathroom first — you find a nursery. It is the only room in the manor that does not shift. Painted stars dot the ceiling. Wooden toys line the shelves. A rocking horse sways gently despite no one riding it. And there, in the center of the room, two small figures — translucent, flickering, made of light and memory — build a tower of blocks, knock it down, laugh, and build it again. Over and over. The same tower. The same laugh. The same moment, forever.\n\nThe March Hare stops in the doorway. His manic grin is gone. His ears droop. He reaches one trembling paw toward the children but cannot cross the threshold — some force pushes him back each time he tries.\n\n'Every day,' he whispers, and for the first time, his voice holds no madness at all. 'Every day I try. Every day the house lets me see them. Every day I cannot reach them.'\n\nThe ticking comes from a small clock on the nursery's mantle. It reads 5:59. One minute before the curse. One minute before everything stopped. One minute that the March Hare has been trying to reach for decades.\"",
+          "skillChecks": [
+            {
+              "skill": "Arcana",
+              "dc": 16,
+              "success": "You identify the barrier as a temporal membrane — the nursery exists one minute before the curse, while the rest of the manor exists at 6:00. The Hatter's enchanted tea can bridge the gap. Pouring a dose on the threshold dissolves the barrier for 1 minute of real time.",
+              "failure": "The barrier is clearly temporal in nature but you cannot determine how to breach it."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "You convince the March Hare that breaking the curse entirely is the only permanent way to reach his children. He collects himself, wipes his eyes, and becomes a focused, determined ally — providing the exact locations of the remaining 2 clock gears (one in the Clock Tower's Pendulum Hall, one in the Dormouse's Dreamscape) and tactical advice for navigating the Temporal Sanctum.",
+              "failure": "The March Hare is too overwhelmed by grief to be strategic. He provides the general area of the remaining gears but not their exact locations."
+            },
+            {
+              "skill": "Medicine or Insight",
+              "dc": 12,
+              "success": "You recognize the March Hare's 'madness' for what it truly is — decades of grief processed through Wonderland's reality-warping nature. In Wonderland, extreme emotions reshape the world, and the March Hare's grief literally drove his house mad. Understanding this allows you to navigate the manor's remaining rooms by processing grief rather than fighting it.",
+              "failure": "The March Hare's emotional state is clearly intense but you cannot fully parse its connection to the manor's behavior."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the emotional heart of the scenario. The March Hare's grief is the most human thing in Wonderland — play it with genuine pathos. The temporal echo children are heartbreaking: they cannot see or interact with the March Hare, endlessly replaying a happy moment with no awareness of their situation. If the party uses the Hatter's tea to dissolve the barrier, the March Hare can enter the nursery for exactly one minute. He kneels down and builds the block tower with his children one more time, laughing with them even though they cannot see him, and when the minute ends and the barrier returns, he straightens up, wipes his eyes, and says 'Right then. Let's break this bloody curse.' This moment should earn the party's emotional investment in the quest and the March Hare's unwavering loyalty for the remainder of the scenario. If the party did not use the tea (or has none left), the March Hare reaches the same determination on his own but with more visible anguish — the party can still comfort him through roleplay.",
+          "loot": [
+            "The March Hare's strategic knowledge (quest advancement — locations of remaining 2 gears)",
+            "The March Hare's Vorpal Butter Knife (if the party has earned his complete trust through this scene: a +1 dagger that deals an extra 2d6 damage against fey creatures and can cut through any non-magical barrier, described as a butter knife of extraordinary sharpness)",
+            "A tiny wooden toy horse from the nursery shelf (non-magical, but the March Hare says it brings luck — the party member who carries it has advantage on the next death save they make)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: An Audience with Time",
+      "description": "The final act. The party must recover the remaining two clock gears (from the Clock Tower's Pendulum Hall and the Dormouse's Dreamscape), restore them to the Broken Clock Tower, enter the Temporal Sanctum within the Dreamscape, and confront the Avatar of Time. The curse can only be broken by combining mechanical restoration (the gears) with emotional resolution (the apology). This act features the scenario's most challenging combat, its most surreal environments, and its most dramatically satisfying conclusion.",
+      "objectives": [
+        "Recover Clock Gear #3 from the Broken Clock Tower's Pendulum Hall",
+        "Defeat or bypass the Time Elemental guardian",
+        "Enter the Dormouse's Dreamscape with the Hatter's help",
+        "Navigate the Dreamscape to find Clock Gear #4",
+        "Reach the Temporal Sanctum and confront the Avatar of Time",
+        "Deliver a genuine apology on the Hatter's behalf to break the curse",
+        "Install all four gears in the Clock Tower to mechanically restore time"
+      ],
+      "scenes": [
+        {
+          "name": "The Broken Clock Tower",
+          "description": "The party ascends the massive Clock Tower to recover the third gear from the Pendulum Hall and confronts the Time Elemental that guards the mechanism. The tower is filled with temporal hazards and contains crystallized time formations that reveal fragments of the past.",
+          "readAloud": "\"The Broken Clock Tower rises above the Tea Quarter like a brass finger pointing at an accusation at the sky. Its clock face — thirty feet across, frozen at 6:00 — looms over you as you approach the tower's base. The door is ajar. Inside, a spiral staircase winds upward around a central shaft filled with enormous, motionless gears and pendulums the size of ship masts. The air here is thick with something that is not quite dust — crystallized time, drifting like amber snowflakes, coating every surface in a thin layer of frozen moments. As you ascend, you pass through pockets of temporal distortion: a step that ages your boot leather by a decade, a landing where your breath hangs in the air for ten seconds before dispersing, a window that shows the Tea Quarter as it was fifty years ago, vibrant and alive.\n\nThe Pendulum Hall opens before you halfway up the tower — a cathedral-like space where a dozen massive pendulums hang motionless, their chains wrapped in crystallized time like insects in amber. Among the pendulums, glinting in the amber light, a brass gear sits lodged in a nest of temporal crystal. And above it, circling slowly with a sound like a clock being wound in reverse, something moves — a being of shifting light and folded moments, its form constantly aging and de-aging, flickering between states of existence. The Time Elemental turns its attention toward you, and the air around you grows heavy with years.\"",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 15,
+              "success": "You free one of the massive pendulums from its crystallized time prison, and it begins to swing. The swinging pendulum creates a 'time bubble' — a 20-foot radius zone where real time flows for 10 minutes. Within this bubble, natural healing works, rests can occur, and duration-based effects function normally.",
+              "failure": "The crystallized time resists your efforts. You manage to crack it but not break through, and the noise alerts the Time Elemental to your exact position."
+            },
+            {
+              "skill": "Dexterity (Acrobatics)",
+              "dc": 14,
+              "success": "You navigate between the motionless pendulums and temporal distortion zones to reach the gear without triggering additional hazards.",
+              "failure": "You step into a temporal distortion zone: DC 15 Constitution save or be aged 2d10 years (cosmetic only, reversed when curse breaks, but you feel the weight of the years — disadvantage on Dexterity checks for 1 hour)."
+            },
+            {
+              "skill": "Arcana",
+              "dc": 16,
+              "success": "You identify the Time Elemental's weakness: it is sustained by the crystallized time in the tower. Destroying the crystal formations around it weakens it — for each formation destroyed, the Elemental loses 20 HP and one of its temporal abilities.",
+              "failure": "The Time Elemental's connection to the tower's temporal energy is apparent but you cannot determine how to exploit it."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 Time Elemental (use air elemental stats — CR 5 — with the following modifications: replace Whirlwind with Temporal Vortex — 20 ft radius, DC 14 Constitution save, failure causes the target to lose their next turn as they are shunted backward in time by 6 seconds. Replace slam attacks with Aging Touch: +8 to hit, 2d8+4 force damage plus DC 14 Constitution save or gain 1 level of exhaustion as decades of aging are compressed into the strike. The Elemental has Slow and Haste as at-will abilities, targeting one creature each as a bonus action. HP: 90, AC: 15)"],
+              "difficulty": "Hard",
+              "tactics": "The Time Elemental fights defensively, using Temporal Vortex to control the battlefield and Haste on itself while Slowing the most dangerous party member. It uses Aging Touch on anyone who approaches the gear, prioritizing those carrying other gears as it can sense the temporal energy. It retreats through walls (it can phase through crystallized time formations) when below half HP, attacking from unexpected angles. Destroying crystallized time formations (AC 13, HP 30 each, vulnerable to radiant damage) in the room weakens the Elemental. If all four major formations are destroyed, the Elemental is reduced to half its remaining HP and loses its Temporal Vortex ability.",
+              "terrain": "The Pendulum Hall: 60x80 ft room with a 40 ft ceiling. Twelve massive pendulums hang from the ceiling, creating a forest of obstacles (provide cover, but characters must navigate around them). Crystallized time formations (4 major, scattered around the room) provide full cover and can be destroyed. Temporal distortion zones (3, randomly placed) act as traps — entering one triggers the aging effect described in the skill check. The central shaft opening in the floor is a 10-ft wide pit — falling results in 4d6 bludgeoning damage from the gear mechanisms below."
+            }
+          ],
+          "roleplayNotes": "The Clock Tower should feel like a place of immense, frozen power — a machine that once regulated an entire dimension's time, now jammed and broken. The Time Elemental is tragic rather than evil; it was formed by the curse and exists in constant pain, trapped between moments. It does not speak but its attacks convey anguish — the Aging Touch is accompanied by a wail that sounds like a clock chime stretched over centuries. If the party addresses it with compassion (Persuasion DC 18), it hesitates for one round and does not use Aging Touch that round, though it cannot be fully talked down — its nature compels it to guard the mechanism. The revelation that the Time Elemental is actually a fragment of the Hatter's temporal essence (discovered in the tower's secrets) should inform the party that destroying it would harm the Hatter. Reducing it to 0 HP does not kill it — it reforms in 1d4 hours. The party must either destroy the crystal formations to weaken it enough to recover the gear while it is stunned, or find a way to temporarily contain it.",
+          "loot": [
+            "Clock Gear #3 (quest item — recovered from the Pendulum Hall)",
+            "Temporal Crystal Shard (wondrous item — once per long rest, the holder can reroll initiative at the start of combat, taking the new result)",
+            "Crystallized Time Fragments (2d4 small pieces worth 25 gp each to arcane collectors)",
+            "A brass pocket watch from a crystallized formation that still works — it keeps perfect time even in the frozen Tea Quarter. Worth 50 gp, or invaluable as proof that time CAN still work here"
+          ]
+        },
+        {
+          "name": "Into the Dreaming",
+          "description": "The party enters the Dormouse's Dreamscape through the enormous teapot at the Endless Table, guided by the Hatter's lullaby key. The Dreamscape is a surreal pocket dimension of floating memory islands, nightmare thickets, and dream-logic puzzles. The fourth and final clock gear is hidden here, guarded by nightmare creatures born from the collective despair of the Tea Quarter's trapped inhabitants.",
+          "readAloud": "\"The Hatter lifts the lid of the Dormouse's enormous teapot and begins to hum — a lullaby that sounds like a music box being played underwater, its notes slippery and strange. The tea inside the pot begins to swirl, deepening impossibly, becoming not liquid but space — an opening into somewhere vast and dark and warm. The Dormouse's snoring shifts from a rumble to a melody, harmonizing with the Hatter's hum.\n\n'Down you go,' the Hatter says, his eyes bright with something between hope and terror. 'Into the dreams of the only soul in this Quarter who can still truly sleep. Mind the nightmares — they're not the Dormouse's. They belong to all of us.'\n\nYou step into the teapot and fall — not down, but inward, through layers of warmth and darkness and the scent of chamomile. You land softly on a surface that is somehow grass and clouds and the feeling of a half-remembered lullaby, all at once.\n\nThe Dormouse's Dreamscape opens before you: islands of light floating in an indigo void, connected by bridges that shimmer like silk threads. Each island glows with a different memory — a sunset, a celebration, a garden in bloom. But between the islands, in the dark spaces, something writhes. Thorny shapes. Red-eyed shadows. The collected nightmares of every soul the curse has trapped, given teeth and claws by decades of despair.\"",
+          "skillChecks": [
+            {
+              "skill": "Wisdom (Perception)",
+              "dc": 14,
+              "success": "You perceive the Dreamscape's underlying structure — the memory islands are arranged in a spiral pattern converging on the Temporal Sanctum at the center. The nightmare thickets cluster at the boundaries between memories, feeding on the emotional transitions. By staying on the memory islands and crossing bridges quickly, the party can minimize nightmare encounters.",
+              "failure": "The Dreamscape appears chaotic and navigating it is a matter of trial and error."
+            },
+            {
+              "skill": "Wisdom Save",
+              "dc": 15,
+              "success": "You maintain your grip on reality within the Dreamscape. Dream-logic effects (gravity changes, sudden transformations, emotional amplification) wash over you without taking hold.",
+              "failure": "The Dreamscape's dream-logic partially affects you: your weapons might turn to flowers for 1 round, you might briefly fly uncontrollably, or you might hear the Dormouse's narration overlaying reality ('And then the brave adventurer tripped over nothing at all'). These effects are disorienting but not directly harmful — disadvantage on your next attack roll or ability check as you adjust."
+            },
+            {
+              "skill": "Performance or Persuasion",
+              "dc": 14,
+              "success": "At the Treacle Well, you tell the three dream-sisters a story sad enough to make the well weep. The well grants a Divination-equivalent: you may ask one yes-or-no question about the curse or the Temporal Sanctum and receive a truthful answer.",
+              "failure": "Your story is not sad enough. The dream-sisters politely decline and the well remains still. You may try once more with a different story (new check at DC 16)."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 nightmare guardians (use shadow demon stats — CR 4 each — with the following modifications: they take a form representing a specific fear — one is the fear of abandonment (looks like a silhouette of a loved one walking away), one is the fear of irrelevance (a fading, transparent figure desperately shouting unheard), and one is the fear of eternal repetition (a figure trapped in a loop, twitching and jerking). Each has vulnerability to psychic damage and resistance to all physical damage while in the Nightmare Thickets. Outside the Thickets, their resistances become normal.)"],
+              "difficulty": "Hard",
+              "tactics": "The nightmare guardians are ambush predators that strike from the dark spaces between memory islands. They try to separate the party by manifesting personalized fears — each guardian targets the party member most susceptible to its specific fear theme. They use their Shadow of Fear ability to impose frightened conditions, then attack frightened targets with advantage. They can only be permanently destroyed by confronting and acknowledging the fear they represent (a character must verbally acknowledge the fear while within 5 feet of the guardian, then make a DC 14 Charisma check — success causes the guardian to dissolve permanently, regardless of HP). Physical combat can reduce them to 0 HP, but they reform in 1d4 rounds within the Dreamscape unless destroyed through confrontation.",
+              "terrain": "The Dreamscape: floating memory islands (30-50 ft diameter) connected by luminous bridges (5 ft wide, no railings, 60 ft long). Falling off an island or bridge does not cause damage — the character floats back up after 1 round, landing on a random island. The Nightmare Thickets exist between islands — dark, thorny spaces that grant the nightmare guardians resistance to physical damage. Characters in the Thickets must make DC 12 Wisdom saves each round or be frightened. The memory islands themselves are safe zones where nightmares have disadvantage on all attacks."
+            }
+          ],
+          "roleplayNotes": "The Dreamscape should feel genuinely dreamlike — describe things in terms of sensations and emotions rather than concrete physical details. Colors are feelings, sounds are memories, and distances are measured in how strongly you want to reach something. The memory islands each contain a beautiful moment from Wonderland's past — a birthday party, a croquet match played for fun rather than fear, the Hatter performing music to thunderous applause. These memories emphasize what the curse has stolen and reinforce the emotional stakes. The nightmare guardians are the scenario's most psychologically intense combat — they attack the characters' emotions, not just their hit points. Give players agency in describing what forms the nightmares take based on their characters' backstories. The Treacle Well encounter is a chance for creative roleplay — the sadder and more genuine the story, the better the reward. The dream-sisters are gentle and empathetic; they are not trying to be cruel by demanding sad stories, they simply cannot weep without genuine sorrow, and the well needs their tears to function.",
+          "loot": [
+            "Clock Gear #4 (quest item — found in a crystallized nightmare at the edge of the Temporal Sanctum, embedded in the nightmare of 'a clock that will never tick again')",
+            "Dreamcatcher Pendant (wondrous item — grants advantage on saves against being frightened, and once per long rest the wearer can enter a willing creature's dreams during a short or long rest)",
+            "A vial of Treacle Well tears (potion equivalent — drinking it cures one curse, disease, or magical affliction of 5th level or lower)",
+            "Memory Pearls (1d4, each containing a happy memory from Wonderland — when crushed, grants 2d6 temporary hit points and immunity to the frightened condition for 1 hour)"
+          ]
+        },
+        {
+          "name": "The Temporal Sanctum — An Apology to Time",
+          "description": "The climax of the scenario. At the heart of the Dormouse's Dreamscape lies the Temporal Sanctum, a cathedral built from frozen moments where the Avatar of Time sits wounded on a throne of broken clocks. The party must confront the Avatar — a being of immense power that is not evil but deeply hurt — and deliver a genuine apology on the Hatter's behalf. This can be achieved through combat (weakening Time enough to force it to listen), diplomacy (appealing to Time's nature), or a combination of both. The curse breaks only when the mechanical solution (gears) and the emotional solution (apology) are both achieved.",
+          "readAloud": "\"The Temporal Sanctum reveals itself not with a door but with a feeling — a sensation of arriving at a moment you have always been traveling toward. The walls are made of seconds, crystallized and stacked like bricks, each one containing a frozen instant: a child's first step, a flower opening, a star being born. The floor is composed of stopped heartbeats, each one a tiny percussion of time that once was. And the ceiling — the ceiling is made of all the moments that will never happen because time stopped here, a swirling void of could-have-beens.\n\nAt the center of this impossible cathedral sits a figure on a throne of broken clocks. It is simultaneously ancient and newborn, tall and small, fast and frozen. Its face shifts between every face that ever was — young, old, human, inhuman, kind, cruel — cycling through identities the way a clock hand cycles through hours. But one thing is constant: the wound.\n\nA jagged crack runs through the Avatar of Time's chest, leaking not blood but moments — each drop that falls becomes a frozen instant on the floor, a heartbeat that will never sound. The wound pulses with the rhythm of the frozen tea party above, and you understand with sudden, terrible clarity that the curse is not a punishment. It is a scream. Time is not angry. Time is hurt. And it has been screaming at six o'clock for decades because no one has ever come to say they are sorry.\n\nThe Avatar's shifting eyes fix on you, and when it speaks, its voice is every clock that ever ticked, every heartbeat that ever beat, every moment that ever passed.\n\n'You come to my wound,' it says. 'What do you bring? More words? The last one who brought words tried to KILL me with them.'\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 17,
+              "success": "You deliver a genuine, thoughtful apology on the Hatter's behalf that acknowledges: (1) words have literal power in Wonderland, (2) the Hatter's carelessness caused real harm, (3) the harm was not intentional but that does not erase the wound, and (4) the Hatter and the Tea Quarter have suffered too, which does not justify the curse but shows that Time's pain has been shared. Time weeps — its tears are moments, falling like rain, and as they fall, the crack in its chest begins to close. The curse-breaking sequence begins.",
+              "failure": "Your apology is sincere but incomplete — Time acknowledges the effort but says 'You understand the words but not the wound.' The DC does not increase but the party must try a different approach or add something to the apology. If combat has already weakened Time, the DC drops to 14."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "You read the Avatar of Time's emotional state and understand what is missing from your apology — Time needs to hear not just that the Hatter was wrong, but that someone understands that time itself has feelings, that moments matter, and that treating time as something to be 'killed' or 'wasted' is an act of violence against a living being. This insight grants advantage on the Persuasion check.",
+              "failure": "Time's emotional state is complex and alien — you sense pain and anger but cannot parse the nuances well enough to know exactly what it needs to hear."
+            },
+            {
+              "skill": "Religion or History",
+              "dc": 15,
+              "success": "You recall or reason that Time in Wonderland is not an abstract concept but a sentient fey entity — one of the oldest beings in this realm. It has a personality, feelings, and vanity. Appealing to its nature as a being (not just a force) is the key to reaching it emotionally.",
+              "failure": "You cannot determine Time's nature well enough to adjust your approach."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 Avatar of Time (CR 11 — HP: 170, AC: 17 (temporal displacement). STR 14, DEX 20, CON 16, INT 22, WIS 18, CHA 20. Attacks: Aging Touch — +9 to hit, reach 10 ft, 3d8+5 force damage plus DC 16 Constitution save or gain 1 level of exhaustion. Temporal Bolt — ranged spell attack, +10 to hit, range 120 ft, 4d10 force damage. Legendary Actions (3/round): Temporal Stutter (reroll one creature's initiative, displacing it in the turn order), Time Stop Zone (create a 15 ft radius zone that freezes for 1 round — creatures in the zone when it activates must make DC 16 Dexterity save or be paralyzed until the start of their next turn), Summon Echo (summon 1 temporal echo of a creature the party has previously fought — it has half the original's HP and acts immediately). Legendary Resistance 3/day. Immune to exhaustion, charmed, frightened. Resistant to all non-magical damage.)"],
+              "difficulty": "Deadly (intended to be combined with diplomacy — pure combat is possible but significantly harder)",
+              "tactics": "The Avatar of Time fights defensively and sorrowfully — it does not want to fight but will defend itself viciously if attacked. It uses Time Stop Zones to control movement and Temporal Stutter to disrupt the party's action economy. It summons echoes of enemies the party faced earlier in the scenario (temporal echoes from Act 1, the paradox creature from Act 2) to overwhelm while it uses Temporal Bolt from range. When reduced to half HP, it becomes desperate and uses Aging Touch aggressively, wailing 'STOP! STOP HURTING ME!' — at this point, the Persuasion DC for the apology drops to 14 as Time's defenses crumble emotionally. If reduced to 0 HP without receiving an apology, Time dissipates temporarily — the gears can be installed and the clock will tick to 6:01, but the curse is not truly broken and will return in 1d4 days.",
+              "terrain": "The Temporal Sanctum: 80 ft diameter circular chamber with crystallized-moment walls and a broken-clock throne at center. The floor contains frozen heartbeats that function as difficult terrain in a 10-ft radius around the throne. Four pillars of crystallized time (AC 15, HP 50 each) provide cover and, if destroyed, release a burst of temporal energy (15-ft radius, DC 14 Constitution save, 3d6 force damage and one random temporal effect: aged 1d20 years, de-aged 1d20 years, lose next action, gain an extra action on next turn). The void ceiling is 100 ft up and cannot be reached. Dream-logic still applies: belief-based flight is possible (Wisdom DC 15)."
+            }
+          ],
+          "roleplayNotes": "This is the dramatic climax of the entire scenario and it MUST be emotionally satisfying. The Avatar of Time is not a villain — it is a being in pain, and the party is here to heal it, not defeat it. Combat should feel like fighting a wounded animal that is lashing out in fear. Every attack Time makes is accompanied by a expression of pain — 'WHY DO YOU KEEP HURTING ME' when it uses Aging Touch, 'I WAS BEAUTIFUL ONCE' when it summons echoes of the past. If the party wins through pure combat, describe it as hollow — they beat a wounded being into submission, and while the curse weakens, it doesn't truly break. If the party wins through diplomacy (with or without combat softening), describe it as transcendent — Time's wound closes, its form stabilizes into something beautiful and ancient, and it whispers 'Thank you. It has been so long since anyone apologized for anything in Wonderland.' The most powerful approach combines both: the party fights Time to a standstill, then puts down weapons and delivers the apology. Time's response: 'You could have killed me. Again. Instead you chose to understand. Perhaps there is hope for this mad world after all.' When the curse breaks, describe the clock ticking to 6:01 for the first time in decades — the most beautiful sound the Tea Quarter has ever heard.",
+          "loot": [
+            "Temporal Gear (major quest item — awarded by Time itself upon the curse breaking. This gear is imbued with Time's gratitude and is critical for the campaign's final scenario)",
+            "The Hatter's Hat (wondrous item, requires attunement — grants immunity to madness effects and the charmed condition, advantage on saving throws against enchantment spells and effects, and once per long rest the wearer can cast Haste on themselves without concentration, lasting 1 minute. The Hatter gifts this in profound gratitude after the curse breaks.)",
+            "A Moment Preserved (unique treasure — a small crystal sphere containing a single perfect moment from the Tea Quarter's past, chosen by Time as a gift. When shattered, it creates a 30-ft radius zone of real time that lasts 1 hour, during which all temporal effects are suppressed and all time-based curses are suspended. One use.)",
+            "Time's Tears (3 crystallized tears worth 100 gp each to arcane collectors, or they can be dissolved in water to create a potion that reverses any aging effect)"
+          ]
+        },
+        {
+          "name": "Six O'One — The Curse Breaks",
+          "description": "The denouement. With the apology delivered and the four gears in hand, the party returns to the Broken Clock Tower and installs the gears. The clock ticks forward for the first time in decades, and the Tea Quarter comes alive again. The temporal echoes dissolve into rest, the Hatter's lucidity returns, the March Hare reunites with his family, and the Dormouse finally wakes. The party is celebrated with one last tea party — a real one, without loops or curses, where the tea is hot and the scones are fresh.",
+          "readAloud": "\"You slot the final gear into place. For a moment, nothing happens. Then — a sound. A single, crystalline TICK that reverberates through the entire tower, through the Quarter, through every frozen clock and stopped heart. The great clock face shudders. The hands tremble. And then, with the groaning reluctance of a mechanism waking from a very long sleep, the minute hand moves.\n\n6:01.\n\nThe golden light outside shifts — imperceptibly at first, then unmistakably. Shadows move. Candle wax drips for the first time in decades. The perpetual sunset finally, slowly, begins to deepen toward evening. Below, in the streets, you hear sounds you haven't heard in the Tea Quarter: clocks ticking. All of them. A symphony of recovered time.\n\nThe temporal echoes freeze — not in their cursed loops, but in surprise. Then, one by one, they smile. They are not breaking free of the curse — they are remembering who they were, just for a moment, before they dissolve into golden light and finally, finally, move on.\n\nFrom the direction of the Endless Table, you hear a laugh — not the looping, manic laugh of the curse, but a genuine, joyful laugh. And then a voice — the Hatter's voice, clear and whole for the first time: 'It is six-oh-ONE! Do you know what that means? It means it is time — it is TIME — for a FRESH pot of tea!'\"",
+          "skillChecks": [],
+          "combatEncounters": [],
+          "roleplayNotes": "This is a pure roleplay celebration scene. Let the players bask in the victory. Key moments to narrate: The Hatter removes his hat and weeps with relief, then immediately puts it back on and becomes the most charming, brilliant host imaginable — the man he was before the curse. The March Hare sprints to his manor and finds the Shifting Nursery no longer shifting — his children, no longer echoes, run into his arms and he collapses to his knees, sobbing. The Dormouse wakes up, looks around in confusion, and says 'Did I miss anything?' before falling back asleep (but this time, it's natural sleep). The Endless Table shrinks to a normal, cozy size. The tea is hot. The scones are fresh. The butter is... still butter, but fresh butter. The Hatter presents the party with his hat and the Temporal Gear, speaking with articulate gratitude: 'You did what I could not. You apologized. In Wonderland, that may be the bravest act of all.' This scene should end with the party feeling genuinely good about what they accomplished and emotionally connected to the NPCs they saved.",
+          "loot": [
+            "A complete tea set enchanted by the Hatter (worth 200 gp, and any tea brewed in it grants 1d4 temporary hit points and immunity to the frightened condition for 1 hour)",
+            "The March Hare's un-birthday gift to the party: a bag containing 200 gp in assorted Wonderland currency (mushroom coins, rose-gold hearts, and treacle tokens, all spendable in Wonderland)",
+            "The Dormouse's gift (given sleepily): a pillow that grants the benefits of a long rest in only 4 hours when used during sleep"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "The Mad Hatter",
+      "role": "Tragic Genius / Quest Guide",
+      "description": "A tall, gaunt figure in a magnificent but threadbare purple coat and an impossibly tall top hat that seems to contain more space inside than outside. His eyes are mismatched — one green, one amber — and they flicker between manic wildness and heartbreaking clarity. Before the curse, the Hatter was Wonderland's greatest inventor, musician, and haberdasher, a polymath of impossible creativity. The curse has fragmented his mind into a loop of tea-party madness, but fragments of his genius still surface between resets. He knows the curse better than anyone — he has had decades to study it from inside — but he is unable to break it alone because the one thing that could help, an apology to Time, is the one thing the curse prevents him from delivering. He speaks in riddles because he can no longer speak plainly, but every riddle contains a genuine truth.",
+      "motivation": "The Hatter is consumed by guilt. He knows his careless words caused the curse, and he has spent decades trying to find a way to apologize — but the curse loops him before he can formulate the words. He wants freedom for himself, for the March Hare, for the Dormouse, and for every temporal echo trapped in his mistake. He is the most helpful NPC in the scenario but his help always comes in riddle-wrapped, madness-filtered fragments that the party must decode."
+    },
+    {
+      "name": "The March Hare",
+      "role": "Manic Warrior / Emotional Heart",
+      "description": "A humanoid hare standing six feet tall, with wild eyes, twitching ears, and a permanent grin that is equal parts genuine and desperate. He is dressed in a military officer's coat (from no army anyone can identify) and carries a butter knife in one hand and a teacup in the other at all times. Before the curse, the March Hare was a loving father and skilled warrior who protected the Tea Quarter. The curse took his family — his children are temporal echoes in the Shifting Nursery — and his grief has expressed itself as manic energy, ceaseless activity, and an absolute refusal to sit still or be quiet, because silence means thinking about what he has lost. He is the physical powerhouse of the cursed trio and can be a formidable combat ally if the party earns his trust.",
+      "motivation": "Everything the March Hare does is driven by one thing: getting back to his children. His mania is a coping mechanism for unbearable loss. He will do anything, fight anything, and sacrifice anything to break the curse and hold his children again. Earning his trust requires acknowledging his grief — not as madness, but as love expressed in the only way left available to him."
+    },
+    {
+      "name": "The Dormouse",
+      "role": "Dreaming Oracle / Living Gateway",
+      "description": "A mouse the size of a large dog, perpetually asleep inside an enormous teapot. Its fur is the color of chamomile tea and it smells faintly of honey and old dreams. The Dormouse is the most powerful entity in the Tea Quarter — its dreams sustain the district's existence and provide the only pathway to the Temporal Sanctum where Time resides. It speaks in sleep-mumbles that are accidentally prophetic, narrating events in a dreamy third-person ('And then the brave adventurers found the gear, or perhaps the gear found them, it's hard to say really...') that occasionally provides crucial information wrapped in whimsy.",
+      "motivation": "The Dormouse does not have conventional motivation — it is primarily asleep. However, its dreams are shaped by a deep, unconscious desire to fix the broken time in the Tea Quarter. Its Dreamscape creates pathways to the solutions the party needs, as if the Dormouse is trying to help from within its sleep. When (if) it finally wakes after the curse breaks, it reveals that it has been aware the entire time — it chose to keep sleeping because its dreams were the only thing keeping the Tea Quarter from collapsing entirely. It sacrificed its waking life to sustain everyone else's. Its first waking words should reflect quiet, sleepy heroism."
+    }
+  ],
+  "rewards": {
+    "xp": 5000,
+    "gold": "400 gp total (200 gp from the March Hare's un-birthday gift, crystallized time and memory pearls worth 100-150 gp, miscellaneous loot 50-100 gp)",
+    "items": [
+      "The Hatter's Hat (wondrous item, requires attunement — immunity to madness and charmed condition, advantage on enchantment saves, once per long rest self-Haste without concentration for 1 minute)",
+      "Temporal Gear (major quest item for the campaign's final scenario)",
+      "March Hare's Vorpal Butter Knife (+1 dagger, +2d6 damage vs fey, cuts through non-magical barriers)",
+      "Temporal Crystal Shard (reroll initiative once per long rest)",
+      "Dreamcatcher Pendant (advantage on saves vs frightened, enter willing creature's dreams once per long rest)",
+      "Dormouse's Pillow (complete a long rest in 4 hours)",
+      "Enchanted Tea Set (tea grants 1d4 temp HP and immunity to frightened for 1 hour)",
+      "A Moment Preserved (single-use, 30-ft radius zone of real time for 1 hour)",
+      "Shard of Future-Glass (advantage on one Initiative roll per long rest)",
+      "Potions: Hatter's Enchanted Tea (1d4+1 doses), Treacle Well Tears (cures one curse/disease), Memory Pearls (1d4, each grants 2d6 temp HP and frightened immunity for 1 hour)"
+    ],
+    "story": "The party has broken the eternal curse on the Mad Tea Quarter, healing the wounded Avatar of Time through the power of a genuine apology. The Hatter's genius is restored, the March Hare is reunited with his family, and the Dormouse can finally wake from its decades-long vigil. The Tea Quarter blooms back to life, and the party earns the eternal gratitude of its inhabitants. The Temporal Gear, imbued with Time's own gratitude, is a critical component for the campaign's final scenario. The party has also learned a fundamental truth about Wonderland: words have literal power here, and the bravest thing one can do is take responsibility for the damage careless words can cause."
+  },
+  "twists": [
+    "The curse is not a punishment but a wound — Time is not angry, Time is hurt. The Hatter's careless words during his performance ('I could murder Time') had literal power in Wonderland and genuinely injured a living, sentient being. The entire eternal tea party is Time's scream of pain, not its act of vengeance.",
+    "The Time Elemental in the Clock Tower is a fragment of the Hatter's own temporal essence, torn from him by the curse. Destroying it would permanently damage the Hatter's mind. It must be weakened and bypassed, not killed.",
+    "The March Hare is not mad — he is grieving. His manic behavior is a coping mechanism for the loss of his children, who are trapped as temporal echoes in the Shifting Nursery. His madness is love with nowhere to go.",
+    "The Dormouse is the secret hero of the Tea Quarter — it has been consciously maintaining its sleep for decades because its dreams are the only thing preventing the time-frozen Quarter from collapsing into temporal chaos. It sacrificed its waking life to save everyone else.",
+    "The Queen of Hearts deliberately sabotaged the Hatter's performance for Time, knowing his words would wound Time and trigger the curse. The Tea Quarter's suffering is partially her fault — a thread that connects to the campaign's final scenario.",
+    "The curse can only be broken by combining mechanical restoration (the four clock gears) with emotional resolution (a genuine apology). Doing only one creates a temporary fix — the clock ticks to 6:01 but stops again within days. Both solutions must be achieved for a permanent cure."
+  ],
+  "dmTips": [
+    "The temporal loop mechanic is this scenario's signature feature — use it creatively. If the party loses a combat encounter, consider having the loop reset: the party retains their knowledge of the fight (enemy tactics, terrain, etc.) but positions and HP reset. This gives players a 'Groundhog Day' experience that is both mechanically forgiving and narratively interesting. Limit this to 1-2 resets per encounter to avoid tedium.",
+    "The tea party etiquette challenge is the most complex social encounter in the scenario. Prepare a list of 6-8 Wonderland etiquette rules before the session (examples: never ask for more tea, always accept what is offered even if impossible, answer riddles with non-answers, never sit in a clean seat, compliment the March Hare's butter, never mention what time it is). Reveal rules one at a time as the party encounters them, and apply fey consequences (polymorph, shrinking, rhyme-curse) with a light touch — they should be funny and inconvenient, not devastating.",
+    "The March Hare's grief reveal in the Shifting Nursery is the scenario's emotional peak. Do not rush it. Give the players time to react, and let the March Hare's vulnerability land. If a player's character has a backstory involving family loss, draw a parallel. This scene should make the curse feel personal, not just mechanical.",
+    "The Avatar of Time should be played as genuinely sympathetic even during combat. Its attacks are defensive, not predatory. It begs the party to stop hurting it even as it fights back. If a player pauses mid-combat to attempt diplomacy, reward this immediately with a reduced DC or a hint about what the apology needs to contain. The ideal resolution involves BOTH combat and diplomacy — the party fights Time to a standstill, then puts down their weapons and talks.",
+    "Stuttering initiative is a signature temporal mechanic: at the start of each round in combat encounters within the Tea Quarter, roll a d6. On a 1-2, all initiative counts are rerolled. On a 3-4, the top and bottom of the initiative order swap. On a 5-6, initiative proceeds normally. This creates tactical uncertainty that reinforces the broken-time theme. Drop this mechanic once the curse is broken.",
+    "The Hatter's riddles should always contain genuine clues disguised as nonsense. If you are struggling to improvise riddles, use this formula: take the actual information the party needs, rephrase it as a question, then answer the question with a different question. Example: if the party needs to know the gear is in the Butter Workshop, the Hatter might say 'What goes best with time? Butter, naturally. And what goes best with butter? Everything, if you're mad enough to look.'",
+    "Track the four clock gears carefully. Gear #1 is in the Butter Workshop, Gear #2 is in the Half Room, Gear #3 is in the Clock Tower's Pendulum Hall, and Gear #4 is in the Dormouse's Dreamscape. The party can recover them in any order except #4, which requires the Hatter's help to access the Dreamscape. If the party tries to install gears before having all four, the clock mechanism partially activates but cannot sustain itself — time flickers forward for a few seconds, giving the party a tantalizing glimpse of the curse breaking before the mechanism stalls.",
+    "For the Dormouse's Dreamscape, embrace dream logic fully. Let players attempt anything if they believe in it strongly enough (Wisdom DC 15 to maintain belief). Flying, walking through walls, summoning objects from memory — all are possible here if the player commits to the fiction. This rewards creative, confident play and makes the Dreamscape feel genuinely different from the rest of the scenario."
+  ]
+}

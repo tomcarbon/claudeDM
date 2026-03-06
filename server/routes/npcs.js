@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { requirePlayer } = require('../player-auth');
-const { getPlayerNpcsDir, ensurePlayerDataExists } = require('../player-data');
+const { getPlayerNpcsDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
 
 module.exports = function (dataDir) {
   const router = express.Router();
@@ -12,9 +12,8 @@ module.exports = function (dataDir) {
   router.use(playerAuth);
 
   function getNpcDir(req) {
-    const dir = getPlayerNpcsDir(dataDir, req.player.email, req.campaignId);
-    ensurePlayerDataExists(dataDir, req.player.email, req.campaignId);
-    return dir;
+    provisionPlayerDefaults(dataDir, req.player.email, req.campaignId);
+    return getPlayerNpcsDir(dataDir, req.player.email, req.campaignId);
   }
 
   function readAllNpcs(req) {

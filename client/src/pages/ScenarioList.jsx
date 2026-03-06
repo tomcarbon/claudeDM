@@ -19,7 +19,7 @@ function ScenarioList() {
 
   return (
     <div>
-      <h2>Scenarios</h2>
+      <h2>Scenarios (spoilers!)</h2>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
         Choose an adventure for your party. Each scenario is designed for {scenarios[0]?.levelRange || '1-2'} level characters.
       </p>

@@ -38,6 +38,22 @@ function AppContent() {
   const onAdventure = location.pathname === '/adventure';
   const isAdmin = player?.role === 'admin';
 
+  // Reset adventure session when campaign changes
+  useEffect(() => {
+    setSessionActive(false);
+    setSavedSessionDbId(null);
+  }, [campaignId]);
+
+  // Reset adventure session when navigating from Home's "Start Adventure"
+  // (handles same-campaign case where campaignId doesn't change)
+  useEffect(() => {
+    if (location.pathname === '/adventure' && location.state?.resetSession) {
+      setSessionActive(false);
+      setSavedSessionDbId(null);
+      window.history.replaceState({}, '');
+    }
+  }, [location.pathname, location.state]);
+
   // Auto-join global chat room and load today's history on connect or player change
   const isConnected = ws.status !== 'disconnected' && ws.status !== 'error';
   useEffect(() => {
@@ -58,7 +74,7 @@ function AppContent() {
   return (
     <div className="app">
       <nav className="sidebar">
-        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : 'Single Player Demo'}</span></h1>
+        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : 'Single Player Demo'}</span></h1>
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
@@ -68,11 +84,8 @@ function AppContent() {
           <li><NavLink to="/rules">Rules</NavLink></li>
         </ul>
         <div className="sidebar-divider" />
-        <div className="sidebar-section-label">
-          Scenarios <span className="sidebar-section-sub">spoilers</span>
-        </div>
         <ul>
-          <li><NavLink to="/scenarios">Scenarios</NavLink></li>
+          <li><NavLink to="/scenarios">Scenarios (spoilers!)</NavLink></li>
         </ul>
         <div className="sidebar-divider" />
         <ul>

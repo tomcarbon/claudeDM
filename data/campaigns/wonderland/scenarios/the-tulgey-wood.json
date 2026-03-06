@@ -1,0 +1,281 @@
+{
+  "id": "wl-scenario-002",
+  "title": "The Tulgey Wood",
+  "subtitle": "Beware the Jabberwock, My Son",
+  "levelRange": "7-9",
+  "estimatedSessions": 5,
+  "setting": {
+    "name": "The Tulgey Wood & Cheshire Reaches",
+    "description": "A vast, ancient forest where the trees are sentient, the paths rearrange themselves between footsteps, and reality becomes increasingly subjective the deeper you travel. The outer wood — the Whispering Wood — is strange but navigable: trees offer conflicting directions, flowers sing insults, and animal tracks lead in impossible circles. The deeper reaches — the Cheshire Reaches — belong to the Cheshire Cat, where gravity, distance, and direction become suggestions rather than rules. At a crossroads that leads everywhere and nowhere, the Tweedle twins guard their territory with belligerent nonsense. And in the deepest, darkest heart of the Tulgey Wood, the Jabberwock nests in a lair of bones, broken dreams, and the weapons of those who came before.",
+    "atmosphere": "A forest that watches you. The canopy blocks whatever passes for sky, creating perpetual twilight shot through with shafts of golden-green light. The trees have faces — or almost-faces — that shift when you're not looking directly at them. Paths fork and rejoin in ways that defy geometry. The deeper you go, the more the forest feels like a living maze with opinions about where you should go. The beauty is real but so is the danger — the Jabberwock's territory is marked by silence, broken branches, and the faint smell of lightning.",
+    "keyLocations": [
+      {
+        "name": "The Whispering Wood",
+        "description": "The outer forest, where sentient trees offer directions (all contradictory), flowers grow in gardens that sing (badly) and gossip about passersby, and the paths shift lazily between footsteps. Navigation is possible but requires ignoring most of the advice you receive. Awakened plants and minor fey creatures inhabit this region, most harmless but a few hostile.",
+        "features": [
+          "Sentient trees that offer contradictory directions — DC 14 Insight to determine which tree is telling the truth (usually none of them)",
+          "Singing flower gardens that provide gossip about recent travelers, the Queen's movements, and local dangers — but are easily offended and refuse to sing for anyone they consider beneath them",
+          "Paths that shift between footsteps — DC 13 Survival to navigate, or the party ends up back where they started",
+          "Edible mushrooms and berries grow abundantly, but 1 in 6 have a random magical effect (roll on the Wonderland Consumables table)"
+        ],
+        "encounters": [
+          "3 awakened trees (CR 2 each) that blockade a path and demand the party answer a riddle: 'What has roots that nobody sees, is taller than trees, up, up it goes, and yet never grows?' (Answer: a mountain)",
+          "A garden of talking flowers (roses, daisies, tiger-lilies) who insult the party and refuse to provide directions unless flattered with DC 15 Persuasion"
+        ],
+        "secrets": [
+          "The trees' contradictory directions contain a hidden pattern — if you go RIGHT when an oak says left, LEFT when a birch says right, and STRAIGHT when a willow says anything, you navigate perfectly. The Cheshire Cat knows this pattern.",
+          "The singing flowers were once the Queen's garden before she uprooted them for singing off-key. They hate the Queen but are too afraid to say so directly — their insults toward the party are displaced anger."
+        ]
+      },
+      {
+        "name": "The Cheshire Reaches",
+        "description": "The Cat's domain. Reality bends here — gravity shifts so that 'down' is whichever direction the Cheshire Cat finds most amusing, distances compress so that a ten-minute walk covers miles or a hundred-foot sprint covers inches, and the landscape rearranges itself around the Cat's moods. The Cheshire Cat appears as a floating grin first, then gradually materializes (or doesn't) depending on his whim. He is helpful in the most unhelpful way possible.",
+        "features": [
+          "Gravity shifts — DC 13 Acrobatics to maintain footing when 'down' suddenly changes direction",
+          "Distance compression — travel times are unpredictable, rolled randomly: 1d6 hours for what should be 1d6 minutes",
+          "The Cheshire Cat's grin appears before the rest of him — a floating, luminous smile in the dark canopy",
+          "Reality anchors — certain objects (iron, cold steel) resist the Cheshire Reaches' distortions and can be used as navigation points"
+        ],
+        "encounters": [
+          "The Cheshire Cat — an extended roleplaying encounter where the Cat appears, disappears, speaks in riddles, and genuinely tries to guide the party toward the Tweedle twins' crossroads and eventually the Jabberwock's lair. He will not fight alongside the party but provides tactical advice wrapped in riddles.",
+          "2 displacer beasts (CR 3 each) that hunt in the distorted terrain, using the gravity shifts to attack from unexpected angles"
+        ],
+        "secrets": [
+          "The Cheshire Cat's domain exists as it does because the Cat IS this part of Wonderland — his personality has imprinted on the forest so thoroughly that reality bends to match his nature (playful, contradictory, impossible to pin down)",
+          "The Cat knows a shortcut through the Reaches that bypasses the Tweedle twins entirely — but he won't reveal it unless the party solves his riddle: 'I can be cracked, made, told, and played. What am I?' (Answer: a joke)"
+        ]
+      },
+      {
+        "name": "Tweedledee and Tweedledum's Crossroads",
+        "description": "A clearing where four paths meet, each leading to a different region of Wonderland. The crossroads is guarded by the Tweedle twins — two enormous fey creatures (ogre-sized) who are identical in every way except that each insists the other is a copy. They are locked in an eternal territorial dispute and refuse to let anyone pass without choosing a side — which is impossible because their dispute makes no sense. They can be fought, outwitted, or tricked into fighting each other.",
+        "features": [
+          "Four paths lead to: the Mad Tea Quarter (northwest), the Queen's Domain (south), back toward the Pool of Tears (east), and deeper into the Tulgey Wood toward the Jabberwock (west)",
+          "The twins block all four paths simultaneously — they stand back-to-back in the center and rotate to face anyone who approaches any path",
+          "Arguing with one twin causes the other to agree with you AND disagree with his brother — creating an escalating logical paradox",
+          "The clearing is marked with crude boundary lines that the twins have drawn and redrawn hundreds of times"
+        ],
+        "encounters": [
+          "Tweedledee and Tweedledum (use ogre stats, CR 2 each, enhanced: AC 13, HP 65 each, +1 to hit, add 'Mirror Strike' ability — when one twin hits, the other can make an attack as a reaction against the same target). Can be resolved through combat, DC 16 Persuasion/Deception to convince them to step aside, or DC 14 Performance to distract them with entertainment (they love stories, especially stories about themselves)"
+        ],
+        "secrets": [
+          "The twins are not actually brothers — they are two halves of a single fey creature split by the Queen's magic as punishment for defying her. Reuniting them (which the party cannot do yet) would create a powerful fey ally",
+          "Their eternal argument is actually a security system — while they argue, no one passes. If either twin is knocked unconscious, the other becomes enraged and doubles in size (use hill giant stats, CR 5)"
+        ]
+      },
+      {
+        "name": "The Jabberwock's Lair",
+        "description": "Deep in the Tulgey Wood, where the trees grow so thick that no light penetrates and the air smells of ozone and old blood, lies the Jabberwock's nest. It's a clearing created by destruction — trees torn up by the roots, the ground scorched and clawed, scattered with the bones and broken weapons of previous challengers. The Jabberwock itself is a nightmare made flesh: part dragon, part insect, part fever dream, with eyes of flame, jaws that bite, and claws that catch. It speaks — in bursts of furious poetry and ancient Sylvan — and it is not mindless, merely consumed by rage and corruption. The Queen corrupted the Jabberwock from Wonderland's guardian into its greatest predator.",
+        "features": [
+          "Destroyed clearing 80 ft. across — no cover except bone piles and uprooted trees",
+          "The air crackles with residual lightning — at initiative count 20, a random 10-ft. square is struck by lightning (DC 13 DEX save, 2d6 lightning damage)",
+          "Bone piles contain weapons and armor from previous challengers (investigation yields loot)",
+          "A vorpal shard — a fragment of the legendary Vorpal Sword — is embedded in a tree stump at the clearing's edge, glowing with pale light. The Jabberwock avoids it instinctively."
+        ],
+        "encounters": [
+          "The Jabberwock — young variant (use young red dragon stats reskinned: AC 17, HP 150, CR 10 but weakened by corruption to effective CR 8-9; replace fire breath with Lightning Breath 30-ft. line, 10d6 lightning damage, DC 15 DEX save for half; burble ability — 30-ft. cone of maddening sound, DC 14 WIS save or frightened for 1 minute; multiattack: bite 2d10+5 piercing, 2 claws 2d6+5 slashing, tail 2d8+5 bludgeoning). Vulnerability to vorpal weapons — the vorpal shard deals an extra 3d6 slashing damage to the Jabberwock and suppresses its frightful presence."
+        ],
+        "secrets": [
+          "The Jabberwock was once the guardian of Wonderland — a benevolent protector that the Queen corrupted with her tyrannical magic. If reduced to 0 HP, it does not die but reverts to a smaller, uncorrupted form — a vaguely draconic creature the size of a large dog that whimpers and nuzzles the nearest party member. It remembers what it was and is grateful to be freed.",
+          "The vorpal shard in the clearing is a fragment of the original Vorpal Sword — a legendary weapon that the Queen shattered and scattered across Wonderland. Collecting all fragments and reforging the sword is an optional quest thread that pays off in scenario 4.",
+          "Among the bones in the lair is a knight's shield bearing the sigil of the Order of the Green Knight — one of Dame Isolde's predecessors, who entered Wonderland decades ago and never returned"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party ventures into the Tulgey Wood — Wonderland's dark, sentient forest — where paths rearrange, trees argue, and the Cheshire Cat watches from impossible angles. They must navigate the Whispering Wood's contradictory directions, survive the Cheshire Reaches' reality distortions, deal with the warring Tweedle twins at their crossroads, and track the Jabberwock to its lair. The Jabberwock — once Wonderland's guardian, now corrupted into a nightmare predator by the Queen's magic — represents both the campaign's first major boss fight and a turning point: the corruption can be reversed, and Wonderland can be healed.",
+  "hook": "The Caterpillar's smoke-visions showed the way: through the Tulgey Wood, past the grinning Cat, to the Mad Tea Quarter beyond. But the Caterpillar also warned of the Jabberwock — 'the jaws that bite, the claws that catch' — a creature of terrible power that hunts the deep wood. The party must traverse the forest, and the forest does not make it easy. As they enter the first line of trees, a voice drifts down from above: 'If you don't know where you're going, any road will take you there. But I'd avoid the road that smells like lightning if I were you. Which I'm not. Obviously.' A grin materializes in the canopy — just the grin, wide and luminous, with far too many teeth. Then it's gone.",
+  "acts": [
+    {
+      "title": "Act 1: Into the Whispering Wood",
+      "description": "The party enters the outer forest, dealing with sentient trees, singing flowers, and the fundamental challenge of navigating a forest that rearranges itself. They encounter the Cheshire Cat for the first (or second) time and begin to learn the forest's patterns.",
+      "objectives": [
+        "Enter the Tulgey Wood and navigate the Whispering Wood section",
+        "Deal with the awakened tree blockade (combat, riddle, or diplomacy)",
+        "Gather information from the singing flower gardens",
+        "Make first contact with the Cheshire Cat",
+        "Learn the navigation pattern for the forest"
+      ],
+      "scenes": [
+        {
+          "name": "The Forest That Watches",
+          "description": "The party enters the Tulgey Wood and immediately discovers that the forest is alive, opinionated, and unhelpful. The trees give directions, the flowers give insults, and the paths give up entirely.",
+          "readAloud": "\"The trees close in around you like the jaws of something patient. One moment you're walking on a clear path through mushroom-dotted undergrowth; the next, the path forks. Then forks again. Then spirals. The canopy overhead is so thick that the light filtering through is golden-green, like sunlight through stained glass. The tree trunks — massive, gnarled things with bark that looks almost like wrinkled skin — seem to lean slightly as you pass. One of them definitely blinked. Another coughs. A third clears its throat (do trees have throats?) and says, in a deep, woody baritone: 'LEFT.' The tree next to it immediately snaps: 'No, RIGHT, you fool. Always right. I've been here four hundred years and it's always RIGHT.' A third tree, smaller and with a reedy voice: 'Actually, I think it's DOWN. Yes. Definitely down. Have you tried digging?' From somewhere ahead, a chorus of high-pitched voices begins singing — badly — what sounds like an insulting song about your appearance.\"",
+          "skillChecks": [
+            { "skill": "Survival", "dc": 13, "success": "You ignore the trees' contradictory advice and read the actual forest — moss growth, water flow, animal tracks. You find a genuine path deeper into the wood.", "failure": "You follow one tree's advice and end up back where you started, having walked in a perfect circle. The trees find this hilarious." },
+            { "skill": "Persuasion", "dc": 15, "success": "The singing flowers, flattered by your attention, grudgingly share gossip: the Cheshire Cat was seen heading northwest, the Queen's card-soldiers have been patrolling the forest edges, and 'something huge and terrible' has been heard in the deep wood at night.", "failure": "The flowers dismiss you as 'common weeds' and refuse to share anything useful. The tiger-lilies are particularly vicious in their insults." },
+            { "skill": "Insight", "dc": 14, "success": "You notice that the trees' conflicting directions follow a hidden pattern — oaks always lie, birches always tell partial truths, and willows say whatever they think you want to hear. This makes navigation possible if you identify tree species.", "failure": "The forest's deceptions are impenetrable. Every direction seems equally plausible and equally wrong." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 awakened trees (CR 2 each, HP 59, AC 13, slam +6 for 3d6+4 bludgeoning)"],
+              "difficulty": "Medium",
+              "tactics": "The three awakened trees form a blockade across the widest path, demanding the party answer their riddle before passing ('What has roots nobody sees...'). If the riddle is answered correctly, they step aside peacefully. If answered incorrectly or if the party tries to pass by force, they attack. They use their slam attacks to knock characters prone and then grapple them with their branches (Athletics DC 14 to escape). They are vulnerable to fire damage and will retreat if one of them catches fire. They can be calmed after combat begins with DC 16 Persuasion if the riddle is subsequently answered correctly.",
+              "terrain": "Forest path (15 ft. wide) between dense undergrowth (difficult terrain). The awakened trees can root themselves for +2 AC but lose their movement. Overhead branches provide 3/4 cover to anyone who climbs up (Athletics DC 12). Dry leaves and deadfall on the ground are flammable."
+            }
+          ],
+          "roleplayNotes": "This scene establishes the Tulgey Wood's personality — the forest is not evil but it IS difficult, in the way that a particularly opinionated neighbor is difficult. The trees mean well (mostly) but their advice is useless. The flowers are cruel but lonely. The paths are treacherous but not malicious. Play the forest as a character with a personality: curious, contrary, and just a little bit smug. The Cheshire Cat should make his first appearance here — just a grin in the canopy, or a voice from behind a tree that isn't there when you look. He's watching and evaluating before committing to interaction.",
+          "loot": [
+            "Awakened tree bark (3 pieces, can be brewed into Barkskin potion by anyone with herbalism proficiency, worth 25 gp each to an alchemist)",
+            "Singing flower seeds (6, from the garden — will grow into talking flowers that provide gossip about their surroundings, takes 1 week to grow, worth 10 gp each to a curious buyer)",
+            "A carved wooden compass found in a hollow tree (it doesn't point north — it points toward the nearest danger, 3 uses per day)",
+            "15 gp in coins dropped by previous travelers, found in the undergrowth"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Riddle of the Cat",
+      "description": "The party enters the Cheshire Reaches, navigates reality distortions, earns the Cheshire Cat's genuine guidance, and confronts the Tweedle twins at their crossroads.",
+      "objectives": [
+        "Navigate the Cheshire Reaches' reality distortions",
+        "Solve the Cheshire Cat's riddles to earn his trust and guidance",
+        "Reach the Tweedle twins' crossroads",
+        "Pass the crossroads by defeating, outwitting, or distracting the twins",
+        "Learn the way to both the Jabberwock's lair and the Mad Tea Quarter"
+      ],
+      "scenes": [
+        {
+          "name": "Grinning in the Dark",
+          "description": "The party enters the Cheshire Cat's domain, where reality is a suggestion and the Cat holds court from impossible angles. A series of riddles and reality puzzles gates progress through the Reaches.",
+          "readAloud": "\"The forest changes. Not gradually — suddenly, between one step and the next, the world shifts. The trees grow at angles, some sideways, some upside down. A stream flows uphill, its water sparkling with an inner light. A mushroom grows from the underside of a branch, and a bird sits on the ground looking up at a worm perched in the sky. And there, materialized against the impossible geometry like a brushstroke of madness, is a grin. Just a grin. Wide, luminous, showing far too many teeth, floating in the air at eye level. Then the eyes appear above it — enormous, golden, amused. Then the rest, fading in like a watercolor painting itself: purple and pink striped fur, a sinuous body draped across a branch that connects to nothing, a tail curled into a question mark. 'Well, well,' purrs the Cheshire Cat, his voice coming from everywhere and nowhere. 'You've made it to my parlor. Said the spider to the fly. Except I'm not a spider and you're not flies. Or ARE you? In Wonderland, one can never be sure of these things. Which way are you going?' He tilts his head at an angle that suggests he already knows the answer and finds it amusing.\"",
+          "skillChecks": [
+            { "skill": "Wisdom save", "dc": 14, "success": "You maintain your sense of direction despite the gravity shifts and spatial distortions. The Cheshire Reaches are disorienting but you keep your footing.", "failure": "The reality distortions overwhelm your spatial sense. You gain disadvantage on Perception checks and Dexterity saves while in the Reaches (until you leave or succeed on this save during a short rest)." },
+            { "skill": "Intelligence (Investigation or Arcana)", "dc": 15, "success": "You realize the distortions follow the Cat's mood — when he's amused, gravity is playful; when he's thoughtful, distances compress. You can read the Cat's emotional state through the environment, giving you advantage on Insight checks against him.", "failure": "The Reaches seem random and chaotic. You cannot identify a pattern in the distortions." },
+            { "skill": "Charisma (Persuasion)", "dc": 14, "success": "The Cheshire Cat, impressed by your conversational skill, decides to offer genuine guidance rather than pure riddles. He reveals the tree-navigation pattern (oaks lie, birches half-truth, willows flatter) and hints at the Tweedle twins' weakness: 'They cannot abide agreement. Agree with both simultaneously and watch what happens.'", "failure": "The Cat remains in full riddle mode. His guidance is genuine but requires more effort to decode." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 displacer beasts (CR 3 each, AC 13, HP 85, tentacle attacks +6 for 1d6+4 plus 1d6 piercing, displacement — disadvantage on attacks against them until hit)"],
+              "difficulty": "Hard",
+              "tactics": "The displacer beasts use the Cheshire Reaches' gravity distortions to attack from unexpected angles — dropping from above when gravity shifts, attacking from behind when distances compress. Their displacement ability is enhanced in the Reaches: they can shift their apparent position by up to 15 ft. rather than the usual 5 ft. The Cheshire Cat watches the fight with interest but doesn't intervene unless a party member is about to die, at which point he trips the attacking beast with his tail (giving the downed character advantage on their next death save). He offers running commentary: 'Oh, nicely dodged. Or was it? I can never tell with displacer beasts.'",
+              "terrain": "Cheshire Reaches — gravity shifts at initiative count 20 (roll 1d4: 1=normal, 2=reversed, 3=sideways left, 4=sideways right). All creatures must make DC 11 Acrobatics at start of turn when gravity shifts or fall prone. Trees grow in all directions, providing cover but also creating obstacles. The ground is littered with acorns that function as ball bearings (DC 12 DEX save to move through areas of acorns without falling prone)."
+            }
+          ],
+          "roleplayNotes": "The Cheshire Cat is the star of this scene and should be played to the hilt. He speaks exclusively in riddles, paradoxes, and questions — but everything he says contains genuine, useful information if the party thinks about it. He is testing them: can they think sideways? Can they find truth in nonsense? Can they navigate a world where logic is a liability and imagination is armor? His riddle for passage ('I can be cracked, made, told, and played — what am I?' Answer: a joke) should be a genuine challenge but solvable. If the party struggles, the Cat offers increasingly obvious hints wrapped in increasingly complex wordplay. He is genuinely fond of the party by this point and wants them to succeed — but he cannot resist making them work for it.",
+          "loot": [
+            "Displacer beast tentacles (2 sets, worth 50 gp each to an alchemist, can be used to craft a Cloak of Displacement with appropriate tools and time)",
+            "Cheshire's Grin — a gift from the Cat if the party solves his riddle: a small carved wooden cat that, when activated (bonus action), allows the holder to turn invisible for 1 minute, once per long rest. Their grin remains visible for the first round.",
+            "A jar of treacle found suspended in mid-air (worth 5 gp, tastes incredible, restores 1d4 HP when eaten)"
+          ]
+        },
+        {
+          "name": "The Tweedle Crossroads",
+          "description": "The party reaches the crossroads guarded by Tweedledee and Tweedledum — two enormous, identical fey creatures locked in an eternal territorial dispute. All four paths are blocked until the twins are dealt with.",
+          "readAloud": "\"The Cheshire Reaches give way to a clearing — or rather, the Reaches spit you out into a clearing with the distinct impression that the Cat is snickering behind you. Four paths converge on a central point marked by a battered wooden signpost with four arms, each pointing in a different direction: 'TEA (EVENTUALLY),' 'TROUBLE (DEFINITELY),' 'BACK (POINTLESS),' and 'WORSE (SCENIC).' Standing at the signpost's base, back to back, are two enormous figures — eight feet tall, round as barrels, identical in every conceivable way. Same bulging eyes, same tiny mouths, same red caps, same matching outfits (schoolboy clothes sized for an ogre). They rotate slowly, their combined bulk blocking all four paths simultaneously. One spots you first. 'Contrariwise!' he shouts at his twin. 'I told you we'd have visitors today!' The other spins around. 'You did NOT. I told YOU. You never tell anything. You only contradict.' 'THAT'S what I just said!' 'No it ISN'T!' They turn to you in unison, their faces shifting to mirror-image scowls. 'CHOOSE,' they say in unison. Then they glare at each other. 'Don't copy me!' 'I'M not copying YOU, you're copying ME!'\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 16, "success": "You somehow talk the twins into stepping aside — perhaps by agreeing with both simultaneously (which causes a paradox that freezes them in confused silence for 10 minutes) or by telling them a story so entertaining they forget to guard the paths.", "failure": "Every argument you make is immediately contradicted by the twin who wasn't addressed. They close ranks and become more belligerent." },
+            { "skill": "Performance", "dc": 14, "success": "You entertain the twins with a story, song, or performance. They are transfixed, sitting down cross-legged like enormous children at story time. They let you pass while still applauding.", "failure": "The twins critique your performance harshly ('That's not how the story goes!' 'It IS how it goes!' 'No it ISN'T!') and become more agitated." },
+            { "skill": "Deception", "dc": 14, "success": "You trick the twins into arguing with each other so intensely that they forget about the party entirely. You slip past while they wrestle.", "failure": "One twin spots the deception and both become hostile: 'They think we're STUPID!' 'WE think they're stupid!' 'Agreed!' 'Don't AGREE with me!'" }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["Tweedledee (ogre stats enhanced: AC 13, HP 65, +6 to hit, 2d8+4 bludgeoning, Mirror Strike reaction) and Tweedledum (identical stats, Mirror Strike reaction: when one twin hits, the other can make a reaction attack against the same target)"],
+              "difficulty": "Medium-Hard",
+              "tactics": "The twins fight as a perfect team despite their constant arguing — they coordinate attacks, flank targets, and use Mirror Strike to pile damage on single targets. If one twin is knocked below half HP, the other becomes enraged and gains advantage on attacks. If one is knocked unconscious, the other DOUBLES IN SIZE (use hill giant stats: AC 13, HP 105, +8 to hit, 3d8+5 bludgeoning, reach 10 ft.) and attacks with berserk fury. The optimal strategy is to bring both below half HP simultaneously, which causes them to call a truce and let the party pass. They can also be defeated by turning them against each other — DC 16 Deception mid-combat to convince one that the other started it, causing them to fight each other for 1d4 rounds.",
+              "terrain": "Crossroads clearing (60 ft. diameter). The signpost provides half cover. Four paths provide avenues of retreat. The twins' combined bulk (they're 8 ft. tall and very round) can block a 15-ft. wide path. Scattered bones from previous travelers who chose poorly."
+            }
+          ],
+          "roleplayNotes": "The Tweedle twins are comic antagonists — play them as an old married couple who cannot agree on anything but are secretly inseparable. Their argument is infinite and self-referential: each statement by one is contradicted by the other, who is then contradicted in turn. The humor should mask real danger — they are STRONG and their Mirror Strike ability can drop a party member fast. The key to this encounter is creativity: the party should feel rewarded for finding non-combat solutions. The twins LOVE stories, especially stories about themselves. A bard or storyteller who performs for them can bypass the fight entirely. If defeated in combat, the twins are not killed — they sit on the ground and cry, which is somehow more uncomfortable than fighting them. They eventually recover and go back to arguing.",
+          "loot": [
+            "Tweedledee's rattle (magic item — can be shaken as an action to create a 30-ft. cone of thunderous noise, DC 14 CON save or deafened for 1 minute, 2d8 thunder damage, once per long rest)",
+            "Tweedledum's rattle (identical to above — yes, they have matching rattles)",
+            "4 wooden swords (toy weapons the twins use for 'practice' — worthless as weapons but the wood is from the Tulgey Wood's oldest tree and worth 10 gp each as spell components)",
+            "20 gp in coins found scattered around the crossroads"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: Jaws That Bite, Claws That Catch",
+      "description": "The party tracks the Jabberwock to its lair in the deepest Tulgey Wood and confronts the corrupted guardian of Wonderland. This is the campaign's first major boss fight — a creature of legendary reputation that can be fought, bargained with (if the party discovers its history), or potentially freed from corruption.",
+      "objectives": [
+        "Track the Jabberwock to its lair",
+        "Discover the vorpal shard embedded in the clearing",
+        "Confront the Jabberwock (combat, negotiation, or purification)",
+        "Learn the Jabberwock's true nature as Wonderland's corrupted guardian",
+        "Recover the vorpal shard and any other treasures from the lair",
+        "Decide the Jabberwock's fate"
+      ],
+      "scenes": [
+        {
+          "name": "The Jabberwock's Lair",
+          "description": "The party enters the deepest Tulgey Wood and finds the Jabberwock's lair — a clearing of destruction surrounding a nightmare made flesh. The creature is enormous, draconic, and wreathed in lightning. But something about its eyes suggests not malice but pain.",
+          "readAloud": "\"The forest dies as you go deeper. The sentient trees fall silent first — their faces turned away, their branches drawn close. Then the undergrowth thins, replaced by bare earth scarred with claw marks as wide as sword blades. The air changes: ozone, old blood, and the electric prickle of imminent lightning. Then the trees end entirely, and you stand at the edge of a clearing that was not carved but torn from the forest by violence. Eighty feet across, the ground is a cratered wasteland of upturned roots, scorched earth, and bones — animal bones, humanoid bones, bones that might belong to creatures you have no name for. Broken weapons jut from the soil like grave markers. And in the center, coiled around a mound of its own trophies, is the Jabberwock. It is wrong. That's the only word that fits. It has the body of a dragon but assembled by someone who had only heard a description — the neck too long, the wings too sharp, the legs bending at angles that hurt to look at. Its scales are the deep purple-black of a bruise, crackling with arcs of blue-white lightning. Its eyes — two burning orange points set in a head full of teeth — fix on you, and it opens its mouth. Not to bite. To speak. 'WHO... DARES...' The voice is like thunder filtered through broken glass. 'WHO DARES... ENTER... MY CAGE?' And you realize, with a chill that has nothing to do with the temperature, that the Jabberwock used the word 'cage.' Not 'lair.' Cage.\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 16, "success": "The Jabberwock's words — 'cage' instead of 'lair' — combined with the pain in its eyes tells you something crucial: this creature is not a willing predator. It is imprisoned here, corrupted, suffering. The Queen did this. It wants to be free.", "failure": "The Jabberwock seems like a straightforward monster — enormous, powerful, and hostile. Its words are just the ravings of a beast." },
+            { "skill": "Arcana", "dc": 17, "success": "The lightning crackling across the Jabberwock's scales is not natural draconic energy but corrupted fey magic — a curse laid by someone of immense power. You can see the pattern of the curse: it binds the creature's original nature beneath layers of rage and madness. The vorpal shard glowing in the tree stump resonates at a frequency that disrupts the curse.", "failure": "The Jabberwock radiates powerful magic, but its exact nature is unclear beyond 'very dangerous.'" },
+            { "skill": "History", "dc": 15, "success": "You recall fragments of Wonderland lore: the Jabberwock was once Wonderland's guardian, a benevolent protector that kept the realm safe from outside threats. The poem 'Beware the Jabberwock' is not a warning about a monster — it's a lament for a protector lost.", "failure": "The Jabberwock matches every terrifying description from the poem. It seems to be exactly the monster the warnings promised." },
+            { "skill": "Perception", "dc": 13, "success": "You spot the vorpal shard embedded in a tree stump at the clearing's edge — a crystalline blade fragment glowing with pale white light. The Jabberwock's eyes flicker toward it and away, as though it hurts to look at.", "failure": "Your attention is consumed by the Jabberwock itself. You don't notice the shard until combat begins (or until pointed out by another party member)." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 Jabberwock (young red dragon reskinned: AC 17, HP 150; Lightning Breath replaces fire: 30-ft. line, 10d6 lightning, DC 15 DEX half; Burble: 30-ft. cone of maddening sound, DC 14 WIS or frightened 1 min; Multiattack: bite 2d10+5 piercing, 2 claws 2d6+5 slashing, tail 2d8+5 bludgeoning; Frightful Presence: DC 14 WIS or frightened, 120 ft.; vulnerable to vorpal weapons — the vorpal shard deals extra 3d6 slashing and suppresses Frightful Presence for 1 round on hit)"],
+              "difficulty": "Deadly",
+              "tactics": "The Jabberwock fights with desperate, agonized fury — it does not WANT to fight but the corruption compels it. It uses Lightning Breath to create distance, then charges the nearest target with its multiattack. It uses Burble when surrounded. It avoids the vorpal shard instinctively — it will not attack anyone holding the shard directly, instead targeting their allies. If reduced to half HP, it tries to flee to the air, circling the clearing and using Breath Weapon from above. If reduced to 0 HP, it does not die — see 'secrets.' ALTERNATIVE RESOLUTION: If the party figures out the corruption angle (Insight DC 16 or Arcana DC 17), they can attempt to purify the Jabberwock. This requires: (1) one character holding the vorpal shard against the Jabberwock's scales (requires a successful grapple or the Jabberwock being restrained), (2) another character casting Dispel Magic or Remove Curse (DC 15 spellcasting check), and (3) a third character making DC 16 Persuasion to reach the guardian's mind beneath the corruption. If all three succeed simultaneously, the corruption shatters and the Jabberwock reverts without needing to be beaten to 0 HP. This awards the same XP as combat victory.",
+              "terrain": "Destroyed clearing (80 ft. diameter). No natural cover except bone piles (half cover) and uprooted tree trunks (3/4 cover). Lightning strikes random 10-ft. square at initiative count 20 (DC 13 DEX, 2d6 lightning). The vorpal shard tree stump is at the clearing's northwestern edge. The ground is uneven and cratered — scattered difficult terrain."
+            }
+          ],
+          "roleplayNotes": "This is the emotional climax of scenario 2 and one of the defining moments of the campaign. The Jabberwock should be TERRIFYING — describe it in language that evokes wrongness, power, and barely-contained violence. But also plant the seeds of sympathy: its word choice ('cage'), the pain in its eyes, the way it hesitates before attacking. The party has two paths: fight it to 0 HP (at which point it reverts and is freed) or figure out the purification method (which is harder but more dramatic). Either way, the outcome is the same — the Jabberwock is freed and Wonderland regains its guardian. The freed Jabberwock (now small, exhausted, and grateful) should be a powerful emotional moment — this ancient, terrifying creature reduced to a whimpering, nuzzling thing that looks at the party with eyes full of thanks. It cannot speak in this weakened state but projects waves of gratitude and exhaustion. It will eventually recover and become a powerful ally, but for now it needs rest and protection.",
+          "loot": [
+            "Vorpal Shard (quest item — a fragment of the legendary Vorpal Sword. When wielded as a dagger, deals 1d4+3 slashing damage with an additional 2d6 slashing against fey creatures and creatures corrupted by Wonderland's magic. Collecting all fragments allows reforging the complete Vorpal Sword in scenario 4.)",
+            "Knight's Shield of the Green Knight (found among bones — +1 shield bearing the Order's sigil, grants advantage on saves against fey charm effects while attuned)",
+            "Jabberwock Lightning Scale (5 scales, worth 100 gp each, can be used to craft lightning-resistant armor or enchant weapons with lightning damage)",
+            "A cache of treasure from previous challengers: 200 gp in mixed coins, a pearl necklace (worth 75 gp), 2 potions of greater healing, a scroll of Lesser Restoration",
+            "The Jabberwock itself — if freed, it becomes a campaign ally. Initially too weak to fight, it recovers over the course of scenarios 3-4 and can serve as an aerial mount or a devastating combat ally in the final battle against the Queen."
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "The Cheshire Cat",
+      "role": "Guide / Trickster Ally",
+      "description": "Wonderland's most enigmatic inhabitant — a grinning tabaxi who appears and disappears at will, speaks only in riddles, and is genuinely trying to help despite being constitutionally incapable of straightforward communication. His domain, the Cheshire Reaches, reflects his personality: impossible, playful, and deeply confusing.",
+      "motivation": "The Cat wants the party to succeed in freeing Wonderland from the Queen. He provides guidance through riddles, steers them toward the Jabberwock (because freeing the guardian is essential to the larger plan), and tests their ability to think in ways that Wonderland rewards — sideways, backwards, and upside down."
+    },
+    {
+      "name": "Tweedledee and Tweedledum",
+      "role": "Guardians / Comic Antagonists",
+      "description": "Two enormous, identical fey creatures locked in an eternal argument about which of them is the original and which is the copy. They guard the crossroads with belligerent intensity, blocking all paths until the party either defeats them, outsmarts them, or entertains them sufficiently.",
+      "motivation": "The twins guard the crossroads because it's what they've always done — they don't remember who told them to or why. They argue because they're two halves of a single being, split by the Queen, and the dissonance of being separate drives them to constant contradiction."
+    },
+    {
+      "name": "The Jabberwock",
+      "role": "Boss / Tragic Guardian",
+      "description": "Once Wonderland's benevolent guardian — a powerful draconic fey creature that protected the realm from outside threats. The Queen corrupted it with her magic, turning it into a nightmare predator consumed by rage and pain. It can be freed through combat or purification, reverting to a small, exhausted, but grateful creature that becomes a campaign ally.",
+      "motivation": "The Jabberwock wants to be free. Beneath the corruption, the guardian still exists — in pain, furious, and desperate. Its use of the word 'cage' is the first clue that it is a prisoner, not a predator."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "gold": "460 gp total (200 gp treasure cache, 100 gp displacer beast tentacles, 75 gp pearl necklace, various item values)",
+    "items": [
+      "Vorpal Shard (quest item — fragment of the Vorpal Sword, functions as magical dagger against fey/corrupted creatures)",
+      "Cheshire's Grin (wondrous item — turn invisible for 1 minute, once per long rest; grin remains visible for first round)",
+      "Knight's Shield of the Green Knight (+1 shield, advantage on saves vs. fey charm)",
+      "Tweedledee's Rattle (wondrous item — 30-ft. thunder cone, once per long rest)",
+      "5 Jabberwock Lightning Scales (crafting material, 100 gp each)",
+      "2 Potions of Greater Healing",
+      "Scroll of Lesser Restoration",
+      "Danger Compass (points toward nearest danger, 3 uses/day)",
+      "Singing Flower Seeds (6, grow into gossip-providing flowers)",
+      "The Jabberwock (campaign ally — recovers over scenarios 3-4)"
+    ],
+    "story": "The party has traversed the Tulgey Wood, earned the Cheshire Cat's trust, dealt with the Tweedle twins, and confronted the Jabberwock — freeing Wonderland's corrupted guardian and striking the first real blow against the Queen's power. The Vorpal Shard they carry is a fragment of the legendary weapon that can defeat the Queen, connecting to the endgame in scenario 4. The Cheshire Cat's guidance points them toward the Mad Tea Quarter, where the Hatter, March Hare, and Dormouse are trapped in eternal teatime — and where the next piece of the puzzle awaits."
+  },
+  "twists": [
+    "The Jabberwock is not a villain but a victim — Wonderland's corrupted guardian, imprisoned by the Queen and driven mad by fey corruption. Defeating it frees it rather than killing it, establishing the campaign's theme that Wonderland's problems can be healed rather than simply fought.",
+    "The Cheshire Cat's Reaches are not random chaos but a reflection of the Cat himself — his domain mirrors his personality. This hints at a deeper truth about Wonderland: the realm shapes itself to reflect its inhabitants' natures, and the Queen's tyranny has warped Wonderland because her personality has overwritten the realm's original character.",
+    "The Tweedle twins are two halves of a single fey being, split by the Queen as punishment. This establishes a pattern: the Queen controls Wonderland by breaking things apart. The Looking Glass is shattered, the Hatter is separated from Time, the guardian is corrupted, the twins are split. The party's quest is fundamentally about putting things back together.",
+    "The Vorpal Shard is a fragment of a legendary weapon shattered and scattered by the Queen — collecting the fragments and reforging the sword is an optional quest that pays off dramatically in the final scenario.",
+    "The knight's shield bearing the Green Knight sigil reveals that previous champions have tried and failed to save Wonderland — Dame Isolde's predecessor entered the realm and fell to the Jabberwock decades ago."
+  ],
+  "dmTips": [
+    "The Cheshire Cat should be played as the most likeable nuisance the party has ever encountered. His riddles are genuinely helpful — every single one contains real, actionable information — but extracting that information requires the party to think like Wonderland thinks: sideways, metaphorically, and with a sense of humor. Reward creative interpretation of his riddles generously.",
+    "The Tweedle twins work best as a comedy encounter with real stakes. Their Mirror Strike ability is genuinely dangerous, but their personalities are so absurd that the party should be laughing even as they're taking damage. If the party finds a non-combat solution, make it feel earned — the twins are stubborn, and outwitting them should require real creativity.",
+    "The Jabberwock fight is the campaign's first 'boss battle' and should feel appropriately epic. Describe it in language that evokes the original poem: 'The jaws that bite, the claws that catch!' It should be terrifying, but seed the hints about its true nature from the very beginning — 'cage,' not 'lair.' Players who pick up on these hints and pursue the purification route should feel brilliant for solving a puzzle that was hiding inside a combat encounter.",
+    "The freed Jabberwock should be one of the campaign's most emotional moments. This massive, terrifying creature — the thing that just nearly killed them — is suddenly small, exhausted, grateful, and in need of protection. It projects gratitude and exhaustion through emotional aura rather than speech. Let the party bond with it. This bond will pay off dramatically when the Jabberwock recovers its full power for the final battle.",
+    "Use the Tulgey Wood's sentient forest as a living set piece between major encounters. The trees' contradictory directions, the flowers' gossip, and the paths' shifting nature should make travel itself an adventure rather than just connective tissue between set pieces."
+  ]
+}

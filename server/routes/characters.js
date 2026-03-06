@@ -4,7 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { awardXp } = require('../xp-utils');
 const { requirePlayer } = require('../player-auth');
-const { getPlayerCharactersDir, ensurePlayerDataExists } = require('../player-data');
+const { getPlayerCharactersDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
 const { generateRandomCharacter } = require('../character-generator');
 
 const MAX_CHARACTERS = 50;
@@ -59,9 +59,8 @@ module.exports = function (dataDir) {
   router.use(playerAuth);
 
   function getCharDir(req) {
-    const dir = getPlayerCharactersDir(dataDir, req.player.email, req.campaignId);
-    ensurePlayerDataExists(dataDir, req.player.email, req.campaignId);
-    return dir;
+    provisionPlayerDefaults(dataDir, req.player.email, req.campaignId);
+    return getPlayerCharactersDir(dataDir, req.player.email, req.campaignId);
   }
 
   function readAllCharacters(req) {

@@ -47,9 +47,11 @@ function copyDefaultsToDir(sourceDir, targetDir) {
   if (!fs.existsSync(sourceDir)) return;
   const files = fs.readdirSync(sourceDir).filter(f => f.endsWith('.json'));
   for (const file of files) {
+    const targetFile = path.join(targetDir, file);
+    if (fs.existsSync(targetFile)) continue; // don't overwrite existing player data
     const data = JSON.parse(fs.readFileSync(path.join(sourceDir, file), 'utf-8'));
     addStatusAlive(data);
-    fs.writeFileSync(path.join(targetDir, file), JSON.stringify(data, null, 2), { mode: 0o644 });
+    fs.writeFileSync(targetFile, JSON.stringify(data, null, 2), { mode: 0o644 });
   }
 }
 

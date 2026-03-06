@@ -1,0 +1,547 @@
+{
+  "id": "wl-scenario-004",
+  "title": "The Queen's Croquet Ground",
+  "subtitle": "Off With Their Heads — Unless You Take Hers First",
+  "levelRange": "11-15",
+  "estimatedSessions": 6,
+  "setting": {
+    "name": "The Queen's Domain",
+    "description": "The heart of Wonderland's tyranny. The Queen of Hearts rules from a palace of crimson stone and living roses, surrounded by an army of card-soldiers, her dreaded Vorpal Guard, and a court of terrified sycophants. Her domain is a place where reality bends to royal decree — if the Queen says the sky is red, the sky turns red. If the Queen says you are guilty, you are guilty. And if the Queen says 'Off with their heads,' the executioner's axe swings before the sentence is finished. The party must infiltrate this domain, survive the Queen's impossible games, endure a rigged trial, storm the palace, and reach the Looking Glass Chamber to repair the Shattered Glass — the only gateway between Wonderland and the material plane. But first, they must decide: do they flee Wonderland and leave it under the Queen's heel, or do they stay and fight to free an entire realm?",
+    "atmosphere": "Oppressive beauty. Everything in the Queen's Domain is immaculate, vivid, and terrifying. The roses are impossibly red (because they are constantly being repainted by terrified card-soldiers). The hedges are geometrically perfect (because imperfect hedges are executed). The croquet grounds are emerald green and pristine (because the grass is too afraid to grow out of line). Laughter is mandatory at the Queen's jokes. Applause is mandatory at the Queen's appearances. And silence is mandatory at the Queen's displeasure — a silence so complete that even the wind holds its breath. The card-soldiers march in perfect formation, their painted faces frozen in expressions of forced cheer, and the sound of their synchronized footsteps echoes through the Domain like a heartbeat — the heartbeat of a regime that runs on fear.",
+    "keyLocations": [
+      {
+        "name": "The Rose Garden",
+        "description": "The outer grounds of the Queen's palace, a vast labyrinth of rose hedges, topiary, and garden paths where card-soldier painters desperately paint white roses red before the Queen's daily inspection. The garden is both beautiful and sinister — every rose bush conceals a surveillance card (a flat card-soldier pressed against the hedge, watching and reporting), and the paths are designed to funnel visitors toward checkpoints where card-soldier patrols demand identification and purpose. The 2, 5, and 7 of Spades — three card-painters who have been painting roses for years — are desperate enough to help outsiders if it means a chance at freedom.",
+        "features": [
+          "The White Rose Conspiracy: patches of white roses throughout the garden that the painters haven't reached yet. The Queen's inspection is in 2 hours — if the painters are not finished, they will be executed. Helping them (or using magic to paint the roses) earns their trust and loyalty",
+          "Surveillance Cards: flat card-soldiers pressed into hedges every 50 feet, watching all pathways. They report to the Knave of Hearts via a network of whispered messages passed from card to card. Detecting them requires DC 16 Perception; they can be removed or deceived",
+          "The Queen's Inspection Route: a specific path through the garden that the Queen walks daily. The painters know this route and can tell the party where to avoid — or where to set an ambush, if the party is bold enough",
+          "Hidden Hedge Passages: narrow gaps in the hedge walls known only to the painters, allowing movement through the garden without using the main paths. These passages are thorny (1d4 piercing damage per 30 feet of movement) but avoid all patrols",
+          "The Painting Supplies: the red paint used by the card-painters is actually enchanted — it can make anything appear to be something else for 1d4 hours. Creative use of this paint (disguising the party as card-soldiers, painting a wall to look like a door, etc.) is encouraged"
+        ],
+        "encounters": [
+          "Card-soldier patrol encounters (stealth/social): patrols of 4 card-soldiers march the main paths every 15 minutes. They can be avoided (Stealth DC 14), deceived (Deception DC 15 with a good cover story), or fought (easy combat but loud — reinforcements arrive in 3 rounds)",
+          "The Painting Race: a skill challenge to help the card-painters finish before inspection. Requires 4 successes before 3 failures using Dexterity (painting), Sleight of Hand (speed-painting), Arcana (magical color-changing), or creative solutions. Success earns the painters' full cooperation; failure means the Queen arrives early and the party must hide or face her prematurely",
+          "A surveillance card spots the party and begins whispering an alert down the hedge-line. The party has 2 rounds to silence it before the alert reaches the palace (Stealth DC 16 to approach, then grapple or silence the card)"
+        ],
+        "secrets": [
+          "The 2 of Spades has been secretly plotting rebellion for years and has a hidden cache of supplies and a crude map of the palace's interior. She will share this only if convinced the party can actually challenge the Queen — she has seen too many would-be heroes fail",
+          "The enchanted red paint, if applied to the Looking Glass Chamber's shattered mirror, can temporarily hold the pieces together long enough for a magical repair to take effect. The painters don't know this, but the 7 of Spades accidentally discovered it when some paint dripped on a broken teacup and fused the pieces",
+          "The Queen's daily inspection route passes within 30 feet of a concealed entrance to the palace's underground passages — an entrance that the surveillance cards cannot see because the rose bushes block their line of sight"
+        ]
+      },
+      {
+        "name": "The Croquet Grounds",
+        "description": "A vast, impossibly manicured lawn where the Queen plays her daily game of croquet — a game in which the rules change at the Queen's whim, the equipment is alive and uncooperative, and losing is a capital offense. The flamingo mallets squirm and twist, the hedgehog balls curl up and roll in random directions, and the card-soldier wickets duck and weave to make shots impossible. The Queen always wins because the game is designed to ensure she does. The party is 'invited' (commanded) to play, and must survive the match while navigating the Queen's volatile temper, the living equipment's antics, and the very real possibility of execution for missing a shot.",
+        "features": [
+          "Living Flamingo Mallets: each player is assigned a flamingo that serves as their mallet. The flamingos are resentful, uncooperative, and prone to twisting their necks at the worst possible moment. Animal Handling DC 14 to get a flamingo to cooperate for a single shot; failure means the flamingo deliberately sabotages the swing",
+          "Hedgehog Balls: enchanted hedgehogs that unroll and scurry in random directions when struck. Dexterity DC 13 to aim a shot accurately; the hedgehog rolls 1d8 to determine actual direction (1 = intended direction, 2-8 = various wrong directions). The hedgehogs are terrified and will cooperate if a character speaks to them kindly (Animal Handling DC 12)",
+          "Card-Soldier Wickets: card-soldiers bent into arches who are supposed to stand still but flinch, dodge, and occasionally run away when the ball approaches. Persuasion DC 13 to convince a wicket to hold still; intimidation makes them more nervous and harder to hit through",
+          "The Queen's Temper Gauge: an invisible but mechanically tracked measure of the Queen's mood. Each missed shot, each delay, each act of defiance raises her anger. At certain thresholds, she orders punishments: first a warning, then confiscation of items, then imprisonment of one party member, and finally 'Off with their heads!' (combat begins). The party can lower her temper with flattery (Persuasion DC 16), impressive shots, or making her laugh (Performance DC 17)",
+          "The Cheshire Cat's Grin: the Cheshire Cat appears periodically as a floating grin above the croquet grounds, offering cryptic advice, mocking the Queen (safely, since she cannot reach it), and occasionally causing distractions that benefit the party. It cannot be relied upon but is always entertaining"
+        ],
+        "encounters": [
+          "The Croquet Match Skill Challenge: a complex skill challenge requiring 6 successes before 4 failures. Each 'shot' requires two checks: Animal Handling (DC 14) for the flamingo and Dexterity (DC 13) for the aim. Persuasion (DC 13) or kind words to the wickets can grant advantage on the Dexterity check. Each failure raises the Queen's Temper Gauge. Creative solutions (using magic to guide the hedgehog, befriending the flamingo with food, distracting the Queen during missed shots) can substitute for standard checks at the DM's discretion",
+          "The Queen's Wrath: if the Temper Gauge reaches maximum (4 failures, or direct defiance), the Queen orders the party executed. This triggers the combat encounter early — card-soldiers surround the grounds and the Vorpal Guard moves to intercept. This is not ideal (the party hasn't reached the palace yet) but is survivable",
+          "Croquet Chaos: as the match progresses, the Queen's own temper causes her shots to go wild, the flamingos revolt en masse, and the hedgehogs form a rolling stampede across the field. This provides cover for the party to slip away toward the palace if they choose not to fight yet"
+        ],
+        "secrets": [
+          "The flamingos are not truly animals — they are polymorphed courtiers who displeased the Queen. If a character casts Dispel Magic or Remove Curse on a flamingo (DC 15 check required), it reverts to its true form — a grateful noble who can provide palace intelligence and who will fight alongside the party in the final battle",
+          "The Queen cheats at croquet using a magical scepter hidden in her sleeve that subtly guides her hedgehog and stiffens her wickets. Detecting this requires Perception DC 17 or Arcana DC 15. Exposing the cheating publicly does not anger the Queen (she simply denies it) but it demoralizes her card-soldiers, who gain the demoralized condition (disadvantage on attacks) in subsequent encounters as they realize their queen is a fraud",
+          "One of the hedgehog balls is not a hedgehog at all — it is a polymorphed key to the Looking Glass Chamber, hidden in plain sight by a previous rebel who never got the chance to use it. Detect Magic reveals its true nature"
+        ]
+      },
+      {
+        "name": "The Courtroom",
+        "description": "The Queen's courtroom is a vast, circular chamber with tiered seating for hundreds of card-soldier spectators, a towering judge's bench (occupied by the King of Hearts, who serves as nominal judge while the Queen makes all actual decisions), a witness box, a defendant's cage, and an executioner's block that is disturbingly well-used. The trial of the Knave of Hearts is in progress — he is accused of stealing the Queen's tarts, a crime punishable by beheading. The evidence is absurd, the witnesses contradict themselves, and the verdict was decided before the trial began. The party is drawn in as witnesses, then accused of crimes themselves, and must navigate a rigged legal system that can be turned against its creator.",
+        "features": [
+          "The Verdict-First Protocol: in the Queen's court, the sentence comes before the verdict, and the verdict before the evidence. The Queen has already decided the Knave is guilty. The party is already guilty of something — they just haven't been told what yet. This creates a Kafkaesque atmosphere where the law itself is a weapon",
+          "The King of Hearts: a timid, well-meaning figure who genuinely tries to run a fair court but is overruled by the Queen at every turn. He can be appealed to as a voice of reason (Persuasion DC 14), and if the party demonstrates the Queen's injustice convincingly enough, he may finally find the courage to stand against her",
+          "The Jury of Cards: twelve card-soldiers who serve as the jury. They are terrified of the Queen and will vote however she wants — unless the party can inspire them to rebel (requires exposing the Queen's tyranny AND demonstrating that resistance is possible, which requires multiple successful Persuasion/Intimidation checks over the course of the trial)",
+          "The Evidence Table: covered with absurd exhibits — a half-eaten tart, a poem that allegedly proves guilt, a calendar with impossible dates. Each piece of evidence can be examined (Investigation DC 13) and debunked, though the Queen will declare the debunking 'irrelevant' unless the party has built enough support in the courtroom",
+          "The Executioner: a massive, hooded card-soldier (the Ace of Spades) who stands silently by the block. He follows the Queen's orders without question — unless the party can convince him otherwise (extremely difficult: Persuasion DC 20, but possible if the party has evidence that the Queen's decrees are illegitimate)"
+        ],
+        "encounters": [
+          "The Trial Social Encounter: a complex, multi-phase social challenge. Phase 1: the party is called as witnesses and must testify about the Knave's alleged crimes (they know nothing, which can be played for comedy or drama). Phase 2: the party is accused of their own crimes (trespassing, conspiracy, 'looking suspicious,' and 'having too many heads'). Phase 3: the party can turn the trial around by presenting counter-evidence, calling surprise witnesses (the card-painters, liberated flamingo-nobles, or even the Cheshire Cat), or simply challenging the Queen's authority directly. Each phase involves multiple skill checks (Persuasion, Deception, Intimidation, Investigation, Performance) and the outcome determines how the party enters the palace — as prisoners, as fugitives, or as leaders of a rebellion",
+          "If the trial goes badly, the Queen orders immediate execution. The party must fight their way out of the courtroom against 8 card-soldiers and the Executioner (use knight stats for the Executioner). The King of Hearts does not join the fight but also does not hinder the party's escape, 'accidentally' leaving a door unlocked",
+          "If the trial goes well (the party builds enough courtroom support), the jury refuses to convict, the courtroom erupts in chaos, and the Queen storms out to the Throne Room — the party can pursue her or use the chaos to access the Looking Glass Chamber"
+        ],
+        "secrets": [
+          "The Knave of Hearts did not steal the tarts — the Queen ate them herself and framed the Knave because he refused to laugh at her joke. The Knave knows this and will tell the party if they speak to him privately (Persuasion DC 12, he is desperate for allies). Presenting this information in court is explosive — the card-soldiers visibly waver in their loyalty",
+          "The King of Hearts has been secretly undermining the Queen for years in tiny ways — mislaying execution orders, 'forgetting' to lock prison cells, and pardoning condemned prisoners when the Queen is not looking. He is an ally waiting for someone brave enough to give him a reason to act openly. If the party appeals to him directly and convincingly (Persuasion DC 16), he reveals a secret passage from the courtroom to the Looking Glass Chamber",
+          "The trial records, kept in a vault beneath the judge's bench, contain evidence that the Queen's claim to the throne is fraudulent — she seized power from the original rulers of Wonderland through a coup, not legitimate succession. This information, if made public, would turn the entire card-army against her"
+        ]
+      },
+      {
+        "name": "The Looking Glass Chamber",
+        "description": "Deep beneath the Palace of Hearts, in a chamber that predates the Queen's rule, hangs the original Looking Glass — the magical mirror that connects Wonderland to the material plane. It is shattered into seven pieces, each shard reflecting a different aspect of whoever stands before it. The chamber is circular, lined with smaller mirrors that create infinite reflections, and the air hums with the potential energy of a gateway that wants to open but cannot. Each shard is guarded by a Reflection — a mirror duplicate of a party member that possesses all their abilities, equipment, and knowledge, but twisted by Wonderland's dark magic into a hostile version of themselves. To reassemble the Looking Glass, the party must defeat their own reflections — or find a way to reconcile with them.",
+        "features": [
+          "The Seven Shards: each shard of the Looking Glass reflects a different aspect of the viewer — their courage, their fear, their love, their anger, their wisdom, their foolishness, and their truth. Each shard must be placed in a specific position in the frame (Investigation DC 14 to determine correct placement). Placing a shard incorrectly causes a burst of mirror-energy (3d8 force damage, DC 15 Dexterity save for half)",
+          "The Mirror Reflections: each shard is guarded by a Reflection — a mirror duplicate of a party member. Reflections have identical stats, abilities, and equipment as their originals, but fight with ruthless efficiency and no moral compunctions. They know everything their original knows, including tactics and weaknesses. Defeating a Reflection causes the shard it guards to become inert and can be safely handled",
+          "The Infinite Mirror Walls: the chamber's walls are covered in mirrors that create confusing infinite reflections. These mirrors can be used tactically — shattering a wall mirror creates difficult terrain (mirror shards) and eliminates the visual confusion in that area, but also creates 1d4 minor reflections (use shadow stats) that attack indiscriminately",
+          "The Frame: the Looking Glass's ornate frame hangs on the far wall, empty and waiting. As shards are placed, the gateway's power grows — after 4 shards, characters near the frame can hear sounds from the material plane. After 6, they can see blurry shapes. After all 7, the gateway opens fully",
+          "The Choice: once the Looking Glass is restored, the party faces a pivotal decision: step through and escape Wonderland (leaving it under the Queen's rule), or remain in Wonderland and confront the Queen in the Throne Room. The gateway remains open for 1 hour before the mirror's magic stabilizes — after that, it becomes a permanent portal, but only if Wonderland is at peace"
+        ],
+        "encounters": [
+          "The Reflection Battles: up to one Reflection per party member (adjust for party size — use 3-5 Reflections for a manageable encounter). Each Reflection engages its original preferentially. The Reflections can be defeated through combat (they have the same HP and AC as their originals) or through a roleplay challenge: a character can attempt to 'reconcile' with their Reflection by acknowledging the aspect of themselves it represents (Wisdom DC 16 or Charisma DC 16). Success causes the Reflection to merge back into the character, healing the character for 2d10 HP and granting advantage on all saves for 1 hour. This reconciliation option rewards introspective roleplay",
+          "Minor Reflections (if wall mirrors are shattered): 1d4 shadow-stat creatures per mirror broken. They are weak individually but can swarm. They dissolve when the main Reflection they spawned from is defeated",
+          "The Mirror Maze: if the party attempts to reach the frame without clearing all Reflections, the remaining Reflections coordinate to create a mirror maze of illusions. Navigation requires DC 15 Intelligence (Investigation) checks to distinguish real pathways from reflections. Failure means walking into a mirror (1d6 bludgeoning damage and the character is bounced back to the starting position)"
+        ],
+        "secrets": [
+          "The Reflections are not truly hostile — they are the Looking Glass's defense mechanism, testing whether those who would use the gateway are complete enough in self-knowledge to travel between worlds safely. A party that defeats all Reflections through reconciliation rather than combat earns a bonus: the Looking Glass grants each character a permanent +1 to their lowest ability score as a reward for self-knowledge",
+          "The seventh shard — the Shard of Truth — is not in the chamber. The Queen of Hearts carries it as a pendant, using its power to detect lies (which is how she maintains control over her court). To complete the Looking Glass, the party must obtain this shard from the Queen — through theft, through the trial, or through combat in the Throne Room",
+          "The Looking Glass, once restored, does not merely connect Wonderland to the material plane — it stabilizes Wonderland itself. The Queen's tyranny has been slowly destabilizing the realm, and the shattered mirror was both symptom and cause. Restoring the glass weakens the Queen's reality-warping powers by 50%, making the final confrontation significantly easier"
+        ]
+      },
+      {
+        "name": "The Throne Room",
+        "description": "The heart of the Palace of Hearts and the seat of the Queen's power. A massive, vaulted chamber with a checkered marble floor (alternating red and white squares that the Queen can animate and rearrange), walls hung with tapestries depicting the Queen's 'glorious' history (heavily revised to omit atrocities), and a crimson throne on a raised dais from which the Queen of Hearts holds absolute power. Four members of the Vorpal Guard — elite card-knight warriors in full plate armor bearing vorpal-enchanted greataxes — stand at the cardinal points of the room. The King of Hearts sits on a smaller throne to the left, looking miserable. And the Queen herself radiates power, fury, and an absolute refusal to be questioned, challenged, or denied. This is where it ends — one way or another.",
+        "features": [
+          "The Checkered Floor: the throne room floor is a giant chessboard that the Queen can manipulate as a lair action. Squares can rise (creating walls), drop (creating pits), slide (forcing movement), or flip (inverting gravity in a 10-ft area). The Queen uses this to control movement and separate party members",
+          "The Vorpal Guard: four elite card-knights (see combat stats below) stationed at north, south, east, and west positions. They fight with military precision, coordinating flanking maneuvers and shield walls. They are fanatically loyal to the Queen — they cannot be reasoned with, bribed, or intimidated. They must be defeated or bypassed",
+          "The King's Smaller Throne: the King of Hearts sits here, outwardly subservient but inwardly terrified. If the party has built a relationship with him (through the trial or other interactions), he can be convinced to act — removing the Queen's crown (which is the source of much of her power) from her head during combat. This requires him to make a DC 14 Wisdom save to overcome his fear, and the party must protect him from the Vorpal Guard once he acts",
+          "The Rose Tapestries: the tapestries along the walls are enchanted and the Queen can animate them as minions — rose-vine tendrils that grapple and restrain (DC 15 Strength to escape). Cutting a tapestry down (AC 11, HP 20) eliminates that section's threat. Burning tapestries fills the room with smoke (heavily obscured area for 1 round)",
+          "The Queen's Crown of Hearts: the Queen's crown amplifies her fey powers and is the source of her reality-warping Vorpal Decree ability. If the crown is removed (by the King, by a successful grapple, or by Telekinesis/similar magic), the Queen loses her legendary actions and her Vorpal Decree becomes a normal attack rather than a potential instant-death effect"
+        ],
+        "encounters": [
+          "The Final Battle: the party fights the Queen of Hearts, her 4 Vorpal Guard knights, and potentially summoned card-soldier reinforcements. This is a multi-phase fight — Phase 1: the Vorpal Guard engages while the Queen uses legendary actions and lair actions. Phase 2 (after 2 Vorpal Guards fall): the Queen becomes enraged and joins the fight directly, using Vorpal Decree aggressively. Phase 3 (after the Queen reaches half HP): she attempts to collapse the throne room using lair actions, creating a desperate final stand amid falling debris and shifting checkered floor tiles",
+          "Card-Soldier Reinforcements: each round, 1d4 card-soldiers (use guard stats) enter through side doors. These reinforcements stop if: (a) the party has inspired a rebellion (the card-soldiers refuse to fight), (b) someone locks/blocks the side doors, or (c) the Queen is defeated — the soldiers immediately surrender when she falls",
+          "The King's Choice: if the party has earned the King's loyalty, he can act as a dramatic turning point in the battle. On his turn (he acts on initiative count 10), he can attempt to remove the Queen's crown. If successful, it dramatically shifts the fight's difficulty. If he fails (or if the party hasn't earned his trust), he cowers on his throne and does not participate"
+        ],
+        "secrets": [
+          "The Queen of Hearts was not always a tyrant. She was once a minor fey noble who found the Crown of Hearts — an artifact of immense power that amplifies authority but corrupts empathy. The crown has been slowly consuming her personality for centuries. If the crown is removed and destroyed (AC 20, HP 50, vulnerable to radiant damage), the Queen collapses and reverts to a confused, frightened fey who has fragmented memories of centuries of cruelty. She is not 'redeemed' — she must face justice for what she did — but she is pitied. This adds moral complexity to the victory",
+          "The Vorpal Guard's greataxes are genuine vorpal weapons — if the party defeats them, these weapons can be claimed. However, each vorpal greataxe is bonded to the Queen's crown and loses its vorpal property if the crown is destroyed. Only one vorpal weapon exists independently of the crown: the Vorpal Sword, hidden in the King's smaller throne (he has been sitting on it, literally, for decades, too afraid to use it)",
+          "The checkered floor contains a hidden pattern — the squares that cannot be manipulated by the Queen form a path from the entrance to the throne. A character who identifies this pattern (Investigation DC 18 or Chess/Games proficiency) can navigate the floor without being affected by the Queen's lair actions"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The climactic finale of the Wonderland campaign. The party infiltrates the Queen of Hearts' domain — a place of terrifying beauty where reality bends to royal decree — to repair the Shattered Looking Glass and either escape Wonderland or free it from tyranny. They must navigate the Rose Garden's surveillance and ally with rebel card-painters, survive an impossible croquet match where losing means execution, endure a rigged trial in the Queen's courtroom where the verdict precedes the evidence, descend into the Looking Glass Chamber to fight mirror duplicates of themselves, and ultimately choose whether to flee through the restored gateway or storm the Throne Room for a final confrontation with the Queen of Hearts — an Archfey tyrant whose word is literally law, whose Vorpal Guard are among the deadliest warriors in Wonderland, and whose Crown of Hearts gives her the power to reshape reality itself. The scenario offers multiple paths (stealth, diplomacy, rebellion, or direct assault), a morally complex villain, and a climactic choice that determines the fate of an entire world.",
+  "hook": "The path to the Palace of Hearts is unavoidable — it sits at the center of Wonderland like a spider in its web, and every road eventually leads to its crimson gates. As the party approaches, they see the palace rising above the rose hedges like a fortress made of playing cards, impossibly tall and precarious yet standing through sheer force of the Queen's will. The gates are open. They are always open. Because the Queen wants everyone to enter her domain — it is leaving that she forbids. A white rabbit in a waistcoat rushes past, checking a pocket watch and muttering 'The Queen will see you now, the Queen will see you now.' It is not a greeting. It is a warning. Above the gates, in letters painted in what might be red paint and might be something worse, a sign reads: 'ALL WHO ENTER ARE SUBJECT TO THE QUEEN'S JUSTICE.' The word 'justice' has been crossed out and replaced with 'WHIM.'",
+  "acts": [
+    {
+      "title": "Act 1: Painting the Roses Red",
+      "description": "The party infiltrates the Queen's Domain through the Rose Garden, encountering the card-soldier painters, surveillance network, and patrols. This act is primarily stealth and social encounters, establishing the Queen's oppressive regime and building alliances with potential rebels. The party gathers intelligence about the palace, the croquet match, and the trial, and may discover hidden passages into the palace's interior.",
+      "objectives": [
+        "Infiltrate the Rose Garden without triggering a full alert",
+        "Ally with the card-painters (2, 5, and 7 of Spades) to gain palace intelligence",
+        "Help the painters finish painting the roses before the Queen's inspection (optional, earns trust)",
+        "Gather information about the palace layout, the croquet match, and the trial",
+        "Locate hidden passages into the palace",
+        "Acquire enchanted red paint for later use"
+      ],
+      "scenes": [
+        {
+          "name": "The Garden of Red and White",
+          "description": "The party enters the Rose Garden and immediately encounters the oppressive surveillance state of the Queen's Domain. Card-soldier patrols march the main paths, surveillance cards press flat against hedges to watch, and three desperate card-painters race to paint white roses red before the Queen's inspection. The party must navigate this environment and make contact with the painters.",
+          "readAloud": "\"Beyond the crimson gates, the Rose Garden spreads before you in a labyrinth of geometric perfection. Hedges trimmed to razor edges form corridors and chambers, their walls thick with roses — red roses, impossibly red, their color so vivid it seems to throb. But as you look more closely, you spot the truth: the roses are white beneath, and three frantic figures — flat, painted card-soldiers with the Spade suit — are rushing from bush to bush with pots of red paint and dripping brushes, slopping color onto petals with desperate speed.\n\n'Seven, you're dripping on the stems again!' hisses a card with the number 2. 'If the Queen sees stem-drip, it's the chop for all of us!'\n\n'I'm doing my BEST, Two,' moans the 7 of Spades, paint splashing across his flat face. 'We've still got the whole east garden to do and inspection is in two hours!'\n\nBeyond the painters, you hear the tramp of marching feet — a card-soldier patrol rounding the far hedge. And pressed against the nearest hedge wall, almost invisible if you weren't looking for it, you see a card flattened against the leaves. It has no number. Just eyes. Watching.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 14,
+              "success": "You move through the garden without being detected by the surveillance cards or patrols, reaching the painters safely.",
+              "failure": "A surveillance card spots you and begins whispering an alert. You have 2 rounds to silence it (Stealth DC 16 to approach, then Athletics DC 12 to remove it from the hedge) before the alert reaches the palace and patrols double."
+            },
+            {
+              "skill": "Perception",
+              "dc": 16,
+              "success": "You spot the surveillance cards pressed into the hedges — thin, flat card-soldiers with painted-on eyes that track movement. You identify their positions and can avoid their sightlines, granting advantage on subsequent Stealth checks in the garden.",
+              "failure": "The hedges seem like ordinary hedges, though you have a nagging feeling of being watched."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "The card-painters recognize you as outsiders and — after a moment of panic — desperately ask for help. They share what they know: the croquet match begins this afternoon, the trial of the Knave is tomorrow morning, and the palace has a concealed entrance near the inspection route that the surveillance cards cannot see.",
+              "failure": "The painters are too frightened to talk. They shush you and return to painting. Further attempts require DC 15 or an act of visible solidarity (helping paint roses, standing watch for patrols, etc.)."
+            },
+            {
+              "skill": "Dexterity (Sleight of Hand or similar)",
+              "dc": 12,
+              "success": "You help the painters with remarkable speed and precision. The east garden is finished with time to spare, and the painters are deeply grateful — the 2 of Spades shares her secret rebel cache, including a crude palace map and a set of stolen keys that open exterior doors.",
+              "failure": "Your painting is sloppy — drips on the stems, uneven coverage. The painters appreciate the effort but have to redo your work, gaining no time advantage."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 card-soldier patrol guards (use guard stats, CR 1/8 each, with one corporal using scout stats, CR 1/2)"],
+              "difficulty": "Easy (but consequences are severe — combat raises the alert level)",
+              "tactics": "The card-soldiers patrol in a tight formation, calling out cadence as they march. If they spot the party, the corporal blows a whistle (alerting all patrols in the garden) while the guards form a shield wall and advance. They are not elite fighters — they are conscripts. They surrender if 3 of 4 are defeated. However, any combat in the garden triggers reinforcements (8 more guards in 3 rounds) and puts the palace on heightened alert, making subsequent infiltration harder (all DCs in the palace increase by 2).",
+              "terrain": "Rose Garden paths: 10 ft wide corridors between 8 ft tall hedges. Intersection nodes are 20x20 ft open areas with rose bushes providing half cover. The hedges can be pushed through (Athletics DC 14, or cutting with a blade creates a 5-ft passage but takes 1 round). Paint pots can be thrown as improvised weapons (splash damage, blinds target for 1 round on hit, DC 12 Dexterity save)."
+            }
+          ],
+          "roleplayNotes": "The card-painters should be immediately sympathetic — they are terrified workers in an impossible situation, facing execution for failing at a ridiculous task. Play up the absurdity: the Queen decreed white roses offensive three years ago, but the gardens were planted with white roses centuries before her reign. The painters have been painting roses daily ever since, knowing the paint washes off in rain. The 2 of Spades is the boldest — she has been subtly undermining the Queen for years. The 5 of Spades is a nervous wreck who cries at the slightest provocation. The 7 of Spades is a jovial pragmatist who treats the daily painting as exercise and paints with surprising artistry despite the terrible circumstances. These three can become loyal allies throughout the scenario, providing intelligence, creating distractions, and ultimately joining the rebellion if one occurs.",
+          "loot": [
+            "3 pots of enchanted red paint (each pot has 5 uses — paint an object or surface to disguise it as something else for 1d4 hours, or paint a creature to change its apparent species/appearance for the same duration)",
+            "The 2 of Spades' rebel cache: a crude map of the palace interior (accurate for ground floor, incomplete for upper levels and basement), a set of 3 stolen keys (exterior doors only), a dagger hidden in a paint bucket, and 15 gp in assorted coins 'liberated' from the Queen's treasury over time",
+            "A pair of hedge clippers enchanted to cut through any plant matter instantly (useful for creating passages through the garden hedges, worth 50 gp)"
+          ]
+        },
+        {
+          "name": "The Queen's Inspection",
+          "description": "The Queen arrives for her daily garden inspection, providing the party with their first close encounter with the scenario's primary antagonist. If the painting is finished, the inspection passes without incident (though it is terrifying). If not, the party witnesses the Queen's cruelty firsthand as she discovers white roses and orders the painters executed. Either way, the party gets a clear view of the Queen's power, personality, and vulnerabilities.",
+          "readAloud": "\"A trumpet blares — harsh, discordant, more threat than fanfare. The hedges seem to straighten in fear. Every card-soldier in sight snaps to rigid attention. Even the wind stops.\n\nShe arrives like a force of nature wearing a crown. The Queen of Hearts is tall, imperious, and radiates a presence that makes the air itself feel like it is kneeling. Her gown is the red of arterial blood, her crown gleams with a single brilliant gem at its center — a shard of mirror that catches the light with unnatural intensity — and her face wears an expression of permanent, magnificent displeasure. Behind her, four towering card-knights in full plate armor march in perfect synchronization — the Vorpal Guard, each bearing a greataxe that hums with barely contained lethality.\n\n'ROSES!' the Queen announces, and the word sounds like a death sentence. She sweeps toward the nearest bush and examines a bloom with the critical eye of someone looking for an excuse to destroy something.\n\nBehind her, the King of Hearts — a small, round, anxious figure perpetually wiping his brow with a handkerchief — scurries to keep up, murmuring 'Very nice, very nice, lovely red, yes indeed' in a continuous, nervous stream that no one listens to.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 16,
+              "success": "You remain hidden as the Queen passes within feet of your position, concealed in the hedges or behind the painters' equipment. You observe her closely enough to notice the mirror shard in her crown pulsing faintly — it is clearly magical and important.",
+              "failure": "The Queen's gaze sweeps your hiding spot. She pauses, frowns, then declares 'I thought I saw something unpleasant' and moves on. One of the Vorpal Guard lingers near your position for a tense minute before following. Your cover is not blown, but one more failure will draw direct attention."
+            },
+            {
+              "skill": "Arcana",
+              "dc": 15,
+              "success": "You recognize the mirror shard in the Queen's crown as a piece of the Looking Glass — it radiates transmutation and enchantment magic. This is likely the seventh shard needed to complete the mirror's restoration.",
+              "failure": "The crown is clearly magical but you cannot identify the shard's specific nature from this distance."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "You read the Queen's behavior and notice something beneath the tyranny: she is afraid. Her anger is performative, her cruelty reactive, and her inspections are not about roses at all — they are about control, about reassuring herself that her power is absolute. She is a tyrant because she is terrified of losing authority. This insight grants advantage on Intimidation checks against the Queen in later encounters.",
+              "failure": "The Queen appears to be pure menace with no vulnerabilities you can detect."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The inspection scene is about establishing the Queen as a credible, terrifying threat while also planting seeds of her vulnerability. Play her as enormously powerful and erratic — she may praise a rose one moment and order a hedge burned the next. Her temper changes like weather. The Vorpal Guard should be described as utterly lethal — when they move, they move as one, and the air near their axes feels wrong, as if reality is thinner close to the blades. The King of Hearts should be played for sympathy — he is clearly a good person trapped in a terrible marriage to a terrible monarch. His nervous chatter is a survival mechanism. If the party makes eye contact with the King, he gives them a tiny, desperate look that says 'please help' before the Queen notices and he looks away. If the roses are not finished and the Queen finds white, she orders the painters beheaded. The party can intervene (triggering early combat) or watch (which is awful but preserves their cover). If the party intervenes, the painters are saved but the palace goes to high alert. If they don't intervene, the painters are dragged away — but the 2 of Spades slips the party her keys and map as she is taken, whispering 'Make it count.'",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Impossible Game",
+      "description": "The party is summoned to participate in the Queen's croquet match — a game designed to be impossible to win, played with living equipment on a field where the rules change at the Queen's whim. This act is a unique hybrid of skill challenges, social maneuvering, and potential combat, testing the party's creativity, social skills, and ability to manage an increasingly volatile situation. The croquet match is simultaneously funny, tense, and dangerous, capturing the essence of Wonderland's darkest whimsy.",
+      "objectives": [
+        "Survive the croquet match without triggering the Queen's execution order",
+        "Manage the Queen's Temper Gauge through flattery, impressive play, or distraction",
+        "Befriend or coerce the living equipment (flamingos, hedgehogs, wickets) to cooperate",
+        "Discover the Queen's cheating and optionally expose it",
+        "Optionally: liberate polymorphed flamingo-nobles by breaking the polymorph enchantment",
+        "Use the chaos of the match to scout the palace and prepare for Act 3"
+      ],
+      "scenes": [
+        {
+          "name": "The Royal Summons",
+          "description": "The party is 'invited' to play croquet — a summons that cannot be refused. They are assigned living flamingo mallets and introduced to the game's absurd rules, which change at the Queen's convenience. The Cheshire Cat appears to offer cryptic warnings and unhelpful advice.",
+          "readAloud": "\"A card-soldier arrives bearing an invitation on gold-embossed card stock. It reads: 'You Are Commanded to Attend the Queen's Croquet Match. Attendance Is Mandatory. Winning Is Forbidden. Losing Is Punishable by Death. Enjoy.' The card-soldier hands each of you a flamingo.\n\nThe flamingo you receive is four feet of pink indignation, with furious eyes and a beak that tries to bite your fingers the moment you grip it. It twists its long neck to glare at you upside-down and lets out a sound that is half-honk, half-profanity.\n\n'Lovely, aren't they?' purrs a voice from nowhere. A grin materializes in the air above you — just the grin, wide and luminous, belonging to no visible face. The Cheshire Cat's grin. 'A word of advice: the game is rigged, the rules are imaginary, and the Queen cheats. But then, everything in Wonderland is rigged, imaginary, and cheating. The trick is to cheat better than she does.'\n\nThe grin rotates ninety degrees. 'Also, do be kind to the flamingos. They're not what they seem. Nothing here is.' The grin fades, leaving only the echo of its amusement — and the flamingo's continued attempts to bite you.\"",
+          "skillChecks": [
+            {
+              "skill": "Animal Handling",
+              "dc": 14,
+              "success": "You establish a rapport with your flamingo. It stops trying to bite you and cooperates grudgingly, though it sighs dramatically with each swing. On a natural 20, the flamingo actually seems to like you, granting advantage on all croquet shot Dexterity checks.",
+              "failure": "The flamingo actively sabotages your first croquet shot — disadvantage on the Dexterity check for that shot."
+            },
+            {
+              "skill": "Arcana",
+              "dc": 15,
+              "success": "You detect transmutation magic emanating from the flamingos — they are polymorphed humanoids. Dispel Magic (DC 15 check) or Remove Curse would revert them to their true forms.",
+              "failure": "The flamingos seem like normal (if irritable) birds."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "You recognize the Cheshire Cat's advice as genuine beneath its whimsy. 'Cheat better' means: the game cannot be won by playing fairly, so the party should focus on managing the Queen's temper rather than making legitimate shots.",
+              "failure": "The Cat's advice seems unhelpfully vague."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The flamingo assignment is a chance for physical comedy and character moments. Each flamingo has a personality — one is dignified and resentful, one is anxious and flighty, one is spiteful and tries to trip its holder. If a character uses Detect Magic or similar to discover the flamingos' true nature, this is a major revelation that adds moral weight to the scene. De-polymorphing a flamingo in front of the Queen is risky (she will be furious) but powerful — the liberated noble can provide crucial intelligence and their transformation is witnessed by all the card-soldiers, who will remember it later. The Cheshire Cat should appear and disappear unpredictably throughout Act 2, offering commentary, stealing food from the Queen's table, and occasionally creating distractions that benefit the party.",
+          "loot": [
+            "The flamingo mallets (no monetary value, but liberating them reveals polymorphed nobles who can serve as allies)",
+            "The Cheshire Cat leaves behind a single whisker (if anyone notices) — a curiosity worth 75 gp to a collector, or it can be used once to cast Invisibility on the holder for 1 hour"
+          ]
+        },
+        {
+          "name": "The Croquet Chaos",
+          "description": "The croquet match itself — a prolonged skill challenge played across the Queen's impossibly perfect lawn, with living equipment, changing rules, the Queen's volatile temper, and the ever-present threat of execution for poor play. The scene is designed to be played over multiple rounds, with each round representing one 'turn' of croquet.",
+          "readAloud": "\"The croquet grounds are flawless — a rolling green lawn stretching across the palace's eastern grounds, its grass so perfectly even it looks painted. Card-soldier wickets are spaced across the field, standing in arch formation but visibly trembling. Hedgehog balls sit in a cluster, curled tight and quivering. The Queen takes her position at the starting point, a flamingo in each hand — hers do not struggle, they know better — and addresses the assembled players.\n\n'THE RULES,' she announces, and every living thing on the field flinches. 'Rule One: I win. Rule Two: if anyone else wins, see Rule One. Rule Three: any player who misses a shot will explain to me why they deserve to keep their head. I may or may not find the explanation satisfying.' She smiles. It is the smile of a cat that has already eaten the canary and is now eyeing the goldfish.\n\n'PLAY!' she screams, and the match begins in a chaos of squawking flamingos, fleeing hedgehogs, and card-soldiers trying very hard to stand still while a ball rolls directly at their shins.\"",
+          "skillChecks": [
+            {
+              "skill": "Animal Handling",
+              "dc": 14,
+              "success": "Your flamingo cooperates for this shot, holding its neck straight and steady.",
+              "failure": "The flamingo twists at the last second, sending the hedgehog in a random direction. Roll 1d8 for direction."
+            },
+            {
+              "skill": "Dexterity (Athletics)",
+              "dc": 13,
+              "success": "The hedgehog rolls true and passes through the wicket. The crowd cheers (softly, in case the Queen disapproves of the cheering).",
+              "failure": "The hedgehog veers off course. The Queen's eyes narrow. Her Temper Gauge rises by one notch."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "You convince the card-soldier wicket to hold still as the hedgehog approaches. It braces itself, trembling but resolute. Grant advantage on the Dexterity check for this shot.",
+              "failure": "The wicket panics and dodges. The hedgehog passes through empty air."
+            },
+            {
+              "skill": "Persuasion or Performance (Queen's Temper)",
+              "dc": 16,
+              "success": "You flatter the Queen brilliantly — complimenting her technique, her crown, her magnificent cruelty. Her Temper Gauge drops by one notch and she preens visibly.",
+              "failure": "Your flattery rings false. The Queen is not amused. 'Are you MOCKING me?' she hisses. Temper Gauge rises by one notch."
+            },
+            {
+              "skill": "Perception",
+              "dc": 17,
+              "success": "You spot the Queen's cheating — her scepter, hidden in her sleeve, emits a subtle magical pulse that guides her hedgehog and stiffens her wickets. You can expose this publicly if you choose.",
+              "failure": "The Queen's shots are suspiciously perfect but you cannot determine how she's doing it."
+            },
+            {
+              "skill": "Animal Handling",
+              "dc": 12,
+              "success": "You speak kindly to a hedgehog before your shot, calming it. It cooperates willingly, rolling in the intended direction without the need for a Dexterity check.",
+              "failure": "The hedgehog is too frightened to respond to kindness and curls tighter."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["8 card-soldier guards (guard stats, CR 1/8 each)", "1 Vorpal Guard knight (see Vorpal Guard stats below — CR 8)"],
+              "difficulty": "Hard (only triggers if Temper Gauge maxes out or the party directly defies the Queen)",
+              "tactics": "If combat triggers on the croquet field, the card-soldiers form a perimeter while the single Vorpal Guard knight attacks the party's strongest-looking member. The Queen does NOT join this combat — she observes, passing judgment. If the party defeats the soldiers and knight, the Queen calls for more reinforcements (another Vorpal Guard and 8 more soldiers in 3 rounds). The best strategy is to use the chaos of the flamingo revolt and hedgehog stampede (which triggers simultaneously when combat breaks out, as the terrified animals scatter) to escape the croquet grounds and enter the palace through a side entrance.",
+              "terrain": "The Croquet Grounds: open field, 200x100 ft, with no cover except scattered card-soldier wickets (who flee when combat begins). The hedgehog stampede creates a wave of difficult terrain moving across the field. Flamingos take flight, creating light obscurement in a 30-ft radius for 1 round. The Queen's pavilion (a raised platform with a canopy) at the field's edge provides half cover and can be used as a defensive position."
+            }
+          ],
+          "roleplayNotes": "The croquet match is designed to be the scenario's most entertaining scene — a perfect blend of tension, absurdity, and strategic thinking. Track the Queen's Temper Gauge openly: 0 (amused) to 4 (murderously furious). Each missed shot adds 1, each successful flattery or impressive play removes 1. At 2, the Queen issues a warning and confiscates one item from the party. At 3, she imprisons one party member in a croquet wicket. At 4, she orders execution and combat begins. Clever players will realize the game cannot be won legitimately and focus on managing the Queen's mood instead. The Cheshire Cat appears periodically to heckle the Queen (she cannot punish it and this infuriates her — Temper Gauge +1 each time). The hedgehogs should be played as sympathetic victims — they are terrified and just want to stop being kicked. If a character frees a hedgehog or treats one with genuine kindness, the hedgehogs begin cooperating with the party and sabotaging the Queen's shots (her Temper Gauge rises, but it's very satisfying). The polymorphed flamingo reveal (if it happens during the match) should be dramatic — a flamingo mid-swing transforms back into a disheveled noble in fancy clothes, clutching a croquet stick and blinking in confusion.",
+          "loot": [
+            "The Queen's Croquet Scepter (if the party exposes her cheating and she drops it in rage, or if it is stolen — a wand that can cast Command once per short rest, and can subtly guide small objects within 30 ft, worth 200 gp)",
+            "A polymorphed hedgehog that is actually a key to the Looking Glass Chamber (detected by Detect Magic, freed by Dispel Magic DC 15 — the key is ornate bronze, worth 50 gp for the metalwork alone)",
+            "Croquet equipment of fine make — mundane but worth 30 gp as a set if anyone wants to carry flamingos and hedgehogs out of Wonderland"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Trial of Hearts",
+      "description": "The party is drawn into the trial of the Knave of Hearts, who is accused of stealing the Queen's tarts. The trial is a farce — the verdict was decided before it began — but the courtroom is also a stage where the party can expose the Queen's tyranny, rally support, and potentially turn the entire court against its ruler. This act is a complex social encounter with multiple possible outcomes that determine how the party enters the final act.",
+      "objectives": [
+        "Survive the trial without being executed",
+        "Defend or free the Knave of Hearts (optional but rewarding)",
+        "Turn the courtroom against the Queen by exposing her crimes, fraud, or the truth about the tarts",
+        "Earn the King of Hearts' trust and active support",
+        "Discover the secret passage to the Looking Glass Chamber (from the King)",
+        "Rally courtroom support for the final confrontation"
+      ],
+      "scenes": [
+        {
+          "name": "The Trial Begins",
+          "description": "The party is brought into the courtroom as witnesses — and then as defendants. The trial follows Wonderland logic: sentence first, verdict afterward, evidence optional. The party must navigate absurd legal proceedings while building support in the courtroom and seeking an opportunity to turn the tables.",
+          "readAloud": "\"The courtroom is a circus wearing the mask of justice. Hundreds of card-soldiers pack the tiered galleries, their painted faces displaying expressions of forced attentiveness. The King of Hearts perches atop an absurdly tall judge's bench, nearly invisible behind stacks of papers he is pretending to read. The jury — twelve card-soldiers of various suits — sit in a box that is slightly too small, overlapping each other uncomfortably.\n\nIn the defendant's cage, a handsome young card-knight — the Knave of Hearts — stands with the rigid dignity of someone who knows he is doomed but refuses to show fear. His wrists are chained, and above the cage, a sign reads 'GUILTY' in the Queen's handwriting.\n\nThe Queen of Hearts sweeps in and takes a seat that is less a chair and more a secondary throne, positioned so she can glare at both the defendant and the jury simultaneously. She is already furious. She is always already furious.\n\n'BRING THE WITNESSES!' she commands. A card-soldier seizes each of you and shoves you toward the witness box. 'You,' the Queen says, pointing at your party with a finger that carries the weight of a death sentence, 'will tell this court what you know about the theft of my tarts. And then we shall discuss YOUR crimes. Of which there are many. I have written them down.'\n\nShe produces a scroll that unrolls across the floor, through the door, and presumably continues down the hallway. The list includes 'Unauthorized Breathing,' 'Possession of an Unlicensed Face,' 'Being Taller Than the Queen,' and — circled in red — 'Existing Without Permission.'\"",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "You fabricate testimony that sounds absurd enough to satisfy Wonderland logic while subtly casting doubt on the prosecution's case. The jury looks confused, which in Wonderland passes for thoughtful consideration.",
+              "failure": "Your testimony is too sensible for the Wonderland courtroom. The Queen declares you 'suspiciously coherent' and adds 'Making Too Much Sense' to your list of crimes."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "You make an impassioned argument that reaches the jury — not through logic (which doesn't work here) but through emotional appeal. Two jury members visibly waver in their predetermined guilty verdict.",
+              "failure": "The jury is too terrified of the Queen to respond to your arguments. They stare straight ahead and pretend not to have heard."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "You examine the evidence and find glaring contradictions — the 'stolen' tart has the Queen's own bite marks, the 'witness testimony' is written in the Queen's handwriting, and the dates on the evidence precede the alleged crime by a week. Presenting these contradictions publicly causes a murmur in the gallery.",
+              "failure": "The evidence is absurd but you cannot find a specific contradiction strong enough to challenge the Queen's narrative."
+            },
+            {
+              "skill": "Persuasion (to the King)",
+              "dc": 16,
+              "success": "During a recess, you speak privately with the King of Hearts. He is terrified but receptive. He confirms the Queen ate the tarts herself, reveals he has been secretly undermining her for years, and — most crucially — tells you about the secret passage from the courtroom to the Looking Glass Chamber, hidden behind a tapestry near the jury box.",
+              "failure": "The King is too frightened to share secrets but gives you a meaningful look and mutters 'The tapestry. The one with the roses.' before scurrying away."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 17,
+              "success": "You challenge the Queen's authority directly in open court. The gallery gasps. The card-soldiers grip their weapons. But for one moment — one beautiful, terrifying moment — the Queen flinches. She recovers instantly, but the jury saw it. The Queen is not invincible. The card-soldiers saw it too. Seeds of doubt are planted.",
+              "failure": "The Queen does not flinch. She does not blink. She meets your challenge with a smile that promises a slow and creative execution. 'How DELIGHTFUL,' she says. 'Add Contempt of Crown to their crimes. In fact, add all the crimes. ALL of them.'"
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["8 card-soldier guards (guard stats)", "1 Executioner — the Ace of Spades (use knight stats, CR 3, HP: 52, AC: 18, with a greataxe that deals an extra 1d6 damage on the first hit per round)"],
+              "difficulty": "Medium (triggers only if the trial goes badly — the Queen orders execution)",
+              "tactics": "The card-soldiers form a ring around the party while the Executioner advances with methodical menace. He is not fast but he is relentless, and his greataxe swings are devastating. The King of Hearts 'accidentally' leaves the courtroom's side door unlocked if the party needs to flee. The Knave of Hearts will fight alongside the party if freed from his cage (use veteran stats). Card-soldier jury members do not fight — they hide under their seats.",
+              "terrain": "The Courtroom: 80x60 ft room with tiered gallery seating (provides high ground and half cover), a defendant's cage (AC 15, HP 30 to break open), the judge's bench (20 ft high, requires Athletics DC 15 to climb, provides full cover from below), and the tapestry near the jury box concealing the passage to the Looking Glass Chamber. The floor is polished marble — a poured liquid creates a 15-ft radius difficult terrain zone."
+            }
+          ],
+          "roleplayNotes": "The trial is the scenario's most complex social encounter and can go in many different directions. Embrace the absurdity — Wonderland trials do not follow logic, and attempting to apply real-world legal reasoning only makes things worse. The party should realize that the courtroom is a performance, not a proceeding, and act accordingly. The best strategies involve: (1) matching the Queen's absurdity with their own (fighting nonsense with nonsense), (2) appealing to the courtroom's suppressed desire for justice (everyone knows the trial is rigged, but no one has dared say so), (3) presenting evidence of the Queen's crimes (the tart bite marks, the cheating scepter from the croquet match, the painters' testimony) to erode her authority, or (4) simply causing enough chaos to escape. The Knave of Hearts is a likeable, brave young man who accepts his fate with quiet dignity — freeing him is not necessary but is rewarding both narratively and practically (he becomes a powerful ally). The King of Hearts is the wild card — if the party earns his trust, he provides the path to the Looking Glass Chamber and potentially turns the final battle in their favor.",
+          "loot": [
+            "The Knave of Hearts' gratitude and service as an ally (if freed — he fights as a veteran and knows the palace layout intimately)",
+            "The King's secret passage information (quest advancement — the path to the Looking Glass Chamber)",
+            "Court records from the vault beneath the judge's bench (if the party investigates during chaos — documents proving the Queen's illegitimate claim to the throne, worth enormous political value)",
+            "A signet ring from the King of Hearts (given secretly — grants +2 to Persuasion checks when dealing with card-soldiers, as they recognize the ring of the legitimate ruler)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 4: Off With Their Heads",
+      "description": "The climactic final act. The party descends to the Looking Glass Chamber to reassemble the shattered mirror, fighting mirror reflections of themselves. With the Looking Glass restored (minus the seventh shard in the Queen's crown), they face the pivotal choice: escape Wonderland through the incomplete mirror (possible but risky — the gateway is unstable without the seventh shard), or confront the Queen in the Throne Room to recover the shard, complete the glass, and free Wonderland. If they choose to fight, the final battle against the Queen of Hearts, her Vorpal Guard, and the card-soldier army is the campaign's defining moment. Allies gathered throughout the scenario (card-painters, liberated flamingo-nobles, the Knave, the King, and potentially the Hatter, March Hare, and other Wonderland denizens) can join the fight if the party has earned their loyalty.",
+      "objectives": [
+        "Reach the Looking Glass Chamber (via the King's secret passage or by fighting through the palace)",
+        "Defeat the mirror reflections and reassemble six of seven shards",
+        "Discover that the seventh shard is in the Queen's crown",
+        "Choose: escape through the incomplete glass, or confront the Queen",
+        "If confronting: defeat the Vorpal Guard and the Queen of Hearts",
+        "Recover the seventh shard and complete the Looking Glass",
+        "Determine the fate of Wonderland"
+      ],
+      "scenes": [
+        {
+          "name": "The Looking Glass Chamber",
+          "description": "The party descends to the chamber beneath the palace where the original Looking Glass hangs, shattered. They must fight their own reflections to reclaim the shards and reassemble the mirror. The reflections are perfect copies of the party members, fighting with all their abilities and knowledge, but the party has a hidden advantage: the reflections can be defeated through self-knowledge rather than brute force.",
+          "readAloud": "\"The secret passage descends through stone corridors older than the Queen's reign — older than any reign in Wonderland. The walls are carved with scenes from Wonderland's founding: a world born from imagination, shaped by wonder, governed by the gentle logic of dreams. How far it has fallen under the Queen's rule.\n\nThe passage opens into a circular chamber of polished obsidian, its walls covered floor-to-ceiling with mirrors that reflect you infinitely in every direction. At the chamber's far end, an ornate frame of silver and gold hangs on the wall — the frame of the Looking Glass, the gateway between worlds. It is empty. The glass that once filled it lies scattered across the floor in seven large shards, each one catching the light with an inner fire.\n\nAs you approach the first shard, your reflection in the nearest wall mirror steps forward. Out of the glass. Into reality. It looks exactly like you — same face, same equipment, same posture — but its eyes are cold and its smile is wrong. Behind it, more reflections step out of more mirrors, one for each of you, and they draw weapons in perfect synchronization.\n\n'You want to leave,' your reflection says, in your voice but stripped of warmth. 'We want to stay. We rather like it here. We get to be the worst versions of you, and in Wonderland, the worst versions are the most powerful.'\n\nThe reflections attack.\"",
+          "skillChecks": [
+            {
+              "skill": "Insight or Wisdom (Reconciliation)",
+              "dc": 16,
+              "success": "Instead of fighting your reflection, you acknowledge the aspect of yourself it represents — your fear, your anger, your foolishness, your hidden cruelty. You speak to it honestly and without defense. The reflection's cold expression softens. It nods. It steps back into the mirror and dissolves, releasing its shard. You are healed for 2d10 HP and gain advantage on all saving throws for 1 hour.",
+              "failure": "Your self-reflection is not deep enough — the mirror-self senses insincerity and attacks with renewed fury. It gains advantage on its next attack."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "You determine the correct order and position for placing shards in the frame. Each shard corresponds to an aspect: courage, fear, love, anger, wisdom, foolishness, and truth. The seventh position — truth — is empty. The shard of truth is the one in the Queen's crown.",
+              "failure": "You attempt to place a shard incorrectly. A burst of mirror-energy erupts: DC 15 Dexterity save or take 3d8 force damage."
+            },
+            {
+              "skill": "Arcana",
+              "dc": 15,
+              "success": "You realize the Looking Glass can be partially activated with six shards — enough to create an unstable gateway. Stepping through without the seventh shard is possible but risky: each traveler must make a DC 16 Constitution save or take 4d10 force damage from the incomplete transition. With the seventh shard, passage is safe and the gateway becomes permanent.",
+              "failure": "You cannot determine the Looking Glass's current magical state or the risks of incomplete activation."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3-5 mirror reflections (exact duplicates of party members — use each character's actual stats, HP, AC, abilities, and equipment. Each reflection has the same spell slots, features, and tactical knowledge as its original.)"],
+              "difficulty": "Deadly (but mitigated by the reconciliation option — each reflection defeated through roleplay rather than combat reduces the encounter's difficulty significantly)",
+              "tactics": "Each reflection targets its original exclusively, fighting with perfect knowledge of the character's abilities and preferred tactics. They counter everything their originals do — fighters are matched blow-for-blow, spellcasters face their own spells, rogues find their tricks anticipated. This forces players to think creatively: swap opponents (a reflection's tactical knowledge only applies to its original), use teamwork that the reflections' individual focus prevents, or attempt the reconciliation DC. Reflections cannot be healed and do not use healing abilities — they are offense-only. When reduced to 0 HP or reconciled, a reflection dissolves and its shard falls to the ground. If wall mirrors are broken during combat, 1d4 minor reflections (shadow stats) spawn per mirror — these attack indiscriminately and dissolve when the main reflection they spawned from is defeated.",
+              "terrain": "The Looking Glass Chamber: 60 ft diameter circular room with mirror-covered walls. The empty frame hangs on the north wall. Seven shards are scattered across the floor (picking up a shard requires a free hand and an action). Breaking a wall mirror (AC 11, HP 10) creates difficult terrain in a 5-ft radius (mirror shards) and eliminates infinite reflections in that section (reducing visual confusion). The polished obsidian floor is slightly slippery (DC 10 Dexterity save to avoid falling prone when pushed or shoved). The frame radiates warmth as shards are placed — after 4 shards, the room vibrates with building energy."
+            }
+          ],
+          "roleplayNotes": "The reflection battle is both a combat and an introspective challenge. Encourage players to engage with the reconciliation option — it is more satisfying narratively and mechanically rewarding. Each reflection represents a genuine aspect of its original that the character might not want to acknowledge. The reflection of a brave fighter is their hidden cowardice. The reflection of a kind healer is their suppressed rage. The reflection of a clever rogue is their deep-seated self-doubt. When a character attempts reconciliation, ask the player to describe what their character acknowledges about themselves — this is a moment for genuine character development. If a player struggles with this, the reflection can prompt them: 'You know what I am. Say it.' The discovery that the seventh shard is missing — and is in the Queen's crown — should be a dramatic revelation that forces the party's ultimate choice: leave now through an unstable gateway, or fight the Queen for the final piece.",
+          "loot": [
+            "Six Looking Glass Shards (quest items — placed in the frame to partially restore the gateway)",
+            "Mirror Dust (the remnants of destroyed reflections — 100 gp worth of residuum usable as component for scrying or illusion spells)",
+            "A reflection's weapon (one weapon from the reflection of the party's choice — it is a perfect mirror-copy of the original, identical in all ways but with a faint silver sheen. If the original weapon is magical, the mirror-copy is equally magical. Worth retaining as a backup or dual-wielding option)"
+          ]
+        },
+        {
+          "name": "The Choice and the Throne Room",
+          "description": "The pivotal moment and final battle. The party must decide: escape through the incomplete Looking Glass (risky but immediate), or storm the Throne Room to defeat the Queen, recover the seventh shard, and free Wonderland. If they choose to fight, this is the campaign's ultimate confrontation — the Queen of Hearts, her Vorpal Guard, card-soldier reinforcements, and the reality-warping Throne Room against the party and every ally they have gathered across the campaign.",
+          "readAloud": "\"Six shards gleam in the frame. The Looking Glass ripples — almost liquid, almost solid, almost a gateway. Through the incomplete surface, you see a world: YOUR world. Colors that make sense. Physics that behave. A sky that is blue because that is the color of sky, not because a queen decreed it. Home.\n\nBut the image wavers. Cracks of energy spider across the incomplete glass. The gateway is unstable. You could go through — but it would hurt, and there's no guarantee everyone would make it. And beyond the hurt, beyond the risk, there is a simpler problem: the seventh shard is up there. In the Queen's crown. And as long as she wears it, this gateway will never be stable, and Wonderland will never be free.\n\nFrom above, muffled through stone, you hear the Queen's voice: 'FIND THEM! FIND THEM AND BRING ME THEIR HEADS! ALL OF THEIR HEADS!'\n\nThe choice is yours. The gateway home, cracked and dangerous but open. Or the stairs up, to the Throne Room, to the Queen, to a fight that will decide the fate of a world that runs on madness and cruelty and — somewhere, buried beneath decades of tyranny — wonder.\"\n\n---\n\n*If the party chooses the Throne Room:*\n\n\"You ascend the stairs and the doors burst open before you — blown inward by the force of the Queen's rage, or perhaps by your own determination. The Throne Room is vast and terrible and beautiful. A checkered floor of red and white marble stretches two hundred feet to the crimson throne on its raised dais. Four Vorpal Guard knights stand at the cardinal points, axes humming with lethal enchantment. Card-soldiers line the walls in ranked formation. And on the throne, the Queen of Hearts burns with fury, her crown blazing with the light of the stolen shard.\n\nThe King of Hearts sits on his smaller throne, gripping its arms with white-knuckled hands, his face a mask of terror and — for the first time — something that might be hope.\n\n'SO,' the Queen says, and the word fills the room like thunder. 'The pests have come to die in my house. How COURTEOUS. I shall have your heads mounted on the walls. Alphabetically.'\n\nShe rises. The Vorpal Guard raise their axes. The card-soldiers ready their weapons.\n\nAnd then — from behind you, from the courtroom, from the garden, from every corner of the palace — the sound of marching. But not the Queen's march. A different march. Hesitant at first, then stronger.\n\nThe card-painters. The freed flamingo-nobles. The Knave of Hearts. The courtroom jury, holding their voting paddles like shields. And if you listen very carefully, from somewhere beyond the palace walls, the faint sound of a clock ticking — the Mad Tea Quarter, alive again, its people coming to help.\n\nYou are not alone. You were never alone. Wonderland is fighting back.\"",
+          "skillChecks": [
+            {
+              "skill": "Constitution Save (incomplete gateway)",
+              "dc": 16,
+              "success": "You pass through the unstable Looking Glass safely, arriving in the material plane with a flash of mirror-light and a ringing in your ears. You are home.",
+              "failure": "The incomplete transition tears at you. Take 4d10 force damage as reality reassembles itself around you. You arrive in the material plane battered but alive."
+            },
+            {
+              "skill": "Persuasion (to the King of Hearts, during combat)",
+              "dc": 14,
+              "success": "The King of Hearts overcomes his fear. He rises from his smaller throne, draws the Vorpal Sword hidden within it, and in a single motion, strikes the Crown of Hearts from the Queen's head. 'I SHOULD HAVE DONE THIS CENTURIES AGO!' he roars, finding his voice at last. The Queen loses her legendary actions and her Vorpal Decree ability. The card-soldiers hesitate — the King's action has shattered the illusion of the Queen's invincibility.",
+              "failure": "The King remains frozen in terror. He wants to act but cannot overcome his fear. He can be persuaded again on subsequent rounds at the same DC, but each round of delay means more card-soldier reinforcements."
+            },
+            {
+              "skill": "Investigation or Intelligence (Chess)",
+              "dc": 18,
+              "success": "You identify the pattern of immovable squares on the checkered floor — a safe path from the entrance to the throne that cannot be affected by the Queen's lair actions. Moving along this path, you can reach the throne without being displaced, trapped, or pitted by the shifting floor.",
+              "failure": "The floor's pattern appears random. You are subject to the Queen's lair actions as normal."
+            },
+            {
+              "skill": "Athletics (Crown removal)",
+              "dc": 18,
+              "success": "You rip the Crown of Hearts from the Queen's head during a grapple. She shrieks in fury and pain as her power diminishes. She loses her legendary actions and Vorpal Decree. The seventh shard falls from the crown and can be recovered.",
+              "failure": "The Queen's crown resists removal — it clings to her head as if alive. She retaliates with a Vorpal Decree (automatic, no action cost) targeting the character who attempted the grapple."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "The Queen of Hearts (CR 15 Archfey Tyrant — HP: 250, AC: 18 (enchanted royal armor). STR 16 (+3), DEX 14 (+2), CON 18 (+4), INT 16 (+3), WIS 15 (+2), CHA 24 (+7). Saves: DEX +7, WIS +7, CHA +12. Skills: Deception +12, Intimidation +12, Perception +7, Persuasion +12. Damage Resistances: bludgeoning, piercing, and slashing from non-magical weapons. Condition Immunities: charmed, frightened. Senses: Truesight 60 ft. Multiattack: 2 Royal Decree attacks. Royal Decree: +12 to hit, reach 10 ft, 3d10+7 force damage. Spellcasting (CHA, spell save DC 20): At will — Command, Crown of Madness. 3/day each — Dominate Person, Banishment, Wall of Force. 1/day — Power Word Stun. Legendary Actions (3/round): Vorpal Decree — one creature within 60 ft must make DC 18 Constitution save or take 8d10 slashing damage; on a natural 1, the target must make an additional DC 18 Constitution save or be instantly reduced to 0 HP (as Power Word Kill). Card Soldiers — summon 1d4 card-soldiers (guard stats) that appear at any door and act on the Queen's next turn. Reshape Court — rearrange up to four 10x10 ft sections of the checkered floor (raise walls, create pits, slide occupied squares 20 ft in any direction — creatures on sliding squares make DC 15 Dexterity save or fall prone). Legendary Resistance 3/day.)",
+                "4 Vorpal Guard Knights (CR 8 each — HP: 112, AC: 20 (plate + shield). STR 20 (+5), DEX 10 (+0), CON 18 (+4), INT 10 (+0), WIS 12 (+1), CHA 14 (+2). Multiattack: 2 Vorpal Greataxe attacks. Vorpal Greataxe: +9 to hit, reach 5 ft, 2d12+5 slashing damage. On a natural 20, the target must make DC 17 Constitution save or take an additional 6d12 slashing damage as the blade nearly severs a limb. Tactical Formation: when two or more Vorpal Guards are within 10 ft of each other, they gain +2 AC and advantage on saving throws. Shield Wall: as a reaction, a Vorpal Guard can grant half cover to an adjacent ally.)"
+              ],
+              "difficulty": "Deadly (but modified by the party's allies — each ally group reduces the effective difficulty by approximately one step)",
+              "tactics": "Phase 1 (Full Power): The Vorpal Guard engages the party in pairs, using Tactical Formation for mutual defense. They attempt to isolate the party's spellcasters while the Queen uses legendary actions from the throne — Vorpal Decree on the most damaged party member, Card Soldiers to create a numerical advantage, Reshape Court to separate the party. The Queen uses Dominate Person on the party's most dangerous martial character if possible, and Wall of Force to cut off reinforcements or trap party members with Vorpal Guards. Phase 2 (2 Vorpal Guards down): The Queen descends from the throne and engages directly, enraged. She uses Royal Decree in melee and Crown of Madness on any ally troops. The remaining Vorpal Guards fall back to defensive positions near the Queen, using Shield Wall to protect her. Phase 3 (Queen at half HP): The Queen becomes desperate. She uses Reshape Court aggressively — collapsing sections of ceiling (3d10 bludgeoning, DC 16 Dexterity save for half), creating pitfalls (30 ft drop, 3d6 bludgeoning), and raising walls to trap individual characters with Vorpal Guards for one-on-one elimination. If the crown is removed during any phase, the Queen immediately loses all legendary actions and her Vorpal Decree — she becomes a CR 10-11 caster/melee hybrid, still dangerous but beatable. Card-soldier reinforcements (1d4 guards per round) stop arriving if: the party's allies engage them at the doors, the doors are blocked, or the Queen falls.",
+              "terrain": "The Throne Room: 200x100 ft rectangular chamber with a 60 ft vaulted ceiling. The checkered floor is the primary hazard — the Queen can reshape it as a legendary action. The raised dais (10 ft high, stairs on three sides) provides high ground. Tapestries along the walls can be animated by the Queen as lair actions (see below). Four pillars mark the Vorpal Guards' starting positions and provide full cover. Side doors on the east and west walls allow card-soldier reinforcements. The King's smaller throne is on the dais, to the left of the Queen's. Lair Actions (initiative count 20, losing ties): The Queen chooses one — (1) Rose Thorns: thorny rose vines erupt from walls in a 20-ft area, creating difficult terrain and dealing 2d6 piercing damage to any creature that starts its turn there or enters for the first time. (2) Gravity Shift: gravity reverses in a 30-ft radius area on the checkered floor for 1 round — creatures in the area must make DC 15 Dexterity save or fall 'upward' 60 ft to the ceiling, taking 6d6 bludgeoning damage and then falling back down when gravity normalizes. (3) Lock/Unlock: all doors in the throne room simultaneously lock or unlock (the Queen's choice)."
+            }
+          ],
+          "roleplayNotes": "This is the climactic battle of the entire campaign and should be played with maximum dramatic weight. The arrival of the party's allies should be a genuine 'cavalry arrives' moment — let the players see the fruits of their relationship-building throughout the campaign. Every NPC they helped, every friendship they forged, every act of kindness pays off here. The card-painters fight with paint pots (improvised weapons, but their hearts are in it). The freed flamingo-nobles are actual combat-capable warriors. The Knave of Hearts fights with skill and fury. And if the party broke the Tea Quarter's curse, the Hatter and March Hare arrive — the Hatter throwing temporal disruption devices and the March Hare fighting with his vorpal butter knife and manic energy. The King of Hearts' moment of courage — if it happens — should be the emotional peak of the battle. He has been afraid for centuries, and watching him overcome that fear with a single act of defiance should feel triumphant. When the Queen falls (whether through HP depletion, crown removal, or both), describe her not as a monster defeated but as a tyrant unmasked — confused, diminished, and finally facing the consequences of centuries of cruelty. The aftermath is important: Wonderland is free, but it is also damaged and confused. The looking glass can be completed. The party can go home. But they leave behind a world that needs to rebuild — and friends who will remember them forever.",
+          "loot": [
+            "The Vorpal Sword (legendary weapon — hidden in the King's throne, awarded by the King himself. This is a true Vorpal Sword per the DMG: +3 longsword, on a natural 20, the target must make DC 15 Constitution save or be decapitated (instant death for creatures with heads). Against creatures immune to decapitation, the natural 20 instead deals an extra 6d8 slashing damage.)",
+            "The Crown of Hearts (legendary wondrous item, requires attunement — the wearer can cast Command at will, Dominate Person 3/day, and all Charisma checks against fey creatures are made with advantage. However, the crown is corrupted: each day the wearer must make a DC 15 Wisdom save or have their alignment shift one step toward Lawful Evil. The crown can be purified by a Wish spell or by bathing it in the light of the completed Looking Glass.)",
+            "The Seventh Shard (quest item — completes the Looking Glass, creating a permanent, stable gateway between Wonderland and the material plane)",
+            "Vorpal Guard Greataxes (4 — these lose their vorpal property if the Crown of Hearts is destroyed, becoming mundane +1 greataxes worth 500 gp each. If the crown is not destroyed, they retain vorpal properties but are cursed: the wielder feels compulsive loyalty to whoever wears the Crown of Hearts)",
+            "The Queen's Treasury Key (found on the Queen's person — opens the palace vault containing 500 gp in Wonderland currency, 300 gp in gems, and 1d4 uncommon magic items of the DM's choice)",
+            "A deck of painted cards (the 'loyalist' card-soldiers who surrender after the battle, now free of the Queen's compulsion. They are grateful and offer to serve the party as retainers if needed — 52 card-soldiers of various ranks and suits)"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "The Queen of Hearts",
+      "role": "Primary Antagonist / Archfey Tyrant",
+      "description": "Tall, regal, and terrifying, the Queen of Hearts is a force of nature wearing a crown. Her rage is legendary, her cruelty is systematic, and her power over Wonderland is near-absolute — when she decrees something, reality bends to accommodate. She rules through fear, enforced by her Vorpal Guard and an army of card-soldiers who are more afraid of her than of any enemy. She is vain, volatile, and utterly convinced of her own infallibility. But beneath the tyranny, she is also a victim — the Crown of Hearts has been corrupting her for centuries, amplifying her worst traits and suppressing her empathy until the original fey noble she once was is buried under layers of cruelty and paranoia. Defeating her is necessary; pitying her is optional but adds depth.",
+      "motivation": "The Queen wants absolute control. She wants to be feared, obeyed, and adored (in that order). She destroyed the Looking Glass because it represented a connection to the outside world that she could not control — if people could leave Wonderland, they could escape her rule. She keeps the seventh shard in her crown because its power amplifies her own. She will fight to the death to maintain her authority, not because she loves power for its own sake, but because the Crown of Hearts has made her incapable of imagining life without it."
+    },
+    {
+      "name": "The King of Hearts",
+      "role": "Reluctant Ally / Secret Rebel",
+      "description": "A small, round, anxious man who is the physical and temperamental opposite of his wife. The King of Hearts sweats constantly, speaks in a perpetual nervous mutter, and has spent centuries trying to make himself as small and unnoticeable as possible. He is genuinely kind, secretly brave, and has been undermining the Queen in tiny ways for decades — mislaying execution orders, pardoning prisoners, hiding the Vorpal Sword in his throne for the day someone brave enough to use it arrives. He is the Queen's greatest vulnerability because he is the only person in the palace she has not completely terrorized — she loves him, in her twisted way, and this sliver of genuine emotion is the crack in her armor.",
+      "motivation": "The King wants Wonderland to be free and his wife to be saved — though he knows these goals may be incompatible. He has been waiting for heroes capable of challenging the Queen, hoarding the Vorpal Sword and gathering intelligence for decades. His moment of courage — standing up to the Queen in the Throne Room — is something he has imagined a thousand times but never had the bravery to attempt. The party gives him that bravery."
+    },
+    {
+      "name": "The Knave of Hearts",
+      "role": "Wrongly Accused / Combat Ally",
+      "description": "A young, handsome card-knight with a face that suggests both nobility and mischief. The Knave of Hearts was the Queen's favorite courtier until he made the mistake of not laughing at one of her jokes. She framed him for stealing tarts (which she ate herself) and now he faces execution for a crime that never happened. Despite his dire situation, the Knave maintains a sardonic wit and quiet dignity that makes him instantly likeable. He is also a skilled fighter — before his arrest, he was the captain of the palace guard.",
+      "motivation": "The Knave wants to survive, clear his name, and see justice done. He does not seek vengeance against the Queen — he pities her, which is perhaps the most insulting thing anyone has ever felt toward her. He will fight alongside the party with skill and loyalty if freed, and his knowledge of the palace layout is invaluable."
+    },
+    {
+      "name": "The Card Painters (2, 5, and 7 of Spades)",
+      "role": "Informants / Rebel Leaders",
+      "description": "Three low-ranking card-soldiers assigned to the most humiliating duty in the palace: painting white roses red, every single day, knowing the paint will wash off in the next rain. The 2 of Spades is a veteran rebel who has been planning an uprising for years, gathering supplies and intelligence with painstaking care. The 5 of Spades is an emotional wreck who cries at the drop of a hat but is fiercely loyal to her friends. The 7 of Spades is a cheerful pragmatist who paints with genuine artistry and treats each day as an adventure, refusing to let the Queen's tyranny crush his spirit.",
+      "motivation": "The painters want freedom — from the painting duty, from the Queen's arbitrary cruelty, and from the constant fear of execution. The 2 of Spades sees the party as the catalyst her rebellion has been waiting for. The 5 of Spades just wants to stop being afraid. The 7 of Spades wants to paint something other than roses for once in his life."
+    }
+  ],
+  "rewards": {
+    "xp": 8000,
+    "gold": "1000 gp total (500 gp from the Queen's treasury, 300 gp in gems, 200 gp from assorted loot and Wonderland currency)",
+    "items": [
+      "Vorpal Sword (legendary — +3 longsword with decapitation on natural 20)",
+      "Crown of Hearts (legendary, cursed — Command at will, Dominate Person 3/day, advantage on Charisma vs fey, but corrupting influence)",
+      "The Seventh Shard / Complete Looking Glass (campaign conclusion — permanent gateway between Wonderland and the material plane)",
+      "Queen's Croquet Scepter (Command 1/short rest, subtle telekinesis on small objects)",
+      "Enchanted Red Paint (5 uses — disguise objects or creatures for 1d4 hours)",
+      "King's Signet Ring (+2 Persuasion with card-soldiers)",
+      "Cheshire Cat's Whisker (single-use Invisibility, 1 hour)",
+      "Vorpal Guard Greataxes (4 — +1 greataxes, vorpal if Crown intact, cursed loyalty to Crown bearer)",
+      "Court records proving the Queen's illegitimate rule (political leverage in Wonderland)",
+      "A loyal retinue of 52 freed card-soldiers (narrative reward)"
+    ],
+    "story": "The party has overthrown the Queen of Hearts and freed Wonderland from tyranny. The Looking Glass is restored, creating a permanent gateway between Wonderland and the material plane. The King of Hearts — the legitimate ruler — begins the slow process of rebuilding a realm shattered by centuries of cruelty. The card-soldiers lay down their arms. The painters put away their red paint. And somewhere in the Tea Quarter, a clock ticks steadily past six, the Hatter hosts a real tea party, and the March Hare introduces his children to the heroes who saved their world. Wonderland will never be normal — it was never meant to be — but it can be wonderful again. The party's choices throughout the campaign determined how this ending unfolds: a Wonderland fully free and rebuilding, a Wonderland partially free but still scarred, or a Wonderland escaped but left to its fate. Every ally earned, every NPC helped, every act of kindness rippled outward to shape this final moment. The adventure in Wonderland is over. The wonder is just beginning."
+  },
+  "twists": [
+    "The Queen of Hearts is not purely evil — the Crown of Hearts has been corrupting her for centuries, amplifying her worst traits and suppressing her empathy. Removing the crown reveals a confused, frightened fey noble who barely remembers the person she used to be. This does not absolve her of responsibility, but it adds moral complexity to her defeat.",
+    "The Vorpal Guard's weapons are bonded to the Crown of Hearts — destroying the crown to free the Queen also destroys the vorpal enchantments on their axes. The only independent vorpal weapon is the Vorpal Sword hidden in the King's throne, making the King's courage the key to the party obtaining a legendary weapon.",
+    "The seventh shard of the Looking Glass has been in the Queen's crown all along — she shattered the mirror deliberately to prevent anyone from leaving Wonderland, and kept the most powerful shard as a source of additional power. The shard is also what allows her to detect lies (Truesight), making it both a weapon and a vulnerability (without it, she can be deceived).",
+    "The flamingo mallets on the croquet field are polymorphed courtiers who displeased the Queen. Freeing them not only liberates innocent people but provides the party with combat-capable noble allies for the final battle.",
+    "The Knave of Hearts did not steal the tarts — the Queen ate them herself and framed the Knave for refusing to laugh at her joke. This absurd injustice, when exposed publicly, becomes the catalyst for the card-soldiers' disillusionment with the Queen's regime.",
+    "The King of Hearts has been the real resistance leader all along — pardoning prisoners, hiding weapons, and quietly waiting for someone brave enough to give him a reason to act. His smaller throne literally conceals the weapon that can defeat the Queen.",
+    "The trial records beneath the judge's bench prove the Queen's claim to the throne is fraudulent — she seized power in a coup. If made public, this information turns even the most loyal card-soldiers against her, potentially eliminating the reinforcement problem in the final battle entirely.",
+    "The Looking Glass, once completed, does not merely create a gateway — it stabilizes Wonderland itself. The Queen's rule has been slowly destabilizing the realm, and the shattered mirror was both symptom and cause. Restoring it weakens the Queen's reality-warping powers significantly, making the final battle easier if the party completes the mirror before confronting her."
+  ],
+  "dmTips": [
+    "This scenario is designed to be approached in multiple ways: full stealth (avoid all combat until the Looking Glass Chamber), full diplomacy (turn the court and army against the Queen without fighting her directly), full rebellion (inspire an uprising and storm the palace with an army), or full assault (fight through everything). All approaches are viable. The best sessions will see the party combining elements of all four based on their strengths and the opportunities they've created.",
+    "The Queen's Temper Gauge in the croquet match is the scenario's most important pacing tool. Track it openly and let the players see the consequences of their choices in real time. If the party is struggling, have the Cheshire Cat intervene with a distraction that lowers the gauge by 1. If the party is managing too easily, have the Queen notice something suspicious (the party whispering, a hedgehog cooperating too willingly) that raises it by 1.",
+    "The courtroom trial can run long — it is a complex social encounter with many moving parts. If it starts to drag, have the Queen lose patience and accelerate the proceedings: 'ENOUGH EVIDENCE! VERDICT!' This forces a climactic moment where the party must either accept the verdict, fight, or play their strongest card (the tart evidence, the court records, or direct challenge to the Queen's authority).",
+    "The mirror reflections in the Looking Glass Chamber are potentially the hardest combat in the scenario because they are literally the party's own stats turned against them. Balance this by encouraging the reconciliation option early — describe the reflections pausing momentarily, studying their originals with something that might be curiosity. If the party engages entirely through combat, consider reducing the reflections' HP to 75% of their originals to prevent a TPK.",
+    "The final battle with the Queen should feel genuinely dangerous but also triumphant. The arrival of the party's allies is the emotional payoff for the entire campaign — make it big. Describe each ally group arriving with their own moment: the card-painters bursting through a side door with paint pots raised like grenades, the Knave of Hearts cutting through card-soldiers with professional efficiency, the King of Hearts rising from his throne in slow motion. If the party broke the Tea Quarter's curse, the Hatter and March Hare's arrival should be the biggest cheer moment of the campaign.",
+    "The Crown of Hearts' corruption adds moral complexity to the Queen's defeat. If the party removes and destroys the crown, the Queen reverts to a confused, diminished fey who may not fully comprehend what she did. This creates interesting post-battle roleplay: do the card-soldiers demand justice? Does the King defend his wife? Does Wonderland forgive or punish? Let the party navigate this — there is no single correct answer.",
+    "Track which allies the party has earned throughout the campaign and have them appear in the final battle with mechanical effects: Card-painters provide distracting paint-pot attacks (card-soldiers hit by paint have disadvantage on attacks for 1 round). Freed flamingo-nobles engage card-soldier reinforcements, reducing the number that reach the Throne Room. The Knave of Hearts fights as a veteran alongside the party. The Hatter throws temporal disruption devices (as Slow spell on a single target). The March Hare engages one Vorpal Guard solo, keeping it occupied for 3 rounds. This makes each alliance feel mechanically meaningful, not just narratively satisfying.",
+    "The party's choice at the Looking Glass — escape or fight — should be genuinely agonizing. Do not telegraph which choice is 'correct.' Both are valid. If the party escapes, describe Wonderland growing small and distant through the glass, and the last thing they see is the Queen's furious face and the King's sad, accepting nod. If they fight, describe the weight of the decision: they are choosing to risk their lives for a world that is not theirs, for people made of cards and talking animals and sentient tea parties, and that choice is heroic precisely because it is unnecessary. Either way, honor the decision with narrative weight.",
+    "For groups that want an extended epilogue: after the Queen falls and the Looking Glass is restored, describe a 'Victory Tea Party' at the Hatter's table — now unfrozen, now real, now joyous. Every NPC the party helped attends. The Hatter makes a speech. The March Hare introduces his children. The Dormouse tells a story that is actually coherent. The card-painters paint a mural of the party's adventures. And when the party finally steps through the Looking Glass to go home, Wonderland waves goodbye — every rose, every card, every clock — and the last thing they hear before the mirror closes is the sound of a world, mad and impossible and beautiful, laughing with joy for the first time in centuries."
+  ]
+}

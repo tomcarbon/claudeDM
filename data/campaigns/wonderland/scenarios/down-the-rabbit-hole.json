@@ -1,0 +1,291 @@
+{
+  "id": "wl-scenario-001",
+  "title": "Down the Rabbit Hole",
+  "subtitle": "Where Nothing Is the Right Size and Everything Asks Questions",
+  "levelRange": "5-7",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "The Rabbit Warren & Pool of Tears",
+    "description": "The entry zones of Wonderland — a vast underground network of tunnels, impossible hallways, and locked doors of every conceivable size. The Hall of Doors is a long corridor lined with doors too small, too large, too narrow, or too round to be useful, with a single glass table bearing size-shifting consumables. Beyond the Hall lies the Pool of Tears — a vast saltwater lake formed from the weeping of those who grew too large and couldn't fit through the doors. The shores of the Pool host the Caucus Race — an ancient fey ritual disguised as a pointless competition. And above it all, on a mushroom the size of a house, sits the Caterpillar: ancient, inscrutable, and wreathed in psychic smoke.",
+    "atmosphere": "Disorienting wonder mixed with creeping anxiety. Every surface is slightly wrong — doors with keyholes at the top, tiles that change pattern when you're not looking, staircases that lead sideways. The air tastes of salt and treacle. Sounds echo strangely, conversations overlap from rooms that shouldn't exist, and the overwhelming feeling is of being very, very small in a world not designed for you.",
+    "keyLocations": [
+      {
+        "name": "The Hall of Doors",
+        "description": "A long corridor lined with doors of every conceivable shape and size — tiny doors barely large enough for a mouse, massive doors suitable for a giant, round doors, triangular doors, doors that open onto brick walls, and one very small door behind a curtain that opens onto a beautiful garden filled with brilliant flowers and cool fountains. In the center of the hall stands a three-legged glass table bearing a tiny golden key, a bottle labeled 'DRINK ME,' and a glass cake case containing a small cake with 'EAT ME' written in currants on the top. The 'DRINK ME' potion shrinks the drinker to 10 inches tall. The cake makes them grow to 12 feet. The golden key opens only the tiny door to the garden — but you must be the right size to both reach the key and fit through the door.",
+        "features": [
+          "Dozens of doors of varying sizes — all locked except the tiny garden door (opened by the golden key)",
+          "Glass table with 'DRINK ME' potion (shrinks to 10 inches, lasts 1 hour) and 'EAT ME' cake (grows to 12 feet, lasts 1 hour)",
+          "The golden key on the table — can only be reached at normal or large size, but the door can only be entered at small size",
+          "Size-shifting puzzle: must plan the sequence of drinking/eating to get the key AND fit through the door",
+          "Several doors are animated and will offer (contradictory) advice on which door to try",
+          "A doorknob on the garden door that talks and is deeply annoyed by everything"
+        ],
+        "encounters": [
+          "The animated furniture — a glass table, three chairs, and a curtain rod that attack if the party tries to break through doors by force",
+          "A riddle lock on a medium-sized door: 'I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?' (Answer: A map — the door opens onto a map room showing Wonderland's geography)"
+        ],
+        "secrets": [
+          "The 'DRINK ME' and 'EAT ME' items regenerate every dawn — they are part of Wonderland's magic, not consumables",
+          "The map room behind the riddle door contains a partial map of Wonderland showing all four major regions, with the Queen's Domain marked with a crown symbol dripping red ink",
+          "The talking doorknob knows that the garden beyond the tiny door is an illusion — the real garden was destroyed by the Queen years ago. The doorknob is sad about this but refuses to admit it"
+        ]
+      },
+      {
+        "name": "The Pool of Tears",
+        "description": "A vast underground saltwater lake, its surface calm and glassy, reflecting a ceiling of luminescent crystal that creates the illusion of stars. The water is warm and salty — the tears of everyone who ever grew too large in the Hall of Doors and wept with frustration. The shore is sandy and white, littered with peculiar objects washed up from the depths: a thimble, a comb, playing cards, and the occasional message in a bottle. Creatures swim in the Pool — not fish but stranger things: a Mouse with strong opinions about cats, a Dodo organizing an endless race, and water elementals drawn to the concentrated emotion in the tears.",
+        "features": [
+          "Saltwater lake approximately 200 ft. across, 30 ft. deep at center",
+          "The water has mild magical properties — drinking it grants 1d4 temporary HP but also causes uncontrollable weeping for 1 minute (DC 12 WIS save to resist)",
+          "The sandy shore is wide enough for the Caucus Race track (see next location)",
+          "Messages in bottles wash up containing fragments of stories, warnings, and nonsense poetry",
+          "Crystal ceiling provides dim light equivalent to starlight"
+        ],
+        "encounters": [
+          "A Mouse (awakened mouse, speaks Common) who tells long-winded tales about cats, dogs, and William the Conqueror, and becomes furious if anyone mentions cats",
+          "2 water elementals who form from the Pool when emotions run too high — they attack with waves of salty tears (reskinned water elemental, CR 5)"
+        ],
+        "secrets": [
+          "The Pool of Tears is connected to every other body of water in Wonderland — it's a nexus. Someone who swims to the bottom and finds the drain can emerge from any well, fountain, or lake in the realm",
+          "The Mouse knows the location of the Duchess's lost baby (a piglet, in the Tulgey Wood) but will only share this information if the party promises never to mention cats in his presence again"
+        ]
+      },
+      {
+        "name": "The Caucus Race Shore",
+        "description": "A circular track on the shore of the Pool of Tears where the Dodo — a pompous, self-important bird of enormous size — organizes the Caucus Race. The race appears to be a cheerful, pointless exercise: everyone runs in circles until the Dodo declares 'The race is over!' and awards everyone prizes. In truth, the Caucus Race is an ancient fey ritual that binds participants in a temporary contest of wills, speed, and survival. The 'race' is actually a chaotic melee where Wonderland's fey magic tests the worthiness of newcomers. Those who survive with grace earn the respect of Wonderland's inhabitants. Those who don't... well, everyone gets prizes anyway, but some prizes are better than others.",
+        "features": [
+          "Circular track 100 ft. in diameter on the sandy shore",
+          "The Dodo acts as referee, starter, and judge — he is immune to all damage during the race (fey ritual protection)",
+          "Participants include: the Mouse, a Lory (parrot), an Eaglet, a Duck, and several unnamed small fey creatures",
+          "The 'race' is actually a skill challenge combined with a combat encounter — the track shifts, obstacles appear, and the fey magic tests participants",
+          "The Dodo awards prizes from an enormous bag that seems to contain exactly what each participant needs most"
+        ],
+        "encounters": [
+          "The Caucus Race itself — a 5-round skill challenge/combat hybrid. Each round: Athletics DC 14 to maintain pace, DEX save DC 13 to dodge appearing obstacles (hedges, teacups, card soldiers), and CON save DC 12 to resist the fey magic trying to exhaust participants. Failing 3 checks results in being 'out' (teleported to the sideline, no damage but no prize). The final round summons 2 fey-corrupted giant crabs (CR 3 each) from the Pool as the 'real test'",
+          "A Bandersnatch (use leucrotta stats, CR 3) that crashes the race uninvited in the final round, attacking indiscriminately"
+        ],
+        "secrets": [
+          "The Caucus Race is not pointless — it's Wonderland's ancient welcome ritual for outsiders. Completing it grants the participants the 'Guest's Token,' an invisible fey mark that prevents Wonderland's ambient chaos from targeting them directly (advantage on saves against random Wonderland effects for the rest of the campaign)",
+          "The Dodo's prize bag is a Bag of Holding variant that produces what the recipient needs most. It may produce a clue, a key item, or something seemingly useless that becomes critical later"
+        ]
+      },
+      {
+        "name": "The Caterpillar's Mushroom",
+        "description": "Rising from the forest at the Pool's far shore stands a mushroom the size of a small house — its cap a vivid blue-green, its stem thick and ridged like ancient bark. Atop it, cross-legged and wreathed in shimmering smoke, sits the Caterpillar: an ancient fey sage in the form of a yuan-ti pureblood, languidly drawing on an ornate hookah that produces smoke in colors that correspond to the thoughts of those nearby. He regards all visitors with mild, detached curiosity and opens every conversation with the same question: 'Who... are... you?'",
+        "features": [
+          "The mushroom is 15 ft. tall with a cap 20 ft. across — it can be climbed with DC 10 Athletics",
+          "The hookah smoke is psychic — breathing it allows brief visions of possible futures (each character can ask one yes-or-no question about the immediate future, answered with a symbolic vision)",
+          "Mushroom pieces from this mushroom are the campaign's key size-shifting items: one side makes you grow, the other makes you shrink (each piece has 3 uses)",
+          "The area around the mushroom is a fey sanctuary — no violence is possible within 30 ft. of the Caterpillar (attacks simply fail, spells fizzle)"
+        ],
+        "encounters": [
+          "Extended roleplaying encounter with Caterpillar Absalom — he asks philosophical questions and judges the party's responses, offering mushroom pieces and cryptic guidance to those he deems worthy",
+          "A Pigeon (awakened bird) that swoops in accusing anyone tall of being a serpent trying to eat her eggs — can be calmed with DC 13 Animal Handling or Persuasion"
+        ],
+        "secrets": [
+          "The Caterpillar knows the exact method to restore the Looking Glass — but will only share it with someone who can answer 'Who are you?' in a way that demonstrates genuine self-knowledge",
+          "The mushroom pieces are fragments of the Wonderland Mushroom — the original source of Wonderland's reality-bending magic. The Queen has been trying to destroy it for decades. The Caterpillar guards it with his life",
+          "If the party mentions the Hatter, the Caterpillar becomes visibly sad (for him — his eyes narrow fractionally) and reveals that the Hatter's curse was the first sign that Wonderland was truly in danger"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party tumbles through the looking glass into Wonderland's entry zone — the Hall of Doors, a maddening puzzle of size, keys, and animated furniture. They must navigate the size-shifting mechanics that define Wonderland's physical reality, swim through the Pool of Tears (a saltwater lake of crystallized emotion), survive the Caucus Race (an ancient fey ritual disguised as pointless competition), and earn the trust of the Caterpillar — Wonderland's oldest sage — to gain the mushroom pieces and knowledge they need to venture deeper into the realm. Along the way, they learn the shape of their quest: the Queen of Hearts has corrupted Wonderland, the Looking Glass is shattered, and only outsiders have the power to set things right.",
+  "hook": "The looking glass activates with a roar of kaleidoscope light. The party is pulled through — tumbling, spinning, falling through a tunnel of impossible colors and nonsense sounds — and lands hard on a checkerboard tile floor in a long, narrow corridor lined with doors. Dozens of doors: tiny doors, massive doors, round doors, triangular doors. A glass table stands in the center bearing a bottle labeled 'DRINK ME' and a cake that says 'EAT ME.' A doorknob at eye level blinks, yawns, and says: 'Oh. More of you. Well, don't just stand there — you're letting in a draft. And before you ask: no, I don't know how to get home. Yes, you'll have to get smaller. No, I don't enjoy being a doorknob. Any other questions, or can I go back to sleep?'",
+  "acts": [
+    {
+      "title": "Act 1: Through the Glass",
+      "description": "The party arrives in Wonderland through the looking glass, landing in the Hall of Doors. They must solve the size-shifting puzzle to progress, navigating the 'DRINK ME' and 'EAT ME' mechanics while dealing with animated furniture and a very grumpy doorknob.",
+      "objectives": [
+        "Arrive in the Hall of Doors via the looking glass",
+        "Solve the size puzzle — retrieve the golden key and fit through the garden door",
+        "Explore the map room (optional) to learn Wonderland's geography",
+        "Deal with the animated furniture if they become hostile",
+        "Understand the 'DRINK ME' and 'EAT ME' mechanics"
+      ],
+      "scenes": [
+        {
+          "name": "The Long Fall",
+          "description": "The party is pulled through the looking glass and falls through a kaleidoscope tunnel into the Hall of Doors. The fall takes an impossibly long time — long enough to have conversations, notice bookshelves and cupboards set into the tunnel walls, and wonder if the falling will ever stop.",
+          "readAloud": "\"The glass ripples like water and you are THROUGH — yanked off your feet and into a spinning, tumbling fall through a tunnel of impossible light. Colors you have no names for streak past: the hue of a remembered dream, the shade of a question with no answer, the exact color of surprise. Bookshelves line the tunnel walls, somehow horizontal despite the vertical fall. A jar of orange marmalade drifts past at eye level, labeled 'BEST BEFORE: NEVER.' The fall goes on and on — seconds, minutes, long enough that the terror fades into something closer to boredom. Then the floor arrives, suddenly and rudely. You land on a checkerboard of black and white tiles in a long, narrow corridor. Dozens of doors line both walls — tiny doors barely six inches high, massive doors twelve feet tall, round doors, triangular doors, one door that appears to be upside down. In the center of the corridor stands a three-legged glass table bearing a small blue bottle labeled 'DRINK ME,' a glass cake case containing a cake with 'EAT ME' written in currants, and a tiny golden key no larger than your thumb.\"",
+          "skillChecks": [
+            { "skill": "Acrobatics", "dc": 12, "success": "You land gracefully on the checkerboard floor, on your feet and ready. You notice the talking doorknob immediately.", "failure": "You crash onto the tiles in a heap, taking 1d4 bludgeoning damage from the ungraceful landing. The doorknob snickers." },
+            { "skill": "Arcana", "dc": 14, "success": "The magic permeating this place is unlike anything you've studied — it's not arcane or divine but something older and wilder. Fey magic, but twisted into a self-sustaining pattern. The size-shifting items on the table radiate transmutation magic of extraordinary potency.", "failure": "The magical aura is overwhelming and unreadable — everything in this corridor radiates magic so intense it blurs together." },
+            { "skill": "Investigation", "dc": 13, "success": "You notice the tiny door behind the curtain at the far end of the corridor. Through its keyhole, you can see a beautiful garden — flowers, fountains, and sunlight. The golden key on the table matches this lock. But the door is only 15 inches high.", "failure": "The corridor seems to dead-end at both sides. The doors are all locked, and the golden key doesn't seem to fit any of the normal-sized ones." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 animated chairs (use animated armor stats, AC 14, HP 20 each, CR 1) and 1 animated glass table (use rug of smothering stats, AC 12, HP 33, CR 2, restrains on hit)"],
+              "difficulty": "Medium",
+              "tactics": "The furniture only attacks if the party attempts to force open doors or damage the corridor. The chairs rush to trip and pin intruders while the table attempts to engulf one target, pinning them under its glass surface. They can be calmed with DC 14 Persuasion — they're not evil, just territorial. The talking doorknob shouts unhelpful commentary throughout: 'I'd help but I'm a DOORKNOB!'",
+              "terrain": "Long corridor (60 ft. by 15 ft.), checkerboard floor. Dozens of doors provide partial cover. The glass table starts in the center. If the 'DRINK ME' potion is consumed during combat, the shrunken character can hide under doors (total cover from the furniture). If 'EAT ME' is consumed, the enlarged character fills the corridor and can grapple furniture easily but can't move."
+            }
+          ],
+          "roleplayNotes": "This scene establishes Wonderland's core mechanic: nothing is the right size, and solving problems requires creative thinking rather than brute force. The talking doorknob is comic relief but also a tutorial NPC — he knows how the size puzzle works and will reluctantly explain it if asked nicely (or bribed with oil for his hinges). Play up the wonder and disorientation of arriving in an impossible place. The size puzzle should feel like a genuine brain teaser: the key is on the table (reachable at normal/large size), but the door is only 15 inches high (requiring small size). The solution: grab the key first, then drink the potion. But the cake and potion have limited uses, so timing matters.",
+          "loot": [
+            "The golden key (opens the garden door — quest item, also opens certain other doors in Wonderland)",
+            "A jar of orange marmalade (found during the fall — functions as 2 days of rations, tastes excellent)",
+            "A 'DRINK ME' potion (shrinks to 10 inches for 1 hour, wondrous item, regenerates at dawn)",
+            "An 'EAT ME' cake (grows to 12 feet for 1 hour, wondrous item, regenerates at dawn)",
+            "A decorative thimble found under one of the chairs (worth 5 gp, also functions as the Dodo's racing prize)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: A Sea of Tears",
+      "description": "The party navigates the Pool of Tears — either by swimming across it or finding another way around — encountering the Mouse, water elementals, and the emotional magic of crystallized tears. They reach the far shore and the Caucus Race grounds.",
+      "objectives": [
+        "Cross or navigate the Pool of Tears",
+        "Meet the Mouse and learn local information",
+        "Survive the water elemental encounter",
+        "Reach the Caucus Race shore",
+        "Learn about Wonderland's current state from its inhabitants"
+      ],
+      "scenes": [
+        {
+          "name": "The Pool of Tears",
+          "description": "Beyond the garden door lies not a garden but a vast underground cavern dominated by a saltwater lake — the Pool of Tears. The party must cross it to reach the far shore, where the inhabitants of this part of Wonderland have gathered.",
+          "readAloud": "\"The tiny door opens not onto the garden you glimpsed but onto a ledge overlooking a vast cavern. Below stretches a lake of perfectly still water, its surface reflecting a ceiling of luminescent crystals that twinkle like stars in an underground sky. The water is warm and smells of salt — tears, you realize. The Pool of Tears. It stretches two hundred feet across to a sandy white shore where small figures mill about: birds, mammals, and stranger things, all walking upright and chattering in Common. The water laps gently at the ledge beneath your feet, and something moves just below the surface — something large, fluid, and vaguely humanoid, made entirely of shimmering, salty water. Then a voice squeaks from below: 'Oh! Are you new? Don't mention cats. I cannot ABIDE cats. Or dogs. Or really anyone who chases mice. Are you the sort who chases mice? Because if so, I have a very pointed tail to share with you. I mean TALE. A pointed tale. About William the Conqueror. Shall I begin?' A small, bedraggled mouse is treading water near the ledge, looking up at you with enormous, indignant eyes.\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 13, "success": "You swim across the Pool efficiently, reaching the far shore without incident. The salt water stings but doesn't slow you.", "failure": "The saltwater is thick and strange — you struggle, swallowing mouthfuls that taste of sorrow. You arrive at the far shore exhausted, gaining 1 level of exhaustion." },
+            { "skill": "Persuasion", "dc": 12, "success": "The Mouse warms to you and shares useful information: the Caucus Race is 'a bit more dangerous than it looks,' the Caterpillar 'knows everything but tells nothing,' and the Queen 'has ears like a hawk and a temper like a volcano.'", "failure": "The Mouse launches into a lengthy, incomprehensible tale about William the Conqueror that provides no useful information but takes twenty minutes." },
+            { "skill": "Perception", "dc": 14, "success": "You notice the water elementals forming beneath the surface — they're drawn to strong emotions. If the party can remain calm, the elementals may not attack. DC 13 WIS save for each party member to suppress emotional reactions.", "failure": "The water elementals take you by surprise, bursting from the Pool without warning." },
+            { "skill": "Nature", "dc": 15, "success": "You recognize the Pool's properties — it's a nexus connecting to every body of water in Wonderland. You could potentially use it as a fast-travel network later in the campaign.", "failure": "The Pool seems like an ordinary (if very salty) underground lake." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 water elementals (CR 5 each, reskinned as tear elementals — attacks deal cold + psychic damage instead of bludgeoning, Whelm ability causes uncontrollable weeping instead of suffocation: DC 15 CON save or blinded by tears for 1 round)"],
+              "difficulty": "Hard",
+              "tactics": "The tear elementals rise from the Pool when strong emotions are expressed nearby — anger, fear, or sadness. They attack the most emotional party member first. They use Whelm to engulf targets and force weeping, then slam. They retreat into the Pool if reduced below 30 HP, resurfacing 1d4 rounds later. They can be dispersed permanently by DC 15 Persuasion (convincing them that the party's emotions are under control) or by evaporating them with fire damage. The Mouse flees in terror, providing unhelpful commentary from shore.",
+              "terrain": "Open water (Pool is 200 ft. across, 30 ft. deep at center). Swimmers have disadvantage on attack rolls unless they have a swim speed. The ledge at the near shore and the sandy beach at the far shore provide solid ground. The water elementals have advantage on attacks against swimming creatures. Rock formations in the Pool provide partial cover and rest points."
+            }
+          ],
+          "roleplayNotes": "The Mouse is a delightful roleplaying encounter — pompous, easily offended, and desperately lonely. He tells long, pointless tales but knows real information about Wonderland if the party can direct his rambling. NEVER mention cats around him (he will flee in fury, depriving the party of his knowledge). The Pool of Tears should feel emotionally charged — the water is literally made of tears, and the ambient magic amplifies feelings. Players might experience brief flashes of sadness, nostalgia, or longing while in contact with the water. The tear elementals are not evil — they're emotional echoes given form, and defeating them should feel melancholy rather than triumphant.",
+          "loot": [
+            "Messages in bottles found on the shore: 3 bottles containing fragments of a poem about the Jabberwock ('Beware the Jabberwock, my son! The jaws that bite, the claws that catch!'), a warning about the Queen's croquet match, and a love letter from the Knave of Hearts to someone unnamed",
+            "A waterlogged adventurer's journal describing a previous visitor to Wonderland (mentions the looking glass, the Queen's rise to power, and a 'hidden chamber beneath the palace')",
+            "A thimble washed up on shore (worth 5 gp, also usable as a Dodo prize)",
+            "A comb made of mother-of-pearl (worth 15 gp)",
+            "30 gp in mixed coins scattered on the sandy shore"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Caucus Race",
+      "description": "The party participates in the Dodo's Caucus Race — which turns out to be far more dangerous than it appears — earns their Guest's Tokens, and then ascends to the Caterpillar's Mushroom to receive mushroom pieces and cryptic guidance about the quest ahead.",
+      "objectives": [
+        "Participate in and survive the Caucus Race",
+        "Earn the Guest's Token (advantage on saves vs. random Wonderland effects)",
+        "Receive the Dodo's prizes",
+        "Climb to the Caterpillar's Mushroom",
+        "Answer the Caterpillar's questions and receive mushroom pieces",
+        "Learn about the Queen, the Looking Glass, and the way forward"
+      ],
+      "scenes": [
+        {
+          "name": "The Grand Caucus Race",
+          "description": "The Dodo organizes his famous race — 'Everyone runs, everyone wins, everyone gets prizes!' But the race is actually an ancient fey ritual that tests newcomers. The track shifts, obstacles appear, and the final round summons real monsters.",
+          "readAloud": "\"On the sandy shore, a large, dignified bird stands on a rock podium — a Dodo, impossibly alive, wearing a monocle and carrying a walking stick. Around him, a menagerie of creatures mill about: a Lory preening its rainbow feathers, an Eaglet puffing its chest, a Duck arguing with a Crab, and several small fey creatures that look like animated playing card pips. The Dodo clears his throat with tremendous self-importance. 'Ahem. AHEM. Attention, please. We have new participants for the Caucus Race! For those unfamiliar with the rules — and there ARE no rules, which IS the rule — everyone begins when they like and stops when they like, and everyone wins prizes. On your marks. Get set. Oh, I've forgotten my starting pistol. Never mind. GO!' He waves his walking stick, and the sandy shore ERUPTS. A circular track materializes in golden light, hedges spring from the sand like green walls, and you feel a tug of fey magic pulling you toward the starting line. The Mouse squeaks in alarm. The Lory cackles with delight. And the track begins to MOVE.\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 14, "success": "You maintain your pace as the track shifts and buckles beneath your feet, staying ahead of the pack. The fey magic recognizes your determination.", "failure": "You stumble as the track rearranges itself, losing ground. The fey magic pulses with amusement at your expense." },
+            { "skill": "Dexterity save", "dc": 13, "success": "You dodge the obstacles that materialize on the track — a tea table, a oversized playing card, a croquet wicket. Clean footwork.", "failure": "A massive teacup materializes directly in your path. You crash into it, taking 2d6 bludgeoning damage and falling prone." },
+            { "skill": "Constitution save", "dc": 12, "success": "The fey magic testing your endurance finds you strong. You resist the exhaustion that pulls at your limbs.", "failure": "The fey ritual drains your stamina. You gain 1 level of exhaustion that lasts until your next short rest." },
+            { "skill": "Wisdom save", "dc": 14, "success": "You see through the race's illusions and recognize it for what it truly is — a fey welcome ritual. This understanding lets you navigate the final round with advantage.", "failure": "The race's fey magic fully envelops your mind. You run with wild abandon, unable to distinguish real obstacles from illusions." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 giant crabs (CR 3 each, summoned from the Pool by the race's fey magic) and 1 leucrotta (CR 3, the Bandersnatch — crashes the race uninvited, attacks everyone indiscriminately)"],
+              "difficulty": "Hard",
+              "tactics": "The giant crabs emerge from the Pool in the final round of the race, blocking the track. They use their claws to grapple runners and drag them toward the water. The leucrotta/Bandersnatch arrives from the Tulgey Wood edge, drawn by the fey magic — it's a genuine threat that the Dodo did NOT plan for. It targets the weakest-looking party member first, using its mimicry to call out in a familiar voice to lure targets. The Dodo is horrified by the Bandersnatch and shouts instructions: 'That's NOT part of the race! Kill it! Or don't! But preferably kill it!' The fey participants scatter, leaving the combat to the party.",
+              "terrain": "Circular race track (100 ft. diameter) on sandy shore. Hedges (5 ft. tall, half cover) divide sections of the track. The Pool of Tears borders one side (difficult terrain, swim speed needed). Materialized obstacles (tea tables, playing cards) provide cover and difficult terrain throughout. The track is still slowly rotating due to fey magic — all creatures must make DC 10 DEX checks at the start of their turn or be moved 10 ft. in the track's direction."
+            }
+          ],
+          "roleplayNotes": "The Caucus Race is the set-piece encounter of Act 3 — it should be chaotic, funny, and surprisingly dangerous. The Dodo is a wonderful NPC: pompous, well-meaning, and completely unable to control the situation he's created. Play him as a Victorian gentleman utterly out of his depth. The fey participants should add color — the Lory cheats shamelessly, the Eaglet is competitive, the Duck philosophizes about the nature of winning. When the Bandersnatch crashes the race, the tone shifts from comedy to genuine danger — this is the party's first encounter with a real Wonderland predator. After the race, the Dodo solemnly awards prizes from his enormous bag. Each prize should be personalized and seem initially useless but become valuable later: a comb, a thimble, a button, a piece of string, a peppermint. The Guest's Token (invisible fey mark) is the real prize, granted to all who completed the race with courage.",
+          "loot": [
+            "Guest's Token (invisible fey mark — advantage on saves against random Wonderland effects for the rest of the campaign)",
+            "Dodo's personal prizes — one per party member, drawn from his bag. Each is a mundane object that the Dodo insists is 'exactly what you need.' (DM chooses objects that will become useful in future scenarios: a spool of unbreakable thread, a mirror shard, a key that doesn't fit any lock yet, etc.)",
+            "Leucrotta/Bandersnatch trophy — its horn (worth 50 gp, can be used as a material component for Greater Restoration)",
+            "Giant crab shells (2, worth 10 gp each, can be fashioned into shields)",
+            "25 gp in golden coins scattered across the track by the race's fey magic"
+          ]
+        },
+        {
+          "name": "The Caterpillar's Question",
+          "description": "The party ascends to the Caterpillar's mushroom to seek guidance. The ancient fey sage asks his timeless question and judges their answers, offering mushroom pieces and cryptic wisdom to those he deems worthy.",
+          "readAloud": "\"Beyond the Caucus Race shore, the landscape shifts from sandy beach to something closer to forest — if you can call mushrooms the size of trees a forest. The fungi grow taller as you advance, their caps blocking whatever passes for sky in this underground realm, until you stand at the base of the largest mushroom you have ever seen. It rises fifteen feet, its cap a vivid blue-green that shimmers with inner light. And atop it, cross-legged and utterly still, sits a figure. At first you think it's a statue — smooth skin in shifting patterns of blue and green, large amber eyes with slit pupils, silk robes that flow like water. Then it exhales, and a plume of shimmering, multicolored smoke drifts from an ornate hookah set before it. The smoke curls toward you, and for a moment you see images in its whorls — a shattered mirror, a crown of hearts, a grinning cat, a clock frozen at six. Then the figure speaks, each word arriving with the weight of centuries. 'Who... are... you?'\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 15, "success": "Your answer to 'Who are you?' demonstrates genuine self-knowledge and philosophical depth. The Caterpillar's eyes widen fractionally — the highest expression of approval he is capable of. He offers mushroom pieces freely and answers one question about Wonderland with unusual directness.", "failure": "Your answer is too simple or too rehearsed. The Caterpillar exhales dismissively. 'You knew who you were this morning. You have changed since then. Come back when you have a better answer.' He offers mushroom pieces but no additional guidance." },
+            { "skill": "Insight", "dc": 14, "success": "You realize the Caterpillar's question is not idle — he is genuinely trying to help. In Wonderland, where identity is fluid and reality shifts, knowing who you truly are is the most powerful defense against the realm's chaos. He's trying to armor you.", "failure": "The Caterpillar seems to be speaking in riddles for the sake of being difficult. His motives are unclear." },
+            { "skill": "Arcana", "dc": 16, "success": "The hookah smoke is psychic in nature — it reads the minds of those nearby and generates visions tailored to their subconscious fears and hopes. You can focus to ask the smoke a specific question and receive a symbolic answer.", "failure": "The smoke is pretty but you can't determine its magical properties." },
+            { "skill": "History", "dc": 13, "success": "You recognize fragments of the Caterpillar's story from Wonderland lore — he is one of the oldest beings in the realm, predating even the Queen's reign. His chrysalis pendant represents a transformation he has been contemplating for centuries.", "failure": "The Caterpillar is clearly important but his specific role in Wonderland's history eludes you." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the most important roleplaying encounter in the first scenario. The Caterpillar sets the philosophical tone for the entire campaign: in Wonderland, identity is power, and knowing yourself is the greatest defense against a realm that constantly tries to change you. Play Absalom as SLOW, DELIBERATE, and genuinely wise — not performing wisdom but embodying it. His question 'Who are you?' should feel weighty, not dismissive. Give the players time to formulate genuine answers. The best interactions happen when players answer as their characters rather than their stats. The Caterpillar should provide three things: (1) mushroom pieces (grow/shrink, 3 uses each), (2) a cryptic warning about the Queen, and (3) a hint about the party's ultimate quest — restoring the Looking Glass. He should also mention the Hatter ('trapped in a moment, poor fool'), the Cheshire Cat ('the only one of us who can still disappear — make of that what you will'), and the Queen ('she came from your world, you know. Through the glass. Just like you.'). This last revelation is a campaign bombshell and should land with weight.",
+          "loot": [
+            "Mushroom pieces — each party member receives one piece with 2 sides (one side grows, one side shrinks, 3 uses per side). These are key items for the entire campaign.",
+            "A vision from the hookah smoke — not a physical item but a psychic clue. Each character receives a different vision tailored to their backstory and fears. These visions foreshadow events in scenarios 2-4.",
+            "The Caterpillar's blessing — a whispered word in Sylvan that grants +1 to all Wisdom saving throws while in Wonderland (fey blessing, requires attunement, no attunement slot needed)"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "The Talking Doorknob",
+      "role": "Tutorial NPC / Comic Relief",
+      "description": "A brass doorknob set into the tiny garden door at the end of the Hall of Doors. He's animated, articulate, deeply annoyed by everything, and surprisingly knowledgeable about the Hall's mechanics. He wants to be left alone but can't resist commenting on everything the party does wrong.",
+      "motivation": "The doorknob wants peace and quiet. He's been a doorknob for as long as he can remember and has resigned himself to his fate. He'll explain the size puzzle if asked nicely, mostly because watching people try to solve it without help is even more annoying than explaining it."
+    },
+    {
+      "name": "The Mouse",
+      "role": "Informant / Comic Ally",
+      "description": "A small, bedraggled awakened mouse who lives in the Pool of Tears. He speaks in long, rambling tales about William the Conqueror, flies into a rage if anyone mentions cats or dogs, and is deeply, personally offended by almost everything. Despite his neurotic personality, he knows a great deal about Wonderland's current state.",
+      "motivation": "The Mouse wants to be respected and listened to. He has important information but is so easily offended that extracting it requires diplomatic skill. He knows the location of the Duchess's lost baby and details about the Queen's recent decrees."
+    },
+    {
+      "name": "The Dodo",
+      "role": "Ritual Master / Judge",
+      "description": "A large, dignified Dodo bird wearing a monocle and carrying a walking stick. He organizes the Caucus Race with pompous authority, awarding prizes from an enormous bag that seems to contain exactly what each recipient needs. He is Wonderland's self-appointed Welcome Committee and takes his role very seriously despite having no actual authority.",
+      "motivation": "The Dodo wants to maintain Wonderland's traditions. The Caucus Race is the oldest ritual in the realm — a test of newcomers that predates even the Queen's reign. He runs it faithfully because 'someone must,' even though the Queen has tried to ban it three times."
+    },
+    {
+      "name": "Caterpillar Absalom",
+      "role": "Sage / Quest Giver",
+      "description": "The ancient fey sage who sits atop the great mushroom, smoking his psychic hookah and asking 'Who are you?' of all who approach. He is the keeper of Wonderland's deepest secrets and the guardian of the Wonderland Mushroom — the source of the realm's reality-bending magic.",
+      "motivation": "Absalom seeks to preserve Wonderland's fundamental nature. He has watched the Queen corrupt the realm for decades and has been waiting for champions capable of restoring the Looking Glass. He tests newcomers with his question because only those with genuine self-knowledge can survive Wonderland's trials."
+    }
+  ],
+  "rewards": {
+    "xp": 2200,
+    "gold": "120 gp total (30 gp from Pool shore, 25 gp from Caucus Race, 50 gp Bandersnatch horn, various item values)",
+    "items": [
+      "Golden Key (quest item — opens certain doors throughout Wonderland)",
+      "'DRINK ME' Potion (wondrous item — shrinks to 10 inches for 1 hour, regenerates at dawn, stays in the Hall)",
+      "'EAT ME' Cake (wondrous item — grows to 12 feet for 1 hour, regenerates at dawn, stays in the Hall)",
+      "Mushroom Pieces (wondrous item — one side grows, one side shrinks, 3 uses per side, one set per party member)",
+      "Guest's Token (invisible fey mark — advantage on saves vs. random Wonderland effects)",
+      "Caterpillar's Blessing (+1 to WIS saves while in Wonderland)",
+      "Dodo's Prizes (personalized mundane objects with future plot relevance)",
+      "Bandersnatch Horn (material component worth 50 gp)",
+      "Partial Map of Wonderland (from the Hall's map room)",
+      "Adventurer's Journal (plot item — previous visitor's notes on the Queen and the palace)"
+    ],
+    "story": "The party has entered Wonderland and survived its gauntlet of welcome. They understand the realm's size-shifting mechanics, have earned the Guest's Token from the Caucus Race, and carry mushroom pieces from the Caterpillar. They know the shape of their quest: the Queen of Hearts has corrupted Wonderland, the Looking Glass is shattered, and restoration is the only way home. The Caterpillar's revelation that the Queen came from the material plane mirrors their own arrival and raises unsettling questions about the power of Wonderland over outsiders. The way forward leads through the Tulgey Wood, where the Cheshire Cat watches and the Jabberwock waits."
+  },
+  "twists": [
+    "The 'DRINK ME' and 'EAT ME' items are not one-time consumables but permanent fixtures of the Hall — they regenerate at dawn, establishing that Wonderland's magic is self-sustaining and tied to the realm rather than to individual objects.",
+    "The Caucus Race is not pointless but an ancient welcome ritual that grants real mechanical benefits (Guest's Token). Wonderland's apparent nonsense often hides genuine purpose.",
+    "The Caterpillar's revelation that the Queen of Hearts came from the material plane — she's an outsider who seized power, just as the party is outsiders who might take it back. This mirrors the party's own situation and raises the question: could THEY become the next tyrant?",
+    "The Pool of Tears is a nexus connected to every body of water in Wonderland — a potential fast-travel network that the party can exploit in later scenarios.",
+    "The garden behind the tiny door is an illusion — the real garden was destroyed by the Queen, establishing early that the Queen's tyranny has destroyed beautiful things."
+  ],
+  "dmTips": [
+    "The Hall of Doors is a puzzle encounter, not a combat encounter (though combat may happen). Give the party time to experiment with the size-shifting items. Let them make mistakes — growing too large and getting stuck, shrinking too small and being menaced by a suddenly enormous mouse. The fun is in the problem-solving.",
+    "The Mouse is a comedy NPC but also a genuine source of information. The challenge is extracting useful intel from his stream-of-consciousness rambling. Reward players who engage with his stories rather than dismissing them — hidden in the tales of William the Conqueror are real historical details about Wonderland.",
+    "The Caucus Race should escalate from silly to dangerous. Start with comedic running, build through increasingly hazardous obstacles, and climax with the Bandersnatch crashing the party. The tonal shift from 'fun race' to 'something is trying to eat us' is the point — it teaches the players that Wonderland is never as safe as it seems.",
+    "The Caterpillar encounter should be the emotional and philosophical core of the scenario. Don't rush it. Let the players sit with 'Who are you?' and formulate genuine answers. The Caterpillar's slow, deliberate speech should create a meditative quality after the chaos of the Caucus Race. His revelations about the Queen's origin should land as a genuine bombshell.",
+    "Seed future scenarios throughout: the Jabberwock poem in the message bottles (scenario 2), the Hatter's mention by the Caterpillar (scenario 3), the Queen's palace notes in the adventurer's journal (scenario 4). The party should leave this scenario with a clear sense that Wonderland is vast and the Queen is the ultimate threat, but the path between here and there is full of wonder and danger."
+  ]
+}
