@@ -1,0 +1,107 @@
+{
+  "id": "3a0b2bc0-67f6-4c10-8344-66b3c7bdc092",
+  "name": "Corrin Underbough",
+  "status": "alive",
+  "race": "Halfling",
+  "subrace": "Stout",
+  "class": "Fighter",
+  "level": 1,
+  "background": "Criminal",
+  "alignment": "Chaotic Evil",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 18,
+      "modifier": 4
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 9,
+      "modifier": -1
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 12,
+    "current": 12
+  },
+  "armorClass": 16,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "strength",
+    "constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Animal Handling",
+    "Deception",
+    "Stealth"
+  ],
+  "languages": [
+    "Common",
+    "Halfling"
+  ],
+  "equipment": [
+    "A crowbar",
+    "Dark common clothes including a hood",
+    "Belt pouch with 15 gp",
+    "Leather armor",
+    "Longbow",
+    "20 arrows",
+    "A martial weapon and a shield",
+    "Two handaxes",
+    "Explorer's pack"
+  ],
+  "weapons": [
+    {
+      "name": "Longbow",
+      "attackBonus": 6,
+      "damage": "1d8+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Handaxe",
+      "attackBonus": 6,
+      "damage": "1d6+4",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Chain Mail",
+    "type": "heavy"
+  },
+  "features": [
+    "Fighting Style (You adopt a particular style of fighting as your specialty. Choose one: Archery (+2 bonus to attack rolls with ranged...)",
+    "Second Wind (You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bo...)"
+  ],
+  "traits": [
+    "Lucky (When you roll a 1 on the d20 for an attack roll, ability check, or saving throw,...)",
+    "Brave (You have advantage on saving throws against being frightened.)",
+    "Halfling Nimbleness (You can move through the space of any creature that is of a size larger than you...)",
+    "Stout Resilience (You have advantage on saving throws against poison, and you have resistance agai...)"
+  ],
+  "spells": null,
+  "personality": {
+    "traits": "I'm used to helping out those who aren't as smart as I am.",
+    "ideals": "Sincerity. There's no good in pretending to be something I'm not.",
+    "bonds": "A powerful person killed someone I love. I seek vengeance.",
+    "flaws": "I am suspicious of strangers and expect the worst of them."
+  },
+  "appearance": "Corrin Underbough is a small, compact Stout Halfling fighter with a weathered look that speaks of many roads traveled.",
+  "backstory": "Corrin carries the weight of a troubled past but presses forward with determination. The road ahead is uncertain, but standing still was never an option."
+}

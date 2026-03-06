@@ -1,10 +1,31 @@
-export const CURRENT_VERSION = '1.0.3';
+export const CURRENT_VERSION = '1.0.4';
 
 export const CHANGELOG = [
   {
+    version: '1.0.4',
+    date: '2026-03-05',
+    title: 'Current Release',
+    compareFrom: '1.0.3',
+    compareRef: 'ae34454 ("v1.0.3 cont")',
+    highlights: [
+      'Multi-campaign architecture: all player data, defaults, and scenarios are now scoped per-campaign (e.g. `data/players/<slug>/demo/`, `data/players/<slug>/campaign1/`). Zero crossover between campaigns.',
+      'New campaign: "Depths of the Underdark" (campaign1) — a premium-tier Underdark adventure with 4 scenarios (The Drow Outpost, The Fungal Caverns, The Sunless Sea, The Elder Brain\'s Domain), 10 playable characters, and 5 NPC companions.',
+      'New campaign: "Alice\'s Adventures in Wonderland" — a whimsical D&D adaptation with 4 scenarios (Down the Rabbit Hole, A Mad Tea Party, The Tulgey Wood, The Queen\'s Croquet Ground), 8 characters, and 5 NPCs.',
+      'Campaign selection context: new `CampaignContext` provider and `X-Campaign-Id` header ensure all API requests route to the correct campaign\'s data.',
+      'Underdark interactive map component (`UnderdarkMap.jsx`) for navigating the Depths of the Underdark campaign.',
+      'Monster database: comprehensive `data/rules/monsters.json` with 26,000+ lines of creature stat blocks for DM combat reference.',
+      'Character generator (`server/character-generator.js`) for creating new characters programmatically.',
+      'DM engine audit: aligned dm-engine behavior with CLAUDE.md rules — fixed session-start XP equalization bug (no longer resets or "catches up" XP on session start).',
+      'Campaign migration tooling: `scripts/migrate-campaigns.sh` and `scripts/provision-campaign1.sh` for restructuring existing data into the new per-campaign layout.',
+      'Demo campaign data reorganized under `data/defaults/demo/` and `data/campaigns/demo/` to match the new multi-campaign directory structure.',
+      'Home page redesigned to support campaign browsing and selection.',
+      'CLAUDE.md expanded with campaign isolation documentation, no-session-start-equalization rule, and refined DM guidelines.',
+    ],
+  },
+  {
     version: '1.0.3',
     date: '2026-02-28',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.2',
     compareRef: '98bb2b4 ("v1.0.2 fix missing characters and sessions folder on install")',
     highlights: [

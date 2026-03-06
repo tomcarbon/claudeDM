@@ -2,6 +2,22 @@
 
 All notable changes to this project are documented here.
 
+## [1.0.4] - 2026-03-05
+Changes since `1.0.3` (starting after commit `ae34454`, "v1.0.3 cont"):
+
+- Multi-campaign architecture: all player data, defaults, and scenarios are now scoped per-campaign (`data/players/<slug>/<campaignId>/`), with zero crossover between campaigns.
+- New campaign: "Depths of the Underdark" — premium-tier Underdark adventure with 4 scenarios, 10 characters, and 5 NPC companions.
+- New campaign: "Alice's Adventures in Wonderland" — whimsical D&D adaptation with 4 scenarios, 8 characters, and 5 NPCs.
+- Added `CampaignContext` provider and `X-Campaign-Id` header for campaign-scoped API routing.
+- Added interactive Underdark map component for navigating the Depths of the Underdark campaign.
+- Added comprehensive monster database (`data/rules/monsters.json`) with 26,000+ lines of creature stat blocks.
+- Added server-side character generator (`server/character-generator.js`).
+- DM engine audit: aligned behavior with CLAUDE.md rules, fixed session-start XP equalization bug.
+- Added campaign migration tooling (`migrate-campaigns.sh`, `provision-campaign1.sh`) for restructuring data into multi-campaign layout.
+- Demo campaign data reorganized under `data/defaults/demo/` and `data/campaigns/demo/`.
+- Home page redesigned for campaign browsing and selection.
+- Expanded CLAUDE.md with campaign isolation docs and no-session-start-equalization rule.
+
 ## [1.0.3] - 2026-02-26
 Changes since `1.0.2` (starting after commit `98bb2b4`, "v1.0.2 fix missing characters and sessions folder on install"):
 
