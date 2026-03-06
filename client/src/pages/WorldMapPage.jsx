@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCampaign } from '../context/CampaignContext';
 import WorldMap from '../components/WorldMap';
 import UnderdarkMap from '../components/UnderdarkMap';
+import WonderlandMap from '../components/WonderlandMap';
 
 function WorldMapPage() {
   const navigate = useNavigate();
@@ -19,6 +20,18 @@ function WorldMapPage() {
           A vast subterranean realm of darkness, danger, and alien beauty. Click a location to view its scenario.
         </p>
         <UnderdarkMap onLocationClick={handleLocationClick} />
+      </div>
+    );
+  }
+
+  if (campaignId === 'wonderland') {
+    return (
+      <div>
+        <h2>Wonderland</h2>
+        <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          A Feywild demiplane of impossible geography, where logic bends and madness wears a crown. Click a location to view its scenario.
+        </p>
+        <WonderlandMap onLocationClick={handleLocationClick} />
       </div>
     );
   }
