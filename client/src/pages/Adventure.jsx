@@ -90,6 +90,8 @@ function Adventure({
   const { player } = usePlayer();
   const [input, setInput] = useState('');
   const [characters, setCharacters] = useState([]);
+  const [npcs, setNpcs] = useState([]);
+  const [companionStates, setCompanionStates] = useState({}); // npcId -> 'selected' | 'removed' | 'player'
   const [scenarios, setScenarios] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
   const [mode, setMode] = useState('campaigns'); // 'campaigns' | 'scenarios'
@@ -118,6 +120,13 @@ function Adventure({
 
   useEffect(() => {
     api.getCharacters().then(setCharacters).catch(() => {});
+    api.getNpcs().then(loaded => {
+      setNpcs(loaded);
+      // Default all living NPCs to 'selected'
+      const initial = {};
+      loaded.filter(n => n.status !== 'dead').forEach(n => { initial[n.id] = 'selected'; });
+      setCompanionStates(initial);
+    }).catch(() => {});
     api.getScenarios().then(setScenarios).catch(() => {});
     api.getCampaigns().then(setCampaigns).catch(() => {});
     // Reset selections when campaign changes so stale picks from another campaign don't persist
@@ -219,6 +228,34 @@ function Adventure({
     }
   }, [sessionActive]);
 
+  function cycleCompanionState(npcId) {
+    setCompanionStates(prev => {
+      const current = prev[npcId] || 'selected';
+      const next = current === 'selected' ? 'removed' : current === 'removed' ? 'player' : 'selected';
+      return { ...prev, [npcId]: next };
+    });
+  }
+
+  function buildCompanionRoster() {
+    const activeCompanions = npcs.filter(n => companionStates[n.id] === 'selected');
+    const playerSlots = npcs.filter(n => companionStates[n.id] === 'player').length;
+    const removedCompanions = npcs.filter(n => companionStates[n.id] === 'removed');
+    const lines = [];
+    if (activeCompanions.length > 0) {
+      lines.push(`Active NPC companions: ${activeCompanions.map(n => n.name).join(', ')}.`);
+    }
+    if (removedCompanions.length > 0) {
+      lines.push(`These NPCs are NOT in the party and should not appear: ${removedCompanions.map(n => n.name).join(', ')}.`);
+    }
+    if (playerSlots > 0) {
+      lines.push(`${playerSlots} party slot(s) are reserved for other players who may join later.`);
+    }
+    if (activeCompanions.length === 0 && playerSlots === 0) {
+      lines.push('The player is adventuring solo — no NPC companions in the party.');
+    }
+    return lines.join('\n');
+  }
+
   function handleStartSession() {
     if (isGuest) {
       alert('Please log in to start a new session.');
@@ -239,7 +276,11 @@ function Adventure({
       const campaign = campaigns.find(c => c.id === selectedCampaign);
       const settingName = campaign?.setting?.name || campaign?.title || 'Unknown';
       const startLocations = campaign?.wildernessStarts?.map(s => s.label).join(', ') || 'a random location';
+      const companionRoster = buildCompanionRoster();
       const openingPrompt = `You are running an open-world campaign: "${campaign?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}.
+
+Party composition:
+${companionRoster}
 
 This is a free-exploration campaign, not a linear scenario. Here's how to run it:
 - Drop the party at a random starting location in ${settingName} (choose from: ${startLocations})
@@ -260,7 +301,13 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       setSessionActive(true);
 
       const scenario = scenarios.find(s => s.id === selectedScenario);
-      const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}. Set the scene and begin the story.`;
+      const companionRoster = buildCompanionRoster();
+      const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}.
+
+Party composition:
+${companionRoster}
+
+Set the scene and begin the story.`;
       setTimeout(() => sendMessage(openingPrompt), 500);
     }
   }
@@ -481,6 +528,31 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
                   <span>Level {c.level} {c.subrace ? (c.subrace.toLowerCase().includes(c.race.toLowerCase()) ? c.subrace : `${c.subrace} ${c.race}`) : c.race} {c.class}</span>
                 </button>
               ))}
+            </div>
+          </div>
+
+          <div className="setup-group">
+            <label>Companions</label>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '0 0 0.5rem' }}>
+              Click to cycle: <strong>In Party</strong> &rarr; <strong>Removed</strong> &rarr; <strong>Player Slot</strong>
+            </p>
+            <div className="setup-options">
+              {npcs.filter(n => n.status !== 'dead').map(n => {
+                const state = companionStates[n.id] || 'selected';
+                return (
+                  <button
+                    key={n.id}
+                    className={`option-card companion-card companion-${state}`}
+                    onClick={() => cycleCompanionState(n.id)}
+                  >
+                    <strong>{n.name}</strong>
+                    <span>Level {n.level} {n.subrace ? (n.subrace.toLowerCase().includes(n.race.toLowerCase()) ? n.subrace : `${n.subrace} ${n.race}`) : n.race} {n.class}</span>
+                    <span className="companion-state-label">
+                      {state === 'selected' ? 'In Party' : state === 'removed' ? 'Removed' : 'Player Slot'}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 

@@ -463,6 +463,45 @@
   color: var(--gold);
 }
 
+/* Companion card states */
+.companion-card {
+  position: relative;
+}
+.companion-state-label {
+  font-weight: 600;
+  font-size: 0.75em !important;
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.companion-selected {
+  border-color: var(--gold);
+  background: rgba(240, 192, 64, 0.1);
+}
+.companion-selected strong {
+  color: var(--gold);
+}
+.companion-selected .companion-state-label {
+  color: var(--gold);
+}
+.companion-removed {
+  border-color: var(--border);
+  opacity: 0.5;
+}
+.companion-removed .companion-state-label {
+  color: var(--text-muted);
+}
+.companion-player {
+  border-color: #3498db;
+  background: rgba(52, 152, 219, 0.1);
+}
+.companion-player strong {
+  color: #5dade2;
+}
+.companion-player .companion-state-label {
+  color: #3498db;
+}
+
 /* DM Settings - Quick Presets */
 .quick-preset-btn.active {
   border-color: var(--gold);
@@ -954,6 +993,37 @@
 .btn-save:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* ===== Multiplayer Lists (Settings) ===== */
+.multiplayer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.multiplayer-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 0.35rem;
+  background: var(--bg-dark);
+  font-size: 0.9rem;
+}
+.multiplayer-remove-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 0.3rem;
+  line-height: 1;
+  border-radius: 4px;
+}
+.multiplayer-remove-btn:hover:not(:disabled) {
+  color: #e74c3c;
 }
 
 /* ===== Session Settings Panel ===== */

@@ -17,6 +17,12 @@ function Settings() {
   const [diceSaved, setDiceSaved] = useState(false);
   const [resetting, setResetting] = useState(null); // 'characters' | 'npcs' | 'all' | null
   const [resetDone, setResetDone] = useState(null);
+  const [friends, setFriends] = useState([]);
+  const [blocked, setBlocked] = useState([]);
+  const [friendInput, setFriendInput] = useState('');
+  const [blockedInput, setBlockedInput] = useState('');
+  const [savingMultiplayer, setSavingMultiplayer] = useState(false);
+  const [multiplayerSaved, setMultiplayerSaved] = useState(false);
 
   useEffect(() => {
     if (!isAdmin) {
@@ -33,10 +39,12 @@ function Settings() {
           setLoadingShuffle(false);
         });
     }
-    // Load per-user dice setting for all players
+    // Load per-user settings for all players
     api.getDmSettings()
       .then((settings) => {
         setRealisticDice(settings?.realisticDice !== false);
+        if (Array.isArray(settings?.friends)) setFriends(settings.friends);
+        if (Array.isArray(settings?.blocked)) setBlocked(settings.blocked);
       })
       .catch(() => {
         setRealisticDice(true);
@@ -109,6 +117,49 @@ function Settings() {
     setResetting(null);
   };
 
+  async function saveMultiplayerList(key, list) {
+    setSavingMultiplayer(true);
+    setMultiplayerSaved(false);
+    try {
+      await api.updateDmSettings({ [key]: list });
+      setMultiplayerSaved(true);
+      setTimeout(() => setMultiplayerSaved(false), 3000);
+    } catch (err) {
+      alert('Failed to save: ' + err.message);
+    }
+    setSavingMultiplayer(false);
+  }
+
+  function handleAddFriend() {
+    const email = friendInput.trim().toLowerCase();
+    if (!email || friends.includes(email)) { setFriendInput(''); return; }
+    const updated = [...friends, email];
+    setFriends(updated);
+    setFriendInput('');
+    saveMultiplayerList('friends', updated);
+  }
+
+  function handleRemoveFriend(email) {
+    const updated = friends.filter(f => f !== email);
+    setFriends(updated);
+    saveMultiplayerList('friends', updated);
+  }
+
+  function handleAddBlocked() {
+    const name = blockedInput.trim();
+    if (!name || blocked.includes(name)) { setBlockedInput(''); return; }
+    const updated = [...blocked, name];
+    setBlocked(updated);
+    setBlockedInput('');
+    saveMultiplayerList('blocked', updated);
+  }
+
+  function handleRemoveBlocked(name) {
+    const updated = blocked.filter(b => b !== name);
+    setBlocked(updated);
+    saveMultiplayerList('blocked', updated);
+  }
+
   return (
     <div>
       <h2>Settings</h2>
@@ -164,6 +215,82 @@ function Settings() {
           {loadingDice && <span style={{ color: 'var(--text-muted)' }}>Loading...</span>}
           {savingDice && <span style={{ color: 'var(--text-muted)' }}>Saving...</span>}
           {!savingDice && diceSaved && <span style={{ color: '#27ae60' }}>Saved!</span>}
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Multiplayer</h3>
+        <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
+          Manage who can join your public sessions. Friends can view and join your public sessions. Blocked players are excluded.
+        </p>
+
+        <div style={{ marginBottom: '1.5rem' }}>
+          <h4 style={{ fontSize: '0.95rem', marginBottom: '0.5rem' }}>Friends (by email)</h4>
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+            <input
+              type="email"
+              placeholder="player@example.com"
+              value={friendInput}
+              onChange={e => setFriendInput(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleAddFriend()}
+              style={{ flex: '1 1 200px', minWidth: '200px', padding: '0.4rem 0.6rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)' }}
+            />
+            <button onClick={handleAddFriend} disabled={savingMultiplayer}>Add</button>
+          </div>
+          {friends.length === 0 ? (
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>No friends added yet.</p>
+          ) : (
+            <ul className="multiplayer-list">
+              {friends.map(email => (
+                <li key={email} className="multiplayer-list-item">
+                  <span>{email}</span>
+                  <button
+                    className="multiplayer-remove-btn"
+                    onClick={() => handleRemoveFriend(email)}
+                    disabled={savingMultiplayer}
+                    title="Remove"
+                  >&times;</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div>
+          <h4 style={{ fontSize: '0.95rem', marginBottom: '0.5rem' }}>Blocked (by player name)</h4>
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+            <input
+              type="text"
+              placeholder="Player name"
+              value={blockedInput}
+              onChange={e => setBlockedInput(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleAddBlocked()}
+              style={{ flex: '1 1 200px', minWidth: '200px', padding: '0.4rem 0.6rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)' }}
+            />
+            <button onClick={handleAddBlocked} disabled={savingMultiplayer}>Add</button>
+          </div>
+          {blocked.length === 0 ? (
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>No players blocked.</p>
+          ) : (
+            <ul className="multiplayer-list">
+              {blocked.map(name => (
+                <li key={name} className="multiplayer-list-item">
+                  <span>{name}</span>
+                  <button
+                    className="multiplayer-remove-btn"
+                    onClick={() => handleRemoveBlocked(name)}
+                    disabled={savingMultiplayer}
+                    title="Remove"
+                  >&times;</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div style={{ marginTop: '0.5rem' }}>
+          {savingMultiplayer && <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Saving...</span>}
+          {!savingMultiplayer && multiplayerSaved && <span style={{ color: '#27ae60', fontSize: '0.85rem' }}>Saved!</span>}
         </div>
       </div>
 
