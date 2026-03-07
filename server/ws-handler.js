@@ -8,6 +8,10 @@ const { DmEngine } = require('./dm-engine');
 const chatRooms = new Map();
 // Session watch rooms: sessionDbId -> Set<wsEntry>
 const sessionRooms = new Map();
+// Pending companion turns: sessionDbId -> Map<playerEmail, { playerEmail, playerName, npcId, text }>
+const sessionTurns = new Map();
+// Pending host turns for ready-golf: sessionDbId -> { text, wsEntry }
+const hostTurns = new Map();
 let nextConnectionId = 1;
 
 function getRoomParticipants(chatKey) {
@@ -26,6 +30,38 @@ function getSessionOwnerEmail(session) {
   const ownerPlayer = (session.players || []).find(p => p.role === 'owner') || (session.players || [])[0] || {};
   const value = session.ownerEmail || session.playerEmail || ownerPlayer.email || null;
   return value ? String(value).trim().toLowerCase() : null;
+}
+
+function getCompanionNpcId(session, email) {
+  if (!email) return null;
+  // companionPlayers is a top-level field on the session (set by POST /:id/join)
+  const players = session.companionPlayers;
+  if (!players) return null;
+  for (const [npcId, info] of Object.entries(players)) {
+    if (info?.email?.toLowerCase() === email.toLowerCase()) return npcId;
+  }
+  return null;
+}
+
+function broadcastSessionTurns(sessionDbId) {
+  if (!sessionRooms.has(sessionDbId)) return;
+  const turns = sessionTurns.has(sessionDbId)
+    ? Array.from(sessionTurns.get(sessionDbId).values())
+    : [];
+  for (const entry of sessionRooms.get(sessionDbId)) {
+    if (entry.ws.readyState === entry.ws.OPEN) {
+      entry.ws.send(JSON.stringify({ type: 'companion_turns_update', sessionDbId, turns }));
+    }
+  }
+}
+
+function getSessionTurnMode(sessionDbId) {
+  // Check if any entry in the session room has a cached turnMode
+  if (!sessionRooms.has(sessionDbId)) return 'host-decides';
+  for (const entry of sessionRooms.get(sessionDbId)) {
+    if (entry.sessionTurnMode) return entry.sessionTurnMode;
+  }
+  return 'host-decides';
 }
 
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
@@ -129,22 +165,128 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
     function leaveCurrentSessionRoom() {
       if (currentSessionDbId && sessionRooms.has(currentSessionDbId)) {
+        const prevSessionId = currentSessionDbId;
+        const leaveName = wsEntry.playerName || wsEntry.playerEmail || 'Someone';
+        const leaveNpcId = wsEntry.companionNpcId || null;
+        const wasHost = wsEntry.isHost;
         const room = sessionRooms.get(currentSessionDbId);
         room.delete(wsEntry);
         if (room.size === 0) {
           sessionRooms.delete(currentSessionDbId);
+        } else {
+          // Only broadcast leave for non-host players
+          if (!wasHost) {
+            broadcastSessionMessage(prevSessionId, 'session_player_left', {
+              playerEmail: wsEntry.playerEmail,
+              playerName: leaveName,
+              companionNpcId: leaveNpcId,
+            });
+          }
+          broadcastSessionParticipants(prevSessionId);
         }
       }
       currentSessionDbId = null;
       currentSessionCanWrite = false;
     }
 
+    function getSessionParticipants(sessionDbId) {
+      if (!sessionRooms.has(sessionDbId)) return [];
+      return Array.from(sessionRooms.get(sessionDbId))
+        .filter(e => e.ws.readyState === e.ws.OPEN)
+        .map(e => ({
+          playerEmail: e.playerEmail || 'guest',
+          playerName: e.playerName || 'Guest',
+          isHost: !!e.isHost,
+          companionNpcId: e.companionNpcId || null,
+        }));
+    }
+
+    function broadcastSessionParticipants(sessionDbId) {
+      if (!sessionRooms.has(sessionDbId)) return;
+      const participants = getSessionParticipants(sessionDbId);
+      for (const entry of sessionRooms.get(sessionDbId)) {
+        if (entry.ws.readyState === entry.ws.OPEN) {
+          entry.ws.send(JSON.stringify({
+            type: 'session_participants',
+            sessionDbId,
+            participants,
+          }));
+        }
+      }
+    }
+
+    function broadcastReadyGolfStatus(sessionDbId) {
+      if (!sessionRooms.has(sessionDbId)) return;
+      const companions = Array.from(sessionRooms.get(sessionDbId))
+        .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN);
+      const companionCount = companions.length;
+      const submittedCount = sessionTurns.has(sessionDbId)
+        ? Array.from(sessionTurns.get(sessionDbId).keys())
+            .filter(email => companions.some(c => c.playerEmail === email)).length
+        : 0;
+      const hostReady = hostTurns.has(sessionDbId);
+      for (const entry of sessionRooms.get(sessionDbId)) {
+        if (entry.ws.readyState === entry.ws.OPEN) {
+          entry.ws.send(JSON.stringify({
+            type: 'ready_golf_status',
+            sessionDbId,
+            hostReady,
+            companionsReady: submittedCount,
+            companionsTotal: companionCount,
+            allReady: hostReady && submittedCount >= companionCount,
+          }));
+        }
+      }
+    }
+
+    function checkReadyGolfAutoFire(sessionDbId) {
+      if (!hostTurns.has(sessionDbId)) return; // host hasn't submitted yet
+      if (!sessionRooms.has(sessionDbId)) return;
+      const companions = Array.from(sessionRooms.get(sessionDbId))
+        .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN);
+      const companionEmails = companions.map(c => c.playerEmail);
+      const submittedEmails = sessionTurns.has(sessionDbId)
+        ? Array.from(sessionTurns.get(sessionDbId).keys())
+        : [];
+      const allReady = companionEmails.every(email => submittedEmails.includes(email));
+      if (!allReady) return;
+
+      // Everyone is ready — tell the host to fire
+      const hostEntry = Array.from(sessionRooms.get(sessionDbId)).find(e => e.isHost);
+      if (hostEntry && hostEntry.ws.readyState === hostEntry.ws.OPEN) {
+        const hostTurn = hostTurns.get(sessionDbId);
+        hostEntry.ws.send(JSON.stringify({
+          type: 'ready_golf_fire',
+          text: hostTurn.text,
+        }));
+        hostTurns.delete(sessionDbId);
+      }
+    }
+
     function joinSessionRoom(sessionDbId, canWrite) {
+      // Skip re-join if already in this room (e.g. host re-watches on save)
+      if (currentSessionDbId === sessionDbId) {
+        currentSessionCanWrite = !!canWrite;
+        wsEntry.isHost = !!canWrite;
+        return;
+      }
       leaveCurrentSessionRoom();
       currentSessionDbId = sessionDbId;
       currentSessionCanWrite = !!canWrite;
+      wsEntry.isHost = !!canWrite;
       if (!sessionRooms.has(sessionDbId)) sessionRooms.set(sessionDbId, new Set());
       sessionRooms.get(sessionDbId).add(wsEntry);
+      // Only broadcast join for non-host players (host joining is implicit)
+      if (!canWrite) {
+        const joinName = wsEntry.playerName || wsEntry.playerEmail || 'Someone';
+        broadcastSessionMessage(sessionDbId, 'session_player_joined', {
+          playerEmail: wsEntry.playerEmail,
+          playerName: joinName,
+          isHost: false,
+          companionNpcId: wsEntry.companionNpcId || null,
+        }, wsEntry);
+      }
+      broadcastSessionParticipants(sessionDbId);
     }
 
     function broadcastToSessionWatchers(type, payload = {}) {
@@ -271,14 +413,25 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           const ownerEmail = getSessionOwnerEmail(session);
           const requesterEmail = String(wsEntry.playerEmail || '').trim().toLowerCase();
           const canWrite = !!ownerEmail && !!requesterEmail && ownerEmail === requesterEmail;
+          const companionNpcId = !canWrite ? getCompanionNpcId(session, requesterEmail) : null;
 
           joinSessionRoom(requestedSessionId, canWrite);
-          send('session_access', {
+          const accessPayload = {
             sessionDbId: requestedSessionId,
             ownerEmail,
             canWrite,
             readOnly: !canWrite,
-          });
+          };
+          if (companionNpcId) {
+            accessPayload.companionNpcId = companionNpcId;
+            wsEntry.companionNpcId = companionNpcId;
+          }
+          send('session_access', accessPayload);
+          // Send current pending turns to the newly joined watcher
+          if (sessionTurns.has(requestedSessionId)) {
+            const turns = Array.from(sessionTurns.get(requestedSessionId).values());
+            send('companion_turns_update', { sessionDbId: requestedSessionId, turns });
+          }
           break;
         }
 
@@ -302,18 +455,46 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             return;
           }
 
+          const turnMode = msg.turnMode || 'host-decides';
+
           processing = true;
           send('session_status', { status: 'thinking' });
           broadcastToSessionWatchers('session_status', { status: 'thinking' });
 
           try {
-            const playerText = msg.text.trim();
+            let playerText = msg.text.trim();
+
+            // Bundle pending companion turns into the host's message
+            if (currentSessionDbId && sessionTurns.has(currentSessionDbId)) {
+              const turns = Array.from(sessionTurns.get(currentSessionDbId).values());
+              if (turns.length > 0) {
+                const companionActions = turns.map(t =>
+                  `[Companion player ${t.playerName} controlling ${t.npcName || t.npcId}]: ${t.text}`
+                ).join('\n');
+                const modeNote = turnMode === 'initiative'
+                  ? '\n(Initiative mode: resolve these actions in initiative order, rolling initiative if not yet established.)'
+                  : '';
+                playerText += `\n\n--- Companion Actions ---\n${companionActions}${modeNote}`;
+                // Clear pending turns
+                sessionTurns.delete(currentSessionDbId);
+                broadcastSessionTurns(currentSessionDbId);
+              }
+            }
+
+            // If companion actions were bundled, update the host's message
+            if (playerText !== msg.text.trim()) {
+              send('player_message_updated', { text: playerText });
+            }
+
+            // Clear host turn if ready-golf
+            if (currentSessionDbId) hostTurns.delete(currentSessionDbId);
+
             messageHistory.push({ type: 'player', text: playerText });
             broadcastToSessionWatchers('session_player_message', {
               text: playerText,
               timestamp: new Date().toISOString(),
             });
-            const stream = engine.run(msg.text.trim(), {
+            const stream = engine.run(playerText, {
               characterId,
               scenarioId,
               campaignId,
@@ -389,6 +570,87 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             pending.resolve(msg.allowed === true);
             send('session_status', { status: 'thinking' });
           }
+          break;
+        }
+
+        case 'companion_turn_submit': {
+          if (!currentSessionDbId) {
+            send('error', { error: 'Not in a session.' });
+            break;
+          }
+          if (!wsEntry.companionNpcId) {
+            send('error', { error: 'You are not a companion player in this session.' });
+            break;
+          }
+          const turnText = String(msg.text || '').trim();
+          if (!turnText) {
+            send('error', { error: 'Empty turn.' });
+            break;
+          }
+          if (!sessionTurns.has(currentSessionDbId)) sessionTurns.set(currentSessionDbId, new Map());
+          const npcName = msg.npcName || wsEntry.companionNpcId;
+          sessionTurns.get(currentSessionDbId).set(wsEntry.playerEmail, {
+            playerEmail: wsEntry.playerEmail,
+            playerName: wsEntry.playerName || wsEntry.playerEmail,
+            npcId: wsEntry.companionNpcId,
+            npcName,
+            text: turnText,
+          });
+          console.log(`[WS] Companion turn submitted — session: ${currentSessionDbId}, player: ${wsEntry.playerEmail}, npc: ${wsEntry.companionNpcId}`);
+          broadcastSessionTurns(currentSessionDbId);
+          // Check if ready-golf auto-fire should trigger
+          checkReadyGolfAutoFire(currentSessionDbId);
+          break;
+        }
+
+        case 'companion_turn_retract': {
+          if (!currentSessionDbId) break;
+          if (sessionTurns.has(currentSessionDbId)) {
+            sessionTurns.get(currentSessionDbId).delete(wsEntry.playerEmail);
+            broadcastSessionTurns(currentSessionDbId);
+          }
+          // Broadcast updated ready-golf status
+          broadcastReadyGolfStatus(currentSessionDbId);
+          break;
+        }
+
+        case 'host_skip_companion': {
+          if (!currentSessionDbId || !currentSessionCanWrite) {
+            send('error', { error: 'Only the host can skip companions.' });
+            break;
+          }
+          const skipEmail = String(msg.playerEmail || '').trim().toLowerCase();
+          if (skipEmail && sessionTurns.has(currentSessionDbId)) {
+            sessionTurns.get(currentSessionDbId).delete(skipEmail);
+            broadcastSessionTurns(currentSessionDbId);
+          }
+          // Re-check auto-fire after skipping
+          checkReadyGolfAutoFire(currentSessionDbId);
+          break;
+        }
+
+        case 'host_turn_ready': {
+          // Ready Golf: host queues their turn text, waits for all companions
+          if (!currentSessionDbId || !currentSessionCanWrite) {
+            send('error', { error: 'Only the host can submit a turn.' });
+            break;
+          }
+          const hostText = String(msg.text || '').trim();
+          if (!hostText) {
+            send('error', { error: 'Empty turn.' });
+            break;
+          }
+          hostTurns.set(currentSessionDbId, { text: hostText, wsEntry });
+          console.log(`[WS] Host turn queued (ready-golf) — session: ${currentSessionDbId}`);
+          broadcastReadyGolfStatus(currentSessionDbId);
+          checkReadyGolfAutoFire(currentSessionDbId);
+          break;
+        }
+
+        case 'host_turn_retract': {
+          if (!currentSessionDbId) break;
+          hostTurns.delete(currentSessionDbId);
+          broadcastReadyGolfStatus(currentSessionDbId);
           break;
         }
 

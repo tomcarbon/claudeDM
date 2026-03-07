@@ -86,6 +86,15 @@ function Adventure({
     resumeSession,
     watchSession,
     sessionAccess,
+    sessionParticipants,
+    companionTurns,
+    readyGolfStatus,
+    readyGolfFireRef,
+    submitHostTurnReady,
+    retractHostTurn,
+    submitCompanionTurn,
+    retractCompanionTurn,
+    skipCompanion,
   } = ws;
   const { player } = usePlayer();
   const [input, setInput] = useState('');
@@ -105,8 +114,10 @@ function Adventure({
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
   const [sessionReadOnly, setSessionReadOnly] = useState(false);
-  const [sessionSettings, setSessionSettings] = useState({ visibility: 'public' });
+  const [sessionSettings, setSessionSettings] = useState({ visibility: 'public', turnMode: 'host-decides' });
   const [showSettings, setShowSettings] = useState(false);
+  const [companionInput, setCompanionInput] = useState('');
+  const [companionTurnSubmitted, setCompanionTurnSubmitted] = useState(false);
   const [loadingSessionId, setLoadingSessionId] = useState(null);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
@@ -114,6 +125,30 @@ function Adventure({
   const isNearBottomRef = useRef(true);
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const isGuest = !player?.email;
+  const isCompanion = !!sessionAccess.companionNpcId;
+  const companionNpc = isCompanion ? npcs.find(n => n.id === sessionAccess.companionNpcId) : null;
+  const isHost = sessionAccess.canWrite;
+
+  // Reset companion turn state when turns are cleared (host submitted)
+  useEffect(() => {
+    if (isCompanion && companionTurnSubmitted) {
+      const myTurn = companionTurns.find(t => t.playerEmail === player?.email);
+      if (!myTurn) {
+        setCompanionTurnSubmitted(false);
+        setCompanionInput('');
+      }
+    }
+  }, [companionTurns, isCompanion, companionTurnSubmitted, player?.email]);
+
+  // Wire up ready-golf auto-fire callback
+  useEffect(() => {
+    readyGolfFireRef.current = (text) => {
+      isNearBottomRef.current = true;
+      setShowScrollBtn(false);
+      sendMessage(text, 'ready-golf');
+    };
+    return () => { readyGolfFireRef.current = null; };
+  }, [readyGolfFireRef, sendMessage]);
 
   const scrollToBottom = useCallback(() => {
     const container = storyRef.current;
@@ -305,7 +340,7 @@ function Adventure({
     }
     const character = characters.find(c => c.id === selectedCharacter);
     setSessionReadOnly(false);
-    setSessionSettings({ visibility: 'public' });
+    setSessionSettings({ visibility: 'public', turnMode: 'host-decides' });
 
     if (mode === 'campaigns') {
       if (!selectedCharacter || !selectedCampaign) return;
@@ -569,10 +604,22 @@ Set the scene and begin the story.`;
   function handleSend() {
     const text = input.trim();
     if (!text || status === 'thinking' || sessionReadOnly) return;
-    // User just sent a message — they want to see the response, so force auto-scroll
+    const turnMode = sessionSettings.turnMode || 'host-decides';
+    const hasCompanions = sessionParticipants.some(p => p.companionNpcId);
+
+    // Ready Golf with companions: queue turn instead of sending immediately
+    if (turnMode === 'ready-golf' && hasCompanions) {
+      isNearBottomRef.current = true;
+      setShowScrollBtn(false);
+      submitHostTurnReady(text);
+      setInput('');
+      return;
+    }
+
+    // Host Decides or Initiative or no companions: send immediately
     isNearBottomRef.current = true;
     setShowScrollBtn(false);
-    sendMessage(text);
+    sendMessage(text, turnMode);
     setInput('');
   }
 
@@ -848,7 +895,17 @@ Set the scene and begin the story.`;
           <div className="adventure-info">
             <span className="adventure-scenario">{activeCampaign?.title || activeScenario?.title}</span>
             <span className="adventure-character">{activeCharacter?.name}</span>
-            {sessionReadOnly && <span className="adventure-character">Read only</span>}
+            {isCompanion && <span className="adventure-character">Playing as {companionNpc?.name || 'Companion'}</span>}
+            {sessionReadOnly && !isCompanion && <span className="adventure-character">Read only</span>}
+            {sessionParticipants.length > 1 && (
+              <span className="session-presence">
+                {sessionParticipants.filter(p => p.playerEmail !== player?.email).map(p => (
+                  <span key={p.playerEmail} className="session-presence-dot" title={p.playerName}>
+                    {p.playerName}
+                  </span>
+                ))}
+              </span>
+            )}
           </div>
           <button
             className="btn-save"
@@ -920,6 +977,42 @@ Set the scene and begin the story.`;
                   : 'Only you can see this session.'}
               </span>
             </div>
+            <div className="session-settings-row">
+              <span className="session-settings-label">Turn Mode</span>
+              <div className="mode-toggle" style={{ marginBottom: 0 }}>
+                <button
+                  className={`mode-toggle-btn${sessionSettings.turnMode === 'initiative' ? ' active' : ''}`}
+                  onClick={() => handleUpdateSetting('turnMode', 'initiative')}
+                  disabled={sessionReadOnly || !savedSessionDbId}
+                  title="Classic D&D initiative order — roll for turn order each combat"
+                >
+                  Initiative
+                </button>
+                <button
+                  className={`mode-toggle-btn${sessionSettings.turnMode === 'ready-golf' ? ' active' : ''}`}
+                  onClick={() => handleUpdateSetting('turnMode', 'ready-golf')}
+                  disabled={sessionReadOnly || !savedSessionDbId}
+                  title="Players submit when ready — first come, first served"
+                >
+                  Ready Golf
+                </button>
+                <button
+                  className={`mode-toggle-btn${sessionSettings.turnMode === 'host-decides' ? ' active' : ''}`}
+                  onClick={() => handleUpdateSetting('turnMode', 'host-decides')}
+                  disabled={sessionReadOnly || !savedSessionDbId}
+                  title="Host picks who goes next each round"
+                >
+                  Host Decides
+                </button>
+              </div>
+              <span className="session-settings-hint">
+                {sessionSettings.turnMode === 'initiative'
+                  ? 'Classic initiative — roll for turn order each combat.'
+                  : sessionSettings.turnMode === 'ready-golf'
+                  ? 'Players submit actions when ready — first come, first served.'
+                  : 'The host picks who goes next each round.'}
+              </span>
+            </div>
             {!savedSessionDbId && (
               <p className="session-settings-hint" style={{ marginTop: '0.5rem' }}>
                 Save the session first to change settings.
@@ -952,7 +1045,13 @@ Set the scene and begin the story.`;
                 </div>
               )}
               {msg.type === 'system' && (
-                <div className="message-system">{msg.text}</div>
+                <div className="message-system">
+                  {msg.companionNpcId
+                    ? msg.text.includes('left')
+                      ? `${msg.playerName} has left the session. ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId} returns to NPC companion control.`
+                      : `${msg.text} (controlling ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId})`
+                    : msg.text}
+                </div>
               )}
             </div>
           ))}
@@ -963,26 +1062,119 @@ Set the scene and begin the story.`;
           </button>
         )}
 
+        {/* Companion turn status (host view) */}
+        {isHost && sessionParticipants.some(p => p.companionNpcId) && (
+          <div className="companion-turns-panel">
+            <div className="companion-turns-header">
+              Companion Players
+              {sessionSettings.turnMode !== 'host-decides' && (
+                <span className="companion-turns-mode">
+                  {sessionSettings.turnMode === 'ready-golf' ? '· Ready Golf' : '· Initiative'}
+                </span>
+              )}
+            </div>
+            {sessionParticipants.filter(p => p.companionNpcId).map(p => {
+              const npc = npcs.find(n => n.id === p.companionNpcId);
+              const turn = companionTurns.find(t => t.playerEmail === p.playerEmail);
+              return (
+                <div key={p.playerEmail} className={`companion-turn-entry ${turn ? 'turn-ready' : 'turn-waiting'}`}>
+                  <span className={`companion-turn-status-dot ${turn ? 'ready' : 'waiting'}`} />
+                  <span className="companion-turn-npc">{npc?.name || p.companionNpcId}</span>
+                  <span className="companion-turn-player">({p.playerName})</span>
+                  {turn ? (
+                    <>
+                      <span className="companion-turn-text">{turn.text}</span>
+                      <button
+                        className="companion-turn-skip"
+                        onClick={() => skipCompanion(p.playerEmail)}
+                        title="Remove this turn"
+                      >
+                        ✕
+                      </button>
+                    </>
+                  ) : (
+                    <span className="companion-turn-waiting-label">waiting...</span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
         {/* Input area */}
-        <div className="adventure-input-bar">
-          <textarea
-            ref={inputRef}
-            className="adventure-input"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder={sessionReadOnly ? 'Viewing live session (read-only)' : (status === 'thinking' ? 'The DM is narrating...' : 'What do you do?')}
-            disabled={sessionReadOnly || status === 'thinking' || status === 'awaiting_permission'}
-            rows={1}
-          />
-          <button
-            className="btn-send"
-            onClick={handleSend}
-            disabled={sessionReadOnly || !input.trim() || status === 'thinking'}
-          >
-            Send
-          </button>
-        </div>
+        {isCompanion ? (
+          <div className="adventure-input-bar companion-input-bar">
+            {companionTurnSubmitted ? (
+              <div className="companion-waiting">
+                Turn submitted — waiting for host to advance.
+                <button className="btn-retract" onClick={() => { retractCompanionTurn(); setCompanionTurnSubmitted(false); }}>
+                  Retract
+                </button>
+              </div>
+            ) : (
+              <>
+                <textarea
+                  className="adventure-input"
+                  value={companionInput}
+                  onChange={e => setCompanionInput(e.target.value)}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      e.preventDefault();
+                      if (companionInput.trim() && status !== 'thinking') {
+                        submitCompanionTurn(companionInput.trim(), companionNpc?.name);
+                        setCompanionTurnSubmitted(true);
+                      }
+                    }
+                  }}
+                  placeholder={status === 'thinking' ? 'The DM is narrating...' : `What does ${companionNpc?.name || 'your companion'} do?`}
+                  disabled={status === 'thinking'}
+                  rows={1}
+                />
+                <button
+                  className="btn-send"
+                  onClick={() => {
+                    if (companionInput.trim()) {
+                      submitCompanionTurn(companionInput.trim(), companionNpc?.name);
+                      setCompanionTurnSubmitted(true);
+                    }
+                  }}
+                  disabled={!companionInput.trim() || status === 'thinking'}
+                >
+                  Submit
+                </button>
+              </>
+            )}
+          </div>
+        ) : readyGolfStatus?.hostReady ? (
+          <div className="adventure-input-bar ready-golf-bar">
+            <div className="companion-waiting">
+              Turn queued — waiting for companions ({readyGolfStatus.companionsReady}/{readyGolfStatus.companionsTotal} ready)
+              <button className="btn-retract" onClick={() => retractHostTurn()}>
+                Retract
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="adventure-input-bar">
+            <textarea
+              ref={inputRef}
+              className="adventure-input"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder={sessionReadOnly ? 'Viewing live session (read-only)' : (status === 'thinking' ? 'The DM is narrating...' : 'What do you do?')}
+              disabled={sessionReadOnly || status === 'thinking' || status === 'awaiting_permission'}
+              rows={1}
+            />
+            <button
+              className="btn-send"
+              onClick={handleSend}
+              disabled={sessionReadOnly || !input.trim() || status === 'thinking'}
+            >
+              {sessionSettings.turnMode === 'ready-golf' && sessionParticipants.some(p => p.companionNpcId) ? 'Ready' : 'Send'}
+            </button>
+          </div>
+        )}
 
         {/* Permission modal */}
         {permissionRequest && (

@@ -17,6 +17,10 @@ export default function useWebSocket() {
   const [onlinePlayers, setOnlinePlayers] = useState([]);
   const [selfChatConnectionId, setSelfChatConnectionId] = useState(null);
   const [sessionAccess, setSessionAccess] = useState({ sessionDbId: null, canWrite: false, readOnly: true });
+  const [sessionParticipants, setSessionParticipants] = useState([]);
+  const [companionTurns, setCompanionTurns] = useState([]);
+  const [readyGolfStatus, setReadyGolfStatus] = useState(null);
+  const readyGolfFireRef = useRef(null); // callback for auto-fire
   const [status, setStatus] = useState('disconnected');
   const [permissionRequest, setPermissionRequest] = useState(null);
   const [sessionId, setSessionId] = useState(null);
@@ -107,12 +111,68 @@ export default function useWebSocket() {
           setMessages(prev => [...prev, { type: 'player', text: msg.text }]);
           break;
 
+        case 'player_message_updated':
+          // Replace the last player message with the augmented version (includes companion actions)
+          setMessages(prev => {
+            const lastPlayerIdx = prev.map((m, i) => m.type === 'player' ? i : -1).filter(i => i >= 0).pop();
+            if (lastPlayerIdx !== undefined && lastPlayerIdx >= 0) {
+              const updated = [...prev];
+              updated[lastPlayerIdx] = { type: 'player', text: msg.text };
+              return updated;
+            }
+            return prev;
+          });
+          break;
+
         case 'session_access':
           setSessionAccess({
             sessionDbId: msg.sessionDbId || null,
             canWrite: msg.canWrite === true,
             readOnly: msg.readOnly !== false,
+            companionNpcId: msg.companionNpcId || null,
           });
+          break;
+
+        case 'companion_turns_update':
+          setCompanionTurns(Array.isArray(msg.turns) ? msg.turns : []);
+          break;
+
+        case 'session_participants':
+          setSessionParticipants(Array.isArray(msg.participants) ? msg.participants : []);
+          break;
+
+        case 'ready_golf_status':
+          setReadyGolfStatus({
+            hostReady: msg.hostReady,
+            companionsReady: msg.companionsReady,
+            companionsTotal: msg.companionsTotal,
+            allReady: msg.allReady,
+          });
+          break;
+
+        case 'ready_golf_fire':
+          // Server says everyone is ready — auto-send the host's queued message
+          setReadyGolfStatus(null);
+          if (readyGolfFireRef.current) {
+            readyGolfFireRef.current(msg.text);
+          }
+          break;
+
+        case 'session_player_joined':
+          setMessages(prev => [...prev, {
+            type: 'system',
+            text: `${msg.playerName} has joined the session${msg.companionNpcId ? ` as a companion player` : ''}.`,
+            companionNpcId: msg.companionNpcId || null,
+          }]);
+          break;
+
+        case 'session_player_left':
+          setMessages(prev => [...prev, {
+            type: 'system',
+            text: `${msg.playerName} has left the session.`,
+            playerName: msg.playerName,
+            companionNpcId: msg.companionNpcId || null,
+          }]);
           break;
 
         case 'chat_message':
@@ -167,10 +227,10 @@ export default function useWebSocket() {
     };
   }, [connect]);
 
-  const sendMessage = useCallback((text) => {
+  const sendMessage = useCallback((text, turnMode) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       setMessages(prev => [...prev, { type: 'player', text }]);
-      wsRef.current.send(JSON.stringify({ type: 'user_message', text }));
+      wsRef.current.send(JSON.stringify({ type: 'user_message', text, turnMode: turnMode || 'host-decides' }));
     }
   }, []);
 
@@ -250,6 +310,37 @@ export default function useWebSocket() {
     }
   }, []);
 
+  const submitHostTurnReady = useCallback((text) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN && text) {
+      wsRef.current.send(JSON.stringify({ type: 'host_turn_ready', text }));
+    }
+  }, []);
+
+  const retractHostTurn = useCallback(() => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'host_turn_retract' }));
+      setReadyGolfStatus(null);
+    }
+  }, []);
+
+  const submitCompanionTurn = useCallback((text, npcName) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN && text) {
+      wsRef.current.send(JSON.stringify({ type: 'companion_turn_submit', text, npcName: npcName || null }));
+    }
+  }, []);
+
+  const retractCompanionTurn = useCallback(() => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'companion_turn_retract' }));
+    }
+  }, []);
+
+  const skipCompanion = useCallback((playerEmail) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'host_skip_companion', playerEmail }));
+    }
+  }, []);
+
   const sendChat = useCallback((text, player) => {
     if (wsRef.current?.readyState === WebSocket.OPEN && text && player) {
       wsRef.current.send(JSON.stringify({
@@ -278,6 +369,15 @@ export default function useWebSocket() {
     resumeSession,
     watchSession,
     sessionAccess,
+    sessionParticipants,
+    companionTurns,
+    readyGolfStatus,
+    readyGolfFireRef,
+    submitHostTurnReady,
+    retractHostTurn,
+    submitCompanionTurn,
+    retractCompanionTurn,
+    skipCompanion,
     joinChat,
     sendChat,
   };

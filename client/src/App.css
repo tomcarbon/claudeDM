@@ -1041,6 +1041,144 @@
   opacity: 0.85;
 }
 
+/* Session presence indicators */
+.session-presence {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.session-presence-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: #81c784;
+  padding: 0.15rem 0.5rem;
+  background: rgba(129, 199, 132, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(129, 199, 132, 0.25);
+}
+.session-presence-dot::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #81c784;
+  border-radius: 50%;
+}
+
+/* Companion turns panel (host view) */
+.companion-turns-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(138, 99, 210, 0.08);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.companion-turns-header {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #b388ff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.companion-turns-mode {
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+  text-transform: none;
+}
+.companion-turn-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  font-size: 0.85rem;
+}
+.companion-turn-npc {
+  font-weight: 600;
+  color: #b388ff;
+}
+.companion-turn-player {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.companion-turn-text {
+  flex: 1;
+  color: var(--text);
+  font-style: italic;
+}
+.companion-turn-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.companion-turn-status-dot.ready {
+  background: #81c784;
+}
+.companion-turn-status-dot.waiting {
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+.companion-turn-waiting-label {
+  flex: 1;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.8rem;
+}
+.companion-turn-skip {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+  opacity: 0.6;
+}
+.companion-turn-skip:hover {
+  opacity: 1;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+/* Companion input bar */
+.companion-input-bar {
+  border-top-color: #b388ff !important;
+}
+.companion-waiting {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+}
+.btn-retract {
+  padding: 0.3rem 0.8rem;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.btn-retract:hover {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+/* Ready Golf host bar */
+.ready-golf-bar {
+  border-top-color: #81c784 !important;
+}
+
 .btn-save {
   padding: 0.4rem 1rem;
   background: transparent;

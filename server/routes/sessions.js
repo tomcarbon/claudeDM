@@ -7,6 +7,7 @@ const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug } = require('.
 
 const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
+  turnMode: 'host-decides', // 'initiative' | 'ready-golf' | 'host-decides'
 };
 
 function getOwnerPlayer(session) {
@@ -370,6 +371,14 @@ module.exports = function (dataDir) {
           return res.status(400).json({ error: 'visibility must be "private" or "public"' });
         }
         currentSettings.visibility = incoming.visibility;
+      }
+
+      // Validate turnMode
+      if (incoming.turnMode !== undefined) {
+        if (!['initiative', 'ready-golf', 'host-decides'].includes(incoming.turnMode)) {
+          return res.status(400).json({ error: 'turnMode must be "initiative", "ready-golf", or "host-decides"' });
+        }
+        currentSettings.turnMode = incoming.turnMode;
       }
 
       // Future settings can be validated and merged here
