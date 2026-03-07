@@ -6,7 +6,7 @@ const { getAuthenticatedPlayer } = require('../player-auth');
 const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug } = require('../player-data');
 
 const DEFAULT_SETTINGS = {
-  visibility: 'private', // 'private' | 'public'
+  visibility: 'public', // 'private' | 'public'
 };
 
 function getOwnerPlayer(session) {
@@ -36,14 +36,41 @@ function getSessionSettings(session) {
   return { ...DEFAULT_SETTINGS, ...(session.settings || {}) };
 }
 
+function getCompanionSlots(session) {
+  const config = session.companionConfig;
+  if (!config || !config.states) return { open: 0, reserved: 0, claimed: 0, slots: [] };
+  const states = config.states;
+  const reservations = config.reservations || {};
+  const claimed = session.companionPlayers || {};
+  const slots = [];
+  for (const [npcId, state] of Object.entries(states)) {
+    if (state === 'player' || state === 'reserved') {
+      slots.push({
+        npcId,
+        type: state,
+        reservedFor: state === 'reserved' ? reservations[npcId] || null : null,
+        claimedBy: claimed[npcId] || null,
+      });
+    }
+  }
+  return {
+    open: slots.filter(s => s.type === 'player' && !s.claimedBy).length,
+    reserved: slots.filter(s => s.type === 'reserved' && !s.claimedBy).length,
+    claimed: slots.filter(s => s.claimedBy).length,
+    slots,
+  };
+}
+
 function summarizeSession(session, requester) {
   const ownerEmail = getOwnerEmail(session);
   const ownerName = getOwnerName(session);
   const canWrite = canWriteSession(session, requester);
   const settings = getSessionSettings(session);
+  const companionSlots = getCompanionSlots(session);
   return {
     id: session.id,
     name: session.name,
+    label: session.label || null,
     scenarioId: session.scenarioId,
     characterId: session.characterId,
     playerName: session.playerName || ownerName || null,
@@ -58,6 +85,7 @@ function summarizeSession(session, requester) {
     canWrite,
     readOnly: !canWrite,
     settings,
+    companionSlots,
   };
 }
 
@@ -233,6 +261,7 @@ module.exports = function (dataDir) {
       const session = {
         id: uuidv4(),
         name: name || 'New Adventure',
+        label: null,
         scenarioId: scenarioId || null,
         characterId: characterId || null,
         claudeSessionId: claudeSessionId || null,
@@ -349,6 +378,100 @@ module.exports = function (dataDir) {
       existing.updatedAt = new Date().toISOString();
       fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
       res.json({ settings: currentSettings });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // PUT rename session (set label)
+  router.put('/:id/label', (req, res) => {
+    try {
+      const requester = getAuthenticatedPlayer(dataDir, req);
+      if (!requester) {
+        return res.status(403).json({ error: 'Login required.' });
+      }
+      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
+      if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ error: 'Session not found' });
+      }
+      const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      if (!canWriteSession(existing, requester)) {
+        return res.status(403).json({ error: 'Only the session creator can rename this session.' });
+      }
+      const label = req.body.label != null ? String(req.body.label).trim().substring(0, 60) || null : null;
+      existing.label = label;
+      existing.updatedAt = new Date().toISOString();
+      fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
+      res.json({ label: existing.label });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // POST join a companion slot
+  router.post('/:id/join', (req, res) => {
+    try {
+      const requester = getAuthenticatedPlayer(dataDir, req);
+      if (!requester) {
+        return res.status(403).json({ error: 'Login required to join a session.' });
+      }
+      const { npcId } = req.body;
+      if (!npcId) {
+        return res.status(400).json({ error: 'npcId is required.' });
+      }
+
+      // Find the session file (could be in another player's directory)
+      let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
+      if (!fs.existsSync(filePath)) {
+        filePath = findSessionFile(req.params.id, req.campaignId);
+        if (!filePath) {
+          return res.status(404).json({ error: 'Session not found' });
+        }
+      }
+
+      const session = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      const settings = getSessionSettings(session);
+      if (settings.visibility !== 'public') {
+        return res.status(403).json({ error: 'This session is private.' });
+      }
+
+      const config = session.companionConfig;
+      if (!config || !config.states) {
+        return res.status(400).json({ error: 'This session has no companion slots configured.' });
+      }
+
+      const slotState = config.states[npcId];
+      if (!slotState || (slotState !== 'player' && slotState !== 'reserved')) {
+        return res.status(400).json({ error: 'This companion slot is not open for players.' });
+      }
+
+      // Check reservation
+      if (slotState === 'reserved') {
+        const reservedFor = (config.reservations || {})[npcId];
+        if (reservedFor && reservedFor !== requester.email) {
+          return res.status(403).json({ error: 'This slot is reserved for another player.' });
+        }
+      }
+
+      // Check if already claimed
+      if (!session.companionPlayers) session.companionPlayers = {};
+      if (session.companionPlayers[npcId]) {
+        return res.status(409).json({ error: 'This slot has already been claimed.' });
+      }
+
+      // Claim the slot
+      session.companionPlayers[npcId] = {
+        email: requester.email,
+        name: requester.name,
+        joinedAt: new Date().toISOString(),
+      };
+      session.updatedAt = new Date().toISOString();
+      fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
+      res.json({
+        npcId,
+        claimedBy: session.companionPlayers[npcId],
+        companionSlots: getCompanionSlots(session),
+      });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

@@ -1,0 +1,159 @@
+{
+  "id": "wl-char-007",
+  "name": "Lyssa Moonshadow",
+  "status": "alive",
+  "race": "Elf",
+  "subrace": "Wood Elf",
+  "class": "Ranger",
+  "level": 5,
+  "background": "Outlander",
+  "alignment": "Neutral",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 38,
+    "current": 38
+  },
+  "armorClass": 16,
+  "speed": 35,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Perception",
+    "Stealth",
+    "Survival",
+    "Nature",
+    "Athletics"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Sylvan"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Longbow",
+    "Arrows (20)",
+    "Two shortswords",
+    "Explorer's pack",
+    "A hunting trap",
+    "A trophy from a hunted fey beast (a luminous feather that glows faintly in darkness)",
+    "A set of traveler's clothes",
+    "Belt pouch containing 10 gp",
+    "A carved wooden amulet of the moon (druidic focus, non-magical)",
+    "50 ft. silk rope",
+    "A tracking journal with sketches of fey beast prints"
+  ],
+  "weapons": [
+    {
+      "name": "Longbow",
+      "attackBonus": 7,
+      "damage": "1d8+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortsword (main hand)",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortsword (off hand)",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Keen Senses (proficiency in Perception)",
+    "Fey Ancestry (advantage on saves vs. charm, immune to magical sleep)",
+    "Trance (4-hour meditation replaces 8-hour sleep)",
+    "Elf Weapon Training (proficiency with longsword, shortsword, shortbow, longbow)",
+    "Fleet of Foot (base speed 35 ft.)",
+    "Mask of the Wild (can attempt to hide when only lightly obscured by natural phenomena)",
+    "Favored Enemy: Fey (advantage on Survival to track and INT to recall info about fey creatures)",
+    "Natural Explorer: Forest (difficult terrain doesn't slow group, can't become lost except by magic, alert to danger, stealthy at normal pace, double forage)",
+    "Fighting Style: Archery (+2 to ranged attack rolls, included in attack bonus)",
+    "Extra Attack (attack twice when taking the Attack action)",
+    "Ranger Archetype: Gloom Stalker",
+    "Dread Ambusher (on first turn of combat, +10 ft. movement and one extra attack that deals an extra 1d8 damage)",
+    "Umbral Sight (darkvision increases to 90 ft.; invisible to creatures relying on darkvision to see you)",
+    "Wanderer (Outlander feature — excellent memory for geography, can find food and water for up to 6 people daily)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Fey Ancestry",
+    "Fleet of Foot",
+    "Mask of the Wild",
+    "Extra Attack",
+    "Dread Ambusher",
+    "Umbral Sight"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 14,
+    "spellAttackBonus": 6,
+    "cantrips": [],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Hunter's Mark",
+        "Cure Wounds",
+        "Disguise Self (Gloom Stalker bonus)",
+        "Goodberry"
+      ]
+    },
+    "level2": {
+      "slots": 2,
+      "known": [
+        "Pass Without Trace",
+        "Rope Trick (Gloom Stalker bonus)"
+      ]
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I speak rarely and observe constantly. I track everything — footprints, broken twigs, the direction the wind carries a scent — even in social situations. I am most comfortable in forests, even bizarre ones like the Tulgey Wood, and least comfortable in cities, courts, and any environment governed by social rules I don't understand.",
+    "ideals": "Balance. The natural order exists for a reason, and creatures that disrupt it must be hunted and stopped. Wonderland's very existence defies natural law, but something within it — a corrupted fey beast I've been tracking — represents a specific, huntable threat. I deal in specifics, not grand philosophies.",
+    "bonds": "A creature escaped from Wonderland into my home forest six months ago — something that should not exist in the material plane. It killed a member of my clan before I drove it off. I tracked it back to the looking glass and followed it through. The creature is somewhere in Wonderland. I will find it, and I will end it. My clan is everything to me, and the creature's intrusion was an attack on my family.",
+    "flaws": "I am singularly focused to the point of tunnel vision. I came here to hunt one creature, and the plight of Wonderland's inhabitants is secondary to me — at least initially. I also struggle with social situations and often come across as cold, blunt, or intimidating when I'm simply being direct. Wonderland's emphasis on riddles, wordplay, and social games frustrates me — I solve problems with arrows, not answers."
+  },
+  "appearance": "A lean, athletic wood elf standing 5'8\" with bronze skin, angular features, and long dark hair woven with feathers and small bones — trophies from successful hunts. Her eyes are a striking amber-gold, with the focused, unblinking intensity of a raptor. A jagged scar runs across her left cheek — a gift from the creature she tracked through the looking glass. She wears well-worn studded leather armor in forest greens and browns, practical and unadorned. Her longbow is an elven recurve of dark yew wood, lovingly maintained. She moves with absolute silence and economy of motion — no wasted steps, no unnecessary movements, every gesture purposeful. She tends to stand in shadows or against walls, instinctively seeking positions of advantage. Her expression at rest is watchful and still, giving nothing away. She smells faintly of pine, leather, and the cold wind of high forests.",
+  "backstory": "Lyssa Moonshadow was born into a clan of wood elves who lived on the Feywild border — a community that straddled both worlds, comfortable with fey magic in ways that most surface elves were not. She became a hunter early, specializing in tracking fey creatures that wandered across the border and caused disruption — misplaced pixies, escaped quasits, the occasional displacer beast that found its way through a thin spot in the planar boundary. She was good at her work: patient, precise, and utterly relentless once she had a trail. Six months ago, something new came through. Not a familiar fey creature but something wrong — a predator of impossible anatomy, part beast and part bad dream, that moved through the forest like oil through water. It attacked a hunting party from Lyssa's clan, killing her cousin Faevel before Lyssa drove it off with a volley of arrows. She tracked it for weeks as it made its way back toward the border, following it through a rift near a ruined wizard's tower. The rift led to a looking glass, and the glass led to Wonderland. The creature was a spawn of the Jabberwock — a fragment of Wonderland's corruption made flesh, and it had retreated to its home realm. Lyssa followed without hesitation. She doesn't care about Wonderland's politics, its mad queen, or its broken time. She has a trail, a target, and a debt of blood to pay. But the longer she stays in Wonderland, the more she realizes that the creature she hunts is a symptom, not the disease. The Jabberwock itself — and the corruption that created it — is the real threat. And if she doesn't help stop it, more creatures will escape through the looking glass, and more of her people will die."
+}

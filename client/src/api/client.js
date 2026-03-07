@@ -85,6 +85,7 @@ export const api = {
   resetMyData: (scope, id) => fetchJson(`/settings/reset-my-data?scope=${scope}${id ? `&id=${id}` : ''}`, { method: 'POST' }),
 
   // Players / Auth
+  lookupPlayers: (emails) => fetchJson(`/players/lookup?emails=${encodeURIComponent(emails.join(','))}`),
   playerLogin: (email, password) => fetchJson('/players/login', { method: 'POST', body: JSON.stringify({ email, password }) }),
   playerRegister: (email, name, password) => fetchJson('/players/register', { method: 'POST', body: JSON.stringify({ email, name, password }) }),
   playerChangePassword: (email, currentPassword, newPassword) => fetchJson('/players/password', { method: 'PUT', body: JSON.stringify({ email, currentPassword, newPassword }) }),
@@ -100,5 +101,7 @@ export const api = {
   updateSession: (id, data) => fetchJson(`/sessions/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteSession: (id) => fetchJson(`/sessions/${id}`, { method: 'DELETE' }),
   updateSessionSettings: (id, settings) => fetchJson(`/sessions/${id}/settings`, { method: 'PUT', body: JSON.stringify(settings) }),
+  renameSession: (id, label) => fetchJson(`/sessions/${id}/label`, { method: 'PUT', body: JSON.stringify({ label }) }),
+  joinSession: (id, npcId) => fetchJson(`/sessions/${id}/join`, { method: 'POST', body: JSON.stringify({ npcId }) }),
   addPlayerToSession: (id, data) => fetchJson(`/sessions/${id}/players`, { method: 'POST', body: JSON.stringify(data) }),
 };

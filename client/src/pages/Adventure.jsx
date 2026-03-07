@@ -91,16 +91,21 @@ function Adventure({
   const [input, setInput] = useState('');
   const [characters, setCharacters] = useState([]);
   const [npcs, setNpcs] = useState([]);
-  const [companionStates, setCompanionStates] = useState({}); // npcId -> 'selected' | 'removed' | 'player'
+  const [companionStates, setCompanionStates] = useState({}); // npcId -> 'selected' | 'removed' | 'player' | 'reserved'
+  const [companionReservations, setCompanionReservations] = useState({}); // npcId -> friend email
+  const [friends, setFriends] = useState([]);
+  const [friendNames, setFriendNames] = useState({}); // email -> display name
+  const [reserveDropdownNpc, setReserveDropdownNpc] = useState(null); // npcId currently showing dropdown
   const [scenarios, setScenarios] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
   const [mode, setMode] = useState('campaigns'); // 'campaigns' | 'scenarios'
+  const [sessionLabel, setSessionLabel] = useState('');
   const [selectedCampaign, setSelectedCampaign] = useState(null);
   const [savedSessions, setSavedSessions] = useState([]);
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
   const [sessionReadOnly, setSessionReadOnly] = useState(false);
-  const [sessionSettings, setSessionSettings] = useState({ visibility: 'private' });
+  const [sessionSettings, setSessionSettings] = useState({ visibility: 'public' });
   const [showSettings, setShowSettings] = useState(false);
   const [loadingSessionId, setLoadingSessionId] = useState(null);
   const storyRef = useRef(null);
@@ -129,10 +134,19 @@ function Adventure({
     }).catch(() => {});
     api.getScenarios().then(setScenarios).catch(() => {});
     api.getCampaigns().then(setCampaigns).catch(() => {});
+    api.getDmSettings().then(s => {
+      if (Array.isArray(s?.friends) && s.friends.length > 0) {
+        setFriends(s.friends);
+        api.lookupPlayers(s.friends).then(setFriendNames).catch(() => {});
+      }
+    }).catch(() => {});
     // Reset selections when campaign changes so stale picks from another campaign don't persist
     setSelectedCharacter('');
     setSelectedScenario('');
     setSelectedCampaign(null);
+    setSessionLabel('');
+    setCompanionReservations({});
+    setReserveDropdownNpc(null);
     setSavedSessions([]);
   }, [campaignId, setSelectedCharacter, setSelectedScenario]);
 
@@ -229,16 +243,40 @@ function Adventure({
   }, [sessionActive]);
 
   function cycleCompanionState(npcId) {
-    setCompanionStates(prev => {
-      const current = prev[npcId] || 'selected';
-      const next = current === 'selected' ? 'removed' : current === 'removed' ? 'player' : 'selected';
-      return { ...prev, [npcId]: next };
-    });
+    const current = companionStates[npcId] || 'selected';
+    setReserveDropdownNpc(null);
+    if (current === 'selected') {
+      setCompanionStates(prev => ({ ...prev, [npcId]: 'removed' }));
+    } else if (current === 'removed') {
+      setCompanionStates(prev => ({ ...prev, [npcId]: 'player' }));
+    } else if (current === 'player') {
+      if (friends.length > 0) {
+        // Auto-reserve for first friend, player can change via dropdown
+        setCompanionStates(prev => ({ ...prev, [npcId]: 'reserved' }));
+        setCompanionReservations(prev => ({ ...prev, [npcId]: friends[0] }));
+      } else {
+        setCompanionStates(prev => ({ ...prev, [npcId]: 'selected' }));
+      }
+    } else if (current === 'reserved') {
+      setCompanionStates(prev => ({ ...prev, [npcId]: 'selected' }));
+      setCompanionReservations(prev => { const next = { ...prev }; delete next[npcId]; return next; });
+    }
+  }
+
+  function handleReserveFor(npcId, friendEmail) {
+    setCompanionReservations(prev => ({ ...prev, [npcId]: friendEmail }));
+    setReserveDropdownNpc(null);
+  }
+
+  function toggleReserveDropdown(e, npcId) {
+    e.stopPropagation();
+    setReserveDropdownNpc(prev => prev === npcId ? null : npcId);
   }
 
   function buildCompanionRoster() {
     const activeCompanions = npcs.filter(n => companionStates[n.id] === 'selected');
-    const playerSlots = npcs.filter(n => companionStates[n.id] === 'player').length;
+    const openSlots = npcs.filter(n => companionStates[n.id] === 'player');
+    const reservedSlots = npcs.filter(n => companionStates[n.id] === 'reserved');
     const removedCompanions = npcs.filter(n => companionStates[n.id] === 'removed');
     const lines = [];
     if (activeCompanions.length > 0) {
@@ -247,10 +285,14 @@ function Adventure({
     if (removedCompanions.length > 0) {
       lines.push(`These NPCs are NOT in the party and should not appear: ${removedCompanions.map(n => n.name).join(', ')}.`);
     }
-    if (playerSlots > 0) {
-      lines.push(`${playerSlots} party slot(s) are reserved for other players who may join later.`);
+    if (openSlots.length > 0) {
+      lines.push(`${openSlots.length} open player slot(s) (${openSlots.map(n => n.name).join(', ')}). Until a player joins, the DM controls these as NPCs.`);
     }
-    if (activeCompanions.length === 0 && playerSlots === 0) {
+    if (reservedSlots.length > 0) {
+      const details = reservedSlots.map(n => `${n.name} (reserved for ${companionReservations[n.id]})`).join(', ');
+      lines.push(`Reserved player slot(s): ${details}. Until the reserved player joins, the DM controls these as NPCs.`);
+    }
+    if (activeCompanions.length === 0 && openSlots.length === 0 && reservedSlots.length === 0) {
       lines.push('The player is adventuring solo — no NPC companions in the party.');
     }
     return lines.join('\n');
@@ -263,7 +305,7 @@ function Adventure({
     }
     const character = characters.find(c => c.id === selectedCharacter);
     setSessionReadOnly(false);
-    setSessionSettings({ visibility: 'private' });
+    setSessionSettings({ visibility: 'public' });
 
     if (mode === 'campaigns') {
       if (!selectedCharacter || !selectedCampaign) return;
@@ -334,6 +376,10 @@ Set the scene and begin the story.`;
         messages: messages.filter(m => m.type !== 'dm_partial'),
         playerEmail: player?.email || null,
         playerName: player?.name || null,
+        companionConfig: {
+          states: companionStates,
+          reservations: companionReservations,
+        },
       };
 
       console.log(`[Save] Payload — messages: ${payload.messages.length}, claudeSessionId: ${payload.claudeSessionId ? 'yes' : 'no'}`);
@@ -343,6 +389,9 @@ Set the scene and begin the story.`;
       } else {
         result = await api.createSession(payload);
         setSavedSessionDbId(result.id);
+        if (sessionLabel.trim()) {
+          api.renameSession(result.id, sessionLabel.trim()).catch(() => {});
+        }
       }
       watchSession(result.id, player);
       setSessionReadOnly(result.readOnly === true);
@@ -353,6 +402,33 @@ Set the scene and begin the story.`;
       console.error('Save failed:', err);
       if (err?.message) alert(`Save failed: ${err.message}`);
       setSaveStatus(null);
+    }
+  }
+
+  async function handleRenameSession(e, id) {
+    e.stopPropagation();
+    const session = savedSessions.find(s => s.id === id);
+    const current = session?.label || '';
+    const label = window.prompt('Enter a label for this session (or clear to remove):', current);
+    if (label === null) return; // cancelled
+    try {
+      await api.renameSession(id, label || null);
+      setSavedSessions(prev => prev.map(s => s.id === id ? { ...s, label: label || null } : s));
+    } catch (err) {
+      console.error('Rename failed:', err);
+      alert('Rename failed: ' + err.message);
+    }
+  }
+
+  async function handleJoinSession(e, sessionId, npcId) {
+    e.stopPropagation();
+    if (isGuest) { alert('Please log in to join a session.'); return; }
+    try {
+      await api.joinSession(sessionId, npcId);
+      // Reload the session as a participant
+      handleLoadSession(sessionId);
+    } catch (err) {
+      alert('Join failed: ' + (err.message || 'Unknown error'));
     }
   }
 
@@ -377,7 +453,11 @@ Set the scene and begin the story.`;
       setSavedSessionDbId(session.id);
       const readOnly = session.readOnly === true || session.canWrite === false;
       setSessionReadOnly(readOnly);
-      setSessionSettings(session.settings || { visibility: 'private' });
+      setSessionSettings(session.settings || { visibility: 'public' });
+      if (session.companionConfig) {
+        setCompanionStates(session.companionConfig.states || {});
+        setCompanionReservations(session.companionConfig.reservations || {});
+      }
       const loadedMessages = normalizeSavedMessages(session.messages);
       setMessages(loadedMessages);
       if (loadedMessages.length === 0) {
@@ -534,23 +614,51 @@ Set the scene and begin the story.`;
           <div className="setup-group">
             <label>Companions</label>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '0 0 0.5rem' }}>
-              Click to cycle: <strong>In Party</strong> &rarr; <strong>Removed</strong> &rarr; <strong>Player Slot</strong>
+              Click to cycle: <strong>In Party</strong> &rarr; <strong>Removed</strong> &rarr; <strong>Player Slot</strong>{friends.length > 0 ? <> &rarr; <strong>Reserved For</strong></> : ''}
             </p>
             <div className="setup-options">
               {npcs.filter(n => n.status !== 'dead').map(n => {
                 const state = companionStates[n.id] || 'selected';
+                const reservedEmail = companionReservations[n.id];
                 return (
-                  <button
-                    key={n.id}
-                    className={`option-card companion-card companion-${state}`}
-                    onClick={() => cycleCompanionState(n.id)}
-                  >
-                    <strong>{n.name}</strong>
-                    <span>Level {n.level} {n.subrace ? (n.subrace.toLowerCase().includes(n.race.toLowerCase()) ? n.subrace : `${n.subrace} ${n.race}`) : n.race} {n.class}</span>
-                    <span className="companion-state-label">
-                      {state === 'selected' ? 'In Party' : state === 'removed' ? 'Removed' : 'Player Slot'}
-                    </span>
-                  </button>
+                  <div key={n.id} className={`option-card companion-card companion-${state}`} style={{ position: 'relative' }}>
+                    <button
+                      className="companion-card-btn"
+                      onClick={() => cycleCompanionState(n.id)}
+                    >
+                      <strong>{n.name}</strong>
+                      <span>Level {n.level} {n.subrace ? (n.subrace.toLowerCase().includes(n.race.toLowerCase()) ? n.subrace : `${n.subrace} ${n.race}`) : n.race} {n.class}</span>
+                      <span className="companion-state-label">
+                        {state === 'selected' ? 'In Party'
+                          : state === 'removed' ? 'Removed'
+                          : state === 'player' ? 'Player Slot'
+                          : `Reserved: ${friendNames[reservedEmail] || reservedEmail}`}
+                      </span>
+                    </button>
+                    {state === 'reserved' && friends.length > 1 && (
+                      <button
+                        className="btn-session-action reserve-change-btn"
+                        onClick={(e) => toggleReserveDropdown(e, n.id)}
+                        title="Change reserved player"
+                      >
+                        &#x25BE;
+                      </button>
+                    )}
+                    {reserveDropdownNpc === n.id && (
+                      <div className="reserve-dropdown">
+                        <div className="reserve-dropdown-header">Reserve for:</div>
+                        {friends.map(email => (
+                          <button
+                            key={email}
+                            className={`reserve-dropdown-item${email === reservedEmail ? ' reserve-dropdown-active' : ''}`}
+                            onClick={() => handleReserveFor(n.id, email)}
+                          >
+                            {friendNames[email] || email}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 );
               })}
             </div>
@@ -604,6 +712,17 @@ Set the scene and begin the story.`;
           </div>
         </div>
 
+        <div className="session-label-input-row">
+          <input
+            type="text"
+            className="session-label-input"
+            placeholder="Session label (optional)"
+            value={sessionLabel}
+            onChange={e => setSessionLabel(e.target.value)}
+            maxLength={60}
+          />
+        </div>
+
         <button
           className="btn-primary begin-btn"
           disabled={isGuest || !selectedCharacter || (mode === 'scenarios' ? !selectedScenario : !selectedCampaign) || status === 'disconnected'}
@@ -621,7 +740,7 @@ Set the scene and begin the story.`;
           <label>Load Saved Session</label>
           <div className="setup-options">
             {savedSessions.map((s, i) => (
-              <div key={`${s.id}-${i}`} className="option-card" style={{ position: 'relative' }}>
+              <div key={`${s.id}-${i}`} className="option-card saved-session-card" style={{ position: 'relative' }}>
                 <button
                   className="option-card-inner"
                   onClick={() => handleLoadSession(s.id)}
@@ -636,10 +755,15 @@ Set the scene and begin the story.`;
                   }}
                 >
                   <strong>{s.name}</strong>
-                  <span>Player: {s.playerName || s.playerEmail || 'Unknown'}</span>
+                  {s.label && <span className="session-label">&ldquo;{s.label}&rdquo;</span>}
+                  <span style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                    <span>Player: {s.playerName || s.playerEmail || 'Unknown'}</span>
+                    <span className="session-short-id">#{s.id.slice(-8)}</span>
+                  </span>
                   <span>
                     {s.canWrite === false ? 'Read only' : 'Editable'}
                     {s.settings?.visibility === 'public' ? ' · Public' : ''}
+                    {s.companionSlots && (s.companionSlots.open > 0 || s.companionSlots.reserved > 0) ? ` · ${s.companionSlots.open + s.companionSlots.reserved} slot(s) available` : ''}
                   </span>
                   <span>
                     {loadingSessionId === s.id ? 'Loading...' : `${s.messageCount} messages — ${formatSavedSessionDate(s.updatedAt)}`}
@@ -648,22 +772,45 @@ Set the scene and begin the story.`;
                     <span className="saved-session-time">{formatSavedSessionTime(s.updatedAt)}</span>
                   )}
                 </button>
+                {s.companionSlots && s.companionSlots.slots.length > 0 && s.canWrite === false && (
+                  <div className="session-slots">
+                    {s.companionSlots.slots.filter(sl => !sl.claimedBy).map(sl => {
+                      const npc = npcs.find(n => n.id === sl.npcId);
+                      const canJoin = sl.type === 'player' || (sl.type === 'reserved' && sl.reservedFor === player?.email);
+                      return (
+                        <div key={sl.npcId} className={`session-slot ${canJoin ? 'session-slot-joinable' : 'session-slot-reserved'}`}>
+                          <span className="session-slot-name">{npc?.name || sl.npcId}</span>
+                          <span className="session-slot-type">{sl.type === 'reserved' ? `Reserved: ${sl.reservedFor}` : 'Open'}</span>
+                          {canJoin && !isGuest && (
+                            <button
+                              className="btn-join-slot"
+                              onClick={(e) => handleJoinSession(e, s.id, sl.npcId)}
+                            >
+                              Join
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
                 {s.canWrite !== false && (
-                  <button
-                    className="btn-delete-session"
-                    onClick={(e) => handleDeleteSession(e, s.id)}
-                    title="Delete session"
-                    style={{
-                      position: 'absolute', top: '0.4rem', right: '0.4rem',
-                      background: 'none', border: 'none', cursor: 'pointer',
-                      color: 'var(--text-muted)', fontSize: '1rem', padding: '0.2rem 0.4rem',
-                      borderRadius: '4px', lineHeight: 1,
-                    }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#e74c3c'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
-                  >
-                    &times;
-                  </button>
+                  <div style={{ position: 'absolute', top: '0.4rem', right: '0.4rem', display: 'flex', gap: '0.2rem' }}>
+                    <button
+                      className="btn-session-action"
+                      onClick={(e) => handleRenameSession(e, s.id)}
+                      title="Rename session"
+                    >
+                      &#x270E;
+                    </button>
+                    <button
+                      className="btn-session-action btn-session-delete"
+                      onClick={(e) => handleDeleteSession(e, s.id)}
+                      title="Delete session"
+                    >
+                      &times;
+                    </button>
+                  </div>
                 )}
               </div>
             ))}

@@ -501,6 +501,72 @@
 .companion-player .companion-state-label {
   color: #3498db;
 }
+.companion-reserved {
+  border-color: #9b59b6;
+  background: rgba(155, 89, 182, 0.1);
+}
+.companion-reserved strong {
+  color: #bb8fce;
+}
+.companion-reserved .companion-state-label {
+  color: #9b59b6;
+}
+.companion-card-btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.reserve-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  margin-top: 2px;
+  overflow: hidden;
+}
+.reserve-dropdown-header {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+}
+.reserve-dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.reserve-dropdown-item:hover {
+  background: rgba(155, 89, 182, 0.15);
+  color: #bb8fce;
+}
+.reserve-dropdown-active {
+  color: #bb8fce;
+  font-weight: 600;
+}
+.reserve-change-btn {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  font-size: 1rem !important;
+  color: #9b59b6;
+}
 
 /* DM Settings - Quick Presets */
 .quick-preset-btn.active {
@@ -993,6 +1059,117 @@
 .btn-save:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* ===== Session Label Input ===== */
+.session-label-input-row {
+  margin-top: 1rem;
+  max-width: 320px;
+}
+.session-label-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-dark);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.session-label-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ===== Saved Session Cards (larger) ===== */
+.saved-session-card.option-card {
+  padding: 1rem 1.1rem;
+}
+.saved-session-card strong {
+  font-size: 1.05em;
+}
+.saved-session-card span {
+  font-size: 0.9em;
+}
+.saved-session-card .saved-session-time {
+  font-size: 0.8em;
+}
+
+/* ===== Session Card Details ===== */
+.session-short-id {
+  font-family: monospace;
+  font-size: 0.75em;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+.session-label {
+  color: var(--gold);
+  font-size: 0.85em;
+  font-style: italic;
+}
+.btn-session-action {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  line-height: 1;
+}
+.btn-session-action:hover {
+  color: var(--gold);
+}
+.btn-session-delete:hover {
+  color: #e74c3c !important;
+}
+
+/* ===== Session Companion Slots (Join Flow) ===== */
+.session-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+.session-slot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.82rem;
+}
+.session-slot-joinable {
+  background: rgba(52, 152, 219, 0.08);
+  border: 1px solid rgba(52, 152, 219, 0.3);
+}
+.session-slot-reserved {
+  background: rgba(155, 89, 182, 0.08);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  opacity: 0.7;
+}
+.session-slot-name {
+  font-weight: 600;
+  color: var(--text);
+}
+.session-slot-type {
+  color: var(--text-muted);
+  font-size: 0.78em;
+  flex: 1;
+}
+.btn-join-slot {
+  padding: 0.2rem 0.6rem;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-join-slot:hover {
+  background: #2980b9;
 }
 
 /* ===== Multiplayer Lists (Settings) ===== */

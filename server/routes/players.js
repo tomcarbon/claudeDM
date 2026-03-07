@@ -25,6 +25,18 @@ module.exports = function (dataDir) {
     return { email: p.email, name: p.name, role: p.role };
   }
 
+  // GET /api/players/lookup?emails=a@b.com,c@d.com — resolve emails to names
+  router.get('/lookup', (req, res) => {
+    const emails = String(req.query.emails || '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
+    if (emails.length === 0) return res.json({});
+    const players = readPlayers();
+    const result = {};
+    for (const email of emails) {
+      if (players[email]) result[email] = players[email].name;
+    }
+    res.json(result);
+  });
+
   // POST /api/players/login
   router.post('/login', (req, res) => {
     const { email, password } = req.body;

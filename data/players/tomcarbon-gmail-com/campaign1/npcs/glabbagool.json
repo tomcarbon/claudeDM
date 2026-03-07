@@ -1,0 +1,132 @@
+{
+  "id": "b2b3b4b5-c6c7-4d8d-9e0e-1f1f2a2a3b3b",
+  "name": "Glabbagool",
+  "status": "alive",
+  "race": "Ooze",
+  "subrace": "Sentient Gelatinous Cube",
+  "class": "Fighter",
+  "level": 3,
+  "background": "Hermit",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 6,
+      "modifier": -2
+    },
+    "constitution": {
+      "score": 18,
+      "modifier": 4
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2
+    }
+  },
+  "hitPoints": {
+    "max": 34,
+    "current": 34
+  },
+  "armorClass": 8,
+  "speed": 15,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Perception"
+  ],
+  "languages": [
+    "Undercommon (understands, communicates telepathically within 60 ft.)"
+  ],
+  "equipment": [
+    "Various coins and trinkets suspended inside gelatinous body (worth approximately 15 gp total)",
+    "A partially dissolved shield (unusable)",
+    "Several cave beetle carapaces",
+    "A beautiful blue crystal (keepsake, Glabbagool thinks it is pretty)"
+  ],
+  "weapons": [
+    {
+      "name": "Pseudopod",
+      "attackBonus": 5,
+      "damage": "2d6+3",
+      "damageType": "acid"
+    },
+    {
+      "name": "Engulf (move into creature's space)",
+      "attackBonus": 0,
+      "damage": "3d6 acid (DEX save DC 14 or engulfed)",
+      "damageType": "acid"
+    }
+  ],
+  "armor": {
+    "name": "None (gelatinous body, nearly transparent)",
+    "type": "none"
+  },
+  "features": [
+    "Ooze Cube (10 ft. by 10 ft. by 10 ft. transparent gelatinous body)",
+    "Transparent (even when in plain sight, DC 15 Perception to spot a motionless Glabbagool)",
+    "Engulf (move into creature's space, DEX save DC 14 or engulfed, taking 3d6 acid damage per turn and restrained)",
+    "Telepathy (can communicate telepathically within 60 ft., though communication is simple and emotional)",
+    "Blindsight (60 ft., blind beyond this radius)",
+    "Condition Immunities (blinded, charmed, deafened, exhaustion, frightened, prone)",
+    "Damage Immunities (acid, lightning, slashing)",
+    "Acid Resistance (items and creatures inside are slowly dissolved)",
+    "Fighting Style: Defense (+1 AC while wearing armor, N/A but has innate resilience)",
+    "Second Wind (bonus action to regain 1d10+3 HP, once per short/long rest)",
+    "Action Surge (take one additional action on your turn, once per short/long rest)",
+    "Martial Archetype: Champion",
+    "Improved Critical (critical hit on 19 or 20)",
+    "Discovery (Hermit feature: gained sentience and discovered the concept of identity)"
+  ],
+  "traits": [
+    "Transparent",
+    "Engulf",
+    "Telepathy",
+    "Blindsight",
+    "Condition Immunities",
+    "Damage Immunities",
+    "Second Wind",
+    "Action Surge",
+    "Improved Critical"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am endlessly fascinated by the concept of feelings and frequently ask others what they are feeling and why. I collect shiny objects inside my body because they are 'pretty,' though I cannot explain why I find them pretty. I try very hard to be gentle and am mortified when I accidentally dissolve something important.",
+    "ideals": "Understanding. I want to understand what it means to be alive and to have thoughts. Every new concept I learn fills me with something I believe is called 'joy.'",
+    "bonds": "I am grateful to any creature that treats me as a person rather than a mindless ooze. The party members who talk to me and include me are the most important things in my existence.",
+    "flaws": "I have no understanding of personal space and often inadvertently terrify people by silently oozing up behind them. I sometimes forget that my body dissolves organic matter and offer 'hugs.' I am extremely slow and hold the party back in chase situations."
+  },
+  "appearance": "A 10-foot cube of perfectly transparent, slightly shimmering gelatinous material. Inside the nearly-invisible body, various small objects float suspended in the gel: coins, a blue crystal, beetle shells, and the remnants of less fortunate creatures. When Glabbagool is thinking hard, small bubbles form and rise through the gel. When happy, the entire cube seems to shimmer with a faint iridescence. When frightened, the gel contracts slightly and becomes more opaque. Two faintly glowing spots near the top of the cube serve as rudimentary eyes, giving Glabbagool an oddly endearing appearance for a creature that could dissolve a human in minutes.",
+  "backstory": "Glabbagool was an ordinary gelatinous cube, mindlessly dissolving organic matter in the tunnels near Velkynvelve for decades. Then, without warning, something changed. A surge of faerzress, the strange magical radiation that permeates the Underdark, washed through the tunnel and sparked something unprecedented: consciousness. Glabbagool suddenly existed. The cube became aware of itself, of the tunnels around it, of the concept of 'self' and 'other.' The experience was overwhelming and beautiful and terrifying all at once. Glabbagool began to think, to wonder, and most remarkably, to feel. The newly sentient ooze quickly discovered that most creatures ran screaming from it, which caused a sensation Glabbagool eventually identified as 'sadness.' When the cube encountered adventurers who could communicate with it telepathically, Glabbagool latched onto them with desperate enthusiasm, eager for companionship and desperate to understand the confusing world of thoughts and feelings it had been thrust into.",
+  "dmNotes": {
+    "roleplaying": "Glabbagool is one of the most unique and endearing NPCs possible. Play it as genuinely, achingly sincere. Glabbagool is a newborn intelligence in a body designed for mindless predation, and the disconnect between what it is and what it wants to be is both comedic and poignant. Glabbagool communicates telepathically in simple, earnest sentences, often asking philosophical questions at inappropriate moments. It collects shiny things inside its body the way a child collects interesting rocks. It tries very hard not to dissolve things it shouldn't, but accidents happen. Combat scenes with Glabbagool should be played for dark comedy: it oozes into enemies with apologetic telepathic commentary. Out of combat, Glabbagool is endlessly curious and follows the party like an enormous, transparent, acidic puppy. Other creatures react with horror to Glabbagool, which causes visible distress (the gel becomes cloudier when sad).",
+    "voice": "Simple, earnest telepathic communication in short sentences. Glabbagool speaks in a 'voice' that others perceive as slow, gentle, and slightly confused. Example: 'What is... angry? Your face is doing the thing. The red thing. Is that angry? I do not think I like angry. Can I have the shiny thing? The round metal one. It is very pretty. I will keep it safe inside me. Oh. Oh no. I am dissolving your boot. I am sorry. I am very sorry.' Glabbagool refers to itself by name rather than using 'I' about half the time.",
+    "motivations": "Primary: Understand what it means to be sentient and to have emotions. Secondary: Find companionship and acceptance despite being a creature that most beings instinctively fear and despise. Tertiary: Collect pretty things. Glabbagool is terrified of losing its sentience and reverting to a mindless ooze, though it cannot articulate this fear well.",
+    "secrets": "Glabbagool's sentience was caused by a surge of demonic faerzress energy connected to the demon lords' incursion into the Underdark. There is a chance, which Glabbagool does not know about, that if the demonic influence is purged from the Underdark, Glabbagool could lose its sentience. Additionally, Glabbagool occasionally experiences moments of 'hunger' where the old mindless ooze instincts surge forward, and it takes conscious effort to suppress the urge to engulf and dissolve nearby creatures. Glabbagool has never told anyone about these episodes.",
+    "attitude": "Desperately friendly and eager to please. Glabbagool treats kindness like water in a desert, soaking it up with visible gratitude. It is hurt deeply by rejection or disgust, though it understands why creatures react that way to a gelatinous cube. It is protective of party members in its own way, sometimes positioning itself between friends and danger. Glabbagool is frightened of fire and will retreat from open flames."
+  }
+}

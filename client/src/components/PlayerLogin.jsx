@@ -45,8 +45,7 @@ export default function PlayerLogin() {
     try {
       const playerData = await api.playerRegister(email.trim(), name.trim(), password);
       login(playerData);
-      resetForm();
-      setMode('login');
+      window.location.reload();
     } catch (err) {
       setError(err.message || 'Registration failed.');
     } finally {
