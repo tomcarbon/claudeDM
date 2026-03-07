@@ -92,12 +92,14 @@ function Adventure({
   const [characters, setCharacters] = useState([]);
   const [scenarios, setScenarios] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
-  const [mode, setMode] = useState('scenarios'); // 'scenarios' | 'campaigns'
+  const [mode, setMode] = useState('campaigns'); // 'campaigns' | 'scenarios'
   const [selectedCampaign, setSelectedCampaign] = useState(null);
   const [savedSessions, setSavedSessions] = useState([]);
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
   const [sessionReadOnly, setSessionReadOnly] = useState(false);
+  const [sessionSettings, setSessionSettings] = useState({ visibility: 'private' });
+  const [showSettings, setShowSettings] = useState(false);
   const [loadingSessionId, setLoadingSessionId] = useState(null);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
@@ -122,6 +124,7 @@ function Adventure({
     setSelectedCharacter('');
     setSelectedScenario('');
     setSelectedCampaign(null);
+    setSavedSessions([]);
   }, [campaignId, setSelectedCharacter, setSelectedScenario]);
 
   // Track whether the user has scrolled away from the bottom.
@@ -223,6 +226,7 @@ function Adventure({
     }
     const character = characters.find(c => c.id === selectedCharacter);
     setSessionReadOnly(false);
+    setSessionSettings({ visibility: 'private' });
 
     if (mode === 'campaigns') {
       if (!selectedCharacter || !selectedCampaign) return;
@@ -326,6 +330,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       setSavedSessionDbId(session.id);
       const readOnly = session.readOnly === true || session.canWrite === false;
       setSessionReadOnly(readOnly);
+      setSessionSettings(session.settings || { visibility: 'private' });
       const loadedMessages = normalizeSavedMessages(session.messages);
       setMessages(loadedMessages);
       if (loadedMessages.length === 0) {
@@ -422,6 +427,18 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
     e.target.value = '';
   }
 
+  async function handleUpdateSetting(key, value) {
+    if (!savedSessionDbId || sessionReadOnly) return;
+    const updated = { ...sessionSettings, [key]: value };
+    setSessionSettings(updated);
+    try {
+      await api.updateSessionSettings(savedSessionDbId, { [key]: value });
+    } catch (err) {
+      console.error('Settings update failed:', err);
+      setSessionSettings(sessionSettings); // revert on failure
+    }
+  }
+
   function handleSend() {
     const text = input.trim();
     if (!text || status === 'thinking' || sessionReadOnly) return;
@@ -470,16 +487,16 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
           <div className="setup-group">
             <div className="mode-toggle">
               <button
-                className={`mode-toggle-btn${mode === 'scenarios' ? ' active' : ''}`}
-                onClick={() => { setMode('scenarios'); setSelectedCampaign(null); }}
-              >
-                Scenarios
-              </button>
-              <button
                 className={`mode-toggle-btn${mode === 'campaigns' ? ' active' : ''}`}
                 onClick={() => { setMode('campaigns'); setSelectedScenario(null); }}
               >
                 Campaigns
+              </button>
+              <button
+                className={`mode-toggle-btn${mode === 'scenarios' ? ' active' : ''}`}
+                onClick={() => { setMode('scenarios'); setSelectedCampaign(null); }}
+              >
+                Scenarios
               </button>
             </div>
 
@@ -548,7 +565,10 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
                 >
                   <strong>{s.name}</strong>
                   <span>Player: {s.playerName || s.playerEmail || 'Unknown'}</span>
-                  <span>{s.canWrite === false ? 'Read only' : 'Editable'}</span>
+                  <span>
+                    {s.canWrite === false ? 'Read only' : 'Editable'}
+                    {s.settings?.visibility === 'public' ? ' · Public' : ''}
+                  </span>
                   <span>
                     {loadingSessionId === s.id ? 'Loading...' : `${s.messageCount} messages — ${formatSavedSessionDate(s.updatedAt)}`}
                   </span>
@@ -641,11 +661,53 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
             />
             Auto-save
           </label>
+          <button
+            className="btn-save"
+            onClick={() => setShowSettings(s => !s)}
+            title="Session Settings"
+          >
+            Settings
+          </button>
           <div className={`status-indicator ${statusInfo.className}`}>
             <span className="status-dot" />
             <span className="status-label">{statusInfo.label}</span>
           </div>
         </div>
+
+        {/* Session settings panel */}
+        {showSettings && (
+          <div className="session-settings-panel">
+            <div className="session-settings-row">
+              <span className="session-settings-label">Visibility</span>
+              <div className="mode-toggle" style={{ marginBottom: 0 }}>
+                <button
+                  className={`mode-toggle-btn${sessionSettings.visibility === 'private' ? ' active' : ''}`}
+                  onClick={() => handleUpdateSetting('visibility', 'private')}
+                  disabled={sessionReadOnly || !savedSessionDbId}
+                >
+                  Private
+                </button>
+                <button
+                  className={`mode-toggle-btn${sessionSettings.visibility === 'public' ? ' active' : ''}`}
+                  onClick={() => handleUpdateSetting('visibility', 'public')}
+                  disabled={sessionReadOnly || !savedSessionDbId}
+                >
+                  Public
+                </button>
+              </div>
+              <span className="session-settings-hint">
+                {sessionSettings.visibility === 'public'
+                  ? 'Other players can see and load this session (read-only).'
+                  : 'Only you can see this session.'}
+              </span>
+            </div>
+            {!savedSessionDbId && (
+              <p className="session-settings-hint" style={{ marginTop: '0.5rem' }}>
+                Save the session first to change settings.
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Story area */}
         <div className="story-area" ref={storyRef}>

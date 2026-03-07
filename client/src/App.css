@@ -956,6 +956,30 @@
   cursor: not-allowed;
 }
 
+/* ===== Session Settings Panel ===== */
+.session-settings-panel {
+  padding: 0.75rem 1rem;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+.session-settings-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.session-settings-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-width: 5rem;
+}
+.session-settings-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 /* ===== Permission Modal ===== */
 .permission-overlay {
   position: fixed;

@@ -3,7 +3,11 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
-const { getPlayerSessionsDir, ensurePlayerDataExists } = require('../player-data');
+const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug } = require('../player-data');
+
+const DEFAULT_SETTINGS = {
+  visibility: 'private', // 'private' | 'public'
+};
 
 function getOwnerPlayer(session) {
   return (session.players || []).find(p => p.role === 'owner')
@@ -28,10 +32,15 @@ function canWriteSession(session, requester) {
   return !!ownerEmail && requester.email === ownerEmail;
 }
 
+function getSessionSettings(session) {
+  return { ...DEFAULT_SETTINGS, ...(session.settings || {}) };
+}
+
 function summarizeSession(session, requester) {
   const ownerEmail = getOwnerEmail(session);
   const ownerName = getOwnerName(session);
   const canWrite = canWriteSession(session, requester);
+  const settings = getSessionSettings(session);
   return {
     id: session.id,
     name: session.name,
@@ -48,6 +57,7 @@ function summarizeSession(session, requester) {
     status: session.status,
     canWrite,
     readOnly: !canWrite,
+    settings,
   };
 }
 
@@ -55,6 +65,7 @@ function withSessionAccess(session, requester) {
   const ownerEmail = getOwnerEmail(session);
   const ownerName = getOwnerName(session);
   const canWrite = canWriteSession(session, requester);
+  const settings = getSessionSettings(session);
   return {
     ...session,
     ownerEmail,
@@ -63,6 +74,7 @@ function withSessionAccess(session, requester) {
     playerName: session.playerName || ownerName || null,
     canWrite,
     readOnly: !canWrite,
+    settings,
   };
 }
 
@@ -82,19 +94,99 @@ module.exports = function (dataDir) {
     return dir;
   }
 
+  // Scan all players' session directories for public sessions in the given campaign
+  function getPublicSessions(requester, campaignId) {
+    const playersDir = path.join(dataDir, 'players');
+    if (!fs.existsSync(playersDir)) return [];
+
+    const requesterSlug = requester ? emailToSlug(requester.email) : null;
+    const results = [];
+
+    let playerDirs;
+    try {
+      playerDirs = fs.readdirSync(playersDir).filter(d => {
+        if (d === requesterSlug) return false; // skip own — already included
+        const stat = fs.statSync(path.join(playersDir, d));
+        return stat.isDirectory();
+      });
+    } catch {
+      return [];
+    }
+
+    for (const playerSlug of playerDirs) {
+      const sessDir = path.join(playersDir, playerSlug, campaignId || 'demo', 'sessions');
+      if (!fs.existsSync(sessDir)) continue;
+      let files;
+      try {
+        files = fs.readdirSync(sessDir).filter(f => f.endsWith('.json'));
+      } catch {
+        continue;
+      }
+      for (const f of files) {
+        try {
+          const data = JSON.parse(fs.readFileSync(path.join(sessDir, f), 'utf-8'));
+          const settings = getSessionSettings(data);
+          if (settings.visibility === 'public') {
+            results.push(summarizeSession(data, requester));
+          }
+        } catch {
+          // skip malformed files
+        }
+      }
+    }
+
+    return results;
+  }
+
+  // Resolve a session file by ID across all players (for public access)
+  function findSessionFile(sessionId, campaignId) {
+    const playersDir = path.join(dataDir, 'players');
+    if (!fs.existsSync(playersDir)) return null;
+
+    let playerDirs;
+    try {
+      playerDirs = fs.readdirSync(playersDir).filter(d => {
+        const stat = fs.statSync(path.join(playersDir, d));
+        return stat.isDirectory();
+      });
+    } catch {
+      return null;
+    }
+
+    for (const playerSlug of playerDirs) {
+      const filePath = path.join(playersDir, playerSlug, campaignId || 'demo', 'sessions', `${sessionId}.json`);
+      if (fs.existsSync(filePath)) return filePath;
+    }
+    return null;
+  }
+
   // GET all sessions
   router.get('/', (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
       const dir = getSessionsDir(req);
       const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-      const sessions = files.map(f => {
+      const ownSessions = files.map(f => {
         const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
         return summarizeSession(data, requester);
       });
+
+      // Also include public sessions from other players
+      const publicSessions = getPublicSessions(requester, req.campaignId);
+
+      // Merge and deduplicate by ID
+      const seen = new Set(ownSessions.map(s => s.id));
+      const allSessions = [...ownSessions];
+      for (const ps of publicSessions) {
+        if (!seen.has(ps.id)) {
+          seen.add(ps.id);
+          allSessions.push(ps);
+        }
+      }
+
       // Sort by most recently updated
-      sessions.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-      res.json(sessions);
+      allSessions.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+      res.json(allSessions);
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -104,9 +196,21 @@ module.exports = function (dataDir) {
   router.get('/:id', (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
-      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
+      // Try own sessions dir first
+      let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
       if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ error: 'Session not found' });
+        // Try finding as a public session from another player
+        filePath = findSessionFile(req.params.id, req.campaignId);
+        if (!filePath) {
+          return res.status(404).json({ error: 'Session not found' });
+        }
+        // Verify it's public
+        const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+        const settings = getSessionSettings(data);
+        if (settings.visibility !== 'public') {
+          return res.status(404).json({ error: 'Session not found' });
+        }
+        return res.json(withSessionAccess(data, requester));
       }
       const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
       res.json(withSessionAccess(data, requester));
@@ -138,6 +242,7 @@ module.exports = function (dataDir) {
         playerEmail: requester.email,
         playerName: requester.name,
         status: 'active',
+        settings: { ...DEFAULT_SETTINGS },
         createdAt,
         updatedAt: createdAt,
         players: [
@@ -192,6 +297,7 @@ module.exports = function (dataDir) {
       delete payload.playerEmail;
       delete payload.playerName;
       delete payload.players;
+      delete payload.settings; // settings updated via dedicated endpoint
 
       const updated = {
         ...existing,
@@ -205,6 +311,44 @@ module.exports = function (dataDir) {
       };
       fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
       res.json(withSessionAccess(updated, requester));
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // PUT update session settings
+  router.put('/:id/settings', (req, res) => {
+    try {
+      const requester = getAuthenticatedPlayer(dataDir, req);
+      if (!requester) {
+        return res.status(403).json({ error: 'Login required.' });
+      }
+      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
+      if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ error: 'Session not found' });
+      }
+      const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      if (!canWriteSession(existing, requester)) {
+        return res.status(403).json({ error: 'Only the session creator can change settings.' });
+      }
+
+      const currentSettings = getSessionSettings(existing);
+      const incoming = req.body || {};
+
+      // Validate visibility
+      if (incoming.visibility !== undefined) {
+        if (!['private', 'public'].includes(incoming.visibility)) {
+          return res.status(400).json({ error: 'visibility must be "private" or "public"' });
+        }
+        currentSettings.visibility = incoming.visibility;
+      }
+
+      // Future settings can be validated and merged here
+
+      existing.settings = currentSettings;
+      existing.updatedAt = new Date().toISOString();
+      fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
+      res.json({ settings: currentSettings });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

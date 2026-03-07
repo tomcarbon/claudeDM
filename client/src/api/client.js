@@ -99,5 +99,6 @@ export const api = {
   createSession: (data) => fetchJson('/sessions', { method: 'POST', body: JSON.stringify(data) }),
   updateSession: (id, data) => fetchJson(`/sessions/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteSession: (id) => fetchJson(`/sessions/${id}`, { method: 'DELETE' }),
+  updateSessionSettings: (id, settings) => fetchJson(`/sessions/${id}/settings`, { method: 'PUT', body: JSON.stringify(settings) }),
   addPlayerToSession: (id, data) => fetchJson(`/sessions/${id}/players`, { method: 'POST', body: JSON.stringify(data) }),
 };
