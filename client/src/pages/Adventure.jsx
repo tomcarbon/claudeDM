@@ -81,6 +81,7 @@ function Adventure({
     sessionId,
     permissionRequest,
     sendMessage,
+    sendMessageRaw,
     startSession,
     sendPermission,
     resumeSession,
@@ -92,6 +93,7 @@ function Adventure({
     readyGolfFireRef,
     submitHostTurnReady,
     retractHostTurn,
+    forceHostTurn,
     setCompanionCharacter,
     submitCompanionTurn,
     retractCompanionTurn,
@@ -120,6 +122,7 @@ function Adventure({
   const [companionInput, setCompanionInput] = useState('');
   const [companionCharacterId, setCompanionCharacterId] = useState(null);
   const [selectedStatusEntry, setSelectedStatusEntry] = useState(null); // npcId or 'host' for detail panel
+  const [pendingOpeningPrompt, setPendingOpeningPrompt] = useState(null); // held until host clicks "Start Adventure"
   const [loadingSessionId, setLoadingSessionId] = useState(null);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
@@ -148,10 +151,11 @@ function Adventure({
     readyGolfFireRef.current = (text) => {
       isNearBottomRef.current = true;
       setShowScrollBtn(false);
-      sendMessage(text, 'ready-golf');
+      // Use sendMessageRaw (no optimistic add) — server echoes back after companion actions
+      sendMessageRaw(text, sessionSettings.turnMode || 'host-decides');
     };
     return () => { readyGolfFireRef.current = null; };
-  }, [readyGolfFireRef, sendMessage]);
+  }, [readyGolfFireRef, sendMessageRaw, sessionSettings.turnMode]);
 
   const scrollToBottom = useCallback(() => {
     const container = storyRef.current;
@@ -345,6 +349,8 @@ function Adventure({
     setSessionReadOnly(false);
     setSessionSettings({ visibility: 'public', turnMode: 'initiative' });
 
+    const hasPlayerSlots = npcs.some(n => companionStates[n.id] === 'player' || companionStates[n.id] === 'reserved');
+
     if (mode === 'campaigns') {
       if (!selectedCharacter || !selectedCampaign) return;
       // Use campaign ID as the scenario ID for session save/load compatibility
@@ -375,7 +381,13 @@ This is a free-exploration campaign, not a linear scenario. Here's how to run it
 - Let the player drive the direction — be a sandbox DM
 
 Set the opening scene now. Describe where the party wakes up, what they see, and what choices lie before them.`;
-      setTimeout(() => sendMessage(openingPrompt), 500);
+
+      if (hasPlayerSlots) {
+        setPendingOpeningPrompt(openingPrompt);
+        setTimeout(() => sendMessage(`This is a multiplayer session. I'm waiting for companion players to join and select their characters. Please respond with a brief greeting and let me know you're ready — I'll tell you when to begin the adventure.`), 500);
+      } else {
+        setTimeout(() => sendMessage(openingPrompt), 500);
+      }
     } else {
       if (!selectedCharacter || !selectedScenario) return;
       setSavedSessionDbId(null);
@@ -392,7 +404,13 @@ Party composition:
 ${companionRoster}
 
 Set the scene and begin the story.`;
-      setTimeout(() => sendMessage(openingPrompt), 500);
+
+      if (hasPlayerSlots) {
+        setPendingOpeningPrompt(openingPrompt);
+        setTimeout(() => sendMessage(`This is a multiplayer session. I'm waiting for companion players to join and select their characters. Please respond with a brief greeting and let me know you're ready — I'll tell you when to begin the adventure.`), 500);
+      } else {
+        setTimeout(() => sendMessage(openingPrompt), 500);
+      }
     }
   }
 
@@ -613,16 +631,17 @@ Set the scene and begin the story.`;
     const turnMode = sessionSettings.turnMode || 'host-decides';
     const hasCompanions = sessionParticipants.some(p => p.companionNpcId);
 
-    // Ready Golf with companions: queue turn instead of sending immediately
-    if (turnMode === 'ready-golf' && hasCompanions) {
+    // When companions are present, always queue the host's turn and wait
+    if (hasCompanions) {
       isNearBottomRef.current = true;
       setShowScrollBtn(false);
+      setMessages(prev => [...prev, { type: 'player', text }]);
       submitHostTurnReady(text);
       setInput('');
       return;
     }
 
-    // Host Decides or Initiative or no companions: send immediately
+    // No companions: send immediately
     isNearBottomRef.current = true;
     setShowScrollBtn(false);
     sendMessage(text, turnMode);
@@ -1261,12 +1280,38 @@ Set the scene and begin the story.`;
               )}
             </div>
           )
+        ) : pendingOpeningPrompt ? (
+          <div className="adventure-input-bar multiplayer-lobby-bar">
+            <div className="multiplayer-lobby-status">
+              Waiting for players to join...
+              <span className="multiplayer-lobby-count">
+                {sessionParticipants.filter(p => p.companionNpcId).length} companion{sessionParticipants.filter(p => p.companionNpcId).length !== 1 ? 's' : ''} connected
+              </span>
+            </div>
+            <button
+              className="btn-send btn-start-adventure"
+              onClick={() => {
+                const prompt = pendingOpeningPrompt;
+                setPendingOpeningPrompt(null);
+                sendMessage(prompt);
+              }}
+              disabled={status === 'thinking'}
+            >
+              Start Adventure
+            </button>
+          </div>
         ) : readyGolfStatus?.hostReady ? (
-          <div className="adventure-input-bar ready-golf-bar">
+          <div className={`adventure-input-bar ready-golf-bar${readyGolfStatus.allReady ? ' all-ready' : ''}`}>
             <div className="companion-waiting">
-              Turn queued — waiting for companions ({readyGolfStatus.companionsReady}/{readyGolfStatus.companionsTotal} ready)
+              {readyGolfStatus.allReady
+                ? `All players ready! (${readyGolfStatus.companionsReady}/${readyGolfStatus.companionsTotal} companions)`
+                : `Turn queued — waiting for companions (${readyGolfStatus.companionsReady}/${readyGolfStatus.companionsTotal} ready)`
+              }
               <button className="btn-retract" onClick={() => retractHostTurn()}>
                 Retract
+              </button>
+              <button className={`btn-continue${readyGolfStatus.allReady ? ' btn-continue-ready' : ''}`} onClick={() => forceHostTurn()}>
+                Continue
               </button>
             </div>
           </div>
@@ -1287,7 +1332,7 @@ Set the scene and begin the story.`;
               onClick={handleSend}
               disabled={sessionReadOnly || !input.trim() || status === 'thinking'}
             >
-              {sessionSettings.turnMode === 'ready-golf' && sessionParticipants.some(p => p.companionNpcId) ? 'Ready' : 'Send'}
+              {sessionParticipants.some(p => p.companionNpcId) ? 'Ready' : 'Send'}
             </button>
           </div>
         )}

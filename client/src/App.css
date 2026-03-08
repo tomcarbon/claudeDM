@@ -1312,6 +1312,58 @@
   color: #ff6b6b;
   border-color: #ff6b6b;
 }
+.btn-continue {
+  padding: 0.3rem 0.8rem;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 0.4rem;
+}
+.btn-continue:hover {
+  color: #81c784;
+  border-color: #81c784;
+}
+.btn-continue-ready {
+  color: #81c784;
+  border-color: #81c784;
+  font-weight: bold;
+}
+.ready-golf-bar.all-ready {
+  border-top-color: #81c784 !important;
+}
+
+/* Multiplayer lobby bar */
+.multiplayer-lobby-bar {
+  border-top-color: #a064dc !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+}
+.multiplayer-lobby-status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.95em;
+  color: #ccc;
+}
+.multiplayer-lobby-count {
+  font-size: 0.8em;
+  color: #a064dc;
+}
+.btn-start-adventure {
+  background: #a064dc !important;
+  border-color: #a064dc !important;
+  font-weight: bold;
+  padding: 0.6rem 1.5rem !important;
+  white-space: nowrap;
+}
+.btn-start-adventure:hover {
+  background: #8a50c0 !important;
+}
 
 /* Ready Golf host bar */
 .ready-golf-bar {

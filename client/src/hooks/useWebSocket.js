@@ -236,6 +236,13 @@ export default function useWebSocket() {
     }
   }, []);
 
+  // Send message without adding to local messages — server echoes it back for correct ordering
+  const sendMessageRaw = useCallback((text, turnMode) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'user_message', text, turnMode: turnMode || 'host-decides' }));
+    }
+  }, []);
+
   const startSession = useCallback((characterId, scenarioId, player, campaignId) => {
     pendingResumeRef.current = null;
     pendingWatchRef.current = null;
@@ -325,6 +332,12 @@ export default function useWebSocket() {
     }
   }, []);
 
+  const forceHostTurn = useCallback(() => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'host_turn_force' }));
+    }
+  }, []);
+
   const setCompanionCharacter = useCallback((characterId, characterName, npcName, characterData) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'companion_set_character', characterId, characterName, npcName: npcName || null, characterData: characterData || null }));
@@ -378,6 +391,7 @@ export default function useWebSocket() {
     sessionId,
     permissionRequest,
     sendMessage,
+    sendMessageRaw,
     startSession,
     sendPermission,
     resumeSession,
@@ -389,6 +403,7 @@ export default function useWebSocket() {
     readyGolfFireRef,
     submitHostTurnReady,
     retractHostTurn,
+    forceHostTurn,
     setCompanionCharacter,
     submitCompanionTurn,
     retractCompanionTurn,

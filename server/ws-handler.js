@@ -251,10 +251,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     }
 
     function checkReadyGolfAutoFire(sessionDbId) {
-      if (!hostTurns.has(sessionDbId)) return; // host hasn't submitted yet
+      broadcastReadyGolfStatus(sessionDbId);
+      // Auto-fire only when BOTH host and ALL companions have submitted
+      if (!hostTurns.has(sessionDbId)) return;
       if (!sessionRooms.has(sessionDbId)) return;
       const companions = Array.from(sessionRooms.get(sessionDbId))
         .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN);
+      if (companions.length === 0) return; // no companions connected — don't auto-fire
       const companionEmails = companions.map(c => c.playerEmail);
       const submittedEmails = sessionTurns.has(sessionDbId)
         ? Array.from(sessionTurns.get(sessionDbId).keys())
@@ -262,7 +265,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       const allReady = companionEmails.every(email => submittedEmails.includes(email));
       if (!allReady) return;
 
-      // Everyone is ready — tell the host to fire
+      // Everyone is ready — fire
       const hostEntry = Array.from(sessionRooms.get(sessionDbId)).find(e => e.isHost);
       if (hostEntry && hostEntry.ws.readyState === hostEntry.ws.OPEN) {
         const hostTurn = hostTurns.get(sessionDbId);
@@ -569,13 +572,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               }
             }
 
-            // If companion actions were bundled, update the host's message
-            if (playerText !== msg.text.trim()) {
-              send('player_message_updated', { text: playerText });
-            }
-
             // Clear host turn if ready-golf
             if (currentSessionDbId) hostTurns.delete(currentSessionDbId);
+
+            // Send host's player message back to them (after companion actions for correct ordering)
+            send('session_player_message', { text: msg.text.trim() });
 
             messageHistory.push({ type: 'player', text: playerText });
             broadcastToSessionWatchers('session_player_message', {
@@ -829,6 +830,18 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           if (!currentSessionDbId) break;
           hostTurns.delete(currentSessionDbId);
           broadcastReadyGolfStatus(currentSessionDbId);
+          break;
+        }
+
+        case 'host_turn_force': {
+          // Force-fire the host's queued turn without waiting for all companions
+          if (!currentSessionDbId || !currentSessionCanWrite) break;
+          if (!hostTurns.has(currentSessionDbId)) break;
+          const hostTurn = hostTurns.get(currentSessionDbId);
+          hostTurns.delete(currentSessionDbId);
+          broadcastReadyGolfStatus(currentSessionDbId);
+          // Fire via the same path as auto-fire
+          send('ready_golf_fire', { text: hostTurn.text });
           break;
         }
 
