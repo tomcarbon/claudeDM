@@ -928,6 +928,26 @@
   margin: 0;
 }
 
+/* Companion player messages */
+.message-companion {
+  background: rgba(160, 100, 220, 0.1);
+  border-left: 3px solid #a064dc;
+  padding: 0.6rem 1rem;
+  border-radius: 0 6px 6px 0;
+}
+.message-companion .message-sender {
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #a064dc;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.message-companion p {
+  margin: 0;
+}
+
 /* DM messages */
 .message-dm {
   background: rgba(240, 192, 64, 0.06);
@@ -1039,6 +1059,125 @@
 }
 .btn-send:hover:not(:disabled) {
   opacity: 0.85;
+}
+
+/* Party status board */
+.party-status-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.party-status-entry {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.party-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.party-status-dot.online {
+  background: #81c784;
+}
+.party-status-dot.offline {
+  background: #ff6b6b;
+}
+.party-status-dot.ai {
+  background: var(--gold);
+  opacity: 0.6;
+}
+.party-status-name {
+  font-weight: 600;
+  color: var(--text);
+}
+.party-status-role {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+.party-status-host {
+  border-color: rgba(129, 199, 132, 0.3);
+}
+.party-status-companion {
+  border-color: rgba(179, 136, 255, 0.3);
+}
+.party-status-npc {
+  border-color: transparent;
+  opacity: 0.7;
+}
+.party-status-entry {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.party-status-entry:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.party-status-selected {
+  background: rgba(255, 215, 0, 0.1) !important;
+  border-color: var(--gold) !important;
+  opacity: 1 !important;
+}
+
+/* Character/NPC detail panel */
+.party-detail-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.party-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+.party-detail-header strong {
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+.party-detail-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.1rem 0.3rem;
+}
+.party-detail-close:hover {
+  color: var(--text);
+}
+.party-detail-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.party-detail-abilities {
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+/* Companion character picker */
+.companion-character-picker {
+  border-top: 1px solid #b388ff;
+  padding-top: 0.75rem;
+}
+.companion-character-picker label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #b388ff;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 /* Session presence indicators */

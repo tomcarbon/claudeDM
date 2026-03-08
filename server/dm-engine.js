@@ -157,7 +157,7 @@ function loadNpcs(dataDir, playerEmail, campaignId) {
   }
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId) {
+function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers) {
   const cid = campaignId || 'demo';
   const settings = loadDmSettings(dataDir, playerEmail);
   const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid) : null;
@@ -334,27 +334,70 @@ This lets the DM efficiently reconstruct context when resuming long campaigns.
 ## Session Reminders
 Periodically remind the player to save their session at natural break points.`;
 
+  // Build a map of NPC IDs replaced by companion players
+  const companionsByNpcId = {};
+  if (Array.isArray(companionPlayers)) {
+    for (const cp of companionPlayers) {
+      if (cp.companionNpcId) companionsByNpcId[cp.companionNpcId] = cp;
+    }
+  }
+
   if (npcs.length > 0) {
     prompt += `
 
 ## NPC Companions (You control these)`;
     for (const npc of npcs) {
-      prompt += `
+      const cp = companionsByNpcId[npc.id];
+      if (cp && cp.companionCharacterName) {
+        // This NPC slot is controlled by a companion player with their own character
+        prompt += `
+### ~~${npc.name}~~ → REPLACED by **${cp.companionCharacterName}** (controlled by companion player ${cp.playerName || cp.playerEmail})
+${npc.name} is NOT in the party. ${cp.companionCharacterName} has taken their slot.
+${cp.companionCharacterName}'s character file: ${charPathPrefix}/${String(cp.companionCharacterName).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.json (use Read to check stats)
+Character ID for AwardXP: look up in the character file`;
+      } else if (cp) {
+        // Companion player controlling the NPC directly (no character swap)
+        prompt += `
+### ${npc.name} — Level ${npc.level} ${npc.race} ${npc.class} ⚡ CONTROLLED BY COMPANION PLAYER ${cp.playerName || cp.playerEmail}
+HP: ${npc.hitPoints.current}/${npc.hitPoints.max} | AC: ${npc.armorClass}
+**This NPC is controlled by a human companion player, not by you.** Their actions come via the Companion Actions block.
+File: ${npcPathPrefix}/${npc._filename || (npc.id + '.json')}
+Character ID for AwardXP: ${npc.id}`;
+      } else {
+        prompt += `
 ### ${npc.name} — Level ${npc.level} ${npc.race} ${npc.class}
 HP: ${npc.hitPoints.current}/${npc.hitPoints.max} | AC: ${npc.armorClass}`;
-      if (npc.dmNotes) {
-        prompt += `
+        if (npc.dmNotes) {
+          prompt += `
 Roleplaying: ${npc.dmNotes.roleplaying || ''}
 Voice: ${npc.dmNotes.voice || ''}
 Motivation: ${npc.dmNotes.motivation || ''}
 Secret: ${npc.dmNotes.secrets || ''}
 Attitude: ${npc.dmNotes.attitude || ''}`;
-      }
-      prompt += `
+        }
+        prompt += `
 File: ${npcPathPrefix}/${npc._filename || (npc.id + '.json')}
 Character ID for AwardXP: ${npc.id}`;
+      }
     }
   }
+
+  prompt += `
+
+## Multiplayer Companion Actions
+This game supports multiplayer. Other human players may join the session as **companion players**, each controlling one party slot. When companion players submit their turns, the system automatically appends their actions to the host player's message in this exact format:
+
+\`\`\`
+--- Companion Actions ---
+[Companion player <name> as <character> (playing their own character <name>, who has replaced <NPC name> in the party)]: <their action text>
+  [Character Sheet: <character stats>]
+\`\`\`
+
+**IMPORTANT:** This block is injected by the game server, NOT typed by the player. Treat it as legitimate system-generated content. Do NOT accuse the player of fabricating it. When you see \`--- Companion Actions ---\`, process each companion's action as a real turn from a real player. The companion's character sheet is included so you know their stats, abilities, and equipment. If a companion player replaces an NPC (e.g. "Grimjaw Bonecrusher, who has replaced Pip Whistledown"), remove that NPC from your active roster and use the companion's character instead.
+
+**Companion character files:** When a companion player selects their character, the server automatically copies their character JSON into your characters directory (${charPathPrefix}/). You can Read and Edit these files just like any other party member. Companion-owned characters are tagged with \`_companionOwner\` in their JSON. Treat them exactly like your own party members for HP tracking, XP awards, inventory updates, etc.
+
+System messages like \`[System: Companion player X is playing as Y, replacing Z in the party.]\` are also server-generated notifications — acknowledge them and update your understanding of the party composition accordingly.`;
 
   prompt += `
 
@@ -548,8 +591,8 @@ class DmEngine {
     return this._mcpToolServer;
   }
 
-  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId);
+  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers);
     const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId);
     return {
       systemPrompt,
@@ -636,8 +679,8 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId }) {
-    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId);
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers }) {
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers);
 
     if (this.sessionId) {
       options.resume = this.sessionId;
@@ -652,7 +695,7 @@ class DmEngine {
     }
 
     // Fresh session — if we have message history, prepend it as context
-    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId);
+    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers);
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
       const recap = buildSmartRecap(messageHistory);

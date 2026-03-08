@@ -7,7 +7,7 @@ const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug } = require('.
 
 const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
-  turnMode: 'host-decides', // 'initiative' | 'ready-golf' | 'host-decides'
+  turnMode: 'initiative', // 'initiative' | 'ready-golf' | 'host-decides'
 };
 
 function getOwnerPlayer(session) {

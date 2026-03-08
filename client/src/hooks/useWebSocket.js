@@ -112,16 +112,18 @@ export default function useWebSocket() {
           break;
 
         case 'player_message_updated':
-          // Replace the last player message with the augmented version (includes companion actions)
-          setMessages(prev => {
-            const lastPlayerIdx = prev.map((m, i) => m.type === 'player' ? i : -1).filter(i => i >= 0).pop();
-            if (lastPlayerIdx !== undefined && lastPlayerIdx >= 0) {
-              const updated = [...prev];
-              updated[lastPlayerIdx] = { type: 'player', text: msg.text };
-              return updated;
-            }
-            return prev;
-          });
+          // Companion actions now render as separate messages, so we no longer
+          // update the host's message bubble with bundled text. The bundled text
+          // is still sent to the DM engine internally.
+          break;
+
+        case 'companion_action':
+          setMessages(prev => [...prev, {
+            type: 'companion',
+            characterName: msg.characterName,
+            playerName: msg.playerName,
+            text: msg.text,
+          }]);
           break;
 
         case 'session_access':
@@ -323,9 +325,21 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const submitCompanionTurn = useCallback((text, npcName) => {
+  const setCompanionCharacter = useCallback((characterId, characterName, npcName, characterData) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'companion_set_character', characterId, characterName, npcName: npcName || null, characterData: characterData || null }));
+    }
+  }, []);
+
+  const submitCompanionTurn = useCallback((text, { npcName, characterName, characterId } = {}) => {
     if (wsRef.current?.readyState === WebSocket.OPEN && text) {
-      wsRef.current.send(JSON.stringify({ type: 'companion_turn_submit', text, npcName: npcName || null }));
+      wsRef.current.send(JSON.stringify({
+        type: 'companion_turn_submit',
+        text,
+        npcName: npcName || null,
+        characterName: characterName || null,
+        characterId: characterId || null,
+      }));
     }
   }, []);
 
@@ -375,6 +389,7 @@ export default function useWebSocket() {
     readyGolfFireRef,
     submitHostTurnReady,
     retractHostTurn,
+    setCompanionCharacter,
     submitCompanionTurn,
     retractCompanionTurn,
     skipCompanion,

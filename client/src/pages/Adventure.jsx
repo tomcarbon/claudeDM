@@ -35,7 +35,7 @@ function normalizeSavedMessages(rawMessages) {
     if (!text) return null;
 
     return {
-      type: ['system', 'player', 'dm', 'dm_partial', 'dice_roll'].includes(inferredType) ? inferredType : 'system',
+      type: ['system', 'player', 'companion', 'dm', 'dm_partial', 'dice_roll'].includes(inferredType) ? inferredType : 'system',
       text,
     };
   }).filter(Boolean);
@@ -92,6 +92,7 @@ function Adventure({
     readyGolfFireRef,
     submitHostTurnReady,
     retractHostTurn,
+    setCompanionCharacter,
     submitCompanionTurn,
     retractCompanionTurn,
     skipCompanion,
@@ -114,10 +115,11 @@ function Adventure({
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
   const [sessionReadOnly, setSessionReadOnly] = useState(false);
-  const [sessionSettings, setSessionSettings] = useState({ visibility: 'public', turnMode: 'host-decides' });
+  const [sessionSettings, setSessionSettings] = useState({ visibility: 'public', turnMode: 'initiative' });
   const [showSettings, setShowSettings] = useState(false);
   const [companionInput, setCompanionInput] = useState('');
-  const [companionTurnSubmitted, setCompanionTurnSubmitted] = useState(false);
+  const [companionCharacterId, setCompanionCharacterId] = useState(null);
+  const [selectedStatusEntry, setSelectedStatusEntry] = useState(null); // npcId or 'host' for detail panel
   const [loadingSessionId, setLoadingSessionId] = useState(null);
   const storyRef = useRef(null);
   const inputRef = useRef(null);
@@ -127,18 +129,19 @@ function Adventure({
   const isGuest = !player?.email;
   const isCompanion = !!sessionAccess.companionNpcId;
   const companionNpc = isCompanion ? npcs.find(n => n.id === sessionAccess.companionNpcId) : null;
+  const companionCharacter = companionCharacterId ? characters.find(c => c.id === companionCharacterId) : null;
   const isHost = sessionAccess.canWrite;
+  // Derive companion turn submitted from server state (no race conditions)
+  const companionTurnSubmitted = isCompanion && companionTurns.some(t => t.playerEmail === player?.email);
 
-  // Reset companion turn state when turns are cleared (host submitted)
+  // Clear companion input when turn is consumed by host
+  const prevCompanionSubmitted = useRef(false);
   useEffect(() => {
-    if (isCompanion && companionTurnSubmitted) {
-      const myTurn = companionTurns.find(t => t.playerEmail === player?.email);
-      if (!myTurn) {
-        setCompanionTurnSubmitted(false);
-        setCompanionInput('');
-      }
+    if (prevCompanionSubmitted.current && !companionTurnSubmitted) {
+      setCompanionInput('');
     }
-  }, [companionTurns, isCompanion, companionTurnSubmitted, player?.email]);
+    prevCompanionSubmitted.current = companionTurnSubmitted;
+  }, [companionTurnSubmitted]);
 
   // Wire up ready-golf auto-fire callback
   useEffect(() => {
@@ -261,7 +264,7 @@ function Adventure({
   useEffect(() => {
     const completedMessages = messages.filter(m => m.type !== 'dm_partial');
     const count = completedMessages.length;
-    if (!sessionReadOnly && autoSave && count > 0 && count !== prevMessageCountRef.current) {
+    if (!sessionReadOnly && !isCompanion && autoSave && count > 0 && count !== prevMessageCountRef.current) {
       prevMessageCountRef.current = count;
       handleSave();
     } else if (!autoSave) {
@@ -340,7 +343,7 @@ function Adventure({
     }
     const character = characters.find(c => c.id === selectedCharacter);
     setSessionReadOnly(false);
-    setSessionSettings({ visibility: 'public', turnMode: 'host-decides' });
+    setSessionSettings({ visibility: 'public', turnMode: 'initiative' });
 
     if (mode === 'campaigns') {
       if (!selectedCharacter || !selectedCampaign) return;
@@ -354,7 +357,9 @@ function Adventure({
       const settingName = campaign?.setting?.name || campaign?.title || 'Unknown';
       const startLocations = campaign?.wildernessStarts?.map(s => s.label).join(', ') || 'a random location';
       const companionRoster = buildCompanionRoster();
-      const openingPrompt = `You are running an open-world campaign: "${campaign?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}.
+      const openingPrompt = `⚠️ NEW SESSION — CLEAN SLATE. Disregard any prior campaign context, characters, or story. This is a brand-new adventure starting from scratch.
+
+You are running an open-world campaign: "${campaign?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}.
 
 Party composition:
 ${companionRoster}
@@ -379,7 +384,9 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
 
       const scenario = scenarios.find(s => s.id === selectedScenario);
       const companionRoster = buildCompanionRoster();
-      const openingPrompt = `Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}.
+      const openingPrompt = `⚠️ NEW SESSION — CLEAN SLATE. Disregard any prior campaign context, characters, or story. This is a brand-new adventure starting from scratch.
+
+Begin the adventure "${scenario?.title || 'Unknown'}". My character is ${character?.name || 'Unknown'}.
 
 Party composition:
 ${companionRoster}
@@ -394,8 +401,7 @@ Set the scene and begin the story.`;
       alert('Please log in to save sessions.');
       return;
     }
-    if (sessionReadOnly) {
-      alert('This session is read-only. Only the original creator can save changes.');
+    if (sessionReadOnly || isCompanion) {
       return;
     }
     setSaveStatus('saving');
@@ -895,17 +901,8 @@ Set the scene and begin the story.`;
           <div className="adventure-info">
             <span className="adventure-scenario">{activeCampaign?.title || activeScenario?.title}</span>
             <span className="adventure-character">{activeCharacter?.name}</span>
-            {isCompanion && <span className="adventure-character">Playing as {companionNpc?.name || 'Companion'}</span>}
+            {isCompanion && <span className="adventure-character">Playing as {companionCharacter?.name || companionNpc?.name || 'Companion'}</span>}
             {sessionReadOnly && !isCompanion && <span className="adventure-character">Read only</span>}
-            {sessionParticipants.length > 1 && (
-              <span className="session-presence">
-                {sessionParticipants.filter(p => p.playerEmail !== player?.email).map(p => (
-                  <span key={p.playerEmail} className="session-presence-dot" title={p.playerName}>
-                    {p.playerName}
-                  </span>
-                ))}
-              </span>
-            )}
           </div>
           <button
             className="btn-save"
@@ -1021,6 +1018,77 @@ Set the scene and begin the story.`;
           </div>
         )}
 
+        {/* Party status board */}
+        <div className="party-status-board">
+          {/* Host */}
+          <button
+            className={`party-status-entry party-status-host ${selectedStatusEntry === 'host' ? 'party-status-selected' : ''}`}
+            onClick={() => setSelectedStatusEntry(selectedStatusEntry === 'host' ? null : 'host')}
+          >
+            <span className="party-status-dot online" />
+            <span className="party-status-name">{activeCharacter?.name || 'Host'}</span>
+            <span className="party-status-role">{player?.name || 'Host'} (Host)</span>
+          </button>
+          {/* Companion NPCs — player-controlled or AI */}
+          {npcs.filter(n => {
+            const state = companionStates[n.id];
+            return state !== 'removed' && n.status !== 'dead';
+          }).map(n => {
+            const state = companionStates[n.id] || 'selected';
+            const participant = sessionParticipants.find(p => p.companionNpcId === n.id);
+            const isOnline = !!participant;
+            const turn = companionTurns.find(t => t.npcId === n.id);
+            const isPlayerControlled = state === 'player' || state === 'reserved';
+            // Use companion's chosen character name: from server broadcast, or local state if this is our own slot
+            const isMySlot = isCompanion && n.id === sessionAccess.companionNpcId;
+            const displayName = (isMySlot && companionCharacter?.name)
+              || (isOnline && participant.companionCharacterName)
+              || n.name;
+            return (
+              <button
+                key={n.id}
+                className={`party-status-entry ${isPlayerControlled ? 'party-status-companion' : 'party-status-npc'} ${selectedStatusEntry === n.id ? 'party-status-selected' : ''}`}
+                onClick={() => setSelectedStatusEntry(selectedStatusEntry === n.id ? null : n.id)}
+              >
+                <span className={`party-status-dot ${isPlayerControlled ? (isOnline ? 'online' : 'offline') : 'ai'}`} />
+                <span className="party-status-name">{displayName}</span>
+                {isPlayerControlled ? (
+                  <span className="party-status-role">
+                    {isOnline ? participant.playerName : (companionReservations[n.id] ? friendNames[companionReservations[n.id]] || companionReservations[n.id] : 'Unjoined')}
+                    {turn ? ' · Ready' : isOnline ? ' · Waiting' : ' · Not in session'}
+                  </span>
+                ) : (
+                  <span className="party-status-role">NPC</span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        {/* Character/NPC detail panel */}
+        {selectedStatusEntry && (() => {
+          const entry = selectedStatusEntry === 'host'
+            ? activeCharacter
+            : npcs.find(n => n.id === selectedStatusEntry);
+          if (!entry) return null;
+          return (
+            <div className="party-detail-panel">
+              <div className="party-detail-header">
+                <strong>{entry.name}</strong>
+                <button className="party-detail-close" onClick={() => setSelectedStatusEntry(null)}>✕</button>
+              </div>
+              <div className="party-detail-stats">
+                <span>Level {entry.level} {entry.subrace ? (entry.subrace.toLowerCase().includes(entry.race.toLowerCase()) ? entry.subrace : `${entry.subrace} ${entry.race}`) : entry.race} {entry.class}</span>
+                <span>HP: {entry.hitPoints?.current ?? '?'}/{entry.hitPoints?.max ?? '?'} · AC: {entry.armorClass ?? '?'}</span>
+                {entry.abilities && (
+                  <span className="party-detail-abilities">
+                    STR {entry.abilities.strength?.score} · DEX {entry.abilities.dexterity?.score} · CON {entry.abilities.constitution?.score} · INT {entry.abilities.intelligence?.score} · WIS {entry.abilities.wisdom?.score} · CHA {entry.abilities.charisma?.score}
+                  </span>
+                )}
+              </div>
+            </div>
+          );
+        })()}
+
         {/* Story area */}
         <div className="story-area" ref={storyRef}>
           {messages.map((msg, i) => (
@@ -1028,6 +1096,12 @@ Set the scene and begin the story.`;
               {msg.type === 'player' && (
                 <div className="message-player">
                   <span className="message-sender">{activeCharacter?.name || 'You'}</span>
+                  <p>{msg.text}</p>
+                </div>
+              )}
+              {msg.type === 'companion' && (
+                <div className="message-companion">
+                  <span className="message-sender">{msg.characterName || 'Companion'}</span>
                   <p>{msg.text}</p>
                 </div>
               )}
@@ -1062,38 +1136,26 @@ Set the scene and begin the story.`;
           </button>
         )}
 
-        {/* Companion turn status (host view) */}
-        {isHost && sessionParticipants.some(p => p.companionNpcId) && (
+        {/* Companion turn actions — visible to all players when turns are pending */}
+        {companionTurns.length > 0 && (
           <div className="companion-turns-panel">
-            <div className="companion-turns-header">
-              Companion Players
-              {sessionSettings.turnMode !== 'host-decides' && (
-                <span className="companion-turns-mode">
-                  {sessionSettings.turnMode === 'ready-golf' ? '· Ready Golf' : '· Initiative'}
-                </span>
-              )}
-            </div>
-            {sessionParticipants.filter(p => p.companionNpcId).map(p => {
-              const npc = npcs.find(n => n.id === p.companionNpcId);
-              const turn = companionTurns.find(t => t.playerEmail === p.playerEmail);
+            <div className="companion-turns-header">Companion Actions Submitted</div>
+            {companionTurns.map(t => {
+              const npc = npcs.find(n => n.id === t.npcId);
               return (
-                <div key={p.playerEmail} className={`companion-turn-entry ${turn ? 'turn-ready' : 'turn-waiting'}`}>
-                  <span className={`companion-turn-status-dot ${turn ? 'ready' : 'waiting'}`} />
-                  <span className="companion-turn-npc">{npc?.name || p.companionNpcId}</span>
-                  <span className="companion-turn-player">({p.playerName})</span>
-                  {turn ? (
-                    <>
-                      <span className="companion-turn-text">{turn.text}</span>
-                      <button
-                        className="companion-turn-skip"
-                        onClick={() => skipCompanion(p.playerEmail)}
-                        title="Remove this turn"
-                      >
-                        ✕
-                      </button>
-                    </>
-                  ) : (
-                    <span className="companion-turn-waiting-label">waiting...</span>
+                <div key={t.playerEmail} className="companion-turn-entry turn-ready">
+                  <span className="companion-turn-status-dot ready" />
+                  <span className="companion-turn-npc">{t.characterName || npc?.name || t.npcId}</span>
+                  <span className="companion-turn-player">({t.playerName})</span>
+                  <span className="companion-turn-text">{t.text}</span>
+                  {isHost && (
+                    <button
+                      className="companion-turn-skip"
+                      onClick={() => skipCompanion(t.playerEmail)}
+                      title="Remove this turn"
+                    >
+                      ✕
+                    </button>
                   )}
                 </div>
               );
@@ -1103,48 +1165,102 @@ Set the scene and begin the story.`;
 
         {/* Input area */}
         {isCompanion ? (
-          <div className="adventure-input-bar companion-input-bar">
-            {companionTurnSubmitted ? (
-              <div className="companion-waiting">
-                Turn submitted — waiting for host to advance.
-                <button className="btn-retract" onClick={() => { retractCompanionTurn(); setCompanionTurnSubmitted(false); }}>
-                  Retract
-                </button>
+          !companionCharacterId ? (
+            <div className="companion-character-picker">
+              <label>Choose your character for this session:</label>
+              <div className="setup-options">
+                {characters.filter(c => {
+                  if (c.status === 'dead') return false;
+                  // Exclude characters whose name matches the host's character, another companion's character, or an active NPC
+                  const takenNames = new Set();
+                  // Host's character name (from participants broadcast)
+                  for (const p of sessionParticipants) {
+                    if (p.isHost && p.characterName) {
+                      takenNames.add(p.characterName.toLowerCase());
+                    }
+                    // Other companions' chosen characters
+                    if (!p.isHost && p.companionCharacterName && p.playerEmail !== player?.email) {
+                      takenNames.add(p.companionCharacterName.toLowerCase());
+                    }
+                  }
+                  // Active NPC names (companion replaces one NPC, but shouldn't share a name with others)
+                  for (const n of npcs) {
+                    if (n.id !== companionNpc?.id && n.status !== 'dead') {
+                      takenNames.add(n.name.toLowerCase());
+                    }
+                  }
+                  return !takenNames.has(c.name.toLowerCase());
+                }).map(c => (
+                  <button
+                    key={c.id}
+                    className="option-card"
+                    onClick={() => {
+                      setCompanionCharacterId(c.id);
+                      setCompanionCharacter(c.id, c.name, companionNpc?.name, c);
+                      // Auto-announce arrival
+                      setTimeout(() => submitCompanionTurn("I'm here.", {
+                        npcName: companionNpc?.name,
+                        characterName: c.name,
+                        characterId: c.id,
+                      }), 300);
+                    }}
+                  >
+                    <strong>{c.name}</strong>
+                    <span>Level {c.level} {c.subrace ? (c.subrace.toLowerCase().includes(c.race.toLowerCase()) ? c.subrace : `${c.subrace} ${c.race}`) : c.race} {c.class}</span>
+                  </button>
+                ))}
               </div>
-            ) : (
-              <>
-                <textarea
-                  className="adventure-input"
-                  value={companionInput}
-                  onChange={e => setCompanionInput(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault();
-                      if (companionInput.trim() && status !== 'thinking') {
-                        submitCompanionTurn(companionInput.trim(), companionNpc?.name);
-                        setCompanionTurnSubmitted(true);
+            </div>
+          ) : (
+            <div className="adventure-input-bar companion-input-bar">
+              {companionTurnSubmitted ? (
+                <div className="companion-waiting">
+                  Turn submitted — waiting for host to advance.
+                  <button className="btn-retract" onClick={() => retractCompanionTurn()}>
+                    Retract
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <textarea
+                    className="adventure-input"
+                    value={companionInput}
+                    onChange={e => setCompanionInput(e.target.value)}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        if (companionInput.trim() && status !== 'thinking') {
+                          submitCompanionTurn(companionInput.trim(), {
+                            npcName: companionNpc?.name,
+                            characterName: companionCharacter?.name,
+                            characterId: companionCharacterId,
+                          });
+                        }
                       }
-                    }
-                  }}
-                  placeholder={status === 'thinking' ? 'The DM is narrating...' : `What does ${companionNpc?.name || 'your companion'} do?`}
-                  disabled={status === 'thinking'}
-                  rows={1}
-                />
-                <button
-                  className="btn-send"
-                  onClick={() => {
-                    if (companionInput.trim()) {
-                      submitCompanionTurn(companionInput.trim(), companionNpc?.name);
-                      setCompanionTurnSubmitted(true);
-                    }
-                  }}
-                  disabled={!companionInput.trim() || status === 'thinking'}
-                >
-                  Submit
-                </button>
-              </>
-            )}
-          </div>
+                    }}
+                    placeholder={status === 'thinking' ? 'The DM is narrating...' : `What does ${companionCharacter?.name || companionNpc?.name || 'your character'} do?`}
+                    disabled={status === 'thinking'}
+                    rows={1}
+                  />
+                  <button
+                    className="btn-send"
+                    onClick={() => {
+                      if (companionInput.trim()) {
+                        submitCompanionTurn(companionInput.trim(), {
+                          npcName: companionNpc?.name,
+                          characterName: companionCharacter?.name,
+                          characterId: companionCharacterId,
+                        });
+                      }
+                    }}
+                    disabled={!companionInput.trim() || status === 'thinking'}
+                  >
+                    Submit
+                  </button>
+                </>
+              )}
+            </div>
+          )
         ) : readyGolfStatus?.hostReady ? (
           <div className="adventure-input-bar ready-golf-bar">
             <div className="companion-waiting">

@@ -2,6 +2,7 @@ const { WebSocketServer } = require('ws');
 const fs = require('fs');
 const path = require('path');
 const { DmEngine } = require('./dm-engine');
+const { emailToSlug, getPlayerCharactersDir } = require('./player-data');
 
 // Module-level chat rooms: chatKey -> Set<wsEntry>
 // Each wsEntry: { ws, playerEmail, playerName, isAdmin }
@@ -10,6 +11,8 @@ const chatRooms = new Map();
 const sessionRooms = new Map();
 // Pending companion turns: sessionDbId -> Map<playerEmail, { playerEmail, playerName, npcId, text }>
 const sessionTurns = new Map();
+// Track which companion characters have had their sheet sent to the DM: sessionDbId -> Set<characterId>
+const companionSheetsSent = new Map();
 // Pending host turns for ready-golf: sessionDbId -> { text, wsEntry }
 const hostTurns = new Map();
 let nextConnectionId = 1;
@@ -139,6 +142,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       playerName: null,
       isAdmin: false,
       connectionId: nextConnectionId++,
+      // Called by companion handlers to force fresh DM context on next turn
+      invalidateSession(contextMessage) {
+        engine.sessionId = null;
+        if (contextMessage) messageHistory.push({ type: 'player', text: contextMessage });
+      },
     };
 
     // Pending permission requests: toolUseID -> { resolve }
@@ -197,7 +205,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           playerEmail: e.playerEmail || 'guest',
           playerName: e.playerName || 'Guest',
           isHost: !!e.isHost,
+          characterName: e.characterName || null,
           companionNpcId: e.companionNpcId || null,
+          companionCharacterName: e.companionCharacterName || null,
+          companionCharacterId: e.companionCharacterId || null,
         }));
     }
 
@@ -322,10 +333,26 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             break;
           }
           leaveCurrentSessionRoom();
+          // Reset engine and history for a clean slate
+          engine.sessionId = null;
+          messageHistory = [];
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
           campaignId = msg.campaignId || null;
           wsEntry.playerEmail = msg.playerEmail;
+          wsEntry.campaignId = campaignId;
+          wsEntry.characterId = characterId;
+          // Look up character name for participants broadcast
+          wsEntry.characterName = null;
+          if (characterId && msg.playerEmail) {
+            try {
+              const charDir = getPlayerCharactersDir(dataDir, msg.playerEmail, campaignId || 'demo');
+              for (const f of fs.readdirSync(charDir).filter(f => f.endsWith('.json'))) {
+                const d = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
+                if (d.id === characterId) { wsEntry.characterName = d.name; break; }
+              }
+            } catch { /* ignore */ }
+          }
           if (msg.playerName) wsEntry.playerName = msg.playerName;
           send('session_status', { status: 'idle' });
           console.log(`[WS] Session started — character: ${characterId}, scenario: ${scenarioId}, campaign: ${campaignId}, player: ${wsEntry.playerEmail}`);
@@ -342,6 +369,18 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           campaignId = msg.campaignId || null;
           engine.sessionId = msg.claudeSessionId || null;
           wsEntry.playerEmail = msg.playerEmail;
+          wsEntry.campaignId = campaignId;
+          wsEntry.characterId = characterId;
+          wsEntry.characterName = null;
+          if (characterId && msg.playerEmail) {
+            try {
+              const charDir = getPlayerCharactersDir(dataDir, msg.playerEmail, campaignId || 'demo');
+              for (const f of fs.readdirSync(charDir).filter(f => f.endsWith('.json'))) {
+                const d = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
+                if (d.id === characterId) { wsEntry.characterName = d.name; break; }
+              }
+            } catch { /* ignore */ }
+          }
           if (msg.playerName) wsEntry.playerName = msg.playerName;
           // Store message history for resume fallback
           if (msg.messages && Array.isArray(msg.messages)) {
@@ -415,6 +454,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           const canWrite = !!ownerEmail && !!requesterEmail && ownerEmail === requesterEmail;
           const companionNpcId = !canWrite ? getCompanionNpcId(session, requesterEmail) : null;
 
+          // Set companionNpcId BEFORE joining room so participants broadcast includes it
+          if (companionNpcId) {
+            wsEntry.companionNpcId = companionNpcId;
+          }
           joinSessionRoom(requestedSessionId, canWrite);
           const accessPayload = {
             sessionDbId: requestedSessionId,
@@ -424,7 +467,6 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           };
           if (companionNpcId) {
             accessPayload.companionNpcId = companionNpcId;
-            wsEntry.companionNpcId = companionNpcId;
           }
           send('session_access', accessPayload);
           // Send current pending turns to the newly joined watcher
@@ -468,13 +510,59 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             if (currentSessionDbId && sessionTurns.has(currentSessionDbId)) {
               const turns = Array.from(sessionTurns.get(currentSessionDbId).values());
               if (turns.length > 0) {
-                const companionActions = turns.map(t =>
-                  `[Companion player ${t.playerName} controlling ${t.npcName || t.npcId}]: ${t.text}`
-                ).join('\n');
+                const companionActions = turns.map(t => {
+                  const charLabel = t.characterName || t.npcName || t.npcId;
+                  const swapNote = t.characterName && t.npcName
+                    ? ` (playing their own character ${t.characterName}, who has replaced ${t.npcName} in the party)`
+                    : '';
+                  let line = `[Companion player ${t.playerName} as ${charLabel}${swapNote}]: ${t.text}`;
+                  // Include character sheet only on first turn with this character
+                  const sheetKey = t.characterId || t.characterName;
+                  if (!companionSheetsSent.has(currentSessionDbId)) companionSheetsSent.set(currentSessionDbId, new Set());
+                  const sentSheets = companionSheetsSent.get(currentSessionDbId);
+                  if (t.characterData && t.characterName && sheetKey && !sentSheets.has(sheetKey)) {
+                    sentSheets.add(sheetKey);
+                    try {
+                      const cd = t.characterData;
+                      const fmtArr = (val) => Array.isArray(val) ? val.map(v => typeof v === 'string' ? v : v.name || JSON.stringify(v)).join(', ') : '';
+                      const abilities = cd.abilities ? Object.entries(cd.abilities).map(([k,v]) => `${k.toUpperCase()}:${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(' ') : '';
+                      const hp = cd.hitPoints ? `HP:${cd.hitPoints.current}/${cd.hitPoints.max}` : '';
+                      const spellsL1 = cd.spells?.level1 ? (Array.isArray(cd.spells.level1) ? cd.spells.level1 : cd.spells.level1.known || []) : [];
+                      const sheet = [
+                        `${cd.name} — Level ${cd.level} ${cd.subrace || ''} ${cd.race} ${cd.class}`,
+                        `${hp} AC:${cd.armorClass || '?'} Speed:${cd.speed || '?'} Prof:+${cd.proficiencyBonus || 2}`,
+                        abilities,
+                        cd.equipment ? `Equipment: ${fmtArr(cd.equipment)}` : '',
+                        cd.weapons ? `Weapons: ${fmtArr(cd.weapons)}` : '',
+                        cd.spells?.cantrips ? `Cantrips: ${fmtArr(cd.spells.cantrips)}` : '',
+                        spellsL1.length > 0 ? `Level 1 spells (${cd.spells.level1.slots || '?'} slots): ${fmtArr(spellsL1)}` : '',
+                        cd.features ? `Features: ${fmtArr(cd.features)}` : '',
+                      ].filter(Boolean).join('\n  ');
+                      line += `\n  [Character Sheet: ${sheet}]`;
+                    } catch (sheetErr) {
+                      console.error('[WS] Error formatting companion character sheet:', sheetErr);
+                      line += `\n  [Character Sheet: ${t.characterName} — see character file for details]`;
+                    }
+                  }
+                  return line;
+                }).join('\n');
                 const modeNote = turnMode === 'initiative'
                   ? '\n(Initiative mode: resolve these actions in initiative order, rolling initiative if not yet established.)'
                   : '';
                 playerText += `\n\n--- Companion Actions ---\n${companionActions}${modeNote}`;
+                // Broadcast each companion action as a persistent message for all players (including host)
+                for (const t of turns) {
+                  const charLabel = t.characterName || t.npcName || t.npcId;
+                  const actionPayload = {
+                    characterName: charLabel,
+                    playerName: t.playerName,
+                    playerEmail: t.playerEmail,
+                    text: t.text,
+                    timestamp: new Date().toISOString(),
+                  };
+                  // broadcastSessionMessage sends to all room members including host
+                  broadcastSessionMessage(currentSessionDbId, 'companion_action', actionPayload);
+                }
                 // Clear pending turns
                 sessionTurns.delete(currentSessionDbId);
                 broadcastSessionTurns(currentSessionDbId);
@@ -494,12 +582,26 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               text: playerText,
               timestamp: new Date().toISOString(),
             });
+            // Gather active companion players for system prompt
+            const activeCompanions = currentSessionDbId && sessionRooms.has(currentSessionDbId)
+              ? Array.from(sessionRooms.get(currentSessionDbId))
+                  .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN)
+                  .map(e => ({
+                    playerEmail: e.playerEmail,
+                    playerName: e.playerName,
+                    companionNpcId: e.companionNpcId,
+                    companionCharacterName: e.companionCharacterName || null,
+                    companionCharacterId: e.companionCharacterId || null,
+                  }))
+              : [];
+
             const stream = engine.run(playerText, {
               characterId,
               scenarioId,
               campaignId,
               messageHistory,
               playerEmail: wsEntry.playerEmail,
+              companionPlayers: activeCompanions.length > 0 ? activeCompanions : undefined,
               onPermissionRequest: (toolName, input, toolUseID) => {
                 return new Promise((resolve) => {
                   const description = describeToolUse(toolName, input);
@@ -573,6 +675,79 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           break;
         }
 
+        case 'companion_set_character': {
+          if (!currentSessionDbId || !wsEntry.companionNpcId) break;
+          const prevCharName = wsEntry.companionCharacterName;
+          wsEntry.companionCharacterName = msg.characterName || null;
+          wsEntry.companionCharacterId = msg.characterId || null;
+          wsEntry.companionCharacterData = msg.characterData || null;
+          // Reset sheet-sent tracking if character changed so sheet is sent on next turn
+          if (msg.characterName !== prevCharName && companionSheetsSent.has(currentSessionDbId)) {
+            companionSheetsSent.get(currentSessionDbId).delete(msg.characterId || msg.characterName);
+          }
+          broadcastSessionParticipants(currentSessionDbId);
+
+          // Copy companion's character file to host's characters directory
+          if (msg.characterData && msg.characterId) {
+            try {
+              // Find the host entry to get their email and campaignId
+              const hostEntry = sessionRooms.has(currentSessionDbId)
+                ? Array.from(sessionRooms.get(currentSessionDbId)).find(e => e.isHost)
+                : null;
+              if (hostEntry && hostEntry.playerEmail) {
+                const hostCampaignId = hostEntry.campaignId || 'demo';
+                const hostCharDir = getPlayerCharactersDir(dataDir, hostEntry.playerEmail, hostCampaignId);
+                // Check character count limit (50)
+                let charCount = 0;
+                try { charCount = fs.readdirSync(hostCharDir).filter(f => f.endsWith('.json')).length; } catch { /* dir may not exist */ }
+                if (charCount < 50) {
+                  // Generate filename from character name
+                  const charSlug = String(msg.characterData.name || msg.characterId)
+                    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                  const destPath = path.join(hostCharDir, `${charSlug}.json`);
+                  // Only copy if file doesn't already exist (avoid overwriting host's own characters)
+                  if (!fs.existsSync(destPath)) {
+                    fs.mkdirSync(hostCharDir, { recursive: true });
+                    // Mark as companion-owned so cleanup is possible later
+                    const charDataToWrite = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
+                    fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
+                    console.log(`[WS] Copied companion character "${msg.characterData.name}" to host's roster: ${destPath}`);
+                  } else {
+                    // File exists — update it with latest companion character data
+                    const charDataToWrite = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
+                    fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
+                    console.log(`[WS] Updated companion character "${msg.characterData.name}" in host's roster: ${destPath}`);
+                  }
+                } else {
+                  console.warn(`[WS] Host has ${charCount} characters, skipping companion character copy (limit: 50)`);
+                }
+              }
+            } catch (err) {
+              console.error(`[WS] Failed to copy companion character to host's roster:`, err);
+            }
+          }
+
+          // Notify the session about the character swap
+          if (msg.characterName && msg.characterName !== prevCharName) {
+            const npcLabel = msg.npcName || wsEntry.companionNpcId;
+            broadcastSessionMessage(currentSessionDbId, 'session_player_message', {
+              text: `[System: Companion player ${wsEntry.playerName} is playing as ${msg.characterName}, replacing ${npcLabel} in the party.]`,
+              timestamp: new Date().toISOString(),
+            });
+            // Invalidate the host's Claude session so the next turn starts fresh
+            // with the updated system prompt (new party composition)
+            const hostEntry = sessionRooms.has(currentSessionDbId)
+              ? Array.from(sessionRooms.get(currentSessionDbId)).find(e => e.isHost)
+              : null;
+            if (hostEntry && hostEntry.invalidateSession) {
+              const swapMsg = `[System: Companion player ${wsEntry.playerName} is playing as ${msg.characterName}, replacing ${npcLabel} in the party. The companion's character file has been copied to the host's characters directory. Treat ${msg.characterName} as a full party member — read their character file for stats, track HP, award XP, and manage inventory just like any other character.]`;
+              hostEntry.invalidateSession(swapMsg);
+              console.log(`[WS] Invalidated host's Claude session for party composition change`);
+            }
+          }
+          break;
+        }
+
         case 'companion_turn_submit': {
           if (!currentSessionDbId) {
             send('error', { error: 'Not in a session.' });
@@ -594,6 +769,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             playerName: wsEntry.playerName || wsEntry.playerEmail,
             npcId: wsEntry.companionNpcId,
             npcName,
+            characterName: msg.characterName || wsEntry.companionCharacterName || null,
+            characterId: msg.characterId || wsEntry.companionCharacterId || null,
+            characterData: wsEntry.companionCharacterData || null,
             text: turnText,
           });
           console.log(`[WS] Companion turn submitted — session: ${currentSessionDbId}, player: ${wsEntry.playerEmail}, npc: ${wsEntry.companionNpcId}`);
