@@ -1,10 +1,30 @@
-export const CURRENT_VERSION = '1.0.4';
+export const CURRENT_VERSION = '1.0.5';
 
 export const CHANGELOG = [
   {
+    version: '1.0.5',
+    date: '2026-03-08',
+    title: 'Current Release',
+    compareFrom: '1.0.4',
+    compareRef: 'b62660b ("v1.0.4 official and whats new update")',
+    highlights: [
+      'Multiplayer sessions: players can now join a host\'s active session as a companion, taking control of an NPC companion character while the host remains the primary player and the AI DM narrates for everyone.',
+      'Companion slot management: hosts can mark each NPC companion as DM-controlled, open for any player, or reserved for a specific friend before starting a session.',
+      'Friends & blocked lists: new per-player settings to manage a friends list (for companion reservations and invites) and a blocked list.',
+      'Session visibility: sessions can be set to public (visible to all logged-in players) or private (visible only to the host and reserved friends).',
+      'Turn modes: three multiplayer turn-ordering options — Initiative (DM calls order), Ready-Golf (host\'s turn auto-fires once all companions have submitted), and Host-Decides (host manually sends when ready).',
+      'Companion turn UI: companion players get a dedicated input area to submit their turn text, which the host sees collected before firing the combined turn to the DM.',
+      'Real-time session presence: join/leave notifications, live participant list, and companion turn status broadcast via WebSocket.',
+      'Session join flow: companion players can browse and join public sessions or reserved sessions from the Adventure setup screen.',
+      'Wonderland interactive map: new `WonderlandMap.jsx` component for navigating the Alice\'s Adventures in Wonderland campaign.',
+      'Cross-campaign session isolation fix: saved sessions from one campaign no longer appear when browsing another campaign.',
+      'New player data provisioning for the Wonderland campaign with full character and NPC defaults.',
+    ],
+  },
+  {
     version: '1.0.4',
     date: '2026-03-05',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.3',
     compareRef: 'ae34454 ("v1.0.3 cont")',
     highlights: [

@@ -2,6 +2,21 @@
 
 All notable changes to this project are documented here.
 
+## [1.0.5] - 2026-03-08
+Changes since `1.0.4` (starting after commit `b62660b`, "v1.0.4 official and whats new update"):
+
+- Multiplayer sessions: players can now join a host's active session as a companion, controlling an NPC companion character while the host remains the primary player and the AI DM narrates for everyone.
+- Companion slot management: hosts can mark each NPC as DM-controlled, open for any player, or reserved for a specific friend before starting a session.
+- Friends & blocked lists: new per-player settings to manage a friends list (for companion reservations/invites) and a blocked list.
+- Session visibility: sessions can be set to public (visible to all logged-in players) or private (visible only to host and reserved friends).
+- Turn modes: three multiplayer turn-ordering options — Initiative (DM calls order), Ready-Golf (host's turn auto-fires once all companions submit), and Host-Decides (host manually sends when ready).
+- Companion turn UI: companion players get a dedicated input to submit their turn text; the host sees collected turns before firing the combined turn to the DM.
+- Real-time session presence: join/leave notifications, live participant list, and companion turn status broadcast via WebSocket.
+- Session join flow: companion players can browse and join public or reserved sessions from the Adventure setup screen.
+- Added Wonderland interactive map component (`WonderlandMap.jsx`) for navigating the Alice's Adventures in Wonderland campaign.
+- Fixed cross-campaign session isolation: saved sessions from one campaign no longer appear when browsing another campaign.
+- Added player data provisioning for the Wonderland campaign with full character and NPC defaults.
+
 ## [1.0.4] - 2026-03-05
 Changes since `1.0.3` (starting after commit `ae34454`, "v1.0.3 cont"):
 
