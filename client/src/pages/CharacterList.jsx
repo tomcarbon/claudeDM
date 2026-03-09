@@ -121,13 +121,13 @@ function CharacterList() {
           />
           <button onClick={handleExportEmpty}>Export Empty Character</button>
           <button onClick={() => fileInputRef.current.click()}>Import Character</button>
-          <button onClick={handleRoll} disabled={rolling || characters.length >= 50}>
+          <button onClick={handleRoll} disabled={rolling || characters.length >= 100}>
             {rolling ? 'Rolling...' : 'Roll New Character'}
           </button>
         </div>
       </div>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
-        {characters.length}/50 characters. Click to view details or edit.
+        {characters.length}/100 characters. Click to view details or edit.
       </p>
       <div className="card-grid">
         {characters.map(c => (

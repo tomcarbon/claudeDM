@@ -7,7 +7,7 @@ const { requirePlayer } = require('../player-auth');
 const { getPlayerCharactersDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
 const { generateRandomCharacter } = require('../character-generator');
 
-const MAX_CHARACTERS = 50;
+const MAX_CHARACTERS = 100;
 
 function validateCharacter(data) {
   const errors = [];
@@ -66,6 +66,12 @@ module.exports = function (dataDir) {
   function readAllCharacters(req) {
     const charDir = getCharDir(req);
     const files = fs.readdirSync(charDir).filter(f => f.endsWith('.json'));
+    // Sort by modification time so newest characters appear last
+    files.sort((a, b) => {
+      try {
+        return fs.statSync(path.join(charDir, a)).mtimeMs - fs.statSync(path.join(charDir, b)).mtimeMs;
+      } catch { return 0; }
+    });
     return files.reduce((chars, f) => {
       try {
         const data = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
