@@ -1409,6 +1409,11 @@
   opacity: 0.7;
 }
 
+/* ===== Saved Session Grid (wider cards) ===== */
+.setup-options-sessions {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 /* ===== Saved Session Cards (larger) ===== */
 .saved-session-card.option-card {
   padding: 1rem 1.1rem;

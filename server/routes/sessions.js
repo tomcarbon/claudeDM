@@ -4,6 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
 const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug } = require('../player-data');
+const { broadcastToAll } = require('../ws-handler');
 
 const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
@@ -255,7 +256,7 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot create sessions.' });
       }
-      const { name, scenarioId, characterId, claudeSessionId, messages } = req.body;
+      const { name, scenarioId, characterId, claudeSessionId, messages, companionConfig } = req.body;
       console.log(`[Sessions] POST — messages: ${(messages || []).length}, claudeSessionId: ${claudeSessionId ? 'yes' : 'no'}, characterId: ${characterId}`);
       const ownerId = uuidv4();
       const createdAt = new Date().toISOString();
@@ -285,6 +286,7 @@ module.exports = function (dataDir) {
             joinedAt: createdAt,
           }
         ],
+        companionConfig: companionConfig || null,
         npcCompanions: [],
         currentAct: 0,
         currentScene: 0,
@@ -294,7 +296,9 @@ module.exports = function (dataDir) {
         path.join(getSessionsDir(req), `${session.id}.json`),
         JSON.stringify(session, null, 2)
       );
-      res.status(201).json(withSessionAccess(session, requester));
+      const result = withSessionAccess(session, requester);
+      res.status(201).json(result);
+      broadcastToAll('sessions_changed');
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -503,6 +507,7 @@ module.exports = function (dataDir) {
       }
       fs.unlinkSync(filePath);
       res.json({ success: true });
+      broadcastToAll('sessions_changed');
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

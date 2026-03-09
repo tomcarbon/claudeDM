@@ -69,6 +69,7 @@ function getSessionTurnMode(sessionDbId) {
 
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
+  _wss = wss;
   const playersDir = path.join(dataDir, 'players');
 
   function broadcastChatParticipants(chatKey) {
@@ -884,4 +885,16 @@ function describeToolUse(toolName, input) {
   }
 }
 
-module.exports = { attachWebSocket };
+// Broadcast a message to ALL connected WebSocket clients
+let _wss = null;
+function broadcastToAll(type, payload = {}) {
+  if (!_wss) return;
+  const msg = JSON.stringify({ type, ...payload });
+  for (const client of _wss.clients) {
+    if (client.readyState === client.OPEN) {
+      client.send(msg);
+    }
+  }
+}
+
+module.exports = { attachWebSocket, broadcastToAll };

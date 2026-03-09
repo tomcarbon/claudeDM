@@ -24,6 +24,7 @@ export default function useWebSocket() {
   const [status, setStatus] = useState('disconnected');
   const [permissionRequest, setPermissionRequest] = useState(null);
   const [sessionId, setSessionId] = useState(null);
+  const [sessionsChanged, setSessionsChanged] = useState(0);
   const wsRef = useRef(null);
   const reconnectTimer = useRef(null);
   const partialTextRef = useRef('');
@@ -109,6 +110,10 @@ export default function useWebSocket() {
 
         case 'session_player_message':
           setMessages(prev => [...prev, { type: 'player', text: msg.text }]);
+          break;
+
+        case 'sessions_changed':
+          setSessionsChanged(prev => prev + 1);
           break;
 
         case 'player_message_updated':
@@ -410,5 +415,6 @@ export default function useWebSocket() {
     skipCompanion,
     joinChat,
     sendChat,
+    sessionsChanged,
   };
 }

@@ -98,6 +98,7 @@ function Adventure({
     submitCompanionTurn,
     retractCompanionTurn,
     skipCompanion,
+    sessionsChanged,
   } = ws;
   const { player } = usePlayer();
   const [input, setInput] = useState('');
@@ -250,12 +251,12 @@ function Adventure({
     return () => cancelAnimationFrame(frame);
   }, [messages]);
 
-  // Load saved sessions for setup screen (re-fetch when campaign changes)
+  // Load saved sessions for setup screen (re-fetch when campaign changes or another player creates/deletes)
   useEffect(() => {
     if (!sessionActive) {
       api.getSessions().then(setSavedSessions).catch(() => {});
     }
-  }, [sessionActive, campaignId]);
+  }, [sessionActive, campaignId, sessionsChanged]);
 
   useEffect(() => {
     if (!savedSessionDbId || !sessionAccess.sessionDbId) return;
@@ -384,9 +385,9 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
 
       if (hasPlayerSlots) {
         setPendingOpeningPrompt(openingPrompt);
-        setTimeout(() => sendMessage(`This is a multiplayer session. I'm waiting for companion players to join and select their characters. Please respond with a brief greeting and let me know you're ready — I'll tell you when to begin the adventure.`), 500);
+        setTimeout(() => sendMessageRaw(`This is a multiplayer session. I'm waiting for companion players to join and select their characters. Please respond with a brief greeting and let me know you're ready — I'll tell you when to begin the adventure.`), 500);
       } else {
-        setTimeout(() => sendMessage(openingPrompt), 500);
+        setTimeout(() => sendMessageRaw(openingPrompt), 500);
       }
     } else {
       if (!selectedCharacter || !selectedScenario) return;
@@ -407,9 +408,9 @@ Set the scene and begin the story.`;
 
       if (hasPlayerSlots) {
         setPendingOpeningPrompt(openingPrompt);
-        setTimeout(() => sendMessage(`This is a multiplayer session. I'm waiting for companion players to join and select their characters. Please respond with a brief greeting and let me know you're ready — I'll tell you when to begin the adventure.`), 500);
+        setTimeout(() => sendMessageRaw(`This is a multiplayer session. I'm waiting for companion players to join and select their characters. Please respond with a brief greeting and let me know you're ready — I'll tell you when to begin the adventure.`), 500);
       } else {
-        setTimeout(() => sendMessage(openingPrompt), 500);
+        setTimeout(() => sendMessageRaw(openingPrompt), 500);
       }
     }
   }
@@ -635,7 +636,6 @@ Set the scene and begin the story.`;
     if (hasCompanions) {
       isNearBottomRef.current = true;
       setShowScrollBtn(false);
-      setMessages(prev => [...prev, { type: 'player', text }]);
       submitHostTurnReady(text);
       setInput('');
       return;
@@ -644,7 +644,7 @@ Set the scene and begin the story.`;
     // No companions: send immediately
     isNearBottomRef.current = true;
     setShowScrollBtn(false);
-    sendMessage(text, turnMode);
+    sendMessageRaw(text, turnMode);
     setInput('');
   }
 
@@ -810,7 +810,7 @@ Set the scene and begin the story.`;
 
         <div className="setup-group" style={{ marginTop: '2rem' }}>
           <label>Load Saved Session</label>
-          <div className="setup-options">
+          <div className="setup-options setup-options-sessions">
             {savedSessions.map((s, i) => (
               <div key={`${s.id}-${i}`} className="option-card saved-session-card" style={{ position: 'relative' }}>
                 <button
@@ -1293,7 +1293,7 @@ Set the scene and begin the story.`;
               onClick={() => {
                 const prompt = pendingOpeningPrompt;
                 setPendingOpeningPrompt(null);
-                sendMessage(prompt);
+                sendMessageRaw(prompt);
               }}
               disabled={status === 'thinking'}
             >
