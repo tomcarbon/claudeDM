@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { playNotification } from '../utils/audio';
 
 const WS_URL = `ws://${window.location.hostname}:3001/ws`;
 const RECONNECT_DELAY = 2000;
@@ -81,6 +82,7 @@ export default function useWebSocket() {
             );
             return [...filtered, { type: 'dm', text: msg.text }];
           });
+          playNotification();
           break;
 
         case 'dm_complete':
@@ -129,6 +131,7 @@ export default function useWebSocket() {
             playerName: msg.playerName,
             text: msg.text,
           }]);
+          playNotification();
           break;
 
         case 'session_access':
@@ -171,6 +174,7 @@ export default function useWebSocket() {
             text: `${msg.playerName} has joined the session${msg.companionNpcId ? ` as a companion player` : ''}.`,
             companionNpcId: msg.companionNpcId || null,
           }]);
+          playNotification();
           break;
 
         case 'session_player_left':

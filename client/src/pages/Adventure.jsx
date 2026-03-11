@@ -2,6 +2,7 @@ import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import RichText from '../components/RichText';
+import CollapsibleMessage from '../components/CollapsibleMessage';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
@@ -1133,17 +1134,27 @@ Set the scene and begin the story.`;
               {(msg.type === 'dm' || msg.type === 'dm_partial') && (
                 <div className="message-dm">
                   <span className="message-sender">Dungeon Master</span>
-                  <RichText as="div" className="dm-narration" text={msg.text} />
-                  {msg.type === 'dm_partial' && <span className="typing-cursor" />}
+                  {msg.type === 'dm' ? (
+                    <CollapsibleMessage text={msg.text}>
+                      <RichText as="div" className="dm-narration" text={msg.text} />
+                    </CollapsibleMessage>
+                  ) : (
+                    <>
+                      <RichText as="div" className="dm-narration" text={msg.text} />
+                      <span className="typing-cursor" />
+                    </>
+                  )}
                 </div>
               )}
               {msg.type === 'system' && (
                 <div className="message-system">
-                  {msg.companionNpcId
-                    ? msg.text.includes('left')
-                      ? `${msg.playerName} has left the session. ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId} returns to NPC companion control.`
-                      : `${msg.text} (controlling ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId})`
-                    : msg.text}
+                  <CollapsibleMessage text={msg.text}>
+                    {msg.companionNpcId
+                      ? msg.text.includes('left')
+                        ? `${msg.playerName} has left the session. ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId} returns to NPC companion control.`
+                        : `${msg.text} (controlling ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId})`
+                      : msg.text}
+                  </CollapsibleMessage>
                 </div>
               )}
             </div>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
+import { getAudioSettings, saveAudioSettings, previewSound, SOUND_OPTIONS } from '../utils/audio';
+import { getDisplaySettings, saveDisplaySettings } from '../utils/displaySettings';
 
 function Settings() {
   const { player } = usePlayer();
@@ -23,6 +25,8 @@ function Settings() {
   const [blockedInput, setBlockedInput] = useState('');
   const [savingMultiplayer, setSavingMultiplayer] = useState(false);
   const [multiplayerSaved, setMultiplayerSaved] = useState(false);
+  const [audio, setAudio] = useState(getAudioSettings);
+  const [display, setDisplay] = useState(getDisplaySettings);
 
   useEffect(() => {
     if (!isAdmin) {
@@ -219,6 +223,35 @@ function Settings() {
       </div>
 
       <div className="detail-section">
+        <h3>Display</h3>
+        <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
+          Long DM messages are collapsed by default. Set the line threshold, or 0 to disable collapsing.
+        </p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            Collapse after
+            <input
+              type="number"
+              min="0"
+              max="200"
+              value={display.collapseThreshold}
+              onChange={e => {
+                const val = Math.max(0, Math.min(200, Number(e.target.value) || 0));
+                const next = { ...display, collapseThreshold: val };
+                setDisplay(next);
+                saveDisplaySettings(next);
+              }}
+              style={{ width: '4rem', padding: '0.3rem 0.5rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center' }}
+            />
+            lines
+          </label>
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+            {display.collapseThreshold === 0 ? '(collapsing disabled)' : ''}
+          </span>
+        </div>
+      </div>
+
+      <div className="detail-section">
         <h3>Multiplayer</h3>
         <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
           Manage who can join your public sessions. Friends can view and join your public sessions. Blocked players are excluded.
@@ -292,6 +325,83 @@ function Settings() {
           {savingMultiplayer && <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Saving...</span>}
           {!savingMultiplayer && multiplayerSaved && <span style={{ color: '#27ae60', fontSize: '0.85rem' }}>Saved!</span>}
         </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Audio Notifications</h3>
+        <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
+          Play a sound in multiplayer when the DM responds, a companion acts, or a player joins.
+        </p>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <input
+              type="checkbox"
+              checked={audio.enabled}
+              onChange={e => {
+                const next = { ...audio, enabled: e.target.checked };
+                setAudio(next);
+                saveAudioSettings(next);
+                if (e.target.checked) previewSound(next.sound, next.volume);
+              }}
+            />
+            Enable notification sounds
+          </label>
+        </div>
+
+        {audio.enabled && (
+          <>
+            <div style={{ marginBottom: '1rem' }}>
+              <h4 style={{ fontSize: '0.95rem', marginBottom: '0.5rem' }}>Sound</h4>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                {SOUND_OPTIONS.map(opt => (
+                  <button
+                    key={opt.value}
+                    className={audio.sound === opt.value ? 'active' : ''}
+                    style={{
+                      padding: '0.4rem 0.8rem',
+                      borderRadius: '6px',
+                      border: audio.sound === opt.value ? '2px solid var(--accent)' : '1px solid var(--border)',
+                      background: audio.sound === opt.value ? 'var(--accent-dim, rgba(99,102,241,0.15))' : 'var(--bg-dark)',
+                      color: 'var(--text)',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => {
+                      const next = { ...audio, sound: opt.value };
+                      setAudio(next);
+                      saveAudioSettings(next);
+                      previewSound(opt.value, next.volume);
+                    }}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="slider-grid">
+              <div className="slider-row">
+                <div className="slider-label">
+                  <span>Volume</span>
+                  <span className="slider-value">{audio.volume}%</span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={audio.volume}
+                  onChange={e => {
+                    const next = { ...audio, volume: Number(e.target.value) };
+                    setAudio(next);
+                    saveAudioSettings(next);
+                  }}
+                  onMouseUp={() => previewSound(audio.sound, audio.volume)}
+                  onTouchEnd={() => previewSound(audio.sound, audio.volume)}
+                />
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       {isAdmin && (
