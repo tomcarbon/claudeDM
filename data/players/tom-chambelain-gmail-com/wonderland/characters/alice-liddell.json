@@ -1,0 +1,154 @@
+{
+  "id": "wl-char-001",
+  "name": "Alice Liddell",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Warlock",
+  "level": 5,
+  "background": "Sage",
+  "alignment": "Chaotic Good",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 18,
+      "modifier": 4
+    }
+  },
+  "hitPoints": {
+    "max": 33,
+    "current": 33
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Persuasion"
+  ],
+  "languages": [
+    "Common",
+    "Sylvan",
+    "Elvish"
+  ],
+  "equipment": [
+    "Leather armor",
+    "A worn copy of 'Tales of Wonderland' (Pact of the Tome — Book of Shadows)",
+    "A blue adventuring dress with white pinafore (practical, reinforced)",
+    "A glass key pendant (arcane focus)",
+    "Component pouch",
+    "Scholar's pack",
+    "Belt pouch containing 15 gp",
+    "A bottle labeled 'DRINK ME' (empty, sentimental)",
+    "A crumbled cake wrapper labeled 'EAT ME'",
+    "A journal of half-remembered dreams about Wonderland",
+    "A pressed flower from a talking rose"
+  ],
+  "weapons": [
+    {
+      "name": "Eldritch Blast",
+      "attackBonus": 7,
+      "damage": "2d10",
+      "damageType": "force"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 5,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Otherworldly Patron: The Archfey (the spirit of Wonderland itself — the realm's original chaotic fey essence, now suppressed by the Queen)",
+    "Pact Magic (2 spell slots, 3rd level, recharge on short rest)",
+    "Pact Boon: Pact of the Tome (Book of Shadows — 3 additional cantrips from any class list)",
+    "Eldritch Invocations: Agonizing Blast (add CHA modifier to Eldritch Blast damage), Mask of Many Faces (cast Disguise Self at will), Book of Ancient Secrets (can inscribe rituals from any class into Book of Shadows)",
+    "Fey Presence (as an action, cause each creature in a 10-ft. cube to make DC 15 WIS save or be charmed or frightened for 1 turn, once per short rest)",
+    "Misty Escape (when taking damage, use reaction to turn invisible and teleport up to 60 ft., once per short rest)",
+    "Researcher (Sage feature — when you don't know a piece of lore, you often know where and from whom to find it)",
+    "Wonderland-Touched (special — Alice has advantage on saving throws against Wonderland's reality-warping effects, including size changes, time distortions, and madness. Her previous visit left a mark.)"
+  ],
+  "traits": [
+    "Fey Presence",
+    "Misty Escape",
+    "Pact of the Tome",
+    "Agonizing Blast",
+    "Mask of Many Faces",
+    "Book of Ancient Secrets",
+    "Wonderland-Touched"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 15,
+    "spellAttackBonus": 7,
+    "cantrips": [
+      "Eldritch Blast",
+      "Minor Illusion",
+      "Prestidigitation (Tome)",
+      "Guidance (Tome)",
+      "Mage Hand (Tome)"
+    ],
+    "level1": {
+      "slots": 0,
+      "known": [
+        "Hex",
+        "Faerie Fire (Archfey bonus)"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": [
+        "Misty Step",
+        "Calm Emotions (Archfey bonus)"
+      ]
+    },
+    "level3": {
+      "slots": 2,
+      "known": [
+        "Hypnotic Pattern",
+        "Dispel Magic",
+        "Blink (Archfey bonus)"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I ask questions constantly — 'curiouser and curiouser' is more than a catchphrase, it's a philosophy. I maintain composure in absurd situations that would break others, because I've been here before. I talk to animals and objects as though they might answer — and in Wonderland, they often do.",
+    "ideals": "Wonder. The world is full of impossible things, and the greatest tragedy is to stop being amazed by them. But wonder without courage is just daydreaming — I must act on what I discover.",
+    "bonds": "I visited Wonderland as a child and was marked by it forever. My patron — the spirit of Wonderland itself — calls me back because the realm is dying under the Queen's tyranny. I am the only one who has been here before, and that means I have a responsibility to help.",
+    "flaws": "I sometimes treat dangerous situations with too much curiosity and not enough caution. 'Let me just see what happens' has nearly killed me more than once. I also carry guilt — I left Wonderland once before, and things got worse after I left. I wonder if I could have prevented the Queen's rise."
+  },
+  "appearance": "A young woman in her early twenties with long golden-brown hair held back by a simple black headband. Her blue eyes are striking — they seem to shift shade depending on the light, and those with magical sight can see a faint fey glow in them, a mark of her Archfey patron. She stands 5'6\" with a graceful, curious bearing — always leaning forward slightly as though drawn toward whatever she's looking at. She wears a reinforced blue dress with a white pinafore (practical adventuring clothes styled after her childhood outfit, a deliberate choice that connects her to her first visit). A glass key pendant hangs around her neck — her arcane focus and a remnant from the Hall of Doors. Her Book of Shadows looks like a children's storybook from the outside, its cover reading 'Tales of Wonderland' in faded gold lettering. She carries herself with the particular confidence of someone who has walked through the impossible and come out the other side — not fearless, but familiar with fear.",
+  "backstory": "Alice Liddell first fell into Wonderland as a child of seven, tumbling down a rabbit hole into a world of talking animals, impossible geometry, and beautiful nonsense. She drank potions that shrank her, ate cakes that grew her, attended a mad tea party, played croquet with flamingos, and stood trial before a Queen whose only verdict was 'Off with her head!' She escaped — or was allowed to escape — and woke up as though from a dream. But it wasn't a dream. The mark of Wonderland lingered: strange dreams, whispered voices at the edges of hearing, and an unshakable feeling that something in the world was not quite right. As she grew older, the dreams intensified. She began to hear a voice — not words exactly, but feelings. Joy, mischief, creativity, freedom. And beneath them, pain, fear, and a desperate plea for help. Alice researched obsessively, studying fey realms and demiplane theory at every library and academy she could access. She learned that Wonderland was a Feywild demiplane — a realm of pure creative chaos that had been seized by a tyrant. The voice she heard was the realm itself: the original spirit of Wonderland, suppressed but not destroyed, calling to the one person who had visited and returned with love rather than madness. On her twentieth birthday, the voice became urgent. Something had broken — the Looking Glass, the bridge between worlds — and Wonderland was dying. Alice made her pact. The spirit of Wonderland became her patron, granting her the power of the Archfey in exchange for one thing: come back. Save us. She has been preparing ever since, and now the glass has opened again. Alice is going home — to a home that desperately needs her.",
+  "_filename": "alice-liddell.json",
+  "_companionOwner": "tomcarbon@gmail.com"
+}

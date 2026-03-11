@@ -182,6 +182,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         room.delete(wsEntry);
         if (room.size === 0) {
           sessionRooms.delete(currentSessionDbId);
+          sessionTurns.delete(currentSessionDbId);
+          companionSheetsSent.delete(currentSessionDbId);
+          hostTurns.delete(currentSessionDbId);
         } else {
           // Only broadcast leave for non-host players
           if (!wasHost) {
@@ -473,17 +476,18 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             accessPayload.companionNpcId = companionNpcId;
           }
           send('session_access', accessPayload);
-          // Send current pending turns to the newly joined watcher
-          if (sessionTurns.has(requestedSessionId)) {
-            const turns = Array.from(sessionTurns.get(requestedSessionId).values());
-            send('companion_turns_update', { sessionDbId: requestedSessionId, turns });
-          }
+          // Always send current pending turns (empty array clears stale client state)
+          const watchTurns = sessionTurns.has(requestedSessionId)
+            ? Array.from(sessionTurns.get(requestedSessionId).values())
+            : [];
+          send('companion_turns_update', { sessionDbId: requestedSessionId, turns: watchTurns });
           break;
         }
 
         case 'session_unwatch': {
           leaveCurrentSessionRoom();
           send('session_access', { sessionDbId: null, canWrite: false, readOnly: true });
+          send('companion_turns_update', { sessionDbId: null, turns: [] });
           break;
         }
 
