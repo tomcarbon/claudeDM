@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import StatBlock from '../components/StatBlock';
+import SpellTag from '../components/SpellTag';
 
 function CharacterDetail() {
   const { id } = useParams();
@@ -182,12 +183,24 @@ function CharacterDetail() {
             </div>
           )}
           {char.spells.cantrips?.length > 0 && (
-            <div><strong>Cantrips:</strong> {char.spells.cantrips.map(s => <span key={s} className="tag">{s}</span>)}</div>
+            <div><strong>Cantrips:</strong> {char.spells.cantrips.map(s => <SpellTag key={s} name={s} />)}</div>
           )}
           {char.spells.level1?.known?.length > 0 && (
             <div style={{ marginTop: '0.3rem' }}>
               <strong>1st Level ({char.spells.level1.slots} slots):</strong>{' '}
-              {char.spells.level1.known.map(s => <span key={s} className="tag">{s}</span>)}
+              {char.spells.level1.known.map(s => <SpellTag key={s} name={s} />)}
+            </div>
+          )}
+          {char.spells.level2?.known?.length > 0 && (
+            <div style={{ marginTop: '0.3rem' }}>
+              <strong>2nd Level ({char.spells.level2.slots} slots):</strong>{' '}
+              {char.spells.level2.known.map(s => <SpellTag key={s} name={s} />)}
+            </div>
+          )}
+          {char.spells.level3?.known?.length > 0 && (
+            <div style={{ marginTop: '0.3rem' }}>
+              <strong>3rd Level ({char.spells.level3.slots} slots):</strong>{' '}
+              {char.spells.level3.known.map(s => <SpellTag key={s} name={s} />)}
             </div>
           )}
         </div>

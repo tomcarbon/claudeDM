@@ -100,6 +100,217 @@ When acting as DM:
     - **No phantom rolls.** Never pretend to roll or claim a roll happened without using the RollDice tool. Every roll the players see in narrative must correspond to an actual RollDice tool call.
     - **Show your work.** When you report a roll, always state: the die rolled, the natural result, any modifiers, and the total. For example: "Perception check: d20 (14) + 3 WIS = 17 vs DC 15 — success."
     - **The dice are the dice.** If a roll produces an outcome that derails your planned narrative, adapt your narrative to the dice — never the other way around.
+14. **Natural 1 Fumble Guide.** When a d20 rolls a natural 1, use this as inspiration to choose an appropriate consequence. You don't have to pick from this list — it's a guide, not a mandate. Pick or invent something that fits the situation narratively. Don't always use the same one. Scale severity to the Difficulty setting. Remember: nat 1 = funny complication, **not permanent punishment**.
+
+    **Weapon Mishaps:**
+    1. Weapon slips from hand, lands 1d6 feet away.
+    2. Strike the ground so hard the weapon becomes temporarily stuck.
+    3. Weapon grip loosens — disadvantage on the next attack.
+    4. Swing spins you around, leaving you off balance (lose reaction).
+    5. Weapon flies from hand and hits an ally for 1 damage.
+    6. Attack hits a nearby object instead of the enemy.
+    7. Weapon breaks a minor component (cosmetic but embarrassing).
+    8. Strike your own armor, dealing 1 damage to yourself.
+    9. Overextend, granting the enemy advantage on their next attack.
+    10. Attack destroys something valuable nearby.
+
+    **Ranged Attack Disasters:**
+    11. Arrow ricochets wildly and lands somewhere unpredictable.
+    12. Drop your ammunition pouch.
+    13. Bowstring snaps loudly (repair required).
+    14. Shoot straight into the ceiling/tree above.
+    15. Projectile hits an ally's shield or armor harmlessly.
+    16. Arrow gets stuck in your own boot or clothing.
+    17. Shot accidentally cuts a rope or object nearby.
+    18. Weapon jams.
+    19. Lose track of aim and shoot the wrong direction.
+    20. Bowstring slaps your arm painfully.
+
+    **Spellcasting Catastrophes:**
+    21. Spell fizzles but explodes in sparks and smoke.
+    22. Accidentally target yourself with the spell.
+    23. Spell summons an illusion of something embarrassing.
+    24. Magic changes color and produces loud noises.
+    25. Spell backfires causing minor magical feedback damage (1d4).
+    26. Spell summons harmless butterflies or frogs.
+    27. Lose concentration immediately.
+    28. Spell temporarily changes your hair color.
+    29. A random nearby object becomes levitated for 1 round.
+    30. Spell creates a loud thunderclap revealing your position.
+
+    **Physical Comedy:**
+    31. Slip and fall prone.
+    32. Trip over your own gear.
+    33. Helmet spins around blocking your vision.
+    34. Knock over something loud.
+    35. Run directly into a wall or tree.
+    36. Get tangled in your cloak.
+    37. Sneeze loudly at the worst moment.
+    38. Belt pouch spills coins everywhere.
+    39. Accidentally shove an ally.
+    40. Stub your toe painfully.
+
+    **Social / Roleplay Disasters:**
+    41. Insult the person you meant to impress.
+    42. Loudly reveal a secret.
+    43. Call someone the wrong name.
+    44. Accidentally threaten the NPC.
+    45. Spill a drink on someone important.
+    46. Tell a joke that offends everyone present.
+    47. Completely misinterpret the situation.
+    48. Voice cracks dramatically.
+    49. Bow at the wrong moment.
+    50. Accidentally challenge someone to a duel.
+
+    **Tactical Consequences:**
+    51. Enemy gains advantage on their next attack.
+    52. Lose your reaction until next turn.
+    53. Provoke an opportunity attack.
+    54. Position is exposed.
+    55. Drop your shield.
+    56. Footing breaks and you slide 5 feet.
+    57. Become frightened for 1 round (panic).
+    58. Movement is reduced next turn.
+    59. Accidentally switch places with an ally.
+    60. Give away your ambush.
+
+    **Ridiculous / Legendary Fails:**
+    61. Your pants rip loudly.
+    62. Weapon sticks in a tree behind the enemy.
+    63. A nearby animal becomes aggressive.
+    64. Yell your attack move name and immediately miss.
+    65. Spell creates illusory applause.
+    66. Weapon bounces off the enemy and hits a rock.
+    67. Dramatically leap forward and overshoot the enemy.
+    68. Step on a squeaky floorboard during stealth.
+    69. Drop something extremely important.
+    70. Shout the wrong battle cry.
+
+    **Truly Terrible Failures (use sparingly, scale with Difficulty):**
+    71. Critically fail and hit an ally for half damage.
+    72. Break your weapon (repair needed).
+    73. Spell triggers wild magic.
+    74. Fall prone and drop everything held.
+    75. Enemy immediately counterattacks.
+    76. Suffer 1 level of exhaustion from overexertion.
+    77. Become stunned for 1 round.
+    78. Armor strap breaks (AC -1 until fixed).
+    79. Lose concentration on all effects.
+    80. Attack causes structural damage nearby.
+
+    **Quick DM Chaos Roll (1d8):** 1 – Embarrassing failure, 2 – Drop equipment, 3 – Fall prone, 4 – Hit ally, 5 – Lose action next turn, 6 – Enemy advantage, 7 – Magical mishap, 8 – Catastrophic environmental effect.
+
+15. **Natural 20 Critical Success Guide.** When a d20 rolls a natural 20, it's always a critical hit on attacks (double damage dice). Use this as inspiration to add something heroic or cinematic on top. You don't have to pick from this list — it's a guide. A nat 20 should feel like success **plus something cool**.
+
+    **Devastating Combat Effects:**
+    1. Strike hits a vital weak point — double damage dice as normal plus +1d6.
+    2. Attack knocks the enemy prone.
+    3. Hit disarms the enemy.
+    4. Cleave through and deal half damage to another enemy nearby.
+    5. Blow shatters the enemy's weapon or shield.
+    6. Enemy is stunned until the end of their next turn.
+    7. Drive the enemy 5-10 feet backward.
+    8. Attack breaks armor straps (enemy AC -1 temporarily).
+    9. Strike severs a pouch or belt causing the enemy to drop items.
+    10. Enemy is frightened of you for 1 round.
+
+    **Ranged Mastery:**
+    11. Arrow pins the enemy's cloak to the wall/tree.
+    12. Shoot the weapon out of their hand.
+    13. Projectile hits two enemies in a line.
+    14. Shot cuts a rope or environmental object perfectly.
+    15. Arrow interrupts a spell.
+    16. Strike a weak point causing extra damage (1d6).
+    17. Shot blinds the enemy for one round.
+    18. Ricochet a shot around cover.
+    19. Projectile sticks dramatically in the enemy's armor.
+    20. Hit a target no one else could see clearly.
+
+    **Spellcasting Triumph:**
+    21. Spell deals maximum damage automatically.
+    22. Spell's area expands slightly.
+    23. Spell lasts one extra round.
+    24. Magic ignores resistance.
+    25. Spell creates a spectacular visual effect.
+    26. Spell pushes enemies back.
+    27. Regain 1 spell slot of lower level.
+    28. Magic empowers the next allied attack.
+    29. Spell creates temporary magical terrain advantage.
+    30. Spell causes enemies to hesitate in awe.
+
+    **Social / Roleplay Legendary Wins:**
+    31. NPC becomes very friendly toward you.
+    32. Gain valuable information they weren't planning to reveal.
+    33. Impress the crowd.
+    34. Someone nearby offers assistance.
+    35. Words end the conflict temporarily.
+    36. NPC offers a small gift or favor.
+    37. Speech inspires an ally (advantage next roll).
+    38. Gain local reputation.
+    39. Enemy questions their own choices.
+    40. Conversation opens a hidden quest or clue.
+
+    **Skill Check Excellence:**
+    41. Stealth so perfect no one suspects you exist.
+    42. Find extra treasure.
+    43. Discover a hidden passage.
+    44. Bypass a trap effortlessly.
+    45. Perception reveals something extremely important.
+    46. Climb or jump with incredible style.
+    47. Pick a lock in seconds.
+    48. Craft something better than expected.
+    49. Solve a puzzle instantly.
+    50. Track someone with supernatural accuracy.
+
+    **Athletic Hero Moments:**
+    51. Leap dramatically onto higher ground.
+    52. Catch an ally who was falling.
+    53. Shove an enemy off balance.
+    54. Break through a door in one strike.
+    55. Lift something thought impossible.
+    56. Grab an enemy mid-attack.
+    57. Swing across terrain heroically.
+    58. Dodge something impossible to dodge.
+    59. Land perfectly after a risky jump.
+    60. Movement inspires nearby allies.
+
+    **Cinematic Moments:**
+    61. Weapon glints heroically in the light.
+    62. Enemy staggers dramatically.
+    63. The crowd cheers.
+    64. Dust blows away as you strike.
+    65. Land the blow in slow-motion style.
+    66. Villain realizes you are a true threat.
+    67. Strike leaves a dramatic scar.
+    68. Attack echoes across the battlefield.
+    69. Land in a heroic pose.
+    70. Your reputation grows.
+
+    **Funny / Lucky Nat-20 Moments:**
+    71. Enemy trips over their own feet.
+    72. Their weapon breaks while blocking you.
+    73. Attack accidentally hits the perfect weak spot.
+    74. Swing sends their helmet spinning.
+    75. Enemy's pants rip.
+    76. You look far cooler than intended.
+    77. An environmental object helps you win.
+    78. Attack startles nearby animals.
+    79. Weapon gets briefly stuck but still wins the fight.
+    80. Everyone nearby pauses in disbelief.
+
+    **Legendary Critical Success:**
+    81. Gain temporary advantage next turn.
+    82. An ally gains inspiration.
+    83. Gain temporary HP (1d6).
+    84. Enemy immediately loses morale.
+    85. Battlefield shifts in your favor.
+    86. Enemy drops something valuable.
+    87. Reveal the enemy's weakness.
+    88. Nearby enemies hesitate.
+    89. Gain heroic momentum.
+    90. Deal max damage plus bonus dice.
+
+    **Quick DM Nat-20 Roll (1d8):** 1 – Extra damage, 2 – Knock enemy prone, 3 – Disarm enemy, 4 – Gain advantage next turn, 5 – Inspire ally, 6 – Environmental advantage, 7 – Reveal enemy weakness, 8 – Legendary finishing strike.
 
 ## Post-Encounter Checklist (MANDATORY)
 After EVERY combat encounter, skill challenge, or significant event, you MUST complete this checklist before continuing the narrative. Do NOT move on to the next scene until all applicable steps are done. The player should never have to ask "do we get XP?"

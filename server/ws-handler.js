@@ -87,10 +87,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     }
   }
 
-  function readSessionByDbId(sessionDbId) {
+  function findSessionFilePath(sessionDbId) {
     if (!sessionDbId) return null;
     const filename = `${sessionDbId}.json`;
-    // Search across all player/campaign session dirs
     try {
       const playerSlugs = fs.existsSync(playersDir) ? fs.readdirSync(playersDir) : [];
       for (const slug of playerSlugs) {
@@ -99,18 +98,19 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         try { campaigns = fs.readdirSync(playerDir).filter(d => fs.statSync(path.join(playerDir, d)).isDirectory()); } catch { continue; }
         for (const cid of campaigns) {
           const sessPath = path.join(playerDir, cid, 'sessions', filename);
-          if (fs.existsSync(sessPath)) {
-            return JSON.parse(fs.readFileSync(sessPath, 'utf-8'));
-          }
+          if (fs.existsSync(sessPath)) return sessPath;
         }
       }
     } catch { /* ignore */ }
-    // Fallback: check legacy global sessions dir
     const legacyPath = path.join(dataDir, 'sessions', filename);
-    if (fs.existsSync(legacyPath)) {
-      try { return JSON.parse(fs.readFileSync(legacyPath, 'utf-8')); } catch { /* ignore */ }
-    }
+    if (fs.existsSync(legacyPath)) return legacyPath;
     return null;
+  }
+
+  function readSessionByDbId(sessionDbId) {
+    const fp = findSessionFilePath(sessionDbId);
+    if (!fp) return null;
+    try { return JSON.parse(fs.readFileSync(fp, 'utf-8')); } catch { return null; }
   }
 
   function broadcastSessionMessage(sessionDbId, type, payload = {}, excludedEntry = null) {
@@ -462,8 +462,18 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           const companionNpcId = !canWrite ? getCompanionNpcId(session, requesterEmail) : null;
 
           // Set companionNpcId BEFORE joining room so participants broadcast includes it
+          // Also restore persisted character choice from session JSON
+          let companionCharacterId = null;
+          let companionCharacterName = null;
           if (companionNpcId) {
             wsEntry.companionNpcId = companionNpcId;
+            const cp = (session.companionPlayers || {})[companionNpcId];
+            if (cp?.characterId) {
+              companionCharacterId = cp.characterId;
+              companionCharacterName = cp.characterName || null;
+              wsEntry.companionCharacterId = companionCharacterId;
+              wsEntry.companionCharacterName = companionCharacterName;
+            }
           }
           joinSessionRoom(requestedSessionId, canWrite);
           const accessPayload = {
@@ -474,6 +484,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           };
           if (companionNpcId) {
             accessPayload.companionNpcId = companionNpcId;
+            if (companionCharacterId) {
+              accessPayload.companionCharacterId = companionCharacterId;
+              accessPayload.companionCharacterName = companionCharacterName;
+            }
           }
           send('session_access', accessPayload);
           // Always send current pending turns (empty array clears stale client state)
@@ -691,6 +705,19 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           if (msg.characterName !== prevCharName && companionSheetsSent.has(currentSessionDbId)) {
             companionSheetsSent.get(currentSessionDbId).delete(msg.characterId || msg.characterName);
           }
+          // Persist character choice to session JSON
+          try {
+            const sessionFile = readSessionByDbId(currentSessionDbId);
+            if (sessionFile && sessionFile.companionPlayers && sessionFile.companionPlayers[wsEntry.companionNpcId]) {
+              sessionFile.companionPlayers[wsEntry.companionNpcId].characterId = msg.characterId || null;
+              sessionFile.companionPlayers[wsEntry.companionNpcId].characterName = msg.characterName || null;
+              sessionFile.updatedAt = new Date().toISOString();
+              const fp = findSessionFilePath(currentSessionDbId);
+              if (fp) fs.writeFileSync(fp, JSON.stringify(sessionFile, null, 2));
+            }
+          } catch (err) {
+            console.error('[WS] Failed to persist companion character choice:', err);
+          }
           broadcastSessionParticipants(currentSessionDbId);
 
           // Copy companion's character file to host's characters directory
@@ -795,6 +822,18 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           }
           // Broadcast updated ready-golf status
           broadcastReadyGolfStatus(currentSessionDbId);
+          break;
+        }
+
+        case 'typing_status': {
+          if (!currentSessionDbId) break;
+          broadcastSessionMessage(currentSessionDbId, 'typing_status', {
+            playerEmail: wsEntry.playerEmail,
+            playerName: wsEntry.playerName,
+            isHost: !!wsEntry.isHost,
+            companionNpcId: wsEntry.companionNpcId || null,
+            typing: !!msg.typing,
+          }, wsEntry); // exclude sender
           break;
         }
 

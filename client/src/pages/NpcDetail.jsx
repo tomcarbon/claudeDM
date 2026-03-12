@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { api } from '../api/client';
 import StatBlock from '../components/StatBlock';
+import SpellTag from '../components/SpellTag';
 
 function NpcDetail() {
   const { id } = useParams();
@@ -110,12 +111,24 @@ function NpcDetail() {
         <div className="detail-section">
           <h3>Spells</h3>
           {npc.spells.cantrips?.length > 0 && (
-            <div><strong>Cantrips:</strong> {npc.spells.cantrips.map(s => <span key={s} className="tag">{s}</span>)}</div>
+            <div><strong>Cantrips:</strong> {npc.spells.cantrips.map(s => <SpellTag key={s} name={s} />)}</div>
           )}
           {npc.spells.level1?.known?.length > 0 && (
             <div style={{ marginTop: '0.3rem' }}>
               <strong>1st Level ({npc.spells.level1.slots} slots):</strong>{' '}
-              {npc.spells.level1.known.map(s => <span key={s} className="tag">{s}</span>)}
+              {npc.spells.level1.known.map(s => <SpellTag key={s} name={s} />)}
+            </div>
+          )}
+          {npc.spells.level2?.known?.length > 0 && (
+            <div style={{ marginTop: '0.3rem' }}>
+              <strong>2nd Level ({npc.spells.level2.slots} slots):</strong>{' '}
+              {npc.spells.level2.known.map(s => <SpellTag key={s} name={s} />)}
+            </div>
+          )}
+          {npc.spells.level3?.known?.length > 0 && (
+            <div style={{ marginTop: '0.3rem' }}>
+              <strong>3rd Level ({npc.spells.level3.slots} slots):</strong>{' '}
+              {npc.spells.level3.known.map(s => <SpellTag key={s} name={s} />)}
             </div>
           )}
         </div>

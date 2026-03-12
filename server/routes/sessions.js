@@ -63,12 +63,23 @@ function getCompanionSlots(session) {
   };
 }
 
+function getLastPlayerName(session) {
+  const msgs = session.messages || [];
+  for (let i = msgs.length - 1; i >= 0; i--) {
+    const m = msgs[i];
+    if (m.type === 'player') return session.playerName || session.ownerName || null;
+    if (m.type === 'companion' && m.playerName) return m.playerName;
+  }
+  return null;
+}
+
 function summarizeSession(session, requester) {
   const ownerEmail = getOwnerEmail(session);
   const ownerName = getOwnerName(session);
   const canWrite = canWriteSession(session, requester);
   const settings = getSessionSettings(session);
   const companionSlots = getCompanionSlots(session);
+  const lastPlayerName = getLastPlayerName(session);
   return {
     id: session.id,
     name: session.name,
@@ -88,6 +99,7 @@ function summarizeSession(session, requester) {
     readOnly: !canWrite,
     settings,
     companionSlots,
+    lastPlayerName,
   };
 }
 
@@ -483,6 +495,51 @@ module.exports = function (dataDir) {
       res.json({
         npcId,
         claimedBy: session.companionPlayers[npcId],
+        companionSlots: getCompanionSlots(session),
+      });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // POST unjoin — release a claimed companion slot
+  router.post('/:id/unjoin', (req, res) => {
+    try {
+      const requester = getAuthenticatedPlayer(dataDir, req);
+      if (!requester) {
+        return res.status(403).json({ error: 'Login required.' });
+      }
+      const { npcId } = req.body;
+      if (!npcId) {
+        return res.status(400).json({ error: 'npcId is required.' });
+      }
+
+      let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
+      if (!fs.existsSync(filePath)) {
+        filePath = findSessionFile(req.params.id, req.campaignId);
+        if (!filePath) {
+          return res.status(404).json({ error: 'Session not found' });
+        }
+      }
+
+      const session = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      const isOwner = canWriteSession(session, requester);
+
+      if (!session.companionPlayers || !session.companionPlayers[npcId]) {
+        return res.status(400).json({ error: 'This slot is not claimed.' });
+      }
+
+      // Only the player who claimed it or the session owner can unjoin
+      const claimEmail = session.companionPlayers[npcId].email;
+      if (claimEmail !== requester.email && !isOwner) {
+        return res.status(403).json({ error: 'You can only unjoin your own slot.' });
+      }
+
+      delete session.companionPlayers[npcId];
+      session.updatedAt = new Date().toISOString();
+      fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
+      res.json({
+        npcId,
         companionSlots: getCompanionSlots(session),
       });
     } catch (err) {

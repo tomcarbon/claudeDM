@@ -99,6 +99,8 @@ function Adventure({
     submitCompanionTurn,
     retractCompanionTurn,
     skipCompanion,
+    sendTypingStatus,
+    typingPlayers,
     sessionsChanged,
   } = ws;
   const { player } = usePlayer();
@@ -139,6 +141,13 @@ function Adventure({
   // Derive companion turn submitted from server state (no race conditions)
   const companionTurnSubmitted = isCompanion && companionTurns.some(t => t.playerEmail === player?.email);
 
+  // Restore companion character from session_access (persisted across reconnects)
+  useEffect(() => {
+    if (sessionAccess.companionCharacterId && !companionCharacterId) {
+      setCompanionCharacterId(sessionAccess.companionCharacterId);
+    }
+  }, [sessionAccess.companionCharacterId]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Clear companion input when turn is consumed by host
   const prevCompanionSubmitted = useRef(false);
   useEffect(() => {
@@ -147,6 +156,28 @@ function Adventure({
     }
     prevCompanionSubmitted.current = companionTurnSubmitted;
   }, [companionTurnSubmitted]);
+
+  // Broadcast typing status with debounce (clear after 3s of no typing)
+  const typingTimerRef = useRef(null);
+  const isTypingRef = useRef(false);
+  const handleTypingInput = useCallback((value) => {
+    if (value.trim() && !isTypingRef.current) {
+      isTypingRef.current = true;
+      sendTypingStatus(true);
+    }
+    clearTimeout(typingTimerRef.current);
+    if (value.trim()) {
+      typingTimerRef.current = setTimeout(() => {
+        isTypingRef.current = false;
+        sendTypingStatus(false);
+      }, 3000);
+    } else {
+      isTypingRef.current = false;
+      sendTypingStatus(false);
+    }
+  }, [sendTypingStatus]);
+  // Clear typing on unmount
+  useEffect(() => () => { clearTimeout(typingTimerRef.current); }, []);
 
   // Wire up ready-golf auto-fire callback
   useEffect(() => {
@@ -257,7 +288,7 @@ function Adventure({
     if (!sessionActive) {
       api.getSessions().then(setSavedSessions).catch(() => {});
     }
-  }, [sessionActive, campaignId, sessionsChanged]);
+  }, [sessionActive, campaignId, sessionsChanged, player]);
 
   useEffect(() => {
     if (!savedSessionDbId || !sessionAccess.sessionDbId) return;
@@ -493,6 +524,19 @@ Set the scene and begin the story.`;
     }
   }
 
+  async function handleUnjoinSession(e, sessionId, npcId) {
+    e.stopPropagation();
+    try {
+      const result = await api.unjoinSession(sessionId, npcId);
+      // Update the session card's slot data in place
+      setSavedSessions(prev => prev.map(s =>
+        s.id === sessionId ? { ...s, companionSlots: result.companionSlots } : s
+      ));
+    } catch (err) {
+      alert('Unjoin failed: ' + (err.message || 'Unknown error'));
+    }
+  }
+
   async function handleDeleteSession(e, id) {
     e.stopPropagation();
     if (!window.confirm('Delete this saved session? This cannot be undone.')) return;
@@ -632,6 +676,11 @@ Set the scene and begin the story.`;
     if (!text || status === 'thinking' || sessionReadOnly) return;
     const turnMode = sessionSettings.turnMode || 'host-decides';
     const hasCompanions = sessionParticipants.some(p => p.companionNpcId);
+
+    // Clear typing indicator
+    isTypingRef.current = false;
+    clearTimeout(typingTimerRef.current);
+    sendTypingStatus(false);
 
     // When companions are present, always queue the host's turn and wait
     if (hasCompanions) {
@@ -812,8 +861,26 @@ Set the scene and begin the story.`;
         <div className="setup-group" style={{ marginTop: '2rem' }}>
           <label>Load Saved Session</label>
           <div className="setup-options setup-options-sessions">
-            {savedSessions.map((s, i) => (
+            {savedSessions.map((s, i) => {
+              const isRecent = s.updatedAt && (Date.now() - new Date(s.updatedAt).getTime()) < 5 * 60 * 1000;
+              return (
               <div key={`${s.id}-${i}`} className="option-card saved-session-card" style={{ position: 'relative' }}>
+                <span
+                  className="session-activity-dot"
+                  title={isRecent ? 'Active in the last 5 minutes' : 'No recent activity'}
+                  style={{
+                    position: 'absolute',
+                    top: '0.55rem',
+                    left: '0.55rem',
+                    width: '0.55rem',
+                    height: '0.55rem',
+                    borderRadius: '50%',
+                    background: isRecent ? '#2ecc71' : '#e74c3c',
+                    boxShadow: isRecent ? '0 0 4px #2ecc71' : 'none',
+                    flexShrink: 0,
+                    zIndex: 1,
+                  }}
+                />
                 <button
                   className="option-card-inner"
                   onClick={() => handleLoadSession(s.id)}
@@ -825,6 +892,7 @@ Set the scene and begin the story.`;
                     display: 'flex',
                     flexDirection: 'column',
                     width: '100%',
+                    paddingLeft: '0.8rem',
                   }}
                 >
                   <strong>{s.name}</strong>
@@ -844,22 +912,36 @@ Set the scene and begin the story.`;
                   {loadingSessionId !== s.id && (
                     <span className="saved-session-time">{formatSavedSessionTime(s.updatedAt)}</span>
                   )}
+                  {s.lastPlayerName && (
+                    <span style={{ fontSize: '0.8em', color: 'var(--text-muted)', opacity: 0.85 }}>
+                      Last played: {s.lastPlayerName}{s.updatedAt ? ` · ${formatSavedSessionDate(s.updatedAt)} ${formatSavedSessionTime(s.updatedAt)}` : ''}
+                    </span>
+                  )}
                 </button>
-                {s.companionSlots && s.companionSlots.slots.length > 0 && s.canWrite === false && (
+                {s.companionSlots && s.companionSlots.slots.length > 0 && (
                   <div className="session-slots">
-                    {s.companionSlots.slots.filter(sl => !sl.claimedBy).map(sl => {
+                    {s.companionSlots.slots.map(sl => {
                       const npc = npcs.find(n => n.id === sl.npcId);
-                      const canJoin = sl.type === 'player' || (sl.type === 'reserved' && sl.reservedFor === player?.email);
+                      const isClaimed = !!sl.claimedBy;
+                      const isMySlot = isClaimed && sl.claimedBy?.email === player?.email;
+                      const canJoin = !isClaimed && (sl.type === 'player' || (sl.type === 'reserved' && sl.reservedFor === player?.email));
+                      const canUnjoin = isClaimed && (isMySlot || s.canWrite);
                       return (
-                        <div key={sl.npcId} className={`session-slot ${canJoin ? 'session-slot-joinable' : 'session-slot-reserved'}`}>
+                        <div key={sl.npcId} className={`session-slot ${isClaimed ? 'session-slot-claimed' : canJoin ? 'session-slot-joinable' : 'session-slot-reserved'}`}>
                           <span className="session-slot-name">{npc?.name || sl.npcId}</span>
-                          <span className="session-slot-type">{sl.type === 'reserved' ? `Reserved: ${sl.reservedFor}` : 'Open'}</span>
+                          <span className="session-slot-type">
+                            {isClaimed
+                              ? `${sl.claimedBy.name}${sl.claimedBy.characterName ? ` as ${sl.claimedBy.characterName}` : ''}`
+                              : sl.type === 'reserved' ? `Reserved: ${sl.reservedFor}` : 'Open'}
+                          </span>
                           {canJoin && !isGuest && (
-                            <button
-                              className="btn-join-slot"
-                              onClick={(e) => handleJoinSession(e, s.id, sl.npcId)}
-                            >
+                            <button className="btn-join-slot" onClick={(e) => handleJoinSession(e, s.id, sl.npcId)}>
                               Join
+                            </button>
+                          )}
+                          {canUnjoin && (
+                            <button className="btn-unjoin-slot" onClick={(e) => handleUnjoinSession(e, s.id, sl.npcId)}>
+                              Unjoin
                             </button>
                           )}
                         </div>
@@ -886,7 +968,8 @@ Set the scene and begin the story.`;
                   </div>
                 )}
               </div>
-            ))}
+              );
+            })}
           </div>
           <label
             className="btn-primary"
@@ -1047,7 +1130,10 @@ Set the scene and begin the story.`;
           >
             <span className="party-status-dot online" />
             <span className="party-status-name">{activeCharacter?.name || 'Host'}</span>
-            <span className="party-status-role">{player?.name || 'Host'} (Host)</span>
+            <span className="party-status-role">
+              {player?.name || 'Host'} (Host)
+              {Object.values(typingPlayers).some(t => t.isHost) ? ' · Typing...' : ''}
+            </span>
           </button>
           {/* Companion NPCs — player-controlled or AI */}
           {npcs.filter(n => {
@@ -1075,7 +1161,7 @@ Set the scene and begin the story.`;
                 {isPlayerControlled ? (
                   <span className="party-status-role">
                     {isOnline ? participant.playerName : (companionReservations[n.id] ? friendNames[companionReservations[n.id]] || companionReservations[n.id] : 'Unjoined')}
-                    {turn ? ' · Ready' : isOnline ? ' · Waiting' : ' · Not in session'}
+                    {turn ? ' · Ready' : isOnline && typingPlayers[participant?.playerEmail] ? ' · Typing...' : isOnline ? ' · Your turn' : ' · Not in session'}
                   </span>
                 ) : (
                   <span className="party-status-role">NPC</span>
@@ -1255,11 +1341,12 @@ Set the scene and begin the story.`;
                   <textarea
                     className="adventure-input"
                     value={companionInput}
-                    onChange={e => setCompanionInput(e.target.value)}
+                    onChange={e => { setCompanionInput(e.target.value); handleTypingInput(e.target.value); }}
                     onKeyDown={e => {
                       if (e.key === 'Enter' && !e.shiftKey) {
                         e.preventDefault();
                         if (companionInput.trim() && status !== 'thinking') {
+                          isTypingRef.current = false; clearTimeout(typingTimerRef.current); sendTypingStatus(false);
                           submitCompanionTurn(companionInput.trim(), {
                             npcName: companionNpc?.name,
                             characterName: companionCharacter?.name,
@@ -1276,6 +1363,7 @@ Set the scene and begin the story.`;
                     className="btn-send"
                     onClick={() => {
                       if (companionInput.trim()) {
+                        isTypingRef.current = false; clearTimeout(typingTimerRef.current); sendTypingStatus(false);
                         submitCompanionTurn(companionInput.trim(), {
                           npcName: companionNpc?.name,
                           characterName: companionCharacter?.name,
@@ -1332,7 +1420,7 @@ Set the scene and begin the story.`;
               ref={inputRef}
               className="adventure-input"
               value={input}
-              onChange={e => setInput(e.target.value)}
+              onChange={e => { setInput(e.target.value); handleTypingInput(e.target.value); }}
               onKeyDown={handleKeyDown}
               placeholder={sessionReadOnly ? 'Viewing live session (read-only)' : (status === 'thinking' ? 'The DM is narrating...' : 'What do you do?')}
               disabled={sessionReadOnly || status === 'thinking' || status === 'awaiting_permission'}

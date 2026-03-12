@@ -103,5 +103,6 @@ export const api = {
   updateSessionSettings: (id, settings) => fetchJson(`/sessions/${id}/settings`, { method: 'PUT', body: JSON.stringify(settings) }),
   renameSession: (id, label) => fetchJson(`/sessions/${id}/label`, { method: 'PUT', body: JSON.stringify({ label }) }),
   joinSession: (id, npcId) => fetchJson(`/sessions/${id}/join`, { method: 'POST', body: JSON.stringify({ npcId }) }),
+  unjoinSession: (id, npcId) => fetchJson(`/sessions/${id}/unjoin`, { method: 'POST', body: JSON.stringify({ npcId }) }),
   addPlayerToSession: (id, data) => fetchJson(`/sessions/${id}/players`, { method: 'POST', body: JSON.stringify(data) }),
 };

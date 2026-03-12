@@ -1065,23 +1065,23 @@
 .party-status-board {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 0.4rem 0;
+  gap: 0.48rem;
+  padding: 0.48rem 0;
   border-bottom: 1px solid var(--border);
 }
 .party-status-entry {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  font-size: 0.75rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 12px;
+  gap: 0.36rem;
+  font-size: 0.9rem;
+  padding: 0.24rem 0.6rem;
+  border-radius: 14px;
   border: 1px solid var(--border);
   background: var(--bg-card);
 }
 .party-status-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -1101,7 +1101,7 @@
 }
 .party-status-role {
   color: var(--text-muted);
-  font-size: 0.7rem;
+  font-size: 0.84rem;
 }
 .party-status-host {
   border-color: rgba(129, 199, 132, 0.3);
@@ -1504,6 +1504,92 @@
 }
 .btn-join-slot:hover {
   background: #2980b9;
+}
+.session-slot-claimed {
+  background: rgba(46, 204, 113, 0.08);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+.btn-unjoin-slot {
+  padding: 0.2rem 0.6rem;
+  background: transparent;
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-unjoin-slot:hover {
+  background: rgba(231, 76, 60, 0.15);
+}
+
+/* ===== Spell Tags ===== */
+.spell-tag {
+  cursor: pointer;
+}
+.spell-tag-btn {
+  all: unset;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+.spell-tag-btn:hover {
+  color: var(--accent, #6366f1);
+}
+.spell-detail-popup {
+  position: absolute;
+  bottom: calc(100% + 0.4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(360px, 90vw);
+  background: var(--bg-card, #1e1e2e);
+  border: 1px solid var(--border, #333);
+  border-radius: 8px;
+  padding: 0.75rem;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  text-align: left;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.spell-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.spell-detail-header strong {
+  font-size: 1rem;
+}
+.spell-detail-school {
+  font-size: 0.78rem;
+  color: var(--text-muted, #888);
+  white-space: nowrap;
+}
+.spell-detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-muted, #aaa);
+}
+.spell-detail-desc {
+  margin-bottom: 0.4rem;
+  color: var(--text, #ddd);
+}
+.spell-detail-classes {
+  font-size: 0.78rem;
+  color: var(--text-muted, #888);
+  font-style: italic;
+}
+.spell-detail-notes {
+  font-size: 0.78rem;
+  color: #f0c040;
+  margin-top: 0.3rem;
 }
 
 /* ===== Multiplayer Lists (Settings) ===== */
