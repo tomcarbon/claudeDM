@@ -908,6 +908,26 @@
   opacity: 1;
 }
 
+/* Message gate (batch "show more") */
+.message-gate {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.message-gate-btn {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  cursor: pointer;
+  padding: 0.4rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+.message-gate-btn:hover {
+  background: var(--bg-card);
+  border-color: var(--gold);
+}
+
 /* Player messages */
 .message-player {
   background: rgba(100, 140, 200, 0.1);
@@ -2178,13 +2198,74 @@
 }
 
 .chat-online-player {
-  font-size: 0.76em;
-  line-height: 1.2;
-  padding: 0.18rem 0.42rem;
+  font-size: 0.95em;
+  line-height: 1.3;
+  padding: 0.24rem 0.54rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--bg-card);
   color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.chat-online-player.chat-online-typing {
+  border-color: var(--gold);
+  background: rgba(255, 215, 0, 0.08);
+}
+
+.chat-typing-dot-group {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.1rem;
+}
+
+.chat-typing-dots {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.chat-typing-dots::before,
+.chat-typing-dots::after,
+.chat-typing-dots {
+  content: '';
+}
+
+.chat-typing-dots {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: chatTypingBounce 1.2s infinite ease-in-out;
+  animation-delay: 0.2s;
+  position: relative;
+}
+
+.chat-typing-dots::before,
+.chat-typing-dots::after {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: chatTypingBounce 1.2s infinite ease-in-out;
+}
+
+.chat-typing-dots::before {
+  left: -6px;
+  animation-delay: 0s;
+}
+
+.chat-typing-dots::after {
+  left: 6px;
+  animation-delay: 0.4s;
+}
+
+@keyframes chatTypingBounce {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
 }
 
 .chat-online-empty {

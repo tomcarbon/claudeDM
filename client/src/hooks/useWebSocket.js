@@ -22,6 +22,7 @@ export default function useWebSocket() {
   const [companionTurns, setCompanionTurns] = useState([]);
   const [readyGolfStatus, setReadyGolfStatus] = useState(null);
   const [typingPlayers, setTypingPlayers] = useState({}); // { playerEmail: { playerName, isHost, companionNpcId, ts } }
+  const [chatTypingPlayers, setChatTypingPlayers] = useState({}); // { playerEmail: { playerName, ts } }
   const readyGolfFireRef = useRef(null); // callback for auto-fire
   const [status, setStatus] = useState('disconnected');
   const [permissionRequest, setPermissionRequest] = useState(null);
@@ -217,6 +218,32 @@ export default function useWebSocket() {
             text: msg.text,
             timestamp: msg.timestamp,
           }]);
+          // Clear typing indicator when we receive their message
+          setChatTypingPlayers(prev => {
+            if (!prev[msg.playerEmail]) return prev;
+            const next = { ...prev };
+            delete next[msg.playerEmail];
+            return next;
+          });
+          break;
+
+        case 'chat_typing':
+          if (msg.typing) {
+            setChatTypingPlayers(prev => ({
+              ...prev,
+              [msg.playerEmail]: {
+                playerName: msg.playerName,
+                ts: Date.now(),
+              },
+            }));
+          } else {
+            setChatTypingPlayers(prev => {
+              if (!prev[msg.playerEmail]) return prev;
+              const next = { ...prev };
+              delete next[msg.playerEmail];
+              return next;
+            });
+          }
           break;
 
         case 'chat_system':
@@ -271,9 +298,25 @@ export default function useWebSocket() {
         return changed ? next : prev;
       });
     }, 4000);
+    const chatTypingCleanup = setInterval(() => {
+      setChatTypingPlayers(prev => {
+        const now = Date.now();
+        const next = {};
+        let changed = false;
+        for (const [email, entry] of Object.entries(prev)) {
+          if (now - entry.ts < 5000) {
+            next[email] = entry;
+          } else {
+            changed = true;
+          }
+        }
+        return changed ? next : prev;
+      });
+    }, 4000);
     return () => {
       clearTimeout(reconnectTimer.current);
       clearInterval(typingCleanup);
+      clearInterval(chatTypingCleanup);
       wsRef.current?.close();
     };
   }, [connect]);
@@ -423,6 +466,12 @@ export default function useWebSocket() {
     }
   }, []);
 
+  const sendChatTypingStatus = useCallback((typing) => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'chat_typing', typing }));
+    }
+  }, []);
+
   const sendChat = useCallback((text, player) => {
     if (wsRef.current?.readyState === WebSocket.OPEN && text && player) {
       wsRef.current.send(JSON.stringify({
@@ -467,6 +516,8 @@ export default function useWebSocket() {
     sendChat,
     sendTypingStatus,
     typingPlayers,
+    sendChatTypingStatus,
+    chatTypingPlayers,
     sessionsChanged,
   };
 }

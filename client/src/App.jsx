@@ -136,6 +136,8 @@ function AppContent() {
           onlinePlayers={ws.onlinePlayers}
           selfChatConnectionId={ws.selfChatConnectionId}
           onSend={(text) => ws.sendChat(text, player)}
+          chatTypingPlayers={ws.chatTypingPlayers}
+          sendChatTypingStatus={ws.sendChatTypingStatus}
         />
       </div>
       {mobileChatOpen && (

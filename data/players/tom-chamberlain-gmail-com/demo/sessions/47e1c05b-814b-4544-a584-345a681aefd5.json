@@ -1,10 +1,10 @@
 {
   "id": "47e1c05b-814b-4544-a584-345a681aefd5",
-  "name": "The Shattered Coast — 3/11/2026",
+  "name": "The Shattered Coast — 3/12/2026",
   "label": "tomchamberlain's FROG",
   "scenarioId": "demo",
   "characterId": "550e8400-e29b-41d4-a716-446655440003",
-  "claudeSessionId": "60a0dcd4-96c3-4645-a66b-71af04825de2",
+  "claudeSessionId": "51a0bb8d-5b49-4ef7-b6b0-6165425afbe4",
   "messages": [
     {
       "type": "system",
@@ -568,19 +568,14 @@
     },
     {
       "type": "system",
-      "text": "tomcarbon has left the session.",
-      "playerName": "tomcarbon",
-      "companionNpcId": "c5e9a1d3-2b6f-4c8d-9a3e-7d1b4f6c8e2a"
+      "text": "tomcarbon has left the session."
     },
     {
       "type": "system",
-      "text": "tomcarbon has joined the session as a companion player.",
-      "companionNpcId": "c5e9a1d3-2b6f-4c8d-9a3e-7d1b4f6c8e2a"
+      "text": "tomcarbon has joined the session as a companion player."
     },
     {
       "type": "companion",
-      "characterName": "Thorin Ironforge",
-      "playerName": "tomcarbon",
       "text": "\"Let's go in the ground floor. We'll clear it and then cover the stair case. Then I'm looking for a jar of pickles.\""
     },
     {
@@ -689,8 +684,6 @@
     },
     {
       "type": "companion",
-      "characterName": "Thorin Ironforge",
-      "playerName": "tomcarbon",
       "text": "Well, these guys, we'll have to be lethal. Eldon  everyone waits, Eldon leads with thunderwave!"
     },
     {
@@ -783,8 +776,6 @@
     },
     {
       "type": "companion",
-      "characterName": "Thorin Ironforge",
-      "playerName": "tomcarbon",
       "text": "attack!"
     },
     {
@@ -966,6 +957,598 @@
     {
       "type": "dm",
       "text": "\n\n**10** vs AC 11 — **MISS!** The bolt of flame sputters from the brass nozzle and scorches the wall behind Thug 3. Eldon winces. *\"Calibration's off... need to adjust the focal aperture...\"* 🔧😤\n\n---\n\n## ⚔️ End of Round 2 — Status\n\n| # | Character | HP | Condition |\n|---|---|---|---|\n| 🗡️ **Bramble** | **4/9** | Wounded, engaged with Thug 2 |\n| ⚔️ **Thorin** | **2/13** | Badly hurt! Engaged with Thug 1 & Harlen |\n| 👊 **Pip** | 10/10 | Healthy, engaged with Thug 4 |\n| 🔧 **Eldon** | **3/8** | Wounded, in the hallway vs Thug 3 |\n| 🐍 **Harlen** | 59/65 | Barely scratched 😤 |\n| 💀 **Thug 1** | 19/32 | Wounded |\n| 💀 **Thug 2** | 14/32 | Bloodied |\n| 💀 **Thug 3** | 26/32 | Wounded |\n| 💀 **Thug 4** | 15/32 | Bloodied |\n\n---\n\n⚠️ **Things are getting rough.** Thorin is at **2 HP** with Harlen AND Thug 1 on him. Bramble and Eldon are both hurting. These killers hit hard, and Harlen has barely been touched. 😰\n\nPip glances across the chaos — overturned furniture, broken glass, blood on the floorboards. *\"This stew's burning fast, friends!\"* 🍲\n\nThorin spits blood, grinning through it. His hand drops to his belt — **Second Wind** is still available. 💪\n\n---\n\n## ⚔️ Round 3\n\n### 🗡️ Bramble (Init 23) — YOUR TURN!\n\nYou're at 4 HP, in melee with **Thug 2** (14/32 HP). Thorin is in serious trouble across the room — two enemies on him and only 2 HP left. Eldon is hurt in the doorway.\n\nYour call, Bramble. **Keep pressing Thug 2? Disengage and reposition? Try something clever?** 🗡️🍀"
+    },
+    {
+      "type": "player",
+      "text": "fight!"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nBramble grits his teeth against the pain in his shoulder and lunges at Thug 2! No retreat — not now! 🗡️"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bramble attack — 1d20+5: 2 + 5 = 7"
+    },
+    {
+      "type": "dm",
+      "text": "**7** vs AC 11 — **MISS!** 😤 The shortsword skids off the thug's leather jerkin. Bramble's wounded shoulder is slowing him down.\n\n---\n\n### ⚔️ Thorin (Init 20)\n\nTwo enemies on him, 2 HP left. But Thorin Ironforge didn't survive decades in the shield wall by folding.\n\n**Bonus Action — SECOND WIND!** 💪"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Second Wind heal — 1d10+1: 4 + 1 = 5"
+    },
+    {
+      "type": "dm",
+      "text": "**+5 HP!** Thorin sucks in a breath, rolls his shoulders, and the iron comes back into his eyes. **Thorin: 7/13 HP** 🐸\n\n**Action — Battleaxe on Thug 1!** This one's been softened up — time to drop him."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin attack — 1d20+5: 6 + 5 = 11"
+    },
+    {
+      "type": "dm",
+      "text": "**11** vs AC 11 — **HIT!** ✅ Just enough!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin axe dmg — 1d8+3: 2 + 3 = 5"
+    },
+    {
+      "type": "dm",
+      "text": "**5 damage!** The axe catches Thug 1 across the arm. **Thug 1: 14/32 HP** 🩸 Wounded but standing.\n\n---\n\n### 💀 Thug 2 (Init 20) — Swings at Bramble!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 2 mace 1 — 1d20+4: 4 + 4 = 8"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 2 mace 2 — 1d20+4: 10 + 4 = 14"
+    },
+    {
+      "type": "dm",
+      "text": "\n\n**8** vs AC 14 — **MISS!** 🍀\n**14** vs AC 14 — **MISS!** 🍀🍀\n\nBramble ducks and weaves, the mace whistling past his ears twice. Small target, fast feet. The thug growls in frustration.\n\n---\n\n### 💀 Thug 4 (Init 14) — Swings at Pip!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 4 mace 1 — 1d20+4: 10 + 4 = 14"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 4 mace 2 — 1d20+4: 8 + 4 = 12"
+    },
+    {
+      "type": "dm",
+      "text": "**14** vs AC 15 — **MISS!**\n**12** vs AC 15 — **MISS!**\n\nPip is *untouchable*. He flows around both swings like smoke. The thug can't lay a finger on him. 👊\n\n---\n\n### 🐍 Reeve Harlen (Init 9) — Three attacks on Thorin!\n\nHarlen presses the attack, blades flashing. **\"You should have stayed in your mountain, dwarf.\"** 🐍"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen scimitar 1 — 1d20+5: 20 + 5 = 25"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen scimitar 2 — 1d20+5: 5 + 5 = 10"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen dagger — 1d20+5: 7 + 5 = 12"
+    },
+    {
+      "type": "dm",
+      "text": "**25 — NATURAL 20! CRITICAL HIT!** 💀💀💀\n**10** vs AC 18 — MISS!\n**12** vs AC 18 — MISS!\n\nThe scimitar finds the gap between Thorin's helmet and gorget. A *critical* strike."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen crit dmg — 2d6+3: [5, 2] + 3 = 10"
+    },
+    {
+      "type": "dm",
+      "text": "**10 damage!** 💥💥\n\nThe scimitar bites deep into Thorin's neck. The dwarf's eyes go wide. His knees buckle. He crashes to the floor in a clatter of chain mail.\n\n**Thorin is DOWN at 0 HP!** 💀⚔️\n\nHarlen stands over him, scimitar dripping. **\"Next?\"**\n\n---\n\n### 💀 Thug 1 (Init 9) — Kicks the downed dwarf? No — turns on Bramble!\n\nWith Thorin down, Thug 1 pivots toward the nearest threat — **Bramble!**"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 1 mace 1 — 1d20+4: 7 + 4 = 11"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 1 mace 2 — 1d20+4: 12 + 4 = 16"
+    },
+    {
+      "type": "dm",
+      "text": "\n\n**11** vs AC 14 — **MISS!**\n**16** vs AC 14 — **HIT!** 💥"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 1 mace dmg — 1d6+2: 1 + 2 = 3"
+    },
+    {
+      "type": "dm",
+      "text": "**3 damage!** The mace clips Bramble's side. **Bramble: 1/9 HP** 😱\n\nOne hit point. One. Bramble can feel his vision tunneling, blood soaking through his leather armor.\n\n---\n\n### 💀 Thug 3 (Init 7) — Swings at Eldon!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 3 mace 1 — 1d20+4: 12 + 4 = 16"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 3 mace 2 — 1d20+4: 11 + 4 = 15"
+    },
+    {
+      "type": "dm",
+      "text": "**16** vs AC 11 — **HIT!** 💥"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 3 mace dmg — 1d6+2: 3 + 2 = 5"
+    },
+    {
+      "type": "dm",
+      "text": "**5 damage!** The mace slams into Eldon's shoulder. The gnome crumples.\n\n**Eldon is DOWN at 0 HP!** 💀🔧\n\n*\"That's — that's not — the structural integrity of my clavicle is —\"* He hits the floor, goggles clattering off. Out cold.\n\n**15** vs AC 11 — would hit, but Eldon is already unconscious. The thug pulls the second swing and turns toward the room.\n\n---\n\n### 👊 Pip (Init 6)\n\nPip sees Thorin down. Sees Eldon down. Sees Bramble on his last legs. The cheerful halfling's face goes *stone cold*. \n\nHis voice drops to that quiet, steady register — the dangerous one. *\"Bramble. Get behind me.\"*\n\nPip attacks **Thug 4** — shortsword."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip shortsword — 1d20+5: 7 + 5 = 12"
+    },
+    {
+      "type": "dm",
+      "text": "**12** vs AC 11 — **HIT!** ✅"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip sword dmg — 1d6+3: 2 + 3 = 5"
+    },
+    {
+      "type": "dm",
+      "text": "\n\n**5 damage!** **Thug 4: 10/32 HP** 🩸\n\n**Bonus action — Martial Arts unarmed strike!**"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip bonus strike — 1d20+5: 16 + 5 = 21"
+    },
+    {
+      "type": "dm",
+      "text": "**21** vs AC 11 — **HIT!** ✅"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip bonus dmg — 1d4+3: 2 + 3 = 5"
+    },
+    {
+      "type": "dm",
+      "text": "**5 more damage!** A spinning elbow to the temple. **Thug 4: 5/32 HP** 🩸🩸 The thug staggers, barely standing.\n\n---\n\n## ⚔️ End of Round 3 — Status\n\n| # | Character | HP | Condition |\n|---|---|---|---|\n| 🗡️ **Bramble** | **1/9** | ⚠️ ONE HIT POINT! Two thugs nearby! |\n| ⚔️ **Thorin** | **0/13** | 💀 DOWN — Death saves begin! |\n| 👊 **Pip** | 10/10 | Healthy, holding the line |\n| 🔧 **Eldon** | **0/8** | 💀 DOWN — Death saves begin! |\n| 🐍 **Harlen** | 59/65 | Nearly untouched 😤 |\n| 💀 **Thug 1** | 14/32 | Wounded, near Bramble |\n| 💀 **Thug 2** | 14/32 | Bloodied, near Bramble |\n| 💀 **Thug 3** | 26/32 | Wounded, over Eldon |\n| 💀 **Thug 4** | 5/32 | Nearly dead, near Pip |\n\n---\n\n## ⚔️ Round 4 — DEATH SAVES & DESPERATION\n\n**First — death saves for Thorin and Eldon!**"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin death save — 1d20: 15 = 15"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Eldon death save — 1d20: 16 = 16"
+    },
+    {
+      "type": "dm",
+      "text": "**Thorin: 15 — SUCCESS** ✅ (1 success, 0 failures)\n**Eldon: 16 — SUCCESS** ✅ (1 success, 0 failures)\n\nBoth hanging on. Blood pooling on the floorboards, but their chests still rise and fall. 😮‍💨\n\n---\n\n### 🗡️ Bramble (Init 23) — YOUR TURN!\n\nOne hit point. Two thugs within striking distance. Thorin and Eldon bleeding out on the floor. Harlen prowling the room with barely a scratch on him.\n\nThe room smells of blood, thunder-scorched wood, and spilled wine. Moonlight pours through the shattered windows. 🌙\n\nPip is the only one still standing strong, trading blows with Thug 4 across the room. He can't help you right now.\n\n**Your options:**\n\n- 🗡️ **Attack** — swing at Thug 2 (14 HP). Risky. If you stay, they get two chances each to hit you next round. One hit and you're DOWN.\n- 🏃 **Disengage** (Rogue bonus action!) — slip away without provoking opportunity attacks. Reposition behind Pip, use your action to shoot with the shortbow from range.\n- 💊 **Disengage + get to Thorin/Eldon** — do you have a healer's kit? (checking... no, you don't 😬)\n- 🗣️ **Something else entirely?**\n\nDalla said these men wouldn't fold. But two of them are bloodied, one's nearly dead, and the Reeve just watched his thunder-proof reputation get blown out the window — literally.\n\n**What do you do, Bramble?** This might be the most important decision of the night. ⚔️🍀"
+    },
+    {
+      "type": "companion",
+      "text": "smile!"
+    },
+    {
+      "type": "player",
+      "text": "go!"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nThorin is at 0 HP making death saves — he can smile, but he can't act! Let me resolve the round.\n\nBramble says \"go!\" — charging forward, all or nothing! 🗡️\n\n### 🗡️ Bramble (Init 23) — ATTACKS Thug 2!\n\nSneak Attack applies — Thug 1 is adjacent (ally within 5 ft... wait, Thorin is down. But Thug 1 is an *enemy* within 5 ft of Thug 2, not an ally). Let me check — Sneak Attack requires an *ally* within 5 ft of the target OR advantage. Bramble has neither right now. No Sneak Attack this round. 😬\n\nJust a straight shortsword attack:"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bramble attack — 1d20+5: 2 + 5 = 7"
+    },
+    {
+      "type": "dm",
+      "text": "**7** vs AC 11 — **MISS!** 😰 \n\nBramble lunges forward on shaking legs, but the blade goes wide. Blood loss, exhaustion, fear — the swing has no force behind it. The thug sidesteps with a cruel grin.\n\nOne HP. Two killers looming over him. This is bad. 💀\n\n---\n\n### ⚔️ Thorin (Init 20) — DEATH SAVE\n\nThorin lies on the blood-slick floor, chain mail dented, scimitar wound at his neck. But there's a faint smile on his face. Even now. Even *here*. The stubborn dwarf won't give Death the satisfaction of a frown. 🐸"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin death save — 1d20: 13 = 13"
+    },
+    {
+      "type": "dm",
+      "text": "**13 — SUCCESS!** ✅ (2 successes, 0 failures)\n\nOne more success and he stabilizes. The dwarf's fingers twitch against the floor. Still fighting. Still smiling. 🐸💪\n\n---\n\n### 💀 Thug 2 (Init 20) — TWO MACE SWINGS AT BRAMBLE!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 2 attack 1 — 1d20+4: 18 + 4 = 22"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 2 attack 2 — 1d20+4: 13 + 4 = 17"
+    },
+    {
+      "type": "dm",
+      "text": "**22** vs AC 14 — **HIT!** 💥"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 2 damage — 1d6+2: 6 + 2 = 8"
+    },
+    {
+      "type": "dm",
+      "text": "**8 damage!** 💀\n\nThe mace crashes into Bramble's chest like a sledgehammer. The halfling's feet leave the ground. He hits the floorboards and slides, fetching up against an overturned chair.\n\n**Bramble is DOWN at 0 HP!** 💀🗡️\n\nThe second swing doesn't land — Bramble is already falling. The thug spits blood and turns to look for his next target.\n\n---\n\n### 💀 Thug 4 (Init 14) — Attacks Pip!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 4 attack 1 — 1d20+4: 9 + 4 = 13"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 4 attack 2 — 1d20+4: 19 + 4 = 23"
+    },
+    {
+      "type": "dm",
+      "text": "\n\n**13** vs AC 15 — **MISS!** 🍀\n**23** vs AC 15 — **HIT!** 💥"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thug 4 damage — 1d6+2: 5 + 2 = 7"
+    },
+    {
+      "type": "dm",
+      "text": "**7 damage!** The mace finally connects, smashing into Pip's ribs. The halfling staggers, gasping. **Pip: 3/10 HP** 😰\n\n---\n\n### 🐍 Reeve Harlen (Init 9) — Stalks toward Pip!\n\nHarlen steps over Thorin's body without looking down. His grey eyes fix on the last fighter standing. Three blades flash."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen scimitar 1 — 1d20+5: 14 + 5 = 19"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen scimitar 2 — 1d20+5: 15 + 5 = 20"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen dagger — 1d20+5: 10 + 5 = 15"
+    },
+    {
+      "type": "dm",
+      "text": "**19** vs AC 15 — **HIT!** 💥\n**20** vs AC 15 — **HIT!** 💥\n**15** vs AC 15 — **MISS!** Pip twists away from the dagger at the last second!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen scimitar 1 dmg — 1d6+3: 3 + 3 = 6"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Harlen scimitar 2 dmg — 1d6+3: 1 + 3 = 4"
+    },
+    {
+      "type": "dm",
+      "text": "**6 + 4 = 10 damage!** 💀💀\n\nThe first scimitar opens a gash across Pip's forearm. The second catches him across the chest. The little halfling's eyes go wide — the quiet, focused mask cracks — and he falls.\n\n**Pip is DOWN at 0 HP!** 💀👊\n\n---\n\n### 💀 Thug 1 (Init 9) — Looks around.\n\nThe thug lowers his mace. Silence falls over the room, broken only by the wind through the shattered windows and the drip of blood.\n\n### 💀 Thug 3 (Init 7) — Stands over Eldon.\n\n---\n\n## ☠️ Total Party Wipeout — Almost\n\nThe room is a slaughterhouse. Overturned furniture. Shattered glass. Blood everywhere. Four bodies on the floor.\n\n| # | Character | HP | Status |\n|---|---|---|---|\n| 🗡️ **Bramble** | **0/9** | 💀 DOWN — Death saves needed |\n| ⚔️ **Thorin** | **0/13** | 💀 DOWN — 2 successes, 0 failures |\n| 👊 **Pip** | **0/10** | 💀 DOWN — Death saves needed |\n| 🔧 **Eldon** | **0/8** | 💀 DOWN — 1 success, 0 failures |\n| 🐍 **Harlen** | 59/65 | Standing. Barely touched. 🐍 |\n| 💀 **Thugs 1-4** | Various | All standing. |\n\nReeve Harlen flicks the blood from his scimitar and surveys the carnage. He nudges Pip's body with his boot.\n\n**\"Idiots,\"** he says quietly. Then, louder: **\"Bind them. All of them. If they die before I question them, I'll take it out of** ***your*** **hides.\"**\n\nThe thugs move to stabilize and bind the party. Harlen sheaths his weapons and picks up a fallen chair, sits down, and pours himself a new glass of wine from an unbroken bottle.\n\n**\"Someone find Dalla. I want to know exactly how these rats got in.\"** 🐍🍷\n\n---\n\nThe world goes dark for Bramble. The last thing he hears is the clink of glass on wood, and Harlen's cold, even voice saying:\n\n*\"Wake the halfling first. The small one with the sword. He looks like the type who talks.\"*\n\n---\n\n⛓️ **The party is captured.** ⛓️\n\nBramble — you're not dead. Not yet. But you're going to wake up in chains, with Reeve Harlen sitting across from you, asking questions you might not want to answer.\n\n**Do you want to play through the interrogation? Or would you like to try something else — maybe Thessa at the back door heard the crash and intervenes?** 🍀\n\n*(Thorin — that smile? Harlen noticed. He'll remember it. Even dying, the dwarf wouldn't give him the satisfaction. That means something.)* 🐸"
+    },
+    {
+      "type": "companion",
+      "text": "wow"
+    },
+    {
+      "type": "player",
+      "text": "\"Chicken and Dog song is so cool!\""
+    },
+    {
+      "type": "dm",
+      "text": "\n\n*(Out of character: Ha! I appreciate the enthusiasm for chicken and dog songs, Bramble! And Thorin — \"wow\" is right. That was a brutal fight. 😅)*\n\n*(Now, back in character...)*\n\n---\n\n## ⛓️ The Saltspray Tavern — Upstairs Room — Before Dawn\n\nDarkness. Then pain. A dull, throbbing ache in your chest where the mace hit. The taste of blood and dusty floorboards.\n\nBramble's eyes flutter open. 🗡️\n\nThe room swims into focus. You're on the floor, wrists bound behind your back with rough rope. The overturned furniture has been shoved aside. Moonlight still streams through the shattered windows, but someone's lit a lantern now, casting everything in warm, ugly orange.\n\n**Thorin** is beside you — bound, bleeding from the neck wound, but *breathing*. His eyes are closed but his jaw is set. Even unconscious, the dwarf looks stubborn. 🐸\n\n**Pip** is slumped against the wall to your left, head lolling, a bruise blooming across his chest. Shallow breaths. Alive. 👊\n\n**Eldon** is face-down near the doorway, goggles cracked, one brass finger-nozzle bent at an ugly angle. A thug nudges him with a boot. *\"This one's still out.\"* 🔧\n\nAnd there, sitting in the only upright chair like a king on his throne, is **Reeve Harlen**. 🐍🍷\n\nHe swirls his wine. Studies Bramble with those cold grey eyes. The scimitar rests across his knees, still stained.\n\n**\"Ah. The little one's awake.\"**\n\nHe leans forward.\n\n**\"Let's have a conversation, shall we? You and your friends broke into my town, turned my guards against me, and attacked me in my own headquarters.\"** He takes a sip. **\"Impressive, actually. Stupid — but impressive.\"**\n\nHe sets the glass down.\n\n**\"So. Who sent you? Was it the Merchant Council in Saltwick? The harbormaster? Or are you freelance idiots?\"** 🐍\n\nOne of the thugs — Thug 1, the one with the axe wound on his shoulder — stands behind Harlen, mace in hand, watching you.\n\nThe other three are spread around the room. One guards the door. One watches the windows. One stands over your unconscious companions.\n\nNo sign of Thessa. She was at the back door. Either she ran... or she's planning something. 🤔\n\n---\n\nBramble, you're bound, battered, and at Harlen's mercy. But you're a **Criminal** with a silver tongue and a **+2 Charisma**. And rogues are *never* truly out of options.\n\n**What do you say to the Reeve?** 🍀⛓️\n\n*(And Thorin — you're unconscious but stabilizing at 2 death save successes. One more success and you'll stabilize. Your turn will come.)* 🐸"
+    },
+    {
+      "type": "companion",
+      "text": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!"
+    },
+    {
+      "type": "player",
+      "text": "\"Do you have any pickles?\""
+    },
+    {
+      "type": "dm",
+      "text": "\n\nA beat of silence. Then—\n\nReeve Harlen blinks. For the first time tonight, the cold composure cracks. Just a fraction.\n\n**\"...What?\"** 🐍\n\nBramble — battered, bloody, bound on the floor, one HP away from the grave — looks up at the most dangerous man in Tidecross and asks about *pickles*. 🥒\n\nOne of the thugs snorts. Harlen silences him with a glance.\n\n**\"You're tied up on my floor. Three of your friends are bleeding out. And you want** ***pickles.***\"\n\nHe stares at you like he's trying to decide if you're brave, insane, or both.\n\nLet's see how this lands — Bramble is essentially trying to throw Harlen off balance. That's a play. Let me call for a roll:\n\n**Charisma (Deception/Performance) check** — DC 12 to genuinely unsettle Harlen with sheer audacity."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bramble charisma — 1d20+2: 15 + 2 = 17"
+    },
+    {
+      "type": "dm",
+      "text": "**17 vs DC 12 — SUCCESS!** ✅🥒\n\nHarlen's jaw works. He looks at Bramble — really *looks* — and something shifts behind those grey eyes. Not respect, exactly. But... recalculation. This isn't a halfling who's going to beg. This isn't someone who *breaks*.\n\n**\"You've got nerve, halfling. I'll give you that.\"** He leans back in his chair. The faintest shadow of a smirk. **\"As it happens...\"**\n\nHe gestures. One of the thugs goes behind the bar downstairs and comes back with—\n\n**The jar of pickles.** 🥒\n\nHalf empty. Thorin got to it first.\n\nHarlen sets it on the floor in front of Bramble. **\"Your dwarf ate half of them already. Helped himself before you even came upstairs.\"**\n\n---\n\nAnd speaking of the dwarf—\n\n## 🐸 Thorin's Death Save\n\nThorin is unconscious, bound, bleeding — but something stirs. His eyes snap open. And from somewhere deep in that dwarven chest comes:\n\n**\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!\"** 🐸⚔️\n\nA raw, primal, *furious* dwarven war scream that rattles the lantern and makes every thug in the room jump. One of them actually drops his mace. 😂"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin death save — 1d20: 14 = 14"
+    },
+    {
+      "type": "dm",
+      "text": "**14 — SUCCESS!** ✅ **3 successes — THORIN STABILIZES!** 🐸💪\n\nThe screaming stops. Thorin's eyes focus — wild, bloodshot, *furious*. He's stable at 0 HP, conscious but bound, still flat on his back with a scimitar wound in his neck. But *alive*.\n\nHarlen stares at the screaming dwarf. Then at the pickle-requesting halfling. Then back at the dwarf.\n\n**\"...What is** ***wrong*** **with you people?\"** 🐍\n\nPip stirs against the wall. His eyes crack open. Through split lips, barely a whisper:\n\n*\"...is someone making pickles? I have a lovely brine recipe...\"* 🍲\n\nHarlen pinches the bridge of his nose. 😤\n\n---\n\n## ⛓️ Current Situation\n\n| Character | HP | Status |\n|---|---|---|\n| 🗡️ **Bramble** | 0/9 | Conscious, bound, stable |\n| 🐸 **Thorin** | 0/13 | Conscious, bound, stabilized! |\n| 👊 **Pip** | 0/10 | Semi-conscious, bound |\n| 🔧 **Eldon** | 0/8 | Unconscious, bound |\n\nYou're all alive. Bound, beaten, at Harlen's mercy — but alive. And you've rattled him, just a little. He expected begging. He got *pickles and screaming*. 🥒😱\n\nHarlen takes a long drink of wine. Sets the glass down. His composure returns.\n\n**\"Enough games. Someone in this town helped you get in here. Someone turned my guards.\"** His eyes narrow. **\"Give me the name, and I'll let you walk out of Tidecross. Refuse...\"** He picks up the scimitar. **\"...and we do this the hard way.\"**\n\nHe's asking about **Dalla**. 😰\n\n**Bramble, Thorin — what do you do?** ⛓️🍀"
+    },
+    {
+      "type": "companion",
+      "text": "I do a fart"
+    },
+    {
+      "type": "player",
+      "text": "I do a fart as well"
+    },
+    {
+      "type": "dm",
+      "text": "The room falls silent. Harlen leans forward, scimitar across his knees, waiting for an answer about Dalla.\n\nAnd then—\n\n**PPPPBBBBTTTTT.** 💨\n\nBramble, beaten, bound, and bleeding on the floor, lets one rip with the confidence of a halfling who has absolutely nothing left to lose.\n\nThe thug by the door wrinkles his nose. *\"Did he just—\"*\n\nAnd then, from the floor beside him, Thorin — neck wound still seeping, wrists bound behind his back — answers in kind.\n\n**BRRRRAAAAPPPPP.** 💨💨🐸\n\nA deep, resonant, *dwarven* fart. The kind that echoes off stone walls. The kind that makes the lantern flicker. The kind that could strip paint off a Waterdhavian carriage.\n\nOne of the thugs gags. Another backs toward the window — the *broken* window — and breathes the sea air like a drowning man.\n\nPip, slumped against the wall, barely conscious, lets out a weak, wheezing laugh. *\"That's... that's what you get... for not feeding your prisoners...\"* 👊🍲\n\nEldon stirs on the floor. Mumbles something about *\"...methane content... impressive volume...\"* and passes out again. 🔧\n\n---\n\nReeve Harlen sits perfectly still. His knuckles are white on the wine glass. A vein pulses at his temple. The cold, calculating mask hasn't cracked — but underneath it, you can *see* the rage building like a storm behind glass.\n\n**\"You think this is funny.\"** His voice is very, very quiet. 🐍\n\nHe stands. The chair scrapes back.\n\n**\"I have killed men for less than this. I have killed men for** ***much*** **less than this.\"**\n\nHe walks to the window. Breathes the night air. Composes himself. Turns back.\n\n**\"Last chance, halfling. The name of your contact in Tidecross. Or I start with the gnome's fingers.\"** He nods at Eldon's unconscious form. **\"He seems to value those clever little hands of his.\"** 🐍😰\n\nThe humor drains from the room like blood from a wound. He means it. This man absolutely means it.\n\nFrom somewhere downstairs — so faint you almost miss it — you hear a **creak**. A floorboard. Near the back door. 🤔\n\nThessa? Someone else?\n\n---\n\n**Bramble, Thorin — the joke's over. Harlen wants a name. The clock is ticking. And someone is moving downstairs.**\n\n**What do you do?** ⛓️🍀🐸"
+    },
+    {
+      "type": "companion",
+      "text": "It's time to sing the happy fart song."
+    },
+    {
+      "type": "player",
+      "text": "I'm singing the happy fart song, as loud as I can"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nHarlen's scimitar is halfway to Eldon's hand when—\n\n🎵 ***\"OHHHHH—\"*** 🎵\n\nBramble throws his head back and *belts it*. Bound, bloody, zero hit points, flat on the floor — and singing at the top of his lungs.\n\n🎵 *\"A FART IN THE MORNING, A FART AT NIGHT!\"* 🎵\n🎵 *\"A FART THAT MAKES THE WHOLE ROOM BRIGHT!\"* 🎵\n\nAnd then Thorin — *Thorin*, with a scimitar wound in his neck, blood in his beard, grinning like a maniac — joins in at full dwarven volume: 🐸\n\n🎵 ***\"A FART FROM A DWARF SHAKES THE MOUNTAIN STONE!\"*** 🎵\n🎵 ***\"A FART FROM A HALFLING RATTLES BONE!\"*** 🎵\n\nThey're harmonizing. Somehow. Bramble's tenor and Thorin's baritone, echoing off the walls of the Saltspray Tavern like the world's worst bard duo. 🎶💨\n\nPip's eyes fly open. A grin splits his bruised face. He can't sing — his ribs are cracked — but he starts *beatboxing the rhythm against the floorboards with his bound hands*. 👊🥁\n\n*Thump-thump-THUMP. Thump-thump-THUMP.*\n\n🎵 *\"OH THE HAPPY FART SONG, SING IT LOUD!\"* 🎵\n🎵 *\"CLEAR THE ROOM AND CLEAR THE CROWD!\"* 🎵\n\n---\n\nThe thugs don't know what to do. Thug 3 is actually *backing away*. Thug 1 looks at Harlen for instructions. Thug 4 — the one Pip nearly killed — has his mace raised but appears genuinely unsure whether to hit them or applaud. 😂\n\nLet's see how Harlen handles this — **Bramble Intimidation (via sheer unhinged audacity)** — DC 15. This is less about scaring him and more about whether this absolute lunacy makes Harlen hesitate long enough for whoever is creeping around downstairs to act."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bramble audacity — 1d20+2: 1 + 2 = 3"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin audacity — 1d20: 8 = 8"
+    },
+    {
+      "type": "dm",
+      "text": "Bramble rolls a **Natural 1!** 🍀 Halfling Lucky — reroll!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bramble Lucky reroll — 1d20+2: 8 + 2 = 10"
+    },
+    {
+      "type": "dm",
+      "text": "**Bramble: 10** vs DC 15 — **FAIL** ❌\n**Thorin: 8** vs DC 15 — **FAIL** ❌\n\n---\n\n## It Does Not Work. 😬\n\nThe singing echoes. The thugs shift uncomfortably. Pip's beatboxing falters.\n\nAnd Harlen... doesn't flinch. Doesn't hesitate. Doesn't even blink.\n\nHe walks straight through the wall of sound, grabs Bramble by the collar, lifts the halfling off the floor one-handed, and **slams him against the wall**. The singing cuts off with a choked gasp. 🐍\n\n**\"I've broken men twice your size, halfling. Men who sang. Men who prayed. Men who begged.\"** His voice is a whisper. His face is inches from Bramble's. **\"You think being funny makes you brave? It makes you a** ***fool.***\"\n\nHe drops Bramble. Turns to Thorin.\n\n**\"And you, dwarf.\"** He crouches. **\"That smile. That song. You think I don't know what that is? That's fear dressed up in armor.\"** 🐍🐸\n\nThe room is silent now. Even the wind through the broken windows seems to hold its breath.\n\nHarlen stands. Straightens his coat. Walks back to Eldon's unconscious body and draws his dagger.\n\n**\"The gnome's left hand. Ten seconds. Then I ask again.\"**\n\nHe starts counting.\n\n**\"Ten.\"**\n\n**\"Nine.\"**\n\n**\"Eigh—\"**\n\nA **CRASH** from downstairs. 💥 The back door. Every head in the room snaps toward the stairwell.\n\nThen — a voice, sharp and commanding:\n\n**\"HARLEN! TOWN MILITIA! STAND DOWN!\"** 🛡️\n\nBoots on the stairs. Multiple sets. And at the front — **Thessa**, wild-eyed and breathless, with **six armed townsfolk** behind her, torches blazing and fishing spears leveled. 🔥\n\nShe found help. She found the *people* of Tidecross. The ones Harlen's been squeezing for years. The ones who were too afraid to act — until now.\n\nHarlen's dagger stops. He looks at the doorway. Counts the spears. Does the math.\n\n**\"...Interesting.\"** 🐍\n\n---\n\nThe standoff holds. Thugs with maces. Townsfolk with spears and fury. Harlen in the middle, perfectly calm, calculating his next move.\n\nPip whispers from the floor: *\"...the fart song worked. It bought time.\"* 🍲\n\nThorin, flat on his back, bleeding, grinning: 🐸\n\n---\n\n**Bramble, Thorin — the cavalry's here, but Harlen hasn't surrendered. He's got four thugs and he's a deadly fighter. The townsfolk are brave but untrained.**\n\n**What do you do?** ⛓️🍀🐸"
+    },
+    {
+      "type": "companion",
+      "text": "\"The plan worked perfectly!\""
+    },
+    {
+      "type": "player",
+      "text": "wow"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nBramble stares at the spear-wielding townsfolk flooding the stairwell, jaw hanging open. *\"Wow.\"*\n\nFrom the floor, Thorin — neck wound seeping, wrists bound, grinning ear to bloody ear — declares with absolute conviction:\n\n**\"The plan worked perfectly!\"** 🐸\n\nPip lets out a wheezing laugh that turns into a cough. *\"That was... that was the plan?\"*\n\n**\"Obviously.\"** Thorin nods sagely, as if singing the happy fart song while dying on the floor was a tactical masterstroke of dwarven military tradition. 🐸💨\n\n---\n\n## 🛡️ The Standoff\n\nThessa pushes to the front of the militia, a commandeered crossbow in her hands. Her eyes sweep the room — the blood, the broken glass, the four bound bodies on the floor — and her face goes pale. Then *hard*.\n\n**\"It's over, Harlen.\"** Her voice doesn't waver. **\"Half the town is outside. The dock workers. The fishermen. The families you've been bleeding dry for three years.\"** 🔥\n\nHarlen stands perfectly still, dagger in hand, doing the arithmetic. Four thugs. Six armed townsfolk in the doorway. More downstairs. His prisoners are bound and broken but apparently *indestructible* morale-wise.\n\nThe thugs look to their boss. Thug 4 — the one Pip nearly beat to death — is already lowering his mace. He's done.\n\n**\"Copeland,\"** Harlen says quietly. **\"Put that down and I'll gut you myself.\"**\n\nBut the thug shakes his head. The fight's gone out of him. One by one, the others follow. Maces clatter to the floor. 💀➡️🏳️\n\nHarlen watches his men surrender. That cold mask doesn't crack. Not once. He sheaths his dagger with a slow, deliberate motion.\n\n**\"Well played.\"** His grey eyes find Bramble. Then Thorin. **\"The singing. The** ***flatulence.*** **You were stalling.\"**\n\nHe almost sounds... impressed? 🐍\n\n**\"I underestimated you. That won't happen again.\"**\n\nHe sets his scimitar on the table. Raises his hands.\n\n**\"I know when the tide's turned.\"** 🌊\n\n---\n\n## 🎉 VICTORY — TIDECROSS IS FREE!\n\nThe townsfolk surge forward. Harlen and his thugs are disarmed and bound with their own rope — poetic justice. Thessa cuts Bramble's bonds first, then Thorin's, then Pip's.\n\nAn old woman — the herbalist, from the look of her satchel — kneels over Eldon, pressing a poultice to his chest. *\"Breathe, little one. Breathe.\"* 🌿\n\nEldon's eyes flutter open. *\"...did we win? What happened to the resonance frequency analysis?\"* 🔧\n\nPip sits up, wincing, and puts a hand on Bramble's shoulder. The grin is back — the real one, warm as a hearth fire.\n\n*\"You know what, friend? That might be the worst song I've ever heard.\"* He laughs, and it turns into a groan. *\"...ow. Don't make me laugh. Everything's broken.\"* 👊🍲\n\nThorin, still flat on his back, blood-soaked and beaming:\n\n**\"Best. Siege. Ever.\"** 🐸⚔️\n\n---\n\nThe people of Tidecross are already dragging Harlen and his thugs downstairs. Someone's rung the town bell. Lanterns are lighting up across the harbor. For the first time in years, the town isn't afraid. 🔔✨\n\nThessa kneels beside Bramble. Her eyes are bright.\n\n**\"I heard the crash. Ran to the docks. Told them what you were doing — that someone was finally standing up to Harlen.\"** She shakes her head in disbelief. **\"They just... came. All of them. Grabbed whatever they had and came.\"** 🛡️\n\nShe looks at the blood on the floor. The shattered windows. Four half-dead adventurers who held Harlen's attention long enough for a revolution.\n\n**\"You're all insane. Thank you.\"** 🙏\n\n---\n\nThe party is alive. Battered, broken, and legendary. Now let's handle the aftermath.\n\n**Do you want to:**\n- 🏥 **Rest and recover** — find beds, patch wounds, get back on your feet\n- 🗣️ **Talk to the townsfolk** — Dalla, Thessa, the militia, learn what happens next\n- 🔍 **Search Harlen's office** — he was running a smuggling operation, there might be evidence, loot, and secrets upstairs\n- 💰 **All of the above?**\n\n**What do you do, Bramble?** 🍀✨"
+    },
+    {
+      "type": "player",
+      "text": "I'm going to cheeseburger town!"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nBramble Thornfoot — battered, bloodied, held together by spite and pickle juice — staggers to his feet, throws his arms wide, and announces to the entire liberated town of Tidecross:\n\n**\"I'M GOING TO CHEESEBURGER TOWN!\"** 🍔🎉\n\nA beat of silence.\n\nThessa blinks. *\"...Where?\"*\n\nPip, clutching his cracked ribs, nods solemnly. *\"Cheeseburger Town. Lovely place. Gran always said the burgers there could mend a broken heart.\"* He pauses. *\"...I have no idea what I'm saying. I think I have a concussion.\"* 🍲😵\n\nEldon, flat on his back with a poultice on his chest, raises one finger. *\"Technically, the caloric density of a theoretical 'cheeseburger' — assuming a bread-encased ground meat patty with aged dairy — would be an excellent recovery food given our current state of— oh, is that my blood? That's a lot of blood.\"* 🔧\n\nThorin, still on the floor, neck wound and all, grins up at the ceiling:\n\n**\"If there's cheeseburgers, I'm in.\"** 🐸🍔\n\n---\n\nThe herbalist looks at Thessa. Thessa looks at the herbalist.\n\n*\"They're delirious,\"* the old woman says flatly. *\"All of them. Get them to beds. Now.\"* 🌿😤\n\n---\n\n## 🏥 The Party is Put to Bed (Whether They Like It or Not)\n\nThe townsfolk half-carry, half-drag your group to the rooms downstairs. Clean sheets. Warm blankets. The herbalist forces foul-smelling potions down everyone's throats. Pip tries to negotiate for soup instead. He fails.\n\nYou're in no shape to go *anywhere* tonight — Cheeseburger Town or otherwise. 😅\n\n**Everyone is at 0 HP and stabilized. You need a Long Rest.**\n\n---\n\n🌙 **The night passes.** The town bell rings occasionally as the people of Tidecross secure Harlen and his thugs in the old fish-smoking shed (repurposed as a jail, apparently). The harbor laps at the docks. For once, Tidecross sleeps peacefully.\n\n**Do you want to take the Long Rest?** If so, everyone heals to full HP, and we'll pick up in the morning with XP, loot from Harlen's office, and the grateful town of Tidecross at your feet. 🌅🍀\n\n*(Cheeseburger Town will still be there tomorrow, Bramble. Wherever it is.)* 🍔"
+    },
+    {
+      "type": "companion",
+      "text": "I play chess"
+    },
+    {
+      "type": "player",
+      "text": "okay I'll rest"
+    },
+    {
+      "type": "dm",
+      "text": "\n\n## 🌙 Long Rest — The Saltspray Tavern\n\nBramble collapses into the cot and is asleep before his head hits the pillow. 💤\n\nThorin, however — *Thorin* — despite a scimitar wound in his neck and being clinically dead fifteen minutes ago, sits up in bed, rummages through his pack, and produces a small travel chess set. 🐸♟️\n\nHe sets it up on the bedside table, studies the board, and begins playing against himself.\n\n*\"White opens king's pawn,\"* he mutters, moving a piece. Then he shuffles to the other side of the bed. *\"Black responds with the Sicilian.\"* 🐸♟️\n\nThe herbalist stares at him from the doorway. *\"You lost a pint of blood an hour ago.\"*\n\n**\"Aye. And I'm about to lose a bishop. Life goes on.\"** 🐸\n\nPip watches from his cot, fascinated. *\"Is... is he winning?\"*\n\nEldon, face-down in his pillow: *\"He's playing both sides. Statistically he's guaranteed to both win AND lose. It's a paradox. Fascinating. Goodnight.\"* 🔧💤\n\nThorin plays three full games against himself before finally passing out with a knight clutched in his fist. He wins two of the three. He is furious about the loss. 🐸😤♟️\n\n---\n\n## 🌅 Morning — Tidecross Harbor\n\nSunlight pours through the windows. Gulls cry. The smell of salt air and — incredibly — *frying bacon* drifts up from the kitchen downstairs. Someone in Tidecross is celebrating. 🥓🌊\n\nLet me restore everyone to full HP."
+    },
+    {
+      "type": "dm",
+      "text": "Good — HP is already showing max in the files (the files weren't updated to 0 during combat, which is fine since the long rest restores everything). Thorin's Second Wind also resets on rest. Now let me handle the post-encounter checklist — XP for the combat!"
+    },
+    {
+      "type": "dm",
+      "text": "Now, the party didn't defeat Harlen or the thugs — they were captured. However, the townsfolk intervened and Harlen surrendered. This counts as a victory through the party's actions (they held Harlen's attention, stalled, and enabled the militia to arrive). I'll award XP for the encounter.\n\nHarlen: I've been running him as a CR 2-ish opponent (multiattack, 65 HP, high damage). Let me use CR 2 = 450 XP.\n4 Thugs: CR 1/2 each = 100 XP × 4 = 400 XP.\n\nTotal XP: 450 + 400 = 850 XP.\nDivided by 4 party members: 850 ÷ 4 = 212 XP each (rounding down).\n\nEach character currently has 25 XP → 25 + 212 = 237 XP. Level 2 is at 300 XP, so not quite yet."
+    },
+    {
+      "type": "dm",
+      "text": "Good, all four party members awarded 212 XP each. Now the morning scene:\n\n---\n\n## 🌅 Morning in Tidecross — The Saltspray Tavern\n\nThe aroma of bacon and fresh bread pulls Bramble out of the deepest sleep of his life. Every muscle aches. His chest is one enormous bruise. But he's *alive*. 🥓☀️\n\nSunlight streams through the windows — the *unbroken* ones downstairs. Someone's cleared the glass and boarded up the shattered frames upstairs. The tavern is already busy. Townsfolk move in and out with purpose, their faces carrying something Bramble hasn't seen in Tidecross before: **hope**. 🌊✨\n\nPip is already up — *of course he is* — manning the kitchen like he owns the place. He's got the tavern's cook's apron tied around his waist and is flipping eggs with one hand while stirring porridge with the other, bruised ribs be damned.\n\n*\"Morning, friend! Eggs? Bacon? I found rosemary growing wild out back — lovely with the potatoes. How do you take your toast?\"* 🍳🍲👊\n\nEldon sits in a corner, one arm in a sling, his cracked goggles held together with twine. He's already disassembled something — possibly a door hinge — and is muttering to himself while sketching diagrams on a napkin. His brass nozzle has been hammered back into shape. Mostly. *\"...if I adjust the focal length by three millimeters and add a secondary coil, the dispersal pattern should—\"* 🔧\n\nAnd Thorin? 🐸\n\nThe dwarf is at a table by the window. Sunlight on his face. A plate of bacon. A mug of ale — *at dawn*. And the travel chess set, mid-game against **Thessa**, who sits across from him looking bewildered.\n\n**\"Your bishop's exposed,\"** Thorin says, pointing with a strip of bacon.\n\nThessa frowns at the board. *\"I don't even know how this game works. You've been explaining for ten minutes and I'm more confused than when we started.\"*\n\n**\"That means you're learning.\"** 🐸♟️\n\n---\n\nThessa looks up as Bramble enters. She stands, and the murmur of the tavern quiets.\n\n**\"The town council met this morning — what's left of it, anyway.\"** She looks at each of you in turn. **\"Harlen and his men are locked in the smokehouse under guard. We found his ledgers. Smuggling routes, bribery records, names of corrupt officials up and down the coast.\"** 📜\n\nShe sets a heavy coin purse on the table. It *clinks*.\n\n**\"This was in his strongbox. The council wants you to have it. It's not much, but...\"** She shrugs. **\"Tidecross doesn't have much. Not anymore.\"** 💰\n\n---\n\n## 💰 Loot from the Harlen Encounter\n\n| Item | Details |\n|---|---|\n| 💰 **Gold** | **48 gp** from Harlen's strongbox (12 gp per party member) |\n| 📜 **Harlen's Ledger** | Smuggling routes, contacts, corrupt officials along the Shattered Coast — *extremely* valuable intelligence |\n| ⚔️ **Harlen's Scimitar** | Fine steel, well-balanced — a quality weapon |\n| 🗡️ **Harlen's Dagger** | Matching set, silver-inlaid handle |\n| 🛡️ **4 Maces** | From the thugs — standard issue, nothing special |\n| 🧥 **Studded Leather Armor** | From Harlen — AC 12 + DEX mod |\n\n## 📊 XP Awarded\n\n| Character | XP Gained | Total XP | Next Level |\n|---|---|---|---|\n| 🗡️ **Bramble** | +212 | 237/300 | Level 2 |\n| 🐸 **Thorin** | +212 | 237/300 | Level 2 |\n| 👊 **Pip** | +212 | 237/300 | Level 2 |\n| 🔧 **Eldon** | +212 | 237/300 | Level 2 |\n\n**63 XP to Level 2!** You're close. 📈\n\n---\n\n## 🏥 Post-Rest Status\n\n| Character | HP | Condition |\n|---|---|---|\n| 🗡️ **Bramble** | **9/9** | Fully healed! ✅ |\n| 🐸 **Thorin** | **13/13** | Fully healed! Second Wind refreshed! ✅ |\n| 👊 **Pip** | **10/10** | Fully healed! Making breakfast! ✅ |\n| 🔧 **Eldon** | **8/8** | Fully healed! Disassembling things! ✅ |\n\n---\n\nThessa leans against the bar. Behind her, through the tavern windows, the morning sun glitters on the harbor. Fishing boats are going out for the first time in weeks without having to pay Harlen's \"protection tax.\"\n\n**\"So. What's next for you lot?\"** she asks. **\"The coast road goes north to Saltwick — bigger town, proper market. South leads to the Thornmere marshes and the old ruins. And those ledgers...\"** She taps the book. **\"There are names in here that would be very interested in knowing Harlen's been caught. And names that would be very interested in making sure he *stays* caught.\"** 🌊🗺️\n\nPip sets a plate of eggs and rosemary potatoes in front of Bramble. *\"Eat first. Adventure second. That's the rule.\"* 🍳\n\n**What do you do, Bramble? Where does the road lead next?** 🍀🗺️"
+    },
+    {
+      "type": "companion",
+      "text": "I spin in circles!"
+    },
+    {
+      "type": "player",
+      "text": "I also spin, but then go north"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nBramble leaps up from the breakfast table, eggs flying, and starts **spinning** in the middle of the Saltspray Tavern. Arms out. Eyes closed. A whirling halfling dervish of pure post-victory joy. 🌀🍀\n\nThorin sees this. Sets down his bacon. Looks at Thessa. Looks at the chess board. Pushes back his chair.\n\n**\"Hold my ale.\"** 🐸🍺\n\nAnd then the dwarf — four foot five, two hundred pounds of chain mail and stubbornness — starts **spinning in circles** right next to Bramble. His braided beard whips out like a ginger helicopter blade. The iron rings in it make a soft *tink-tink-tink* as they catch the morning light. 🌀🐸\n\nThe tavern stares.\n\nPip looks at the spinning duo. Looks at his frying pan. Sets it down. *\"Well, you can't argue with tradition.\"*\n\nHe joins in. Three spinning idiots in the middle of breakfast. 🌀👊🍳\n\nEldon doesn't look up from his napkin diagrams. *\"Centrifugal force at that rotational velocity with Thorin's mass — someone's going to hit a table in approximately four... three... two...\"* 🔧\n\n**CRASH.** 💥\n\nThorin clips a chair. It barely slows him down. He's grinning like a maniac. **\"NORTH! WE GO NORTH!\"** 🐸🧭\n\n---\n\n## 🗺️ The Road North — Tidecross to Saltwick\n\nAfter breakfast (the *second* breakfast, since the first one ended up on the ceiling), the party gathers their gear. Thessa walks you to the edge of town.\n\nThe coast road stretches north along the clifftops, winding between weathered stone fences and scrubby gorse. The sea crashes against the rocks far below, sending plumes of white spray into the morning air. Seabirds wheel overhead. It's a beautiful day on the Shattered Coast. 🌊☀️🐦\n\n**\"Saltwick's about a day's walk,\"** Thessa says. **\"Proper town — market, inn, harbormaster, the works. If you want to do anything with that ledger, that's the place to start.\"** She hesitates. **\"Be careful, though. Some of the names in that book... they won't be happy Harlen's been caught.\"** 🐍📜\n\nShe shakes each of your hands. When she gets to Thorin, she pauses.\n\n*\"I still don't understand chess.\"*\n\n**\"Nobody does. That's the point.\"** 🐸♟️\n\nShe laughs — a real laugh, maybe the first one in a long time — and waves you off.\n\n---\n\n## 🚶 Travel Day — The Coast Road\n\nThe morning passes pleasantly. The road is quiet — a few farmers with carts, a fisherman heading to a cove with his nets, a goat that stares at the party with unsettling intensity. 🐐\n\nPip hums as he walks, pointing out edible plants along the roadside. *\"Wild garlic! Oh, and look — sea purslane! Lovely in a salad with a bit of smoked fish...\"* 🌿🍲\n\nEldon is examining the stone fences. *\"Pre-imperial construction, these. See the interlocking pattern? No mortar. Pure compression dynamics. Brilliant. Whoever built these understood load distribution better than half the engineers at the Athenaeum...\"* 🔧\n\nThorin walks with his axe over his shoulder, scanning the horizon with a soldier's eye. Calm but watchful. 🐸⚔️\n\n**Midday.** The road crests a hill, and you can see the coast stretching ahead — rocky cliffs, hidden coves, the glittering sea. In the distance, thin columns of chimney smoke mark what must be **Saltwick**. Maybe four or five hours' walk. 🏘️\n\nBut closer — maybe an hour ahead — the road passes through a stretch of **dark, twisted woodland** that creeps right up to the cliff edge. The trees are bent and gnarled by centuries of sea wind, their branches tangled into a canopy that blocks the light. 🌲🌑\n\nPip's humming fades. He looks at the woods. *\"...that's not friendly-looking, is it.\"*\n\nEldon peers at it through his cracked goggles. *\"Interesting microclimate. The salt exposure and prevailing winds would explain the growth pattern, but the coloration suggests — hm. Could be fungal. Could be something else.\"* 🔧\n\n**The coast road goes straight through those woods.** There's no obvious way around — cliffs to the right, rough moorland to the left that would add hours to the journey.\n\n**What do you do, Bramble?** 🍀🌲\n\n- 🌲 **Push straight through** — it's just trees, right?\n- 👀 **Approach cautiously** — scout ahead, weapons ready\n- 🗺️ **Try the moorland detour** — avoid the woods entirely\n- 🤔 **Something else?**"
+    },
+    {
+      "type": "system",
+      "text": "tomcarbon has left the session."
+    },
+    {
+      "type": "companion",
+      "characterName": "Thorin Ironforge",
+      "playerName": "tomcarbon",
+      "text": "Let's go straigt!"
+    },
+    {
+      "type": "player",
+      "text": "I jump"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nBramble takes one look at the dark, twisted woodland ahead and **jumps** — a jaunty, defiant little hop right there on the road. 🍀✨\n\n**\"Onward!\"**\n\nThorin doesn't even break stride. **\"Straight through. Trees don't scare dwarves. Nothing scares dwarves.\"** 🐸⚔️\n\nHe pauses.\n\n**\"...Except bad ale. Bad ale is terrifying.\"** 🐸🍺\n\n---\n\n## 🌲 The Saltwind Woods — Early Afternoon\n\nThe party pushes forward into the treeline. The change is immediate. The bright coastal sunshine dims to a grey-green murk. The twisted branches overhead knot together like gnarled fingers, blocking most of the sky. The crash of waves fades to a distant murmur. 🌑🌊\n\nThe air is different in here — cooler, damper, with a thick earthy smell of rotting leaves and something else. Something faintly sweet. Fungal, maybe.\n\n*\"Told you,\"* Eldon whispers, entirely too pleased with himself. *\"Fungal microclimate. See the fruiting bodies on those trunks? Fascinating species — bioluminescent, I think, if we waited until dark. The mycelial network must be enormous—\"* 🔧🍄\n\n*\"Eldon,\"* Pip says quietly. *\"Shh.\"* 👊\n\nThe halfling monk has gone still. His eyes are moving — scanning the undergrowth, the branches, the shadows between the trunks. The cheerful cook is gone. The fighter is here.\n\n*\"Something's watching us,\"* he says, very softly. 👀\n\nThe woods are quiet. *Too* quiet. No birdsong. No rustle of small animals. Just the creak of branches and the distant sea.\n\nLet me roll Perception for the party to see what they notice:"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bramble Perception — 1d20+2: 18 + 2 = 20"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin Perception — 1d20+1: 6 + 1 = 7"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip Perception — 1d20+2: 19 + 2 = 21"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Eldon Perception — 1d20+2: 17 + 2 = 19"
+    },
+    {
+      "type": "dm",
+      "text": "**Bramble: 20!** 👀 | **Pip: 21!** 👀 | **Eldon: 19!** 👀 | **Thorin: 7.** 🐸 *(Too busy looking for bad ale.)*\n\nThree excellent rolls. The party sees *everything*.\n\n---\n\n## 👀 What You Notice\n\n**Bramble** (20) — Your rogue instincts scream. On the road ahead, about sixty feet into the woods, you spot **thin threads** stretched across the path at ankle height. Not spider silk — rope. Dyed dark to blend with the leaf litter. A **tripwire**. And beyond it, in the undergrowth on both sides, the faintest outline of **two humanoid shapes** crouched behind fallen logs. 🪤🐍\n\n**Pip** (21) — You catch what Bramble misses. Up in the trees, maybe thirty feet overhead, there's a **third figure** on a wooden platform lashed between two trunks. A lookout post. You can see the glint of a **crossbow**. 🏹🌲\n\n**Eldon** (19) — You notice the **fungal growth** on the trees near the ambush point is *disturbed* — scraped away where someone climbed up to the platform recently. Fresh damage. These people have been here hours, not days. This is a **fresh ambush**. 🔧🍄\n\n**Thorin** (7) — Thorin is examining a particularly interesting rock. **\"Granite. Good granite. Reminds me of home.\"** 🐸🪨\n\n---\n\nPip catches Bramble's eye. A look passes between the two halflings — the kind of look that doesn't need words. *We see them.*\n\nPip holds up three fingers. Points left. Points right. Points up. 👊\n\nThe ambushers don't know you've spotted them. You have the advantage — for now. 🎯\n\n---\n\n**Bramble — you're the rogue. This is YOUR moment.** 🗡️🍀\n\nThe tripwire is 60 feet ahead. Two in the bushes flanking the road. One in the trees with a crossbow. They haven't seen you spot them.\n\n**What's the play?**\n\n- 🗡️ **Sneak ahead** — use your Stealth expertise to get close, disarm the tripwire, and set up a counter-ambush\n- 🏹 **Shortbow from cover** — open fire on the crossbowman in the tree before they can react\n- 🗣️ **Call them out** — shout into the woods, let them know they've been made, maybe avoid a fight\n- 🎭 **Play dumb** — walk into the \"ambush\" on your terms, pretend to trip the wire, draw them out\n- 🤔 **Something else?**\n\n**What do you do?** 🍀"
+    },
+    {
+      "type": "companion",
+      "characterName": "Thorin Ironforge",
+      "playerName": "tomcarbon",
+      "text": "I delibarately run through the tripwire"
+    },
+    {
+      "type": "player",
+      "text": "me too"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nBramble opens his mouth to suggest a clever flanking maneuver — something subtle, something *roguish* — \n\nAnd Thorin drops the granite rock, unslings his battleaxe, and **charges directly at the tripwire**. 🐸⚔️\n\n**\"AMBUSH? I'LL SHOW YOU AN AMBUSH!\"**\n\nBramble watches the dwarf barrel past him. Blinks. Grins.\n\n**\"Me too!\"** 🍀\n\nAnd the halfling rogue sprints after the dwarf, shortsword drawn, zero plan, maximum enthusiasm.\n\nPip stares. *\"...that's not how ambushes—\"* He sighs. Draws his shortsword. *\"Oh, bother.\"* 👊\n\nEldon hasn't looked up from a mushroom. *\"Hm? What? Are we running? Why are we running?\"* 🔧\n\n---\n\n## 💥 Thorin Hits the Tripwire!\n\nThe dwarf's boot catches the dark rope at full sprint. "
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin DEX save — 1d20+1: 13 + 1 = 14"
+    },
+    {
+      "type": "dm",
+      "text": "**14 vs DC 12 — SUCCESS!** ✅ The tripwire snaps and a net full of rocks swings down from the canopy — but Thorin barrels *through* it like a cannonball, sending stones scattering. He doesn't even slow down. 🐸💪\n\n**\"NICE TRY!\"** he roars into the woods.\n\nThe ambushers' carefully laid trap just got obliterated by a dwarf who saw it coming and *chose violence anyway*.\n\n---\n\n## ⚔️ SURPRISE ROUND — The Ambushers Are the Ambushed!\n\nThe party spotted the trap. The bandits did NOT expect a screaming dwarf to deliberately charge their tripwire. **The party has surprise!**\n\nTwo figures burst from behind the fallen logs — **bandits** in ragged leather, scarves over their faces, short swords drawn. The one in the tree scrambles for their crossbow."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bramble initiative — 1d20+3: 7 + 3 = 10"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin initiative — 1d20+1: 1 + 1 = 2"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip initiative — 1d20+3: 10 + 3 = 13"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Eldon initiative — 1d20+1: 2 + 1 = 3"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bandits initiative — 1d20+1: 12 + 1 = 13"
+    },
+    {
+      "type": "dm",
+      "text": "Let me check bandit stats quickly."
+    },
+    {
+      "type": "dm",
+      "text": "**Bandits:** AC 12, HP 11, CR 1/8. Three of them — two on the ground, one in the tree with a crossbow.\n\n**Initiative Order:**\n1. 👊 **Pip** — 13\n2. 💀 **Bandits** — 13 *(but surprised! Can't act Round 1!)*\n3. 🗡️ **Bramble** — 10\n4. 🔧 **Eldon** — 3\n5. 🐸 **Thorin** — 2\n\n---\n\n## ⚔️ Surprise Round — Bandits Can't Act!\n\n### 👊 Pip (Init 13)\n\nPip is *fast*. He darts past Bramble, closes the distance on **Bandit 1** (left side of the road), and drives his shortsword forward."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip attack — 1d20+5: 1 + 5 = 6"
+    },
+    {
+      "type": "dm",
+      "text": "**Natural 1!** Halfling **Lucky** — reroll! 🍀"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip Lucky reroll — 1d20+5: 15 + 5 = 20"
+    },
+    {
+      "type": "dm",
+      "text": "**20 vs AC 12 — HIT!** ✅ Lucky saves the day!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip damage — 1d6+3: 4 + 3 = 7"
+    },
+    {
+      "type": "dm",
+      "text": "**7 damage!** The shortsword punches through the bandit's leather armor. **Bandit 1: 4/11 HP** 🩸\n\nPip's bonus action — **Martial Arts unarmed strike!**"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip unarmed — 1d20+5: 11 + 5 = 16"
+    },
+    {
+      "type": "dm",
+      "text": "**16 vs AC 12 — HIT!** ✅"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Pip unarmed dmg — 1d4+3: 1 + 3 = 4"
+    },
+    {
+      "type": "dm",
+      "text": "\n\n**4 damage!** A palm strike to the temple. **Bandit 1: 0/11 HP — DOWN!** 💀\n\nThe bandit crumples into the ferns without a sound. Pip stands over him, perfectly still. *\"Stay down, friend.\"* 👊\n\n---\n\n### 🗡️ Bramble (Init 10) — YOUR TURN!\n\nYou're charging in behind Thorin, shortsword drawn. **Bandit 2** is on the right side of the road, frozen in shock behind a fallen log. The **Crossbowman** is up in the tree, 30 feet up. Both are surprised and can't react.\n\nBandit 2 is closer — about 15 feet away. You've got an ally (Thorin) within 5 ft of Bandit 2's position, so **Sneak Attack** applies! 🎯\n\n**Or** you could use your shortbow on the crossbowman in the tree before they get a shot off.\n\n**What do you attack?** 🗡️🍀\n\n*(While you decide, let me resolve Eldon and Thorin — they can act simultaneously since the bandits are still surprised.)*\n\n---\n\n### 🔧 Eldon (Init 3)\n\nEldon finally looks up from his mushroom, sees the chaos, and raises his brass nozzle at the **Crossbowman** in the tree. *\"Oh! Hostiles! Excellent — I mean, unfortunate — I mean—\"* **Fire Bolt!** 🔥"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Eldon Fire Bolt — 1d20+5: 18 + 5 = 23"
+    },
+    {
+      "type": "dm",
+      "text": "**23 vs AC 12 — HIT!** ✅🔥"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Fire Bolt damage — 1d10: 1 = 1"
+    },
+    {
+      "type": "dm",
+      "text": "**1 damage!** 😬 The bolt sputters from the nozzle — more spark than flame — and singes the crossbowman's sleeve. *\"Calibration! I NEED to fix the calibration!\"* 🔧😤 **Crossbowman: 10/11 HP**\n\n---\n\n### 🐸 Thorin (Init 2)\n\nThorin is already ON TOP of **Bandit 2**, having charged straight through the tripwire like a runaway mine cart. Battleaxe comes down!"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin attack — 1d20+5: 20 + 5 = 25"
+    },
+    {
+      "type": "dm",
+      "text": "**NATURAL 20!!! CRITICAL HIT!!!** 💥💥💥🐸"
+    },
+    {
+      "type": "dice_roll",
+      "text": "Thorin crit damage — 2d8+3: [2, 7] + 3 = 12"
+    },
+    {
+      "type": "dm",
+      "text": "**12 DAMAGE!** 💀⚔️ The battleaxe comes down like divine judgment. The bandit barely has time to look up before the axe cleaves through his sword, his guard, and his will to fight in one thunderous stroke.\n\n**Bandit 2: 0/11 HP — DOWN!** 💀\n\nThorin plants one boot on the fallen log. **\"NEXT!\"** 🐸⚔️\n\n---\n\n## ⚔️ End of Surprise Round — Status\n\n| # | Character | HP | Status |\n|---|---|---|---|\n| 💀 **Bandit 1** | 0/11 | 💀 DOWN (Pip) |\n| 💀 **Bandit 2** | 0/11 | 💀 DOWN (Thorin crit!) |\n| 🏹 **Crossbowman** | 10/11 | Up in tree, singed, *terrified* |\n\nThe crossbowman looks down. Both his companions are on the ground. A screaming dwarf is covered in bandit blood. A monk is standing perfectly still over an unconscious body. A gnome's finger is literally on fire. And a halfling with a shortsword is grinning up at him.\n\nHis crossbow shakes in his hands. 😰\n\n*\"I — I —\"*\n\n---\n\n**Bramble! The crossbowman is the last one. He looks about three seconds from either shooting or surrendering.**\n\n**What do you do?** 🗡️🍀\n\n- 🗣️ **Talk him down** — *\"Drop the crossbow and we let you walk\"*\n- 🏹 **Shortbow** — put an arrow in him before he shoots\n- 😈 **Intimidate** — give him your best scary face\n- 🤔 **Something else?**"
+    },
+    {
+      "type": "player",
+      "text": "\"You may surrender now\""
+    },
+    {
+      "type": "dm",
+      "text": "\n\nBramble plants his feet, looks up at the trembling crossbowman thirty feet in the air, and points his shortsword straight at him.\n\n**\"You may surrender now.\"** 🗡️🍀\n\nThe halfling is three foot two. He's pointing a sword at a tree. And somehow — *somehow* — it's terrifying.\n\nLet's see if it works. **Bramble Intimidation check** — he's not proficient, but the situation gives him a lot of help (two dead friends, a blood-soaked dwarf, a monk statue, a gnome with a flaming finger). I'll give **advantage** for the overwhelming circumstances."
+    },
+    {
+      "type": "dice_roll",
+      "text": "Bramble Intimidation — 2d20+2: [12, 20] + 2 = 34"
+    },
+    {
+      "type": "dm",
+      "text": "Advantage — take the higher: **Natural 20 + 2 = 22** vs DC 10 — **MASSIVE SUCCESS!** 🍀🍀🍀\n\n---\n\nThe crossbowman looks down at the halfling. Looks at the dwarf standing on the log, battleaxe dripping, grinning. Looks at the monk who just dropped his partner in two hits without breaking a sweat. Looks at the gnome whose *finger is literally on fire*.\n\nThe crossbow clatters to the platform.\n\n**\"I SURRENDER! I SURRENDER! PLEASE DON'T — I'M COMING DOWN! DON'T KILL ME!\"** 😰🏳️\n\nHe half-climbs, half-falls out of the tree, landing in a heap of leaves and terror at Bramble's feet. He rips the scarf from his face — he's young. Maybe seventeen. Dirty. Thin. Scared out of his mind.\n\n**\"Please — we weren't gonna hurt nobody, I swear — we just — we just wanted coin for food — Harlen's toll bled the villages dry and we couldn't—\"** He's babbling, eyes darting between each of you. **\"Mott and Gribble just wanted enough to eat, that's all, I swear on my mother's—\"**\n\nHe sees Thorin looming over him and goes white as a sheet. 🐸\n\nThorin looks down at the boy. The battleaxe is still dripping. The grin fades. Something shifts behind those scarred, soldier's eyes. He's seen this before — desperate boys with weapons they barely know how to hold.\n\nHe rests the axe on his shoulder. Grunts.\n\n**\"...How old are you, lad?\"** 🐸\n\n*\"S-seventeen, sir.\"*\n\nPip sheathes his shortsword. The warmth comes back into his face like a lamp being relit. He crouches next to the boy — gently, the way you'd approach a spooked animal.\n\n*\"What's your name, friend?\"* 👊\n\n*\"...Wren. Wren Ashby.\"*\n\n*\"Wren. That's a good name.\"* Pip's voice is quiet and steady. *\"When did you last eat?\"* 🍲\n\nThe boy's lip trembles. He doesn't answer. That *is* the answer. 😢\n\nEldon extinguishes his finger. Pulls a slightly squashed bread roll from one of his seventeen pockets. *\"Here. It's got ink on it. Probably. Mostly edible.\"* 🔧🍞\n\n---\n\n**Bandit 1 and 2** are alive — unconscious, not dead. Pip didn't kill his, and Thorin's crit knocked his out cold. \n\n**Bramble — you're standing over a starving teenager and his two unconscious friends.** The road to Saltwick stretches on ahead through the thinning trees. Behind you, Tidecross just threw off its tyrant. Ahead, there's a town with a proper market.\n\nThe ledger in your pack has the names of people who profited from the suffering that made these boys desperate enough to rob strangers.\n\n**What do you do with Wren and his friends?** 🍀\n\n- 🍲 **Help them** — share food, point them toward Tidecross (Thessa could use extra hands rebuilding)\n- 💰 **Give them coin** — a few gold from Harlen's stash\n- ⛓️ **Tie them up** — they DID try to ambush you\n- 🗣️ **Question Wren** — what else is on this road? What's Saltwick like?\n- 🤔 **Something else?**"
+    },
+    {
+      "type": "player",
+      "text": "we will heal them. they will join our party as we go south"
+    },
+    {
+      "type": "dm",
+      "text": "\n\nA change of heart! South it is. Bramble kneels next to Wren and sheathes his sword.\n\n**\"We'll patch your friends up. And you're coming with us.\"** 🍀\n\nWren blinks. *\"...What?\"*\n\n**\"South. We're going south.\"** Bramble says it like he didn't just say north ten minutes ago. Like south was always the plan. Like the spinning was a compass recalibration. 🌀🧭\n\nPip is already moving. He pulls Mott — the bandit he dropped — into the recovery position and checks his breathing. *\"He'll have a headache, but he'll live. Got any water, Wren?\"* 🍲\n\nWren nods dumbly, pointing at a hollow tree where the bandits stashed a few meager supplies — a waterskin, some stale bread, a rusty cooking pot.\n\nThorin crouches over the one he crit'd — Gribble — and winces slightly. The bandit is breathing but there's a spectacular bruise forming across his entire torso.\n\n**\"...I may have overdone it.\"** 🐸\n\n*\"You hit him with an axe,\"* Eldon observes helpfully. *\"The fact that he's alive at all suggests his ribcage has above-average tensile strength. Fascinating, really—\"* 🔧\n\n**\"Eldon. Bandage.\"**\n\n*\"Right, yes, bandage.\"*\n\n---\n\nPip tends to the wounded bandits with practiced care. Within half an hour, both Mott and Gribble are conscious — groggy, terrified, but alive. Mott is a wiry man in his twenties with a nervous twitch. Gribble is older, heavyset, with the rough hands of a former laborer.\n\nThey sit against a tree, staring at the party that just dismantled them in six seconds.\n\n*\"You're... not gonna kill us?\"* Gribble asks.\n\n**\"We're going to feed you,\"** Pip says, pressing the ink-stained bread roll into his hands. *\"And then we're all going south.\"* 👊🍞\n\nWren looks between his friends and the party. *\"South? To the Thornmere? There's nothing down there but marshes and old ruins and...\"* He trails off. *\"...and things people don't come back from.\"*\n\nThorin grins. **\"Perfect.\"** 🐸\n\n---\n\n**Note:** Wren, Mott, and Gribble are **non-combatant followers** — starving, lightly armed, untrained. They're not party members with stat blocks. They'll travel with you, carry things, make camp, and occasionally provide local knowledge. They will NOT fight unless cornered. Think of them as grateful tagalongs, not reinforcements. 🏕️\n\n---\n\n## 🗺️ Change of Direction — Heading South!\n\nThe party turns around on the coast road, now heading back past the Tidecross crossroads and south toward the **Thornmere Marshes**. The sun is still high. You've got a good half-day of travel ahead.\n\nWren walks close to Pip — the least terrifying member of the party — and talks nervously.\n\n*\"The Thornmere... my gran used to tell stories. Said there was an old fortress out there, in the deep marsh. Said it sank centuries ago but you can still see the towers when the fog lifts.\"* His voice drops. *\"Said lights move out there at night. Not lanterns. Not stars. Something else.\"* 🌿💀\n\nPip nods. *\"Sounds like the kind of place that needs looking into.\"* He pats Wren on the shoulder. *\"Don't worry. We're very good at walking into terrible situations.\"*\n\n*\"...That's not reassuring.\"*\n\n*\"No,\"* Pip agrees cheerfully. *\"It really isn't.\"* 👊😊\n\n---\n\nThe coast road gives way to muddy tracks. The terrain flattens. The salty sea air thickens into something heavier — damp, earthy, smelling of peat and stagnant water. Reeds appear along the roadside. The ground softens underfoot. 🌿💧\n\n**The Thornmere Marshes are ahead.**\n\n**Bramble — it'll be evening before you reach the marsh proper. Do you want to:**\n\n- 🏕️ **Make camp at the marsh edge** — rest, eat, enter fresh in the morning\n- 🌿 **Push into the marshes** — press on while there's still light\n- 🗣️ **Talk to Wren** — pump the locals for more information about what's out there\n\n**What do you do?** 🍀🗺️"
     }
   ],
   "ownerEmail": "tom.chamberlain@gmail.com",
@@ -978,7 +1561,7 @@
     "turnMode": "initiative"
   },
   "createdAt": "2026-03-12T00:45:16.987Z",
-  "updatedAt": "2026-03-12T02:47:12.869Z",
+  "updatedAt": "2026-03-12T14:38:52.644Z",
   "players": [
     {
       "id": "152a3410-051b-4093-b17b-efadb0934d08",

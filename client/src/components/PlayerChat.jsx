@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from 'react';
+import { useState, useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 import { usePlayer } from '../context/PlayerContext';
 import { api } from '../api/client';
 import RichText from './RichText';
@@ -51,9 +51,11 @@ function formatOnlinePlayers(onlinePlayers, selfChatConnectionId) {
   });
 }
 
-export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnectionId, onSend }) {
+export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnectionId, onSend, chatTypingPlayers, sendChatTypingStatus }) {
   const { player } = usePlayer();
   const [input, setInput] = useState('');
+  const chatTypingTimerRef = useRef(null);
+  const isChatTypingRef = useRef(false);
   const [archiveOpen, setArchiveOpen] = useState(false);
   const [archiveDates, setArchiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null); // null = live today
@@ -121,9 +123,31 @@ export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnec
     setArchiveOpen(false);
   }
 
+  const handleChatTypingInput = useCallback((value) => {
+    if (!isChatTypingRef.current) {
+      isChatTypingRef.current = true;
+      sendChatTypingStatus?.(true);
+    }
+    clearTimeout(chatTypingTimerRef.current);
+    if (value.trim()) {
+      chatTypingTimerRef.current = setTimeout(() => {
+        isChatTypingRef.current = false;
+        sendChatTypingStatus?.(false);
+      }, 3000);
+    } else {
+      isChatTypingRef.current = false;
+      sendChatTypingStatus?.(false);
+    }
+  }, [sendChatTypingStatus]);
+
+  useEffect(() => () => { clearTimeout(chatTypingTimerRef.current); }, []);
+
   function handleSend() {
     const text = input.trim();
     if (!text || !player) return;
+    isChatTypingRef.current = false;
+    clearTimeout(chatTypingTimerRef.current);
+    sendChatTypingStatus?.(false);
     onSend(text);
     setInput('');
   }
@@ -178,11 +202,16 @@ export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnec
               <div className="chat-online-empty">No players online.</div>
             ) : (
               <div className="chat-online-list">
-                {onlineDisplayNames.map((name, index) => (
-                  <span key={`${name.name}-${index}`} className="chat-online-player">
-                    {name.name}{name.isYou ? ' (You)' : ''}
-                  </span>
-                ))}
+                {onlineDisplayNames.map((entry, index) => {
+                  const participant = (Array.isArray(onlinePlayers) ? onlinePlayers : [])[index];
+                  const isTyping = participant?.playerEmail && chatTypingPlayers?.[participant.playerEmail];
+                  return (
+                    <span key={`${entry.name}-${index}`} className={`chat-online-player${isTyping ? ' chat-online-typing' : ''}`}>
+                      {entry.name}{entry.isYou ? ' (You)' : ''}
+                      {isTyping && <span className="chat-typing-dot-group"><span className="chat-typing-dots" /></span>}
+                    </span>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -223,7 +252,7 @@ export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnec
                 className="chat-input"
                 placeholder={player ? 'Message party...' : 'Login to chat'}
                 value={input}
-                onChange={e => setInput(e.target.value)}
+                onChange={e => { setInput(e.target.value); handleChatTypingInput(e.target.value); }}
                 onKeyDown={handleKeyDown}
                 disabled={!player}
               />

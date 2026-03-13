@@ -406,6 +406,22 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           break;
         }
 
+        case 'chat_typing': {
+          if (currentChatKey && chatRooms.has(currentChatKey)) {
+            for (const entry of chatRooms.get(currentChatKey)) {
+              if (entry !== wsEntry && entry.ws.readyState === entry.ws.OPEN) {
+                entry.ws.send(JSON.stringify({
+                  type: 'chat_typing',
+                  playerEmail: wsEntry.playerEmail,
+                  playerName: wsEntry.playerName,
+                  typing: !!msg.typing,
+                }));
+              }
+            }
+          }
+          break;
+        }
+
         case 'chat_message': {
           const { text, playerEmail, playerName, isAdmin } = msg;
           if (!text || !text.trim()) break;

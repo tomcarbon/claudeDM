@@ -1,8 +1,8 @@
-import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo } from 'react';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import RichText from '../components/RichText';
-import CollapsibleMessage from '../components/CollapsibleMessage';
+import { getCollapseThreshold } from '../utils/displaySettings';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
@@ -141,6 +141,38 @@ function Adventure({
   // Derive companion turn submitted from server state (no race conditions)
   const companionTurnSubmitted = isCompanion && companionTurns.some(t => t.playerEmail === player?.email);
 
+  // --- Message gate system ---
+  // Instead of collapsing individual long messages, we "gate" the message list:
+  // messages up to the gate render normally; everything after is hidden behind "Show more".
+  // When clicked, we advance the gate to the next long message (or end).
+  const [gateRevealedUpTo, setGateRevealedUpTo] = useState(-1); // index up to which the user has explicitly revealed
+  const collapseThreshold = useMemo(() => getCollapseThreshold(), []);
+
+  // Find the next gate point: first long message after gateRevealedUpTo
+  const gateInfo = useMemo(() => {
+    if (!collapseThreshold) return { renderUpTo: messages.length, gatedAt: -1 }; // disabled
+    for (let i = Math.max(0, gateRevealedUpTo + 1); i < messages.length; i++) {
+      const msg = messages[i];
+      if (msg.type === 'dm' || msg.type === 'system') {
+        const lineCount = typeof msg.text === 'string' ? msg.text.split('\n').length : 0;
+        if (lineCount >= collapseThreshold) {
+          // Gate starts here — show up to and including this message's preview
+          return { renderUpTo: i + 1, gatedAt: i };
+        }
+      }
+    }
+    // No long message found after revealed point — show everything
+    return { renderUpTo: messages.length, gatedAt: -1 };
+  }, [messages, gateRevealedUpTo, collapseThreshold]);
+
+  const isGated = gateInfo.gatedAt >= 0 && gateInfo.renderUpTo < messages.length;
+  const hiddenCount = isGated ? messages.length - gateInfo.renderUpTo : 0;
+
+  const handleShowMore = useCallback(() => {
+    // Advance the revealed point past the current gate
+    setGateRevealedUpTo(gateInfo.gatedAt);
+  }, [gateInfo.gatedAt]);
+
   // Restore companion character from session_access (persisted across reconnects)
   useEffect(() => {
     if (sessionAccess.companionCharacterId && !companionCharacterId) {
@@ -275,13 +307,14 @@ function Adventure({
   // user scroll/wheel events first (prevents the streaming race condition).
   useLayoutEffect(() => {
     if (!isNearBottomRef.current) return;
+    if (isGated) return; // Don't auto-scroll when messages are hidden behind a gate
     const container = storyRef.current;
     if (!container) return;
     const frame = requestAnimationFrame(() => {
       container.scrollTop = container.scrollHeight;
     });
     return () => cancelAnimationFrame(frame);
-  }, [messages]);
+  }, [messages, isGated]);
 
   // Load saved sessions for setup screen (re-fetch when campaign changes or another player creates/deletes)
   useEffect(() => {
@@ -381,6 +414,7 @@ function Adventure({
     const character = characters.find(c => c.id === selectedCharacter);
     setSessionReadOnly(false);
     setSessionSettings({ visibility: 'public', turnMode: 'initiative' });
+    setGateRevealedUpTo(-1); // Reset gate for new session
 
     const hasPlayerSlots = npcs.some(n => companionStates[n.id] === 'player' || companionStates[n.id] === 'reserved');
 
@@ -565,6 +599,7 @@ Set the scene and begin the story.`;
       }
       const loadedMessages = normalizeSavedMessages(session.messages);
       setMessages(loadedMessages);
+      setGateRevealedUpTo(loadedMessages.length); // Show all loaded history — gate only new messages
       if (loadedMessages.length === 0) {
         console.warn('[Load] No messages found in saved session — session may not have been saved properly');
       }
@@ -1003,8 +1038,10 @@ Set the scene and begin the story.`;
         <div className="adventure-header">
           <div className="adventure-info">
             <span className="adventure-scenario">{activeCampaign?.title || activeScenario?.title}</span>
-            <span className="adventure-character">{activeCharacter?.name}</span>
-            {isCompanion && <span className="adventure-character">Playing as {companionCharacter?.name || companionNpc?.name || 'Companion'}</span>}
+            {isCompanion
+              ? <span className="adventure-character">Playing as {companionCharacter?.name || companionNpc?.name || 'Companion'}</span>
+              : <span className="adventure-character">{activeCharacter?.name}</span>
+            }
             {sessionReadOnly && !isCompanion && <span className="adventure-character">Read only</span>}
           </div>
           <button
@@ -1197,7 +1234,7 @@ Set the scene and begin the story.`;
 
         {/* Story area */}
         <div className="story-area" ref={storyRef}>
-          {messages.map((msg, i) => (
+          {messages.slice(0, gateInfo.renderUpTo).map((msg, i) => (
             <div key={i} className={`story-message story-${msg.type}`}>
               {msg.type === 'player' && (
                 <div className="message-player">
@@ -1220,31 +1257,28 @@ Set the scene and begin the story.`;
               {(msg.type === 'dm' || msg.type === 'dm_partial') && (
                 <div className="message-dm">
                   <span className="message-sender">Dungeon Master</span>
-                  {msg.type === 'dm' ? (
-                    <CollapsibleMessage text={msg.text}>
-                      <RichText as="div" className="dm-narration" text={msg.text} />
-                    </CollapsibleMessage>
-                  ) : (
-                    <>
-                      <RichText as="div" className="dm-narration" text={msg.text} />
-                      <span className="typing-cursor" />
-                    </>
-                  )}
+                  <RichText as="div" className="dm-narration" text={msg.text} />
+                  {msg.type === 'dm_partial' && <span className="typing-cursor" />}
                 </div>
               )}
               {msg.type === 'system' && (
                 <div className="message-system">
-                  <CollapsibleMessage text={msg.text}>
-                    {msg.companionNpcId
-                      ? msg.text.includes('left')
-                        ? `${msg.playerName} has left the session. ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId} returns to NPC companion control.`
-                        : `${msg.text} (controlling ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId})`
-                      : msg.text}
-                  </CollapsibleMessage>
+                  {msg.companionNpcId
+                    ? msg.text.includes('left')
+                      ? `${msg.playerName} has left the session. ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId} returns to NPC companion control.`
+                      : `${msg.text} (controlling ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId})`
+                    : msg.text}
                 </div>
               )}
             </div>
           ))}
+          {isGated && (
+            <div className="message-gate">
+              <button className="message-gate-btn" onClick={handleShowMore}>
+                Show more ({hiddenCount} message{hiddenCount !== 1 ? 's' : ''}) &#x25BC;
+              </button>
+            </div>
+          )}
         </div>
         {showScrollBtn && (
           <button className="scroll-to-bottom-btn" onClick={scrollToBottom} title="Scroll to latest">

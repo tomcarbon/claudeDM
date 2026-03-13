@@ -1,10 +1,23 @@
-export const CURRENT_VERSION = '1.0.5';
+export const CURRENT_VERSION = '1.0.6';
 
 export const CHANGELOG = [
   {
+    version: '1.0.6',
+    date: '2026-03-12',
+    title: 'Current Release',
+    compareFrom: '1.0.5',
+    compareRef: '7c079f7 ("d20 nat 1 and 20 charts, typing indicator, session widget fixes, clickable spells on character sheets.")',
+    highlights: [
+      'Underdark world map: the Depths of the Underdark campaign now has a custom illustrated map image replacing the old procedural SVG placeholder, matching the style of the Shattered Coast and Wonderland maps.',
+      'Party chat typing indicators: when a player types in Party Chat, other players see an animated bouncing-dot indicator and gold highlight on that player\'s online widget — mirroring the existing typing indicator on the adventure session party board.',
+      'Players Online widgets are now 25% larger for better readability in the chat sidebar.',
+      'New `chat_typing` WebSocket message type with server-side broadcast, client-side debounce (3s idle timeout), and automatic 5s stale-indicator cleanup.',
+    ],
+  },
+  {
     version: '1.0.5',
     date: '2026-03-08',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.4',
     compareRef: 'b62660b ("v1.0.4 official and whats new update")',
     highlights: [
