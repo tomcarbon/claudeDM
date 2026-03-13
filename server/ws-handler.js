@@ -35,6 +35,11 @@ function getSessionOwnerEmail(session) {
   return value ? String(value).trim().toLowerCase() : null;
 }
 
+function getSessionOwnerName(session) {
+  const ownerPlayer = (session.players || []).find(p => p.role === 'owner') || (session.players || [])[0] || {};
+  return session.ownerName || session.playerName || ownerPlayer.name || null;
+}
+
 function getCompanionNpcId(session, email) {
   if (!email) return null;
   // companionPlayers is a top-level field on the session (set by POST /:id/join)
@@ -177,6 +182,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         const prevSessionId = currentSessionDbId;
         const leaveName = wsEntry.playerName || wsEntry.playerEmail || 'Someone';
         const leaveNpcId = wsEntry.companionNpcId || null;
+        const leaveCharacterName = wsEntry.companionCharacterName || null;
         const wasHost = wsEntry.isHost;
         const room = sessionRooms.get(currentSessionDbId);
         room.delete(wsEntry);
@@ -186,12 +192,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           companionSheetsSent.delete(currentSessionDbId);
           hostTurns.delete(currentSessionDbId);
         } else {
-          // Only broadcast leave for non-host players
-          if (!wasHost) {
+          // Only broadcast leave for companion players (not host, not observers)
+          if (!wasHost && leaveNpcId) {
             broadcastSessionMessage(prevSessionId, 'session_player_left', {
               playerEmail: wsEntry.playerEmail,
               playerName: leaveName,
               companionNpcId: leaveNpcId,
+              companionCharacterName: leaveCharacterName,
             });
           }
           broadcastSessionParticipants(prevSessionId);
@@ -205,15 +212,19 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       if (!sessionRooms.has(sessionDbId)) return [];
       return Array.from(sessionRooms.get(sessionDbId))
         .filter(e => e.ws.readyState === e.ws.OPEN)
-        .map(e => ({
-          playerEmail: e.playerEmail || 'guest',
-          playerName: e.playerName || 'Guest',
-          isHost: !!e.isHost,
-          characterName: e.characterName || null,
-          companionNpcId: e.companionNpcId || null,
-          companionCharacterName: e.companionCharacterName || null,
-          companionCharacterId: e.companionCharacterId || null,
-        }));
+        .map(e => {
+          const isObserver = !e.isHost && !e.companionNpcId;
+          return {
+            playerEmail: e.playerEmail || 'guest',
+            playerName: e.playerName || 'Guest',
+            isHost: !!e.isHost,
+            isObserver,
+            characterName: e.characterName || null,
+            companionNpcId: e.companionNpcId || null,
+            companionCharacterName: e.companionCharacterName || null,
+            companionCharacterId: e.companionCharacterId || null,
+          };
+        });
     }
 
     function broadcastSessionParticipants(sessionDbId) {
@@ -294,8 +305,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       wsEntry.isHost = !!canWrite;
       if (!sessionRooms.has(sessionDbId)) sessionRooms.set(sessionDbId, new Set());
       sessionRooms.get(sessionDbId).add(wsEntry);
-      // Only broadcast join for non-host players (host joining is implicit)
-      if (!canWrite) {
+      // Only broadcast join for companion players (not host, not observers)
+      if (!canWrite && wsEntry.companionNpcId) {
         const joinName = wsEntry.playerName || wsEntry.playerEmail || 'Someone';
         broadcastSessionMessage(sessionDbId, 'session_player_joined', {
           playerEmail: wsEntry.playerEmail,
@@ -369,6 +380,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         case 'session_resume': {
           if (!msg.playerEmail) {
             send('error', { error: 'playerEmail is required to resume a session.' });
+            break;
+          }
+          // Prevent non-owners from resuming a session they're watching/companion in
+          if (currentSessionDbId && !currentSessionCanWrite) {
+            send('error', { error: 'Only the session host can resume this session.' });
             break;
           }
           characterId = msg.characterId || null;
@@ -492,9 +508,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             }
           }
           joinSessionRoom(requestedSessionId, canWrite);
+          const ownerName = getSessionOwnerName(session);
           const accessPayload = {
             sessionDbId: requestedSessionId,
             ownerEmail,
+            ownerName,
             canWrite,
             readOnly: !canWrite,
           };

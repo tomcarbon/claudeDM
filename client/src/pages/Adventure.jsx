@@ -138,6 +138,7 @@ function Adventure({
   const companionNpc = isCompanion ? npcs.find(n => n.id === sessionAccess.companionNpcId) : null;
   const companionCharacter = companionCharacterId ? characters.find(c => c.id === companionCharacterId) : null;
   const isHost = sessionAccess.canWrite;
+  const isObserver = sessionReadOnly && !isCompanion;
   // Derive companion turn submitted from server state (no race conditions)
   const companionTurnSubmitted = isCompanion && companionTurns.some(t => t.playerEmail === player?.email);
 
@@ -315,6 +316,18 @@ function Adventure({
     });
     return () => cancelAnimationFrame(frame);
   }, [messages, isGated]);
+
+  // Logout during active session: unwatch and return to setup screen
+  useEffect(() => {
+    if (isGuest && sessionActive) {
+      watchSession(null);
+      setSessionActive(false);
+      setSavedSessionDbId(null);
+      setSessionReadOnly(false);
+      setMessages([]);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isGuest]);
 
   // Load saved sessions for setup screen (re-fetch when campaign changes or another player creates/deletes)
   useEffect(() => {
@@ -1042,7 +1055,7 @@ Set the scene and begin the story.`;
               ? <span className="adventure-character">Playing as {companionCharacter?.name || companionNpc?.name || 'Companion'}</span>
               : <span className="adventure-character">{activeCharacter?.name}</span>
             }
-            {sessionReadOnly && !isCompanion && <span className="adventure-character">Read only</span>}
+            {isObserver && <span className="adventure-character">👻 Observing{sessionAccess.ownerName ? ` ${sessionAccess.ownerName}'s game` : ''}</span>}
           </div>
           <button
             className="btn-save"
@@ -1161,17 +1174,23 @@ Set the scene and begin the story.`;
         {/* Party status board */}
         <div className="party-status-board">
           {/* Host */}
-          <button
-            className={`party-status-entry party-status-host ${selectedStatusEntry === 'host' ? 'party-status-selected' : ''}`}
-            onClick={() => setSelectedStatusEntry(selectedStatusEntry === 'host' ? null : 'host')}
-          >
-            <span className="party-status-dot online" />
-            <span className="party-status-name">{activeCharacter?.name || 'Host'}</span>
-            <span className="party-status-role">
-              {player?.name || 'Host'} (Host)
-              {Object.values(typingPlayers).some(t => t.isHost) ? ' · Typing...' : ''}
-            </span>
-          </button>
+          {(() => {
+            const hostOnline = sessionParticipants.some(p => p.isHost);
+            const hostName = isHost ? (player?.name || 'Host') : (sessionAccess.ownerName || 'Host');
+            return (
+              <button
+                className={`party-status-entry party-status-host ${selectedStatusEntry === 'host' ? 'party-status-selected' : ''}`}
+                onClick={() => setSelectedStatusEntry(selectedStatusEntry === 'host' ? null : 'host')}
+              >
+                <span className={`party-status-dot ${isHost || hostOnline ? 'online' : 'offline'}`} />
+                <span className="party-status-name">{activeCharacter?.name || 'Host'}</span>
+                <span className="party-status-role">
+                  {hostName} (Host){!isHost && !hostOnline ? ' · Offline' : ''}
+                  {Object.values(typingPlayers).some(t => t.isHost) ? ' · Typing...' : ''}
+                </span>
+              </button>
+            );
+          })()}
           {/* Companion NPCs — player-controlled or AI */}
           {npcs.filter(n => {
             const state = companionStates[n.id];

@@ -139,6 +139,8 @@ export default function useWebSocket() {
         case 'session_access':
           setSessionAccess({
             sessionDbId: msg.sessionDbId || null,
+            ownerEmail: msg.ownerEmail || null,
+            ownerName: msg.ownerName || null,
             canWrite: msg.canWrite === true,
             readOnly: msg.readOnly !== false,
             companionNpcId: msg.companionNpcId || null,
@@ -201,14 +203,18 @@ export default function useWebSocket() {
           playNotification();
           break;
 
-        case 'session_player_left':
+        case 'session_player_left': {
+          const charNote = msg.companionCharacterName
+            ? ` The DM now controls ${msg.companionCharacterName} as an NPC companion.`
+            : '';
           setMessages(prev => [...prev, {
             type: 'system',
-            text: `${msg.playerName} has left the session.`,
+            text: `${msg.playerName} has left the session.${charNote}`,
             playerName: msg.playerName,
             companionNpcId: msg.companionNpcId || null,
           }]);
           break;
+        }
 
         case 'chat_message':
           setChatMessages(prev => [...prev, {
