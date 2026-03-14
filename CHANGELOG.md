@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented here.
 
+## [1.0.7] - 2026-03-13
+Changes since `1.0.6` (starting after commit `fd1f299`, "This is v1.0.6 and corresponding whats new section update."):
+
+- Ghost/observer mode: observers now see a 👻 "Observing [host name]'s game" label instead of "Read only", with the host's name resolved from session data.
+- Host online/offline indicator on the party status board for observer and companion players via live WebSocket presence.
+- Join/leave notifications are now scoped to companion players only — observers no longer generate join/leave noise.
+- Companion leave messages now include the character name (e.g. "The DM now controls Bramble as an NPC companion.").
+- Mid-session logout cleanup: logging out during an active session fully resets adventure state so re-login works without a page refresh.
+- Session resume guard: only the session host can trigger a resume — prevents non-owners from accidentally resuming.
+- Fixed companion character ID restoration on reconnect (removed stale-state guard).
+
 ## [1.0.5] - 2026-03-08
 Changes since `1.0.4` (starting after commit `b62660b`, "v1.0.4 official and whats new update"):
 

@@ -1,10 +1,26 @@
-export const CURRENT_VERSION = '1.0.6';
+export const CURRENT_VERSION = '1.0.7';
 
 export const CHANGELOG = [
   {
+    version: '1.0.7',
+    date: '2026-03-13',
+    title: 'Current Release',
+    compareFrom: '1.0.6',
+    compareRef: 'fd1f299 ("This is v1.0.6 and corresponding whats new section update.")',
+    highlights: [
+      'Ghost mode: observers (non-companion viewers) now see a 👻 "Observing [host name]\'s game" label instead of the old "Read only" badge, with the host\'s name pulled from session data.',
+      'Host online/offline status: the party status board now shows whether the host is online or offline for observer and companion players, using live WebSocket presence.',
+      'Cleaner join/leave notifications: join and leave system messages are now only broadcast for companion players — observers joining or leaving no longer generate noise in the session feed.',
+      'Companion leave messages now include the companion\'s character name (e.g. "Tom has left the session. The DM now controls Bramble as an NPC companion.").',
+      'Mid-session logout fix: logging out while in an active session now fully resets adventure state (unwatch, clear messages, reset companion state) so re-login works cleanly without a page refresh.',
+      'Session resume guard: non-owner players can no longer accidentally trigger a session resume — only the host can resume a session.',
+      'Companion character restoration fix: companion character ID is now reliably restored on reconnect regardless of prior local state.',
+    ],
+  },
+  {
     version: '1.0.6',
     date: '2026-03-12',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.5',
     compareRef: '7c079f7 ("d20 nat 1 and 20 charts, typing indicator, session widget fixes, clickable spells on character sheets.")',
     highlights: [
