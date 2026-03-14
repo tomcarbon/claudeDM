@@ -176,7 +176,7 @@ function Adventure({
 
   // Restore companion character from session_access (persisted across reconnects)
   useEffect(() => {
-    if (sessionAccess.companionCharacterId && !companionCharacterId) {
+    if (sessionAccess.companionCharacterId) {
       setCompanionCharacterId(sessionAccess.companionCharacterId);
     }
   }, [sessionAccess.companionCharacterId]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -256,7 +256,7 @@ function Adventure({
     setCompanionReservations({});
     setReserveDropdownNpc(null);
     setSavedSessions([]);
-  }, [campaignId, setSelectedCharacter, setSelectedScenario]);
+  }, [campaignId, player, setSelectedCharacter, setSelectedScenario]);
 
   // Track whether the user has scrolled away from the bottom.
   // Listen for wheel/touchstart events in addition to scroll events so that
@@ -317,7 +317,7 @@ function Adventure({
     return () => cancelAnimationFrame(frame);
   }, [messages, isGated]);
 
-  // Logout during active session: unwatch and return to setup screen
+  // Logout during active session: unwatch and fully reset so re-login works without F5
   useEffect(() => {
     if (isGuest && sessionActive) {
       watchSession(null);
@@ -325,6 +325,16 @@ function Adventure({
       setSavedSessionDbId(null);
       setSessionReadOnly(false);
       setMessages([]);
+      setCompanionCharacterId(null);
+      setCompanionInput('');
+      setInput('');
+      setSelectedStatusEntry(null);
+      setPendingOpeningPrompt(null);
+      setGateRevealedUpTo(-1);
+      prevMessageCountRef.current = 0;
+      setCompanionStates({});
+      setCompanionReservations({});
+      setSessionSettings({ visibility: 'public', turnMode: 'initiative' });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuest]);
