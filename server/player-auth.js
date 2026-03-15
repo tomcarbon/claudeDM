@@ -27,6 +27,7 @@ function getAuthenticatedPlayer(dataDir, req) {
     email: player.email,
     name: player.name,
     role: player.role,
+    maxSessions: player.maxSessions, // undefined = use default
   };
 }
 

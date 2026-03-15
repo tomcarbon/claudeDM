@@ -10,6 +10,8 @@ const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
 };
 
+const DEFAULT_MAX_SESSIONS = 3;
+
 function getOwnerPlayer(session) {
   return (session.players || []).find(p => p.role === 'owner')
     || (session.players || [])[0]
@@ -131,6 +133,24 @@ function withSessionAccess(session, requester) {
     settings,
     turnExpectedFromYou: !!turnExpectedFromYou,
   };
+}
+
+function countPlayerSessions(dataDir, email) {
+  const slug = emailToSlug(email);
+  const playerDir = path.join(dataDir, 'players', slug);
+  if (!fs.existsSync(playerDir)) return 0;
+  let count = 0;
+  try {
+    const campaigns = fs.readdirSync(playerDir).filter(d => {
+      try { return fs.statSync(path.join(playerDir, d)).isDirectory(); } catch { return false; }
+    });
+    for (const cid of campaigns) {
+      const sessDir = path.join(playerDir, cid, 'sessions');
+      if (!fs.existsSync(sessDir)) continue;
+      count += fs.readdirSync(sessDir).filter(f => f.endsWith('.json')).length;
+    }
+  } catch { /* ignore */ }
+  return count;
 }
 
 module.exports = function (dataDir) {
@@ -281,6 +301,13 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot create sessions.' });
       }
+      // Enforce per-player session limit
+      const maxSessions = requester.maxSessions || DEFAULT_MAX_SESSIONS;
+      const currentCount = countPlayerSessions(dataDir, requester.email);
+      if (currentCount >= maxSessions) {
+        return res.status(400).json({ error: `Session limit reached (${maxSessions}). Delete an existing session to create a new one.` });
+      }
+
       const { name, scenarioId, characterId, claudeSessionId, messages, companionConfig } = req.body;
       console.log(`[Sessions] POST — messages: ${(messages || []).length}, claudeSessionId: ${claudeSessionId ? 'yes' : 'no'}, characterId: ${characterId}`);
       const ownerId = uuidv4();

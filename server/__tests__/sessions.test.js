@@ -418,3 +418,98 @@ describe('session settings — turnMode removed', () => {
     expect(res.status).toBe(200);
   });
 });
+
+describe('session creation limit', () => {
+  it('allows creating sessions up to the default limit (3)', async () => {
+    for (let i = 0; i < 3; i++) {
+      const res = await request('POST', '/api/sessions', {
+        body: { name: `Session ${i + 1}`, characterId: 'char-1', scenarioId: 'demo' },
+        headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+      });
+      expect(res.status).toBe(201);
+    }
+  });
+
+  it('rejects the 4th session at default limit', async () => {
+    // Create 3 sessions via files
+    for (let i = 0; i < 3; i++) {
+      createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: `existing-${i}` }));
+    }
+
+    const res = await request('POST', '/api/sessions', {
+      body: { name: 'One too many', characterId: 'char-1', scenarioId: 'demo' },
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error).toMatch(/session limit/i);
+  });
+
+  it('counts sessions across all campaigns', async () => {
+    // Create 2 in demo, 1 in campaign1
+    createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: 'demo-1' }));
+    createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: 'demo-2' }));
+    createSessionFile(tmpDir, HOST.email, 'campaign1', makeSession({ id: 'camp1-1' }));
+
+    const res = await request('POST', '/api/sessions', {
+      body: { name: 'Should fail', characterId: 'char-1', scenarioId: 'demo' },
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error).toMatch(/session limit/i);
+  });
+
+  it('allows more sessions when player has a custom higher limit', async () => {
+    // Set HOST's maxSessions to 5
+    const playersPath = path.join(tmpDir, 'players.json');
+    const players = JSON.parse(fs.readFileSync(playersPath, 'utf-8'));
+    players[HOST.email].maxSessions = 5;
+    fs.writeFileSync(playersPath, JSON.stringify(players, null, 2));
+
+    // Create 4 sessions (would fail at default limit of 3)
+    for (let i = 0; i < 4; i++) {
+      createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: `session-${i}` }));
+    }
+
+    // 5th should still succeed
+    const res = await request('POST', '/api/sessions', {
+      body: { name: 'Fifth session', characterId: 'char-1', scenarioId: 'demo' },
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+    expect(res.status).toBe(201);
+
+    // 6th should fail
+    const res2 = await request('POST', '/api/sessions', {
+      body: { name: 'Sixth session', characterId: 'char-1', scenarioId: 'demo' },
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+    expect(res2.status).toBe(400);
+  });
+
+  it('deleting a session frees up a slot', async () => {
+    // Create 3 sessions
+    for (let i = 0; i < 3; i++) {
+      createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: `session-${i}` }));
+    }
+
+    // Can't create a 4th
+    const res1 = await request('POST', '/api/sessions', {
+      body: { name: 'Blocked', characterId: 'char-1', scenarioId: 'demo' },
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+    expect(res1.status).toBe(400);
+
+    // Delete one
+    await request('DELETE', '/api/sessions/session-0', {
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+
+    // Now can create
+    const res2 = await request('POST', '/api/sessions', {
+      body: { name: 'Replacement', characterId: 'char-1', scenarioId: 'demo' },
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+    expect(res2.status).toBe(201);
+  });
+});
