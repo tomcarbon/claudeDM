@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { awardXp } = require('./xp-utils');
-const { emailToSlug, getPlayerCharactersDir, getPlayerNpcsDir } = require('./player-data');
+const { emailToSlug, getPlayerCharactersDir, getPlayerNpcsDir, getSessionCharactersDir, getSessionNpcsDir } = require('./player-data');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SHUFFLE_TIMEZONE = 'America/Los_Angeles';
@@ -106,8 +106,10 @@ function loadDmSettings(dataDir, playerEmail) {
   return applyDailyShuffle(baseSettings, playerEmail);
 }
 
-function loadCharacter(dataDir, characterId, playerEmail, campaignId) {
-  const dir = playerEmail
+function loadCharacter(dataDir, characterId, playerEmail, campaignId, sessionDbId) {
+  const dir = sessionDbId && playerEmail
+    ? getSessionCharactersDir(dataDir, playerEmail, campaignId, sessionDbId)
+    : playerEmail
     ? getPlayerCharactersDir(dataDir, playerEmail, campaignId)
     : path.join(dataDir, 'characters');
   try {
@@ -139,8 +141,10 @@ function loadScenario(dataDir, scenarioId, campaignId) {
   return null;
 }
 
-function loadNpcs(dataDir, playerEmail, campaignId) {
-  const dir = playerEmail
+function loadNpcs(dataDir, playerEmail, campaignId, sessionDbId) {
+  const dir = sessionDbId && playerEmail
+    ? getSessionNpcsDir(dataDir, playerEmail, campaignId, sessionDbId)
+    : playerEmail
     ? getPlayerNpcsDir(dataDir, playerEmail, campaignId)
     : path.join(dataDir, 'npcs');
   try {
@@ -157,17 +161,21 @@ function loadNpcs(dataDir, playerEmail, campaignId) {
   }
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers) {
+function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId) {
   const cid = campaignId || 'demo';
   const settings = loadDmSettings(dataDir, playerEmail);
-  const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid) : null;
+  const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid, sessionDbId) : null;
   const scenario = scenarioId ? loadScenario(dataDir, scenarioId, cid) : null;
-  const npcs = loadNpcs(dataDir, playerEmail, cid);
+  const npcs = loadNpcs(dataDir, playerEmail, cid, sessionDbId);
 
-  // Compute player-scoped paths for file references
+  // Compute player-scoped paths for file references — use session-scoped dirs when available
   const slug = playerEmail ? emailToSlug(playerEmail) : null;
-  const charPathPrefix = slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
-  const npcPathPrefix = slug ? `data/players/${slug}/${cid}/npcs` : 'data/npcs';
+  const charPathPrefix = sessionDbId && slug
+    ? `data/players/${slug}/${cid}/sessions/${sessionDbId}/characters`
+    : slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
+  const npcPathPrefix = sessionDbId && slug
+    ? `data/players/${slug}/${cid}/sessions/${sessionDbId}/npcs`
+    : slug ? `data/players/${slug}/${cid}/npcs` : 'data/npcs';
 
   const verbosityGuide = settings.verbosity < 30 ? 'Keep descriptions brief and punchy.'
     : settings.verbosity > 70 ? 'Use rich, detailed prose with vivid imagery.'
@@ -591,8 +599,8 @@ class DmEngine {
     return this._mcpToolServer;
   }
 
-  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers);
+  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId);
     const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId);
     return {
       systemPrompt,
@@ -679,8 +687,8 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers }) {
-    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers);
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId }) {
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId);
 
     if (this.sessionId) {
       options.resume = this.sessionId;
@@ -695,12 +703,12 @@ class DmEngine {
     }
 
     // Fresh session — if we have message history, prepend it as context
-    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers);
+    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId);
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
       const recap = buildSmartRecap(messageHistory);
       // Build identity-enriched resume header
-      const character = characterId ? loadCharacter(this.dataDir, characterId, playerEmail, campaignId) : null;
+      const character = characterId ? loadCharacter(this.dataDir, characterId, playerEmail, campaignId, sessionDbId) : null;
       const scenario = scenarioId ? loadScenario(this.dataDir, scenarioId, campaignId) : null;
       const charLabel = character ? `${character.name} (Level ${character.level} ${character.race} ${character.class})` : 'Unknown character';
       const scenarioLabel = scenario ? scenario.title : 'Unknown scenario';

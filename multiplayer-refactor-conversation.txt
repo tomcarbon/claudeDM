@@ -1,0 +1,233 @@
+================================================================================
+MULTIPLAYER REFACTOR CONVERSATION — 2026-03-14
+================================================================================
+
+USER:
+Let us do a major refactor/update of the multiplayer logic today. In essence,
+we're going to compartmentalize character and companions to each session, and
+get the rules straight for joining, saving, resuming games, logging on/off,
+persistence, and maybe some things I missed. We can do treeshaking, removal
+and re-implementation of functionality here if need be.
+
+As regards multiplayer, there's basically three types of users:
+
+1) The host
+2) The companion player(s)
+3) The ghost, that is someone who is just watching the game (can be guest or a
+   user who is logged in but not joined to the session).
+
+Arguably, there's actually 5 types of users:
+4) the 'guest' is the 4th user, but for purposes of observation, It can be
+   grouped with the non-joined but logged on user.
+5) There's an admin account, that has a few extra priviledges.
+
+I'm most concerned about those first three basic types.
+
+There are 2 basic modes of play: single player mode, and multiplayer mode.
+
+Singleplayer mode is the host player, and NPC companions, with no Join options
+for any of the companions.
+
+Multiplayer is every other combination:
+
+Mode of entry for single player: at the DM's green ready prompt (that is, not
+when the DM is thinking), the player may submit their turn, they send BAU with
+the button or the enter key, and the message is posted to the adventure box
+with the player's instructions. This is pretty much BAU, and it's pretty
+simple. Let's make sure the multiplayer functionality does not adversely
+'infect' this single player mode.
+
+Multiplayer. The 'Turn Mode' might be a good idea, but I don't think it's
+working. We can probably start by removing this and its 3 options in the
+settings.
+
+Ok, here's some guidelines for the multiplayer mode.
+
+A host may log out or disconnect at any time, or they may switch to a different
+game in the same campaign or to a game in a different campaign. In all cases,
+the state of the game is saved. The companion players suffer no loss of
+continuity with their game; they may play their turns and their turns will be
+saved as well.
+
+After a host or a companion player plays their turn, it is displayed to the
+adventure box, and saved to the session json (and character jsons if need be).
+The player may retract their response to try again. What is new, populate the
+original comment in the bar (the companion player might only want to make a
+small correction).
+
+For the host, companion player(s), and ghost, when they load a session, the
+characters in the companion section (menu button) gets updated for all users
+with the session's characters and those characters' characteristics. When a
+companion player goes to the Companion menu item, they can see their character
+highlighted in one color, and the other companion players (if any) highlighted
+in another color (the host/ghost would see all the companion players in this
+second color).
+
+Here is the normal order of play. For sake of example, a game might have a
+host, two players, and 3 NPCs. If a slot is not joined, the DM controls the
+stated NPC (say, 'Drak'). Once a player joins, they will select their
+character from their character pool as usual. That player/character will be
+joined, across session changes, logoffs, etc, and preserved during gameplay.
+Only by unjoining the session will the DM resume control of the original NPC
+(Drak) in future turns.
+
+The DM will not start until the host and all joined players have acted.
+However, the host has the option to 'continue' without the input of 1 or more
+companion players (regardless if these players are online or offline, or
+watching/playing another session, etc). If the host decides to continue, the
+DM will play for the character that that companion player had selected
+(effectively playing for the player in their absense).
+
+The companion player and the host need a high level system for knowing when
+their turn in a given session is expecting their input (it's their turn to
+play). Maybe the session widget could get a purple light for this.
+
+One thing, the user might log in and log out right there at the Begin Adventure
+screen. The session widgets need to be refreshed at that level as well, and
+also when the host loads the session the indicator should turn green for
+everyone.
+
+Did I miss anything? Hopefully that all makes sense.
+
+================================================================================
+
+CLAUDE: [Explored codebase thoroughly via agent]
+
+Key files identified:
+- server/ws-handler.js (~1000 lines) — WebSocket handler
+- server/routes/sessions.js (~610 lines) — Session REST API
+- client/src/hooks/useWebSocket.js (~530 lines) — Client WS state
+- client/src/pages/Adventure.jsx (~1537 lines) — Main UI
+
+================================================================================
+
+CLAUDE: [Entered plan mode, read all critical files]
+
+Clarifying questions asked:
+
+Q1: When the host disconnects but companion players are still connected, what
+    should happen when companions submit turns?
+A1: "Companions can fire DM" — If all connected companions have submitted and
+    the host is offline, the DM fires automatically using the host's session
+    context.
+
+Q2: When you say 'compartmentalize characters and companions to each session'
+    — do you mean the session JSON should store full character/NPC data
+    snapshots, or just track membership?
+A2: "Store full snapshots" — Session JSON stores a copy of each character/NPC's
+    full data. Each session has independent stats.
+
+================================================================================
+
+PLAN APPROVED — Implementation began.
+
+================================================================================
+
+CHANGES MADE:
+
+--- Server Files ---
+
+1. server/player-data.js — Added session-scoped data directory helpers:
+   - getSessionDataDir(), getSessionCharactersDir(), getSessionNpcsDir()
+   - copyFilesIfNotExist() utility
+   - snapshotToSession() — copies character/NPC files into session-specific dir
+
+2. server/dm-engine.js — Added sessionDbId parameter throughout:
+   - loadCharacter(), loadNpcs() — use session-scoped dirs when sessionDbId
+     is provided
+   - buildSystemPrompt() — generates session-scoped file paths
+   - _buildOptions(), run() — pass sessionDbId through
+
+3. server/ws-handler.js — Major refactor:
+   REMOVED:
+   - hostTurns Map
+   - getSessionTurnMode() function
+   - broadcastReadyGolfStatus() function
+   - checkReadyGolfAutoFire() function
+   - host_turn_ready, host_turn_retract, host_turn_force handlers
+
+   ADDED:
+   - Session-level engine management (sessionEngines Map,
+     getOrCreateSessionEngine(), scheduleEngineCleanup())
+   - Turn persistence (persistTurnToSession(), removeTurnFromSession(),
+     clearPendingTurns())
+   - Unified turn flow (broadcastTurnStatus(), checkAutoFire(),
+     fireDmForSession(), isMultiplayerSession())
+
+   MODIFIED:
+   - user_message handler — single player fires immediately, multiplayer
+     queues host turn
+   - New handlers: host_turn_submit, host_turn_retract (returns text),
+     host_turn_continue
+   - companion_turn_submit — persists to session JSON, calls checkAutoFire()
+   - companion_turn_retract — returns retracted text for input restoration
+   - session_watch — restores pending turns from JSON, snapshots data,
+     initializes session engine
+
+4. server/routes/sessions.js — Simplified settings:
+   - Removed turnMode from DEFAULT_SETTINGS and validation
+   - Added campaignId to session creation
+   - Added turnExpectedFromYou to summarizeSession() for widget indicators
+
+--- Client Files ---
+
+5. client/src/hooks/useWebSocket.js — Replaced ready-golf with unified turn:
+   REMOVED: readyGolfStatus, readyGolfFireRef, submitHostTurnReady,
+            forceHostTurn, turnMode params
+   ADDED: turnStatus, autoFireRef, retractedText/clearRetractedText,
+          submitHostTurn, continueWithoutAll
+   NEW HANDLERS: turn_status, auto_fire, host_turn_retracted,
+                 companion_turn_retracted
+
+6. client/src/pages/Adventure.jsx — UI overhaul:
+   - Removed Turn Mode settings panel (Initiative/Ready Golf/Host Decides)
+   - Added hasMultiplayer derived state
+   - handleSend() — queues in multiplayer, fires immediately in single player
+   - Retract text restoration effect
+   - Input bar uses turnStatus instead of readyGolfStatus
+   - Party status board — teal highlighting for own companion
+   - Session widget dots — 3-state (purple=your turn, green=active, red=inactive)
+
+7. client/src/App.css — Styling:
+   - Renamed .ready-golf-bar → .queued-turn-bar
+   - Added .party-status-my-companion (teal border/background)
+
+================================================================================
+
+KEY ARCHITECTURAL DECISIONS:
+
+1. SESSION-SCOPED CHARACTER DATA:
+   Each session gets its own copy of character/NPC files in:
+   data/players/<host-slug>/<campaignId>/sessions/<session-id>/characters/
+   data/players/<host-slug>/<campaignId>/sessions/<session-id>/npcs/
+
+   The DM engine reads/writes these session-scoped files, so changes in one
+   session don't affect another.
+
+2. SESSION-LEVEL DM ENGINE:
+   sessionEngines: Map<sessionDbId, { engine, characterId, scenarioId, ... }>
+
+   Any connected player can trigger the DM when all turns are submitted.
+   Engine persists for 5 minutes after last disconnect (grace period).
+
+3. UNIFIED TURN FLOW (replaces 3 turn modes):
+   - Single player: Send fires DM immediately (no queueing)
+   - Multiplayer: All players queue turns → auto-fire when all submitted →
+     host can "Continue" to skip absent players
+
+4. TURN PERSISTENCE:
+   Pending turns saved to session JSON pendingTurns field, surviving
+   disconnects and reconnects.
+
+5. RETRACT WITH TEXT RESTORATION:
+   When retracting a turn, the original text is sent back and populated
+   into the input field.
+
+6. SESSION WIDGET INDICATORS:
+   - Purple dot: Your turn is expected
+   - Green dot: Session active (last 5 min)
+   - Red dot: No recent activity
+
+================================================================================
+END OF CONVERSATION
+================================================================================

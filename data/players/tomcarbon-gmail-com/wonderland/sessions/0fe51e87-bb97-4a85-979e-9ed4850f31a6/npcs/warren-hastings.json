@@ -1,0 +1,155 @@
+{
+  "id": "wl-npc-003",
+  "name": "Warren Hastings",
+  "status": "alive",
+  "race": "Harengon",
+  "subrace": "",
+  "class": "Ranger",
+  "level": 5,
+  "background": "Courtier",
+  "alignment": "Lawful Neutral",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 38,
+    "current": 38
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Perception",
+    "Stealth",
+    "Survival",
+    "Insight"
+  ],
+  "languages": [
+    "Common",
+    "Sylvan",
+    "Elvish"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "A fine but rumpled red waistcoat",
+    "An enormous golden pocket watch (functions as a compass in Wonderland)",
+    "White kid gloves (3 pairs, perpetually stained)",
+    "A fan that causes shrinking (magical item — target shrinks one size category for 1 minute, DC 13 CON save, 1/day)",
+    "The Queen's sealed orders (a leather satchel of royal decrees, increasingly undelivered)",
+    "A tiny brass trumpet (herald's instrument)",
+    "Explorer's pack",
+    "Belt pouch containing 40 gp",
+    "A handkerchief monogrammed 'W.H.'",
+    "A small flask of carrot brandy"
+  ],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attackBonus": 6,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortbow",
+      "attackBonus": 6,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded leather armor (beneath waistcoat)",
+    "type": "light"
+  },
+  "features": [
+    "Hare-Trigger (add proficiency bonus to initiative rolls)",
+    "Leporine Senses (proficiency in Perception)",
+    "Lucky Footwork (when failing a DEX save, add 1d4 to the result, potentially turning failure to success)",
+    "Rabbit Hop (bonus action to jump 1d12+5 feet without provoking opportunity attacks, proficiency bonus times per long rest)",
+    "Favored Enemy: Fey (advantage on Survival checks to track fey, Intelligence checks to recall info about fey)",
+    "Natural Explorer: Wonderland (difficult terrain doesn't slow group, can't become lost except by magic, alert to danger while traveling)",
+    "Fighting Style: Archery (+2 to ranged attack rolls)",
+    "Extra Attack (attack twice when taking the Attack action)",
+    "Ranger Archetype: Scout (from Revised Ranger)",
+    "Skirmisher (reaction to move half speed when an enemy ends its turn within 5 ft.)",
+    "Survivalist (double proficiency in Nature and Survival)",
+    "Court Functionary (Courtier feature — can gain audience with nobles and access court records)",
+    "Palace Knowledge (special — Warren knows the layout of the Queen's Palace, including guard schedules, secret passages, and the location of the Looking Glass Chamber)"
+  ],
+  "traits": [
+    "Hare-Trigger",
+    "Lucky Footwork",
+    "Rabbit Hop",
+    "Extra Attack",
+    "Skirmisher",
+    "Palace Knowledge"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 14,
+    "spellAttackBonus": 6,
+    "cantrips": [],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Longstrider",
+        "Alarm",
+        "Goodberry",
+        "Detect Magic"
+      ]
+    },
+    "level2": {
+      "slots": 2,
+      "known": [
+        "Pass Without Trace",
+        "Misty Step"
+      ]
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am perpetually anxious and perpetually late. I check my pocket watch every thirty seconds and mutter about schedules even when there is no schedule. I am painfully proper and formal even in the most absurd circumstances — I will introduce myself with a bow while a building is collapsing around me.",
+    "ideals": "Duty. I serve my function because function is all I have. But lately I have begun to wonder whether duty to a tyrant is duty at all, or just cowardice with a fancier name.",
+    "bonds": "I am bound by magical oath to serve the Queen of Hearts as her royal herald. The oath compels me to deliver her decrees, announce her arrivals, and report disloyalty. Breaking the oath would kill me — unless the Queen herself is deposed, in which case the oath dissolves. I also care deeply about the card-soldier painters (the 2, 5, and 7 of Spades), who are kind to me despite my role as the Queen's functionary.",
+    "flaws": "I am a coward. I know the Queen is evil, I know her decrees are monstrous, and I deliver them anyway because I am afraid to die. Every execution I announce haunts me, but not enough to make me brave. I need someone to show me that resistance is possible before I can find my own courage."
+  },
+  "appearance": "A harengon standing 3'8\" with soft white fur that he keeps meticulously groomed (or tries to — it's perpetually rumpled from running). His enormous pink-lined ears are expressive and betray his emotions regardless of his attempts at composure — they flatten when he's scared (frequently), perk when he's alert (constantly), and droop when he's sad (increasingly). He wears a fine crimson waistcoat with gold buttons over his studded leather, with an enormous golden pocket watch chain draped across his chest. His pink eyes are wide and watery, rimmed with anxiety. He carries himself with the rigid posture of a court functionary who is one bad day away from a nervous breakdown. His paws are always in motion — straightening his waistcoat, checking his watch, adjusting his gloves, fidgeting with his trumpet. He is the very picture of bureaucratic anxiety made flesh and fur.",
+  "backstory": "Warren Hastings has served as the Queen of Hearts' Royal Herald for as long as anyone in Wonderland can remember — including Warren himself, who has begun to suspect that his memories before the Queen's reign have been magically suppressed. His duties are simple in description and terrible in practice: he announces the Queen's arrivals, delivers her decrees, and summons the accused to their trials (which always end in conviction). He carries a magical oath that binds him to the Queen's service — an oath he was tricked into swearing when the Queen first rose to power, back when her rule seemed merely eccentric rather than tyrannical. The oath compels obedience and would kill him if he openly defied the Queen. But the oath has loopholes, and Warren has become an expert in exploiting them. He delivers decrees slowly, giving targets time to flee. He announces the Queen's arrivals loudly enough to warn those who need warning. He 'accidentally' loses orders for executions. These tiny rebellions are all he has, and they are never enough. The guilt of complicity weighs on him like stones in his pockets. When the outsiders arrive through the Looking Glass, Warren sees something he had forgotten how to feel: hope. If they can challenge the Queen — really challenge her — his oath would dissolve, and he could finally choose his own path. He just needs to survive long enough to help them, without the Queen discovering his disloyalty.",
+  "dmNotes": {
+    "roleplaying": "Warren is comic relief with a tragic core. His constant anxiety, watch-checking, and muttering about being late are funny on the surface, but they mask genuine suffering. He's a good person trapped in service to evil, and the comedy is his coping mechanism. Play the humor — 'Oh dear, oh dear, I shall be too late!' — but let the mask slip sometimes. When he talks about the executions he's announced, the humor evaporates entirely. He's not brave enough to rebel on his own, but he will feed the party information, 'accidentally' leave doors unlocked, and delay the Queen's forces if given the chance. He needs the party to give him courage by example. His knowledge of the palace makes him invaluable for scenario 4 — guard rotations, secret passages, the Queen's habits, the location of the Looking Glass Chamber. He carries this knowledge like a loaded weapon he's too afraid to use.",
+    "voice": "Rapid, breathless, and perpetually apologetic. He speaks as though every sentence is already running late. 'Oh dear, oh dear, oh DEAR — I'm frightfully sorry, terribly sorry, but I really MUST be going, you see, the Queen expects her three o'clock execution at precisely — well, it's always six o'clock here, isn't it, but she INSISTS on calling it three, and if I'm late she'll — well, she'll — oh, you know what she'll do.' When sharing palace intelligence, he becomes precise and clipped, the court functionary emerging: 'The north corridor is guarded by two card-soldiers on rotating eight-minute shifts. The changing of the guard creates a twelve-second window at the kitchen entrance. The Knave uses this window to steal tarts. I pretend not to notice.' In rare moments of courage: 'I have announced... so many names. Good people. Kind people. The gardeners who planted white roses. The cook who used too much pepper. The footman who smiled during a funeral. I announced them all, and they all... I can't do it anymore. I WON'T.'",
+    "motivations": "Primary: Survive. Warren's oath will kill him if he openly defies the Queen, so his primary drive is staying alive long enough for the party to dethrone her — which would dissolve the oath. Secondary: Atone. Every decree delivered, every execution announced, weighs on him. He wants to do something genuinely brave before the end, even if it costs him. Tertiary: Discover his past. He suspects the Queen suppressed his memories of life before her reign. Who was he before he became the White Rabbit?",
+    "secrets": "Warren's pocket watch is not just a timepiece — it's a relic from before the Queen's reign that functions as a compass in Wonderland, always pointing toward what the holder needs most (not wants, NEEDS). He hasn't told anyone about this property because he's afraid the Queen would take it. His suppressed memories contain a crucial truth: before the Queen's arrival, Wonderland had no ruler. It was governed by consensus, a council of its native inhabitants. Warren was on that council. The Queen dissolved it and bound the council members with oaths of service. Warren is the last surviving member. If he remembers this, his oath weakens — it was sworn under false pretenses. Additionally, Warren knows that the Queen holds the Vorpal Sword in her private chambers — the only weapon that can permanently kill the Jabberwock, and a critical item for the final confrontation.",
+    "attitude": "Warren is respectful and formal with everyone but warms quickly to those who show him kindness rather than contempt. He's used to being dismissed as a nervous wreck, so genuine respect catches him off guard. He bonds quickly with characters who understand duty and its costs (paladins, soldiers, knights). He is nervous around chaotic characters who might do something that draws the Queen's attention. He admires the Cheshire Cat's courage in resisting the Queen but is also jealous of Cheshire's ability to simply vanish — Warren can never escape his duties. He is terrified of the Queen's Vorpal Guard and will freeze if confronted by them unless the party intervenes."
+  }
+}

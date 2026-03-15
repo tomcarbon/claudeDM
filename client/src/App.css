@@ -1129,6 +1129,10 @@
 .party-status-companion {
   border-color: rgba(179, 136, 255, 0.3);
 }
+.party-status-my-companion {
+  border-color: rgba(0, 188, 212, 0.4);
+  background: rgba(0, 188, 212, 0.05);
+}
 .party-status-npc {
   border-color: transparent;
   opacity: 0.7;
@@ -1351,7 +1355,7 @@
   border-color: #81c784;
   font-weight: bold;
 }
-.ready-golf-bar.all-ready {
+.queued-turn-bar.all-ready {
   border-top-color: #81c784 !important;
 }
 
@@ -1385,8 +1389,8 @@
   background: #8a50c0 !important;
 }
 
-/* Ready Golf host bar */
-.ready-golf-bar {
+/* Queued turn bar (multiplayer) */
+.queued-turn-bar {
   border-top-color: #81c784 !important;
 }
 

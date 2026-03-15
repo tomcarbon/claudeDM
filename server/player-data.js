@@ -110,6 +110,42 @@ function resetPlayerData(dataDir, email, scope, campaignId) {
   }
 }
 
+// --- Session-scoped data directories ---
+// Each session gets its own copy of character/NPC files so sessions have independent state.
+
+function getSessionDataDir(dataDir, email, campaignId, sessionId) {
+  return path.join(getPlayerSessionsDir(dataDir, email, campaignId), sessionId);
+}
+
+function getSessionCharactersDir(dataDir, email, campaignId, sessionId) {
+  return path.join(getSessionDataDir(dataDir, email, campaignId, sessionId), 'characters');
+}
+
+function getSessionNpcsDir(dataDir, email, campaignId, sessionId) {
+  return path.join(getSessionDataDir(dataDir, email, campaignId, sessionId), 'npcs');
+}
+
+function copyFilesIfNotExist(srcDir, dstDir) {
+  if (!fs.existsSync(srcDir)) return;
+  const files = fs.readdirSync(srcDir).filter(f => f.endsWith('.json'));
+  for (const file of files) {
+    const dstFile = path.join(dstDir, file);
+    if (fs.existsSync(dstFile)) continue;
+    fs.copyFileSync(path.join(srcDir, file), dstFile);
+  }
+}
+
+function snapshotToSession(dataDir, email, campaignId, sessionId) {
+  const srcChars = getPlayerCharactersDir(dataDir, email, campaignId);
+  const srcNpcs = getPlayerNpcsDir(dataDir, email, campaignId);
+  const dstChars = getSessionCharactersDir(dataDir, email, campaignId, sessionId);
+  const dstNpcs = getSessionNpcsDir(dataDir, email, campaignId, sessionId);
+  fs.mkdirSync(dstChars, { recursive: true });
+  fs.mkdirSync(dstNpcs, { recursive: true });
+  copyFilesIfNotExist(srcChars, dstChars);
+  copyFilesIfNotExist(srcNpcs, dstNpcs);
+}
+
 function resetSingleEntity(dataDir, email, entityType, entityId, campaignId) {
   const cid = campaignId || DEFAULT_CAMPAIGN;
   const playerDir = entityType === 'character'
@@ -164,6 +200,10 @@ module.exports = {
   getPlayerCharactersDir,
   getPlayerNpcsDir,
   getPlayerSessionsDir,
+  getSessionDataDir,
+  getSessionCharactersDir,
+  getSessionNpcsDir,
+  snapshotToSession,
   ensurePlayerDataExists,
   getAvailableCampaigns,
   provisionPlayerDefaults,

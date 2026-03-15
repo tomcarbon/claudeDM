@@ -1,0 +1,147 @@
+{
+  "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+  "name": "Durgan Deepdelve",
+  "status": "alive",
+  "race": "Dwarf",
+  "subrace": "Duergar (Gray Dwarf)",
+  "class": "Fighter",
+  "level": 3,
+  "background": "Soldier",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 18,
+      "modifier": 4
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 34,
+    "current": 34
+  },
+  "armorClass": 19,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "Survival"
+  ],
+  "languages": [
+    "Common",
+    "Dwarvish",
+    "Undercommon"
+  ],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Warhammer",
+    "Handaxe (2)",
+    "Light crossbow",
+    "Crossbow bolts (20)",
+    "Dungeoneer's pack",
+    "An insignia of rank (duergar legion)",
+    "A trophy taken from a fallen enemy (purple worm tooth)",
+    "A set of bone dice",
+    "A set of common clothes",
+    "Belt pouch containing 10 gp",
+    "Smith's tools"
+  ],
+  "weapons": [
+    {
+      "name": "Warhammer",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Handaxe",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Light Crossbow",
+      "attackBonus": 2,
+      "damage": "1d8",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Chain mail and shield",
+    "type": "heavy"
+  },
+  "features": [
+    "Darkvision (120 ft., Superior Darkvision as duergar)",
+    "Dwarven Resilience (advantage on saves vs. poison, resistance to poison damage)",
+    "Dwarven Combat Training (proficiency with battleaxe, handaxe, light hammer, warhammer)",
+    "Tool Proficiency (smith's tools)",
+    "Stonecunning (double proficiency on History checks related to stonework)",
+    "Dwarven Speed (speed not reduced by heavy armor)",
+    "Duergar Magic (Enlarge 1/day at 3rd level)",
+    "Sunlight Sensitivity (disadvantage on attack rolls and Perception checks in direct sunlight)",
+    "Duergar Resilience (advantage on saves against illusions, being charmed, and being paralyzed)",
+    "Fighting Style: Defense (+1 AC while wearing armor)",
+    "Second Wind (bonus action to regain 1d10+3 HP, once per short/long rest)",
+    "Action Surge (take one additional action on your turn, once per short/long rest)",
+    "Martial Archetype: Champion",
+    "Improved Critical (critical hit on 19 or 20)",
+    "Military Rank (Soldier feature: soldiers of lower rank defer to your authority)"
+  ],
+  "traits": [
+    "Superior Darkvision",
+    "Sunlight Sensitivity",
+    "Dwarven Resilience",
+    "Duergar Resilience",
+    "Stonecunning",
+    "Duergar Magic",
+    "Improved Critical",
+    "Second Wind",
+    "Action Surge"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": [
+        "Enlarge (Duergar Magic, 1/day)"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I am stoic and speak in clipped, efficient sentences. I face problems head-on with an iron discipline forged in the duergar legions. I respect hierarchy and duty above all else.",
+    "ideals": "Duty. A soldier's word is ironclad. I do what I say, and I say what I mean. The strong protect the weak not out of kindness, but because it is the natural order of discipline.",
+    "bonds": "I was exiled from the duergar city of Gracklstugh after refusing to execute prisoners of war. I carry my legion's old insignia as a reminder of what I was and what I chose to become. I seek to prove that honor exists even in the deep dark.",
+    "flaws": "I am inflexible and struggle to adapt when plans change. I have difficulty expressing emotions and come across as cold and unfeeling, even toward those I care about. I sometimes view surface dwellers as soft and undisciplined."
+  },
+  "appearance": "A broad, powerfully built gray dwarf standing 4'2\" with ash-gray skin and a bald, scarred head. His eyes are pale, almost colorless, adapted to the perpetual darkness of the deep. A thick, iron-gray beard is kept short and meticulously braided in the military style of Gracklstugh. He wears battered but well-maintained chain mail over a quilted gambeson, and carries a heavy dwarven shield emblazoned with a faded legion crest. His movements are deliberate and economical, every gesture purposeful.",
+  "backstory": "Durgan served for forty years in the Stone Guard of Gracklstugh, the great duergar city. He rose through the ranks through discipline and an unshakeable resolve in battle. When a successful campaign against a deep gnome settlement ended with orders to execute the surrendering miners, Durgan refused. He argued that prisoners could be put to work, that slaughter served no tactical purpose. His commanding officer saw this as dangerous softness and had Durgan stripped of rank and exiled. Cast out from the only life he knew, Durgan wandered the Underdark alone for months before falling in with a group of unlikely companions. He still carries himself like a soldier, still follows a rigid personal code of conduct, but exile has slowly taught him that the world is more complex than the chain of command he once revered. He fights to protect those who cannot protect themselves, not because he is kind, but because he believes it is right."
+}

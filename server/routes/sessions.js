@@ -8,7 +8,6 @@ const { broadcastToAll } = require('../ws-handler');
 
 const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
-  turnMode: 'initiative', // 'initiative' | 'ready-golf' | 'host-decides'
 };
 
 function getOwnerPlayer(session) {
@@ -80,6 +79,13 @@ function summarizeSession(session, requester) {
   const settings = getSessionSettings(session);
   const companionSlots = getCompanionSlots(session);
   const lastPlayerName = getLastPlayerName(session);
+  // Determine if the requester's turn is expected
+  const pendingTurns = session.pendingTurns || {};
+  const hasCompanions = session.companionPlayers && Object.keys(session.companionPlayers).length > 0;
+  const requesterEmail = requester?.email?.toLowerCase() || null;
+  const turnExpectedFromYou = hasCompanions && requesterEmail && !pendingTurns[requesterEmail] &&
+    (requesterEmail === ownerEmail || Object.values(session.companionPlayers || {}).some(cp => cp.email?.toLowerCase() === requesterEmail));
+
   return {
     id: session.id,
     name: session.name,
@@ -100,6 +106,7 @@ function summarizeSession(session, requester) {
     settings,
     companionSlots,
     lastPlayerName,
+    turnExpectedFromYou: !!turnExpectedFromYou,
   };
 }
 
@@ -278,6 +285,7 @@ module.exports = function (dataDir) {
         label: null,
         scenarioId: scenarioId || null,
         characterId: characterId || null,
+        campaignId: req.campaignId || 'demo',
         claudeSessionId: claudeSessionId || null,
         messages: messages || [],
         ownerEmail: requester.email,
@@ -389,14 +397,7 @@ module.exports = function (dataDir) {
         currentSettings.visibility = incoming.visibility;
       }
 
-      // Validate turnMode
-      if (incoming.turnMode !== undefined) {
-        if (!['initiative', 'ready-golf', 'host-decides'].includes(incoming.turnMode)) {
-          return res.status(400).json({ error: 'turnMode must be "initiative", "ready-golf", or "host-decides"' });
-        }
-        currentSettings.turnMode = incoming.turnMode;
-      }
-
+      // turnMode removed — unified turn flow is automatic
       // Future settings can be validated and merged here
 
       existing.settings = currentSettings;

@@ -1,0 +1,149 @@
+{
+  "id": "a5e6f7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
+  "name": "Liriel Starwoven",
+  "status": "alive",
+  "race": "Elf",
+  "subrace": "High Elf",
+  "class": "Wizard",
+  "level": 3,
+  "background": "Sage",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 18,
+      "modifier": 4
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 18,
+    "current": 18
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "intelligence",
+    "wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Undercommon",
+    "Draconic"
+  ],
+  "equipment": [
+    "Quarterstaff",
+    "Arcane focus (a crystal orb that swirls with captured starlight)",
+    "Scholar's pack",
+    "Spellbook",
+    "Bottle of black ink",
+    "Quill",
+    "Small knife",
+    "A letter from a dead colleague posing a question about ancient Underdark civilizations",
+    "Common clothes",
+    "Belt pouch containing 10 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff",
+      "attackBonus": 1,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Fire Bolt",
+      "attackBonus": 6,
+      "damage": "1d10",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "None (Mage Armor spell: AC 13+DEX = 15 when active)",
+    "type": "none"
+  },
+  "features": [
+    "Darkvision (60 ft)",
+    "Fey Ancestry (advantage on saves vs. charmed, immune to magical sleep)",
+    "Trance (4-hour meditation replaces 8-hour sleep)",
+    "Keen Senses (proficiency in Perception)",
+    "Elf Weapon Training (proficient with longsword, shortsword, shortbow, longbow)",
+    "High Elf Cantrip (Prestidigitation, INT-based)",
+    "Spellcasting (Intelligence-based, prepare INT mod + wizard level = 7 spells per day)",
+    "Arcane Recovery (recover spell slots on short rest, up to 2 levels of slots, 1/day)",
+    "Arcane Tradition: School of Divination",
+    "Portent (roll 2d20 after long rest, replace any attack roll, save, or ability check with these rolls before the original roll is made)",
+    "Researcher (Sage feature: know where to find lore if you do not know it yourself)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Fey Ancestry",
+    "Trance",
+    "Keen Senses",
+    "Elf Weapon Training"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 14,
+    "spellAttackBonus": 6,
+    "cantrips": [
+      "Fire Bolt",
+      "Mage Hand",
+      "Light",
+      "Prestidigitation (High Elf Cantrip)"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Mage Armor",
+        "Shield",
+        "Magic Missile",
+        "Detect Magic",
+        "Identify",
+        "Find Familiar"
+      ]
+    },
+    "level2": {
+      "slots": 2,
+      "known": [
+        "Detect Thoughts",
+        "Misty Step",
+        "See Invisibility"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I use polysyllabic words to convey the impression of great erudition. I am endlessly fascinated by the unknown and cannot resist investigating a mystery, even at personal risk.",
+    "ideals": "Knowledge. The path to understanding is the highest calling. The Underdark holds secrets that could reshape our understanding of magic itself.",
+    "bonds": "My colleague and dear friend, Professor Arannis, disappeared while researching ancient Underdark ruins. His last letter asked a question I cannot answer — and I will not rest until I find him or learn his fate.",
+    "flaws": "I am so focused on the bigger picture that I sometimes overlook the immediate needs of my companions. My curiosity can override my common sense in dangerous situations."
+  },
+  "appearance": "A tall, willowy high elf of 5'11\" with pale gold skin and silver-white hair that falls past her shoulders in a straight curtain. Her amber eyes are bright with intelligence and perpetual curiosity, often distant as she works through some mental equation. She wears practical robes of deep blue over common traveling clothes, and her crystal orb — swirling with captured starlight — hangs from a chain at her belt. Her fingers are perpetually ink-stained, and she is rarely seen without her spellbook open, jotting notes in margins already crowded with observations.",
+  "backstory": "Liriel was a rising star at the Candlekeep Archives, specializing in pre-Sundering magical traditions and the lost civilizations that once thrived beneath the surface. Her research into ancient Underdark magic — specifically the psionic traditions that predated the mind flayers — earned her recognition and a tenured position. When her colleague Professor Arannis descended into the Underdark to investigate ruins connected to their research and never returned, Liriel petitioned for a rescue expedition. The Archives refused, deeming it too dangerous. Liriel resigned and organized the expedition herself, driven by equal parts loyalty to her friend and scholarly obsession with the mysteries he may have found. She brings formidable magical knowledge and an insatiable hunger for understanding — but the Underdark may teach her that some knowledge comes at too high a price."
+}

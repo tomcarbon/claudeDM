@@ -90,11 +90,13 @@ function Adventure({
     sessionAccess,
     sessionParticipants,
     companionTurns,
-    readyGolfStatus,
-    readyGolfFireRef,
-    submitHostTurnReady,
+    turnStatus,
+    autoFireRef,
+    retractedText,
+    clearRetractedText,
+    submitHostTurn,
     retractHostTurn,
-    forceHostTurn,
+    continueWithoutAll,
     setCompanionCharacter,
     submitCompanionTurn,
     retractCompanionTurn,
@@ -121,7 +123,7 @@ function Adventure({
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
   const [sessionReadOnly, setSessionReadOnly] = useState(false);
-  const [sessionSettings, setSessionSettings] = useState({ visibility: 'public', turnMode: 'initiative' });
+  const [sessionSettings, setSessionSettings] = useState({ visibility: 'public' });
   const [showSettings, setShowSettings] = useState(false);
   const [companionInput, setCompanionInput] = useState('');
   const [companionCharacterId, setCompanionCharacterId] = useState(null);
@@ -139,6 +141,7 @@ function Adventure({
   const companionCharacter = companionCharacterId ? characters.find(c => c.id === companionCharacterId) : null;
   const isHost = sessionAccess.canWrite;
   const isObserver = sessionReadOnly && !isCompanion;
+  const hasMultiplayer = sessionParticipants.some(p => p.companionNpcId && !p.isAway);
   // Derive companion turn submitted from server state (no race conditions)
   const companionTurnSubmitted = isCompanion && companionTurns.some(t => t.playerEmail === player?.email);
 
@@ -212,16 +215,24 @@ function Adventure({
   // Clear typing on unmount
   useEffect(() => () => { clearTimeout(typingTimerRef.current); }, []);
 
-  // Wire up ready-golf auto-fire callback
+  // Wire up auto-fire callback (fires when all players have submitted)
   useEffect(() => {
-    readyGolfFireRef.current = (text) => {
+    autoFireRef.current = (text) => {
       isNearBottomRef.current = true;
       setShowScrollBtn(false);
-      // Use sendMessageRaw (no optimistic add) — server echoes back after companion actions
-      sendMessageRaw(text, sessionSettings.turnMode || 'host-decides');
+      sendMessageRaw(text);
     };
-    return () => { readyGolfFireRef.current = null; };
-  }, [readyGolfFireRef, sendMessageRaw, sessionSettings.turnMode]);
+    return () => { autoFireRef.current = null; };
+  }, [autoFireRef, sendMessageRaw]);
+
+  // Retract text restoration — populate input when a turn is retracted
+  useEffect(() => {
+    if (retractedText !== null) {
+      if (isCompanion) setCompanionInput(retractedText);
+      else setInput(retractedText);
+      clearRetractedText();
+    }
+  }, [retractedText, isCompanion, clearRetractedText]);
 
   const scrollToBottom = useCallback(() => {
     const container = storyRef.current;
@@ -334,7 +345,7 @@ function Adventure({
       prevMessageCountRef.current = 0;
       setCompanionStates({});
       setCompanionReservations({});
-      setSessionSettings({ visibility: 'public', turnMode: 'initiative' });
+      setSessionSettings({ visibility: 'public' });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuest]);
@@ -436,7 +447,7 @@ function Adventure({
     }
     const character = characters.find(c => c.id === selectedCharacter);
     setSessionReadOnly(false);
-    setSessionSettings({ visibility: 'public', turnMode: 'initiative' });
+    setSessionSettings({ visibility: 'public' });
     setGateRevealedUpTo(-1); // Reset gate for new session
 
     const hasPlayerSlots = npcs.some(n => companionStates[n.id] === 'player' || companionStates[n.id] === 'reserved');
@@ -732,28 +743,24 @@ Set the scene and begin the story.`;
   function handleSend() {
     const text = input.trim();
     if (!text || status === 'thinking' || sessionReadOnly) return;
-    const turnMode = sessionSettings.turnMode || 'host-decides';
-    const hasCompanions = sessionParticipants.some(p => p.companionNpcId);
 
     // Clear typing indicator
     isTypingRef.current = false;
     clearTimeout(typingTimerRef.current);
     sendTypingStatus(false);
 
-    // When companions are present, always queue the host's turn and wait
-    if (hasCompanions) {
-      isNearBottomRef.current = true;
-      setShowScrollBtn(false);
-      submitHostTurnReady(text);
-      setInput('');
-      return;
-    }
-
-    // No companions: send immediately
     isNearBottomRef.current = true;
     setShowScrollBtn(false);
-    sendMessageRaw(text, turnMode);
-    setInput('');
+
+    if (hasMultiplayer) {
+      // Multiplayer: queue turn, wait for companions
+      submitHostTurn(text);
+      setInput('');
+    } else {
+      // Single player: fire immediately
+      sendMessageRaw(text);
+      setInput('');
+    }
   }
 
   function handleKeyDown(e) {
@@ -921,11 +928,14 @@ Set the scene and begin the story.`;
           <div className="setup-options setup-options-sessions">
             {savedSessions.map((s, i) => {
               const isRecent = s.updatedAt && (Date.now() - new Date(s.updatedAt).getTime()) < 5 * 60 * 1000;
+              const dotColor = s.turnExpectedFromYou ? '#9b59b6' : isRecent ? '#2ecc71' : '#e74c3c';
+              const dotGlow = s.turnExpectedFromYou ? '0 0 6px #9b59b6' : isRecent ? '0 0 4px #2ecc71' : 'none';
+              const dotTitle = s.turnExpectedFromYou ? 'Your turn!' : isRecent ? 'Active in the last 5 minutes' : 'No recent activity';
               return (
               <div key={`${s.id}-${i}`} className="option-card saved-session-card" style={{ position: 'relative' }}>
                 <span
                   className="session-activity-dot"
-                  title={isRecent ? 'Active in the last 5 minutes' : 'No recent activity'}
+                  title={dotTitle}
                   style={{
                     position: 'absolute',
                     top: '0.55rem',
@@ -933,8 +943,8 @@ Set the scene and begin the story.`;
                     width: '0.55rem',
                     height: '0.55rem',
                     borderRadius: '50%',
-                    background: isRecent ? '#2ecc71' : '#e74c3c',
-                    boxShadow: isRecent ? '0 0 4px #2ecc71' : 'none',
+                    background: dotColor,
+                    boxShadow: dotGlow,
                     flexShrink: 0,
                     zIndex: 1,
                   }}
@@ -1137,42 +1147,6 @@ Set the scene and begin the story.`;
                   : 'Only you can see this session.'}
               </span>
             </div>
-            <div className="session-settings-row">
-              <span className="session-settings-label">Turn Mode</span>
-              <div className="mode-toggle" style={{ marginBottom: 0 }}>
-                <button
-                  className={`mode-toggle-btn${sessionSettings.turnMode === 'initiative' ? ' active' : ''}`}
-                  onClick={() => handleUpdateSetting('turnMode', 'initiative')}
-                  disabled={sessionReadOnly || !savedSessionDbId}
-                  title="Classic D&D initiative order — roll for turn order each combat"
-                >
-                  Initiative
-                </button>
-                <button
-                  className={`mode-toggle-btn${sessionSettings.turnMode === 'ready-golf' ? ' active' : ''}`}
-                  onClick={() => handleUpdateSetting('turnMode', 'ready-golf')}
-                  disabled={sessionReadOnly || !savedSessionDbId}
-                  title="Players submit when ready — first come, first served"
-                >
-                  Ready Golf
-                </button>
-                <button
-                  className={`mode-toggle-btn${sessionSettings.turnMode === 'host-decides' ? ' active' : ''}`}
-                  onClick={() => handleUpdateSetting('turnMode', 'host-decides')}
-                  disabled={sessionReadOnly || !savedSessionDbId}
-                  title="Host picks who goes next each round"
-                >
-                  Host Decides
-                </button>
-              </div>
-              <span className="session-settings-hint">
-                {sessionSettings.turnMode === 'initiative'
-                  ? 'Classic initiative — roll for turn order each combat.'
-                  : sessionSettings.turnMode === 'ready-golf'
-                  ? 'Players submit actions when ready — first come, first served.'
-                  : 'The host picks who goes next each round.'}
-              </span>
-            </div>
             {!savedSessionDbId && (
               <p className="session-settings-hint" style={{ marginTop: '0.5rem' }}>
                 Save the session first to change settings.
@@ -1208,26 +1182,30 @@ Set the scene and begin the story.`;
           }).map(n => {
             const state = companionStates[n.id] || 'selected';
             const participant = sessionParticipants.find(p => p.companionNpcId === n.id);
-            const isOnline = !!participant;
+            const isOnline = !!participant && !participant.isAway;
+            const isAway = !!participant && participant.isAway;
             const turn = companionTurns.find(t => t.npcId === n.id);
             const isPlayerControlled = state === 'player' || state === 'reserved';
-            // Use companion's chosen character name: from server broadcast, or local state if this is our own slot
+            // Use companion's chosen character name: from server broadcast (live or away), or local state if this is our own slot
             const isMySlot = isCompanion && n.id === sessionAccess.companionNpcId;
             const displayName = (isMySlot && companionCharacter?.name)
-              || (isOnline && participant.companionCharacterName)
+              || (participant?.companionCharacterName)
               || n.name;
+            const companionClass = isPlayerControlled
+              ? (isMySlot ? 'party-status-my-companion' : 'party-status-companion')
+              : 'party-status-npc';
             return (
               <button
                 key={n.id}
-                className={`party-status-entry ${isPlayerControlled ? 'party-status-companion' : 'party-status-npc'} ${selectedStatusEntry === n.id ? 'party-status-selected' : ''}`}
+                className={`party-status-entry ${companionClass} ${selectedStatusEntry === n.id ? 'party-status-selected' : ''}`}
                 onClick={() => setSelectedStatusEntry(selectedStatusEntry === n.id ? null : n.id)}
               >
                 <span className={`party-status-dot ${isPlayerControlled ? (isOnline ? 'online' : 'offline') : 'ai'}`} />
                 <span className="party-status-name">{displayName}</span>
                 {isPlayerControlled ? (
                   <span className="party-status-role">
-                    {isOnline ? participant.playerName : (companionReservations[n.id] ? friendNames[companionReservations[n.id]] || companionReservations[n.id] : 'Unjoined')}
-                    {turn ? ' · Ready' : isOnline && typingPlayers[participant?.playerEmail] ? ' · Typing...' : isOnline ? ' · Your turn' : ' · Not in session'}
+                    {isOnline ? participant.playerName : isAway ? participant.playerName : (companionReservations[n.id] ? friendNames[companionReservations[n.id]] || companionReservations[n.id] : 'Unjoined')}
+                    {turn ? ' · Ready' : isOnline && typingPlayers[participant?.playerEmail] ? ' · Typing...' : isOnline ? ' · Your turn' : isAway ? ' · Away' : ' · Not in session'}
                   </span>
                 ) : (
                   <span className="party-status-role">NPC</span>
@@ -1447,7 +1425,7 @@ Set the scene and begin the story.`;
             <div className="multiplayer-lobby-status">
               Waiting for players to join...
               <span className="multiplayer-lobby-count">
-                {sessionParticipants.filter(p => p.companionNpcId).length} companion{sessionParticipants.filter(p => p.companionNpcId).length !== 1 ? 's' : ''} connected
+                {sessionParticipants.filter(p => p.companionNpcId && !p.isAway).length} companion{sessionParticipants.filter(p => p.companionNpcId && !p.isAway).length !== 1 ? 's' : ''} connected
               </span>
             </div>
             <button
@@ -1462,17 +1440,17 @@ Set the scene and begin the story.`;
               Start Adventure
             </button>
           </div>
-        ) : readyGolfStatus?.hostReady ? (
-          <div className={`adventure-input-bar ready-golf-bar${readyGolfStatus.allReady ? ' all-ready' : ''}`}>
+        ) : turnStatus?.hostSubmitted ? (
+          <div className={`adventure-input-bar queued-turn-bar${turnStatus.allReady ? ' all-ready' : ''}`}>
             <div className="companion-waiting">
-              {readyGolfStatus.allReady
-                ? `All players ready! (${readyGolfStatus.companionsReady}/${readyGolfStatus.companionsTotal} companions)`
-                : `Turn queued — waiting for companions (${readyGolfStatus.companionsReady}/${readyGolfStatus.companionsTotal} ready)`
+              {turnStatus.allReady
+                ? `All players ready! (${turnStatus.submittedCount} players)`
+                : `Turn queued — waiting for companions (${turnStatus.submittedCount}/${turnStatus.joinedCompanionCount + 1} ready)`
               }
               <button className="btn-retract" onClick={() => retractHostTurn()}>
                 Retract
               </button>
-              <button className={`btn-continue${readyGolfStatus.allReady ? ' btn-continue-ready' : ''}`} onClick={() => forceHostTurn()}>
+              <button className={`btn-continue${turnStatus.allReady ? ' btn-continue-ready' : ''}`} onClick={() => continueWithoutAll()}>
                 Continue
               </button>
             </div>
@@ -1494,7 +1472,7 @@ Set the scene and begin the story.`;
               onClick={handleSend}
               disabled={sessionReadOnly || !input.trim() || status === 'thinking'}
             >
-              {sessionParticipants.some(p => p.companionNpcId) ? 'Ready' : 'Send'}
+              {hasMultiplayer ? 'Ready' : 'Send'}
             </button>
           </div>
         )}

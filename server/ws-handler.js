@@ -2,7 +2,7 @@ const { WebSocketServer } = require('ws');
 const fs = require('fs');
 const path = require('path');
 const { DmEngine } = require('./dm-engine');
-const { emailToSlug, getPlayerCharactersDir } = require('./player-data');
+const { emailToSlug, getPlayerCharactersDir, snapshotToSession } = require('./player-data');
 
 // Module-level chat rooms: chatKey -> Set<wsEntry>
 // Each wsEntry: { ws, playerEmail, playerName, isAdmin }
@@ -13,8 +13,10 @@ const sessionRooms = new Map();
 const sessionTurns = new Map();
 // Track which companion characters have had their sheet sent to the DM: sessionDbId -> Set<characterId>
 const companionSheetsSent = new Map();
-// Pending host turns for ready-golf: sessionDbId -> { text, wsEntry }
-const hostTurns = new Map();
+// Session-level DM engines: sessionDbId -> { engine, characterId, scenarioId, campaignId, ownerEmail, messageHistory }
+const sessionEngines = new Map();
+// Grace period timers for engine cleanup: sessionDbId -> timeout
+const engineCleanupTimers = new Map();
 let nextConnectionId = 1;
 
 function getRoomParticipants(chatKey) {
@@ -63,19 +65,107 @@ function broadcastSessionTurns(sessionDbId) {
   }
 }
 
-function getSessionTurnMode(sessionDbId) {
-  // Check if any entry in the session room has a cached turnMode
-  if (!sessionRooms.has(sessionDbId)) return 'host-decides';
-  for (const entry of sessionRooms.get(sessionDbId)) {
-    if (entry.sessionTurnMode) return entry.sessionTurnMode;
+function getOrCreateSessionEngine(sessionDbId, dataDir, opts) {
+  // Cancel any pending cleanup timer
+  if (engineCleanupTimers.has(sessionDbId)) {
+    clearTimeout(engineCleanupTimers.get(sessionDbId));
+    engineCleanupTimers.delete(sessionDbId);
   }
-  return 'host-decides';
+  if (sessionEngines.has(sessionDbId)) {
+    const ctx = sessionEngines.get(sessionDbId);
+    // Update mutable fields if provided
+    if (opts.characterId) ctx.characterId = opts.characterId;
+    if (opts.scenarioId) ctx.scenarioId = opts.scenarioId;
+    if (opts.campaignId) ctx.campaignId = opts.campaignId;
+    if (opts.ownerEmail) ctx.ownerEmail = opts.ownerEmail;
+    if (opts.claudeSessionId && !ctx.engine.sessionId) ctx.engine.sessionId = opts.claudeSessionId;
+    if (opts.messageHistory && opts.messageHistory.length > ctx.messageHistory.length) ctx.messageHistory = opts.messageHistory;
+    return ctx;
+  }
+  const engine = new DmEngine(dataDir);
+  engine.sessionId = opts.claudeSessionId || null;
+  const ctx = {
+    engine,
+    characterId: opts.characterId || null,
+    scenarioId: opts.scenarioId || null,
+    campaignId: opts.campaignId || null,
+    ownerEmail: opts.ownerEmail || null,
+    sessionDbId,
+    messageHistory: opts.messageHistory || [],
+  };
+  sessionEngines.set(sessionDbId, ctx);
+  return ctx;
 }
+
+function scheduleEngineCleanup(sessionDbId) {
+  // Clean up session engine after 5 minutes of no connections
+  if (engineCleanupTimers.has(sessionDbId)) return;
+  const timer = setTimeout(() => {
+    engineCleanupTimers.delete(sessionDbId);
+    // Only clean up if room is still empty
+    if (!sessionRooms.has(sessionDbId) || sessionRooms.get(sessionDbId).size === 0) {
+      const ctx = sessionEngines.get(sessionDbId);
+      if (ctx) {
+        ctx.engine.abort();
+        sessionEngines.delete(sessionDbId);
+        console.log(`[WS] Cleaned up session engine for ${sessionDbId} (5 min grace period expired)`);
+      }
+    }
+  }, 5 * 60 * 1000);
+  engineCleanupTimers.set(sessionDbId, timer);
+}
+
+function isMultiplayerSession(sessionDbId) {
+  const session = _findAndReadSession(sessionDbId);
+  if (!session) return false;
+  return session.companionPlayers && Object.keys(session.companionPlayers).length > 0;
+}
+
+// Module-level session read helper (set inside attachWebSocket)
+let _findAndReadSession = () => null;
+
+function persistTurnToSession(sessionDbId, turnData) {
+  const session = _findAndReadSession(sessionDbId);
+  if (!session) return;
+  if (!session.pendingTurns) session.pendingTurns = {};
+  session.pendingTurns[turnData.playerEmail] = turnData;
+  session.updatedAt = new Date().toISOString();
+  const fp = _findSessionFilePath(sessionDbId);
+  if (fp) fs.writeFileSync(fp, JSON.stringify(session, null, 2));
+}
+
+function removeTurnFromSession(sessionDbId, playerEmail) {
+  const session = _findAndReadSession(sessionDbId);
+  if (!session || !session.pendingTurns) return null;
+  const turn = session.pendingTurns[playerEmail];
+  if (!turn) return null;
+  delete session.pendingTurns[playerEmail];
+  session.updatedAt = new Date().toISOString();
+  const fp = _findSessionFilePath(sessionDbId);
+  if (fp) fs.writeFileSync(fp, JSON.stringify(session, null, 2));
+  return turn.text || null;
+}
+
+function clearPendingTurns(sessionDbId) {
+  const session = _findAndReadSession(sessionDbId);
+  if (!session) return;
+  session.pendingTurns = {};
+  session.updatedAt = new Date().toISOString();
+  const fp = _findSessionFilePath(sessionDbId);
+  if (fp) fs.writeFileSync(fp, JSON.stringify(session, null, 2));
+}
+
+// Module-level file path helper (set inside attachWebSocket)
+let _findSessionFilePath = () => null;
 
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
   _wss = wss;
   const playersDir = path.join(dataDir, 'players');
+
+  // Wire module-level helpers to closure functions (defined below)
+  _findSessionFilePath = (id) => findSessionFilePath(id);
+  _findAndReadSession = (id) => readSessionByDbId(id);
 
   function broadcastChatParticipants(chatKey) {
     const participants = getRoomParticipants(chatKey);
@@ -190,7 +280,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           sessionRooms.delete(currentSessionDbId);
           sessionTurns.delete(currentSessionDbId);
           companionSheetsSent.delete(currentSessionDbId);
-          hostTurns.delete(currentSessionDbId);
+          // Don't clear pendingTurns from session JSON — they persist
+          // Schedule engine cleanup after grace period
+          scheduleEngineCleanup(currentSessionDbId);
         } else {
           // Only broadcast leave for companion players (not host, not observers)
           if (!wasHost && leaveNpcId) {
@@ -209,22 +301,47 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     }
 
     function getSessionParticipants(sessionDbId) {
-      if (!sessionRooms.has(sessionDbId)) return [];
-      return Array.from(sessionRooms.get(sessionDbId))
-        .filter(e => e.ws.readyState === e.ws.OPEN)
-        .map(e => {
-          const isObserver = !e.isHost && !e.companionNpcId;
-          return {
-            playerEmail: e.playerEmail || 'guest',
-            playerName: e.playerName || 'Guest',
-            isHost: !!e.isHost,
-            isObserver,
-            characterName: e.characterName || null,
-            companionNpcId: e.companionNpcId || null,
-            companionCharacterName: e.companionCharacterName || null,
-            companionCharacterId: e.companionCharacterId || null,
-          };
-        });
+      const live = sessionRooms.has(sessionDbId)
+        ? Array.from(sessionRooms.get(sessionDbId))
+            .filter(e => e.ws.readyState === e.ws.OPEN)
+            .map(e => {
+              const isObserver = !e.isHost && !e.companionNpcId;
+              return {
+                playerEmail: e.playerEmail || 'guest',
+                playerName: e.playerName || 'Guest',
+                isHost: !!e.isHost,
+                isObserver,
+                isAway: false,
+                characterName: e.characterName || null,
+                companionNpcId: e.companionNpcId || null,
+                companionCharacterName: e.companionCharacterName || null,
+                companionCharacterId: e.companionCharacterId || null,
+              };
+            })
+        : [];
+
+      // Include disconnected companion players as "away" from persisted session data
+      const session = readSessionByDbId(sessionDbId);
+      if (session && session.companionPlayers) {
+        const liveNpcIds = new Set(live.filter(p => p.companionNpcId).map(p => p.companionNpcId));
+        for (const [npcId, cp] of Object.entries(session.companionPlayers)) {
+          if (!liveNpcIds.has(npcId) && cp.email) {
+            live.push({
+              playerEmail: cp.email,
+              playerName: cp.name || cp.email,
+              isHost: false,
+              isObserver: false,
+              isAway: true,
+              characterName: null,
+              companionNpcId: npcId,
+              companionCharacterName: cp.characterName || null,
+              companionCharacterId: cp.characterId || null,
+            });
+          }
+        }
+      }
+
+      return live;
     }
 
     function broadcastSessionParticipants(sessionDbId) {
@@ -241,54 +358,241 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       }
     }
 
-    function broadcastReadyGolfStatus(sessionDbId) {
+    function broadcastTurnStatus(sessionDbId) {
       if (!sessionRooms.has(sessionDbId)) return;
       const companions = Array.from(sessionRooms.get(sessionDbId))
         .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN);
-      const companionCount = companions.length;
-      const submittedCount = sessionTurns.has(sessionDbId)
-        ? Array.from(sessionTurns.get(sessionDbId).keys())
-            .filter(email => companions.some(c => c.playerEmail === email)).length
-        : 0;
-      const hostReady = hostTurns.has(sessionDbId);
+      const joinedCompanionCount = companions.length;
+      // Check host turn from in-memory sessionTurns (host stores turn with npcId=null)
+      const allTurns = sessionTurns.has(sessionDbId)
+        ? Array.from(sessionTurns.get(sessionDbId).values())
+        : [];
+      const hostSubmitted = allTurns.some(t => t.isHost);
+      const companionSubmittedCount = allTurns.filter(t => !t.isHost && companions.some(c => c.playerEmail === t.playerEmail)).length;
+      const submittedCount = (hostSubmitted ? 1 : 0) + companionSubmittedCount;
+      const totalExpected = 1 + joinedCompanionCount; // host + companions
+      const allReady = hostSubmitted && companionSubmittedCount >= joinedCompanionCount && joinedCompanionCount > 0;
+      const pendingTurns = allTurns.map(t => ({
+        playerEmail: t.playerEmail,
+        playerName: t.playerName,
+        npcId: t.npcId,
+        npcName: t.npcName || null,
+        characterName: t.characterName || null,
+        text: t.text,
+        isHost: !!t.isHost,
+      }));
       for (const entry of sessionRooms.get(sessionDbId)) {
         if (entry.ws.readyState === entry.ws.OPEN) {
           entry.ws.send(JSON.stringify({
-            type: 'ready_golf_status',
+            type: 'turn_status',
             sessionDbId,
-            hostReady,
-            companionsReady: submittedCount,
-            companionsTotal: companionCount,
-            allReady: hostReady && submittedCount >= companionCount,
+            hostSubmitted,
+            pendingTurns,
+            joinedCompanionCount,
+            submittedCount,
+            allReady,
           }));
         }
       }
     }
 
-    function checkReadyGolfAutoFire(sessionDbId) {
-      broadcastReadyGolfStatus(sessionDbId);
-      // Auto-fire only when BOTH host and ALL companions have submitted
-      if (!hostTurns.has(sessionDbId)) return;
+    function checkAutoFire(sessionDbId) {
+      broadcastTurnStatus(sessionDbId);
       if (!sessionRooms.has(sessionDbId)) return;
+      const allTurns = sessionTurns.has(sessionDbId)
+        ? Array.from(sessionTurns.get(sessionDbId).values())
+        : [];
+      const hostTurn = allTurns.find(t => t.isHost);
+      if (!hostTurn) return;
       const companions = Array.from(sessionRooms.get(sessionDbId))
         .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN);
       if (companions.length === 0) return; // no companions connected — don't auto-fire
       const companionEmails = companions.map(c => c.playerEmail);
-      const submittedEmails = sessionTurns.has(sessionDbId)
-        ? Array.from(sessionTurns.get(sessionDbId).keys())
-        : [];
+      const submittedEmails = allTurns.filter(t => !t.isHost).map(t => t.playerEmail);
       const allReady = companionEmails.every(email => submittedEmails.includes(email));
       if (!allReady) return;
 
-      // Everyone is ready — fire
-      const hostEntry = Array.from(sessionRooms.get(sessionDbId)).find(e => e.isHost);
-      if (hostEntry && hostEntry.ws.readyState === hostEntry.ws.OPEN) {
-        const hostTurn = hostTurns.get(sessionDbId);
-        hostEntry.ws.send(JSON.stringify({
-          type: 'ready_golf_fire',
-          text: hostTurn.text,
-        }));
-        hostTurns.delete(sessionDbId);
+      // Everyone is ready — fire DM
+      fireDmForSession(sessionDbId);
+    }
+
+    async function fireDmForSession(sessionDbId) {
+      if (!sessionRooms.has(sessionDbId)) return;
+      const allTurns = sessionTurns.has(sessionDbId)
+        ? Array.from(sessionTurns.get(sessionDbId).values())
+        : [];
+      const hostTurn = allTurns.find(t => t.isHost);
+      if (!hostTurn) return;
+      const companionTurnsArr = allTurns.filter(t => !t.isHost);
+
+      // Get or create session engine
+      const session = readSessionByDbId(sessionDbId);
+      if (!session) return;
+      const ownerEmail = getSessionOwnerEmail(session);
+      const existingCtx = sessionEngines.get(sessionDbId);
+      const engineCtx = getOrCreateSessionEngine(sessionDbId, dataDir, {
+        characterId: session.characterId,
+        scenarioId: session.scenarioId,
+        campaignId: session.campaignId || 'demo',
+        ownerEmail,
+        claudeSessionId: session.claudeSessionId,
+        messageHistory: existingCtx?.messageHistory || [],
+      });
+
+      // Build the combined player text (host + companion actions)
+      let playerText = hostTurn.text;
+      if (companionTurnsArr.length > 0) {
+        const companionActions = companionTurnsArr.map(t => {
+          const charLabel = t.characterName || t.npcName || t.npcId;
+          const swapNote = t.characterName && t.npcName
+            ? ` (playing their own character ${t.characterName}, who has replaced ${t.npcName} in the party)`
+            : '';
+          let line = `[Companion player ${t.playerName} as ${charLabel}${swapNote}]: ${t.text}`;
+          // Include character sheet only on first turn with this character
+          const sheetKey = t.characterId || t.characterName;
+          if (!companionSheetsSent.has(sessionDbId)) companionSheetsSent.set(sessionDbId, new Set());
+          const sentSheets = companionSheetsSent.get(sessionDbId);
+          if (t.characterData && t.characterName && sheetKey && !sentSheets.has(sheetKey)) {
+            sentSheets.add(sheetKey);
+            try {
+              const cd = t.characterData;
+              const fmtArr = (val) => Array.isArray(val) ? val.map(v => typeof v === 'string' ? v : v.name || JSON.stringify(v)).join(', ') : '';
+              const abilities = cd.abilities ? Object.entries(cd.abilities).map(([k,v]) => `${k.toUpperCase()}:${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(' ') : '';
+              const hp = cd.hitPoints ? `HP:${cd.hitPoints.current}/${cd.hitPoints.max}` : '';
+              const spellsL1 = cd.spells?.level1 ? (Array.isArray(cd.spells.level1) ? cd.spells.level1 : cd.spells.level1.known || []) : [];
+              const sheet = [
+                `${cd.name} — Level ${cd.level} ${cd.subrace || ''} ${cd.race} ${cd.class}`,
+                `${hp} AC:${cd.armorClass || '?'} Speed:${cd.speed || '?'} Prof:+${cd.proficiencyBonus || 2}`,
+                abilities,
+                cd.equipment ? `Equipment: ${fmtArr(cd.equipment)}` : '',
+                cd.weapons ? `Weapons: ${fmtArr(cd.weapons)}` : '',
+                cd.spells?.cantrips ? `Cantrips: ${fmtArr(cd.spells.cantrips)}` : '',
+                spellsL1.length > 0 ? `Level 1 spells (${cd.spells.level1.slots || '?'} slots): ${fmtArr(spellsL1)}` : '',
+                cd.features ? `Features: ${fmtArr(cd.features)}` : '',
+              ].filter(Boolean).join('\n  ');
+              line += `\n  [Character Sheet: ${sheet}]`;
+            } catch (sheetErr) {
+              console.error('[WS] Error formatting companion character sheet:', sheetErr);
+              line += `\n  [Character Sheet: ${t.characterName} — see character file for details]`;
+            }
+          }
+          return line;
+        }).join('\n');
+        playerText += `\n\n--- Companion Actions ---\n${companionActions}`;
+      }
+
+      // Broadcast companion actions as separate messages
+      for (const t of companionTurnsArr) {
+        const charLabel = t.characterName || t.npcName || t.npcId;
+        broadcastSessionMessage(sessionDbId, 'companion_action', {
+          characterName: charLabel,
+          playerName: t.playerName,
+          playerEmail: t.playerEmail,
+          text: t.text,
+          timestamp: new Date().toISOString(),
+        });
+      }
+
+      // Broadcast host's player message
+      broadcastSessionMessage(sessionDbId, 'session_player_message', {
+        text: hostTurn.text,
+        timestamp: new Date().toISOString(),
+      });
+
+      // Clear pending turns
+      sessionTurns.delete(sessionDbId);
+      broadcastSessionTurns(sessionDbId);
+      clearPendingTurns(sessionDbId);
+      broadcastTurnStatus(sessionDbId);
+
+      // Broadcast sessions_changed so widgets refresh
+      broadcastToAll('sessions_changed');
+
+      // Fire DM engine
+      const { engine } = engineCtx;
+      engineCtx.messageHistory.push({ type: 'player', text: playerText });
+
+      // Gather active companion players for system prompt
+      const activeCompanions = sessionRooms.has(sessionDbId)
+        ? Array.from(sessionRooms.get(sessionDbId))
+            .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN)
+            .map(e => ({
+              playerEmail: e.playerEmail,
+              playerName: e.playerName,
+              companionNpcId: e.companionNpcId,
+              companionCharacterName: e.companionCharacterName || null,
+              companionCharacterId: e.companionCharacterId || null,
+            }))
+        : [];
+
+      // Set status to thinking for all watchers (broadcastSessionMessage with no excludedEntry sends to ALL)
+      for (const entry of (sessionRooms.get(sessionDbId) || [])) {
+        if (entry.ws.readyState === entry.ws.OPEN) {
+          entry.ws.send(JSON.stringify({ type: 'session_status', status: 'thinking' }));
+        }
+      }
+
+      try {
+        // Snapshot session data dir if needed
+        const cid = engineCtx.campaignId || 'demo';
+        try { snapshotToSession(dataDir, ownerEmail, cid, sessionDbId); } catch (e) { console.error('[WS] Snapshot error:', e); }
+
+        const stream = engine.run(playerText, {
+          characterId: engineCtx.characterId,
+          scenarioId: engineCtx.scenarioId,
+          campaignId: engineCtx.campaignId,
+          messageHistory: engineCtx.messageHistory,
+          playerEmail: ownerEmail,
+          companionPlayers: activeCompanions.length > 0 ? activeCompanions : undefined,
+          sessionDbId,
+        });
+
+        for await (const event of stream) {
+          switch (event.type) {
+            case 'dm_partial':
+              broadcastSessionMessage(sessionDbId, 'dm_partial', { text: event.text });
+              break;
+            case 'dice_roll':
+              broadcastSessionMessage(sessionDbId, 'dice_roll', {
+                notation: event.notation, rolls: event.rolls,
+                modifier: event.modifier, total: event.total, label: event.label,
+              });
+              break;
+            case 'dm_response':
+              engineCtx.messageHistory.push({ type: 'dm', text: event.text });
+              broadcastSessionMessage(sessionDbId, 'dm_response', { text: event.text });
+              break;
+            case 'dm_complete':
+              broadcastSessionMessage(sessionDbId, 'dm_complete', { sessionId: event.sessionId });
+              // Save claude session ID back to session JSON
+              try {
+                const sess = readSessionByDbId(sessionDbId);
+                if (sess && event.sessionId) {
+                  sess.claudeSessionId = event.sessionId;
+                  sess.updatedAt = new Date().toISOString();
+                  const fp = findSessionFilePath(sessionDbId);
+                  if (fp) fs.writeFileSync(fp, JSON.stringify(sess, null, 2));
+                }
+              } catch (e) { console.error('[WS] Failed to save claudeSessionId:', e); }
+              break;
+            case 'session_id':
+              broadcastSessionMessage(sessionDbId, 'session_id', { sessionId: event.sessionId });
+              break;
+            case 'error':
+              broadcastSessionMessage(sessionDbId, 'error', { error: event.error });
+              break;
+          }
+        }
+      } catch (err) {
+        console.error('[WS] DM engine error (multiplayer fire):', err);
+        broadcastSessionMessage(sessionDbId, 'error', { error: err.message || 'DM engine error' });
+      } finally {
+        // Set status to idle for all
+        for (const entry of (sessionRooms.get(sessionDbId) || [])) {
+          if (entry.ws.readyState === entry.ws.OPEN) {
+            entry.ws.send(JSON.stringify({ type: 'session_status', status: 'idle' }));
+          }
+        }
       }
     }
 
@@ -360,6 +664,14 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           wsEntry.playerEmail = msg.playerEmail;
           wsEntry.campaignId = campaignId;
           wsEntry.characterId = characterId;
+          // Clear companion state from previous session
+          wsEntry.companionNpcId = null;
+          wsEntry.companionCharacterId = null;
+          wsEntry.companionCharacterName = null;
+          wsEntry.companionCharacterData = null;
+          wsEntry.isHost = true;
+          // Clear stale participants on the client
+          send('session_participants', { sessionDbId: null, participants: [] });
           // Look up character name for participants broadcast
           wsEntry.characterName = null;
           if (characterId && msg.playerEmail) {
@@ -387,14 +699,33 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             send('error', { error: 'Only the session host can resume this session.' });
             break;
           }
+          // Detect session switch: if the engine already has a Claude session
+          // from a different game, force a fresh start to prevent cross-contamination.
+          // We null out the engine sessionId so Claude starts a fresh conversation
+          // with the correct system prompt, using message history as context.
+          const prevClaudeId = engine.sessionId;
+          const newClaudeId = msg.claudeSessionId || null;
+          const isSameSession = prevClaudeId && newClaudeId && prevClaudeId === newClaudeId;
+          if (prevClaudeId && !isSameSession) {
+            console.log(`[WS] Session switch detected — forcing fresh Claude session (was: ${prevClaudeId}, switching to: ${newClaudeId || 'new'})`);
+          }
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
           campaignId = msg.campaignId || null;
-          engine.sessionId = msg.claudeSessionId || null;
+          // Always use the new session's Claude ID.
+          // If switching sessions, this gives Claude the new conversation to resume.
+          // The system prompt is rebuilt fresh each turn anyway, so the campaign
+          // context comes from the system prompt, not from conversation memory.
+          engine.sessionId = newClaudeId;
           wsEntry.playerEmail = msg.playerEmail;
           wsEntry.campaignId = campaignId;
           wsEntry.characterId = characterId;
           wsEntry.characterName = null;
+          // Clear companion state from previous session (host resuming their own game)
+          wsEntry.companionNpcId = null;
+          wsEntry.companionCharacterId = null;
+          wsEntry.companionCharacterName = null;
+          wsEntry.companionCharacterData = null;
           if (characterId && msg.playerEmail) {
             try {
               const charDir = getPlayerCharactersDir(dataDir, msg.playerEmail, campaignId || 'demo');
@@ -524,11 +855,43 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             }
           }
           send('session_access', accessPayload);
+
+          // Snapshot character/NPC files to session-scoped directory (creates if not exists, skips existing)
+          if (canWrite && ownerEmail) {
+            try { snapshotToSession(dataDir, ownerEmail, session.campaignId || campaignId || 'demo', requestedSessionId); } catch (e) { console.error('[WS] Snapshot error:', e); }
+          }
+
+          // Restore pending turns from session JSON into in-memory map (reconnect support)
+          if (session.pendingTurns && Object.keys(session.pendingTurns).length > 0) {
+            if (!sessionTurns.has(requestedSessionId)) sessionTurns.set(requestedSessionId, new Map());
+            const turnsMap = sessionTurns.get(requestedSessionId);
+            for (const [email, turnData] of Object.entries(session.pendingTurns)) {
+              if (!turnsMap.has(email)) {
+                turnsMap.set(email, turnData);
+              }
+            }
+          }
+
           // Always send current pending turns (empty array clears stale client state)
           const watchTurns = sessionTurns.has(requestedSessionId)
             ? Array.from(sessionTurns.get(requestedSessionId).values())
             : [];
           send('companion_turns_update', { sessionDbId: requestedSessionId, turns: watchTurns });
+
+          // Send unified turn status
+          broadcastTurnStatus(requestedSessionId);
+
+          // Initialize session engine if this is a multiplayer session
+          if (canWrite && session.companionPlayers && Object.keys(session.companionPlayers).length > 0) {
+            getOrCreateSessionEngine(requestedSessionId, dataDir, {
+              characterId: session.characterId,
+              scenarioId: session.scenarioId,
+              campaignId: session.campaignId || campaignId || 'demo',
+              ownerEmail,
+              claudeSessionId: session.claudeSessionId,
+            });
+          }
+
           break;
         }
 
@@ -553,101 +916,55 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             return;
           }
 
-          const turnMode = msg.turnMode || 'host-decides';
+          // Multiplayer: queue the host's turn instead of firing immediately
+          if (currentSessionDbId && isMultiplayerSession(currentSessionDbId)) {
+            const turnText = msg.text.trim();
+            if (!sessionTurns.has(currentSessionDbId)) sessionTurns.set(currentSessionDbId, new Map());
+            sessionTurns.get(currentSessionDbId).set(wsEntry.playerEmail, {
+              playerEmail: wsEntry.playerEmail,
+              playerName: wsEntry.playerName || wsEntry.playerEmail,
+              npcId: null,
+              npcName: null,
+              characterName: wsEntry.characterName || null,
+              characterId: characterId || null,
+              text: turnText,
+              isHost: true,
+            });
+            persistTurnToSession(currentSessionDbId, {
+              playerEmail: wsEntry.playerEmail,
+              playerName: wsEntry.playerName || wsEntry.playerEmail,
+              npcId: null,
+              text: turnText,
+              isHost: true,
+              submittedAt: new Date().toISOString(),
+            });
+            console.log(`[WS] Host turn queued — session: ${currentSessionDbId}, player: ${wsEntry.playerEmail}`);
+            broadcastToAll('sessions_changed');
+            checkAutoFire(currentSessionDbId);
+            break;
+          }
 
+          // Single player: fire DM engine immediately
           processing = true;
           send('session_status', { status: 'thinking' });
           broadcastToSessionWatchers('session_status', { status: 'thinking' });
 
           try {
-            let playerText = msg.text.trim();
+            const playerText = msg.text.trim();
 
-            // Bundle pending companion turns into the host's message
-            if (currentSessionDbId && sessionTurns.has(currentSessionDbId)) {
-              const turns = Array.from(sessionTurns.get(currentSessionDbId).values());
-              if (turns.length > 0) {
-                const companionActions = turns.map(t => {
-                  const charLabel = t.characterName || t.npcName || t.npcId;
-                  const swapNote = t.characterName && t.npcName
-                    ? ` (playing their own character ${t.characterName}, who has replaced ${t.npcName} in the party)`
-                    : '';
-                  let line = `[Companion player ${t.playerName} as ${charLabel}${swapNote}]: ${t.text}`;
-                  // Include character sheet only on first turn with this character
-                  const sheetKey = t.characterId || t.characterName;
-                  if (!companionSheetsSent.has(currentSessionDbId)) companionSheetsSent.set(currentSessionDbId, new Set());
-                  const sentSheets = companionSheetsSent.get(currentSessionDbId);
-                  if (t.characterData && t.characterName && sheetKey && !sentSheets.has(sheetKey)) {
-                    sentSheets.add(sheetKey);
-                    try {
-                      const cd = t.characterData;
-                      const fmtArr = (val) => Array.isArray(val) ? val.map(v => typeof v === 'string' ? v : v.name || JSON.stringify(v)).join(', ') : '';
-                      const abilities = cd.abilities ? Object.entries(cd.abilities).map(([k,v]) => `${k.toUpperCase()}:${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(' ') : '';
-                      const hp = cd.hitPoints ? `HP:${cd.hitPoints.current}/${cd.hitPoints.max}` : '';
-                      const spellsL1 = cd.spells?.level1 ? (Array.isArray(cd.spells.level1) ? cd.spells.level1 : cd.spells.level1.known || []) : [];
-                      const sheet = [
-                        `${cd.name} — Level ${cd.level} ${cd.subrace || ''} ${cd.race} ${cd.class}`,
-                        `${hp} AC:${cd.armorClass || '?'} Speed:${cd.speed || '?'} Prof:+${cd.proficiencyBonus || 2}`,
-                        abilities,
-                        cd.equipment ? `Equipment: ${fmtArr(cd.equipment)}` : '',
-                        cd.weapons ? `Weapons: ${fmtArr(cd.weapons)}` : '',
-                        cd.spells?.cantrips ? `Cantrips: ${fmtArr(cd.spells.cantrips)}` : '',
-                        spellsL1.length > 0 ? `Level 1 spells (${cd.spells.level1.slots || '?'} slots): ${fmtArr(spellsL1)}` : '',
-                        cd.features ? `Features: ${fmtArr(cd.features)}` : '',
-                      ].filter(Boolean).join('\n  ');
-                      line += `\n  [Character Sheet: ${sheet}]`;
-                    } catch (sheetErr) {
-                      console.error('[WS] Error formatting companion character sheet:', sheetErr);
-                      line += `\n  [Character Sheet: ${t.characterName} — see character file for details]`;
-                    }
-                  }
-                  return line;
-                }).join('\n');
-                const modeNote = turnMode === 'initiative'
-                  ? '\n(Initiative mode: resolve these actions in initiative order, rolling initiative if not yet established.)'
-                  : '';
-                playerText += `\n\n--- Companion Actions ---\n${companionActions}${modeNote}`;
-                // Broadcast each companion action as a persistent message for all players (including host)
-                for (const t of turns) {
-                  const charLabel = t.characterName || t.npcName || t.npcId;
-                  const actionPayload = {
-                    characterName: charLabel,
-                    playerName: t.playerName,
-                    playerEmail: t.playerEmail,
-                    text: t.text,
-                    timestamp: new Date().toISOString(),
-                  };
-                  // broadcastSessionMessage sends to all room members including host
-                  broadcastSessionMessage(currentSessionDbId, 'companion_action', actionPayload);
-                }
-                // Clear pending turns
-                sessionTurns.delete(currentSessionDbId);
-                broadcastSessionTurns(currentSessionDbId);
-              }
-            }
-
-            // Clear host turn if ready-golf
-            if (currentSessionDbId) hostTurns.delete(currentSessionDbId);
-
-            // Send host's player message back to them (after companion actions for correct ordering)
-            send('session_player_message', { text: msg.text.trim() });
+            // Send host's player message back to them
+            send('session_player_message', { text: playerText });
 
             messageHistory.push({ type: 'player', text: playerText });
             broadcastToSessionWatchers('session_player_message', {
               text: playerText,
               timestamp: new Date().toISOString(),
             });
-            // Gather active companion players for system prompt
-            const activeCompanions = currentSessionDbId && sessionRooms.has(currentSessionDbId)
-              ? Array.from(sessionRooms.get(currentSessionDbId))
-                  .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN)
-                  .map(e => ({
-                    playerEmail: e.playerEmail,
-                    playerName: e.playerName,
-                    companionNpcId: e.companionNpcId,
-                    companionCharacterName: e.companionCharacterName || null,
-                    companionCharacterId: e.companionCharacterId || null,
-                  }))
-              : [];
+
+            // Snapshot session data if we have a saved session
+            if (currentSessionDbId && wsEntry.playerEmail) {
+              try { snapshotToSession(dataDir, wsEntry.playerEmail, campaignId || 'demo', currentSessionDbId); } catch (e) { console.error('[WS] Snapshot error:', e); }
+            }
 
             const stream = engine.run(playerText, {
               characterId,
@@ -655,7 +972,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               campaignId,
               messageHistory,
               playerEmail: wsEntry.playerEmail,
-              companionPlayers: activeCompanions.length > 0 ? activeCompanions : undefined,
+              sessionDbId: currentSessionDbId || undefined,
               onPermissionRequest: (toolName, input, toolUseID) => {
                 return new Promise((resolve) => {
                   const description = describeToolUse(toolName, input);
@@ -840,22 +1157,39 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             characterId: msg.characterId || wsEntry.companionCharacterId || null,
             characterData: wsEntry.companionCharacterData || null,
             text: turnText,
+            isHost: false,
+          });
+          persistTurnToSession(currentSessionDbId, {
+            playerEmail: wsEntry.playerEmail,
+            playerName: wsEntry.playerName || wsEntry.playerEmail,
+            npcId: wsEntry.companionNpcId,
+            npcName,
+            characterName: msg.characterName || wsEntry.companionCharacterName || null,
+            text: turnText,
+            isHost: false,
+            submittedAt: new Date().toISOString(),
           });
           console.log(`[WS] Companion turn submitted — session: ${currentSessionDbId}, player: ${wsEntry.playerEmail}, npc: ${wsEntry.companionNpcId}`);
           broadcastSessionTurns(currentSessionDbId);
-          // Check if ready-golf auto-fire should trigger
-          checkReadyGolfAutoFire(currentSessionDbId);
+          broadcastToAll('sessions_changed');
+          checkAutoFire(currentSessionDbId);
           break;
         }
 
         case 'companion_turn_retract': {
           if (!currentSessionDbId) break;
+          let retractedCompText = null;
           if (sessionTurns.has(currentSessionDbId)) {
+            const turn = sessionTurns.get(currentSessionDbId).get(wsEntry.playerEmail);
+            retractedCompText = turn?.text || null;
             sessionTurns.get(currentSessionDbId).delete(wsEntry.playerEmail);
             broadcastSessionTurns(currentSessionDbId);
           }
-          // Broadcast updated ready-golf status
-          broadcastReadyGolfStatus(currentSessionDbId);
+          removeTurnFromSession(currentSessionDbId, wsEntry.playerEmail);
+          // Send retracted text back for input restoration
+          send('companion_turn_retracted', { text: retractedCompText });
+          broadcastTurnStatus(currentSessionDbId);
+          broadcastToAll('sessions_changed');
           break;
         }
 
@@ -881,13 +1215,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             sessionTurns.get(currentSessionDbId).delete(skipEmail);
             broadcastSessionTurns(currentSessionDbId);
           }
-          // Re-check auto-fire after skipping
-          checkReadyGolfAutoFire(currentSessionDbId);
+          removeTurnFromSession(currentSessionDbId, skipEmail);
+          checkAutoFire(currentSessionDbId);
           break;
         }
 
-        case 'host_turn_ready': {
-          // Ready Golf: host queues their turn text, waits for all companions
+        case 'host_turn_submit': {
+          // Unified multiplayer: host queues their turn, waits for companions
           if (!currentSessionDbId || !currentSessionCanWrite) {
             send('error', { error: 'Only the host can submit a turn.' });
             break;
@@ -897,29 +1231,55 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             send('error', { error: 'Empty turn.' });
             break;
           }
-          hostTurns.set(currentSessionDbId, { text: hostText, wsEntry });
-          console.log(`[WS] Host turn queued (ready-golf) — session: ${currentSessionDbId}`);
-          broadcastReadyGolfStatus(currentSessionDbId);
-          checkReadyGolfAutoFire(currentSessionDbId);
+          if (!sessionTurns.has(currentSessionDbId)) sessionTurns.set(currentSessionDbId, new Map());
+          sessionTurns.get(currentSessionDbId).set(wsEntry.playerEmail, {
+            playerEmail: wsEntry.playerEmail,
+            playerName: wsEntry.playerName || wsEntry.playerEmail,
+            npcId: null,
+            npcName: null,
+            characterName: wsEntry.characterName || null,
+            characterId: characterId || null,
+            text: hostText,
+            isHost: true,
+          });
+          persistTurnToSession(currentSessionDbId, {
+            playerEmail: wsEntry.playerEmail,
+            playerName: wsEntry.playerName || wsEntry.playerEmail,
+            npcId: null,
+            text: hostText,
+            isHost: true,
+            submittedAt: new Date().toISOString(),
+          });
+          console.log(`[WS] Host turn queued — session: ${currentSessionDbId}, player: ${wsEntry.playerEmail}`);
+          broadcastToAll('sessions_changed');
+          checkAutoFire(currentSessionDbId);
           break;
         }
 
         case 'host_turn_retract': {
           if (!currentSessionDbId) break;
-          hostTurns.delete(currentSessionDbId);
-          broadcastReadyGolfStatus(currentSessionDbId);
+          let retractedHostText = null;
+          if (sessionTurns.has(currentSessionDbId)) {
+            const turn = sessionTurns.get(currentSessionDbId).get(wsEntry.playerEmail);
+            retractedHostText = turn?.text || null;
+            sessionTurns.get(currentSessionDbId).delete(wsEntry.playerEmail);
+          }
+          removeTurnFromSession(currentSessionDbId, wsEntry.playerEmail);
+          // Send retracted text back for input restoration
+          send('host_turn_retracted', { text: retractedHostText });
+          broadcastTurnStatus(currentSessionDbId);
+          broadcastToAll('sessions_changed');
           break;
         }
 
-        case 'host_turn_force': {
-          // Force-fire the host's queued turn without waiting for all companions
+        case 'host_turn_continue': {
+          // Fire DM without waiting for all companions
           if (!currentSessionDbId || !currentSessionCanWrite) break;
-          if (!hostTurns.has(currentSessionDbId)) break;
-          const hostTurn = hostTurns.get(currentSessionDbId);
-          hostTurns.delete(currentSessionDbId);
-          broadcastReadyGolfStatus(currentSessionDbId);
-          // Fire via the same path as auto-fire
-          send('ready_golf_fire', { text: hostTurn.text });
+          // Check there's a host turn queued
+          const hasTurn = sessionTurns.has(currentSessionDbId) &&
+            Array.from(sessionTurns.get(currentSessionDbId).values()).some(t => t.isHost);
+          if (!hasTurn) break;
+          fireDmForSession(currentSessionDbId);
           break;
         }
 

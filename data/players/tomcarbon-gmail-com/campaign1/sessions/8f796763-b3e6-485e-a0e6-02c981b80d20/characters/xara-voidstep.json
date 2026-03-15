@@ -1,0 +1,153 @@
+{
+  "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "name": "Xara Voidstep",
+  "status": "alive",
+  "race": "Elf",
+  "subrace": "Drow (Dark Elf)",
+  "class": "Ranger",
+  "level": 3,
+  "background": "Outlander",
+  "alignment": "Chaotic Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Perception",
+    "Stealth",
+    "Survival",
+    "Athletics"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Undercommon",
+    "Abyssal"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Two shortswords",
+    "Longbow",
+    "Quiver of arrows (20)",
+    "Dungeoneer's pack",
+    "A staff",
+    "A hunting trap",
+    "A trophy from a slain drider (fang necklace)",
+    "A set of traveler's clothes",
+    "Belt pouch containing 10 gp",
+    "50 feet of silk rope",
+    "Drow poison vial (1)"
+  ],
+  "weapons": [
+    {
+      "name": "Shortsword (main hand)",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortsword (off hand)",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Longbow",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Superior Darkvision (120 ft.)",
+    "Sunlight Sensitivity (disadvantage on attack rolls and Perception checks in direct sunlight)",
+    "Fey Ancestry (advantage on saves vs. charm, immune to magical sleep)",
+    "Trance (4-hour meditation replaces 8-hour sleep)",
+    "Keen Senses (proficiency in Perception)",
+    "Drow Magic (dancing lights cantrip; faerie fire 1/day at 3rd level)",
+    "Drow Weapon Training (proficiency with rapiers, shortswords, hand crossbows)",
+    "Favored Enemy: Aberrations (advantage on Survival checks to track, Intelligence checks to recall info)",
+    "Natural Explorer: Underdark (difficult terrain doesn't slow group, can't become lost except by magic, alert to danger, stealthy at normal pace, double forage, detailed tracking info)",
+    "Fighting Style: Two-Weapon Fighting (add ability modifier to off-hand damage)",
+    "Ranger Archetype: Hunter",
+    "Hunter's Prey: Colossus Slayer (extra 1d8 damage once per turn against wounded targets)",
+    "Primeval Awareness (expend spell slot to sense aberrations, celestials, dragons, elementals, fey, fiends, and undead within 1 mile)",
+    "Wanderer (Outlander feature: excellent memory for maps and geography, can find food and fresh water for up to 6 people each day)"
+  ],
+  "traits": [
+    "Superior Darkvision",
+    "Sunlight Sensitivity",
+    "Fey Ancestry",
+    "Trance",
+    "Keen Senses",
+    "Drow Magic",
+    "Drow Weapon Training",
+    "Two-Weapon Fighting",
+    "Colossus Slayer"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 4,
+    "cantrips": [
+      "Dancing Lights (Drow Magic)"
+    ],
+    "level1": {
+      "slots": 3,
+      "known": [
+        "Hunter's Mark",
+        "Cure Wounds",
+        "Detect Magic",
+        "Faerie Fire (Drow Magic, 1/day)"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I watch everything from the shadows before acting, old habits from a lifetime of drow politics. I speak softly but carry an intensity that makes others uneasy. I am fiercely protective of anyone I consider an ally.",
+    "ideals": "Freedom. No one should live under the boot of a tyrant, whether that tyrant is a matron mother or an overworlders' king. Every creature deserves the choice to forge its own path.",
+    "bonds": "I defected from House Despana after refusing to sacrifice innocent deep gnome captives to Lolth. My former house has placed a bounty on my head, and I carry the guilt of those I could not save.",
+    "flaws": "I struggle to trust others fully, expecting betrayal at every turn. My drow upbringing taught me that kindness is weakness, and I sometimes revert to cold ruthlessness when cornered."
+  },
+  "appearance": "A lithe, athletic drow woman standing 5'4\" with obsidian-dark skin and stark white hair worn in a tight braid. Her lavender eyes gleam with the telltale glow of superior darkvision, constantly scanning her surroundings. A thin scar runs from her left temple to her jaw, a parting gift from her house's weapon master. She wears well-maintained studded leather armor dyed deep purple and black, and moves with the silent, predatory grace of someone who grew up navigating the deadly politics of Menzoberranzan.",
+  "backstory": "Xara was born into the minor nobility of House Despana in Menzoberranzan, trained from birth as a scout and hunter for the house's war parties. She excelled at tracking through the Underdark's twisting passages and earned a reputation as a relentless pursuer. Everything changed when she was ordered to escort a group of captured deep gnome miners to be sacrificed at the altar of Lolth. She looked into their terrified eyes and saw not enemies but people. In the darkness before the ritual, she cut their bonds and led them through secret passages to freedom. By the time the house discovered the deception, Xara had vanished into the Underdark. Now she wanders the deep places, hunted by House Despana's assassins, guiding lost travelers and fighting the aberrations that threaten all who dwell below. She has slowly come to believe that the surface world's ideals of freedom and mercy are not weaknesses but strengths.",
+  "_filename": "xara-voidstep.json",
+  "_companionOwner": "tom.chamberlain@gmail.com"
+}

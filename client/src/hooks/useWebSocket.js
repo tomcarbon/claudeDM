@@ -20,10 +20,11 @@ export default function useWebSocket() {
   const [sessionAccess, setSessionAccess] = useState({ sessionDbId: null, canWrite: false, readOnly: true });
   const [sessionParticipants, setSessionParticipants] = useState([]);
   const [companionTurns, setCompanionTurns] = useState([]);
-  const [readyGolfStatus, setReadyGolfStatus] = useState(null);
+  const [turnStatus, setTurnStatus] = useState(null);
+  const [retractedText, setRetractedText] = useState(null);
   const [typingPlayers, setTypingPlayers] = useState({}); // { playerEmail: { playerName, isHost, companionNpcId, ts } }
   const [chatTypingPlayers, setChatTypingPlayers] = useState({}); // { playerEmail: { playerName, ts } }
-  const readyGolfFireRef = useRef(null); // callback for auto-fire
+  const autoFireRef = useRef(null); // callback for auto-fire when all players ready
   const [status, setStatus] = useState('disconnected');
   const [permissionRequest, setPermissionRequest] = useState(null);
   const [sessionId, setSessionId] = useState(null);
@@ -121,9 +122,6 @@ export default function useWebSocket() {
           break;
 
         case 'player_message_updated':
-          // Companion actions now render as separate messages, so we no longer
-          // update the host's message bubble with bundled text. The bundled text
-          // is still sent to the DM engine internally.
           break;
 
         case 'companion_action':
@@ -157,21 +155,33 @@ export default function useWebSocket() {
           setSessionParticipants(Array.isArray(msg.participants) ? msg.participants : []);
           break;
 
-        case 'ready_golf_status':
-          setReadyGolfStatus({
-            hostReady: msg.hostReady,
-            companionsReady: msg.companionsReady,
-            companionsTotal: msg.companionsTotal,
+        case 'turn_status':
+          setTurnStatus({
+            hostSubmitted: msg.hostSubmitted,
+            pendingTurns: msg.pendingTurns || [],
+            joinedCompanionCount: msg.joinedCompanionCount,
+            submittedCount: msg.submittedCount,
             allReady: msg.allReady,
           });
           break;
 
-        case 'ready_golf_fire':
-          // Server says everyone is ready — auto-send the host's queued message
-          setReadyGolfStatus(null);
-          if (readyGolfFireRef.current) {
-            readyGolfFireRef.current(msg.text);
+        case 'auto_fire':
+          // Server says everyone is ready — auto-fire the DM
+          setTurnStatus(null);
+          if (autoFireRef.current) {
+            autoFireRef.current(msg.text);
           }
+          break;
+
+        case 'host_turn_retracted':
+          // Host retracted their turn — restore text to input
+          setRetractedText(msg.text || '');
+          setTurnStatus(null);
+          break;
+
+        case 'companion_turn_retracted':
+          // Companion retracted their turn — restore text to input
+          setRetractedText(msg.text || '');
           break;
 
         case 'typing_status':
@@ -327,17 +337,17 @@ export default function useWebSocket() {
     };
   }, [connect]);
 
-  const sendMessage = useCallback((text, turnMode) => {
+  const sendMessage = useCallback((text) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       setMessages(prev => [...prev, { type: 'player', text }]);
-      wsRef.current.send(JSON.stringify({ type: 'user_message', text, turnMode: turnMode || 'host-decides' }));
+      wsRef.current.send(JSON.stringify({ type: 'user_message', text }));
     }
   }, []);
 
   // Send message without adding to local messages — server echoes it back for correct ordering
-  const sendMessageRaw = useCallback((text, turnMode) => {
+  const sendMessageRaw = useCallback((text) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify({ type: 'user_message', text, turnMode: turnMode || 'host-decides' }));
+      wsRef.current.send(JSON.stringify({ type: 'user_message', text }));
     }
   }, []);
 
@@ -417,23 +427,26 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const submitHostTurnReady = useCallback((text) => {
+  const submitHostTurn = useCallback((text) => {
     if (wsRef.current?.readyState === WebSocket.OPEN && text) {
-      wsRef.current.send(JSON.stringify({ type: 'host_turn_ready', text }));
+      wsRef.current.send(JSON.stringify({ type: 'host_turn_submit', text }));
     }
   }, []);
 
   const retractHostTurn = useCallback(() => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'host_turn_retract' }));
-      setReadyGolfStatus(null);
     }
   }, []);
 
-  const forceHostTurn = useCallback(() => {
+  const continueWithoutAll = useCallback(() => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify({ type: 'host_turn_force' }));
+      wsRef.current.send(JSON.stringify({ type: 'host_turn_continue' }));
     }
+  }, []);
+
+  const clearRetractedText = useCallback(() => {
+    setRetractedText(null);
   }, []);
 
   const setCompanionCharacter = useCallback((characterId, characterName, npcName, characterData) => {
@@ -509,11 +522,13 @@ export default function useWebSocket() {
     sessionAccess,
     sessionParticipants,
     companionTurns,
-    readyGolfStatus,
-    readyGolfFireRef,
-    submitHostTurnReady,
+    turnStatus,
+    autoFireRef,
+    retractedText,
+    clearRetractedText,
+    submitHostTurn,
     retractHostTurn,
-    forceHostTurn,
+    continueWithoutAll,
     setCompanionCharacter,
     submitCompanionTurn,
     retractCompanionTurn,

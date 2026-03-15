@@ -1,0 +1,147 @@
+{
+  "id": "b8d4e6f2-1a3c-4e7b-8f2d-6c9a1e3b5d7f",
+  "name": "Sister Mirael",
+  "status": "alive",
+  "race": "Elf",
+  "subrace": "Wood Elf",
+  "class": "Druid",
+  "level": 1,
+  "background": "Hermit",
+  "alignment": "Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 14,
+  "speed": 35,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Nature",
+    "Perception",
+    "Religion",
+    "Survival"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Druidic",
+    "Sylvan"
+  ],
+  "equipment": [
+    "Wooden shield",
+    "Scimitar",
+    "Leather armor",
+    "Explorer's pack",
+    "Druidic focus (a staff wound with living ivy)",
+    "Herbalism kit",
+    "A scroll case stuffed full of notes from her studies and prayers",
+    "A winter blanket",
+    "Set of common clothes",
+    "5 gp",
+    "A small pouch of dried medicinal herbs"
+  ],
+  "weapons": [
+    {
+      "name": "Scimitar",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Produce Flame",
+      "attackBonus": 5,
+      "damage": "1d8",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "Leather armor + Shield",
+    "type": "light"
+  },
+  "features": [
+    "Darkvision (60 ft)",
+    "Keen Senses (proficiency in Perception)",
+    "Fey Ancestry (advantage on saves against being charmed, immune to magical sleep)",
+    "Trance (4 hours of meditation instead of 8 hours sleep)",
+    "Mask of the Wild (can attempt to hide when only lightly obscured by natural phenomena)",
+    "Fleet of Foot (base walking speed 35 ft)",
+    "Druidic (secret druid language)",
+    "Discovery (Hermit feature: a unique and powerful discovery about the nature of the cosmos, the deities, or the forces of nature)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Keen Senses",
+    "Fey Ancestry",
+    "Trance",
+    "Mask of the Wild",
+    "Fleet of Foot"
+  ],
+  "spells": {
+    "spellcastingAbility": "Wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Produce Flame",
+      "Druidcraft"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Healing Word",
+        "Entangle",
+        "Faerie Fire",
+        "Goodberry",
+        "Thunderwave",
+        "Speak with Animals"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak in metaphors drawn from nature, and I often pause for long silences before responding, as though listening to something no one else can hear. I find more comfort in the company of animals and plants than in the company of people.",
+    "ideals": "Balance. The natural world exists in a delicate equilibrium. Every action sends ripples through the web of life, and it is my duty to ensure those ripples do not become storms.",
+    "bonds": "The forest I called home for decades sheltered me when I had nowhere else to go. I will protect wild places and the creatures within them, even at cost to myself. I also carry guilt for what my former circle did.",
+    "flaws": "I am slow to trust and even slower to share what troubles me. I carry a terrible secret about my former druid circle, and the weight of it makes me withdraw from others just when they need me most."
+  },
+  "appearance": "A slender wood elf with deep brown skin the color of walnut bark and long, dark green hair woven with small leaves and seed pods that seem to change with the seasons. Her eyes are a pale, luminous amber, and they carry a weight of sorrow that contrasts with her otherwise serene expression. She wears weathered leather armor beneath a cloak of woven moss and bark fibers, and carries a staff of pale birchwood around which living ivy grows and curls of its own accord. A faint scent of rain-soaked earth and wildflowers follows her wherever she goes.",
+  "backstory": "Mirael served for over a century as a tender of the Greenveil Circle, a druid conclave deep in the Whisperwood that maintained the ancient wards protecting the forest from a sealed corruption beneath the earth. When the circle's elder, Archdruid Thessyn, grew desperate to strengthen the failing wards, he led the others in a blood pact with a dark fey entity, trading their moral compass for raw power. Mirael refused and fled in the night, but not before witnessing the pact twist her former companions into something cold and fanatical. Now she wanders as a hermit healer, offering her gifts to those in need while staying ahead of the Greenveil hunters who consider her a traitor and a loose end. She joined with adventurers hoping that strength in numbers might protect her -- and that she might one day find the power to undo what Thessyn has done.",
+  "dmNotes": {
+    "roleplaying": "Mirael should feel like a still pond -- calm on the surface but with great depth beneath. She rarely speaks first, but when she does, her words carry weight. She uses nature metaphors almost exclusively: 'The river does not fight the stone; it flows around it' or 'Even the deepest roots began as fragile tendrils.' She is the group's moral compass but not preachy -- she leads by example. In natural environments, she visibly relaxes and becomes more talkative. In cities or dungeons, she becomes tense and terse. She instinctively tends to wounds without being asked.",
+    "voice": "Soft-spoken and measured, with long pauses between thoughts. Her voice has a musical, lilting quality typical of elves but carries an undercurrent of sadness. She never raises her voice in anger -- instead she becomes very, very quiet. When she does speak at length, it is poetic and deliberate. Example: '...The hawk does not hate the mouse. It simply follows its nature. But what happens when a creature chooses to act against its nature? That... that is where true darkness begins.'",
+    "motivations": "Primary: Stay hidden from the Greenveil Circle's hunters who want to silence her. Secondary: Find a way to break the dark pact and save her former companions from themselves. Tertiary: Protect the natural world wherever she can, one small act at a time. She is drawn to the party because she is lonely, though she would never admit it.",
+    "secrets": "Her former druid circle, the Greenveil, made a blood pact with a dark fey entity called the Thornmother. The pact gave them immense power but is slowly corrupting them into servants of the Thornmother's will. Mirael knows the location of the sealed corruption the wards protect, and the Greenveil hunters want to capture her to ensure she cannot reveal the truth. Her Hermit Discovery is that the sealed corruption and the Thornmother are connected -- the pact is actually weakening the wards, not strengthening them.",
+    "attitude": "Reserved and watchful at first, warming very slowly. She respects actions far more than words. She is drawn to characters who show kindness to animals or reverence for nature. She is uncomfortable around warlocks and characters with dark pacts (a painful reminder). She will not willingly enter a deal or bargain with any supernatural entity. Once trust is earned, she is fiercely devoted and will risk her life for companions without hesitation."
+  },
+  "profilePic": "data:image/png;base64,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"
+}

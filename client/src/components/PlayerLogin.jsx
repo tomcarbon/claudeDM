@@ -73,8 +73,7 @@ export default function PlayerLogin() {
 
   function handleLogout() {
     logout();
-    resetForm();
-    setMode('login');
+    window.location.reload();
   }
 
   // Logged in view
