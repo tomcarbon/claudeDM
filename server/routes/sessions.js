@@ -705,6 +705,24 @@ module.exports = function (dataDir) {
         }
       }
 
+      // --- Characters: companion players' PCs ---
+      for (const [, cp] of Object.entries(claimed)) {
+        if (!cp.email || !cp.characterId) continue;
+        provisionPlayerDefaults(dataDir, cp.email, campaignId);
+        const cpCharDir = getPlayerCharactersDir(dataDir, cp.email, campaignId);
+        if (!fs.existsSync(cpCharDir)) continue;
+        const cpFiles = fs.readdirSync(cpCharDir).filter(f => f.endsWith('.json'));
+        for (const f of cpFiles) {
+          try {
+            const data = JSON.parse(fs.readFileSync(path.join(cpCharDir, f), 'utf-8'));
+            if (data.id === cp.characterId) {
+              characters.push(data);
+              break;
+            }
+          } catch { /* skip malformed */ }
+        }
+      }
+
       // --- NPCs: exclude removed and claimed-by-companion-player ---
       const npcs = [];
       if (ownerEmail) {

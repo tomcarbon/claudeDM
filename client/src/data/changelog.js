@@ -1,10 +1,23 @@
-export const CURRENT_VERSION = '1.0.7';
+export const CURRENT_VERSION = '1.0.8';
 
 export const CHANGELOG = [
   {
+    version: '1.0.8',
+    date: '2026-03-15',
+    title: 'Current Release',
+    compareFrom: '1.0.7',
+    compareRef: '8ef0ceb ("new current party submenu item under play.")',
+    highlights: [
+      'New Current Party page: a dedicated sidebar nav item under Characters/Companions that shows your active party at a glance — the owner\'s selected PC, companion players\' characters, and active NPC companions, all in one place.',
+      'Server-side party filtering: new `GET /sessions/:id/party` endpoint returns only the actual party members — owner\'s PC, joined companion players\' characters (fetched from their own player directories), and NPCs that aren\'t removed or replaced by companion players.',
+      'Refresh button on the Current Party page so you can see party composition changes (joins/leaves) without navigating away.',
+      'Characters and Companions list pages now show only your personal roster during an active session, with the live party view moved to the new Current Party page.',
+    ],
+  },
+  {
     version: '1.0.7',
     date: '2026-03-13',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.6',
     compareRef: 'fd1f299 ("This is v1.0.6 and corresponding whats new section update.")',
     highlights: [
