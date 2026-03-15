@@ -334,6 +334,8 @@ function Adventure({
       watchSession(null);
       setSessionActive(false);
       setSavedSessionDbId(null);
+      localStorage.removeItem('dnd_active_session_id');
+      localStorage.removeItem('dnd_active_session_owner');
       setSessionReadOnly(false);
       setMessages([]);
       setCompanionCharacterId(null);
@@ -555,6 +557,9 @@ Set the scene and begin the story.`;
       }
       watchSession(result.id, player);
       setSessionReadOnly(result.readOnly === true);
+      // Store active session context so Characters/Companions menu reads session-scoped data
+      localStorage.setItem('dnd_active_session_id', result.id);
+      localStorage.setItem('dnd_active_session_owner', result.ownerEmail || result.playerEmail || player?.email || '');
       console.log(`[Save] Success — session ${result.id}, messages in response: ${(result.messages || []).length}`);
       setSaveStatus('saved');
       setTimeout(() => setSaveStatus(null), 2000);
@@ -594,6 +599,7 @@ Set the scene and begin the story.`;
 
   async function handleUnjoinSession(e, sessionId, npcId) {
     e.stopPropagation();
+    if (!window.confirm('Remove this player from the session? They will need to rejoin to play again.')) return;
     try {
       const result = await api.unjoinSession(sessionId, npcId);
       // Update the session card's slot data in place
@@ -638,6 +644,9 @@ Set the scene and begin the story.`;
         console.warn('[Load] No messages found in saved session — session may not have been saved properly');
       }
       watchSession(session.id, player);
+      // Store active session context so Characters/Companions menu reads session-scoped data
+      localStorage.setItem('dnd_active_session_id', session.id);
+      localStorage.setItem('dnd_active_session_owner', session.ownerEmail || session.playerEmail || '');
       if (!readOnly) {
         resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, campaignId);
       }

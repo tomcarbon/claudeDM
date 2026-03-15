@@ -4,7 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { awardXp } = require('../xp-utils');
 const { requirePlayer } = require('../player-auth');
-const { getPlayerCharactersDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
+const { getPlayerCharactersDir, getSessionCharactersDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
 const { generateRandomCharacter } = require('../character-generator');
 
 const MAX_CHARACTERS = 100;
@@ -59,6 +59,14 @@ module.exports = function (dataDir) {
   router.use(playerAuth);
 
   function getCharDir(req) {
+    // If an active session is specified, read from session-scoped directory
+    const sessionId = req.get('x-session-id');
+    const sessionOwner = req.get('x-session-owner');
+    if (sessionId && sessionOwner) {
+      const sessDir = getSessionCharactersDir(dataDir, sessionOwner, req.campaignId, sessionId);
+      if (fs.existsSync(sessDir)) return sessDir;
+      // Fall through to global if session dir doesn't exist
+    }
     provisionPlayerDefaults(dataDir, req.player.email, req.campaignId);
     return getPlayerCharactersDir(dataDir, req.player.email, req.campaignId);
   }

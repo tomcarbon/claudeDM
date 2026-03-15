@@ -78,8 +78,8 @@ function AppContent() {
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
-          <li><NavLink to="/characters">Characters</NavLink></li>
-          <li><NavLink to="/npcs">Companions</NavLink></li>
+          <li><NavLink to="/characters" className="nav-sub">Characters</NavLink></li>
+          <li><NavLink to="/npcs" className="nav-sub">Companions</NavLink></li>
           <li><NavLink to="/world-map">World Map</NavLink></li>
           <li><NavLink to="/rules">Rules</NavLink></li>
         </ul>

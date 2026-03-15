@@ -692,6 +692,15 @@
   font-weight: bold;
   color: var(--gold) !important;
 }
+.nav-sub {
+  padding-left: 1.8rem !important;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+.nav-sub:hover,
+.nav-sub.active {
+  opacity: 1;
+}
 
 /* ===== Adventure card on home ===== */
 .card-adventure {

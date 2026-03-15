@@ -60,6 +60,7 @@ function request(method, urlPath, { body, headers } = {}) {
 const HOST = { email: 'host@test.com', name: 'Host Player', role: 'player' };
 const PLAYER_A = { email: 'alice@test.com', name: 'Alice', role: 'player' };
 const PLAYER_B = { email: 'bob@test.com', name: 'Bob', role: 'player' };
+const ADMIN = { email: 'admin@test.com', name: 'Admin', role: 'admin' };
 
 function makeSession(overrides = {}) {
   const id = overrides.id || uuidv4();
@@ -92,7 +93,7 @@ function makeSession(overrides = {}) {
 
 beforeEach(async () => {
   tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'claudedm-sess-test-'));
-  setupPlayers(tmpDir, [HOST, PLAYER_A, PLAYER_B]);
+  setupPlayers(tmpDir, [HOST, PLAYER_A, PLAYER_B, ADMIN]);
 
   // Create real Express app with the sessions router
   const sessionsRouter = require('../routes/sessions')(tmpDir);
@@ -302,6 +303,21 @@ describe('POST /:id/unjoin', () => {
     });
 
     expect(res.status).toBe(403);
+  });
+
+  it('allows an admin to unjoin any player', async () => {
+    const session = makeSession();
+    session.companionPlayers = {
+      'npc-1': { email: PLAYER_A.email, name: PLAYER_A.name, joinedAt: new Date().toISOString() },
+    };
+    createSessionFile(tmpDir, HOST.email, 'demo', session);
+
+    const res = await request('POST', `/api/sessions/${session.id}/unjoin`, {
+      body: { npcId: 'npc-1' },
+      headers: { 'x-player-email': ADMIN.email, 'x-campaign-id': 'demo' },
+    });
+
+    expect(res.status).toBe(200);
   });
 });
 

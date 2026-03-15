@@ -23,11 +23,25 @@ function getCampaignHeader() {
   }
 }
 
+function getSessionHeaders() {
+  try {
+    const sessionId = localStorage.getItem('dnd_active_session_id');
+    const sessionOwner = localStorage.getItem('dnd_active_session_owner');
+    const headers = {};
+    if (sessionId) headers['X-Session-Id'] = sessionId;
+    if (sessionOwner) headers['X-Session-Owner'] = sessionOwner;
+    return headers;
+  } catch {
+    return {};
+  }
+}
+
 async function fetchJson(url, options = {}) {
   const headers = {
     'Content-Type': 'application/json',
     ...getPlayerHeaders(),
     ...getCampaignHeader(),
+    ...getSessionHeaders(),
     ...(options.headers || {}),
   };
 

@@ -550,9 +550,10 @@ module.exports = function (dataDir) {
         return res.status(400).json({ error: 'This slot is not claimed.' });
       }
 
-      // Only the player who claimed it or the session owner can unjoin
+      // Only the player who claimed it, the session owner, or an admin can unjoin
       const claimEmail = session.companionPlayers[npcId].email;
-      if (claimEmail !== requester.email && !isOwner) {
+      const isAdmin = requester.role === 'admin';
+      if (claimEmail !== requester.email && !isOwner && !isAdmin) {
         return res.status(403).json({ error: 'You can only unjoin your own slot.' });
       }
 

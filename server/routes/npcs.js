@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { requirePlayer } = require('../player-auth');
-const { getPlayerNpcsDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
+const { getPlayerNpcsDir, getSessionNpcsDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
 
 module.exports = function (dataDir) {
   const router = express.Router();
@@ -12,6 +12,14 @@ module.exports = function (dataDir) {
   router.use(playerAuth);
 
   function getNpcDir(req) {
+    // If an active session is specified, read from session-scoped directory
+    const sessionId = req.get('x-session-id');
+    const sessionOwner = req.get('x-session-owner');
+    if (sessionId && sessionOwner) {
+      const sessDir = getSessionNpcsDir(dataDir, sessionOwner, req.campaignId, sessionId);
+      if (fs.existsSync(sessDir)) return sessDir;
+      // Fall through to global if session dir doesn't exist
+    }
     provisionPlayerDefaults(dataDir, req.player.email, req.campaignId);
     return getPlayerNpcsDir(dataDir, req.player.email, req.campaignId);
   }

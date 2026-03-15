@@ -1,0 +1,160 @@
+{
+  "id": "wl-npc-002",
+  "name": "Hatter Madigan",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Artificer",
+  "level": 5,
+  "background": "Guild Artisan",
+  "alignment": "Chaotic Good",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 18,
+      "modifier": 4
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 33,
+    "current": 33
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Constitution",
+    "Intelligence"
+  ],
+  "skills": [
+    "Arcana",
+    "Investigation",
+    "Sleight of Hand",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Sylvan",
+    "Gnomish"
+  ],
+  "equipment": [
+    "Breastplate (hidden beneath his coat)",
+    "A magnificent but battered top hat (arcane focus)",
+    "Tinker's tools",
+    "Alchemist's supplies",
+    "An enormous pocket watch frozen at 6:00",
+    "A teapot that functions as an alchemical apparatus",
+    "Mercury-stained gloves",
+    "A spool of thread that sews by itself",
+    "Belt pouch containing 31 gp",
+    "3 vials of experimental elixir",
+    "A thimble collection (47 thimbles, each slightly different)",
+    "A raven feather quill (he insists it's important)",
+    "A half-written riddle on a napkin"
+  ],
+  "weapons": [
+    {
+      "name": "Hatpin Rapier (infused)",
+      "attackBonus": 8,
+      "damage": "1d8+5",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Teapot (thrown improvised)",
+      "attackBonus": 5,
+      "damage": "1d4+2",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Breastplate (beneath frock coat)",
+    "type": "medium"
+  },
+  "features": [
+    "Magical Tinkering (imbue tiny objects with minor magical effects — light, sound, odor, visual effect, or message)",
+    "Infuse Item (can infuse up to 4 items: Enhanced Weapon (+1), Bag of Holding, Goggles of Night, Repulsion Shield)",
+    "The Right Tool for the Job (produce any artisan's tool with 1 hour of work)",
+    "Artificer Specialist: Alchemist",
+    "Tool Expertise (double proficiency with tools)",
+    "Experimental Elixir (create a free elixir after each long rest; can spend spell slots for more. Effects: Healing 2d6+4, Swiftness +10 speed, Resilience +1 AC, Boldness 1d4 to attacks/saves, Flight 10-ft fly speed, Transformation — DM chooses effect)",
+    "Alchemical Savant (add INT modifier to damage/healing from alchemist spells cast with alchemist's supplies)",
+    "Guild Membership (Guild Artisan feature — can find lodging and support from the Hatmakers' Guild, if one existed)",
+    "Time-Cursed (special — the Hatter exists in a temporal stutter. Once per long rest, he can rewind 6 seconds of time for himself only, effectively taking back one action. This is involuntary and triggered by stress.)"
+  ],
+  "traits": [
+    "Magical Tinkering",
+    "Infuse Item",
+    "Experimental Elixir",
+    "Alchemical Savant",
+    "Tool Expertise",
+    "Time-Cursed"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 15,
+    "spellAttackBonus": 7,
+    "cantrips": [
+      "Mending",
+      "Acid Splash"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Cure Wounds",
+        "Faerie Fire",
+        "Healing Word (Alchemist bonus)",
+        "Ray of Sickness (Alchemist bonus)",
+        "Detect Magic",
+        "Grease"
+      ]
+    },
+    "level2": {
+      "slots": 2,
+      "known": [
+        "Heat Metal",
+        "Flaming Sphere (Alchemist bonus)",
+        "Melf's Acid Arrow (Alchemist bonus)",
+        "Web"
+      ]
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I cycle between brilliant lucidity and gibbering madness, sometimes mid-sentence. I am obsessed with riddles, particularly 'Why is a raven like a writing desk?' which I have been trying to solve for decades. I offer tea to everyone, in every situation, regardless of appropriateness.",
+    "ideals": "Creativity. The greatest sin is a world without invention, without wonder, without the mad spark that turns nothing into something extraordinary. The Queen's order is death — not of the body, but of the imagination.",
+    "bonds": "The March Hare and the Dormouse are my dearest friends, trapped with me in this eternal tea party. I would do anything to free them. I also remember a girl who visited once, long ago, who treated me with kindness instead of fear. I have been waiting for her to return.",
+    "flaws": "My madness is not an act — the mercury from my hat-making and the temporal curse have genuinely damaged my mind. I cannot always control when lucidity slips away. I also have a terrible temper when frustrated, and I have been frustrated for a very long time. I sometimes break things — beautiful things — in fits of rage I don't remember afterward."
+  },
+  "appearance": "A tall, gaunt human man of indeterminate age — he could be thirty or three hundred; time has stopped meaning anything to him. His face is angular and expressive, dominated by enormous green eyes that shift between sharp intelligence and vacant bewilderment. His hair is a wild shock of orange-red, standing at impossible angles as though permanently startled. He wears a long frock coat in faded emerald green over a waistcoat of mismatched fabrics (silk, burlap, velvet, and what appears to be a page from a book). His fingers are stained with mercury, ink, and tea in equal measure. His most distinctive feature is his hat — a magnificent top hat in battered purple felt, adorned with a card reading '10/6' (ten shillings and sixpence, the price tag he never removed). The hat serves as his arcane focus and he is never, ever without it. A breastplate is barely visible beneath his coat. His enormous pocket watch hangs from a chain and is permanently frozen at 6:00.",
+  "backstory": "Hatter Madigan was once the most celebrated artisan in all of Wonderland — a master hatmaker, inventor, and entertainer whose creations were legendary. His hats could make the wearer fly, speak to animals, see through walls, or simply look absolutely smashing. He was invited to perform at the Queen of Hearts' grand banquet, where he sang a song about time. The performance went badly — accounts differ on exactly what happened, but the Hatter somehow offended Time itself. Perhaps he tried to 'kill Time' with a bad joke, or perhaps Time simply didn't appreciate being the subject of a song. Regardless, Time took revenge: the Hatter, his friend the March Hare, and the innocent Dormouse were cursed to exist forever at six o'clock — eternal teatime, the same hour repeating endlessly, the tea growing cold and being replaced, the conversation looping, the madness deepening. The mercury from decades of hat-making had already begun to erode his sanity; the time curse shattered what remained. Now he exists in fragments — moments of brilliant clarity where the old genius shines through, interrupted by episodes of raving nonsense, obsessive riddling, and confused violence. He knows, in his lucid moments, that the curse can be broken. He knows that apologizing to Time is the key. But the madness always takes him before he can explain this clearly to anyone. The outsiders who have fallen into Wonderland are his best hope in decades — if they can understand him through the madness.",
+  "dmNotes": {
+    "roleplaying": "The Hatter is the tragic heart of the campaign. Play him as a genius broken by curse and madness — his lucid moments should be sharp, warm, and heartbreakingly competent, making the descents into madness all the more painful to witness. In combat, he is surprisingly effective — his artificer abilities work on instinct even when his mind is scattered. His lucid phases typically last 10-20 minutes before madness reasserts itself, triggered by stress, mention of the Queen, or attempts to explain the time curse directly. During mad phases, he speaks in non-sequiturs, makes tea compulsively, and asks his riddle. The key to playing him well is that the madness is NEVER funny to him — it's funny to observers, but the Hatter is suffering. In rare moments of deep lucidity, he becomes very quiet and very sad, and these moments should hit the party hard.",
+    "voice": "In lucid moments: rapid, excited, brilliant — a inventor explaining his latest breakthrough, words tumbling over each other in enthusiasm. 'Oh, yes, YES! The temporal flux is concentrated in the clock tower mechanism, you see — if we could isolate the third gear from the resonance cascade, the whole structure would—' Then madness hits: 'Would you like some more tea? But you haven't had any yet! How can you have MORE of something you haven't HAD? That's the trouble with logic in this place — it only works in one direction, like memory, except memory works backwards here too, so you remember things that haven't happened yet and forget things that are happening now, which is why I can't remember if I've already said this or if I'm about to—' When sad: very quiet, almost a whisper. 'I was someone, once. I made beautiful things. I had friends who weren't trapped in a teapot with me. I had... time.'",
+    "motivations": "Primary: Break the time curse that has trapped him, the March Hare, and the Dormouse at eternal teatime. He knows the answer involves apologizing to Time but cannot communicate this clearly through the madness. Secondary: See the Queen of Hearts dethroned — she is responsible for the performance that led to his curse, and he holds her partly responsible for his suffering. Tertiary: Make hats again. Really, truly beautiful hats. He hasn't been able to finish one since the curse began.",
+    "secrets": "In his deepest lucid moments, the Hatter knows things he cannot normally access: (1) The Queen of Hearts is not native to Wonderland — she came through the Looking Glass, just like the party, and bent the realm to her will through sheer force of personality. (2) The riddle 'Why is a raven like a writing desk?' IS actually important — it's the key that unlocks the Looking Glass Chamber beneath the palace. The answer is 'Because Poe wrote on both' — Edgar Allan Poe wrote 'The Raven' and also wrote ON a writing desk. Speaking this answer at the Chamber door opens it. (3) The Hatter's top hat contains a fragment of Wonderland's original magic — before the Queen's corruption. If the hat is placed on the restored Looking Glass, it will amplify the portal's power enough to banish the Queen back through.",
+    "attitude": "The Hatter is warm and generous to everyone, even in his madness — he offers tea, compliments, and riddles with equal enthusiasm. He is most lucid around Alice (if present), as her presence triggers old memories of a 'little girl who was kind.' He respects intelligence and creativity, and connects instantly with wizards, artificers, and anyone who appreciates a good riddle. He is frightened of direct warriors — they remind him of the Queen's Vorpal Guard. He adores the Dormouse and March Hare and will become violently protective if they are threatened. He is deeply suspicious of anyone who claims to represent authority or order."
+  }
+}
