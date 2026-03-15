@@ -115,6 +115,11 @@ function withSessionAccess(session, requester) {
   const ownerName = getOwnerName(session);
   const canWrite = canWriteSession(session, requester);
   const settings = getSessionSettings(session);
+  const pendingTurns = session.pendingTurns || {};
+  const hasCompanions = session.companionPlayers && Object.keys(session.companionPlayers).length > 0;
+  const requesterEmail = requester?.email?.toLowerCase() || null;
+  const turnExpectedFromYou = hasCompanions && requesterEmail && !pendingTurns[requesterEmail] &&
+    (requesterEmail === ownerEmail || Object.values(session.companionPlayers || {}).some(cp => cp.email?.toLowerCase() === requesterEmail));
   return {
     ...session,
     ownerEmail,
@@ -124,6 +129,7 @@ function withSessionAccess(session, requester) {
     canWrite,
     readOnly: !canWrite,
     settings,
+    turnExpectedFromYou: !!turnExpectedFromYou,
   };
 }
 
@@ -483,6 +489,20 @@ module.exports = function (dataDir) {
       if (!session.companionPlayers) session.companionPlayers = {};
       if (session.companionPlayers[npcId]) {
         return res.status(409).json({ error: 'This slot has already been claimed.' });
+      }
+
+      // Prevent host from joining their own session as a companion
+      const ownerEmail = getOwnerEmail(session);
+      if (ownerEmail && requester.email.toLowerCase() === ownerEmail.toLowerCase()) {
+        return res.status(400).json({ error: 'The host cannot join a companion slot in their own session.' });
+      }
+
+      // Prevent a player from claiming more than one slot
+      const alreadyJoined = Object.values(session.companionPlayers).some(
+        cp => cp.email && cp.email.toLowerCase() === requester.email.toLowerCase()
+      );
+      if (alreadyJoined) {
+        return res.status(409).json({ error: 'You have already joined a slot in this session.' });
       }
 
       // Claim the slot

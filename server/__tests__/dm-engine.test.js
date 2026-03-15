@@ -1,0 +1,302 @@
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import fs from 'fs';
+import path from 'path';
+import os from 'os';
+
+const { _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } } = require('../dm-engine');
+const { ensurePlayerDataExists, getPlayerCharactersDir, getPlayerNpcsDir, getSessionCharactersDir, getSessionNpcsDir, snapshotToSession } = require('../player-data');
+
+let tmpDir;
+const EMAIL = 'hero@test.com';
+const CAMPAIGN = 'demo';
+
+function writeJson(filePath, data) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+}
+
+function makeCharacter(overrides = {}) {
+  return {
+    id: 'char-1',
+    name: 'Bramble Thornwick',
+    race: 'Halfling',
+    subrace: 'Lightfoot',
+    class: 'Druid',
+    level: 3,
+    background: 'Hermit',
+    alignment: 'Neutral Good',
+    hitPoints: { current: 25, max: 25 },
+    armorClass: 13,
+    speed: 25,
+    proficiencyBonus: 2,
+    abilities: {
+      strength: { score: 10, modifier: 0 },
+      dexterity: { score: 14, modifier: 2 },
+      constitution: { score: 12, modifier: 1 },
+      intelligence: { score: 11, modifier: 0 },
+      wisdom: { score: 16, modifier: 3 },
+      charisma: { score: 13, modifier: 1 },
+    },
+    equipment: ['Shield', 'Leather Armor'],
+    weapons: ['Quarterstaff'],
+    status: 'alive',
+    ...overrides,
+  };
+}
+
+function makeNpc(overrides = {}) {
+  return {
+    id: 'npc-1',
+    name: 'Pip Whistledown',
+    race: 'Gnome',
+    class: 'Rogue',
+    level: 2,
+    hitPoints: { current: 15, max: 15 },
+    armorClass: 14,
+    speed: 25,
+    proficiencyBonus: 2,
+    abilities: {
+      strength: { score: 8, modifier: -1 },
+      dexterity: { score: 16, modifier: 3 },
+      constitution: { score: 12, modifier: 1 },
+      intelligence: { score: 14, modifier: 2 },
+      wisdom: { score: 10, modifier: 0 },
+      charisma: { score: 12, modifier: 1 },
+    },
+    dmNotes: {
+      roleplaying: 'Cheerful trickster',
+      voice: 'High-pitched and fast',
+      motivation: 'Collect shiny things',
+      secrets: 'Secretly a prince',
+      attitude: 'Friendly',
+    },
+    status: 'alive',
+    ...overrides,
+  };
+}
+
+beforeEach(() => {
+  tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'claudedm-engine-test-'));
+  ensurePlayerDataExists(tmpDir, EMAIL, CAMPAIGN);
+
+  // Write DM settings
+  writeJson(path.join(tmpDir, 'dm-settings.json'), {
+    humor: 50, drama: 50, verbosity: 50, difficulty: 50,
+    horror: 20, puzzleFocus: 50, playerAutonomy: 50,
+    tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
+  });
+});
+
+afterEach(() => {
+  fs.rmSync(tmpDir, { recursive: true, force: true });
+});
+
+describe('loadCharacter', () => {
+  it('loads a character by ID from player directory', () => {
+    const char = makeCharacter();
+    writeJson(path.join(getPlayerCharactersDir(tmpDir, EMAIL, CAMPAIGN), 'bramble.json'), char);
+
+    const loaded = loadCharacter(tmpDir, 'char-1', EMAIL, CAMPAIGN);
+    expect(loaded).not.toBeNull();
+    expect(loaded.name).toBe('Bramble Thornwick');
+    expect(loaded._filename).toBe('bramble.json');
+  });
+
+  it('loads from session-scoped directory when sessionDbId is provided', () => {
+    const char = makeCharacter();
+    writeJson(path.join(getPlayerCharactersDir(tmpDir, EMAIL, CAMPAIGN), 'bramble.json'), char);
+
+    // Snapshot to session, then modify the session copy
+    snapshotToSession(tmpDir, EMAIL, CAMPAIGN, 'sess-1');
+    const sessPath = path.join(getSessionCharactersDir(tmpDir, EMAIL, CAMPAIGN, 'sess-1'), 'bramble.json');
+    const sessChar = JSON.parse(fs.readFileSync(sessPath, 'utf-8'));
+    sessChar.hitPoints.current = 5;
+    sessChar.level = 5;
+    fs.writeFileSync(sessPath, JSON.stringify(sessChar, null, 2));
+
+    // Without sessionDbId — loads global (25 HP, level 3)
+    const global = loadCharacter(tmpDir, 'char-1', EMAIL, CAMPAIGN);
+    expect(global.hitPoints.current).toBe(25);
+    expect(global.level).toBe(3);
+
+    // With sessionDbId — loads session-scoped (5 HP, level 5)
+    const scoped = loadCharacter(tmpDir, 'char-1', EMAIL, CAMPAIGN, 'sess-1');
+    expect(scoped.hitPoints.current).toBe(5);
+    expect(scoped.level).toBe(5);
+  });
+
+  it('returns null for non-existent character ID', () => {
+    writeJson(path.join(getPlayerCharactersDir(tmpDir, EMAIL, CAMPAIGN), 'bramble.json'), makeCharacter());
+    expect(loadCharacter(tmpDir, 'nonexistent', EMAIL, CAMPAIGN)).toBeNull();
+  });
+
+  it('returns null for non-existent directory', () => {
+    expect(loadCharacter(tmpDir, 'char-1', 'nobody@test.com', 'missing')).toBeNull();
+  });
+});
+
+describe('loadNpcs', () => {
+  it('loads all NPCs from player directory', () => {
+    const npcDir = getPlayerNpcsDir(tmpDir, EMAIL, CAMPAIGN);
+    writeJson(path.join(npcDir, 'pip.json'), makeNpc());
+    writeJson(path.join(npcDir, 'drak.json'), makeNpc({ id: 'npc-2', name: 'Drak Ironforge', class: 'Fighter' }));
+
+    const npcs = loadNpcs(tmpDir, EMAIL, CAMPAIGN);
+    expect(npcs).toHaveLength(2);
+    expect(npcs.map(n => n.name).sort()).toEqual(['Drak Ironforge', 'Pip Whistledown']);
+  });
+
+  it('loads from session-scoped directory when sessionDbId is provided', () => {
+    const npcDir = getPlayerNpcsDir(tmpDir, EMAIL, CAMPAIGN);
+    writeJson(path.join(npcDir, 'pip.json'), makeNpc());
+    snapshotToSession(tmpDir, EMAIL, CAMPAIGN, 'sess-1');
+
+    // Modify session copy
+    const sessNpcPath = path.join(getSessionNpcsDir(tmpDir, EMAIL, CAMPAIGN, 'sess-1'), 'pip.json');
+    const sessNpc = JSON.parse(fs.readFileSync(sessNpcPath, 'utf-8'));
+    sessNpc.hitPoints.current = 3;
+    fs.writeFileSync(sessNpcPath, JSON.stringify(sessNpc, null, 2));
+
+    const globalNpcs = loadNpcs(tmpDir, EMAIL, CAMPAIGN);
+    expect(globalNpcs[0].hitPoints.current).toBe(15);
+
+    const sessNpcs = loadNpcs(tmpDir, EMAIL, CAMPAIGN, 'sess-1');
+    expect(sessNpcs[0].hitPoints.current).toBe(3);
+  });
+
+  it('returns empty array for non-existent directory', () => {
+    expect(loadNpcs(tmpDir, 'nobody@test.com', 'missing')).toEqual([]);
+  });
+});
+
+describe('buildSystemPrompt', () => {
+  beforeEach(() => {
+    writeJson(path.join(getPlayerCharactersDir(tmpDir, EMAIL, CAMPAIGN), 'bramble.json'), makeCharacter());
+    writeJson(path.join(getPlayerNpcsDir(tmpDir, EMAIL, CAMPAIGN), 'pip.json'), makeNpc());
+  });
+
+  it('includes character name and stats', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('Bramble Thornwick');
+    expect(prompt).toContain('Level 3');
+    expect(prompt).toContain('Druid');
+    expect(prompt).toContain('HP: 25/25');
+  });
+
+  it('includes NPC companion details', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('Pip Whistledown');
+    expect(prompt).toContain('Rogue');
+    expect(prompt).toContain('Cheerful trickster');
+    expect(prompt).toContain('Secretly a prince');
+  });
+
+  it('uses global character paths when no sessionDbId', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('data/players/hero-test-com/demo/characters/');
+    expect(prompt).toContain('data/players/hero-test-com/demo/npcs/');
+    expect(prompt).not.toContain('/sessions/');
+  });
+
+  it('uses session-scoped paths when sessionDbId is provided', () => {
+    snapshotToSession(tmpDir, EMAIL, CAMPAIGN, 'sess-abc');
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN, undefined, 'sess-abc');
+    expect(prompt).toContain('data/players/hero-test-com/demo/sessions/sess-abc/characters/');
+    expect(prompt).toContain('data/players/hero-test-com/demo/sessions/sess-abc/npcs/');
+  });
+
+  it('marks NPC as replaced when companion player has own character', () => {
+    const companionPlayers = [{
+      playerEmail: 'alice@test.com',
+      playerName: 'Alice',
+      companionNpcId: 'npc-1',
+      companionCharacterName: 'Grimjaw Bonecrusher',
+      companionCharacterId: 'comp-char-1',
+    }];
+
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN, companionPlayers);
+    expect(prompt).toContain('~~Pip Whistledown~~');
+    expect(prompt).toContain('REPLACED by **Grimjaw Bonecrusher**');
+    expect(prompt).toContain('controlled by companion player Alice');
+    expect(prompt).toContain('Pip Whistledown is NOT in the party');
+  });
+
+  it('marks NPC as player-controlled when companion has no own character', () => {
+    const companionPlayers = [{
+      playerEmail: 'alice@test.com',
+      playerName: 'Alice',
+      companionNpcId: 'npc-1',
+      companionCharacterName: null,
+      companionCharacterId: null,
+    }];
+
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN, companionPlayers);
+    expect(prompt).toContain('CONTROLLED BY COMPANION PLAYER Alice');
+    expect(prompt).toContain('controlled by a human companion player, not by you');
+  });
+
+  it('includes DM personality settings', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('Use moderate detail in descriptions');
+    expect(prompt).toContain('Difficulty preference: 50/100');
+    expect(prompt).toContain('Player agency style: collaborative');
+  });
+
+  it('includes rules reference paths', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('data/rules/combat.json');
+    expect(prompt).toContain('data/rules/leveling.json');
+    expect(prompt).toContain('data/rules/spells.json');
+  });
+
+  it('includes multiplayer companion actions documentation', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('--- Companion Actions ---');
+    expect(prompt).toContain('companion players');
+  });
+
+  it('includes post-encounter checklist', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('Post-Encounter Checklist');
+    expect(prompt).toContain('AwardXP');
+  });
+
+  it('handles missing character gracefully', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'nonexistent', null, EMAIL, CAMPAIGN);
+    // Should still produce a valid prompt without character section
+    expect(prompt).toContain('Dungeon Master');
+    expect(prompt).not.toContain('Bramble Thornwick');
+  });
+
+  it('handles no NPCs gracefully', () => {
+    // Remove all NPC files
+    const npcDir = getPlayerNpcsDir(tmpDir, EMAIL, CAMPAIGN);
+    for (const f of fs.readdirSync(npcDir)) fs.rmSync(path.join(npcDir, f));
+
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('Bramble Thornwick');
+    // NPC section header should not appear when there are no NPCs
+    expect(prompt).not.toContain('## NPC Companions');
+  });
+});
+
+describe('loadScenario', () => {
+  it('loads scenario from campaign scenarios directory', () => {
+    const scenarioDir = path.join(tmpDir, 'campaigns', CAMPAIGN, 'scenarios');
+    writeJson(path.join(scenarioDir, 'test-quest.json'), {
+      id: 'quest-1',
+      title: 'The Lost Mine',
+      synopsis: 'Find the lost mine of Phandelver',
+      hook: 'A dwarf hires you',
+    });
+
+    const scenario = loadScenario(tmpDir, 'quest-1', CAMPAIGN);
+    expect(scenario).not.toBeNull();
+    expect(scenario.title).toBe('The Lost Mine');
+    expect(scenario.synopsis).toContain('Phandelver');
+  });
+
+  it('returns null for non-existent scenario', () => {
+    expect(loadScenario(tmpDir, 'nonexistent', CAMPAIGN)).toBeNull();
+  });
+});

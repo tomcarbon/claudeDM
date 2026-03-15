@@ -726,4 +726,4 @@ class DmEngine {
   }
 }
 
-module.exports = { DmEngine };
+module.exports = { DmEngine, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } };
