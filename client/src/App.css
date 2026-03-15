@@ -1132,6 +1132,43 @@
   color: var(--text-muted);
   font-size: 0.84rem;
 }
+.party-status-hp {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.party-hp-bar {
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.party-hp-fill {
+  display: block;
+  height: 100%;
+  background: #e74c3c;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+.party-hp-text {
+  min-width: 3.5em;
+}
+.party-gold {
+  color: var(--gold, #f0c040);
+  font-weight: 500;
+}
+.party-ac {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.party-detail-line {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
 .party-status-host {
   border-color: rgba(129, 199, 132, 0.3);
 }

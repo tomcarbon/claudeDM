@@ -58,10 +58,35 @@ async function fetchJson(url, options = {}) {
   return res.json();
 }
 
+// Fetch without session headers (for personal roster when session is active)
+async function fetchJsonNoSession(url, options = {}) {
+  const headers = {
+    'Content-Type': 'application/json',
+    ...getPlayerHeaders(),
+    ...getCampaignHeader(),
+    ...(options.headers || {}),
+  };
+  const res = await fetch(`${API_BASE}${url}`, { ...options, headers });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    const error = new Error(err.error || res.statusText);
+    if (err.errors) error.errors = err.errors;
+    throw error;
+  }
+  return res.json();
+}
+
+export function hasActiveSession() {
+  return !!localStorage.getItem('dnd_active_session_id');
+}
+
 export const api = {
   // Characters
   getCharacters: () => fetchJson('/characters'),
   getCharacter: (id) => fetchJson(`/characters/${id}`),
+  // Personal roster (bypasses session headers — always reads global player dir)
+  getMyCharacters: () => fetchJsonNoSession('/characters'),
+  getMyNpcs: () => fetchJsonNoSession('/npcs'),
   createCharacter: (data) => fetchJson('/characters', { method: 'POST', body: JSON.stringify(data) }),
   updateCharacter: (id, data) => fetchJson(`/characters/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteCharacter: (id) => fetchJson(`/characters/${id}`, { method: 'DELETE' }),

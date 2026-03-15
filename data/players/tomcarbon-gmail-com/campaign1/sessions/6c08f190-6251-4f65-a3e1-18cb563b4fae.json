@@ -1,0 +1,87 @@
+{
+  "id": "6c08f190-6251-4f65-a3e1-18cb563b4fae",
+  "name": "Depths of the Underdark — 3/15/2026",
+  "label": "basic 3",
+  "scenarioId": "campaign1",
+  "characterId": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+  "campaignId": "campaign1",
+  "claudeSessionId": "a6fd93d5-67c9-43f6-9492-ab1cd402ce53",
+  "messages": [
+    {
+      "type": "system",
+      "text": "Session started. Please wait while the DM prepares the story."
+    },
+    {
+      "type": "player",
+      "text": "This is a multiplayer session. I'm waiting for companion players to join and select their characters. Please respond with a brief greeting and let me know you're ready — I'll tell you when to begin the adventure."
+    },
+    {
+      "type": "dm",
+      "text": "⚒️ **Hail, Durgan Deepdelve!** ⚒️\n\nGood to have you back, Stonefist. Your party stands ready — Eldeth with her shield braced, Jimjar already flipping a coin, Sarith lurking in the shadows, Stool glowing softly, and Glabbagool... wobbling enthusiastically.\n\nI'm ready to roll whenever you are. 🎲 Just give the word once your companion players have joined and picked their characters, and we'll dive into the Underdark!"
+    },
+    {
+      "type": "system",
+      "text": "tomchamberlain has joined the session as a companion player.",
+      "companionNpcId": "d4d5d6d7-e8e9-4f0f-1a2a-3b3b4c4c5d5d"
+    },
+    {
+      "type": "player",
+      "text": "[System: Companion player tomchamberlain is playing as Aelindra Mossweave, replacing Jimjar in the party.]"
+    }
+  ],
+  "ownerEmail": "tomcarbon@gmail.com",
+  "ownerName": "tomcarbon",
+  "playerEmail": "tomcarbon@gmail.com",
+  "playerName": "tomcarbon",
+  "status": "active",
+  "settings": {
+    "visibility": "public"
+  },
+  "createdAt": "2026-03-15T22:06:30.305Z",
+  "updatedAt": "2026-03-15T22:06:41.887Z",
+  "players": [
+    {
+      "id": "f32c215f-e65d-455d-b707-b0b998585fd9",
+      "characterId": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+      "email": "tomcarbon@gmail.com",
+      "name": "tomcarbon",
+      "role": "owner",
+      "joinedAt": "2026-03-15T22:06:30.305Z"
+    }
+  ],
+  "companionConfig": {
+    "states": {
+      "e5e6e7e8-f9f0-4a1a-2b3b-4c4c5d5d6e6e": "player",
+      "b2b3b4b5-c6c7-4d8d-9e0e-1f1f2a2a3b3b": "player",
+      "d4d5d6d7-e8e9-4f0f-1a2a-3b3b4c4c5d5d": "player",
+      "c3c4c5c6-d7d8-4e9e-0f1f-2a2a3b3b4c4c": "removed",
+      "a1a2a3a4-b5b6-4c7c-8d8d-9e9e0f0f1a1a": "removed"
+    },
+    "reservations": {}
+  },
+  "npcCompanions": [],
+  "currentAct": 0,
+  "currentScene": 0,
+  "log": [],
+  "companionPlayers": {
+    "d4d5d6d7-e8e9-4f0f-1a2a-3b3b4c4c5d5d": {
+      "email": "tom.chamberlain@gmail.com",
+      "name": "tomchamberlain",
+      "joinedAt": "2026-03-15T22:06:39.604Z",
+      "characterId": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
+      "characterName": "Aelindra Mossweave"
+    }
+  },
+  "pendingTurns": {
+    "tom.chamberlain@gmail.com": {
+      "playerEmail": "tom.chamberlain@gmail.com",
+      "playerName": "tomchamberlain",
+      "npcId": "d4d5d6d7-e8e9-4f0f-1a2a-3b3b4c4c5d5d",
+      "npcName": "Jimjar",
+      "characterName": "Aelindra Mossweave",
+      "text": "I'm here.",
+      "isHost": false,
+      "submittedAt": "2026-03-15T22:06:41.886Z"
+    }
+  }
+}

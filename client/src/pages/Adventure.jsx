@@ -3,6 +3,7 @@ import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import RichText from '../components/RichText';
 import { getCollapseThreshold } from '../utils/displaySettings';
+import { parseGold } from '../utils/gold';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
@@ -351,6 +352,16 @@ function Adventure({
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuest]);
+
+  // Re-fetch characters and NPCs after DM turns complete (to reflect session-scoped edits)
+  const prevStatusRef = useRef(status);
+  useEffect(() => {
+    if (prevStatusRef.current === 'thinking' && status === 'idle' && sessionActive) {
+      api.getCharacters().then(setCharacters).catch(() => {});
+      api.getNpcs().then(setNpcs).catch(() => {});
+    }
+    prevStatusRef.current = status;
+  }, [status, sessionActive]);
 
   // Load saved sessions for setup screen (re-fetch when campaign changes or another player creates/deletes)
   useEffect(() => {
@@ -1177,6 +1188,13 @@ Set the scene and begin the story.`;
               >
                 <span className={`party-status-dot ${isHost || hostOnline ? 'online' : 'offline'}`} />
                 <span className="party-status-name">{activeCharacter?.name || 'Host'}</span>
+                {activeCharacter?.hitPoints && (
+                  <span className="party-status-hp">
+                    <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (activeCharacter.hitPoints.current / activeCharacter.hitPoints.max) * 100))}%` }} /></span>
+                    <span className="party-hp-text">{activeCharacter.hitPoints.current}/{activeCharacter.hitPoints.max}</span>
+                    <span className="party-ac">AC={activeCharacter.armorClass ?? '?'}</span>
+                  </span>
+                )}
                 <span className="party-status-role">
                   {hostName} (Host){!isHost && !hostOnline ? ' · Offline' : ''}
                   {Object.values(typingPlayers).some(t => t.isHost) ? ' · Typing...' : ''}
@@ -1211,6 +1229,13 @@ Set the scene and begin the story.`;
               >
                 <span className={`party-status-dot ${isPlayerControlled ? (isOnline ? 'online' : 'offline') : 'ai'}`} />
                 <span className="party-status-name">{displayName}</span>
+                {n.hitPoints && (
+                  <span className="party-status-hp">
+                    <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (n.hitPoints.current / n.hitPoints.max) * 100))}%` }} /></span>
+                    <span className="party-hp-text">{n.hitPoints.current}/{n.hitPoints.max}</span>
+                    <span className="party-ac">AC={n.armorClass ?? '?'}</span>
+                  </span>
+                )}
                 {isPlayerControlled ? (
                   <span className="party-status-role">
                     {isOnline ? participant.playerName : isAway ? participant.playerName : (companionReservations[n.id] ? friendNames[companionReservations[n.id]] || companionReservations[n.id] : 'Unjoined')}
@@ -1225,9 +1250,18 @@ Set the scene and begin the story.`;
         </div>
         {/* Character/NPC detail panel */}
         {selectedStatusEntry && (() => {
-          const entry = selectedStatusEntry === 'host'
-            ? activeCharacter
-            : npcs.find(n => n.id === selectedStatusEntry);
+          let entry;
+          if (selectedStatusEntry === 'host') {
+            entry = activeCharacter;
+          } else {
+            // Check if a companion player has replaced this NPC with their own character
+            const participant = sessionParticipants.find(p => p.companionNpcId === selectedStatusEntry);
+            if (participant?.companionCharacterId) {
+              entry = characters.find(c => c.id === participant.companionCharacterId);
+            }
+            // Fall back to the NPC data
+            if (!entry) entry = npcs.find(n => n.id === selectedStatusEntry);
+          }
           if (!entry) return null;
           return (
             <div className="party-detail-panel">
@@ -1237,11 +1271,23 @@ Set the scene and begin the story.`;
               </div>
               <div className="party-detail-stats">
                 <span>Level {entry.level} {entry.subrace ? (entry.subrace.toLowerCase().includes(entry.race.toLowerCase()) ? entry.subrace : `${entry.subrace} ${entry.race}`) : entry.race} {entry.class}</span>
-                <span>HP: {entry.hitPoints?.current ?? '?'}/{entry.hitPoints?.max ?? '?'} · AC: {entry.armorClass ?? '?'}</span>
+                <span>HP: {entry.hitPoints?.current ?? '?'}/{entry.hitPoints?.max ?? '?'} · AC: {entry.armorClass ?? '?'} · Gold: {parseGold(entry.equipment)} gp</span>
                 {entry.abilities && (
                   <span className="party-detail-abilities">
                     STR {entry.abilities.strength?.score} · DEX {entry.abilities.dexterity?.score} · CON {entry.abilities.constitution?.score} · INT {entry.abilities.intelligence?.score} · WIS {entry.abilities.wisdom?.score} · CHA {entry.abilities.charisma?.score}
                   </span>
+                )}
+                {entry.weapons && entry.weapons.length > 0 && (
+                  <span className="party-detail-line">Weapons: {entry.weapons.map(w => typeof w === 'string' ? w : w.name || '?').join(', ')}</span>
+                )}
+                {entry.equipment && entry.equipment.length > 0 && (
+                  <span className="party-detail-line">Equipment: {entry.equipment.map(e => typeof e === 'string' ? e : e.name || '?').join(', ')}</span>
+                )}
+                {entry.spells?.cantrips && entry.spells.cantrips.length > 0 && (
+                  <span className="party-detail-line">Cantrips: {entry.spells.cantrips.map(s => typeof s === 'string' ? s : s.name || '?').join(', ')}</span>
+                )}
+                {entry.spells?.level1 && (Array.isArray(entry.spells.level1) ? entry.spells.level1 : entry.spells.level1.known || []).length > 0 && (
+                  <span className="party-detail-line">Spells: {(Array.isArray(entry.spells.level1) ? entry.spells.level1 : entry.spells.level1.known || []).map(s => typeof s === 'string' ? s : s.name || '?').join(', ')}</span>
                 )}
               </div>
             </div>
