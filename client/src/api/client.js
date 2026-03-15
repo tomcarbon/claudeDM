@@ -144,4 +144,5 @@ export const api = {
   joinSession: (id, npcId) => fetchJson(`/sessions/${id}/join`, { method: 'POST', body: JSON.stringify({ npcId }) }),
   unjoinSession: (id, npcId) => fetchJson(`/sessions/${id}/unjoin`, { method: 'POST', body: JSON.stringify({ npcId }) }),
   addPlayerToSession: (id, data) => fetchJson(`/sessions/${id}/players`, { method: 'POST', body: JSON.stringify(data) }),
+  getSessionParty: (id) => fetchJson(`/sessions/${id}/party`),
 };

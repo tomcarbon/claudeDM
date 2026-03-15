@@ -1,0 +1,156 @@
+{
+  "id": "wl-npc-004",
+  "name": "Duchess Pepper",
+  "status": "alive",
+  "race": "Half-Orc",
+  "subrace": "",
+  "class": "Barbarian",
+  "level": 5,
+  "background": "Noble",
+  "alignment": "Chaotic Good",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 18,
+      "modifier": 4
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 49,
+    "current": 49
+  },
+  "armorClass": 14,
+  "speed": 40,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Persuasion",
+    "History"
+  ],
+  "languages": [
+    "Common",
+    "Sylvan",
+    "Orc"
+  ],
+  "equipment": [
+    "Chain shirt",
+    "The Duchess's Pepper Grinder (greatclub, see weapons)",
+    "A handaxe",
+    "A locket containing a portrait of a piglet in a bonnet",
+    "A tattered duchess's coronet (gold, worth 100 gp)",
+    "A bag of peppercorns (50)",
+    "A set of fine clothes (heavily stained with pepper and gravy)",
+    "Explorer's pack",
+    "Belt pouch containing 36 gp",
+    "A cookbook titled 'Too Much Pepper and Other Recipes'",
+    "A signet ring bearing the Pepper family crest (a mortar and pestle on a field of sneezing faces)"
+  ],
+  "weapons": [
+    {
+      "name": "The Duchess's Pepper Grinder (Greatclub)",
+      "attackBonus": 7,
+      "damage": "1d8+4",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Handaxe",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Unarmed Strike",
+      "attackBonus": 7,
+      "damage": "1d4+4",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Chain shirt",
+    "type": "medium"
+  },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Relentless Endurance (when reduced to 0 HP but not killed, drop to 1 HP instead, once per long rest)",
+    "Savage Attacks (extra damage die on melee critical hits)",
+    "Menacing (proficiency in Intimidation)",
+    "Rage (3/day — advantage on STR checks/saves, +2 rage damage, resistance to bludgeoning/piercing/slashing; lasts 1 minute)",
+    "Unarmored Defense (AC = 10 + DEX + CON when not wearing armor; wears chain shirt instead for 14 AC)",
+    "Reckless Attack (advantage on melee STR attacks this turn, attacks against you have advantage until next turn)",
+    "Danger Sense (advantage on DEX saves against effects you can see)",
+    "Extra Attack (attack twice when taking the Attack action)",
+    "Fast Movement (+10 ft. speed when not wearing heavy armor)",
+    "Primal Path: Wild Magic",
+    "Magic Awareness (as an action, detect magic within 60 ft. until end of next turn, proficiency bonus times per long rest)",
+    "Wild Surge (when entering rage, roll on the Wild Magic table for a random magical effect — reflavored as Wonderland chaos: pepper clouds, random polymorphs, gravity inversions, sneezing fits that deal thunder damage, etc.)",
+    "Position of Privilege (Noble feature — common folk defer to you, can secure audiences with other nobles)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Relentless Endurance",
+    "Savage Attacks",
+    "Rage",
+    "Reckless Attack",
+    "Danger Sense",
+    "Extra Attack",
+    "Wild Surge"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am LOUD about everything. I grab people by the shoulders when making a point. I find a moral in every situation and announce it whether anyone wants to hear it or not. I season every meal with pepper — far too much pepper — and consider this a sign of refined taste.",
+    "ideals": "Justice. Everyone deserves to be treated fairly, whether they're a duchess or a dishwasher. The Queen treats everyone like disposable playing cards, and THAT is the real madness in Wonderland.",
+    "bonds": "I had a baby once. The Queen's magic turned it into a piglet. I keep a locket with its portrait and I will never forgive the Queen for what she did. I also feel protective of the card-soldier painters — they remind me of my household staff, loyal servants punished for things that aren't their fault.",
+    "flaws": "I cannot modulate my volume or my emotions. Everything I feel, I feel at maximum intensity. My wild magic surges are unpredictable and occasionally dangerous to allies. I also have an unfortunate habit of shaking people while lecturing them, which is physically uncomfortable when you're a half-orc with an 18 Strength."
+  },
+  "appearance": "A towering half-orc woman standing 6'2\" with olive-green skin, a broad, expressive face, and thick black hair pulled up in a disheveled noblewoman's updo that is slowly collapsing. Her tusks are capped in gold — a remnant of her wealthy days — and her eyes are a startling amber that blaze when she's angry (which is often). She wears a chain shirt beneath what was once a magnificent court dress in deep purple and gold, now tattered, stained, and modified for combat. A battered coronet sits askew on her head, and she refuses to remove it because 'I am STILL a duchess, regardless of what that card-faced harridan declares.' She carries an enormous pepper grinder — nearly four feet tall, made of dark wood and brass — which she uses as both weapon and seasoning device. The air around her perpetually smells of black pepper, and people near her tend to sneeze.",
+  "backstory": "Duchess Pepper was one of the most powerful nobles in Wonderland before the Queen of Hearts consolidated total power. She held the Pepper Duchy — a region famous for its spice gardens, enthusiastic cuisine, and a tradition of governance best described as 'benevolent chaos.' The Duchess ran her domain with boisterous generosity: festivals were loud, meals were enormous and heavily spiced, and everyone was welcome at her table. She was also known for her philosophical pronouncements, each one beginning with 'The moral of that is—' followed by surprisingly wise (if bluntly delivered) observations. Everything changed at the Queen's Grand Banquet. The Duchess, seated at the royal table, found the Queen's food bland and added pepper. Lots of pepper. The Queen sneezed. The court laughed. The Queen did not laugh. Within a week, the Duchess was stripped of her title, her lands were seized, and — in a final, cruel act of magical punishment — the Queen transformed the Duchess's infant child into a piglet. The Duchess has never recovered from the loss. She fled into the wilds of Wonderland, where her fury transformed into something raw and powerful — the Wild Magic of Wonderland itself, channeled through her rage. Now she wanders the realm, fighting the Queen's soldiers wherever she finds them, protecting those too weak to protect themselves, and waiting for the day she can storm the Palace of Hearts and make the Queen answer for everything she has taken. The pepper grinder was her great-grandmother's, the only possession she saved from the seizure. She has killed more card-soldiers with it than she can count.",
+  "dmNotes": {
+    "roleplaying": "The Duchess is comic gold with a core of genuine pathos. Play her at maximum volume — she SHOUTS philosophical observations mid-combat, GRABS party members to make points, and seasons everything with pepper (including things that should not be seasoned, like potions and wounds). Her Wild Magic surges should be played for maximum Wonderland chaos — roll on the standard Wild Magic table but reflavor every result: a fireball becomes a pepper explosion, a polymorph turns someone into a piglet (triggering her trauma), a gravity reversal is announced with 'The moral of THAT is — what goes up MUST come sideways!' But beneath the comedy is real pain. She lost her child, her home, her title, and her world. When the locket comes out, when she talks about the baby, the comedy stops entirely. These moments should be rare and devastating. She is also genuinely wise — her 'morals' are absurd on the surface but often contain real tactical or philosophical insight if the party listens.",
+    "voice": "BOOMING, emphatic, and punctuated with grand gestures. She cannot say anything quietly. 'The MORAL of THAT is — never trust a queen who doesn't like PEPPER! A person who doesn't like pepper doesn't like LIFE, and a person who doesn't like life will TAKE yours without a second THOUGHT!' She laughs like a thunderstorm — huge, rolling, infectious. When angry (at the Queen), her voice becomes low and dangerous, which is more frightening because of the contrast: 'She took my baby. She turned my child into an animal and laughed while I wept. I will walk into that palace. I will find that throne. And I will grind her crown to POWDER.' When philosophical: 'Everything's got a moral, if only you can find it. The moral of sharing a campfire is that warmth multiplied is warmth doubled. The moral of THAT is — stay close to the people who make you warm.'",
+    "motivations": "Primary: Destroy the Queen of Hearts. This is not negotiable, not redirectable, and not something she will ever let go. The Queen took her child, and the Duchess will have vengeance or die trying. Secondary: Protect the vulnerable. The Duchess lost everything and cannot stand to watch others suffer the same fate. She is fiercely protective of anyone the Queen threatens, especially the card-soldier painters who face execution for trivial offenses. Tertiary: Find her child. The piglet is somewhere in Wonderland. The Duchess has never stopped looking. If the party can help her find and restore her baby, her loyalty becomes absolute and eternal.",
+    "secrets": "The Duchess's baby was not simply polymorphed — the Queen used a piece of the Shattered Looking Glass to transform the child, which means the transformation can only be reversed by the restored Looking Glass. The Duchess doesn't know this, but she will realize it if the party discusses the Looking Glass restoration in her presence. She also knows that the Queen's cook — a fearsome woman who nearly killed the Duchess with a frying pan during the banquet incident — is actually a reluctant servant who could be turned into an informant. The cook hates the Queen as much as the Duchess does, but is bound by fear. Finally, the Duchess's pepper grinder is mildly magical — when used to season food, it has a 10% chance of producing a random beneficial effect (as a random potion) because Wonderland's chaos magic has seeped into it over the years.",
+    "attitude": "The Duchess is aggressively friendly. She likes everyone until given reason not to, and she expresses affection through physical contact (bear hugs, shoulder grabs, enthusiastic back-slapping that knocks people off their feet). She bonds instantly with other warriors and fighters — she respects anyone who fights with passion. She is suspicious of rogues and anyone who operates through deception — she believes in saying exactly what you mean, loudly. She has complicated feelings about the Cheshire Cat — she finds him infuriating (he speaks in riddles; she speaks in declarations) but acknowledges that his intelligence has saved lives. She is fiercely protective of Warren the White Rabbit, whom she considers a 'poor, frightened little man doing his best in impossible circumstances.' She loathes anyone who serves the Queen willingly."
+  }
+}

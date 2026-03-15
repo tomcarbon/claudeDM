@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
-const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug } = require('../player-data');
+const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, getPlayerNpcsDir, provisionPlayerDefaults } = require('../player-data');
 const { broadcastToAll } = require('../ws-handler');
 
 const DEFAULT_SETTINGS = {
@@ -651,6 +651,80 @@ module.exports = function (dataDir) {
       session.updatedAt = new Date().toISOString();
       fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
       res.status(201).json(player);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // GET party members for a session (filtered characters + NPCs)
+  router.get('/:id/party', (req, res) => {
+    try {
+      const requester = getAuthenticatedPlayer(dataDir, req);
+      if (!requester) {
+        return res.status(401).json({ error: 'Login required.' });
+      }
+
+      // Find session file
+      let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
+      if (!fs.existsSync(filePath)) {
+        filePath = findSessionFile(req.params.id, req.campaignId);
+        if (!filePath) {
+          return res.status(404).json({ error: 'Session not found' });
+        }
+        const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+        const settings = getSessionSettings(data);
+        if (settings.visibility !== 'public') {
+          return res.status(404).json({ error: 'Session not found' });
+        }
+      }
+
+      const session = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      const ownerEmail = getOwnerEmail(session);
+      const campaignId = req.campaignId;
+      const sessionId = session.id;
+      const states = session.companionConfig?.states || {};
+      const claimed = session.companionPlayers || {};
+
+      // --- Characters: owner's selected PC ---
+      const characters = [];
+      if (ownerEmail && session.characterId) {
+        const charDir = getSessionCharactersDir(dataDir, ownerEmail, campaignId, sessionId);
+        const fallbackDir = getPlayerCharactersDir(dataDir, ownerEmail, campaignId);
+        const dir = fs.existsSync(charDir) ? charDir : (fs.existsSync(fallbackDir) ? fallbackDir : null);
+        if (dir) {
+          const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+          for (const f of files) {
+            try {
+              const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
+              if (data.id === session.characterId) {
+                characters.push(data);
+                break;
+              }
+            } catch { /* skip malformed */ }
+          }
+        }
+      }
+
+      // --- NPCs: exclude removed and claimed-by-companion-player ---
+      const npcs = [];
+      if (ownerEmail) {
+        const npcDir = getSessionNpcsDir(dataDir, ownerEmail, campaignId, sessionId);
+        const fallbackDir = getPlayerNpcsDir(dataDir, ownerEmail, campaignId);
+        const dir = fs.existsSync(npcDir) ? npcDir : (fs.existsSync(fallbackDir) ? fallbackDir : null);
+        if (dir) {
+          const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+          for (const f of files) {
+            try {
+              const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
+              if (states[data.id] === 'removed' || claimed[data.id]) continue;
+              const { dmNotes, ...safe } = data;
+              npcs.push(safe);
+            } catch { /* skip malformed */ }
+          }
+        }
+      }
+
+      res.json({ characters, npcs });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

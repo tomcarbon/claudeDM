@@ -6,7 +6,6 @@ import CharacterCard from '../components/CharacterCard';
 function CharacterList() {
   const { player } = usePlayer();
   const [characters, setCharacters] = useState([]);
-  const [partyCharacters, setPartyCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [rolling, setRolling] = useState(false);
@@ -18,22 +17,11 @@ function CharacterList() {
       setLoading(false);
       return;
     }
-    if (sessionActive) {
-      // Fetch both: session party (with session headers) and personal roster (without)
-      Promise.all([
-        api.getCharacters().catch(() => []),
-        api.getMyCharacters().catch(() => []),
-      ]).then(([party, personal]) => {
-        setPartyCharacters(party);
-        setCharacters(personal);
-      }).catch(e => setError(e.message))
-        .finally(() => setLoading(false));
-    } else {
-      api.getCharacters()
-        .then(loaded => { setCharacters(loaded); setPartyCharacters([]); })
-        .catch(e => setError(e.message))
-        .finally(() => setLoading(false));
-    }
+    const fetcher = sessionActive ? api.getMyCharacters() : api.getCharacters();
+    fetcher
+      .then(loaded => setCharacters(loaded))
+      .catch(e => setError(e.message))
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => { loadCharacters(); }, [player]);
@@ -123,20 +111,6 @@ function CharacterList() {
 
   return (
     <div>
-      {sessionActive && partyCharacters.length > 0 && (
-        <>
-          <h2>Current Party</h2>
-          <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
-            Live session state — reflects the latest changes from gameplay.
-          </p>
-          <div className="card-grid">
-            {partyCharacters.map(c => (
-              <CharacterCard key={`party-${c.id}`} character={c} />
-            ))}
-          </div>
-          <div style={{ borderTop: '1px solid var(--border)', margin: '2rem 0' }} />
-        </>
-      )}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2>{sessionActive ? 'My Characters' : 'Player Characters'}</h2>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
