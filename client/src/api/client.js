@@ -120,7 +120,6 @@ export const api = {
   updateGlobalDmSettings: (data) => fetchJson('/dm-settings/global', { method: 'PUT', body: JSON.stringify(data) }),
 
   // Settings
-  restoreDefaults: (scope) => fetchJson(`/settings/restore-defaults${scope ? `?scope=${scope}` : ''}`, { method: 'POST' }),
   resetMyData: (scope, id) => fetchJson(`/settings/reset-my-data?scope=${scope}${id ? `&id=${id}` : ''}`, { method: 'POST' }),
 
   // Players / Auth

@@ -828,6 +828,11 @@
   gap: 1rem;
   align-items: center;
 }
+.adventure-session-label {
+  font-style: italic;
+  color: var(--text);
+  font-size: 0.95em;
+}
 .adventure-scenario {
   font-weight: bold;
   color: var(--gold);
@@ -2549,4 +2554,92 @@
     max-width: 100%;
     border-left: none;
   }
+}
+
+/* ── ELI5 Page ── */
+
+.eli5-section {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.eli5-section h3 {
+  margin-bottom: 0.75rem;
+  color: var(--gold);
+}
+
+.eli5-section p {
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.eli5-steps {
+  padding-left: 1.25rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.eli5-steps li {
+  margin-bottom: 0.75rem;
+}
+
+.eli5-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.eli5-table th,
+.eli5-table td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.eli5-table th {
+  color: var(--gold);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.eli5-tips {
+  list-style: none;
+  padding: 0;
+}
+
+.eli5-tips li {
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.eli5-tips li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.eli5-faq dt {
+  font-weight: bold;
+  color: var(--text);
+  margin-top: 1rem;
+}
+
+.eli5-faq dt:first-child {
+  margin-top: 0.25rem;
+}
+
+.eli5-faq dd {
+  margin-left: 0;
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  line-height: 1.6;
 }

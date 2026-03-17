@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 
@@ -93,6 +93,32 @@ function DmSettings() {
   const isShuffleEnabled = !!settings?.aiDailyShuffle;
   const canEdit = isLoggedIn && !isShuffleEnabled;
   const activePreset = getMatchingPreset(settings);
+  const initialLoadDone = useRef(false);
+  const autosaveTimer = useRef(null);
+
+  const doSave = useCallback(async (settingsToSave) => {
+    setSaving(true);
+    try {
+      const result = await api.updateDmSettings(settingsToSave);
+      setIsPersonalized(!!result._isPersonalized);
+      setSettings(result);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    } catch (err) {
+      console.error('Failed to save DM settings:', err);
+    }
+    setSaving(false);
+  }, []);
+
+  // Autosave after 800ms of inactivity when settings change
+  useEffect(() => {
+    if (!initialLoadDone.current || !canEdit) return;
+    if (autosaveTimer.current) clearTimeout(autosaveTimer.current);
+    autosaveTimer.current = setTimeout(() => {
+      doSave(settings);
+    }, 800);
+    return () => { if (autosaveTimer.current) clearTimeout(autosaveTimer.current); };
+  }, [settings, canEdit, doSave]);
 
   useEffect(() => {
     api.getDmSettings()
@@ -105,7 +131,7 @@ function DmSettings() {
         horror: 20, puzzleFocus: 50, playerAutonomy: 50, tone: 'balanced',
         narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
       }))
-      .finally(() => setLoading(false));
+      .finally(() => { setLoading(false); setTimeout(() => { initialLoadDone.current = true; }, 0); });
   }, []);
 
   const updateSlider = (key, value) => {
@@ -126,17 +152,8 @@ function DmSettings() {
 
   const handleSave = async () => {
     if (!canEdit) return;
-    setSaving(true);
-    try {
-      const result = await api.updateDmSettings(settings);
-      setIsPersonalized(!!result._isPersonalized);
-      setSettings(result);
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
-    } catch (err) {
-      console.error('Failed to save DM settings:', err);
-    }
-    setSaving(false);
+    if (autosaveTimer.current) clearTimeout(autosaveTimer.current);
+    doSave(settings);
   };
 
   const handleReset = async () => {
@@ -312,6 +329,9 @@ function DmSettings() {
           </button>
         )}
         {saved && <span style={{ color: '#27ae60' }}>Settings saved!</span>}
+        {canEdit && !saving && !saved && (
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.85em' }}>Changes are saved automatically</span>
+        )}
       </div>
     </div>
   );

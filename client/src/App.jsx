@@ -14,6 +14,7 @@ import DmSettings from './pages/DmSettings';
 import Settings from './pages/Settings';
 import Adventure from './pages/Adventure';
 import Home from './pages/Home';
+import Eli5 from './pages/Eli5';
 import WorldMapPage from './pages/WorldMapPage';
 import useWebSocket from './hooks/useWebSocket';
 import { PlayerProvider, usePlayer } from './context/PlayerContext';
@@ -77,6 +78,7 @@ function AppContent() {
       <nav className="sidebar">
         <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : 'Single Player Demo'}</span></h1>
         <ul>
+          <li><NavLink to="/eli5">ELI5</NavLink></li>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
           <li><NavLink to="/current-party" className="nav-sub">Current Party</NavLink></li>
@@ -118,6 +120,7 @@ function AppContent() {
         <Routes>
           <Route path="/adventure" element={null} />
           <Route path="/" element={<Home />} />
+          <Route path="/eli5" element={<Eli5 />} />
           <Route path="/whats-new" element={<WhatsNew />} />
           <Route path="/current-party" element={<CurrentParty />} />
           <Route path="/characters" element={<CharacterList />} />

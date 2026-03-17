@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
+import { useCampaign } from '../context/CampaignContext';
 import { getAudioSettings, saveAudioSettings, previewSound, SOUND_OPTIONS } from '../utils/audio';
 import { getDisplaySettings, saveDisplaySettings } from '../utils/displaySettings';
 
 function Settings() {
   const { player } = usePlayer();
+  const { campaignId } = useCampaign();
   const isAdmin = player?.role === 'admin';
-  const [restoring, setRestoring] = useState(false);
-  const [restored, setRestored] = useState(false);
   const [loadingShuffle, setLoadingShuffle] = useState(true);
   const [savingShuffle, setSavingShuffle] = useState(false);
   const [shuffleEnabled, setShuffleEnabled] = useState(false);
@@ -88,22 +88,6 @@ function Settings() {
     setSavingDice(false);
   };
 
-  const handleRestore = async () => {
-    if (!window.confirm('Are you sure you want to restore all data to defaults? This will overwrite any changes made during gameplay.')) {
-      return;
-    }
-
-    setRestoring(true);
-    try {
-      await api.restoreDefaults();
-      setRestored(true);
-      setTimeout(() => setRestored(false), 3000);
-    } catch (err) {
-      alert('Failed to restore defaults: ' + err.message);
-    }
-    setRestoring(false);
-  };
-
   const handleResetMyData = async (scope) => {
     const labels = { all: 'all characters and NPCs', characters: 'all characters', npcs: 'all NPCs' };
     if (!window.confirm(`Reset ${labels[scope]} to defaults? Your current game progress for these will be lost.`)) {
@@ -172,9 +156,11 @@ function Settings() {
       </p>
 
       <div className="detail-section">
-        <h3>Reset My Data</h3>
+        <h3>Reset My Data — <em style={{ color: 'var(--gold)' }}>{campaignId}</em> campaign</h3>
         <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
-          Reset your personal character and NPC data to defaults. This will undo any XP, equipment, or stat changes from gameplay. Session history is preserved.
+          Reset your personal character and NPC data to defaults for the <strong>{campaignId}</strong> campaign.
+          This will undo any XP, equipment, or stat changes from gameplay. Session history is preserved.
+          To reset a different campaign, select it from the Home page first.
         </p>
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
           <button
@@ -428,18 +414,6 @@ function Settings() {
             </div>
           </div>
 
-          <div className="detail-section">
-            <h3>Admin: Restore Global Defaults</h3>
-            <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
-              Reset global game data to its original state. This affects the default templates, not individual player data.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <button onClick={handleRestore} disabled={restoring}>
-                {restoring ? 'Restoring...' : 'Restore All to Defaults'}
-              </button>
-              {restored && <span style={{ color: '#27ae60' }}>Defaults restored!</span>}
-            </div>
-          </div>
         </>
       )}
     </div>

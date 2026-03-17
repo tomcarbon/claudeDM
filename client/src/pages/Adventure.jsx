@@ -131,6 +131,7 @@ function Adventure({
   const [selectedStatusEntry, setSelectedStatusEntry] = useState(null); // npcId or 'host' for detail panel
   const [pendingOpeningPrompt, setPendingOpeningPrompt] = useState(null); // held until host clicks "Start Adventure"
   const [loadingSessionId, setLoadingSessionId] = useState(null);
+  const [activeSessionLabel, setActiveSessionLabel] = useState('');
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
@@ -564,6 +565,7 @@ Set the scene and begin the story.`;
         setSavedSessionDbId(result.id);
         if (sessionLabel.trim()) {
           api.renameSession(result.id, sessionLabel.trim()).catch(() => {});
+          setActiveSessionLabel(sessionLabel.trim());
         }
       }
       watchSession(result.id, player);
@@ -641,6 +643,7 @@ Set the scene and begin the story.`;
       setSelectedCharacter(session.characterId);
       setSelectedScenario(session.scenarioId);
       setSavedSessionDbId(session.id);
+      setActiveSessionLabel(session.label || '');
       const readOnly = session.readOnly === true || session.canWrite === false;
       setSessionReadOnly(readOnly);
       setSessionSettings(session.settings || { visibility: 'public' });
@@ -1090,6 +1093,7 @@ Set the scene and begin the story.`;
         {/* Session info bar */}
         <div className="adventure-header">
           <div className="adventure-info">
+            {activeSessionLabel && <span className="adventure-session-label">&ldquo;{activeSessionLabel}&rdquo;</span>}
             <span className="adventure-scenario">{activeCampaign?.title || activeScenario?.title}</span>
             {isCompanion
               ? <span className="adventure-character">Playing as {companionCharacter?.name || companionNpc?.name || 'Companion'}</span>
