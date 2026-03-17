@@ -110,21 +110,29 @@ function loadDmSettings(dataDir, playerEmail) {
 }
 
 function loadCharacter(dataDir, characterId, playerEmail, campaignId, sessionDbId) {
-  const dir = sessionDbId && playerEmail
-    ? getSessionCharactersDir(dataDir, playerEmail, campaignId, sessionDbId)
-    : playerEmail
-    ? getPlayerCharactersDir(dataDir, playerEmail, campaignId)
-    : path.join(dataDir, 'characters');
-  try {
-    const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-    for (const file of files) {
-      const data = loadJson(path.join(dir, file));
-      if (data && data.id === characterId) {
-        data._filename = file;
-        return data;
+  // Search session-scoped dir first, then fall back to player's main dir
+  const dirs = [];
+  if (sessionDbId && playerEmail) {
+    dirs.push(getSessionCharactersDir(dataDir, playerEmail, campaignId, sessionDbId));
+  }
+  if (playerEmail) {
+    dirs.push(getPlayerCharactersDir(dataDir, playerEmail, campaignId));
+  }
+  if (dirs.length === 0) {
+    dirs.push(path.join(dataDir, 'characters'));
+  }
+  for (const dir of dirs) {
+    try {
+      const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+      for (const file of files) {
+        const data = loadJson(path.join(dir, file));
+        if (data && data.id === characterId) {
+          data._filename = file;
+          return data;
+        }
       }
-    }
-  } catch { /* dir may not exist */ }
+    } catch { /* dir may not exist */ }
+  }
   return null;
 }
 

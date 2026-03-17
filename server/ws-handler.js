@@ -361,20 +361,29 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       }
     }
 
+    // Get all joined companion emails from the session file (not just connected ones)
+    function getJoinedCompanionEmails(sessionDbId) {
+      const session = readSessionByDbId(sessionDbId);
+      if (!session || !session.companionPlayers) return [];
+      return Object.values(session.companionPlayers)
+        .filter(cp => cp && cp.email)
+        .map(cp => cp.email);
+    }
+
     function broadcastTurnStatus(sessionDbId) {
       if (!sessionRooms.has(sessionDbId)) return;
-      const companions = Array.from(sessionRooms.get(sessionDbId))
-        .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN);
-      const joinedCompanionCount = companions.length;
+      // Count ALL joined companions (from session file), not just connected ones
+      const joinedEmails = getJoinedCompanionEmails(sessionDbId);
+      const joinedCompanionCount = joinedEmails.length;
       // Check host turn from in-memory sessionTurns (host stores turn with npcId=null)
       const allTurns = sessionTurns.has(sessionDbId)
         ? Array.from(sessionTurns.get(sessionDbId).values())
         : [];
       const hostSubmitted = allTurns.some(t => t.isHost);
-      const companionSubmittedCount = allTurns.filter(t => !t.isHost && companions.some(c => c.playerEmail === t.playerEmail)).length;
+      const submittedEmails = allTurns.filter(t => !t.isHost).map(t => t.playerEmail);
+      const companionSubmittedCount = joinedEmails.filter(email => submittedEmails.includes(email)).length;
       const submittedCount = (hostSubmitted ? 1 : 0) + companionSubmittedCount;
-      const totalExpected = 1 + joinedCompanionCount; // host + companions
-      const allReady = hostSubmitted && companionSubmittedCount >= joinedCompanionCount && joinedCompanionCount > 0;
+      const allReady = hostSubmitted && joinedCompanionCount > 0 && companionSubmittedCount >= joinedCompanionCount;
       const pendingTurns = allTurns.map(t => ({
         playerEmail: t.playerEmail,
         playerName: t.playerName,
@@ -407,12 +416,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         : [];
       const hostTurn = allTurns.find(t => t.isHost);
       if (!hostTurn) return;
-      const companions = Array.from(sessionRooms.get(sessionDbId))
-        .filter(e => e.companionNpcId && e.ws.readyState === e.ws.OPEN);
-      if (companions.length === 0) return; // no companions connected — don't auto-fire
-      const companionEmails = companions.map(c => c.playerEmail);
+      // Check against ALL joined companions (from session file), not just connected ones
+      const joinedEmails = getJoinedCompanionEmails(sessionDbId);
+      if (joinedEmails.length === 0) return; // no companions joined — host must click Continue
       const submittedEmails = allTurns.filter(t => !t.isHost).map(t => t.playerEmail);
-      const allReady = companionEmails.every(email => submittedEmails.includes(email));
+      const allReady = joinedEmails.every(email => submittedEmails.includes(email));
       if (!allReady) return;
 
       // Everyone is ready — fire DM
@@ -1110,6 +1118,15 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                     const charDataToWrite = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
                     fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
                     console.log(`[WS] Updated companion character "${msg.characterData.name}" in host's roster: ${destPath}`);
+                  }
+                  // Also copy to session-scoped directory if a session snapshot exists
+                  // (session snapshot was taken before companion joined, so it's missing this character)
+                  const sessCharDir = getSessionCharactersDir(dataDir, hostEntry.playerEmail, hostCampaignId, currentSessionDbId);
+                  if (fs.existsSync(sessCharDir)) {
+                    const sessDestPath = path.join(sessCharDir, `${charSlug}.json`);
+                    const charDataToWrite2 = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
+                    fs.writeFileSync(sessDestPath, JSON.stringify(charDataToWrite2, null, 2));
+                    console.log(`[WS] Copied companion character "${msg.characterData.name}" to session dir: ${sessDestPath}`);
                   }
                 } else {
                   console.warn(`[WS] Host has ${charCount} characters, skipping companion character copy (limit: 50)`);
