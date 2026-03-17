@@ -1,10 +1,26 @@
-export const CURRENT_VERSION = '1.0.8';
+export const CURRENT_VERSION = '1.0.9';
 
 export const CHANGELOG = [
   {
+    version: '1.0.9',
+    date: '2026-03-17',
+    title: 'Current Release',
+    compareFrom: '1.0.8',
+    compareRef: '018a21f ("v1.0.8 finalization and whats up section update.")',
+    highlights: [
+      'New campaign: "Storm of the Giants" (campaign3) — a premium open-world adventure spanning levels 5–15 with 4 linked scenarios across giant-controlled regions (hill, frost, fire, and storm giants), 8 playable characters, and 5 NPC companions.',
+      'DM subroutine modules: three new server-side utility engines — calendar tracking (day/hour progression, weather generation, event scheduling), combat management (initiative, round tracking, conditions, HP), and resource management (spell slots, consumables, rest processing) — giving the AI DM programmatic game-state tools alongside narrative.',
+      'Character roll call persistence: companion players\' characters are now copied into the host\'s data directory on join, with a `_companionOwner` field for origin tracking, so XP, inventory, and HP updates persist correctly across multiplayer sessions.',
+      'Companion character transfer fix: newly rolled companion player characters now properly sync to the host\'s session state via WebSocket, fixing a bug where custom-rolled companions were invisible to the host\'s DM context.',
+      'ELI5 page: new public `/eli5` information page explaining D&D 5e basics, how the app works, a 5-step quick-start guide, page-by-page navigation help, multiplayer mechanics, and FAQ — designed to onboard players new to D&D.',
+      'Settings audit: removed the admin "delete all" bulk-reset endpoint; character and NPC resets are now scoped per-campaign with individual reset options, reducing the risk of accidental data loss.',
+      'DM Settings cleanup: admin daily shuffle toggle for DM Personality rotation (locks manual sliders when enabled), with persistence across restarts.',
+    ],
+  },
+  {
     version: '1.0.8',
     date: '2026-03-15',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.7',
     compareRef: '8ef0ceb ("new current party submenu item under play.")',
     highlights: [
