@@ -79,6 +79,7 @@ function AppContent() {
         <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : campaignId === 'campaign3' ? 'Storm of the Giants' : 'Single Player Demo'}</span></h1>
         <ul>
           <li><NavLink to="/eli5">ELI5</NavLink></li>
+          <li><NavLink to="/whats-new">What&apos;s New</NavLink></li>
         </ul>
         <div className="sidebar-divider" />
         <ul>
@@ -96,7 +97,6 @@ function AppContent() {
         </ul>
         <div className="sidebar-divider" />
         <ul>
-          <li><NavLink to="/whats-new">What&apos;s New</NavLink></li>
           <li><NavLink to="/dm-settings">DM Personality</NavLink></li>
           {player && <li><NavLink to="/settings">Settings</NavLink></li>}
         </ul>
