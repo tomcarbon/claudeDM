@@ -1,0 +1,118 @@
+{
+  "id": "aff88ada-f5de-4408-bbf5-5b3ee0151ad6",
+  "name": "Wellsby Dankil",
+  "status": "alive",
+  "race": "Dwarf",
+  "subrace": "Mountain Dwarf",
+  "class": "Druid",
+  "level": 1,
+  "background": "Folk Hero",
+  "alignment": "Chaotic Evil",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 11,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 10,
+    "current": 10
+  },
+  "armorClass": 15,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "intelligence",
+    "wisdom"
+  ],
+  "skills": [
+    "Insight",
+    "Nature",
+    "Animal Handling",
+    "Survival"
+  ],
+  "languages": [
+    "Common",
+    "Dwarvish"
+  ],
+  "equipment": [
+    "A set of artisan's tools",
+    "A shovel",
+    "An iron pot",
+    "Common clothes",
+    "Belt pouch with 10 gp",
+    "Any simple weapon",
+    "Any simple melee weapon",
+    "Leather armor",
+    "Explorer's pack",
+    "Druidic focus",
+    "Dagger"
+  ],
+  "weapons": [
+    {
+      "name": "Dagger",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Scale Mail",
+    "type": "medium"
+  },
+  "features": [
+    "Druidic (You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You ...)",
+    "Spellcasting (Drawing on the divine essence of nature itself, you can cast spells to shape that essence to your will. Wisdom is you...)"
+  ],
+  "traits": [
+    "Darkvision (You can see in dim light within 60 feet of you as if it were bright light, and i...)",
+    "Dwarven Resilience (You have advantage on saving throws against poison, and you have resistance agai...)",
+    "Dwarven Combat Training (You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.)",
+    "Tool Proficiency (You gain proficiency with the artisan's tools of your choice: smith's tools, bre...)",
+    "Stonecunning (Whenever you make an Intelligence (History) check related to the origin of stone...)",
+    "Dwarven Speed (Your speed is not reduced by wearing heavy armor.)",
+    "Dwarven Armor Training (You have proficiency with light and medium armor.)"
+  ],
+  "spells": {
+    "spellcastingAbility": "Wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Druidcraft",
+      "Guidance"
+    ],
+    "spellSlots": {
+      "1st": 2
+    },
+    "knownSpells": []
+  },
+  "personality": {
+    "traits": "I always have a plan for what to do when things go wrong.",
+    "ideals": "Power. Knowledge is the path to power and domination.",
+    "bonds": "I will do anything to recover an ancient relic of my faith that was lost long ago.",
+    "flaws": "An innocent person is in prison for a crime that I committed."
+  },
+  "appearance": "Wellsby Dankil is a Mountain Dwarf Dwarf druid with a weathered look that speaks of many roads traveled.",
+  "backstory": "Wellsby grew up in a small village before folk hero life called. Now Wellsby seeks adventure and purpose in a dangerous world."
+}

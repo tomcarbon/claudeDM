@@ -1,0 +1,122 @@
+{
+  "id": "b4ce1917-e9f5-4f8b-90fe-13aeee9920ae",
+  "name": "Ea Chant",
+  "status": "alive",
+  "race": "Tiefling",
+  "subrace": "",
+  "class": "Bard",
+  "level": 1,
+  "background": "Sage",
+  "alignment": "Chaotic Evil",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 7,
+      "modifier": -2
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 17,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 6,
+    "current": 6
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "dexterity",
+    "charisma"
+  ],
+  "skills": [
+    "Athletics",
+    "Animal Handling",
+    "Survival",
+    "Arcana",
+    "History"
+  ],
+  "languages": [
+    "Common",
+    "Infernal",
+    "Goblin",
+    "Sylvan"
+  ],
+  "equipment": [
+    "Bottle of black ink",
+    "Quill",
+    "Small knife",
+    "A letter from a dead colleague posing a question you have not yet been able to answer",
+    "Common clothes",
+    "Belt pouch with 10 gp",
+    "Any simple weapon",
+    "Diplomat's pack",
+    "Lute",
+    "Leather armor",
+    "Dagger"
+  ],
+  "weapons": [
+    {
+      "name": "Dagger",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather Armor",
+    "type": "light"
+  },
+  "features": [
+    "Spellcasting (You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your spells are...)",
+    "Bardic Inspiration (You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one c...)"
+  ],
+  "traits": [
+    "Darkvision (You can see in dim light within 60 feet of you as if it were bright light, and i...)",
+    "Hellish Resistance (You have resistance to fire damage.)",
+    "Infernal Legacy (You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hel...)"
+  ],
+  "spells": {
+    "spellcastingAbility": "Charisma",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Mending",
+      "Prestidigitation"
+    ],
+    "spellSlots": {
+      "1st": 2
+    },
+    "knownSpells": [
+      "Detect Magic",
+      "Disguise Self",
+      "Speak with Animals",
+      "Charm Person"
+    ]
+  },
+  "personality": {
+    "traits": "I am slow to trust but fiercely loyal to those who earn it.",
+    "ideals": "Glory. I must prove myself worthy of my people's expectations.",
+    "bonds": "I owe a debt I can never repay to the person who took pity on me.",
+    "flaws": "I turn tail and run when things look bad."
+  },
+  "appearance": "Ea Chant is a Tiefling bard with a weathered look that speaks of many roads traveled.",
+  "backstory": "After years as a sage, Ea heard the call to adventure. Armed with bard training and hard-won wisdom, the journey begins."
+}

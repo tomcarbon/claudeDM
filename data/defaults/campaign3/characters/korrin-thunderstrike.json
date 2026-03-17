@@ -1,0 +1,144 @@
+{
+  "id": "sg-char-001",
+  "name": "Korrin Thunderstrike",
+  "status": "alive",
+  "race": "Goliath",
+  "subrace": "",
+  "class": "Barbarian",
+  "level": 5,
+  "background": "Outlander",
+  "alignment": "Chaotic Good",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 18,
+      "modifier": 4
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 49,
+    "current": 49
+  },
+  "armorClass": 15,
+  "speed": 40,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Perception",
+    "Survival",
+    "Intimidation"
+  ],
+  "languages": [
+    "Common",
+    "Giant"
+  ],
+  "equipment": [
+    "Greataxe",
+    "Javelin (4)",
+    "Explorer's pack",
+    "Stone totem of the Thuundar tribe (trophy/keepsake)",
+    "A necklace of storm giant teeth",
+    "Traveler's clothes",
+    "Hunting trap",
+    "Belt pouch containing 18 gp",
+    "Waterskin",
+    "Rations (5)",
+    "Bedroll",
+    "A map of stone giant territories scratched into leather",
+    "Flint and steel",
+    "A cracked thunder stone from the Spine of the World"
+  ],
+  "weapons": [
+    {
+      "name": "Greataxe",
+      "attackBonus": 7,
+      "damage": "1d12+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Javelin",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Unarmored Defense",
+    "type": "none"
+  },
+  "features": [
+    "Rage (3 uses per long rest — advantage on STR checks and saves, +2 melee damage, resistance to bludgeoning/piercing/slashing damage; lasts 1 minute, ends early if unconscious, haven't attacked or taken damage since last turn)",
+    "Unarmored Defense (AC = 10 + DEX modifier + CON modifier when not wearing armor; currently 10+2+3 = 15)",
+    "Reckless Attack (at the start of your turn, you can choose to attack recklessly — you gain advantage on all melee STR attack rolls this turn, but attacks against you also have advantage until your next turn)",
+    "Danger Sense (advantage on DEX saving throws against effects you can see, such as traps and spells; must not be blinded, deafened, or incapacitated)",
+    "Extra Attack (you can attack twice, instead of once, whenever you take the Attack action on your turn)",
+    "Fast Movement (your speed increases by 10 feet while you aren't wearing heavy armor; already included in speed of 40)",
+    "Path of the Storm Herald — Storm Aura: Tundra (while raging, the aura extends 10 feet from you; at the start of each of your turns while raging, each creature of your choice in the aura gains 3 temporary hit points, as icy cold invigorates your allies)",
+    "Stone's Endurance (Goliath racial — when you take damage, you can use your reaction to roll 1d12 + CON modifier and reduce the damage by that amount; usable once per short or long rest)",
+    "Powerful Build (Goliath racial — you count as one size larger when determining carry capacity and the weight you can push, drag, or lift)",
+    "Mountain Born (Goliath racial — you have resistance to cold damage and you're acclimated to high altitude, including elevations above 20,000 feet)",
+    "Wanderer (Outlander feature — you have an excellent memory for maps and geography, and can always recall the general layout of terrain and settlements; you can find food and fresh water for yourself and up to five others each day, provided the land offers such resources)"
+  ],
+  "traits": [
+    "Rage",
+    "Unarmored Defense",
+    "Reckless Attack",
+    "Danger Sense",
+    "Extra Attack",
+    "Fast Movement",
+    "Storm Aura (Tundra)",
+    "Stone's Endurance",
+    "Powerful Build",
+    "Mountain Born"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I speak in short, declarative sentences — words are stones, and I do not waste them. When thunder rolls across the sky, I stop whatever I am doing and listen, because my grandmother taught me that the giants speak through storms. I carve small stone figures during rests, one for each tribe member I have lost.",
+    "ideals": "The strong must protect the weak — not because it earns glory, but because strength without purpose is just destruction. The giants taught my people this once, and I believe it can be true again.",
+    "bonds": "I carry the stone totem of the Thuundar tribe — the last fragment of my people's identity. Every stone giant I meet, I show them the totem and ask: do you remember us? I will not rest until I understand why the Ordning shattered and my tribe's giant guardians turned against us.",
+    "flaws": "I trust giants more than I should, even after everything. When I see a stone giant, some part of me still sees the gentle sculptors who taught my grandmother to carve. This sentimentality will get me killed someday. I also struggle with reading and writing — my tribe had no need for books, and the marks on pages frustrate me."
+  },
+  "appearance": "Korrin stands seven feet four inches tall, a towering figure even among goliaths, with skin the color of granite after a rainstorm — pale grey shot through with darker veins of blue-black that trace across his body like river tributaries on a map. His head is shaved bare, revealing the bony growths common to his kind: ridges of stone-hard bone that crown his skull and run down the back of his neck like a mountain ridge. His eyes are a pale, glacial blue, startlingly bright against his grey skin, and they carry a permanent squint from years of staring across snow-blasted peaks. A network of ritual scars covers his chest and shoulders — geometric patterns that mirror the carvings his tribe's stone giant allies once etched into their mountain halls. The largest scar, directly over his heart, is the rune for 'endurance' in the Giant tongue, carved there by his grandmother during his naming ceremony. He wears no armor, trusting instead in the hardness of his own body and the cold fury of his rage. His clothing is practical — heavy hide breeches, thick-soled boots wrapped in mammoth leather, and a cloak of white winter wolf fur that he wears thrown back over one shoulder. Around his neck hangs a cord strung with storm giant teeth, each one as long as a human finger, collected from the ruins of his tribe's territory. The stone totem of the Thuundar tribe — a fist-sized chunk of carved granite depicting a mountain with lightning striking its peak — hangs from his belt, clicking against his leg as he walks.",
+  "backstory": "The Thuundar tribe lived in the shadow of the Spine of the World, in a high valley where the wind never stopped singing. For generations beyond counting, Korrin's people shared their territory with a clan of stone giants — the Stonerooters, as the goliaths called them, for the way they would stand motionless for days, meditating on the bones of the earth. It was an unusual arrangement. Goliaths and giants rarely coexisted so peacefully. But the Thuundar had earned the Stonerooters' respect generations ago, when a goliath chieftain named Vakara had saved a stone giant elder from an avalanche. Since then, the two peoples had lived in quiet symbiosis — the goliaths hunted and ranged across the peaks, bringing news of the wider world, while the stone giants carved great halls into the mountain and shared their knowledge of stone and storm.\n\nKorrin grew up learning the Giant tongue before he could properly speak Common. He learned to carve from stone giant artisans, to read weather from their sky-watchers, and to fight from their warriors — though he was barely knee-high to them. His grandmother, the tribe's elder, told him that the arrangement worked because of something called the Ordning — the great ordering that told each giant its place. The Stonerooters were peaceful because the Ordning gave them purpose: to create, to contemplate, to endure. As long as the Ordning held, the giants knew who they were.\n\nThen the Ordning shattered.\n\nKorrin was seventeen when it happened. He felt it as a tremor in the earth, a wrongness in the air, a silence where the mountain's hum had always been. The stone giants felt it as madness. Within days, the Stonerooters — gentle, contemplative beings who had carved art for centuries — began to act erratically. Some stopped moving entirely, frozen in poses of anguish. Others began to dig, clawing at the earth with desperate, mindless fury, as though searching for something buried impossibly deep. And some turned violent.\n\nThe attack came at dawn. Three Stonerooters — giants Korrin had known his entire life, giants who had names and voices and favorite songs — walked into the Thuundar camp and began to destroy everything. They threw boulders through tents, crushed goats beneath their feet, and swatted goliaths aside like insects. There was no malice in their eyes. That was the worst part. They looked confused, terrified, as though they did not understand what their own hands were doing.\n\nKorrin's grandmother pushed him into a crevasse as a boulder struck the ground where he had been standing. He heard her voice — one word, 'Run' — and then the sound of stone striking flesh. When he crawled out hours later, the camp was rubble. The stone giants were gone, wandered off into the peaks, still digging, still searching. Every member of the Thuundar tribe was dead.\n\nKorrin pulled the stone totem from the wreckage of his grandmother's tent. He collected the storm giant teeth from the tribe's trophy cord. And he walked south, out of the mountains, carrying everything his people had been in a belt pouch and a handful of scars. He has spent the years since then searching for answers. Why did the Ordning break? Why did the giants go mad? And is there any way to put it back together — not for the giants' sake, but for every small folk who once lived beside them in peace?"
+}

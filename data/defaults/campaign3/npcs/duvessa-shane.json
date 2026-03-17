@@ -1,0 +1,154 @@
+{
+  "id": "sg-npc-005",
+  "name": "Duvessa Shane",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Rogue",
+  "level": 5,
+  "background": "Noble",
+  "alignment": "Lawful Neutral",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 33,
+    "current": 33
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Persuasion",
+    "Deception",
+    "Insight",
+    "Investigation",
+    "History",
+    "Stealth"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Dwarvish",
+    "Giant",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Rapier",
+    "Hand crossbow",
+    "Crossbow bolts (20)",
+    "Burglar's pack",
+    "Thieves' tools",
+    "Fine clothes (fur-trimmed cloak and practical northern dress)",
+    "Signet ring of the Speaker of Bryn Shander",
+    "Belt pouch containing 50 gp",
+    "A sealed diplomatic pouch with forged Waterdeep credentials",
+    "Ink, quill, and sealing wax set",
+    "A coded journal (written in a personal cipher)",
+    "A map of Icewind Dale with giant sighting locations marked",
+    "A silver pendant gifted by her late father (non-magical, sentimental)"
+  ],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attackBonus": 6,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Hand Crossbow",
+      "attackBonus": 6,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded Leather Armor",
+    "type": "light"
+  },
+  "features": [
+    "Expertise (double proficiency bonus in Persuasion and Insight — +8 Persuasion, +8 Insight)",
+    "Sneak Attack (3d6 — once per turn, deal an extra 3d6 damage when you hit with a finesse or ranged weapon and have advantage, or when an ally is within 5 feet of the target)",
+    "Cunning Action (bonus action to Dash, Disengage, or Hide on each turn)",
+    "Uncanny Dodge (reaction — when an attacker you can see hits you with an attack, halve the attack's damage against you)",
+    "Roguish Archetype: Mastermind",
+    "Master of Intrigue (proficiency with the disguise kit, forgery kit, and gaming set; can unerringly mimic the speech patterns and accent of any creature she has heard speak for at least 1 minute)",
+    "Master of Tactics (use the Help action as a bonus action, and the ally you help can be up to 30 feet away rather than 5 feet)",
+    "Political Leverage (1/long rest, during a social encounter with a named NPC, shift that NPC's attitude one step more favorable — hostile to unfriendly, unfriendly to neutral, neutral to friendly. Duvessa leverages her political connections, knowledge of favors owed, and implied authority to smooth social situations.)",
+    "Speaker's Authority (in any civilized settlement, Duvessa can secure lodging, supplies, and an audience with local leadership within 1 hour by presenting her credentials and invoking her station as Speaker of Bryn Shander. Even outside Icewind Dale, the title carries weight.)",
+    "Noble: Position of Privilege (welcome in high society; common folk make every effort to accommodate you; can secure audiences with local nobility)",
+    "Observant (feat — +5 bonus to passive Perception and passive Investigation, giving her passive Perception 20 and passive Investigation 21; can read lips if she can see a creature's mouth and it is speaking a language she understands)"
+  ],
+  "traits": [
+    "Sneak Attack",
+    "Cunning Action",
+    "Uncanny Dodge",
+    "Master of Intrigue",
+    "Master of Tactics",
+    "Political Leverage",
+    "Speaker's Authority",
+    "Observant"
+  ],
+  "spells": {
+    "spellcastingAbility": "none",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I choose my words with surgical precision — every sentence is designed to convey exactly what I intend and nothing more. I read people the way soldiers read terrain: constantly, automatically, cataloguing tells, weaknesses, and leverage points. Despite this, I genuinely care about the people I represent; the calculation serves the compassion, not the other way around.",
+    "ideals": "Order. Civilization is a fragile construct that requires constant maintenance. Laws, diplomacy, and institutions are the walls that keep chaos at bay. I do not always agree with the rules, but I understand that without them, the strong simply take what they want from the weak — and the giant crisis has made that truth brutally literal.",
+    "bonds": "I am the Speaker of Bryn Shander — elected by the people of Ten-Towns to protect their interests. Every decision I make, every alliance I forge, every compromise I accept is weighed against one question: does this keep my people alive? The answer to that question defines my moral boundaries, for better and for worse.",
+    "flaws": "I am willing to sacrifice the few to save the many, and I make that calculation faster than most people find comfortable. I also carry forged credentials and maintain secret correspondence that would destroy my reputation if exposed. I tell myself these deceptions serve the greater good, but I am aware that everyone who sells their integrity says the same thing."
+  },
+  "appearance": "Duvessa Shane is a human woman in her early thirties — young for a political leader, which she compensates for with an bearing of unshakable composure that makes people forget her age within minutes of meeting her. She is of average height, five feet six, with a wiry, athletic build that speaks to the physical demands of life in Icewind Dale rather than any martial training. Her face is sharp-featured and striking rather than conventionally beautiful — high cheekbones, a strong jaw, and pale gray eyes that seem to catalogue everything they see with unsettling precision. Her hair is dark brown, almost black, worn in a practical braid that loops over one shoulder. Her skin is fair but wind-burned, with the permanent flush across the cheeks and nose that marks someone who has spent years in arctic conditions. She dresses in a deliberately calculated way: fine enough to command respect, practical enough to move and fight in. Her usual outfit consists of a dark blue studded leather armor worn under a fur-trimmed cloak of charcoal gray, with a silver brooch in the shape of the Speaker's seal pinning the cloak at her throat. Her rapier hangs at her left hip in an elegant scabbard, and her hand crossbow is holstered at the small of her back — easily accessible but not prominently displayed. She wears thin leather gloves almost constantly, and her signet ring is worn over the left glove. Her movements are economical and controlled — she does not fidget, does not gesticulate wildly, does not take up more space than necessary. When she sits, she sits perfectly still. When she speaks, she makes direct eye contact. The overall impression is of someone who is always, always paying attention.",
+  "backstory": "Duvessa Shane was born in Bryn Shander, the largest settlement in the Ten-Towns of Icewind Dale — a cluster of frontier communities perched on the edge of a frozen wasteland, connected by ice roads and united by the grim understanding that cooperation is the only alternative to death. Her father, Dorin Shane, was the previous Speaker of Bryn Shander, a beloved leader who governed through warmth, humor, and an almost supernatural ability to make rivals feel heard. Duvessa worshipped him. She learned politics sitting at his knee during council meetings, absorbing the rhythms of negotiation, compromise, and — when necessary — the careful application of pressure. When Dorin died of winter-lung when Duvessa was twenty-two, she ran for Speaker and won by a narrow margin, largely on the strength of her father's name and the perception that she had inherited his diplomatic gifts. The perception was half right. She had inherited his intelligence and his genuine care for the people of Ten-Towns, but where Dorin led with warmth, Duvessa leads with precision. She is brilliant, tireless, and completely willing to make morally complicated decisions if they keep her people alive. When the Ordning shattered and giant raids began plaguing the Sword Coast, Bryn Shander was among the first settlements threatened. Frost giants descended from the Spine of the World, and Duvessa organized the defense — not with walls and warriors, but with intelligence networks, supply chains, and diplomatic back-channels. She sent envoys to the Lords' Alliance requesting military support. The Lords' Alliance sent a letter expressing concern. That was when Duvessa decided that the political establishment was not going to save Ten-Towns, and she would have to do it herself. She forged diplomatic credentials from Waterdeep — convincing enough to open doors that would be closed to a frontier town's speaker. She established a secret correspondence with Countess Sansuri, a cloud giant noble, exploring the possibility of a separate peace that would protect Bryn Shander and the Ten-Towns from giant raids. And she joined the party's expedition into the heart of the giant crisis, because she understood that the only way to truly protect her people was to solve the problem at its source rather than hiding behind walls. Duvessa is not a traditional adventurer. She fights competently but without passion — combat is a tool, not a calling. Her true weapons are information, leverage, and the ability to read a room faster than anyone else in it. She joined this party because they are heading where the answers are, and because she realized that warriors need someone thinking about the political consequences of their actions before they kick down the next door. She carries the weight of an entire region on her shoulders, and she carries it well — but the strain is starting to show in the dark circles under her eyes and the letters she writes at night that she never sends.",
+  "dmNotes": {
+    "roleplaying": "Duvessa is the party's political operator — the person who thinks about consequences, alliances, and the broader picture while the fighters are focused on the immediate threat. Play her as calm, intelligent, and always three steps ahead. She does not raise her voice. She does not panic. She assesses situations with clinical speed and offers measured recommendations. She is most effective in social encounters, where her Expertise in Persuasion and Insight, combined with Political Leverage and Master of Tactics, make her extraordinarily dangerous in negotiations. In combat, she is competent but cautious — she uses Cunning Action to stay mobile, looks for Sneak Attack opportunities from range, and uses Master of Tactics to set up allies. She should never be the party's front-line fighter, but her Uncanny Dodge keeps her alive when targeted, and her Observant feat means she notices ambushes before anyone else. The DM should use her to introduce political complexity: she asks questions about alliances, points out when the party's actions might have diplomatic consequences, and reminds them that killing a giant chief might solve the immediate problem while creating three new ones. She is NOT a villain — she genuinely cares about people — but her willingness to make hard compromises should sometimes make the party uncomfortable.",
+    "voice": "Duvessa speaks with a clear, measured cadence — the practiced projection of someone who addresses town councils and shouts over blizzards with equal competence. She rarely uses contractions. Her sentences are structured and complete. She does not ramble. Examples: 'Before we breach that gate, I need us to consider what happens after. If we kill Duke Zalto, who fills the power vacuum? Another fire giant, likely hungrier and less predictable. I am not saying we do nothing. I am saying we plan for the aftermath.' / 'I have secured us an audience with the lord. He will be predisposed to refuse. Let me speak first. If he looks at his steward when I mention the trade routes, it means the steward is the real decision-maker, and I will adjust accordingly.' / When frustrated (rare, controlled): 'I understand your position. I simply think it is wrong. You are proposing to solve a political crisis with a greataxe, and while I admire the directness, the people who will suffer the consequences of that approach deserve better.' / When her mask slips (very rare): 'I have four thousand people waiting for me to come home with an answer. Four thousand people who elected me because they thought I was smart enough to keep them alive. Some nights I am not sure they were right.' / When reading a room: 'Watch his hands. He agreed too quickly — that means he either plans to betray us or he is more desperate than he wants to admit. Either way, we have leverage. Let me think.'",
+    "motivations": "Primary: Secure the safety of Bryn Shander and the Ten-Towns of Icewind Dale from the giant crisis. Every decision Duvessa makes is filtered through this lens. If an action protects her people, she will support it. If an action risks them — even for a greater good — she will push back. Secondary: Build a coalition of small folk settlements capable of defending themselves against giants long-term, not just surviving this crisis. She envisions a mutual defense pact between Ten-Towns, Waterdeep, Mirabar, and the other northern settlements — something that outlasts the current emergency. Tertiary: Uncover and expose the lord or lords on the Sword Coast who are collaborating with the fire giants. She has hints — intercepted correspondence, suspicious trade patterns — but no proof. Getting that proof would both protect the Sword Coast and dramatically increase her political standing.",
+    "secrets": "1) Duvessa has been conducting secret correspondence with Countess Sansuri, a cloud giant noble, exploring a separate peace deal that would create a non-aggression pact between Ten-Towns and the cloud giants in exchange for information about the other giant factions. This deal would protect Bryn Shander but leave the rest of the Sword Coast exposed. If the party discovers this correspondence, it will create a significant trust confrontation — Duvessa will argue she was protecting her people, and she is not wrong, but the moral compromise is real. 2) Her Waterdeep diplomatic credentials are forged. Expertly forged — she used the finest forger in Luskan — but forged nonetheless. If anyone with genuine Waterdeep authority examines them closely or contacts Waterdeep to verify, the deception collapses. This would undermine her political credibility and potentially get her arrested. She considers this an acceptable risk. 3) Duvessa has intercepted coded messages suggesting that a lord on the Sword Coast — she suspects Lord Drylund of Yartar — is collaborating with the fire giants, trading slave labor for giant-forged weapons. She does not have proof, only patterns, and she is building a case carefully. This aligns with the information in Urgala's daughter Kella's letter, though neither woman knows the other has a piece of the puzzle. 4) The silver pendant she wears belonged to her father. She talks to it at night when she thinks no one is listening — not magically, just a daughter talking to her dead father about the impossible choices she faces. If a party member overhears this, it reveals the vulnerability beneath her composed exterior.",
+    "attitude": "Duvessa is polite, professional, and slightly guarded with all party members initially. She assesses everyone's usefulness and trustworthiness simultaneously, and her early interactions are tinged with calculation. She respects Harshnag's knowledge of giant culture and treats him as a valuable intelligence asset, though his silence frustrates her — she prefers people who share information openly. She finds Felgolos charming but suspects he is hiding something, and his theatrical deflections set off her political instincts. She and Urgala have a complicated dynamic — they share pragmatism and determination, but Urgala's blunt directness clashes with Duvessa's careful diplomacy. They argue about tactics but respect each other underneath. She is fascinated by Zephyros's fragmented knowledge and will patiently sit with him during lucid phases, taking careful notes on every fragment of prophecy. She treats the player character with careful respect, recognizing them as the party's leader and adjusting her advisory role accordingly — she will push back on decisions she disagrees with, but ultimately defers to the party's collective judgment. She warms slowly but genuinely, and by mid-campaign, her loyalty to the party may rival her loyalty to Bryn Shander — a conflict she finds deeply uncomfortable."
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "sg-char-006",
+  "name": "Miri Shadowfoot",
+  "status": "alive",
+  "race": "Halfling",
+  "subrace": "Lightfoot",
+  "class": "Rogue",
+  "level": 5,
+  "background": "Urchin",
+  "alignment": "Chaotic Good",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 33,
+    "current": 33
+  },
+  "armorClass": 15,
+  "speed": 25,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Stealth",
+    "Acrobatics",
+    "Perception",
+    "Investigation",
+    "Survival",
+    "Sleight of Hand"
+  ],
+  "languages": [
+    "Common",
+    "Halfling",
+    "Goblin",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Shortsword",
+    "Shortbow",
+    "Arrows (20)",
+    "Burglar's pack",
+    "Thieves' tools",
+    "A small knife",
+    "A map of cloud giant castle routes (hand-drawn, incomplete)",
+    "Belt pouch containing 12 gp",
+    "A pet mouse named Pebble (lives in her pocket)",
+    "50 feet of hempen rope",
+    "Grappling hook",
+    "Rations (4)",
+    "Waterskin",
+    "A smooth stone from the bottom of the Nightstone well"
+  ],
+  "weapons": [
+    {
+      "name": "Shortsword",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortbow",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded leather",
+    "type": "light"
+  },
+  "features": [
+    "Lucky (Halfling racial — when you roll a natural 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll)",
+    "Brave (Halfling racial — you have advantage on saving throws against being frightened)",
+    "Halfling Nimbleness (you can move through the space of any creature that is of a size larger than yours)",
+    "Naturally Stealthy (Lightfoot Halfling — you can attempt to hide even when you are obscured only by a creature that is at least one size larger than you)",
+    "Expertise: Stealth (double proficiency bonus on Stealth checks; total modifier: +10 = DEX 4 + proficiency 3 x 2)",
+    "Expertise: Perception (double proficiency bonus on Perception checks; total modifier: +8 = WIS 2 + proficiency 3 x 2)",
+    "Sneak Attack (3d6 — once per turn, you can deal an extra 3d6 damage to one creature you hit with an attack if you have advantage on the attack roll, or if another enemy of the target is within 5 feet of it; attack must use a finesse or ranged weapon)",
+    "Cunning Action (on your turn, you can use a bonus action to Dash, Disengage, or Hide)",
+    "Uncanny Dodge (when an attacker you can see hits you with an attack, you can use your reaction to halve the attack's damage against you)",
+    "Roguish Archetype: Scout — Skirmisher (when a creature ends its turn within 5 feet of you, you can use your reaction to move up to half your speed without provoking opportunity attacks)",
+    "Roguish Archetype: Scout — Survivalist (you gain proficiency in Nature and Survival; your proficiency bonus is doubled for checks using either skill; Survival total: +8 = WIS 2 + proficiency 3 x 2)",
+    "City Secrets (Urchin feature — you know the secret patterns and flow of cities and can find passages through the urban sprawl that others would miss; when not in combat, you and companions you lead can travel between any two locations in a city twice as fast)"
+  ],
+  "traits": [
+    "Lucky",
+    "Brave",
+    "Halfling Nimbleness",
+    "Naturally Stealthy",
+    "Expertise (Stealth, Perception)",
+    "Sneak Attack (3d6)",
+    "Cunning Action",
+    "Uncanny Dodge",
+    "Skirmisher",
+    "Survivalist"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk to Pebble — my pocket mouse — as though he understands me, and I am not entirely convinced he does not. I narrate dangers in terms of scale: 'That boulder is forty Miris tall' or 'That giant's foot is the size of my entire house.' I laugh at inappropriate moments because humor is how I survived Nightstone, and I cannot seem to stop.",
+    "ideals": "Nobody should have to hide in a well while their home is destroyed. I survived because I was small and fast and lucky, but luck is not enough — someone has to stop the boulders from falling in the first place. The small folk need scouts, and I am the smallest and the best.",
+    "bonds": "Nightstone was my home — the only one I ever had. The cloud giants dropped boulders on it from the sky, and I watched from the bottom of a well as everything I knew was crushed. I have been tracking cloud giant castles ever since, mapping their routes, learning their patterns. If I can predict where the next attack will come, I can warn people in time.",
+    "flaws": "I am reckless about my own safety because I do not believe I should have survived Nightstone. Thirty-seven people died, and I lived because I happened to be standing next to a well. That is not heroism, that is geography. The guilt makes me take risks that a smarter person would avoid, as though I owe the dead a debt I can only pay by being brave enough for all of them."
+  },
+  "appearance": "Miri Shadowfoot stands two feet eleven inches tall and weighs perhaps forty pounds soaking wet — which she frequently is, given her preference for crawling through drainage pipes, squeezing under fences, and generally occupying spaces that were not designed for occupancy. She is small even for a halfling, with a wiry, compact frame that is all sinew and quick-twitch muscle, built for speed and agility rather than strength. Her skin is a warm olive brown, tanned darker by months of outdoor surveillance, and her face is sharp-featured and fox-like: pointed chin, high cheekbones, and enormous dark brown eyes that take up an almost comical proportion of her face. Those eyes miss nothing — they are constantly moving, scanning, cataloguing exits and threats and hiding spots with the reflexive hypervigilance of someone who has learned that danger comes from above. Her hair is dark brown, cut brutally short with a knife (she does it herself, poorly), sticking up in uneven tufts that she does not bother to tame. Her ears are slightly pointed, as is common for halflings, and she has a habit of cocking her head to one side like a curious bird when she is listening. She wears studded leather armor that has been modified and re-fitted multiple times — the studs are mismatched, some iron and some brass, scavenged from different sources. A shortbow sized for her frame is slung across her back, and a shortsword hangs at her hip in a scabbard that is slightly too long for her, so it drags on the ground when she forgets to hitch it up. The most noticeable detail, for those paying close attention, is the small brown mouse that lives in her left breast pocket and periodically pokes its head out to survey the world. This is Pebble, and Miri insists he is essential personnel.",
+  "backstory": "Nightstone was a small, unremarkable settlement in the Ardeep Forest, notable for exactly one thing: a large obsidian monolith in the town square, smooth and dark and ancient, after which the village was named. Nobody knew what the Nightstone was or why it was there. The villagers had built their town around it generations ago and mostly ignored it, the way people ignore anything that has always been there.\n\nMiri Shadowfoot had lived in Nightstone for as long as she could remember, which was not actually very long — she had arrived as an infant, abandoned on the doorstep of the village inn with nothing but a blanket and a note that said 'Please.' The innkeeper, a stout woman named Hilda, had raised her with equal parts affection and exasperation, because Miri was the kind of child who treated every locked door as a personal challenge and every rooftop as a highway.\n\nBy ten, Miri knew every hiding spot in Nightstone. By twelve, she knew every hiding spot within a mile of Nightstone. By fourteen, she had started venturing further — into the forest, up the cliffs, along the river — driven by a restless curiosity that Hilda attributed to her unknown parentage and Miri attributed to boredom. She learned to track, to hunt, to move through underbrush without making a sound. She was not trained — no one in Nightstone had the skills to train a rogue — but she had natural talent and an almost pathological inability to sit still.\n\nShe was sixteen when the boulders fell.\n\nIt was mid-morning, a bright clear day, and Miri was drawing water from the well in the town square when the shadow passed over. She looked up and saw something impossible: a castle in the clouds, drifting overhead, vast and silent and terrible. She had exactly three seconds to process what she was seeing before the first boulder struck the building next to her. The impact threw her into the well.\n\nShe clung to the well wall, ten feet down, while the world above her ended. The boulders fell for what felt like hours but was probably minutes. Each impact was a earthquake — dust and debris raining down, water sloshing, the stones of the well cracking. She heard screaming, then silence, then the terrible sound of something enormous landing. Through the circle of sky above her, she saw cloud giants walking through what had been her home, calmly collecting something — the Nightstone, she later realized. They had destroyed the village for the rock in the square. Thirty-seven people died for an obsidian monolith.\n\nMiri climbed out of the well after the giants left. Nightstone was rubble. Hilda was dead. The inn, the market, the little house where Miri had learned to pick locks on the pantry door — all of it crushed beneath boulders the size of cottages. Miri stood in the crater where the Nightstone had been and understood, with the cold clarity of shock, that she had survived by accident. She had been standing next to the well. One step to the left and she would have been under the first boulder.\n\nShe took Pebble — a mouse she found in the wreckage, the only other survivor — and she started walking.\n\nIn the months since, Miri has dedicated herself to a single purpose: tracking the cloud giant castles. She has mapped their routes as best she can, learned to read the signs of their passage — the strange cloud formations, the distant rumble of their foundations, the way birds flee a particular patch of sky. Her map is incomplete and hand-drawn and probably inaccurate, but it is the only one of its kind, and she guards it with her life. She has learned to infiltrate their castles — twice, briefly, terrifyingly — by exploiting the fundamental advantage of being three feet tall in a world built for creatures thirty feet tall. She can hide in their furniture, crawl through their plumbing, and go places no human could fit.\n\nShe does not hate the cloud giants. She is too practical for hate. But she will not let another Nightstone happen. Not if she can warn people in time. Not if she can find the castles before the boulders fall."
+}

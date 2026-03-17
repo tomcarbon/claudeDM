@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { api, hasActiveSession } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
+import { useCampaign } from '../context/CampaignContext';
 import CharacterCard from '../components/CharacterCard';
 
 function CurrentParty() {
   const { player } = usePlayer();
+  const { campaignId } = useCampaign();
   const [partyCharacters, setPartyCharacters] = useState([]);
   const [partyNpcs, setPartyNpcs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,7 +34,7 @@ function CurrentParty() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => { loadParty(); }, [player, sessionActive]);
+  useEffect(() => { loadParty(); }, [player, sessionActive, campaignId]);
 
   if (!player) return <div style={{ padding: '2rem' }}><h2>Current Party</h2><p style={{ color: 'var(--text-muted)' }}>Please log in to view your party.</p></div>;
   if (loading) return <div className="loading">Loading party...</div>;

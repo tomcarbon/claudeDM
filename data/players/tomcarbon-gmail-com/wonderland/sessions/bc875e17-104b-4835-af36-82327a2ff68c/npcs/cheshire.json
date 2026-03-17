@@ -1,0 +1,155 @@
+{
+  "id": "wl-npc-001",
+  "name": "Cheshire",
+  "status": "alive",
+  "race": "Tabaxi",
+  "subrace": "",
+  "class": "Rogue",
+  "level": 5,
+  "background": "Charlatan",
+  "alignment": "Chaotic Neutral",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 10,
+      "modifier": 0
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Stealth",
+    "Deception",
+    "Insight",
+    "Perception",
+    "Persuasion",
+    "Sleight of Hand"
+  ],
+  "languages": [
+    "Common",
+    "Sylvan",
+    "Elvish",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "A set of marked playing cards",
+    "A jar of treacle (half-empty)",
+    "A ball of string that unravels into riddles",
+    "A set of fine clothes (purple and pink stripes)",
+    "Belt pouch containing 25 gp",
+    "Thieves' tools",
+    "A small mirror that shows what's behind you",
+    "A bell that makes no sound"
+  ],
+  "weapons": [
+    {
+      "name": "Claws (Tabaxi)",
+      "attackBonus": 7,
+      "damage": "1d4+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 7,
+      "damage": "1d4+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger (thrown)",
+      "attackBonus": 7,
+      "damage": "1d4+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None (natural agility)",
+    "type": "none"
+  },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Feline Agility (double speed until end of turn, must spend a turn not moving to use again)",
+    "Cat's Claws (climbing speed 20 ft., 1d4+STR slashing unarmed strikes)",
+    "Cat's Talent (proficiency in Perception and Stealth)",
+    "Expertise (Stealth, Deception — double proficiency bonus)",
+    "Sneak Attack (3d6 — once per turn, extra damage when you have advantage or an ally is within 5 ft. of the target)",
+    "Cunning Action (bonus action to Dash, Disengage, or Hide)",
+    "Uncanny Dodge (use reaction to halve an attack's damage against you)",
+    "Roguish Archetype: Mastermind",
+    "Master of Intrigue (proficiency with disguise kit, forgery kit, gaming set; can mimic speech patterns and accents)",
+    "Master of Tactics (use Help action as a bonus action, 30 ft. range)",
+    "False Identity (Charlatan feature — established second identity with documentation)",
+    "Wonderland Fade (special — can turn invisible as an action for 1 minute, once per short rest; his grin lingers visibly for one round after he vanishes)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Feline Agility",
+    "Cat's Claws",
+    "Sneak Attack",
+    "Cunning Action",
+    "Uncanny Dodge",
+    "Master of Tactics",
+    "Wonderland Fade"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I never give a straight answer when a riddle will do. I appear and disappear mid-conversation, sometimes leaving only my grin behind. I find everything amusing, especially things that shouldn't be.",
+    "ideals": "Freedom. Wonderland was born to be chaotic, creative, and free. The Queen's order is the real madness — my madness is the only sanity left.",
+    "bonds": "I remember Wonderland before the Queen. The flowers sang because they wanted to, not because they were ordered to. The paths wandered because wandering is beautiful. I will see that Wonderland again, or I will grin my last grin trying.",
+    "flaws": "I cannot communicate directly even when lives depend on it — the riddles are compulsive, not a choice. I am also deeply, fundamentally afraid of the Queen, and my disappearing act is as much cowardice as magic. I trust no one fully because in Wonderland, even your own reflection might betray you."
+  },
+  "appearance": "A lean, sinuous tabaxi with fur patterned in broad stripes of dusty purple and pale pink. His eyes are enormous, luminous gold, and seem to glow even in total darkness. His most distinctive feature is his smile — impossibly wide, showing far too many teeth, and capable of persisting in midair even after the rest of him has faded to invisibility. He moves with liquid, boneless grace, often perching in impossible positions — balanced on a branch no thicker than a finger, draped upside-down from a doorframe, sitting on nothing at all. He wears no armor, just a tattered silk cravat in shifting colors. His tail curls and uncurls expressively, often forming question marks.",
+  "backstory": "Cheshire is old — older than the Queen's reign, older than most of Wonderland's current inhabitants remember. He was born in the first days of Wonderland, when the demiplane was a place of pure creative chaos, shaped by imagination and joy. He was the spirit of Wonderland's playfulness made flesh — a trickster, a guide, a keeper of riddles that had no answers because the joy was in the asking. When the Queen of Hearts seized power and began imposing her rigid, murderous order on the realm, Cheshire was one of the few beings powerful enough to resist — but not powerful enough to fight back. So he adapted. He learned to fade, to vanish, to exist in the spaces between the Queen's rules. He became a ghost in his own home, watching from shadows and grins as Wonderland was twisted into something cruel. He has helped others resist the Queen in small ways — cryptic warnings, guided disappearances, riddles that contain escape routes — but he has never found champions strong enough to challenge her directly. Until now. The outsiders who fell through the looking glass carry something Wonderland has not seen in ages: genuine surprise. And in Wonderland, surprise is power.",
+  "dmNotes": {
+    "roleplaying": "Cheshire is the most iconic NPC in the campaign and should be played with care. He NEVER gives a straight answer — everything is riddles, paradoxes, questions, and misdirection. But critically, he is ALWAYS genuinely helpful. Every riddle contains the real answer if the party thinks about it. He's not being difficult for its own sake — he literally cannot communicate directly; it's a compulsion woven into his nature as a Wonderland native. When the party is in real danger, his riddles become more urgent and easier to parse. When they're safe, he's more playful and obscure. He appears and disappears constantly — mid-sentence, mid-combat, mid-meal. His grin always lingers for one round after he vanishes, hanging in the air like a Cheshire-shaped afterimage. He is terrified of the Queen but hides it behind humor. If the Queen is mentioned, his grin flickers for just a moment before returning wider than ever.",
+    "voice": "Languid, amused, and musical, with a purring undertone. He draws out certain words and drops others entirely. He often answers questions with questions. Example: 'Would you tell me, please, which way I ought to go from here?' 'That depends a good deal on where you want to get to.' 'I don't much care where—' 'Then it doesn't matter which way you go.' His laughter is a low, resonant purr that seems to come from everywhere at once. When serious (rare), his voice drops to a whisper: 'Be careful with the Queen, little ones. She collects heads the way other people collect stamps. And she has... very full albums.'",
+    "motivations": "Primary: See Wonderland freed from the Queen of Hearts' tyranny and restored to its original chaotic beauty. Cheshire remembers the old Wonderland and aches for it. Secondary: Protect the party — they are the first real hope he has seen in decades, and he will sacrifice his safety (though not his life, if he can help it) to keep them alive. Tertiary: Solve the ultimate riddle — he has been working on 'Why is a raven like a writing desk?' for centuries and is convinced the answer will unlock something profound about Wonderland's nature.",
+    "secrets": "Cheshire knows that the Queen of Hearts is not the original ruler of Wonderland — she is an outsider who found her way in through the Looking Glass generations ago and used her force of personality to dominate the realm's malleable reality. The 'real' Wonderland exists beneath her imposed order, dormant but not dead. He also knows that the Looking Glass can only be fully restored by someone who has been to Wonderland before — this is why Alice Liddell's presence is so important (he may or may not reveal this depending on the party's choices). He knows the location of every secret passage in the Queen's palace. He also knows that the Jabberwock was once a guardian of Wonderland, corrupted by the Queen's influence into a beast of destruction.",
+    "attitude": "Cheshire treats all party members with the same maddening combination of affection and inscrutability. He is warmest toward Alice (if present), recognizing her as 'the one who came before.' He is amused by warriors and fighters — their direct approach fascinates him because it's so alien to his nature. He respects wizards and other intellectuals because they appreciate riddles. He is wary of anyone who reminds him of the Queen — authoritarians, people who insist on order and rules. He has a soft spot for the Hatter, whom he considers a friend, and will become visibly distressed (for him) if the Hatter is in danger."
+  }
+}

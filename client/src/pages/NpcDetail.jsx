@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { api } from '../api/client';
+import { useCampaign } from '../context/CampaignContext';
 import StatBlock from '../components/StatBlock';
 import SpellTag from '../components/SpellTag';
 
 function NpcDetail() {
   const { id } = useParams();
+  const { campaignId } = useCampaign();
   const [npc, setNpc] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,7 +19,7 @@ function NpcDetail() {
       .then(setNpc)
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, campaignId]);
 
   // Refetch when the page regains focus (e.g. navigating back from adventure)
   useEffect(() => {

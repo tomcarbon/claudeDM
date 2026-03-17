@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
+import { useCampaign } from '../context/CampaignContext';
 import StatBlock from '../components/StatBlock';
 import SpellTag from '../components/SpellTag';
 
@@ -9,6 +10,7 @@ function CharacterDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { player } = usePlayer();
+  const { campaignId } = useCampaign();
   const [char, setChar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -21,7 +23,7 @@ function CharacterDetail() {
       .then(setChar)
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, campaignId]);
 
   // Refetch when the page regains focus (e.g. navigating back from adventure)
   useEffect(() => {

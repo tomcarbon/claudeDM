@@ -76,9 +76,12 @@ function AppContent() {
   return (
     <div className="app">
       <nav className="sidebar">
-        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : 'Single Player Demo'}</span></h1>
+        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : campaignId === 'campaign3' ? 'Storm of the Giants' : 'Single Player Demo'}</span></h1>
         <ul>
           <li><NavLink to="/eli5">ELI5</NavLink></li>
+        </ul>
+        <div className="sidebar-divider" />
+        <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
           <li><NavLink to="/current-party" className="nav-sub">Current Party</NavLink></li>

@@ -471,7 +471,7 @@ function Adventure({
       // Use campaign ID as the scenario ID for session save/load compatibility
       setSavedSessionDbId(null);
       setSelectedScenario(selectedCampaign);
-      startSession(selectedCharacter, selectedCampaign, player, campaignId);
+      startSession(selectedCharacter, selectedCampaign, player, campaignId, { states: companionStates, reservations: companionReservations });
       setSessionActive(true);
 
       const campaign = campaigns.find(c => c.id === selectedCampaign);
@@ -506,7 +506,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
     } else {
       if (!selectedCharacter || !selectedScenario) return;
       setSavedSessionDbId(null);
-      startSession(selectedCharacter, selectedScenario, player, campaignId);
+      startSession(selectedCharacter, selectedScenario, player, campaignId, { states: companionStates, reservations: companionReservations });
       setSessionActive(true);
 
       const scenario = scenarios.find(s => s.id === selectedScenario);
@@ -662,7 +662,7 @@ Set the scene and begin the story.`;
       localStorage.setItem('dnd_active_session_id', session.id);
       localStorage.setItem('dnd_active_session_owner', session.ownerEmail || session.playerEmail || '');
       if (!readOnly) {
-        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, campaignId);
+        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, campaignId, session.companionConfig || null);
       }
       setSessionActive(true);
     } catch (err) {

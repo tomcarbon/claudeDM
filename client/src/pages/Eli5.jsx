@@ -110,7 +110,7 @@ function Eli5() {
           <dd>Yes! You can play solo with all AI-controlled companions, or open up slots in your game for other players to join. You can make a slot available to any player, or invite a specific player. The joining player takes control of a companion character while the AI DM continues to run the story and the remaining NPCs. Many combinations are possible — one host with one friend, a full party of humans, or anything in between.</dd>
 
           <dt>Can I create my own character?</dt>
-          <dd>Each campaign comes with pre-built characters. You can edit your character's stats, equipment, and backstory from the Characters page.</dd>
+          <dd>Yes! Each campaign comes with pre-built characters you can use right away, but you can also ask the AI DM to roll a brand new character. You can edit any character's stats, equipment, and backstory from the Characters page.</dd>
 
           <dt>What happens if my character dies?</dt>
           <dd>Dead characters are marked in your data but can be reset to defaults from the Settings page. The DM follows standard D&D death save rules.</dd>

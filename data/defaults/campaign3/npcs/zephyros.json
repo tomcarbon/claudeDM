@@ -1,0 +1,172 @@
+{
+  "id": "sg-npc-004",
+  "name": "Zephyros",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Wizard",
+  "level": 5,
+  "background": "Sage",
+  "alignment": "Neutral Good",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 18,
+      "modifier": 4
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Religion"
+  ],
+  "languages": [
+    "Common",
+    "Giant",
+    "Draconic",
+    "Celestial",
+    "Primordial"
+  ],
+  "equipment": [
+    "Quarterstaff (gnarled driftwood, carved with cloud runes)",
+    "Dagger",
+    "Component pouch (woven from cloud-stuff, faintly luminous)",
+    "Scholar's pack",
+    "Spellbook (enormous, written in Giant script scaled down to human-sized pages — the handwriting is tiny and cramped)",
+    "A shard of crystal that floats an inch above any surface it is placed on",
+    "Robes of gray and white that billow as if in a constant breeze",
+    "Belt pouch containing 25 gp",
+    "A brass astrolabe of giant construction, miniaturized",
+    "A cloud in a bottle (literally — a small glass bottle containing a wisp of living cloud)",
+    "Ink and quill set (the ink shimmers silver)",
+    "A journal of visions (half prophecy, half nonsense, written in alternating Giant and Common)",
+    "Rations (4)",
+    "A tiny music box that plays a melody no one recognizes"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff",
+      "attackBonus": 2,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 3,
+      "damage": "1d4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Mage Armor (spell)",
+    "type": "magical"
+  },
+  "features": [
+    "Arcane Recovery (once per day after a short rest, recover spell slots with combined level up to 3)",
+    "Arcane Tradition: School of Divination",
+    "Portent (after a long rest, roll 2d20 and record the results. Before another creature you can see makes an attack roll, saving throw, or ability check, you can replace their roll with one of your Portent dice. Each die can be used only once.)",
+    "Expert Divination (when you cast a divination spell of 2nd level or higher using a spell slot, you regain one expended spell slot of a level lower than the spell you cast)",
+    "Fractured Foresight (at the start of each day, the DM secretly rolls 2d20 and records the results. Once per day, when any creature makes a roll, the DM may replace it with one of these hidden Portent numbers — representing Zephyros's unreliable visions intruding on reality. The DM should use this for dramatic moments, and the replacement may be beneficial OR harmful, reflecting his fractured mind. Zephyros is unaware this is happening — he simply experiences deja vu.)",
+    "Giant's Memory (1/long rest, during a lucid phase, Zephyros can focus intensely and recall one specific, accurate piece of information about giant history, the Ordning, the conspiracy behind its shattering, or the locations of giant strongholds. This information is always true but may be delivered cryptically, wrapped in metaphor, or interrupted by a confusion episode before he finishes explaining.)",
+    "Cloud Giant's Remnant (1/long rest, cast Misty Step without expending a spell slot — a vestige of cloud giant innate magic that persists in his diminished form, manifesting as a brief burst of cloud-stuff that swirls around him before he teleports)",
+    "Sage: Researcher (when you attempt to learn or recall a piece of lore, if you do not know the information, you often know where and from whom you can obtain it)",
+    "Ritual Casting (can cast wizard spells as rituals if the spell has the ritual tag and is in your spellbook)",
+    "Lucid/Confused Phases (Zephyros alternates between lucidity and confusion. DM should roll a d6 at the start of each scene or every 30 minutes of game time: 1-2 confused, 3-6 lucid. Stress, mention of the Ordning, or attempts to explain his visions can trigger early transitions. During confused phases, his spellcasting still functions but his targeting and decision-making are erratic.)",
+    "Diminishing Form (Zephyros's human-sized body is slowly failing. After each long rest, the DM should roll a d20: on a 1, Zephyros takes 1d6 necrotic damage that cannot be healed until his next long rest, representing his body's deterioration)"
+  ],
+  "traits": [
+    "Portent",
+    "Expert Divination",
+    "Fractured Foresight",
+    "Giant's Memory",
+    "Cloud Giant's Remnant",
+    "Ritual Casting",
+    "Lucid/Confused Phases",
+    "Diminishing Form"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 15,
+    "spellAttackBonus": 7,
+    "cantrips": [
+      "Mage Hand",
+      "Prestidigitation",
+      "Fire Bolt",
+      "Message"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Shield",
+        "Detect Magic",
+        "Magic Missile",
+        "Identify",
+        "Mage Armor",
+        "Find Familiar (ritual)"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "known": [
+        "Misty Step",
+        "See Invisibility",
+        "Detect Thoughts"
+      ]
+    },
+    "level3": {
+      "slots": 2,
+      "known": [
+        "Clairvoyance",
+        "Counterspell",
+        "Fly"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak in the measured, formal cadence of a scholar, except when confusion takes me, at which point I become scattered, tangential, and prone to addressing people who are not present. I am fascinated by small things — insects, flowers, coins — because they were invisible to me when I was twenty-five feet tall, and now they fill my entire world with detail I never noticed.",
+    "ideals": "Knowledge. The universe speaks to those who listen, and what it says is beautiful and terrible in equal measure. The Ordning shattered because the gods willed it, and understanding WHY is more important than simply putting it back together. If we restore the Ordning without understanding the lesson, it will only shatter again.",
+    "bonds": "My cloud castle drifts empty somewhere above the Sword Coast, waiting for a master who can no longer reach it. The other cloud giants — my family, my students — have no idea what happened to me. Serissa, the storm giant princess, sent a plea for help that I intercepted in a vision. I came because I saw, in one brilliant moment of clarity, that these small folk are the key to everything.",
+    "flaws": "My mind is broken. I know this. In my lucid moments I can feel the fractures, like cracks in a window through which cold wind blows. I cannot always distinguish between what I have seen in visions and what has actually happened. I sometimes give advice based on futures that may never come to pass. And I am dying — this diminished form was never meant to contain a cloud giant's essence for this long, and each day I grow a little weaker."
+  },
+  "appearance": "Zephyros appears as a gaunt, elderly human man in his seventies, though his true age in giant years spans centuries. He is tall for a human — six feet four — but carries himself as though he expects to be much taller, often reaching for things on shelves that would be at chest height for a twenty-five-foot cloud giant. His frame is thin, almost fragile, with long limbs and large hands that seem oversized for his body — the proportions are subtly wrong, as if his form was compressed rather than naturally grown. His face is long and angular, with high cheekbones, a prominent nose, and deep-set eyes that are the color of a summer sky before a thunderstorm — pale blue shot through with flickers of silver that move and shift like clouds passing overhead. These eyes are his most clearly inhuman feature. His hair is white and wild, standing up in wisps and tufts as though permanently windblown, and small motes of what appears to be cloud-stuff occasionally drift from it when he moves quickly. His skin has an almost translucent quality, and in certain light, faint blue-gray patterns are visible beneath the surface — remnants of cloud giant skin markings. He wears enormous gray-and-white robes that billow and shift even in still air, clearly enchanted or responding to some wind only he can feel. His gnarled driftwood quarterstaff is carved with cloud runes that glow faintly during his lucid phases and go dark during confusion. A component pouch woven from luminous cloud-stuff hangs at his hip. He moves with a distracted, absent quality — bumping into doorframes, tripping over steps — as though his proprioception is calibrated for a body three times this size.",
+  "backstory": "Zephyros was once among the most respected seers in the cloud giant court of Beldagathor — a floating citadel of crystalline towers and living cloudscapes that drifted above the Sword Coast. He was a diviner of extraordinary power, able to scry across planes, read the currents of fate, and advise the cloud giant elders with prophecies that proved uncannily accurate. He was also, by cloud giant standards, a radical — he believed that the Ordning, the ancient hierarchy that ranked all giantkind, was fundamentally flawed, and that the gods who imposed it were testing giantkind to see if they could evolve beyond rigid caste. This made him both respected and feared. When the Ordning shattered — when Annam the All-Father broke the divine hierarchy in disgust at his children's failures — Zephyros felt it like a physical blow. Every giant did. But Zephyros, as a seer, experienced it as a cataclysmic unraveling of the very fabric of fate. The future, which had been a river he could navigate, became a shattered mirror reflecting a thousand contradictory possibilities simultaneously. Desperate to understand what was happening, he performed a ritual of extraordinary ambition — a divination that attempted to contact the outer planes directly and ask the gods WHY the Ordning was broken. The ritual worked. For one terrible, brilliant moment, Zephyros saw everything: the conspiracy behind King Hekaton's disappearance, the murder of Queen Neri, the ancient blue dragon Iymrith manipulating events from within the storm giant court, the fire giants forging a weapon of terrible power in Ironslag, the Kraken Society pulling strings from the depths. He saw the entire web of treachery that was exploiting the Ordning's collapse to plunge the world into chaos. And the vision shattered his mind. The mortal-scale brain that his diminished form possesses simply cannot contain the full scope of what he witnessed. The knowledge is still in there — fragmented, scattered across his consciousness like shards of a broken mirror. In lucid moments, he can grasp individual pieces and relay them. But the full picture is always just out of reach, and the effort of trying to assemble it triggers episodes of confusion and dissociation. The ritual also had a physical cost: it trapped him in a diminished, human-sized form. His cloud giant body dissolved into mist during the casting, and what reconstituted was this — a frail human shell containing a giant's essence. His cloud castle, now masterless, drifts somewhere above the Sea of Swords, its crystalline halls empty and slowly decaying. Zephyros found the party through a vision — one of the few that came through clearly. He saw them as the fulcrum around which the fate of the giant crisis would turn. He does not know exactly how or why, but he is certain they are important, and he has attached himself to their cause with the desperate hope that helping them might also help him reassemble his shattered mind before his diminished body fails entirely.",
+  "dmNotes": {
+    "roleplaying": "Zephyros is the campaign's most complex NPC to run. He oscillates between two distinct modes, and the DM must track which phase he is in. During LUCID phases, he is gentle, eloquent, and profoundly wise — a brilliant scholar trapped in a breaking vessel. He speaks carefully, choosing each word with visible precision. He makes insightful observations about giant culture, magic theory, and the conspiracy. He is quietly terrified of his own deterioration and clings to lucid moments with desperate gratitude. During CONFUSED phases, he is a different person — distracted, tangential, addressing people who aren't present (his cloud giant students, his familiar, his dead wife Lyralei). He insists he is still twenty-five feet tall and becomes confused when he cannot reach high shelves. He forgets which century he is in. He may begin casting a spell and forget why mid-incantation. The KEY to playing Zephyros is that his confusion is not random — fragments of his broken vision leak through, and his 'nonsense' often contains genuine prophetic information delivered in a scrambled form. The party should learn over time to listen carefully even to his ramblings. Use the d6 mechanic (1-2 confused, 3-6 lucid) to determine his state at the start of each scene, and feel free to trigger transitions for dramatic effect.",
+    "voice": "During lucid phases: measured, formal, with an antique quality — he uses constructions that feel slightly translated from Giant. Long vowels, careful enunciation, a gentle but resonant tone. 'The Ordning was not merely a hierarchy. It was a promise — a covenant between the gods and their children, defining purpose, defining place. When Annam broke it, he did not destroy order. He asked a question: Can you find your own way? The giants are failing that test. Perhaps... perhaps that is where you come in.' / 'Forgive me. The vision is... fragmenting again. I can see Ironslag — the forges burn, something immense takes shape in the fire. A weapon? A creature? The image breaks apart. But the heat — I can still feel the heat.' / During confused phases: rapid, scattered, addressing empty air. 'Lyralei, have you seen my astrolabe? I left it on the — no, that was the upper observatory, and the upper observatory is... not here. Where is here? This ceiling is very close. Has the castle descended? Students! The castle is descending!' / Transitioning from confused to lucid (a heartbreaking moment): he stops mid-ramble, blinks, looks at his own hands as if seeing them for the first time. Very quietly: 'I was... away, wasn't I. I apologize. How long was I gone this time?' / When delivering a cryptic fragment: 'The dragon wears the giant's face. The king sleeps under salt. The weapon is not a weapon — it is a key. I cannot hold it — it's breaking apart again—'",
+    "motivations": "Primary: Reassemble his shattered vision and deliver the complete truth about the conspiracy to someone who can act on it. He knows the answer to everything — Hekaton's location, Iymrith's identity, the fire giants' plan, the Kraken Society's involvement — but the information is scattered across his fractured consciousness and he can only access fragments. The party is his best hope of assembling the puzzle before his mind or body fails completely. Secondary: Find a way to restore his true cloud giant form, or at least stabilize his diminishing human body before it kills him. He believes the answer lies in his cloud castle, specifically in a Shard of the Ordning that he kept in his observatory — an artifact that might anchor his essence. But he cannot reach the castle in his current form. Tertiary: Understand WHY the Ordning shattered. Even in his broken state, the scholar in him burns to comprehend the divine purpose behind the cataclysm. He believes the shattering was not punishment but a test, and that understanding the test is the key to passing it.",
+    "secrets": "1) Zephyros saw the ENTIRE conspiracy during his ritual — Iymrith's infiltration of the storm giant court, King Hekaton imprisoned beneath the sea by the Kraken Society, Queen Neri's murder orchestrated by Iymrith, the fire giant Duke Zalto forging the Vonindod (a colossus weapon) in Ironslag, and the Kraken Society's role as intermediaries between the conspirators. ALL of this information is in his head, fragmented and scrambled. During lucid phases, he can deliver one piece per use of Giant's Memory — but never the full picture at once. The DM should meter this information carefully across the campaign. 2) His cloud castle contains a Shard of the Ordning — a fragment of the divine hierarchy's power that he was studying when the Ordning shattered. This shard could potentially stabilize his form, restore his mind, or — in the campaign's climax — help restore the Ordning itself. The castle drifts at random above the Sea of Swords, and locating it requires a successful Clairvoyance cast during a lucid phase. 3) Zephyros's wife Lyralei died decades before the Ordning shattered, but in his confused phases he forgets this and speaks to her as though she is present. The party may initially assume she is alive somewhere, and the revelation that she is long dead adds to his tragedy. 4) His Diminishing Form feature is not just mechanical — it reflects a genuine narrative countdown. If the campaign takes more than a tenday of in-game time without the party finding a way to stabilize him (the Shard, a powerful restoration spell, or reaching his cloud castle), Zephyros will begin losing maximum HP permanently. This creates subtle urgency without forcing the party's hand.",
+    "attitude": "Zephyros is warm and grateful to all party members, treating them with the gentle courtesy of a professor addressing promising students. During lucid phases, he is an excellent listener and asks thoughtful questions. He is drawn to intelligent characters and spellcasters, eager to discuss magical theory even when the topic is above the party's level. He treats Harshnag with a complex mixture of pity and respect — a frost giant reduced to human scale mirrors his own condition, and the parallel is not lost on either of them. He finds Felgolos fascinating and slightly unsettling — his fractured seer abilities occasionally flicker with the intuition that Felgolos is not what he seems, but he can never hold the insight long enough to act on it. He is comforted by Urgala's steadiness and follows her practical instructions without argument. He views Duvessa as admirably organized but worries she approaches the giant crisis as a political problem rather than a cosmic one. During confused phases, he may mistake party members for his long-dead students, his wife, or historical figures, and these moments of misrecognition can be played for pathos or dark humor depending on the tone."
+  }
+}

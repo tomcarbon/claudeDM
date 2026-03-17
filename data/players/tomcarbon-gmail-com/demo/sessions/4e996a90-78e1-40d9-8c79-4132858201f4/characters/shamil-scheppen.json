@@ -1,0 +1,124 @@
+{
+  "id": "38297ab3-bdd5-4262-ae95-5d02d746eff6",
+  "name": "Shamil Scheppen",
+  "status": "alive",
+  "race": "Gnome",
+  "subrace": "Forest Gnome",
+  "class": "Sorcerer",
+  "level": 1,
+  "background": "Sailor",
+  "alignment": "Chaotic Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 9,
+      "modifier": -1
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 8,
+      "modifier": -1
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 5,
+    "current": 5
+  },
+  "armorClass": 10,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "constitution",
+    "charisma"
+  ],
+  "skills": [
+    "Intimidation",
+    "Arcana",
+    "Athletics",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Gnomish"
+  ],
+  "equipment": [
+    "A belaying pin (club)",
+    "50 feet of silk rope",
+    "A lucky charm",
+    "Common clothes",
+    "Belt pouch with 10 gp",
+    "Light crossbow and 20 bolts",
+    "Arcane focus",
+    "Dungeoneer's pack",
+    "Two daggers"
+  ],
+  "weapons": [
+    {
+      "name": "Dagger",
+      "attackBonus": 2,
+      "damage": "1d4+0",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Light Crossbow",
+      "attackBonus": 2,
+      "damage": "1d8+0",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Spellcasting (An event in your past, or in the life of a parent or ancestor, left an indelible mark on you, infusing you with arcan...)",
+    "Sorcerous Origin (Choose a sorcerous origin, which describes the source of your innate magical power: Draconic Bloodline or Wild Magic....)"
+  ],
+  "traits": [
+    "Darkvision (You can see in dim light within 60 feet of you as if it were bright light, and i...)",
+    "Gnome Cunning (You have advantage on all Intelligence, Wisdom, and Charisma saving throws again...)",
+    "Natural Illusionist (You know the minor illusion cantrip. Intelligence is your spellcasting ability f...)",
+    "Speak with Small Beasts (Through sounds and gestures, you can communicate simple ideas with Small or smal...)"
+  ],
+  "spells": {
+    "spellcastingAbility": "Charisma",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 4,
+    "cantrips": [
+      "Acid Splash",
+      "Minor Illusion",
+      "Chill Touch",
+      "Fire Bolt"
+    ],
+    "spellSlots": {
+      "1st": 2
+    },
+    "knownSpells": [
+      "Detect Magic",
+      "Thunderwave"
+    ]
+  },
+  "personality": {
+    "traits": "I can stare down a hellhound without flinching.",
+    "ideals": "Fairness. No one should get preferential treatment before the law.",
+    "bonds": "I'm guilty of a terrible crime. I hope I can redeem myself for it.",
+    "flaws": "I am suspicious of strangers and expect the worst of them."
+  },
+  "appearance": "Shamil Scheppen is a small, compact Forest Gnome Gnome sorcerer with a weathered look that speaks of many roads traveled.",
+  "backstory": "Shamil carries the weight of a troubled past but presses forward with determination. The road ahead is uncertain, but standing still was never an option."
+}

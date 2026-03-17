@@ -80,6 +80,7 @@ function getOrCreateSessionEngine(sessionDbId, dataDir, opts) {
     if (opts.ownerEmail) ctx.ownerEmail = opts.ownerEmail;
     if (opts.claudeSessionId && !ctx.engine.sessionId) ctx.engine.sessionId = opts.claudeSessionId;
     if (opts.messageHistory && opts.messageHistory.length > ctx.messageHistory.length) ctx.messageHistory = opts.messageHistory;
+    if (opts.companionConfig) ctx.companionConfig = opts.companionConfig;
     return ctx;
   }
   const engine = new DmEngine(dataDir);
@@ -92,6 +93,7 @@ function getOrCreateSessionEngine(sessionDbId, dataDir, opts) {
     ownerEmail: opts.ownerEmail || null,
     sessionDbId,
     messageHistory: opts.messageHistory || [],
+    companionConfig: opts.companionConfig || null,
   };
   sessionEngines.set(sessionDbId, ctx);
   return ctx;
@@ -225,6 +227,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     let characterId = null;
     let scenarioId = null;
     let campaignId = null;
+    let companionConfig = null; // Host's NPC slot assignments (removed, open, reserved)
     let processing = false;
     let messageHistory = []; // Track conversation for resume fallback
     let currentChatKey = null;
@@ -437,6 +440,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         ownerEmail,
         claudeSessionId: session.claudeSessionId,
         messageHistory: existingCtx?.messageHistory || [],
+        companionConfig: session.companionConfig || null,
       });
 
       // Build the combined player text (host + companion actions)
@@ -545,6 +549,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           playerEmail: ownerEmail,
           companionPlayers: activeCompanions.length > 0 ? activeCompanions : undefined,
           sessionDbId,
+          companionConfig: engineCtx.companionConfig || undefined,
         });
 
         for await (const event of stream) {
@@ -661,6 +666,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
           campaignId = msg.campaignId || null;
+          companionConfig = msg.companionConfig || null;
           wsEntry.playerEmail = msg.playerEmail;
           wsEntry.campaignId = campaignId;
           wsEntry.characterId = characterId;
@@ -712,6 +718,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
           campaignId = msg.campaignId || null;
+          companionConfig = msg.companionConfig || null;
           // Always use the new session's Claude ID.
           // If switching sessions, this gives Claude the new conversation to resume.
           // The system prompt is rebuilt fresh each turn anyway, so the campaign
@@ -889,6 +896,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               campaignId: session.campaignId || campaignId || 'demo',
               ownerEmail,
               claudeSessionId: session.claudeSessionId,
+              companionConfig: session.companionConfig || null,
             });
           }
 
@@ -973,6 +981,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               messageHistory,
               playerEmail: wsEntry.playerEmail,
               sessionDbId: currentSessionDbId || undefined,
+              companionConfig: companionConfig || undefined,
               onPermissionRequest: (toolName, input, toolUseID) => {
                 return new Promise((resolve) => {
                   const description = describeToolUse(toolName, input);

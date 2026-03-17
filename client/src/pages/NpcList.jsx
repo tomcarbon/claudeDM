@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { api, hasActiveSession } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
+import { useCampaign } from '../context/CampaignContext';
 import CharacterCard from '../components/CharacterCard';
 
 function NpcList() {
   const { player } = usePlayer();
+  const { campaignId } = useCampaign();
   const [npcs, setNpcs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,7 +22,7 @@ function NpcList() {
       .then(loaded => setNpcs(loaded))
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
-  }, [player]);
+  }, [player, campaignId]);
 
   if (!player) return <div style={{ padding: '2rem' }}><h2>NPC Companions</h2><p style={{ color: 'var(--text-muted)' }}>Please log in to view your companions.</p></div>;
   if (loading) return <div className="loading">Loading companions...</div>;

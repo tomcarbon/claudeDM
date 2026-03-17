@@ -1,0 +1,623 @@
+{
+  "id": "sg-scenario-001",
+  "title": "The Hill Giant Gluttony",
+  "subtitle": "An insatiable hunger devours the Sword Coast — and only steel can sate it",
+  "levelRange": "5-7",
+  "estimatedSessions": 5,
+  "setting": {
+    "name": "The Ravaged Lowlands",
+    "description": "The Ravaged Lowlands stretch across the fertile heartland south of Waterdeep, a patchwork of golden wheat fields, terraced orchards, and pastoral villages that have fed the Sword Coast for generations. At the center of this agricultural paradise stands Goldenfields, a vast abbey-commune dedicated to Chauntea, goddess of agriculture. Its enchanted soil produces yields ten times greater than normal farmland, making it the single most important food source for every major city within five hundred miles. The land is gentle and rolling, crossed by lazy rivers and dotted with millponds, but the recent raids have transformed stretches of it into wasteland. Where hill giants have passed, the earth is churned to mud, orchards are uprooted wholesale, granaries smashed open and emptied, and livestock pens torn apart. The contrast between the idyllic farmland and the swaths of devastation is stark and disturbing. Smoke rises from burned farmsteads on the horizon. Refugees clog the roads with their remaining possessions piled on handcarts. The Ravaged Lowlands tell the story of a paradise being consumed, one massive bite at a time, by creatures too large and too hungry to be stopped by wooden fences and farming tools.",
+    "atmosphere": "The air carries competing scents: the sweet fragrance of ripening grain from untouched fields mingling with the acrid smoke of burning barns. Birdsong still fills the morning air, but it is punctuated by distant crashes and bellowing laughter that carries for miles across the flat terrain. The ground itself vibrates with the passage of giant feet. At night, enormous bonfires mark the hill giant camps, their orange glow visible from leagues away, and the sound of feasting — tearing meat, cracking bones, guttural singing — drifts across the fields like a nightmare.",
+    "keyLocations": [
+      {
+        "name": "Goldenfields Abbey",
+        "description": "Goldenfields is less a traditional abbey and more a walled agricultural commune spanning over twenty square miles of enchanted farmland. Its outer walls are twenty feet high and built of fieldstone, but they were designed to keep out deer and bandits, not giants. Within the walls, the landscape is a carefully organized paradise: wheat fields that shimmer with faint golden light at dawn, orchards of apple and pear trees that bear fruit three seasons out of four, vegetable gardens tended by druids whose magic keeps the soil eternally rich, and vast grain towers that store enough food to feed Waterdeep through a harsh winter. The central abbey building is a modest stone temple to Chauntea surrounded by dormitories, kitchens, and workshops. A population of roughly five thousand — monks, druids, farmers, and their families — lives and works within the walls. The abbey has a small garrison of guards, but its true defense has always been its importance: attacking Goldenfields means starving cities, and no rational enemy would risk the retaliation that would follow. Hill giants, however, are not rational.",
+        "features": [
+          "Outer Walls (20 ft high, AC 17, HP 100 per 10-ft section) — can be scaled with DC 15 Athletics, or smashed through by giants in 2 rounds",
+          "Grain Towers (60 ft tall, wooden) — can be climbed with DC 12 Athletics, provide excellent vantage points and arrow platforms, but are flammable",
+          "Irrigation Canals (5 ft wide, 3 ft deep) — difficult terrain for Medium creatures, can be diverted to flood areas with DC 18 Nature check",
+          "Enchanted Orchards — trees radiate faint magic; a DC 14 Arcana check reveals the enchantment can be temporarily weaponized to entangle creatures (as Entangle spell, DC 13)",
+          "Chauntea's Shrine (central abbey) — consecrated ground, undead have disadvantage within 30 ft; a DC 16 Religion check at the altar grants a blessing of 2d6 temporary HP to up to 6 creatures"
+        ],
+        "encounters": [
+          "Hill giant raiders (2-3) smashing through the west wall while ogre skirmishers (4-6) pour through the breach, with goblin looters (8-12) scattering to raid granaries",
+          "A hill giant attempting to topple a grain tower by ramming it while defenders on top rain arrows down — the tower collapses in 3 rounds unless the giant is stopped or the supports are reinforced (DC 16 Athletics or DC 14 carpenter's tools)",
+          "Panicked livestock stampede through the abbey grounds — DC 14 Animal Handling to calm them, DC 13 Dexterity save to avoid being trampled for 2d6 bludgeoning damage"
+        ],
+        "secrets": [
+          "Beneath the central abbey lies a root cellar containing Chauntea's Cornucopia, a magical vessel that can produce enough food to feed 100 people per day — the hill giants can somehow sense its magic and are drawn to it specifically",
+          "One of the abbey's druids, Brother Ingvar, has been secretly selling information about Goldenfields' defenses to a goblin intermediary, not realizing the information was reaching hill giants — he can be exposed with a DC 16 Insight check during questioning",
+          "The abbey's irrigation system can be weaponized: opening all sluice gates simultaneously (DC 18 Intelligence check to figure out the sequence) floods the lower fields to 4 feet of water, which barely inconveniences giants but creates difficult terrain that slows ogres and stops goblins entirely"
+        ]
+      },
+      {
+        "name": "The Feast Trail",
+        "description": "The Feast Trail is not a road but a wound in the landscape — a mile-wide swath of destruction marking the path of Chief Guh's raiding parties between Grudd Haug and their targets. Following it requires no Survival check because the devastation is impossible to miss. Entire orchards have been uprooted, their trees stripped of fruit and bark and discarded like gnawed bones. Villages along the route are flattened, not burned but simply stepped on and pushed aside. Wells have been drunk dry and then filled with refuse. Livestock pens are empty, their fences splintered, the ground around them churned into a morass of mud and enormous footprints. The trail also tells the story of the raiders' organization — or lack thereof. Dropped items litter the path: a smashed wagon wheel here, a torn sack of flour there, half-eaten cow carcasses buzzing with flies. Side trails branch off where individual giants wandered away from the group to investigate something shiny or edible. The overall impression is of a natural disaster with an appetite — a living landslide that consumes everything in its path and leaves nothing but trampled earth behind.",
+        "features": [
+          "Giant Footprints (3 ft across) — DC 10 Survival to follow the main trail, DC 15 Survival to determine the number and types of giants (hill giants leave deeper prints than ogres), DC 18 to estimate how recently they passed",
+          "Destroyed Bridges — rivers along the trail have been forded by giants, destroying bridges in the process; DC 14 Athletics to cross the churned fords, or DC 16 Nature to find an alternate crossing point",
+          "Refuse Piles — the giants discard enormous amounts of waste; DC 12 Investigation to find useful items in the debris, DC 15 to find clues about Grudd Haug's defenses",
+          "Carrion Swarms — the trail attracts scavengers; DC 13 Perception to notice circling vultures that mark giant activity ahead, providing 1 hour of advance warning"
+        ],
+        "encounters": [
+          "A hill giant foraging party (1 hill giant, 2 ogres, 4 goblins on dire wolf mounts) stripping a farmstead — can be ambushed if the party succeeds on a DC 14 group Stealth check",
+          "Desperate refugees being menaced by a pair of ogres who wandered from the main trail — the refugees include a retired adventurer (veteran stat block) who will join the party temporarily if rescued",
+          "An orog war chief and 6 orcs who have allied with the hill giants for a share of the plunder — they are camped at a crossroads and demand a toll, but can be intimidated (DC 17 Intimidation), bribed (50+ gp), or fought"
+        ],
+        "secrets": [
+          "A halfling merchant named Tilda Greenbarrow is hiding in a collapsed root cellar along the trail — she was captured by goblins but escaped, and she has memorized the layout of Grudd Haug's outer defenses, including the location of a slave pen and a poorly-guarded drainage tunnel",
+          "The orog war chief carries a crude map drawn by a hill giant showing the approach to Grudd Haug — it is barely legible (DC 14 Intelligence to interpret) but reveals that the steading has a back entrance through a garbage chute",
+          "Scattered among the refuse is a partially-eaten Sending Stone (its partner is in Grudd Haug, carried by a goblin lieutenant) — a DC 16 Arcana check reveals it still functions, allowing the party to eavesdrop on giant communications"
+        ]
+      },
+      {
+        "name": "Grudd Haug — Chief Guh's Steading",
+        "description": "Grudd Haug is an architectural abomination — a steading constructed by stacking stolen buildings on top of each other with no regard for structural integrity, engineering, or aesthetics. The hill giants raided a dozen villages and literally carried the buildings back, piling them into a crude fortress that looks like a child's tower of blocks built from doll houses. Farmhouses sit atop taverns, which rest on crushed temples, all lashed together with entire uprooted trees used as crossbeams and packed with mud, thatch, and refuse. The structure rises nearly sixty feet at its highest point and spreads across a muddy hilltop clearing. A crude palisade of sharpened logs surrounds the base, though several sections have been knocked down by the giants themselves stumbling into them. The smell is overwhelming: rotting food, unwashed giant, livestock waste, and wood smoke combine into a miasma that can be detected from half a mile downwind. The interior is a maze of repurposed rooms connected by holes smashed through walls, with giant-sized corridors running alongside human-sized passages that were originally hallways in the stolen buildings. The floor plan changes regularly as giants rearrange things by simply pushing walls around.",
+        "features": [
+          "Palisade Wall (15 ft high, AC 15, HP 50 per section) — several gaps exist; DC 12 Perception to spot them, DC 10 Stealth to slip through unobserved during the day, DC 8 at night",
+          "Garbage Chute (rear entrance) — a 10-ft wide, 40-ft long tunnel of compacted refuse; DC 13 Constitution save to avoid being poisoned by the stench for 1 hour, DC 14 Stealth to traverse without alerting the rats (4 giant rats)",
+          "Slave Pens (ground floor, east side) — 20+ captured farmers and merchants held in livestock cages; freeing them requires DC 14 Thieves' Tools or DC 18 Strength to bend the bars; freed slaves can cause a distraction if directed",
+          "Structural Weak Points — the steading's construction is terrible; a DC 16 Investigation or DC 14 mason's tools check identifies load-bearing supports that, if destroyed, collapse sections of the upper floors (4d10 bludgeoning damage, DC 15 Dexterity save for half, to all creatures in the area)",
+          "Food Stores (multiple rooms) — massive piles of stolen food fill several chambers; a DC 12 Nature check identifies which foods are still edible; poisoning the stores (DC 15 poisoner's kit or herbalism kit) could sicken the giants over time"
+        ],
+        "encounters": [
+          "Entry hall patrol: 2 ogres and 6 goblins playing a crude dice game — they are distracted (DC 10 Stealth to pass, DC 8 if the party creates a diversion) but raise the alarm immediately if they spot intruders",
+          "Kitchen fight: 1 hill giant cook and 3 ogre assistants amid enormous cauldrons of bubbling stew — the cauldrons can be tipped (DC 16 Athletics) to deal 3d6 fire damage in a 10-ft area",
+          "Dire wolf kennel: 4 dire wolves chained in a muddy yard — they can be calmed (DC 16 Animal Handling), released to cause chaos among the giants (DC 14 Thieves' Tools to unlock chains), or fought",
+          "Upper floor guardpost: 2 hill giants throwing rocks at birds from a balcony — they have advantage on ranged attacks from their elevated position but are surprised on a DC 13 Stealth check"
+        ],
+        "secrets": [
+          "The steading contains a hidden shrine to Grolantor (hill giant deity of greed) in the basement level — a goblin shaman tends it and has been enhancing Guh's appetite with dark rituals; destroying the shrine (AC 13, HP 30) or killing the shaman ends the magical compulsion that drives the other hill giants to serve Guh",
+          "A captured dwarf smith named Agna Ironhand is being forced to forge crude weapons for the giants — she is chained in a makeshift forge on the second floor and will eagerly help the party if freed, including identifying the structural weak points that could collapse the building",
+          "Chief Guh's treasure hoard is hidden beneath her throne (see Throne Room) and includes a Conch of Teleportation that leads to Maelstrom — the conch is buried under 500 pounds of gold, food, and stolen goods, requiring 10 minutes of digging or a DC 20 Athletics check to excavate quickly"
+        ]
+      },
+      {
+        "name": "Chief Guh's Throne Room",
+        "description": "The throne room of Chief Guh occupies the entire top floor of Grudd Haug, a vast open space created by knocking out all interior walls and supporting the roof with crude log pillars. The 'throne' is a platform of smashed wagons, broken furniture, and packed earth rising ten feet above the floor, wide enough to support the enormous bulk of Chief Guh herself. And Guh is enormous — not just by hill giant standards, but grotesquely, impossibly obese. She has eaten so much, so continuously, driven by her conviction that the fattest giant will rule the new Ordning, that she can no longer stand or even shift her own weight. She sits enthroned in her own immensity, layers of flesh cascading over the sides of the platform, surrounded at all times by goblin attendants who bring her food, fan her, and relay her commands by shouting them down to the lower floors. Despite her immobility, Guh is terrifyingly dangerous: she can hurl chunks of debris with devastating accuracy, her voice alone can stun creatures with its volume, and she commands absolute loyalty from her subjects through a combination of religious awe and raw intimidation. The room is littered with bones, food scraps, gold coins pressed into the filthy floor, and offerings from her followers.",
+        "features": [
+          "Guh's Throne Platform (10 ft high, 30 ft wide) — provides three-quarters cover to creatures hiding behind it; climbing requires DC 12 Athletics; the platform itself is unstable and a DC 18 Athletics check against one of its supports causes it to partially collapse, dealing 4d10 bludgeoning damage to Guh",
+          "Debris Piles (scattered throughout) — Guh can hurl debris as a ranged attack (+8 to hit, range 60/240, 3d10+5 bludgeoning); the debris piles also provide half cover to creatures hiding behind them",
+          "Log Pillars (6 total, supporting the roof) — AC 15, HP 40 each; destroying 3 or more causes a roof collapse (6d10 bludgeoning, DC 16 Dex save for half, to everything in the room including Guh)",
+          "Goblin Warrens (holes in the walls) — goblins can appear from any direction; DC 14 Perception to notice them gathering for an ambush"
+        ],
+        "encounters": [
+          "Chief Guh (use hill giant stat block with modifications: HP 145, immobile, +8 to hit with hurled debris at range 60/240 for 3d10+5 bludgeoning, Thunderous Bellow recharge 5-6 as a bonus action — 30-ft cone, DC 14 Con save or stunned until end of next turn), 2 hill giant bodyguards, 8 goblin attendants, and 1 goblin shaman (if not dealt with at the shrine)",
+          "If the party attempts negotiation, Guh demands they bring her the 'greatest feast ever seen' — this can be accomplished by offering magical food, using Prestidigitation creatively, or raiding the abbey's stores; a DC 18 Persuasion check (with advantage if food is offered) convinces Guh to let them take the conch in exchange"
+        ],
+        "secrets": [
+          "Guh is secretly terrified — she ate herself into immobility to prove her dominance, but now she is trapped by her own body and completely dependent on her servants; a DC 17 Insight check reveals her fear, and appealing to it with a DC 16 Intimidation check can cause her to surrender without a fight",
+          "The Conch of Teleportation is wedged beneath the throne platform, partially buried in treasure — it requires a DC 15 Investigation check to locate and either 10 minutes of careful excavation or a DC 20 Athletics check to pull free quickly while under pressure",
+          "Guh wears a crude necklace of 'trophies' that includes a Gauntlets of Ogre Power (she thinks they are bracelets) and a cracked sending stone that connects to another hill giant chief in the Spine of the World mountains, hinting at a larger giant conspiracy"
+        ]
+      },
+      {
+        "name": "The Refugee Camp at Bargewright Inn",
+        "description": "Bargewright Inn is a fortified trading post at a crossroads south of Goldenfields, and in the wake of the raids it has become an overcrowded refugee camp. The inn itself is a sturdy stone building surrounded by a wooden palisade, but the grounds outside the walls are now covered with tents, lean-tos, and makeshift shelters housing hundreds of displaced farmers and villagers. The atmosphere is tense and desperate. Food is being rationed, clean water is scarce, and arguments break out regularly over sleeping space and supplies. The innkeeper, Nalaskur Thaelond, is a shrewd and somewhat ruthless businessman who has been price-gouging refugees for basic necessities while simultaneously organizing a credible defense force from among the displaced veterans and adventurers who have gathered here. The camp serves as a natural base of operations for the party — a place to gather information, recruit allies, resupply, and plan their assault on Grudd Haug. Several NPCs with useful information or skills can be found here, but gaining their trust requires effort, as everyone is suspicious of strangers in these dangerous times.",
+        "features": [
+          "Palisade Walls (12 ft, AC 15, HP 40 per section) — the inn's defenses are modest but functional; DC 14 Athletics to climb, gates are barred at night",
+          "Refugee Camp (outside walls) — hundreds of displaced people; DC 12 Investigation or Persuasion to find specific individuals, DC 10 to gather general rumors about giant movements",
+          "Thaelond's Trading Post — overpriced but well-stocked; all standard equipment available at 150% normal cost, DC 16 Persuasion or DC 14 Intimidation to negotiate fair prices",
+          "Makeshift Infirmary — a harried cleric of Ilmater tends the wounded; can provide healing services (Cure Wounds, Lesser Restoration) for donations of 10+ gp"
+        ],
+        "encounters": [
+          "A band of displaced veterans (4 veterans, 8 guards) are planning a vigilante raid on what they think is a giant camp but is actually a stone giant hermit's cave — the party can join, redirect, or prevent a tragic misunderstanding",
+          "A goblin spy disguised as a refugee child is reporting back to Grudd Haug — DC 18 Perception or DC 15 Insight to notice suspicious behavior; if confronted, the goblin tries to flee and can be interrogated for valuable intelligence",
+          "Price riot: refugees confront Thaelond about gouging; DC 14 Persuasion to calm the crowd, DC 16 Intimidation to back Thaelond down on prices; failure results in a brawl that injures several refugees"
+        ],
+        "secrets": [
+          "Thaelond has been hoarding a cache of weapons and armor in a hidden cellar — not to sell, but because he is planning to arm his own private militia and establish himself as a warlord once the chaos dies down; a DC 18 Investigation check of the inn reveals the hidden cellar",
+          "Among the refugees is a half-orc woman named Naxene Drathkala, a wizard and Harper agent who has been studying the giant incursions — she knows that the hill giant raids are just one symptom of the Ordning's shattering and can provide crucial context about the larger threat, but she will only share this information with characters who prove they are capable (by demonstrating combat prowess or completing a task for her)",
+          "A wounded hill giant named Moog has been secretly sheltering in a barn two miles from the inn — she was cast out of Grudd Haug for being 'too thin' and is desperate, hungry, and willing to trade information about the steading's layout in exchange for food and protection from the other giants"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The shattering of the Ordning — the ancient hierarchy that governed all giantkind — has thrown every giant race into chaos as they scramble to establish a new pecking order. Among the hill giants, the dimmest and most gluttonous of their kind, this competition has taken a characteristically simple form: Chief Guh, matriarch of the Grudd Haug steading, has declared that the fattest giant will rule all hill giants in the new order. Her proclamation has unleashed a frenzy of raiding across the Sword Coast lowlands as hill giant clans strip the countryside bare to feed their leader's insatiable appetite. The adventurers are drawn into this crisis when Goldenfields, the great agricultural abbey that feeds multiple cities, comes under direct attack. After helping defend the abbey and witnessing the devastation firsthand, the party must track the raiders back to their source: Grudd Haug, a crude steading built from stolen buildings where Chief Guh sits enthroned in her own immensity, too fat to move but too dangerous to ignore. The scenario combines desperate defensive combat, wilderness tracking through a ravaged landscape, social encounters with displaced refugees and unlikely allies, and a dungeon crawl through one of the most disgusting lairs in the Forgotten Realms. It culminates in a boss encounter that can be resolved through combat, negotiation, sabotage, or creative problem-solving, and ends with the discovery of a Conch of Teleportation that connects to the storm giant court at Maelstrom — the first step toward understanding and ultimately resolving the crisis of the shattered Ordning.",
+  "hook": "The party arrives at Goldenfields abbey at dusk, expecting nothing more than a warm meal and a safe bed after days on the road. Instead, they find the western wall breached and the compound in chaos. Enormous boulders arc through the twilight sky, smashing into grain towers and sending golden wheat cascading into the air like shrapnel. The bellowing laughter of hill giants shakes the ground beneath their feet. Farmers sprint past with pitchforks and pruning hooks, hopelessly outmatched but refusing to abandon their home. A monk of Chauntea, bleeding from a gash across her forehead, grabs the nearest adventurer by the arm and screams over the din: 'Three of them came through the west wall — ogres too, and goblins everywhere! The grain towers — if we lose the grain towers, Waterdeep starves this winter! Please, you have to help us!' Behind her, a hill giant the size of a house lifts an entire apple tree out of the ground, shakes the fruit into its mouth like a handful of berries, and hurls the stripped trunk at the nearest building.",
+  "acts": [
+    {
+      "title": "Act 1: Harvest of Ruin",
+      "description": "The first act throws the party directly into crisis as Goldenfields comes under massive hill giant assault. This act establishes the scale and danger of fighting giants — creatures that can kill a commoner with a single blow, hurl boulders that demolish buildings, and shrug off attacks that would fell a human warrior. The party must make tactical decisions about where to focus their efforts during the battle: defending the grain towers, protecting civilians, reinforcing the walls, or directly engaging the giants. After the battle, the aftermath reveals the full scope of the crisis through refugee testimony and the sheer devastation visible from the abbey walls. The act ends with the party choosing to pursue the raiders to their source rather than waiting for the next attack.",
+      "objectives": [
+        "Defend Goldenfields Abbey from the hill giant raiding party",
+        "Protect at least 2 of the 4 grain towers from destruction",
+        "Rescue trapped civilians from collapsed buildings",
+        "Gather intelligence about the raiders' origin and motivation from survivors and captured enemies",
+        "Decide to pursue the raiders to their stronghold at Grudd Haug"
+      ],
+      "scenes": [
+        {
+          "name": "The Breach",
+          "description": "The party arrives at Goldenfields just as the western wall is breached by hill giant boulders. The scene is pure chaos: farmers scrambling for weapons, livestock stampeding through the streets, monks of Chauntea organizing bucket brigades as fires break out. The party must immediately make tactical choices about how to respond. The breach itself is a thirty-foot gap in the twenty-foot wall, with rubble providing difficult terrain. Two hill giants are visible beyond the breach, throwing boulders at the grain towers, while ogres and goblins stream through the gap. This scene establishes the desperate tone of the act and forces the party to engage with the giant threat immediately, with no time for preparation.",
+          "readAloud": "\"The western wall of Goldenfields explodes inward with a deafening crash, sending blocks of fieldstone tumbling across the trampled wheat like a giant's dice. Through the settling dust, you see them — two hill giants, each standing sixteen feet tall, their piggish eyes gleaming with greedy delight as they survey the bounty before them. One scoops up a boulder-sized chunk of masonry and hurls it overhand at the nearest grain tower. The stone strikes the tower's base with a sound like thunder, and the structure groans ominously, wheat pouring from fresh cracks like golden blood. Behind the giants, a tide of smaller figures pours through the breach: ogres with clubs the size of a man, and goblins — dozens of goblins — scattering in every direction with empty sacks, heading for the granaries with single-minded avarice. A bell begins to toll from the central abbey, its bronze voice nearly lost in the cacophony of crashing stone, screaming farmers, and bellowing giants. To your left, a family drags a wounded elder toward the abbey. To your right, a monk stands alone in the breach, her quarterstaff raised against an ogre three times her size. The grain tower groans again. It will not survive another hit.\"",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "The character spots the goblin squads heading for the grain stores and realizes the goblins are the real threat to the food supply — the giants are a distraction. This tactical insight allows the party to split their efforts effectively.",
+              "failure": "The character is overwhelmed by the chaos and focuses entirely on the giants, not noticing the organized goblin looting operation until significant grain stores have been compromised."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 15,
+              "success": "The character scrambles up the rubble of the breach and reaches the top of the intact wall section, gaining a vantage point and half cover for ranged attacks against the giants.",
+              "failure": "The rubble shifts and the character slides back down, landing prone at the base of the breach. An ogre notices and moves to attack."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "The character rallies a group of panicked farmers (8 commoners) into an organized bucket brigade or evacuation team, preventing fire spread or saving trapped civilians.",
+              "failure": "The farmers are too terrified and scatter. Two families are trapped when a building collapses nearby."
+            },
+            {
+              "skill": "Nature",
+              "dc": 16,
+              "success": "The character recognizes that the enchanted orchards can be triggered to restrain creatures — vines and roots surge up to grapple one ogre (restrained, DC 14 Strength to escape).",
+              "failure": "The attempt to trigger the enchantment fails, and the magical backlash withers a section of orchard permanently."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "2 Hill Giants (CR 5, HP 105 each, AC 13)",
+                "3 Ogres (CR 2, HP 59 each, AC 11)",
+                "8 Goblins (CR 1/4, HP 7 each, AC 15)"
+              ],
+              "difficulty": "Hard",
+              "tactics": "The hill giants focus on destroying grain towers with hurled rocks (+8 to hit, 3d10+5 damage), ignoring the party unless directly engaged in melee. The ogres form a crude screen in the breach, blocking anyone trying to reach the giants. The goblins avoid combat entirely, scattering to loot granaries and fleeing with full sacks if not intercepted. If a hill giant is reduced to half HP, it picks up the nearest large object (wagon, plow, dead ogre) and uses it as an improvised melee weapon. The second hill giant attempts to flee if the first is killed, taking as much food as it can carry.",
+              "terrain": "The breach creates a 30-ft gap in the wall filled with rubble (difficult terrain). The ground inside the walls is a mix of dirt paths and cultivated fields (movement through standing wheat costs 5 extra ft per square). The grain towers are 60 ft tall with exterior ladders. The irrigation canals crisscross the area and are 5 ft wide, 3 ft deep (difficult terrain to cross). Several farm carts and plows are scattered about and can be used as cover (half cover, AC 13, HP 20)."
+            }
+          ],
+          "roleplayNotes": "This scene should feel overwhelming and chaotic. The party cannot be everywhere at once, and the DM should make clear that their choices have consequences: saving the grain towers means civilians might be trapped; engaging the giants means goblins escape with food; helping civilians means the giants do more structural damage. There are no wrong choices, but there are trade-offs. Play up the sheer SIZE of the hill giants — describe them casually uprooting trees, tossing boulders one-handed, stepping over walls that seem enormous to humans. The monks of Chauntea are brave but hopelessly outclassed. Sister Thalra, the wounded monk who greets the party, fights with desperate courage and can serve as a guide to the abbey's resources. If the party saves at least 2 grain towers, the abbey survives; if all 4 fall, the consequences for the Sword Coast are severe and create additional urgency for the rest of the scenario.",
+          "loot": [
+            "Recovered from ogre bodies: 3d10 gp scattered in crude belt pouches, 2 javelins, 1 greatclub",
+            "Recovered from goblin sacks (if intercepted): 50 lb of enchanted Goldenfields grain (worth 25 gp to the right buyer, or can be used as rations that provide advantage on Constitution saves against exhaustion for 24 hours)",
+            "Sister Thalra's gratitude: a blessed wheat sheaf (holy symbol of Chauntea, worth 15 gp, grants advantage on one Nature check per day when carried)"
+          ]
+        },
+        {
+          "name": "The Aftermath",
+          "description": "Dawn breaks over Goldenfields to reveal the full scope of the devastation. The western wall is shattered, at least one grain tower lies in ruins, fires smolder in the orchards, and the infirmary is overflowing. But the abbey survived. The party is hailed as heroes by the survivors, and the abbey's leaders gather to discuss what happened and what comes next. This scene provides crucial exposition through NPC conversations, reveals the larger context of the giant crisis, and sets up the transition to Act 2. The party learns about the Feast Trail, hears refugee accounts of Grudd Haug, and must decide their next move. Several important NPCs can be encountered here, each offering different pieces of the puzzle.",
+          "readAloud": "\"Morning light reveals the cost of the night's battle. Goldenfields still stands, but barely. The western wall is a jagged ruin of scattered stone, and the ground before the breach is churned to mud and stained dark with blood — giant and otherwise. Smoke rises from the orchards where a thrown boulder ignited a granary, and the acrid smell mingles with the sweeter scent of spilled grain. Monks move through the wreckage with quiet efficiency, tending the wounded, cataloguing losses, and beginning the grim work of clearing the dead. You count eighteen human bodies laid out beneath sheets near the central abbey, with more being carried in from the outer fields. But you also count three massive ogre corpses sprawled in grotesque poses near the breach, and the ground is littered with goblin dead. Near the shattered grain tower, a crowd has gathered around a monk who climbed to the top of the intact tower at first light to survey the countryside. He descends now, his face ashen. 'It is worse than we thought,' he announces to the gathered survivors. 'The trail of destruction stretches to the northeast as far as I can see. They did not just raid us — they have been raiding for weeks. Every farm between here and the Dessarin Hills is gone.' A murmur of dismay runs through the crowd. An elderly farmer pushes to the front. 'My son's farm is out that way,' she says. 'Someone has to go after them. Someone has to stop this.'\"",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "Examining the giant corpses and the pattern of the attack reveals that the raiders were organized by someone — the goblins had specific targets (granaries, not residences) and the giants focused on infrastructure. This was not random — it was a supply raid, which means there is a base of operations that needs feeding.",
+              "failure": "The attack seems random and overwhelming. The character cannot discern any organizing intelligence behind it."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "The character helps treat the wounded effectively, earning the gratitude of the abbey's healer and a Potion of Healing as payment. Also learns from examining giant wounds that these hill giants are unusually well-fed — bloated, even — suggesting access to enormous food supplies.",
+              "failure": "The character's efforts are appreciated but unskilled. No potion reward."
+            },
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "While talking to refugees, the character notices one farmer is lying about where he came from. When pressed, he admits he escaped from Grudd Haug where he was a slave — he can describe the steading's layout in detail.",
+              "failure": "The character takes all refugee accounts at face value. The escaped slave remains silent, too afraid to volunteer information."
+            },
+            {
+              "skill": "History",
+              "dc": 16,
+              "success": "The character recalls lore about hill giant social structure: they normally have small family groups, not organized raiding parties. Something must have changed — perhaps the breaking of the Ordning. This insight helps contextualize the threat.",
+              "failure": "Hill giants are just big and dumb, as far as the character knows. No context for the unusual behavior."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is a social scene focused on information gathering and character interaction. Key NPCs present: (1) Abbot Ellardin Darovik, head of Goldenfields, who is grateful but overwhelmed and has no military strategy — he offers supplies and blessings but cannot spare defenders; (2) Naxene Drathkala, a Harper wizard among the refugees who recognizes the giant incursion as part of a larger pattern — she knows the Ordning has broken but not why; (3) Lifferlas, an awakened tree in the abbey gardens who has sensed the earth's distress and speaks of 'a great ordering unmade' in cryptic terms; (4) Miros Xelbrin, a retired adventurer-turned-innkeeper whose parents were killed in the raid — he offers to guide the party along the Feast Trail. The DM should let the party drive conversations and gather information at their own pace. Multiple NPC interactions should hint at the larger Storm King's Thunder plot without overwhelming the players with exposition.",
+          "loot": [
+            "Abbey supplies: 5 days of rations per party member, 2 Potions of Healing (from the infirmary, freely given)",
+            "Naxene's gift (if she trusts the party): a Scroll of Sending to contact her if they discover anything about the giant hierarchy",
+            "Map of the Dessarin region showing farms, roads, and the general direction of the Feast Trail",
+            "50 gp reward from Abbot Darovik for defending the abbey"
+          ]
+        },
+        {
+          "name": "The Betrayer's Confession",
+          "description": "As the party prepares to depart along the Feast Trail, evidence emerges that the raid was not entirely a surprise. Certain details do not add up: the raiders targeted the granaries with suspicious precision, and the breach in the wall happened at the one section that was scheduled for repair but never reinforced. Investigation leads to Brother Ingvar, a nervous young druid who has been selling information about the abbey's defenses to a goblin intermediary. Ingvar did not know the information was reaching hill giants — he thought he was dealing with a minor bandit gang and needed money to pay gambling debts in Waterdeep. This scene adds moral complexity and provides additional intelligence about the enemy.",
+          "readAloud": "\"You find Brother Ingvar in the herbarium, surrounded by the scent of dried lavender and crushed thyme, his hands trembling as he bottles tinctures for the wounded. He is a young man, perhaps twenty-five, with the sunburned complexion of someone who works the fields and the haunted, hollow eyes of someone who has not slept. When he sees you approaching, something in his expression cracks — not surprise, but the weary resignation of a man who has been waiting for this moment. He sets down the bottle with exaggerated care, as if it is the last normal thing he will ever do. 'You know,' he says quietly. It is not a question. He pulls a stool from beneath the workbench and sits down heavily, folding his hands in his lap. 'I did not know it would be giants. You must believe that. I thought — there was a goblin, at the market in Amphail. She said she represented merchants who wanted to know about Goldenfields' surplus, for trading purposes. She paid well. I needed the coin.' He looks up, and there are tears cutting tracks through the grime on his face. 'Eighteen people are dead because of me. I know. I have been counting them all night. I will tell you everything — every meeting, every detail I shared, every copper she paid me. And then you may do with me what you will.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Ingvar is telling the truth — he is genuinely remorseful and had no idea his information would be used for a giant raid. His body language is consistent with guilt and grief, not deception.",
+              "failure": "The character cannot tell whether Ingvar is genuinely remorseful or performing for sympathy. His story seems almost too convenient."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 12,
+              "success": "Ingvar crumbles immediately and reveals additional details: the goblin intermediary mentioned 'the great chief's hunger' during their last meeting, and the meeting point was a specific hollow oak tree three miles northeast of the abbey — the same direction as the Feast Trail.",
+              "failure": "Ingvar is already so frightened and guilt-ridden that intimidation just makes him incoherent. No additional information is gained."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "The character convinces Ingvar to write a detailed account of everything he told the goblin, creating a document that reveals what the hill giants know about the abbey's defenses, supply schedules, and personnel — valuable counter-intelligence.",
+              "failure": "Ingvar is too distraught to organize his thoughts into a useful document. He offers scattered, incomplete information."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene tests the party's moral compass. Ingvar is guilty of treason that got people killed, but he is also clearly a naive young man who was exploited by a much more cunning enemy. The party can turn him over to the abbey's justice (he will likely be exiled), advocate for mercy (he has valuable agricultural magic the abbey needs), or even take him along as a guide (he knows the local terrain well). There is no 'correct' answer. If the party includes a paladin or cleric, this scene is especially rich for roleplaying. The DM should play Ingvar as sympathetic but not manipulative — he is genuinely horrified by what his greed caused and does not try to minimize his responsibility.",
+          "loot": [
+            "Ingvar's payment pouch: 35 gp and 20 sp (his accumulated earnings from the goblin)",
+            "Ingvar's knowledge: detailed layout of the meeting point, description of the goblin intermediary (useful for tracking in Act 2)",
+            "If convinced to write his account: a document providing advantage on Intelligence checks to predict the hill giants' knowledge of the abbey's defenses"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Following the Feast Trail",
+      "description": "The second act takes the party out of the relative safety of Goldenfields and into the ravaged countryside, following the unmistakable trail of destruction left by Chief Guh's raiders. This act is a journey through increasingly disturbing devastation, punctuated by encounters with foraging parties, displaced refugees, potential allies, and the growing understanding that the hill giant threat is not an isolated incident but a symptom of a much larger crisis. The wilderness travel provides opportunities for exploration, social interaction, and combat in varied settings. The act builds tension as the party draws closer to Grudd Haug and the evidence of the giants' organizational structure becomes clearer — they are not random raiders but servants of a leader with a horrifying ambition.",
+      "objectives": [
+        "Follow the Feast Trail northeast from Goldenfields toward Grudd Haug",
+        "Gather intelligence about Grudd Haug's defenses and Chief Guh's capabilities",
+        "Deal with or bypass the orog toll-takers at the crossroads",
+        "Locate and ally with potential informants: Tilda Greenbarrow, Moog the outcast hill giant, or the escaped slave",
+        "Reach the outskirts of Grudd Haug prepared with a plan of approach"
+      ],
+      "scenes": [
+        {
+          "name": "The Stripped Orchard",
+          "description": "Two days into following the Feast Trail, the party comes upon what was once a prosperous apple orchard owned by a halfling family. The orchard has been methodically stripped: every tree uprooted, every fruit taken, the farmhouse flattened. But unlike the abbey attack, this destruction is fresh — within the last twelve hours. And the raiding party is still nearby. A hill giant foraging team is camped in the next valley, visible by their campfire smoke, still processing their haul. This encounter offers the party their first opportunity to take the offensive against the giants on ground of their choosing.",
+          "readAloud": "\"The orchard must have been beautiful once. You can see it in the careful spacing of the root-holes, the stone-lined irrigation channels, the neat rows where apple trees stood for what must have been generations. Now it looks like a battlefield after an earthquake. Every tree has been wrenched from the earth, roots and all, leaving craters of black soil surrounded by scattered rocks. The trees themselves lie in a tangled pile at the far end of the clearing, stripped of every leaf and fruit, their trunks scored with enormous tooth marks where someone — something — gnawed the bark for whatever nutrition it held. The halfling farmhouse is a flat pancake of timber and thatch with a single chimney stack poking up from the ruin like a tombstone. A child's wooden toy lies in the mud near the foundation — a carved horse, remarkably intact amid the destruction, painted in cheerful colors that look obscene against the devastation. Smoke rises from beyond the next hill. It is thick, greasy smoke — the smoke of a large cooking fire. And the wind carries sound: the grinding crunch of giant teeth on bone, the wet tearing of meat, and a deep, rumbling belch that reverberates through the valley like distant thunder. The raiding party is close. Very close.\"",
+          "skillChecks": [
+            {
+              "skill": "Survival",
+              "dc": 13,
+              "success": "Reading the tracks reveals the foraging party's composition: 1 hill giant, 2 ogres, 4 goblins on dire wolf mounts. The tracks also show a route of approach that stays downwind and uses terrain for cover.",
+              "failure": "The tracks are too churned to read clearly. The party knows the raiders are in the next valley but not their exact composition."
+            },
+            {
+              "skill": "Stealth (group check)",
+              "dc": 14,
+              "success": "The party approaches undetected and gains a surprise round in combat. The hill giant is sitting down eating and must use its first action to stand up.",
+              "failure": "A dire wolf catches the party's scent and begins howling. The goblins mount up and the foraging party is alert, though not fully prepared."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 15,
+              "success": "Examining the destroyed farmhouse reveals that the halfling family escaped — their root cellar was emptied of preserves but also of personal effects, and small boot tracks lead south. They got away before the giants arrived.",
+              "failure": "The destruction is too complete to determine what happened to the inhabitants."
+            },
+            {
+              "skill": "Nature",
+              "dc": 14,
+              "success": "The character notices the valley's terrain features: a narrow ravine that could funnel the giants, a muddy slope that could be used to create difficult terrain, and a rocky outcrop that provides excellent cover for ranged attackers.",
+              "failure": "The terrain seems unremarkable. No tactical advantage identified."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "1 Hill Giant (CR 5, HP 105, AC 13)",
+                "2 Ogres (CR 2, HP 59 each, AC 11)",
+                "4 Goblins mounted on Dire Wolves (Goblin CR 1/4, HP 7, AC 15; Dire Wolf CR 1, HP 37, AC 14)"
+              ],
+              "difficulty": "Hard",
+              "tactics": "The hill giant is initially eating and requires a bonus action to grab its weapon (a tree trunk). If surprised, it loses this bonus action and must use a full action to arm itself. The ogres act as bodyguards and position themselves between threats and the hill giant. The goblin wolf-riders are skirmishers: they use their wolves' speed to make hit-and-run attacks, staying at range and using the wolves' knockdown ability to set up ogre attacks. If the hill giant falls, the ogres attempt to flee. The goblins flee immediately if either the hill giant or both ogres are defeated. One goblin carries a crude horn — if it sounds, reinforcements (1 additional ogre) arrive in 2d4 rounds from further along the trail.",
+              "terrain": "The valley is open grassland with a shallow stream running through it (difficult terrain to cross, 5 ft wide). The giants' camp is in a clearing near the stream with several uprooted trees providing half cover. A rocky outcrop on the south side of the valley provides three-quarters cover and elevation (20 ft above the valley floor). The approach from the stripped orchard is uphill, providing the party a slight elevation advantage. Muddy ground near the stream counts as difficult terrain for 15 ft on either side."
+            }
+          ],
+          "roleplayNotes": "This encounter can be played stealthily (ambush) or as a direct assault, and the party's approach should be rewarded or challenged accordingly. If the party takes a goblin prisoner, it can reveal basic information about Grudd Haug: the name 'Chief Guh,' the fact that she cannot move, and the general direction of the steading. Goblins are cowardly and will trade information for their lives eagerly, though they exaggerate threats ('a THOUSAND giants live there!'). The hill giant, if somehow communicated with (it speaks Giant), is simpleminded and boasts about Guh's greatness and the amount of food the steading contains, inadvertently revealing useful intelligence. This scene should reinforce the 'following a monster to its lair' tension of Act 2.",
+          "loot": [
+            "Hill giant's belt pouch: 3d10 gp, a silver locket worth 25 gp (stolen from a farmhouse, contains a miniature portrait of a human couple)",
+            "Ogre equipment: 2 greatclubs, 2 javelins, 1d8 gp total",
+            "Goblin supplies: crude map showing 3 more farms targeted for raiding (can be used to warn the victims), a signal horn (functions as a Horn of Blasting with 1 charge remaining, but cracks and becomes useless after use)",
+            "Dire wolf pelts: 4 pelts worth 10 gp each if properly skinned (DC 12 Survival)",
+            "From the camp: 200 lbs of stolen food (too heavy for the party to carry, but could be returned to refugees for goodwill)"
+          ]
+        },
+        {
+          "name": "The Crossroads Toll",
+          "description": "The Feast Trail crosses a major trade road at a stone bridge over the Dessarin River. An opportunistic orog war chief named Gurrash has claimed the bridge with his warband, extorting passage from refugees and travelers while paying tribute to the hill giants in exchange for being left alone. Gurrash is cunning, well-armed, and backed by hardened orc warriors who see the chaos as an opportunity. This encounter can be resolved through negotiation, intimidation, combat, or creative problem-solving, and each approach has different consequences for the journey ahead.",
+          "readAloud": "\"The trade road emerges from a copse of birch trees to reveal a stone bridge spanning the Dessarin River — a sturdy, dwarven-built structure thirty feet wide with low walls, designed to bear the weight of loaded merchant caravans. It is a good bridge, and someone else has realized its value. Crude barricades of overturned wagons and sharpened stakes block both approaches. Red-painted shields bearing a fanged maw sigil hang from the barricades like heraldry. Behind the barricade on the near side, six orc warriors in well-maintained chainmail lounge with the relaxed alertness of professional soldiers, their weapons close at hand. And standing on the bridge itself, arms folded across a breastplate emblazoned with the same fanged maw, is their leader: a massive orog, nearly seven feet tall, with grey-green skin, a jaw like an anvil, and eyes that glitter with intelligence unusual for his kind. He watches your approach without surprise — clearly, his scouts spotted you some time ago. 'Travelers!' he calls out in accented but perfectly clear Common, his voice carrying easily over the sound of the river. 'Welcome to the Gurrash Crossing. The bridge is open, the toll is reasonable, and the alternative is a three-day detour through country that my hill giant business partners have made rather... inhospitable. Shall we talk business, or shall we skip to the part where everyone is unreasonable?'\"",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 17,
+              "success": "The character's display of martial prowess or magical power impresses Gurrash, who reassesses the situation. He waves the party through for free, adding 'Professional courtesy — I know killers when I see them. Cross, and tell no one the bridge is free. My reputation, you understand.'",
+              "failure": "Gurrash laughs appreciatively. 'Oh, I like that. Fierce! But my warriors have heard fiercer, and we are still here. The toll stands. Shall we negotiate like civilized creatures, or do you wish to test whether your bite matches your bark?'"
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "The character negotiates the toll down to a token amount (5 gp) and extracts useful information: Gurrash reveals that the hill giants' steading is 'two days northeast, in the muddy hills — you will smell it before you see it.' He also mentions the back entrance through the garbage chute.",
+              "failure": "Gurrash is unmoved by diplomacy. The full toll stands at 50 gp. No additional information is offered."
+            },
+            {
+              "skill": "Deception",
+              "dc": 16,
+              "success": "The character convinces Gurrash that they are envoys of a powerful lord coming to negotiate with Chief Guh, and that interfering with them would anger both the lord and Guh. Gurrash lets them pass free and even offers his own crude intelligence about the steading's defenses as a gesture of respect.",
+              "failure": "Gurrash sees through the lie and is insulted. 'You think Gurrash is stupid? My people invented cunning. The toll doubles — 100 gp — and that is for my bruised dignity.'"
+            },
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "The character notices a narrow goat path 200 yards downstream where the river can be forded (DC 13 Athletics, or DC 10 if a rope is rigged). This allows the party to bypass the toll entirely, though Gurrash will remember the insult.",
+              "failure": "The river appears uncrossable except at the bridge."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "1 Orog War Chief (CR 4, HP 93, AC 18 — plate armor, greatsword + handaxes for range)",
+                "6 Orcs (CR 1/2, HP 15 each, AC 16 — chainmail and shields, javelins + battleaxes)",
+                "2 Orc scouts (CR 1/2, HP 15 each, AC 13 — hidden in trees on both sides of the road, with longbows)"
+              ],
+              "difficulty": "Medium-Hard",
+              "tactics": "Gurrash is a disciplined tactician. If combat begins, the hidden scouts open fire from the tree line (DC 16 Perception to spot before combat). Gurrash orders his warriors to hold the barricade, fighting defensively (Dodge action, ready attacks for creatures trying to climb over) while the scouts whittle down the party. Gurrash himself fights from behind the barricade until an enemy breaches it, then engages in melee with his greatsword, focusing on the most dangerous-looking opponent. If reduced to half HP, he offers a truce: 'Enough! You have proven your point. Cross the bridge — no toll. But we part as equals, not enemies. Agreed?' If the party refuses the truce, the remaining orcs fight to the death to protect their retreat across the bridge, while Gurrash covers their escape.",
+              "terrain": "The bridge is 30 ft wide and 60 ft long with low stone walls (half cover). Barricades at both ends provide three-quarters cover. The barricades have AC 15, HP 30 and can be climbed with DC 12 Athletics. The road is 15 ft wide. The river below is 20 ft down, deep and fast-moving (DC 15 Athletics to swim, 1d6 cold damage per round). Trees on both sides of the road provide full cover. The near-side approach is flat and open for 30 ft — a kill zone the orcs have deliberately cleared."
+            }
+          ],
+          "roleplayNotes": "Gurrash is one of the more interesting NPCs in this act. He is lawful evil — a disciplined professional who sees himself as an entrepreneur, not a thug. He pays tribute to the hill giants and considers it a business expense. He treats travelers with a rough courtesy as long as they pay. He is well-informed about the local situation because his scouts range widely, and he is smart enough to realize the hill giant situation is unsustainable. If the party treats him with respect, even in combat, he becomes a potential recurring NPC — someone who might provide information or safe passage in the future. If they simply slaughter his warband, they gain nothing but XP and the knowledge that the bridge is now unguarded, which means refugees can cross freely. Both outcomes have narrative weight. The key detail is that Gurrash KNOWS about Grudd Haug and can provide intelligence if properly motivated.",
+          "loot": [
+            "If combat: Gurrash's greatsword (masterwork quality, worth 75 gp), plate armor (too large for most party members, worth 400 gp if sold), 6 sets of chainmail, 8 battleaxes, 12 javelins, 2 longbows, 40 arrows",
+            "Gurrash's strongbox (hidden in a tent behind the barricade, DC 14 Investigation to find, DC 15 Thieves' Tools to open): 180 gp, 340 sp, a jade figurine of a boar worth 50 gp, and a folded piece of vellum with a crude but accurate map of the approach to Grudd Haug including guard post locations",
+            "If negotiated: whatever information Gurrash shares, plus safe passage; Gurrash also offers to sell the Grudd Haug map for 50 gp if the party seems interested"
+          ]
+        },
+        {
+          "name": "The Outcast and the Refugee",
+          "description": "As the party draws within a day's travel of Grudd Haug, they encounter two potential allies in rapid succession. First, Tilda Greenbarrow, a halfling merchant who escaped from the steading's slave pens, is found hiding in a collapsed root cellar. She is terrified, half-starved, and desperate for rescue, but she has memorized the layout of Grudd Haug's outer defenses with a merchant's eye for detail. Second, and far more unexpectedly, the party discovers Moog — an outcast female hill giant who was expelled from Grudd Haug for being 'too thin' and is now hiding in a barn, hungry and confused. Moog is not evil, merely stupid and lonely, and she offers a unique opportunity: an inside perspective on the steading and even a potential ally for the assault.",
+          "readAloud": "\"The root cellar is easy to miss — just a mound of collapsed earth with a wooden door half-buried in debris, the entrance to a storage space beneath a farmhouse that no longer exists. But someone has been maintaining the entrance. Fresh scratches on the door frame, a carefully arranged pile of leaves concealing the handle, and — when you pull the door open — a yelp of pure terror from the darkness below, followed by the click of a crossbow being armed. 'Stay back!' a high, trembling voice calls up from the darkness. 'I have a crossbow and I am NOT afraid to use it! I am a licensed merchant of the Greenbarrow Trading Company, and I have rights!' A pause. A sniffle. 'Also, if you are not giants or goblins, I would very much like to come out now. I have been down here for four days and I have eaten all my emergency cheese.' A small figure appears at the base of the cellar steps — a halfling woman in mud-stained merchant's clothing, clutching a hand crossbow in a white-knuckled grip. Her hair is a wild tangle of auburn curls, her face is streaked with grime and tears, and her eyes are enormous with a mixture of terror and desperate hope. 'Are you real?' she whispers. 'Are you actually real people who are not going to eat me?'\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 11,
+              "success": "Tilda calms down quickly once she realizes the party is friendly. She provides a detailed verbal description of Grudd Haug's outer defenses: the palisade, guard posts, the slave pen location, and crucially, the drainage tunnel that leads directly into the lower level of the steading.",
+              "failure": "Tilda is too shaken to provide coherent information immediately. She needs rest and food before she can be debriefed (1 hour of care)."
+            },
+            {
+              "skill": "Animal Handling",
+              "dc": 16,
+              "success": "When the party encounters Moog the outcast hill giant, the character approaches non-threateningly. Moog does not attack and instead begins crying, explaining (in broken Common) that Chief Guh said she was 'too skinny to be giant' and threw her out. She is willing to help if the party feeds her.",
+              "failure": "Moog panics and swings her club defensively. Initiative is rolled, but Moog can be calmed with a subsequent DC 14 Persuasion check; she does not want to fight."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "The character realizes that Moog's expulsion is recent — within the last two days — which means Guh is becoming more paranoid and erratic. The power structure inside Grudd Haug may be more fragile than it appears from outside.",
+              "failure": "Moog seems like just another stupid giant. No deeper analysis."
+            },
+            {
+              "skill": "Persuasion (to recruit Moog)",
+              "dc": 15,
+              "success": "Moog agrees to help the party approach Grudd Haug and even create a distraction by 'coming home' to the front gate while the party enters through the drainage tunnel or another route. She also reveals that Guh's treasure hoard is beneath her throne.",
+              "failure": "Moog is too frightened of Guh to help with the assault. She wishes the party luck and lumbers away into the hills."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Optional: if Moog is frightened into aggression — 1 Hill Giant (CR 5, HP 105, AC 13) — but she fights defensively (takes Dodge action every other round) and can be talked down with DC 14 Persuasion",
+                "Environmental hazard: the root cellar collapses if more than 500 lbs of weight stands on it — DC 14 Dexterity save or fall 10 ft into the cellar for 1d6 bludgeoning damage"
+              ],
+              "difficulty": "Easy (if Moog is fought) or None (if handled diplomatically)",
+              "tactics": "Moog does not want to fight. If attacked, she defends herself but shouts 'No hurt Moog! Moog not mean!' and attempts to flee after 2 rounds. If reduced to half HP, she sits down and cries, surrendering completely. The DM should make it very clear that Moog is not a threat unless the party chooses to make her one.",
+              "terrain": "The barn where Moog hides is a large but badly damaged structure: the roof has partially collapsed (difficult terrain from debris), the walls have giant-sized holes, and the hayloft is precarious (DC 12 Acrobatics to move across, collapses if more than 200 lbs is placed on any 5-ft section). The surrounding area is flat farmland with no cover for 100 ft."
+            }
+          ],
+          "roleplayNotes": "This scene provides two contrasting potential allies. Tilda is everything a halfling merchant should be: resourceful, detail-oriented, terrified but practical. She survived captivity by memorizing everything she saw, knowing the information would be valuable. She wants payment (she IS a merchant) but will settle for safe escort back to Bargewright Inn. She is an excellent source of tactical information and her escape route through the drainage tunnel is the best way into the steading. Moog is the emotional heart of the scene. She is a hill giant — 16 feet tall, 1,100 pounds, with the intelligence of a small child. She was thrown out of the only home she has ever known because she did not eat enough, and she is confused, lonely, and scared. Playing her sympathetically (without being patronizing) creates a memorable NPC moment and forces the party to consider that not all giants are enemies. Moog knows the interior layout of the steading, the names and positions of the hill giant guards, and Guh's daily routine. She is an invaluable intelligence asset if treated with kindness.",
+          "loot": [
+            "Tilda's reward: a promissory note for 100 gp redeemable at any Greenbarrow Trading Company office (she insists she is good for it), plus detailed intelligence about the steading",
+            "Moog's gift (if befriended): she digs through her belongings and produces a brass ring worth 2 gp that she thinks is treasure — she insists the party take it as a token of friendship; the ring is mundane but the gesture is sincere",
+            "Root cellar supplies: 3 days of rations (mostly cheese), a hand crossbow with 10 bolts, a merchant's scale, and a waterproof scroll case containing Tilda's meticulous trade records (useless for combat, but a DC 14 Investigation check reveals shipping routes that could be valuable to merchants in the region, worth 50 gp as trade intelligence)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: Grudd Haug",
+      "description": "The final act is a dungeon crawl through Chief Guh's steading, culminating in a confrontation with the grotesquely obese hill giant chief herself. The steading is a unique dungeon environment — not carved stone corridors but stolen buildings stacked and smashed together, with human-sized hallways running alongside giant-sized passages. The party must navigate this chaotic structure, deal with guards and obstacles, potentially free slaves, and ultimately reach Guh's throne room on the top floor. The act offers multiple paths and approaches: a frontal assault through the main gate, infiltration through the drainage tunnel or garbage chute, a stealth approach using freed slaves as a distraction, or even a diplomatic approach if the party has recruited Moog. The boss encounter with Chief Guh is designed to be resolved through multiple means, and the discovery of the Conch of Teleportation sets up the larger campaign arc.",
+      "objectives": [
+        "Infiltrate or assault Grudd Haug steading",
+        "Navigate through the steading's chaotic interior",
+        "Optionally free the slaves held in the ground-floor pens",
+        "Reach Chief Guh's throne room on the top floor",
+        "Defeat, negotiate with, or otherwise neutralize Chief Guh",
+        "Recover the Conch of Teleportation from beneath Guh's throne"
+      ],
+      "scenes": [
+        {
+          "name": "Breaching the Steading",
+          "description": "The party approaches Grudd Haug and must choose their method of entry. The steading looms ahead, a grotesque pile of stolen buildings stacked sixty feet high on a muddy hilltop. The palisade is crude but functional, with goblin sentries on watch and ogre patrols circling the perimeter. Multiple entry points are available depending on the intelligence the party gathered in Act 2: the main gate (guarded), the drainage tunnel (Tilda's route), the garbage chute (from Gurrash's map), the collapsed palisade sections (from their own observation), or Moog's distraction at the front gate. This scene is about planning and execution — the party's preparation in Act 2 directly affects their options here.",
+          "readAloud": "\"The smell hits you first — a wall of stench so thick it feels physical, a miasma of rotting food, unwashed bodies, animal waste, and wood smoke that makes your eyes water from a quarter mile away. Then you see it, rising from the muddy hilltop like a fever dream built by a mad architect: Grudd Haug. It defies description, but you try anyway. Imagine a dozen farmhouses, taverns, barns, and workshops torn from their foundations and stacked on top of each other by hands that understood the concept of 'pile' but not 'structure.' Walls jut at impossible angles. Chimneys poke sideways from second-floor windows. A church steeple protrudes horizontally from the middle of the stack like a battering ram. The whole edifice is held together — barely — by entire tree trunks used as crossbeams, packed with mud, thatch, straw, and refuse. Smoke seeps from a hundred cracks and crevices. The sound of giant voices reverberates through the structure like thunder inside a drum. A crude palisade of sharpened logs encircles the base, maybe fifteen feet high, with gaps where giants have blundered through and never bothered to repair. Goblin sentries perch on the palisade points like ugly birds, their yellow eyes scanning the surrounding terrain. An ogre patrol — three of them — trudges around the perimeter, their clubs dragging furrows in the mud. And above it all, from the topmost level of this architectural abomination, you hear a sound that makes your stomach turn: the continuous, wet, grinding sound of something enormous eating without pause.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth (group check, drainage tunnel approach)",
+              "dc": 13,
+              "success": "The party enters the drainage tunnel undetected. The tunnel is foul but passable, emerging in a storage room on the ground floor near the slave pens.",
+              "failure": "A giant rat in the tunnel squeals an alarm. The party still enters, but a goblin patrol is waiting at the exit — 4 goblins who attempt to flee and raise the alarm."
+            },
+            {
+              "skill": "Constitution (drainage tunnel)",
+              "dc": 13,
+              "success": "The character endures the overwhelming stench of the drainage tunnel without ill effect.",
+              "failure": "The character is poisoned for 1 hour, suffering disadvantage on attack rolls and ability checks from nausea."
+            },
+            {
+              "skill": "Stealth (group check, palisade gap approach)",
+              "dc": 14,
+              "success": "The party slips through a gap in the palisade and reaches the steading's outer wall without alerting sentries.",
+              "failure": "A goblin sentry spots the party and blows a warning horn. The ogre patrol converges on their position in 2 rounds."
+            },
+            {
+              "skill": "Performance or Deception (Moog distraction)",
+              "dc": 14,
+              "success": "Moog's 'homecoming' at the front gate creates a convincing distraction. All guards on the near side of the steading move to the gate for 10 minutes, giving the party an uncontested entry through any other approach.",
+              "failure": "The gate guards are suspicious but still distracted for 5 minutes — enough for one attempt at an alternate entry with advantage on the Stealth check."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Main gate approach: 2 Ogres (CR 2, HP 59 each) + 6 Goblins (CR 1/4, HP 7 each)",
+                "Palisade gap (if detected): 3 Ogres from patrol (CR 2, HP 59 each)",
+                "Drainage tunnel (if detected): 4 Goblins (CR 1/4, HP 7 each) + 4 Giant Rats (CR 1/8, HP 7 each)"
+              ],
+              "difficulty": "Easy to Medium depending on approach",
+              "tactics": "If the alarm is raised, the ogres form a defensive line while goblins scatter to alert the interior. The party has 3 rounds to eliminate or silence all enemies before reinforcements arrive from inside the steading (1 hill giant + 2 ogres). If the party uses the drainage tunnel and is detected, the goblins prioritize escaping to warn others over fighting. If the party uses stealth successfully, this encounter is bypassed entirely.",
+              "terrain": "The palisade is 15 ft high with sharpened points (1d6 piercing to anyone climbing without a DC 12 Athletics check). The mud around the steading is thick and counts as difficult terrain within 20 ft of the walls. The drainage tunnel is 4 ft diameter (Medium creatures must crouch, suffering disadvantage on attack rolls and Dexterity saves; Small creatures are unaffected). The main gate is a 10-ft wide opening with heavy log doors (AC 15, HP 60) that can be barred from inside."
+            }
+          ],
+          "roleplayNotes": "This scene rewards preparation. A party that gathered intelligence in Act 2 has multiple good options; a party that rushed ahead has fewer choices and faces harder odds. The DM should present the steading as genuinely intimidating — this is a giant's fortress, built by and for creatures twice the party's size. Everything is oversized and alien. The doors are 12 feet tall. The stairs are 3 feet per step. The corridors are 15 feet wide. For human-sized characters, navigating this space should feel like being inside a world built at the wrong scale. If Moog is with the party, she provides ongoing commentary about the steading's layout ('Guh room up top. Kitchen down there — Moog worked kitchen. Smell bad but food good.'). The DM should track alarm status: if the party is detected, each subsequent encounter in the steading becomes harder as giants prepare defenses.",
+          "loot": [
+            "Ogre guards: 2d8 gp each, crude iron keys to the slave pens",
+            "Goblin sentries: 1d4 sp each, warning horns (functionally identical to signal whistles)",
+            "From the storage room (drainage tunnel exit): 3 barrels of ale (worth 5 gp each, or can be used to bribe or poison guards), a crate of stolen tools (smith's tools, carpenter's tools, tinker's tools — worth 30 gp total)"
+          ]
+        },
+        {
+          "name": "The Steading Interior",
+          "description": "Once inside Grudd Haug, the party must navigate through the chaotic interior to reach Chief Guh's throne room on the top floor. The interior is a maze of repurposed rooms connected by holes smashed through walls, with multiple levels connected by crude log ramps. The party encounters guards, traps, potential allies (slaves, the captured dwarf smith Agna Ironhand), and the hidden shrine to Grolantor. The steading is alive with activity — goblins scurry everywhere, ogres lumber through corridors, and the constant sound of Guh eating reverberates through the structure. The party must balance speed, stealth, and combat as they ascend through the building toward the final confrontation.",
+          "readAloud": "\"The interior of Grudd Haug is a nightmare of improvised architecture. You step through the drainage tunnel exit into what was once the dining room of a modest farmhouse — you can still see the floral wallpaper, now stained with grease and mold, and the remnants of a china cabinet smashed flat against one wall. But the ceiling has been torn away, replaced by the floor of another building stacked on top of this one, and a ragged hole in the far wall opens into what appears to be the nave of a small church, turned on its side so the pews run vertically up what is now a wall. Light filters in through a hundred cracks, creating shifting patterns of dusty illumination. The smell is indescribable — every room contains food in various stages of decay, from freshly stolen produce to things that might have been meat several weeks ago. Goblins are everywhere, scurrying through gaps in the walls too small for ogres, carrying baskets of food upward toward the top floors in a continuous chain. They chatter in their language, ignoring everything that is not food or a direct threat. Somewhere above you, the ceiling creaks ominously under enormous weight. The sound of eating is louder here — a continuous, organic grinding that seems to come from the structure itself, as if the building is slowly being consumed from within. Which, in a sense, it is.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth (moving through the interior)",
+              "dc": 14,
+              "success": "The party moves through a section of the steading undetected, bypassing a patrol of 2 ogres.",
+              "failure": "An ogre spots the party and bellows an alarm. Combat begins with the ogre having initiative."
+            },
+            {
+              "skill": "Investigation (finding the shrine to Grolantor)",
+              "dc": 16,
+              "success": "The character notices a hidden stairway beneath a pile of refuse, leading down to a basement level where faint chanting can be heard — the goblin shaman's shrine to Grolantor.",
+              "failure": "The stairway remains hidden. The party continues upward without discovering the shrine."
+            },
+            {
+              "skill": "Thieves' Tools (freeing slaves)",
+              "dc": 14,
+              "success": "The character picks the locks on the slave pens, freeing 20+ captives who can serve as a distraction, guides, or even improvised fighters if armed with the tools from the storage room.",
+              "failure": "The lock proves resistant. The character can try again, but the noise attracts a goblin patrol (4 goblins) in 1d4 rounds."
+            },
+            {
+              "skill": "Athletics (navigating the ramps)",
+              "dc": 12,
+              "success": "The character navigates the steep, greasy log ramps between floors without difficulty.",
+              "failure": "The character slips on the greasy surface and slides back down, taking 1d6 bludgeoning damage and making noise that requires a DC 12 Stealth check to avoid alerting nearby guards."
+            },
+            {
+              "skill": "Investigation or mason's tools (structural weak points)",
+              "dc": 16,
+              "success": "The character identifies the load-bearing supports on this floor and can target them to collapse sections of the building. Destroying a support (AC 15, HP 30) collapses a 20-ft radius area: 4d10 bludgeoning, DC 15 Dexterity save for half.",
+              "failure": "The chaotic construction defies analysis. No weak points identified."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Entry hall patrol: 2 Ogres (CR 2, HP 59 each) + 6 Goblins (CR 1/4, HP 7 each) playing dice",
+                "Kitchen encounter: 1 Hill Giant Cook (CR 5, HP 105, AC 13, wields a massive iron ladle as a greatclub) + 3 Ogre Assistants (CR 2, HP 59 each)",
+                "Grolantor Shrine (optional): 1 Goblin Shaman (use Goblin Boss stats, CR 1, HP 21, AC 17, plus can cast Bane and Inflict Wounds 1/day each) + 4 Goblin Acolytes (CR 1/4, HP 7 each, armed with daggers and fanaticism)",
+                "Upper floor guards: 2 Hill Giants (CR 5, HP 105 each, AC 13) throwing rocks from a balcony"
+              ],
+              "difficulty": "Hard (cumulative — multiple encounters drain resources)",
+              "tactics": "The dice-playing patrol is distracted (DC 10 Stealth to bypass, DC 8 with a diversion). If combat starts, the goblins scatter while the ogres fight. The kitchen encounter is especially dangerous: the hill giant cook fights with a massive iron ladle (functionally identical to a greatclub) and can kick over cauldrons of boiling stew (bonus action, DC 14 Dex save, 3d6 fire damage in 10-ft area) once per encounter. The shrine goblins are fanatical and fight to the death to protect the shrine; the shaman attempts to flee if reduced to 5 HP or less. The upper-floor hill giants have advantage on ranged attacks (elevation) and throw rocks; they are surprised on a DC 13 Stealth check if the party approaches from below. The DM should pace these encounters based on the party's alarm status — if undetected, encounters can be bypassed or surprised; if the alarm is raised, all encounters are on alert.",
+              "terrain": "The interior spaces vary wildly in size and shape. Giant-sized corridors are 15 ft wide and 12 ft tall. Human-sized rooms (from stolen buildings) are normal dimensions but have giant-sized holes smashed through walls. Log ramps between floors are 5 ft wide, steep, and greasy (difficult terrain, DC 12 Athletics to move at full speed). The kitchen has iron cauldrons (half cover), open cooking fires (1d6 fire damage on contact), and hanging meat (obscures line of sight). The shrine is a 20x20 ft basement room with crude stone pillars (half cover) and a central altar (AC 13, HP 30 — destroying it ends the magical compulsion on other hill giants). The upper floor is open with log pillars (half cover) and a balcony overlooking a 30-ft drop."
+            }
+          ],
+          "roleplayNotes": "The steading interior should feel claustrophobic, disgusting, and alien. The party is small creatures in a giant's world. Doorways are too tall, stairs are too steep, and the constant threat of being stepped on or crushed by falling debris is real. The goblins are the most numerous but least threatening enemies; they should be portrayed as a constant nuisance rather than a serious threat — stealing equipment, raising alarms, and generally making the party's life miserable. The ogres are the real muscle, and the hill giants are terrifying opponents in the close quarters of the steading. The freed slaves, if rescued, are grateful but scared; they need to be led out through the drainage tunnel by one party member or left to find their own way (DC 12 Wisdom check for the group to navigate out safely). Agna Ironhand, the captured dwarf smith, is a key ally — she has been inside the steading for weeks and knows the layout intimately. She is tough, angry, and eager for revenge. She can identify structural weak points automatically (no check needed) and provides advantage on all Investigation checks inside the steading.",
+          "loot": [
+            "Kitchen stores: various stolen foodstuffs, a cask of dwarven brandy worth 50 gp, a silver serving set worth 75 gp (stolen from a noble's estate)",
+            "Grolantor Shrine: a crude obsidian idol worth 100 gp, a Potion of Hill Giant Strength, 40 gp in offerings",
+            "Agna Ironhand's gratitude: she forges a weapon enhancement during a short rest if given access to the makeshift forge — +1 to damage rolls with one weapon until the next long rest (her personal touch)",
+            "Guard equipment: 2 greatclubs (giant-sized, unusable by Medium creatures but worth 5 gp each as lumber), rocks (giant-sized), 2d10 gp per hill giant",
+            "Slave pen area: personal effects of captured merchants, including a Potion of Healing, a spell scroll of Shield, and 65 gp in hidden coin purses"
+          ]
+        },
+        {
+          "name": "The Throne of Hunger",
+          "description": "The climax of the scenario takes place in Chief Guh's throne room, the cavernous top floor of Grudd Haug. Guh herself is the centerpiece — an impossibly obese hill giant who fills half the room, enthroned atop a platform of smashed wagons, unable to move but far from helpless. She is attended by goblin servants, protected by hill giant bodyguards, and capable of hurling devastating chunks of debris at anything that displeases her. The encounter is designed to be resolved through multiple approaches: direct combat (the hardest option), negotiation via food bribery (if the party can offer or create a 'greatest feast'), structural sabotage (collapsing the building), or psychological manipulation (exploiting Guh's secret terror of her own immobility). The Conch of Teleportation is buried beneath Guh's throne, requiring either her defeat or her cooperation to access.",
+          "readAloud": "\"The log ramp opens onto the top floor of Grudd Haug, and the sight that greets you will haunt your memories for years. The entire floor is a single vast chamber, perhaps eighty feet across, with the stolen roof timbers of a dozen buildings creating a cathedral-like ceiling twenty feet above. But the ceiling is an afterthought, because Chief Guh dominates every sense at once. She is enormous — not just giant-sized but grotesquely, impossibly enormous, a mountain of grey-green flesh that cascades over the sides of a platform built from smashed wagons and broken furniture. Her body has consumed her original form; what was once a hill giant is now a shapeless mass of fat and hunger, with arms like tree trunks protruding from rolls of flesh and a face nearly lost in the folds of her own neck. She wears a crude crown of bent iron pots and wields no weapon — she doesn't need one, because the floor around her is piled waist-deep in debris: broken furniture, chunks of masonry, stones, wagon wheels, anything heavy enough to hurl. And she is eating. She has not stopped eating since the moment the party entered the steading. Goblin attendants scramble over her body like ants on a corpse, carrying baskets of food to her mouth with frantic urgency. Two hill giants stand guard at the base of her platform, clubs raised, their eyes tracking every movement. The floor is carpeted in bones, food scraps, and crushed gold coins pressed into the filth like mosaic tiles. The smell is beyond description. And then Guh sees you. Her tiny, piggy eyes focus with surprising sharpness, and her voice, when it comes, is not the roar you expected but a wheeze — a breathless, strained sound forced through lungs compressed by her own weight. 'MORE... FOOD?' she gasps, each word a labor. 'You bring... food... for Guh? Guh is... HUNGRY. Guh is ALWAYS... hungry. Guh must be... BIGGEST. Biggest giant... rules ALL. That is... the new way.' She reaches for a chunk of masonry the size of a dwarf and hefts it one-handed. 'If you... not bring food... then you... ARE food.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 17,
+              "success": "The character perceives the truth behind Guh's bravado: she is terrified. She ate herself into immobility believing it would make her powerful, and now she is a prisoner of her own body, utterly dependent on her servants. Her aggression is born of fear, not confidence. This insight grants advantage on Intimidation or Persuasion checks against Guh.",
+              "failure": "Guh appears as she presents herself: a powerful, confident ruler of giants who has found a strategy and is committed to it."
+            },
+            {
+              "skill": "Persuasion (food bribe approach)",
+              "dc": 18,
+              "success": "The character offers Guh something she has never tasted — magical food, exotic cuisine, or an incredibly persuasive description of a feast beyond her imagination. Combined with an offering of actual food (or creative use of Prestidigitation to enhance mundane food), Guh is so delighted that she grants the party one request. If they ask for the conch, she is confused but agrees — she did not even know it was there.",
+              "failure": "Guh is unimpressed. 'Guh has eaten EVERYTHING. You bring... nothing new. Nothing WORTHY.' She hurls a chunk of debris at the party as a warning shot."
+            },
+            {
+              "skill": "Intimidation (exploiting her fear)",
+              "dc": 16,
+              "success": "The character confronts Guh with her worst fear: 'You cannot stand. You cannot run. You cannot fight. Every giant in this steading could walk away, and you would starve, alone, on your throne of garbage.' Guh's composure shatters. She begins to cry — enormous, blubbery sobs that shake the building — and surrenders. She tells the goblins to give the party whatever they want, including the conch.",
+              "failure": "Guh's fear transforms into rage. She hurls debris at the character with terrifying accuracy and orders her guards to attack. Combat begins with Guh having already acted (thrown debris, +8, 3d10+5)."
+            },
+            {
+              "skill": "Investigation (locating the conch)",
+              "dc": 15,
+              "success": "The character spots the distinctive spiral shape of the Conch of Teleportation wedged beneath the base of Guh's throne platform, partially buried in treasure and debris.",
+              "failure": "The conch is not visible. It requires excavating the base of the throne (10 minutes, or DC 20 Athletics to pull free under pressure) to find."
+            },
+            {
+              "skill": "Athletics (collapsing the building)",
+              "dc": 16,
+              "success": "The character destroys a critical load-bearing support, causing a section of the roof to collapse on Guh. 6d10 bludgeoning damage, DC 16 Dex save for half — but Guh cannot make the save because she cannot move. The party must make DC 14 Dex saves to avoid the same collapse.",
+              "failure": "The support cracks but holds. The attempt alerts everyone in the room to the character's intent."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Chief Guh (modified Hill Giant: HP 145, AC 12 — too fat for proper armor, immobile — speed 0, cannot be moved. Attacks: Hurl Debris +8, range 60/240, 3d10+5 bludgeoning; Thunderous Bellow recharge 5-6, bonus action, 30-ft cone, DC 14 Constitution save or stunned until end of next turn and deafened for 1 minute; Sweeping Arm +8, reach 10 ft, 2d8+5 bludgeoning and DC 14 Strength save or pushed 10 ft and knocked prone)",
+                "2 Hill Giant Bodyguards (CR 5, HP 105 each, AC 13)",
+                "8 Goblin Attendants (CR 1/4, HP 7 each, AC 15 — they flee after round 1 unless the goblin shaman is alive, in which case they fight fanatically)",
+                "1 Goblin Shaman (if not killed at the shrine: CR 1, HP 21, AC 17, Bane and Inflict Wounds 1/day each)"
+              ],
+              "difficulty": "Deadly",
+              "tactics": "Chief Guh cannot move from her throne. She uses Hurl Debris every round against the most dangerous-looking enemy, prioritizing spellcasters. She uses Thunderous Bellow when 2+ enemies are within the cone. Her Sweeping Arm attacks anything that comes within 10 feet. The hill giant bodyguards position themselves to intercept melee attackers, fighting aggressively and prioritizing anyone heading toward Guh's throne base (where the conch is). The goblin attendants scatter after the first round of combat, but if the shaman is alive, he rallies them to harass the party's backline with hit-and-run dagger attacks. If both bodyguards fall, Guh's composure breaks — she begins hurling debris wildly (disadvantage on attacks) and screaming for help. If the building is sabotaged and begins collapsing, ALL creatures in the room must deal with falling debris (2d6 bludgeoning per round, DC 13 Dex save to avoid) — this affects the giants much more than the smaller party members. If Guh is reduced to 50 HP or below, she surrenders, weeping and begging for food.",
+              "terrain": "The throne room is 80 ft across with a 20-ft ceiling. Guh's throne platform is in the center, 10 ft high and 30 ft wide, accessible by crude log ramps on two sides. The floor is covered in debris, bones, and food scraps (difficult terrain throughout). Six log pillars support the roof (AC 15, HP 40; destroying 3+ collapses the roof). Piles of debris around the room provide half cover. The base of the throne is buried in treasure and refuse — accessing the conch requires being within 5 ft of the throne base. Guh has line of sight to the entire room from her elevated position. A ragged hole in the wall on the east side provides an emergency exit — a 30-ft drop to the muddy slope outside (DC 14 Acrobatics to land without damage, or 3d6 bludgeoning)."
+            }
+          ],
+          "roleplayNotes": "This is the climactic scene and should feel appropriately epic and grotesque. Chief Guh is simultaneously terrifying, pitiable, and absurd — a creature that pursued power through the only lens she understood (eating) and became a prisoner of her own success. The DM should play her as genuinely dangerous (her attacks hit HARD) but also as a tragic figure. She truly believes that being the fattest giant will make her the most powerful, because she cannot imagine any other form of strength. If the party negotiates, her delight at new food is childlike and genuine. If they intimidate her, her fear is real and raw. If they fight, her rage is the desperate fury of a creature that knows it cannot flee. The conch discovery should feel like a major plot revelation — it is clearly of storm giant origin, far more sophisticated than anything in the steading, and it hums with teleportation magic. A DC 14 Arcana check reveals it transports the user to Maelstrom, the undersea court of the storm giants. This is the thread that leads to the larger Storm King's Thunder campaign. After the encounter, the steading's remaining inhabitants (goblins, ogres) scatter without Guh's leadership. The slaves are freed. The Feast Trail ends. The party has dealt with the hill giant threat and gained a crucial artifact that connects to the storm giant court.",
+          "loot": [
+            "Conch of Teleportation (plot item — transports the party to Maelstrom, the storm giant court; single use, but re-charges after a tenday)",
+            "Javelin of Lightning (rare, requires attunement — found in Guh's treasure hoard, stolen from an adventurer)",
+            "Gauntlets of Ogre Power (uncommon, requires attunement — worn by Guh as 'bracelets,' set the wearer's Strength to 19)",
+            "Guh's treasure hoard: 450 gp, 1,200 sp, 3,000 cp (all pressed into the filth and requiring 30 minutes to fully excavate), a gold-and-ruby necklace worth 250 gp, a silver hand mirror worth 75 gp, a set of masterwork thieves' tools worth 100 gp, and a cracked sending stone (its partner is held by another hill giant chief in the Spine of the World — plot hook)",
+            "From the bodyguards: 2 greatclubs, 4d10 gp each, crude iron armbands worth 15 gp each"
+          ]
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "xp": "Total XP breakdown per party member (assuming 4-member party): Act 1 Breach combat ~500 XP each; Act 2 Foraging party ~350 XP each; Act 2 Crossroads (if fought) ~300 XP each; Act 3 Entry encounters ~200 XP each; Act 3 Interior encounters (kitchen, guards, shrine) ~600 XP each; Act 3 Throne Room ~800 XP each; Milestone XP for completing scenario: 500 XP each. Total combat + milestone: approximately 2,750-3,250 XP per party member, sufficient to advance from level 5 to level 7 over the course of the scenario.",
+    "items": [
+      "Conch of Teleportation (plot item — links to Maelstrom)",
+      "Javelin of Lightning (rare)",
+      "Gauntlets of Ogre Power (uncommon)",
+      "Potion of Hill Giant Strength (from Grolantor shrine)",
+      "Spell Scroll of Shield (from slave pen area)",
+      "Multiple Potions of Healing",
+      "Blessed wheat sheaf of Chauntea (minor holy symbol)",
+      "Cracked sending stone (plot hook to Spine of the World)",
+      "Masterwork thieves' tools",
+      "Gold-and-ruby necklace (250 gp value)"
+    ],
+    "storyRewards": [
+      "Gratitude of Goldenfields Abbey — the party is welcomed as heroes and can receive free lodging, supplies, and healing whenever they visit",
+      "Refugee network — the displaced farmers and merchants the party helped spread word of their deeds, granting advantage on Charisma checks in Sword Coast settlements",
+      "Tilda Greenbarrow's trading contacts — access to Greenbarrow Trading Company resources and information network",
+      "Moog's friendship (if recruited) — an outcast hill giant ally who can provide intelligence about giant culture and movements",
+      "Knowledge of the Ordning's shattering — the party now understands the fundamental crisis driving all giant activity",
+      "Access to Maelstrom via the Conch of Teleportation — the next step in the Storm King's Thunder campaign arc"
+    ]
+  },
+  "dmTips": [
+    "Scale is everything in this scenario. Constantly remind players how BIG everything is when dealing with giants. A hill giant's footprint is 3 feet across. Their clubs are bigger than a human. Their voices shake the ground. The party should feel small and clever, relying on tactics, terrain, and teamwork rather than brute force.",
+    "Grudd Haug should feel disgusting. Lean into the sensory details: the smell, the sounds of eating, the refuse and decay everywhere. This is not a clean dungeon — it is a living, breathing, rotting thing built by creatures with no concept of sanitation. Players should feel viscerally uncomfortable.",
+    "Chief Guh is the emotional core of the scenario. Play her as both threatening and pathetic. She is dangerous — her thrown debris can one-shot a wizard — but she is also a creature trapped by her own delusion. The best outcomes involve the party recognizing both aspects.",
+    "The scenario rewards preparation. Parties that gather intelligence in Act 2 (from Tilda, Moog, Gurrash, captured goblins) have dramatically easier options in Act 3. If the party rushes to the steading without scouting, the frontal assault is doable but costly. Make sure Act 2 feels rewarding, not like filler.",
+    "Track alarm status in the steading carefully. A stealthy party can bypass most encounters and reach Guh with full resources. A loud party fights through everything and arrives at the boss fight depleted. Both are valid play styles, but the difficulty should feel consistent with the party's choices."
+  ]
+}

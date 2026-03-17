@@ -95,14 +95,13 @@ function Home() {
         <CampaignCards campaignId="campaign2" locked={true} />
       </div>
 
-      <div className="tier-box tier-premium tier-locked">
+      <div className="tier-box tier-premium">
         <div className="tier-header">
           <span className="tier-badge tier-badge-premium">Premium</span>
           <h3 className="tier-title">Storm of the Giants</h3>
-          <span className="locked-label">Coming Soon</span>
-          <p className="tier-subtitle">An epic war between giant-kind and the small folk. Levels 5–15.</p>
+          <p className="tier-subtitle">When the Ordning shatters, the world trembles. An epic war between giant-kind and the small folk. Levels 5–15.</p>
         </div>
-        <CampaignCards campaignId="campaign3" locked={true} />
+        <CampaignCards campaignId="campaign3" locked={false} />
       </div>
 
       <div className="tier-box tier-premium tier-locked">

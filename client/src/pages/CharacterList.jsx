@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { api, hasActiveSession } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
+import { useCampaign } from '../context/CampaignContext';
 import CharacterCard from '../components/CharacterCard';
 
 function CharacterList() {
   const { player } = usePlayer();
+  const { campaignId } = useCampaign();
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,7 +26,7 @@ function CharacterList() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => { loadCharacters(); }, [player]);
+  useEffect(() => { loadCharacters(); }, [player, campaignId]);
 
   const handleImport = async (e) => {
     const file = e.target.files[0];

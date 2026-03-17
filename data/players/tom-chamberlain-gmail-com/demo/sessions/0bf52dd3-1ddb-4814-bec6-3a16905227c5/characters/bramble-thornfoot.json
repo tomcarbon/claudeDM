@@ -1,0 +1,120 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440003",
+  "name": "Bramble Thornfoot",
+  "status": "alive",
+  "race": "Halfling",
+  "subrace": "Lightfoot",
+  "class": "Rogue",
+  "level": 1,
+  "background": "Criminal",
+  "alignment": "Chaotic Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 14,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "dexterity",
+    "intelligence"
+  ],
+  "skills": [
+    "Acrobatics",
+    "Deception",
+    "Sleight of Hand",
+    "Stealth",
+    "Thieves' Tools",
+    "Perception",
+    "Investigation"
+  ],
+  "languages": [
+    "Common",
+    "Halfling",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Leather armor",
+    "Two daggers",
+    "Shortsword",
+    "Shortbow",
+    "Quiver of 20 arrows",
+    "Burglar's pack",
+    "Thieves' tools",
+    "A crowbar",
+    "A set of dark common clothes including a hood",
+    "A belt pouch containing 15 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Shortsword",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortbow",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Expertise (Stealth, Thieves' Tools - double proficiency bonus)",
+    "Sneak Attack (1d6 extra damage once per turn when you have advantage or an ally is within 5 ft of target)",
+    "Lucky (reroll natural 1s on attack rolls, ability checks, or saving throws)",
+    "Brave (advantage on saving throws against being frightened)",
+    "Halfling Nimbleness (move through the space of any creature that is a size larger)",
+    "Naturally Stealthy (can attempt to hide when obscured by a creature at least one size larger)"
+  ],
+  "traits": [
+    "Criminal Contact (reliable contact who acts as liaison to a network of criminals)"
+  ],
+  "spells": null,
+  "personality": {
+    "traits": "I always have a plan for what to do when things go wrong. The first thing I do in a new place is note the locations of everything valuable -- and where the exits are.",
+    "ideals": "Freedom. Chains are meant to be broken, as are those who would forge them.",
+    "bonds": "I owe a debt to the thieves' guild that trained me, and I may never be able to fully repay it.",
+    "flaws": "When I see something valuable, I can't think about anything but how to steal it. I have a hard time trusting anyone."
+  },
+  "appearance": "A wiry halfling of 3'2\" with messy chestnut hair, bright green eyes, and a crooked grin that never quite reaches his eyes. He wears dark, well-worn leather armor with numerous hidden pockets. A thin scar crosses the bridge of his nose, and his nimble fingers are never still, always fidgeting with a coin or lockpick.",
+  "backstory": "Bramble grew up on the streets of Waterdeep's Dock Ward after his family's produce cart was destroyed in a turf war between rival guilds. Taken in by a fence named Old Copper Kess, he learned the arts of burglary and pickpocketing before he was tall enough to reach a door handle. After a job went sideways and his mentor was arrested, Bramble skipped town with the guild's cut, and now stays one step ahead of both the law and the people he once called family.",
+  "profilePic": "data:image/png;base64,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"
+}

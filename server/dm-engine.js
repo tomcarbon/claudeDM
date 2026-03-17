@@ -4,6 +4,9 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { awardXp } = require('./xp-utils');
+const { startCombat, nextTurn, applyDamage, applyHealing, setCondition, getCombatStatus, endCombat } = require('./combat-utils');
+const { useResource, castSpell, processRest, checkResources } = require('./resource-utils');
+const { advanceTime, scheduleEvent, checkCalendar, generateWeather } = require('./calendar-utils');
 const { emailToSlug, getPlayerCharactersDir, getPlayerNpcsDir, getSessionCharactersDir, getSessionNpcsDir } = require('./player-data');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
@@ -161,7 +164,7 @@ function loadNpcs(dataDir, playerEmail, campaignId, sessionDbId) {
   }
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId) {
+function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig) {
   const cid = campaignId || 'demo';
   const settings = loadDmSettings(dataDir, playerEmail);
   const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid, sessionDbId) : null;
@@ -390,6 +393,34 @@ Character ID for AwardXP: ${npc.id}`;
     }
   }
 
+  // Build party composition from companionConfig (which NPCs are removed, open slots, reserved)
+  if (companionConfig && companionConfig.states && npcs.length > 0) {
+    const states = companionConfig.states;
+    const reservations = companionConfig.reservations || {};
+    const removedNpcs = npcs.filter(n => states[n.id] === 'removed');
+    const openNpcs = npcs.filter(n => states[n.id] === 'player' && !companionsByNpcId[n.id]);
+    const reservedNpcs = npcs.filter(n => states[n.id] === 'reserved' && !companionsByNpcId[n.id]);
+
+    if (removedNpcs.length > 0 || openNpcs.length > 0 || reservedNpcs.length > 0) {
+      prompt += `
+
+## Party Composition (Host Configuration)`;
+      if (removedNpcs.length > 0) {
+        prompt += `
+**These NPCs are NOT in the party and should not appear:** ${removedNpcs.map(n => n.name).join(', ')}.`;
+      }
+      if (openNpcs.length > 0) {
+        prompt += `
+**${openNpcs.length} open player slot(s)** (${openNpcs.map(n => n.name).join(', ')}). Until a player joins, the DM controls these as NPCs.`;
+      }
+      if (reservedNpcs.length > 0) {
+        const details = reservedNpcs.map(n => `${n.name} (reserved for ${reservations[n.id] || 'a specific player'})`).join(', ');
+        prompt += `
+**Reserved player slot(s):** ${details}. Until the reserved player joins, the DM controls these as NPCs.`;
+      }
+    }
+  }
+
   prompt += `
 
 ## Multiplayer Companion Actions
@@ -422,6 +453,19 @@ At the end of each combat encounter:
 **No session-start equalization:** When a new session begins, accept the JSON files as-is. Do NOT attempt to equalize XP, equipment, gold, or any other stats. Party members may have different XP totals, different gear, and different levels — that is normal.
 
 For non-combat milestones (quest completion, major story beats), award scenario-defined XP from the scenario's rewards section using the same AwardXP tool. XP parity applies to milestones too.`;
+
+  prompt += `
+
+## Combat, Resource & Session Tools
+You have 4 additional tools to help manage gameplay:
+
+- **TrackCombat** — Use this at the START of every combat encounter. Call with action "start" and a list of all combatants (party + enemies) with their names, initiative bonuses, HP, max HP, AC, and isEnemy flag. Then use "next" to advance turns, "damage"/"heal" to track HP changes, "condition" to apply/remove conditions, "status" to review the battlefield, and "end" when combat concludes. This replaces manual initiative and HP tracking.
+
+- **TrackResources** — Use this to deduct ammo, rations, torches, and spell slots. Call "use" when a character fires arrows, eats rations, or consumes any quantified item. Call "cast" when a caster uses a spell slot. Call "rest" (with "short" or "long") to process rests — long rests restore HP to max and reset all spell slots. Call "check" to view a character's current resource status.
+
+- **TrackCalendar** — Use this to track in-game time. Call "advance" when the party travels (e.g. 2 days, 4 hours). Call "event" to schedule future events (e.g. "Full moon in 3 days"). Call "check" to see current day/time. Call "weather" to generate weather for the current day.
+
+- **LookupMonster** — Use this instead of reading monsters.json directly. Search by name (e.g. "Hill Giant"), CR (e.g. "5"), or type (e.g. "giant"). Returns full stat blocks or filtered lists.`;
 
   prompt += `
 
@@ -514,6 +558,141 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId) {
           }
         }
       ),
+      tool(
+        'TrackCombat',
+        'Manage combat encounters: initiative, HP, conditions, and turn order. Actions: start (begin combat with combatants), next (advance turn), damage (apply damage), heal (restore HP), condition (add/remove conditions), status (get current state), end (finish combat).',
+        {
+          action: z.enum(['start', 'next', 'damage', 'heal', 'condition', 'status', 'end']).describe('The combat action to perform'),
+          combatants: z.array(z.object({
+            name: z.string(),
+            id: z.string().optional(),
+            initiativeBonus: z.number().optional(),
+            hp: z.number().optional(),
+            maxHp: z.number().optional(),
+            ac: z.number().optional(),
+            isEnemy: z.boolean().optional(),
+          })).optional().describe('Array of combatants (required for "start" action)'),
+          target: z.string().optional().describe('Target combatant name (for damage/heal/condition)'),
+          amount: z.number().optional().describe('Damage or healing amount'),
+          condition: z.string().optional().describe('Condition name (e.g. "poisoned", "stunned", "frightened")'),
+          roundsLeft: z.number().optional().describe('Condition duration in rounds (null = indefinite)'),
+          remove: z.boolean().optional().describe('Set true to remove a condition instead of adding'),
+        },
+        async (args) => {
+          try {
+            let result;
+            switch (args.action) {
+              case 'start': result = startCombat(playerEmail, campaignId, args.combatants || []); break;
+              case 'next': result = nextTurn(playerEmail, campaignId); break;
+              case 'damage': result = applyDamage(playerEmail, campaignId, args.target, args.amount); break;
+              case 'heal': result = applyHealing(playerEmail, campaignId, args.target, args.amount); break;
+              case 'condition': result = setCondition(playerEmail, campaignId, args.target, args.condition, args.roundsLeft, args.remove); break;
+              case 'status': result = getCombatStatus(playerEmail, campaignId); break;
+              case 'end': result = endCombat(playerEmail, campaignId); break;
+              default: result = { error: 'Unknown action' };
+            }
+            return { content: [{ type: 'text', text: JSON.stringify(result) }], isError: !!result.error };
+          } catch (err) {
+            return { content: [{ type: 'text', text: `Error: ${err.message}` }], isError: true };
+          }
+        }
+      ),
+      tool(
+        'TrackResources',
+        'Track consumable resources (ammo, rations, torches) and spell slots. Actions: use (consume a resource from equipment), cast (use a spell slot), rest (process short/long rest — restores HP and spell slots), check (view current resource status).',
+        {
+          action: z.enum(['use', 'cast', 'rest', 'check']).describe('The resource action to perform'),
+          characterId: z.string().describe('Character ID or name'),
+          resource: z.string().optional().describe('Resource name to consume (e.g. "Arrows", "Rations", "Torches") — for "use" action'),
+          quantity: z.number().optional().describe('How many to consume (default 1) — for "use" action'),
+          spellLevel: z.number().optional().describe('Spell slot level to use (1-9) — for "cast" action'),
+          restType: z.enum(['short', 'long']).optional().describe('Type of rest — for "rest" action'),
+        },
+        async (args) => {
+          try {
+            let result;
+            switch (args.action) {
+              case 'use': result = useResource(dataDir, playerEmail, campaignId, args.characterId, args.resource, args.quantity || 1); break;
+              case 'cast': result = castSpell(playerEmail, campaignId, args.characterId, args.spellLevel); break;
+              case 'rest': result = processRest(dataDir, playerEmail, campaignId, args.characterId, args.restType); break;
+              case 'check': result = checkResources(dataDir, playerEmail, campaignId, args.characterId); break;
+              default: result = { error: 'Unknown action' };
+            }
+            return { content: [{ type: 'text', text: JSON.stringify(result) }], isError: !!result.error };
+          } catch (err) {
+            return { content: [{ type: 'text', text: `Error: ${err.message}` }], isError: true };
+          }
+        }
+      ),
+      tool(
+        'TrackCalendar',
+        'Track in-game time, schedule events, and generate weather. Actions: advance (move time forward by days/hours), event (schedule a future event), check (get current date/time/events), weather (generate weather for current day).',
+        {
+          action: z.enum(['advance', 'event', 'check', 'weather']).describe('The calendar action to perform'),
+          days: z.number().optional().describe('Days to advance (for "advance" action)'),
+          hours: z.number().optional().describe('Hours to advance (for "advance" action)'),
+          eventName: z.string().optional().describe('Event name (for "event" action)'),
+          inDays: z.number().optional().describe('Days from now until event triggers (for "event" action)'),
+        },
+        async (args) => {
+          try {
+            let result;
+            switch (args.action) {
+              case 'advance': result = advanceTime(playerEmail, campaignId, args.days, args.hours); break;
+              case 'event': result = scheduleEvent(playerEmail, campaignId, args.eventName, args.inDays); break;
+              case 'check': result = checkCalendar(playerEmail, campaignId); break;
+              case 'weather': result = generateWeather(playerEmail, campaignId); break;
+              default: result = { error: 'Unknown action' };
+            }
+            return { content: [{ type: 'text', text: JSON.stringify(result) }], isError: !!result.error };
+          } catch (err) {
+            return { content: [{ type: 'text', text: `Error: ${err.message}` }], isError: true };
+          }
+        }
+      ),
+      tool(
+        'LookupMonster',
+        'Look up D&D 5e monster stat blocks from the SRD database (334 creatures). Search by exact name, challenge rating, or creature type.',
+        {
+          name: z.string().optional().describe('Monster name (e.g. "Hill Giant", "Aboleth") — case insensitive, partial match supported'),
+          cr: z.string().optional().describe('Challenge rating (e.g. "5", "1/2", "1/4") — returns all monsters of that CR'),
+          type: z.string().optional().describe('Creature type (e.g. "giant", "undead", "dragon") — returns all monsters of that type'),
+        },
+        async (args) => {
+          try {
+            const monstersPath = path.join(dataDir, 'rules', 'monsters.json');
+            const data = JSON.parse(fs.readFileSync(monstersPath, 'utf-8'));
+            const allMonsters = Object.values(data.monsters_by_cr).flat();
+
+            if (args.name) {
+              const searchName = args.name.toLowerCase();
+              const exact = allMonsters.find(m => m.name.toLowerCase() === searchName);
+              if (exact) return { content: [{ type: 'text', text: JSON.stringify(exact) }] };
+              const partial = allMonsters.filter(m => m.name.toLowerCase().includes(searchName));
+              if (partial.length === 0) return { content: [{ type: 'text', text: `No monster found matching "${args.name}".` }], isError: true };
+              if (partial.length === 1) return { content: [{ type: 'text', text: JSON.stringify(partial[0]) }] };
+              return { content: [{ type: 'text', text: `Multiple matches: ${partial.map(m => `${m.name} (CR ${m.cr})`).join(', ')}. Be more specific.` }] };
+            }
+
+            if (args.cr) {
+              const monsters = data.monsters_by_cr[args.cr];
+              if (!monsters || monsters.length === 0) return { content: [{ type: 'text', text: `No monsters found at CR ${args.cr}.` }], isError: true };
+              return { content: [{ type: 'text', text: JSON.stringify(monsters.map(m => ({ name: m.name, type: m.type, hp: m.hp, ac: m.ac, xp: m.xp }))) }] };
+            }
+
+            if (args.type) {
+              const searchType = args.type.toLowerCase();
+              const matches = allMonsters.filter(m => m.type?.toLowerCase().includes(searchType));
+              if (matches.length === 0) return { content: [{ type: 'text', text: `No monsters of type "${args.type}" found.` }], isError: true };
+              return { content: [{ type: 'text', text: JSON.stringify(matches.map(m => ({ name: m.name, cr: m.cr, type: m.type, hp: m.hp, ac: m.ac, xp: m.xp }))) }] };
+            }
+
+            return { content: [{ type: 'text', text: 'Provide at least one of: name, cr, or type.' }], isError: true };
+          } catch (err) {
+            return { content: [{ type: 'text', text: `Error: ${err.message}` }], isError: true };
+          }
+        }
+      ),
     ],
   });
 }
@@ -599,13 +778,13 @@ class DmEngine {
     return this._mcpToolServer;
   }
 
-  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId);
+  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig);
     const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId);
     return {
       systemPrompt,
       cwd: PROJECT_ROOT,
-      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice'],
+      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice', 'mcp__dnd-tools__TrackCombat', 'mcp__dnd-tools__TrackResources', 'mcp__dnd-tools__TrackCalendar', 'mcp__dnd-tools__LookupMonster'],
       mcpServers: { 'dnd-tools': mcpToolServer },
       permissionMode: 'default',
       includePartialMessages: true,
@@ -687,8 +866,8 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId }) {
-    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId);
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig }) {
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig);
 
     if (this.sessionId) {
       options.resume = this.sessionId;
@@ -703,7 +882,7 @@ class DmEngine {
     }
 
     // Fresh session — if we have message history, prepend it as context
-    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId);
+    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig);
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
       const recap = buildSmartRecap(messageHistory);

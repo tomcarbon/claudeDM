@@ -71,6 +71,13 @@ module.exports = function (dataDir) {
     return getPlayerCharactersDir(dataDir, req.player.email, req.campaignId);
   }
 
+  // Always returns the player's main character directory (ignores session context).
+  // Used for creating/importing/rolling characters — these are canonical, not session-scoped.
+  function getPlayerCharDir(req) {
+    provisionPlayerDefaults(dataDir, req.player.email, req.campaignId);
+    return getPlayerCharactersDir(dataDir, req.player.email, req.campaignId);
+  }
+
   function readAllCharacters(req) {
     const charDir = getCharDir(req);
     const files = fs.readdirSync(charDir).filter(f => f.endsWith('.json'));
@@ -105,7 +112,7 @@ module.exports = function (dataDir) {
   // POST import character (must be before /:id)
   router.post('/import', (req, res) => {
     try {
-      const charDir = getCharDir(req);
+      const charDir = getPlayerCharDir(req);
       const characters = readAllCharacters(req);
       if (characters.length >= MAX_CHARACTERS) {
         return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
@@ -130,7 +137,7 @@ module.exports = function (dataDir) {
   // POST roll a random character
   router.post('/roll', (req, res) => {
     try {
-      const charDir = getCharDir(req);
+      const charDir = getPlayerCharDir(req);
       const characters = readAllCharacters(req);
       if (characters.length >= MAX_CHARACTERS) {
         return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
@@ -181,7 +188,7 @@ module.exports = function (dataDir) {
   // POST create new character
   router.post('/', (req, res) => {
     try {
-      const charDir = getCharDir(req);
+      const charDir = getPlayerCharDir(req);
       const characters = readAllCharacters(req);
       if (characters.length >= MAX_CHARACTERS) {
         return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
