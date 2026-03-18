@@ -1,10 +1,22 @@
-export const CURRENT_VERSION = '1.0.9';
+export const CURRENT_VERSION = '1.0.10';
 
 export const CHANGELOG = [
   {
+    version: '1.0.10',
+    date: '2026-03-18',
+    title: 'Current Release',
+    compareFrom: '1.0.9',
+    compareRef: '6efec45 ("v1.0.9")',
+    highlights: [
+      'Cross-campaign companion routing fix: companion players joining a session from a different campaign now have their campaign context switched automatically — fixes a bug where companion actions landed in the wrong campaign\'s DM conversation.',
+      'Server-side cross-campaign session lookup: `findSessionFile` now searches across all campaigns as a fallback when a session isn\'t found in the requested campaign, preventing 404s for cross-campaign companion joins.',
+      'Session load campaign sync: loading a saved session that belongs to a different campaign now updates the client\'s campaign context and passes the correct campaign ID to the DM engine on resume.',
+    ],
+  },
+  {
     version: '1.0.9',
     date: '2026-03-17',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.8',
     compareRef: '018a21f ("v1.0.8 finalization and whats up section update.")',
     highlights: [
@@ -20,7 +32,7 @@ export const CHANGELOG = [
   {
     version: '1.0.8',
     date: '2026-03-15',
-    title: 'Previous Release',
+    title: 'Multiplayer Party View',
     compareFrom: '1.0.7',
     compareRef: '8ef0ceb ("new current party submenu item under play.")',
     highlights: [

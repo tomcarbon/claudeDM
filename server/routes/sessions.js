@@ -228,9 +228,26 @@ module.exports = function (dataDir) {
       return null;
     }
 
+    // First: search within the requested campaign
     for (const playerSlug of playerDirs) {
       const filePath = path.join(playersDir, playerSlug, campaignId || 'demo', 'sessions', `${sessionId}.json`);
       if (fs.existsSync(filePath)) return filePath;
+    }
+
+    // Fallback: search across ALL campaigns (handles cross-campaign companion joins)
+    for (const playerSlug of playerDirs) {
+      const playerDir = path.join(playersDir, playerSlug);
+      let campaignDirs;
+      try {
+        campaignDirs = fs.readdirSync(playerDir).filter(d => {
+          try { return fs.statSync(path.join(playerDir, d)).isDirectory(); } catch { return false; }
+        });
+      } catch { continue; }
+      for (const cid of campaignDirs) {
+        if (cid === (campaignId || 'demo')) continue; // Already searched
+        const filePath = path.join(playerDir, cid, 'sessions', `${sessionId}.json`);
+        if (fs.existsSync(filePath)) return filePath;
+      }
     }
     return null;
   }
@@ -542,6 +559,7 @@ module.exports = function (dataDir) {
       fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
       res.json({
         npcId,
+        campaignId: session.campaignId || 'demo',
         claimedBy: session.companionPlayers[npcId],
         companionSlots: getCompanionSlots(session),
       });

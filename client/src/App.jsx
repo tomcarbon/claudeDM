@@ -29,7 +29,7 @@ function AppContent() {
   const location = useLocation();
   const ws = useWebSocket();
   const { player } = usePlayer();
-  const { campaignId } = useCampaign();
+  const { campaignId, selectCampaign } = useCampaign();
   const [sessionActive, setSessionActive] = useState(false);
   const globalChatJoinedRef = useRef(null);
   const [selectedCharacter, setSelectedCharacter] = useState('');
@@ -118,6 +118,7 @@ function AppContent() {
             savedSessionDbId={savedSessionDbId}
             setSavedSessionDbId={setSavedSessionDbId}
             campaignId={campaignId}
+            selectCampaign={selectCampaign}
           />
         </div>
         <Routes>

@@ -75,6 +75,7 @@ function Adventure({
   savedSessionDbId,
   setSavedSessionDbId,
   campaignId,
+  selectCampaign,
 }) {
   const {
     messages,
@@ -602,7 +603,12 @@ Set the scene and begin the story.`;
     e.stopPropagation();
     if (isGuest) { alert('Please log in to join a session.'); return; }
     try {
-      await api.joinSession(sessionId, npcId);
+      const result = await api.joinSession(sessionId, npcId);
+      // Switch campaign context to match the session's campaign before loading
+      if (result.campaignId && result.campaignId !== campaignId && selectCampaign) {
+        console.log(`[Join] Switching campaign context: ${campaignId} → ${result.campaignId}`);
+        selectCampaign(result.campaignId);
+      }
       // Reload the session as a participant
       handleLoadSession(sessionId);
     } catch (err) {
@@ -640,6 +646,11 @@ Set the scene and begin the story.`;
     try {
       const session = await api.getSession(id);
       console.log(`[Load] Session ${id} — messages: ${(session.messages || []).length}, claudeSessionId: ${session.claudeSessionId ? 'yes' : 'no'}`);
+      // Switch campaign context if session belongs to a different campaign
+      if (session.campaignId && session.campaignId !== campaignId && selectCampaign) {
+        console.log(`[Load] Switching campaign context: ${campaignId} → ${session.campaignId}`);
+        selectCampaign(session.campaignId);
+      }
       setSelectedCharacter(session.characterId);
       setSelectedScenario(session.scenarioId);
       setSavedSessionDbId(session.id);
@@ -662,7 +673,7 @@ Set the scene and begin the story.`;
       localStorage.setItem('dnd_active_session_id', session.id);
       localStorage.setItem('dnd_active_session_owner', session.ownerEmail || session.playerEmail || '');
       if (!readOnly) {
-        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, campaignId, session.companionConfig || null);
+        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, session.campaignId || campaignId, session.companionConfig || null);
       }
       setSessionActive(true);
     } catch (err) {
