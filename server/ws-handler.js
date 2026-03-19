@@ -713,25 +713,31 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             send('error', { error: 'Only the session host can resume this session.' });
             break;
           }
-          // Detect session switch: if the engine already has a Claude session
-          // from a different game, force a fresh start to prevent cross-contamination.
-          // We null out the engine sessionId so Claude starts a fresh conversation
-          // with the correct system prompt, using message history as context.
+          // Detect session or campaign switch and force a fresh Claude conversation
+          // to prevent cross-contamination (e.g. Shattered Coast context bleeding
+          // into a Wonderland session).
           const prevClaudeId = engine.sessionId;
           const newClaudeId = msg.claudeSessionId || null;
-          const isSameSession = prevClaudeId && newClaudeId && prevClaudeId === newClaudeId;
-          if (prevClaudeId && !isSameSession) {
+          const prevCampaignId = campaignId;
+          const newCampaignId = msg.campaignId || null;
+          const isSameClaudeSession = prevClaudeId && newClaudeId && prevClaudeId === newClaudeId;
+          const isCampaignSwitch = prevCampaignId && newCampaignId && prevCampaignId !== newCampaignId;
+
+          if (isCampaignSwitch) {
+            console.log(`[WS] Campaign switch detected — forcing fresh Claude session (${prevCampaignId} → ${newCampaignId})`);
+          } else if (prevClaudeId && !isSameClaudeSession) {
             console.log(`[WS] Session switch detected — forcing fresh Claude session (was: ${prevClaudeId}, switching to: ${newClaudeId || 'new'})`);
           }
+
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
-          campaignId = msg.campaignId || null;
+          campaignId = newCampaignId;
           companionConfig = msg.companionConfig || null;
-          // Always use the new session's Claude ID.
-          // If switching sessions, this gives Claude the new conversation to resume.
-          // The system prompt is rebuilt fresh each turn anyway, so the campaign
-          // context comes from the system prompt, not from conversation memory.
-          engine.sessionId = newClaudeId;
+          // Use the new session's Claude ID, UNLESS switching campaigns —
+          // in which case force null to start a fresh conversation with the
+          // correct system prompt. Claude's old conversation context would
+          // have the wrong campaign's characters, NPCs, and scenario.
+          engine.sessionId = isCampaignSwitch ? null : newClaudeId;
           wsEntry.playerEmail = msg.playerEmail;
           wsEntry.campaignId = campaignId;
           wsEntry.characterId = characterId;

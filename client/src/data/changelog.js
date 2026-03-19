@@ -1,10 +1,27 @@
-export const CURRENT_VERSION = '1.0.10';
+export const CURRENT_VERSION = '1.0.11';
 
 export const CHANGELOG = [
   {
-    version: '1.0.10',
+    version: '1.0.11',
     date: '2026-03-18',
     title: 'Current Release',
+    compareFrom: '1.0.10',
+    compareRef: '713d46e ("export import session fixes.")',
+    highlights: [
+      'Session import/export repair: exported sessions now include campaignId, claudeSessionId, and companionConfig — previously these were omitted, causing imported sessions to lose campaign context, Claude conversation continuity, and multiplayer state on reload.',
+      'Companion message attribution fix: the message normalizer now preserves characterName and playerName on companion messages, so imported/loaded sessions show the correct companion names instead of generic "Companion".',
+      'Import UI fix: imported sessions now display the correct message count in the session list instead of "undefined messages", and the file picker resets properly on all error paths.',
+      'Cross-campaign load race condition fix: loading a session from a different campaign no longer immediately resets the adventure screen — a ref flag prevents the campaign-change effect from undoing the load.',
+      'Campaign routing contamination fix: switching campaigns during session resume now forces a fresh Claude conversation, preventing the previous campaign\'s system prompt (characters, NPCs, scenario) from bleeding into the new campaign. This was the root cause of the Shattered Coast context appearing in Wonderland sessions.',
+      'WebSocket reconnect ordering fix: on reconnect, session_watch is now sent before session_resume so the server establishes session context before processing the resume.',
+      'Storm of the Giants world map: new illustrated campaign map for the Sword Coast & Savage Frontier with 4 clickable scenario regions (Ravaged Lowlands, Frozen Reaches, Ironslag Depths, Stormreach Above).',
+      'Character portrait system: characters and NPCs can now have large portrait art displayed on their detail pages via a portrait field pointing to files in client/public/portraits/. Alice Liddell is the first character with a portrait.',
+    ],
+  },
+  {
+    version: '1.0.10',
+    date: '2026-03-18',
+    title: 'Previous Release',
     compareFrom: '1.0.9',
     compareRef: '6efec45 ("v1.0.9")',
     highlights: [
