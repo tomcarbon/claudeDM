@@ -68,6 +68,12 @@ function NpcDetail() {
         )}
       </div>
 
+      {npc.portrait && (
+        <div className={`character-portrait${isDead ? ' dead' : ''}`}>
+          <img src={`/portraits/${npc.portrait}`} alt={npc.name} />
+        </div>
+      )}
+
       <StatBlock abilities={npc.abilities} />
 
       <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', margin: '1rem 0' }}>

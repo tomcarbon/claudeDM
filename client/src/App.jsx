@@ -36,12 +36,17 @@ function AppContent() {
   const [selectedScenario, setSelectedScenario] = useState('');
   const [savedSessionDbId, setSavedSessionDbId] = useState(null);
   const [mobileChatOpen, setMobileChatOpen] = useState(false);
+  const crossCampaignLoadRef = useRef(false);
 
   const onAdventure = location.pathname === '/adventure';
   const isAdmin = player?.role === 'admin';
 
-  // Reset adventure session when campaign changes
+  // Reset adventure session when campaign changes (skip if a cross-campaign load is in progress)
   useEffect(() => {
+    if (crossCampaignLoadRef.current) {
+      crossCampaignLoadRef.current = false;
+      return;
+    }
     setSessionActive(false);
     setSavedSessionDbId(null);
   }, [campaignId]);
@@ -119,6 +124,7 @@ function AppContent() {
             setSavedSessionDbId={setSavedSessionDbId}
             campaignId={campaignId}
             selectCampaign={selectCampaign}
+            crossCampaignLoadRef={crossCampaignLoadRef}
           />
         </div>
         <Routes>

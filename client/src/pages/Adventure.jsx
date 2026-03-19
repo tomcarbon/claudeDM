@@ -36,10 +36,13 @@ function normalizeSavedMessages(rawMessages) {
 
     if (!text) return null;
 
-    return {
+    const msg = {
       type: ['system', 'player', 'companion', 'dm', 'dm_partial', 'dice_roll'].includes(inferredType) ? inferredType : 'system',
       text,
     };
+    if (entry.characterName) msg.characterName = entry.characterName;
+    if (entry.playerName && msg.type === 'companion') msg.playerName = entry.playerName;
+    return msg;
   }).filter(Boolean);
 }
 
@@ -76,6 +79,7 @@ function Adventure({
   setSavedSessionDbId,
   campaignId,
   selectCampaign,
+  crossCampaignLoadRef,
 }) {
   const {
     messages,
@@ -607,6 +611,7 @@ Set the scene and begin the story.`;
       // Switch campaign context to match the session's campaign before loading
       if (result.campaignId && result.campaignId !== campaignId && selectCampaign) {
         console.log(`[Join] Switching campaign context: ${campaignId} → ${result.campaignId}`);
+        if (crossCampaignLoadRef) crossCampaignLoadRef.current = true;
         selectCampaign(result.campaignId);
       }
       // Reload the session as a participant
@@ -649,6 +654,7 @@ Set the scene and begin the story.`;
       // Switch campaign context if session belongs to a different campaign
       if (session.campaignId && session.campaignId !== campaignId && selectCampaign) {
         console.log(`[Load] Switching campaign context: ${campaignId} → ${session.campaignId}`);
+        if (crossCampaignLoadRef) crossCampaignLoadRef.current = true;
         selectCampaign(session.campaignId);
       }
       setSelectedCharacter(session.characterId);
@@ -700,9 +706,15 @@ Set the scene and begin the story.`;
   function handleExportSession() {
     const payload = {
       name: `${scenarios.find(s => s.id === selectedScenario)?.title || 'Adventure'} — ${new Date().toLocaleDateString()}`,
+      campaignId,
       characterId: selectedCharacter,
       scenarioId: selectedScenario,
+      claudeSessionId: sessionId || null,
       messages: messages.filter(m => m.type !== 'dm_partial'),
+      companionConfig: {
+        states: companionStates,
+        reservations: companionReservations,
+      },
       playerEmail: player?.email || null,
       playerName: player?.name || null,
       exportedAt: new Date().toISOString(),
@@ -719,12 +731,11 @@ Set the scene and begin the story.`;
   async function handleImportSession(e) {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (isGuest) {
-      alert('Please log in to import sessions.');
-      e.target.value = '';
-      return;
-    }
     try {
+      if (isGuest) {
+        alert('Please log in to import sessions.');
+        return;
+      }
       if (!file.name.endsWith('.json')) {
         alert('Please select a .session.json file exported via "Export Session". Plain text story exports (.txt) cannot be imported.');
         return;
@@ -750,16 +761,23 @@ Set the scene and begin the story.`;
         name: data.name || file.name,
         characterId: data.characterId || null,
         scenarioId: data.scenarioId || null,
+        claudeSessionId: data.claudeSessionId || null,
         messages: normalizedMessages,
+        companionConfig: data.companionConfig || null,
         playerEmail: player?.email || data.playerEmail || null,
         playerName: player?.name || data.playerName || null,
       });
-      setSavedSessions(prev => [result, ...prev]);
+      setSavedSessions(prev => [{
+        ...result,
+        messageCount: (result.messages || []).length,
+        messages: undefined,
+      }, ...prev]);
     } catch (err) {
       alert(`Import failed: ${err.message}`);
+    } finally {
+      // Reset file input so same file can be re-imported
+      e.target.value = '';
     }
-    // Reset file input so same file can be re-imported
-    e.target.value = '';
   }
 
   async function handleUpdateSetting(key, value) {

@@ -44,12 +44,14 @@ export default function useWebSocket() {
 
     ws.onopen = () => {
       setStatus('idle');
+      // Send watch before resume — server needs session context from watch
+      // before it can process the resume correctly
+      if (pendingWatchRef.current) {
+        ws.send(JSON.stringify(pendingWatchRef.current));
+      }
       if (pendingResumeRef.current) {
         ws.send(JSON.stringify(pendingResumeRef.current));
         pendingResumeRef.current = null;
-      }
-      if (pendingWatchRef.current) {
-        ws.send(JSON.stringify(pendingWatchRef.current));
       }
     };
 

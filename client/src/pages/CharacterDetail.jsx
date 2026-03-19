@@ -113,6 +113,12 @@ function CharacterDetail() {
         )}
       </div>
 
+      {char.portrait && (
+        <div className={`character-portrait${isDead ? ' dead' : ''}`}>
+          <img src={`/portraits/${char.portrait}`} alt={char.name} />
+        </div>
+      )}
+
       <StatBlock abilities={char.abilities} />
 
       <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', margin: '1rem 0' }}>
