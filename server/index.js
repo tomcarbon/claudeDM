@@ -16,6 +16,8 @@ const sessionsRouter = require('./routes/sessions');
 const settingsRouter = require('./routes/settings');
 const playersRouter = require('./routes/players');
 const createChatRouter = require('./routes/chat');
+const botsRouter = require('./routes/bots');
+const { BotOrchestrator } = require('./bot/bot-orchestrator');
 const { attachWebSocket } = require('./ws-handler');
 
 const app = express();
@@ -42,6 +44,9 @@ app.use('/api/players', playersRouter(DATA_DIR));
 const { router: chatRouter, appendMessage: appendChatMessage } = createChatRouter(DATA_DIR);
 app.use('/api/chat', chatRouter);
 
+const botOrchestrator = new BotOrchestrator(DATA_DIR, PORT);
+app.use('/api/bots', botsRouter(DATA_DIR, botOrchestrator));
+
 // Serve static build in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
@@ -55,4 +60,12 @@ attachWebSocket(server, DATA_DIR, { appendChatMessage });
 
 server.listen(PORT, () => {
   console.log(`D&D Companion server running on http://localhost:${PORT}`);
+  // Start bot farm if enabled in config
+  botOrchestrator.start().catch(err => {
+    console.error('[BotOrchestrator] Startup error:', err.message);
+  });
 });
+
+// Graceful shutdown
+process.on('SIGTERM', () => botOrchestrator.stop());
+process.on('SIGINT', () => { botOrchestrator.stop(); process.exit(0); });

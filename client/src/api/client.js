@@ -133,6 +133,7 @@ export const api = {
   getChatDates: () => fetchJson('/chat/dates'),
 
   // Sessions (multiplayer-ready)
+  getAllGames: (showAll) => fetchJson(`/sessions/my-games${showAll ? '?all=true' : ''}`),
   getSessions: () => fetchJson('/sessions'),
   getSession: (id) => fetchJson(`/sessions/${id}`),
   createSession: (data) => fetchJson('/sessions', { method: 'POST', body: JSON.stringify(data) }),
@@ -144,4 +145,11 @@ export const api = {
   unjoinSession: (id, npcId) => fetchJson(`/sessions/${id}/unjoin`, { method: 'POST', body: JSON.stringify({ npcId }) }),
   addPlayerToSession: (id, data) => fetchJson(`/sessions/${id}/players`, { method: 'POST', body: JSON.stringify(data) }),
   getSessionParty: (id) => fetchJson(`/sessions/${id}/party`),
+
+  // Bot farm (admin only)
+  getBotStatus: () => fetchJson('/bots/status'),
+  updateBotConfig: (config) => fetchJson('/bots/config', { method: 'PUT', body: JSON.stringify(config) }),
+  startBots: () => fetchJson('/bots/start', { method: 'POST' }),
+  stopBots: () => fetchJson('/bots/stop', { method: 'POST' }),
+  cleanupBots: () => fetchJson('/bots/cleanup', { method: 'DELETE' }),
 };

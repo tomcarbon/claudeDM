@@ -85,7 +85,12 @@ function summarizeSession(session, requester) {
   const pendingTurns = session.pendingTurns || {};
   const hasCompanions = session.companionPlayers && Object.keys(session.companionPlayers).length > 0;
   const requesterEmail = requester?.email?.toLowerCase() || null;
-  const turnExpectedFromYou = hasCompanions && requesterEmail && !pendingTurns[requesterEmail] &&
+  // Check if the DM is currently thinking (last message is player/companion, not DM)
+  const msgs = session.messages || [];
+  const lastMsg = msgs.length > 0 ? msgs[msgs.length - 1] : null;
+  const dmThinking = lastMsg && (lastMsg.type === 'player' || lastMsg.type === 'companion' || lastMsg.type === 'dm_partial');
+
+  const turnExpectedFromYou = !dmThinking && hasCompanions && requesterEmail && !pendingTurns[requesterEmail] &&
     (requesterEmail === ownerEmail || Object.values(session.companionPlayers || {}).some(cp => cp.email?.toLowerCase() === requesterEmail));
 
   return {
@@ -109,6 +114,7 @@ function summarizeSession(session, requester) {
     companionSlots,
     lastPlayerName,
     turnExpectedFromYou: !!turnExpectedFromYou,
+    dmThinking: !!dmThinking,
   };
 }
 
@@ -251,6 +257,104 @@ module.exports = function (dataDir) {
     }
     return null;
   }
+
+  // GET all sessions across all campaigns for the logged-in player (My Games scoreboard)
+  router.get('/my-games', (req, res) => {
+    try {
+      const requester = getAuthenticatedPlayer(dataDir, req);
+      if (!requester) {
+        return res.status(403).json({ error: 'Login required.' });
+      }
+
+      const showAll = req.query.all === 'true';
+      const slug = emailToSlug(requester.email);
+      const playerDir = path.join(dataDir, 'players', slug);
+      const seen = new Set();
+      const allSessions = [];
+
+      // Cache campaign titles
+      const campaignTitles = {};
+      function getCampaignTitle(cid) {
+        if (campaignTitles[cid] !== undefined) return campaignTitles[cid];
+        try {
+          const meta = JSON.parse(fs.readFileSync(path.join(dataDir, 'campaigns', cid, 'campaign.json'), 'utf-8'));
+          campaignTitles[cid] = meta.title || cid;
+        } catch {
+          campaignTitles[cid] = cid;
+        }
+        return campaignTitles[cid];
+      }
+
+      // 1. Own sessions across all campaigns
+      if (fs.existsSync(playerDir)) {
+        const campaigns = fs.readdirSync(playerDir).filter(d => {
+          try { return fs.statSync(path.join(playerDir, d)).isDirectory(); } catch { return false; }
+        });
+        for (const cid of campaigns) {
+          const sessDir = path.join(playerDir, cid, 'sessions');
+          if (!fs.existsSync(sessDir)) continue;
+          const files = fs.readdirSync(sessDir).filter(f => f.endsWith('.json'));
+          for (const f of files) {
+            try {
+              const data = JSON.parse(fs.readFileSync(path.join(sessDir, f), 'utf-8'));
+              if (seen.has(data.id)) continue;
+              seen.add(data.id);
+              const summary = summarizeSession(data, requester);
+              summary.campaignId = data.campaignId || cid;
+              summary.campaignTitle = getCampaignTitle(data.campaignId || cid);
+              allSessions.push(summary);
+            } catch { /* skip malformed */ }
+          }
+        }
+      }
+
+      // 2. Sessions from other players (companion sessions, or all if ?all=true)
+      const playersDir = path.join(dataDir, 'players');
+      if (fs.existsSync(playersDir)) {
+        const otherDirs = fs.readdirSync(playersDir).filter(d => {
+          if (d === slug) return false;
+          try { return fs.statSync(path.join(playersDir, d)).isDirectory(); } catch { return false; }
+        });
+        for (const pSlug of otherDirs) {
+          const pDir = path.join(playersDir, pSlug);
+          let campaigns;
+          try {
+            campaigns = fs.readdirSync(pDir).filter(d => {
+              try { return fs.statSync(path.join(pDir, d)).isDirectory(); } catch { return false; }
+            });
+          } catch { continue; }
+          for (const cid of campaigns) {
+            const sessDir = path.join(pDir, cid, 'sessions');
+            if (!fs.existsSync(sessDir)) continue;
+            let files;
+            try { files = fs.readdirSync(sessDir).filter(f => f.endsWith('.json')); } catch { continue; }
+            for (const f of files) {
+              try {
+                const data = JSON.parse(fs.readFileSync(path.join(sessDir, f), 'utf-8'));
+                if (seen.has(data.id)) continue;
+                if (!showAll) {
+                  const isCompanion = data.companionPlayers && Object.values(data.companionPlayers).some(
+                    cp => cp.email && cp.email.toLowerCase() === requester.email.toLowerCase()
+                  );
+                  if (!isCompanion) continue;
+                }
+                seen.add(data.id);
+                const summary = summarizeSession(data, requester);
+                summary.campaignId = data.campaignId || cid;
+                summary.campaignTitle = getCampaignTitle(data.campaignId || cid);
+                allSessions.push(summary);
+              } catch { /* skip malformed */ }
+            }
+          }
+        }
+      }
+
+      allSessions.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+      res.json(allSessions);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
 
   // GET all sessions
   router.get('/', (req, res) => {

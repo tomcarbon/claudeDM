@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 
@@ -93,8 +93,7 @@ function DmSettings() {
   const isShuffleEnabled = !!settings?.aiDailyShuffle;
   const canEdit = isLoggedIn && !isShuffleEnabled;
   const activePreset = getMatchingPreset(settings);
-  const initialLoadDone = useRef(false);
-  const autosaveTimer = useRef(null);
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
   const doSave = useCallback(async (settingsToSave) => {
     setSaving(true);
@@ -102,6 +101,7 @@ function DmSettings() {
       const result = await api.updateDmSettings(settingsToSave);
       setIsPersonalized(!!result._isPersonalized);
       setSettings(result);
+      setHasUnsavedChanges(false);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch (err) {
@@ -109,16 +109,6 @@ function DmSettings() {
     }
     setSaving(false);
   }, []);
-
-  // Autosave after 800ms of inactivity when settings change
-  useEffect(() => {
-    if (!initialLoadDone.current || !canEdit) return;
-    if (autosaveTimer.current) clearTimeout(autosaveTimer.current);
-    autosaveTimer.current = setTimeout(() => {
-      doSave(settings);
-    }, 800);
-    return () => { if (autosaveTimer.current) clearTimeout(autosaveTimer.current); };
-  }, [settings, canEdit, doSave]);
 
   useEffect(() => {
     api.getDmSettings()
@@ -131,12 +121,13 @@ function DmSettings() {
         horror: 20, puzzleFocus: 50, playerAutonomy: 50, tone: 'balanced',
         narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
       }))
-      .finally(() => { setLoading(false); setTimeout(() => { initialLoadDone.current = true; }, 0); });
+      .finally(() => setLoading(false));
   }, []);
 
   const updateSlider = (key, value) => {
     if (!canEdit) return;
     setSettings(prev => ({ ...prev, [key]: parseInt(value) }));
+    setHasUnsavedChanges(true);
     setSaved(false);
   };
 
@@ -147,12 +138,12 @@ function DmSettings() {
       updates.playerAutonomy = AGENCY_TO_AUTONOMY[value];
     }
     setSettings(prev => ({ ...prev, ...updates }));
+    setHasUnsavedChanges(true);
     setSaved(false);
   };
 
   const handleSave = async () => {
     if (!canEdit) return;
-    if (autosaveTimer.current) clearTimeout(autosaveTimer.current);
     doSave(settings);
   };
 
@@ -175,6 +166,7 @@ function DmSettings() {
     const selected = QUICK_PRESETS[preset];
     if (!selected) return;
     setSettings(prev => ({ ...prev, ...selected.values }));
+    setHasUnsavedChanges(true);
     setSaved(false);
   };
 
@@ -185,6 +177,8 @@ function DmSettings() {
       <h2>DM Personality</h2>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
         Customize how your AI Dungeon Master narrates, reacts, and runs the game.
+        <br />
+        <span style={{ fontSize: '0.85em' }}>Press <strong>Save Settings</strong> below when you're done.</span>
       </p>
       {!isLoggedIn && (
         <p style={{ color: 'var(--text-muted)', margin: '0 0 1.5rem' }}>
@@ -329,8 +323,8 @@ function DmSettings() {
           </button>
         )}
         {saved && <span style={{ color: '#27ae60' }}>Settings saved!</span>}
-        {canEdit && !saving && !saved && (
-          <span style={{ color: 'var(--text-muted)', fontSize: '0.85em' }}>Changes are saved automatically</span>
+        {canEdit && !saving && !saved && hasUnsavedChanges && (
+          <span style={{ color: 'var(--warning-color, #e67e22)', fontSize: '0.85em' }}>You have unsaved changes</span>
         )}
       </div>
     </div>

@@ -7,9 +7,6 @@ const CAMPAIGN_CARDS = [
   { label: 'NPC Companions', desc: 'Meet the AI-narrated companions who will join your quest.', path: '/npcs' },
   { label: 'Scenarios (spoilers!)', desc: 'Browse adventure modules for this campaign.', path: '/scenarios' },
   { label: 'World Map', desc: 'Explore the campaign world map.', path: '/world-map' },
-  { label: 'Rules Reference', desc: 'Browse the D&D 5e rules database.', path: '/rules' },
-  { label: 'DM Personality', desc: 'Tune your AI Dungeon Master — humor, drama, verbosity, tone, and style.', path: '/dm-settings' },
-  { label: "What's New", desc: 'See release notes, version history, and recent feature updates.', path: '/whats-new' },
 ];
 
 function CampaignCards({ campaignId, locked }) {

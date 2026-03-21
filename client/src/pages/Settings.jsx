@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { api } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import { useCampaign } from '../context/CampaignContext';
@@ -414,7 +414,218 @@ function Settings() {
             </div>
           </div>
 
+          <BotFarmPanel />
         </>
+      )}
+    </div>
+  );
+}
+
+const DELAY_OPTIONS = [
+  { value: 30000, label: '30 seconds' },
+  { value: 60000, label: '1 minute' },
+  { value: 120000, label: '2 minutes' },
+  { value: 300000, label: '5 minutes' },
+  { value: 900000, label: '15 minutes' },
+  { value: 1800000, label: '30 minutes' },
+  { value: 3600000, label: '1 hour' },
+];
+
+function BotFarmPanel() {
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [count, setCount] = useState(0);
+  const [delay, setDelay] = useState(60000);
+  const [maxSessions, setMaxSessions] = useState(1);
+  const [cleaning, setCleaning] = useState(false);
+
+  const refreshStatus = useCallback(() => {
+    api.getBotStatus()
+      .then(data => setStatus(data))
+      .catch(() => setStatus(null));
+  }, []);
+
+  useEffect(() => {
+    // Initial load — seed inputs from server config
+    api.getBotStatus()
+      .then(data => {
+        setStatus(data);
+        setCount(data.count);
+        setDelay(data.turnDelayMs);
+        setMaxSessions(data.maxSessionsPerBot || 1);
+      })
+      .catch(() => setStatus(null))
+      .finally(() => setLoading(false));
+    const interval = setInterval(refreshStatus, 10000);
+    return () => clearInterval(interval);
+  }, [refreshStatus]);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const data = await api.updateBotConfig({
+        enabled: true,
+        count,
+        turnDelayMs: delay,
+        maxSessionsPerBot: maxSessions,
+      });
+      setStatus(data);
+    } catch (err) {
+      alert('Failed to update bot config: ' + err.message);
+    }
+    setSaving(false);
+  };
+
+  const handleStop = async () => {
+    setSaving(true);
+    try {
+      const data = await api.stopBots();
+      setStatus(data);
+    } catch (err) {
+      alert('Failed to stop bots: ' + err.message);
+    }
+    setSaving(false);
+  };
+
+  const handleCleanup = async () => {
+    if (!window.confirm('Stop all bots and delete all bot accounts and their data?')) return;
+    setCleaning(true);
+    try {
+      await api.cleanupBots();
+      setCount(0);
+      setMaxSessions(1);
+      refreshStatus();
+    } catch (err) {
+      alert('Cleanup failed: ' + err.message);
+    }
+    setCleaning(false);
+  };
+
+  if (loading) return <div className="detail-section"><h3>AI Bot Farm</h3><p style={{ color: 'var(--text-muted)' }}>Loading...</p></div>;
+
+  return (
+    <div className="detail-section">
+      <h3>AI Bot Farm</h3>
+      <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
+        Spawn autonomous AI players that create sessions, join games, and play through the same API as real users.
+        Each bot uses Claude Haiku to make in-character decisions. Useful for stress testing and simulating activity.
+      </p>
+
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+        <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Number of bots</span>
+          <input
+            type="number"
+            min="0"
+            max="20"
+            value={count}
+            onChange={e => setCount(Math.max(0, Math.min(20, Number(e.target.value) || 0)))}
+            style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
+          />
+        </label>
+
+        <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Turn delay</span>
+          <select
+            value={delay}
+            onChange={e => setDelay(Number(e.target.value))}
+            style={{ padding: '0.4rem 0.6rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)' }}
+          >
+            {DELAY_OPTIONS.map(opt => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+        </label>
+
+        <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Max sessions per bot</span>
+          <input
+            type="number"
+            min="1"
+            max="5"
+            value={maxSessions}
+            onChange={e => setMaxSessions(Math.max(1, Math.min(5, Number(e.target.value) || 1)))}
+            style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
+          />
+        </label>
+      </div>
+
+      <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1.5rem' }}>
+        <button onClick={handleSave} disabled={saving}>
+          {saving ? 'Saving...' : status?.running ? 'Update & Restart' : 'Start Bots'}
+        </button>
+        {status?.running && (
+          <button onClick={handleStop} disabled={saving} style={{ background: 'var(--bg-tertiary, #555)' }}>
+            Stop All
+          </button>
+        )}
+        <button onClick={handleCleanup} disabled={cleaning} className="danger">
+          {cleaning ? 'Cleaning...' : 'Cleanup All'}
+        </button>
+        {status?.running && <span style={{ color: '#27ae60', fontSize: '0.85rem' }}>Running: {status.activeBots} bot{status.activeBots !== 1 ? 's' : ''}</span>}
+        {status && !status.running && <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Stopped</span>}
+      </div>
+
+      {status?.bots?.length > 0 && (
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-muted)' }}>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Bot</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Chat</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Role</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>State</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Campaign</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Session</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Messages</th>
+              </tr>
+            </thead>
+            <tbody>
+              {status.bots.map(bot => {
+                const sessions = bot.sessions || [];
+                if (sessions.length === 0) {
+                  return (
+                    <tr key={bot.email} style={{ borderBottom: '1px solid var(--border)' }}>
+                      <td style={{ padding: '0.4rem 0.6rem' }}>{bot.name}</td>
+                      <td style={{ padding: '0.4rem 0.6rem' }}>{bot.connected ? 'Yes' : 'No'}</td>
+                      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>-</td>
+                      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>looking</td>
+                      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>-</td>
+                      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>-</td>
+                      <td style={{ padding: '0.4rem 0.6rem' }}>0</td>
+                    </tr>
+                  );
+                }
+                return sessions.map((sess, i) => (
+                  <tr key={`${bot.email}-${sess.sessionId}`} style={{ borderBottom: '1px solid var(--border)' }}>
+                    {i === 0 ? (
+                      <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top' }} rowSpan={sessions.length}>{bot.name}</td>
+                    ) : null}
+                    {i === 0 ? (
+                      <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top' }} rowSpan={sessions.length}>{bot.connected ? 'Yes' : 'No'}</td>
+                    ) : null}
+                    <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>{sess.role}</td>
+                    <td style={{ padding: '0.4rem 0.6rem' }}>
+                      <span style={{
+                        padding: '0.1rem 0.4rem',
+                        borderRadius: '4px',
+                        fontSize: '0.8rem',
+                        background: sess.state === 'playing' ? 'rgba(39,174,96,0.2)' : sess.state === 'waiting_for_dm' ? 'rgba(52,152,219,0.2)' : sess.state === 'thinking' ? 'rgba(241,196,15,0.2)' : 'rgba(127,127,127,0.2)',
+                        color: sess.state === 'playing' ? '#27ae60' : sess.state === 'waiting_for_dm' ? '#3498db' : sess.state === 'thinking' ? '#f1c40f' : 'var(--text-muted)',
+                      }}>
+                        {sess.state}
+                      </span>
+                    </td>
+                    <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>{sess.campaignId || '-'}</td>
+                    <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>{sess.sessionLabel || sess.sessionId?.slice(0, 8) + '...'}</td>
+                    <td style={{ padding: '0.4rem 0.6rem' }}>{sess.messageCount || 0}</td>
+                  </tr>
+                ));
+              })}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

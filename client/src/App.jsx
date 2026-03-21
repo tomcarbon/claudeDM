@@ -16,6 +16,7 @@ import Adventure from './pages/Adventure';
 import Home from './pages/Home';
 import Eli5 from './pages/Eli5';
 import WorldMapPage from './pages/WorldMapPage';
+import MyGames from './pages/MyGames';
 import useWebSocket from './hooks/useWebSocket';
 import { PlayerProvider, usePlayer } from './context/PlayerContext';
 import { CampaignProvider, useCampaign } from './context/CampaignContext';
@@ -37,6 +38,8 @@ function AppContent() {
   const [savedSessionDbId, setSavedSessionDbId] = useState(null);
   const [mobileChatOpen, setMobileChatOpen] = useState(false);
   const crossCampaignLoadRef = useRef(false);
+  const [pendingLoadSessionId, setPendingLoadSessionId] = useState(null);
+  const [activeSessionLabel, setActiveSessionLabel] = useState('');
 
   const onAdventure = location.pathname === '/adventure';
   const isAdmin = player?.role === 'admin';
@@ -52,11 +55,15 @@ function AppContent() {
   }, [campaignId]);
 
   // Reset adventure session when navigating from Home's "Start Adventure"
-  // (handles same-campaign case where campaignId doesn't change)
+  // Handle loadSessionId from My Games page
   useEffect(() => {
     if (location.pathname === '/adventure' && location.state?.resetSession) {
       setSessionActive(false);
       setSavedSessionDbId(null);
+      window.history.replaceState({}, '');
+    }
+    if (location.pathname === '/adventure' && location.state?.loadSessionId) {
+      setPendingLoadSessionId(location.state.loadSessionId);
       window.history.replaceState({}, '');
     }
   }, [location.pathname, location.state]);
@@ -81,35 +88,37 @@ function AppContent() {
   return (
     <div className="app">
       <nav className="sidebar">
+        <img src="/coat-of-arms.png" alt="Coat of Arms" className="sidebar-crest" />
         <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : campaignId === 'campaign3' ? 'Storm of the Giants' : 'Single Player Demo'}</span></h1>
-        <ul>
-          <li><NavLink to="/eli5">ELI5</NavLink></li>
-          <li><NavLink to="/whats-new">What&apos;s New</NavLink></li>
-        </ul>
+        <div className="currently-playing">Playing: {sessionActive && activeSessionLabel ? activeSessionLabel : 'None'}</div>
         <div className="sidebar-divider" />
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
+          <li><NavLink to="/eli5">ELI5</NavLink></li>
+          <li><NavLink to="/whats-new">What&apos;s New</NavLink></li>
+        </ul>
+        <PlayerLogin />
+        <div className="sidebar-divider" />
+        <ul>
+          {player && <li><NavLink to="/my-games">My Games</NavLink></li>}
           <li><NavLink to="/adventure" className="nav-play">Play</NavLink></li>
-          <li><NavLink to="/current-party" className="nav-sub">Current Party</NavLink></li>
-          <li><NavLink to="/characters" className="nav-sub">Characters</NavLink></li>
-          <li><NavLink to="/npcs" className="nav-sub">Companions</NavLink></li>
-          <li><NavLink to="/world-map">World Map</NavLink></li>
+          {player && campaignId && <>
+            <li><NavLink to="/current-party" className="nav-sub">Current Party</NavLink></li>
+            <li><NavLink to="/characters" className="nav-sub">Characters</NavLink></li>
+            <li><NavLink to="/npcs" className="nav-sub">Companions</NavLink></li>
+            <li><NavLink to="/world-map" className="nav-sub">World Map</NavLink></li>
+            <li><NavLink to="/scenarios" className="nav-sub">Scenarios (spoilers!)</NavLink></li>
+          </>}
+          <li><NavLink to="/dm-settings">DM Personality</NavLink></li>
+        </ul>
+        <div className="sidebar-divider" />
+        <ul>
+          <li><a href="/distraction/index.html" target="_blank" rel="noopener noreferrer">Distraction</a></li>
+          {player && <li><NavLink to="/settings">Settings</NavLink></li>}
           <li><NavLink to="/rules">Rules</NavLink></li>
         </ul>
         <div className="sidebar-divider" />
-        <ul>
-          <li><NavLink to="/scenarios">Scenarios (spoilers!)</NavLink></li>
-        </ul>
-        <div className="sidebar-divider" />
-        <ul>
-          <li><NavLink to="/dm-settings">DM Personality</NavLink></li>
-          {player && <li><NavLink to="/settings">Settings</NavLink></li>}
-          <li><a href="/distraction/index.html" target="_blank" rel="noopener noreferrer">Distraction</a></li>
-        </ul>
-        <div className="sidebar-divider" />
         <div className="app-version">v{CURRENT_VERSION}</div>
-        <div className="sidebar-divider" />
-        <PlayerLogin />
       </nav>
       <main className="content">
         <div style={{ display: onAdventure ? 'block' : 'none', height: '100%' }}>
@@ -126,6 +135,10 @@ function AppContent() {
             campaignId={campaignId}
             selectCampaign={selectCampaign}
             crossCampaignLoadRef={crossCampaignLoadRef}
+            pendingLoadSessionId={pendingLoadSessionId}
+            setPendingLoadSessionId={setPendingLoadSessionId}
+            activeSessionLabel={activeSessionLabel}
+            setActiveSessionLabel={setActiveSessionLabel}
           />
         </div>
         <Routes>
@@ -144,6 +157,7 @@ function AppContent() {
           <Route path="/world-map" element={<WorldMapPage />} />
           <Route path="/rules" element={<RulesPage />} />
           <Route path="/dm-settings" element={<DmSettings />} />
+          <Route path="/my-games" element={player ? <MyGames /> : <Navigate to="/" replace />} />
           <Route path="/settings" element={player ? <Settings /> : <Navigate to="/" replace />} />
         </Routes>
       </main>

@@ -15,20 +15,37 @@
   overflow-y: auto;
 }
 
+.sidebar-crest {
+  display: block;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 0.5rem;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 .sidebar .logo {
   font-size: 1.3em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.3rem;
   text-align: center;
-  color: var(--gold);
+  color: #fff;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
 
+.currently-playing {
+  text-align: center;
+  font-size: 0.75em;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
 .sidebar .logo-sub {
   font-size: 0.5em;
   font-weight: normal;
-  color: var(--text-muted);
+  color: var(--gold);
   letter-spacing: 0.08em;
   text-transform: lowercase;
   font-style: italic;
@@ -2662,4 +2679,196 @@
   margin-top: 0.25rem;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+/* ===== My Games Scoreboard ===== */
+.my-games-page {
+  max-width: 1100px;
+}
+
+.my-games-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+}
+
+.my-games-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+
+.my-games-table thead {
+  background: var(--bg-sidebar);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.my-games-table th {
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+.my-games-table td {
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.my-games-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.my-games-row {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.my-games-row:hover {
+  background: rgba(240, 192, 64, 0.06);
+}
+
+.my-games-row-purple {
+  background: rgba(155, 89, 182, 0.06);
+}
+
+.my-games-row-purple:hover {
+  background: rgba(155, 89, 182, 0.12);
+}
+
+.my-games-row-thinking {
+  background: rgba(240, 160, 48, 0.06);
+}
+
+.my-games-row-thinking:hover {
+  background: rgba(240, 160, 48, 0.12);
+}
+
+.my-games-row-thinking .my-games-dot {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.my-games-th-status {
+  width: 2rem;
+}
+
+.my-games-td-status {
+  text-align: center;
+}
+
+.my-games-dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.my-games-row-purple .my-games-dot {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.my-games-td-name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 160px;
+}
+
+.my-games-name {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.my-games-label {
+  color: var(--gold);
+  font-size: 0.88em;
+  font-style: italic;
+}
+
+.my-games-meta {
+  font-size: 0.78em;
+  color: var(--text-muted);
+}
+
+.my-games-id {
+  font-family: monospace;
+  opacity: 0.7;
+}
+
+.my-games-td-campaign {
+  white-space: nowrap;
+}
+
+.my-games-campaign {
+  color: var(--text-muted);
+  font-size: 0.9em;
+}
+
+.my-games-th-players {
+  text-align: center;
+}
+
+.my-games-td-players {
+  text-align: center;
+}
+
+.my-games-player-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: rgba(240, 192, 64, 0.12);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.85em;
+}
+
+.my-games-td-turn {
+  color: var(--text-muted);
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.my-games-td-updated,
+.my-games-td-created {
+  white-space: nowrap;
+}
+
+.my-games-time-relative {
+  display: block;
+  color: var(--text);
+  font-size: 0.9em;
+}
+
+.my-games-time-abs {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.78em;
+  opacity: 0.8;
+}
+
+.my-games-th-created {
+  display: table-cell;
+}
+
+@media (max-width: 800px) {
+  .my-games-th-created,
+  .my-games-td-created {
+    display: none;
+  }
+  .my-games-table {
+    font-size: 0.85em;
+  }
 }

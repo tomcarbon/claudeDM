@@ -80,6 +80,10 @@ function Adventure({
   campaignId,
   selectCampaign,
   crossCampaignLoadRef,
+  pendingLoadSessionId,
+  setPendingLoadSessionId,
+  activeSessionLabel,
+  setActiveSessionLabel,
 }) {
   const {
     messages,
@@ -136,7 +140,6 @@ function Adventure({
   const [selectedStatusEntry, setSelectedStatusEntry] = useState(null); // npcId or 'host' for detail panel
   const [pendingOpeningPrompt, setPendingOpeningPrompt] = useState(null); // held until host clicks "Start Adventure"
   const [loadingSessionId, setLoadingSessionId] = useState(null);
-  const [activeSessionLabel, setActiveSessionLabel] = useState('');
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
@@ -689,6 +692,16 @@ Set the scene and begin the story.`;
       setLoadingSessionId(null);
     }
   }
+
+  // Handle pending session load from My Games page
+  useEffect(() => {
+    if (pendingLoadSessionId && setPendingLoadSessionId) {
+      const id = pendingLoadSessionId;
+      setPendingLoadSessionId(null);
+      handleLoadSession(id);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingLoadSessionId]);
 
   function handleExportStory() {
     const storyMessages = messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system');
