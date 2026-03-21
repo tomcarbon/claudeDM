@@ -104,6 +104,7 @@ function AppContent() {
         <ul>
           <li><NavLink to="/dm-settings">DM Personality</NavLink></li>
           {player && <li><NavLink to="/settings">Settings</NavLink></li>}
+          <li><a href="/distraction/index.html" target="_blank" rel="noopener noreferrer">Distraction</a></li>
         </ul>
         <div className="sidebar-divider" />
         <div className="app-version">v{CURRENT_VERSION}</div>

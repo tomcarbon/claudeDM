@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dungeon Defense</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👁️</text></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700;900&family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="game" class="game-section">
+        <div class="section-header">
+            <div class="ornament">👁️</div>
+            <h2>Dungeon Defense</h2>
+            <div class="divider">
+                <span class="divider-line"></span>
+                <span class="divider-icon">
+                    <svg viewBox="0 0 60 30" width="30" height="15">
+                        <path d="M30 0 Q45 15 60 15 Q45 15 30 30 Q15 15 0 15 Q15 15 30 0Z" fill="#ff4500"/>
+                    </svg>
+                </span>
+                <span class="divider-line"></span>
+            </div>
+            <p class="section-subtitle">Command the Beholder's Gaze. Zap the adventurers before they reach the Treasure Hoard.</p>
+        </div>
+        <div class="game-wrapper">
+            <div class="game-hud">
+                <div class="hud-item">
+                    <span class="hud-label">Score</span>
+                    <span class="hud-value" id="game-score">0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Wave</span>
+                    <span class="hud-value" id="game-wave">1</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Lives</span>
+                    <span class="hud-value" id="game-lives">
+                        <span class="life">🔥</span><span class="life">🔥</span><span class="life">🔥</span><span class="life">🔥</span><span class="life">🔥</span>
+                    </span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">High Score</span>
+                    <span class="hud-value" id="game-highscore">0</span>
+                </div>
+                <div class="hud-item">
+                    <button class="pause-btn" id="game-pause-btn" disabled>
+                        <span id="pause-icon">❚❚</span>
+                    </button>
+                </div>
+            </div>
+            <div class="game-arena" id="game-arena">
+                <canvas id="game-canvas"></canvas>
+                <div class="game-overlay" id="game-overlay">
+                    <div class="overlay-content">
+                        <h3 id="overlay-title">Dungeon Defense</h3>
+                        <p id="overlay-text">Adventurers approach the dungeon. Click or tap them before they reach the Treasure Hoard!</p>
+                        <p class="overlay-controls">
+                            <strong>Rogues</strong> — small & sneaky (20 pts)<br>
+                            <strong>Fighters</strong> — tough & dangerous (15 pts)<br>
+                            <strong>Rangers</strong> — swift as arrows (25 pts)<br>
+                            <strong>Wizards</strong> — powerful & resilient (40 pts)
+                        </p>
+                        <button class="cta-button game-start-btn" id="game-start-btn">
+                            <span>Begin the Hunt</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="game-log" id="game-log"></div>
+        </div>
+    </section>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
