@@ -1,10 +1,25 @@
-export const CURRENT_VERSION = '1.0.11';
+export const CURRENT_VERSION = '1.0.12';
 
 export const CHANGELOG = [
   {
+    version: '1.0.12',
+    date: '2026-03-21',
+    title: 'Current Release',
+    compareFrom: '1.0.11',
+    compareRef: '996a6d6 ("botfarm")',
+    highlights: [
+      'Bot Farm system: autonomous AI bot players that can host or join sessions as companions. Bots are created with fantasy-generated names, connect via WebSocket, and take contextually appropriate turns based on situation detection (combat, social, exploration, rest) — no API calls per turn, purely local decision-making.',
+      'Bot configuration UI: admin-only settings panel to control host/companion/flex bot counts, turn delay, max concurrent API calls, and sessions per bot. Includes live bot status display showing which sessions each bot is in and their current state, plus a cleanup button to purge all bot accounts.',
+      'Bot REST API: new endpoints for bot farm status (GET), configuration (PUT), start/stop (POST), and cleanup (DELETE) under /api/bots/.',
+      'My Games page: cross-campaign session browser showing all your games in a sortable table with real-time polling (5s), audio notifications when it\'s your turn, and status indicators (purple = your turn, orange = DM thinking, green = recently active). Toggle to show/hide other players\' sessions.',
+      'Distraction mini-game: "Dungeon Defense" — a playable arcade game where you control a Beholder\'s gaze to zap adventurers before they reach the treasure hoard. Features multiple enemy types, wave system, lives, score tracking, and pause. Accessible from the sidebar nav.',
+      'Menu UX overhaul: new sidebar nav links for My Games and Distraction, plus streamlined navigation flow with session loading directly from My Games into the Adventure page.',
+    ],
+  },
+  {
     version: '1.0.11',
     date: '2026-03-18',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.10',
     compareRef: '713d46e ("export import session fixes.")',
     highlights: [
