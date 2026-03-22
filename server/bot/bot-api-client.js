@@ -41,6 +41,18 @@ class BotApiClient {
     return this._fetch('/characters', { campaignId });
   }
 
+  async getNpcs(campaignId) {
+    return this._fetch('/npcs', { campaignId });
+  }
+
+  async setSessionLabel(campaignId, sessionId, label) {
+    return this._fetch(`/sessions/${sessionId}/label`, {
+      method: 'PUT',
+      campaignId,
+      body: { label },
+    });
+  }
+
   async getSessions(campaignId) {
     return this._fetch('/sessions', { campaignId });
   }

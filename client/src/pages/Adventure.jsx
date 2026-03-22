@@ -13,6 +13,13 @@ const STATUS_CONFIG = {
   error: { label: 'Error', className: 'status-error' },
 };
 
+function hpColor(current, max) {
+  const pct = max > 0 ? (current / max) * 100 : 0;
+  if (pct >= 75) return '#27ae60';
+  if (pct >= 40) return '#f1c40f';
+  return '#e74c3c';
+}
+
 function normalizeSavedMessages(rawMessages) {
   if (!Array.isArray(rawMessages)) return [];
 
@@ -133,7 +140,7 @@ function Adventure({
   const [saveStatus, setSaveStatus] = useState(null); // null | 'saving' | 'saved'
   const [autoSave, setAutoSave] = useState(true);
   const [sessionReadOnly, setSessionReadOnly] = useState(false);
-  const [sessionSettings, setSessionSettings] = useState({ visibility: 'public' });
+  const [sessionSettings, setSessionSettings] = useState(() => ({ visibility: 'public', allowBots: localStorage.getItem('dnd_allow_bots') === 'true', maxBots: Number(localStorage.getItem('dnd_max_bots')) || 2 }));
   const [showSettings, setShowSettings] = useState(false);
   const [companionInput, setCompanionInput] = useState('');
   const [companionCharacterId, setCompanionCharacterId] = useState(null);
@@ -357,7 +364,7 @@ function Adventure({
       prevMessageCountRef.current = 0;
       setCompanionStates({});
       setCompanionReservations({});
-      setSessionSettings({ visibility: 'public' });
+      setSessionSettings({ visibility: 'public', allowBots: localStorage.getItem('dnd_allow_bots') === 'true', maxBots: Number(localStorage.getItem('dnd_max_bots')) || 2 });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGuest]);
@@ -469,7 +476,7 @@ function Adventure({
     }
     const character = characters.find(c => c.id === selectedCharacter);
     setSessionReadOnly(false);
-    setSessionSettings({ visibility: 'public' });
+    setSessionSettings(prev => ({ visibility: 'public', allowBots: prev.allowBots, maxBots: prev.maxBots ?? 2 }));
     setGateRevealedUpTo(-1); // Reset gate for new session
 
     const hasPlayerSlots = npcs.some(n => companionStates[n.id] === 'player' || companionStates[n.id] === 'reserved');
@@ -574,6 +581,9 @@ Set the scene and begin the story.`;
         if (sessionLabel.trim()) {
           api.renameSession(result.id, sessionLabel.trim()).catch(() => {});
           setActiveSessionLabel(sessionLabel.trim());
+        }
+        if (sessionSettings.allowBots) {
+          api.updateSessionSettings(result.id, { allowBots: true, maxBots: sessionSettings.maxBots ?? 2 }).catch(() => {});
         }
       }
       watchSession(result.id, player);
@@ -975,13 +985,46 @@ Set the scene and begin the story.`;
           />
         </div>
 
-        <button
-          className="btn-primary begin-btn"
-          disabled={isGuest || !selectedCharacter || (mode === 'scenarios' ? !selectedScenario : !selectedCampaign) || status === 'disconnected'}
-          onClick={handleStartSession}
-        >
-          {status === 'disconnected' ? 'Connecting...' : (isGuest ? 'Login Required to Begin' : 'Begin Adventure')}
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <button
+            className="btn-primary begin-btn"
+            disabled={isGuest || !selectedCharacter || (mode === 'scenarios' ? !selectedScenario : !selectedCampaign) || status === 'disconnected'}
+            onClick={handleStartSession}
+          >
+            {status === 'disconnected' ? 'Connecting...' : (isGuest ? 'Login Required to Begin' : 'Begin Adventure')}
+          </button>
+          <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.05rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              checked={!!sessionSettings.allowBots}
+              onChange={e => {
+                const val = e.target.checked;
+                setSessionSettings(prev => ({ ...prev, allowBots: val }));
+                localStorage.setItem('dnd_allow_bots', val);
+              }}
+              style={{ width: '1.15rem', height: '1.15rem', cursor: 'pointer' }}
+            />
+            Allow bots to join
+          </label>
+          {sessionSettings.allowBots && (
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '1.05rem', color: 'var(--text-muted)' }}>
+              Max
+              <input
+                type="number"
+                min="1"
+                max="5"
+                value={sessionSettings.maxBots ?? 2}
+                onChange={e => {
+                  const val = Math.max(1, Math.min(5, Number(e.target.value) || 1));
+                  setSessionSettings(prev => ({ ...prev, maxBots: val }));
+                  localStorage.setItem('dnd_max_bots', val);
+                }}
+                style={{ width: '3rem', padding: '0.3rem 0.4rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.05rem' }}
+              />
+              bot{(sessionSettings.maxBots ?? 2) !== 1 ? 's' : ''}
+            </label>
+          )}
+        </div>
         {isGuest && (
           <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
             Guests can browse and view saved sessions, but cannot create new sessions or campaigns.
@@ -1213,6 +1256,32 @@ Set the scene and begin the story.`;
                   : 'Only you can see this session.'}
               </span>
             </div>
+            <div className="session-settings-row" style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
+                <input
+                  type="checkbox"
+                  checked={sessionSettings.allowBots !== false}
+                  onChange={e => handleUpdateSetting('allowBots', e.target.checked)}
+                  disabled={sessionReadOnly || !savedSessionDbId}
+                />
+                Allow bots to join
+              </label>
+              {sessionSettings.allowBots && (
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  Max
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    value={sessionSettings.maxBots ?? 2}
+                    onChange={e => handleUpdateSetting('maxBots', Math.max(1, Math.min(5, Number(e.target.value) || 1)))}
+                    disabled={sessionReadOnly || !savedSessionDbId}
+                    style={{ width: '3rem', padding: '0.2rem 0.3rem', borderRadius: '4px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '0.85rem' }}
+                  />
+                  bot{(sessionSettings.maxBots ?? 2) !== 1 ? 's' : ''}
+                </label>
+              )}
+            </div>
             {!savedSessionDbId && (
               <p className="session-settings-hint" style={{ marginTop: '0.5rem' }}>
                 Save the session first to change settings.
@@ -1236,7 +1305,7 @@ Set the scene and begin the story.`;
                 <span className="party-status-name">{activeCharacter?.name || 'Host'}</span>
                 {activeCharacter?.hitPoints && (
                   <span className="party-status-hp">
-                    <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (activeCharacter.hitPoints.current / activeCharacter.hitPoints.max) * 100))}%` }} /></span>
+                    <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (activeCharacter.hitPoints.current / activeCharacter.hitPoints.max) * 100))}%`, background: hpColor(activeCharacter.hitPoints.current, activeCharacter.hitPoints.max) }} /></span>
                     <span className="party-hp-text">{activeCharacter.hitPoints.current}/{activeCharacter.hitPoints.max}</span>
                     <span className="party-ac">AC={activeCharacter.armorClass ?? '?'}</span>
                   </span>
@@ -1277,7 +1346,7 @@ Set the scene and begin the story.`;
                 <span className="party-status-name">{displayName}</span>
                 {n.hitPoints && (
                   <span className="party-status-hp">
-                    <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (n.hitPoints.current / n.hitPoints.max) * 100))}%` }} /></span>
+                    <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (n.hitPoints.current / n.hitPoints.max) * 100))}%`, background: hpColor(n.hitPoints.current, n.hitPoints.max) }} /></span>
                     <span className="party-hp-text">{n.hitPoints.current}/{n.hitPoints.max}</span>
                     <span className="party-ac">AC={n.armorClass ?? '?'}</span>
                   </span>

@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom';
 
+function hpColor(current, max) {
+  const pct = max > 0 ? (current / max) * 100 : 0;
+  if (pct >= 75) return '#27ae60';
+  if (pct >= 40) return '#f1c40f';
+  return '#e74c3c';
+}
+
 function CharacterCard({ character, basePath = '/characters' }) {
   const { id, name, race, subrace, class: cls, level, hitPoints, armorClass, profilePic, status } = character;
   const isDead = status === 'dead';
@@ -31,7 +38,7 @@ function CharacterCard({ character, basePath = '/characters' }) {
         </div>
       </div>
       <div className="hp-bar">
-        <div className="hp-bar-fill" style={{ width: `${hpPct}%` }} />
+        <div className="hp-bar-fill" style={{ width: `${hpPct}%`, background: hpColor(hitPoints?.current ?? 0, hitPoints?.max ?? 1) }} />
       </div>
     </Link>
   );

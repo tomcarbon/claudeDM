@@ -28,6 +28,7 @@ module.exports = function (dataDir) {
     narrationStyle: 'descriptive',
     playerAgency: 'collaborative',
     aiDailyShuffle: false,
+    model: '',
   };
 
   function emailToFilename(email) {

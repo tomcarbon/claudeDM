@@ -27,6 +27,9 @@ function Settings() {
   const [multiplayerSaved, setMultiplayerSaved] = useState(false);
   const [audio, setAudio] = useState(getAudioSettings);
   const [display, setDisplay] = useState(getDisplaySettings);
+  const [dmModel, setDmModel] = useState('');
+  const [savingModel, setSavingModel] = useState(false);
+  const [modelSaved, setModelSaved] = useState(false);
 
   useEffect(() => {
     if (!isAdmin) {
@@ -35,6 +38,7 @@ function Settings() {
       api.getGlobalDmSettings()
         .then((settings) => {
           setShuffleEnabled(!!settings?.aiDailyShuffle);
+          setDmModel(settings?.model || '');
         })
         .catch(() => {
           setShuffleEnabled(false);
@@ -414,9 +418,48 @@ function Settings() {
             </div>
           </div>
 
-          <BotFarmPanel />
+          <div className="detail-section">
+            <h3>DM Model</h3>
+            <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
+              Choose the Claude model that powers the Dungeon Master. Higher tiers are more creative and capable but slower and more expensive.
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+              <select
+                value={dmModel}
+                onChange={async (e) => {
+                  const val = e.target.value;
+                  setDmModel(val);
+                  setSavingModel(true);
+                  setModelSaved(false);
+                  try {
+                    await api.updateGlobalDmSettings({ model: val });
+                    setModelSaved(true);
+                    setTimeout(() => setModelSaved(false), 3000);
+                  } catch (err) {
+                    alert('Failed to update model: ' + err.message);
+                  }
+                  setSavingModel(false);
+                }}
+                disabled={savingModel}
+                style={{ padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', fontSize: '1rem' }}
+              >
+                <option value="">Default (Sonnet)</option>
+                <option value="claude-haiku-4-5-20251001">Haiku 4.5 — Fast, lightweight</option>
+                <option value="claude-sonnet-4-5-20250929">Sonnet 4.5 — Balanced</option>
+                <option value="claude-opus-4-20250514">Opus 4 — Most capable</option>
+              </select>
+              {savingModel && <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Saving...</span>}
+              {!savingModel && modelSaved && <span style={{ color: '#27ae60', fontSize: '0.85rem' }}>Saved!</span>}
+            </div>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '0.5rem' }}>
+              Takes effect on the next DM turn. Active sessions will use the new model on their next response.
+            </p>
+          </div>
+
         </>
       )}
+
+      <BotFarmPanel isAdmin={isAdmin} />
     </div>
   );
 }
@@ -431,11 +474,13 @@ const DELAY_OPTIONS = [
   { value: 3600000, label: '1 hour' },
 ];
 
-function BotFarmPanel() {
+function BotFarmPanel({ isAdmin = false }) {
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [count, setCount] = useState(0);
+  const [hostCount, setHostCount] = useState(0);
+  const [companionCount, setCompanionCount] = useState(0);
+  const [eitherCount, setEitherCount] = useState(0);
   const [delay, setDelay] = useState(60000);
   const [maxSessions, setMaxSessions] = useState(1);
   const [cleaning, setCleaning] = useState(false);
@@ -451,7 +496,9 @@ function BotFarmPanel() {
     api.getBotStatus()
       .then(data => {
         setStatus(data);
-        setCount(data.count);
+        setHostCount(data.hostCount || 0);
+        setCompanionCount(data.companionCount || 0);
+        setEitherCount(data.eitherCount || 0);
         setDelay(data.turnDelayMs);
         setMaxSessions(data.maxSessionsPerBot || 1);
       })
@@ -466,7 +513,9 @@ function BotFarmPanel() {
     try {
       const data = await api.updateBotConfig({
         enabled: true,
-        count,
+        hostCount,
+        companionCount,
+        eitherCount,
         turnDelayMs: delay,
         maxSessionsPerBot: maxSessions,
       });
@@ -493,7 +542,9 @@ function BotFarmPanel() {
     setCleaning(true);
     try {
       await api.cleanupBots();
-      setCount(0);
+      setHostCount(0);
+      setCompanionCount(0);
+      setEitherCount(0);
       setMaxSessions(1);
       refreshStatus();
     } catch (err) {
@@ -508,64 +559,95 @@ function BotFarmPanel() {
     <div className="detail-section">
       <h3>AI Bot Farm</h3>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
-        Spawn autonomous AI players that create sessions, join games, and play through the same API as real users.
-        Each bot uses Claude Haiku to make in-character decisions. Useful for stress testing and simulating activity.
+        Autonomous bot players that create sessions, join games, and submit turns through the same API as real users.
+        Bots use randomized canned actions — no AI calls per turn. Useful for stress testing and simulating activity.
       </p>
 
-      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-        <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Number of bots</span>
-          <input
-            type="number"
-            min="0"
-            max="20"
-            value={count}
-            onChange={e => setCount(Math.max(0, Math.min(20, Number(e.target.value) || 0)))}
-            style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
-          />
-        </label>
-
-        <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Turn delay</span>
-          <select
-            value={delay}
-            onChange={e => setDelay(Number(e.target.value))}
-            style={{ padding: '0.4rem 0.6rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)' }}
-          >
-            {DELAY_OPTIONS.map(opt => (
-              <option key={opt.value} value={opt.value}>{opt.label}</option>
-            ))}
-          </select>
-        </label>
-
-        <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Max sessions per bot</span>
-          <input
-            type="number"
-            min="1"
-            max="5"
-            value={maxSessions}
-            onChange={e => setMaxSessions(Math.max(1, Math.min(5, Number(e.target.value) || 1)))}
-            style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
-          />
-        </label>
-      </div>
-
-      <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1.5rem' }}>
-        <button onClick={handleSave} disabled={saving}>
-          {saving ? 'Saving...' : status?.running ? 'Update & Restart' : 'Start Bots'}
-        </button>
-        {status?.running && (
-          <button onClick={handleStop} disabled={saving} style={{ background: 'var(--bg-tertiary, #555)' }}>
-            Stop All
-          </button>
-        )}
-        <button onClick={handleCleanup} disabled={cleaning} className="danger">
-          {cleaning ? 'Cleaning...' : 'Cleanup All'}
-        </button>
-        {status?.running && <span style={{ color: '#27ae60', fontSize: '0.85rem' }}>Running: {status.activeBots} bot{status.activeBots !== 1 ? 's' : ''}</span>}
+      <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1rem' }}>
+        {status?.running && <span style={{ color: '#27ae60', fontSize: '0.85rem' }}>Running: {status.activeBots} bot{status.activeBots !== 1 ? 's' : ''} ({status.hostCount || 0}H / {status.companionCount || 0}C / {status.eitherCount || 0}E)</span>}
         {status && !status.running && <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Stopped</span>}
       </div>
+
+      {isAdmin && (
+        <>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+            <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Host bots</span>
+              <input
+                type="number"
+                min="0"
+                max="20"
+                value={hostCount}
+                onChange={e => setHostCount(Math.max(0, Math.min(20, Number(e.target.value) || 0)))}
+                style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
+              />
+            </label>
+
+            <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Companion bots</span>
+              <input
+                type="number"
+                min="0"
+                max="20"
+                value={companionCount}
+                onChange={e => setCompanionCount(Math.max(0, Math.min(20, Number(e.target.value) || 0)))}
+                style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
+              />
+            </label>
+
+            <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Either (random)</span>
+              <input
+                type="number"
+                min="0"
+                max="20"
+                value={eitherCount}
+                onChange={e => setEitherCount(Math.max(0, Math.min(20, Number(e.target.value) || 0)))}
+                style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
+              />
+            </label>
+
+            <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Turn delay</span>
+              <select
+                value={delay}
+                onChange={e => setDelay(Number(e.target.value))}
+                style={{ padding: '0.4rem 0.6rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)' }}
+              >
+                {DELAY_OPTIONS.map(opt => (
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
+                ))}
+              </select>
+            </label>
+
+            <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Max sessions per bot</span>
+              <input
+                type="number"
+                min="1"
+                max="5"
+                value={maxSessions}
+                onChange={e => setMaxSessions(Math.max(1, Math.min(5, Number(e.target.value) || 1)))}
+                style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
+              />
+            </label>
+          </div>
+
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1.5rem' }}>
+            <button onClick={handleSave} disabled={saving}>
+              {saving ? 'Saving...' : status?.running ? 'Update & Restart' : 'Start Bots'}
+            </button>
+            {status?.running && (
+              <button onClick={handleStop} disabled={saving} style={{ background: 'var(--bg-tertiary, #555)' }}>
+                Stop All
+              </button>
+            )}
+            <button onClick={handleCleanup} disabled={cleaning} className="danger">
+              {cleaning ? 'Cleaning...' : 'Cleanup All'}
+            </button>
+          </div>
+        </>
+      )}
 
       {status?.bots?.length > 0 && (
         <div style={{ overflowX: 'auto' }}>
@@ -573,6 +655,7 @@ function BotFarmPanel() {
             <thead>
               <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-muted)' }}>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Bot</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Type</th>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Chat</th>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Role</th>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>State</th>
@@ -588,6 +671,7 @@ function BotFarmPanel() {
                   return (
                     <tr key={bot.email} style={{ borderBottom: '1px solid var(--border)' }}>
                       <td style={{ padding: '0.4rem 0.6rem' }}>{bot.name}</td>
+                      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>{bot.botRole || 'either'}</td>
                       <td style={{ padding: '0.4rem 0.6rem' }}>{bot.connected ? 'Yes' : 'No'}</td>
                       <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>-</td>
                       <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>looking</td>
@@ -601,6 +685,9 @@ function BotFarmPanel() {
                   <tr key={`${bot.email}-${sess.sessionId}`} style={{ borderBottom: '1px solid var(--border)' }}>
                     {i === 0 ? (
                       <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top' }} rowSpan={sessions.length}>{bot.name}</td>
+                    ) : null}
+                    {i === 0 ? (
+                      <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top', color: 'var(--text-muted)', fontSize: '0.8rem' }} rowSpan={sessions.length}>{bot.botRole || 'either'}</td>
                     ) : null}
                     {i === 0 ? (
                       <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top' }} rowSpan={sessions.length}>{bot.connected ? 'Yes' : 'No'}</td>

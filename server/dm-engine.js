@@ -789,7 +789,8 @@ class DmEngine {
   _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig) {
     const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig);
     const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId);
-    return {
+    const dmSettings = loadDmSettings(this.dataDir, playerEmail);
+    const opts = {
       systemPrompt,
       cwd: PROJECT_ROOT,
       allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice', 'mcp__dnd-tools__TrackCombat', 'mcp__dnd-tools__TrackResources', 'mcp__dnd-tools__TrackCalendar', 'mcp__dnd-tools__LookupMonster'],
@@ -815,6 +816,10 @@ class DmEngine {
         return { behavior: 'deny', message: 'No permission handler available.' };
       },
     };
+    if (dmSettings.model) {
+      opts.model = dmSettings.model;
+    }
+    return opts;
   }
 
   async *_streamQuery(prompt, options) {

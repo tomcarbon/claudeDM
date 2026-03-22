@@ -115,6 +115,12 @@ function MyGames() {
       )}
 
       {games.length > 0 && (
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '0.5rem' }}>
+          {games.length} game{games.length !== 1 ? 's' : ''} · {games.reduce((sum, g) => sum + (g.messageCount || 0), 0)} total messages
+        </p>
+      )}
+
+      {games.length > 0 && (
         <div className="my-games-table-wrap">
           <table className="my-games-table">
             <thead>
@@ -123,6 +129,7 @@ function MyGames() {
                 <th>Game</th>
                 <th>Campaign</th>
                 <th className="my-games-th-players">Players</th>
+                <th>Msgs</th>
                 <th>Last Turn</th>
                 <th>Updated</th>
                 <th className="my-games-th-created">Created</th>
@@ -165,6 +172,9 @@ function MyGames() {
                     </td>
                     <td className="my-games-td-players">
                       <span className="my-games-player-count">{g.playerCount || 1}</span>
+                    </td>
+                    <td className="my-games-td-msgs">
+                      <span style={{ color: 'var(--text-muted)' }}>{g.messageCount || 0}</span>
                     </td>
                     <td className="my-games-td-turn">
                       {g.lastPlayerName || '—'}

@@ -8,6 +8,8 @@ const { broadcastToAll } = require('../ws-handler');
 
 const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
+  allowBots: false,
+  maxBots: 2,
 };
 
 const DEFAULT_MAX_SESSIONS = 3;
@@ -105,7 +107,8 @@ function summarizeSession(session, requester) {
     ownerEmail,
     createdAt: session.createdAt,
     updatedAt: session.updatedAt,
-    playerCount: (session.players || []).length,
+    playerCount: (session.players || []).length + Object.keys(session.companionPlayers || {}).length,
+    botCount: Object.values(session.companionPlayers || {}).filter(cp => cp.email?.endsWith('@bot.local')).length,
     messageCount: (session.messages || []).length,
     status: session.status,
     canWrite,
@@ -429,7 +432,7 @@ module.exports = function (dataDir) {
         return res.status(400).json({ error: `Session limit reached (${maxSessions}). Delete an existing session to create a new one.` });
       }
 
-      const { name, scenarioId, characterId, claudeSessionId, messages, companionConfig } = req.body;
+      const { name, scenarioId, characterId, claudeSessionId, messages, companionConfig, settings: incomingSettings } = req.body;
       console.log(`[Sessions] POST — messages: ${(messages || []).length}, claudeSessionId: ${claudeSessionId ? 'yes' : 'no'}, characterId: ${characterId}`);
       const ownerId = uuidv4();
       const createdAt = new Date().toISOString();
@@ -447,7 +450,7 @@ module.exports = function (dataDir) {
         playerEmail: requester.email,
         playerName: requester.name,
         status: 'active',
-        settings: { ...DEFAULT_SETTINGS },
+        settings: { ...DEFAULT_SETTINGS, ...(incomingSettings || {}) },
         createdAt,
         updatedAt: createdAt,
         players: [
@@ -551,8 +554,12 @@ module.exports = function (dataDir) {
         currentSettings.visibility = incoming.visibility;
       }
 
-      // turnMode removed — unified turn flow is automatic
-      // Future settings can be validated and merged here
+      if (incoming.allowBots !== undefined) {
+        currentSettings.allowBots = !!incoming.allowBots;
+      }
+      if (incoming.maxBots !== undefined) {
+        currentSettings.maxBots = Math.max(1, Math.min(5, Number(incoming.maxBots) || 2));
+      }
 
       existing.settings = currentSettings;
       existing.updatedAt = new Date().toISOString();

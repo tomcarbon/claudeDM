@@ -4,13 +4,13 @@ const { requireAdmin } = require('../admin-auth');
 module.exports = function (dataDir, orchestrator) {
   const router = express.Router();
 
-  // All bot endpoints require admin access
-  router.use(requireAdmin(dataDir));
-
-  // GET /api/bots/status — current bot farm state
+  // GET /api/bots/status — visible to all logged-in users (read-only)
   router.get('/status', (req, res) => {
     res.json(orchestrator.getStatus());
   });
+
+  // All other bot endpoints require admin access
+  router.use(requireAdmin(dataDir));
 
   // PUT /api/bots/config — update bot farm configuration
   router.put('/config', async (req, res) => {
