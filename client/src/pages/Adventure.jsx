@@ -1327,7 +1327,7 @@ Set the scene and begin the story.`;
             const isOnline = !!participant && !participant.isAway;
             const isAway = !!participant && participant.isAway;
             const turn = companionTurns.find(t => t.npcId === n.id);
-            const isPlayerControlled = state === 'player' || state === 'reserved';
+            const isPlayerControlled = state === 'player' || state === 'reserved' || !!participant;
             // Use companion's chosen character name: from server broadcast (live or away), or local state if this is our own slot
             const isMySlot = isCompanion && n.id === sessionAccess.companionNpcId;
             const displayName = (isMySlot && companionCharacter?.name)
