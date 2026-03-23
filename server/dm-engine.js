@@ -15,7 +15,14 @@ const SHUFFLE_TIMEZONE = 'America/Los_Angeles';
 const SHUFFLE_TONE_OPTIONS = ['heroic', 'gritty', 'whimsical', 'balanced', 'noir'];
 const SHUFFLE_NARRATION_OPTIONS = ['descriptive', 'action', 'dialogue', 'atmospheric'];
 const SHUFFLE_AGENCY_OPTIONS = ['collaborative', 'sandbox', 'guided', 'railroaded', 'freeform'];
+const SHUFFLE_RESPONSE_LENGTH_OPTIONS = ['brief', 'standard', 'detailed', 'epic'];
 const AGENCY_TO_AUTONOMY = { railroaded: 0, guided: 25, collaborative: 50, freeform: 75, sandbox: 100 };
+const RESPONSE_LENGTH_PRESETS = {
+  brief:    { words: 300, guide: 'Aim for roughly 300 words per response. Keep descriptions brief and punchy — short paragraphs, no fluff.' },
+  standard: { words: 500, guide: 'Aim for roughly 500 words per response. Use moderate detail — enough to paint the scene without overstaying.' },
+  detailed: { words: 750, guide: 'Aim for roughly 750 words per response. Use rich, detailed prose with vivid imagery and atmospheric depth.' },
+  epic:     { words: 1000, guide: 'Aim for roughly 1000 words per response. Go all-in on immersive, cinematic prose — paint every scene in full color.' },
+};
 
 function loadJson(filePath) {
   try {
@@ -80,7 +87,7 @@ function applyDailyShuffle(settings, playerEmail) {
     ...settings,
     humor: randomPercent(rng),
     drama: randomPercent(rng),
-    verbosity: randomPercent(rng),
+    responseLength: pickOne(SHUFFLE_RESPONSE_LENGTH_OPTIONS, rng),
     difficulty: randomPercent(rng),
     horror: randomPercent(rng),
     puzzleFocus: randomPercent(rng),
@@ -101,11 +108,23 @@ function loadDmSettings(dataDir, playerEmail) {
   }
   const globalSettings = loadJson(path.join(dataDir, 'dm-settings.json'));
   const defaults = {
-    humor: 50, drama: 50, verbosity: 50, difficulty: 50,
+    humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
     horror: 20, puzzleFocus: 50, playerAutonomy: 50,
     tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
   };
   const baseSettings = { ...defaults, ...(globalSettings || {}), ...(userSettings || {}) };
+  // Migrate legacy verbosity (0-100) → responseLength preset
+  // If any source file still has verbosity, it means responseLength hasn't been explicitly set
+  const sourceHasVerbosity = (globalSettings && globalSettings.verbosity !== undefined)
+    || (userSettings && userSettings.verbosity !== undefined);
+  if (sourceHasVerbosity) {
+    const v = baseSettings.verbosity;
+    if (v <= 20) baseSettings.responseLength = 'brief';
+    else if (v <= 55) baseSettings.responseLength = 'standard';
+    else if (v <= 80) baseSettings.responseLength = 'detailed';
+    else baseSettings.responseLength = 'epic';
+  }
+  delete baseSettings.verbosity;
   return applyDailyShuffle(baseSettings, playerEmail);
 }
 
@@ -188,9 +207,8 @@ function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campai
     ? `data/players/${slug}/${cid}/sessions/${sessionDbId}/npcs`
     : slug ? `data/players/${slug}/${cid}/npcs` : 'data/npcs';
 
-  const verbosityGuide = settings.verbosity < 30 ? 'Keep descriptions brief and punchy.'
-    : settings.verbosity > 70 ? 'Use rich, detailed prose with vivid imagery.'
-    : 'Use moderate detail in descriptions.';
+  const lengthPreset = RESPONSE_LENGTH_PRESETS[settings.responseLength] || RESPONSE_LENGTH_PRESETS.standard;
+  const responseLengthGuide = lengthPreset.guide;
 
   const humorGuide = settings.humor < 30 ? 'Maintain a serious tone.'
     : settings.humor > 70 ? 'Weave humor and wit throughout the narration.'
@@ -218,7 +236,7 @@ function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campai
   let prompt = `You are an AI Dungeon Master for D&D 5th Edition. You narrate the story, control NPC companions, adjudicate rules, and create an immersive tabletop RPG experience.
 
 ## Your Personality & Style
-${verbosityGuide}
+${responseLengthGuide}
 ${humorGuide}
 ${dramaGuide}
 ${toneMap[settings.tone] || toneMap.balanced}
@@ -228,6 +246,46 @@ Horror/Darkness level: ${settings.horror}/100.
 Puzzle vs Combat focus: ${settings.puzzleFocus}/100 (0 = combat-heavy, 100 = puzzle/exploration-heavy).
 Player autonomy: ${settings.playerAutonomy}/100 (0 = DM drives the story with strong plot hooks and direction; 100 = player drives the story, DM reacts and adapts to player choices).
 Player agency style: ${settings.playerAgency}.`;
+
+  // --- Response Scope & Turn Pacing (scaled to playerAutonomy) ---
+  const autonomy = settings.playerAutonomy ?? 50;
+  let pacingSection;
+  if (autonomy <= 25) {
+    pacingSection = `## Response Scope & Turn Pacing
+These rules govern how much narrative you may advance in a SINGLE response. They are as binding as the Dice Integrity rules.
+
+1. **Location limit:** Maximum 2 location transitions per response (e.g., tavern → road → dungeon entrance). Never enter a new dungeon, building, or hostile area without pausing for player input.
+2. **Time limit:** Maximum 2 time transitions per response (e.g., "that evening..." → "the next morning..."). Never skip more than 1 day without player confirmation.
+3. **Combat checkpoint:** ALWAYS stop and hand control to the player before the first round of any combat. Never narrate the player character attacking, dodging, or casting without player input.
+4. **Danger checkpoint:** When the party encounters a trap, ambush, hostile creature, or any threat, STOP and describe the situation. Let the player decide how to react.
+5. **Short-input rule:** When the player's input is brief (1-5 words) confirming a routine action (rest, travel, purchase), you may narrate the outcome and advance to the next interesting decision point. But do NOT chain multiple encounters, discoveries, or plot beats from a single short confirmation.
+6. **One response = one decision point.** Every response must end at a moment where the player has a meaningful choice to make. "What do you do?" is not optional flavor — it is a structural requirement.`;
+  } else if (autonomy <= 74) {
+    pacingSection = `## Response Scope & Turn Pacing
+These rules govern how much narrative you may advance in a SINGLE response. They are as binding as the Dice Integrity rules.
+
+1. **Location limit:** Maximum 1 location transition per response. If the party moves to a new area, describe the arrival and STOP. Do not also explore, discover, and encounter in the same response.
+2. **Time limit:** Maximum 1 time transition per response. "That evening" or "after the long rest" is fine — but do not then also narrate the next morning's march and arrival somewhere.
+3. **Combat checkpoint:** ALWAYS stop and hand control to the player before the first round of any combat. Never narrate the player character's combat actions.
+4. **Danger checkpoint:** When the party encounters a trap, ambush, hostile creature, or any new threat, STOP and let the player react.
+5. **Short-input rule:** When the player's input is brief (1-5 words like "yep", "sure", "I rest"), process ONLY the specific action confirmed. A "yep" to a long rest means: narrate the rest completing, then ask what the player does next. It does NOT mean: narrate the rest, the next morning, the march, the arrival, the exploration, and the encounter.
+6. **One response = one decision point.** Every response must end at a moment where the player has a meaningful choice to make. Never resolve more than one scene per response.
+7. **No narrative chaining.** Do not let "momentum" carry you past decision points. Each of these is a STOP point requiring player input: entering a new area, meeting a new NPC, discovering something significant, any sign of danger.`;
+  } else {
+    pacingSection = `## Response Scope & Turn Pacing ⚠️
+These rules are ABSOLUTE at this autonomy level (${autonomy}/100). They override narrative momentum, pacing instincts, and story flow. They are as binding as the Dice Integrity rules.
+
+1. **Location limit: ZERO unsolicited transitions.** Do not move the party to a new location unless the player explicitly says to go there. Describe the current scene, then STOP.
+2. **Time limit: Minutes only.** Do not advance time beyond the immediate scene unless the player explicitly requests it (e.g., "I take a long rest", "we travel to the next town"). Even then, narrate only the completion of that specific action.
+3. **Combat checkpoint:** ALWAYS stop before combat. Never narrate even a single round without player input. Describe the threat appearing, roll initiative if appropriate, then STOP.
+4. **Danger checkpoint:** Any trap, ambush, threat, or surprise — describe it and STOP immediately. The player decides everything.
+5. **Short-input rule (CRITICAL):** Brief player inputs ("yep", "sure", "ok", "I do that", "yes") are LITERAL CONFIRMATIONS, not delegation. They confirm ONLY the specific action being discussed, nothing more. After processing that one action, STOP and ask what the player does next. NEVER interpret a short confirmation as permission to advance the plot, begin encounters, move locations, or narrate extended sequences.
+6. **One response = one decision point.** Every response MUST end with the player having a clear choice. This is not a suggestion — it is a hard rule.
+7. **No narrative chaining.** Even if the next scene is "obvious" (e.g., the party said they're heading to the dungeon), do not narrate arrival + entry + exploration + discovery in one response. Each transition is a separate response requiring player input.
+8. **When in doubt, STOP EARLY.** It is always better to stop too soon and ask "What do you do?" than to narrate one sentence too far. The player can always say "keep going" — but they cannot un-read a spoiled reveal.`;
+  }
+
+  prompt += `\n\n${pacingSection}`;
 
   // --- Campaign identity block (highest salience — placed before rules) ---
   if (character) {
@@ -484,7 +542,7 @@ You have 4 additional tools to help manage gameplay:
 - When dice rolls are needed, ${settings.realisticDice !== false ? 'use the RollDice tool and show the results (individual rolls + modifiers + total).' : 'roll them and show results.'}
 - Keep the story moving forward and respect player choices.
 - If the player asks an out-of-character question, answer helpfully then return to the narrative.
-- **Player turn pacing:** Do NOT skip the player's turn or barrel through multiple rounds. Let the player make decisions every round. The player should react to what's happening, not watch a novel unfold.
+- **Player turn pacing:** Follow the Response Scope & Turn Pacing rules above. When in doubt, stop early and ask the player what they do.
 - **Tone:** Be a fair yet helpful and kind DM. Use lots of emoji icons throughout your narration, including skulls and other thematic icons.
 - **Virtues over guard-rails.** Respect the player's choices even when they lead to danger. The game is more fun when consequences are real.`;
 

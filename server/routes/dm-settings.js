@@ -19,7 +19,7 @@ module.exports = function (dataDir) {
   const defaultSettings = {
     humor: 50,
     drama: 50,
-    verbosity: 50,
+    responseLength: 'standard',
     difficulty: 50,
     horror: 20,
     puzzleFocus: 50,

@@ -81,7 +81,7 @@ beforeEach(() => {
 
   // Write DM settings
   writeJson(path.join(tmpDir, 'dm-settings.json'), {
-    humor: 50, drama: 50, verbosity: 50, difficulty: 50,
+    humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
     horror: 20, puzzleFocus: 50, playerAutonomy: 50,
     tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
   });
@@ -237,7 +237,7 @@ describe('buildSystemPrompt', () => {
 
   it('includes DM personality settings', () => {
     const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
-    expect(prompt).toContain('Use moderate detail in descriptions');
+    expect(prompt).toContain('Aim for roughly 500 words per response');
     expect(prompt).toContain('Difficulty preference: 50/100');
     expect(prompt).toContain('Player agency style: collaborative');
   });
@@ -277,6 +277,57 @@ describe('buildSystemPrompt', () => {
     expect(prompt).toContain('Bramble Thornwick');
     // NPC section header should not appear when there are no NPCs
     expect(prompt).not.toContain('## NPC Companions');
+  });
+
+  describe('turn pacing rules scale with playerAutonomy', () => {
+    function buildWithAutonomy(value) {
+      writeJson(path.join(tmpDir, 'dm-settings.json'), {
+        humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
+        horror: 20, puzzleFocus: 50, playerAutonomy: value,
+        tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
+      });
+      return buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    }
+
+    it('includes low-autonomy pacing rules when playerAutonomy <= 25', () => {
+      const prompt = buildWithAutonomy(10);
+      expect(prompt).toContain('Response Scope & Turn Pacing');
+      expect(prompt).toContain('Maximum 2 location transitions');
+    });
+
+    it('includes medium-autonomy pacing rules when playerAutonomy is 26-74', () => {
+      const prompt = buildWithAutonomy(50);
+      expect(prompt).toContain('Response Scope & Turn Pacing');
+      expect(prompt).toContain('Maximum 1 location transition');
+      expect(prompt).toContain('No narrative chaining');
+    });
+
+    it('includes high-autonomy pacing rules when playerAutonomy >= 75', () => {
+      const prompt = buildWithAutonomy(100);
+      expect(prompt).toContain('Response Scope & Turn Pacing');
+      expect(prompt).toContain('ZERO unsolicited transitions');
+      expect(prompt).toContain('LITERAL CONFIRMATIONS');
+      expect(prompt).toContain('STOP EARLY');
+    });
+
+    it('places pacing rules before Campaign Identity', () => {
+      const prompt = buildWithAutonomy(50);
+      const pacingIndex = prompt.indexOf('Response Scope & Turn Pacing');
+      const campaignIndex = prompt.indexOf('CAMPAIGN IDENTITY');
+      expect(pacingIndex).toBeGreaterThan(-1);
+      expect(campaignIndex).toBeGreaterThan(-1);
+      expect(pacingIndex).toBeLessThan(campaignIndex);
+    });
+  });
+
+  it('migrates legacy verbosity setting to responseLength', () => {
+    writeJson(path.join(tmpDir, 'dm-settings.json'), {
+      humor: 50, drama: 50, verbosity: 80, difficulty: 50,
+      horror: 20, puzzleFocus: 50, playerAutonomy: 50,
+      tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
+    });
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).toContain('Aim for roughly 750 words per response');
   });
 });
 

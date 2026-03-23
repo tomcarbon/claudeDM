@@ -67,7 +67,7 @@ function Eli5() {
             <tr><td><strong>Rules</strong></td><td>D&D 5e rules reference — classes, races, spells, combat, equipment.</td></tr>
             <tr><td><strong>Scenarios</strong></td><td>Adventure modules you can play. Pick one when starting a session.</td></tr>
             <tr><td><strong>What's New</strong></td><td>Release notes and version history for the app.</td></tr>
-            <tr><td><strong>DM Personality</strong></td><td>Tune the AI DM's style — verbosity, humor, drama, difficulty, and more.</td></tr>
+            <tr><td><strong>DM Personality</strong></td><td>Tune the AI DM's style — response length, humor, drama, difficulty, and more.</td></tr>
             <tr><td><strong>Settings</strong></td><td>Account settings, character resets, and data management.</td></tr>
           </tbody>
         </table>

@@ -82,7 +82,7 @@ function setupCharacterAndNpc(dataDir) {
   });
   // DM settings
   writeJson(path.join(dataDir, 'dm-settings.json'), {
-    humor: 50, drama: 50, verbosity: 50, difficulty: 50,
+    humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
     tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
   });
 }

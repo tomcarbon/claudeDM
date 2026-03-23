@@ -5,7 +5,6 @@ import { usePlayer } from '../context/PlayerContext';
 const SLIDERS = [
   { key: 'humor', label: 'Humor', left: 'Serious', right: 'Comedic', icon: '🎭' },
   { key: 'drama', label: 'Drama', left: 'Relaxed', right: 'Intense', icon: '⚡' },
-  { key: 'verbosity', label: 'Verbosity', left: 'Concise', right: 'Verbose', icon: '📜' },
   { key: 'difficulty', label: 'Difficulty', left: 'Forgiving', right: 'Brutal', icon: '💀' },
   { key: 'horror', label: 'Darkness', left: 'None', right: 'Dark', icon: '🕯️' },
   { key: 'puzzleFocus', label: 'Puzzles vs Combat', left: 'Combat Heavy', right: 'Puzzle Heavy', icon: '🧩' },
@@ -42,32 +41,39 @@ const AGENCY_OPTIONS = [
   { value: 'sandbox', label: 'Sandbox', desc: 'Total freedom — the world reacts to your choices' },
 ];
 
+const RESPONSE_LENGTH_OPTIONS = [
+  { value: 'brief', label: 'Brief', desc: '~300 words — short, punchy descriptions' },
+  { value: 'standard', label: 'Standard', desc: '~500 words — moderate detail, well-paced' },
+  { value: 'detailed', label: 'Detailed', desc: '~750 words — rich prose, vivid imagery' },
+  { value: 'epic', label: 'Epic', desc: '~1000 words — cinematic, fully immersive' },
+];
+
 const QUICK_PRESETS = {
   classic: {
     label: 'Classic Fantasy',
     values: {
-      humor: 30, drama: 60, verbosity: 60, difficulty: 50, horror: 20,
+      humor: 30, drama: 60, responseLength: 'standard', difficulty: 50, horror: 20,
       puzzleFocus: 50, playerAutonomy: 25, tone: 'heroic', narrationStyle: 'descriptive', playerAgency: 'guided',
     },
   },
   comedic: {
     label: 'Comedic Romp',
     values: {
-      humor: 90, drama: 30, verbosity: 70, difficulty: 30, horror: 5,
+      humor: 90, drama: 30, responseLength: 'detailed', difficulty: 30, horror: 5,
       puzzleFocus: 40, playerAutonomy: 50, tone: 'whimsical', narrationStyle: 'dialogue', playerAgency: 'collaborative',
     },
   },
   darkSouls: {
     label: 'Dark & Brutal',
     values: {
-      humor: 10, drama: 90, verbosity: 40, difficulty: 90, horror: 80,
+      humor: 10, drama: 90, responseLength: 'standard', difficulty: 90, horror: 80,
       puzzleFocus: 50, playerAutonomy: 100, tone: 'gritty', narrationStyle: 'atmospheric', playerAgency: 'sandbox',
     },
   },
   mystery: {
     label: 'Mystery & Noir',
     values: {
-      humor: 30, drama: 70, verbosity: 70, difficulty: 50, horror: 40,
+      humor: 30, drama: 70, responseLength: 'detailed', difficulty: 50, horror: 40,
       puzzleFocus: 80, playerAutonomy: 50, tone: 'noir', narrationStyle: 'dialogue', playerAgency: 'collaborative',
     },
   },
@@ -117,7 +123,7 @@ function DmSettings() {
         setSettings(data);
       })
       .catch(() => setSettings({
-        humor: 50, drama: 50, verbosity: 50, difficulty: 50,
+        humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
         horror: 20, puzzleFocus: 50, playerAutonomy: 50, tone: 'balanced',
         narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
       }))
@@ -236,6 +242,24 @@ function DmSettings() {
                 <span className="slider-end-label">{s.right}</span>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Response Length */}
+      <div className="detail-section" style={{ marginTop: '1.5rem' }}>
+        <h3>Response Length</h3>
+        <div className="option-grid">
+          {RESPONSE_LENGTH_OPTIONS.map(opt => (
+            <button
+              key={opt.value}
+              className={`option-card ${settings.responseLength === opt.value ? 'selected' : ''}`}
+              onClick={() => updateOption('responseLength', opt.value)}
+              disabled={!canEdit}
+            >
+              <strong>{opt.label}</strong>
+              <span>{opt.desc}</span>
+            </button>
           ))}
         </div>
       </div>
