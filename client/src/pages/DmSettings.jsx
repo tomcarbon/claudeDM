@@ -95,9 +95,10 @@ function DmSettings() {
   const [saved, setSaved] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [isPersonalized, setIsPersonalized] = useState(false);
+  const [viewMode, setViewMode] = useState('mySettings');
   const isLoggedIn = !!player?.email && player.email !== 'guest';
-  const isShuffleEnabled = !!settings?.aiDailyShuffle;
-  const canEdit = isLoggedIn && !isShuffleEnabled;
+  const isAdmin = player?.role === 'admin';
+  const canEdit = isLoggedIn;
   const activePreset = getMatchingPreset(settings);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
@@ -117,6 +118,10 @@ function DmSettings() {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
+    setViewMode('mySettings');
+    setHasUnsavedChanges(false);
+    setSaved(false);
     api.getDmSettings()
       .then((data) => {
         setIsPersonalized(!!data._isPersonalized);
@@ -125,10 +130,10 @@ function DmSettings() {
       .catch(() => setSettings({
         humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
         horror: 20, puzzleFocus: 50, playerAutonomy: 50, tone: 'balanced',
-        narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
+        narrationStyle: 'descriptive', playerAgency: 'collaborative',
       }))
       .finally(() => setLoading(false));
-  }, []);
+  }, [player?.email]);
 
   const updateSlider = (key, value) => {
     if (!canEdit) return;
@@ -150,7 +155,21 @@ function DmSettings() {
 
   const handleSave = async () => {
     if (!canEdit) return;
-    doSave(settings);
+    if (viewMode === 'baseDefaults') {
+      setSaving(true);
+      try {
+        const { _isPersonalized, ...settingsToSave } = settings;
+        await api.updateGlobalDmSettings(settingsToSave);
+        setHasUnsavedChanges(false);
+        setSaved(true);
+        setTimeout(() => setSaved(false), 2000);
+      } catch (err) {
+        console.error('Failed to save base defaults:', err);
+      }
+      setSaving(false);
+    } else {
+      doSave(settings);
+    }
   };
 
   const handleReset = async () => {
@@ -176,30 +195,67 @@ function DmSettings() {
     setSaved(false);
   };
 
+  const handleToggleView = async (mode) => {
+    if (mode === viewMode) return;
+    setViewMode(mode);
+    setHasUnsavedChanges(false);
+    setSaved(false);
+    setLoading(true);
+    try {
+      if (mode === 'baseDefaults') {
+        const data = await api.getGlobalDmSettings();
+        setSettings(data);
+        setIsPersonalized(false);
+      } else {
+        const data = await api.getDmSettings();
+        setIsPersonalized(!!data._isPersonalized);
+        setSettings(data);
+      }
+    } catch (err) {
+      console.error('Failed to load settings:', err);
+    }
+    setLoading(false);
+  };
+
   if (loading) return <div className="loading">Loading DM settings...</div>;
 
   return (
     <div>
-      <h2>DM Personality</h2>
+      <h2>DM Personality Defaults</h2>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
-        Customize how your AI Dungeon Master narrates, reacts, and runs the game.
+        These settings are used as defaults when you create new sessions.
         <br />
-        <span style={{ fontSize: '0.85em' }}>Press <strong>Save Settings</strong> below when you're done.</span>
+        <span style={{ fontSize: '0.85em' }}>Each session snapshots these at creation and keeps its own copy.</span>
       </p>
+      {isAdmin && (
+        <div className="mode-toggle" style={{ marginBottom: '1rem' }}>
+          <button
+            className={`mode-toggle-btn${viewMode === 'mySettings' ? ' active' : ''}`}
+            onClick={() => handleToggleView('mySettings')}
+          >
+            My Settings
+          </button>
+          <button
+            className={`mode-toggle-btn${viewMode === 'baseDefaults' ? ' active' : ''}`}
+            onClick={() => handleToggleView('baseDefaults')}
+          >
+            Base Defaults
+          </button>
+        </div>
+      )}
       {!isLoggedIn && (
         <p style={{ color: 'var(--text-muted)', margin: '0 0 1.5rem' }}>
-          Log in to customize your DM Personality settings.
-          {isShuffleEnabled ? ' AI shuffle is currently enabled and rotates personality daily at midnight Pacific time.' : ''}
+          Log in to customize your DM Personality defaults.
         </p>
       )}
-      {isLoggedIn && isShuffleEnabled && (
-        <p style={{ color: 'var(--text-muted)', margin: '0 0 1.5rem' }}>
-          AI shuffle is enabled, so manual edits are locked until shuffle is turned off.
-        </p>
-      )}
-      {isLoggedIn && !isShuffleEnabled && (
+      {isLoggedIn && viewMode === 'mySettings' && (
         <p style={{ color: isPersonalized ? '#27ae60' : 'var(--text-muted)', margin: '0 0 1.5rem' }}>
           {isPersonalized ? '🎨 Your personal DM settings' : '🌐 Using global defaults'}
+        </p>
+      )}
+      {viewMode === 'baseDefaults' && (
+        <p style={{ color: '#e67e22', margin: '0 0 1.5rem' }}>
+          🔧 Editing base defaults for all players &amp; bot games
         </p>
       )}
 
@@ -339,14 +395,14 @@ function DmSettings() {
       {/* Save / Reset */}
       <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
         <button onClick={handleSave} disabled={saving || !canEdit}>
-          {saving ? 'Saving...' : 'Save Settings'}
+          {saving ? 'Saving...' : viewMode === 'baseDefaults' ? 'Save Base Defaults' : 'Save Settings'}
         </button>
-        {isPersonalized && isLoggedIn && (
+        {viewMode === 'mySettings' && isPersonalized && isLoggedIn && (
           <button onClick={handleReset} disabled={resetting} style={{ background: 'var(--bg-tertiary, #555)' }}>
             {resetting ? 'Resetting...' : 'Reset to Defaults'}
           </button>
         )}
-        {saved && <span style={{ color: '#27ae60' }}>Settings saved!</span>}
+        {saved && <span style={{ color: '#27ae60' }}>{viewMode === 'baseDefaults' ? 'Base defaults saved!' : 'Settings saved!'}</span>}
         {canEdit && !saving && !saved && hasUnsavedChanges && (
           <span style={{ color: 'var(--warning-color, #e67e22)', fontSize: '0.85em' }}>You have unsaved changes</span>
         )}

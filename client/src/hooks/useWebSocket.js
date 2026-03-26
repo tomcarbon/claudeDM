@@ -207,26 +207,13 @@ export default function useWebSocket() {
           break;
 
         case 'session_player_joined':
-          setMessages(prev => [...prev, {
-            type: 'system',
-            text: `${msg.playerName} has joined the session${msg.companionNpcId ? ` as a companion player` : ''}.`,
-            companionNpcId: msg.companionNpcId || null,
-          }]);
+          // No chat message — participant list updates via session_participants
           playNotification();
           break;
 
-        case 'session_player_left': {
-          const charNote = msg.companionCharacterName
-            ? ` The DM now controls ${msg.companionCharacterName} as an NPC companion.`
-            : '';
-          setMessages(prev => [...prev, {
-            type: 'system',
-            text: `${msg.playerName} has left the session.${charNote}`,
-            playerName: msg.playerName,
-            companionNpcId: msg.companionNpcId || null,
-          }]);
+        case 'session_player_left':
+          // No chat message — participant list updates via session_participants
           break;
-        }
 
         case 'chat_message':
           setChatMessages(prev => [...prev, {
@@ -353,7 +340,7 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const startSession = useCallback((characterId, scenarioId, player, campaignId, companionConfig) => {
+  const startSession = useCallback((characterId, scenarioId, player, campaignId, companionConfig, dmPersonality) => {
     pendingResumeRef.current = null;
     pendingWatchRef.current = null;
     setSessionAccess({ sessionDbId: null, canWrite: true, readOnly: false });
@@ -366,6 +353,7 @@ export default function useWebSocket() {
         playerEmail: player?.email || null,
         playerName: player?.name || null,
         companionConfig: companionConfig || null,
+        dmPersonality: dmPersonality || null,
       }));
       setMessages([{ type: 'system', text: 'Session started. Please wait while the DM prepares the story.' }]);
     }
@@ -399,7 +387,7 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages, player, campaignId, companionConfig) => {
+  const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages, player, campaignId, companionConfig, dmPersonality) => {
     const payload = {
       type: 'session_resume',
       claudeSessionId,
@@ -410,6 +398,7 @@ export default function useWebSocket() {
       playerEmail: player?.email || null,
       playerName: player?.name || null,
       companionConfig: companionConfig || null,
+      dmPersonality: dmPersonality || null,
     };
     pendingResumeRef.current = payload;
     if (wsRef.current?.readyState === WebSocket.OPEN) {

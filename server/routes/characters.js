@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const { awardXp } = require('../xp-utils');
 const { requirePlayer } = require('../player-auth');
 const { getPlayerCharactersDir, getSessionCharactersDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
-const { generateRandomCharacter } = require('../character-generator');
+const { generateRandomCharacter, getCharacterOptions } = require('../character-generator');
 
 const MAX_CHARACTERS = 100;
 
@@ -134,7 +134,27 @@ module.exports = function (dataDir) {
     }
   });
 
-  // POST roll a random character
+  // GET character creation options (races, classes, backgrounds, alignments)
+  router.get('/options', (req, res) => {
+    try {
+      res.json(getCharacterOptions(dataDir));
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // POST preview a character (generate without saving)
+  router.post('/preview', (req, res) => {
+    try {
+      const options = req.body || {};
+      const character = generateRandomCharacter(dataDir, options);
+      res.json(character);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // POST roll/create a character (generate and save)
   router.post('/roll', (req, res) => {
     try {
       const charDir = getPlayerCharDir(req);
@@ -142,7 +162,8 @@ module.exports = function (dataDir) {
       if (characters.length >= MAX_CHARACTERS) {
         return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
       }
-      const character = generateRandomCharacter(dataDir);
+      const options = req.body || {};
+      const character = generateRandomCharacter(dataDir, options);
       const slug = character.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       let filename = `${slug}.json`;
       // Avoid filename collisions

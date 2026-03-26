@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { api, hasActiveSession } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import { useCampaign } from '../context/CampaignContext';
@@ -7,10 +8,10 @@ import CharacterCard from '../components/CharacterCard';
 function CharacterList() {
   const { player } = usePlayer();
   const { campaignId } = useCampaign();
+  const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [rolling, setRolling] = useState(false);
   const fileInputRef = useRef(null);
   const sessionActive = hasActiveSession();
 
@@ -44,18 +45,6 @@ function CharacterList() {
       }
     }
     e.target.value = '';
-  };
-
-  const handleRoll = async () => {
-    setRolling(true);
-    try {
-      await api.rollCharacter();
-      loadCharacters();
-    } catch (err) {
-      alert('Roll failed: ' + err.message);
-    } finally {
-      setRolling(false);
-    }
   };
 
   const handleExportEmpty = () => {
@@ -125,8 +114,8 @@ function CharacterList() {
           />
           <button onClick={handleExportEmpty}>Export Empty Character</button>
           <button onClick={() => fileInputRef.current.click()}>Import Character</button>
-          <button onClick={handleRoll} disabled={rolling || characters.length >= 100}>
-            {rolling ? 'Rolling...' : 'Roll New Character'}
+          <button onClick={() => navigate('/create-character')} disabled={characters.length >= 100}>
+            Create Character
           </button>
         </div>
       </div>

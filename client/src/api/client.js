@@ -86,12 +86,15 @@ export const api = {
   getCharacter: (id) => fetchJson(`/characters/${id}`),
   // Personal roster (bypasses session headers — always reads global player dir)
   getMyCharacters: () => fetchJsonNoSession('/characters'),
+  getMyCharacter: (id) => fetchJsonNoSession(`/characters/${id}`),
   getMyNpcs: () => fetchJsonNoSession('/npcs'),
   createCharacter: (data) => fetchJson('/characters', { method: 'POST', body: JSON.stringify(data) }),
   updateCharacter: (id, data) => fetchJson(`/characters/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteCharacter: (id) => fetchJson(`/characters/${id}`, { method: 'DELETE' }),
   importCharacter: (data) => fetchJson('/characters/import', { method: 'POST', body: JSON.stringify(data) }),
-  rollCharacter: () => fetchJson('/characters/roll', { method: 'POST' }),
+  rollCharacter: (options = {}) => fetchJson('/characters/roll', { method: 'POST', body: JSON.stringify(options) }),
+  getCharacterOptions: () => fetchJson('/characters/options'),
+  previewCharacter: (options = {}) => fetchJson('/characters/preview', { method: 'POST', body: JSON.stringify(options) }),
 
   // NPCs
   getNpcs: () => fetchJson('/npcs'),

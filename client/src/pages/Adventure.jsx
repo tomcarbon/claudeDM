@@ -125,6 +125,7 @@ function Adventure({
   const { player } = usePlayer();
   const [input, setInput] = useState('');
   const [characters, setCharacters] = useState([]);
+  const [myCharacters, setMyCharacters] = useState([]); // Companion's own roster (bypasses session headers)
   const [npcs, setNpcs] = useState([]);
   const [companionStates, setCompanionStates] = useState({}); // npcId -> 'selected' | 'removed' | 'player' | 'reserved'
   const [companionReservations, setCompanionReservations] = useState({}); // npcId -> friend email
@@ -151,6 +152,7 @@ function Adventure({
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
   const isNearBottomRef = useRef(true);
+  const dmPersonalityRef = useRef(null); // Session-scoped DM personality snapshot
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const isGuest = !player?.email;
   const isCompanion = !!sessionAccess.companionNpcId;
@@ -364,6 +366,7 @@ function Adventure({
       prevMessageCountRef.current = 0;
       setCompanionStates({});
       setCompanionReservations({});
+      setMyCharacters([]);
       setSessionSettings({ visibility: 'public', allowBots: localStorage.getItem('dnd_allow_bots') === 'true', maxBots: Number(localStorage.getItem('dnd_max_bots')) || 2 });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -375,9 +378,19 @@ function Adventure({
     if (prevStatusRef.current === 'thinking' && status === 'idle' && sessionActive) {
       api.getCharacters().then(setCharacters).catch(() => {});
       api.getNpcs().then(setNpcs).catch(() => {});
+      if (isCompanion) {
+        api.getMyCharacters().then(setMyCharacters).catch(() => {});
+      }
     }
     prevStatusRef.current = status;
-  }, [status, sessionActive]);
+  }, [status, sessionActive, isCompanion]);
+
+  // Load companion's own character roster (bypasses session headers to get THEIR characters, not the host's)
+  useEffect(() => {
+    if (isCompanion) {
+      api.getMyCharacters().then(setMyCharacters).catch(() => {});
+    }
+  }, [isCompanion]);
 
   // Load saved sessions for setup screen (re-fetch when campaign changes or another player creates/deletes)
   useEffect(() => {
@@ -469,7 +482,7 @@ function Adventure({
     return lines.join('\n');
   }
 
-  function handleStartSession() {
+  async function handleStartSession() {
     if (isGuest) {
       alert('Please log in to start a new session.');
       return;
@@ -479,6 +492,17 @@ function Adventure({
     setSessionSettings(prev => ({ visibility: 'public', allowBots: prev.allowBots, maxBots: prev.maxBots ?? 2 }));
     setGateRevealedUpTo(-1); // Reset gate for new session
 
+    // Snapshot DM personality settings for this session
+    let sessionDmPersonality = null;
+    try {
+      const settings = await api.getDmSettings();
+      const { model, aiDailyShuffle, realisticDice, friends, blocked, _isPersonalized, ...personality } = settings;
+      sessionDmPersonality = personality;
+    } catch (e) {
+      console.warn('[Adventure] Could not fetch DM settings for session, using server defaults:', e);
+    }
+    dmPersonalityRef.current = sessionDmPersonality;
+
     const hasPlayerSlots = npcs.some(n => companionStates[n.id] === 'player' || companionStates[n.id] === 'reserved');
 
     if (mode === 'campaigns') {
@@ -486,7 +510,7 @@ function Adventure({
       // Use campaign ID as the scenario ID for session save/load compatibility
       setSavedSessionDbId(null);
       setSelectedScenario(selectedCampaign);
-      startSession(selectedCharacter, selectedCampaign, player, campaignId, { states: companionStates, reservations: companionReservations });
+      startSession(selectedCharacter, selectedCampaign, player, campaignId, { states: companionStates, reservations: companionReservations }, sessionDmPersonality);
       setSessionActive(true);
 
       const campaign = campaigns.find(c => c.id === selectedCampaign);
@@ -521,7 +545,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
     } else {
       if (!selectedCharacter || !selectedScenario) return;
       setSavedSessionDbId(null);
-      startSession(selectedCharacter, selectedScenario, player, campaignId, { states: companionStates, reservations: companionReservations });
+      startSession(selectedCharacter, selectedScenario, player, campaignId, { states: companionStates, reservations: companionReservations }, sessionDmPersonality);
       setSessionActive(true);
 
       const scenario = scenarios.find(s => s.id === selectedScenario);
@@ -569,6 +593,7 @@ Set the scene and begin the story.`;
           states: companionStates,
           reservations: companionReservations,
         },
+        dmPersonality: dmPersonalityRef.current || undefined,
       };
 
       console.log(`[Save] Payload — messages: ${payload.messages.length}, claudeSessionId: ${payload.claudeSessionId ? 'yes' : 'no'}`);
@@ -692,7 +717,8 @@ Set the scene and begin the story.`;
       localStorage.setItem('dnd_active_session_id', session.id);
       localStorage.setItem('dnd_active_session_owner', session.ownerEmail || session.playerEmail || '');
       if (!readOnly) {
-        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, session.campaignId || campaignId, session.companionConfig || null);
+        dmPersonalityRef.current = session.dmPersonality || null;
+        resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, session.campaignId || campaignId, session.companionConfig || null, session.dmPersonality || null);
       }
       setSessionActive(true);
     } catch (err) {
@@ -1440,11 +1466,7 @@ Set the scene and begin the story.`;
               )}
               {msg.type === 'system' && (
                 <div className="message-system">
-                  {msg.companionNpcId
-                    ? msg.text.includes('left')
-                      ? `${msg.playerName} has left the session. ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId} returns to NPC companion control.`
-                      : `${msg.text} (controlling ${npcs.find(n => n.id === msg.companionNpcId)?.name || msg.companionNpcId})`
-                    : msg.text}
+                  {msg.text}
                 </div>
               )}
             </div>
@@ -1496,16 +1518,12 @@ Set the scene and begin the story.`;
             <div className="companion-character-picker">
               <label>Choose your character for this session:</label>
               <div className="setup-options">
-                {characters.filter(c => {
+                {myCharacters.filter(c => {
                   if (c.status === 'dead') return false;
-                  // Exclude characters whose name matches the host's character, another companion's character, or an active NPC
+                  // Exclude characters whose name matches another companion's character or an active NPC
                   const takenNames = new Set();
-                  // Host's character name (from participants broadcast)
                   for (const p of sessionParticipants) {
-                    if (p.isHost && p.characterName) {
-                      takenNames.add(p.characterName.toLowerCase());
-                    }
-                    // Other companions' chosen characters
+                    // Other companions' chosen characters (avoid two companions with same character name)
                     if (!p.isHost && p.companionCharacterName && p.playerEmail !== player?.email) {
                       takenNames.add(p.companionCharacterName.toLowerCase());
                     }

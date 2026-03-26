@@ -17,6 +17,7 @@ const companionSheetsSent = new Map();
 const sessionEngines = new Map();
 // Grace period timers for engine cleanup: sessionDbId -> timeout
 const engineCleanupTimers = new Map();
+const sessionFirstFireTimers = new Map(); // sessionDbId -> setTimeout handle for first-turn grace period
 let nextConnectionId = 1;
 
 function getRoomParticipants(chatKey) {
@@ -77,6 +78,7 @@ function getOrCreateSessionEngine(sessionDbId, dataDir, opts) {
     if (opts.characterId) ctx.characterId = opts.characterId;
     if (opts.scenarioId) ctx.scenarioId = opts.scenarioId;
     if (opts.campaignId) ctx.campaignId = opts.campaignId;
+    if (opts.dmPersonality) ctx.dmPersonality = opts.dmPersonality;
     if (opts.ownerEmail) ctx.ownerEmail = opts.ownerEmail;
     if (opts.claudeSessionId && !ctx.engine.sessionId) ctx.engine.sessionId = opts.claudeSessionId;
     if (opts.messageHistory && opts.messageHistory.length > ctx.messageHistory.length) ctx.messageHistory = opts.messageHistory;
@@ -94,6 +96,7 @@ function getOrCreateSessionEngine(sessionDbId, dataDir, opts) {
     sessionDbId,
     messageHistory: opts.messageHistory || [],
     companionConfig: opts.companionConfig || null,
+    dmPersonality: opts.dmPersonality || null,
   };
   sessionEngines.set(sessionDbId, ctx);
   return ctx;
@@ -228,6 +231,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     let scenarioId = null;
     let campaignId = null;
     let companionConfig = null; // Host's NPC slot assignments (removed, open, reserved)
+    let dmPersonality = null; // Session-scoped DM personality settings
     let processing = false;
     let messageHistory = []; // Track conversation for resume fallback
     let currentChatKey = null;
@@ -383,7 +387,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       const submittedEmails = allTurns.filter(t => !t.isHost).map(t => t.playerEmail);
       const companionSubmittedCount = joinedEmails.filter(email => submittedEmails.includes(email)).length;
       const submittedCount = (hostSubmitted ? 1 : 0) + companionSubmittedCount;
-      const allReady = hostSubmitted && joinedCompanionCount > 0 && companionSubmittedCount >= joinedCompanionCount;
+      const allReady = hostSubmitted && (joinedCompanionCount === 0 || companionSubmittedCount >= joinedCompanionCount);
       const pendingTurns = allTurns.map(t => ({
         playerEmail: t.playerEmail,
         playerName: t.playerName,
@@ -418,7 +422,29 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       if (!hostTurn) return;
       // Check against ALL joined companions (from session file), not just connected ones
       const joinedEmails = getJoinedCompanionEmails(sessionDbId);
-      if (joinedEmails.length === 0) return; // no companions joined — host must click Continue
+      if (joinedEmails.length === 0) {
+        // No companions joined yet — on first turn, wait 30s for companions to arrive
+        if (!sessionFirstFireTimers.has(sessionDbId)) {
+          console.log(`[WS] First turn with no companions — waiting 30s for joins (session: ${sessionDbId})`);
+          const timer = setTimeout(() => {
+            sessionFirstFireTimers.delete(sessionDbId);
+            // Re-check: if companions joined during the wait, let normal flow handle it
+            const nowJoined = getJoinedCompanionEmails(sessionDbId);
+            if (nowJoined.length > 0) {
+              checkAutoFire(sessionDbId);
+            } else {
+              fireDmForSession(sessionDbId);
+            }
+          }, 30_000);
+          sessionFirstFireTimers.set(sessionDbId, timer);
+        }
+        return;
+      }
+      // If companions joined during the grace period, cancel the timer
+      if (sessionFirstFireTimers.has(sessionDbId)) {
+        clearTimeout(sessionFirstFireTimers.get(sessionDbId));
+        sessionFirstFireTimers.delete(sessionDbId);
+      }
       const submittedEmails = allTurns.filter(t => !t.isHost).map(t => t.playerEmail);
       const allReady = joinedEmails.every(email => submittedEmails.includes(email));
       if (!allReady) return;
@@ -449,6 +475,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         claudeSessionId: session.claudeSessionId,
         messageHistory: existingCtx?.messageHistory || [],
         companionConfig: session.companionConfig || null,
+        dmPersonality: session.dmPersonality || null,
       });
 
       // Build the combined player text (host + companion actions)
@@ -558,6 +585,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           companionPlayers: activeCompanions.length > 0 ? activeCompanions : undefined,
           sessionDbId,
           companionConfig: engineCtx.companionConfig || undefined,
+          dmPersonality: engineCtx.dmPersonality || undefined,
         });
 
         for await (const event of stream) {
@@ -675,6 +703,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           scenarioId = msg.scenarioId || null;
           campaignId = msg.campaignId || null;
           companionConfig = msg.companionConfig || null;
+          dmPersonality = msg.dmPersonality || null;
           wsEntry.playerEmail = msg.playerEmail;
           wsEntry.campaignId = campaignId;
           wsEntry.characterId = characterId;
@@ -733,6 +762,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           scenarioId = msg.scenarioId || null;
           campaignId = newCampaignId;
           companionConfig = msg.companionConfig || null;
+          dmPersonality = msg.dmPersonality || null;
           // Use the new session's Claude ID, UNLESS switching campaigns —
           // in which case force null to start a fresh conversation with the
           // correct system prompt. Claude's old conversation context would
@@ -911,6 +941,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               ownerEmail,
               claudeSessionId: session.claudeSessionId,
               companionConfig: session.companionConfig || null,
+              dmPersonality: session.dmPersonality || null,
             });
           }
 
@@ -996,6 +1027,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               playerEmail: wsEntry.playerEmail,
               sessionDbId: currentSessionDbId || undefined,
               companionConfig: companionConfig || undefined,
+              dmPersonality: dmPersonality || undefined,
               onPermissionRequest: (toolName, input, toolUseID) => {
                 return new Promise((resolve) => {
                   const description = describeToolUse(toolName, input);

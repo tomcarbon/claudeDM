@@ -264,6 +264,14 @@ class BotOrchestrator {
       }
     });
 
+    // Companion bots: when turn_status shows host has submitted and we're waiting,
+    // transition to 'playing' so we submit our turn (prevents first-round deadlock)
+    ws.on('turn_status', (msg) => {
+      if (slot.role === 'companion' && slot.state === 'waiting_for_dm' && msg.hostSubmitted) {
+        slot.state = 'playing';
+      }
+    });
+
     ws.on('error', (msg) => {
       console.error(`[Bot:${bot.name}] Session WS error (${slot.sessionId}):`, msg.error);
     });

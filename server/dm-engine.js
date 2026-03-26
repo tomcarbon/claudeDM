@@ -10,12 +10,7 @@ const { advanceTime, scheduleEvent, checkCalendar, generateWeather } = require('
 const { emailToSlug, getPlayerCharactersDir, getPlayerNpcsDir, getSessionCharactersDir, getSessionNpcsDir } = require('./player-data');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
-const SHUFFLE_TIMEZONE = 'America/Los_Angeles';
 
-const SHUFFLE_TONE_OPTIONS = ['heroic', 'gritty', 'whimsical', 'balanced', 'noir'];
-const SHUFFLE_NARRATION_OPTIONS = ['descriptive', 'action', 'dialogue', 'atmospheric'];
-const SHUFFLE_AGENCY_OPTIONS = ['collaborative', 'sandbox', 'guided', 'railroaded', 'freeform'];
-const SHUFFLE_RESPONSE_LENGTH_OPTIONS = ['brief', 'standard', 'detailed', 'epic'];
 const AGENCY_TO_AUTONOMY = { railroaded: 0, guided: 25, collaborative: 50, freeform: 75, sandbox: 100 };
 const RESPONSE_LENGTH_PRESETS = {
   brief:    { words: 300, guide: 'Aim for roughly 300 words per response. Keep descriptions brief and punchy — short paragraphs, no fluff.' },
@@ -32,72 +27,6 @@ function loadJson(filePath) {
   }
 }
 
-function pacificDateKey(date = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: SHUFFLE_TIMEZONE,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(date);
-
-  const year = parts.find((p) => p.type === 'year')?.value || '1970';
-  const month = parts.find((p) => p.type === 'month')?.value || '01';
-  const day = parts.find((p) => p.type === 'day')?.value || '01';
-  return `${year}-${month}-${day}`;
-}
-
-function hashSeed(text) {
-  let hash = 2166136261;
-  for (let i = 0; i < text.length; i += 1) {
-    hash ^= text.charCodeAt(i);
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
-}
-
-function createRng(seedText) {
-  let state = hashSeed(seedText) || 1;
-  return function next() {
-    state ^= state << 13;
-    state ^= state >>> 17;
-    state ^= state << 5;
-    return ((state >>> 0) / 4294967296);
-  };
-}
-
-function randomPercent(rng) {
-  const step = 5;
-  const maxSteps = 100 / step;
-  return Math.floor(rng() * (maxSteps + 1)) * step;
-}
-
-function pickOne(options, rng) {
-  return options[Math.floor(rng() * options.length)];
-}
-
-function applyDailyShuffle(settings, playerEmail) {
-  if (!settings.aiDailyShuffle) return settings;
-
-  const dayKey = pacificDateKey();
-  const seedSuffix = playerEmail ? `:${String(playerEmail).trim().toLowerCase()}` : '';
-  const rng = createRng(`dm-personality:${dayKey}${seedSuffix}`);
-
-  const agency = pickOne(SHUFFLE_AGENCY_OPTIONS, rng);
-  return {
-    ...settings,
-    humor: randomPercent(rng),
-    drama: randomPercent(rng),
-    responseLength: pickOne(SHUFFLE_RESPONSE_LENGTH_OPTIONS, rng),
-    difficulty: randomPercent(rng),
-    horror: randomPercent(rng),
-    puzzleFocus: randomPercent(rng),
-    tone: pickOne(SHUFFLE_TONE_OPTIONS, rng),
-    narrationStyle: pickOne(SHUFFLE_NARRATION_OPTIONS, rng),
-    playerAgency: agency,
-    playerAutonomy: AGENCY_TO_AUTONOMY[agency] ?? 50,
-  };
-}
-
 function loadDmSettings(dataDir, playerEmail) {
   // Try per-user settings first, fall back to global
   let userSettings = null;
@@ -110,7 +39,7 @@ function loadDmSettings(dataDir, playerEmail) {
   const defaults = {
     humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
     horror: 20, puzzleFocus: 50, playerAutonomy: 50,
-    tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative', aiDailyShuffle: false,
+    tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
   };
   const baseSettings = { ...defaults, ...(globalSettings || {}), ...(userSettings || {}) };
   // Migrate legacy verbosity (0-100) → responseLength preset
@@ -125,7 +54,7 @@ function loadDmSettings(dataDir, playerEmail) {
     else baseSettings.responseLength = 'epic';
   }
   delete baseSettings.verbosity;
-  return applyDailyShuffle(baseSettings, playerEmail);
+  return baseSettings;
 }
 
 function loadCharacter(dataDir, characterId, playerEmail, campaignId, sessionDbId) {
@@ -191,9 +120,9 @@ function loadNpcs(dataDir, playerEmail, campaignId, sessionDbId) {
   }
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig) {
+function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality) {
   const cid = campaignId || 'demo';
-  const settings = loadDmSettings(dataDir, playerEmail);
+  const settings = dmPersonality || loadDmSettings(dataDir, playerEmail);
   const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid, sessionDbId) : null;
   const scenario = scenarioId ? loadScenario(dataDir, scenarioId, cid) : null;
   const npcs = loadNpcs(dataDir, playerEmail, cid, sessionDbId);
@@ -844,8 +773,8 @@ class DmEngine {
     return this._mcpToolServer;
   }
 
-  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig);
+  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality);
     const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId);
     const dmSettings = loadDmSettings(this.dataDir, playerEmail);
     const opts = {
@@ -937,8 +866,8 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig }) {
-    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig);
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality }) {
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality);
 
     if (this.sessionId) {
       options.resume = this.sessionId;
@@ -953,7 +882,7 @@ class DmEngine {
     }
 
     // Fresh session — if we have message history, prepend it as context
-    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig);
+    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality);
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
       const recap = buildSmartRecap(messageHistory);
@@ -976,4 +905,4 @@ class DmEngine {
   }
 }
 
-module.exports = { DmEngine, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } };
+module.exports = { DmEngine, loadDmSettings, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } };

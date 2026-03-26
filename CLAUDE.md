@@ -38,7 +38,7 @@ data/
 │       ├── campaign.json
 │       └── scenarios/           # Underdark campaign scenarios
 ├── rules/                       # D&D 5e rules database (shared, read-only)
-└── dm-settings.json             # Global DM personality settings
+└── dm-settings.json             # Default DM personality settings (snapshotted into sessions at creation)
 ```
 
 **Campaign Isolation:** All player data (characters, NPCs, sessions) is scoped per-campaign. When a player selects campaign "demo", all API requests include an `X-Campaign-Id: demo` header, and the server routes to `data/players/<slug>/demo/`. Campaign "campaign1" (Depths of the Underdark) uses `data/players/<slug>/campaign1/`. There is zero crossover between campaigns.
@@ -71,7 +71,7 @@ The rules database in `data/rules/` contains:
 ## DM Guidelines (for AI)
 When acting as DM:
 1. **Always reference the rules database** in `data/rules/` for mechanics
-2. **Honor the DM Personality settings on every turn.** Before each response, consult `data/dm-settings.json` (read it with the Read tool if unsure of current values). The player has configured these settings to shape their experience — respect them consistently:
+2. **Honor the DM Personality settings on every turn.** DM Personality is stored in each session's `dmPersonality` field (snapshotted from the player's defaults at session creation). These settings are injected into the system prompt automatically — respect them consistently:
    - **Response Length** (brief/standard/detailed/epic): Controls target response length. Brief ~300 words, Standard ~500, Detailed ~750, Epic ~1000. This is a soft target — the DM aims for roughly this length but may vary for combat rounds or dramatic reveals.
    - **Humor** (0–100): Low = serious tone; High = witty, comedic moments woven in.
    - **Drama** (0–100): Low = relaxed, low-stakes feel; High = heightened tension and stakes.

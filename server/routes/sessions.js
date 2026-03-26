@@ -5,6 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
 const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, getPlayerNpcsDir, provisionPlayerDefaults } = require('../player-data');
 const { broadcastToAll } = require('../ws-handler');
+const { loadDmSettings } = require('../dm-engine');
 
 const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
@@ -432,8 +433,17 @@ module.exports = function (dataDir) {
         return res.status(400).json({ error: `Session limit reached (${maxSessions}). Delete an existing session to create a new one.` });
       }
 
-      const { name, scenarioId, characterId, claudeSessionId, messages, companionConfig, settings: incomingSettings } = req.body;
+      const { name, scenarioId, characterId, claudeSessionId, messages, companionConfig, settings: incomingSettings, dmPersonality: clientDmPersonality } = req.body;
       console.log(`[Sessions] POST — messages: ${(messages || []).length}, claudeSessionId: ${claudeSessionId ? 'yes' : 'no'}, characterId: ${characterId}`);
+      // Snapshot DM personality settings into the session.
+      // Use client-provided personality if available, otherwise resolve from per-user/global defaults.
+      let dmPersonality = clientDmPersonality;
+      if (!dmPersonality) {
+        const resolved = loadDmSettings(dataDir, requester.email);
+        // Strip non-personality fields — model is admin-only, others are not DM personality
+        const { model, aiDailyShuffle, realisticDice, friends, blocked, _isPersonalized, ...personality } = resolved;
+        dmPersonality = personality;
+      }
       const ownerId = uuidv4();
       const createdAt = new Date().toISOString();
       const session = {
@@ -451,6 +461,7 @@ module.exports = function (dataDir) {
         playerName: requester.name,
         status: 'active',
         settings: { ...DEFAULT_SETTINGS, ...(incomingSettings || {}) },
+        dmPersonality,
         createdAt,
         updatedAt: createdAt,
         players: [
@@ -509,6 +520,7 @@ module.exports = function (dataDir) {
       delete payload.playerName;
       delete payload.players;
       delete payload.settings; // settings updated via dedicated endpoint
+      delete payload.dmPersonality; // locked at session creation
 
       const updated = {
         ...existing,
@@ -668,6 +680,7 @@ module.exports = function (dataDir) {
       };
       session.updatedAt = new Date().toISOString();
       fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
+      broadcastToAll('sessions_changed');
       res.json({
         npcId,
         campaignId: session.campaignId || 'demo',
@@ -716,6 +729,7 @@ module.exports = function (dataDir) {
       delete session.companionPlayers[npcId];
       session.updatedAt = new Date().toISOString();
       fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
+      broadcastToAll('sessions_changed');
       res.json({
         npcId,
         companionSlots: getCompanionSlots(session),
@@ -835,8 +849,14 @@ module.exports = function (dataDir) {
       }
 
       // --- Characters: companion players' PCs ---
-      for (const [, cp] of Object.entries(claimed)) {
-        if (!cp.email || !cp.characterId) continue;
+      const companionsWithoutCharacter = []; // npcIds of companions who haven't selected a character
+      for (const [npcId, cp] of Object.entries(claimed)) {
+        if (!cp.email) continue;
+        if (!cp.characterId) {
+          // Companion joined but hasn't selected a character yet — track for NPC fallback
+          companionsWithoutCharacter.push(npcId);
+          continue;
+        }
         provisionPlayerDefaults(dataDir, cp.email, campaignId);
         const cpCharDir = getPlayerCharactersDir(dataDir, cp.email, campaignId);
         if (!fs.existsSync(cpCharDir)) continue;
@@ -863,7 +883,10 @@ module.exports = function (dataDir) {
           for (const f of files) {
             try {
               const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
-              if (states[data.id] === 'removed' || claimed[data.id]) continue;
+              if (states[data.id] === 'removed') continue;
+              // Skip NPCs claimed by companions who HAVE selected a character (they appear in characters list)
+              // But INCLUDE NPCs claimed by companions who haven't selected a character yet (show NPC data as fallback)
+              if (claimed[data.id] && !companionsWithoutCharacter.includes(data.id)) continue;
               const { dmNotes, ...safe } = data;
               npcs.push(safe);
             } catch { /* skip malformed */ }

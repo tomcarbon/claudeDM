@@ -152,36 +152,43 @@ function hitDieMax(hitDie) {
 }
 
 // --- Main generator ---
-function generateRandomCharacter(dataDir) {
+function generateRandomCharacter(dataDir, options = {}) {
   const rulesDir = path.join(dataDir, 'rules');
   const races = JSON.parse(fs.readFileSync(path.join(rulesDir, 'races.json'), 'utf-8')).races;
   const classes = JSON.parse(fs.readFileSync(path.join(rulesDir, 'classes.json'), 'utf-8')).classes;
   const backgrounds = JSON.parse(fs.readFileSync(path.join(rulesDir, 'backgrounds.json'), 'utf-8')).backgrounds;
   const spellsData = JSON.parse(fs.readFileSync(path.join(rulesDir, 'spells.json'), 'utf-8'));
 
-  // Pick random race
-  const race = pick(races);
+  // Pick race — use option if provided, else random
+  const race = options.race ? (races.find(r => r.name === options.race) || pick(races)) : pick(races);
   let subrace = null;
   if (race.subraces && race.subraces.length > 0) {
-    subrace = pick(race.subraces);
+    subrace = options.subrace
+      ? (race.subraces.find(s => s.name === options.subrace) || pick(race.subraces))
+      : pick(race.subraces);
   }
 
-  // Pick random class
-  const charClass = pick(classes);
+  // Pick class — use option if provided, else random
+  const charClass = options.class ? (classes.find(c => c.name === options.class) || pick(classes)) : pick(classes);
 
-  // Pick random background
-  const background = pick(backgrounds);
+  // Pick background — use option if provided, else random
+  const background = options.background ? (backgrounds.find(b => b.name === options.background) || pick(backgrounds)) : pick(backgrounds);
 
-  // Pick random alignment
-  const alignment = pick(ALIGNMENTS);
+  // Pick alignment — use option if provided, else random
+  const alignment = options.alignment ? options.alignment : pick(ALIGNMENTS);
 
-  // Generate name
-  const gender = Math.random() < 0.5 ? 'male' : 'female';
-  const raceNames = FIRST_NAMES[race.name] || FIRST_NAMES.Human;
-  const firstName = pick(raceNames[gender] || raceNames.male);
-  const lastNames = LAST_NAMES[race.name] || LAST_NAMES.Human;
-  const lastName = pick(lastNames);
-  const name = `${firstName} ${lastName}`;
+  // Generate name — use option if provided, else random
+  let name;
+  if (options.name && options.name.trim()) {
+    name = options.name.trim();
+  } else {
+    const gender = Math.random() < 0.5 ? 'male' : 'female';
+    const raceNames = FIRST_NAMES[race.name] || FIRST_NAMES.Human;
+    const firstName = pick(raceNames[gender] || raceNames.male);
+    const lastNames = LAST_NAMES[race.name] || LAST_NAMES.Human;
+    const lastName = pick(lastNames);
+    name = `${firstName} ${lastName}`;
+  }
 
   // Roll ability scores (4d6 drop lowest, 6 times)
   const rawScores = Array.from({ length: 6 }, () => roll4d6DropLowest());
@@ -472,12 +479,13 @@ function generateRandomCharacter(dataDir) {
   const appearance = `${name} is ${sizeDesc} ${raceDesc} ${charClass.name.toLowerCase()} with a weathered look that speaks of many roads traveled.`;
 
   // Backstory
+  const shortName = name.split(' ')[0];
   const backstoryTemplates = [
-    `${firstName} grew up in a small village before ${background.name.toLowerCase()} life called. Now ${firstName} seeks adventure and purpose in a dangerous world.`,
-    `Once a humble ${background.name.toLowerCase()}, ${firstName} discovered a hidden talent and set out to forge a new destiny among adventurers.`,
-    `Driven by ${personality.ideals.split('.')[0].toLowerCase()}, ${firstName} left behind the familiar to seek fortune, glory, and answers to questions that haunt the night.`,
-    `${firstName} carries the weight of a troubled past but presses forward with determination. The road ahead is uncertain, but standing still was never an option.`,
-    `After years as a ${background.name.toLowerCase()}, ${firstName} heard the call to adventure. Armed with ${charClass.name.toLowerCase()} training and hard-won wisdom, the journey begins.`,
+    `${shortName} grew up in a small village before ${background.name.toLowerCase()} life called. Now ${shortName} seeks adventure and purpose in a dangerous world.`,
+    `Once a humble ${background.name.toLowerCase()}, ${shortName} discovered a hidden talent and set out to forge a new destiny among adventurers.`,
+    `Driven by ${personality.ideals.split('.')[0].toLowerCase()}, ${shortName} left behind the familiar to seek fortune, glory, and answers to questions that haunt the night.`,
+    `${shortName} carries the weight of a troubled past but presses forward with determination. The road ahead is uncertain, but standing still was never an option.`,
+    `After years as a ${background.name.toLowerCase()}, ${shortName} heard the call to adventure. Armed with ${charClass.name.toLowerCase()} training and hard-won wisdom, the journey begins.`,
   ];
 
   const character = {
@@ -513,4 +521,21 @@ function generateRandomCharacter(dataDir) {
   return character;
 }
 
-module.exports = { generateRandomCharacter };
+function getCharacterOptions(dataDir) {
+  const rulesDir = path.join(dataDir, 'rules');
+  const races = JSON.parse(fs.readFileSync(path.join(rulesDir, 'races.json'), 'utf-8')).races;
+  const classes = JSON.parse(fs.readFileSync(path.join(rulesDir, 'classes.json'), 'utf-8')).classes;
+  const backgrounds = JSON.parse(fs.readFileSync(path.join(rulesDir, 'backgrounds.json'), 'utf-8')).backgrounds;
+
+  return {
+    races: races.map(r => ({
+      name: r.name,
+      subraces: (r.subraces || []).map(s => s.name),
+    })),
+    classes: classes.map(c => ({ name: c.name })),
+    backgrounds: backgrounds.map(b => ({ name: b.name })),
+    alignments: ALIGNMENTS,
+  };
+}
+
+module.exports = { generateRandomCharacter, getCharacterOptions };

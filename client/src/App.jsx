@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import CharacterList from './pages/CharacterList';
 import CharacterDetail from './pages/CharacterDetail';
 import CharacterEdit from './pages/CharacterEdit';
+import CharacterCreator from './pages/CharacterCreator';
 import NpcList from './pages/NpcList';
 import CurrentParty from './pages/CurrentParty';
 import NpcDetail from './pages/NpcDetail';
@@ -148,6 +149,7 @@ function AppContent() {
           <Route path="/whats-new" element={<WhatsNew />} />
           <Route path="/current-party" element={<CurrentParty />} />
           <Route path="/characters" element={<CharacterList />} />
+          <Route path="/create-character" element={<CharacterCreator />} />
           <Route path="/characters/:id" element={<CharacterDetail />} />
           <Route path="/characters/:id/edit" element={<CharacterEdit />} />
           <Route path="/npcs" element={<NpcList />} />

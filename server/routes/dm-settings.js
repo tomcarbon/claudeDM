@@ -27,7 +27,6 @@ module.exports = function (dataDir) {
     tone: 'balanced',
     narrationStyle: 'descriptive',
     playerAgency: 'collaborative',
-    aiDailyShuffle: false,
     model: '',
   };
 

@@ -9,10 +9,6 @@ function Settings() {
   const { player } = usePlayer();
   const { campaignId } = useCampaign();
   const isAdmin = player?.role === 'admin';
-  const [loadingShuffle, setLoadingShuffle] = useState(true);
-  const [savingShuffle, setSavingShuffle] = useState(false);
-  const [shuffleEnabled, setShuffleEnabled] = useState(false);
-  const [shuffleSaved, setShuffleSaved] = useState(false);
   const [realisticDice, setRealisticDice] = useState(true);
   const [loadingDice, setLoadingDice] = useState(true);
   const [savingDice, setSavingDice] = useState(false);
@@ -32,20 +28,12 @@ function Settings() {
   const [modelSaved, setModelSaved] = useState(false);
 
   useEffect(() => {
-    if (!isAdmin) {
-      setLoadingShuffle(false);
-    } else {
+    if (isAdmin) {
       api.getGlobalDmSettings()
         .then((settings) => {
-          setShuffleEnabled(!!settings?.aiDailyShuffle);
           setDmModel(settings?.model || '');
         })
-        .catch(() => {
-          setShuffleEnabled(false);
-        })
-        .finally(() => {
-          setLoadingShuffle(false);
-        });
+        .catch(() => {});
     }
     // Load per-user settings for all players
     api.getDmSettings()
@@ -61,21 +49,6 @@ function Settings() {
         setLoadingDice(false);
       });
   }, [isAdmin]);
-
-  const handleShuffleToggle = async (e) => {
-    const nextValue = e.target.checked;
-    setSavingShuffle(true);
-    setShuffleSaved(false);
-    try {
-      await api.updateGlobalDmSettings({ aiDailyShuffle: nextValue });
-      setShuffleEnabled(nextValue);
-      setShuffleSaved(true);
-      setTimeout(() => setShuffleSaved(false), 3000);
-    } catch (err) {
-      alert('Failed to update AI shuffle setting: ' + err.message);
-    }
-    setSavingShuffle(false);
-  };
 
   const handleDiceToggle = async (e) => {
     const nextValue = e.target.checked;
@@ -396,28 +369,6 @@ function Settings() {
 
       {isAdmin && (
         <>
-          <div className="detail-section">
-            <h3>DM Personality Automation</h3>
-            <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
-              Enable AI shuffle to rotate DM Personality at midnight Pacific time (PDT/PST) every day.
-              When enabled, manual edits on the DM Personality page are locked.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <input
-                  type="checkbox"
-                  checked={shuffleEnabled}
-                  onChange={handleShuffleToggle}
-                  disabled={loadingShuffle || savingShuffle}
-                />
-                AI shuffle of DM Personality on 24 hour basis
-              </label>
-              {loadingShuffle && <span style={{ color: 'var(--text-muted)' }}>Loading...</span>}
-              {savingShuffle && <span style={{ color: 'var(--text-muted)' }}>Saving...</span>}
-              {!savingShuffle && shuffleSaved && <span style={{ color: '#27ae60' }}>Saved!</span>}
-            </div>
-          </div>
-
           <div className="detail-section">
             <h3>DM Model</h3>
             <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>

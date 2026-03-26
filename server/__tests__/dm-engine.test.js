@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 
-const { _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } } = require('../dm-engine');
+const { loadDmSettings, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } } = require('../dm-engine');
 const { ensurePlayerDataExists, getPlayerCharactersDir, getPlayerNpcsDir, getSessionCharactersDir, getSessionNpcsDir, snapshotToSession } = require('../player-data');
 
 let tmpDir;
@@ -328,6 +328,18 @@ describe('buildSystemPrompt', () => {
     });
     const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
     expect(prompt).toContain('Aim for roughly 750 words per response');
+  });
+
+  it('uses dmPersonality parameter when provided instead of loading from files', () => {
+    // The dm-settings.json says 'standard' (~500 words), but we pass 'epic' directly
+    const dmPersonality = {
+      humor: 80, drama: 90, responseLength: 'epic', difficulty: 75,
+      horror: 60, puzzleFocus: 30, playerAutonomy: 50,
+      tone: 'noir', narrationStyle: 'atmospheric', playerAgency: 'collaborative',
+    };
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN, undefined, undefined, undefined, dmPersonality);
+    expect(prompt).toContain('Aim for roughly 1000 words per response');
+    expect(prompt).toContain('Difficulty preference: 75/100');
   });
 });
 

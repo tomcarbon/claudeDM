@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { api } from '../api/client';
+import { api, hasActiveSession } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import { useCampaign } from '../context/CampaignContext';
 import StatBlock from '../components/StatBlock';
@@ -16,19 +16,22 @@ function CharacterDetail() {
   const [error, setError] = useState(null);
   const [resetting, setResetting] = useState(false);
 
+  const sessionActive = hasActiveSession();
+  const fetchChar = (charId) => sessionActive ? api.getMyCharacter(charId) : api.getCharacter(charId);
+
   useEffect(() => {
     setLoading(true);
     setError(null);
-    api.getCharacter(id)
+    fetchChar(id)
       .then(setChar)
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
-  }, [id, campaignId]);
+  }, [id, campaignId, sessionActive]);
 
   // Refetch when the page regains focus (e.g. navigating back from adventure)
   useEffect(() => {
     const handleFocus = () => {
-      api.getCharacter(id).then(setChar).catch(() => {});
+      fetchChar(id).then(setChar).catch(() => {});
     };
     window.addEventListener('focus', handleFocus);
     return () => window.removeEventListener('focus', handleFocus);
