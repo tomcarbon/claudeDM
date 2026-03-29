@@ -1168,27 +1168,43 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   const charSlug = String(msg.characterData.name || msg.characterId)
                     .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
                   const destPath = path.join(hostCharDir, `${charSlug}.json`);
-                  // Only copy if file doesn't already exist (avoid overwriting host's own characters)
+                  const charDataToWrite = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
                   if (!fs.existsSync(destPath)) {
                     fs.mkdirSync(hostCharDir, { recursive: true });
-                    // Mark as companion-owned so cleanup is possible later
-                    const charDataToWrite = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
                     fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
                     console.log(`[WS] Copied companion character "${msg.characterData.name}" to host's roster: ${destPath}`);
                   } else {
-                    // File exists — update it with latest companion character data
-                    const charDataToWrite = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
-                    fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
-                    console.log(`[WS] Updated companion character "${msg.characterData.name}" in host's roster: ${destPath}`);
+                    // Only overwrite if the existing file is a companion-owned character.
+                    // Never overwrite the host's own character files.
+                    try {
+                      const existing = JSON.parse(fs.readFileSync(destPath, 'utf-8'));
+                      if (existing._companionOwner) {
+                        fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
+                        console.log(`[WS] Updated companion character "${msg.characterData.name}" in host's roster: ${destPath}`);
+                      } else {
+                        console.log(`[WS] Skipping overwrite of host character "${existing.name || charSlug}" — companion "${msg.characterData.name}" has same slug`);
+                      }
+                    } catch (readErr) {
+                      console.warn(`[WS] Could not read existing character file at ${destPath}, skipping overwrite:`, readErr.message);
+                    }
                   }
                   // Also copy to session-scoped directory if a session snapshot exists
-                  // (session snapshot was taken before companion joined, so it's missing this character)
                   const sessCharDir = getSessionCharactersDir(dataDir, hostEntry.playerEmail, hostCampaignId, currentSessionDbId);
                   if (fs.existsSync(sessCharDir)) {
                     const sessDestPath = path.join(sessCharDir, `${charSlug}.json`);
                     const charDataToWrite2 = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
-                    fs.writeFileSync(sessDestPath, JSON.stringify(charDataToWrite2, null, 2));
-                    console.log(`[WS] Copied companion character "${msg.characterData.name}" to session dir: ${sessDestPath}`);
+                    if (!fs.existsSync(sessDestPath)) {
+                      fs.writeFileSync(sessDestPath, JSON.stringify(charDataToWrite2, null, 2));
+                      console.log(`[WS] Copied companion character "${msg.characterData.name}" to session dir: ${sessDestPath}`);
+                    } else {
+                      try {
+                        const existing = JSON.parse(fs.readFileSync(sessDestPath, 'utf-8'));
+                        if (existing._companionOwner) {
+                          fs.writeFileSync(sessDestPath, JSON.stringify(charDataToWrite2, null, 2));
+                          console.log(`[WS] Updated companion character "${msg.characterData.name}" in session dir: ${sessDestPath}`);
+                        }
+                      } catch { /* skip */ }
+                    }
                   }
                 } else {
                   console.warn(`[WS] Host has ${charCount} characters, skipping companion character copy (limit: 50)`);

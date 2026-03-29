@@ -153,6 +153,7 @@ function Adventure({
   const prevMessageCountRef = useRef(0);
   const isNearBottomRef = useRef(true);
   const dmPersonalityRef = useRef(null); // Session-scoped DM personality snapshot
+  const activeCharacterIdRef = useRef(null); // Backup of selectedCharacter for active session
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const isGuest = !player?.email;
   const isCompanion = !!sessionAccess.companionNpcId;
@@ -292,14 +293,17 @@ function Adventure({
       }
     }).catch(() => {});
     // Reset selections when campaign changes so stale picks from another campaign don't persist
-    setSelectedCharacter('');
-    setSelectedScenario('');
-    setSelectedCampaign(null);
-    setSessionLabel('');
-    setCompanionReservations({});
-    setReserveDropdownNpc(null);
+    // But never clear the character/scenario selection while a session is active
+    if (!sessionActive) {
+      setSelectedCharacter('');
+      setSelectedScenario('');
+      setSelectedCampaign(null);
+      setSessionLabel('');
+      setCompanionReservations({});
+      setReserveDropdownNpc(null);
+    }
     setSavedSessions([]);
-  }, [campaignId, player, setSelectedCharacter, setSelectedScenario]);
+  }, [campaignId, player, sessionActive, setSelectedCharacter, setSelectedScenario]);
 
   // Track whether the user has scrolled away from the bottom.
   // Listen for wheel/touchstart events in addition to scroll events so that
@@ -377,6 +381,7 @@ function Adventure({
       setPendingOpeningPrompt(null);
       setGateRevealedUpTo(-1);
       prevMessageCountRef.current = 0;
+      activeCharacterIdRef.current = null;
       setCompanionStates({});
       setCompanionReservations({});
       setMyCharacters([]);
@@ -525,6 +530,7 @@ function Adventure({
       setSelectedScenario(selectedCampaign);
       startSession(selectedCharacter, selectedCampaign, player, campaignId, { states: companionStates, reservations: companionReservations }, sessionDmPersonality);
       setSessionActive(true);
+      activeCharacterIdRef.current = selectedCharacter;
 
       const campaign = campaigns.find(c => c.id === selectedCampaign);
       const settingName = campaign?.setting?.name || campaign?.title || 'Unknown';
@@ -560,6 +566,7 @@ Set the opening scene now. Describe where the party wakes up, what they see, and
       setSavedSessionDbId(null);
       startSession(selectedCharacter, selectedScenario, player, campaignId, { states: companionStates, reservations: companionReservations }, sessionDmPersonality);
       setSessionActive(true);
+      activeCharacterIdRef.current = selectedCharacter;
 
       const scenario = scenarios.find(s => s.id === selectedScenario);
       const companionRoster = buildCompanionRoster();
@@ -709,6 +716,7 @@ Set the scene and begin the story.`;
         selectCampaign(session.campaignId);
       }
       setSelectedCharacter(session.characterId);
+      activeCharacterIdRef.current = session.characterId;
       setSelectedScenario(session.scenarioId);
       setSavedSessionDbId(session.id);
       setActiveSessionLabel(session.label || '');
@@ -1208,7 +1216,7 @@ Set the scene and begin the story.`;
   }
 
   // Active adventure screen
-  const activeCharacter = characters.find(c => c.id === selectedCharacter);
+  const activeCharacter = characters.find(c => c.id === (selectedCharacter || activeCharacterIdRef.current));
   const activeScenario = scenarios.find(s => s.id === selectedScenario);
   const activeCampaign = campaigns.find(c => c.id === selectedScenario);
 
