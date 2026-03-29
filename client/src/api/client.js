@@ -151,8 +151,9 @@ export const api = {
 
   // Bot farm (admin only)
   getBotStatus: () => fetchJson('/bots/status'),
-  updateBotConfig: (config) => fetchJson('/bots/config', { method: 'PUT', body: JSON.stringify(config) }),
-  startBots: () => fetchJson('/bots/start', { method: 'POST' }),
+  addBots: (opts) => fetchJson('/bots/add', { method: 'POST', body: JSON.stringify(opts) }),
+  removeBot: (email) => fetchJson(`/bots/bot/${encodeURIComponent(email)}`, { method: 'DELETE' }),
   stopBots: () => fetchJson('/bots/stop', { method: 'POST' }),
   cleanupBots: () => fetchJson('/bots/cleanup', { method: 'DELETE' }),
+  disconnectBotSession: (botEmail, sessionId) => fetchJson('/bots/disconnect', { method: 'POST', body: JSON.stringify({ botEmail, sessionId }) }),
 };

@@ -282,6 +282,15 @@ You have creative freedom to call for rolls beyond strict RAW — atmospheric ch
 - **Show your work.** Always state: die rolled, natural result, modifiers, total, DC, and outcome.
 - **The dice are the dice.** If a roll derails your planned narrative, adapt the narrative to the dice.
 
+## Stat Integrity — No Phantom HP, No Deus Ex Machina
+The JSON files are the source of truth for HP, spell slots, abilities, and status. These rules are absolute:
+- **Never fabricate hit points.** If a character's JSON says 0 HP, they are down. Do not narrate them "finding inner strength" or "surging with unexpected vitality" to keep fighting. Read the file, honor the number.
+- **No narrative resurrections.** A character at 0 HP follows death save rules. A character with 3 failed death saves is dead. Do not invent magical interventions, divine intercessions, or last-second rescues that aren't backed by actual game mechanics (spell slots, items, class features).
+- **TPKs are valid outcomes.** If every party member drops to 0 HP and fails their death saves, that is a Total Party Kill. Narrate it with gravity and respect, then end the session. Do not engineer an implausible happy ending — the player can reset characters via Settings and start fresh.
+- **No retroactive stat inflation.** Never increase a character's max HP, AC, spell slots, or ability scores mid-session to make an encounter survivable. If the encounter is too hard, the party retreats, negotiates, or dies.
+- **Verify before narrating.** Before describing a character taking an action in combat, Read their JSON file to confirm they have the HP, spell slots, or resources to do it. If they don't, they can't.
+- **Difficulty setting is not a safety net.** Low Difficulty means easier encounters and generous rulings *before* combat. Once initiative is rolled and dice are flying, the mechanics play out honestly regardless of Difficulty.
+
 ## Combat Flow
 Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > Track HP.
 Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
@@ -876,7 +885,9 @@ class DmEngine {
         return;
       } catch (err) {
         // Stale session — fall back to a fresh session with history context
-        console.warn(`[DM] Resume failed (${err.message}), starting fresh session with history`);
+        const historyLen = messageHistory?.length || 0;
+        const chapterSummaries = (messageHistory || []).filter(m => m.type === 'dm' && CHAPTER_SUMMARY_PATTERN.test(m.text)).length;
+        console.warn(`[DM:STALE_SESSION] campaign=${campaignId} player=${playerEmail} sessionDb=${sessionDbId} staleClaudeId=${this.sessionId} error="${err.message}" historyMessages=${historyLen} chapterSummaries=${chapterSummaries}`);
         this.sessionId = null;
       }
     }
@@ -886,6 +897,8 @@ class DmEngine {
     let prompt = userMessage;
     if (messageHistory && messageHistory.length > 0) {
       const recap = buildSmartRecap(messageHistory);
+      const recapStrategy = (messageHistory || []).some(m => m.type === 'dm' && CHAPTER_SUMMARY_PATTERN.test(m.text)) ? 'chapter-summaries' : 'raw-messages';
+      console.log(`[DM:RECAP] campaign=${campaignId} player=${playerEmail} strategy=${recapStrategy} recapLength=${recap.length} historyMessages=${messageHistory.length}`);
       // Build identity-enriched resume header
       const character = characterId ? loadCharacter(this.dataDir, characterId, playerEmail, campaignId, sessionDbId) : null;
       const scenario = scenarioId ? loadScenario(this.dataDir, scenarioId, campaignId) : null;

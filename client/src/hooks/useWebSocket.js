@@ -457,6 +457,12 @@ export default function useWebSocket() {
         characterName: characterName || null,
         characterId: characterId || null,
       }));
+      // Add companion's own message locally (server will exclude us from the broadcast)
+      setMessages(prev => [...prev, {
+        type: 'companion',
+        characterName: characterName || npcName || 'Companion',
+        text,
+      }]);
     }
   }, []);
 

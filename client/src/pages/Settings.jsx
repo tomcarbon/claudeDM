@@ -425,16 +425,24 @@ const DELAY_OPTIONS = [
   { value: 3600000, label: '1 hour' },
 ];
 
+function formatDelay(ms) {
+  if (ms >= 3600000) return `${ms / 3600000}h`;
+  if (ms >= 60000) return `${ms / 60000}m`;
+  return `${ms / 1000}s`;
+}
+
 function BotFarmPanel({ isAdmin = false }) {
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [hostCount, setHostCount] = useState(0);
-  const [companionCount, setCompanionCount] = useState(0);
-  const [eitherCount, setEitherCount] = useState(0);
-  const [delay, setDelay] = useState(60000);
-  const [maxSessions, setMaxSessions] = useState(1);
+  const [adding, setAdding] = useState(false);
   const [cleaning, setCleaning] = useState(false);
+  const [stopping, setStopping] = useState(false);
+  const [removing, setRemoving] = useState(null); // botEmail while in flight
+  // Add-bot form state
+  const [addRole, setAddRole] = useState('host');
+  const [addCount, setAddCount] = useState(1);
+  const [addDelay, setAddDelay] = useState(60000);
+  const [addMaxSessions, setAddMaxSessions] = useState(1);
 
   const refreshStatus = useCallback(() => {
     api.getBotStatus()
@@ -443,49 +451,52 @@ function BotFarmPanel({ isAdmin = false }) {
   }, []);
 
   useEffect(() => {
-    // Initial load — seed inputs from server config
     api.getBotStatus()
-      .then(data => {
-        setStatus(data);
-        setHostCount(data.hostCount || 0);
-        setCompanionCount(data.companionCount || 0);
-        setEitherCount(data.eitherCount || 0);
-        setDelay(data.turnDelayMs);
-        setMaxSessions(data.maxSessionsPerBot || 1);
-      })
+      .then(data => setStatus(data))
       .catch(() => setStatus(null))
       .finally(() => setLoading(false));
     const interval = setInterval(refreshStatus, 10000);
     return () => clearInterval(interval);
   }, [refreshStatus]);
 
-  const handleSave = async () => {
-    setSaving(true);
+  const handleAdd = async () => {
+    setAdding(true);
     try {
-      const data = await api.updateBotConfig({
-        enabled: true,
-        hostCount,
-        companionCount,
-        eitherCount,
-        turnDelayMs: delay,
-        maxSessionsPerBot: maxSessions,
+      const data = await api.addBots({
+        role: addRole,
+        count: addCount,
+        turnDelayMs: addDelay,
+        maxSessionsPerBot: addMaxSessions,
       });
       setStatus(data);
     } catch (err) {
-      alert('Failed to update bot config: ' + err.message);
+      alert('Failed to add bots: ' + err.message);
     }
-    setSaving(false);
+    setAdding(false);
+  };
+
+  const handleRemoveBot = async (botEmail, botName) => {
+    if (!window.confirm(`Delete bot "${botName}" and all its data? Active sessions hosted by this bot will end, and companion bots in those sessions will be disconnected.`)) return;
+    setRemoving(botEmail);
+    try {
+      const data = await api.removeBot(botEmail);
+      setStatus(data);
+    } catch (err) {
+      alert('Remove failed: ' + err.message);
+      refreshStatus();
+    }
+    setRemoving(null);
   };
 
   const handleStop = async () => {
-    setSaving(true);
+    setStopping(true);
     try {
       const data = await api.stopBots();
       setStatus(data);
     } catch (err) {
       alert('Failed to stop bots: ' + err.message);
     }
-    setSaving(false);
+    setStopping(false);
   };
 
   const handleCleanup = async () => {
@@ -493,10 +504,6 @@ function BotFarmPanel({ isAdmin = false }) {
     setCleaning(true);
     try {
       await api.cleanupBots();
-      setHostCount(0);
-      setCompanionCount(0);
-      setEitherCount(0);
-      setMaxSessions(1);
       refreshStatus();
     } catch (err) {
       alert('Cleanup failed: ' + err.message);
@@ -505,6 +512,8 @@ function BotFarmPanel({ isAdmin = false }) {
   };
 
   if (loading) return <div className="detail-section"><h3>AI Bot Farm</h3><p style={{ color: 'var(--text-muted)' }}>Loading...</p></div>;
+
+  const inputStyle = { padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)' };
 
   return (
     <div className="detail-section">
@@ -515,55 +524,45 @@ function BotFarmPanel({ isAdmin = false }) {
       </p>
 
       <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1rem' }}>
-        {status?.running && <span style={{ color: '#27ae60', fontSize: '0.85rem' }}>Running: {status.activeBots} bot{status.activeBots !== 1 ? 's' : ''} ({status.hostCount || 0}H / {status.companionCount || 0}C / {status.eitherCount || 0}E)</span>}
-        {status && !status.running && <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Stopped</span>}
+        {status?.running && <span style={{ color: '#27ae60', fontSize: '0.85rem' }}>Running: {status.activeBots} bot{status.activeBots !== 1 ? 's' : ''}</span>}
+        {status && !status.running && status.activeBots === 0 && <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>No bots</span>}
+        {status && !status.running && status.activeBots > 0 && <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Stopped ({status.activeBots} bot{status.activeBots !== 1 ? 's' : ''} idle)</span>}
       </div>
 
       {isAdmin && (
         <>
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'flex-end', marginBottom: '1rem' }}>
             <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Host bots</span>
-              <input
-                type="number"
-                min="0"
-                max="20"
-                value={hostCount}
-                onChange={e => setHostCount(Math.max(0, Math.min(20, Number(e.target.value) || 0)))}
-                style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
-              />
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Type</span>
+              <select
+                value={addRole}
+                onChange={e => setAddRole(e.target.value)}
+                style={{ ...inputStyle, minWidth: '7rem' }}
+              >
+                <option value="host">Host</option>
+                <option value="companion">Companion</option>
+                <option value="either">Either</option>
+              </select>
             </label>
 
             <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Companion bots</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Count</span>
               <input
                 type="number"
-                min="0"
+                min="1"
                 max="20"
-                value={companionCount}
-                onChange={e => setCompanionCount(Math.max(0, Math.min(20, Number(e.target.value) || 0)))}
-                style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
-              />
-            </label>
-
-            <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Either (random)</span>
-              <input
-                type="number"
-                min="0"
-                max="20"
-                value={eitherCount}
-                onChange={e => setEitherCount(Math.max(0, Math.min(20, Number(e.target.value) || 0)))}
-                style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
+                value={addCount}
+                onChange={e => setAddCount(Math.max(1, Math.min(20, Number(e.target.value) || 1)))}
+                style={{ ...inputStyle, width: '4.5rem', textAlign: 'center', fontSize: '1.1rem' }}
               />
             </label>
 
             <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Turn delay</span>
               <select
-                value={delay}
-                onChange={e => setDelay(Number(e.target.value))}
-                style={{ padding: '0.4rem 0.6rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)' }}
+                value={addDelay}
+                onChange={e => setAddDelay(Number(e.target.value))}
+                style={inputStyle}
               >
                 {DELAY_OPTIONS.map(opt => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -572,31 +571,34 @@ function BotFarmPanel({ isAdmin = false }) {
             </label>
 
             <label style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Max sessions per bot</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Max sessions</span>
               <input
                 type="number"
                 min="1"
                 max="5"
-                value={maxSessions}
-                onChange={e => setMaxSessions(Math.max(1, Math.min(5, Number(e.target.value) || 1)))}
-                style={{ width: '5.5rem', padding: '0.5rem 0.7rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-dark)', color: 'var(--text)', textAlign: 'center', fontSize: '1.1rem' }}
+                value={addMaxSessions}
+                onChange={e => setAddMaxSessions(Math.max(1, Math.min(5, Number(e.target.value) || 1)))}
+                style={{ ...inputStyle, width: '4.5rem', textAlign: 'center', fontSize: '1.1rem' }}
               />
             </label>
+
+            <button onClick={handleAdd} disabled={adding} style={{ alignSelf: 'flex-end' }}>
+              {adding ? 'Adding...' : 'Add'}
+            </button>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1.5rem' }}>
-            <button onClick={handleSave} disabled={saving}>
-              {saving ? 'Saving...' : status?.running ? 'Update & Restart' : 'Start Bots'}
-            </button>
-            {status?.running && (
-              <button onClick={handleStop} disabled={saving} style={{ background: 'var(--bg-tertiary, #555)' }}>
-                Stop All
+          {status?.activeBots > 0 && (
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '1.5rem' }}>
+              {status?.running && (
+                <button onClick={handleStop} disabled={stopping} style={{ background: 'var(--bg-tertiary, #555)' }}>
+                  {stopping ? 'Stopping...' : 'Stop All'}
+                </button>
+              )}
+              <button onClick={handleCleanup} disabled={cleaning} className="danger">
+                {cleaning ? 'Cleaning...' : 'Cleanup All'}
               </button>
-            )}
-            <button onClick={handleCleanup} disabled={cleaning} className="danger">
-              {cleaning ? 'Cleaning...' : 'Cleanup All'}
-            </button>
-          </div>
+            </div>
+          )}
         </>
       )}
 
@@ -607,42 +609,74 @@ function BotFarmPanel({ isAdmin = false }) {
               <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-muted)' }}>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Bot</th>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Type</th>
-                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Chat</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Delay</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Max</th>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Role</th>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>State</th>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Campaign</th>
                 <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Session</th>
-                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Messages</th>
+                <th style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>Msgs</th>
+                {isAdmin && <th style={{ padding: '0.4rem 0.3rem', width: '1.5rem' }}></th>}
               </tr>
             </thead>
             <tbody>
               {status.bots.map(bot => {
                 const sessions = bot.sessions || [];
+                const rowCount = Math.max(sessions.length, 1);
+                const isRemoving = removing === bot.email;
+
+                const xButton = isAdmin ? (
+                  <td
+                    style={{ padding: '0.2rem 0.3rem', verticalAlign: 'top', textAlign: 'center' }}
+                    rowSpan={rowCount}
+                  >
+                    <button
+                      onClick={() => handleRemoveBot(bot.email, bot.name)}
+                      disabled={isRemoving}
+                      title={`Delete ${bot.name}`}
+                      style={{
+                        padding: '0',
+                        width: '1.4rem',
+                        height: '1.4rem',
+                        lineHeight: '1.4rem',
+                        fontSize: '0.9rem',
+                        background: 'transparent',
+                        border: 'none',
+                        color: isRemoving ? 'var(--text-muted)' : '#e74c3c',
+                        cursor: isRemoving ? 'default' : 'pointer',
+                        borderRadius: '3px',
+                        opacity: isRemoving ? 0.4 : 0.6,
+                      }}
+                      onMouseEnter={e => { if (!isRemoving) e.target.style.opacity = '1'; }}
+                      onMouseLeave={e => { if (!isRemoving) e.target.style.opacity = '0.6'; }}
+                    >
+                      {isRemoving ? '...' : '\u00d7'}
+                    </button>
+                  </td>
+                ) : null;
+
                 if (sessions.length === 0) {
                   return (
                     <tr key={bot.email} style={{ borderBottom: '1px solid var(--border)' }}>
                       <td style={{ padding: '0.4rem 0.6rem' }}>{bot.name}</td>
                       <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>{bot.botRole || 'either'}</td>
-                      <td style={{ padding: '0.4rem 0.6rem' }}>{bot.connected ? 'Yes' : 'No'}</td>
+                      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>{formatDelay(bot.turnDelayMs)}</td>
+                      <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>{bot.maxSessionsPerBot}</td>
                       <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>-</td>
                       <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>looking</td>
                       <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>-</td>
                       <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>-</td>
                       <td style={{ padding: '0.4rem 0.6rem' }}>0</td>
+                      {xButton}
                     </tr>
                   );
                 }
                 return sessions.map((sess, i) => (
                   <tr key={`${bot.email}-${sess.sessionId}`} style={{ borderBottom: '1px solid var(--border)' }}>
-                    {i === 0 ? (
-                      <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top' }} rowSpan={sessions.length}>{bot.name}</td>
-                    ) : null}
-                    {i === 0 ? (
-                      <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top', color: 'var(--text-muted)', fontSize: '0.8rem' }} rowSpan={sessions.length}>{bot.botRole || 'either'}</td>
-                    ) : null}
-                    {i === 0 ? (
-                      <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top' }} rowSpan={sessions.length}>{bot.connected ? 'Yes' : 'No'}</td>
-                    ) : null}
+                    {i === 0 && <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top' }} rowSpan={rowCount}>{bot.name}</td>}
+                    {i === 0 && <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top', color: 'var(--text-muted)', fontSize: '0.8rem' }} rowSpan={rowCount}>{bot.botRole || 'either'}</td>}
+                    {i === 0 && <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top', color: 'var(--text-muted)', fontSize: '0.8rem' }} rowSpan={rowCount}>{formatDelay(bot.turnDelayMs)}</td>}
+                    {i === 0 && <td style={{ padding: '0.4rem 0.6rem', verticalAlign: 'top', color: 'var(--text-muted)', fontSize: '0.8rem' }} rowSpan={rowCount}>{bot.maxSessionsPerBot}</td>}
                     <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>{sess.role}</td>
                     <td style={{ padding: '0.4rem 0.6rem' }}>
                       <span style={{
@@ -658,6 +692,7 @@ function BotFarmPanel({ isAdmin = false }) {
                     <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>{sess.campaignId || '-'}</td>
                     <td style={{ padding: '0.4rem 0.6rem', color: 'var(--text-muted)' }}>{sess.sessionLabel || sess.sessionId?.slice(0, 8) + '...'}</td>
                     <td style={{ padding: '0.4rem 0.6rem' }}>{sess.messageCount || 0}</td>
+                    {i === 0 && xButton}
                   </tr>
                 ));
               })}

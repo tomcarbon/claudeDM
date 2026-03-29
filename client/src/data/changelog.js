@@ -1,10 +1,26 @@
-export const CURRENT_VERSION = '1.0.12';
+export const CURRENT_VERSION = '1.0.13';
 
 export const CHANGELOG = [
   {
+    version: '1.0.13',
+    date: '2026-03-29',
+    title: 'Current Release',
+    compareFrom: '1.0.12',
+    compareRef: 'e3aa274 ("remove join/leave client system messages, also fixes for newly rolled characters")',
+    highlights: [
+      'Character Creator UI: new dedicated page for rolling custom characters — pick race, subrace, class, background, alignment, and name (or leave any blank for random), preview the full character sheet with stats/skills/equipment/personality, then save directly to your roster. Includes a "Randomize All" button for fully random characters.',
+      'Per-session DM Personality snapshot: DM settings are now captured at session start and saved with the session, so resuming a session uses the personality settings from when it was created — not whatever the current defaults happen to be. Personality is passed through WebSocket start/resume and persisted in session save files.',
+      'Response Length setting: replaced the old Verbosity 0–100 slider with a clearer 4-tier selector (Brief ~300 words, Standard ~500, Detailed ~750, Epic ~1000) for controlling DM response length.',
+      'DM AI guidelines refactor: overhauled the system prompt with Response Scope & Turn Pacing rules — every DM response now ends at a player decision point, short confirmations like "yep" only confirm the specific action discussed, and the DM never narrates past a combat trigger or new location without stopping for input.',
+      'Companion character picker fix: companions now browse their own character roster (via new `getMyCharacters` API) instead of the host\'s roster, and can pick characters with the same name as the host\'s character — only other companions\' names are excluded.',
+      'Cleaner join/leave notifications: removed inline system messages for player joins and leaves from the chat feed — participant list updates handle this visually instead, reducing chat noise.',
+      'Newly rolled character fixes: custom-rolled characters now work correctly in session setup and companion flows.',
+    ],
+  },
+  {
     version: '1.0.12',
     date: '2026-03-21',
-    title: 'Current Release',
+    title: 'Bot Farm & My Games',
     compareFrom: '1.0.11',
     compareRef: '996a6d6 ("botfarm")',
     highlights: [

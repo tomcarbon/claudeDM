@@ -58,7 +58,7 @@ class BotWebSocketClient extends EventEmitter {
 
     // Auto-approve all DM tool permission requests so the engine doesn't hang
     this.on('permission_request', (msg) => {
-      this.send({ type: 'permission_response', toolUseID: msg.toolUseID, allow: true });
+      this.send({ type: 'permission_response', toolUseID: msg.toolUseID, allowed: true });
     });
   }
 
@@ -121,6 +121,16 @@ class BotWebSocketClient extends EventEmitter {
       npcName,
       characterId,
       characterName,
+    });
+  }
+
+  setCompanionCharacter(characterId, characterName, npcName, characterData) {
+    this.send({
+      type: 'companion_set_character',
+      characterId,
+      characterName,
+      npcName,
+      characterData,
     });
   }
 

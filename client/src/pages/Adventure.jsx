@@ -265,10 +265,23 @@ function Adventure({
     api.getCharacters().then(setCharacters).catch(() => {});
     api.getNpcs().then(loaded => {
       setNpcs(loaded);
-      // Default all living NPCs to 'selected'
+      // Default all living NPCs to 'selected', but preserve any session-loaded states
+      const livingIds = new Set(loaded.filter(n => n.status !== 'dead').map(n => n.id));
       const initial = {};
-      loaded.filter(n => n.status !== 'dead').forEach(n => { initial[n.id] = 'selected'; });
-      setCompanionStates(initial);
+      livingIds.forEach(id => { initial[id] = 'selected'; });
+      setCompanionStates(prev => {
+        // If we already have states for these NPCs (e.g. from a loaded session),
+        // preserve them instead of resetting to all-selected
+        const hasRelevantState = Object.keys(prev).some(id => livingIds.has(id));
+        if (hasRelevantState) {
+          const merged = { ...initial };
+          for (const [id, state] of Object.entries(prev)) {
+            if (livingIds.has(id)) merged[id] = state;
+          }
+          return merged;
+        }
+        return initial;
+      });
     }).catch(() => {});
     api.getScenarios().then(setScenarios).catch(() => {});
     api.getCampaigns().then(setCampaigns).catch(() => {});

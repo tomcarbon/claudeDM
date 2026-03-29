@@ -12,27 +12,41 @@ module.exports = function (dataDir, orchestrator) {
   // All other bot endpoints require admin access
   router.use(requireAdmin(dataDir));
 
-  // PUT /api/bots/config — update bot farm configuration
-  router.put('/config', async (req, res) => {
+  // POST /api/bots/add — add bots with individual configuration
+  router.post('/add', async (req, res) => {
     try {
-      await orchestrator.reconfigure(req.body);
+      const { role = 'either', count = 1, turnDelayMs = 60000, maxSessionsPerBot = 1 } = req.body;
+      await orchestrator.addBots({ role, count, turnDelayMs, maxSessionsPerBot });
       res.json(orchestrator.getStatus());
     } catch (err) {
-      console.error('[Bots] Config update error:', err);
-      res.status(500).json({ error: 'Failed to update bot configuration.' });
+      console.error('[Bots] Add error:', err);
+      res.status(500).json({ error: 'Failed to add bots.' });
     }
   });
 
-  // POST /api/bots/start — manually start the bot farm
-  router.post('/start', async (req, res) => {
+  // DELETE /api/bots/:email — remove a specific bot
+  router.delete('/bot/:email', async (req, res) => {
     try {
-      orchestrator.config.enabled = true;
-      orchestrator.saveConfig();
-      await orchestrator.start();
-      res.json(orchestrator.getStatus());
+      const result = await orchestrator.removeBot(req.params.email);
+      res.json({ ...result, ...orchestrator.getStatus() });
     } catch (err) {
-      console.error('[Bots] Start error:', err);
-      res.status(500).json({ error: 'Failed to start bot farm.' });
+      console.error('[Bots] Remove error:', err);
+      res.status(400).json({ error: err.message });
+    }
+  });
+
+  // POST /api/bots/disconnect — disconnect a bot from a specific session
+  router.post('/disconnect', async (req, res) => {
+    try {
+      const { botEmail, sessionId } = req.body;
+      if (!botEmail || !sessionId) {
+        return res.status(400).json({ error: 'botEmail and sessionId are required.' });
+      }
+      const result = await orchestrator.disconnectBotSession(botEmail, sessionId);
+      res.json(result);
+    } catch (err) {
+      console.error('[Bots] Disconnect error:', err);
+      res.status(400).json({ error: err.message });
     }
   });
 

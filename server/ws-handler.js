@@ -521,22 +521,21 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       }
 
       // Broadcast companion actions as separate messages
+      // Exclude the submitter (they already added the message locally on submit)
       for (const t of companionTurnsArr) {
         const charLabel = t.characterName || t.npcName || t.npcId;
+        const submitterEntry = Array.from(sessionRooms.get(sessionDbId) || [])
+          .find(e => e.playerEmail === t.playerEmail);
         broadcastSessionMessage(sessionDbId, 'companion_action', {
           characterName: charLabel,
           playerName: t.playerName,
           playerEmail: t.playerEmail,
           text: t.text,
           timestamp: new Date().toISOString(),
-        });
+        }, submitterEntry);
       }
 
-      // Broadcast host's player message
-      broadcastSessionMessage(sessionDbId, 'session_player_message', {
-        text: hostTurn.text,
-        timestamp: new Date().toISOString(),
-      });
+      // Host's player message was already broadcast when queued — no duplicate needed
 
       // Clear pending turns
       sessionTurns.delete(sessionDbId);
@@ -605,16 +604,34 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               break;
             case 'dm_complete':
               broadcastSessionMessage(sessionDbId, 'dm_complete', { sessionId: event.sessionId });
-              // Save claude session ID back to session JSON
+              // Persist turn messages + DM response to session JSON
               try {
                 const sess = readSessionByDbId(sessionDbId);
-                if (sess && event.sessionId) {
-                  sess.claudeSessionId = event.sessionId;
+                if (sess) {
+                  if (event.sessionId) sess.claudeSessionId = event.sessionId;
+                  if (!Array.isArray(sess.messages)) sess.messages = [];
+                  // Append host's player message
+                  sess.messages.push({ type: 'player', text: hostTurn.text, timestamp: new Date().toISOString() });
+                  // Append companion actions
+                  for (const ct of companionTurnsArr) {
+                    sess.messages.push({
+                      type: 'companion',
+                      characterName: ct.characterName || ct.npcName || ct.npcId,
+                      playerName: ct.playerName,
+                      text: ct.text,
+                      timestamp: new Date().toISOString(),
+                    });
+                  }
+                  // Append DM response (last dm text from messageHistory)
+                  const lastDm = engineCtx.messageHistory.filter(m => m.type === 'dm').pop();
+                  if (lastDm) {
+                    sess.messages.push({ type: 'dm', text: lastDm.text, timestamp: new Date().toISOString() });
+                  }
                   sess.updatedAt = new Date().toISOString();
                   const fp = findSessionFilePath(sessionDbId);
                   if (fp) fs.writeFileSync(fp, JSON.stringify(sess, null, 2));
                 }
-              } catch (e) { console.error('[WS] Failed to save claudeSessionId:', e); }
+              } catch (e) { console.error('[WS] Failed to persist multiplayer turn:', e); }
               break;
             case 'session_id':
               broadcastSessionMessage(sessionDbId, 'session_id', { sessionId: event.sessionId });
@@ -992,6 +1009,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               submittedAt: new Date().toISOString(),
             });
             console.log(`[WS] Host turn queued — session: ${currentSessionDbId}, player: ${wsEntry.playerEmail}`);
+            // Broadcast host's message to all session watchers immediately
+            broadcastSessionMessage(currentSessionDbId, 'session_player_message', {
+              text: turnText,
+              timestamp: new Date().toISOString(),
+            }, wsEntry);
+            // Also echo back to the host
+            send('session_player_message', { text: turnText, timestamp: new Date().toISOString() });
             broadcastToAll('sessions_changed');
             checkAutoFire(currentSessionDbId);
             break;
@@ -1315,6 +1339,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             submittedAt: new Date().toISOString(),
           });
           console.log(`[WS] Host turn queued — session: ${currentSessionDbId}, player: ${wsEntry.playerEmail}`);
+          // Broadcast host's message to all session watchers (excluding host)
+          broadcastSessionMessage(currentSessionDbId, 'session_player_message', {
+            text: hostText,
+            timestamp: new Date().toISOString(),
+          }, wsEntry);
+          // Echo back to the host so their message appears in the adventure box
+          send('session_player_message', { text: hostText, timestamp: new Date().toISOString() });
           broadcastToAll('sessions_changed');
           checkAutoFire(currentSessionDbId);
           break;

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { setDesiredBotCount, listBotAccounts, deleteAllBotAccounts } = require('./bot-accounts');
+const { listBotAccounts, createBotAccount, deleteBotAccount, deleteAllBotAccounts } = require('./bot-accounts');
 const { BotApiClient } = require('./bot-api-client');
 const { BotWebSocketClient } = require('./bot-ws-client');
 const { decideBotAction, generateTurnText } = require('./bot-brain');
@@ -28,12 +28,8 @@ const BOT_CHAT_RESPONSES = [
 const CONFIG_FILE = 'bot-config.json';
 const DEFAULT_CONFIG = {
   enabled: false,
-  hostCount: 0,
-  companionCount: 0,
-  eitherCount: 0,
-  turnDelayMs: 60000,
   maxConcurrentApiCalls: 3,
-  maxSessionsPerBot: 1,
+  bots: [], // [{ email, role, turnDelayMs, maxSessionsPerBot }]
 };
 
 /**
@@ -64,7 +60,7 @@ class BotOrchestrator {
     this.dataDir = dataDir;
     this.port = port;
     this.bots = new Map(); // email -> BotInstance
-    this.config = { ...DEFAULT_CONFIG };
+    this.config = { ...DEFAULT_CONFIG, bots: [] };
     this._activeApiCalls = 0;
     this._apiQueue = [];
     this._lookupTimers = new Map(); // email -> timer for session-finding ticks
@@ -81,12 +77,43 @@ class BotOrchestrator {
     try {
       if (fs.existsSync(this._configPath())) {
         const data = JSON.parse(fs.readFileSync(this._configPath(), 'utf-8'));
-        // Backward compat: migrate old `count` field to `eitherCount`
-        if (data.count !== undefined && data.hostCount === undefined && data.companionCount === undefined && data.eitherCount === undefined) {
-          data.eitherCount = data.count;
-          delete data.count;
+
+        // Backward compat: migrate old global-count format to per-bot array
+        if (data.bots === undefined) {
+          const oldHostCount = data.hostCount || 0;
+          const oldCompanionCount = data.companionCount || 0;
+          const oldEitherCount = data.count !== undefined ? data.count : (data.eitherCount || 0);
+          const oldDelay = data.turnDelayMs || 60000;
+          const oldMaxSessions = data.maxSessionsPerBot || 1;
+
+          // Build per-bot entries from existing bot accounts
+          const accounts = listBotAccounts(this.dataDir);
+          const totalNeeded = oldHostCount + oldCompanionCount + oldEitherCount;
+          const bots = [];
+          for (let i = 0; i < Math.min(accounts.length, totalNeeded); i++) {
+            let role;
+            if (i < oldHostCount) role = 'host';
+            else if (i < oldHostCount + oldCompanionCount) role = 'companion';
+            else role = 'either';
+            bots.push({
+              email: accounts[i].email,
+              role,
+              turnDelayMs: oldDelay,
+              maxSessionsPerBot: oldMaxSessions,
+            });
+          }
+
+          this.config = {
+            enabled: !!data.enabled,
+            maxConcurrentApiCalls: data.maxConcurrentApiCalls || 3,
+            bots,
+          };
+          console.log(`[BotOrchestrator] Migrated old config format → ${bots.length} per-bot entries`);
+          this.saveConfig();
+          return this.config;
         }
-        this.config = { ...DEFAULT_CONFIG, ...data };
+
+        this.config = { ...DEFAULT_CONFIG, ...data, bots: data.bots || [] };
       }
     } catch (err) {
       console.error('[BotOrchestrator] Config load error:', err.message);
@@ -130,46 +157,36 @@ class BotOrchestrator {
 
   // -- Bot lifecycle --
 
-  _totalBotCount() {
-    return (this.config.hostCount || 0) + (this.config.companionCount || 0) + (this.config.eitherCount || 0);
-  }
-
-  _assignRoles(accounts) {
-    const { hostCount = 0, companionCount = 0 } = this.config;
-    return accounts.map((account, i) => {
-      let role;
-      if (i < hostCount) role = 'host';
-      else if (i < hostCount + companionCount) role = 'companion';
-      else role = 'either';
-      return { account, role };
-    });
-  }
-
   async start() {
     this.loadConfig();
     if (!this.config.enabled) {
       console.log('[BotOrchestrator] Bot farm is disabled.');
       return;
     }
-    const total = this._totalBotCount();
-    console.log(`[BotOrchestrator] Starting bot farm — ${total} bots (${this.config.hostCount}H/${this.config.companionCount}C/${this.config.eitherCount}E), ${this.config.turnDelayMs}ms delay, max ${this.config.maxSessionsPerBot} sessions/bot`);
+    const botConfigs = this.config.bots || [];
+    console.log(`[BotOrchestrator] Starting bot farm — ${botConfigs.length} bots`);
     this._running = true;
 
-    setDesiredBotCount(this.dataDir, total);
-    const accounts = listBotAccounts(this.dataDir);
-
-    for (const { account, role } of this._assignRoles(accounts)) {
-      this._startBot(account, role);
+    for (const bc of botConfigs) {
+      const accounts = listBotAccounts(this.dataDir);
+      const account = accounts.find(a => a.email === bc.email);
+      if (account) {
+        this._startBot(account, bc.role, bc.turnDelayMs, bc.maxSessionsPerBot);
+      } else {
+        console.warn(`[BotOrchestrator] Bot account not found for ${bc.email}, skipping`);
+      }
     }
   }
 
-  _startBot(account, role = 'either') {
+  _startBot(account, role = 'either', turnDelayMs = 60000, maxSessionsPerBot = 1) {
     if (this.bots.has(account.email)) return;
 
     const bot = {
       email: account.email,
       name: account.name,
       role, // 'host' | 'companion' | 'either'
+      turnDelayMs: Math.max(30000, Math.min(3600000, turnDelayMs || 60000)),
+      maxSessionsPerBot: Math.max(1, Math.min(5, maxSessionsPerBot || 1)),
       api: new BotApiClient({ email: account.email, port: this.port }),
       // Chat-only WS connection (not used for game sessions)
       chatWs: new BotWebSocketClient({ email: account.email, name: account.name, port: this.port }),
@@ -210,7 +227,7 @@ class BotOrchestrator {
 
     // Start the lookup loop — first tick fires quickly (3-8s), then normal cadence
     this._scheduleLookup(bot, true);
-    console.log(`[BotOrchestrator] Started bot: ${bot.name}`);
+    console.log(`[BotOrchestrator] Started bot: ${bot.name} (${role}, delay=${bot.turnDelayMs}ms, maxSessions=${bot.maxSessionsPerBot})`);
   }
 
   // -- Session slot management --
@@ -281,8 +298,8 @@ class BotOrchestrator {
 
   _startSessionTick(bot, slot) {
     if (!this._running) return;
-    const jitter = this.config.turnDelayMs * (0.1 + Math.random() * 0.2);
-    const delay = this.config.turnDelayMs + jitter;
+    const jitter = bot.turnDelayMs * (0.1 + Math.random() * 0.2);
+    const delay = bot.turnDelayMs + jitter;
     slot.tickTimer = setTimeout(() => {
       this._sessionTick(bot, slot).catch(err => {
         console.error(`[Bot:${bot.name}] Session tick error (${slot.sessionId}):`, err.message);
@@ -343,7 +360,7 @@ class BotOrchestrator {
       ? 3000 + Math.random() * 5000
       : isCompanionRole
         ? 30000 + Math.random() * 30000
-        : this.config.turnDelayMs * 2 + Math.random() * this.config.turnDelayMs;
+        : bot.turnDelayMs * 2 + Math.random() * bot.turnDelayMs;
     const timer = setTimeout(() => {
       this._lookupTick(bot).catch(err => {
         console.error(`[Bot:${bot.name}] Lookup tick error:`, err.message);
@@ -359,7 +376,7 @@ class BotOrchestrator {
     bot.lastActionTime = new Date().toISOString();
 
     // If we have room for more sessions, try to find/create one
-    if (bot.sessions.size < this.config.maxSessionsPerBot) {
+    if (bot.sessions.size < bot.maxSessionsPerBot) {
       await this._findOrCreateSession(bot);
     }
   }
@@ -388,7 +405,7 @@ class BotOrchestrator {
       if (slot.role === 'host') {
         slot.ws.sendUserMessage(turnText);
       } else {
-        slot.ws.submitCompanionTurn(turnText, slot.companionNpcId, slot.companionNpcName);
+        slot.ws.submitCompanionTurn(turnText, slot.companionNpcId, slot.companionNpcName, slot.character?.id, slot.character?.name);
       }
       slot.recentMessages.push({ type: 'player', text: turnText });
       slot.allMessages.push({ type: 'player', text: turnText, timestamp: new Date().toISOString() });
@@ -428,13 +445,58 @@ class BotOrchestrator {
     const openSlot = session.companionSlots.slots.find(s => s.type === 'player' && !s.claimedBy);
     if (!openSlot) return false;
 
-    await bot.api.joinSession(campaignId, session.id, openSlot.npcId);
-    // Fetch NPC name for display in chat
-    let companionNpcName = openSlot.npcId;
     try {
-      const npcs = await bot.api.getNpcs(campaignId);
+      await bot.api.joinSession(campaignId, session.id, openSlot.npcId);
+    } catch (err) {
+      // 409 = already joined this slot — treat as success
+      if (err.message.includes('(409)')) {
+        console.log(`[Bot:${bot.name}] Already joined session "${session.label || session.id}", re-attaching.`);
+      } else {
+        throw err;
+      }
+    }
+    // Fetch NPC name and bot's character roster
+    let companionNpcName = openSlot.npcId;
+    let chosenCharacter = null;
+    try {
+      const [npcs, characters] = await Promise.all([
+        bot.api.getNpcs(campaignId),
+        bot.api.getCharacters(campaignId),
+      ]);
       const npc = (npcs || []).find(n => n.id === openSlot.npcId);
       if (npc?.name) companionNpcName = npc.name;
+
+      // Pick a random player character, avoiding duplicates within this session
+      const aliveChars = (characters || []).filter(c => c.status === 'alive');
+      if (aliveChars.length > 0) {
+        // Collect character names already taken in this session (by host or other companions)
+        const takenNames = new Set();
+        // Host's character
+        if (session.characterId) {
+          const hostChar = aliveChars.find(c => c.id === session.characterId);
+          if (hostChar?.name) takenNames.add(hostChar.name.toLowerCase());
+        }
+        // Other companions already claimed in this session
+        for (const s of session.companionSlots.slots) {
+          if (s.claimedBy?.characterName) takenNames.add(s.claimedBy.characterName.toLowerCase());
+        }
+        // Other bots in this orchestrator that already picked a character for this session
+        for (const [, otherBot] of this.bots) {
+          const otherSlot = otherBot.sessions.get(session.id);
+          if (otherSlot && otherSlot.character?.name) {
+            takenNames.add(otherSlot.character.name.toLowerCase());
+          }
+        }
+        // Also exclude active NPC names to avoid name collisions
+        for (const n of (npcs || [])) {
+          if (n.id !== openSlot.npcId && n.status !== 'dead') {
+            takenNames.add(n.name.toLowerCase());
+          }
+        }
+        const available = aliveChars.filter(c => !takenNames.has(c.name.toLowerCase()));
+        const pool = available.length > 0 ? available : aliveChars;
+        chosenCharacter = pool[Math.floor(Math.random() * pool.length)];
+      }
     } catch {}
     const slot = createSessionSlot(session.id, {
       label: session.label || session.name,
@@ -442,15 +504,21 @@ class BotOrchestrator {
       role: 'companion',
       companionNpcId: openSlot.npcId,
       companionNpcName,
+      character: chosenCharacter,
     });
     slot.state = 'waiting_for_dm';
     bot.sessions.set(session.id, slot);
     this._wireSessionSlot(bot, slot);
     slot.ws.on('connected', () => {
       slot.ws.watchSession(session.id);
+      // Set the companion's chosen character after watching
+      if (chosenCharacter) {
+        slot.ws.setCompanionCharacter(chosenCharacter.id, chosenCharacter.name, companionNpcName, chosenCharacter);
+        console.log(`[Bot:${bot.name}] Selected character "${chosenCharacter.name}" for companion slot ${companionNpcName}`);
+      }
     });
     this._startSessionTick(bot, slot);
-    console.log(`[Bot:${bot.name}] Joined session "${session.label || session.id}" as companion (${bot.sessions.size}/${this.config.maxSessionsPerBot})`);
+    console.log(`[Bot:${bot.name}] Joined session "${session.label || session.id}" as companion (${bot.sessions.size}/${bot.maxSessionsPerBot})`);
     return true;
   }
 
@@ -516,7 +584,7 @@ class BotOrchestrator {
     });
 
     this._startSessionTick(bot, slot);
-    console.log(`[Bot:${bot.name}] Created session — ${campaignId}/${scenario.name || scenario.id} (${bot.sessions.size}/${this.config.maxSessionsPerBot})`);
+    console.log(`[Bot:${bot.name}] Created session — ${campaignId}/${scenario.name || scenario.id} (${bot.sessions.size}/${bot.maxSessionsPerBot})`);
   }
 
   async _findOrCreateSession(bot) {
@@ -554,6 +622,149 @@ class BotOrchestrator {
 
   // -- Control methods --
 
+  /**
+   * Add new bots with individual configuration.
+   * Creates accounts, persists config, and starts each bot.
+   */
+  async addBots({ role = 'either', count = 1, turnDelayMs = 60000, maxSessionsPerBot = 1 } = {}) {
+    const added = [];
+    for (let i = 0; i < count; i++) {
+      const account = createBotAccount(this.dataDir);
+      const botConfig = {
+        email: account.email,
+        role,
+        turnDelayMs: Math.max(30000, Math.min(3600000, turnDelayMs)),
+        maxSessionsPerBot: Math.max(1, Math.min(5, maxSessionsPerBot)),
+      };
+      this.config.bots.push(botConfig);
+      added.push(account);
+
+      // Start immediately if farm is running
+      if (this._running) {
+        this._startBot(account, botConfig.role, botConfig.turnDelayMs, botConfig.maxSessionsPerBot);
+      }
+    }
+
+    this.config.enabled = true;
+    this._running = true;
+    this.saveConfig();
+
+    // If farm wasn't running, start any bots that were in config but not yet started
+    for (const bc of this.config.bots) {
+      if (!this.bots.has(bc.email)) {
+        const accounts = listBotAccounts(this.dataDir);
+        const account = accounts.find(a => a.email === bc.email);
+        if (account) {
+          this._startBot(account, bc.role, bc.turnDelayMs, bc.maxSessionsPerBot);
+        }
+      }
+    }
+
+    console.log(`[BotOrchestrator] Added ${added.length} ${role} bot(s) (delay=${turnDelayMs}ms, maxSessions=${maxSessionsPerBot})`);
+    return added;
+  }
+
+  /**
+   * Remove a specific bot entirely — force-disconnect all sessions, delete account.
+   * If the bot is a host, cascade-disconnect companion bots from its sessions.
+   */
+  async removeBot(botEmail) {
+    const bot = this.bots.get(botEmail);
+    if (!bot) throw new Error(`Bot not found: ${botEmail}`);
+
+    // For each session this bot hosts, disconnect companion bots first
+    for (const [sid, slot] of bot.sessions) {
+      if (slot.role === 'host') {
+        for (const [email, otherBot] of this.bots) {
+          if (email === botEmail) continue;
+          const companionSlot = otherBot.sessions.get(sid);
+          if (companionSlot && companionSlot.role === 'companion') {
+            try {
+              await otherBot.api.unjoinSession(companionSlot.campaignId, sid, companionSlot.companionNpcId);
+            } catch (err) {
+              console.error(`[BotOrchestrator] Unjoin failed for companion ${otherBot.name}:`, err.message);
+            }
+            this._closeSessionSlot(otherBot, companionSlot, { force: true });
+            console.log(`[BotOrchestrator] Cascade-disconnected companion ${otherBot.name} from session ${sid.slice(0, 8)}`);
+          }
+        }
+      }
+
+      // If this bot is a companion, unjoin from the session API
+      if (slot.role === 'companion' && slot.companionNpcId) {
+        try {
+          await bot.api.unjoinSession(slot.campaignId, sid, slot.companionNpcId);
+        } catch (err) {
+          console.error(`[BotOrchestrator] Unjoin failed for ${bot.name}:`, err.message);
+        }
+      }
+
+      this._closeSessionSlot(bot, slot, { force: true });
+    }
+
+    // Stop lookup timer
+    const timer = this._lookupTimers.get(botEmail);
+    if (timer) {
+      clearTimeout(timer);
+      this._lookupTimers.delete(botEmail);
+    }
+
+    // Close chat WS
+    bot.chatWs.close();
+    this.bots.delete(botEmail);
+
+    // Remove from config and delete account
+    this.config.bots = this.config.bots.filter(bc => bc.email !== botEmail);
+    this.saveConfig();
+    deleteBotAccount(this.dataDir, botEmail);
+
+    console.log(`[BotOrchestrator] Removed bot: ${bot.name} (${botEmail})`);
+    return { removed: true, botName: bot.name, email: botEmail };
+  }
+
+  /**
+   * Disconnect a specific bot from a specific session (without deleting the bot).
+   * If the bot is the host, also disconnect any companion bots in that session.
+   */
+  async disconnectBotSession(botEmail, sessionId) {
+    const bot = this.bots.get(botEmail);
+    if (!bot) throw new Error(`Bot not found: ${botEmail}`);
+    const slot = bot.sessions.get(sessionId);
+    if (!slot) throw new Error(`Session not found for bot: ${sessionId}`);
+
+    // If host, disconnect all companion bots in this session first
+    if (slot.role === 'host') {
+      for (const [email, otherBot] of this.bots) {
+        if (email === botEmail) continue;
+        const companionSlot = otherBot.sessions.get(sessionId);
+        if (companionSlot && companionSlot.role === 'companion') {
+          try {
+            await otherBot.api.unjoinSession(companionSlot.campaignId, sessionId, companionSlot.companionNpcId);
+          } catch (err) {
+            console.error(`[BotOrchestrator] Unjoin failed for companion ${otherBot.name}:`, err.message);
+          }
+          this._closeSessionSlot(otherBot, companionSlot, { force: true });
+          console.log(`[BotOrchestrator] Disconnected companion ${otherBot.name} from session ${sessionId.slice(0, 8)}`);
+        }
+      }
+    }
+
+    // If this bot is a companion, unjoin from session API
+    if (slot.role === 'companion' && slot.companionNpcId) {
+      try {
+        await bot.api.unjoinSession(slot.campaignId, sessionId, slot.companionNpcId);
+      } catch (err) {
+        console.error(`[BotOrchestrator] Unjoin failed for ${bot.name}:`, err.message);
+      }
+    }
+
+    // Force-close the slot (admin override — bypass human companion protection)
+    this._closeSessionSlot(bot, slot, { force: true });
+    console.log(`[BotOrchestrator] Disconnected ${bot.name} from session ${sessionId.slice(0, 8)}`);
+
+    return { disconnected: true, botName: bot.name, sessionId };
+  }
+
   async stop() {
     console.log('[BotOrchestrator] Stopping all bots...');
     this._running = false;
@@ -584,72 +795,6 @@ class BotOrchestrator {
     console.log(`[BotOrchestrator] All bots stopped.${remaining ? ` ${remaining} bot(s) kept alive for human companions.` : ''}`);
   }
 
-  async reconfigure(newConfig) {
-    const wasRunning = this._running;
-
-    if (newConfig.hostCount !== undefined) this.config.hostCount = Math.max(0, Math.min(20, newConfig.hostCount));
-    if (newConfig.companionCount !== undefined) this.config.companionCount = Math.max(0, Math.min(20, newConfig.companionCount));
-    if (newConfig.eitherCount !== undefined) this.config.eitherCount = Math.max(0, Math.min(20, newConfig.eitherCount));
-    if (newConfig.turnDelayMs !== undefined) this.config.turnDelayMs = Math.max(30000, Math.min(3600000, newConfig.turnDelayMs));
-    if (newConfig.maxConcurrentApiCalls !== undefined) this.config.maxConcurrentApiCalls = Math.max(1, Math.min(10, newConfig.maxConcurrentApiCalls));
-    if (newConfig.maxSessionsPerBot !== undefined) this.config.maxSessionsPerBot = Math.max(1, Math.min(5, newConfig.maxSessionsPerBot));
-    if (newConfig.enabled !== undefined) this.config.enabled = !!newConfig.enabled;
-
-    this.saveConfig();
-
-    const total = this._totalBotCount();
-
-    if (this.config.enabled && !wasRunning) {
-      await this.start();
-    } else if (!this.config.enabled && wasRunning) {
-      await this.stop();
-    } else if (this.config.enabled && wasRunning) {
-      setDesiredBotCount(this.dataDir, total);
-      const accounts = listBotAccounts(this.dataDir);
-      const currentEmails = new Set(this.bots.keys());
-      const desiredEmails = new Set(accounts.map(a => a.email));
-      const assignments = this._assignRoles(accounts);
-
-      // Start new bots with correct roles
-      for (const { account, role } of assignments) {
-        if (!currentEmails.has(account.email)) {
-          this._startBot(account, role);
-        }
-      }
-
-      // Update roles for existing bots (in case counts shifted)
-      for (const { account, role } of assignments) {
-        const bot = this.bots.get(account.email);
-        if (bot && bot.role !== role) {
-          bot.role = role;
-          console.log(`[BotOrchestrator] Reassigned ${bot.name} → ${role}`);
-        }
-      }
-
-      // Remove excess bots
-      for (const email of currentEmails) {
-        if (!desiredEmails.has(email)) {
-          const bot = this.bots.get(email);
-          if (bot) {
-            const timer = this._lookupTimers.get(email);
-            if (timer) clearTimeout(timer);
-            this._lookupTimers.delete(email);
-            for (const [sid, slot] of bot.sessions) {
-              this._closeSessionSlot(bot, slot);
-            }
-            if (bot.sessions.size === 0) {
-              bot.chatWs.close();
-              this.bots.delete(email);
-              console.log(`[BotOrchestrator] Stopped bot: ${bot.name}`);
-            } else {
-              console.log(`[BotOrchestrator] Bot ${bot.name} kept alive — ${bot.sessions.size} session(s) with human companions`);
-            }
-          }
-        }
-      }
-    }
-  }
-
   async cleanup() {
     // Force-close everything including sessions with human companions
     console.log('[BotOrchestrator] Cleanup — force-stopping all bots...');
@@ -669,9 +814,7 @@ class BotOrchestrator {
     this._apiQueue = [];
 
     const count = deleteAllBotAccounts(this.dataDir);
-    this.config.hostCount = 0;
-    this.config.companionCount = 0;
-    this.config.eitherCount = 0;
+    this.config.bots = [];
     this.config.enabled = false;
     this.saveConfig();
     return count;
@@ -696,6 +839,8 @@ class BotOrchestrator {
         email: bot.email,
         name: bot.name,
         botRole: bot.role,
+        turnDelayMs: bot.turnDelayMs,
+        maxSessionsPerBot: bot.maxSessionsPerBot,
         connected: bot.chatWs.connected,
         sessionCount: bot.sessions.size,
         sessions: sessionList,
@@ -705,12 +850,7 @@ class BotOrchestrator {
     return {
       enabled: this.config.enabled,
       running: this._running,
-      hostCount: this.config.hostCount,
-      companionCount: this.config.companionCount,
-      eitherCount: this.config.eitherCount,
-      turnDelayMs: this.config.turnDelayMs,
       maxConcurrentApiCalls: this.config.maxConcurrentApiCalls,
-      maxSessionsPerBot: this.config.maxSessionsPerBot,
       activeBots: this.bots.size,
       bots,
     };
