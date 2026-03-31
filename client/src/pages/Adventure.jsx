@@ -604,7 +604,7 @@ Set the scene and begin the story.`;
       const payload = {
         name,
         claudeSessionId: sessionId,
-        characterId: selectedCharacter,
+        characterId: selectedCharacter || activeCharacterIdRef.current,
         scenarioId: selectedScenario,
         messages: messages.filter(m => m.type !== 'dm_partial'),
         playerEmail: player?.email || null,
@@ -777,7 +777,7 @@ Set the scene and begin the story.`;
     const payload = {
       name: `${scenarios.find(s => s.id === selectedScenario)?.title || 'Adventure'} — ${new Date().toLocaleDateString()}`,
       campaignId,
-      characterId: selectedCharacter,
+      characterId: selectedCharacter || activeCharacterIdRef.current,
       scenarioId: selectedScenario,
       claudeSessionId: sessionId || null,
       messages: messages.filter(m => m.type !== 'dm_partial'),

@@ -532,6 +532,10 @@ module.exports = function (dataDir) {
         playerName: ownerName || requester.name,
         updatedAt: new Date().toISOString(),
       };
+      // Never allow an update to blank an existing characterId
+      if (!updated.characterId && existing.characterId) {
+        updated.characterId = existing.characterId;
+      }
       fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
       res.json(withSessionAccess(updated, requester));
     } catch (err) {
