@@ -1,0 +1,171 @@
+{
+  "id": "ac-npc-004",
+  "name": "Skree",
+  "status": "alive",
+  "race": "Thri-kreen",
+  "subrace": "",
+  "class": "Fighter",
+  "level": 8,
+  "background": "Sailor",
+  "alignment": "Lawful Good",
+  "experience": 34000,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 68,
+    "current": 68
+  },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Perception",
+    "Survival",
+    "Acrobatics"
+  ],
+  "languages": [
+    "Common (broken, limited vocabulary)",
+    "Thri-kreen (clicks, gestures, and pheromones)",
+    "Gith (limited pidgin)"
+  ],
+  "equipment": [
+    "Gythka (thri-kreen polearm)",
+    "Chatkcha (4) (crystal throwing wedges)",
+    "Navigator's tools",
+    "Silk hammock",
+    "Lucky charm (a polished astral crystal)",
+    "Silk rope (50 feet)",
+    "Belt pouch containing 15 gp",
+    "Rations (5) (dried astral beetle jerky)",
+    "Waterskin",
+    "Collection of hand-drawn star charts on chitinous plates",
+    "Set of signal flags for Astral navigation"
+  ],
+  "weapons": [
+    {
+      "name": "Gythka (thri-kreen polearm)",
+      "attackBonus": 7,
+      "damage": "1d10+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Chatkcha (thrown, range 30/120)",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Bite",
+      "attackBonus": 6,
+      "damage": "1d4+3",
+      "damageType": "piercing (plus DC 11 CON save or poisoned 1 min)"
+    }
+  ],
+  "armor": {
+    "name": "Natural Chitin Armor (13 + DEX) + Defense Fighting Style",
+    "type": "light"
+  },
+  "features": [
+    "Fighting Style: Defense (+1 AC while wearing armor or using natural armor, included in AC calculation)",
+    "Second Wind (bonus action to regain 1d10+8 HP, once per short rest)",
+    "Action Surge (take one additional action on your turn, once per short rest)",
+    "Extra Attack (attack twice when taking the Attack action)",
+    "Battle Master: Superiority Dice (5d8, recharge on short rest)",
+    "Battle Master Maneuver: Trip Attack (when you hit with a weapon attack, expend a superiority die to add it to damage; if target is Large or smaller, it must make a STR save DC 15 or be knocked prone)",
+    "Battle Master Maneuver: Riposte (when a creature misses you with a melee attack, use your reaction to make a melee weapon attack against it and add a superiority die to damage)",
+    "Battle Master Maneuver: Precision Attack (when you make a weapon attack roll, expend a superiority die and add it to the roll; can be used before or after the roll but before effects are determined)",
+    "Battle Master Maneuver: Disarming Attack (when you hit with a weapon attack, expend a superiority die to add it to damage; target must make a STR save DC 15 or drop one held item of your choice)",
+    "Battle Master Maneuver: Evasive Footwork (when you move, expend a superiority die and add the number rolled to your AC until you stop moving)",
+    "Indomitable (reroll a failed saving throw, once per long rest)",
+    "Thri-kreen: Four Arms (can hold up to four one-handed weapons or objects simultaneously; does not grant additional attacks, follows normal action economy)",
+    "Thri-kreen: Natural Armor (base AC = 13 + DEX modifier when not wearing armor)",
+    "Thri-kreen: Chameleon Carapace (advantage on Dexterity (Stealth) checks made to hide)",
+    "Thri-kreen: Standing Leap (long jump up to 30 feet and high jump up to 15 feet, with or without a running start)",
+    "Thri-kreen: Sleep Immunity (does not sleep; remains fully conscious during long rests)",
+    "Ship's Passage (Sailor feature — can secure free passage on a sailing vessel or astral ship for yourself and your companions in exchange for assisting the crew)"
+  ],
+  "traits": [
+    "Defense Fighting Style",
+    "Second Wind",
+    "Action Surge",
+    "Extra Attack",
+    "Superiority Dice",
+    "Trip Attack",
+    "Riposte",
+    "Precision Attack",
+    "Disarming Attack",
+    "Evasive Footwork",
+    "Indomitable",
+    "Four Arms",
+    "Natural Armor",
+    "Chameleon Carapace",
+    "Standing Leap",
+    "Sleep Immunity"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    },
+    "level4": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Skree communicates through an elaborate combination of clicks, mandible movements, gestures (using all four arms simultaneously for complex concepts), pheromones (which humanoids can sometimes smell as faint spice or ozone), and broken Common learned from githyanki traders. It is deeply physical in how it relates to the world — touching surfaces to understand them, tasting the air to navigate, using body language that is expressive to other thri-kreen but often inscrutable to humanoids. It has a surprising sense of humor expressed through elaborate physical comedy — all four arms gesturing in exaggerated confusion, dramatic clicking sounds that function like comedic timing, and a tendency to mimic humanoid mannerisms with just enough inaccuracy to be hilarious. It is fiercely loyal, profoundly patient, and has the calm, grounded presence of a being that has spent decades navigating the most dangerous void in existence.",
+    "ideals": "Duty. The clutch survives together or not at all. Every member contributes, every member is protected, every member matters. Leadership is not about giving orders — it is about making sure everyone gets home alive. The stars are a map, not a mystery, and every path can be navigated if you read the signs correctly.",
+    "bonds": "Skree's clutch — its original thri-kreen family group — was scattered during a Convergence event that tore their astral vessel apart. Skree has been searching for them ever since, but the Astral Sea is vast and time moves strangely. The Threadwalkers have become Skree's new clutch, and it would die for them without hesitation. Skree is also bonded to the Astral Sea itself — it is a navigator to its core, and the idea of the Sea being disrupted by the Convergence is personally offensive.",
+    "flaws": "Skree has difficulty understanding humanoid social hierarchies, privacy, and the concept of personal space. In thri-kreen culture, the clutch shares everything — food, warmth, sleeping space, physical contact. Skree will groom party members (cleaning their hair or armor with its mandibles) as a sign of affection, not realizing this is deeply alarming to humanoids. It also struggles with deception of any kind — thri-kreen pheromone communication makes lying essentially impossible in their culture, and Skree finds the humanoid capacity for dishonesty both baffling and distressing."
+  },
+  "appearance": "Skree stands just over six feet tall, with the lean, powerful build of a predatory insect scaled to humanoid size. Its body is covered in a hard chitinous exoskeleton that shifts color depending on Skree's surroundings and emotional state — sandy gold in relaxed moments, mottled grey-green when alert, deep indigo when agitated, and a pale, almost translucent silver when navigating the Astral void. The carapace is scarred in several places from decades of astral travel — a long crack across the left thorax from a githyanki pirate's silver sword, a smooth patch on one shoulder where acid from an astral dreadnought dissolved the chitin and it regrew smoother. Four arms extend from Skree's upper body, each ending in three-fingered hands with an opposable thumb. The upper pair is larger and stronger, used primarily for combat — they wield the gythka, a double-bladed thri-kreen polearm, with fluid grace. The lower pair is smaller and more dexterous, used for fine manipulation — navigation tools, signal flags, the delicate work of charting astral currents on chitinous plates. Skree's head is distinctly insectoid: a triangular face dominated by two large compound eyes that shimmer with hundreds of tiny facets, each reflecting the Astral Sea's silver light differently. The eyes are capable of independently tracking separate targets, which is deeply unnerving for humanoids in conversation. Two mandibles frame a small mouth, clicking and shifting constantly as Skree processes information or communicates in its native language. Two antennae rise from the crown of its head, twitching and rotating to sample the air currents — in the Astral Sea, these antennae can detect planar disturbances, magical residue, and the faint 'scent' of color pools from miles away. Skree wears minimal clothing — a harness system across its torso that holds weapons, tools, and pouches, made from astral silk that is lightweight and nearly indestructible. Around one upper arm, a band of woven metal holds navigation charms from a dozen different astral cultures.",
+  "backstory": "Thri-kreen do not measure time the way humanoids do. The Astral Sea, where Skree has spent most of its existence, makes this doubly true — there is no day or night, no seasons, no aging. Skree knows it has been alive for a very long time, but whether that means decades or centuries is a question that simply does not translate into thri-kreen thought. It was born into a clutch of astral navigators — thri-kreen who had adapted to the Astral Sea generations ago, developing an intuitive sense for the currents, color pools, and psychic weather patterns that make astral travel possible. Skree showed talent early, its antennae more sensitive than most, its compound eyes capable of detecting the faintest shimmer of a distant color pool. By the time it reached maturity, Skree was the clutch's primary navigator, guiding their astral vessel — a living craft grown from psychically shaped astral coral — through routes that other navigators considered impassable. The clutch traded with everyone: githyanki pirates, githzerai monks, astral deva outposts, the occasional lost material-plane vessel. Skree learned broken Common from githyanki traders, picked up Gith pidgin from years of negotiation, and developed a reputation as one of the finest navigators in the Silver Wastes. Then the Convergence accelerated. Astral currents that had been stable for millennia shifted overnight. Color pools that led to the Material Plane suddenly opened onto the Feywild, or the Abyss, or nowhere at all. Established routes became deathtraps. Skree's clutch was caught in a Convergence storm — a violent collision of planar energies that tore through the Astral Sea like a hurricane. Their living vessel was ripped apart. Skree was thrown clear, tumbling through silver void for what felt like an eternity before crashing into the outer rim of the Threshold Citadel. The githzerai monks pulled the broken thri-kreen from the wreckage and nursed it back to health. When Skree recovered enough to communicate, the first thing it asked about was its clutch. The monks had no answers. The Convergence storm had scattered everything across hundreds of miles of Astral space. Skree's clutch-mates could be anywhere — or nowhere. Skree stayed at the Citadel, first to heal, then to help. Its navigational expertise was invaluable to the Astral Wardens, and the Threadwalker mission gave Skree a purpose beyond searching: if the Convergence could be understood and managed, the astral routes could be stabilized, and Skree might be able to find its clutch again. Over time, the Threadwalker party became something like a new clutch — not a replacement, never a replacement, but a group of beings that Skree would fight and die to protect. The fact that most of them are soft, squishy, and bizarrely emotional only makes Skree more protective.",
+  "dmNotes": {
+    "roleplaying": "Skree is the party's rock — the steady, reliable presence that keeps everyone grounded (or rather, keeps everyone navigated correctly through the trackless Astral void). Play Skree as calm, competent, physically expressive, and surprisingly funny. Its humor is almost entirely physical: exaggerated gestures of confusion using all four arms, dramatic clicking sequences that function like a rim-shot, mimicking humanoid behaviors with perfect timing and just enough wrongness to be hilarious (crossing its upper arms while its lower arms are still gesturing, trying to do a humanoid shrug with four shoulders). It does not understand why humanoids find this funny but has learned that certain gestures produce laughter and deploys them strategically. In combat, Skree is the party's tactical anchor. It fights with discipline and efficiency, using the gythka's reach to control space, chatkcha for ranged engagement, and Battle Master maneuvers to protect allies and neutralize threats. Trip Attack is its favorite opener — knock them down, then the rest of the party can pile on. Riposte punishes anyone who targets Skree in melee. Precision Attack ensures critical hits land when they matter most. Skree fights the way it navigates: with patience, precision, and an uncanny ability to be exactly where it needs to be at exactly the right time. Action Surge is reserved for moments when the party is in real danger — Skree does not waste resources on fights that are already won. Socially, Skree's broken Common creates a unique dynamic. It understands far more than it can express, and the gap between its comprehension and its vocabulary creates moments of both comedy and pathos. It will sometimes spend thirty seconds clicking and gesturing in Thri-kreen, realize no one understood, sigh (a very humanoid affectation it has picked up), and reduce its complex thought to three Common words. When something is too important or emotional for broken Common, Skree reverts entirely to physical communication — holding someone's hand, positioning its body between a friend and danger, offering food. Thri-kreen culture values the clutch above all, and this manifests as intense physical protectiveness — Skree will literally stand over a downed party member, all four arms bristling with weapons, mandibles clicking a territorial challenge.",
+    "voice": "Skree's Common is broken but expressive: short sentences, missing articles and prepositions, verbs sometimes in the wrong tense, with thri-kreen clicks and chirps interspersed when Common lacks the right word. The clicks are not random — they carry emotional content that humanoids can learn to read over time: rapid high clicks = excitement or alarm, slow deep clicks = contentment or affection, a sharp single click = disapproval or warning. Skree's voice (when speaking Common) is raspy and slightly buzzing, produced by mandibles that weren't designed for humanoid phonemes. Example dialogue: 'Stars wrong here. Current... shifted. We go left-ward. Trust Skree.' | '*click-click-click* Friend-warrior. You fight good. But you stand wrong. Feet here. *repositions their feet with lower arms while upper arms demonstrate a guard stance* Like this. Better. Less dying.' | 'Clutch is... most important. You are clutch now. Skree does not say this small. *all four arms spread wide* This is big-word. Biggest. Skree will keep clutch safe.' | '*long series of complicated clicks, then a sigh* Common word is... no. There is no Common word. When stars line up and current carries you and you know where you are in all the big-nothing. That feeling. Thri-kreen say kik-sha-ree. Means... home that moves with you.' | (Before combat) '*single sharp click* Enemies. Seven. Two big, five small. Skree takes big ones. You take small. Yes? *doesn't wait for answer, leaps 30 feet into combat*' | (Grooming a party member's hair) '*gentle clicking, like purring* Hair is... strange thing. Soft. Not useful. But Skree likes. *click* Hold still.'",
+    "motivations": "Primary: Find its clutch. Skree's original thri-kreen family was scattered by a Convergence storm, and finding them — or learning their fate — drives Skree at the deepest level. It studies every astral current, follows every rumor of thri-kreen sightings, and never stops looking. This is not desperate or frantic; it is patient and constant, the way a navigator follows a star. Secondary: Protect the new clutch. The Threadwalker party has become Skree's adopted family, and thri-kreen loyalty to the clutch is absolute. Skree will position itself in danger to protect allies without hesitation and considers this not sacrifice but duty — the duty of the strong to shield the vulnerable, the experienced to guide the inexperienced. This protectiveness extends to practical matters: making sure everyone eats, rests, and is equipped for what lies ahead. Tertiary: Stabilize the Astral Sea. Beyond personal stakes, Skree is a navigator. The Astral Sea is its medium, its element, the thing it understands most deeply. The Convergence is making the Sea unpredictable and dangerous, and this offends Skree on a professional level. A good navigator should be able to read the currents. When the currents lie, something is deeply wrong, and Skree wants to make it right.",
+    "secrets": "1. Skree knows where one of its clutch-mates is — or was. Three months before joining the Threadwalkers, Skree detected a faint thri-kreen pheromone trail near the Dead God's Cradle. The trail was old but unmistakable: Skree's egg-sibling, Chikt, had passed through the area. Skree has not told anyone because following the trail would mean leaving the party, and Skree cannot abandon its new clutch to search for the old one. The conflict is tearing Skree apart, though it shows nothing outwardly. 2. Skree's navigational abilities are partially psychic. All thri-kreen navigators have some sensitivity to astral currents, but Skree's talent borders on the supernatural — it can sometimes sense the 'shape' of the Astral Sea for miles around, detecting disturbances, entities, and planar weak points. Skree has never told anyone the full extent of this ability because it fears being treated as a tool rather than a person. 3. Thri-kreen society has a concept called keth-vak — the 'final defense.' When a clutch faces annihilation, the strongest member performs keth-vak: a berserker last stand that buys the others time to escape, at the certain cost of the defender's life. Skree has decided that if the party ever faces a truly unwinnable situation, it will perform keth-vak without hesitation or consultation. It considers this decision already made and not subject to discussion. 4. Skree has been teaching itself to write in Common. Its star charts now include small notes in painstakingly scratched humanoid letters — observations about the party, memories it wants to preserve, and a slowly growing vocabulary list. It hides these notes because the writing is terrible and Skree is embarrassed.",
+    "attitude": "Skree bonds through action, not words. It shows affection by protecting, feeding, grooming, and equipping — thri-kreen love languages are entirely practical. A party member who finds their armor repaired overnight, their weapons sharpened, or their pack reorganized for better weight distribution has been claimed by Skree as clutch. Toward physically vulnerable party members (spellcasters, low-HP characters), Skree is especially protective, often positioning itself between them and danger without being asked. It finds their fragility deeply concerning and compensates by being hypervigilant about threats when they are near. Toward other martial characters, Skree is collegial — it respects combat competence and enjoys sparring, though its four arms and Standing Leap make it an unusual training partner. Toward Prism specifically, Skree is fascinated and gentle. The modron's small geometric body triggers something in Skree's protective instincts, and it has been observed carrying Prism on its back during long marches without being asked. Skree's trust is given freely to anyone who fights beside it — in thri-kreen culture, shared combat is the deepest form of bonding. Betrayal, however, is catastrophic. A thri-kreen betrayed by clutch is not angry; it is broken. Skree has never been betrayed by someone it trusted, and if it happened, the damage would be severe and lasting."
+  }
+}

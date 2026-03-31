@@ -1,0 +1,96 @@
+{
+  "id": "ac-char-007",
+  "name": "Korrath Stonerift",
+  "status": "alive",
+  "race": "Goliath",
+  "subrace": "",
+  "class": "Fighter (Eldritch Knight)",
+  "level": 8,
+  "background": "Gladiator",
+  "alignment": "Neutral Good",
+  "experience": 34000,
+  "abilities": {
+    "strength": { "score": 20, "modifier": 5 },
+    "dexterity": { "score": 12, "modifier": 1 },
+    "constitution": { "score": 18, "modifier": 4 },
+    "intelligence": { "score": 14, "modifier": 2 },
+    "wisdom": { "score": 10, "modifier": 0 },
+    "charisma": { "score": 8, "modifier": -1 }
+  },
+  "hitPoints": { "max": 84, "current": 84 },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": ["Strength", "Constitution"],
+  "skills": ["Athletics", "Intimidation", "Acrobatics", "Perception"],
+  "languages": ["Common", "Giant", "Dwarvish"],
+  "equipment": [
+    "Plate armor",
+    "Greatsword",
+    "Handaxe (2)",
+    "Javelin (3)",
+    "Explorer's pack",
+    "Gladiator's trophy (a cracked giant's tooth on a chain)",
+    "Traveler's clothes",
+    "Belt pouch containing 30 gp",
+    "Rations (10)",
+    "Waterskin",
+    "Silver compass shard (Threadwalker focus)",
+    "Whetstone",
+    "Bone dice set"
+  ],
+  "weapons": [
+    { "name": "Greatsword", "attackBonus": 8, "damage": "2d6+5", "damageType": "slashing" },
+    { "name": "Handaxe", "attackBonus": 8, "damage": "1d6+5", "damageType": "slashing" },
+    { "name": "Javelin", "attackBonus": 8, "damage": "1d6+5", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Plate Armor", "type": "heavy" },
+  "features": [
+    "Fighting Style: Great Weapon Fighting — When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.",
+    "Second Wind — You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + 8 (your fighter level). Once you use this feature, you must finish a short or long rest before you can use it again.",
+    "Action Surge — On your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a short or long rest before you can use it again.",
+    "Extra Attack — You can attack twice, instead of once, whenever you take the Attack action on your turn.",
+    "Eldritch Knight: Weapon Bond — You learn a ritual that creates a magical bond between yourself and one weapon. You perform the ritual over 1 hour. Once bonded, you can't be disarmed of that weapon unless you are incapacitated. If the weapon is on the same plane of existence, you can summon it as a bonus action, causing it to teleport instantly to your hand.",
+    "Eldritch Knight: War Magic — When you use your action to cast a cantrip, you can make one weapon attack as a bonus action.",
+    "Indomitable — You can reroll a saving throw that you fail. If you do so, you must use the new roll. You can use this feature once per long rest.",
+    "Stone's Endurance (Goliath) — When you take damage, you can use your reaction to roll a 1d12 + 4 (your Constitution modifier) and reduce the damage by that total. You can use this trait once per short or long rest.",
+    "Powerful Build (Goliath) — You count as one size larger (Large) when determining your carrying capacity and the weight you can push, drag, or lift.",
+    "Mountain Born (Goliath) — You are acclimated to high altitude, including elevations above 20,000 feet. You are also naturally adapted to cold climates and have resistance to cold weather effects."
+  ],
+  "traits": [
+    "Great Weapon Fighting",
+    "Second Wind",
+    "Action Surge",
+    "Extra Attack",
+    "Weapon Bond",
+    "War Magic",
+    "Indomitable",
+    "Stone's Endurance",
+    "Powerful Build",
+    "Mountain Born"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": ["Booming Blade", "Green-Flame Blade"],
+    "level1": {
+      "slots": 4,
+      "known": ["Shield", "Absorb Elements", "Protection from Evil and Good", "Find Familiar"]
+    },
+    "level2": {
+      "slots": 2,
+      "known": ["Mirror Image", "Misty Step"]
+    },
+    "level3": { "slots": 0, "known": [] },
+    "level4": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "Korrath speaks in short, measured sentences, each word deliberate as a hammer strike on an anvil. He learned long ago in the arena that wasted words are like wasted swings — they leave you exposed. He has a habit of sizing up every room he enters, noting exits, potential weapons, and the strongest-looking person present, not out of paranoia but because decades of arena combat have made tactical assessment as automatic as breathing. Despite his imposing size — nearly eight feet of grey-skinned muscle scarred by a hundred fights — he is surprisingly gentle with small creatures and children, often crouching down to speak at their level. He collects bones and teeth from worthy opponents, not as macabre trophies but as a goliath tradition of honoring those who tested him. He believes every scar tells a story worth remembering, and he traces them absently when deep in thought.",
+    "ideals": "Korrath believes that true strength is not the power to destroy but the discipline to protect. In the arena, the crowd wanted blood and spectacle, but Korrath always fought with precision rather than cruelty, ending bouts quickly when he could rather than dragging out suffering for entertainment. This philosophy earned him fewer fans but more respect among fellow gladiators. He carries this ideal into his work with the Astral Wardens — he fights convergence horrors not for glory or vengeance but because someone has to stand between the innocent and the things pouring through the cracks in reality. He believes in fairness above all: every creature deserves a fighting chance, every person deserves to be judged by their actions rather than their appearance, and every wrong can be set right with enough determination and honest effort. Strength without honor is just violence.",
+    "bonds": "Korrath owes his life to Durn Ashgrip, the old goliath who trained him after he was sold to the arena circuits as a youth. Durn taught him not just how to fight but how to think — how to read an opponent, how to turn size into advantage rather than liability, and most importantly, how to keep his soul intact when the world wanted to grind it to dust. Durn died three years ago, and Korrath carries his mentor's cracked tooth on a chain around his neck as a reminder. He also feels a deep obligation to the other gladiators he left behind when the convergence freed him from the arena — many are still fighting for masters who treat them as property. He has sworn that when the convergence crisis is resolved, he will return to free them. The Astral Wardens gave him purpose beyond survival, and he will not betray that trust.",
+    "flaws": "Korrath has an almost pathological inability to back down from a direct challenge, a remnant of arena conditioning where showing weakness meant death. If someone questions his courage or competence to his face, he will rise to the provocation even when the smart play is to walk away. This has led him into unnecessary fights, strained diplomatic situations, and at least one incident where he nearly punched an Astral Warden superior officer. He also struggles with the concept of retreat — tactically he understands it, but emotionally it feels like cowardice, and he will sometimes hold a position long past the point of reason. He is deeply uncomfortable with deception and manipulation, viewing them as dishonorable, which makes him a terrible liar and easily exploited by those who appeal to his sense of honor. He sometimes underestimates magical threats because his instinct is always to close distance and hit something."
+  },
+  "appearance": "Korrath Stonerift is an imposing figure even by goliath standards, standing seven feet eleven inches tall with a frame built like a siege tower — broad shoulders tapering to a surprisingly lean waist, every muscle carved from decades of arena combat into functional, devastating power rather than mere bulk. His skin is the color of storm-grey granite, mottled with darker patches across his shoulders and forearms that resemble the natural striations of mountain stone. His lithoderms — the bony growths natural to goliaths — are particularly prominent along his brow ridge and the backs of his hands, giving him an almost armored appearance even when unclothed. His head is shaved clean, revealing a topographic map of old scars: a long slash running from his left temple to the back of his skull, a starburst pattern on his right cheek from a mace strike that should have killed him, and dozens of smaller nicks and lines that tell the story of a life lived in combat. His eyes are a striking pale blue, almost white, set deep beneath his heavy brow ridge and carrying an intelligence that surprises those who expect nothing but brute force from a gladiator. Around his neck hangs a cracked giant's tooth on a leather cord — his most treasured possession and the trophy of his first arena championship. His hands are enormous, scarred across every knuckle, yet he handles his bone dice and whetstone with surprising delicacy. When he smiles, which is rare, a chipped canine tooth gives him a lopsided, almost boyish grin that contradicts his fearsome bearing. His plate armor is battered but meticulously maintained, etched with goliath clan markings he carved himself since he was taken from his tribe too young to remember their true patterns.",
+    "backstory": "Korrath was born in the Thesk Mountains to the Stonerift tribe, a goliath clan known for their stone-carving artisans and their fierce territorial defense of the high passes. He never knew that life. Raiders struck the tribe's winter camp when Korrath was barely old enough to walk, and the survivors were scattered across the Sword Coast's slave markets. Korrath ended up in the fighting pits of Luskan by age six, too young to fight but old enough to clean blood from the sand and fetch water for the gladiators.\n\nThe arena master, a cruel Calishite merchant named Vassad Khoury, recognized the boy's potential early. Goliaths grow fast and fight hard, and by twelve Korrath was already taller than most human men. Vassad paired him with Durn Ashgrip, an aging goliath gladiator past his prime but possessing a tactical mind sharper than any blade. Durn became father, teacher, and protector. He taught Korrath to fight with discipline rather than rage, to read opponents like books, and to channel his considerable strength through technique rather than brute force.\n\nBy sixteen, Korrath was headlining arena bouts across the Sword Coast — Luskan, Neverwinter, Waterdeep, even a brief stint in the infamous Hillsfar arena. He earned the name 'Stonerift' not from any clan heritage but from his signature finishing move: a greatsword strike so powerful it could split stone training dummies clean in half. The crowds loved him for his raw power; fellow gladiators respected him for his honor. He never killed a defeated opponent who yielded, even when the crowd screamed for blood, even when Vassad threatened punishment.\n\nThe convergence changed everything. During a championship bout in Waterdeep's Field of Triumph, the sky above the open arena tore open like a wound in reality. A rift to the Astral Sea split the air above the fighting pit, and creatures — things with too many limbs and geometries that hurt to look at — began pouring through. The crowd of fifteen thousand fled in screaming panic. The other gladiators ran. Korrath planted his feet in the bloody sand and fought.\n\nHe held the arena floor for nearly twenty minutes, cutting down aberrations with his greatsword while civilians evacuated. During the fight, something awakened in him — he could feel the rift, sense its edges like a wound he could almost touch. When Astral Warden scouts arrived to seal the breach, they found a blood-soaked goliath standing in a ring of dead horrors, his hands glowing faintly with silver light. A Threadwalker.\n\nThe Wardens offered him a choice: return to Vassad's chains or join them. It wasn't much of a choice. Korrath has served the Astral Wardens for two years now, using his Threadwalker abilities to sense convergence zones and his considerable combat prowess to deal with whatever comes through them. He has discovered that the Eldritch Knight's magic comes naturally to him — the ability to weave arcane energy through his weapon strikes feels like an extension of the arena instincts Durn drilled into him. He still carries guilt over leaving his fellow gladiators behind, and he sends what coin he can to contacts in Luskan who work to buy fighters their freedom. He fights the convergence not for abstract cosmic reasons but because he has seen what these rifts do to ordinary people, and he refuses to stand by while innocents suffer."
+}

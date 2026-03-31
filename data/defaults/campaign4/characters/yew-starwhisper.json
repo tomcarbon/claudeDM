@@ -1,0 +1,99 @@
+{
+  "id": "ac-char-008",
+  "name": "Yew Starwhisper",
+  "status": "alive",
+  "race": "Firbolg",
+  "subrace": "",
+  "class": "Druid (Circle of Stars)",
+  "level": 8,
+  "background": "Outlander",
+  "alignment": "Neutral Good",
+  "experience": 34000,
+  "abilities": {
+    "strength": { "score": 14, "modifier": 2 },
+    "dexterity": { "score": 12, "modifier": 1 },
+    "constitution": { "score": 16, "modifier": 3 },
+    "intelligence": { "score": 12, "modifier": 1 },
+    "wisdom": { "score": 20, "modifier": 5 },
+    "charisma": { "score": 10, "modifier": 0 }
+  },
+  "hitPoints": { "max": 67, "current": 67 },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": ["Intelligence", "Wisdom"],
+  "skills": ["Nature", "Perception", "Survival", "Animal Handling", "Arcana"],
+  "languages": ["Common", "Elvish", "Sylvan", "Giant", "Druidic"],
+  "equipment": [
+    "Hide armor",
+    "Wooden shield",
+    "Scimitar",
+    "Druidic focus (star-map etched on crystal)",
+    "Herbalism kit",
+    "Staff of living wood",
+    "Traveler's clothes",
+    "Hunting trap",
+    "Trophy from a creature (a feather from an astral bird)",
+    "Belt pouch containing 15 gp",
+    "Rations (5)",
+    "Waterskin",
+    "Silver compass shard (Threadwalker focus)",
+    "Collection of pressed astral flowers",
+    "Star chart of the Astral Sea"
+  ],
+  "weapons": [
+    { "name": "Scimitar", "attackBonus": 5, "damage": "1d6+2", "damageType": "slashing" },
+    { "name": "Produce Flame", "attackBonus": 8, "damage": "2d8", "damageType": "fire" }
+  ],
+  "armor": { "name": "Hide Armor + Wooden Shield", "type": "medium" },
+  "features": [
+    "Wild Shape — You can use your action to magically assume the shape of a beast that you have seen before, up to CR 1 (no flying or swimming speed). You can use this feature twice per short or long rest. You can stay in beast shape for up to 4 hours. While in Starry Form, you use Wild Shape to activate your constellation form instead of transforming into a beast.",
+    "Druidic — You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message.",
+    "Star Map (Circle of Stars) — You have created a star chart that serves as your spellcasting focus. While holding it, you know the Guiding Bolt spell, and it doesn't count against the number of spells you have prepared. You can cast Guiding Bolt without expending a spell slot a number of times equal to your Wisdom modifier (5 times), regaining all uses after a long rest.",
+    "Starry Form (Circle of Stars) — As a bonus action, you can expend a use of Wild Shape to take on a starry form rather than transforming into a beast. This form lasts for 10 minutes and sheds bright light in a 10-foot radius and dim light for an additional 10 feet. You choose one of three constellations: Archer (bonus action ranged spell attack, 60 ft, 1d8 + 5 radiant damage), Chalice (when you cast a healing spell, another creature within 30 ft regains 1d8 + 5 hit points), or Dragon (you treat any Concentration check roll of 9 or lower as a 10, and you gain a flying speed of 20 feet and can hover).",
+    "Cosmic Omen (Circle of Stars) — When you finish a long rest, you roll a d6. On an even result, you gain a Weal omen; on an odd result, a Woe omen. While you have the omen, you can use your reaction when a creature you can see within 30 feet makes an attack roll, saving throw, or ability check to roll a 1d6 and add (Weal) or subtract (Woe) it from the roll. You can use this reaction a number of times equal to your proficiency bonus (3 times), regaining all uses after a long rest.",
+    "Hidden Step (Firbolg) — As a bonus action, you can magically turn invisible until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. Once you use this trait, you can't use it again until you finish a short or long rest.",
+    "Powerful Build (Firbolg) — You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.",
+    "Speech of Beast and Leaf (Firbolg) — You have the ability to communicate in a limited manner with beasts and plants. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them."
+  ],
+  "traits": [
+    "Wild Shape",
+    "Druidic",
+    "Star Map",
+    "Starry Form",
+    "Cosmic Omen",
+    "Hidden Step",
+    "Powerful Build",
+    "Speech of Beast and Leaf"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 16,
+    "spellAttackBonus": 8,
+    "cantrips": ["Produce Flame", "Guidance", "Druidcraft", "Thorn Whip"],
+    "level1": {
+      "slots": 4,
+      "known": ["Guiding Bolt", "Healing Word", "Entangle", "Faerie Fire", "Goodberry", "Cure Wounds"]
+    },
+    "level2": {
+      "slots": 3,
+      "known": ["Moonbeam", "Heat Metal", "Pass Without Trace", "Lesser Restoration"]
+    },
+    "level3": {
+      "slots": 3,
+      "known": ["Call Lightning", "Plant Growth", "Revivify", "Dispel Magic"]
+    },
+    "level4": {
+      "slots": 2,
+      "known": ["Polymorph", "Guardian of Nature", "Wall of Fire"]
+    }
+  },
+  "personality": {
+    "traits": "Yew moves through the world with an unhurried grace that can be maddening to those in a rush, pausing mid-conversation to observe the way light bends through a crystal or how moss grows in spiral patterns on astral debris. They speak in a soft, melodic voice that carries further than it should, often addressing trees, stones, and stars as though expecting a reply — and sometimes getting one, or at least believing they do. They have a habit of narrating natural phenomena in real time, murmuring things like 'the wind is changing its mind' or 'that cloud is grieving' with complete sincerity. Despite their dreamy demeanor, Yew possesses an eidetic memory for star positions and can recall the exact configuration of any night sky they have ever observed, a talent that makes them an invaluable navigator in the disorienting expanse of the Astral Sea. They sleep very little, preferring to spend the quiet hours mapping new constellations that have appeared since the convergence began.",
+    "ideals": "Yew believes that the universe is a living tapestry woven from countless threads of light, matter, and spirit, and that every creature — from the smallest moss to the mightiest god — is both weaver and thread. The convergence represents a catastrophic unraveling of this tapestry, and Yew sees their role not as a warrior fighting enemies but as a mender repairing cosmic fabric. They hold that destruction and creation are twin forces that must remain in balance, and they refuse to condemn even the aberrations pouring through convergence zones, believing them to be victims of displacement rather than inherently evil. This philosophy sometimes puts them at odds with more militant Wardens, but Yew holds firm: understanding must come before violence, and healing must come before judgment. They believe that the stars themselves are conscious, ancient beyond mortal comprehension, and that by reading their patterns one can glimpse the underlying grammar of reality itself.",
+    "bonds": "Yew's deepest bond is with the Whispering Grove, the ancient firbolg community deep in the Chondalwood where they were raised. The Grove's elder druids first recognized Yew's unusual affinity for starlight when, as a child, Yew caused bioluminescent fungi to bloom in patterns that perfectly mirrored the constellation of the Chalice overhead. The elders nurtured this gift but could not fully understand it — Circle of Stars druids are rare, and the Grove's traditions are rooted in earth and root, not sky and light. When the convergence began and new stars appeared that shouldn't exist, the Grove's elders sent Yew out into the world to understand what was happening to the heavens. Yew carries a pressed flower from every grove they have visited since leaving home, a growing collection that serves as both herbarium and diary. They are also deeply bonded to the star map crystal they carry, which they believe contains a fragment of a dead star's consciousness that whispers to them in dreams.",
+    "flaws": "Yew's greatest flaw is a tendency toward cosmic detachment — viewing events from such a vast, starlit perspective that they sometimes fail to appreciate the immediate, mortal urgency of a situation. When a village is burning, Yew might pause to observe how beautifully the firelight reflects in the smoke before remembering that people are dying. This is not cruelty but a genuine cognitive difference: Yew's mind operates on geological and astronomical timescales, and they must consciously effort to narrow their focus to the human moment. They are also stubbornly non-confrontational in social situations, preferring to deflect with cryptic star-metaphors rather than directly address interpersonal conflict, which can frustrate companions who need clear communication. Yew trusts the natural world implicitly and sometimes extends that trust to creatures and situations that do not deserve it, having been deceived more than once by predators wearing the guise of prey. They also have a compulsive need to document every new star and constellation, sometimes stopping in dangerous situations to sketch the sky."
+  },
+  "appearance": "Yew Starwhisper stands seven feet two inches tall with the characteristic build of a firbolg — broad but gentle, like an old oak that has grown more outward than upward, with long limbs that move with the slow deliberation of branches swaying in a breeze. Their skin is a soft blue-grey, the color of pre-dawn sky, dappled with patches of deeper indigo across the cheeks and forehead that glow faintly silver when they channel starlight magic or enter their Starry Form. Their face is broad and kind, dominated by large, luminous eyes the color of liquid amber that seem to reflect starlight even in full daylight, with pupils that occasionally flash with tiny points of light like distant constellations. Their ears are long and slightly pointed, typically peeking through a cascade of hair the color of moon-bleached wheat, worn long and loosely braided with small crystals, dried flowers, and tiny glass beads that catch and scatter light. A thin dusting of what appears to be freckles covers their nose and cheeks, but closer inspection reveals them to be tiny bioluminescent spores that the firbolg has cultivated on their skin since childhood — a symbiotic relationship with a rare astral fungus that feeds on ambient magical energy. Their hands are large and soil-stained, with bark-rough fingertips from years of tending plants and grinding herbs, yet capable of extraordinary delicacy when etching star charts or weaving spell components. They wear hide armor that has been lovingly shaped and decorated with pressed leaves, constellation patterns burned into the leather, and small pouches of dried herbs that give them a perpetual scent of lavender and sage. Their wooden shield is carved from a single piece of living ashwood that still sprouts tiny green leaves along its rim, and their staff of living wood flowers with tiny white blossoms when Yew is particularly happy or at peace.",
+  "backstory": "Yew was born in the Whispering Grove, a hidden firbolg community nestled deep in the heart of the Chondalwood, where the canopy grows so thick that most residents go weeks without seeing the sky. For most firbolgs, this was paradise — the Grove provided everything, the trees sang in the wind, and the great cycles of growth and decay turned in their eternal rhythm. But Yew was different. From their earliest memories, they were drawn upward, climbing to the highest branches to stare at the narrow ribbons of sky visible through the canopy, staying awake long after the rest of the Grove slept to watch the stars wheel overhead.\n\nThe elders first noticed Yew's gift during the Festival of First Frost, when the child was barely ten years old. As the druids performed their seasonal rituals to honor the earth, young Yew wandered away from the ceremony and sat in a moonlit clearing. The bioluminescent fungi that carpeted the clearing began to rearrange themselves, creeping and blooming into patterns that perfectly mirrored the constellation of the Chalice visible overhead. The elder druid, Moss Deeproot, found the child sitting in the center of a living star map, humming softly to themselves, completely unaware they had done anything unusual.\n\nMoss recognized the signs of a Circle of Stars calling — exceedingly rare among firbolgs, who traditionally follow the Circle of the Land or the Circle of Spores. The Grove had no teachers for this path, so Moss did what they could: they taught Yew the fundamentals of druidic magic while encouraging the child to follow their starlit instincts. Yew learned to speak with beasts and plants as all firbolgs do, but they also learned to read the sky like a book, finding meaning in the movements of celestial bodies that no one else could see.\n\nOver the decades — firbolgs mature slowly — Yew developed their unique practice of astral druidism, blending the Grove's earth-rooted traditions with their own sky-gazing insights. They created their star map crystal during a meteor shower, catching a falling fragment of astral material and etching it with every constellation they had ever memorized. The crystal became their spellcasting focus, and Yew swears it whispers to them in dreams, sharing fragments of cosmic knowledge in a language that has no words, only patterns of light.\n\nWhen the convergence began, Yew was the first in the Grove to notice. New stars appeared where none should be — not the slow drift of celestial mechanics but sudden, wrong presences in the sky, like uninvited guests at a sacred ceremony. The constellations Yew had memorized over a century of observation were being disrupted by light bleeding through from other planes. The star map crystal grew warm and began projecting new patterns that Yew could not interpret, configurations that belonged to no sky they had ever seen.\n\nThe Grove's elders held council and agreed: someone must go into the wider world to understand what was happening to the heavens. Yew volunteered without hesitation — they had spent a lifetime studying the stars, and now the stars were screaming for help. Their journey led them to the Astral Wardens, who recognized Yew's ability to sense planar boundaries through stellar observation as a form of Threadwalking. Where other Threadwalkers feel the fabric of reality through touch or instinct, Yew reads it in the stars — every convergence zone creates a distortion in the night sky visible only to those who know what to look for.\n\nYew has served the Wardens for over a year now, navigating the Astral Sea by reading its alien constellations and using their druidic magic to heal both companions and the wounded fabric of reality itself. They remain gentle and unhurried despite the urgency of the crisis, trusting that the stars have shown them their path and that the cosmic tapestry, though frayed, can be mended — one thread of light at a time."
+}

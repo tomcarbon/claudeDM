@@ -1,0 +1,155 @@
+{
+  "id": "ac-char-001",
+  "name": "Kael Voidmind",
+  "status": "alive",
+  "race": "Githzerai",
+  "subrace": "",
+  "class": "Monk",
+  "level": 8,
+  "background": "Hermit",
+  "alignment": "Lawful Neutral",
+  "experience": 34000,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 18,
+      "modifier": 4
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 59,
+    "current": 59
+  },
+  "armorClass": 18,
+  "speed": 45,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Acrobatics",
+    "Insight",
+    "Religion",
+    "Stealth",
+    "Medicine"
+  ],
+  "languages": [
+    "Common",
+    "Gith",
+    "Deep Speech"
+  ],
+  "equipment": [
+    "Quarterstaff",
+    "Darts (10)",
+    "Explorer's pack",
+    "A scroll of githzerai meditation mantras",
+    "Silver compass fragment (Threadwalker focus)",
+    "Prayer beads carved from astral driftstone",
+    "A set of simple grey robes",
+    "Belt pouch containing 25 gp",
+    "Rations (5)",
+    "Waterskin"
+  ],
+  "weapons": [
+    {
+      "name": "Unarmed Strike",
+      "attackBonus": 7,
+      "damage": "1d8+4",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Quarterstaff",
+      "attackBonus": 7,
+      "damage": "1d8+4",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "None (Unarmored Defense)",
+    "type": "none"
+  },
+  "features": [
+    "Martial Arts (use DEX instead of STR for unarmed strikes and monk weapons; unarmed strike damage die is 1d8 at level 8; when you take the Attack action with an unarmed strike or monk weapon, you can make one unarmed strike as a bonus action)",
+    "Ki (8 points per short/long rest, save DC 15 — ki fuels Flurry of Blows, Patient Defense, and Step of the Wind; Flurry of Blows: after Attack action, spend 1 ki to make two unarmed strikes as bonus action; Patient Defense: spend 1 ki to take Dodge as bonus action; Step of the Wind: spend 1 ki to take Disengage or Dash as bonus action, jump distance doubled for the turn)",
+    "Unarmored Defense (AC = 10 + DEX modifier + WIS modifier when not wearing armor; currently 10+4+4 = 18)",
+    "Unarmored Movement (speed increases by 15 feet when not wearing armor or a shield; included in speed of 45; also allows movement along vertical surfaces and across liquids without falling during the move)",
+    "Deflect Missiles (use reaction to reduce ranged weapon attack damage by 1d10+12; if damage is reduced to 0, can spend 1 ki to make a ranged attack with the caught missile, 20/60 range, proficient, counts as monk weapon)",
+    "Slow Fall (use reaction to reduce falling damage by 40 when within 5 feet of a wall or surface)",
+    "Extra Attack (you can attack twice, instead of once, whenever you take the Attack action on your turn)",
+    "Stunning Strike (when you hit a creature with a melee weapon attack, spend 1 ki — target must succeed on a CON save DC 15 or be stunned until the end of your next turn)",
+    "Ki-Empowered Strikes (unarmed strikes count as magical for overcoming resistance and immunity to nonmagical attacks and damage)",
+    "Evasion (when subjected to an effect that allows a DEX saving throw for half damage, take no damage on a success and half damage on a failure)",
+    "Stillness of Mind (as an action, end one effect on yourself that is causing you to be charmed or frightened)",
+    "Arms of the Astral Self (as a bonus action, spend 1 ki to summon spectral arms for 10 minutes; while active: use WIS instead of STR for unarmed strikes made with the arms, reach increases by 5 feet for unarmed strikes, deal extra force damage equal to Martial Arts die on first unarmed strike each turn; as a reaction when taking acid, cold, fire, force, lightning, or necrotic damage, spend 1 ki to deflect — reduce damage by 1d10+4)",
+    "Visage of the Astral Self (as a bonus action, spend 1 ki to summon the visage for 10 minutes; while active: gain darkvision 120 feet that sees through magical darkness, advantage on Insight and Intimidation checks, voice carries clearly up to 300 feet or can be whispered telepathically to one creature within 60 feet; can be activated simultaneously with Arms of the Astral Self for 1 additional ki)",
+    "Githzerai Psionics (innately cast Shield 1/day; no material components; Intelligence is casting ability)",
+    "Mental Discipline (advantage on saving throws against being charmed or frightened — githzerai racial trait)"
+  ],
+  "traits": [
+    "Martial Arts",
+    "Ki",
+    "Unarmored Defense",
+    "Unarmored Movement",
+    "Deflect Missiles",
+    "Slow Fall",
+    "Extra Attack",
+    "Stunning Strike",
+    "Ki-Empowered Strikes",
+    "Evasion",
+    "Stillness of Mind",
+    "Arms of the Astral Self",
+    "Visage of the Astral Self",
+    "Githzerai Psionics",
+    "Mental Discipline"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    },
+    "level4": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Kael speaks in measured, deliberate cadences, as though each word has been weighed against silence and found worthy of utterance. He has a habit of pausing mid-conversation to close his eyes and feel the planar currents — a behavior that others sometimes mistake for rudeness or narcolepsy, but which is actually a deep attunement to the fabric of the Astral Sea. He meditates for precisely four hours each night, seated in perfect stillness, and during these sessions his spectral arms sometimes manifest unbidden, reaching toward disturbances in the planar weave that only he can sense. He is fascinated by the thoughts and beliefs of other mortals, particularly those who have never left the Material Plane, finding their certainty about the nature of reality both charming and deeply instructive. He collects small stones from every plane he visits, keeping them in a leather pouch and arranging them in patterns during rest periods.",
+    "ideals": "The mind is the only true fortress. Walls crumble, weapons break, and magic fades, but a disciplined mind endures beyond the death of planes themselves. Kael believes that the Convergence is not merely a cosmic catastrophe but a failure of mental discipline on a universal scale — the planes themselves have forgotten their boundaries, forgotten their purpose, forgotten who they are. He holds that order must be restored not through force but through understanding. Every boundary in the multiverse, from the walls between planes to the membrane between thought and action, exists because consciousness wills it so. If the Threadwalkers can understand why the boundaries are dissolving, they can think them back into existence. This is not arrogance — it is the fundamental teaching of githzerai philosophy, proven over millennia of building monasteries in the chaos of Limbo through sheer mental focus.",
+    "bonds": "Master Zerith-Ka took Kael from the creches of Limbo when he was barely old enough to manifest his first psionic spark and raised him at the Threshold Citadel, making him one of the few githzerai trained specifically as an Astral Warden from childhood. Kael owes everything he is to Zerith-Ka's patience and discipline, and the old monk's growing concern about the Convergence has become Kael's own obsession. He also carries a deep obligation to the Citadel itself — the monastery is more than stone and silver; it is a living idea, a place that exists because generations of monks have believed it into permanence. If the Convergence destabilizes the Astral Sea enough, the Citadel could simply cease to exist, and with it every soul sheltered within its walls.",
+    "flaws": "Kael struggles profoundly with spontaneity and emotional expression. His githzerai training emphasized that undisciplined emotion is the first crack in any mental fortress, and he has internalized this so thoroughly that he sometimes fails to respond to joy, grief, or fear in ways that others find natural or comforting. When companions are grieving, he offers philosophy when they need a hand on their shoulder. When a moment calls for laughter, he analyzes the humor instead of sharing it. He is also quietly terrified that his connection to the Astral Sea runs deeper than mere training — that his soul is literally woven into the planar fabric, and that if the Convergence succeeds, he will unravel along with the boundaries between worlds. He has told no one about the dreams in which he feels himself dissolving into silver light."
+  },
+  "appearance": "Kael stands at an even six feet, with the lean, whipcord build of a githzerai who has spent decades in constant physical and mental training. His skin is a mottled yellow-green, the color of sunlight filtered through deep water, marked with the characteristic spotted patterns of his kind — darker olive patches that trace along his jawline, down his neck, and across his forearms like the dappled shadow of leaves. His skull is elongated and smooth, hairless as all githzerai, with a pronounced cranial ridge that runs from his brow to the base of his neck, giving his profile a severe, almost sculptural quality. His eyes are the most striking feature: large, deeply set, and a luminous pale silver that seems to catch and hold light from sources that aren't there — a side effect, he claims, of years spent staring into the Silver Void during meditation. When he activates his Astral Self, those eyes blaze with white fire, and spectral arms of translucent blue-silver energy extend from his shoulders, each one ending in a three-fingered hand that mirrors his own movements with eerie precision. His face is angular and sharp, with high cheekbones, a thin nose, and a mouth that naturally settles into an expression of calm assessment. Thin lines of scarification trace geometric patterns across his temples — meditation focus marks applied during his training at the Threshold Citadel, each one representing a milestone in mental discipline. He wears simple grey robes of githzerai weave, a fabric that shimmers faintly in the astral light, belted with a cord of braided silver thread. His feet are bare, toughened by decades of walking on every surface from Limbo's chaos-stone to the crystalline floors of the Citadel. Around his neck hangs a string of prayer beads carved from astral driftstone — pale, lightweight beads that occasionally float upward of their own accord, as though gravity is merely a suggestion they sometimes choose to follow. His movements are fluid and precise, every gesture economical, every step placed with the deliberate awareness of someone who treats physical motion as a form of meditation.",
+  "backstory": "Kael was born in the anarchic swirl of Limbo, in a githzerai monastery called the Crucible of Still Thought, where young githzerai were taught to impose order on chaos through the sheer force of mental discipline. His earliest memories are of sitting cross-legged on a platform of solidified chaos-matter while his crèche-master taught him to hold the floor steady beneath him — a fundamental exercise for githzerai children, who must learn that reality is not given but willed. He was adequate at this, as he was adequate at most things. What set him apart was not raw talent but an unusual sensitivity to boundaries — the edges where one thing became another. Where other students saw a block of chaos-matter and willed it into stone, Kael perceived the boundary between stone and not-stone, between solid and fluid, between the idea of a floor and the absence of one. He could feel where reality ended and possibility began.\n\nThis sensitivity drew the attention of Master Zerith-Ka, an ancient githzerai monk who served as liaison between the Limbo monasteries and the Astral Wardens — a secretive order of githzerai who maintained watch-posts throughout the Astral Sea, monitoring the boundaries between planes. Zerith-Ka visited the Crucible once every decade to observe the students, and on his fourth visit, he saw Kael — then barely fifteen years old — sitting at the edge of the monastery's reality bubble, fingers extended into the roiling chaos beyond, eyes closed, smiling. The boy was feeling the boundary. Not maintaining it, not strengthening it, but listening to it, as though it were singing a song only he could hear.\n\nZerith-Ka took Kael to the Threshold Citadel that same year. The Citadel floated in the Silver Void of the Astral Sea — a vast monastery built on and through the petrified remains of an ancient astral vessel, its towers extending in directions that defied Material Plane geometry. Here, Kael learned the Way of the Astral Self under Zerith-Ka's direct tutelage. Where conventional monks trained their bodies to physical perfection, Kael learned to project his inner self outward — manifesting spectral arms and a visage that represented his true form, the self that existed between planes, between thoughts, between heartbeats.\n\nFor decades, Kael served as a Warden sentinel, walking the Silver Wastes and monitoring the planar boundaries for signs of instability. It was monotonous, contemplative work — exactly the kind of duty a githzerai monk thrives on. He would spend weeks in solitary patrol, feeling the boundaries hum with their ancient steadiness, reporting back to the Citadel that all was well.\n\nThen the humming changed.\n\nIt began as a subtle discord — a wrongness in the boundary-song that Kael could feel but not describe. He reported it to Zerith-Ka, who listened gravely and dispatched scouts to investigate. The scouts found nothing. The boundaries appeared stable. But Kael could not shake the feeling that something vast and patient was pressing against the edges of everything, testing the membranes between worlds with the delicate, deliberate touch of a surgeon probing for a weakness.\n\nMonths later, the first planar fractures appeared. A pocket of the Feywild bled into the Astral Sea near the Dead God's Cradle, creating a region where silver void and wild forest existed in the same space simultaneously. Then a shard of the Shadowfell punctured through near the Spire of Echoes, trailing darkness like blood from a wound. The Convergence had begun — and Kael realized, with a certainty that settled into his bones like cold water, that the discord he had felt was not a warning. It was the sound of something waking up. Something that had been sleeping in the spaces between planes since before the planes existed. Something that was now, slowly and methodically, pulling the boundaries apart.\n\nZerith-Ka named Kael a Threadwalker — one of a handful of mortals whose souls resonated with planar boundaries strongly enough to walk the fractures without losing themselves. The old master's instructions were simple: find the source of the Convergence, understand it, and if possible, stop it. If not possible, survive long enough to warn the Citadel so the Wardens could prepare for the end of everything they had spent millennia protecting."
+}

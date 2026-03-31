@@ -90,7 +90,7 @@ function AppContent() {
     <div className="app">
       <nav className="sidebar">
         <img src="/coat-of-arms.png" alt="Coat of Arms" className="sidebar-crest" />
-        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : campaignId === 'campaign3' ? 'Storm of the Giants' : 'Single Player Demo'}</span></h1>
+        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : campaignId === 'campaign3' ? 'Storm of the Giants' : campaignId === 'campaign4' ? 'The Astral Convergence' : 'Single Player Demo'}</span></h1>
         <div className="currently-playing">Playing: {sessionActive && activeSessionLabel ? activeSessionLabel : 'None'}</div>
         <div className="sidebar-divider" />
         <ul>

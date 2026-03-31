@@ -101,14 +101,13 @@ function Home() {
         <CampaignCards campaignId="campaign3" locked={false} />
       </div>
 
-      <div className="tier-box tier-premium tier-locked">
+      <div className="tier-box tier-premium">
         <div className="tier-header">
           <span className="tier-badge tier-badge-premium">Premium</span>
           <h3 className="tier-title">The Astral Convergence</h3>
-          <span className="locked-label">Coming Soon</span>
           <p className="tier-subtitle">Journey beyond the material plane into the Astral Sea. Levels 8–20.</p>
         </div>
-        <CampaignCards campaignId="campaign4" locked={true} />
+        <CampaignCards campaignId="campaign4" locked={false} />
       </div>
     </div>
   );

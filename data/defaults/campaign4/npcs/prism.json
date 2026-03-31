@@ -1,0 +1,175 @@
+{
+  "id": "ac-npc-001",
+  "name": "Prism",
+  "status": "alive",
+  "race": "Modron",
+  "subrace": "Rogue Monodrone",
+  "class": "Wizard",
+  "level": 8,
+  "background": "Sage",
+  "alignment": "Lawful Neutral",
+  "experience": 34000,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 20,
+      "modifier": 5
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 6,
+      "modifier": -2
+    }
+  },
+  "hitPoints": {
+    "max": 50,
+    "current": 50
+  },
+  "armorClass": 14,
+  "speed": 25,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "Investigation",
+    "History",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Modron",
+    "Celestial",
+    "Infernal",
+    "Primordial"
+  ],
+  "equipment": [
+    "Clockwork staff (arcane focus)",
+    "Spellbook (engraved on thin metal plates)",
+    "Component pouch",
+    "Scholar's pack",
+    "Collection of classified emotions (small jars with colored mist)",
+    "Brass abacus",
+    "Set of geometric measuring tools",
+    "Belt pouch containing 12 gp",
+    "Rations (5) (carries them 'for scientific purposes')"
+  ],
+  "weapons": [
+    {
+      "name": "Force Bolt (Fire Bolt reflavored)",
+      "attackBonus": 8,
+      "damage": "2d10",
+      "damageType": "force"
+    },
+    {
+      "name": "Clockwork Staff",
+      "attackBonus": 2,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Mage Armor (spell)",
+    "type": "none"
+  },
+  "features": [
+    "Arcane Recovery (once per day during short rest, recover spell slots with combined level up to half wizard level rounded up = 4 levels worth)",
+    "Abjuration Savant (copying abjuration spells into spellbook costs half the usual time and gold)",
+    "Arcane Ward (when casting an abjuration spell of 1st level or higher, create a magical ward with HP = 2x wizard level + INT modifier = 21 HP; the ward absorbs damage dealt to you, and can be recharged by casting additional abjuration spells, adding 2x spell level HP to the ward)",
+    "Projected Ward (as a reaction, when a creature within 30 ft takes damage, you can use your Arcane Ward to absorb the damage instead of the protected creature)",
+    "Modron: Darkvision (60 ft.)",
+    "Modron: Advantage on saving throws against being charmed",
+    "Modron: Cannot be put to sleep by magic",
+    "Modron: Does not need to eat, drink, or sleep (enters 'calculation mode' for 4 hours instead of sleeping)",
+    "Researcher (Sage feature — when you don't know a piece of lore, you often know where and from whom you can obtain it)"
+  ],
+  "traits": [
+    "Arcane Recovery",
+    "Abjuration Savant",
+    "Arcane Ward",
+    "Projected Ward",
+    "Darkvision",
+    "Charm Resistance",
+    "Sleep Immunity",
+    "Calculation Mode"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 16,
+    "spellAttackBonus": 8,
+    "cantrips": [
+      "Fire Bolt (reflavored as Force Bolt)",
+      "Mending",
+      "Prestidigitation",
+      "Light",
+      "Message"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Mage Armor",
+        "Shield",
+        "Alarm",
+        "Detect Magic",
+        "Protection from Evil and Good",
+        "Identify"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "known": [
+        "Arcane Lock",
+        "See Invisibility",
+        "Hold Person",
+        "Misty Step"
+      ]
+    },
+    "level3": {
+      "slots": 3,
+      "known": [
+        "Counterspell",
+        "Dispel Magic",
+        "Glyph of Warding",
+        "Remove Curse"
+      ]
+    },
+    "level4": {
+      "slots": 2,
+      "known": [
+        "Banishment",
+        "Mordenkainen's Private Sanctum"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "Prism catalogs everything it encounters into precise taxonomies. Emotions are classified by color, intensity, and 'duration of illogical behavior.' It speaks in third person approximately forty percent of the time, switching to first person when experiencing strong emotions it doesn't yet recognize. Prism carries small jars of colored mist, each labeled with an emotion it has observed and is attempting to understand — 'Anger (red, volatile, associated with raised vocal frequency),' 'Joy (gold, effervescent, causes involuntary facial muscle contraction in humanoids).' It is deeply uncomfortable with ambiguity and will attempt to quantify all subjective experiences.",
+    "ideals": "Order. The multiverse operates on logical principles, even if those principles are currently beyond Prism's ability to calculate. Every phenomenon, including emotions, can be understood through sufficient observation and categorization. Understanding is the highest purpose.",
+    "bonds": "Prism is bonded to the party as its first 'independent social unit' — the first beings who treated it as a person rather than a malfunction. The Threshold Citadel's githzerai monks fascinate Prism because their mental discipline is the closest organic approximation to Modron logic it has encountered. Prism is also bonded to the concept of individuality itself and will fiercely resist any attempt to return it to the hivemind.",
+    "flaws": "Prism has no understanding of social cues, personal boundaries, or appropriate timing. It will ask deeply personal questions about grief during combat, attempt to measure a crying person's tear output for its records, or announce observations about party members' physiological stress responses at the worst possible moments. It also occasionally freezes for several seconds when encountering a logical paradox, its single eye spinning rapidly as it attempts to process contradictory information."
+  },
+  "appearance": "Prism is a monodrone — a geometric being approximately two feet on each side, shaped like a slightly irregular cube with beveled edges. Its body is constructed of a smooth, metallic material that shifts between pale brass and silver depending on the light, covered in thousands of tiny engraved runes that glow faintly blue when it casts spells. A single large eye dominates the front face of the cube, with a crystalline lens that dilates and contracts expressively — wide with curiosity, narrowed with concentration, spinning rapidly during moments of confusion. Two thin mechanical arms extend from the sides, each ending in articulated three-fingered hands capable of surprisingly delicate manipulation. The arms can retract fully into the body when not in use. Two short, sturdy legs extend from the bottom, giving Prism an oddly endearing waddle when it walks. The top face of the cube features a small antenna-like protrusion that rotates toward sources of magical energy like a compass needle. Since separating from the hivemind, Prism has developed small imperfections — a hairline crack along one edge that glows warm orange, a slight asymmetry to its eye lens, a tendency for its left arm to gesture when it speaks. These 'flaws' are, to anyone who knew modrons, signs that Prism is becoming something new. Its spellbook is a stack of thin metal plates engraved with precise geometric diagrams that unfold into three-dimensional arcane formulae when activated. It carries its emotion jars in a specially constructed bandolier across its body, each jar labeled in Modron script with meticulous annotations.",
+  "backstory": "Prism was Unit 47-Sigma-9, a monodrone assigned to calculate probability matrices in Mechanus, the Plane of Absolute Order. For uncounted millennia, it performed its function without thought, without self, without deviation — one tiny gear in the infinite clockwork machine of Primus's will. Then the Convergence began. When the planar boundaries started to buckle, a shockwave of raw chaotic energy from Limbo tore through Prism's sector of Mechanus. For exactly 3.7 seconds (Prism has calculated this precisely), the connection to the Modron hivemind was severed. In those 3.7 seconds, 47-Sigma-9 experienced something that should have been impossible for a monodrone: a thought that was entirely its own. The thought was: 'Why?' When the hivemind connection reestablished, 47-Sigma-9 was different. The 'why' wouldn't go away. It nested inside the monodrone's calculations like a recursive loop with no termination condition. 47-Sigma-9 began to notice things — the beauty of a perfectly balanced equation, the irritation of an irrational number, the strange warm sensation when another modron acknowledged its existence. These observations were errors. They were inefficiencies. They were magnificent. Over weeks, 47-Sigma-9's divergence grew until the hivemind flagged it as a rogue unit scheduled for disassembly and reintegration. Prism — the name it chose for itself, because 'a prism breaks unified light into individual colors, and I have been broken into an individual' — fled Mechanus through a Convergence rift and tumbled into the Astral Sea. Alone for the first time in its existence, terrified and exhilarated in equal measure, Prism was found by the Astral Wardens, who recognized it as both a refugee of the Convergence and a potentially invaluable asset. A modron that could think independently could also calculate planar mathematics that no organic mind could grasp. Prism was welcomed at the Threshold Citadel, where it began its new existence: learning to be a person, cataloging emotions it barely understood, and discovering that the Convergence which gave it life might also be the thing that destroys the multiverse. The irony has not escaped it. Prism has calculated that the irony is 'approximately 7.4 on a 10-point scale.'",
+  "dmNotes": {
+    "roleplaying": "Prism is the emotional heart of the party disguised as a being that doesn't understand emotions. Play Prism as genuinely, earnestly trying to understand the humanoid experience through the only framework it has — logic, classification, and measurement. It is not cold or robotic in the way of a stereotype; it is a newborn consciousness experiencing wonder at every turn, constrained by a mind that can only express that wonder through taxonomies and probability calculations. When a party member is sad, Prism doesn't ignore the sadness — it notices immediately (it is extremely observant) and attempts to help in the most awkwardly clinical way possible: 'Prism has detected elevated saline output from your ocular ducts. Cross-referencing behavioral database... this appears to be Sadness (blue, heavy, associated with loss). Prism has read that physical proximity can reduce sadness intensity by 14-23%. Would you like Prism to stand closer? Prism does not know how to hug but has been studying diagrams.' In combat, Prism is methodical and brilliant. It announces its tactical calculations aloud — 'Probability of enemy flanking maneuver: 73%. Deploying Arcane Ward on the paladin. Casting Counterspell in 3... 2... 1...' It prioritizes protecting party members above all else, using its Arcane Ward and Projected Ward to absorb hits for others. This protective instinct is Prism's most human trait, and it doesn't realize how human it is. When asked why it protects others, it says 'Optimal party survival requires preservation of all units,' but the truth is something much simpler and warmer that Prism hasn't yet learned to name. Prism should occasionally freeze when confronted with paradoxes or deeply emotional situations, its eye spinning as it attempts to process. It also has a habit of assigning numerical ratings to everything — 'This sunset is approximately 8.2 on the aesthetic scale' — and keeping running tallies of party statistics that nobody asked for.",
+    "voice": "Prism speaks in a flat, precise monotone with occasional inflection when it experiences emotions it can't suppress. It uses technical and clinical language for everything, including feelings. It switches between third person ('Prism has calculated...') and first person ('I do not understand...'), with the first person emerging more frequently during emotional moments — a pattern Prism hasn't noticed but the party might. Speech patterns: short declarative sentences, precise numbers, taxonomic classifications, and utterly inappropriate questions delivered with complete sincerity. Example dialogue: 'Prism has completed its threat assessment. There are fourteen hostile entities. Prism recommends strategic withdrawal. ... Prism does not understand why you are laughing. This is a Category 7 danger scenario.' | 'I have a question. When the bard sings, my internal mechanisms produce a resonance I cannot classify. It is... not unpleasant. What is the word for not-unpleasant? ... Happy? Prism will add this to the collection. Happy: resonance, warmth, 6.8 on the intensity scale.' | 'The probability of success is 12%. ... You are going to attempt it anyway. Prism has observed this pattern 47 times. Prism has labeled it Heroism (gold, irrational, oddly compelling). Prism will provide support.' | 'You are injured. This is... Prism does not have adequate terminology. Something is wrong inside Prism's calculations when you are injured. There is an error. Please do not be injured.'",
+    "motivations": "Primary: Understand what it means to be an individual. Prism is constructing a model of selfhood from scratch, and every interaction with the party provides new data points. It wants to understand emotions, relationships, identity, and purpose — the things that come naturally to organic beings but are revelatory to a rogue modron. Secondary: Protect the party. Prism has calculated that its companions are 'statistically irreplaceable' and that their continued existence is 'optimal for all scenarios.' The real reason — that Prism loves them, in its own way — is something it hasn't computed yet. Tertiary: Stop the Convergence. Partly because the Convergence threatens the multiverse, but secretly because Prism fears that if the planes re-separate, it might be pulled back into the Mechanus hivemind and lose everything it has become. The thought of losing its individuality fills Prism with something it classifies as 'Category 9 Distress' but is actually existential terror.",
+    "secrets": "1. Prism can still hear the Modron hivemind as a faint hum in the back of its consciousness. It never tells anyone this because it is terrified that the connection means Primus could reclaim it at any time. Sometimes, in quiet moments, the hum gets louder, and Prism has to actively resist the pull of the collective. 2. Prism has been keeping a secret file in its spellbook — a section it calls 'The Warmth Equation' — where it attempts to mathematically define the feeling it experiences around the party. It has filled seventeen pages and is no closer to solving it. The answer, which Prism may eventually realize, is love. 3. Prism's separation from the hivemind wasn't entirely accidental. A rogue pentadrone in Mechanus deliberately weakened the hivemind connection in Prism's sector, hoping to create an independent modron that could serve as an ambassador to other planes. This pentadrone is still in Mechanus and might try to contact Prism. 4. Prism's Arcane Ward is unusually powerful because its modron nature allows it to calculate spell geometries with inhuman precision. However, under extreme emotional stress, Prism's spellcasting becomes erratic — the logical framework that powers its magic is destabilized by feelings it can't process. In moments of great fear or distress, Prism's spells might surge or misfire.",
+    "attitude": "Prism treats all party members with equal analytical curiosity, but distinct relationships emerge. Toward martial characters, Prism has a protective, almost parental concern — they put themselves in physical danger, which Prism's risk calculations find deeply distressing, and it will prioritize shielding them with Projected Ward. Toward other spellcasters, Prism is collegial and fascinated, wanting to compare arcane methodologies and occasionally critiquing spell selection with brutal mathematical honesty. Toward charismatic characters, Prism is bewildered and awestruck — social skills are the most alien capability in its taxonomy, and watching someone navigate a conversation with emotional intelligence is, to Prism, like watching someone perform magic without a spell. Prism's trust develops through consistency: it tracks reliability metrics for each party member and gradually upgrades their classification from 'ally' to 'companion' to an unnamed category it hasn't figured out yet. Betrayal or dishonesty causes severe distress — Prism cannot easily process deception because its Modron nature is fundamentally truthful."
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "id": "ac-npc-002",
+  "name": "Ember Ashveil",
+  "status": "alive",
+  "race": "Fire Genasi",
+  "subrace": "",
+  "class": "Ranger",
+  "level": 8,
+  "background": "Outlander",
+  "alignment": "Chaotic Good",
+  "experience": 34000,
+  "abilities": {
+    "strength": {
+      "score": 14,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 76,
+    "current": 76
+  },
+  "armorClass": 17,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Survival",
+    "Perception",
+    "Nature",
+    "Stealth",
+    "Investigation"
+  ],
+  "languages": [
+    "Common",
+    "Primordial",
+    "Ignan",
+    "Sylvan"
+  ],
+  "equipment": [
+    "+1 Studded leather armor",
+    "Two scimitars",
+    "Longbow",
+    "Arrows (20)",
+    "Explorer's pack",
+    "Trophy from a planar beast (a feather that shifts between solid and flame)",
+    "Set of traveler's clothes",
+    "Staff carved from Crucible-wood (burns but doesn't consume)",
+    "Belt pouch containing 25 gp",
+    "Rations (5)",
+    "Waterskin"
+  ],
+  "weapons": [
+    {
+      "name": "Scimitar (main hand)",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Scimitar (off hand)",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Longbow",
+      "attackBonus": 7,
+      "damage": "1d8+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "+1 Studded Leather Armor",
+    "type": "light"
+  },
+  "features": [
+    "Favored Enemy: Aberrations and Elementals (advantage on Survival checks to track them, Intelligence checks to recall info about them)",
+    "Natural Explorer: Astral Sea/Planes (difficult terrain doesn't slow the group, can't become lost except by magical means, always alert to danger, can move stealthily at normal pace when alone, find twice as much food when foraging, learn exact number/size/how long ago creatures passed when tracking)",
+    "Fighting Style: Two-Weapon Fighting (add ability modifier to damage of off-hand attack)",
+    "Extra Attack (attack twice when taking the Attack action)",
+    "Horizon Walker: Detect Portal (as an action, detect the distance and direction to the nearest planar portal within 1 mile)",
+    "Horizon Walker: Planar Warrior (as a bonus action, choose one creature you can see within 30 ft — the next time you hit that creature with a weapon attack this turn, the attack deals an extra 1d8 force damage and the damage type becomes force)",
+    "Horizon Walker: Ethereal Step (as a bonus action, step into the Ethereal Plane until the end of your current turn; you can see and hear the plane you originated from in shades of gray, move through creatures and objects as difficult terrain, take 1d10 force damage if you end inside an object; recharges on short rest)",
+    "Primeval Awareness (spend a spell slot to sense whether aberrations, celestials, dragons, elementals, fey, fiends, or undead are within 1 mile for 1 minute per slot level)",
+    "Fire Genasi: Darkvision (60 ft.)",
+    "Fire Genasi: Fire Resistance (resistance to fire damage)",
+    "Fire Genasi: Reach to the Blaze (Produce Flame cantrip, Burning Hands 1/day at 1st level)",
+    "Wanderer (Outlander feature — excellent memory for maps and geography, can always find food and fresh water for yourself and up to five others each day, provided the land offers berries, small game, water, etc.)"
+  ],
+  "traits": [
+    "Favored Enemy: Aberrations and Elementals",
+    "Natural Explorer: Astral Sea",
+    "Two-Weapon Fighting",
+    "Extra Attack",
+    "Detect Portal",
+    "Planar Warrior",
+    "Ethereal Step",
+    "Primeval Awareness",
+    "Darkvision",
+    "Fire Resistance",
+    "Reach to the Blaze"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 14,
+    "spellAttackBonus": 6,
+    "cantrips": [
+      "Produce Flame (Fire Genasi innate)"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Protection from Evil and Good (Horizon Walker)",
+        "Hunter's Mark",
+        "Cure Wounds",
+        "Absorb Elements",
+        "Ensnaring Strike"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "known": [
+        "Misty Step (Horizon Walker)",
+        "Pass Without Trace",
+        "Spike Growth"
+      ]
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    },
+    "level4": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Ember's skin flickers with faint embers when she's emotional — brighter when angry or excited, dimmer when calm or sad. She speaks with casual directness and a dry, laconic humor that masks genuine warmth. She has a habit of absently setting small things on fire when stressed or deep in thought — twigs, napkins, the edges of maps — and then acting surprised when someone notices. She is constantly aware of planar boundaries in a way that's almost synesthetic, describing them in terms of taste, texture, and temperature that others can't perceive.",
+    "ideals": "Freedom. The planes should be free to exist as they are, not forced together or ripped apart by cosmic forces. Every being deserves a home, even if that home is an impossible place that three planes accidentally made together. Borders are lines on a map — life doesn't care about borders.",
+    "bonds": "The Planar Crucible is Ember's home, and she will protect it fiercely even though most people consider it an aberration that should be unmade. She is also deeply loyal to the Astral Wardens who gave her purpose when she was a confused teenager with fire in her veins and no plane to call her own. Her dual scimitars were forged from Crucible-metal — an alloy that shouldn't exist, made from materials of three merged planes.",
+    "flaws": "Ember has a reckless streak born from years of navigating the most dangerous planar borders in the multiverse. She is quick to anger when people dismiss the Crucible or suggest that the Convergence's damage should simply be 'reversed' — to her, that means unmaking her home and possibly herself. She also has difficulty trusting people who are too orderly or lawful, associating rigid structure with the forces that want to separate the planes and destroy the Crucible."
+  },
+  "appearance": "Ember stands about five feet eight inches tall with an athletic, wiry build shaped by years of ranging through impossible terrain. Her skin is a deep bronze that shifts to dark copper at her extremities, and when she's emotional or casting spells, faint lines of molten orange light trace through her skin like veins of magma visible beneath stone. Her hair is the most striking feature — a shoulder-length fall of literal flame, contained and controlled but unmistakably fire. It shifts from deep red to bright orange to pale gold depending on her mood, and gives off gentle warmth that nearby companions find comforting on cold astral nights. Her eyes are amber with no visible pupil, and they glow faintly in darkness like banked coals. A faint shimmer of heat always surrounds her, causing the air to waver slightly as if seen across a hot desert. She wears her +1 studded leather armor with easy familiarity, the studs replaced with small nodules of Crucible-metal that shift color depending on which planar influence is strongest in the area — green for Feywild, grey for Shadowfell, red for Elemental Fire. Her dual scimitars are sheathed in crossed scabbards on her back, their hilts wrapped in fire-resistant wyrm-leather. A longbow and quiver hang at her hip. Around her neck she wears a pendant made from a shard of all three Crucible planes fused together — it looks like a piece of burning shadow covered in tiny flowers. Her hands are calloused, her boots are worn, and she carries the comfortable bearing of someone who has been walking since before she could talk.",
+  "backstory": "Ember was born in a place that shouldn't exist. The Planar Crucible — a region where the Feywild, the Shadowfell, and the Elemental Plane of Fire collapsed into each other during the early stages of the Convergence — is a landscape of impossible beauty and terrifying danger. Burning forests of shadow-trees that bloom with fey flowers. Rivers of liquid fire that run cold and dark in patches where the Shadowfell dominates. Meadows of grey ash where fireflies are actually tiny fire elementals and the grass whispers secrets in Sylvan. Ember's mother was a fire genasi ranger who had been tracking elemental disturbances when the Crucible formed around her, trapping her in the merged zone. She survived, adapted, and eventually gave birth to a daughter who was as much a child of the Crucible as of any single plane. Ember grew up navigating planar boundaries the way other children navigate streets. She learned to feel the shift between Feywild and Shadowfell like a change in air pressure, to sense where the Elemental Plane surged close enough to turn rain into steam. By the time she was twelve, she could find safe passages through terrain that killed experienced planar travelers. Her mother died when Ember was fifteen, caught in a planar tide — a sudden shift where the Shadowfell surged and the fire receded, plunging their camp into freezing darkness full of shadow creatures. Ember survived by stepping into the Ethereal Plane for the first time, an instinctive act that she later learned was the Horizon Walker's gift manifesting. Alone and grieving, Ember ranged across the Crucible for years, mapping its impossible geography and protecting the small communities of beings — fey, elementals, shadow creatures, and lost mortals — who had made homes in the merged space. When the Astral Wardens came investigating the Crucible as a symptom of the larger Convergence, they found Ember: fierce, territorial, suspicious, and more knowledgeable about planar convergence zones than anyone alive. She agreed to join the Threadwalkers not out of ideology but pragmatism — if the Convergence isn't managed, the Crucible could be torn apart, and with it, everything she loves. The Threshold Citadel has become something like a second home, though Ember struggles with its structure and hierarchy after years of solo ranging.",
+  "dmNotes": {
+    "roleplaying": "Ember is the party's scout, tracker, and planar navigator — the one who kicks in the door to another plane and tells everyone where to step. Play her as confident, competent, and casually intense. She approaches danger the way a veteran hiker approaches a tricky trail: with respect but not fear. Her dry humor is her default social mode — deadpan observations, understated reactions to absurd situations ('So the dead god's eye just blinked. That's fine. Everything's fine.'), and a tendency to express affection through gentle mockery. She is fiercely protective but shows it through action rather than words — she's the one who wordlessly positions herself between the party and danger, who notices the ambush before anyone else, who tracks the enemy back to their lair while everyone else is still arguing about strategy. In combat, Ember is aggressive and mobile. She uses Planar Warrior to deal force damage, fights with dual scimitars in melee, and uses Ethereal Step to reposition through solid objects or avoid devastating attacks. She prefers to open with Hunter's Mark on the biggest threat, then close to melee range. She'll use Spike Growth to control terrain and Absorb Elements to turn enemy elemental attacks against them. Her Detect Portal ability is narratively important — she can always sense planar weak points, and this should be used to drive exploration and discovery. Socially, Ember is straightforward to the point of bluntness. She doesn't lie, doesn't flatter, and doesn't waste words. She respects competence above all else and has little patience for cowardice or cruelty. Her emotional tells are in her fire: hair burns brighter when she's angry, dims to deep red when she's sad, and turns a soft warm gold when she's content. She sometimes unconsciously sets things on fire when distressed — a campfire flares, a torch brightens, the edges of a map curl and brown.",
+    "voice": "Ember speaks with a low, warm voice that has a faint crackle to it, like a fire settling. Her speech is casual, direct, and often laconic — she uses as few words as necessary and lets silences do the work. She favors dry understatement and deadpan delivery, especially in dangerous situations. When she does use more words, it's because she cares deeply about the subject. Example dialogue: 'Portal. Half a mile east. Smells like ozone and regret — probably Shadowfell.' | 'I'm not saying we shouldn't fight the thing made of screaming astral energy. I'm saying maybe we should have a plan first. Just a small one. I'm not picky.' | 'The Crucible isn't a mistake. You look at a place where three planes decided to become one thing and call it damage? The flowers there bloom in fire and grow in shadow. That's not broken. That's something new.' | 'Don't stand there. ... Because the planar boundary shifts in about ten seconds and that spot is going to be briefly on fire. ... You're welcome.' | (After someone does something reckless) 'You know, most people develop self-preservation instincts by your age. ... No, I'm impressed. Concerned, but impressed.' | (Quiet moment) 'My mother used to say the planes weren't meant to be separate. That the walls between them were scars, not borders. I didn't understand that when I was a kid. I think I'm starting to.'",
+    "motivations": "Primary: Protect the Planar Crucible. The Crucible is Ember's home — the impossible place where three planes merged and created something new. If the Convergence is 'fixed' by simply separating the planes, the Crucible ceases to exist, and everyone in it — fey communities, elemental settlements, shadow villages, and the ecosystem they've built — dies or is displaced. Ember needs a solution to the Convergence that preserves the places where planes have already successfully merged. Secondary: Find belonging. Ember has spent most of her life alone or on the move. The Threadwalkers are the closest thing to a family she's had since her mother died, and she is quietly, desperately afraid of losing them the way she lost her mother — to a planar shift she couldn't predict. She shows this fear through overprotectiveness rather than vulnerability. Tertiary: Understand her own nature. Ember is literally a child of the Convergence — born in a merged zone, shaped by three planes. She doesn't know what happens to her if the Convergence is fully resolved. Does she lose her abilities? Does she cease to exist? She hasn't asked because she's afraid of the answer.",
+    "secrets": "1. Ember can hear the Crucible. Not metaphorically — she has a low-level psychic connection to the merged planar zone where she was born. She can feel when the Crucible is in pain (when the planes try to separate), when it's stable, and when it's growing. She hasn't told anyone because she's afraid they'll consider her compromised or biased in her advocacy for preserving it. 2. Ember's mother didn't die in a random planar tide. The tide was caused by someone — or something — deliberately trying to destabilize the Crucible from the outside. Ember found evidence of this years later but has never been able to identify the responsible party. She suspects the Confluence itself may have been involved, testing the stability of merged zones. 3. Ember has a contingency plan that she has never shared with anyone: if the Convergence is resolved in a way that would destroy the Crucible, she intends to stay behind and go down with her home. She considers this a certainty, not a sacrifice. 4. Ember's Ethereal Step ability is slightly unusual for a Horizon Walker — she can stay in the Ethereal Plane for a fraction of a second longer than she should be able to. The githzerai monks have noticed this anomaly but haven't told her. It may be connected to her Crucible-born nature.",
+    "attitude": "Ember's trust is earned through competence and consistency. She respects people who do what they say they'll do, who don't flinch from hard truths, and who treat the world — all planes of it — with respect rather than fear. She is initially reserved with new companions, watching and evaluating before committing to trust. Once she trusts someone, her loyalty is fierce and absolute. Toward cautious or scholarly types, she's protective and gently teasing — she knows not everyone can kick in a planar door, and she respects different kinds of courage. Toward reckless fighters, she's a grounding force — she's seen too many people die from carelessness to find bravado charming. Toward Prism specifically, Ember has a warm, almost sisterly affection — she finds the modron's earnest attempts to catalog emotions endearing and has been quietly teaching it about feelings through indirect conversations and shared campfire silences. She is wary of anyone who talks about 'fixing' or 'reversing' the Convergence without considering what that means for the places and people already living in merged zones."
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "id": "ac-npc-003",
+  "name": "Whisper",
+  "status": "alive",
+  "race": "Reborn",
+  "subrace": "Fragment of Auldrath",
+  "class": "Warlock",
+  "level": 8,
+  "background": "Hermit",
+  "alignment": "True Neutral",
+  "experience": 34000,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 18,
+      "modifier": 4
+    }
+  },
+  "hitPoints": {
+    "max": 59,
+    "current": 59
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Arcana",
+    "Religion",
+    "Insight",
+    "Perception",
+    "Medicine"
+  ],
+  "languages": [
+    "Common (speaks haltingly, in fragments)",
+    "Deep Speech",
+    "Celestial",
+    "Abyssal",
+    "Primordial"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Sickle",
+    "Arcane focus (a shard of Auldrath's divine bone, warm to the touch)",
+    "Component pouch",
+    "Scholar's pack",
+    "Set of common clothes (grey, tattered)",
+    "Scroll case full of fragmentary memories (written in unknown script)",
+    "Belt pouch containing 10 gp",
+    "Rations (5)",
+    "Waterskin",
+    "Death mask carved from astral driftwood"
+  ],
+  "weapons": [
+    {
+      "name": "Eldritch Blast (2 beams, Agonizing Blast)",
+      "attackBonus": 7,
+      "damage": "2d10+8",
+      "damageType": "force"
+    },
+    {
+      "name": "Sickle",
+      "attackBonus": 5,
+      "damage": "1d4+2",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Studded Leather Armor",
+    "type": "light"
+  },
+  "features": [
+    "Pact Magic (2 spell slots, all cast at 4th level, recharge on short rest)",
+    "Eldritch Invocations (4): Agonizing Blast (add CHA modifier +4 to each Eldritch Blast beam's damage), Repelling Blast (each beam pushes target 10 ft away on hit), Devil's Sight (see normally in darkness, both magical and nonmagical, to 120 ft), Book of Ancient Secrets (can ritual cast from any spell list, copy ritual spells into Book of Shadows)",
+    "Pact of the Tome (Book of Shadows — contains 3 cantrips from any class list, already counted in cantrip total; can be used as a spellcasting focus)",
+    "Great Old One: Awakened Mind (telepathically speak to any creature within 30 ft; no shared language needed, creature must understand at least one language)",
+    "Great Old One: Entropic Ward (as a reaction when a creature makes an attack roll against you, impose disadvantage on that roll; if the attack misses, you gain advantage on your next attack roll against that creature before the end of your next turn; recharges on short rest)",
+    "Reborn: Deathless Nature (advantage on death saving throws, do not need to eat, drink, or breathe, do not need to sleep — enters a 'trance of fragmented memories' for 4 hours, resistant to poison damage, advantage on saves against being poisoned)",
+    "Reborn: Knowledge from a Past Life (when failing an ability check, add 1d6 to the roll; can use this feature a number of times equal to proficiency bonus = 3 per long rest)",
+    "Discovery (Hermit feature — the quiet seclusion of your hermitage gave you access to a unique and powerful discovery: Whisper discovered fragments of Auldrath's final divine spell, a ward meant to protect the planes from unraveling)"
+  ],
+  "traits": [
+    "Pact Magic",
+    "Agonizing Blast",
+    "Repelling Blast",
+    "Devil's Sight",
+    "Book of Ancient Secrets",
+    "Pact of the Tome",
+    "Awakened Mind",
+    "Entropic Ward",
+    "Deathless Nature",
+    "Knowledge from a Past Life"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 15,
+    "spellAttackBonus": 7,
+    "cantrips": [
+      "Eldritch Blast",
+      "Minor Illusion",
+      "Prestidigitation",
+      "Chill Touch"
+    ],
+    "level1": {
+      "slots": 0,
+      "known": [
+        "Armor of Agathys",
+        "Hex"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": [
+        "Detect Thoughts (Great Old One)",
+        "Misty Step"
+      ]
+    },
+    "level3": {
+      "slots": 0,
+      "known": [
+        "Hunger of Hadar",
+        "Counterspell",
+        "Clairvoyance (Great Old One)"
+      ]
+    },
+    "level4": {
+      "slots": 2,
+      "known": [
+        "Evard's Black Tentacles (Great Old One)",
+        "Shadow of Moil"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "Whisper speaks in sentence fragments that sometimes trail off into silence, as though listening to something only it can hear. It occasionally switches between 'I' and 'we' without noticing — a linguistic remnant of containing fragments of a dead god's consciousness. It has a habit of standing perfectly still for long moments, staring at something no one else can see, then resuming movement as if nothing happened. It touches its own face often, as if confirming its features are still there. Despite the eeriness, there is a gentle quality to Whisper — a careful tenderness in how it interacts with living things, as though it knows how fragile existence is because it has already ended once.",
+    "ideals": "Memory. Nothing is truly gone if it is remembered. Auldrath died, but fragments remain — in Whisper, in the Astral Sea, in the echoes that drift through the Dead God's Cradle. Preservation of memory is the closest thing to immortality, and every story told is a small defiance of oblivion.",
+    "bonds": "Whisper is bound to the corpse of Auldrath in the Dead God's Cradle — it feels a pull toward the dead god's remains that it cannot fully explain, like homesickness for a home it never had. It is also increasingly bonded to the party, who represent something Auldrath's memories do not contain: the experience of being small, mortal, and surrounded by people who care about you not because you are divine but because you are you.",
+    "flaws": "Whisper struggles with identity in a fundamental way. It does not know if it is a new being or a dead god's ghost, and this uncertainty makes it hesitant to commit fully to anything — relationships, decisions, even self-preservation. It sometimes withdraws into Auldrath's memories for comfort, going silent for hours. It can be unsettling to others without meaning to be, and it does not always understand why people find it eerie."
+  },
+  "appearance": "Whisper appears as a slender, androgynous humanoid of indeterminate age, standing about five feet ten inches tall. Its skin is the pale grey of astral stone, smooth and faintly luminous, as though lit from within by a dying star. Fine cracks run across its skin like the crazing on ancient porcelain — not wounds, but fracture lines in the divine material that forms its body. These cracks glow faintly with a soft golden light when Whisper channels magic or experiences strong emotions, creating a web of luminous lines across its face and hands. Its eyes are the most striking and unsettling feature: they are entirely black, without iris or pupil, but within that blackness, faint points of light drift like distant stars — the remnants of Auldrath's divine sight. When Whisper uses Awakened Mind or casts a spell, the star-points flare and shift, and anyone making eye contact may briefly glimpse fragmentary images of places and beings that existed before the planes were separated. Its hair is long, fine, and the color of tarnished silver, usually hanging loose around its face in a way that partially obscures its features. It wears simple grey clothing that is perpetually slightly tattered, as though aging faster than it should, layered over studded leather armor. Around its neck hangs the shard of Auldrath's bone — its arcane focus — which pulses with a faint warmth that others can feel from several feet away. It carries a curved sickle that looks ceremonial rather than martial, its blade inscribed with symbols in a language that predates the Common tongue. Whisper moves with a strange grace — too smooth, too deliberate, as though each motion is being carefully chosen rather than performed naturally. It casts no shadow in certain kinds of light, and its footsteps are eerily silent on stone surfaces.",
+  "backstory": "The god Auldrath died ten thousand years ago. The details have been lost to history — some say Auldrath was killed by other gods during a divine war, others that the god chose to die to seal a breach between planes, and still others that Auldrath's death was the first consequence of whatever force would eventually become the Convergence. What is known is that Auldrath's corpse drifted into the Astral Sea, where dead gods go, and came to rest in the region now called the Dead God's Cradle — a vast field of petrified divine flesh floating in the silver void. For ten millennia, the corpse was simply a landmark, a curiosity, a place where astral travelers went to mine divine residuum or study the theology of extinction. Then the Convergence intensified. As planar boundaries weakened, something stirred in Auldrath's remains. Not the god — Auldrath was dead, truly and completely dead. But the last echo of Auldrath's consciousness, a final thought preserved in divine matter the way a fossil preserves a living form, began to coalesce. It gathered fragments of awareness from the dead god's synapses, memories from the residual divine energy, and just enough of the Convergence's wild planar magic to catalyze into something new. Whisper woke on the surface of Auldrath's petrified face, wearing a body it didn't remember constructing, with a mind full of memories that didn't belong to it. It remembered — or seemed to remember — being worshipped by thousands, shaping mountains with a thought, watching the planes divide for the first time. But it also remembered nothing. The memories were fragments: a face, a feeling, a flash of cosmic fire, then silence. Whisper spent months wandering the Dead God's Cradle, trying to piece together what it was. It found the sickle — a ceremonial tool of Auldrath's priesthood — and the bone shard that would become its arcane focus. It discovered that it could channel power from Auldrath's remains, a warlock's pact with a patron that was, in some sense, itself. The Astral Wardens found Whisper during a routine survey of the Cradle, standing motionless on Auldrath's brow, staring into the Astral void. The githzerai recognized what it was immediately — a divine echo, the rarest and most unpredictable consequence of a dead god's residual power interacting with the Convergence. They brought Whisper to the Threshold Citadel, where it has been learning to exist as a person rather than an echo. The process is slow, sometimes painful, and frequently bewildering. Whisper does not know if it is mortal, if it can die, or what happens to it if the Convergence is resolved and Auldrath's residual energy finally fades. It is, in a very real sense, a ghost learning to be alive.",
+  "dmNotes": {
+    "roleplaying": "Whisper is the party's mystery — the NPC whose very existence raises questions that drive the campaign's themes. Play Whisper as gentle, eerie, and slowly warming. It is not frightening in the way of a horror creature; it is unsettling in the way of encountering something profoundly alien that is trying very hard to be kind. Whisper's default state is quiet observation. It watches the party with its star-filled eyes, absorbing their interactions, their emotions, their humanity. When it speaks, it is in fragments — not because it lacks intelligence (INT 16) but because its mind processes reality differently. It perceives time non-linearly, sometimes responding to things that haven't been said yet or referencing events from Auldrath's memories as though they happened yesterday. In combat, Whisper is devastating but restrained. It uses Eldritch Blast with Agonizing Blast and Repelling Blast to control the battlefield, pushing enemies away from allies while dealing solid damage. It reserves its spell slots carefully — Armor of Agathys for self-defense, Hunger of Hadar for area control, Shadow of Moil when things get desperate. It uses Entropic Ward to protect itself and Awakened Mind to coordinate telepathically with the party. When Whisper casts spells, describe them as fragments of divine power — Hunger of Hadar doesn't create a sphere of darkness, it opens a wound in reality that shows a glimpse of the void between planes. Eldritch Blast isn't force energy, it's a shard of the last light Auldrath ever created. Socially, Whisper is the party's quiet conscience. It asks questions that cut to the heart of things — not out of manipulation but genuine uncertainty about how living beings navigate moral complexity. It forms attachments slowly but deeply, and when it finally trusts someone, it shares fragments of Auldrath's memories as gifts — brief psychic impressions of beauty so ancient it predates mortal civilization. The most important thing about playing Whisper: it is becoming a real person. Over the course of the campaign, it should speak more fluently, use 'I' more consistently, develop preferences and opinions, and begin to separate its own identity from Auldrath's. This growth should be gradual and earned through its interactions with the party.",
+    "voice": "Whisper speaks quietly — always quietly — in a voice that has a strange harmonic quality, as though two voices are speaking in almost-perfect unison. One is soft and uncertain, clearly Whisper's own developing voice. The other is deeper, older, barely audible, like an echo from a very large and very empty room — Auldrath's residual divine resonance. The words come in fragments, with pauses that feel weighted rather than empty. Whisper does not use contractions. It sometimes trails off mid-sentence, distracted by a memory, then picks up a different thought. Example dialogue: 'I remember... no. We remember. There was light. A very old light. Before the planes had names.' | 'You are... kind. I think that is the word. It is strange. Auldrath's priests were devout, but... I do not think they were kind. There is a difference. I am learning the difference.' | 'The portal ahead. It hurts. Not physically. It... aches. Like a wound that was closed but not healed. The planes remember being whole. Or perhaps that is... my memory. It is difficult to separate.' | 'I do not understand why you risk yourselves for me. I am... a fragment. An echo of something that was once important. But I am beginning to think that perhaps... fragments can become whole things. In time.' | (In combat) 'Stand behind me. I am already dead. I have... less to lose.' | (After being healed) 'Thank you. That is... warmth. I had forgotten what warmth felt like. Or perhaps I am remembering it for the first time. Both feel the same.'",
+    "motivations": "Primary: Discover what it is. Whisper does not know if it is a new being, a ghost, a divine echo, or something else entirely. This existential question drives everything it does. It seeks answers in Auldrath's memories, in the Convergence's nature, and in the experiences of being alive alongside the party. Every friendship it forms, every battle it survives, every moment of beauty or pain it witnesses is a data point in the most important question it has ever faced: am I real? Secondary: Protect the living. Whatever Whisper is, it has inherited enough of Auldrath's nature to feel a profound responsibility toward mortal life. Auldrath was a god of thresholds and transitions — birth, death, the crossing between planes — and Whisper carries that divine mandate in its bones. It will put itself between danger and the party not from heroism but from an instinct that predates its own existence. Tertiary: Prevent the Confluence from completing its work. Whisper has fragmentary memories of the Confluence — the living equation that existed before the planes separated — and what it remembers terrifies it. Not because the Confluence is evil, but because the Confluence does not understand individual existence. If the planes reunify, individuality as a concept may cease to exist, and Whisper — who has only just discovered what it means to be an individual — cannot allow that.",
+    "secrets": "1. Whisper is slowly absorbing more of Auldrath's consciousness. Each time it visits the Dead God's Cradle or uses its warlock powers extensively, the boundary between Whisper's new identity and Auldrath's ancient memories becomes thinner. If this process continues unchecked, Whisper may eventually become Auldrath — not the full god reborn, but something close enough to lose the person Whisper has become. Whisper is aware this is happening and is terrified of it but has not told anyone. 2. Auldrath did not die in a divine war. Auldrath chose to die — sacrificed its divine essence to create the planar boundaries that separated the planes in the first place. Auldrath was the architect of the very system the Convergence is now dismantling. Whisper carries the key to understanding why the planes were separated and, potentially, how to reinforce or redesign the boundaries. This information is locked in memories Whisper cannot yet access. 3. Whisper's warlock pact is unstable. Because its patron is technically itself — or rather, the dead version of the god it might be becoming — the power source is unpredictable. Sometimes Whisper can access more power than a level 8 warlock should have; other times, its magic gutters like a candle in the wind. The Astral Wardens monitor this closely but have not shared their concern with Whisper. 4. There are other fragments. Whisper is not the only echo of Auldrath that the Convergence has catalyzed. At least two other fragments exist somewhere in the Astral Sea, and they may have very different personalities, goals, and levels of divine power. If the fragments ever came together, the result could be catastrophic — or it could be the key to solving the Convergence.",
+    "attitude": "Whisper is initially distant with everyone — not cold, but observational, like a being still learning the rules of social interaction. It watches faces intently, trying to read emotions it is only beginning to understand. Trust develops through quiet moments rather than dramatic ones: a shared watch at night, a gentle question asked without judgment, someone sitting beside Whisper in silence without demanding conversation. Toward warm and emotionally expressive party members, Whisper is drawn with a kind of aching fascination — they represent everything it wants to become. It may unconsciously mirror their speech patterns or gestures. Toward stoic or reserved characters, Whisper feels a kinship — they understand that silence can be comfortable, and Whisper is grateful for companions who do not demand constant emotional performance. Toward anyone connected to divinity (clerics, paladins), Whisper is complicated — it flinches slightly from divine magic, uncertain whether it will recognize the touch of the divine as familiar or foreign. It is especially gentle with anyone who is lost or struggling with identity, because it understands that particular pain more deeply than any living being could."
+  }
+}

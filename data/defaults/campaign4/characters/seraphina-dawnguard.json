@@ -1,0 +1,169 @@
+{
+  "id": "ac-char-002",
+  "name": "Seraphina Dawnguard",
+  "status": "alive",
+  "race": "Aasimar",
+  "subrace": "Protector",
+  "class": "Paladin",
+  "level": 8,
+  "background": "Soldier",
+  "alignment": "Lawful Good",
+  "experience": 34000,
+  "abilities": {
+    "strength": {
+      "score": 18,
+      "modifier": 4
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 18,
+      "modifier": 4
+    }
+  },
+  "hitPoints": {
+    "max": 76,
+    "current": 76
+  },
+  "armorClass": 20,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "Religion"
+  ],
+  "languages": [
+    "Common",
+    "Celestial",
+    "Abyssal"
+  ],
+  "equipment": [
+    "Plate armor",
+    "Shield",
+    "Longsword",
+    "Javelins (5)",
+    "Holy symbol (radiant sunburst amulet)",
+    "Explorer's pack",
+    "An insignia of rank",
+    "A trophy from a fallen aberration",
+    "A set of common clothes",
+    "Belt pouch containing 30 gp",
+    "Rations (10)",
+    "Waterskin",
+    "Silver compass shard (Threadwalker focus)"
+  ],
+  "weapons": [
+    {
+      "name": "Longsword",
+      "attackBonus": 7,
+      "damage": "1d8+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Javelin",
+      "attackBonus": 7,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Plate armor + Shield",
+    "type": "heavy"
+  },
+  "features": [
+    "Divine Sense (as an action, detect the location of any celestial, fiend, or undead within 60 feet not behind total cover; also detect any place or object that has been consecrated or desecrated; 5 uses per long rest)",
+    "Lay on Hands (pool of 40 HP; as an action, touch a creature and restore any number of HP from the pool; alternatively, spend 5 HP from the pool to cure one disease or neutralize one poison; no effect on undead or constructs)",
+    "Fighting Style: Dueling (when wielding a melee weapon in one hand and no other weapons, gain +2 bonus to damage rolls with that weapon; Longsword damage effectively 1d8+6)",
+    "Divine Smite (when you hit a creature with a melee weapon attack, expend one spell slot to deal extra radiant damage — 2d8 for a 1st-level slot, plus 1d8 for each slot level above 1st, to a max of 5d8; +1d8 against undead or fiends)",
+    "Divine Health (immune to disease)",
+    "Extra Attack (you can attack twice, instead of once, whenever you take the Attack action on your turn)",
+    "Aura of Protection (you and friendly creatures within 10 feet gain a +4 bonus to all saving throws while you are conscious; this bonus equals your Charisma modifier)",
+    "Channel Divinity: Watcher's Will (as an action, choose up to 3 creatures you can see within 30 feet; each gains advantage on Intelligence, Wisdom, and Charisma saving throws for 1 minute; 1 use per short or long rest)",
+    "Channel Divinity: Abjure the Extraplanar (as an action, each aberration, celestial, elemental, fey, or fiend within 30 feet must make a Wisdom saving throw DC 15; on failure, the creature is turned for 1 minute or until it takes damage; turned creatures must spend their turns trying to move as far away from you as possible)",
+    "Oath Spells (always prepared, don't count against prepared limit: 1st — Alarm, Detect Magic; 2nd — Moonbeam, See Invisibility)",
+    "Radiant Soul (Aasimar racial: as an action, unleash divine energy; for 1 minute, gain flying speed 30 feet and once per turn deal extra radiant damage equal to your level (8) to one target when you deal damage to it; usable once per long rest)",
+    "Healing Hands (Aasimar racial: as an action, touch a creature and heal hit points equal to your level (8); usable once per long rest)",
+    "Light Bearer (Aasimar racial: you know the Light cantrip; Charisma is your casting ability)",
+    "Celestial Resistance (Aasimar racial: resistance to necrotic and radiant damage)"
+  ],
+  "traits": [
+    "Divine Sense",
+    "Lay on Hands",
+    "Fighting Style: Dueling",
+    "Divine Smite",
+    "Divine Health",
+    "Extra Attack",
+    "Aura of Protection",
+    "Channel Divinity: Watcher's Will",
+    "Channel Divinity: Abjure the Extraplanar",
+    "Oath Spells",
+    "Radiant Soul",
+    "Healing Hands",
+    "Light Bearer",
+    "Celestial Resistance"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 15,
+    "spellAttackBonus": 7,
+    "cantrips": [
+      "Light"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Compelled Duel",
+        "Shield of Faith",
+        "Cure Wounds",
+        "Wrathful Smite",
+        "Protection from Evil and Good"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "known": [
+        "Moonbeam",
+        "See Invisibility",
+        "Aid",
+        "Branding Smite",
+        "Find Steed"
+      ]
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    },
+    "level4": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Seraphina carries herself with the rigid, upright posture of a career soldier — shoulders squared, chin level, eyes forward, always scanning for threats. She has a habit of placing herself physically between her companions and any potential danger, stepping forward instinctively before her conscious mind has even registered the threat. She addresses strangers formally until they earn her trust, using titles and surnames, and she refers to the party as 'the company' out of ingrained military habit. Despite her stern exterior, she has a quiet tenderness that emerges in small ways — she always takes last watch so others can sleep longer, she mends torn clothing without being asked, and she hums hymns from her childhood temple when she thinks no one is listening. She keeps a meticulous mental inventory of every companion's wounds and remaining resources, and she will argue fiercely against any plan that puts others at unnecessary risk.",
+    "ideals": "The light exists to shield those who cannot shield themselves. Seraphina believes that her celestial heritage is not a gift but a responsibility — a debt owed to every mortal who lives without divine power in a universe full of things that have it. She holds that vigilance against extraplanar threats is the highest calling a warrior can pursue, because the creatures that slip between the planes do not merely kill — they corrupt, they twist, they unmake the very nature of their victims. She would rather die standing between an aberration and an innocent than live knowing she turned away. The Convergence represents everything she has trained to oppose: a violation of the natural boundaries that protect mortal worlds from the hungers of the outer planes. She does not fight for glory or reward. She fights because the alternative is unthinkable.",
+    "bonds": "Seraphina's angelic guide, a deva named Ithuriel, has spoken to her in dreams since childhood — a warm, golden presence that offered comfort and counsel during the hardest years of her training. When the Convergence began, Ithuriel's messages became urgent and fragmented, the golden light flickering with something Seraphina had never felt from her guide before: fear. The last clear message was a single word — 'Threshold' — and an image of the Astral Wardens' Citadel hanging in silver void. Seraphina left her order the next morning and has not heard from Ithuriel since. Finding her guide and understanding why the connection was severed drives her as powerfully as the mission itself. She also carries deep loyalty to her former commander, Marshal Davan Holt, who taught her that courage without compassion is just violence with better armor.",
+    "flaws": "Seraphina struggles with the weight of divine expectation. She was raised to believe that her celestial blood made her special, chosen, destined for greatness — and on her worst days, she resents it. She did not ask for wings of light or a voice in her dreams telling her where to go. She wanted to be a blacksmith, like her father. Instead, she is a weapon, shaped since childhood for a purpose she did not choose, and the pressure to be worthy of that purpose sometimes manifests as inflexibility, harsh self-judgment, and an inability to forgive herself for any failure, no matter how small. She drives herself to exhaustion, refuses healing when others need it more, and interprets any setback as evidence that she is failing her divine mandate. She also has a deep-seated distrust of extraplanar beings — including celestials other than Ithuriel — which sometimes makes her suspicious of allies with unusual origins."
+  },
+  "appearance": "Seraphina stands five feet ten inches tall, with the broad-shouldered, solidly muscular build of a woman who has spent most of her life in heavy armor. Her skin is a warm bronze, with a faint luminous quality that becomes more apparent in dim light — a subtle, golden undertone that seems to radiate from within, as though her blood carries its own light source. Her hair is thick, straight, and platinum white, cut practically short at the jawline so it does not interfere with her helmet, though a few stubborn strands perpetually escape to frame her face. Her eyes are her most overtly celestial feature: a deep, molten gold that catches and holds light with an almost metallic intensity, the irises faintly ringed with silver. When she activates her Radiant Soul, those eyes blaze like miniature suns, and wings of translucent golden light erupt from her shoulder blades — not feathered wings but geometric patterns of pure radiance, like stained glass made of sunlight, casting warm prismatic shadows across everything nearby. Her face is strong-featured and handsome rather than conventionally beautiful, with a square jaw, prominent cheekbones, a nose that has been broken at least twice, and a thin scar that runs from her left temple to the corner of her mouth — a souvenir from a grell tentacle that nearly took her eye during her first encounter with an aberration. She wears her plate armor with the ease of long practice, the steel polished but bearing the honest marks of heavy use — dents that have been hammered out, scratches that no amount of polishing will remove, and a deep gouge across the left pauldron where something very large and very angry tried to take her arm off. Her holy symbol, a radiant sunburst in polished gold, hangs over her breastplate on a heavy chain. Her shield bears the emblem of the Order of the Vigil — a watchful eye surrounded by seven stars — though she has added a new marking since arriving at the Threshold Citadel: a small silver compass etched into the lower corner, the sign of a Threadwalker.",
+  "backstory": "Seraphina was born in the fortress-city of Helmwatch, a military outpost on the edge of a region plagued by planar instability — a place where the boundaries between the Material Plane and the Far Realm had been thin for centuries, and where aberrant creatures occasionally pushed through the weakened veil to terrorize the surrounding countryside. Her father was a blacksmith who forged weapons for the garrison. Her mother had died in childbirth. The golden-eyed baby with the faintly glowing skin was immediately recognized by the fortress chaplain as an aasimar — a mortal touched by celestial blood — and word was sent to the Order of the Vigil, a paladin order dedicated to guarding against extraplanar incursion.\n\nThe Order came for her when she was seven. Her father wept as he handed her over, pressing a small iron horseshoe into her palm — a blacksmith's charm for luck. She still carries it, tucked inside her belt pouch, though the iron has long since gone black with age. The Order raised her alongside other children with unusual gifts: a tiefling boy who could sense fiends, a half-elf girl whose dreams predicted planar breaches, a dwarf child who could smell the wrongness in the air when the Far Realm pressed close. They were trained as soldiers first and paladins second — drilled in formation fighting, siege tactics, and the practical logistics of defending a position against enemies that did not follow the rules of physical reality.\n\nSeraphina excelled. She was not the strongest or the fastest, but she was the most relentless — the one who got up after every knockdown, who ran the extra mile, who stayed on the training field after everyone else had gone to eat. Her instructors called her 'Dawnguard' because she was always the first one on the walls at sunrise, watching the horizon for threats that hadn't arrived yet. The name stuck, and she eventually adopted it formally, since her birth surname — her father's name — felt like it belonged to the girl she might have been, not the soldier she had become.\n\nShe swore the Oath of the Watchers at age nineteen, committing herself to eternal vigilance against the threats that lurked beyond the boundaries of the mortal world. The oath felt natural, inevitable — the formalization of a purpose she had carried since childhood. Her angelic guide, Ithuriel, manifested clearly for the first time during the ceremony, filling her mind with golden warmth and a single, resonant word: 'Worthy.'\n\nFor the next decade, Seraphina served the Order with distinction. She fought aberrations in the deep tunnels beneath Helmwatch, banished a shadow demon that had infiltrated the fortress chaplaincy, and led a squad of twelve paladins on a three-month expedition into a region where the Feywild had partially merged with the Material Plane, rescuing seventeen civilians trapped in the overlap. She was promoted to Knight-Captain, given command of the Vigil's eastern watch, and was being considered for the rank of Marshal when the Convergence began.\n\nThe signs were unmistakable to anyone trained to read them. Planar boundaries that had been stable for centuries began to flex and buckle. Aberrant incursions doubled, then tripled. The thin spots near Helmwatch — manageable nuisances for generations — suddenly widened into genuine rifts, spewing creatures that the garrison had never seen before. And Ithuriel's messages, always calm and measured, became desperate.\n\nThe deva's final communication came as a dream: a vision of silver void stretching in every direction, a great citadel floating in the emptiness, and a sense of terrible urgency. The word 'Threshold' burned itself into Seraphina's mind like a brand. When she woke, she could feel a pull in her chest — a compass-needle tug toward something she could not see, drawing her away from everything she had ever known. She reported to her commander, handed over her duties, and walked out of Helmwatch with nothing but her armor, her sword, and the iron horseshoe her father had given her twenty-three years ago.\n\nThe journey to the Astral Sea took weeks — a series of increasingly unstable planar crossings guided by the compass-pull in her chest and the fading echo of Ithuriel's voice. When she finally arrived at the Threshold Citadel and saw the githzerai monks who maintained it, she understood. The Convergence was not a local phenomenon. It was not just the Material Plane's problem. The boundaries between all planes were failing, and the Astral Wardens — who had watched those boundaries for millennia — needed every soul who could walk the fractures without breaking. They needed Threadwalkers. And whatever Ithuriel had seen in the future, it had been terrible enough to make a deva afraid."
+}

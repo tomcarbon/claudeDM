@@ -1,0 +1,117 @@
+{
+  "id": "ac-char-006",
+  "name": "Quicksilver",
+  "status": "alive",
+  "race": "Tabaxi",
+  "subrace": "",
+  "class": "Rogue (Arcane Trickster)",
+  "level": 8,
+  "background": "Criminal",
+  "alignment": "Chaotic Good",
+  "experience": 34000,
+  "abilities": {
+    "strength": { "score": 10, "modifier": 0 },
+    "dexterity": { "score": 20, "modifier": 5 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 16, "modifier": 3 },
+    "wisdom": { "score": 12, "modifier": 1 },
+    "charisma": { "score": 12, "modifier": 1 }
+  },
+  "hitPoints": { "max": 59, "current": 59 },
+  "armorClass": 17,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": ["Dexterity", "Intelligence"],
+  "skills": ["Acrobatics", "Stealth", "Sleight of Hand", "Investigation", "Perception", "Deception"],
+  "languages": ["Common", "Elvish", "Thieves' Cant"],
+  "equipment": [
+    "Studded leather armor",
+    "Rapier",
+    "Shortbow",
+    "Arrows (20)",
+    "Two daggers",
+    "Thieves' tools",
+    "Burglar's pack",
+    "A crowbar",
+    "A set of dark common clothes including a hood",
+    "Belt pouch containing 40 gp",
+    "Rations (5)",
+    "Waterskin",
+    "Silver compass shard (Threadwalker focus)",
+    "A collection of stolen trinkets from a dozen planes",
+    "A grappling hook and 50 ft silk rope"
+  ],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attackBonus": 8,
+      "damage": "1d8+5",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortbow",
+      "attackBonus": 8,
+      "damage": "1d6+5",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 8,
+      "damage": "1d4+5",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": { "name": "Studded Leather Armor", "type": "light" },
+  "features": [
+    "Expertise (Stealth, Sleight of Hand): Your proficiency bonus is doubled for Stealth and Sleight of Hand checks, giving you an effective +11 to each.",
+    "Sneak Attack (4d6): Once per turn, you can deal an extra 4d6 damage to one creature you hit with an attack if you have advantage on the attack roll. You don't need advantage if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage. The attack must use a finesse or ranged weapon.",
+    "Cunning Action: You can take a bonus action on each of your turns to Dash, Disengage, or Hide.",
+    "Uncanny Dodge: When an attacker you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.",
+    "Evasion: When you are subjected to an effect that allows a DEX saving throw for half damage, you take no damage on a success and half damage on a failure.",
+    "Mage Hand Legerdemain: When you cast Mage Hand, you can make the spectral hand invisible. You can use the hand to stash or retrieve objects in containers worn or carried by other creatures, pick locks, disarm traps, or use thieves' tools at range. You can perform these tasks as a bonus action.",
+    "Versatile Trickster: As a bonus action, you can designate a creature within 5 feet of your Mage Hand. You have advantage on attack rolls against that creature until the end of your turn.",
+    "Feline Agility (Tabaxi): When you move on your turn in combat, you can double your speed until the end of the turn. Once you use this trait, you can't use it again until you spend a turn not moving.",
+    "Cat's Claws (Tabaxi): You have a climbing speed of 20 feet. In addition, your claws are natural weapons, which you can use to make unarmed strikes dealing 1d4 + DEX modifier slashing damage."
+  ],
+  "traits": [
+    "Expertise",
+    "Sneak Attack (4d6)",
+    "Cunning Action",
+    "Uncanny Dodge",
+    "Evasion",
+    "Mage Hand Legerdemain",
+    "Versatile Trickster",
+    "Feline Agility",
+    "Cat's Claws"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 14,
+    "spellAttackBonus": 6,
+    "cantrips": ["Mage Hand", "Minor Illusion", "Booming Blade"],
+    "level1": {
+      "slots": 4,
+      "known": ["Find Familiar", "Silent Image", "Disguise Self", "Shield"]
+    },
+    "level2": {
+      "slots": 2,
+      "known": ["Invisibility", "Shadow Blade"]
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    },
+    "level4": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Quicksilver is relentlessly, irrepressibly curious — the kind of curious that has them picking up obviously cursed artifacts, opening clearly trapped chests, and asking powerful extraplanar entities provocative questions just to see what happens. They move through the world with the liquid, unhesitating confidence of a cat who has never once considered the possibility that a surface might not support their weight, and they approach social interactions with the same philosophy: leap first, calculate later, and if you're charming enough, the landing usually works out. They collect things — trinkets, stories, secrets, interesting rocks, other people's belongings — not out of greed but out of a deep, almost spiritual conviction that interesting things deserve to be appreciated by someone who will actually notice them. They speak quickly, change subjects without warning, and have a habit of appearing in places they have no business being with an expression of wide-eyed innocence that fools absolutely no one.",
+    "ideals": "The world — all the worlds, every plane in the multiverse — exists to be explored, experienced, and marveled at, and anyone who tries to wall it off, lock it down, or control who gets to see it is committing a crime against wonder itself. Quicksilver believes in freedom of movement as a near-sacred principle: borders are suggestions, locks are invitations, and 'restricted area' is just another way of saying 'the interesting stuff is in here.' But this isn't pure selfishness — Quicksilver genuinely believes that hoarding beautiful or wonderful things (including knowledge, experiences, and opportunities) is a form of cruelty. They steal from the rich and the powerful not because they hate wealth but because they've seen too many magnificent things locked away in vaults where no one can enjoy them. The Convergence has complicated this philosophy, because the planes colliding means unlimited access to everywhere all at once — which sounds like paradise until you see what comes through the cracks uninvited.",
+    "bonds": "Quicksilver's traveling clan — the Wandering Marvels — is the closest thing they have to family, a loose collective of tabaxi traders, performers, and enthusiastic acquisitions specialists who roam between cities and, occasionally, between planes. The clan's matriarch, Keeper of Distant Horizons, gave Quicksilver their use-name and taught them that the world's wonders are meant to be shared, not hoarded. When the Convergence began tearing open random portals, the Wandering Marvels scattered — some through the portals, some away from them — and Quicksilver has been trying to locate and reunite clan members ever since. They carry a collection of trinkets stolen from a dozen different planes, each one a memory of a clan member they traveled with: a crystal doorknob from the Feywild (for Chaser of Bright Things), a coin minted in a city that no longer exists (for Counter of Lost Days), a feather that falls upward (for Singer of Impossible Songs). Finding these people, or at least learning their fates, drives Quicksilver as much as any Threadwalker duty.",
+    "flaws": "Quicksilver's curiosity is not a personality trait — it is a compulsion, and it has nearly gotten them killed more times than they can count, which is saying something because tabaxi are excellent counters. They cannot leave a mystery uninvestigated, a locked door unopened, or a warning unignored. 'Don't touch that' is a phrase that has never once produced the desired effect on Quicksilver; if anything, it accelerates the touching. This compulsive curiosity is paired with an equally compulsive inability to take anything seriously for more than about thirty seconds, which means they process fear and danger through humor and deflection in ways that can infuriate companions who are trying to have a genuine emotional moment. They are also, despite their good heart, a habitual thief — not of anything important or valuable, but of small, interesting objects that catch their eye. They don't think of it as stealing so much as redistributing wonder, but the people whose pockets they pick rarely share this philosophical framework. They are also terrified of commitment and permanence, which manifests as a reflexive urge to bolt whenever a situation starts feeling too stable, too comfortable, or too much like home."
+  },
+  "appearance": "Quicksilver is a lean, compact tabaxi standing about five foot seven, with a build that is all coiled spring and no wasted mass — every ounce of them is optimized for speed, agility, and fitting through spaces that should be physically impossible. Their fur is a deep charcoal gray with faint, irregular spots of darker black that form patterns vaguely reminiscent of scattered stars — a coloring that makes them nearly invisible in shadows, which is convenient given their profession. Their underbelly and the insides of their ears are a softer silver-gray, and the tip of their long, expressive tail is pure white, which they've considered dying dark for stealth purposes but never quite gotten around to because they secretly think it looks dashing. Their eyes are large, round, and a striking mercury-silver that catches and reflects light like actual quicksilver — the feature that earned them their use-name. In dim light, their eyes glow with a soft, silvery luminescence that is beautiful and slightly unnerving. Their face is narrow and angular, with high-set ears that rotate independently to track sounds, long whiskers that twitch constantly with curiosity or amusement, and a mouth that defaults to a sharp, knowing grin. Their claws are kept meticulously sharp — tools of the trade — and their hands are dexterous beyond what most humanoids can achieve, with an extra degree of flexibility in each finger joint that makes their lockpicking and sleight of hand look like magic even when it isn't. They wear their studded leather armor like a second skin, dyed dark gray to match their fur, with countless small pockets and hidden compartments sewn into the lining. A bandolier of small tools — lockpicks, wire cutters, a tiny mirror on an extendable handle — crosses their chest. Their rapier hangs at their left hip in a well-oiled scabbard, their shortbow is strapped across their back, and their silver compass shard is worn as an earring, dangling from their left ear and catching the light with every movement of their head.",
+  "backstory": "The tabaxi who would become Quicksilver was born under the use-name Chaser of Falling Stars, the youngest of a litter of four in the Wandering Marvels, a tabaxi clan that made its living as traveling traders, performers, and — when the opportunity presented itself — liberators of underappreciated valuables. The clan roamed a circuit of major cities, trading in curiosities, exotic goods, and information, and young Chaser grew up believing that the entire world was a vast, interconnected marketplace of wonders waiting to be discovered, handled, and occasionally pocketed.\n\nThey showed a talent for acquisitions early. By age ten, they could pick a pocket in a crowd without breaking stride. By fourteen, they could defeat any lock the clan's elders could find, and they'd developed the unsettling habit of appearing inside rooms that had been locked from the inside. The clan's matriarch, Keeper of Distant Horizons, recognized the talent and channeled it — she taught Chaser the difference between stealing for greed and stealing for wonder, between taking what someone needs and liberating what someone is hoarding. The lessons stuck, mostly. Chaser developed a code: never steal from those who can't afford the loss, never take something that's loved, and always leave something interesting behind.\n\nThe name Quicksilver came later, earned during a heist that became legendary within the clan. Chaser had been hired to recover a stolen heirloom from a corrupt merchant's vault — a job that required bypassing magical wards, mechanical locks, and a small army of guards. They did it in under four minutes, moving so fast and fluidly that the merchant's security mage described the thief as 'like quicksilver — impossible to catch, impossible to hold.' The name was a better fit than the old one, and it stuck.\n\nQuicksilver's world expanded dramatically when the clan began traveling between planes. The Wandering Marvels had contacts among planar traders, and when a reliable portal network operated between the major planes, the clan added the Feywild, the Shadowfell, and several elemental way-stations to their circuit. Quicksilver was enthralled. Every plane was a new set of locks, a new set of wonders, a new set of things that absolutely needed to be touched despite all warnings to the contrary. They stole a crystal doorknob from a Feywild archfey's palace (the archfey was amused, barely), a coin from a Shadowfell treasury (the Shadow Lord was not amused at all), and an ever-falling feather from an air elemental's collection (the elemental didn't notice, which was somehow the most insulting theft of all).\n\nThen the Convergence began, and the portal network shattered. Stable passages between planes became unreliable, then dangerous, then lethal. The Wandering Marvels were mid-transit when a Convergence event destabilized the portal they were using. The clan was scattered across multiple planes in an instant — Quicksilver was thrown into the Astral Sea alone, tumbling through silver void until they crashed into the Silver Wastes with nothing but their armor, their tools, and a collection of trinkets that suddenly felt less like souvenirs and more like last memories of people they might never see again.\n\nThe Astral Wardens found them three days later, half-starved and fully furious, attempting to pick the lock on a sealed Convergence rift because they were convinced their clanmates might be on the other side. The githzerai recognized the determination, the skill, and the unusual affinity Quicksilver had developed for navigating planar boundaries — a side effect, they explained, of years of casual planar travel that had attuned Quicksilver's senses to the threads between worlds. They offered training as a Threadwalker, and Quicksilver accepted without hesitation. Not because they cared about saving reality — though that was a nice bonus — but because the Threadwalkers could navigate the broken spaces between planes, and somewhere in those broken spaces, the Wandering Marvels were waiting to be found."
+}

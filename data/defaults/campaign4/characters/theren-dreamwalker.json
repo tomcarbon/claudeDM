@@ -1,0 +1,108 @@
+{
+  "id": "ac-char-005",
+  "name": "Theren Dreamwalker",
+  "status": "alive",
+  "race": "Kalashtar",
+  "subrace": "",
+  "class": "Cleric (Knowledge Domain)",
+  "level": 8,
+  "background": "Acolyte",
+  "alignment": "Neutral Good",
+  "experience": 34000,
+  "abilities": {
+    "strength": { "score": 12, "modifier": 1 },
+    "dexterity": { "score": 10, "modifier": 0 },
+    "constitution": { "score": 16, "modifier": 3 },
+    "intelligence": { "score": 16, "modifier": 3 },
+    "wisdom": { "score": 20, "modifier": 5 },
+    "charisma": { "score": 12, "modifier": 1 }
+  },
+  "hitPoints": { "max": 67, "current": 67 },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": ["Wisdom", "Charisma"],
+  "skills": ["Arcana", "History", "Insight", "Religion", "Medicine"],
+  "languages": ["Common", "Quori", "Celestial", "Draconic", "Primordial"],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Mace",
+    "Holy symbol (a dream-catcher woven with silver thread)",
+    "Prayer book",
+    "5 sticks of incense",
+    "Vestments",
+    "A set of common clothes",
+    "Belt pouch containing 20 gp",
+    "Rations (5)",
+    "Waterskin",
+    "Silver compass shard (Threadwalker focus)",
+    "A quori meditation stone",
+    "A journal of prophetic dreams"
+  ],
+  "weapons": [
+    {
+      "name": "Mace",
+      "attackBonus": 4,
+      "damage": "1d6+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": { "name": "Chain mail + Shield", "type": "heavy" },
+  "features": [
+    "Spellcasting: You prepare a list of cleric spells each long rest, choosing from the full cleric spell list. You can prepare WIS modifier + cleric level (5 + 8 = 13) spells per long rest. Your domain spells are always prepared and don't count against this total.",
+    "Knowledge Domain: Blessings of Knowledge: You gain proficiency in two of the following skills: Arcana, History, Nature, or Religion. Your proficiency bonus is doubled for ability checks using either of those skills (Expertise in Arcana and History, effective +9).",
+    "Knowledge Domain: Channel Divinity: Knowledge of the Ages (2 uses/short rest): As an action, you choose one skill or tool. For 10 minutes, you have proficiency with the chosen skill or tool.",
+    "Knowledge Domain: Channel Divinity: Read Thoughts (2 uses/short rest): As an action, choose one creature you can see within 60 feet. That creature must make a WIS saving throw (DC 16). On a failed save, you can read its surface thoughts for 1 minute. During that time, you can use your action to cast Suggestion on that creature without expending a spell slot, and the target automatically fails its saving throw against the Suggestion.",
+    "Destroy Undead (CR 1): When an undead creature of CR 1 or lower fails its saving throw against your Turn Undead feature, the creature is instantly destroyed.",
+    "Turn Undead (Channel Divinity): As an action, each undead within 30 feet that can see or hear you must make a WIS saving throw (DC 16). On failure, it is turned for 1 minute or until it takes damage.",
+    "Kalashtar: Dual Mind: You have advantage on all Wisdom saving throws.",
+    "Kalashtar: Mental Discipline: You have resistance to psychic damage.",
+    "Kalashtar: Mind Link: You can speak telepathically to any creature you can see within 80 feet (10 x level). You don't need to share a language, but the creature must be able to understand at least one language. The creature can respond telepathically while you maintain the link.",
+    "Kalashtar: Severed from Dreams: You are immune to spells and effects that require you to dream (such as the Dream spell), as kalashtar sleep but do not dream.",
+    "Shelter of the Faithful (Acolyte): You and your adventuring companions can expect to receive free healing and care at a temple of your faith, though you must provide any material components needed for spells."
+  ],
+  "traits": [
+    "Spellcasting",
+    "Blessings of Knowledge",
+    "Channel Divinity: Knowledge of the Ages",
+    "Channel Divinity: Read Thoughts",
+    "Destroy Undead (CR 1)",
+    "Turn Undead",
+    "Dual Mind",
+    "Mental Discipline",
+    "Mind Link",
+    "Severed from Dreams",
+    "Shelter of the Faithful"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 16,
+    "spellAttackBonus": 8,
+    "cantrips": ["Sacred Flame", "Guidance", "Thaumaturgy", "Spare the Dying", "Light"],
+    "level1": {
+      "slots": 4,
+      "known": ["Command", "Identify", "Cure Wounds", "Healing Word", "Bless", "Detect Magic", "Shield of Faith"]
+    },
+    "level2": {
+      "slots": 3,
+      "known": ["Augury", "Suggestion", "Spiritual Weapon", "Lesser Restoration", "Prayer of Healing", "Hold Person"]
+    },
+    "level3": {
+      "slots": 3,
+      "known": ["Nondetection", "Speak with Dead", "Spirit Guardians", "Revivify", "Dispel Magic"]
+    },
+    "level4": {
+      "slots": 2,
+      "known": ["Arcane Eye", "Confusion", "Guardian of Faith", "Death Ward"]
+    }
+  },
+  "personality": {
+    "traits": "Theren speaks with the measured cadence of someone who is perpetually listening to two conversations at once — because he is. His quori spirit Ashana provides a constant undercurrent of impressions, emotions, and fragmentary images that Theren has learned to integrate into his conscious thought rather than suppress. This gives him an unsettling habit of pausing mid-sentence, tilting his head as if hearing something others cannot, and then continuing as if nothing happened. He is endlessly patient, genuinely curious about the beliefs and perspectives of others, and has a scholar's compulsive need to document everything — his journal of prophetic dreams is meticulous, cross-referenced, and illustrated with precise diagrams. He quotes obscure texts the way other people quote proverbs, and he has a gentle, self-deprecating sense of humor about his own bookishness. He touches his quori meditation stone when he's anxious, which has been increasingly often as the Convergence accelerates.",
+    "ideals": "Knowledge is sacred — not because it confers power, though it does, but because understanding is the only reliable antidote to fear, suffering, and the kind of willful ignorance that allows evil to flourish unchallenged. Theren believes that every piece of lost knowledge is a wound in the fabric of civilization, and every truth recovered is a stitch that holds that fabric together. He is devoted to the principle that knowledge must be preserved and shared freely, never hoarded or weaponized, and he extends this principle to uncomfortable extremes — he believes that even dangerous knowledge is better understood than suppressed, because suppressed knowledge doesn't disappear, it just waits for someone less scrupulous to discover it. The Convergence terrifies him precisely because it represents a cosmic-scale loss of coherence — planes losing their distinctness, realities blurring together, the fundamental categories that make knowledge possible dissolving into chaos. He fights not just to save lives but to save meaning itself.",
+    "bonds": "Theren's deepest bond is with Ashana, his quori spirit. Unlike most kalashtar, whose quori connections are subtle and instinctive, Theren's link with Ashana is vivid, conversational, and increasingly troubled. Ashana has been sending him visions of the Convergence for over a year — fractured images of planes colliding, of the Confluence reassembling itself, of a terrible equation being solved in the spaces between realities. But the visions are incomplete, distorted, as if Ashana is trying to communicate something so vast and alien that even a quori spirit struggles to translate it into terms a mortal mind can process. Theren also carries a deep loyalty to the monastery-library where he was trained, a kalashtar community dedicated to preserving the knowledge of the Plane of Dreams. The monastery was damaged when a Convergence event tore open a portal in its deepest archive, and several irreplaceable texts were lost to the Astral Sea. Recovering those texts — and preventing further losses — is personal for Theren in a way that goes beyond duty.",
+    "flaws": "Theren's devotion to knowledge and understanding can shade into paralysis. He wants to understand a problem completely before acting on it, which means he sometimes hesitates at moments that demand immediate, imperfect action. He over-analyzes, second-guesses, and reaches for one more consultation with Ashana when what the situation actually requires is a decision. This is compounded by a deep-seated fear that Ashana's visions contain information he is failing to interpret correctly — that the answer to the Convergence is somewhere in the fragmentary images his quori spirit sends him, and his inability to decode it makes every delay potentially catastrophic. He is also quietly, stubbornly arrogant about his own intelligence in a way that his gentle demeanor masks effectively. He listens to others' opinions with genuine interest and then does what he was going to do anyway, having already concluded that his analysis is superior. He doesn't mean to be dismissive — he genuinely doesn't notice he's doing it — but it can strain relationships with people who realize their input is being collected but never integrated."
+  },
+  "appearance": "Theren is tall and slender, standing just over six feet with the lean, contemplative build of someone who has spent far more time in libraries than on battlefields. His skin is a warm bronze, smooth and unmarked, with a faint opalescent quality common to kalashtar — in certain lights, particularly when Ashana is actively communicating with him, his skin shimmers with a mother-of-pearl iridescence that shifts between blue and gold. His face is angular and kind, with high cheekbones, a straight nose, and a mouth that defaults to a slight, thoughtful smile. His eyes are his most distinctive feature: they are a deep, luminous violet that seems to contain shifting depths, as if you could fall into them and find yourself somewhere else entirely. When Ashana's visions are particularly strong, thin filaments of golden light trace across his irises like cracks in stained glass. His hair is dark brown, nearly black, worn long and tied back with a simple leather cord. A few strands of pure silver have appeared at his temples over the past year — stress, he claims, though he suspects it's a physical manifestation of his deepening connection with Ashana. He wears his chain mail with the ease of long practice, over simple robes of deep blue and gray. His shield bears the symbol of his order — an open book beneath a crescent moon — painted in silver. His holy symbol, a dream-catcher woven with silver thread, hangs at his belt, and it occasionally sways on its own as if caught in a wind from another plane. His hands are ink-stained, his fingers long and precise, and he carries himself with the careful posture of someone accustomed to navigating narrow library aisles without disturbing the stacks. The quori meditation stone he keeps in his pocket is smooth from years of anxious handling.",
+  "backstory": "Theren was born into a small kalashtar community nested within a larger human city, a quiet enclave of scholars, dreamers, and mystics who maintained an ancient tradition of preserving knowledge from the Plane of Dreams. His quori spirit, Ashana, had been passed down through his family's lineage for generations — a spirit of curiosity and cataloguing, drawn to patterns and connections, endlessly fascinated by the way disparate pieces of information fit together into larger truths. From childhood, Theren's bond with Ashana was unusually strong. Where most kalashtar experience their quori as subtle intuitions or emotional nudges, Theren heard Ashana as a distinct voice — gentle, patient, occasionally amused — offering commentary on his studies, suggesting connections he'd missed, and filling his dreams with visions of vast libraries that existed in the space between sleeping and waking.\n\nHe was ordained as a priest of knowledge at twenty, joining the monastery-library that served as his community's heart. The monastery maintained the largest collection of dream-transcriptions in the material plane — records of quori communications, prophetic visions, and the fragmentary mathematics of the Plane of Dreams translated into mortal notation. Theren became one of its most dedicated archivists, spending years cataloguing, cross-referencing, and annotating the collection with a thoroughness that bordered on obsessive. Ashana approved. Knowledge preserved was knowledge that could not be lost, and in a multiverse where entire planes could shift and change, preservation was an act of profound faith.\n\nThe first vision came fourteen months ago. Theren was deep in meditation when Ashana seized his consciousness with an urgency she had never shown before. He saw planes — dozens of them — drawn toward each other like soap bubbles merging, their boundaries thinning and dissolving. He saw the Astral Sea churning, its silver currents disrupted by something vast and geometric that was assembling itself from fragments scattered across reality. He saw threads — the fundamental connections between planes — being pulled taut, twisted, knotted together into patterns that Ashana recognized but could not name. And beneath it all, he heard a sound like an equation being spoken aloud, each variable a reality, each operation a catastrophe.\n\nThe visions continued, growing more frequent and more detailed. Ashana was frantic in a way that frightened Theren — quori spirits are ancient, patient entities, and seeing Ashana afraid was like watching a mountain panic. He brought his visions to the monastery's elders, who recognized the signs: the Convergence, a prophesied event in which the boundaries between planes would weaken catastrophically. The monastery had records of previous Convergences — smaller ones, localized ones — but nothing on the scale Ashana was describing.\n\nThen the Convergence reached the monastery itself. A portal tore open in the deepest archive, a wound in reality that bled astral light and static. Three irreplaceable texts were pulled through before the monks managed to seal the breach — dream-mathematics that Theren now suspects contained information crucial to understanding the Confluence, the living equation at the heart of the Convergence. The loss was devastating, not just culturally but strategically.\n\nThe Astral Wardens arrived the following week, githzerai monks who had been tracking the Convergence across the planes. They recognized Theren's visions as genuine Convergence phenomena and offered him a place among the Threadwalkers — individuals whose unique connections to the planar fabric made them capable of navigating and potentially repairing the damage. Theren accepted, driven by Ashana's insistence and his own desperate need to recover the lost texts and understand what the Confluence truly is. He carries his silver compass shard with reverent precision, and Ashana hums when it's near — a harmony that Theren finds beautiful and terrifying in equal measure, because it suggests his quori spirit and the Convergence are connected in ways neither of them fully understands."
+}

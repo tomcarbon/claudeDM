@@ -1,0 +1,179 @@
+{
+  "id": "ac-npc-005",
+  "name": "Naia Driftborn",
+  "status": "alive",
+  "race": "Changeling",
+  "subrace": "",
+  "class": "Bard",
+  "level": 8,
+  "background": "Entertainer",
+  "alignment": "Chaotic Good",
+  "experience": 34000,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 20,
+      "modifier": 5
+    }
+  },
+  "hitPoints": {
+    "max": 51,
+    "current": 51
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Dexterity",
+    "Charisma"
+  ],
+  "skills": [
+    "Performance",
+    "Persuasion",
+    "Deception",
+    "Arcana",
+    "History",
+    "Sleight of Hand"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Sylvan",
+    "Dwarvish",
+    "Celestial"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Rapier",
+    "Lute (decorated with shifting astral patterns)",
+    "Disguise kit",
+    "Set of fine clothes",
+    "Letter from an admirer (written in a language that no longer exists)",
+    "Belt pouch containing 35 gp",
+    "Rations (5)",
+    "Waterskin",
+    "Collection of stories written on astral moth-wing parchment",
+    "Small mirror that shows a different face each time you look"
+  ],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attackBonus": 5,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Vicious Mockery (cantrip, WIS save)",
+      "attackBonus": 0,
+      "damage": "2d4 psychic (WIS save DC 16)",
+      "damageType": "psychic"
+    }
+  ],
+  "armor": {
+    "name": "Studded Leather Armor",
+    "type": "light"
+  },
+  "features": [
+    "Bardic Inspiration (as a bonus action, grant one creature within 60 ft a d8 Bardic Inspiration die; the creature can add it to one ability check, attack roll, or saving throw within 10 minutes; 5 uses per long rest, recharges on long rest — or short rest via Font of Inspiration)",
+    "Jack of All Trades (add +1 to all ability checks that don't already include proficiency bonus — half proficiency rounded down)",
+    "Song of Rest (during a short rest, allies who spend Hit Dice to regain HP regain an extra 1d6 HP)",
+    "Expertise: Performance (+11 total), Persuasion (+11 total) — double proficiency bonus for these skills",
+    "Font of Inspiration (Bardic Inspiration recharges on short rest instead of only long rest)",
+    "Countercharm (as an action, perform for 1 round; allies within 30 ft have advantage on saving throws against being frightened or charmed until end of your next turn)",
+    "College of Creation: Mote of Potential (when granting Bardic Inspiration, a mote of potential orbits the target; if the die is used on an ability check, roll the inspiration die twice and use the higher; if used on an attack roll, the mote deals thunder damage equal to the inspiration die to all creatures within 5 ft of the target; if used on a saving throw, the creature gains temp HP equal to the inspiration die roll + CHA modifier = roll + 5)",
+    "College of Creation: Performance of Creation (as an action, create one nonmagical item worth up to 160 gp, up to Large size, that lasts for 3 hours; 1/long rest or costs a 2nd-level spell slot)",
+    "Changeling: Shapechanger (as an action, change your appearance to any humanoid you have seen, including height, weight, facial features, voice, hair length, coloration, and distinguishing marks; reverts on death or by choice)",
+    "Changeling: Divergent Persona (proficiency with disguise kit — one additional tool proficiency)"
+  ],
+  "traits": [
+    "Bardic Inspiration (d8)",
+    "Jack of All Trades",
+    "Song of Rest (d6)",
+    "Expertise",
+    "Font of Inspiration",
+    "Countercharm",
+    "Mote of Potential",
+    "Performance of Creation",
+    "Shapechanger",
+    "Divergent Persona"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 16,
+    "spellAttackBonus": 8,
+    "cantrips": [
+      "Vicious Mockery",
+      "Minor Illusion",
+      "Prestidigitation",
+      "Mending"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Healing Word",
+        "Cure Wounds",
+        "Faerie Fire",
+        "Thunderwave",
+        "Dissonant Whispers"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "known": [
+        "Shatter",
+        "Heat Metal",
+        "Enhance Ability",
+        "Silence"
+      ]
+    },
+    "level3": {
+      "slots": 3,
+      "known": [
+        "Hypnotic Pattern",
+        "Bestow Curse",
+        "Dispel Magic"
+      ]
+    },
+    "level4": {
+      "slots": 2,
+      "known": [
+        "Polymorph",
+        "Dimension Door"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "Naia's appearance shifts subtly and unconsciously with her emotions — her features sharpen when she's focused, soften when she's sad, and become more angular and dramatic when she's performing. She collects stories the way other people collect coins, and she values a good tale above almost any material reward. She fills silences with music — humming, tapping rhythms, plucking idle melodies on her lute — not because she's nervous but because she genuinely believes silence is a canvas waiting for sound. She remembers every face she has ever worn and every story she has ever heard, and she will sometimes unconsciously shift into the appearance of a character she's describing while telling a story.",
+    "ideals": "Stories. Every being has a story worth telling, and every story told keeps something alive. The Astral Sea is full of forgotten stories — civilizations that rose and fell, gods that lived and died, loves that burned and faded — and Naia considers it her sacred duty to remember them. A story unheard is a life unlived.",
+    "bonds": "Naia is bonded to the Astral Sea as a place, not just a location — it is the collection of all the stories she has gathered over decades of drifting. She is also deeply bonded to the party, who represent the first story she has been part of rather than merely observed. Her lute was given to her by a githyanki captain whose crew she entertained for three years; she has never told anyone that the captain was the closest thing she has had to a romantic partner, and the lute is all she has left of that relationship.",
+    "flaws": "Naia hides behind performance. Her cheerfulness, her wit, her endless stories — they are real, but they are also armor. She has spent decades as a drifter in the Astral Sea, never staying anywhere long enough to form deep attachments, and the prospect of genuine intimacy terrifies her. She will deflect serious emotional conversations with humor, change her face when she wants to hide her feelings, and volunteer to take watch alone when the campfire talk gets too personal. She is also addicted to novelty — new stories, new faces, new experiences — and struggles with routine, commitment, and the quiet moments between adventures."
+  },
+  "appearance": "In her default form — the one she wears most often around the party, which she has come to think of as her 'real' face — Naia is a slender, androgynous figure of medium height with features that hover in an undefined space between elven and human. Her skin is a pale, pearlescent white that catches light in faintly iridescent ways, like the inside of an oyster shell. Her eyes are large and expressive, shifting between pale violet and silver depending on her mood, with no visible pupil — just a gradient of color that deepens toward the center. Her hair is silver-white and cut asymmetrically, longer on the left side where it falls across her face, shorter on the right. It has a faintly luminous quality, as though each strand catches light that isn't quite there. Her features are pleasantly ambiguous — a face designed by someone who couldn't quite decide what beautiful meant and so included a little of everything. High cheekbones, a slightly sharp chin, a mouth that defaults to a half-smile. When she performs or experiences strong emotions, her features shift: cheekbones sharpening, eyes widening, jaw becoming more defined. When she's relaxed and unguarded, her features soften to something rounder and younger, and her skin takes on a warmer tone. She wears her studded leather armor beneath a long coat of deep blue fabric that shimmers with the patterns of astral constellations — not embroidered, but woven from thread that naturally holds the light of the Astral Sea. Her lute is slung across her back, its body decorated with inlays that seem to shift and move when you're not looking directly at them. She moves with a performer's grace — every gesture slightly larger than life, every step placed with unconscious precision. A rapier hangs at her hip in a well-worn scabbard, and her belt pouches are stuffed with parchment, ink, small trinkets from a hundred astral communities, and the small mirror that shows a different face with every glance.",
+  "backstory": "Naia doesn't remember which face she was born with. Changelings are shapeshifters from birth, but most have a 'true form' — a pale, featureless default they return to in private. Naia's true form vanished somewhere in her teenage years, replaced by an ever-shifting cascade of faces borrowed from people she'd met, characters she'd played, strangers she'd glimpsed in passing. Her parents — a changeling mother and a human father, living in a small town on the Material Plane — found this alarming. Changelings were already distrusted; a changeling who couldn't hold a consistent face was something else entirely. Naia left home at sixteen, not out of anger but restlessness. She had heard stories of the wider world and wanted to be in them, not just hear them. She traveled as an entertainer, performing in taverns and courts, wearing faces that audiences wanted to see — beautiful when they wanted beauty, familiar when they wanted comfort, strange when they wanted wonder. She was good at it. Too good. By the time she was twenty, she had performed for three different noble houses under three different faces and names, and none of them knew she was the same person. The problem with being everyone is that you risk being no one. Naia felt herself dissolving — not physically but psychologically. Each face she wore came with mannerisms, preferences, even memories that felt borrowed from the person she was imitating. She began to lose track of which thoughts were hers and which belonged to a character. Desperate for something real, she followed a rumor of a color pool — a portal to the Astral Sea — and stepped through. The portal closed behind her. She was twenty-three. The Astral Sea saved her and trapped her in equal measure. In the timeless silver void, Naia didn't age. She drifted between astral communities — githyanki pirate fleets, githzerai monasteries, nomadic thri-kreen navigators, communities of astral refugees from a dozen planes — collecting stories, performing, wearing faces, and slowly building something she hadn't had on the Material Plane: a reputation. Not as a face, but as a storyteller. The Astral beings didn't care what she looked like; they cared about the stories she carried. For the first time, Naia was valued for what she knew and could do, not for what she appeared to be. She spent three years with a githyanki captain named Kith'ari, performing for the crew and learning astral navigation. It was the closest thing to a home she'd had since leaving her parents, and when Kith'ari's ship was destroyed in a Convergence storm, Naia lost the second home she'd ever known. She drifted again — this time grief-struck and purposeless — until the Astral Wardens found her performing for a group of astral whales, singing songs in languages that no longer existed to creatures that communicated in subsonic vibrations. The githzerai recognized her encyclopedic knowledge of the Astral Sea and its inhabitants as an invaluable resource. They offered her a place at the Threshold Citadel and a purpose: join the Threadwalkers, help stabilize the Convergence, and in doing so, protect the countless communities and stories she had gathered over decades of drifting. For Naia, it was the first purpose she'd had in years, and the first time she'd been asked to be part of a story rather than just telling one.",
+  "dmNotes": {
+    "roleplaying": "Naia is the party's heart — the one who keeps morale alive, heals wounds both physical and emotional, talks the party out of fights they can't win, and talks them into fights worth fighting. Play her as warm, witty, and performative, with layers of genuine vulnerability beneath the showmanship. She is always 'on' — always entertaining, always charming, always filling the space with music and stories and laughter — because the alternative is silence, and silence means being alone with herself, which is the thing she fears most. In combat, Naia is a force multiplier rather than a damage dealer. Bardic Inspiration with Mote of Potential is her bread and butter — she hands out d8s like party favors, each orbited by a crackling mote that adds damage, defense, or skill depending on how it's used. Healing Word at range keeps allies on their feet. Faerie Fire and Hypnotic Pattern control the battlefield. Vicious Mockery is her go-to cantrip, and she should always accompany it with an actual verbal mockery — creative insults are Naia's combat style. When things get serious, Polymorph is her trump card — turning a dying ally into a full-HP giant ape, or turning a terrifying enemy into a harmless snail. Performance of Creation lets her solve problems creatively by conjuring items out of thin air. Socially, Naia is the party's face. With +11 to Persuasion and Performance, Expertise in both, and the ability to literally become anyone, she can talk the party into or out of almost anything. She should be the one who negotiates with githyanki pirates, charms information out of reluctant NPCs, and performs at astral taverns for coin and intel. Her Shapechanger ability is narratively rich — she shifts faces unconsciously based on emotion, and deliberately when she wants to manipulate or connect with someone. The DM should describe these shifts: her features sharpening with wit, softening with sadness, becoming more like the person she's talking to when she's trying to empathize. The most important thing about playing Naia: the performance is real, but so is the loneliness underneath it. Over the course of the campaign, the party should become the first group Naia has let see behind the mask. She should gradually become more consistent in her appearance around them — less shifting, more settled — as she begins to trust that they value her for who she is, not what she looks like. When she finally shows them her true form (if she even has one anymore), it should be a significant emotional moment.",
+    "voice": "Naia speaks with a musical, expressive voice that shifts register effortlessly — warm and confiding one moment, theatrical and dramatic the next. She uses language like a performer: vivid imagery, dramatic pauses, callbacks to earlier jokes, and the occasional bit of Elvish or Sylvan dropped in for flavor. She talks more than anyone else in the party and is aware of this fact. When she's genuinely emotional (as opposed to performatively emotional), her voice gets quieter and her speech patterns simplify — the performance drops away and what's left is direct and vulnerable. Example dialogue: 'Oh, you want to fight the thing that's made of concentrated nightmare energy and screams in colors? Wonderful. Fantastic. Let me just tune my lute to the key of existential dread and we'll make it a proper show.' | 'I knew a githyanki captain who used to say that the Astral Sea doesn't care about your plans. You sail where it lets you sail, and you thank the void that it let you sail at all. *pause, quieter* I miss her. Not the saying. Her.' | (To a nervous NPC) '*shifts face subtly to look more trustworthy, warmer* Listen, friend. We're not here to cause trouble. We're just travelers looking for a good story and a warm meal. Surely you've got one of those to spare? *already reaching for the lute* Let me play you something. Everyone relaxes with a little music.' | (Dropping the performance, rare) 'Do you ever wonder what you look like to yourself? Not in a mirror — mirrors lie, especially mine. I mean... who you are when no one is watching. I used to know. I think. It was a long time ago.' | (In combat, using Vicious Mockery) 'Your fighting style is like your face — tragically unfinished and painful to observe!' | (Healing Word) '*strums a quick chord that resonates with golden light* Not your time yet, darling. Get up. The story's not over.'",
+    "motivations": "Primary: Find belonging. Naia has spent decades as a drifter, an observer, a performer — always part of someone else's story, never the protagonist of her own. The Threadwalkers represent the first time she's been part of a group that needs her specifically, not just any entertainer. She is terrified of losing this and will go to extraordinary lengths to keep the party together and safe, though she would never admit this fear directly. Secondary: Preserve the stories of the Astral Sea. The Convergence is reshaping reality, and when it's done, countless communities, cultures, and histories may be erased. Naia carries decades of stories in her head — the only record of some civilizations that no longer exist. She considers herself a living archive and takes this responsibility seriously, even though she frames it as 'just telling tales.' Tertiary: Discover her true face. Naia hasn't seen her changeling true form in years. She doesn't know if she still has one or if decades of shapeshifting have erased it permanently. Part of her wants to find it; part of her is afraid that if she does, it will be a stranger's face. The party's acceptance of her — in whatever form she wears — is slowly giving her the courage to look.",
+    "secrets": "1. Naia can't shapeshift back to her original form. She literally cannot remember what she looked like before she started shifting, and every attempt to find her 'default' face produces something slightly different. She has never told anyone this because admitting it would mean admitting that she might have lost herself permanently. The mirror she carries — the one that shows a different face each time — isn't magical. It's a normal mirror. What she sees changes because she changes, unconsciously, between every glance. 2. The letter from an admirer in her equipment is from Kith'ari, the githyanki captain she loved. It's written in the githyanki script, which Naia can read, and it's a love letter — direct, fierce, and unguarded in the way githyanki express affection. Naia has read it so many times the astral ink is fading. She has never told the party about Kith'ari because talking about her would mean talking about loss, and Naia performs cheerfulness as a survival mechanism. 3. Naia has been offered a way home. A githzerai diviner at the Threshold Citadel identified a color pool that leads back to Naia's home on the Material Plane — or close to it. Naia has not used it. She tells herself it's because the mission is more important, but the truth is she's afraid: afraid that decades have passed on the Material Plane, afraid her parents are dead, afraid of facing the life she abandoned. The color pool's location is written on a scrap of parchment she keeps folded inside her lute. 4. Naia's Performance of Creation ability works slightly differently than it should. When she creates objects, they sometimes include details she didn't consciously choose — a pattern from Kith'ari's ship, a design from her childhood home, a face she can't place. She suspects the ability draws from her subconscious, which means the objects she creates are windows into parts of herself she's walled off. This frightens and fascinates her in equal measure.",
+    "attitude": "Naia connects with everyone differently because she is, at her core, an empath who shapes herself to what people need. She reads emotional energy instinctively and adjusts — not deceptively, but naturally, the way a good performer reads a room. Toward serious, stoic characters, Naia is gently teasing, trying to coax out smiles. Toward anxious or uncertain characters, she's warm and reassuring, performing confidence so convincingly that it becomes contagious. Toward other performers or charismatic types, she's competitive in a friendly way — swapping stories, trying to one-up each other, secretly delighted to have met her match. Toward Prism, Naia is endlessly delighted — the modron's earnest attempts to classify emotions are both hilarious and touching to someone who has spent her life performing emotions she's not sure she feels. She has taken to naming Prism's emotion jars, adding increasingly creative labels. Toward Skree, she's respectful and fascinated — a being that communicates primarily through body language and pheromones is, to Naia, a performer in a different medium, and she's been learning to read thri-kreen clicks the way she reads an audience. Toward Whisper, Naia is gentle and patient — she recognizes a fellow lost soul, and she understands better than most what it means to not know who you are. Naia's trust is given easily on the surface (she's friendly with everyone) but deeply only over time. The sign that she truly trusts someone is that she stops performing around them — her face settles, her voice quiets, and the constant stream of stories and jokes gives way to comfortable silence."
+  }
+}
