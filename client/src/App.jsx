@@ -80,7 +80,7 @@ function AppContent() {
       name: player?.name || 'Guest',
       role: player?.role || 'guest',
     });
-    api.getChatMessages().then(data => {
+    api.getRecentChatMessages(3).then(data => {
       if (data?.messages) ws.setChatMessages(data.messages);
     }).catch(() => {});
   // eslint-disable-next-line react-hooks/exhaustive-deps

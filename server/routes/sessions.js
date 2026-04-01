@@ -804,12 +804,10 @@ module.exports = function (dataDir) {
   });
 
   // GET party members for a session (filtered characters + NPCs)
+  // Accessible to any authenticated player (and guests for public sessions)
   router.get('/:id/party', (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
-      if (!requester) {
-        return res.status(401).json({ error: 'Login required.' });
-      }
 
       // Find session file
       let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
@@ -821,6 +819,8 @@ module.exports = function (dataDir) {
         const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
         const settings = getSessionSettings(data);
         if (settings.visibility !== 'public') {
+          // Non-public sessions require authentication
+          if (!requester) return res.status(401).json({ error: 'Login required.' });
           return res.status(404).json({ error: 'Session not found' });
         }
       }

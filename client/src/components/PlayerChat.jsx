@@ -225,23 +225,40 @@ export default function PlayerChat({ chatMessages, onlinePlayers, selfChatConnec
                   : player ? 'No messages yet. Say hello!' : 'Log in to chat with your party.'}
               </div>
             ) : (
-              displayMessages.map((msg, i) => (
-                msg.isSystem ? (
-                  <div key={i} className="chat-msg chat-msg-system">
-                    <RichText as="span" className="chat-msg-system-text" text={msg.text} />
+              displayMessages.map((msg, i) => {
+                // Insert day separator when date changes between consecutive messages (live view only)
+                const msgDate = msg.timestamp ? msg.timestamp.split('T')[0] : null;
+                const prevDate = i > 0 && displayMessages[i - 1]?.timestamp
+                  ? displayMessages[i - 1].timestamp.split('T')[0] : null;
+                const showDaySep = !selectedDate && msgDate && (i === 0 || msgDate !== prevDate);
+
+                return (
+                  <div key={i}>
+                    {showDaySep && (
+                      <div className="chat-day-separator">
+                        <span className="chat-day-separator-line" />
+                        <span className="chat-day-separator-label">{formatDate(msgDate)}</span>
+                        <span className="chat-day-separator-line" />
+                      </div>
+                    )}
+                    {msg.isSystem ? (
+                      <div className="chat-msg chat-msg-system">
+                        <RichText as="span" className="chat-msg-system-text" text={msg.text} />
+                      </div>
+                    ) : (
+                      <div className={`chat-msg${msg.isAdmin ? ' chat-msg-admin' : ''}`}>
+                        <span className="chat-msg-sender">
+                          {msg.playerName}
+                          {msg.timestamp && (
+                            <span className="chat-msg-time">{formatTime(msg.timestamp)}</span>
+                          )}
+                        </span>
+                        <RichText as="div" className="chat-msg-text" text={msg.text} />
+                      </div>
+                    )}
                   </div>
-                ) : (
-                  <div key={i} className={`chat-msg${msg.isAdmin ? ' chat-msg-admin' : ''}`}>
-                    <span className="chat-msg-sender">
-                      {msg.playerName}
-                      {msg.timestamp && (
-                        <span className="chat-msg-time">{formatTime(msg.timestamp)}</span>
-                      )}
-                    </span>
-                    <RichText as="div" className="chat-msg-text" text={msg.text} />
-                  </div>
-                )
-              ))
+                );
+              })
             )}
             {!selectedDate && <div className="chat-scroll-spacer" aria-hidden="true" />}
           </div>

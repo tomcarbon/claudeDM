@@ -44,7 +44,7 @@ function normalizeSavedMessages(rawMessages) {
     if (!text) return null;
 
     const msg = {
-      type: ['system', 'player', 'companion', 'dm', 'dm_partial', 'dice_roll'].includes(inferredType) ? inferredType : 'system',
+      type: ['system', 'player', 'companion', 'dm', 'dm_partial', 'dm_warmup', 'dice_roll'].includes(inferredType) ? inferredType : 'system',
       text,
     };
     if (entry.characterName) msg.characterName = entry.characterName;
@@ -148,12 +148,14 @@ function Adventure({
   const [selectedStatusEntry, setSelectedStatusEntry] = useState(null); // npcId or 'host' for detail panel
   const [pendingOpeningPrompt, setPendingOpeningPrompt] = useState(null); // held until host clicks "Start Adventure"
   const [loadingSessionId, setLoadingSessionId] = useState(null);
+  const [partyData, setPartyData] = useState(null); // Session party data from /sessions/:id/party
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
   const isNearBottomRef = useRef(true);
   const dmPersonalityRef = useRef(null); // Session-scoped DM personality snapshot
   const activeCharacterIdRef = useRef(null); // Backup of selectedCharacter for active session
+  const saveInProgressRef = useRef(false); // Guard against concurrent auto-saves creating duplicate sessions
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const isGuest = !player?.email;
   const isCompanion = !!sessionAccess.companionNpcId;
@@ -424,9 +426,19 @@ function Adventure({
     }
   }, [savedSessionDbId, sessionAccess]);
 
+  // Load party data from session endpoint so all participants can see the host's character.
+  // Refresh when status returns to idle (after DM turn completes) to pick up stat changes.
+  useEffect(() => {
+    if (sessionActive && savedSessionDbId) {
+      api.getSessionParty(savedSessionDbId).then(setPartyData).catch(() => setPartyData(null));
+    } else {
+      setPartyData(null);
+    }
+  }, [sessionActive, savedSessionDbId, status]);
+
   // Auto-save when messages change
   useEffect(() => {
-    const completedMessages = messages.filter(m => m.type !== 'dm_partial');
+    const completedMessages = messages.filter(m => m.type !== 'dm_partial' && m.type !== 'dm_warmup');
     const count = completedMessages.length;
     if (!sessionReadOnly && !isCompanion && autoSave && count > 0 && count !== prevMessageCountRef.current) {
       prevMessageCountRef.current = count;
@@ -596,6 +608,10 @@ Set the scene and begin the story.`;
     if (sessionReadOnly || isCompanion) {
       return;
     }
+    // Prevent concurrent saves — without this, rapid auto-saves can race and
+    // both call createSession() before savedSessionDbId is set, creating duplicates
+    if (saveInProgressRef.current) return;
+    saveInProgressRef.current = true;
     setSaveStatus('saving');
     try {
       const scenario = scenarios.find(s => s.id === selectedScenario);
@@ -606,7 +622,7 @@ Set the scene and begin the story.`;
         claudeSessionId: sessionId,
         characterId: selectedCharacter || activeCharacterIdRef.current,
         scenarioId: selectedScenario,
-        messages: messages.filter(m => m.type !== 'dm_partial'),
+        messages: messages.filter(m => m.type !== 'dm_partial' && m.type !== 'dm_warmup'),
         playerEmail: player?.email || null,
         playerName: player?.name || null,
         companionConfig: {
@@ -643,6 +659,8 @@ Set the scene and begin the story.`;
       console.error('Save failed:', err);
       if (err?.message) alert(`Save failed: ${err.message}`);
       setSaveStatus(null);
+    } finally {
+      saveInProgressRef.current = false;
     }
   }
 
@@ -761,7 +779,7 @@ Set the scene and begin the story.`;
   }, [pendingLoadSessionId]);
 
   function handleExportStory() {
-    const storyMessages = messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system');
+    const storyMessages = messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system' && m.type !== 'dm_warmup');
     if (storyMessages.length === 0) return;
     const text = storyMessages.map(m => m.text).join('\n\n');
     const blob = new Blob([text], { type: 'text/plain' });
@@ -780,7 +798,7 @@ Set the scene and begin the story.`;
       characterId: selectedCharacter || activeCharacterIdRef.current,
       scenarioId: selectedScenario,
       claudeSessionId: sessionId || null,
-      messages: messages.filter(m => m.type !== 'dm_partial'),
+      messages: messages.filter(m => m.type !== 'dm_partial' && m.type !== 'dm_warmup'),
       companionConfig: {
         states: companionStates,
         reservations: companionReservations,
@@ -1216,7 +1234,8 @@ Set the scene and begin the story.`;
   }
 
   // Active adventure screen
-  const activeCharacter = characters.find(c => c.id === (selectedCharacter || activeCharacterIdRef.current));
+  const activeCharacter = characters.find(c => c.id === (selectedCharacter || activeCharacterIdRef.current))
+    || (partyData?.characters || []).find(c => c.id === (selectedCharacter || activeCharacterIdRef.current));
   const activeScenario = scenarios.find(s => s.id === selectedScenario);
   const activeCampaign = campaigns.find(c => c.id === selectedScenario);
 
@@ -1243,14 +1262,14 @@ Set the scene and begin the story.`;
           <button
             className="btn-save"
             onClick={handleExportStory}
-            disabled={messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system').length === 0}
+            disabled={messages.filter(m => m.type !== 'dm_partial' && m.type !== 'system' && m.type !== 'dm_warmup').length === 0}
           >
             Export Story
           </button>
           <button
             className="btn-save"
             onClick={handleExportSession}
-            disabled={messages.filter(m => m.type !== 'dm_partial').length === 0}
+            disabled={messages.filter(m => m.type !== 'dm_partial' && m.type !== 'dm_warmup').length === 0}
           >
             Export Session
           </button>
@@ -1419,7 +1438,8 @@ Set the scene and begin the story.`;
             // Check if a companion player has replaced this NPC with their own character
             const participant = sessionParticipants.find(p => p.companionNpcId === selectedStatusEntry);
             if (participant?.companionCharacterId) {
-              entry = characters.find(c => c.id === participant.companionCharacterId);
+              entry = characters.find(c => c.id === participant.companionCharacterId)
+                || (partyData?.characters || []).find(c => c.id === participant.companionCharacterId);
             }
             // Fall back to the NPC data
             if (!entry) entry = npcs.find(n => n.id === selectedStatusEntry);
@@ -1483,6 +1503,11 @@ Set the scene and begin the story.`;
                   <span className="message-sender">Dungeon Master</span>
                   <RichText as="div" className="dm-narration" text={msg.text} />
                   {msg.type === 'dm_partial' && <span className="typing-cursor" />}
+                </div>
+              )}
+              {msg.type === 'dm_warmup' && msg.visible !== false && (
+                <div className="message-system message-warmup">
+                  🔄 {msg.text}
                 </div>
               )}
               {msg.type === 'system' && (

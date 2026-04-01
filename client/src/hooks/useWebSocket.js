@@ -67,6 +67,11 @@ export default function useWebSocket() {
           setMessages(prev => [...prev, { type: 'dice_roll', text: formatDiceRoll(msg) }]);
           break;
 
+        case 'dm_warmup':
+          // Show warm-up status as a system message while DM reviews context after restart
+          setMessages(prev => [...prev, { type: 'dm_warmup', text: msg.text, visible: msg.visible !== false }]);
+          break;
+
         case 'dm_partial':
           partialTextRef.current = msg.text;
           setMessages(prev => {

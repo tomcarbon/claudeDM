@@ -120,7 +120,7 @@ function loadNpcs(dataDir, playerEmail, campaignId, sessionDbId) {
   }
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality) {
+function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState) {
   const cid = campaignId || 'demo';
   const settings = dmPersonality || loadDmSettings(dataDir, playerEmail);
   const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid, sessionDbId) : null;
@@ -347,7 +347,41 @@ At the end of each major story chapter (completing a town questline, finishing a
 This lets the DM efficiently reconstruct context when resuming long campaigns.
 
 ## Session Reminders
-Periodically remind the player to save their session at natural break points.`;
+Periodically remind the player to save their session at natural break points.
+
+## World State Tracking (MANDATORY)
+You have an **UpdateWorldState** tool that persists a structured snapshot of the current narrative state. This snapshot survives server restarts and helps you maintain continuity when resuming sessions. **Call UpdateWorldState at these triggers:**
+1. After every combat encounter (as part of the post-encounter checklist)
+2. When the party changes location
+3. When a quest is started, progressed, or completed
+4. When writing a chapter summary
+5. When the player saves or ends a session
+6. After any significant NPC relationship change
+
+Pass only the fields that changed — they merge with the existing state. Keep \`recentEvents\` to the last 3-5 significant events. Keep \`narrativeNotes\` brief (1-2 sentences about what's likely next).`;
+
+  // Inject current world state if available (critical for session resume context)
+  if (worldState && typeof worldState === 'object' && Object.keys(worldState).length > 0) {
+    prompt += `
+
+## Current World State (from last update: ${worldState.updatedAt || 'unknown'})`;
+    if (worldState.location) prompt += `\n**Location:** ${worldState.location}`;
+    if (worldState.inGameDay) prompt += `\n**In-Game Day:** ${worldState.inGameDay}`;
+    if (worldState.inGameTime) prompt += `\n**Time:** ${worldState.inGameTime}`;
+    if (worldState.recentEvents && worldState.recentEvents.length > 0) {
+      prompt += `\n**Recent Events:**\n${worldState.recentEvents.map(e => `- ${e}`).join('\n')}`;
+    }
+    if (worldState.activeQuests && worldState.activeQuests.length > 0) {
+      prompt += `\n**Active Quests:**\n${worldState.activeQuests.map(q => `- ${q.name}: ${q.status}`).join('\n')}`;
+    }
+    if (worldState.keyRelationships && worldState.keyRelationships.length > 0) {
+      prompt += `\n**Key Relationships:**\n${worldState.keyRelationships.map(r => `- ${r}`).join('\n')}`;
+    }
+    if (worldState.pendingEffects && worldState.pendingEffects.length > 0) {
+      prompt += `\n**Pending Effects:**\n${worldState.pendingEffects.map(e => `- ${e}`).join('\n')}`;
+    }
+    if (worldState.narrativeNotes) prompt += `\n**DM Notes:** ${worldState.narrativeNotes}`;
+  }
 
   // Build a map of NPC IDs replaced by companion players
   const companionsByNpcId = {};
@@ -461,7 +495,7 @@ For non-combat milestones (quest completion, major story beats), award scenario-
   prompt += `
 
 ## Combat, Resource & Session Tools
-You have 4 additional tools to help manage gameplay:
+You have 5 additional tools to help manage gameplay:
 
 - **TrackCombat** — Use this at the START of every combat encounter. Call with action "start" and a list of all combatants (party + enemies) with their names, initiative bonuses, HP, max HP, AC, and isEnemy flag. Then use "next" to advance turns, "damage"/"heal" to track HP changes, "condition" to apply/remove conditions, "status" to review the battlefield, and "end" when combat concludes. This replaces manual initiative and HP tracking.
 
@@ -469,7 +503,9 @@ You have 4 additional tools to help manage gameplay:
 
 - **TrackCalendar** — Use this to track in-game time. Call "advance" when the party travels (e.g. 2 days, 4 hours). Call "event" to schedule future events (e.g. "Full moon in 3 days"). Call "check" to see current day/time. Call "weather" to generate weather for the current day.
 
-- **LookupMonster** — Use this instead of reading monsters.json directly. Search by name (e.g. "Hill Giant"), CR (e.g. "5"), or type (e.g. "giant"). Returns full stat blocks or filtered lists.`;
+- **LookupMonster** — Use this instead of reading monsters.json directly. Search by name (e.g. "Hill Giant"), CR (e.g. "5"), or type (e.g. "giant"). Returns full stat blocks or filtered lists.
+
+- **UpdateWorldState** — Persist a structured world state snapshot (location, quests, relationships, recent events) to the session file. This survives server restarts and is injected into the system prompt automatically. Call after combat, location changes, quest progress, chapter summaries, and session saves. Pass only fields that changed — they merge with existing state.`;
 
   prompt += `
 
@@ -516,10 +552,10 @@ function rollDice(notation) {
   return { notation: notation.trim(), count, sides, modifier, rolls, total };
 }
 
-function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId) {
+function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sessionDbId) {
   return createSdkMcpServer({
     name: 'dnd-tools',
-    version: '1.0.3',
+    version: '1.0.4',
     tools: [
       tool(
         'AwardXP',
@@ -697,21 +733,109 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId) {
           }
         }
       ),
+      tool(
+        'UpdateWorldState',
+        'Update the persistent world state snapshot for this session. Call this after combat encounters, location changes, quest progress, and chapter summaries. The world state survives server restarts and helps the DM maintain continuity. Pass only the fields you want to update — they will be merged with the existing state.',
+        {
+          location: z.string().optional().describe('Current party location (e.g. "Brinewatch village square")'),
+          inGameDay: z.number().optional().describe('Current in-game day number'),
+          inGameTime: z.string().optional().describe('Time of day (e.g. "morning", "evening", "midnight")'),
+          recentEvents: z.array(z.string()).optional().describe('Last 3-5 significant events (replaces previous list)'),
+          activeQuests: z.array(z.object({
+            name: z.string(),
+            status: z.string(),
+          })).optional().describe('Active quests with current status (replaces previous list)'),
+          keyRelationships: z.array(z.string()).optional().describe('Key NPC relationships and attitudes (replaces previous list)'),
+          pendingEffects: z.array(z.string()).optional().describe('Active spell effects, conditions, or timers'),
+          narrativeNotes: z.string().optional().describe('Brief DM notes about what should happen next or current story state'),
+        },
+        async (args) => {
+          try {
+            if (!sessionDbId || !playerEmail) {
+              return { content: [{ type: 'text', text: 'No active session to update world state.' }], isError: true };
+            }
+            const slug = emailToSlug(playerEmail);
+            const cid = campaignId || 'demo';
+            // Find the session file
+            const sessionsDir = path.join(dataDir, 'players', slug, cid, 'sessions');
+            const sessionFilePath = path.join(sessionsDir, `${sessionDbId}.json`);
+            if (!fs.existsSync(sessionFilePath)) {
+              return { content: [{ type: 'text', text: `Session file not found: ${sessionDbId}` }], isError: true };
+            }
+            const session = JSON.parse(fs.readFileSync(sessionFilePath, 'utf-8'));
+            const existing = session.worldState || {};
+            // Merge provided fields into existing worldState
+            const updated = { ...existing, updatedAt: new Date().toISOString() };
+            if (args.location !== undefined) updated.location = args.location;
+            if (args.inGameDay !== undefined) updated.inGameDay = args.inGameDay;
+            if (args.inGameTime !== undefined) updated.inGameTime = args.inGameTime;
+            if (args.recentEvents !== undefined) updated.recentEvents = args.recentEvents;
+            if (args.activeQuests !== undefined) updated.activeQuests = args.activeQuests;
+            if (args.keyRelationships !== undefined) updated.keyRelationships = args.keyRelationships;
+            if (args.pendingEffects !== undefined) updated.pendingEffects = args.pendingEffects;
+            if (args.narrativeNotes !== undefined) updated.narrativeNotes = args.narrativeNotes;
+            session.worldState = updated;
+            session.updatedAt = new Date().toISOString();
+            fs.writeFileSync(sessionFilePath, JSON.stringify(session, null, 2));
+            return { content: [{ type: 'text', text: `World state updated: ${JSON.stringify(updated)}` }] };
+          } catch (err) {
+            return { content: [{ type: 'text', text: `Error updating world state: ${err.message}` }], isError: true };
+          }
+        }
+      ),
     ],
   });
 }
 
 const CHAPTER_SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
-const MAX_RECENT_MESSAGES = 60;
+const MAX_RECENT_MESSAGES = 100;
+const SUMMARY_NUDGE_THRESHOLD = 25;
+
+/**
+ * Format a single message with turn-structured labels.
+ * Includes companion messages for full context.
+ */
+function formatMessageForRecap(m) {
+  switch (m.type) {
+    case 'player': return `[PLAYER] ${m.text}`;
+    case 'dm': return `[DM] ${m.text}`;
+    case 'companion': {
+      const label = m.characterName || m.playerName || 'Companion';
+      const player = m.playerName ? ` (${m.playerName})` : '';
+      return `[COMPANION — ${label}${player}] ${m.text}`;
+    }
+    default: return `[${m.type?.toUpperCase() || 'SYSTEM'}] ${m.text}`;
+  }
+}
 
 /**
  * Build a smart recap from message history.
+ * Uses numbered turns with clear delimiters for better AI comprehension.
  * If chapter summaries exist, use them for older content and only include
  * full messages from the most recent chapter. This dramatically reduces
  * context size for long campaigns (e.g. 866K → ~50K).
+ *
+ * @param {Array} messageHistory - Full message history
+ * @param {Object} [worldState] - Current world state snapshot (if available)
  */
-function buildSmartRecap(messageHistory) {
-  const messages = messageHistory.filter(m => m.type === 'player' || m.type === 'dm');
+function buildSmartRecap(messageHistory, worldState) {
+  const messages = messageHistory.filter(m => m.type === 'player' || m.type === 'dm' || m.type === 'companion');
+  const parts = [];
+
+  // Inject world state at the top if available
+  if (worldState && typeof worldState === 'object' && Object.keys(worldState).length > 0) {
+    const wsLines = ['=== WORLD STATE SNAPSHOT ==='];
+    if (worldState.location) wsLines.push(`Location: ${worldState.location}`);
+    if (worldState.inGameDay) wsLines.push(`Day: ${worldState.inGameDay}`);
+    if (worldState.inGameTime) wsLines.push(`Time: ${worldState.inGameTime}`);
+    if (worldState.recentEvents?.length > 0) wsLines.push(`Recent Events: ${worldState.recentEvents.join('; ')}`);
+    if (worldState.activeQuests?.length > 0) wsLines.push(`Active Quests: ${worldState.activeQuests.map(q => `${q.name} (${q.status})`).join('; ')}`);
+    if (worldState.keyRelationships?.length > 0) wsLines.push(`Key Relationships: ${worldState.keyRelationships.join('; ')}`);
+    if (worldState.pendingEffects?.length > 0) wsLines.push(`Pending Effects: ${worldState.pendingEffects.join('; ')}`);
+    if (worldState.narrativeNotes) wsLines.push(`DM Notes: ${worldState.narrativeNotes}`);
+    wsLines.push('=== END WORLD STATE ===');
+    parts.push(wsLines.join('\n'));
+  }
 
   // Find all chapter summary indices
   const summaryIndices = [];
@@ -721,26 +845,38 @@ function buildSmartRecap(messageHistory) {
     }
   }
 
-  // No chapter summaries found — fall back to truncated raw history
+  // No chapter summaries found — fall back to truncated raw history with turn structure
   if (summaryIndices.length === 0) {
-    // For very long sessions without summaries, take the first few and last chunk
     if (messages.length > MAX_RECENT_MESSAGES) {
-      const opening = messages.slice(0, 4)
-        .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
-        .join('\n\n');
-      const recent = messages.slice(-MAX_RECENT_MESSAGES)
-        .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
-        .join('\n\n');
-      return `${opening}\n\n[... earlier messages omitted for brevity ...]\n\n${recent}`;
+      const opening = messages.slice(0, 4).map(formatMessageForRecap).join('\n\n');
+      const recentMsgs = messages.slice(-MAX_RECENT_MESSAGES);
+      let turnNum = 1;
+      const recentFormatted = [];
+      for (let i = 0; i < recentMsgs.length; i++) {
+        if (recentMsgs[i].type === 'player') {
+          recentFormatted.push(`=== Turn ${turnNum} ===`);
+          turnNum++;
+        }
+        recentFormatted.push(formatMessageForRecap(recentMsgs[i]));
+      }
+      parts.push(opening);
+      parts.push('[... earlier messages omitted for brevity ...]');
+      parts.push(recentFormatted.join('\n\n'));
+    } else {
+      let turnNum = 1;
+      for (const m of messages) {
+        if (m.type === 'player') {
+          parts.push(`=== Turn ${turnNum} ===`);
+          turnNum++;
+        }
+        parts.push(formatMessageForRecap(m));
+      }
     }
-    return messages
-      .map(m => m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`)
-      .join('\n\n');
+    return parts.join('\n\n');
   }
 
   // Chapter summaries exist — use them for older content
   const lastSummaryIdx = summaryIndices[summaryIndices.length - 1];
-  const parts = [];
 
   // Collect all chapter summaries (compact representation of older story)
   parts.push('=== CHAPTER SUMMARIES (previous story arcs) ===');
@@ -749,12 +885,17 @@ function buildSmartRecap(messageHistory) {
   }
   parts.push('=== END OF CHAPTER SUMMARIES ===');
 
-  // Include full messages only from after the last chapter summary
+  // Include full messages from after the last chapter summary with turn structure
   const recentMessages = messages.slice(lastSummaryIdx + 1);
   if (recentMessages.length > 0) {
-    parts.push('\n=== CURRENT CHAPTER (full detail) ===');
+    parts.push('=== CURRENT CHAPTER (full detail) ===');
+    let turnNum = 1;
     for (const m of recentMessages) {
-      parts.push(m.type === 'player' ? `PLAYER: ${m.text}` : `DM: ${m.text}`);
+      if (m.type === 'player') {
+        parts.push(`--- Turn ${turnNum} ---`);
+        turnNum++;
+      }
+      parts.push(formatMessageForRecap(m));
     }
   }
 
@@ -772,24 +913,25 @@ class DmEngine {
     this._diceResults = [];
   }
 
-  _getMcpToolServer(playerEmail, campaignId) {
-    // Recreate if playerEmail or campaignId changed
-    if (!this._mcpToolServer || this.playerEmail !== playerEmail || this.campaignId !== campaignId) {
+  _getMcpToolServer(playerEmail, campaignId, sessionDbId) {
+    // Recreate if playerEmail, campaignId, or sessionDbId changed
+    if (!this._mcpToolServer || this.playerEmail !== playerEmail || this.campaignId !== campaignId || this._sessionDbId !== sessionDbId) {
       this.playerEmail = playerEmail;
       this.campaignId = campaignId;
-      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults, campaignId);
+      this._sessionDbId = sessionDbId;
+      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults, campaignId, sessionDbId);
     }
     return this._mcpToolServer;
   }
 
-  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality);
-    const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId);
+  _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState) {
+    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
+    const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId, sessionDbId);
     const dmSettings = loadDmSettings(this.dataDir, playerEmail);
     const opts = {
       systemPrompt,
       cwd: PROJECT_ROOT,
-      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice', 'mcp__dnd-tools__TrackCombat', 'mcp__dnd-tools__TrackResources', 'mcp__dnd-tools__TrackCalendar', 'mcp__dnd-tools__LookupMonster'],
+      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice', 'mcp__dnd-tools__TrackCombat', 'mcp__dnd-tools__TrackResources', 'mcp__dnd-tools__TrackCalendar', 'mcp__dnd-tools__LookupMonster', 'mcp__dnd-tools__UpdateWorldState'],
       mcpServers: { 'dnd-tools': mcpToolServer },
       permissionMode: 'default',
       includePartialMessages: true,
@@ -875,13 +1017,20 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality }) {
-    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality);
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState, dmMessagesSinceLastSummary }) {
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
+    let isStaleResume = false;
+
+    // Phase 2: Auto-summary nudge — append to user message if overdue
+    let augmentedMessage = userMessage;
+    if (typeof dmMessagesSinceLastSummary === 'number' && dmMessagesSinceLastSummary >= SUMMARY_NUDGE_THRESHOLD) {
+      augmentedMessage += `\n\n[System note: It has been ${dmMessagesSinceLastSummary} DM responses since the last chapter summary. If a story arc has concluded or a significant milestone was reached, please write a chapter summary now using the standard format. Also call UpdateWorldState to persist the current narrative state.]`;
+    }
 
     if (this.sessionId) {
       options.resume = this.sessionId;
       try {
-        yield* this._streamQuery(userMessage, options);
+        yield* this._streamQuery(augmentedMessage, options);
         return;
       } catch (err) {
         // Stale session — fall back to a fresh session with history context
@@ -889,14 +1038,17 @@ class DmEngine {
         const chapterSummaries = (messageHistory || []).filter(m => m.type === 'dm' && CHAPTER_SUMMARY_PATTERN.test(m.text)).length;
         console.warn(`[DM:STALE_SESSION] campaign=${campaignId} player=${playerEmail} sessionDb=${sessionDbId} staleClaudeId=${this.sessionId} error="${err.message}" historyMessages=${historyLen} chapterSummaries=${chapterSummaries}`);
         this.sessionId = null;
+        isStaleResume = true;
       }
     }
 
     // Fresh session — if we have message history, prepend it as context
-    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality);
-    let prompt = userMessage;
+    const freshOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
+    let prompt = augmentedMessage;
+    let recap = null;
+
     if (messageHistory && messageHistory.length > 0) {
-      const recap = buildSmartRecap(messageHistory);
+      recap = buildSmartRecap(messageHistory, worldState);
       const recapStrategy = (messageHistory || []).some(m => m.type === 'dm' && CHAPTER_SUMMARY_PATTERN.test(m.text)) ? 'chapter-summaries' : 'raw-messages';
       console.log(`[DM:RECAP] campaign=${campaignId} player=${playerEmail} strategy=${recapStrategy} recapLength=${recap.length} historyMessages=${messageHistory.length}`);
       // Build identity-enriched resume header
@@ -904,7 +1056,34 @@ class DmEngine {
       const scenario = scenarioId ? loadScenario(this.dataDir, scenarioId, campaignId) : null;
       const charLabel = character ? `${character.name} (Level ${character.level} ${character.race} ${character.class})` : 'Unknown character';
       const scenarioLabel = scenario ? scenario.title : 'Unknown scenario';
-      prompt = `[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${userMessage}`;
+
+      // Phase 4: Warm-up turn on stale session resume
+      // Send a hidden warm-up query so the AI reviews the recap before responding to the player
+      if (isStaleResume && recap.length > 0) {
+        const warmupPrompt = `[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION]\n\n[System: This is a warm-up turn after a server restart. Review the above session history and world state. Confirm your understanding of the current story state, party status, active quests, and location in 2-3 brief sentences. Then call UpdateWorldState to persist your understanding. Do NOT address the player directly — this message is internal.]`;
+        console.log(`[DM:WARMUP] campaign=${campaignId} player=${playerEmail} recapLength=${recap.length}`);
+        yield { type: 'dm_warmup', text: 'The DM is reviewing the story so far...' };
+        // Run warm-up query to establish context
+        for await (const event of this._streamQuery(warmupPrompt, freshOptions)) {
+          if (event.type === 'dm_complete' && event.sessionId) {
+            // Warm-up established the session — now resume with the player's actual message
+            this.sessionId = event.sessionId;
+          }
+          // Suppress warm-up DM responses (they're internal)
+          if (event.type === 'dice_roll') yield event; // pass through dice rolls if any
+        }
+        // Now send the actual player message as a resumed turn
+        if (this.sessionId) {
+          const resumeOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
+          resumeOptions.resume = this.sessionId;
+          yield* this._streamQuery(augmentedMessage, resumeOptions);
+          return;
+        }
+        // If warm-up didn't produce a session ID, fall through to the non-warm-up path
+        console.warn(`[DM:WARMUP_FAILED] No session ID from warm-up, falling through to direct recap`);
+      }
+
+      prompt = `[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${prompt}`;
     }
 
     yield* this._streamQuery(prompt, freshOptions);

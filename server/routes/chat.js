@@ -44,6 +44,23 @@ module.exports = function createChatRouter(dataDir) {
     }
   });
 
+  // GET /api/chat/recent?days=3 — get messages from the last N days (default 3), merged and sorted
+  router.get('/recent', (req, res) => {
+    const days = Math.max(1, Math.min(30, parseInt(req.query.days, 10) || 3));
+    const allMessages = [];
+    for (let i = 0; i < days; i++) {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      const data = loadChatFile(chatDir, getDateString(d));
+      if (data.messages && data.messages.length > 0) {
+        allMessages.push(...data.messages);
+      }
+    }
+    // Sort by timestamp ascending
+    allMessages.sort((a, b) => (a.timestamp || '').localeCompare(b.timestamp || ''));
+    res.json({ messages: allMessages });
+  });
+
   // GET /api/chat?date=YYYY-MM-DD — get messages for a day (defaults to today)
   router.get('/', (req, res) => {
     const dateStr = req.query.date || getDateString();

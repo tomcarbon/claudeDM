@@ -2268,6 +2268,25 @@
   flex-shrink: 0;
 }
 
+.chat-day-separator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.25rem;
+}
+
+.chat-day-separator-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.chat-day-separator-label {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
 .chat-online-box {
   padding: 0.45rem 0.6rem;
   border-bottom: 1px solid var(--border);

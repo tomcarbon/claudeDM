@@ -133,6 +133,7 @@ export const api = {
 
   // Chat (persistent, day-based)
   getChatMessages: (date) => fetchJson(`/chat${date ? `?date=${encodeURIComponent(date)}` : ''}`),
+  getRecentChatMessages: (days) => fetchJson(`/chat/recent?days=${days || 3}`),
   getChatDates: () => fetchJson('/chat/dates'),
 
   // Sessions (multiplayer-ready)

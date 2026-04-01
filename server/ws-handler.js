@@ -575,6 +575,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         const cid = engineCtx.campaignId || 'demo';
         try { snapshotToSession(dataDir, ownerEmail, cid, sessionDbId); } catch (e) { console.error('[WS] Snapshot error:', e); }
 
+        // Load world state and summary counter from session for context persistence
+        const sessionForState = readSessionByDbId(sessionDbId);
+        const worldState = sessionForState?.worldState || undefined;
+        const dmMessagesSinceLastSummary = sessionForState?.dmMessagesSinceLastSummary || 0;
+
         const stream = engine.run(playerText, {
           characterId: engineCtx.characterId,
           scenarioId: engineCtx.scenarioId,
@@ -585,12 +590,18 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           sessionDbId,
           companionConfig: engineCtx.companionConfig || undefined,
           dmPersonality: engineCtx.dmPersonality || undefined,
+          worldState,
+          dmMessagesSinceLastSummary,
         });
 
         for await (const event of stream) {
           switch (event.type) {
             case 'dm_partial':
               broadcastSessionMessage(sessionDbId, 'dm_partial', { text: event.text });
+              break;
+            case 'dm_warmup':
+              // Phase 4: Show warm-up status to all session participants
+              broadcastSessionMessage(sessionDbId, 'dm_warmup', { text: event.text, visible: true });
               break;
             case 'dice_roll':
               broadcastSessionMessage(sessionDbId, 'dice_roll', {
@@ -626,6 +637,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   const lastDm = engineCtx.messageHistory.filter(m => m.type === 'dm').pop();
                   if (lastDm) {
                     sess.messages.push({ type: 'dm', text: lastDm.text, timestamp: new Date().toISOString() });
+                    // Track summary counter: reset if this DM response contains a chapter summary, otherwise increment
+                    const SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
+                    if (SUMMARY_PATTERN.test(lastDm.text)) {
+                      sess.dmMessagesSinceLastSummary = 0;
+                    } else {
+                      sess.dmMessagesSinceLastSummary = (sess.dmMessagesSinceLastSummary || 0) + 1;
+                    }
                   }
                   sess.updatedAt = new Date().toISOString();
                   const fp = findSessionFilePath(sessionDbId);
@@ -1043,6 +1061,19 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               try { snapshotToSession(dataDir, wsEntry.playerEmail, campaignId || 'demo', currentSessionDbId); } catch (e) { console.error('[WS] Snapshot error:', e); }
             }
 
+            // Load world state and summary counter from session for context persistence
+            let singlePlayerWorldState;
+            let singlePlayerSummaryCount = 0;
+            if (currentSessionDbId) {
+              try {
+                const sessData = readSessionByDbId(currentSessionDbId);
+                if (sessData) {
+                  singlePlayerWorldState = sessData.worldState || undefined;
+                  singlePlayerSummaryCount = sessData.dmMessagesSinceLastSummary || 0;
+                }
+              } catch { /* ignore */ }
+            }
+
             const stream = engine.run(playerText, {
               characterId,
               scenarioId,
@@ -1052,6 +1083,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               sessionDbId: currentSessionDbId || undefined,
               companionConfig: companionConfig || undefined,
               dmPersonality: dmPersonality || undefined,
+              worldState: singlePlayerWorldState,
+              dmMessagesSinceLastSummary: singlePlayerSummaryCount,
               onPermissionRequest: (toolName, input, toolUseID) => {
                 return new Promise((resolve) => {
                   const description = describeToolUse(toolName, input);
@@ -1067,6 +1100,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                 case 'dm_partial':
                   send('dm_partial', { text: event.text });
                   broadcastToSessionWatchers('dm_partial', { text: event.text });
+                  break;
+                case 'dm_warmup':
+                  // Phase 4: Show warm-up status to player and watchers
+                  send('dm_warmup', { text: event.text, visible: true });
+                  broadcastToSessionWatchers('dm_warmup', { text: event.text, visible: true });
                   break;
                 case 'dice_roll':
                   send('dice_roll', {
@@ -1088,6 +1126,23 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   messageHistory.push({ type: 'dm', text: event.text });
                   send('dm_response', { text: event.text });
                   broadcastToSessionWatchers('dm_response', { text: event.text });
+                  // Track summary counter in session JSON (single-player path)
+                  if (currentSessionDbId) {
+                    try {
+                      const sessForCounter = readSessionByDbId(currentSessionDbId);
+                      if (sessForCounter) {
+                        const SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
+                        if (SUMMARY_PATTERN.test(event.text)) {
+                          sessForCounter.dmMessagesSinceLastSummary = 0;
+                        } else {
+                          sessForCounter.dmMessagesSinceLastSummary = (sessForCounter.dmMessagesSinceLastSummary || 0) + 1;
+                        }
+                        sessForCounter.updatedAt = new Date().toISOString();
+                        const fp = findSessionFilePath(currentSessionDbId);
+                        if (fp) fs.writeFileSync(fp, JSON.stringify(sessForCounter, null, 2));
+                      }
+                    } catch { /* ignore counter update failure */ }
+                  }
                   break;
                 case 'dm_complete':
                   send('dm_complete', { sessionId: event.sessionId });
