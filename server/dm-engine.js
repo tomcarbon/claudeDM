@@ -7,7 +7,7 @@ const { awardXp } = require('./xp-utils');
 const { startCombat, nextTurn, applyDamage, applyHealing, setCondition, getCombatStatus, endCombat } = require('./combat-utils');
 const { useResource, castSpell, processRest, checkResources } = require('./resource-utils');
 const { advanceTime, scheduleEvent, checkCalendar, generateWeather } = require('./calendar-utils');
-const { emailToSlug, getPlayerCharactersDir, getPlayerNpcsDir, getSessionCharactersDir, getSessionNpcsDir } = require('./player-data');
+const { emailToSlug, getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir } = require('./player-data');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 
@@ -58,17 +58,17 @@ function loadDmSettings(dataDir, playerEmail) {
 }
 
 function loadCharacter(dataDir, characterId, playerEmail, campaignId, sessionDbId) {
-  // Search session-scoped dir first, then fall back to player's main dir
+  // Search session dir first, then player library, then campaign defaults, then legacy
   const dirs = [];
-  if (sessionDbId && playerEmail) {
-    dirs.push(getSessionCharactersDir(dataDir, playerEmail, campaignId, sessionDbId));
+  if (sessionDbId) {
+    dirs.push(getSessionCharactersDir(dataDir, sessionDbId));
   }
   if (playerEmail) {
     dirs.push(getPlayerCharactersDir(dataDir, playerEmail, campaignId));
   }
-  if (dirs.length === 0) {
-    dirs.push(path.join(dataDir, 'characters'));
-  }
+  dirs.push(path.join(dataDir, 'defaults', campaignId || 'demo', 'characters'));
+  // Legacy fallback
+  dirs.push(path.join(dataDir, 'characters'));
   for (const dir of dirs) {
     try {
       const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
@@ -101,23 +101,29 @@ function loadScenario(dataDir, scenarioId, campaignId) {
 }
 
 function loadNpcs(dataDir, playerEmail, campaignId, sessionDbId) {
-  const dir = sessionDbId && playerEmail
-    ? getSessionNpcsDir(dataDir, playerEmail, campaignId, sessionDbId)
-    : playerEmail
-    ? getPlayerNpcsDir(dataDir, playerEmail, campaignId)
-    : path.join(dataDir, 'npcs');
-  try {
-    return fs.readdirSync(dir)
-      .filter(f => f.endsWith('.json'))
-      .map(f => {
-        const data = loadJson(path.join(dir, f));
-        if (data) data._filename = f;
-        return data;
-      })
-      .filter(Boolean);
-  } catch {
-    return [];
+  // Search session dir first, then campaign defaults
+  const dirsToTry = [];
+  if (sessionDbId) {
+    dirsToTry.push(getSessionNpcsDir(dataDir, sessionDbId));
   }
+  dirsToTry.push(path.join(dataDir, 'defaults', campaignId || 'demo', 'npcs'));
+  // Legacy fallback
+  dirsToTry.push(path.join(dataDir, 'npcs'));
+
+  for (const dir of dirsToTry) {
+    try {
+      const results = fs.readdirSync(dir)
+        .filter(f => f.endsWith('.json'))
+        .map(f => {
+          const data = loadJson(path.join(dir, f));
+          if (data) data._filename = f;
+          return data;
+        })
+        .filter(Boolean);
+      if (results.length > 0) return results;
+    } catch { /* dir may not exist */ }
+  }
+  return [];
 }
 
 function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState) {
@@ -127,14 +133,14 @@ function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campai
   const scenario = scenarioId ? loadScenario(dataDir, scenarioId, cid) : null;
   const npcs = loadNpcs(dataDir, playerEmail, cid, sessionDbId);
 
-  // Compute player-scoped paths for file references — use session-scoped dirs when available
+  // Compute paths for file references — use session dirs when available
   const slug = playerEmail ? emailToSlug(playerEmail) : null;
-  const charPathPrefix = sessionDbId && slug
-    ? `data/players/${slug}/${cid}/sessions/${sessionDbId}/characters`
+  const charPathPrefix = sessionDbId
+    ? `data/sessions/${sessionDbId}/characters`
     : slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
-  const npcPathPrefix = sessionDbId && slug
-    ? `data/players/${slug}/${cid}/sessions/${sessionDbId}/npcs`
-    : slug ? `data/players/${slug}/${cid}/npcs` : 'data/npcs';
+  const npcPathPrefix = sessionDbId
+    ? `data/sessions/${sessionDbId}/npcs`
+    : `data/defaults/${cid}/npcs`;
 
   const lengthPreset = RESPONSE_LENGTH_PRESETS[settings.responseLength] || RESPONSE_LENGTH_PRESETS.standard;
   const responseLengthGuide = lengthPreset.guide;

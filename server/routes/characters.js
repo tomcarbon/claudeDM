@@ -61,11 +61,10 @@ module.exports = function (dataDir) {
   function getCharDir(req) {
     // If an active session is specified, read from session-scoped directory
     const sessionId = req.get('x-session-id');
-    const sessionOwner = req.get('x-session-owner');
-    if (sessionId && sessionOwner) {
-      const sessDir = getSessionCharactersDir(dataDir, sessionOwner, req.campaignId, sessionId);
+    if (sessionId) {
+      const sessDir = getSessionCharactersDir(dataDir, sessionId);
       if (fs.existsSync(sessDir)) return sessDir;
-      // Fall through to global if session dir doesn't exist
+      // Fall through to player library if session dir doesn't exist
     }
     provisionPlayerDefaults(dataDir, req.player.email, req.campaignId);
     return getPlayerCharactersDir(dataDir, req.player.email, req.campaignId);
@@ -184,7 +183,8 @@ module.exports = function (dataDir) {
       if (typeof xp !== 'number' || xp <= 0) {
         return res.status(400).json({ error: 'xp must be a positive number' });
       }
-      const result = awardXp(dataDir, req.params.id, xp, req.player.email);
+      const sessionId = req.get('x-session-id') || undefined;
+      const result = awardXp(dataDir, req.params.id, xp, req.player.email, req.campaignId, sessionId);
       res.json(result);
     } catch (err) {
       if (err.message.startsWith('Character not found')) {

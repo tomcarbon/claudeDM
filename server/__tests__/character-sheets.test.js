@@ -5,7 +5,7 @@ import os from 'os';
 import http from 'http';
 import express from 'express';
 
-const { ensurePlayerDataExists, getPlayerCharactersDir, getPlayerNpcsDir, snapshotToSession, getSessionCharactersDir, getSessionNpcsDir } = require('../player-data');
+const { ensurePlayerDataExists, getPlayerCharactersDir, snapshotToSession, getSessionCharactersDir, getSessionNpcsDir } = require('../player-data');
 const { requirePlayer } = require('../player-auth');
 
 let tmpDir;
@@ -127,11 +127,8 @@ beforeEach(async () => {
     id: 'char-2', name: 'Grimjaw Bonecrusher', race: 'Half-Orc', class: 'Fighter', level: 4,
     hitPoints: { current: 40, max: 40 }, armorClass: 16,
   }));
-  writeJson(path.join(getPlayerNpcsDir(tmpDir, HOST.email, 'demo'), 'pip.json'), makeNpc());
-  writeJson(path.join(getPlayerNpcsDir(tmpDir, HOST.email, 'demo'), 'drak.json'), makeNpc({
-    id: 'npc-2', name: 'Drak Ironforge', race: 'Dwarf', class: 'Cleric', level: 3,
-    hitPoints: { current: 28, max: 28 }, armorClass: 18,
-  }));
+  // NPCs now live in campaign defaults (not per-player roster)
+  // These are also written to defaults dir below, but we need them here for direct NPC API access
 
   // Set up character files for COMPANION
   ensurePlayerDataExists(tmpDir, COMPANION.email, 'demo');
@@ -246,8 +243,8 @@ describe('Companion/NPC API — host views companions', () => {
   });
 
   it('reflects file updates when NPC is modified (simulating DM edit)', async () => {
-    // Simulate DM editing NPC during gameplay
-    const npcPath = path.join(getPlayerNpcsDir(tmpDir, HOST.email, 'demo'), 'pip.json');
+    // Simulate DM editing NPC during gameplay (NPCs now come from campaign defaults)
+    const npcPath = path.join(tmpDir, 'defaults', 'demo', 'npcs', 'pip.json');
     const npc = JSON.parse(fs.readFileSync(npcPath, 'utf-8'));
     npc.hitPoints.current = 3;
     npc.equipment.push('Stolen Ruby');
@@ -309,10 +306,10 @@ describe('Companion player views their own characters', () => {
 describe('Session-scoped character isolation', () => {
   it('session snapshot has independent character state', async () => {
     const sessionId = 'test-session-1';
-    snapshotToSession(tmpDir, HOST.email, 'demo', sessionId);
+    snapshotToSession(tmpDir, sessionId, HOST.email, 'demo');
 
     // Modify session-scoped character
-    const sessCharPath = path.join(getSessionCharactersDir(tmpDir, HOST.email, 'demo', sessionId), 'bramble.json');
+    const sessCharPath = path.join(getSessionCharactersDir(tmpDir, sessionId), 'bramble.json');
     const sessChar = JSON.parse(fs.readFileSync(sessCharPath, 'utf-8'));
     sessChar.hitPoints.current = 5;
     sessChar.level = 6;
@@ -337,10 +334,10 @@ describe('Session-scoped character isolation', () => {
 
   it('session snapshot has independent NPC state', async () => {
     const sessionId = 'test-session-2';
-    snapshotToSession(tmpDir, HOST.email, 'demo', sessionId);
+    snapshotToSession(tmpDir, sessionId, HOST.email, 'demo');
 
     // Modify session-scoped NPC
-    const sessNpcPath = path.join(getSessionNpcsDir(tmpDir, HOST.email, 'demo', sessionId), 'pip.json');
+    const sessNpcPath = path.join(getSessionNpcsDir(tmpDir, sessionId), 'pip.json');
     const sessNpc = JSON.parse(fs.readFileSync(sessNpcPath, 'utf-8'));
     sessNpc.hitPoints.current = 0;
     sessNpc.status = 'dead';

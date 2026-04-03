@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { getPlayerCharactersDir, getPlayerNpcsDir } = require('./player-data');
+const { getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir } = require('./player-data');
 
 function loadJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -22,18 +22,38 @@ function listJsonFiles(dir) {
   }
 }
 
-function collectMatches(dataDir, characterRef, playerEmail, campaignId) {
+function collectMatches(dataDir, characterRef, playerEmail, campaignId, sessionId) {
   const ref = normalize(characterRef);
   const refSlug = slugify(characterRef);
-  const candidateDirs = playerEmail
-    ? [
-        { kind: 'character', dir: getPlayerCharactersDir(dataDir, playerEmail, campaignId) },
-        { kind: 'npc', dir: getPlayerNpcsDir(dataDir, playerEmail, campaignId) },
-      ]
-    : [
-        { kind: 'character', dir: path.join(dataDir, 'characters') },
-        { kind: 'npc', dir: path.join(dataDir, 'npcs') },
-      ];
+  const candidateDirs = [];
+
+  // Session-scoped directories first (source of truth during gameplay)
+  if (sessionId) {
+    candidateDirs.push(
+      { kind: 'character', dir: getSessionCharactersDir(dataDir, sessionId) },
+      { kind: 'npc', dir: getSessionNpcsDir(dataDir, sessionId) },
+    );
+  }
+
+  // Player library
+  if (playerEmail) {
+    candidateDirs.push(
+      { kind: 'character', dir: getPlayerCharactersDir(dataDir, playerEmail, campaignId) },
+    );
+  }
+
+  // Campaign defaults for NPCs
+  candidateDirs.push(
+    { kind: 'npc', dir: path.join(dataDir, 'defaults', campaignId || 'demo', 'npcs') },
+  );
+
+  // Legacy fallback
+  if (!playerEmail && !sessionId) {
+    candidateDirs.push(
+      { kind: 'character', dir: path.join(dataDir, 'characters') },
+      { kind: 'npc', dir: path.join(dataDir, 'npcs') },
+    );
+  }
 
   const exactIdMatches = [];
   const looseMatches = [];
@@ -70,8 +90,8 @@ function collectMatches(dataDir, characterRef, playerEmail, campaignId) {
   return looseMatches;
 }
 
-function findCharacterOrNpcFile(dataDir, characterRef, playerEmail, campaignId) {
-  const matches = collectMatches(dataDir, characterRef, playerEmail, campaignId);
+function findCharacterOrNpcFile(dataDir, characterRef, playerEmail, campaignId, sessionId) {
+  const matches = collectMatches(dataDir, characterRef, playerEmail, campaignId, sessionId);
   if (matches.length === 0) return null;
   if (matches.length > 1) {
     const options = matches.map(m => `${m.data.name} (${m.data.id})`).join(', ');
@@ -80,8 +100,8 @@ function findCharacterOrNpcFile(dataDir, characterRef, playerEmail, campaignId) 
   return matches[0];
 }
 
-function awardXp(dataDir, characterId, xpAmount, playerEmail, campaignId) {
-  const result = findCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId);
+function awardXp(dataDir, characterId, xpAmount, playerEmail, campaignId, sessionId) {
+  const result = findCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId, sessionId);
   if (!result) {
     throw new Error(`Character not found: ${characterId}`);
   }

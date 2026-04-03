@@ -26,10 +26,8 @@ function getCampaignHeader() {
 function getSessionHeaders() {
   try {
     const sessionId = localStorage.getItem('dnd_active_session_id');
-    const sessionOwner = localStorage.getItem('dnd_active_session_owner');
     const headers = {};
     if (sessionId) headers['X-Session-Id'] = sessionId;
-    if (sessionOwner) headers['X-Session-Owner'] = sessionOwner;
     return headers;
   } catch {
     return {};
@@ -84,10 +82,9 @@ export const api = {
   // Characters
   getCharacters: () => fetchJson('/characters'),
   getCharacter: (id) => fetchJson(`/characters/${id}`),
-  // Personal roster (bypasses session headers — always reads global player dir)
+  // Personal library (bypasses session headers — always reads player's character library)
   getMyCharacters: () => fetchJsonNoSession('/characters'),
   getMyCharacter: (id) => fetchJsonNoSession(`/characters/${id}`),
-  getMyNpcs: () => fetchJsonNoSession('/npcs'),
   createCharacter: (data) => fetchJson('/characters', { method: 'POST', body: JSON.stringify(data) }),
   updateCharacter: (id, data) => fetchJson(`/characters/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteCharacter: (id) => fetchJson(`/characters/${id}`, { method: 'DELETE' }),

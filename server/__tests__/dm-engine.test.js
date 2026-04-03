@@ -4,7 +4,7 @@ import path from 'path';
 import os from 'os';
 
 const { loadDmSettings, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } } = require('../dm-engine');
-const { ensurePlayerDataExists, getPlayerCharactersDir, getPlayerNpcsDir, getSessionCharactersDir, getSessionNpcsDir, snapshotToSession } = require('../player-data');
+const { ensurePlayerDataExists, getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir, snapshotToSession } = require('../player-data');
 
 let tmpDir;
 const EMAIL = 'hero@test.com';
@@ -102,24 +102,24 @@ describe('loadCharacter', () => {
     expect(loaded._filename).toBe('bramble.json');
   });
 
-  it('loads from session-scoped directory when sessionDbId is provided', () => {
+  it('loads from session directory when sessionDbId is provided', () => {
     const char = makeCharacter();
     writeJson(path.join(getPlayerCharactersDir(tmpDir, EMAIL, CAMPAIGN), 'bramble.json'), char);
 
-    // Snapshot to session, then modify the session copy
-    snapshotToSession(tmpDir, EMAIL, CAMPAIGN, 'sess-1');
-    const sessPath = path.join(getSessionCharactersDir(tmpDir, EMAIL, CAMPAIGN, 'sess-1'), 'bramble.json');
+    // Snapshot to session (new signature: dataDir, sessionId, ownerEmail, campaignId)
+    snapshotToSession(tmpDir, 'sess-1', EMAIL, CAMPAIGN);
+    const sessPath = path.join(getSessionCharactersDir(tmpDir, 'sess-1'), 'bramble.json');
     const sessChar = JSON.parse(fs.readFileSync(sessPath, 'utf-8'));
     sessChar.hitPoints.current = 5;
     sessChar.level = 5;
     fs.writeFileSync(sessPath, JSON.stringify(sessChar, null, 2));
 
-    // Without sessionDbId — loads global (25 HP, level 3)
+    // Without sessionDbId — loads from player library (25 HP, level 3)
     const global = loadCharacter(tmpDir, 'char-1', EMAIL, CAMPAIGN);
     expect(global.hitPoints.current).toBe(25);
     expect(global.level).toBe(3);
 
-    // With sessionDbId — loads session-scoped (5 HP, level 5)
+    // With sessionDbId — loads from session dir (5 HP, level 5)
     const scoped = loadCharacter(tmpDir, 'char-1', EMAIL, CAMPAIGN, 'sess-1');
     expect(scoped.hitPoints.current).toBe(5);
     expect(scoped.level).toBe(5);
@@ -136,30 +136,35 @@ describe('loadCharacter', () => {
 });
 
 describe('loadNpcs', () => {
-  it('loads all NPCs from player directory', () => {
-    const npcDir = getPlayerNpcsDir(tmpDir, EMAIL, CAMPAIGN);
-    writeJson(path.join(npcDir, 'pip.json'), makeNpc());
-    writeJson(path.join(npcDir, 'drak.json'), makeNpc({ id: 'npc-2', name: 'Drak Ironforge', class: 'Fighter' }));
+  it('loads all NPCs from campaign defaults', () => {
+    const defaultNpcDir = path.join(tmpDir, 'defaults', CAMPAIGN, 'npcs');
+    writeJson(path.join(defaultNpcDir, 'pip.json'), makeNpc());
+    writeJson(path.join(defaultNpcDir, 'drak.json'), makeNpc({ id: 'npc-2', name: 'Drak Ironforge', class: 'Fighter' }));
 
     const npcs = loadNpcs(tmpDir, EMAIL, CAMPAIGN);
     expect(npcs).toHaveLength(2);
     expect(npcs.map(n => n.name).sort()).toEqual(['Drak Ironforge', 'Pip Whistledown']);
   });
 
-  it('loads from session-scoped directory when sessionDbId is provided', () => {
-    const npcDir = getPlayerNpcsDir(tmpDir, EMAIL, CAMPAIGN);
-    writeJson(path.join(npcDir, 'pip.json'), makeNpc());
-    snapshotToSession(tmpDir, EMAIL, CAMPAIGN, 'sess-1');
+  it('loads from session directory when sessionDbId is provided', () => {
+    // Set up defaults
+    const defaultNpcDir = path.join(tmpDir, 'defaults', CAMPAIGN, 'npcs');
+    writeJson(path.join(defaultNpcDir, 'pip.json'), makeNpc());
+
+    // Snapshot to session
+    snapshotToSession(tmpDir, 'sess-1', EMAIL, CAMPAIGN);
 
     // Modify session copy
-    const sessNpcPath = path.join(getSessionNpcsDir(tmpDir, EMAIL, CAMPAIGN, 'sess-1'), 'pip.json');
+    const sessNpcPath = path.join(getSessionNpcsDir(tmpDir, 'sess-1'), 'pip.json');
     const sessNpc = JSON.parse(fs.readFileSync(sessNpcPath, 'utf-8'));
     sessNpc.hitPoints.current = 3;
     fs.writeFileSync(sessNpcPath, JSON.stringify(sessNpc, null, 2));
 
-    const globalNpcs = loadNpcs(tmpDir, EMAIL, CAMPAIGN);
-    expect(globalNpcs[0].hitPoints.current).toBe(15);
+    // Without sessionDbId — loads from defaults (15 HP)
+    const defaultNpcs = loadNpcs(tmpDir, EMAIL, CAMPAIGN);
+    expect(defaultNpcs[0].hitPoints.current).toBe(15);
 
+    // With sessionDbId — loads from session dir (3 HP)
     const sessNpcs = loadNpcs(tmpDir, EMAIL, CAMPAIGN, 'sess-1');
     expect(sessNpcs[0].hitPoints.current).toBe(3);
   });
@@ -172,7 +177,9 @@ describe('loadNpcs', () => {
 describe('buildSystemPrompt', () => {
   beforeEach(() => {
     writeJson(path.join(getPlayerCharactersDir(tmpDir, EMAIL, CAMPAIGN), 'bramble.json'), makeCharacter());
-    writeJson(path.join(getPlayerNpcsDir(tmpDir, EMAIL, CAMPAIGN), 'pip.json'), makeNpc());
+    // NPCs now come from campaign defaults
+    const defaultNpcDir = path.join(tmpDir, 'defaults', CAMPAIGN, 'npcs');
+    writeJson(path.join(defaultNpcDir, 'pip.json'), makeNpc());
   });
 
   it('includes character name and stats', () => {
@@ -191,18 +198,18 @@ describe('buildSystemPrompt', () => {
     expect(prompt).toContain('Secretly a prince');
   });
 
-  it('uses global character paths when no sessionDbId', () => {
+  it('uses player library paths when no sessionDbId', () => {
     const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
     expect(prompt).toContain('data/players/hero-test-com/demo/characters/');
-    expect(prompt).toContain('data/players/hero-test-com/demo/npcs/');
-    expect(prompt).not.toContain('/sessions/');
+    expect(prompt).toContain('data/defaults/demo/npcs');
+    expect(prompt).not.toContain('data/sessions/');
   });
 
-  it('uses session-scoped paths when sessionDbId is provided', () => {
-    snapshotToSession(tmpDir, EMAIL, CAMPAIGN, 'sess-abc');
+  it('uses session paths when sessionDbId is provided', () => {
+    snapshotToSession(tmpDir, 'sess-abc', EMAIL, CAMPAIGN);
     const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN, undefined, 'sess-abc');
-    expect(prompt).toContain('data/players/hero-test-com/demo/sessions/sess-abc/characters/');
-    expect(prompt).toContain('data/players/hero-test-com/demo/sessions/sess-abc/npcs/');
+    expect(prompt).toContain('data/sessions/sess-abc/characters/');
+    expect(prompt).toContain('data/sessions/sess-abc/npcs/');
   });
 
   it('marks NPC as replaced when companion player has own character', () => {
@@ -263,19 +270,17 @@ describe('buildSystemPrompt', () => {
 
   it('handles missing character gracefully', () => {
     const prompt = buildSystemPrompt(tmpDir, 'nonexistent', null, EMAIL, CAMPAIGN);
-    // Should still produce a valid prompt without character section
     expect(prompt).toContain('Dungeon Master');
     expect(prompt).not.toContain('Bramble Thornwick');
   });
 
   it('handles no NPCs gracefully', () => {
-    // Remove all NPC files
-    const npcDir = getPlayerNpcsDir(tmpDir, EMAIL, CAMPAIGN);
-    for (const f of fs.readdirSync(npcDir)) fs.rmSync(path.join(npcDir, f));
+    // Remove all default NPC files
+    const defaultNpcDir = path.join(tmpDir, 'defaults', CAMPAIGN, 'npcs');
+    for (const f of fs.readdirSync(defaultNpcDir)) fs.rmSync(path.join(defaultNpcDir, f));
 
     const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
     expect(prompt).toContain('Bramble Thornwick');
-    // NPC section header should not appear when there are no NPCs
     expect(prompt).not.toContain('## NPC Companions');
   });
 
@@ -331,7 +336,6 @@ describe('buildSystemPrompt', () => {
   });
 
   it('uses dmPersonality parameter when provided instead of loading from files', () => {
-    // The dm-settings.json says 'standard' (~500 words), but we pass 'epic' directly
     const dmPersonality = {
       humor: 80, drama: 90, responseLength: 'epic', difficulty: 75,
       horror: 60, puzzleFocus: 30, playerAutonomy: 50,

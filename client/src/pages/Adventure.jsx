@@ -373,7 +373,6 @@ function Adventure({
       setSessionActive(false);
       setSavedSessionDbId(null);
       localStorage.removeItem('dnd_active_session_id');
-      localStorage.removeItem('dnd_active_session_owner');
       setSessionReadOnly(false);
       setMessages([]);
       setCompanionCharacterId(null);
@@ -651,7 +650,6 @@ Set the scene and begin the story.`;
       setSessionReadOnly(result.readOnly === true);
       // Store active session context so Characters/Companions menu reads session-scoped data
       localStorage.setItem('dnd_active_session_id', result.id);
-      localStorage.setItem('dnd_active_session_owner', result.ownerEmail || result.playerEmail || player?.email || '');
       console.log(`[Save] Success — session ${result.id}, messages in response: ${(result.messages || []).length}`);
       setSaveStatus('saved');
       setTimeout(() => setSaveStatus(null), 2000);
@@ -754,7 +752,6 @@ Set the scene and begin the story.`;
       watchSession(session.id, player);
       // Store active session context so Characters/Companions menu reads session-scoped data
       localStorage.setItem('dnd_active_session_id', session.id);
-      localStorage.setItem('dnd_active_session_owner', session.ownerEmail || session.playerEmail || '');
       if (!readOnly) {
         dmPersonalityRef.current = session.dmPersonality || null;
         resumeSession(session.claudeSessionId, session.characterId, session.scenarioId, loadedMessages, player, session.campaignId || campaignId, session.companionConfig || null, session.dmPersonality || null);

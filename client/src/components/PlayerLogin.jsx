@@ -74,7 +74,6 @@ export default function PlayerLogin() {
   function handleLogout() {
     logout();
     localStorage.removeItem('dnd_active_session_id');
-    localStorage.removeItem('dnd_active_session_owner');
     window.location.reload();
   }
 

@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { requirePlayer } = require('../player-auth');
-const { getPlayerNpcsDir, getSessionNpcsDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
+const { getSessionNpcsDir } = require('../player-data');
 
 module.exports = function (dataDir) {
   const router = express.Router();
@@ -14,18 +14,18 @@ module.exports = function (dataDir) {
   function getNpcDir(req) {
     // If an active session is specified, read from session-scoped directory
     const sessionId = req.get('x-session-id');
-    const sessionOwner = req.get('x-session-owner');
-    if (sessionId && sessionOwner) {
-      const sessDir = getSessionNpcsDir(dataDir, sessionOwner, req.campaignId, sessionId);
+    if (sessionId) {
+      const sessDir = getSessionNpcsDir(dataDir, sessionId);
       if (fs.existsSync(sessDir)) return sessDir;
-      // Fall through to global if session dir doesn't exist
+      // Fall through to campaign defaults if session dir doesn't exist
     }
-    provisionPlayerDefaults(dataDir, req.player.email, req.campaignId);
-    return getPlayerNpcsDir(dataDir, req.player.email, req.campaignId);
+    // Outside session (or no session snapshot yet): read from campaign defaults (read-only)
+    return path.join(dataDir, 'defaults', req.campaignId || 'demo', 'npcs');
   }
 
   function readAllNpcs(req) {
     const npcDir = getNpcDir(req);
+    if (!fs.existsSync(npcDir)) return [];
     const files = fs.readdirSync(npcDir).filter(f => f.endsWith('.json'));
     return files.reduce((npcs, f) => {
       try {

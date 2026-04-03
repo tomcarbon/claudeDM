@@ -19,21 +19,28 @@ function getPlayerCharactersDir(dataDir, email, campaignId) {
   return path.join(getPlayerCampaignDir(dataDir, email, campaignId), 'characters');
 }
 
-function getPlayerNpcsDir(dataDir, email, campaignId) {
-  return path.join(getPlayerCampaignDir(dataDir, email, campaignId), 'npcs');
+// --- Session directories (neutral, shared location) ---
+// Sessions live at data/sessions/<sessionId>/ — not under any player's directory.
+
+function getSessionDir(dataDir, sessionId) {
+  return path.join(dataDir, 'sessions', sessionId);
 }
 
-function getPlayerSessionsDir(dataDir, email, campaignId) {
-  return path.join(getPlayerCampaignDir(dataDir, email, campaignId), 'sessions');
+function getSessionFilePath(dataDir, sessionId) {
+  return path.join(getSessionDir(dataDir, sessionId), 'session.json');
+}
+
+function getSessionCharactersDir(dataDir, sessionId) {
+  return path.join(getSessionDir(dataDir, sessionId), 'characters');
+}
+
+function getSessionNpcsDir(dataDir, sessionId) {
+  return path.join(getSessionDir(dataDir, sessionId), 'npcs');
 }
 
 function ensurePlayerDataExists(dataDir, email, campaignId) {
   const charDir = getPlayerCharactersDir(dataDir, email, campaignId);
-  const npcDir = getPlayerNpcsDir(dataDir, email, campaignId);
-  const sessDir = getPlayerSessionsDir(dataDir, email, campaignId);
   fs.mkdirSync(charDir, { recursive: true, mode: 0o755 });
-  fs.mkdirSync(npcDir, { recursive: true, mode: 0o755 });
-  fs.mkdirSync(sessDir, { recursive: true, mode: 0o755 });
 }
 
 function addStatusAlive(data) {
@@ -68,11 +75,8 @@ function provisionPlayerDefaults(dataDir, email, campaignId) {
   const cid = campaignId || DEFAULT_CAMPAIGN;
   ensurePlayerDataExists(dataDir, email, cid);
   const charDir = getPlayerCharactersDir(dataDir, email, cid);
-  const npcDir = getPlayerNpcsDir(dataDir, email, cid);
   const defaultChars = path.join(dataDir, 'defaults', cid, 'characters');
-  const defaultNpcs = path.join(dataDir, 'defaults', cid, 'npcs');
   copyDefaultsToDir(defaultChars, charDir);
-  copyDefaultsToDir(defaultNpcs, npcDir);
 }
 
 function provisionAllCampaignDefaults(dataDir, email) {
@@ -85,9 +89,7 @@ function provisionAllCampaignDefaults(dataDir, email) {
 function resetPlayerData(dataDir, email, scope, campaignId) {
   const cid = campaignId || DEFAULT_CAMPAIGN;
   const charDir = getPlayerCharactersDir(dataDir, email, cid);
-  const npcDir = getPlayerNpcsDir(dataDir, email, cid);
   const defaultChars = path.join(dataDir, 'defaults', cid, 'characters');
-  const defaultNpcs = path.join(dataDir, 'defaults', cid, 'npcs');
 
   if (scope === 'all' || scope === 'characters') {
     if (fs.existsSync(charDir)) {
@@ -98,32 +100,10 @@ function resetPlayerData(dataDir, email, scope, campaignId) {
     ensurePlayerDataExists(dataDir, email, cid);
     copyDefaultsToDir(defaultChars, charDir);
   }
-
-  if (scope === 'all' || scope === 'npcs') {
-    if (fs.existsSync(npcDir)) {
-      for (const f of fs.readdirSync(npcDir).filter(f => f.endsWith('.json'))) {
-        fs.unlinkSync(path.join(npcDir, f));
-      }
-    }
-    ensurePlayerDataExists(dataDir, email, cid);
-    copyDefaultsToDir(defaultNpcs, npcDir);
-  }
 }
 
-// --- Session-scoped data directories ---
+// --- Session-scoped data snapshotting ---
 // Each session gets its own copy of character/NPC files so sessions have independent state.
-
-function getSessionDataDir(dataDir, email, campaignId, sessionId) {
-  return path.join(getPlayerSessionsDir(dataDir, email, campaignId), sessionId);
-}
-
-function getSessionCharactersDir(dataDir, email, campaignId, sessionId) {
-  return path.join(getSessionDataDir(dataDir, email, campaignId, sessionId), 'characters');
-}
-
-function getSessionNpcsDir(dataDir, email, campaignId, sessionId) {
-  return path.join(getSessionDataDir(dataDir, email, campaignId, sessionId), 'npcs');
-}
 
 function copyFilesIfNotExist(srcDir, dstDir) {
   if (!fs.existsSync(srcDir)) return;
@@ -135,25 +115,33 @@ function copyFilesIfNotExist(srcDir, dstDir) {
   }
 }
 
-function snapshotToSession(dataDir, email, campaignId, sessionId) {
-  const srcChars = getPlayerCharactersDir(dataDir, email, campaignId);
-  const srcNpcs = getPlayerNpcsDir(dataDir, email, campaignId);
-  const dstChars = getSessionCharactersDir(dataDir, email, campaignId, sessionId);
-  const dstNpcs = getSessionNpcsDir(dataDir, email, campaignId, sessionId);
+function snapshotToSession(dataDir, sessionId, ownerEmail, campaignId) {
+  const cid = campaignId || DEFAULT_CAMPAIGN;
+  const dstChars = getSessionCharactersDir(dataDir, sessionId);
+  const dstNpcs = getSessionNpcsDir(dataDir, sessionId);
   fs.mkdirSync(dstChars, { recursive: true });
   fs.mkdirSync(dstNpcs, { recursive: true });
-  copyFilesIfNotExist(srcChars, dstChars);
-  copyFilesIfNotExist(srcNpcs, dstNpcs);
+
+  // NPCs: from campaign defaults only
+  const defaultNpcs = path.join(dataDir, 'defaults', cid, 'npcs');
+  copyFilesIfNotExist(defaultNpcs, dstNpcs);
+
+  // Characters: campaign defaults first, then player library (player files fill gaps)
+  const defaultChars = path.join(dataDir, 'defaults', cid, 'characters');
+  copyFilesIfNotExist(defaultChars, dstChars);
+  if (ownerEmail) {
+    const playerChars = getPlayerCharactersDir(dataDir, ownerEmail, cid);
+    copyFilesIfNotExist(playerChars, dstChars);
+  }
 }
 
 function resetSingleEntity(dataDir, email, entityType, entityId, campaignId) {
+  if (entityType !== 'character') {
+    throw new Error(`Reset is only supported for characters, not "${entityType}".`);
+  }
   const cid = campaignId || DEFAULT_CAMPAIGN;
-  const playerDir = entityType === 'character'
-    ? getPlayerCharactersDir(dataDir, email, cid)
-    : getPlayerNpcsDir(dataDir, email, cid);
-  const defaultDir = entityType === 'character'
-    ? path.join(dataDir, 'defaults', cid, 'characters')
-    : path.join(dataDir, 'defaults', cid, 'npcs');
+  const playerDir = getPlayerCharactersDir(dataDir, email, cid);
+  const defaultDir = path.join(dataDir, 'defaults', cid, 'characters');
 
   if (!fs.existsSync(defaultDir)) {
     throw new Error(`Default ${entityType} directory not found`);
@@ -198,9 +186,8 @@ module.exports = {
   getPlayerDataDir,
   getPlayerCampaignDir,
   getPlayerCharactersDir,
-  getPlayerNpcsDir,
-  getPlayerSessionsDir,
-  getSessionDataDir,
+  getSessionDir,
+  getSessionFilePath,
   getSessionCharactersDir,
   getSessionNpcsDir,
   snapshotToSession,

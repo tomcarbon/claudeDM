@@ -2,7 +2,7 @@ const { WebSocketServer } = require('ws');
 const fs = require('fs');
 const path = require('path');
 const { DmEngine } = require('./dm-engine');
-const { emailToSlug, getPlayerCharactersDir, snapshotToSession } = require('./player-data');
+const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession } = require('./player-data');
 
 // Module-level chat rooms: chatKey -> Set<wsEntry>
 // Each wsEntry: { ws, playerEmail, playerName, isAdmin }
@@ -189,21 +189,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
   function findSessionFilePath(sessionDbId) {
     if (!sessionDbId) return null;
-    const filename = `${sessionDbId}.json`;
-    try {
-      const playerSlugs = fs.existsSync(playersDir) ? fs.readdirSync(playersDir) : [];
-      for (const slug of playerSlugs) {
-        const playerDir = path.join(playersDir, slug);
-        let campaigns;
-        try { campaigns = fs.readdirSync(playerDir).filter(d => fs.statSync(path.join(playerDir, d)).isDirectory()); } catch { continue; }
-        for (const cid of campaigns) {
-          const sessPath = path.join(playerDir, cid, 'sessions', filename);
-          if (fs.existsSync(sessPath)) return sessPath;
-        }
-      }
-    } catch { /* ignore */ }
-    const legacyPath = path.join(dataDir, 'sessions', filename);
-    if (fs.existsSync(legacyPath)) return legacyPath;
+    const fp = getSessionFilePath(dataDir, sessionDbId);
+    if (fs.existsSync(fp)) return fp;
     return null;
   }
 
@@ -573,7 +560,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       try {
         // Snapshot session data dir if needed
         const cid = engineCtx.campaignId || 'demo';
-        try { snapshotToSession(dataDir, ownerEmail, cid, sessionDbId); } catch (e) { console.error('[WS] Snapshot error:', e); }
+        try { snapshotToSession(dataDir, sessionDbId, ownerEmail, cid); } catch (e) { console.error('[WS] Snapshot error:', e); }
 
         // Load world state and summary counter from session for context persistence
         const sessionForState = readSessionByDbId(sessionDbId);
@@ -753,13 +740,17 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           // Look up character name for participants broadcast
           wsEntry.characterName = null;
           if (characterId && msg.playerEmail) {
-            try {
-              const charDir = getPlayerCharactersDir(dataDir, msg.playerEmail, campaignId || 'demo');
-              for (const f of fs.readdirSync(charDir).filter(f => f.endsWith('.json'))) {
-                const d = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
-                if (d.id === characterId) { wsEntry.characterName = d.name; break; }
-              }
-            } catch { /* ignore */ }
+            // Check player library for character name
+            const dirsToCheck = [getPlayerCharactersDir(dataDir, msg.playerEmail, campaignId || 'demo')];
+            for (const charDir of dirsToCheck) {
+              try {
+                for (const f of fs.readdirSync(charDir).filter(f => f.endsWith('.json'))) {
+                  const d = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
+                  if (d.id === characterId) { wsEntry.characterName = d.name; break; }
+                }
+              } catch { /* ignore */ }
+              if (wsEntry.characterName) break;
+            }
           }
           if (msg.playerName) wsEntry.playerName = msg.playerName;
           send('session_status', { status: 'idle' });
@@ -813,13 +804,19 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           wsEntry.companionCharacterName = null;
           wsEntry.companionCharacterData = null;
           if (characterId && msg.playerEmail) {
-            try {
-              const charDir = getPlayerCharactersDir(dataDir, msg.playerEmail, campaignId || 'demo');
-              for (const f of fs.readdirSync(charDir).filter(f => f.endsWith('.json'))) {
-                const d = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
-                if (d.id === characterId) { wsEntry.characterName = d.name; break; }
-              }
-            } catch { /* ignore */ }
+            // Check session dir first (if resuming), then player library
+            const dirsToCheck = [];
+            if (currentSessionDbId) dirsToCheck.push(getSessionCharactersDir(dataDir, currentSessionDbId));
+            dirsToCheck.push(getPlayerCharactersDir(dataDir, msg.playerEmail, campaignId || 'demo'));
+            for (const charDir of dirsToCheck) {
+              try {
+                for (const f of fs.readdirSync(charDir).filter(f => f.endsWith('.json'))) {
+                  const d = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
+                  if (d.id === characterId) { wsEntry.characterName = d.name; break; }
+                }
+              } catch { /* ignore */ }
+              if (wsEntry.characterName) break;
+            }
           }
           if (msg.playerName) wsEntry.playerName = msg.playerName;
           // Store message history for resume fallback
@@ -944,7 +941,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
           // Snapshot character/NPC files to session-scoped directory (creates if not exists, skips existing)
           if (canWrite && ownerEmail) {
-            try { snapshotToSession(dataDir, ownerEmail, session.campaignId || campaignId || 'demo', requestedSessionId); } catch (e) { console.error('[WS] Snapshot error:', e); }
+            try { snapshotToSession(dataDir, requestedSessionId, ownerEmail, session.campaignId || campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
           }
 
           // Restore pending turns from session JSON into in-memory map (reconnect support)
@@ -1058,7 +1055,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
             // Snapshot session data if we have a saved session
             if (currentSessionDbId && wsEntry.playerEmail) {
-              try { snapshotToSession(dataDir, wsEntry.playerEmail, campaignId || 'demo', currentSessionDbId); } catch (e) { console.error('[WS] Snapshot error:', e); }
+              try { snapshotToSession(dataDir, currentSessionDbId, wsEntry.playerEmail, campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
             }
 
             // Load world state and summary counter from session for context persistence
@@ -1205,68 +1202,20 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           }
           broadcastSessionParticipants(currentSessionDbId);
 
-          // Copy companion's character file to host's characters directory
+          // Copy companion's character file to the session directory (neutral, shared)
           if (msg.characterData && msg.characterId) {
             try {
-              // Find the host entry to get their email and campaignId
-              const hostEntry = sessionRooms.has(currentSessionDbId)
-                ? Array.from(sessionRooms.get(currentSessionDbId)).find(e => e.isHost)
-                : null;
-              if (hostEntry && hostEntry.playerEmail) {
-                const hostCampaignId = hostEntry.campaignId || 'demo';
-                const hostCharDir = getPlayerCharactersDir(dataDir, hostEntry.playerEmail, hostCampaignId);
-                // Check character count limit (50)
-                let charCount = 0;
-                try { charCount = fs.readdirSync(hostCharDir).filter(f => f.endsWith('.json')).length; } catch { /* dir may not exist */ }
-                if (charCount < 50) {
-                  // Generate filename from character name
-                  const charSlug = String(msg.characterData.name || msg.characterId)
-                    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-                  const destPath = path.join(hostCharDir, `${charSlug}.json`);
-                  const charDataToWrite = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
-                  if (!fs.existsSync(destPath)) {
-                    fs.mkdirSync(hostCharDir, { recursive: true });
-                    fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
-                    console.log(`[WS] Copied companion character "${msg.characterData.name}" to host's roster: ${destPath}`);
-                  } else {
-                    // Only overwrite if the existing file is a companion-owned character.
-                    // Never overwrite the host's own character files.
-                    try {
-                      const existing = JSON.parse(fs.readFileSync(destPath, 'utf-8'));
-                      if (existing._companionOwner) {
-                        fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
-                        console.log(`[WS] Updated companion character "${msg.characterData.name}" in host's roster: ${destPath}`);
-                      } else {
-                        console.log(`[WS] Skipping overwrite of host character "${existing.name || charSlug}" — companion "${msg.characterData.name}" has same slug`);
-                      }
-                    } catch (readErr) {
-                      console.warn(`[WS] Could not read existing character file at ${destPath}, skipping overwrite:`, readErr.message);
-                    }
-                  }
-                  // Also copy to session-scoped directory if a session snapshot exists
-                  const sessCharDir = getSessionCharactersDir(dataDir, hostEntry.playerEmail, hostCampaignId, currentSessionDbId);
-                  if (fs.existsSync(sessCharDir)) {
-                    const sessDestPath = path.join(sessCharDir, `${charSlug}.json`);
-                    const charDataToWrite2 = { ...msg.characterData, _companionOwner: wsEntry.playerEmail, _filename: `${charSlug}.json` };
-                    if (!fs.existsSync(sessDestPath)) {
-                      fs.writeFileSync(sessDestPath, JSON.stringify(charDataToWrite2, null, 2));
-                      console.log(`[WS] Copied companion character "${msg.characterData.name}" to session dir: ${sessDestPath}`);
-                    } else {
-                      try {
-                        const existing = JSON.parse(fs.readFileSync(sessDestPath, 'utf-8'));
-                        if (existing._companionOwner) {
-                          fs.writeFileSync(sessDestPath, JSON.stringify(charDataToWrite2, null, 2));
-                          console.log(`[WS] Updated companion character "${msg.characterData.name}" in session dir: ${sessDestPath}`);
-                        }
-                      } catch { /* skip */ }
-                    }
-                  }
-                } else {
-                  console.warn(`[WS] Host has ${charCount} characters, skipping companion character copy (limit: 50)`);
-                }
-              }
+              const sessCharDir = getSessionCharactersDir(dataDir, currentSessionDbId);
+              fs.mkdirSync(sessCharDir, { recursive: true });
+              const charSlug = String(msg.characterData.name || msg.characterId)
+                .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+              const destPath = path.join(sessCharDir, `${charSlug}.json`);
+              const charDataToWrite = { ...msg.characterData, _filename: `${charSlug}.json` };
+              // Always write to session dir — overwrites are safe in session scope
+              fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
+              console.log(`[WS] Copied companion character "${msg.characterData.name}" to session dir: ${destPath}`);
             } catch (err) {
-              console.error(`[WS] Failed to copy companion character to host's roster:`, err);
+              console.error(`[WS] Failed to copy companion character to session dir:`, err);
             }
           }
 
@@ -1283,7 +1232,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               ? Array.from(sessionRooms.get(currentSessionDbId)).find(e => e.isHost)
               : null;
             if (hostEntry && hostEntry.invalidateSession) {
-              const swapMsg = `[System: Companion player ${wsEntry.playerName} is playing as ${msg.characterName}, replacing ${npcLabel} in the party. The companion's character file has been copied to the host's characters directory. Treat ${msg.characterName} as a full party member — read their character file for stats, track HP, award XP, and manage inventory just like any other character.]`;
+              const swapMsg = `[System: Companion player ${wsEntry.playerName} is playing as ${msg.characterName}, replacing ${npcLabel} in the party. The companion's character file has been copied to the session's characters directory. Treat ${msg.characterName} as a full party member — read their character file for stats, track HP, award XP, and manage inventory just like any other character.]`;
               hostEntry.invalidateSession(swapMsg);
               console.log(`[WS] Invalidated host's Claude session for party composition change`);
             }

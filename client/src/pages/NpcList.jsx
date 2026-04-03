@@ -17,7 +17,7 @@ function NpcList() {
       setLoading(false);
       return;
     }
-    const fetcher = sessionActive ? api.getMyNpcs() : api.getNpcs();
+    const fetcher = api.getNpcs();
     fetcher
       .then(loaded => setNpcs(loaded))
       .catch(e => setError(e.message))

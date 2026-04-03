@@ -8,7 +8,7 @@ import WebSocket from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 
 const { attachWebSocket } = require('../ws-handler');
-const { ensurePlayerDataExists, getPlayerSessionsDir, getPlayerCharactersDir, getPlayerNpcsDir } = require('../player-data');
+const { ensurePlayerDataExists, getSessionDir, getPlayerCharactersDir } = require('../player-data');
 
 let tmpDir;
 let server;
@@ -57,13 +57,14 @@ function makeSession(dataDir, overrides = {}) {
     pendingTurns: {},
     ...overrides,
   };
-  ensurePlayerDataExists(dataDir, HOST.email, 'demo');
-  const sessDir = getPlayerSessionsDir(dataDir, HOST.email, 'demo');
-  writeJson(path.join(sessDir, `${session.id}.json`), session);
+  const sessionDir = getSessionDir(dataDir, session.id);
+  fs.mkdirSync(sessionDir, { recursive: true });
+  writeJson(path.join(sessionDir, 'session.json'), session);
   return session;
 }
 
 function setupCharacterAndNpc(dataDir) {
+  ensurePlayerDataExists(dataDir, HOST.email, 'demo');
   writeJson(path.join(getPlayerCharactersDir(dataDir, HOST.email, 'demo'), 'hero.json'), {
     id: 'char-1', name: 'Bramble', race: 'Halfling', class: 'Druid', level: 3,
     hitPoints: { current: 25, max: 25 }, armorClass: 13, speed: 25, proficiencyBonus: 2,
@@ -72,7 +73,8 @@ function setupCharacterAndNpc(dataDir) {
       wisdom: { score: 16, modifier: 3 }, charisma: { score: 13, modifier: 1 } },
     status: 'alive',
   });
-  writeJson(path.join(getPlayerNpcsDir(dataDir, HOST.email, 'demo'), 'pip.json'), {
+  // NPCs now live in campaign defaults
+  writeJson(path.join(dataDir, 'defaults', 'demo', 'npcs', 'pip.json'), {
     id: 'npc-1', name: 'Pip', race: 'Gnome', class: 'Rogue', level: 2,
     hitPoints: { current: 15, max: 15 }, armorClass: 14, speed: 25, proficiencyBonus: 2,
     abilities: { strength: { score: 8, modifier: -1 }, dexterity: { score: 16, modifier: 3 },
@@ -250,7 +252,7 @@ describe('multiplayer — turn queueing', () => {
 
     // Verify persisted to session JSON
     const sessFile = JSON.parse(fs.readFileSync(
-      path.join(getPlayerSessionsDir(tmpDir, HOST.email, 'demo'), `${session.id}.json`), 'utf-8'));
+      path.join(getSessionDir(tmpDir, session.id), 'session.json'), 'utf-8'));
     expect(sessFile.pendingTurns[HOST.email]).toBeDefined();
     expect(sessFile.pendingTurns[HOST.email].text).toBe('I attack the goblin');
 
@@ -279,7 +281,7 @@ describe('multiplayer — turn queueing', () => {
 
     // Verify removed from session JSON
     const sessFile = JSON.parse(fs.readFileSync(
-      path.join(getPlayerSessionsDir(tmpDir, HOST.email, 'demo'), `${session.id}.json`), 'utf-8'));
+      path.join(getSessionDir(tmpDir, session.id), 'session.json'), 'utf-8'));
     expect(sessFile.pendingTurns[HOST.email]).toBeUndefined();
 
     host.close();
@@ -302,7 +304,7 @@ describe('multiplayer — turn queueing', () => {
 
     // Verify persisted
     const sessFile = JSON.parse(fs.readFileSync(
-      path.join(getPlayerSessionsDir(tmpDir, HOST.email, 'demo'), `${session.id}.json`), 'utf-8'));
+      path.join(getSessionDir(tmpDir, session.id), 'session.json'), 'utf-8'));
     expect(sessFile.pendingTurns[COMPANION.email]).toBeDefined();
     expect(sessFile.pendingTurns[COMPANION.email].text).toBe('I sneak behind the goblin');
 
@@ -347,7 +349,7 @@ describe('multiplayer — turn queueing', () => {
 
     // Verify persisted to session JSON (the ground truth)
     const sessFile = JSON.parse(fs.readFileSync(
-      path.join(getPlayerSessionsDir(tmpDir, HOST.email, 'demo'), `${session.id}.json`), 'utf-8'));
+      path.join(getSessionDir(tmpDir, session.id), 'session.json'), 'utf-8'));
     expect(sessFile.pendingTurns[COMPANION.email]).toBeDefined();
     expect(sessFile.pendingTurns[COMPANION.email].text).toBe('I hide');
 
@@ -471,7 +473,7 @@ describe('host_skip_companion', () => {
 
     // Verify removed from session JSON
     const sessFile = JSON.parse(fs.readFileSync(
-      path.join(getPlayerSessionsDir(tmpDir, HOST.email, 'demo'), `${session.id}.json`), 'utf-8'));
+      path.join(getSessionDir(tmpDir, session.id), 'session.json'), 'utf-8'));
     expect(sessFile.pendingTurns[COMPANION.email]).toBeUndefined();
 
     host.close();

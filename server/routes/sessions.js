@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
-const { getPlayerSessionsDir, ensurePlayerDataExists, emailToSlug, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, getPlayerNpcsDir, provisionPlayerDefaults } = require('../player-data');
+const { emailToSlug, getSessionDir, getSessionFilePath, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, provisionPlayerDefaults, snapshotToSession } = require('../player-data');
 const { broadcastToAll } = require('../ws-handler');
 const { loadDmSettings } = require('../dm-engine');
 
@@ -146,18 +146,22 @@ function withSessionAccess(session, requester) {
 }
 
 function countPlayerSessions(dataDir, email) {
-  const slug = emailToSlug(email);
-  const playerDir = path.join(dataDir, 'players', slug);
-  if (!fs.existsSync(playerDir)) return 0;
+  const sessionsDir = path.join(dataDir, 'sessions');
+  if (!fs.existsSync(sessionsDir)) return 0;
+  const normalizedEmail = String(email).trim().toLowerCase();
   let count = 0;
   try {
-    const campaigns = fs.readdirSync(playerDir).filter(d => {
-      try { return fs.statSync(path.join(playerDir, d)).isDirectory(); } catch { return false; }
+    const dirs = fs.readdirSync(sessionsDir).filter(d => {
+      try { return fs.statSync(path.join(sessionsDir, d)).isDirectory(); } catch { return false; }
     });
-    for (const cid of campaigns) {
-      const sessDir = path.join(playerDir, cid, 'sessions');
-      if (!fs.existsSync(sessDir)) continue;
-      count += fs.readdirSync(sessDir).filter(f => f.endsWith('.json')).length;
+    for (const d of dirs) {
+      const fp = path.join(sessionsDir, d, 'session.json');
+      if (!fs.existsSync(fp)) continue;
+      try {
+        const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
+        const ownerEmail = getOwnerEmail(data);
+        if (ownerEmail && ownerEmail === normalizedEmail) count++;
+      } catch { /* skip malformed */ }
     }
   } catch { /* ignore */ }
   return count;
@@ -166,100 +170,37 @@ function countPlayerSessions(dataDir, email) {
 module.exports = function (dataDir) {
   const router = express.Router();
 
-  function getSessionsDir(req) {
-    const requester = getAuthenticatedPlayer(dataDir, req);
-    if (!requester) {
-      // Guest fallback — legacy global dir (read-only)
-      const fallback = path.join(dataDir, 'sessions');
-      if (!fs.existsSync(fallback)) fs.mkdirSync(fallback, { recursive: true });
-      return fallback;
-    }
-    const dir = getPlayerSessionsDir(dataDir, requester.email, req.campaignId);
-    ensurePlayerDataExists(dataDir, requester.email, req.campaignId);
-    return dir;
+  // All sessions live in a flat neutral directory: data/sessions/<id>/session.json
+  const sessionsBaseDir = path.join(dataDir, 'sessions');
+
+  function ensureSessionsDir() {
+    if (!fs.existsSync(sessionsBaseDir)) fs.mkdirSync(sessionsBaseDir, { recursive: true });
   }
 
-  // Scan all players' session directories for public sessions in the given campaign
-  function getPublicSessions(requester, campaignId) {
-    const playersDir = path.join(dataDir, 'players');
-    if (!fs.existsSync(playersDir)) return [];
+  // Find a session file by ID — simple direct lookup
+  function findSessionFile(sessionId) {
+    const fp = getSessionFilePath(dataDir, sessionId);
+    return fs.existsSync(fp) ? fp : null;
+  }
 
-    const requesterSlug = requester ? emailToSlug(requester.email) : null;
+  // Read all session directories and return parsed session data
+  function readAllSessions() {
+    ensureSessionsDir();
     const results = [];
-
-    let playerDirs;
+    let dirs;
     try {
-      playerDirs = fs.readdirSync(playersDir).filter(d => {
-        if (d === requesterSlug) return false; // skip own — already included
-        const stat = fs.statSync(path.join(playersDir, d));
-        return stat.isDirectory();
+      dirs = fs.readdirSync(sessionsBaseDir).filter(d => {
+        try { return fs.statSync(path.join(sessionsBaseDir, d)).isDirectory(); } catch { return false; }
       });
-    } catch {
-      return [];
-    }
-
-    for (const playerSlug of playerDirs) {
-      const sessDir = path.join(playersDir, playerSlug, campaignId || 'demo', 'sessions');
-      if (!fs.existsSync(sessDir)) continue;
-      let files;
+    } catch { return []; }
+    for (const d of dirs) {
+      const fp = path.join(sessionsBaseDir, d, 'session.json');
+      if (!fs.existsSync(fp)) continue;
       try {
-        files = fs.readdirSync(sessDir).filter(f => f.endsWith('.json'));
-      } catch {
-        continue;
-      }
-      for (const f of files) {
-        try {
-          const data = JSON.parse(fs.readFileSync(path.join(sessDir, f), 'utf-8'));
-          const settings = getSessionSettings(data);
-          if (settings.visibility === 'public') {
-            results.push(summarizeSession(data, requester));
-          }
-        } catch {
-          // skip malformed files
-        }
-      }
+        results.push(JSON.parse(fs.readFileSync(fp, 'utf-8')));
+      } catch { /* skip malformed */ }
     }
-
     return results;
-  }
-
-  // Resolve a session file by ID across all players (for public access)
-  function findSessionFile(sessionId, campaignId) {
-    const playersDir = path.join(dataDir, 'players');
-    if (!fs.existsSync(playersDir)) return null;
-
-    let playerDirs;
-    try {
-      playerDirs = fs.readdirSync(playersDir).filter(d => {
-        const stat = fs.statSync(path.join(playersDir, d));
-        return stat.isDirectory();
-      });
-    } catch {
-      return null;
-    }
-
-    // First: search within the requested campaign
-    for (const playerSlug of playerDirs) {
-      const filePath = path.join(playersDir, playerSlug, campaignId || 'demo', 'sessions', `${sessionId}.json`);
-      if (fs.existsSync(filePath)) return filePath;
-    }
-
-    // Fallback: search across ALL campaigns (handles cross-campaign companion joins)
-    for (const playerSlug of playerDirs) {
-      const playerDir = path.join(playersDir, playerSlug);
-      let campaignDirs;
-      try {
-        campaignDirs = fs.readdirSync(playerDir).filter(d => {
-          try { return fs.statSync(path.join(playerDir, d)).isDirectory(); } catch { return false; }
-        });
-      } catch { continue; }
-      for (const cid of campaignDirs) {
-        if (cid === (campaignId || 'demo')) continue; // Already searched
-        const filePath = path.join(playerDir, cid, 'sessions', `${sessionId}.json`);
-        if (fs.existsSync(filePath)) return filePath;
-      }
-    }
-    return null;
   }
 
   // GET all sessions across all campaigns for the logged-in player (My Games scoreboard)
@@ -271,10 +212,7 @@ module.exports = function (dataDir) {
       }
 
       const showAll = req.query.all === 'true';
-      const slug = emailToSlug(requester.email);
-      const playerDir = path.join(dataDir, 'players', slug);
-      const seen = new Set();
-      const allSessions = [];
+      const requesterEmail = requester.email.toLowerCase();
 
       // Cache campaign titles
       const campaignTitles = {};
@@ -289,68 +227,20 @@ module.exports = function (dataDir) {
         return campaignTitles[cid];
       }
 
-      // 1. Own sessions across all campaigns
-      if (fs.existsSync(playerDir)) {
-        const campaigns = fs.readdirSync(playerDir).filter(d => {
-          try { return fs.statSync(path.join(playerDir, d)).isDirectory(); } catch { return false; }
-        });
-        for (const cid of campaigns) {
-          const sessDir = path.join(playerDir, cid, 'sessions');
-          if (!fs.existsSync(sessDir)) continue;
-          const files = fs.readdirSync(sessDir).filter(f => f.endsWith('.json'));
-          for (const f of files) {
-            try {
-              const data = JSON.parse(fs.readFileSync(path.join(sessDir, f), 'utf-8'));
-              if (seen.has(data.id)) continue;
-              seen.add(data.id);
-              const summary = summarizeSession(data, requester);
-              summary.campaignId = data.campaignId || cid;
-              summary.campaignTitle = getCampaignTitle(data.campaignId || cid);
-              allSessions.push(summary);
-            } catch { /* skip malformed */ }
-          }
-        }
-      }
+      const allSessions = [];
+      for (const data of readAllSessions()) {
+        const ownerEmail = getOwnerEmail(data);
+        const isOwner = ownerEmail === requesterEmail;
+        const isCompanion = data.companionPlayers && Object.values(data.companionPlayers).some(
+          cp => cp.email && cp.email.toLowerCase() === requesterEmail
+        );
 
-      // 2. Sessions from other players (companion sessions, or all if ?all=true)
-      const playersDir = path.join(dataDir, 'players');
-      if (fs.existsSync(playersDir)) {
-        const otherDirs = fs.readdirSync(playersDir).filter(d => {
-          if (d === slug) return false;
-          try { return fs.statSync(path.join(playersDir, d)).isDirectory(); } catch { return false; }
-        });
-        for (const pSlug of otherDirs) {
-          const pDir = path.join(playersDir, pSlug);
-          let campaigns;
-          try {
-            campaigns = fs.readdirSync(pDir).filter(d => {
-              try { return fs.statSync(path.join(pDir, d)).isDirectory(); } catch { return false; }
-            });
-          } catch { continue; }
-          for (const cid of campaigns) {
-            const sessDir = path.join(pDir, cid, 'sessions');
-            if (!fs.existsSync(sessDir)) continue;
-            let files;
-            try { files = fs.readdirSync(sessDir).filter(f => f.endsWith('.json')); } catch { continue; }
-            for (const f of files) {
-              try {
-                const data = JSON.parse(fs.readFileSync(path.join(sessDir, f), 'utf-8'));
-                if (seen.has(data.id)) continue;
-                if (!showAll) {
-                  const isCompanion = data.companionPlayers && Object.values(data.companionPlayers).some(
-                    cp => cp.email && cp.email.toLowerCase() === requester.email.toLowerCase()
-                  );
-                  if (!isCompanion) continue;
-                }
-                seen.add(data.id);
-                const summary = summarizeSession(data, requester);
-                summary.campaignId = data.campaignId || cid;
-                summary.campaignTitle = getCampaignTitle(data.campaignId || cid);
-                allSessions.push(summary);
-              } catch { /* skip malformed */ }
-            }
-          }
-        }
+        if (!isOwner && !isCompanion && !showAll) continue;
+
+        const summary = summarizeSession(data, requester);
+        summary.campaignId = data.campaignId || 'demo';
+        summary.campaignTitle = getCampaignTitle(data.campaignId || 'demo');
+        allSessions.push(summary);
       }
 
       allSessions.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
@@ -360,31 +250,28 @@ module.exports = function (dataDir) {
     }
   });
 
-  // GET all sessions
+  // GET all sessions (for current campaign)
   router.get('/', (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
-      const dir = getSessionsDir(req);
-      const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-      const ownSessions = files.map(f => {
-        const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
-        return summarizeSession(data, requester);
-      });
+      const campaignId = req.campaignId || 'demo';
+      const requesterEmail = requester?.email?.toLowerCase() || null;
 
-      // Also include public sessions from other players
-      const publicSessions = getPublicSessions(requester, req.campaignId);
+      const allSessions = [];
+      for (const data of readAllSessions()) {
+        // Filter to current campaign
+        if ((data.campaignId || 'demo') !== campaignId) continue;
 
-      // Merge and deduplicate by ID
-      const seen = new Set(ownSessions.map(s => s.id));
-      const allSessions = [...ownSessions];
-      for (const ps of publicSessions) {
-        if (!seen.has(ps.id)) {
-          seen.add(ps.id);
-          allSessions.push(ps);
-        }
+        const ownerEmail = getOwnerEmail(data);
+        const isOwner = requesterEmail && ownerEmail === requesterEmail;
+        const settings = getSessionSettings(data);
+        const isPublic = settings.visibility === 'public';
+
+        if (!isOwner && !isPublic) continue;
+
+        allSessions.push(summarizeSession(data, requester));
       }
 
-      // Sort by most recently updated
       allSessions.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
       res.json(allSessions);
     } catch (err) {
@@ -396,23 +283,18 @@ module.exports = function (dataDir) {
   router.get('/:id', (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
-      // Try own sessions dir first
-      let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
-        // Try finding as a public session from another player
-        filePath = findSessionFile(req.params.id, req.campaignId);
-        if (!filePath) {
-          return res.status(404).json({ error: 'Session not found' });
-        }
-        // Verify it's public
-        const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
+        return res.status(404).json({ error: 'Session not found' });
+      }
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      // Non-owners can only see public sessions
+      if (!canWriteSession(data, requester)) {
         const settings = getSessionSettings(data);
         if (settings.visibility !== 'public') {
           return res.status(404).json({ error: 'Session not found' });
         }
-        return res.json(withSessionAccess(data, requester));
       }
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
       res.json(withSessionAccess(data, requester));
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -480,10 +362,15 @@ module.exports = function (dataDir) {
         currentScene: 0,
         log: [],
       };
+      // Write session to neutral shared location: data/sessions/<id>/session.json
+      const sessionDir = getSessionDir(dataDir, session.id);
+      fs.mkdirSync(sessionDir, { recursive: true });
       fs.writeFileSync(
-        path.join(getSessionsDir(req), `${session.id}.json`),
+        path.join(sessionDir, 'session.json'),
         JSON.stringify(session, null, 2)
       );
+      // Snapshot characters and NPCs from defaults + player library into session dir
+      snapshotToSession(dataDir, session.id, requester.email, session.campaignId);
       const result = withSessionAccess(session, requester);
       res.status(201).json(result);
       broadcastToAll('sessions_changed');
@@ -499,8 +386,8 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot modify sessions.' });
       }
-      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
         return res.status(404).json({ error: 'Session not found' });
       }
       const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -550,8 +437,8 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required.' });
       }
-      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
         return res.status(404).json({ error: 'Session not found' });
       }
       const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -593,8 +480,8 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required.' });
       }
-      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
         return res.status(404).json({ error: 'Session not found' });
       }
       const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -623,13 +510,9 @@ module.exports = function (dataDir) {
         return res.status(400).json({ error: 'npcId is required.' });
       }
 
-      // Find the session file (could be in another player's directory)
-      let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
-        filePath = findSessionFile(req.params.id, req.campaignId);
-        if (!filePath) {
-          return res.status(404).json({ error: 'Session not found' });
-        }
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
+        return res.status(404).json({ error: 'Session not found' });
       }
 
       const session = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -708,12 +591,9 @@ module.exports = function (dataDir) {
         return res.status(400).json({ error: 'npcId is required.' });
       }
 
-      let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
-        filePath = findSessionFile(req.params.id, req.campaignId);
-        if (!filePath) {
-          return res.status(404).json({ error: 'Session not found' });
-        }
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
+        return res.status(404).json({ error: 'Session not found' });
       }
 
       const session = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -750,15 +630,17 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot delete sessions.' });
       }
-      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
         return res.status(404).json({ error: 'Session not found' });
       }
       const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
       if (!canWriteSession(existing, requester)) {
         return res.status(403).json({ error: 'Only the session creator can delete this session.' });
       }
-      fs.unlinkSync(filePath);
+      // Remove the entire session directory (session.json + characters/ + npcs/)
+      const sessionDir = getSessionDir(dataDir, req.params.id);
+      fs.rmSync(sessionDir, { recursive: true, force: true });
       res.json({ success: true });
       broadcastToAll('sessions_changed');
     } catch (err) {
@@ -773,8 +655,8 @@ module.exports = function (dataDir) {
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot modify sessions.' });
       }
-      const filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
         return res.status(404).json({ error: 'Session not found' });
       }
       const session = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -809,41 +691,53 @@ module.exports = function (dataDir) {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
 
-      // Find session file
-      let filePath = path.join(getSessionsDir(req), `${req.params.id}.json`);
-      if (!fs.existsSync(filePath)) {
-        filePath = findSessionFile(req.params.id, req.campaignId);
-        if (!filePath) {
-          return res.status(404).json({ error: 'Session not found' });
-        }
-        const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        const settings = getSessionSettings(data);
-        if (settings.visibility !== 'public') {
-          // Non-public sessions require authentication
-          if (!requester) return res.status(401).json({ error: 'Login required.' });
-          return res.status(404).json({ error: 'Session not found' });
-        }
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
+        return res.status(404).json({ error: 'Session not found' });
       }
 
       const session = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      const ownerEmail = getOwnerEmail(session);
-      const campaignId = req.campaignId;
+      const settings = getSessionSettings(session);
+      if (!canWriteSession(session, requester) && settings.visibility !== 'public') {
+        if (!requester) return res.status(401).json({ error: 'Login required.' });
+        return res.status(404).json({ error: 'Session not found' });
+      }
+
       const sessionId = session.id;
       const states = session.companionConfig?.states || {};
       const claimed = session.companionPlayers || {};
 
-      // --- Characters: owner's selected PC ---
+      // --- Characters: read from session dir ---
       const characters = [];
-      if (ownerEmail && session.characterId) {
-        const charDir = getSessionCharactersDir(dataDir, ownerEmail, campaignId, sessionId);
-        const fallbackDir = getPlayerCharactersDir(dataDir, ownerEmail, campaignId);
-        const dir = fs.existsSync(charDir) ? charDir : (fs.existsSync(fallbackDir) ? fallbackDir : null);
-        if (dir) {
-          const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-          for (const f of files) {
+      const sessCharDir = getSessionCharactersDir(dataDir, sessionId);
+      if (session.characterId && fs.existsSync(sessCharDir)) {
+        const files = fs.readdirSync(sessCharDir).filter(f => f.endsWith('.json'));
+        for (const f of files) {
+          try {
+            const data = JSON.parse(fs.readFileSync(path.join(sessCharDir, f), 'utf-8'));
+            if (data.id === session.characterId) {
+              characters.push(data);
+              break;
+            }
+          } catch { /* skip malformed */ }
+        }
+      }
+
+      // --- Characters: companion players' PCs (also in session dir) ---
+      const companionsWithoutCharacter = [];
+      for (const [npcId, cp] of Object.entries(claimed)) {
+        if (!cp.email) continue;
+        if (!cp.characterId) {
+          companionsWithoutCharacter.push(npcId);
+          continue;
+        }
+        // Companion characters are stored in the session directory
+        if (fs.existsSync(sessCharDir)) {
+          const cpFiles = fs.readdirSync(sessCharDir).filter(f => f.endsWith('.json'));
+          for (const f of cpFiles) {
             try {
-              const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
-              if (data.id === session.characterId) {
+              const data = JSON.parse(fs.readFileSync(path.join(sessCharDir, f), 'utf-8'));
+              if (data.id === cp.characterId) {
                 characters.push(data);
                 break;
               }
@@ -852,49 +746,21 @@ module.exports = function (dataDir) {
         }
       }
 
-      // --- Characters: companion players' PCs ---
-      const companionsWithoutCharacter = []; // npcIds of companions who haven't selected a character
-      for (const [npcId, cp] of Object.entries(claimed)) {
-        if (!cp.email) continue;
-        if (!cp.characterId) {
-          // Companion joined but hasn't selected a character yet — track for NPC fallback
-          companionsWithoutCharacter.push(npcId);
-          continue;
-        }
-        provisionPlayerDefaults(dataDir, cp.email, campaignId);
-        const cpCharDir = getPlayerCharactersDir(dataDir, cp.email, campaignId);
-        if (!fs.existsSync(cpCharDir)) continue;
-        const cpFiles = fs.readdirSync(cpCharDir).filter(f => f.endsWith('.json'));
-        for (const f of cpFiles) {
-          try {
-            const data = JSON.parse(fs.readFileSync(path.join(cpCharDir, f), 'utf-8'));
-            if (data.id === cp.characterId) {
-              characters.push(data);
-              break;
-            }
-          } catch { /* skip malformed */ }
-        }
-      }
-
-      // --- NPCs: exclude removed and claimed-by-companion-player ---
+      // --- NPCs: read from session dir, fall back to campaign defaults ---
       const npcs = [];
-      if (ownerEmail) {
-        const npcDir = getSessionNpcsDir(dataDir, ownerEmail, campaignId, sessionId);
-        const fallbackDir = getPlayerNpcsDir(dataDir, ownerEmail, campaignId);
-        const dir = fs.existsSync(npcDir) ? npcDir : (fs.existsSync(fallbackDir) ? fallbackDir : null);
-        if (dir) {
-          const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-          for (const f of files) {
-            try {
-              const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
-              if (states[data.id] === 'removed') continue;
-              // Skip NPCs claimed by companions who HAVE selected a character (they appear in characters list)
-              // But INCLUDE NPCs claimed by companions who haven't selected a character yet (show NPC data as fallback)
-              if (claimed[data.id] && !companionsWithoutCharacter.includes(data.id)) continue;
-              const { dmNotes, ...safe } = data;
-              npcs.push(safe);
-            } catch { /* skip malformed */ }
-          }
+      const sessNpcDir = getSessionNpcsDir(dataDir, sessionId);
+      const defaultNpcDir = path.join(dataDir, 'defaults', session.campaignId || 'demo', 'npcs');
+      const npcDir = fs.existsSync(sessNpcDir) ? sessNpcDir : (fs.existsSync(defaultNpcDir) ? defaultNpcDir : null);
+      if (npcDir) {
+        const files = fs.readdirSync(npcDir).filter(f => f.endsWith('.json'));
+        for (const f of files) {
+          try {
+            const data = JSON.parse(fs.readFileSync(path.join(npcDir, f), 'utf-8'));
+            if (states[data.id] === 'removed') continue;
+            if (claimed[data.id] && !companionsWithoutCharacter.includes(data.id)) continue;
+            const { dmNotes, ...safe } = data;
+            npcs.push(safe);
+          } catch { /* skip malformed */ }
         }
       }
 

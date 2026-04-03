@@ -6,9 +6,8 @@ import os from 'os';
 const {
   emailToSlug,
   getPlayerCharactersDir,
-  getPlayerNpcsDir,
-  getPlayerSessionsDir,
-  getSessionDataDir,
+  getSessionDir,
+  getSessionFilePath,
   getSessionCharactersDir,
   getSessionNpcsDir,
   snapshotToSession,
@@ -46,36 +45,27 @@ describe('path helpers', () => {
     expect(dir).toBe('/data/players/tom-gmail-com/demo/characters');
   });
 
-  it('getPlayerNpcsDir returns correct path', () => {
-    const dir = getPlayerNpcsDir('/data', 'tom@gmail.com', 'demo');
-    expect(dir).toBe('/data/players/tom-gmail-com/demo/npcs');
-  });
-
-  it('getPlayerSessionsDir returns correct path', () => {
-    const dir = getPlayerSessionsDir('/data', 'tom@gmail.com', 'demo');
-    expect(dir).toBe('/data/players/tom-gmail-com/demo/sessions');
-  });
-
   it('defaults to demo campaign when campaignId is null', () => {
     const dir = getPlayerCharactersDir('/data', 'tom@gmail.com', null);
     expect(dir).toBe('/data/players/tom-gmail-com/demo/characters');
   });
 });
 
-describe('session-scoped path helpers', () => {
-  it('getSessionDataDir returns correct path', () => {
-    const dir = getSessionDataDir('/data', 'tom@gmail.com', 'demo', 'sess-123');
-    expect(dir).toBe('/data/players/tom-gmail-com/demo/sessions/sess-123');
+describe('session path helpers (neutral location)', () => {
+  it('getSessionDir returns correct path', () => {
+    expect(getSessionDir('/data', 'sess-123')).toBe('/data/sessions/sess-123');
+  });
+
+  it('getSessionFilePath returns correct path', () => {
+    expect(getSessionFilePath('/data', 'sess-123')).toBe('/data/sessions/sess-123/session.json');
   });
 
   it('getSessionCharactersDir returns correct path', () => {
-    const dir = getSessionCharactersDir('/data', 'tom@gmail.com', 'demo', 'sess-123');
-    expect(dir).toBe('/data/players/tom-gmail-com/demo/sessions/sess-123/characters');
+    expect(getSessionCharactersDir('/data', 'sess-123')).toBe('/data/sessions/sess-123/characters');
   });
 
   it('getSessionNpcsDir returns correct path', () => {
-    const dir = getSessionNpcsDir('/data', 'tom@gmail.com', 'demo', 'sess-123');
-    expect(dir).toBe('/data/players/tom-gmail-com/demo/sessions/sess-123/npcs');
+    expect(getSessionNpcsDir('/data', 'sess-123')).toBe('/data/sessions/sess-123/npcs');
   });
 });
 
@@ -85,10 +75,9 @@ describe('snapshotToSession', () => {
   const sessionId = 'test-session-1';
 
   beforeEach(() => {
-    // Set up player data directories with character and NPC files
+    // Set up player character library
     ensurePlayerDataExists(tmpDir, email, campaign);
     const charDir = getPlayerCharactersDir(tmpDir, email, campaign);
-    const npcDir = getPlayerNpcsDir(tmpDir, email, campaign);
 
     fs.writeFileSync(path.join(charDir, 'bramble.json'), JSON.stringify({
       id: 'char-1', name: 'Bramble', level: 3, hitPoints: { current: 25, max: 25 },
@@ -98,16 +87,19 @@ describe('snapshotToSession', () => {
       id: 'char-2', name: 'Grimjaw', level: 4, hitPoints: { current: 30, max: 35 },
     }, null, 2));
 
-    fs.writeFileSync(path.join(npcDir, 'pip.json'), JSON.stringify({
+    // Set up campaign defaults for NPCs
+    const defaultNpcDir = path.join(tmpDir, 'defaults', campaign, 'npcs');
+    fs.mkdirSync(defaultNpcDir, { recursive: true });
+    fs.writeFileSync(path.join(defaultNpcDir, 'pip.json'), JSON.stringify({
       id: 'npc-1', name: 'Pip Whistledown', level: 2, hitPoints: { current: 15, max: 15 },
     }, null, 2));
   });
 
-  it('copies character and NPC files to session directory', () => {
-    snapshotToSession(tmpDir, email, campaign, sessionId);
+  it('copies player characters and default NPCs to session directory', () => {
+    snapshotToSession(tmpDir, sessionId, email, campaign);
 
-    const sessCharDir = getSessionCharactersDir(tmpDir, email, campaign, sessionId);
-    const sessNpcDir = getSessionNpcsDir(tmpDir, email, campaign, sessionId);
+    const sessCharDir = getSessionCharactersDir(tmpDir, sessionId);
+    const sessNpcDir = getSessionNpcsDir(tmpDir, sessionId);
 
     expect(fs.existsSync(path.join(sessCharDir, 'bramble.json'))).toBe(true);
     expect(fs.existsSync(path.join(sessCharDir, 'grimjaw.json'))).toBe(true);
@@ -120,18 +112,18 @@ describe('snapshotToSession', () => {
   });
 
   it('does not overwrite existing session files', () => {
-    snapshotToSession(tmpDir, email, campaign, sessionId);
+    snapshotToSession(tmpDir, sessionId, email, campaign);
 
     // Modify the session copy
-    const sessCharDir = getSessionCharactersDir(tmpDir, email, campaign, sessionId);
+    const sessCharDir = getSessionCharactersDir(tmpDir, sessionId);
     const bramblePath = path.join(sessCharDir, 'bramble.json');
     const modified = JSON.parse(fs.readFileSync(bramblePath, 'utf-8'));
-    modified.hitPoints.current = 10; // took damage
-    modified.level = 5; // leveled up
+    modified.hitPoints.current = 10;
+    modified.level = 5;
     fs.writeFileSync(bramblePath, JSON.stringify(modified, null, 2));
 
     // Snapshot again — should NOT overwrite the modified file
-    snapshotToSession(tmpDir, email, campaign, sessionId);
+    snapshotToSession(tmpDir, sessionId, email, campaign);
 
     const afterSecondSnapshot = JSON.parse(fs.readFileSync(bramblePath, 'utf-8'));
     expect(afterSecondSnapshot.hitPoints.current).toBe(10);
@@ -139,10 +131,10 @@ describe('snapshotToSession', () => {
   });
 
   it('creates session directories if they do not exist', () => {
-    const sessCharDir = getSessionCharactersDir(tmpDir, email, campaign, sessionId);
+    const sessCharDir = getSessionCharactersDir(tmpDir, sessionId);
     expect(fs.existsSync(sessCharDir)).toBe(false);
 
-    snapshotToSession(tmpDir, email, campaign, sessionId);
+    snapshotToSession(tmpDir, sessionId, email, campaign);
 
     expect(fs.existsSync(sessCharDir)).toBe(true);
   });
@@ -151,19 +143,19 @@ describe('snapshotToSession', () => {
     const sessionA = 'session-a';
     const sessionB = 'session-b';
 
-    snapshotToSession(tmpDir, email, campaign, sessionA);
-    snapshotToSession(tmpDir, email, campaign, sessionB);
+    snapshotToSession(tmpDir, sessionA, email, campaign);
+    snapshotToSession(tmpDir, sessionB, email, campaign);
 
     // Modify character in session A
-    const charPathA = path.join(getSessionCharactersDir(tmpDir, email, campaign, sessionA), 'bramble.json');
+    const charPathA = path.join(getSessionCharactersDir(tmpDir, sessionA), 'bramble.json');
     const charA = JSON.parse(fs.readFileSync(charPathA, 'utf-8'));
     charA.hitPoints.current = 5;
     fs.writeFileSync(charPathA, JSON.stringify(charA, null, 2));
 
     // Session B should be unaffected
-    const charPathB = path.join(getSessionCharactersDir(tmpDir, email, campaign, sessionB), 'bramble.json');
+    const charPathB = path.join(getSessionCharactersDir(tmpDir, sessionB), 'bramble.json');
     const charB = JSON.parse(fs.readFileSync(charPathB, 'utf-8'));
-    expect(charB.hitPoints.current).toBe(25); // original value
+    expect(charB.hitPoints.current).toBe(25);
 
     // Session A should have the modification
     const charAReread = JSON.parse(fs.readFileSync(charPathA, 'utf-8'));
@@ -171,17 +163,14 @@ describe('snapshotToSession', () => {
   });
 
   it('handles missing source directories gracefully', () => {
-    // Use a campaign that has no data
-    expect(() => snapshotToSession(tmpDir, email, 'nonexistent', sessionId)).not.toThrow();
+    expect(() => snapshotToSession(tmpDir, sessionId, email, 'nonexistent')).not.toThrow();
   });
 });
 
 describe('ensurePlayerDataExists', () => {
-  it('creates characters, npcs, and sessions directories', () => {
+  it('creates characters directory', () => {
     ensurePlayerDataExists(tmpDir, 'new@user.com', 'demo');
     expect(fs.existsSync(getPlayerCharactersDir(tmpDir, 'new@user.com', 'demo'))).toBe(true);
-    expect(fs.existsSync(getPlayerNpcsDir(tmpDir, 'new@user.com', 'demo'))).toBe(true);
-    expect(fs.existsSync(getPlayerSessionsDir(tmpDir, 'new@user.com', 'demo'))).toBe(true);
   });
 
   it('is idempotent — does not fail on existing directories', () => {

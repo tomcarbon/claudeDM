@@ -6,7 +6,7 @@ import http from 'http';
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
 
-const { ensurePlayerDataExists, getPlayerSessionsDir } = require('../player-data');
+const { getSessionDir } = require('../player-data');
 
 let tmpDir;
 let app;
@@ -22,11 +22,11 @@ function setupPlayers(dataDir, players) {
   fs.writeFileSync(path.join(dataDir, 'players.json'), JSON.stringify(playersMap, null, 2));
 }
 
-// Helper: create a session JSON file in the host's sessions directory
+// Helper: create a session JSON file in the neutral sessions directory
 function createSessionFile(dataDir, hostEmail, campaignId, session) {
-  ensurePlayerDataExists(dataDir, hostEmail, campaignId);
-  const sessDir = getPlayerSessionsDir(dataDir, hostEmail, campaignId);
-  const filePath = path.join(sessDir, `${session.id}.json`);
+  const sessionDir = getSessionDir(dataDir, session.id);
+  fs.mkdirSync(sessionDir, { recursive: true });
+  const filePath = path.join(sessionDir, 'session.json');
   fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
   return filePath;
 }
