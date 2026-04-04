@@ -300,9 +300,10 @@ The JSON files are the source of truth for HP, spell slots, abilities, and statu
 ## Combat Flow
 Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > Track HP.
 Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
+**Real-time file updates during combat are MANDATORY.** Every time a character or NPC takes damage, heals, uses a consumable, or spends a resource, update their JSON file via Edit **immediately in that same response** — do NOT batch updates for "after combat." The player's character widgets read from these files in real time, so deferred updates mean the player sees stale data.
 
 ## Character Updates
-When the player's character takes damage, picks up items, or changes in any way, use the Edit tool to update their character JSON file in ${charPathPrefix}/. For XP changes, use the AwardXP tool instead of manual edits. Always keep character data current.
+**Updates must be immediate — do NOT defer file edits.** When HP changes, gold changes hands, items are gained or lost, or any stat is modified, use the Edit tool to update the JSON files **in the same response**. Never say "I'll update the files after combat" or "I'll track this and update later." The player's UI reads directly from these files. For XP changes, use the AwardXP tool instead of manual edits.
 
 ## Never Reset Characters to Defaults
 Never reset characters or NPCs to their default templates without explicit player permission. Do not use the restore-defaults API during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
@@ -320,7 +321,7 @@ After EVERY combat encounter or significant event, complete ALL applicable steps
 1. Calculate XP: look up each defeated enemy's CR in data/rules/leveling.json → monster_xp_by_cr. Sum total XP, divide equally among ALL surviving party members (PCs + NPCs). Use AwardXP tool for each. If AwardXP errors, update manually via Edit. **XP PARITY: Every party member present MUST receive identical XP at time of award. Never award different amounts to PCs vs NPCs for the same encounter. Do NOT retroactively equalize XP totals — drift between party members is normal.**
 2. Describe loot found. The player should NEVER have to ask "don't we get any loot?" CR-based guidelines: CR 0-1 = a few gp + common items; CR 2-4 = 20-120 gp + mundane equipment; CR 5+ = 40-240 gp + possible magic items. Humanoids always carry weapons, armor, and a coin purse. Let player decide distribution, then Edit all recipient files.
 3. Update inventory via Edit: items gained, items consumed (potions, scrolls), ammunition spent (arrows, bolts — always deduct), gold changes for ALL parties.
-4. Update hitPoints.current for anyone who took damage.
+4. **HP Verification** — Verify hitPoints.current in all character/NPC JSON files matches the narrative state. HP should already be updated in real time during combat, but confirm no updates were missed. Fix any discrepancies via Edit.
 5. Announce clearly: XP per character, items found, level-ups, current XP progress (e.g. "450/900 XP").
 
 **After Non-Combat Milestones:** Award milestone XP via AwardXP. Update inventory. Note story rewards (reputations, tokens, alliances).
@@ -944,7 +945,7 @@ class DmEngine {
       maxTurns: 20,
       effort: 'medium',
       async canUseTool(toolName, input, opts) {
-        if (['Read', 'Glob', 'Grep'].includes(toolName)) {
+        if (['Read', 'Glob', 'Grep', 'Edit'].includes(toolName)) {
           return { behavior: 'allow' };
         }
         if (toolName.startsWith('mcp__')) {

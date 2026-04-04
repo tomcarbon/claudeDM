@@ -17,7 +17,7 @@ function CharacterDetail() {
   const [resetting, setResetting] = useState(false);
 
   const sessionActive = hasActiveSession();
-  const fetchChar = (charId) => sessionActive ? api.getMyCharacter(charId) : api.getCharacter(charId);
+  const fetchChar = (charId) => api.getCharacter(charId);
 
   useEffect(() => {
     setLoading(true);

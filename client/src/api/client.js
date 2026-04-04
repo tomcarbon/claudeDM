@@ -88,7 +88,7 @@ export const api = {
   createCharacter: (data) => fetchJson('/characters', { method: 'POST', body: JSON.stringify(data) }),
   updateCharacter: (id, data) => fetchJson(`/characters/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteCharacter: (id) => fetchJson(`/characters/${id}`, { method: 'DELETE' }),
-  importCharacter: (data) => fetchJson('/characters/import', { method: 'POST', body: JSON.stringify(data) }),
+  importCharacter: (data, overwrite) => fetchJson(`/characters/import${overwrite ? '?overwrite=true' : ''}`, { method: 'POST', body: JSON.stringify(data) }),
   rollCharacter: (options = {}) => fetchJson('/characters/roll', { method: 'POST', body: JSON.stringify(options) }),
   getCharacterOptions: () => fetchJson('/characters/options'),
   previewCharacter: (options = {}) => fetchJson('/characters/preview', { method: 'POST', body: JSON.stringify(options) }),

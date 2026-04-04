@@ -126,7 +126,20 @@ module.exports = function (dataDir) {
       data.id = uuidv4();
       const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const filename = `${slug}.json`;
-      fs.writeFileSync(path.join(charDir, filename), JSON.stringify(data, null, 2));
+      const destPath = path.join(charDir, filename);
+
+      // Check for filename collision (same character name already exists)
+      if (fs.existsSync(destPath) && !req.query.overwrite) {
+        const existing = JSON.parse(fs.readFileSync(destPath, 'utf-8'));
+        return res.status(409).json({
+          error: 'conflict',
+          message: `A character named "${existing.name}" already exists. Overwrite it?`,
+          existingName: existing.name,
+          existingLevel: existing.level,
+        });
+      }
+
+      fs.writeFileSync(destPath, JSON.stringify(data, null, 2));
       res.status(201).json(data);
     } catch (err) {
       res.status(500).json({ error: err.message });

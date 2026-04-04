@@ -35,7 +35,20 @@ function CharacterList() {
     try {
       const text = await file.text();
       const data = JSON.parse(text);
-      await api.importCharacter(data);
+      try {
+        await api.importCharacter(data);
+      } catch (err) {
+        if (err.message === 'conflict') {
+          // Character with same name exists — ask user to confirm overwrite
+          if (!window.confirm(`A character named "${data.name}" already exists. Do you want to overwrite it?`)) {
+            e.target.value = '';
+            return;
+          }
+          await api.importCharacter(data, true);
+        } else {
+          throw err;
+        }
+      }
       loadCharacters();
     } catch (err) {
       if (err.errors) {

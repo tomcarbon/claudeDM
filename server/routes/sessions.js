@@ -371,6 +371,43 @@ module.exports = function (dataDir) {
       );
       // Snapshot characters and NPCs from defaults + player library into session dir
       snapshotToSession(dataDir, session.id, requester.email, session.campaignId);
+
+      // Verify the host's selected character made it into the session dir.
+      // It might not if the host selected a character from another player's library
+      // (e.g. they saw it in a previous session and picked it for a new one).
+      if (session.characterId) {
+        const sessCharDir = getSessionCharactersDir(dataDir, session.id);
+        const sessCharFiles = fs.readdirSync(sessCharDir).filter(f => f.endsWith('.json'));
+        const found = sessCharFiles.some(f => {
+          try {
+            const d = JSON.parse(fs.readFileSync(path.join(sessCharDir, f), 'utf-8'));
+            return d.id === session.characterId;
+          } catch { return false; }
+        });
+        if (!found) {
+          // Search all player libraries for this character
+          const playersDir = path.join(dataDir, 'players');
+          if (fs.existsSync(playersDir)) {
+            const slugs = fs.readdirSync(playersDir).filter(d => {
+              try { return fs.statSync(path.join(playersDir, d)).isDirectory(); } catch { return false; }
+            });
+            for (const slug of slugs) {
+              const libDir = path.join(playersDir, slug, session.campaignId || 'demo', 'characters');
+              if (!fs.existsSync(libDir)) continue;
+              for (const f of fs.readdirSync(libDir).filter(f => f.endsWith('.json'))) {
+                try {
+                  const d = JSON.parse(fs.readFileSync(path.join(libDir, f), 'utf-8'));
+                  if (d.id === session.characterId) {
+                    fs.copyFileSync(path.join(libDir, f), path.join(sessCharDir, f));
+                    break;
+                  }
+                } catch { /* skip */ }
+              }
+            }
+          }
+        }
+      }
+
       const result = withSessionAccess(session, requester);
       res.status(201).json(result);
       broadcastToAll('sessions_changed');
