@@ -135,23 +135,11 @@ function Settings() {
       <div className="detail-section">
         <h3>Reset My Data — <em style={{ color: 'var(--gold)' }}>{campaignId}</em> campaign</h3>
         <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1rem' }}>
-          Reset your personal character and NPC data to defaults for the <strong>{campaignId}</strong> campaign.
-          This will undo any XP, equipment, or stat changes from gameplay. Session history is preserved.
+          Reset all characters to their original defaults for the <strong>{campaignId}</strong> campaign.
+          This undoes any XP, equipment, or stat changes from gameplay. Session history is preserved.
           To reset a different campaign, select it from the Home page first.
         </p>
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
-          <button
-            onClick={() => handleResetMyData('characters')}
-            disabled={resetting !== null}
-          >
-            {resetting === 'characters' ? 'Resetting...' : 'Reset All Characters'}
-          </button>
-          <button
-            onClick={() => handleResetMyData('npcs')}
-            disabled={resetting !== null}
-          >
-            {resetting === 'npcs' ? 'Resetting...' : 'Reset All NPCs'}
-          </button>
           <button
             className="danger"
             onClick={() => handleResetMyData('all')}

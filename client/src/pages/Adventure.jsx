@@ -127,6 +127,7 @@ function Adventure({
   const [characters, setCharacters] = useState([]);
   const [myCharacters, setMyCharacters] = useState([]); // Companion's own roster (bypasses session headers)
   const [npcs, setNpcs] = useState([]);
+  const [dataWarnings, setDataWarnings] = useState([]); // JSON corruption warnings from server
   const [companionStates, setCompanionStates] = useState({}); // npcId -> 'selected' | 'removed' | 'player' | 'reserved'
   const [companionReservations, setCompanionReservations] = useState({}); // npcId -> friend email
   const [friends, setFriends] = useState([]);
@@ -265,8 +266,22 @@ function Adventure({
   }, []);
 
   useEffect(() => {
-    api.getCharacters().then(setCharacters).catch(() => {});
-    api.getNpcs().then(loaded => {
+    api.getCharacters().then(result => {
+      if (Array.isArray(result)) {
+        setCharacters(result);
+      } else {
+        setCharacters(result.characters || []);
+        if (result.warnings?.length) setDataWarnings(prev => [...prev, ...result.warnings]);
+      }
+    }).catch(() => {});
+    api.getNpcs().then(result => {
+      let loaded;
+      if (Array.isArray(result)) {
+        loaded = result;
+      } else {
+        loaded = result.npcs || [];
+        if (result.warnings?.length) setDataWarnings(prev => [...prev, ...result.warnings]);
+      }
       setNpcs(loaded);
       // Default all living NPCs to 'selected', but preserve any session-loaded states
       const livingIds = new Set(loaded.filter(n => n.status !== 'dead').map(n => n.id));
@@ -395,8 +410,14 @@ function Adventure({
   const prevStatusRef = useRef(status);
   useEffect(() => {
     if (prevStatusRef.current === 'thinking' && status === 'idle' && sessionActive) {
-      api.getCharacters().then(setCharacters).catch(() => {});
-      api.getNpcs().then(setNpcs).catch(() => {});
+      api.getCharacters().then(result => {
+        if (Array.isArray(result)) { setCharacters(result); }
+        else { setCharacters(result.characters || []); if (result.warnings?.length) setDataWarnings(prev => [...prev, ...result.warnings]); }
+      }).catch(() => {});
+      api.getNpcs().then(result => {
+        if (Array.isArray(result)) { setNpcs(result); }
+        else { setNpcs(result.npcs || []); if (result.warnings?.length) setDataWarnings(prev => [...prev, ...result.warnings]); }
+      }).catch(() => {});
       if (isCompanion) {
         api.getMyCharacters().then(setMyCharacters).catch(() => {});
       }
@@ -1292,6 +1313,30 @@ Set the scene and begin the story.`;
           </div>
         </div>
 
+        {/* Data corruption warnings */}
+        {dataWarnings.length > 0 && (
+          <div style={{
+            background: '#3d2e00', border: '1px solid #b8860b', borderRadius: '8px',
+            padding: '0.6rem 1rem', margin: '0 0 0.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem',
+          }}>
+            <span style={{ fontSize: '1.2rem' }}>{'\u26A0\uFE0F'}</span>
+            <div style={{ flex: 1, fontSize: '0.85rem', color: '#ffd700' }}>
+              {dataWarnings.map((w, i) => (
+                <div key={i}>
+                  {w.recovered
+                    ? <span><strong>{w.name}</strong> had corrupted data and was restored from backup ({w.source}).</span>
+                    : <span><strong>{w.name}</strong> has corrupted data and could not be recovered. Reset from Settings to fix.</span>
+                  }
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={() => setDataWarnings([])}
+              style={{ background: 'none', border: 'none', color: '#ffd700', cursor: 'pointer', fontSize: '1.1rem', padding: '0 0.25rem' }}
+            >{'\u2715'}</button>
+          </div>
+        )}
+
         {/* Session settings panel */}
         {showSettings && (
           <div className="session-settings-panel">
@@ -1399,6 +1444,12 @@ Set the scene and begin the story.`;
             const companionClass = isPlayerControlled
               ? (isMySlot ? 'party-status-my-companion' : 'party-status-companion')
               : 'party-status-npc';
+            // When a companion player has replaced this NPC, show their character's stats instead of the NPC's
+            const companionCharData = participant?.companionCharacterId
+              ? (characters.find(c => c.id === participant.companionCharacterId)
+                || (partyData?.characters || []).find(c => c.id === participant.companionCharacterId))
+              : null;
+            const displayEntity = companionCharData || n;
             return (
               <button
                 key={n.id}
@@ -1407,11 +1458,11 @@ Set the scene and begin the story.`;
               >
                 <span className={`party-status-dot ${isPlayerControlled ? (isOnline ? 'online' : 'offline') : 'ai'}`} />
                 <span className="party-status-name">{displayName}</span>
-                {n.hitPoints && (
+                {displayEntity.hitPoints && (
                   <span className="party-status-hp">
-                    <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (n.hitPoints.current / n.hitPoints.max) * 100))}%`, background: hpColor(n.hitPoints.current, n.hitPoints.max) }} /></span>
-                    <span className="party-hp-text">{n.hitPoints.current}/{n.hitPoints.max}</span>
-                    <span className="party-ac">AC={n.armorClass ?? '?'}</span>
+                    <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (displayEntity.hitPoints.current / displayEntity.hitPoints.max) * 100))}%`, background: hpColor(displayEntity.hitPoints.current, displayEntity.hitPoints.max) }} /></span>
+                    <span className="party-hp-text">{displayEntity.hitPoints.current}/{displayEntity.hitPoints.max}</span>
+                    <span className="party-ac">AC={displayEntity.armorClass ?? '?'}</span>
                   </span>
                 )}
                 {isPlayerControlled ? (

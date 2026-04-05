@@ -6,6 +6,7 @@ const { awardXp } = require('../xp-utils');
 const { requirePlayer } = require('../player-auth');
 const { getPlayerCharactersDir, getSessionCharactersDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
 const { generateRandomCharacter, getCharacterOptions } = require('../character-generator');
+const { readJsonDirWithRecovery } = require('../json-recovery');
 
 const MAX_CHARACTERS = 100;
 
@@ -77,32 +78,34 @@ module.exports = function (dataDir) {
     return getPlayerCharactersDir(dataDir, req.player.email, req.campaignId);
   }
 
+  function getRecoveryDirs(req) {
+    const cid = req.campaignId || 'demo';
+    const defaultChars = path.join(dataDir, 'defaults', cid, 'characters');
+    const sessionId = req.get('x-session-id');
+    if (sessionId) {
+      // Session context: recover from player library, then defaults
+      const playerChars = getPlayerCharactersDir(dataDir, req.player.email, cid);
+      return [playerChars, defaultChars];
+    }
+    // Player library context: recover from defaults only
+    return [defaultChars];
+  }
+
   function readAllCharacters(req) {
     const charDir = getCharDir(req);
-    const files = fs.readdirSync(charDir).filter(f => f.endsWith('.json'));
-    // Sort by modification time so newest characters appear last
-    files.sort((a, b) => {
-      try {
-        return fs.statSync(path.join(charDir, a)).mtimeMs - fs.statSync(path.join(charDir, b)).mtimeMs;
-      } catch { return 0; }
-    });
-    return files.reduce((chars, f) => {
-      try {
-        const data = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
-        data._filename = f;
-        chars.push(data);
-      } catch (err) {
-        console.error(`Skipping ${f}: invalid JSON — ${err.message}`);
-      }
-      return chars;
-    }, []);
+    const recoveryDirs = getRecoveryDirs(req);
+    return readJsonDirWithRecovery(charDir, recoveryDirs);
   }
 
   // GET all characters
   router.get('/', (req, res) => {
     try {
-      const characters = readAllCharacters(req);
-      res.json(characters);
+      const { items: characters, warnings } = readAllCharacters(req);
+      if (warnings.length > 0) {
+        res.json({ characters, warnings });
+      } else {
+        res.json(characters);
+      }
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -112,7 +115,7 @@ module.exports = function (dataDir) {
   router.post('/import', (req, res) => {
     try {
       const charDir = getPlayerCharDir(req);
-      const characters = readAllCharacters(req);
+      const { items: characters } = readAllCharacters(req);
       if (characters.length >= MAX_CHARACTERS) {
         return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
       }
@@ -158,7 +161,7 @@ module.exports = function (dataDir) {
   // POST preview a character (generate without saving)
   router.post('/preview', (req, res) => {
     try {
-      const options = req.body || {};
+      const options = { ...req.body, campaignId: req.campaignId };
       const character = generateRandomCharacter(dataDir, options);
       res.json(character);
     } catch (err) {
@@ -170,11 +173,11 @@ module.exports = function (dataDir) {
   router.post('/roll', (req, res) => {
     try {
       const charDir = getPlayerCharDir(req);
-      const characters = readAllCharacters(req);
+      const { items: characters } = readAllCharacters(req);
       if (characters.length >= MAX_CHARACTERS) {
         return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
       }
-      const options = req.body || {};
+      const options = { ...req.body, campaignId: req.campaignId };
       const character = generateRandomCharacter(dataDir, options);
       const slug = character.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       let filename = `${slug}.json`;
@@ -210,7 +213,7 @@ module.exports = function (dataDir) {
   // GET single character by id
   router.get('/:id', (req, res) => {
     try {
-      const characters = readAllCharacters(req);
+      const { items: characters } = readAllCharacters(req);
       const char = characters.find(c => c.id === req.params.id);
       if (!char) return res.status(404).json({ error: 'Character not found' });
       res.json(char);
@@ -223,7 +226,7 @@ module.exports = function (dataDir) {
   router.post('/', (req, res) => {
     try {
       const charDir = getPlayerCharDir(req);
-      const characters = readAllCharacters(req);
+      const { items: characters } = readAllCharacters(req);
       if (characters.length >= MAX_CHARACTERS) {
         return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
       }
@@ -241,7 +244,7 @@ module.exports = function (dataDir) {
   router.put('/:id', (req, res) => {
     try {
       const charDir = getCharDir(req);
-      const characters = readAllCharacters(req);
+      const { items: characters } = readAllCharacters(req);
       const char = characters.find(c => c.id === req.params.id);
       if (!char) return res.status(404).json({ error: 'Character not found' });
 
@@ -259,7 +262,7 @@ module.exports = function (dataDir) {
   router.delete('/:id', (req, res) => {
     try {
       const charDir = getCharDir(req);
-      const characters = readAllCharacters(req);
+      const { items: characters } = readAllCharacters(req);
       const char = characters.find(c => c.id === req.params.id);
       if (!char) return res.status(404).json({ error: 'Character not found' });
 

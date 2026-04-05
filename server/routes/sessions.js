@@ -6,6 +6,7 @@ const { getAuthenticatedPlayer } = require('../player-auth');
 const { emailToSlug, getSessionDir, getSessionFilePath, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, provisionPlayerDefaults, snapshotToSession } = require('../player-data');
 const { broadcastToAll } = require('../ws-handler');
 const { loadDmSettings } = require('../dm-engine');
+const { safeReadJsonFile, tryRecover } = require('../json-recovery');
 
 const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
@@ -744,20 +745,48 @@ module.exports = function (dataDir) {
       const states = session.companionConfig?.states || {};
       const claimed = session.companionPlayers || {};
 
-      // --- Characters: read from session dir ---
+      // --- Characters: read from session dir with recovery ---
       const characters = [];
+      const warnings = [];
       const sessCharDir = getSessionCharactersDir(dataDir, sessionId);
-      if (session.characterId && fs.existsSync(sessCharDir)) {
+      const cid = session.campaignId || 'demo';
+      const defaultCharDir = path.join(dataDir, 'defaults', cid, 'characters');
+      const defaultNpcDir = path.join(dataDir, 'defaults', cid, 'npcs');
+
+      // Helper: safely read a character by id from session dir, with recovery
+      function findCharacterById(targetId) {
+        if (!fs.existsSync(sessCharDir)) return null;
         const files = fs.readdirSync(sessCharDir).filter(f => f.endsWith('.json'));
         for (const f of files) {
-          try {
-            const data = JSON.parse(fs.readFileSync(path.join(sessCharDir, f), 'utf-8'));
-            if (data.id === session.characterId) {
-              characters.push(data);
-              break;
+          const filePath = path.join(sessCharDir, f);
+          const result = safeReadJsonFile(filePath);
+          if (result.ok) {
+            if (result.data.id === targetId) return result.data;
+          } else {
+            // Corrupt file — attempt recovery
+            const recoveryDirs = [defaultCharDir];
+            // Try player library if we know the owner
+            if (session.ownerEmail) {
+              const playerCharDir = getPlayerCharactersDir(dataDir, session.ownerEmail, cid);
+              recoveryDirs.unshift(playerCharDir);
             }
-          } catch { /* skip malformed */ }
+            const recovery = tryRecover(filePath, f, recoveryDirs);
+            if (recovery.recovered) {
+              warnings.push({ filename: f, name: recovery.data.name || f, error: result.error, recovered: true, source: path.basename(recovery.source) });
+              if (recovery.data.id === targetId) return recovery.data;
+            } else {
+              let name = f;
+              try { const raw = fs.readFileSync(filePath, 'utf-8'); const m = raw.match(/"name"\s*:\s*"([^"]+)"/); if (m) name = m[1]; } catch {}
+              warnings.push({ filename: f, name, error: result.error, recovered: false, source: null });
+            }
+          }
         }
+        return null;
+      }
+
+      if (session.characterId) {
+        const hostChar = findCharacterById(session.characterId);
+        if (hostChar) characters.push(hostChar);
       }
 
       // --- Characters: companion players' PCs (also in session dir) ---
@@ -768,40 +797,46 @@ module.exports = function (dataDir) {
           companionsWithoutCharacter.push(npcId);
           continue;
         }
-        // Companion characters are stored in the session directory
-        if (fs.existsSync(sessCharDir)) {
-          const cpFiles = fs.readdirSync(sessCharDir).filter(f => f.endsWith('.json'));
-          for (const f of cpFiles) {
-            try {
-              const data = JSON.parse(fs.readFileSync(path.join(sessCharDir, f), 'utf-8'));
-              if (data.id === cp.characterId) {
-                characters.push(data);
-                break;
-              }
-            } catch { /* skip malformed */ }
-          }
-        }
+        const compChar = findCharacterById(cp.characterId);
+        if (compChar) characters.push(compChar);
       }
 
       // --- NPCs: read from session dir, fall back to campaign defaults ---
       const npcs = [];
       const sessNpcDir = getSessionNpcsDir(dataDir, sessionId);
-      const defaultNpcDir = path.join(dataDir, 'defaults', session.campaignId || 'demo', 'npcs');
       const npcDir = fs.existsSync(sessNpcDir) ? sessNpcDir : (fs.existsSync(defaultNpcDir) ? defaultNpcDir : null);
       if (npcDir) {
+        const npcRecoveryDirs = npcDir !== defaultNpcDir ? [defaultNpcDir] : [];
         const files = fs.readdirSync(npcDir).filter(f => f.endsWith('.json'));
         for (const f of files) {
-          try {
-            const data = JSON.parse(fs.readFileSync(path.join(npcDir, f), 'utf-8'));
-            if (states[data.id] === 'removed') continue;
-            if (claimed[data.id] && !companionsWithoutCharacter.includes(data.id)) continue;
-            const { dmNotes, ...safe } = data;
+          const filePath = path.join(npcDir, f);
+          const result = safeReadJsonFile(filePath);
+          if (result.ok) {
+            if (states[result.data.id] === 'removed') continue;
+            if (claimed[result.data.id] && !companionsWithoutCharacter.includes(result.data.id)) continue;
+            const { dmNotes, ...safe } = result.data;
             npcs.push(safe);
-          } catch { /* skip malformed */ }
+          } else {
+            // Corrupt NPC — attempt recovery
+            const recovery = tryRecover(filePath, f, npcRecoveryDirs);
+            if (recovery.recovered) {
+              warnings.push({ filename: f, name: recovery.data.name || f, error: result.error, recovered: true, source: path.basename(recovery.source) });
+              if (states[recovery.data.id] !== 'removed' && !(claimed[recovery.data.id] && !companionsWithoutCharacter.includes(recovery.data.id))) {
+                const { dmNotes, ...safe } = recovery.data;
+                npcs.push(safe);
+              }
+            } else {
+              let name = f;
+              try { const raw = fs.readFileSync(filePath, 'utf-8'); const m = raw.match(/"name"\s*:\s*"([^"]+)"/); if (m) name = m[1]; } catch {}
+              warnings.push({ filename: f, name, error: result.error, recovered: false, source: null });
+            }
+          }
         }
       }
 
-      res.json({ characters, npcs });
+      const response = { characters, npcs };
+      if (warnings.length > 0) response.warnings = warnings;
+      res.json(response);
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

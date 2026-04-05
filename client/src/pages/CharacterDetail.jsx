@@ -174,7 +174,7 @@ function CharacterDetail() {
       {char.equipment?.length > 0 && (
         <div className="detail-section">
           <h3>Equipment</h3>
-          <div>{char.equipment.map(e => <span key={e} className="tag">{e}</span>)}</div>
+          <div>{char.equipment.map((e, i) => <span key={`${i}-${e}`} className="tag">{e}</span>)}</div>
         </div>
       )}
 
@@ -185,7 +185,7 @@ function CharacterDetail() {
         </div>
       )}
 
-      {char.spells && char.spells.cantrips?.length > 0 && (
+      {char.spells && (char.spells.cantrips?.length > 0 || char.spells.knownSpells?.length > 0 || char.spells.level1?.known?.length > 0) && (
         <div className="detail-section">
           <h3>Spells</h3>
           {char.spells.spellcastingAbility && (
@@ -200,6 +200,12 @@ function CharacterDetail() {
             <div style={{ marginTop: '0.3rem' }}>
               <strong>1st Level ({char.spells.level1.slots} slots):</strong>{' '}
               {char.spells.level1.known.map(s => <SpellTag key={s} name={s} />)}
+            </div>
+          )}
+          {char.spells.knownSpells?.length > 0 && !char.spells.level1?.known && (
+            <div style={{ marginTop: '0.3rem' }}>
+              <strong>1st Level ({char.spells.spellSlots?.['1st'] || 0} slots):</strong>{' '}
+              {char.spells.knownSpells.map(s => <SpellTag key={s} name={s} />)}
             </div>
           )}
           {char.spells.level2?.known?.length > 0 && (

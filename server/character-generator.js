@@ -151,6 +151,119 @@ function hitDieMax(hitDie) {
   return match ? parseInt(match[1]) : 8;
 }
 
+function hitDieAvg(hitDie) {
+  const max = hitDieMax(hitDie);
+  return Math.floor(max / 2) + 1; // Standard D&D average: d6→4, d8→5, d10→6, d12→7
+}
+
+// D&D 5e proficiency bonus by level
+function profBonusForLevel(level) {
+  if (level <= 4) return 2;
+  if (level <= 8) return 3;
+  if (level <= 12) return 4;
+  if (level <= 16) return 5;
+  return 6;
+}
+
+// D&D 5e full-caster spell slot table (Bard, Cleric, Druid, Sorcerer, Wizard)
+const FULL_CASTER_SLOTS = {
+  1:  { '1st': 2 },
+  2:  { '1st': 3 },
+  3:  { '1st': 4, '2nd': 2 },
+  4:  { '1st': 4, '2nd': 3 },
+  5:  { '1st': 4, '2nd': 3, '3rd': 2 },
+  6:  { '1st': 4, '2nd': 3, '3rd': 3 },
+  7:  { '1st': 4, '2nd': 3, '3rd': 3, '4th': 1 },
+  8:  { '1st': 4, '2nd': 3, '3rd': 3, '4th': 2 },
+  9:  { '1st': 4, '2nd': 3, '3rd': 3, '4th': 3, '5th': 1 },
+  10: { '1st': 4, '2nd': 3, '3rd': 3, '4th': 3, '5th': 2 },
+};
+
+// Warlock pact magic slots (all same level, fewer slots)
+const WARLOCK_SLOTS = {
+  1:  { '1st': 1 },
+  2:  { '1st': 2 },
+  3:  { '2nd': 2 },
+  4:  { '2nd': 2 },
+  5:  { '3rd': 2 },
+  6:  { '3rd': 2 },
+  7:  { '4th': 2 },
+  8:  { '4th': 2 },
+  9:  { '5th': 2 },
+  10: { '5th': 2 },
+};
+
+// Half-caster spell slot table (Ranger, Paladin) — spellcasting starts at level 2
+const HALF_CASTER_SLOTS = {
+  1:  {},
+  2:  { '1st': 2 },
+  3:  { '1st': 3 },
+  4:  { '1st': 3 },
+  5:  { '1st': 4, '2nd': 2 },
+  6:  { '1st': 4, '2nd': 2 },
+  7:  { '1st': 4, '2nd': 3 },
+  8:  { '1st': 4, '2nd': 3 },
+  9:  { '1st': 4, '2nd': 3, '3rd': 2 },
+  10: { '1st': 4, '2nd': 3, '3rd': 2 },
+};
+
+const FULL_CASTERS = ['Bard', 'Cleric', 'Druid', 'Sorcerer', 'Wizard'];
+const HALF_CASTERS = ['Ranger', 'Paladin'];
+
+function getSpellSlotsForLevel(className, level) {
+  if (className === 'Warlock') return WARLOCK_SLOTS[Math.min(level, 10)] || {};
+  if (FULL_CASTERS.includes(className)) return FULL_CASTER_SLOTS[Math.min(level, 10)] || {};
+  if (HALF_CASTERS.includes(className)) return HALF_CASTER_SLOTS[Math.min(level, 10)] || {};
+  return {};
+}
+
+// Cantrips known scales with level for most casters
+function cantripsKnownForLevel(baseCantrips, level) {
+  if (!baseCantrips) return 0;
+  if (level >= 10) return baseCantrips + 2;
+  if (level >= 4) return baseCantrips + 1;
+  return baseCantrips;
+}
+
+// Spells known/prepared scales roughly with level
+function spellsKnownForLevel(baseSpells, level, className) {
+  if (!baseSpells) return 0;
+  // Wizards get +2 spells per level (spellbook)
+  if (className === 'Wizard') return baseSpells + (level - 1) * 2;
+  // Known casters (Bard, Sorcerer, Warlock, Ranger) gain ~1 per level
+  return baseSpells + (level - 1);
+}
+
+// Get starting XP for a given level from leveling.json
+function getStartingXp(dataDir, level) {
+  if (level <= 1) return 0;
+  try {
+    const leveling = JSON.parse(fs.readFileSync(path.join(dataDir, 'rules', 'leveling.json'), 'utf-8'));
+    const entry = (leveling.xp_thresholds || []).find(e => e.level === level);
+    return entry ? entry.xp_required : 0;
+  } catch {
+    return 0;
+  }
+}
+
+// Read campaign level range and return the minimum level
+function getStartingLevel(dataDir, campaignId) {
+  if (!campaignId) return 1;
+  try {
+    const campaignFile = path.join(dataDir, 'campaigns', campaignId, 'campaign.json');
+    if (!fs.existsSync(campaignFile)) return 1;
+    const campaign = JSON.parse(fs.readFileSync(campaignFile, 'utf-8'));
+    const range = campaign.levelRange || campaign.levels || '';
+    if (typeof range === 'string') {
+      const match = range.match(/(\d+)/);
+      return match ? parseInt(match[1]) : 1;
+    }
+    return 1;
+  } catch {
+    return 1;
+  }
+}
+
 // --- Main generator ---
 function generateRandomCharacter(dataDir, options = {}) {
   const rulesDir = path.join(dataDir, 'rules');
@@ -256,13 +369,20 @@ function generateRandomCharacter(dataDir, options = {}) {
     };
   }
 
-  // Calculate HP
+  // Determine starting level from campaign
+  const startingLevel = options.level || getStartingLevel(dataDir, options.campaignId);
+
+  // Calculate HP: max at L1, average for subsequent levels (standard D&D rule)
   const conMod = abilities.constitution.modifier;
   const hdMax = hitDieMax(charClass.hit_die);
-  let maxHp = hdMax + conMod;
+  const hdAvg = hitDieAvg(charClass.hit_die);
+  let maxHp = hdMax + conMod; // Level 1: max hit die + CON
+  for (let lvl = 2; lvl <= startingLevel; lvl++) {
+    maxHp += hdAvg + conMod; // Levels 2+: average hit die + CON
+  }
   // Hill Dwarf gets +1 HP per level
   if (subrace && subrace.name === 'Hill Dwarf') {
-    maxHp += 1;
+    maxHp += startingLevel;
   }
   if (maxHp < 1) maxHp = 1;
 
@@ -351,7 +471,7 @@ function generateRandomCharacter(dataDir, options = {}) {
 
   // Build weapons array
   const weapons = [];
-  const profBonus = 2;
+  const profBonus = profBonusForLevel(startingLevel);
 
   // Determine primary attack stat
   const strMod = abilities.strength.modifier;
@@ -443,17 +563,36 @@ function generateRandomCharacter(dataDir, options = {}) {
   let spells = null;
   if (charClass.spellcasting) {
     const spellAbility = charClass.spellcasting.ability;
-    const cantripsKnown = charClass.spellcasting.cantrips_known_at_1st || 0;
-    const spellsKnown = charClass.spellcasting.spells_known_at_1st || charClass.spellcasting.spellbook_spells_at_1st || 0;
-    const spellSlots = charClass.spellcasting.spell_slots_at_1st || {};
+    const baseCantrips = charClass.spellcasting.cantrips_known_at_1st || 0;
+    const baseSpells = charClass.spellcasting.spells_known_at_1st || charClass.spellcasting.spellbook_spells_at_1st || 0;
+    const numCantrips = cantripsKnownForLevel(baseCantrips, startingLevel);
+    const numSpells = spellsKnownForLevel(baseSpells, startingLevel, charClass.name);
+    const spellSlots = getSpellSlotsForLevel(charClass.name, startingLevel);
 
     // Pick cantrips for this class
     const classCantrips = (spellsData.cantrips || []).filter(s => s.classes.includes(charClass.name));
-    const chosenCantrips = pickN(classCantrips, cantripsKnown).map(s => s.name);
+    const chosenCantrips = pickN(classCantrips, Math.min(numCantrips, classCantrips.length)).map(s => s.name);
 
-    // Pick level 1 spells for this class
-    const classSpells = (spellsData.level_1 || []).filter(s => s.classes.includes(charClass.name));
-    const chosenSpells = pickN(classSpells, Math.min(spellsKnown, classSpells.length)).map(s => s.name);
+    // Pick spells across all available levels
+    const allKnown = [];
+    const slotLevels = Object.keys(spellSlots).sort();
+    const maxSpellLevel = slotLevels.length > 0 ? parseInt(slotLevels[slotLevels.length - 1]) : 1;
+    for (let sl = 1; sl <= maxSpellLevel; sl++) {
+      const levelKey = `level_${sl}`;
+      const classSpellsAtLevel = (spellsData[levelKey] || []).filter(s => s.classes.includes(charClass.name));
+      if (classSpellsAtLevel.length > 0) {
+        // Distribute spells roughly evenly, favoring lower levels
+        const countAtLevel = sl === 1 ? Math.ceil(numSpells / maxSpellLevel) : Math.floor(numSpells / maxSpellLevel);
+        const picked = pickN(classSpellsAtLevel, Math.min(Math.max(countAtLevel, 1), classSpellsAtLevel.length));
+        allKnown.push(...picked.map(s => s.name));
+      }
+    }
+    // If we didn't get enough from higher levels, fill from level 1
+    if (allKnown.length < numSpells) {
+      const classSpells1 = (spellsData.level_1 || []).filter(s => s.classes.includes(charClass.name) && !allKnown.includes(s.name));
+      const extra = pickN(classSpells1, Math.min(numSpells - allKnown.length, classSpells1.length));
+      allKnown.push(...extra.map(s => s.name));
+    }
 
     spells = {
       spellcastingAbility: spellAbility,
@@ -461,7 +600,7 @@ function generateRandomCharacter(dataDir, options = {}) {
       spellAttackBonus: profBonus + abilities[spellAbility.toLowerCase()].modifier,
       cantrips: chosenCantrips,
       spellSlots: spellSlots,
-      knownSpells: chosenSpells,
+      knownSpells: allKnown,
     };
   }
 
@@ -495,10 +634,10 @@ function generateRandomCharacter(dataDir, options = {}) {
     race: race.name,
     subrace: subrace ? subrace.name : '',
     class: charClass.name,
-    level: 1,
+    level: startingLevel,
     background: background.name,
     alignment,
-    experience: 0,
+    experience: getStartingXp(dataDir, startingLevel),
     abilities,
     hitPoints: { max: maxHp, current: maxHp },
     armorClass,

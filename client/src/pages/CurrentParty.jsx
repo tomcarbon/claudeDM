@@ -11,6 +11,7 @@ function CurrentParty() {
   const [partyNpcs, setPartyNpcs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [dataWarnings, setDataWarnings] = useState([]);
   const sessionActive = hasActiveSession();
 
   const loadParty = () => {
@@ -26,9 +27,10 @@ function CurrentParty() {
       return;
     }
     api.getSessionParty(sessionId)
-      .then(({ characters, npcs }) => {
+      .then(({ characters, npcs, warnings }) => {
         setPartyCharacters(characters || []);
         setPartyNpcs(npcs || []);
+        if (warnings?.length) setDataWarnings(warnings);
       })
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
@@ -57,6 +59,28 @@ function CurrentParty() {
           {loading ? 'Refreshing...' : '🔄 Refresh'}
         </button>
       </div>
+      {dataWarnings.length > 0 && (
+        <div style={{
+          background: '#3d2e00', border: '1px solid #b8860b', borderRadius: '8px',
+          padding: '0.6rem 1rem', margin: '0 0 1rem', display: 'flex', alignItems: 'center', gap: '0.75rem',
+        }}>
+          <span style={{ fontSize: '1.2rem' }}>{'\u26A0\uFE0F'}</span>
+          <div style={{ flex: 1, fontSize: '0.85rem', color: '#ffd700' }}>
+            {dataWarnings.map((w, i) => (
+              <div key={i}>
+                {w.recovered
+                  ? <span><strong>{w.name}</strong> had corrupted data and was restored from backup.</span>
+                  : <span><strong>{w.name}</strong> has corrupted data and could not be recovered. Reset from Settings to fix.</span>
+                }
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={() => setDataWarnings([])}
+            style={{ background: 'none', border: 'none', color: '#ffd700', cursor: 'pointer', fontSize: '1.1rem', padding: '0 0.25rem' }}
+          >{'\u2715'}</button>
+        </div>
+      )}
       {partyCharacters.length > 0 && (
         <>
           <h3>Party Characters</h3>

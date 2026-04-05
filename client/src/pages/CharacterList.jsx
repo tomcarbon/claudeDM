@@ -12,6 +12,7 @@ function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [dataWarnings, setDataWarnings] = useState([]);
   const fileInputRef = useRef(null);
   const sessionActive = hasActiveSession();
 
@@ -22,7 +23,14 @@ function CharacterList() {
     }
     const fetcher = sessionActive ? api.getMyCharacters() : api.getCharacters();
     fetcher
-      .then(loaded => setCharacters(loaded))
+      .then(result => {
+        if (Array.isArray(result)) {
+          setCharacters(result);
+        } else {
+          setCharacters(result.characters || []);
+          if (result.warnings?.length) setDataWarnings(result.warnings);
+        }
+      })
       .catch(e => setError(e.message))
       .finally(() => setLoading(false));
   };
@@ -132,6 +140,28 @@ function CharacterList() {
           </button>
         </div>
       </div>
+      {dataWarnings.length > 0 && (
+        <div style={{
+          background: '#3d2e00', border: '1px solid #b8860b', borderRadius: '8px',
+          padding: '0.6rem 1rem', margin: '0.5rem 0', display: 'flex', alignItems: 'center', gap: '0.75rem',
+        }}>
+          <span style={{ fontSize: '1.2rem' }}>{'\u26A0\uFE0F'}</span>
+          <div style={{ flex: 1, fontSize: '0.85rem', color: '#ffd700' }}>
+            {dataWarnings.map((w, i) => (
+              <div key={i}>
+                {w.recovered
+                  ? <span><strong>{w.name}</strong> had corrupted data and was restored from backup.</span>
+                  : <span><strong>{w.name}</strong> has corrupted data and could not be recovered. Reset from Settings to fix.</span>
+                }
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={() => setDataWarnings([])}
+            style={{ background: 'none', border: 'none', color: '#ffd700', cursor: 'pointer', fontSize: '1.1rem', padding: '0 0.25rem' }}
+          >{'\u2715'}</button>
+        </div>
+      )}
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
         {characters.length}/100 characters. Click to view details or edit.
       </p>

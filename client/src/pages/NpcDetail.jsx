@@ -104,7 +104,7 @@ function NpcDetail() {
       {npc.equipment?.length > 0 && (
         <div className="detail-section">
           <h3>Equipment</h3>
-          <div>{npc.equipment.map(e => <span key={e} className="tag">{e}</span>)}</div>
+          <div>{npc.equipment.map((e, i) => <span key={`${i}-${e}`} className="tag">{e}</span>)}</div>
         </div>
       )}
 
@@ -115,7 +115,7 @@ function NpcDetail() {
         </div>
       )}
 
-      {npc.spells && npc.spells.cantrips?.length > 0 && (
+      {npc.spells && (npc.spells.cantrips?.length > 0 || npc.spells.knownSpells?.length > 0 || npc.spells.level1?.known?.length > 0) && (
         <div className="detail-section">
           <h3>Spells</h3>
           {npc.spells.cantrips?.length > 0 && (
@@ -125,6 +125,12 @@ function NpcDetail() {
             <div style={{ marginTop: '0.3rem' }}>
               <strong>1st Level ({npc.spells.level1.slots} slots):</strong>{' '}
               {npc.spells.level1.known.map(s => <SpellTag key={s} name={s} />)}
+            </div>
+          )}
+          {npc.spells.knownSpells?.length > 0 && !npc.spells.level1?.known && (
+            <div style={{ marginTop: '0.3rem' }}>
+              <strong>1st Level ({npc.spells.spellSlots?.['1st'] || 0} slots):</strong>{' '}
+              {npc.spells.knownSpells.map(s => <SpellTag key={s} name={s} />)}
             </div>
           )}
           {npc.spells.level2?.known?.length > 0 && (
