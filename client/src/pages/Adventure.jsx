@@ -150,6 +150,7 @@ function Adventure({
   const [pendingOpeningPrompt, setPendingOpeningPrompt] = useState(null); // held until host clicks "Start Adventure"
   const [loadingSessionId, setLoadingSessionId] = useState(null);
   const [partyData, setPartyData] = useState(null); // Session party data from /sessions/:id/party
+  const [sessionCompanionPlayers, setSessionCompanionPlayers] = useState({}); // Persistent claim map: npcId → {email, name, characterId, characterName}
   const storyRef = useRef(null);
   const inputRef = useRef(null);
   const prevMessageCountRef = useRef(0);
@@ -263,6 +264,18 @@ function Adventure({
     isNearBottomRef.current = true;
     setShowScrollBtn(false);
     container.scrollTop = container.scrollHeight;
+  }, []);
+
+  // Refetch characters/NPCs when page regains focus (e.g. after navigating to character creator and back)
+  useEffect(() => {
+    const refetchCharacters = () => {
+      api.getCharacters().then(result => {
+        if (Array.isArray(result)) { setCharacters(result); }
+        else { setCharacters(result.characters || []); if (result.warnings?.length) setDataWarnings(prev => [...prev, ...result.warnings]); }
+      }).catch(() => {});
+    };
+    window.addEventListener('focus', refetchCharacters);
+    return () => window.removeEventListener('focus', refetchCharacters);
   }, []);
 
   useEffect(() => {
@@ -400,6 +413,7 @@ function Adventure({
       activeCharacterIdRef.current = null;
       setCompanionStates({});
       setCompanionReservations({});
+      setSessionCompanionPlayers({});
       setMyCharacters([]);
       setSessionSettings({ visibility: 'public', allowBots: localStorage.getItem('dnd_allow_bots') === 'true', maxBots: Number(localStorage.getItem('dnd_max_bots')) || 2 });
     }
@@ -659,6 +673,7 @@ Set the scene and begin the story.`;
       } else {
         result = await api.createSession(payload);
         setSavedSessionDbId(result.id);
+        setMessages(prev => [...prev, { type: 'system', text: `Session created · #${result.id.slice(-8)}` }]);
         if (sessionLabel.trim()) {
           api.renameSession(result.id, sessionLabel.trim()).catch(() => {});
           setActiveSessionLabel(sessionLabel.trim());
@@ -764,7 +779,20 @@ Set the scene and begin the story.`;
         setCompanionStates(session.companionConfig.states || {});
         setCompanionReservations(session.companionConfig.reservations || {});
       }
+      setSessionCompanionPlayers(session.companionPlayers || {});
       const loadedMessages = normalizeSavedMessages(session.messages);
+      // Inject session ID system message for hosts and companions (not observers)
+      // Skip if the last message is already a "Session resumed" for this session (avoids dup on re-load)
+      if (!readOnly) {
+        const resumeText = `Session resumed · #${session.id.slice(-8)}`;
+        const lastMsg = loadedMessages[loadedMessages.length - 1];
+        if (!(lastMsg && lastMsg.type === 'system' && lastMsg.text === resumeText)) {
+          loadedMessages.push({ type: 'system', text: resumeText });
+        }
+      }
+      // Pre-populate the message count ref so the auto-save effect doesn't fire
+      // immediately after load (the data is already on the server — no save needed)
+      prevMessageCountRef.current = loadedMessages.filter(m => m.type !== 'dm_partial' && m.type !== 'dm_warmup').length;
       setMessages(loadedMessages);
       setGateRevealedUpTo(loadedMessages.length); // Show all loaded history — gate only new messages
       if (loadedMessages.length === 0) {
@@ -1425,6 +1453,47 @@ Set the scene and begin the story.`;
               </button>
             );
           })()}
+          {/* Ghost mode fallback: render party from partyData when local npcs is unavailable (e.g. logged-off observer) */}
+          {npcs.length === 0 && partyData && (
+            <>
+              {(partyData.characters || []).filter(c => c.id !== activeCharacter?.id).map(c => (
+                <button
+                  key={`pd-char-${c.id}`}
+                  className={`party-status-entry party-status-companion ${selectedStatusEntry === `pd-char-${c.id}` ? 'party-status-selected' : ''}`}
+                  onClick={() => setSelectedStatusEntry(selectedStatusEntry === `pd-char-${c.id}` ? null : `pd-char-${c.id}`)}
+                >
+                  <span className="party-status-dot offline" />
+                  <span className="party-status-name">{c.name}</span>
+                  {c.hitPoints && (
+                    <span className="party-status-hp">
+                      <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (c.hitPoints.current / c.hitPoints.max) * 100))}%`, background: hpColor(c.hitPoints.current, c.hitPoints.max) }} /></span>
+                      <span className="party-hp-text">{c.hitPoints.current}/{c.hitPoints.max}</span>
+                      <span className="party-ac">AC={c.armorClass ?? '?'}</span>
+                    </span>
+                  )}
+                  <span className="party-status-role">Companion Player</span>
+                </button>
+              ))}
+              {(partyData.npcs || []).map(n => (
+                <button
+                  key={`pd-npc-${n.id}`}
+                  className={`party-status-entry party-status-npc ${selectedStatusEntry === `pd-npc-${n.id}` ? 'party-status-selected' : ''}`}
+                  onClick={() => setSelectedStatusEntry(selectedStatusEntry === `pd-npc-${n.id}` ? null : `pd-npc-${n.id}`)}
+                >
+                  <span className="party-status-dot ai" />
+                  <span className="party-status-name">{n.name}</span>
+                  {n.hitPoints && (
+                    <span className="party-status-hp">
+                      <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (n.hitPoints.current / n.hitPoints.max) * 100))}%`, background: hpColor(n.hitPoints.current, n.hitPoints.max) }} /></span>
+                      <span className="party-hp-text">{n.hitPoints.current}/{n.hitPoints.max}</span>
+                      <span className="party-ac">AC={n.armorClass ?? '?'}</span>
+                    </span>
+                  )}
+                  <span className="party-status-role">NPC</span>
+                </button>
+              ))}
+            </>
+          )}
           {/* Companion NPCs — player-controlled or AI */}
           {npcs.filter(n => {
             const state = companionStates[n.id];
@@ -1432,22 +1501,25 @@ Set the scene and begin the story.`;
           }).map(n => {
             const state = companionStates[n.id] || 'selected';
             const participant = sessionParticipants.find(p => p.companionNpcId === n.id);
+            const claim = sessionCompanionPlayers[n.id]; // Persistent claim (works even when player is offline)
             const isOnline = !!participant && !participant.isAway;
             const isAway = !!participant && participant.isAway;
             const turn = companionTurns.find(t => t.npcId === n.id);
-            const isPlayerControlled = state === 'player' || state === 'reserved' || !!participant;
-            // Use companion's chosen character name: from server broadcast (live or away), or local state if this is our own slot
+            const isPlayerControlled = state === 'player' || state === 'reserved' || !!participant || !!claim;
+            // Use companion's chosen character name: from server broadcast (live or away), persistent claim, local state if this is our own slot, or NPC default
             const isMySlot = isCompanion && n.id === sessionAccess.companionNpcId;
             const displayName = (isMySlot && companionCharacter?.name)
               || (participant?.companionCharacterName)
+              || (claim?.characterName)
               || n.name;
             const companionClass = isPlayerControlled
               ? (isMySlot ? 'party-status-my-companion' : 'party-status-companion')
               : 'party-status-npc';
             // When a companion player has replaced this NPC, show their character's stats instead of the NPC's
-            const companionCharData = participant?.companionCharacterId
-              ? (characters.find(c => c.id === participant.companionCharacterId)
-                || (partyData?.characters || []).find(c => c.id === participant.companionCharacterId))
+            const claimedCharId = participant?.companionCharacterId || claim?.characterId;
+            const companionCharData = claimedCharId
+              ? (characters.find(c => c.id === claimedCharId)
+                || (partyData?.characters || []).find(c => c.id === claimedCharId))
               : null;
             const displayEntity = companionCharData || n;
             return (
@@ -1467,8 +1539,8 @@ Set the scene and begin the story.`;
                 )}
                 {isPlayerControlled ? (
                   <span className="party-status-role">
-                    {isOnline ? participant.playerName : isAway ? participant.playerName : (companionReservations[n.id] ? friendNames[companionReservations[n.id]] || companionReservations[n.id] : 'Unjoined')}
-                    {turn ? ' · Ready' : isOnline && typingPlayers[participant?.playerEmail] ? ' · Typing...' : isOnline ? ' · Your turn' : isAway ? ' · Away' : ' · Not in session'}
+                    {isOnline ? participant.playerName : isAway ? participant.playerName : (claim?.name || (companionReservations[n.id] ? friendNames[companionReservations[n.id]] || companionReservations[n.id] : 'Unjoined'))}
+                    {turn ? ' · Ready' : isOnline && typingPlayers[participant?.playerEmail] ? ' · Typing...' : isOnline ? ' · Your turn' : isAway ? ' · Away' : claim ? ' · Offline' : ' · Not in session'}
                   </span>
                 ) : (
                   <span className="party-status-role">NPC</span>
@@ -1482,6 +1554,14 @@ Set the scene and begin the story.`;
           let entry;
           if (selectedStatusEntry === 'host') {
             entry = activeCharacter;
+          } else if (selectedStatusEntry.startsWith?.('pd-char-')) {
+            // Ghost mode: companion character from partyData
+            const id = selectedStatusEntry.slice('pd-char-'.length);
+            entry = (partyData?.characters || []).find(c => c.id === id);
+          } else if (selectedStatusEntry.startsWith?.('pd-npc-')) {
+            // Ghost mode: NPC from partyData
+            const id = selectedStatusEntry.slice('pd-npc-'.length);
+            entry = (partyData?.npcs || []).find(n => n.id === id);
           } else {
             // Check if a companion player has replaced this NPC with their own character
             const participant = sessionParticipants.find(p => p.companionNpcId === selectedStatusEntry);

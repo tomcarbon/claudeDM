@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { DmEngine } = require('./dm-engine');
 const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession } = require('./player-data');
+const { auditDmTurn, formatWarnings, logAuditTrace } = require('./dm-audit');
 
 // Module-level chat rooms: chatKey -> Set<wsEntry>
 // Each wsEntry: { ws, playerEmail, playerName, isAdmin }
@@ -581,6 +582,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           dmMessagesSinceLastSummary,
         });
 
+        const auditToolCalls = [];
+        let auditDmText = '';
         for await (const event of stream) {
           switch (event.type) {
             case 'dm_partial':
@@ -596,35 +599,61 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                 modifier: event.modifier, total: event.total, label: event.label,
               });
               break;
+            case 'tool_use':
+              auditToolCalls.push({ name: event.name, input: event.input });
+              break;
             case 'dm_response':
               engineCtx.messageHistory.push({ type: 'dm', text: event.text });
+              auditDmText += (auditDmText ? '\n\n' : '') + event.text;
               broadcastSessionMessage(sessionDbId, 'dm_response', { text: event.text });
               break;
             case 'dm_complete':
               broadcastSessionMessage(sessionDbId, 'dm_complete', { sessionId: event.sessionId });
+              try {
+                const auditWarnings = auditDmTurn(auditDmText, auditToolCalls);
+                logAuditTrace(sessionDbId, auditDmText, auditToolCalls, auditWarnings);
+                const formatted = formatWarnings(auditWarnings, sessionDbId);
+                if (formatted) console.warn(formatted);
+              } catch (e) { console.error('[DM:AUDIT] error:', e); }
               // Persist turn messages + DM response to session JSON
+              // (Defensive: skip messages already present from a racing client auto-save.)
               try {
                 const sess = readSessionByDbId(sessionDbId);
                 if (sess) {
                   if (event.sessionId) sess.claudeSessionId = event.sessionId;
                   if (!Array.isArray(sess.messages)) sess.messages = [];
-                  // Append host's player message
-                  sess.messages.push({ type: 'player', text: hostTurn.text, timestamp: new Date().toISOString() });
-                  // Append companion actions
-                  for (const ct of companionTurnsArr) {
-                    sess.messages.push({
-                      type: 'companion',
-                      characterName: ct.characterName || ct.npcName || ct.npcId,
-                      playerName: ct.playerName,
-                      text: ct.text,
-                      timestamp: new Date().toISOString(),
-                    });
-                  }
-                  // Append DM response (last dm text from messageHistory)
                   const lastDm = engineCtx.messageHistory.filter(m => m.type === 'dm').pop();
+
+                  // De-dupe check: if the file already has the host's player text followed by this DM text
+                  // near the end, the client already saved them via auto-save. Skip the append.
+                  const tail = sess.messages.slice(-Math.max(2 + companionTurnsArr.length, 4));
+                  const hasPlayerText = tail.some(m => m.type === 'player' && m.text === hostTurn.text);
+                  const hasDmText = lastDm && tail.some(m => m.type === 'dm' && m.text === lastDm.text);
+                  const alreadyPersisted = hasPlayerText && hasDmText;
+
+                  if (!alreadyPersisted) {
+                    // Append host's player message
+                    sess.messages.push({ type: 'player', text: hostTurn.text, timestamp: new Date().toISOString() });
+                    // Append companion actions
+                    for (const ct of companionTurnsArr) {
+                      sess.messages.push({
+                        type: 'companion',
+                        characterName: ct.characterName || ct.npcName || ct.npcId,
+                        playerName: ct.playerName,
+                        text: ct.text,
+                        timestamp: new Date().toISOString(),
+                      });
+                    }
+                    // Append DM response (last dm text from messageHistory)
+                    if (lastDm) {
+                      sess.messages.push({ type: 'dm', text: lastDm.text, timestamp: new Date().toISOString() });
+                    }
+                  } else {
+                    console.log(`[WS] dm_complete: messages already persisted by client auto-save, skipping append (session ${sessionDbId})`);
+                  }
+
+                  // Track summary counter regardless of who persisted the messages
                   if (lastDm) {
-                    sess.messages.push({ type: 'dm', text: lastDm.text, timestamp: new Date().toISOString() });
-                    // Track summary counter: reset if this DM response contains a chapter summary, otherwise increment
                     const SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
                     if (SUMMARY_PATTERN.test(lastDm.text)) {
                       sess.dmMessagesSinceLastSummary = 0;
@@ -1092,6 +1121,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               },
             });
 
+            const auditToolCalls = [];
+            let auditDmText = '';
             for await (const event of stream) {
               switch (event.type) {
                 case 'dm_partial':
@@ -1102,6 +1133,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   // Phase 4: Show warm-up status to player and watchers
                   send('dm_warmup', { text: event.text, visible: true });
                   broadcastToSessionWatchers('dm_warmup', { text: event.text, visible: true });
+                  break;
+                case 'tool_use':
+                  auditToolCalls.push({ name: event.name, input: event.input });
                   break;
                 case 'dice_roll':
                   send('dice_roll', {
@@ -1121,6 +1155,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   break;
                 case 'dm_response':
                   messageHistory.push({ type: 'dm', text: event.text });
+                  auditDmText += (auditDmText ? '\n\n' : '') + event.text;
                   send('dm_response', { text: event.text });
                   broadcastToSessionWatchers('dm_response', { text: event.text });
                   // Track summary counter in session JSON (single-player path)
@@ -1144,6 +1179,12 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                 case 'dm_complete':
                   send('dm_complete', { sessionId: event.sessionId });
                   broadcastToSessionWatchers('dm_complete', { sessionId: event.sessionId });
+                  try {
+                    const auditWarnings = auditDmTurn(auditDmText, auditToolCalls);
+                    logAuditTrace(currentSessionDbId, auditDmText, auditToolCalls, auditWarnings);
+                    const formatted = formatWarnings(auditWarnings, currentSessionDbId);
+                    if (formatted) console.warn(formatted);
+                  } catch (e) { console.error('[DM:AUDIT] error:', e); }
                   break;
                 case 'session_id':
                   send('session_id', { sessionId: event.sessionId });

@@ -461,6 +461,16 @@ module.exports = function (dataDir) {
       if (!updated.characterId && existing.characterId) {
         updated.characterId = existing.characterId;
       }
+      // Defense in depth: never wipe a non-empty companionConfig.states with an empty one.
+      // Without this guard, a stale auto-save during session load can erase the host's
+      // selected/removed/player slot configuration, causing removed NPCs to reappear.
+      const incomingStates = updated.companionConfig?.states;
+      const existingStates = existing.companionConfig?.states;
+      if (existingStates && Object.keys(existingStates).length > 0
+          && (!incomingStates || Object.keys(incomingStates).length === 0)) {
+        updated.companionConfig = { ...(updated.companionConfig || {}), states: existingStates };
+        console.warn(`[Sessions] PUT ${req.params.id} — preserved existing companionConfig.states (incoming was empty)`);
+      }
       fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
       res.json(withSessionAccess(updated, requester));
     } catch (err) {

@@ -146,6 +146,11 @@ function abilityModifier(score) {
   return Math.floor((score - 10) / 2);
 }
 
+function formatDamage(dice, mod) {
+  if (mod === 0) return dice;
+  return mod > 0 ? `${dice}+${mod}` : `${dice}${mod}`;
+}
+
 function hitDieMax(hitDie) {
   const match = hitDie.match(/d(\d+)/);
   return match ? parseInt(match[1]) : 8;
@@ -226,11 +231,35 @@ function cantripsKnownForLevel(baseCantrips, level) {
 }
 
 // Spells known/prepared scales roughly with level
-function spellsKnownForLevel(baseSpells, level, className) {
+function spellsKnownForLevel(baseSpells, level, className, abilityMod) {
+  // Full prepared casters (Cleric, Druid): WIS mod + level
+  if (className === 'Cleric' || className === 'Druid') {
+    return Math.max(1, (abilityMod || 0) + level);
+  }
+  // Paladin (half-caster, prepared): CHA mod + half level (min 1), no spells until L2
+  if (className === 'Paladin') {
+    if (level < 2) return 0;
+    return Math.max(1, (abilityMod || 0) + Math.floor(level / 2));
+  }
+  // Ranger (half-caster, known): no spells until L2, then scales
+  if (className === 'Ranger') {
+    if (level < 2) return 0;
+    // 5e ranger known spells: L2:2, L3:3, L5:4, L7:5, L9:6, L11:7, L13:8, L15:9, L17:10, L19:11
+    if (level >= 19) return 11;
+    if (level >= 17) return 10;
+    if (level >= 15) return 9;
+    if (level >= 13) return 8;
+    if (level >= 11) return 7;
+    if (level >= 9) return 6;
+    if (level >= 7) return 5;
+    if (level >= 5) return 4;
+    if (level >= 3) return 3;
+    return 2;
+  }
   if (!baseSpells) return 0;
   // Wizards get +2 spells per level (spellbook)
   if (className === 'Wizard') return baseSpells + (level - 1) * 2;
-  // Known casters (Bard, Sorcerer, Warlock, Ranger) gain ~1 per level
+  // Known casters (Bard, Sorcerer, Warlock) gain ~1 per level
   return baseSpells + (level - 1);
 }
 
@@ -469,6 +498,24 @@ function generateRandomCharacter(dataDir, options = {}) {
     }
   }
 
+  // Clean up equipment placeholders
+  const SIMPLE_WEAPONS = ['Club', 'Dagger', 'Greatclub', 'Handaxe', 'Javelin', 'Light hammer', 'Mace', 'Quarterstaff', 'Sickle', 'Spear'];
+  for (let i = equipment.length - 1; i >= 0; i--) {
+    const item = equipment[i];
+    // Resolve "Any simple weapon" to a random simple weapon
+    if (/any simple weapon/i.test(item)) {
+      equipment[i] = pick(SIMPLE_WEAPONS);
+    }
+    // Remove "(if proficient)" qualifiers — the generator only gives proficient gear
+    else if (/\(if proficient\)/i.test(item)) {
+      equipment[i] = item.replace(/\s*\(if proficient\)/i, '');
+    }
+    // Remove "Any martial weapon" → pick one
+    else if (/any martial weapon/i.test(item)) {
+      equipment[i] = pick(['Longsword', 'Battleaxe', 'Warhammer', 'Morningstar', 'Rapier', 'Greatsword']);
+    }
+  }
+
   // Build weapons array
   const weapons = [];
   const profBonus = profBonusForLevel(startingLevel);
@@ -480,61 +527,61 @@ function generateRandomCharacter(dataDir, options = {}) {
   // Add weapons based on equipment
   const equipStr = equipment.join(' ').toLowerCase();
   if (equipStr.includes('greataxe')) {
-    weapons.push({ name: 'Greataxe', attackBonus: strMod + profBonus, damage: `1d12+${strMod}`, damageType: 'slashing' });
+    weapons.push({ name: 'Greataxe', attackBonus: strMod + profBonus, damage: formatDamage('1d12', strMod), damageType: 'slashing' });
   }
   if (equipStr.includes('greatsword')) {
-    weapons.push({ name: 'Greatsword', attackBonus: strMod + profBonus, damage: `2d6+${strMod}`, damageType: 'slashing' });
+    weapons.push({ name: 'Greatsword', attackBonus: strMod + profBonus, damage: formatDamage('2d6', strMod), damageType: 'slashing' });
   }
   if (equipStr.includes('longsword')) {
-    weapons.push({ name: 'Longsword', attackBonus: strMod + profBonus, damage: `1d8+${strMod}`, damageType: 'slashing' });
+    weapons.push({ name: 'Longsword', attackBonus: strMod + profBonus, damage: formatDamage('1d8', strMod), damageType: 'slashing' });
   }
   if (equipStr.includes('rapier')) {
-    weapons.push({ name: 'Rapier', attackBonus: dexMod + profBonus, damage: `1d8+${dexMod}`, damageType: 'piercing' });
+    weapons.push({ name: 'Rapier', attackBonus: dexMod + profBonus, damage: formatDamage('1d8', dexMod), damageType: 'piercing' });
   }
   if (equipStr.includes('shortsword')) {
-    weapons.push({ name: 'Shortsword', attackBonus: dexMod + profBonus, damage: `1d6+${dexMod}`, damageType: 'piercing' });
+    weapons.push({ name: 'Shortsword', attackBonus: dexMod + profBonus, damage: formatDamage('1d6', dexMod), damageType: 'piercing' });
   }
   if (equipStr.includes('shortbow')) {
-    weapons.push({ name: 'Shortbow', attackBonus: dexMod + profBonus, damage: `1d6+${dexMod}`, damageType: 'piercing' });
+    weapons.push({ name: 'Shortbow', attackBonus: dexMod + profBonus, damage: formatDamage('1d6', dexMod), damageType: 'piercing' });
   }
   if (equipStr.includes('longbow')) {
-    weapons.push({ name: 'Longbow', attackBonus: dexMod + profBonus, damage: `1d8+${dexMod}`, damageType: 'piercing' });
+    weapons.push({ name: 'Longbow', attackBonus: dexMod + profBonus, damage: formatDamage('1d8', dexMod), damageType: 'piercing' });
   }
   if (equipStr.includes('mace')) {
-    weapons.push({ name: 'Mace', attackBonus: strMod + profBonus, damage: `1d6+${strMod}`, damageType: 'bludgeoning' });
+    weapons.push({ name: 'Mace', attackBonus: strMod + profBonus, damage: formatDamage('1d6', strMod), damageType: 'bludgeoning' });
   }
   if (equipStr.includes('scimitar')) {
-    weapons.push({ name: 'Scimitar', attackBonus: dexMod + profBonus, damage: `1d6+${dexMod}`, damageType: 'slashing' });
+    weapons.push({ name: 'Scimitar', attackBonus: dexMod + profBonus, damage: formatDamage('1d6', dexMod), damageType: 'slashing' });
   }
   if (equipStr.includes('quarterstaff')) {
-    weapons.push({ name: 'Quarterstaff', attackBonus: strMod + profBonus, damage: `1d6+${strMod}`, damageType: 'bludgeoning' });
+    weapons.push({ name: 'Quarterstaff', attackBonus: strMod + profBonus, damage: formatDamage('1d6', strMod), damageType: 'bludgeoning' });
   }
   if (equipStr.includes('dagger')) {
-    weapons.push({ name: 'Dagger', attackBonus: dexMod + profBonus, damage: `1d4+${dexMod}`, damageType: 'piercing' });
+    weapons.push({ name: 'Dagger', attackBonus: dexMod + profBonus, damage: formatDamage('1d4', dexMod), damageType: 'piercing' });
   }
   if (equipStr.includes('javelin')) {
-    weapons.push({ name: 'Javelin', attackBonus: strMod + profBonus, damage: `1d6+${strMod}`, damageType: 'piercing' });
+    weapons.push({ name: 'Javelin', attackBonus: strMod + profBonus, damage: formatDamage('1d6', strMod), damageType: 'piercing' });
   }
   if (equipStr.includes('handaxe')) {
-    weapons.push({ name: 'Handaxe', attackBonus: strMod + profBonus, damage: `1d6+${strMod}`, damageType: 'slashing' });
+    weapons.push({ name: 'Handaxe', attackBonus: strMod + profBonus, damage: formatDamage('1d6', strMod), damageType: 'slashing' });
   }
   if (equipStr.includes('crossbow')) {
-    weapons.push({ name: 'Light Crossbow', attackBonus: dexMod + profBonus, damage: `1d8+${dexMod}`, damageType: 'piercing' });
+    weapons.push({ name: 'Light Crossbow', attackBonus: dexMod + profBonus, damage: formatDamage('1d8', dexMod), damageType: 'piercing' });
   }
   if (equipStr.includes('dart')) {
-    weapons.push({ name: 'Dart', attackBonus: dexMod + profBonus, damage: `1d4+${dexMod}`, damageType: 'piercing' });
+    weapons.push({ name: 'Dart', attackBonus: dexMod + profBonus, damage: formatDamage('1d4', dexMod), damageType: 'piercing' });
   }
   if (equipStr.includes('warhammer')) {
-    weapons.push({ name: 'Warhammer', attackBonus: strMod + profBonus, damage: `1d8+${strMod}`, damageType: 'bludgeoning' });
+    weapons.push({ name: 'Warhammer', attackBonus: strMod + profBonus, damage: formatDamage('1d8', strMod), damageType: 'bludgeoning' });
   }
 
   // Fallback: if no weapons detected, add a simple weapon
   if (weapons.length === 0) {
     if (charClass.weapon_proficiencies.some(w => w.includes('Martial') || w.includes('martial'))) {
-      weapons.push({ name: 'Longsword', attackBonus: strMod + profBonus, damage: `1d8+${strMod}`, damageType: 'slashing' });
+      weapons.push({ name: 'Longsword', attackBonus: strMod + profBonus, damage: formatDamage('1d8', strMod), damageType: 'slashing' });
       equipment.push('Longsword');
     } else {
-      weapons.push({ name: 'Dagger', attackBonus: dexMod + profBonus, damage: `1d4+${dexMod}`, damageType: 'piercing' });
+      weapons.push({ name: 'Dagger', attackBonus: dexMod + profBonus, damage: formatDamage('1d4', dexMod), damageType: 'piercing' });
       equipment.push('Dagger');
     }
   }
@@ -560,13 +607,26 @@ function generateRandomCharacter(dataDir, options = {}) {
   }
 
   // Spells for spellcasting classes
+  // Half-casters (Ranger, Paladin) don't have spellcasting field in rules data because they get spells at L2.
+  // Synthesize a minimal spellcasting config for them when level >= 2.
+  let effectiveSpellcasting = charClass.spellcasting;
+  if (!effectiveSpellcasting && HALF_CASTERS.includes(charClass.name) && startingLevel >= 2) {
+    const HALF_CASTER_ABILITIES = { Ranger: 'Wisdom', Paladin: 'Charisma' };
+    effectiveSpellcasting = {
+      ability: HALF_CASTER_ABILITIES[charClass.name],
+      cantrips_known_at_1st: 0,
+      spells_known_at_1st: 2, // Both classes know 2 spells at L2 in 5e
+    };
+  }
+
   let spells = null;
-  if (charClass.spellcasting) {
-    const spellAbility = charClass.spellcasting.ability;
-    const baseCantrips = charClass.spellcasting.cantrips_known_at_1st || 0;
-    const baseSpells = charClass.spellcasting.spells_known_at_1st || charClass.spellcasting.spellbook_spells_at_1st || 0;
+  if (effectiveSpellcasting) {
+    const spellAbility = effectiveSpellcasting.ability;
+    const baseCantrips = effectiveSpellcasting.cantrips_known_at_1st || 0;
+    const baseSpells = effectiveSpellcasting.spells_known_at_1st || effectiveSpellcasting.spellbook_spells_at_1st || 0;
     const numCantrips = cantripsKnownForLevel(baseCantrips, startingLevel);
-    const numSpells = spellsKnownForLevel(baseSpells, startingLevel, charClass.name);
+    const spellAbilityMod = abilities[spellAbility.toLowerCase()]?.modifier || 0;
+    const numSpells = spellsKnownForLevel(baseSpells, startingLevel, charClass.name, spellAbilityMod);
     const spellSlots = getSpellSlotsForLevel(charClass.name, startingLevel);
 
     // Pick cantrips for this class
@@ -614,7 +674,9 @@ function generateRandomCharacter(dataDir, options = {}) {
 
   // Appearance
   const sizeDesc = race.size === 'Small' ? 'a small, compact' : 'a';
-  const raceDesc = subrace ? `${subrace.name} ${race.name}` : race.name;
+  const raceDesc = subrace
+    ? (subrace.name.toLowerCase().includes(race.name.toLowerCase()) ? subrace.name : `${subrace.name} ${race.name}`)
+    : race.name;
   const appearance = `${name} is ${sizeDesc} ${raceDesc} ${charClass.name.toLowerCase()} with a weathered look that speaks of many roads traveled.`;
 
   // Backstory

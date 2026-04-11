@@ -204,7 +204,7 @@ function CharacterCreator() {
         <div className="detail-section" style={{ marginTop: '1rem' }}>
           <h3 style={{ margin: '0 0 1rem' }}>{preview.name}</h3>
           <p style={{ color: 'var(--text-muted)', margin: '0 0 1rem' }}>
-            Level {preview.level} {preview.subrace ? `${preview.subrace} ` : ''}{preview.race} {preview.class} ({preview.background}) — {preview.alignment}
+            Level {preview.level} {preview.subrace ? (preview.subrace.toLowerCase().includes(preview.race.toLowerCase()) ? preview.subrace : `${preview.subrace} ${preview.race}`) : preview.race} {preview.class} ({preview.background}) — {preview.alignment}
           </p>
 
           <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '1rem' }}>

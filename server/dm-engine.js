@@ -995,11 +995,15 @@ class DmEngine {
           continue;
         }
         if (message.type === 'assistant' && !message.partial) {
-          const textBlocks = (message.message?.content || [])
-            .filter(b => b.type === 'text')
-            .map(b => b.text);
+          const blocks = message.message?.content || [];
+          const textBlocks = blocks.filter(b => b.type === 'text').map(b => b.text);
           if (textBlocks.length > 0) {
             yield { type: 'dm_response', text: textBlocks.join('\n\n') };
+          }
+          for (const block of blocks) {
+            if (block.type === 'tool_use') {
+              yield { type: 'tool_use', name: block.name, input: block.input || {} };
+            }
           }
           continue;
         }
