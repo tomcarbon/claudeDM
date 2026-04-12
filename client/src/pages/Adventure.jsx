@@ -158,6 +158,8 @@ function Adventure({
   const dmPersonalityRef = useRef(null); // Session-scoped DM personality snapshot
   const activeCharacterIdRef = useRef(null); // Backup of selectedCharacter for active session
   const saveInProgressRef = useRef(false); // Guard against concurrent auto-saves creating duplicate sessions
+  const autoSaveTimerRef = useRef(null); // Debounce timer for auto-save throttling
+  const lastSaveTimeRef = useRef(0); // Timestamp of last auto-save (for leading-edge throttle)
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const isGuest = !player?.email;
   const isCompanion = !!sessionAccess.companionNpcId;
@@ -238,6 +240,8 @@ function Adventure({
   }, [sendTypingStatus]);
   // Clear typing on unmount
   useEffect(() => () => { clearTimeout(typingTimerRef.current); }, []);
+  // Clear auto-save timer on unmount
+  useEffect(() => () => { clearTimeout(autoSaveTimerRef.current); }, []);
 
   // Wire up auto-fire callback (fires when all players have submitted)
   useEffect(() => {
@@ -327,7 +331,7 @@ function Adventure({
     if (!sessionActive) {
       setSelectedCharacter('');
       setSelectedScenario('');
-      setSelectedCampaign(null);
+      setSelectedCampaign(campaignId);
       setSessionLabel('');
       setCompanionReservations({});
       setReserveDropdownNpc(null);
@@ -435,8 +439,16 @@ function Adventure({
       if (isCompanion) {
         api.getMyCharacters().then(setMyCharacters).catch(() => {});
       }
+      // Flush pending debounced auto-save on DM turn complete
+      if (!sessionReadOnly && !isCompanion && autoSave && autoSaveTimerRef.current) {
+        clearTimeout(autoSaveTimerRef.current);
+        autoSaveTimerRef.current = null;
+        lastSaveTimeRef.current = Date.now();
+        handleSave();
+      }
     }
     prevStatusRef.current = status;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, sessionActive, isCompanion]);
 
   // Load companion's own character roster (bypasses session headers to get THEIR characters, not the host's)
@@ -470,13 +482,26 @@ function Adventure({
     }
   }, [sessionActive, savedSessionDbId, status]);
 
-  // Auto-save when messages change
+  // Auto-save when messages change (throttled — at most once per 5s, plus flush on dm_complete)
   useEffect(() => {
     const completedMessages = messages.filter(m => m.type !== 'dm_partial' && m.type !== 'dm_warmup');
     const count = completedMessages.length;
     if (!sessionReadOnly && !isCompanion && autoSave && count > 0 && count !== prevMessageCountRef.current) {
       prevMessageCountRef.current = count;
-      handleSave();
+      const now = Date.now();
+      if (now - lastSaveTimeRef.current >= 5000) {
+        // Leading edge: save immediately
+        lastSaveTimeRef.current = now;
+        handleSave();
+      } else {
+        // Trailing edge: schedule for remainder of the 5s window
+        clearTimeout(autoSaveTimerRef.current);
+        autoSaveTimerRef.current = setTimeout(() => {
+          autoSaveTimerRef.current = null;
+          lastSaveTimeRef.current = Date.now();
+          handleSave();
+        }, 5000 - (now - lastSaveTimeRef.current));
+      }
     } else if (!autoSave) {
       prevMessageCountRef.current = count;
     }
@@ -653,6 +678,7 @@ Set the scene and begin the story.`;
       const name = `${campaign?.title || scenario?.title || 'Adventure'} — ${new Date().toLocaleDateString()}`;
       const payload = {
         name,
+        campaignId: campaignId || undefined,
         claudeSessionId: sessionId,
         characterId: selectedCharacter || activeCharacterIdRef.current,
         scenarioId: selectedScenario,
@@ -682,7 +708,7 @@ Set the scene and begin the story.`;
           api.updateSessionSettings(result.id, { allowBots: true, maxBots: sessionSettings.maxBots ?? 2 }).catch(() => {});
         }
       }
-      watchSession(result.id, player);
+      watchSession(result.id, player, campaignId);
       setSessionReadOnly(result.readOnly === true);
       // Store active session context so Characters/Companions menu reads session-scoped data
       localStorage.setItem('dnd_active_session_id', result.id);
@@ -798,7 +824,7 @@ Set the scene and begin the story.`;
       if (loadedMessages.length === 0) {
         console.warn('[Load] No messages found in saved session — session may not have been saved properly');
       }
-      watchSession(session.id, player);
+      watchSession(session.id, player, session.campaignId || campaignId);
       // Store active session context so Characters/Companions menu reads session-scoped data
       localStorage.setItem('dnd_active_session_id', session.id);
       if (!readOnly) {
@@ -1068,11 +1094,17 @@ Set the scene and begin the story.`;
               </div>
             ) : (
               <div className="setup-options">
-                {campaigns.filter(c => c.id === campaignId).map(c => (
+                {campaigns.map(c => (
                   <button
                     key={c.id}
                     className={`option-card campaign-card${selectedCampaign === c.id ? ' selected' : ''}`}
-                    onClick={() => setSelectedCampaign(c.id)}
+                    onClick={() => {
+                      if (c.id !== campaignId && sessionActive) {
+                        if (!window.confirm('Switching campaigns will end your current session. Any unsaved progress will be lost.\n\nAre you sure?')) return;
+                      }
+                      setSelectedCampaign(c.id);
+                      if (c.id !== campaignId) selectCampaign(c.id);
+                    }}
                   >
                     <strong>{c.title}</strong>
                     <span className="campaign-subtitle">{c.subtitle}</span>

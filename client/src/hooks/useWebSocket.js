@@ -364,7 +364,7 @@ export default function useWebSocket() {
     }
   }, []);
 
-  const watchSession = useCallback((sessionDbId, player) => {
+  const watchSession = useCallback((sessionDbId, player, campaignId) => {
     if (!sessionDbId) {
       pendingWatchRef.current = null;
       if (wsRef.current?.readyState === WebSocket.OPEN) {
@@ -378,6 +378,7 @@ export default function useWebSocket() {
       sessionDbId,
       playerEmail: player?.email || null,
       playerName: player?.name || null,
+      campaignId: campaignId || null,
     };
     pendingWatchRef.current = payload;
     if (wsRef.current?.readyState === WebSocket.OPEN) {
