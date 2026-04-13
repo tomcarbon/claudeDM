@@ -1220,6 +1220,14 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
         case 'companion_set_character': {
           if (!currentSessionDbId || !wsEntry.companionNpcId) break;
+          // Reject if companion selected the host's character
+          if (msg.characterId) {
+            const sessCheck = readSessionByDbId(currentSessionDbId);
+            if (sessCheck && msg.characterId === sessCheck.characterId) {
+              send('error', { error: 'That character is already being played by the host.' });
+              break;
+            }
+          }
           const prevCharName = wsEntry.companionCharacterName;
           wsEntry.companionCharacterName = msg.characterName || null;
           wsEntry.companionCharacterId = msg.characterId || null;

@@ -53,6 +53,7 @@ function AppContent() {
     }
     setSessionActive(false);
     setSavedSessionDbId(null);
+    localStorage.removeItem('dnd_active_session_id');
   }, [campaignId]);
 
   // Reset adventure session when navigating from Home's "Start Adventure"
@@ -61,6 +62,7 @@ function AppContent() {
     if (location.pathname === '/adventure' && location.state?.resetSession) {
       setSessionActive(false);
       setSavedSessionDbId(null);
+      localStorage.removeItem('dnd_active_session_id');
       window.history.replaceState({}, '');
     }
     if (location.pathname === '/adventure' && location.state?.loadSessionId) {

@@ -1094,17 +1094,11 @@ Set the scene and begin the story.`;
               </div>
             ) : (
               <div className="setup-options">
-                {campaigns.map(c => (
+                {campaigns.filter(c => c.id === campaignId).map(c => (
                   <button
                     key={c.id}
                     className={`option-card campaign-card${selectedCampaign === c.id ? ' selected' : ''}`}
-                    onClick={() => {
-                      if (c.id !== campaignId && sessionActive) {
-                        if (!window.confirm('Switching campaigns will end your current session. Any unsaved progress will be lost.\n\nAre you sure?')) return;
-                      }
-                      setSelectedCampaign(c.id);
-                      if (c.id !== campaignId) selectCampaign(c.id);
-                    }}
+                    onClick={() => setSelectedCampaign(c.id)}
                   >
                     <strong>{c.title}</strong>
                     <span className="campaign-subtitle">{c.subtitle}</span>
@@ -1729,6 +1723,10 @@ Set the scene and begin the story.`;
                   // Exclude characters whose name matches another companion's character or an active NPC
                   const takenNames = new Set();
                   for (const p of sessionParticipants) {
+                    // Host's character (companion must not duplicate the host)
+                    if (p.isHost && p.characterName) {
+                      takenNames.add(p.characterName.toLowerCase());
+                    }
                     // Other companions' chosen characters (avoid two companions with same character name)
                     if (!p.isHost && p.companionCharacterName && p.playerEmail !== player?.email) {
                       takenNames.add(p.companionCharacterName.toLowerCase());
