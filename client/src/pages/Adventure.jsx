@@ -283,7 +283,7 @@ function Adventure({
   }, []);
 
   useEffect(() => {
-    api.getCharacters().then(result => {
+    (sessionActive ? api.getCharacters() : api.getMyCharacters()).then(result => {
       if (Array.isArray(result)) {
         setCharacters(result);
       } else {

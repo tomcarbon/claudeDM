@@ -1,5 +1,6 @@
 const { WebSocketServer } = require('ws');
 const fs = require('fs');
+const fsp = fs.promises;
 const path = require('path');
 const { DmEngine } = require('./dm-engine');
 const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession } = require('./player-data');
@@ -121,48 +122,48 @@ function scheduleEngineCleanup(sessionDbId) {
   engineCleanupTimers.set(sessionDbId, timer);
 }
 
-function isMultiplayerSession(sessionDbId) {
-  const session = _findAndReadSession(sessionDbId);
+async function isMultiplayerSession(sessionDbId) {
+  const session = await _findAndReadSession(sessionDbId);
   if (!session) return false;
   return session.companionPlayers && Object.keys(session.companionPlayers).length > 0;
 }
 
 // Module-level session read helper (set inside attachWebSocket)
-let _findAndReadSession = () => null;
+let _findAndReadSession = async () => null;
 
-function persistTurnToSession(sessionDbId, turnData) {
-  const session = _findAndReadSession(sessionDbId);
+async function persistTurnToSession(sessionDbId, turnData) {
+  const session = await _findAndReadSession(sessionDbId);
   if (!session) return;
   if (!session.pendingTurns) session.pendingTurns = {};
   session.pendingTurns[turnData.playerEmail] = turnData;
   session.updatedAt = new Date().toISOString();
-  const fp = _findSessionFilePath(sessionDbId);
-  if (fp) fs.writeFileSync(fp, JSON.stringify(session, null, 2));
+  const fp = await _findSessionFilePath(sessionDbId);
+  if (fp) await fsp.writeFile(fp, JSON.stringify(session, null, 2));
 }
 
-function removeTurnFromSession(sessionDbId, playerEmail) {
-  const session = _findAndReadSession(sessionDbId);
+async function removeTurnFromSession(sessionDbId, playerEmail) {
+  const session = await _findAndReadSession(sessionDbId);
   if (!session || !session.pendingTurns) return null;
   const turn = session.pendingTurns[playerEmail];
   if (!turn) return null;
   delete session.pendingTurns[playerEmail];
   session.updatedAt = new Date().toISOString();
-  const fp = _findSessionFilePath(sessionDbId);
-  if (fp) fs.writeFileSync(fp, JSON.stringify(session, null, 2));
+  const fp = await _findSessionFilePath(sessionDbId);
+  if (fp) await fsp.writeFile(fp, JSON.stringify(session, null, 2));
   return turn.text || null;
 }
 
-function clearPendingTurns(sessionDbId) {
-  const session = _findAndReadSession(sessionDbId);
+async function clearPendingTurns(sessionDbId) {
+  const session = await _findAndReadSession(sessionDbId);
   if (!session) return;
   session.pendingTurns = {};
   session.updatedAt = new Date().toISOString();
-  const fp = _findSessionFilePath(sessionDbId);
-  if (fp) fs.writeFileSync(fp, JSON.stringify(session, null, 2));
+  const fp = await _findSessionFilePath(sessionDbId);
+  if (fp) await fsp.writeFile(fp, JSON.stringify(session, null, 2));
 }
 
 // Module-level file path helper (set inside attachWebSocket)
-let _findSessionFilePath = () => null;
+let _findSessionFilePath = async () => null;
 
 function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
@@ -170,8 +171,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   const playersDir = path.join(dataDir, 'players');
 
   // Wire module-level helpers to closure functions (defined below)
-  _findSessionFilePath = (id) => findSessionFilePath(id);
-  _findAndReadSession = (id) => readSessionByDbId(id);
+  _findSessionFilePath = (id) => findSessionFilePathAsync(id);
+  _findAndReadSession = (id) => readSessionByDbIdAsync(id);
 
   function broadcastChatParticipants(chatKey) {
     const participants = getRoomParticipants(chatKey);
@@ -195,10 +196,22 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     return null;
   }
 
+  async function findSessionFilePathAsync(sessionDbId) {
+    if (!sessionDbId) return null;
+    const fp = getSessionFilePath(dataDir, sessionDbId);
+    try { await fsp.access(fp); return fp; } catch { return null; }
+  }
+
   function readSessionByDbId(sessionDbId) {
     const fp = findSessionFilePath(sessionDbId);
     if (!fp) return null;
     try { return JSON.parse(fs.readFileSync(fp, 'utf-8')); } catch { return null; }
+  }
+
+  async function readSessionByDbIdAsync(sessionDbId) {
+    const fp = await findSessionFilePathAsync(sessionDbId);
+    if (!fp) return null;
+    try { return JSON.parse(await fsp.readFile(fp, 'utf-8')); } catch { return null; }
   }
 
   function broadcastSessionMessage(sessionDbId, type, payload = {}, excludedEntry = null) {
@@ -451,7 +464,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       const companionTurnsArr = allTurns.filter(t => !t.isHost);
 
       // Get or create session engine
-      const session = readSessionByDbId(sessionDbId);
+      const session = await readSessionByDbIdAsync(sessionDbId);
       if (!session) return;
       const ownerEmail = getSessionOwnerEmail(session);
       const existingCtx = sessionEngines.get(sessionDbId);
@@ -528,7 +541,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       // Clear pending turns
       sessionTurns.delete(sessionDbId);
       broadcastSessionTurns(sessionDbId);
-      clearPendingTurns(sessionDbId);
+      await clearPendingTurns(sessionDbId);
       broadcastTurnStatus(sessionDbId);
 
       // Broadcast sessions_changed so widgets refresh
@@ -564,7 +577,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         try { snapshotToSession(dataDir, sessionDbId, ownerEmail, cid); } catch (e) { console.error('[WS] Snapshot error:', e); }
 
         // Load world state and summary counter from session for context persistence
-        const sessionForState = readSessionByDbId(sessionDbId);
+        const sessionForState = await readSessionByDbIdAsync(sessionDbId);
         const worldState = sessionForState?.worldState || undefined;
         const dmMessagesSinceLastSummary = sessionForState?.dmMessagesSinceLastSummary || 0;
 
@@ -618,7 +631,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               // Persist turn messages + DM response to session JSON
               // (Defensive: skip messages already present from a racing client auto-save.)
               try {
-                const sess = readSessionByDbId(sessionDbId);
+                const sess = await readSessionByDbIdAsync(sessionDbId);
                 if (sess) {
                   if (event.sessionId) sess.claudeSessionId = event.sessionId;
                   if (!Array.isArray(sess.messages)) sess.messages = [];
@@ -662,8 +675,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                     }
                   }
                   sess.updatedAt = new Date().toISOString();
-                  const fp = findSessionFilePath(sessionDbId);
-                  if (fp) fs.writeFileSync(fp, JSON.stringify(sess, null, 2));
+                  const fp = await findSessionFilePathAsync(sessionDbId);
+                  if (fp) await fsp.writeFile(fp, JSON.stringify(sess, null, 2));
                 }
               } catch (e) { console.error('[WS] Failed to persist multiplayer turn:', e); }
               break;
@@ -1031,7 +1044,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           }
 
           // Multiplayer: queue the host's turn instead of firing immediately
-          if (currentSessionDbId && isMultiplayerSession(currentSessionDbId)) {
+          if (currentSessionDbId && await isMultiplayerSession(currentSessionDbId)) {
             const turnText = msg.text.trim();
             if (!sessionTurns.has(currentSessionDbId)) sessionTurns.set(currentSessionDbId, new Map());
             sessionTurns.get(currentSessionDbId).set(wsEntry.playerEmail, {
@@ -1044,7 +1057,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               text: turnText,
               isHost: true,
             });
-            persistTurnToSession(currentSessionDbId, {
+            await persistTurnToSession(currentSessionDbId, {
               playerEmail: wsEntry.playerEmail,
               playerName: wsEntry.playerName || wsEntry.playerEmail,
               npcId: null,
@@ -1092,7 +1105,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             let singlePlayerSummaryCount = 0;
             if (currentSessionDbId) {
               try {
-                const sessData = readSessionByDbId(currentSessionDbId);
+                const sessData = await readSessionByDbIdAsync(currentSessionDbId);
                 if (sessData) {
                   singlePlayerWorldState = sessData.worldState || undefined;
                   singlePlayerSummaryCount = sessData.dmMessagesSinceLastSummary || 0;
@@ -1161,7 +1174,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   // Track summary counter in session JSON (single-player path)
                   if (currentSessionDbId) {
                     try {
-                      const sessForCounter = readSessionByDbId(currentSessionDbId);
+                      const sessForCounter = await readSessionByDbIdAsync(currentSessionDbId);
                       if (sessForCounter) {
                         const SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
                         if (SUMMARY_PATTERN.test(event.text)) {
@@ -1170,8 +1183,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                           sessForCounter.dmMessagesSinceLastSummary = (sessForCounter.dmMessagesSinceLastSummary || 0) + 1;
                         }
                         sessForCounter.updatedAt = new Date().toISOString();
-                        const fp = findSessionFilePath(currentSessionDbId);
-                        if (fp) fs.writeFileSync(fp, JSON.stringify(sessForCounter, null, 2));
+                        const fp = await findSessionFilePathAsync(currentSessionDbId);
+                        if (fp) await fsp.writeFile(fp, JSON.stringify(sessForCounter, null, 2));
                       }
                     } catch { /* ignore counter update failure */ }
                   }
@@ -1222,7 +1235,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           if (!currentSessionDbId || !wsEntry.companionNpcId) break;
           // Reject if companion selected the host's character
           if (msg.characterId) {
-            const sessCheck = readSessionByDbId(currentSessionDbId);
+            const sessCheck = await readSessionByDbIdAsync(currentSessionDbId);
             if (sessCheck && msg.characterId === sessCheck.characterId) {
               send('error', { error: 'That character is already being played by the host.' });
               break;
@@ -1238,13 +1251,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           }
           // Persist character choice to session JSON
           try {
-            const sessionFile = readSessionByDbId(currentSessionDbId);
+            const sessionFile = await readSessionByDbIdAsync(currentSessionDbId);
             if (sessionFile && sessionFile.companionPlayers && sessionFile.companionPlayers[wsEntry.companionNpcId]) {
               sessionFile.companionPlayers[wsEntry.companionNpcId].characterId = msg.characterId || null;
               sessionFile.companionPlayers[wsEntry.companionNpcId].characterName = msg.characterName || null;
               sessionFile.updatedAt = new Date().toISOString();
-              const fp = findSessionFilePath(currentSessionDbId);
-              if (fp) fs.writeFileSync(fp, JSON.stringify(sessionFile, null, 2));
+              const fp = await findSessionFilePathAsync(currentSessionDbId);
+              if (fp) await fsp.writeFile(fp, JSON.stringify(sessionFile, null, 2));
             }
           } catch (err) {
             console.error('[WS] Failed to persist companion character choice:', err);
@@ -1255,13 +1268,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           if (msg.characterData && msg.characterId) {
             try {
               const sessCharDir = getSessionCharactersDir(dataDir, currentSessionDbId);
-              fs.mkdirSync(sessCharDir, { recursive: true });
+              await fsp.mkdir(sessCharDir, { recursive: true });
               const charSlug = String(msg.characterData.name || msg.characterId)
                 .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
               const destPath = path.join(sessCharDir, `${charSlug}.json`);
               const charDataToWrite = { ...msg.characterData, _filename: `${charSlug}.json` };
               // Always write to session dir — overwrites are safe in session scope
-              fs.writeFileSync(destPath, JSON.stringify(charDataToWrite, null, 2));
+              await fsp.writeFile(destPath, JSON.stringify(charDataToWrite, null, 2));
               console.log(`[WS] Copied companion character "${msg.characterData.name}" to session dir: ${destPath}`);
             } catch (err) {
               console.error(`[WS] Failed to copy companion character to session dir:`, err);
@@ -1316,7 +1329,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             text: turnText,
             isHost: false,
           });
-          persistTurnToSession(currentSessionDbId, {
+          await persistTurnToSession(currentSessionDbId, {
             playerEmail: wsEntry.playerEmail,
             playerName: wsEntry.playerName || wsEntry.playerEmail,
             npcId: wsEntry.companionNpcId,
@@ -1342,7 +1355,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             sessionTurns.get(currentSessionDbId).delete(wsEntry.playerEmail);
             broadcastSessionTurns(currentSessionDbId);
           }
-          removeTurnFromSession(currentSessionDbId, wsEntry.playerEmail);
+          await removeTurnFromSession(currentSessionDbId, wsEntry.playerEmail);
           // Send retracted text back for input restoration
           send('companion_turn_retracted', { text: retractedCompText });
           broadcastTurnStatus(currentSessionDbId);
@@ -1368,11 +1381,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             break;
           }
           const skipEmail = String(msg.playerEmail || '').trim().toLowerCase();
+          await removeTurnFromSession(currentSessionDbId, skipEmail);
           if (skipEmail && sessionTurns.has(currentSessionDbId)) {
             sessionTurns.get(currentSessionDbId).delete(skipEmail);
             broadcastSessionTurns(currentSessionDbId);
           }
-          removeTurnFromSession(currentSessionDbId, skipEmail);
           checkAutoFire(currentSessionDbId);
           break;
         }
@@ -1399,7 +1412,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             text: hostText,
             isHost: true,
           });
-          persistTurnToSession(currentSessionDbId, {
+          await persistTurnToSession(currentSessionDbId, {
             playerEmail: wsEntry.playerEmail,
             playerName: wsEntry.playerName || wsEntry.playerEmail,
             npcId: null,
@@ -1428,7 +1441,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             retractedHostText = turn?.text || null;
             sessionTurns.get(currentSessionDbId).delete(wsEntry.playerEmail);
           }
-          removeTurnFromSession(currentSessionDbId, wsEntry.playerEmail);
+          await removeTurnFromSession(currentSessionDbId, wsEntry.playerEmail);
           // Send retracted text back for input restoration
           send('host_turn_retracted', { text: retractedHostText });
           broadcastTurnStatus(currentSessionDbId);

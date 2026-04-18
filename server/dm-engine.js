@@ -11,6 +11,32 @@ const { emailToSlug, getPlayerCharactersDir, getSessionCharactersDir, getSession
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 
+// Semaphore to limit concurrent Claude API calls across all sessions.
+// Prevents hitting API rate limits when multiple DM turns fire simultaneously.
+const MAX_CONCURRENT_QUERIES = 3;
+class QuerySemaphore {
+  constructor(max) {
+    this._max = max;
+    this._active = 0;
+    this._queue = [];
+  }
+  acquire() {
+    if (this._active < this._max) {
+      this._active++;
+      return Promise.resolve();
+    }
+    return new Promise(resolve => this._queue.push(resolve));
+  }
+  release() {
+    this._active--;
+    if (this._queue.length > 0) {
+      this._active++;
+      this._queue.shift()();
+    }
+  }
+}
+const querySemaphore = new QuerySemaphore(MAX_CONCURRENT_QUERIES);
+
 const AGENCY_TO_AUTONOMY = { railroaded: 0, guided: 25, collaborative: 50, freeform: 75, sandbox: 100 };
 const RESPONSE_LENGTH_PRESETS = {
   brief:    { words: 300, guide: 'Aim for roughly 300 words per response. Keep descriptions brief and punchy — short paragraphs, no fluff.' },
@@ -969,6 +995,8 @@ class DmEngine {
 
   async *_streamQuery(prompt, options) {
     this._diceResults.length = 0;
+    await querySemaphore.acquire();
+    yield { type: 'dm_warmup', text: querySemaphore._active >= querySemaphore._max ? 'Waiting for other DM turns to finish...' : 'Thinking...' };
     this.activeQuery = query({ prompt, options });
     try {
       for await (const message of this.activeQuery) {
@@ -1025,6 +1053,7 @@ class DmEngine {
       }
     } finally {
       this.activeQuery = null;
+      querySemaphore.release();
     }
   }
 
