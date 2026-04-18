@@ -1,10 +1,31 @@
-export const CURRENT_VERSION = '1.0.13';
+export const CURRENT_VERSION = '1.0.14';
 
 export const CHANGELOG = [
   {
+    version: '1.0.14',
+    date: '2026-04-18',
+    title: 'Current Release',
+    compareFrom: '1.0.13',
+    compareRef: '3fa058c ("edge cases with character handling")',
+    highlights: [
+      'DM post-turn audit system: every DM response is now scanned for stat-change phrases (damage, spell casts, item gains, currency, ammunition, XP) and phantom dice rolls (narrated roll results without a matching RollDice tool call). Unbacked changes are logged to the server console with category, trigger phrase, and excerpt — catches the DM skipping file updates or fabricating roll results.',
+      'Auto-save throttle: client-side session saves are now throttled to at most once per 5 seconds (leading + trailing edge), with an immediate flush on DM turn complete. Reduces server PUT requests from 30+ per combat turn down to ~3, cutting disk I/O churn dramatically.',
+      'Claude API semaphore: a global request queue limits concurrent DM API calls to 3 (configurable). When all slots are busy, additional DM turns wait in queue instead of hitting API rate limits. Players see "Waiting for other DM turns to finish..." if queued.',
+      'Async file I/O: hot-path session reads and writes (DM turn processing, turn persistence, companion character selection) converted from synchronous fs.readFileSync/writeFileSync to async fs.promises — unblocks the Node event loop during concurrent sessions.',
+      'Multi-campaign switching fix: campaign selection from the Home page now correctly calls selectCampaign() to update the global campaign context, and clears the stale dnd_active_session_id from localStorage so character/NPC lists refresh for the new campaign.',
+      'Session-scoped character awareness: the setup screen now uses getMyCharacters() (campaign library, no session headers) instead of getCharacters() (session-scoped) when not in an active session, preventing a companion player\'s character list from getting stuck on an old session\'s characters.',
+      'Duplicate character prevention: companion players can no longer select the same character the host is playing. The client-side picker filters out the host\'s character by name, and the server rejects the selection by ID as a safety net.',
+      'Companion character picker loading state: shows "Loading characters..." with an F5 hint while the character roster fetches, preventing the empty-picker race condition on first join.',
+      '"Are you sure?" campaign switch confirmation: switching campaigns while a session is active now shows a browser confirmation dialog warning that unsaved progress will be lost.',
+      'Save payload includes campaignId: session saves now explicitly include the campaign ID in the payload, reducing reliance on the API header for campaign association.',
+      'WebSocket watchSession includes campaignId: the session_watch message now carries the campaign ID for better cross-campaign session context.',
+      'ELI5 polish: clarified that party chat is for human-to-human coordination, noted the Level One Demo is the free starter campaign, and added that friends can join sessions once started.',
+    ],
+  },
+  {
     version: '1.0.13',
     date: '2026-03-29',
-    title: 'Current Release',
+    title: 'Character Creator & DM Pacing',
     compareFrom: '1.0.12',
     compareRef: 'e3aa274 ("remove join/leave client system messages, also fixes for newly rolled characters")',
     highlights: [

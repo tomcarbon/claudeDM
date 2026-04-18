@@ -1717,6 +1717,9 @@ Set the scene and begin the story.`;
           !companionCharacterId ? (
             <div className="companion-character-picker">
               <label>Choose your character for this session:</label>
+              {myCharacters.length === 0 ? (
+                <p style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>Loading characters... if stuck here then press F5 to refresh and reload this session.</p>
+              ) : (
               <div className="setup-options">
                 {myCharacters.filter(c => {
                   if (c.status === 'dead') return false;
@@ -1759,6 +1762,7 @@ Set the scene and begin the story.`;
                   </button>
                 ))}
               </div>
+              )}
             </div>
           ) : (
             <div className="adventure-input-bar companion-input-bar">

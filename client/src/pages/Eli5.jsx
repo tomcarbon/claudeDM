@@ -37,12 +37,13 @@ function Eli5() {
           </li>
           <li>
             <strong>Pick a campaign or scenario.</strong> From the <strong>Home</strong> page, choose
-            a campaign world to enter. The <em>Level One Demo</em> is free and a great place to start.
-            Then browse <strong>Scenarios</strong> to pick your adventure module.
+            a campaign world to enter. The <em>Level One Demo</em> is the free starter campaign and
+            a great place to learn. Then browse <strong>Scenarios</strong> to pick your adventure module.
           </li>
           <li>
-            <strong>Give your game a label.</strong> Name your session so your friends can find it —
+            <strong>Give your game a label.</strong> Name your session so you (and your friends) can find it later —
             something like <em>"Tuesday Night Dungeon Crawl"</em> or <em>"Goblin Trouble Round 2"</em>.
+            Friends can join your session once it's started.
           </li>
           <li>
             <strong>Begin the game!</strong> Hit <strong>Play</strong>, and the AI Dungeon Master takes
@@ -82,7 +83,7 @@ function Eli5() {
           <li><strong>Check your character sheet.</strong> After combat, your XP, HP, and inventory are updated automatically. Visit <strong>Characters</strong> to see your current stats.</li>
           <li><strong>Adjust the DM.</strong> If you want more humor, less difficulty, or shorter responses, visit <strong>DM Personality</strong> and move the sliders. Changes save automatically.</li>
           <li><strong>Save and resume.</strong> Your session is saved automatically. You can stop playing and pick up where you left off next time.</li>
-          <li><strong>Use the party chat.</strong> The chat panel on the right side lets you talk to other players who are online.</li>
+          <li><strong>Use the party chat.</strong> The chat panel on the right side lets you talk to other human players who are online — coordinate strategy, crack jokes, or plan your next move outside the game narrative.</li>
         </ul>
       </div>
 
