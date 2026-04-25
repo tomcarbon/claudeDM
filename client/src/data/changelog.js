@@ -1,10 +1,20 @@
-export const CURRENT_VERSION = '1.0.14';
+export const CURRENT_VERSION = '1.0.15';
 
 export const CHANGELOG = [
   {
+    version: '1.0.15',
+    date: '2026-04-24',
+    title: 'Current Release',
+    compareFrom: '1.0.14',
+    compareRef: '2bacb17 ("v1.0.14 official whats new update.")',
+    highlights: [
+      'Per-message session-ID tagging: every player, companion, and DM message is now stamped with its originating session UUID at write time. The DM\'s recap formatter prefixes each historical line with the session\'s 8-char fragment (e.g. [PLAYER · #d4024915], [COMPANION · #d4024915 — Thorin (tomcarbon)]) so when the model rebuilds context across concurrent campaigns it can disambiguate which game each message belongs to. Stamping happens server-side on every messageHistory push and on session.json writes; existing sessions are backfilled by the PUT handler on next save.',
+    ],
+  },
+  {
     version: '1.0.14',
     date: '2026-04-18',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.13',
     compareRef: '3fa058c ("edge cases with character handling")',
     highlights: [

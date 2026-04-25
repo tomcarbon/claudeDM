@@ -829,15 +829,16 @@ const SUMMARY_NUDGE_THRESHOLD = 25;
  * Includes companion messages for full context.
  */
 function formatMessageForRecap(m) {
+  const sid = m.sessionId ? ` · #${String(m.sessionId).slice(-8)}` : '';
   switch (m.type) {
-    case 'player': return `[PLAYER] ${m.text}`;
-    case 'dm': return `[DM] ${m.text}`;
+    case 'player': return `[PLAYER${sid}] ${m.text}`;
+    case 'dm': return `[DM${sid}] ${m.text}`;
     case 'companion': {
       const label = m.characterName || m.playerName || 'Companion';
       const player = m.playerName ? ` (${m.playerName})` : '';
-      return `[COMPANION — ${label}${player}] ${m.text}`;
+      return `[COMPANION${sid} — ${label}${player}] ${m.text}`;
     }
-    default: return `[${m.type?.toUpperCase() || 'SYSTEM'}] ${m.text}`;
+    default: return `[${(m.type?.toUpperCase() || 'SYSTEM')}${sid}] ${m.text}`;
   }
 }
 

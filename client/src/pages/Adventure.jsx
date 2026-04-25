@@ -699,7 +699,7 @@ Set the scene and begin the story.`;
       } else {
         result = await api.createSession(payload);
         setSavedSessionDbId(result.id);
-        setMessages(prev => [...prev, { type: 'system', text: `Session created · #${result.id.slice(-8)}` }]);
+        setMessages(prev => [...prev, { type: 'system', text: `Session created · #${result.id.slice(-8)}`, sessionId: result.id }]);
         if (sessionLabel.trim()) {
           api.renameSession(result.id, sessionLabel.trim()).catch(() => {});
           setActiveSessionLabel(sessionLabel.trim());
@@ -813,7 +813,7 @@ Set the scene and begin the story.`;
         const resumeText = `Session resumed · #${session.id.slice(-8)}`;
         const lastMsg = loadedMessages[loadedMessages.length - 1];
         if (!(lastMsg && lastMsg.type === 'system' && lastMsg.text === resumeText)) {
-          loadedMessages.push({ type: 'system', text: resumeText });
+          loadedMessages.push({ type: 'system', text: resumeText, sessionId: session.id });
         }
       }
       // Pre-populate the message count ref so the auto-save effect doesn't fire

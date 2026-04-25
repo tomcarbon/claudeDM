@@ -363,6 +363,10 @@ module.exports = function (dataDir) {
         currentScene: 0,
         log: [],
       };
+      // Stamp sessionId on any pre-seeded messages so the DM's recap can disambiguate.
+      for (const m of session.messages) {
+        if (m && typeof m === 'object' && !m.sessionId) m.sessionId = session.id;
+      }
       // Write session to neutral shared location: data/sessions/<id>/session.json
       const sessionDir = getSessionDir(dataDir, session.id);
       fs.mkdirSync(sessionDir, { recursive: true });
@@ -470,6 +474,14 @@ module.exports = function (dataDir) {
           && (!incomingStates || Object.keys(incomingStates).length === 0)) {
         updated.companionConfig = { ...(updated.companionConfig || {}), states: existingStates };
         console.warn(`[Sessions] PUT ${req.params.id} — preserved existing companionConfig.states (incoming was empty)`);
+      }
+      // Backfill sessionId on any message that lacks it — client auto-save paths
+      // construct message objects without the field, and the DM's recap formatter
+      // relies on it to disambiguate campaigns in multi-session contexts.
+      if (Array.isArray(updated.messages)) {
+        for (const m of updated.messages) {
+          if (m && typeof m === 'object' && !m.sessionId) m.sessionId = updated.id;
+        }
       }
       fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
       res.json(withSessionAccess(updated, requester));

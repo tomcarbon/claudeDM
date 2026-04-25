@@ -249,7 +249,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       // Called by companion handlers to force fresh DM context on next turn
       invalidateSession(contextMessage) {
         engine.sessionId = null;
-        if (contextMessage) messageHistory.push({ type: 'player', text: contextMessage });
+        if (contextMessage) messageHistory.push({ type: 'player', text: contextMessage, sessionId: currentSessionDbId || undefined });
       },
     };
 
@@ -549,7 +549,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
       // Fire DM engine
       const { engine } = engineCtx;
-      engineCtx.messageHistory.push({ type: 'player', text: playerText });
+      engineCtx.messageHistory.push({ type: 'player', text: playerText, sessionId: sessionDbId });
 
       // Gather active companion players for system prompt
       const activeCompanions = sessionRooms.has(sessionDbId)
@@ -616,7 +616,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               auditToolCalls.push({ name: event.name, input: event.input });
               break;
             case 'dm_response':
-              engineCtx.messageHistory.push({ type: 'dm', text: event.text });
+              engineCtx.messageHistory.push({ type: 'dm', text: event.text, sessionId: sessionDbId });
               auditDmText += (auditDmText ? '\n\n' : '') + event.text;
               broadcastSessionMessage(sessionDbId, 'dm_response', { text: event.text });
               break;
@@ -646,7 +646,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
                   if (!alreadyPersisted) {
                     // Append host's player message
-                    sess.messages.push({ type: 'player', text: hostTurn.text, timestamp: new Date().toISOString() });
+                    sess.messages.push({ type: 'player', text: hostTurn.text, timestamp: new Date().toISOString(), sessionId: sessionDbId });
                     // Append companion actions
                     for (const ct of companionTurnsArr) {
                       sess.messages.push({
@@ -655,11 +655,12 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                         playerName: ct.playerName,
                         text: ct.text,
                         timestamp: new Date().toISOString(),
+                        sessionId: sessionDbId,
                       });
                     }
                     // Append DM response (last dm text from messageHistory)
                     if (lastDm) {
-                      sess.messages.push({ type: 'dm', text: lastDm.text, timestamp: new Date().toISOString() });
+                      sess.messages.push({ type: 'dm', text: lastDm.text, timestamp: new Date().toISOString(), sessionId: sessionDbId });
                     }
                   } else {
                     console.log(`[WS] dm_complete: messages already persisted by client auto-save, skipping append (session ${sessionDbId})`);
@@ -1089,7 +1090,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             // Send host's player message back to them
             send('session_player_message', { text: playerText });
 
-            messageHistory.push({ type: 'player', text: playerText });
+            messageHistory.push({ type: 'player', text: playerText, sessionId: currentSessionDbId || undefined });
             broadcastToSessionWatchers('session_player_message', {
               text: playerText,
               timestamp: new Date().toISOString(),
@@ -1167,7 +1168,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   });
                   break;
                 case 'dm_response':
-                  messageHistory.push({ type: 'dm', text: event.text });
+                  messageHistory.push({ type: 'dm', text: event.text, sessionId: currentSessionDbId || undefined });
                   auditDmText += (auditDmText ? '\n\n' : '') + event.text;
                   send('dm_response', { text: event.text });
                   broadcastToSessionWatchers('dm_response', { text: event.text });
