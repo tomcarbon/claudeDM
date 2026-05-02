@@ -1,10 +1,25 @@
-export const CURRENT_VERSION = '1.0.15';
+export const CURRENT_VERSION = '1.0.16';
 
 export const CHANGELOG = [
   {
+    version: '1.0.16',
+    date: '2026-05-01',
+    title: 'Current Release',
+    compareFrom: '1.0.15',
+    compareRef: '08bc3db ("v1.0.15 official")',
+    highlights: [
+      'Multi-tenant DM context block: the system prompt now opens with a "Server Context — Multi-Tenant DM" section telling the model it is a shared backend hosting up to ~25 concurrent games, but that each invocation serves exactly one isolated session. Replaces the old "⚠️ CAMPAIGN IDENTITY — READ THIS FIRST" warning with a calmer, more accurate framing — the model no longer needs to "verify identity," it just runs the one session it sees.',
+      'Session directory pinned in the system prompt: the prompt now states the active session\'s ID and explicitly points the DM at `data/sessions/<id>/` (with `session.json`, `characters/`, and `npcs/` listed as expected contents). The DM is told NOT to touch `data/players/...` or `data/defaults/...` during play — those are libraries and templates, not active gameplay data. Eliminates a class of bugs where the DM edited the wrong copy of a character file mid-session.',
+      'Recap formatter cleanup: removed the per-line `· #<8-char-session-id>` fragments from `[PLAYER]`, `[DM]`, and `[COMPANION]` history lines. Since the model only ever sees one session\'s history per invocation, the inline tags were noise — the system prompt\'s explicit session pinning is sufficient context.',
+      'In-feed session ID badges: player and companion messages in the Adventure feed now display a small monospace `#xxxxxxxx` badge next to the sender name (blue tint for players, purple for companions), with a tooltip showing the full session ID. Useful when the host has multiple sessions open or is reviewing exported chat history.',
+      'WebSocket session-ID propagation: `session_player_message` and `session_companion_message` events now carry `sessionId` over the wire on every broadcast and echo path (host send, companion broadcast, system messages, host turn submission). The client stores `sessionId` on each message in the in-memory feed so the UI badge renders correctly even after reconnects.',
+      'sessionAccess ref in useWebSocket: added a ref mirror of `sessionAccess` so the optimistic local-companion-message append can read the current session DB ID without re-subscribing the callback on every state change.',
+    ],
+  },
+  {
     version: '1.0.15',
     date: '2026-04-24',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.14',
     compareRef: '2bacb17 ("v1.0.14 official whats new update.")',
     highlights: [
