@@ -533,6 +533,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           playerEmail: t.playerEmail,
           text: t.text,
           timestamp: new Date().toISOString(),
+          sessionId: sessionDbId,
         }, submitterEntry);
       }
 
@@ -1071,9 +1072,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             broadcastSessionMessage(currentSessionDbId, 'session_player_message', {
               text: turnText,
               timestamp: new Date().toISOString(),
+              sessionId: currentSessionDbId,
             }, wsEntry);
             // Also echo back to the host
-            send('session_player_message', { text: turnText, timestamp: new Date().toISOString() });
+            send('session_player_message', { text: turnText, timestamp: new Date().toISOString(), sessionId: currentSessionDbId });
             broadcastToAll('sessions_changed');
             checkAutoFire(currentSessionDbId);
             break;
@@ -1088,12 +1090,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             const playerText = msg.text.trim();
 
             // Send host's player message back to them
-            send('session_player_message', { text: playerText });
+            send('session_player_message', { text: playerText, sessionId: currentSessionDbId || undefined });
 
             messageHistory.push({ type: 'player', text: playerText, sessionId: currentSessionDbId || undefined });
             broadcastToSessionWatchers('session_player_message', {
               text: playerText,
               timestamp: new Date().toISOString(),
+              sessionId: currentSessionDbId || undefined,
             });
 
             // Snapshot session data if we have a saved session
@@ -1288,6 +1291,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             broadcastSessionMessage(currentSessionDbId, 'session_player_message', {
               text: `[System: Companion player ${wsEntry.playerName} is playing as ${msg.characterName}, replacing ${npcLabel} in the party.]`,
               timestamp: new Date().toISOString(),
+              sessionId: currentSessionDbId,
             });
             // Invalidate the host's Claude session so the next turn starts fresh
             // with the updated system prompt (new party composition)
@@ -1426,9 +1430,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           broadcastSessionMessage(currentSessionDbId, 'session_player_message', {
             text: hostText,
             timestamp: new Date().toISOString(),
+            sessionId: currentSessionDbId,
           }, wsEntry);
           // Echo back to the host so their message appears in the adventure box
-          send('session_player_message', { text: hostText, timestamp: new Date().toISOString() });
+          send('session_player_message', { text: hostText, timestamp: new Date().toISOString(), sessionId: currentSessionDbId });
           broadcastToAll('sessions_changed');
           checkAutoFire(currentSessionDbId);
           break;

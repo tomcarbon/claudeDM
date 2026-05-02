@@ -18,6 +18,8 @@ export default function useWebSocket() {
   const [onlinePlayers, setOnlinePlayers] = useState([]);
   const [selfChatConnectionId, setSelfChatConnectionId] = useState(null);
   const [sessionAccess, setSessionAccess] = useState({ sessionDbId: null, canWrite: false, readOnly: true });
+  const sessionAccessRef = useRef(sessionAccess);
+  useEffect(() => { sessionAccessRef.current = sessionAccess; }, [sessionAccess]);
   const [sessionParticipants, setSessionParticipants] = useState([]);
   const [companionTurns, setCompanionTurns] = useState([]);
   const [turnStatus, setTurnStatus] = useState(null);
@@ -121,7 +123,7 @@ export default function useWebSocket() {
           break;
 
         case 'session_player_message':
-          setMessages(prev => [...prev, { type: 'player', text: msg.text }]);
+          setMessages(prev => [...prev, { type: 'player', text: msg.text, sessionId: msg.sessionId }]);
           break;
 
         case 'sessions_changed':
@@ -137,6 +139,7 @@ export default function useWebSocket() {
             characterName: msg.characterName,
             playerName: msg.playerName,
             text: msg.text,
+            sessionId: msg.sessionId,
           }]);
           playNotification();
           break;
@@ -468,6 +471,7 @@ export default function useWebSocket() {
         type: 'companion',
         characterName: characterName || npcName || 'Companion',
         text,
+        sessionId: sessionAccessRef.current?.sessionDbId || undefined,
       }]);
     }
   }, []);

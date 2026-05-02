@@ -995,6 +995,19 @@
   display: block;
   margin-bottom: 0.2rem;
 }
+.message-player .message-session-tag {
+  margin-left: 0.5em;
+  padding: 0 0.4em;
+  font-size: 0.85em;
+  font-weight: normal;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: rgba(100, 140, 200, 0.75);
+  background: rgba(100, 140, 200, 0.12);
+  border-radius: 3px;
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: help;
+}
 .message-player p {
   margin: 0;
 }
@@ -1014,6 +1027,19 @@
   letter-spacing: 0.05em;
   display: block;
   margin-bottom: 0.2rem;
+}
+.message-companion .message-session-tag {
+  margin-left: 0.5em;
+  padding: 0 0.4em;
+  font-size: 0.85em;
+  font-weight: normal;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: rgba(160, 100, 220, 0.75);
+  background: rgba(160, 100, 220, 0.12);
+  border-radius: 3px;
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: help;
 }
 .message-companion p {
   margin: 0;

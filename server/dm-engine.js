@@ -248,12 +248,25 @@ These rules are ABSOLUTE at this autonomy level (${autonomy}/100). They override
 
   prompt += `\n\n${pacingSection}`;
 
-  // --- Campaign identity block (highest salience — placed before rules) ---
+  // --- Server / multi-tenant context (always shown) ---
+  prompt += `
+
+## Server Context — Multi-Tenant DM
+You are a shared DM service. At any given moment this backend may be hosting up to ~25 concurrent D&D games for different players. Each invocation of you serves exactly ONE session — the one identified below. You only see the system prompt and message history for THIS session; other players' games are fully isolated and never appear in your context. Run this session as if it were the only one — you don't need to disambiguate or "verify" identity.
+
+## This Session
+Session ID: \`${sessionDbId || '(pending — not yet persisted)'}\`
+Session directory: \`data/sessions/${sessionDbId || '<session-id>'}/\`
+Expected contents:
+- \`session.json\` — full session state (messages, world state, dmPersonality, companion config)
+- \`characters/\` — player and companion character JSON files for this session
+- \`npcs/\` — NPC JSON files for this session
+
+When you Read or Edit character/NPC data during play, ALWAYS use this session's directory. Do NOT touch \`data/players/...\` or \`data/defaults/...\` — those are player libraries and templates, not active gameplay data. The session directory is the source of truth while the game is in progress.`;
+
+  // --- Player character block ---
   if (character) {
     prompt += `
-
-## ⚠️ CAMPAIGN IDENTITY — READ THIS FIRST
-YOU ARE RUNNING **${character.name}**'s CAMPAIGN. Do NOT confuse this with any other player's campaign. Every detail you narrate must be consistent with ${character.name}'s story, companions, and history.
 
 ## Player Character
 ${character.name} — Level ${character.level} ${character.subrace ? (character.subrace.toLowerCase().includes(character.race.toLowerCase()) ? character.subrace : `${character.subrace} ${character.race}`) : character.race} ${character.class} (${character.background})
@@ -829,16 +842,15 @@ const SUMMARY_NUDGE_THRESHOLD = 25;
  * Includes companion messages for full context.
  */
 function formatMessageForRecap(m) {
-  const sid = m.sessionId ? ` · #${String(m.sessionId).slice(-8)}` : '';
   switch (m.type) {
-    case 'player': return `[PLAYER${sid}] ${m.text}`;
-    case 'dm': return `[DM${sid}] ${m.text}`;
+    case 'player': return `[PLAYER] ${m.text}`;
+    case 'dm': return `[DM] ${m.text}`;
     case 'companion': {
       const label = m.characterName || m.playerName || 'Companion';
       const player = m.playerName ? ` (${m.playerName})` : '';
-      return `[COMPANION${sid} — ${label}${player}] ${m.text}`;
+      return `[COMPANION — ${label}${player}] ${m.text}`;
     }
-    default: return `[${(m.type?.toUpperCase() || 'SYSTEM')}${sid}] ${m.text}`;
+    default: return `[${m.type?.toUpperCase() || 'SYSTEM'}] ${m.text}`;
   }
 }
 

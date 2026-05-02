@@ -1636,13 +1636,27 @@ Set the scene and begin the story.`;
             <div key={i} className={`story-message story-${msg.type}`}>
               {msg.type === 'player' && (
                 <div className="message-player">
-                  <span className="message-sender">{activeCharacter?.name || 'You'}</span>
+                  <span className="message-sender">
+                    {activeCharacter?.name || 'You'}
+                    {msg.sessionId && (
+                      <span className="message-session-tag" title={`Session ${msg.sessionId}`}>
+                        #{String(msg.sessionId).slice(-8)}
+                      </span>
+                    )}
+                  </span>
                   <p>{msg.text}</p>
                 </div>
               )}
               {msg.type === 'companion' && (
                 <div className="message-companion">
-                  <span className="message-sender">{msg.characterName || 'Companion'}</span>
+                  <span className="message-sender">
+                    {msg.characterName || 'Companion'}
+                    {msg.sessionId && (
+                      <span className="message-session-tag" title={`Session ${msg.sessionId}`}>
+                        #{String(msg.sessionId).slice(-8)}
+                      </span>
+                    )}
+                  </span>
                   <p>{msg.text}</p>
                 </div>
               )}
