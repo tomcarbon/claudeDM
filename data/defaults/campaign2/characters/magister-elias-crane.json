@@ -1,0 +1,144 @@
+{
+  "id": "ct-char-004",
+  "name": "Magister Elias Crane",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Wizard",
+  "level": 1,
+  "background": "Sage",
+  "alignment": "Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 7,
+    "current": 7
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Religion"
+  ],
+  "languages": [
+    "Common",
+    "Draconic",
+    "Elvish",
+    "Infernal",
+    "Dwarvish"
+  ],
+  "equipment": [
+    "Arcane focus (a crystal rod threaded with a vein of red carnelian — the source of his difficulties, kept hidden)",
+    "Spellbook (battered leather, pages dense with notation and marginalia)",
+    "Scholar's pack",
+    "Dagger",
+    "A journal of research notes on the blood-covenant, written in cipher",
+    "A copy of 'The Vermeil Compact: Histories of the Founding' (heavily annotated, certain passages circled in red)",
+    "Ink, quill, and five sheets of fine parchment",
+    "Belt pouch containing 5 gp",
+    "A set of common clothes (he sold the academic robes)",
+    "Waterskin",
+    "Rations (3)",
+    "A letter of dismissal from the University of Coronne, sealed and still unopened (he knows what it says)"
+  ],
+  "weapons": [
+    {
+      "name": "Dagger",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Fire Bolt (cantrip)",
+      "attackBonus": 5,
+      "damage": "1d10",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Arcane Recovery (Wizard level 1 — once per day when you finish a short rest, you can recover expended spell slots; the slots recovered can have a combined level equal to or less than half your wizard level, rounded up, and none can be 6th level or higher; at level 1 this allows recovering 1 first-level slot per short rest)",
+    "Spellcasting (Intelligence-based; you have a spellbook containing six 1st-level spells; you prepare a number of spells equal to your Intelligence modifier + your wizard level; spell save DC 13, spell attack +5)",
+    "Evocation Savant (Evocation School feature — the gold and time you must spend to copy an evocation spell into your spellbook is halved; a practical saving that accelerates your offensive spell research)",
+    "Sculpt Spells (Evocation School feature — when you cast an evocation spell that affects other creatures you can see, you can choose a number of them equal to 1 + the spell's level to automatically succeed on their saving throws against the spell and take no damage if they would normally take half on a success; at level 1 this is not yet available but becomes available when you pick your subclass at level 2 — note at level 1 wizards choose subclass at level 2 in standard rules; listed here as anticipatory feature for DM reference)",
+    "Researcher (Sage background — when you attempt to learn or recall a piece of lore and do not know it, you often know where and from whom you can obtain it; if the information exists in a library, university, or significant archive, you can find it with time and access; in Coronne this is complicated by the fact that several archives you might naturally consult are now closed to you)"
+  ],
+  "traits": [
+    "Arcane Recovery",
+    "Spellcasting",
+    "Evocation Savant",
+    "Researcher"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Fire Bolt",
+      "Prestidigitation",
+      "Minor Illusion"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Burning Hands",
+        "Magic Missile",
+        "Detect Magic",
+        "Identify",
+        "Shield",
+        "Comprehend Languages"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I annotate everything I read, including menus and legal notices. I have a compulsive need to correct factual errors, which has cost me more goodwill than I can calculate, and I am working on it with limited success. I name things — I name my research problems, I name recurring obstacles, I have quietly named my dagger 'the argument ender' though I have not told anyone this.",
+    "ideals": "The truth about the blood-covenant is inscribed somewhere in the sources — it has to be, because lies of that magnitude leave residue. I was trained to follow evidence wherever it leads, and I intend to do that even if it leads somewhere that destroys everything my family has built. Especially then.",
+    "bonds": "My estrangement from Chancellor Aldous Crane is not merely political — he funded my first three years of research at the University, and I believed until recently that he was genuinely interested in historical truth. The discovery that the account through which my research was funded traces, obliquely, to a Communion sub-account is the single most disorienting fact I have ever encountered, and I have encountered quite a few.",
+    "flaws": "I have a scholar's instinct to analyze before acting, which in a burning building is not useful. I also have a deep and largely unexamined arrogance about intellectual matters that manifests as impatience with people who cannot follow my reasoning, which is most people in most situations, which is most situations."
+  },
+  "appearance": "Elias Crane is the kind of thin that suggests he forgets to eat rather than the kind that suggests deprivation — a lean, slightly stooped figure of thirty-one with the narrow shoulders and ink-stained fingers of a career academic and the pale, slightly dazzled look of a man who has spent most of his life in libraries and is still adjusting to a world that has windows in it. He is not tall, perhaps five feet nine, and carries himself with the distracted forward lean of someone perpetually in the middle of a thought. His hair is dark brown and needs cutting; it has been needing cutting for approximately eight months and has achieved a state of disheveled that would be charming if it were intentional. His eyes are sharp and dark, constantly moving, reading the room in the analytical way of someone who is never quite present in the way other people are present but who misses nothing. His face is fine-boned and would be handsome if he were less preoccupied, with a narrow jaw, high cheekbones, and the slight permanent furrow of someone who is always slightly puzzled by the world's failure to make sense. He wears common clothes now — plain dark linen, a practical coat, boots that have been resoled once — a deliberate step down from the academic robes he still owned until three weeks ago, when he sold them. The crystal-and-carnelian arcane focus is kept on his person at all times, in an inner pocket, and he touches it unconsciously when he thinks, the way other people rub a coin.",
+  "backstory": "The Crane name in Veldoran is old money and older connections: a family of administrators, chancellor-clerks, and quiet power-brokers who have served every imperial regime by being indispensable and never threatening. Lord-Regent Aldous Crane, who now holds the keys to the Empire's treasury in a dead Emperor's wake, is the apex of that tradition — the most powerful Crane in three generations, which is very powerful indeed. Elias is his distant cousin, twice removed on the maternal line, close enough to benefit from the association and far enough to be kept comfortably out of the real decisions.\n\nThe benefit was a generous scholarship to the University of Coronne, the Empire's premier institution of learning, where Elias proved within his first term to be the most intellectually gifted student his adviser had encountered in twenty years, and within his second term to be the most dangerous kind of scholar: one who takes the stated purpose of scholarship seriously. He was supposed to study imperial administrative history. He studied imperial administrative history — all of it, including the parts that the University's archive committee had quietly placed in restricted access three generations ago.\n\nThe Vermeil Compact, the founding document of the dynasty, contains three clauses that do not appear in any public copy. Elias found references to those clauses in four separate secondary sources, cross-referenced them with liturgical records from the Communion's founding chapter-house, and spent six months constructing a paper that argued, carefully and with extensive citation, that the blood-covenant was not metaphorical — that the first Emperor had entered into a literal compact with a literal entity, that the Communion's rites were structured to serve that compact, and that the gradual centralization of blood-rite administration over three centuries had a purpose that was not theological.\n\nThe University called it heresy. The Communion called it dangerous. The Lord-Regent's office sent a very polite letter that said nothing directly but resulted, within a fortnight, in Elias's scholarship being revoked, his library access suspended, and a formal notation on his academic record that made him unemployable at any institution in the Empire.\n\nElias appealed to Aldous Crane directly. Crane received him warmly, expressed appropriate family concern, and explained gently that the research touched on matters of state security and that Elias would be well advised to set it aside, permanently, for everyone's sake but especially his own. Elias thanked him politely, left the Crane townhouse, walked back to his rented rooms, packed his essentials, and moved to a boarding house in the Shamble where no one asks about your prior address.\n\nHe has been there for four months, working from his notes and a small collection of books he managed to take before his library access was suspended. The journal in cipher contains conclusions he has not yet shared with anyone. The carnelian in his arcane focus is a piece he purchased from a fence in the Thieves' Market — not knowing, at the time, exactly why a vein of blood-red stone in a piece of crystal felt so immediately, viscerally right to cast through. He knows now, or suspects he knows. He has not yet written the hypothesis down because writing it down will make it real, and he is working up to that."
+}

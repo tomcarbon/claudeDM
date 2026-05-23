@@ -1,0 +1,150 @@
+{
+  "id": "ct-npc-001",
+  "name": "Wren \"Sparrow\" Quill",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Rogue",
+  "level": 1,
+  "background": "Criminal (Spy)",
+  "alignment": "Chaotic Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Acrobatics",
+    "Deception",
+    "Perception",
+    "Sleight of Hand",
+    "Stealth",
+    "Thieves' Tools"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Rapier",
+    "Shortbow",
+    "Arrows (20)",
+    "Two daggers",
+    "Thieves' tools",
+    "Crowbar",
+    "Dark hooded cloak",
+    "Belt pouch containing 12 gp",
+    "Forged travel papers in two names",
+    "A small carved sparrow made of pale bone — a Carmine Veil cipher token",
+    "Fine calligraphy pen and a compact inkwell (for forgery)",
+    "Rations (3)",
+    "Rope, silk (50 feet)",
+    "A battered leather ledger cover with the pages torn out — all that remains after she destroyed the original copy of Corvin Ashe's ledger"
+  ],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attackBonus": 6,
+      "damage": "1d8+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 6,
+      "damage": "1d4+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortbow",
+      "attackBonus": 6,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded Leather",
+    "type": "light"
+  },
+  "features": [
+    "Expertise (Stealth and Thieves' Tools — at 1st level Wren has chosen these two skills; her proficiency bonus is doubled for checks using them, granting +8 on Stealth and Thieves' Tools checks)",
+    "Sneak Attack (1d6 — once per turn Wren can deal an extra 1d6 damage to one creature she hits with an attack if she has advantage on the roll, or if an ally is within 5 feet of the target and she does not have disadvantage; the attack must use a finesse or ranged weapon)",
+    "Thieves' Cant (a secret mix of jargon, slang, and coded signals used by rogues and guild operatives; Wren can leave short messages for other Veil members using marks scratched into walls, the arrangement of objects, or the angle of a candle flame; she can also recognize the signs of other Cant-speakers in the field)",
+    "Criminal Contact (as part of her Criminal background, Wren maintains a reliable contact in the criminal underground of the Shamble — in this case a fence and information broker known only as 'the Moth' — who can pass messages and arrange meetings at a cost, though the contact is growing nervous in the wake of the Emperor's death and the Veil's sudden hyperactivity)",
+    "Cunning Action (available at level 2 — included here for DM reference: Wren may use a bonus action to Dash, Disengage, or Hide on each of her turns in combat)"
+  ],
+  "traits": [
+    "Expertise: Stealth",
+    "Expertise: Thieves' Tools",
+    "Sneak Attack 1d6",
+    "Thieves' Cant",
+    "Criminal Contact"
+  ],
+  "spells": {
+    "spellcastingAbility": "none",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I make jokes when I am frightened and I am almost always at least a little frightened. I prefer to plan three exits before I walk through a door, and I have an irritating habit of cataloguing every object in a room as a potential weapon or hiding spot within the first thirty seconds of entering.",
+    "ideals": "Survival first, conscience second — or so I used to tell myself. Corvin Ashe died clutching that ledger and trusting someone like me with it, and now I cannot make the feeling go away. I suppose what I actually believe is that the game is only worth playing if the people who cannot play it still get to live.",
+    "bonds": "The Quill name is a joke in the Veil — it means nothing except a shared penchant for lying with a straight face. Maddox is the only person in this world who has ever called me family and half-meant it. More surprisingly, I find I am reluctant to let these companions come to harm, which is a professional liability I have not yet figured out how to resolve.",
+    "flaws": "I lie reflexively, even when the truth would serve me better. I also have a deep, specific terror of the Mother of Knives that I dress up as professional respect, and I have already put the party at greater risk than they know by disobeying a direct Veil order."
+  },
+  "appearance": "Wren is a slight young woman of about twenty-two, with the kind of forgettable face that becomes whatever the room needs it to be. Her hair is a medium brown, cut short and practical, tucked behind her ears when she is focused and falling forward when she is performing. Her eyes are the particular shade of grey that reads as blue, brown, or green depending on the light, and she has cultivated a talent for making them look either guileless or knowing at will. She is lean, quick-moving, and has the unconscious economy of motion that marks someone who learned early that stillness is safety. Her hands are calloused from rooftop scrambles and lock work, and the tips of her fingers are slightly ink-stained from a lifetime of copying documents she was not supposed to see. She dresses in practical dark clothes — the studded leather passes for a heavy vest over a plain linen shirt — and keeps her rapier in a sheath angled for a left-handed cross-draw, though she can fight with either hand. She smells faintly of lamp oil and whatever the Shamble last smelled like. The carved bone sparrow she wears on a cord inside her shirt is never visible unless she chooses to show it, and she has not shown it in weeks.",
+  "backstory": "Wren grew up in the Shamble, which is to say she grew up fast. Her mother took in laundry and her father was not present in any sense that matters, and by the time she was nine she had learned that the best way to eat was to be useful to people who already had food. The Carmine Veil found her at twelve — or rather, she found them, having lifted a cipher-marked purse from a Veil courier and then, instead of fencing the token, used it to send a message asking for a meeting. The audacity amused the right people. She was given small jobs: carrying sealed notes, memorizing faces, slipping into back rooms to listen. She was good at it with an ease that felt like breathing. By sixteen she was forging travel documents well enough that the Veil was selling them to noble houses. By nineteen she had a handler, a codename (Sparrow), and a clean reputation inside the guild as someone reliable, clever, and utterly without sentiment.\n\nCorvin Ashe changed that. Ashe was an aging Veil informant who had been selling information to every faction for so long that he no longer remembered which masters were which. When the Emperor's death opened season on every loose secret in Coronne, someone in the Conclave decided Ashe knew too much. The Mother of Knives was contracted to clean the ledger — to recover it and, if necessary, silence whoever held it. Wren was assigned as the retrieval operative, positioned near the Drowned Cat the night the Old Quarter burned. She arrived in time to find Ashe dying. She saw the party find him first. The ledger passed from his hands to theirs, and Wren had three seconds to decide: follow her orders and take it back by any means, or let these strangers carry something that would get them killed.\n\nShe let them walk. She filed a report claiming she had arrived too late, that the ledger was gone into the smoke. She does not know whether the Mother of Knives believed her. She suspects not. In the days since, she has been orbiting the party with the careful non-presence of a professional surveilling a mark, telling herself it is guild business, telling herself she needs to know what they do with the ledger. She has since stopped lying to herself about that. She is with them now because Corvin Ashe was the first person she had ever seen die who looked like they were trusting someone, and she cannot afford to be the person who made that trust wrong.",
+  "dmNotes": {
+    "roleplaying": "Wren is the party's most functionally useful companion and also its most guarded. Play her as perpetually, lightly ironic -- a woman whose first instinct in any emotional moment is a deflecting joke and whose second instinct is to check the exits. She is not cold; she is armored. When she cares, it shows in actions rather than words: she scouted the building ahead so no one else had to, she already knows which servants can be bribed, she has forged travel papers in everyone's names without being asked. She will not say she is worried about anyone. She will simply appear, silently, between that person and the thing trying to kill them. Let her competence speak louder than her words. She is running a constant internal tally of what the party costs her versus what they are worth, and that tally is slowly, reluctantly, tipping toward worth it. This is the arc: from detached professional to someone who has chosen a side that is not the Veil. Do not rush it. Let the players earn it through consistent trust and competence. When she does open up -- usually late at night, when exhausted -- let it be brief and honest, immediately followed by a joke to cover the honesty.",
+    "voice": "Wren speaks quickly when comfortable, precisely when working, and very quietly when she is frightened -- which is when the party should pay most attention. She has a slight Shamble accent that she suppresses in polished company: dropped final consonants, clipped vowels, the occasional Cant idiom slipped in when she forgets to filter. She uses dry wit as punctuation. Examples: 'Three exits, two of which are on fire. Comfortable odds, honestly.' / 'I am not saying the Lord-Regent is behind it. I am saying that when a man that careful leaves a trail, it is because he wanted you to find it.' / 'Corvin died trusting someone. I have spent a lot of time being annoyed about that.' / When pressed about the Veil: 'The Mother of Knives does not make mistakes. Which means either I am not interesting enough to correct, or she is waiting for me to do something useful. I prefer not to think about which one.' / When she trusts someone enough: 'If the Watch finds this building tonight -- and they might -- there is a passage behind the third panel from the left in the cellar. I have already stocked it. You are welcome.'",
+    "motivations": "Primary: Stay alive long enough to see whether the ledger's evidence can actually reach someone who can use it -- Princess Severine is the most likely candidate, and Wren has been maneuvering the party toward that contact without quite admitting she is doing so. Secondary: Determine whether the Mother of Knives has decided she is a loose end. If yes, she needs the party's strength to survive that reckoning; if no, she needs to understand why not, because the answer is probably worse than the threat. Tertiary: She wants, very quietly, to believe that what she did -- letting the party walk with that ledger -- was the right call, not merely a lapse in professionalism. The party's survival and success is the only evidence that could convince her.",
+    "secrets": "The most dangerous secret Wren carries is that the Mother of Knives did not believe her report and has assigned a second Veil operative to watch the party -- someone Wren does not know by face, only by the Cant marker she found scratched beside their safehouse door. She does not know whether that operative's orders are to retrieve the ledger, to eliminate the party, or to eliminate Wren. She has not told the party because doing so would require explaining the full shape of her disobedience, and she is not ready to trust them that completely. The second secret: she recognizes the carmine dagger that killed Corvin Ashe. The grip-wrap pattern is specific to a Veil master-knife she has met once, briefly, in a formal conclave -- a figure who, by Veil custom, does not take contracts directly. If a master-knife made this kill personally, the order came from very high and the motive was not merely the ledger. Corvin Ashe knew something specific enough to be worth a master-knife's time, and that something is not in the ledger at all. Wren suspects it has to do with the church account. The third secret: the Quill name is not coincidence. Maddox Quill the Elder was, long ago, a Veil informant. He burned his contact when he was exiled from court. The Mother of Knives let him go because he was useful as a rumor-carrier in the outer city. Wren has known this for two years and never told Maddox, partly to protect him and partly because knowing it makes her feel complicit in his ignorance.",
+    "attitude": "Wren treats the party with the studied neutrality of a professional who has decided to extend provisional trust but has not yet committed to it. She is easiest around anyone who demonstrates competence without needing praise for it -- she has deep respect for people who simply do the thing. She is guardedly warm toward Maddox Quill in the way of someone who has a complicated family feeling about an uncle she did not choose. She watches Brother Caelum with a mixture of sympathy and worry -- a good man inside a corrupt institution is a useful contact and a grieving one, and she can see both of those things happening in real time. She is instinctively cautious around Dame Ferra's military bearing, which she associates with Valmont's faction and a kind of authority she has spent her life evading, though she will admit, if pressed, that Ferra's dislike of unlawful orders makes her more trustworthy than most knights. Mirabel Thorne unsettles her mildly -- unregistered magic in a city where the Communion regulates it is exactly the kind of liability that gets everyone around you arrested -- but she also recognizes in Mirabel a fellow person who has spent years trying to exist quietly in a system that does not want her to. The player she watches most carefully of all, calibrating constantly: are they the kind of person Corvin Ashe's trust was worth dying for?"
+  }
+}

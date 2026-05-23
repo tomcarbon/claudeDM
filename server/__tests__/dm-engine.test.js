@@ -202,7 +202,12 @@ describe('buildSystemPrompt', () => {
     const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
     expect(prompt).toContain('data/players/hero-test-com/demo/characters/');
     expect(prompt).toContain('data/defaults/demo/npcs');
-    expect(prompt).not.toContain('data/sessions/');
+    // With no active session, the Server Context block shows a pending placeholder
+    // ('data/sessions/<session-id>/'); game-state file paths stay in the player
+    // library / defaults, so no CONCRETE session directory should ever appear.
+    expect(prompt).toContain('(pending');
+    expect(prompt).toContain('data/sessions/<session-id>/');
+    expect(prompt).not.toMatch(/data\/sessions\/(?!<session-id>)/);
   });
 
   it('uses session paths when sessionDbId is provided', () => {
@@ -315,13 +320,13 @@ describe('buildSystemPrompt', () => {
       expect(prompt).toContain('STOP EARLY');
     });
 
-    it('places pacing rules before Campaign Identity', () => {
+    it('places pacing rules before the server context block', () => {
       const prompt = buildWithAutonomy(50);
       const pacingIndex = prompt.indexOf('Response Scope & Turn Pacing');
-      const campaignIndex = prompt.indexOf('CAMPAIGN IDENTITY');
+      const serverContextIndex = prompt.indexOf('Server Context');
       expect(pacingIndex).toBeGreaterThan(-1);
-      expect(campaignIndex).toBeGreaterThan(-1);
-      expect(pacingIndex).toBeLessThan(campaignIndex);
+      expect(serverContextIndex).toBeGreaterThan(-1);
+      expect(pacingIndex).toBeLessThan(serverContextIndex);
     });
   });
 

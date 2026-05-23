@@ -1,0 +1,152 @@
+{
+  "id": "ct-npc-005",
+  "name": "Maddox Quill the Elder",
+  "status": "alive",
+  "race": "Half-Elf",
+  "subrace": "",
+  "class": "Bard",
+  "level": 1,
+  "background": "Entertainer",
+  "alignment": "Chaotic Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 9,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 17,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Charisma"
+  ],
+  "skills": [
+    "Deception",
+    "History",
+    "Insight",
+    "Perception",
+    "Performance",
+    "Persuasion"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Halfling"
+  ],
+  "equipment": [
+    "Leather armor",
+    "Rapier",
+    "Dagger",
+    "Lute (old, well-maintained, the peg-head repaired twice)",
+    "Entertainer's pack",
+    "Diplomat's pack",
+    "Belt pouch containing 14 gp",
+    "A small silver hip-flask, monogrammed with an ornate V -- a gift from a former employer he will not name",
+    "Three sets of fine-quality clothes in various states of disrepair",
+    "A hand-written book of songs, most of them with sections crossed out",
+    "Sealing wax and a signet ring bearing a quill over a blank shield -- not a real heraldic device, just his own design",
+    "Rations (3)",
+    "Waterskin (currently containing a modest red wine)"
+  ],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather",
+    "type": "light"
+  },
+  "features": [
+    "Bardic Inspiration (as a bonus action, Maddox can expend one use of Bardic Inspiration to grant an ally within 60 feet who can hear him an Inspiration die -- a d6 at 1st level -- which that ally can add to one ability check, attack roll, or saving throw within the next 10 minutes; the die is not lost if it is not used before rolling; Maddox has a number of uses equal to his Charisma modifier -- currently 3 -- refreshing on a long rest)",
+    "Spellcasting (Maddox is a Charisma-based arcane spellcaster; he knows a fixed number of bard spells and uses a spell save DC of 13 and a spell attack bonus of +5; his magic has the quality of art -- it works best when he means it)",
+    "Jack of All Trades (Maddox adds half his proficiency bonus, rounded down (+1), to any ability check he makes that does not already include his proficiency bonus; he has been doing this since before he knew it had a name)",
+    "Fey Ancestry (Maddox's half-elven heritage grants him advantage on saving throws against being charmed, and he cannot be put to sleep by magical means; this has been professionally useful on more than one occasion)",
+    "Darkvision (Maddox can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light; he cannot discern color in darkness, only shades of grey)",
+    "Entertainer: By Popular Demand (Maddox can find a place to perform in most inns, taverns, and noble halls -- circus stages, court theaters, masquerade entertainers' galleries -- and in exchange receive free lodging and modest food; more importantly, he can use performance as a pretext for being in almost any location of cultural or social significance, which is most of where this campaign takes place)"
+  ],
+  "traits": [
+    "Bardic Inspiration (d6, 3/long rest)",
+    "Spellcasting (Charisma)",
+    "Jack of All Trades",
+    "Fey Ancestry",
+    "Darkvision 60 ft.",
+    "By Popular Demand"
+  ],
+  "spells": {
+    "spellcastingAbility": "Charisma",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Vicious Mockery",
+      "Prestidigitation"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Disguise Self",
+        "Charm Person",
+        "Healing Word",
+        "Dissonant Whispers"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I know things. I have always known things, because a court entertainer who pays attention is invisible in a way that is worth approximately one hundred spies. I tell some of what I know, perform some of it, and keep the rest, and I have been doing this long enough that I am genuinely uncertain, on any given day, which of my stories I tell for information and which I tell because I cannot stop.",
+    "ideals": "Art is the only honest thing in Coronne. Not because artists are honest people -- we are catastrophically not -- but because a good song cannot lie about what it means, even when every word of it is invented. The ballad that got me banished came too close to the truth about the covenant, and the court knew it, and I knew they knew it. That is probably the most honest moment of my professional career.",
+    "bonds": "Wren Sparrow is the nearest thing I have to family, which is a thing I feel more than I say and say less than she would probably like me to. Beyond that: I came back to Coronne because something is ending here, and I have been performing this city for thirty years, and I want to see how it ends. I want to be the person who remembers it correctly.",
+    "flaws": "I have a specific and recurring problem with knowing when to stop talking. I also self-medicate with wine at a rate that I describe as enthusiastic appreciation and that the people around me describe differently. When I am frightened I become funnier, which is either a gift or a liability depending on the situation, and it is almost always the wrong response to the specific situation I am in."
+  },
+  "appearance": "Maddox is fifty-three years old, which is young for a half-elf and feels old for an entertainer, and he has the look of a man who is aware of both of these facts and has developed a specific relationship with each of them. He is lean to the point of slight, with sharp cheekbones and long-fingered hands and the kind of face that was conventionally handsome twenty years ago and is now something more interesting -- creased at the corners of the eyes and mouth, with the particular quality of mobility that belongs to someone who has spent decades making faces that other people find meaning in. His hair is silver-grey, worn to his collar and swept back with the practiced casualness of someone who still cares about the effect but has enough self-awareness to pretend otherwise. His eyes are the deep, changeable green common in half-elves with certain bloodlines, and they have the quality of finding the room's most significant dynamic and settling there. He dresses well in clothes that have seen better days -- the fabric is fine, the cut is court-standard, and everything is slightly past its prime in a way that reads as aesthetic choice rather than poverty, which is itself an art. He carries the lute everywhere, slung across his back with the ease of an extra limb. The silver hip-flask with the V monogram is always on his person and he refills it with whatever is available, though he has preferences. He moves through rooms with the unconscious expertise of someone who has been reading audiences for thirty years: he knows where to stand so that he can see all the exits, and he has never once done it deliberately.",
+  "backstory": "Maddox Quill is not his real name, though he has been using it long enough that the distinction has become academic. He was born in the Shamble in the reign of Caius Vermeil the Second, the son of a half-elven tailor and nobody in particular, and he was discovered at seventeen by a court musician who heard him singing for coin in the Thieves' Market and decided that a voice like that was wasted on foot traffic. He spent ten years learning the trade properly: composition, performance, accompaniment, and the more essential skills of how to be present in a room without threatening anyone who was not supposed to feel threatened.\n\nHe was admitted to the court of Caius Vermeil the Third at twenty-eight, which was a significant elevation for a Shamble-born half-elf, and he repaid the Emperor's patronage with twenty years of loyal, clever service -- entertaining, yes, but also maintaining the elaborate social ecosystem that court entertainers have always maintained: knowing who hates whom and why, facilitating introductions, carrying carefully selected information between parties who could not speak to each other directly. He was good at it. He was, by his late forties, one of the most knowledgeable people in Coronne about the internal dynamics of the imperial court, and this was not publicly recognized, which is exactly how useful people maintain their usefulness.\n\nThe ballad that ended it was called 'The Carnelian Chorus,' and it was never officially performed -- he wrote it in his room and sang it once at a private gathering that turned out to have been arranged by someone in the Conclave as a test of loyalty. The song described, in three allegorical verses and a satirical refrain, a throne that fed rather than ruled and a church that collected rather than served. He had assembled the pieces over decades of listening: the Communicants, the blood-rites, the historical records of what happened in years when the covenant lapsed. He had not intended it as an exposure. He had intended it as a song, which is the most honest thing he knows how to do. The Conclave's representative who attended the gathering recognized the sources even through the allegory. Maddox was given forty-eight hours to leave Coronne permanently, and he left, and he has been living in the outer cities and river towns since then -- performing, drinking, pretending to be a great deal more washed-up than he is, and waiting.\n\nHe came back when the Emperor died. He had contacts who told him, within days, that the death was not natural. He came back because if the covenant is ending -- if the thing he has been writing around for twenty years is finally coming into the open -- he needs to be in Coronne to see it. He found Wren within a week, because he and she have always known where to find each other. The party was a natural next step. He did not tell them everything immediately; he never tells anyone everything immediately. He is telling them more than he has told anyone, which is a significant thing, and he is aware of it.",
+  "dmNotes": {
+    "roleplaying": "Maddox is the party's face, its information network, and its most significant lore asset, wrapped in the persona of a charming, mildly dissolute entertainer. Play him as someone who is considerably more intentional than he appears -- the wine and the jokes are real, and so is the strategic intelligence beneath them. He performs accessibility; the access is genuine but the performance of it is calculated. He knows an enormous amount about the imperial court and its history, including fragments that have direct bearing on the campaign's central mystery, and he releases this information in layers, partly for dramatic effect and partly because he is not entirely certain whom he can trust and in what order. He does not lie to the party, but he is selective about what he volunteers, and when pressed directly -- which requires some trust and some persistence -- he is honest in a way that is disarming in its lack of ceremony. He cares about Wren in a way he does not examine closely because examining it would require him to acknowledge that he involves her in things that put her at risk, and he prefers to feel guilty about this without acting on the guilt. His arc is moving from observer to participant -- from the man who watches the end of the old Coronne to the man who helps determine what the new Coronne is. He will resist this transition until circumstances make the choice for him, at which point he will be entirely committed and slightly amazed at himself.",
+    "voice": "Maddox speaks with the polished, slightly theatrical cadence of a lifetime court entertainer -- words placed with care for rhythm and effect, self-interruptions that are not actually interruptions but planned pivots, a tendency to finish statements with something that sounds like a joke but lands like a point. He has a specific habit of softening significant revelations with humor just before them, so that the humor registers first and the revelation arrives sideways. Examples: 'The Vermeil court had three great secrets, two great wines, and one truly extraordinary baker. I can tell you about all of them, but the baker matters most to the current situation.' / 'High Confessor Vale has been planning this since well before the Emperor's death. The question worth asking is not whether the Conclave can be stopped -- it can -- but who is standing in the right place when it falls. Position, in my experience, is everything.' / 'The song was called the Carnelian Chorus. I sang it once, to twelve people, one of whom reported me. I have been working on the second verse for four years, which tells you something about either my craft or my optimism.' / When honest: 'I know more about the covenant than I have told you. I am telling you now because you have earned it and because I am running out of time to be strategic about this.' / To Wren: 'You are more useful than you let yourself be, which is a statement that applies to me as well, and which I make to you rather than myself for reasons that speak to my character.'",
+    "motivations": "Primary: Witness and record the end of the blood-covenant -- whether it is broken, renewed, or something stranger -- and ensure that what actually happened is preserved in a form that cannot be officially buried. He has been compiling a private history of the covenant for twenty years and this campaign is its final chapter. Secondary: See the Crimson Conclave formally dismantled and on the record, partly for the sake of everyone who was quietly consumed by the covenant's feeding mechanism over three centuries, and partly because they banished him from the only home he had ever made for himself, which he will not forgive. Tertiary: Figure out who among the claimants is worth the throne, which is a judgment he does not make lightly and will not make publicly until he is certain. He has opinions. He keeps them until they are relevant.",
+    "secrets": "The most significant secret Maddox carries is the full content of the second and third verse of the Carnelian Chorus -- the sections he never sang at the private gathering, which he completed in his head over four years of exile and has never written down for fear of what would happen if they were found. Those verses name the Carnelian directly, describe the Rite of Renewal's mechanism in allegorical terms accurate enough to constitute a how-to for someone who knew the context, and include a specific reference to where the covenant's binding point can be found: beneath the throne room, in the vault that no living soul is permitted to open. He assembled this from historical records, a decommissioned confessor's memoir, and a conversation with a very old former Communicant whom he interviewed under the pretense of writing a history of the court's entertainers. The verse about the vault is speculation assembled from evidence. He is almost certain it is correct. He has not told anyone because anyone who knows the location of the covenant's binding point is a target, and he is not ready to be a target yet. The second secret: he knows the identity of the Mother of Knives. He has known for years -- she and he overlapped in the court, and a face like hers is not forgotten. He has not told Wren because the knowledge is a liability larger than the asset, and because the Mother of Knives knows he knows, and their mutual knowledge of each other has so far functioned as a kind of detente. He does not expect that detente to survive the campaign's endgame. The third secret: the silver hip-flask monogrammed with V was a gift from Emperor Caius Vermeil the Third personally, given at a private supper the night before Maddox was banished. The Emperor said, as he handed it over, that he was sorry and that Maddox was right about the song. This is the thing Maddox has never told anyone. The Emperor knew. The Emperor knew what the covenant was and could not stop it, and his death was not a surprise to him, and his last real act of patronage was to warn the one man in Coronne who might eventually be able to put it on the record.",
+    "attitude": "Maddox moves through the party with the ease of a man who has spent thirty years being professionally liked, which makes it easy to miss that his actual regard is more selective and more real than his surface warmth suggests. He is genuinely fond of the player in the way of someone who recognizes useful competence and interesting decision-making -- he has been watching leaders and followers his whole career and he knows the difference between someone who commands because they are in front and someone who commands because people want to follow them. He treats Wren with the particular care of a family feeling he does not know how to express directly: he is more honest with her than with anyone, more protective of her than he pretends, and more responsible for her current danger than either of them has fully articulated. He is fascinated by Mirabel Thorne in the way of a man who has been circling the covenant's truth for twenty years and has just encountered someone coming at it from a completely different direction with completely different evidence; their conversations about the Communion are some of the most productive hours either of them has had. He respects Dame Ferra thoroughly and finds her slightly intimidating in a way he would never admit, because she cannot be charmed and does not defer to performance, which are the two tools he relies on most heavily. He has genuine warmth for Brother Caelum and a specific guilt about it, because Caelum is exactly the kind of good person inside the Communion that Maddox's ballad, had it been performed publicly, would have destroyed along with the guilty ones."
+  }
+}

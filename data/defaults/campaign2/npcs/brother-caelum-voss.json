@@ -1,0 +1,145 @@
+{
+  "id": "ct-npc-002",
+  "name": "Brother Caelum Voss",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Cleric",
+  "level": 1,
+  "background": "Acolyte",
+  "alignment": "Neutral Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 10,
+    "current": 10
+  },
+  "armorClass": 17,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "History",
+    "Insight",
+    "Medicine",
+    "Religion"
+  ],
+  "languages": [
+    "Common",
+    "Celestial",
+    "Draconic"
+  ],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Mace",
+    "Holy symbol of the Sanguine Communion (a silver chalice engraved with a crimson drop)",
+    "Priest's pack",
+    "Prayer book with annotations in a cramped personal hand",
+    "Belt pouch containing 18 gp",
+    "Healer's kit (10 uses)",
+    "Incense sticks (5)",
+    "Vestments of a Communion confessor (worn only when he needs the authority they grant)",
+    "Rations (5)",
+    "A folded scrap of vellum bearing a blood-sigil he copied from memory in the Sanguinarium -- the only physical evidence of what he saw",
+    "Waterskin",
+    "Tinderbox"
+  ],
+  "weapons": [
+    {
+      "name": "Mace",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Chain Mail",
+    "type": "heavy"
+  },
+  "features": [
+    "Divine Domain: Life (Caelum follows the restorative face of the Communion's doctrine -- at 1st level this grants him the Disciple of Life feature and proficiency with heavy armor)",
+    "Disciple of Life (whenever Caelum uses a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level; for example, a 1st-level Cure Wounds restores an extra 3 HP in his hands)",
+    "Spellcasting (Caelum is a Wisdom-based divine spellcaster; he prepares a number of cleric spells equal to his Wisdom modifier plus his cleric level -- currently 4 prepared spells per day -- from the full cleric list; he uses a spell save DC of 13 and a spell attack bonus of +5)",
+    "Ritual Casting (Caelum can cast cleric spells with the ritual tag as rituals, taking 10 extra minutes to cast them without expending a spell slot; this allows him to cast Detect Magic, Identify, and similar utility spells without burning resources)",
+    "Acolyte: Shelter of the Faithful (as a recognized confessor of the Sanguine Communion, Caelum can receive free healing and care at any Communion temple or affiliated institution, and can expect modest lodging; the party can benefit from this access, though it is increasingly complicated by what Caelum knows about the Conclave)"
+  ],
+  "traits": [
+    "Disciple of Life",
+    "Spellcasting (Wisdom)",
+    "Ritual Casting",
+    "Shelter of the Faithful"
+  ],
+  "spells": {
+    "spellcastingAbility": "Wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Sacred Flame",
+      "Guidance",
+      "Spare the Dying"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Cure Wounds",
+        "Healing Word",
+        "Bless",
+        "Shield of Faith",
+        "Detect Magic",
+        "Inflict Wounds"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I record things. Observations, overheard words, the exact phrasing of doctrinal passages I can no longer read without hearing them differently. My prayer book has more questions than prayers in it now. I am told this is a crisis of faith; I suspect it is actually faith working correctly, which is a terrible discovery to make at thirty-one.",
+    "ideals": "The Communion teaches that the blood-covenant is a gift -- divine compact, renewal, sustenance flowing from the willing. But what I have seen does not look like a gift. What I actually believe is this: if a god requires suffering to remain real, perhaps we should reconsider whether that god deserves our fidelity. The people in the pews did not choose the covenant. They deserve someone who will look at what is done in their name.",
+    "bonds": "I took orders because I believed the church was a refuge for the poor and the sick, and it has been that, in the outer parishes. The confessors who run the free infirmary in the Shamble are good people who do not know what the Conclave does in the crypts below. I carry them with me. If I expose the Conclave, those people and their work get swept up in the ruin, and that is a weight I cannot stop calculating.",
+    "flaws": "I argue when I should move. In a crisis, I want to debate the moral architecture of the situation rather than simply act, which has already nearly gotten me caught twice. I also have a deep, specific difficulty with anger: when I feel it, I go very still and very quiet, which everyone around me misreads as calm. It is not calm."
+  },
+  "appearance": "Caelum is a man of about thirty-one, lean but not slight, with the kind of posture that was drilled into him by twelve years of Communion formation -- straight-backed, deliberate, as if every entrance into a room is faintly ceremonial. He is dark-haired, though the hair at his temples has been going grey since he was twenty-eight -- stress, he says, though he says it with the tone of a man who knows the actual cause and will not name it. His eyes are a calm, dark brown that do not look calm if you watch them long enough; there is a constant, quiet alertness behind them, the eyes of someone taking notes. He wears his confessor's vestments when he must and plain traveling clothes whenever he can get away with it -- dark wool, sensible boots, the chain mail hidden under a heavy coat. The silver chalice holy symbol hangs inside his shirt. He keeps his mace on his left hip with the ease of someone who never expected to need it and has been needing it more and more. On his right wrist, hidden by his sleeve, is a faint discoloration -- not a scar, but a mark, like an old burn or a stain that would not wash out -- from the night in the Sanguinarium when he touched the edge of one of the blood-wards to read its sigil, and the ward read him back.",
+  "backstory": "Caelum Voss grew up in the Shamble, the son of a dyer and a woman who sold fish. He was clever and quiet and the confessor at the local Communion chapel noticed both things when Caelum was eleven. The church offered education, meals, and a future, which the Shamble otherwise did not, and Caelum accepted with the clear-eyed pragmatism of a child who had learned to evaluate options early. He was not cynical about faith; he came to it genuinely, over years, finding in the Communion's doctrine of blood-as-life a coherent and rather beautiful theology about sacrifice and renewal and the obligation of the living to those who came before.\n\nHe took orders at nineteen, served two years in the outer-parish infirmary in the Shamble, and was noticed again -- this time for the quality of his doctrinal writing and the unusual precision of his questioning during the formal disputations. The Communion moved him up, which is to say inward. By twenty-six he was attached to the Sanguine Cathedral proper, assigned to the archives under the supervision of a senior confessor with an intense interest in the historical covenant records. He thought this was scholarship. He was, for several years, correct.\n\nThe night that changed everything was three months ago, during the preparation for the autumnal blood-rite. Caelum was in the deep archives -- the Sanguinarium, the crypt-city beneath the cathedral -- cataloguing the oldest covenant texts, which his supervisor had told him contained irrelevant administrative records from the early dynasty. They were not administrative records. They were precise accounts of the Carnelian's hunger: what it required, what it was given, what happened when the supply was insufficient. They described the Emperor's line not as blessed by the covenant but as bound by it, and the binding was a debt paid in suffering over three centuries.\n\nHe heard footsteps and hid. What he witnessed in the vault below the archive was a Conclave gathering, hooded and quiet, conducting a rite over a stone basin. He could not see everything. He saw enough. He copied the blood-sigil he saw inscribed on the basin wall by feel, in the dark, on a scrap of vellum pulled from his pocket. He left the Sanguinarium before dawn and has not returned. He has been trying to decide what to do about what he knows ever since, and the window for an easy answer closed about two months ago. He has been cautiously orbiting the party since he learned, through an old parish contact, that they might be carrying the ledger -- the only other piece of evidence that ties the Conclave to the Emperor's death.",
+  "dmNotes": {
+    "roleplaying": "Caelum is the party's moral center and also its most quietly endangered member. Play him as a man who has not yet finished grieving the institution he believed in, and who is doing serious intellectual and ethical work in real time rather than arriving with his conclusions already made. He is not a disillusioned cynic -- cynicism would be easier. He is someone trying to hold both things at once: the genuine good that the outer church does and the genuine evil that the inner circle performs. When he heals someone, it is not a mechanical function; he says a quiet word over it, touches the wound with intention, and the player should understand that this act still means something to him even though its institutional framework has been corrupted. He is most useful to the party as an inside contact -- he knows the cathedral's layout, the Communion's internal politics, which confessors are naive and which are complicit -- but he is also most at risk: if the Conclave identifies him as a witness, he will be quietly disappeared. The DM should create pressure around this: a confessor who watches him too closely, a summons from his supervisor that might be routine or might be something worse. His arc is deciding not just what to do with what he knows, but what kind of person he is going to be on the other side of doing it.",
+    "voice": "Caelum speaks carefully, in complete sentences, with the faint formal cadence of someone trained in ecclesiastical rhetoric -- but it is not stiff; it has warmth in it, the warmth of a man who genuinely likes people and is accustomed to sitting with them in difficult moments. He is precise without being cold. He does not raise his voice. Examples: 'The ward was not designed to keep people out. It was designed to remember who came in. That distinction matters.' / 'I spent twelve years believing the covenant was a gift. What I saw in that vault suggests it was a ransom note.' / 'I do not say the Conclave are monsters. I say they have convinced themselves that a monstrous thing is necessary, which is considerably more dangerous than monsters.' / When someone is injured: 'Hold still. Breathe.' (quietly, with his hands already moving) 'I have you.' / When asked directly about his faith now: 'I still believe in what the covenant is supposed to be -- the weight of the living toward the dead, the obligation to something larger than the self. I have simply stopped believing the Communion understands it.'",
+    "motivations": "Primary: Get the evidence -- the blood-sigil he copied, the ledger in the party's possession, and whatever lies in the archive texts -- into the hands of someone with the authority and the will to act on it. Princess Severine is the obvious candidate, though he worries about what it will cost her. Secondary: Protect the outer-parish confessors who are doing genuine good and who will be destroyed by association when the Conclave is exposed. He is trying to figure out whether there is a way to surgically remove the cancer without killing the body, and he is not optimistic. Tertiary: Understand, completely, what the Carnelian is. He has the historian's specific torment of knowing that something is real and true and that his knowledge of it is partial -- he needs to know the whole shape of the thing before he can decide what must be done with it.",
+    "secrets": "The most dangerous thing Caelum knows is that the blood-sigil he copied from the Sanguinarium vault is not merely a ward-marking -- it is an activation seal for a step in the Rite of Renewal, which means that in the course of his archival work he may have inadvertently recorded the key the Conclave needs to complete their ritual. He does not yet know this is what it is. The DM should plan the moment he realizes it as a significant scene. The second secret: his supervisor, Senior Confessor Aldric Mourne, is not a Conclave member but has been deliberately kept in comfortable ignorance -- a useful idiot given access to the archive to lend the research scholarly legitimacy. Mourne genuinely likes Caelum and would be devastated to learn the archive project was a cover. Caelum may have to decide whether to use Mourne as an unknowing asset or to warn him, knowing that warning him might get both of them killed. The third secret: on the night he was in the Sanguinarium, the ward did read him -- there is now a sigil-record of his presence in the vault's stone, and the next Conclave confessor who reads that ward will know a Communion brother was there after curfew. The clock on this is measured in weeks, not months.",
+    "attitude": "Caelum is warm toward everyone in the party with a professional, pastoral steadiness -- the habit of someone trained to be present with strangers in difficulty. He treats the player with quiet, genuine respect, the kind he reserves for people doing something difficult without being asked to. He is closest to Wren Sparrow, not because they are similar -- they are almost opposites -- but because she has the Shamble accent he grew up with and because they are both carrying information that could get them killed, and that creates a kind of wordless understanding. He watches Dame Ferra with careful respect: she is exactly the sort of person the church tried to make him into, and seeing what it looks like when the code is genuine rather than institutional interests him. He is uncertain around Mirabel Thorne in a way he is honest about: unregistered magic makes him nervous because of what the Communion does to those it finds, not because he thinks it is wrong, and he will say so directly if asked. He likes Maddox Quill more than he expected to -- specifically because Maddox's irreverence does not threaten him; a man who has seen what he has seen does not frighten easily at a sharp joke -- and he suspects Maddox knows considerably more than he performs, which makes him interesting."
+  }
+}

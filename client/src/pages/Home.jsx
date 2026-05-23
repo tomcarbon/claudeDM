@@ -81,15 +81,14 @@ function Home() {
         <CampaignCards campaignId="wonderland" locked={false} />
       </div>
 
-      {/* ── Premium Campaigns (Locked) ── */}
-      <div className="tier-box tier-premium tier-locked">
+      {/* ── The Crimson Throne (Active Campaign) ── */}
+      <div className="tier-box tier-premium">
         <div className="tier-header">
           <span className="tier-badge tier-badge-premium">Premium</span>
           <h3 className="tier-title">The Crimson Throne</h3>
-          <span className="locked-label">Coming Soon</span>
-          <p className="tier-subtitle">A political intrigue campaign set in a crumbling empire. Levels 1–10.</p>
+          <p className="tier-subtitle">Climb from the gutter to the palace in a crumbling empire where an heirless throne, scheming houses, and a blood-cult fight over the crown. Levels 1–10.</p>
         </div>
-        <CampaignCards campaignId="campaign2" locked={true} />
+        <CampaignCards campaignId="campaign2" locked={false} />
       </div>
 
       <div className="tier-box tier-premium">

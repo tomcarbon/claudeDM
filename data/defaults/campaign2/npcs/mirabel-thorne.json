@@ -1,0 +1,143 @@
+{
+  "id": "ct-npc-004",
+  "name": "Mirabel \"Mira\" Thorne",
+  "status": "alive",
+  "race": "Half-Elf",
+  "subrace": "",
+  "class": "Sorcerer",
+  "level": 1,
+  "background": "Hermit",
+  "alignment": "Chaotic Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 17,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 7,
+    "current": 7
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Constitution",
+    "Charisma"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Draconic"
+  ],
+  "equipment": [
+    "Dagger",
+    "Arcane focus (a shard of darkened glass framed in copper wire -- salvaged from a church lantern that cracked during a Communion rite; it hums faintly when she concentrates)",
+    "Herbalism kit",
+    "Scroll case containing loose notes on magical theory in a cramped, precise hand",
+    "Belt pouch containing 7 gp",
+    "A small notebook half-filled with her grandmother's handwriting -- the sections that remained coherent before the madness took hold",
+    "Common clothes",
+    "Rations (4)",
+    "Tinderbox",
+    "Blanket",
+    "Waterskin",
+    "Ink and five sticks of chalk (for marking wards -- a habit from her years of hiding)"
+  ],
+  "weapons": [
+    {
+      "name": "Dagger",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Wild Magic Surge (when Mirabel casts a sorcerer spell of 1st level or higher, the DM can have her roll a d20; on a 1, a wild magic surge occurs -- roll on the Wild Magic Surge table in the Player's Handbook; this reflects the unstable, self-taught nature of her power, which never went through the regulating formality of a registered magical institution)",
+    "Tides of Chaos (once per long rest, Mirabel can gain advantage on one attack roll, ability check, or saving throw; after she uses this feature, the DM can cause a wild magic surge at any point before she regains the use of Tides of Chaos)",
+    "Spellcasting (Mirabel is a Charisma-based arcane sorcerer; she knows a fixed number of spells rather than preparing them daily; she uses a spell save DC of 13 and a spell attack bonus of +5; her magic is intuitive rather than scholarly -- it comes before the words, not after them)",
+    "Fey Ancestry (Mirabel's half-elven heritage grants her advantage on saving throws against being charmed, and she cannot be put to sleep by magical means)",
+    "Darkvision (as a half-elf, Mirabel can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light; she cannot discern color in darkness, only shades of grey)",
+    "Hermit: Discovery (Mirabel's years of isolated study and her grandmother's fragmentary notes have given her access to a singular piece of esoteric knowledge: she has identified the pattern of the Sanguine Communion's blood-rites as related to an older, pre-imperial binding tradition -- not divine magic but something stranger and colder, a compact with something that predates the church; she does not know what she is looking at yet, but she knows it is not what the Communion claims it is)"
+  ],
+  "traits": [
+    "Wild Magic Surge",
+    "Tides of Chaos",
+    "Spellcasting (Charisma)",
+    "Fey Ancestry",
+    "Darkvision 60 ft.",
+    "Hermit Discovery"
+  ],
+  "spells": {
+    "spellcastingAbility": "Charisma",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Fire Bolt",
+      "Prestidigitation",
+      "Minor Illusion",
+      "Message"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Chaos Bolt",
+        "Detect Magic"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I take notes obsessively -- on scraps, on my arm, on the margins of whatever is at hand. My grandmother said the first sign she was losing her mind was the day she stopped writing things down, so I do not stop. I am better in a crisis than before one; anticipation frightens me, but necessity steadies me. I have a tendency to say things in a direct, unfiltered way that surprises people, usually because I spent years with no one to practice social smoothing on.",
+    "ideals": "Magic is not a license or a gift, and the Communion's registry has nothing to do with whether it is safe or right. What matters is what you do with the power, not which authority blessed your use of it. My grandmother used her gift in service to people who did not deserve what was done to her, and I intend to use mine better.",
+    "bonds": "My grandmother went into the palace as a Communicant when she was twenty-three, which is a gilded word for what she actually was, and she came out of it over fifteen years later unable to be in a room alone without screaming. I have her notebook. I have her handwriting deteriorating page by page. Whatever the Communion did to her is what I am following this ledger toward.",
+    "flaws": "I have spent years hiding and I am not entirely over it. My first instinct when things go wrong is to become very small and very still, which is occasionally tactically sound and more often a problem. I also sometimes forget that fire bolt is not the right answer to situations I find personally upsetting, and I have set two things on fire this month by accident."
+  },
+  "appearance": "Mirabel is perhaps twenty-five or twenty-six -- she is not entirely certain, having spent several years in a state of deliberate anonymity that made accurate record-keeping seem inadvisable. She has the slight, willowy build of her elven parentage, dark olive skin, and large, slightly too-bright eyes the color of new copper, which have the quality of taking in a room in a single pass and remembering everything in it. Her hair is black and wavy and slightly chaotic -- she cuts it herself, with whatever is handy, and it shows in a way she has stopped being embarrassed about. There is a faint iridescence to her skin in certain lights, something that reads as unusual without being obviously magical, though anyone with arcane sensitivity would recognize it as the characteristic surface-shimmer of a sorcerer whose power manifests in her own body before it reaches her hands. She dresses for invisibility: plain, dark, layered clothes that could belong to any Shamble resident of modest means, chosen for pockets and ease of movement rather than any other consideration. The arcane focus she carries looks like a piece of salvage, which was intentional when she made it and has become accurate over time. Her hands are chalk-stained at the tips and ink-stained at the second knuckle, and she has a small burn scar on the inside of her left wrist from an early experiment that she considers a useful reminder.",
+  "backstory": "Mirabel's mother was a half-elven seamstress in the Shamble who died of a fever when Mirabel was nine and who had always refused to discuss the grandmother, which Mirabel found irritating as a child and understands now. The grandmother -- Nessa Thorne -- had been employed by the palace as a Communicant: one of a small, discreetly maintained pool of individuals with a certain quality of blood that the Communion's confessors found useful in the performance of certain rites. This was framed as a great honor and came with comfortable lodgings and a stipend. Nessa entered service at twenty-three. She left at thirty-eight, pensioned out, with a document from the church describing her as suffering from a hereditary nervous disorder.\n\nShe was not in the Shamble for long before Mirabel's mother took her in, and she was not coherent for long after. Mirabel, nine years old and recently bereaved, found herself caring for a woman who sometimes knew who she was and sometimes did not. In the periods of clarity, Nessa wrote. The notebook is what survives. Mirabel read it at fourteen, understood perhaps a third of it, and spent the next decade understanding more.\n\nThe magic came at sixteen. No tutor, no context, no frame of reference -- a bad moment with a landlord who cornered her in a stairwell, and then the man was on fire and she was running. She spent two years learning to control it alone, by experiment and inference and the limited arcane texts she could steal from the bookseller's secondhand shelf. The Communion's registry was not something she ever considered; the idea of walking into a church office and declaring herself was somewhere between laughable and suicidal. She kept herself small and useful: she could do things a hedge-doctor could not, and the Shamble has enough people who need things done and enough discretion about how they get done.\n\nNessa's notebook is what brought her toward the ledger. Embedded in the later, less coherent entries are fragments of liturgy -- not the public Communion rites, but something older, phrases in an archaic form of Draconic that Mirabel translates haltingly. They describe a compact, something bound, something that requires periodic feeding. She has spent six months trying to find what these fragments refer to. The fire in the Old Quarter pulled her toward the Drowned Cat, and the Drowned Cat led her toward the party, and here she is -- following her grandmother's madness backward toward its source.",
+  "dmNotes": {
+    "roleplaying": "Mirabel is the party's arcane firepower and its most personal connection to the campaign's central secret. Play her as someone who is intellectually fearless and emotionally still learning -- she spent years isolated and her social calibration is slightly off in ways that are occasionally endearing and occasionally abrupt. She says what she is thinking with a directness that can read as rude until people realize it is the opposite: she has learned that social smoothing often conceals the thing that needed saying, so she skips it. She is genuinely curious about almost everything, which makes her a wonderful investigation companion -- she takes notes, she asks the second and third question, she wants to know how things work. Her grandmother's madness is her central wound, and the closer the campaign gets to the Sanguinarium and the covenant's true nature, the more that wound will press. Let her have moments of real fury when the church's actions become fully clear -- not theatrical rage, but the quiet, cold anger of someone who has spent years carrying the consequence of something that was not an accident. The wild magic is a wonderful mechanical expression of her character: her power is real and significant and not entirely under control, and that should feel like an asset and a liability in equal measure.",
+    "voice": "Mirabel speaks in a precise, slightly rapid manner, with the slightly formal vocabulary of someone self-educated from books rather than conversation -- she knows the technical word before she knows the casual one. She thinks aloud when working on a problem, and does not always realize she has shifted from internal to external until someone responds to her. Examples: 'The sigil pattern in that text is pre-imperial. Pre-Vermeil, at minimum. Whatever the covenant is, it is older than the dynasty that claimed it.' / 'I am going to try something. There is a reasonable chance it will work exactly as intended and a smaller but nonzero chance that something catches fire.' / 'My grandmother called it the Thirsting Pattern in one of the coherent entries. She only wrote it once. She crossed it out. I think she crossed it out because she was afraid of what she had written, not because it was wrong.' / When a wild magic surge occurs: 'That was -- I am aware that was not what I intended. Give me a moment.' / When she is angry about the Communion: 'They pensioned her out. They gave her a document. They said it was a nervous disorder, like it was something in her blood that failed rather than something they did to her.'",
+    "motivations": "Primary: Follow the thread of her grandmother's experience to its source -- understand what the Communicant rites actually involved, what was taken from Nessa, and whether the damage can be named and formally assigned to those responsible. She knows this may not result in justice but believes it will result in truth, and truth is what she has been working toward for a decade. Secondary: Locate and if possible access the Sanguinarium archive, which she suspects contains records of the Communicants and the specific rites they participated in -- records the church would find deeply inconvenient if they became public. Tertiary: Survive long enough and remain unregistered long enough to see the Conclave fall, on the theory that the institution that regulated her into hiding deserves to be remembered for what it actually is.",
+    "secrets": "Mirabel's most significant secret -- the one she has not yet articulated even to herself -- is that the arcane notation in Nessa's notebook matches the sigil pattern she has begun to observe in street-level evidence of the Conclave's work. She is close to connecting the two explicitly, and when she does, she will realize that her grandmother's Communicant role was not peripheral to the Rite of Renewal but central to it: Nessa was used to establish a blood-link to the Carnelian's feeding mechanism, which is why she went mad and not merely tired. This means Mirabel herself may carry a blood-trace of that link, which the Carnelian may be able to perceive. The DM should plan a moment in the Sanguinarium where the entity becomes aware of Mirabel before she becomes aware of it -- a cold feeling, a voice just below hearing, a flicker of something that is not her own emotion. The second secret: one of the texts she stole from the secondhand bookseller is a restricted Communion theological tract. The bookseller's copy was annotated in the margins by a senior confessor -- annotations that describe the Communicants as 'vessels, not donors.' She has the book. She has not told anyone because until recently she did not understand the significance. The third secret: she is not entirely sure her grandmother is dead. Nessa was taken back to the church's care in her final year, on the grounds that her condition had worsened beyond what the family could manage. There was no body. There was a record of a peaceful death. Mirabel does not believe the record.",
+    "attitude": "Mirabel approaches the party with an earnest goodwill that is slightly awkward in its directness -- she wants to trust them and is not practiced at the cautious middle ground between wariness and full disclosure. She settles, after a few sessions, into a particular mode with each person. She is most naturally at ease with Brother Caelum, who is the first person she has met who both takes the Communion's rites seriously as objects of study and is willing to conclude from that study that they are wrong -- she had assumed she would need to convince any church contact, and instead finds someone already convinced, which is a relief she does not know how to express except through the quality of her attention when he speaks. She is instinctively fond of Wren Sparrow in the way of a person who recognizes another person who has spent years operating outside official sanction and making do -- they have the same slightly calibrated quality of self-reliance and she feels it as kinship. She respects Dame Ferra with a clean, uncomplicated admiration: Ferra chose integrity over institutional survival, and that is the choice Mirabel has been making in smaller ways her whole life. Maddox Quill she finds genuinely entertaining in a way she is slightly bewildered by, because she expected court gossip to be shallow and finds it is actually information, densely packed, which she appreciates professionally even as she enjoys it personally. The player she watches with the particular alertness of someone who has decided to follow someone into danger and needs to be confident the danger is worth it."
+  }
+}

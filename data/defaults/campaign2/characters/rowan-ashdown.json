@@ -1,0 +1,143 @@
+{
+  "id": "ct-char-006",
+  "name": "Rowan Ashdown",
+  "status": "alive",
+  "race": "Half-Elf",
+  "subrace": "",
+  "class": "Bard",
+  "level": 1,
+  "background": "Charlatan",
+  "alignment": "Chaotic Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 17,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Charisma"
+  ],
+  "skills": [
+    "Deception",
+    "Persuasion",
+    "Performance",
+    "Perception",
+    "Sleight of Hand",
+    "Insight"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Leather armor",
+    "Rapier",
+    "Lute (battered but well-maintained, with a cracked tuning peg replaced by carved bone)",
+    "Diplomat's pack",
+    "A set of fine clothes (suspiciously fine for a Shamble busker — do not ask where they came from)",
+    "A set of common clothes",
+    "A disguise kit",
+    "A forgery kit",
+    "Three playing cards from three different noble house decks (trophies of past cons)",
+    "Belt pouch containing 15 gp",
+    "Waterskin",
+    "Rations (5)",
+    "A sealed letter of introduction from 'Lord Casimir Ashdown of the Western Counties' (forged, extremely convincing)"
+  ],
+  "weapons": [
+    {
+      "name": "Rapier",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Fey Ancestry (Half-Elf racial — you have advantage on saving throws against being charmed, and magic can't put you to sleep; useful for a face-character who is often the target of social manipulation)",
+    "Darkvision (Half-Elf racial — you can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light; you can't discern color in darkness, only shades of grey)",
+    "Bardic Inspiration (Bard level 1 — as a bonus action, choose one creature other than yourself within 60 feet who can hear you; that creature gains a Bardic Inspiration die, a d6 at level 1; once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw; you can use this feature a number of times equal to your Charisma modifier per long rest, so 3 times per long rest at level 1)",
+    "Spellcasting (Charisma-based; you know a number of bard spells as detailed in your spell list; spell save DC 13, spell attack +5)",
+    "False Identity (Charlatan background — you have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona; additionally you can forge documents, including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy)"
+  ],
+  "traits": [
+    "Fey Ancestry",
+    "Darkvision",
+    "Bardic Inspiration (d6, 3 per long rest)",
+    "Spellcasting",
+    "False Identity"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Vicious Mockery",
+      "Minor Illusion"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Charm Person",
+        "Healing Word",
+        "Disguise Self",
+        "Thunderwave"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I give everyone a nickname within ten minutes of meeting them, whether they want one or not. I have an absolutely unshakeable belief that any situation can be talked around, which has been true often enough to be dangerous and wrong enough to have gotten me into serious trouble twice. I perform constantly, even when I'm alone, and I am dimly aware that I may not know who I am when no one is watching.",
+    "ideals": "Power in Veldoran flows through who people believe you to be, and the beautiful, terrible truth is that belief is just a story told convincingly. The wrong people are telling the wrong stories about themselves and everyone else, and the right people are too frightened or too honest to compete. I am not frightened and I have a flexible relationship with honesty. Someone should use that for something good.",
+    "bonds": "There is an old busker in the Shamble named Osric who taught me three chords and told me that a good song can feed you when coin cannot, which turned out to be true. He is half-blind now and plays outside the Drowned Cat for tips. I make sure his bowl is not empty when I am in the neighborhood, and I have not examined too closely why a man with my habits cares about that.",
+    "flaws": "I lie reflexively, even when the truth would serve better, because lying feels like control and the truth feels like exposure. I am also running three different long cons on three different marks in Coronne simultaneously and I have begun to lose track of which name I have given to whom, which is a problem I am managing in the way I manage most problems, which is badly."
+  },
+  "appearance": "Rowan Ashdown is the kind of person whose appearance is itself a performance: everything about them is calibrated to produce an effect, but the effect changes depending on who is watching. In the Shamble they look like a charming local with a good face and a battered lute — artfully worn leather, hair loose and slightly tangled, the kind of ease that comes from knowing every face in the neighborhood. In finer company the same person becomes something else: the hair dressed back, the fine clothes appearing from nowhere, a posture that adds two inches of height and ten years of authority. Neither presentation is exactly false. Neither is exactly true. Rowan is twenty-six, slight and long-limbed with the point-eared grace of their elven blood made comfortable rather than ethereal, with amber-green eyes that hold the particular alertness of someone who is always watching the room and a wide, expressive mouth that smiles easily and means it perhaps half the time. Their hands are a musician's hands — long-fingered, agile, with the calluses of long practice on the left and the slightly different calluses of someone who has learned to pick pockets on the right. The lute lives on their back, a battered instrument that sounds improbably good and that Rowan treats with more care than most things they own. The rapier at their hip is a surprise: not a busker's weapon, too good and worn with too much familiarity, evidence of training that cost more than a street performer's income. They have not explained where the training came from.",
+  "backstory": "Rowan Ashdown has been several people, and the name Ashdown is a recent addition to a list that has included Rowan Vance (briefly, on the north bank), Casimir Devereux (for about four months in the Gilded Reach's outer ring, which is a story), and a mute Dwarven servant named Beryl (for exactly one dinner party, out of pure professional vanity, which worked perfectly).\n\nThe half-elven blood came from an elven father who was gone before Rowan was old enough to ask about him, leaving behind only the ears, the eyes, and a trace of that uncanny elven grace that Rowan has learned to deploy as a social tool. The mother was a river-laundress in the Shamble who worked herself into an early grave and left Rowan at fourteen with a talent for music, an awareness of how much easier the world was for people who looked like they belonged in it, and a very strong motivation to find a way to look like that.\n\nThe music was real from the beginning. Rowan could play anything with strings from the age of ten and sing in two registers from twelve, and busking in the Shamble was legitimate income — not much, but real. The cons came later, growing naturally from the performance instinct: if you could convince a crowd to feel what you wanted them to feel, you could convince an individual to believe what you needed them to believe. The logic was clean. The practice was profitable.\n\nCoronne's Gilded Reach was the obvious horizon. The con-artist's dream is always the room full of people with money and the particular arrogance of people who have always had it, who trust smooth surfaces and are surprised when the smoothness turns out to conceal angles. Rowan spent two years working the edges of the Reach — not the great houses themselves, which require introductions and genealogies, but the merchants, minor officials, and ambitious clerks who cluster at the Reach's margins trying to move upward and therefore desperately receptive to anyone who appears to have already arrived.\n\nThe forged letter of introduction from 'Lord Casimir Ashdown of the Western Counties' is Rowan's masterwork and longest-running creation: a complete identity with appropriate provenance, a documented family seat in a region conveniently far from anyone who might verify it, and a story about a younger son seeking his fortune in the capital that is boring enough to be believed. Lord Casimir is on his fourth successful deployment. Rowan is not sure when to retire him.\n\nThe night of the fire in the Old Quarter, Rowan had been in the Drowned Cat working a modest card-game extraction on a river-merchant — a small thing, comfortable money — when the smoke started coming through the windows. The chaos of a fire is, professionally speaking, useful: people's attention narrows to the fire, their grip on their belongings loosens, their social guard drops entirely. Rowan was already moving toward the exits when the dying man in the alley became relevant. The ledger was obviously important, the people coming for it were obviously dangerous, and Rowan's instinct, formed over years of reading situations quickly, said that 'important' and 'dangerous' in combination usually meant 'profitable' for the right person in the right position.\n\nRowan is not sure yet what position that is. But the situation is interesting, and interesting situations have a way of becoming stories, and stories are, in the end, what Rowan does."
+}

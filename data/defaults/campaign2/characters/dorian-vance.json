@@ -1,0 +1,130 @@
+{
+  "id": "ct-char-001",
+  "name": "Dorian Vance",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Fighter",
+  "level": 1,
+  "background": "Soldier",
+  "alignment": "Lawful Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 12,
+    "current": 12
+  },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Perception",
+    "Intimidation",
+    "History"
+  ],
+  "languages": [
+    "Common",
+    "Valduric"
+  ],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Longsword",
+    "Handaxe",
+    "Handaxe (2)",
+    "Explorer's pack",
+    "Dungeoneer's pack",
+    "A set of dice from a fellow legionary (a dead man's dice)",
+    "A faded regimental patch from the Valmont Seventh Legion",
+    "Belt pouch containing 10 gp",
+    "Waterskin",
+    "Rations (5)",
+    "A folded letter never sent, addressed to a name he does not speak aloud"
+  ],
+  "weapons": [
+    {
+      "name": "Longsword",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Handaxe",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Chain mail",
+    "type": "heavy"
+  },
+  "features": [
+    "Fighting Style: Defense (while wearing armor, you gain a +1 bonus to AC; already included in the AC total of 18)",
+    "Second Wind (once per short or long rest, you can use a bonus action to regain hit points equal to 1d10 + your fighter level; this is a reliable self-heal available once per rest)",
+    "Military Rank (Soldier background — you hold the rank of corporal in the Valmont Seventh Legion, or you did until you deserted; you can invoke your soldier's authority over lower-ranking soldiers of armies still loyal to Valmont, though deserter status makes this complicated and dangerous in the wrong company)",
+    "Weapon Bond (Soldiers are proficient with all simple and martial weapons, light armor, medium armor, heavy armor, and shields)"
+  ],
+  "traits": [
+    "Fighting Style: Defense",
+    "Second Wind",
+    "Military Rank",
+    "Armor and Weapon Proficiencies"
+  ],
+  "spells": {
+    "spellcastingAbility": "none",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I address people by rank or title until they tell me otherwise — old habit from the legions that dies hard. I eat fast and sleep light, sitting with my back to the wall whenever possible. I have a soldier's bleak sense of humor about death and a quiet reverence for the living that surprises people who expect me to be brutal.",
+    "ideals": "Order is not the same as justice. I followed orders for eleven years and watched what happened when the men giving those orders had no conscience. I believe in law, in chains of command, in discipline — but not at any price. There is a line, and the day I crossed it for Duke Valmont is the day I stopped crossing it for anyone.",
+    "bonds": "There were seventeen of us in the ditch at Ashvale village when the order came down. Three refused. Fourteen obeyed. I was among the three who refused and I watched the fourteen do it anyway. I carry the names of the fourteen and I carry the names of those they killed, and I do not yet know what I intend to do with either list.",
+    "flaws": "I have a deep, possibly irrational need to believe that following the right order from the right authority figure will eventually make the moral weight I carry bearable. This means I am too willing to take direction from anyone who projects confidence and competence, and I sometimes mistake forcefulness for righteousness."
+  },
+  "appearance": "Dorian Vance is a big man, broad through the chest and shoulders in the way that comes from years of wearing heavy armor rather than any particular vanity about his physique. He stands just over six feet, with close-cropped dark hair gone grey at the temples and a jaw that looks as though it has been broken at least once and set in a hurry. His face is angular and weathered, not handsome but striking — a blade of a nose, heavy brows, and grey eyes that have the flat, assessing quality of a man who has spent a decade sizing up threats before they become problems. He wears his chain mail as easily as most men wear a coat, moving in it with the unconscious ease of long practice, and carries his shield on his left arm even in situations where most fighters would leave it leaned against a wall. There is a pale scar across the back of his right hand — a brand from a Valmont legionary iron, partially mutilated to obscure the insignia — and a deeper one along his left ribs from a spear that nearly ended his career three years before the atrocity at Ashvale did. His hands are large, scarred, and always slightly restless, the fingers of a man who is most comfortable when they are wrapped around a weapon hilt. In Coronne he wears a worn brown surcoat over his armor to obscure the legionary-standard chain, and the regimental patch is kept folded and hidden in his pack — a keepsake he cannot bring himself to discard and cannot safely display.",
+  "backstory": "Dorian Vance was born in a mill town on the Sangue's western tributaries, the third son of a tanner whose only ambition for his children was that they leave. The legion was the obvious answer — the Sanguine Empire's recruitment officers came through every summer, offering coin and a uniform and the promise of something larger than the smell of curing hides, and at sixteen Dorian took the oath with both hands and never looked back.\n\nHe was good at soldiering. Not brilliant, not a strategist, but solid in the way that makes sergeants sleep soundly — reliable on the march, fearless in the press of a shield wall, calm when the line buckled and other men started looking for a way out. He made corporal at twenty-one and held the rank for a decade through three different postings, the frontier marches, the river-garrison at Pont Sange, and finally the Seventh Legion under Duke Roderick Valmont's direct command.\n\nValmont he admired, at first. The Duke was everything the distant Vermeil court was not — present, blunt, genuinely concerned with his soldiers' welfare, the kind of commander who remembered names and visited the infirmary after battles. Dorian had heard the Duke's grievance against House Vermeil discussed in every barracks he had ever slept in, and he thought the man was right: three generations of the Valmont family had bled for an Empire that repaid them in slights and broken promises. When the Emperor died and Valmont began positioning his legions, Dorian was not alarmed. He had faith in his Duke.\n\nThe village of Ashvale sits in a valley between two of Valmont's frontier holdings. It was a small place — a few hundred souls, a mill, a market square, a Communion shrine. Its sin was that it had sheltered a group of deserters from a rival faction's skirmish force, and in sheltering them it had technically aided an enemy of the Duke's military administration. The order that came down through the chain of command was, in the careful language officers use when they want plausible distance from the consequences, to 'make an example.'\n\nThree men in the ditch refused. Dorian was one. The other fourteen obeyed.\n\nThe army does not look kindly on desertion under any circumstances, and Dorian did not stay to be court-martialed. He took his sword, his coin purse, and the dead man's dice that his bunk-mate had pressed into his hands the night before (the bunk-mate was among the fourteen, and Dorian has not found a way to reconcile that), and he walked south toward Coronne without a plan beyond getting far enough from Valmont's reach that the Duke's officers could not conveniently disappear him.\n\nHe arrived in the Shamble three months ago, lean and grey from the road, with enough coin for two weeks of bad lodging and no idea what an honest living looked like outside a legion camp. He has been taking work where he finds it — loading crates at the river docks, collecting debts for a Thieves' Market broker who at least pays on time, breaking up the occasional fight in a gambling den. It is not a life. He is not, at present, certain what a life would look like. But the night a dead man pressed a ledger into his hands in a burning alley and spoke four words he didn't understand, Dorian recognized the feeling: it was the feeling of a moment that decides the shape of everything that comes after. He had stood in that feeling once before, in a ditch at Ashvale, and chosen wrong. He does not intend to choose wrong twice."
+}

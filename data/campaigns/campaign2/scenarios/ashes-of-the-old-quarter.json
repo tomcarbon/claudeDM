@@ -1,0 +1,422 @@
+{
+  "id": "ct-scenario-001",
+  "title": "Ashes of the Old Quarter",
+  "subtitle": "A Dead Man's Ledger, a Whispered Name, and the Fire That Started Everything",
+  "levelRange": "1-3",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The Shamble and the Old Quarter, Coronne",
+    "description": "The Shamble is the festering underbelly of the Throne City — a flood-prone warren of timber-and-daub tenements, tanneries, smoke-blackened cookshops, and narrow alleys that twist without logic or mercy. It sprawls south and west of Lord's Hill in the shadow of the marble high city, and in it live the launderers, the rat-catchers, the night-soil men, the dockworkers, the forgers, the fences, and the gutter-bred clever ones who know better than to trust a lord's smile. The City Watch does not patrol here after dark. The law that governs the Shamble is informal, violent, and surprisingly consistent: keep your head down, keep your mouth shut, and do not attract the interest of anyone with a blade and a purpose. The Old Quarter is the oldest and most decrepit district of the Shamble, its buildings dating to before the current dynasty, their timbers black with age and rot. It was always a firetrap. When someone lights three buildings at once just after midnight, no one is very surprised — until they count the bodies and find that one of them was not caught by the flames at all.",
+    "atmosphere": "The Shamble at night smells of coal smoke, river mud, rancid fat from the tallow-chandlers, and the faint copper tang of the slaughterhouses on the eastern bank. Torches are rare and guarded; most alleys navigate by feel and memory. Sounds carry strangely between close-packed walls — a cough two houses away, the creak of a loaded handcart, the distant toll of the cathedral bells across the river, the sound of someone running very fast and then stopping. This is a world of shadows and wet cobblestones, of deals struck in doorways by the light of a single tallow stub, of the particular silence that falls when a neighbourhood has collectively decided it did not see something. Against this ordinary misery the fire in the Old Quarter is lurid and vivid — orange light leaping above the rooflines, the crack and boom of collapsing timbers, the screams of those caught without warning. And in the alley behind the Drowned Cat tavern, apart from the chaos, a man is dying with a Carmine Veil dagger between his ribs and a leather ledger pressed to his chest like a prayer book, and the only people who see him die are the ones who will spend the next three sessions being hunted for what he gave them.",
+    "keyLocations": [
+      {
+        "name": "The Drowned Cat Tavern",
+        "description": "A low-ceilinged, smoke-drenched alehouse on the corner of Tallow Lane and the Merchant Cut, distinguishable from its neighbours by the faded painting of a cat with its tail dragging in a river that swings above the door. Inside: a single common room with a flagstone floor, four long tables, a hearth that smokes badly, and a barman named Hetch who has the permanent expression of a man who has heard everything and believes none of it. The Drowned Cat is not a guild establishment, not a Veil safehouse, not a Watch informant's haunt — it is simply the Shamble's most aggressively neutral tavern, a place where very different kinds of people drink in close proximity without (usually) bleeding on each other. Rooms are available for three copper a night; the straw is changed monthly. The cellar connects to the storm-drain network below the Shamble, which a nimble person can follow west toward the Thieves' Market district.",
+        "features": [
+          "Common room with four long tables, a smoking hearth, and a wall of house rules painted in red (No Veil business in sight of the hearth. No Watch questions answered. All debts settled before the third bell.)",
+          "Barman Hetch — a heavyset ex-dockworker with three fingers on his left hand, an exceptional memory for faces, and a carefully cultivated reputation for not knowing anything about anything",
+          "Six letting-rooms above, each barely big enough for a pallet and a chamber pot — thin walls carry every sound",
+          "A locked cellar (DC 12 Thieves' Tools) containing beer barrels, a hidden strongbox (DC 16 Investigation to find; 18 gp inside, a forged travel pass, a tooth belonging to someone), and a storm-drain grate leading into the Shamble underbelly",
+          "The alley behind the tavern — a dead-end passage between the Cat and the neighbouring tannery, wide enough for two people abreast, smelling of the tannery's lime pits"
+        ],
+        "encounters": [
+          "Roleplaying with Hetch — he knows Corvin Ashe was a regular, knows he had enemies, will say none of this without significant persuasion, coin, or the application of circumstance he cannot ignore",
+          "Three off-duty members of the Gutter Wolves street gang drinking at the corner table — not hostile unless provoked, but observant, and reporting back to their captain within the hour"
+        ],
+        "secrets": [
+          "Hetch saw Corvin Ashe slip a note under the door of room four (currently unoccupied) three nights ago — the note names a meeting time and uses the phrase 'the cup is cracked'",
+          "The Drowned Cat has an informal arrangement with the Carmine Veil: three days' warning before any Watch raid, in exchange for not being burned down. The arrangement is why Veil blades feel comfortable operating in the alley behind it.",
+          "The storm-drain grate in the cellar is known to three fences, two forgers, and Wren Quill, who uses it as a back-route to the Thieves' Market"
+        ]
+      },
+      {
+        "name": "The Burning Old Quarter",
+        "description": "The Old Quarter occupies six city blocks northeast of the Drowned Cat, a dense tangle of four- and five-storey tenements that lean toward each other across alleys barely wide enough to pass a handcart. On the night of the scenario's opening, three buildings ignite simultaneously — the former chandler's guild hall, a dosshouse called the Roost, and the records annex attached to the tax collector's office on Mercer Street. The fire spreads rapidly through dry summer timber. By the time the Watch bucket-lines arrive from the high city (slowly; they always arrive slowly in the Shamble), three more buildings are alight and the screaming has become general. In the confusion and heat and smoke, a great deal can go unnoticed.",
+        "features": [
+          "Three simultaneous ignition points, implying arson by someone with resources and preparation — Investigation DC 15 to confirm this definitively, DC 12 to suspect it",
+          "The ruins of the tax records annex — where certain ledger entries connecting church accounts to merchants in the poison trade once existed on paper that is now ash; the destruction was the point",
+          "An active bucket-line of Shamble residents fighting the fire, offering cover for movement through the chaos",
+          "A collapsed tenement (the Roost) with survivors trapped inside — Athletics DC 14 to move debris, Medicine DC 12 to stabilise the injured",
+          "The body of a night-watchman who was paid to look elsewhere and then silenced — DC 13 Investigation to find and identify the manner of death (suffocation, not fire)"
+        ],
+        "encounters": [
+          "Four Gutter Wolf gang members sent to ensure the fire does its job and 'collect any stray materials' from the vicinity of the tax annex — they are not expecting resistance and will run if bloodied",
+          "A pair of Carmine Veil blades searching the alley behind the Drowned Cat for Corvin Ashe's body, or for whoever took the ledger from it"
+        ],
+        "secrets": [
+          "The fire was ordered by Aldous Crane's administration through a Gutter Wolf intermediary — destroying the paper trail in the tax annex was the primary objective; Corvin Ashe's death was meant to happen in the fire, not before it",
+          "In the ruins of the chandler's guild hall, under a collapsed beam, lies a wax-sealed envelope addressed to 'the Sparrow' — it is from Corvin Ashe, written two days before his death, and contains a partial decoded section of the ledger's cipher along with an instruction: 'If you are reading this I am dead. Find Severine. The cup does not lie.'",
+          "A child named Brin, eight years old, hid in the cellar of the Roost when the fire started and saw two hooded figures lighting it. She can describe their cloaks (dark red, Veil-adjacent but not quite standard Veil issue) and one of them had a limp."
+        ]
+      },
+      {
+        "name": "The Thieves' Market and the Carmine Veil Safehouse",
+        "description": "Three blocks west of the Drowned Cat, on and around a wide covered market called the Pergola, the Thieves' Market operates every night from dusk to the second bell — a labyrinthine bazaar of cloaked stalls selling goods that lack invoices, identities that can be purchased for a price, information in sealed envelopes, and the small tools of a dozen informal trades. It is not quite legal and not quite illegal in the way that the Shamble's entire economy is not quite either: the Watch knows it exists, the Watch's sergeant takes his cut from the Pergola's master of stalls, and so the Watch arrives only when something has gone badly enough wrong to generate a complaint that cannot be ignored. The Carmine Veil maintains a safehouse on the market's east edge — a narrow townhouse with a faded green door, accessible by a specific knock (two slow, three fast), where low-tier guild members receive assignments and sell information. Wren Quill has a room here, though she is currently in significant disfavour with the house-boss.",
+        "features": [
+          "The Pergola — a covered market street 200 feet long, stalls lit by hanging lanterns, selling forged papers (15-50 gp), smuggled goods, rumours (priced by reliability), poisons and their antidotes, and the occasional off-books service",
+          "The cipher-monger's stall: a taciturn half-orc named Durga who sells and cracks codes for 10 gp base, with a DC 15 Persuasion or 20 gp to get her full attention on Corvin Ashe's ledger cipher",
+          "The Carmine Veil safehouse on Tanners' East — a three-storey townhouse, ground floor is a cutler's shop (legitimate front), upper floors are guild space accessible via the kitchen stairs",
+          "A house-boss named Orluk, a compact and dangerous human who answers to the Mother of Knives, currently very interested in recovering the ledger and very unhappy with Wren Quill",
+          "A back-garden exit from the safehouse to the river-stairs — useful for departures that must not be observed"
+        ],
+        "encounters": [
+          "The market chase: if the party is spotted in the Market with the ledger, Orluk dispatches two Veil blades (use spy stats) to shadow them, attempting to cut them off at the Pergola's east gate",
+          "Negotiation with Orluk — the house-boss will meet the party in the safehouse if they approach correctly; he wants the ledger, will bargain, is not above betrayal, and has orders from the Mother of Knives that he has not shared with anyone"
+        ],
+        "secrets": [
+          "Orluk received orders not to kill the ledger-holders but to bring them in unharmed — the Mother of Knives herself wants to meet whoever Corvin Ashe trusted enough to pass the book to",
+          "In room four of the safehouse, Wren Quill is hiding and has been hiding since the night of the fire — she disobeyed a direct order to retrieve the ledger from Corvin Ashe before he could pass it on, because she had developed a conscience about what the ledger contains",
+          "A loose board beneath the safehouse's kitchen table conceals a second cipher key — Wren put it there, taken from Corvin Ashe's belt pouch before the Veil blades arrived. With this key the ledger can be decoded completely."
+        ]
+      },
+      {
+        "name": "The Tax-Collector's Office Cellar",
+        "description": "On Mercer Street in the Old Quarter, the ground-floor tax collection office of one Aldric Fenn, Assistant Collector for the Vermeil Revenue Authority, sits partially fire-damaged from the night's blaze — the records annex is destroyed, but Fenn's personal office and the cellar below it survived. The cellar is where Fenn kept the books that never appeared in the official records: a second set of accounts documenting the bribes, the under-assessments, the kickbacks, and most damningly, a series of payments to a merchant supplier — payments cross-referenced in Corvin Ashe's ledger as the channel through which a church account purchased something called 'widow's tears' in two separate transactions six months before the Emperor's death. Fenn knows the ledger exists, knows his records are referenced in it, and is quietly terrified. He is also in the pocket of the administration and will send for help the moment he believes himself discovered.",
+        "features": [
+          "The damaged office — filing cabinets spilled, water damage from the bucket-lines, Fenn nervously cataloguing what survived and what burned",
+          "A hidden cellar door beneath a rug under Fenn's desk (DC 14 Investigation to find without assistance; Fenn has the only key, which hangs on a chain around his neck)",
+          "The cellar itself — a stone-vaulted room with a locked iron chest (DC 17 Thieves' Tools), a rack of unlabelled bottles (three of which are expensive wine, one of which is widow's tears in a sealed vial with a merchant's mark), and a second ledger in Fenn's hand",
+          "Fenn's two hired guards — thugs from outside the Shamble, loyal only to coin, armed with clubs and crossbows",
+          "A secret passage from the cellar's back wall (DC 16 Investigation to find) running 40 feet to emerge in the storm-drain network beneath Mercer Street"
+        ],
+        "encounters": [
+          "Confronting Fenn — a roleplaying encounter that can turn violent; he is a coward under pressure but will not surrender his cellar key without either significant intimidation (DC 16), clever deception (DC 14), or finding a way around him entirely",
+          "The thugs — if Fenn panics or the party is too loud, his guards intervene; two thugs (MM stats) with orders to 'ask questions later'"
+        ],
+        "secrets": [
+          "The unlabelled vial in the iron chest is a real sample of widow's tears, still sealed with a merchant's mark that connects to the church account named in the ledger — it is physical evidence of the poisoning, the 'cup' Corvin Ashe spoke of",
+          "Fenn sent a message to the administration the morning after the fire reporting that the records annex had burned cleanly — he does not know about the second ledger that Corvin Ashe was carrying, and discovering that one exists will cause him to break down entirely if confronted with it",
+          "The second ledger in Fenn's cellar names three additional church-connected accounts and a merchant house that appears in the campaign's second scenario as a Crane family front"
+        ]
+      }
+    ]
+  },
+  "synopsis": "It begins with fire and a dying man. In the small hours of an ordinary night in the Shamble, the Old Quarter ignites in three places at once — a deliberate act of destruction meant to burn records and silence a source. But the man who dies in the alley behind the Drowned Cat tavern was not supposed to die in the street: he was supposed to die in the fire, along with the ledger he spent three months compiling. Instead, Corvin Ashe presses that ledger into the hands of strangers, speaks four words he has been saving like a last coin, and dies. The strangers now hold a dead man's secret and a dead man's problem: the ledger is coded, the people who want it back are fast and sharp, and the fire is still burning above the rooflines.\n\nAct by act, the party untangles the threads Corvin Ashe left them. They survive pursuit by the Carmine Veil and negotiate a fragile foothold with a Veil informant named Wren Quill who disobeyed orders to help them. They track the ledger's cipher to the Thieves' Market, find the key to decode it, and descend into a corrupt tax-collector's cellar to seize the physical evidence — a sealed vial of the poison called widow's tears — that proves Emperor Caius Vermeil III was murdered. By the scenario's end they know the how of the Emperor's death, a piece of the who, and enough to put themselves in the path of Princess Severine Vermeil, who has been waiting for exactly this kind of proof. They also know that whoever ordered the fire and the murder has reach enough to suborn city officials, deploy guild assassins, and burn a city block to cover their tracks — and that they, the party, are now on that person's list.",
+  "hook": "A fire is burning in the Old Quarter. Three buildings at once, just after the midnight bell — the kind of fire someone sets on purpose. You were at the Drowned Cat when the glow started appearing through the shutters, or in the alley behind it, or passing through on the way to somewhere else entirely; the exact reason you are here matters less than the fact that you are, and that when the man crawls out of the shadows at the alley's dead end you are the ones who see him. He has a Carmine Veil dagger between his ribs — the curved carmine blade, unmistakable — and a leather ledger clutched to his chest with both hands. He is bleeding steadily and he knows it. He looks at you with the particular clarity of a man who has sorted out his priorities and finds only one thing left worth saying. He holds the ledger out. When you take it, he grips your wrist. 'The cup,' he says, and each word costs him something. 'Tell Severine.' His hand goes slack. Above the rooflines the fire paints the smoke orange, and somewhere in the streets behind you there are bootheels on cobblestones, moving fast, moving this way, and whoever is running is not running toward the fire.",
+  "acts": [
+    {
+      "title": "Act 1: Dead Man's Hand",
+      "description": "The party begins the scenario in possession of Corvin Ashe's body, his ledger, and four words of dying instruction, with Carmine Veil agents closing in through the smoke and chaos of the burning Old Quarter. They must survive the immediate pursuit, find shelter, and begin to understand what they are holding. The key questions of the act: who was Corvin Ashe, what is in the ledger, and who killed him — and why tonight, and why this fire?",
+      "objectives": [
+        "Escape the alley and the immediate Veil pursuit without being captured or killed",
+        "Find somewhere safe to examine the ledger and catch their breath",
+        "Learn Corvin Ashe's identity and significance",
+        "Discover that the ledger is coded and cannot be read without a key",
+        "Establish that the fire was arson and understand the connection to the tax records annex"
+      ],
+      "scenes": [
+        {
+          "name": "The Alley and the Fire",
+          "description": "The party stands over Corvin Ashe's body with a coded ledger and the sound of approaching footsteps. Smoke is thickening; the glow of the Old Quarter fire is brightening by the minute. Two Carmine Veil agents — blades sent to recover the ledger and confirm the death — are sixty seconds away. The bucket-lines and screaming in the next streets provide cover but also chaos. Every choice in the next few minutes has consequences.",
+          "readAloud": "\"The man is dead. His hand is still warm around your wrist, or it was a moment ago, and the leather ledger is in your hands now, soft and worn as an old glove, heavier than it looks. The alley smells of lime from the tannery next door and the first fingers of smoke from the fires you can hear but not yet see. Above the roofline the sky has turned the colour of a forge — not the clean orange of a hearth but the dirty red-orange of something large and uncontrolled. Somewhere on the street beyond the alley mouth a woman is shouting about water. A child is crying. And closer — much closer, on the other side of the building, the particular rhythm of two pairs of boots moving fast and deliberate, not the stumbling run of people fleeing a fire but the measured pace of people with a destination. They are going to come around the corner in perhaps thirty seconds. The dead man has a Carmine Veil dagger in his ribs — the curved carmine blade, deep red as old wine. Whoever those boots belong to, they know exactly where to look.\"",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "You count two sets of footsteps, moving in coordination. They will round the corner from the north end of the alley in seconds. One of them is whispering — you catch 'take the book and go, leave the body' before the noise of the fire drowns the rest.",
+              "failure": "You hear footsteps and know they are close, but you cannot tell how many or from which direction."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "A glance at the dead man's hands reveals ink stains, a forger's calluses, and a small tattoo on the inside of his left wrist: a sparrow in profile. He was not a fighter. He was a scribe or a clerk, and the sparrow marks him as a Carmine Veil informant — a low-level one, the kind who gathers information rather than acts on it.",
+              "failure": "You have time only to note that he was not armed and that the ledger appears to be some kind of account book before you have to move."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 12,
+              "success": "You identify the tannery wall as climbable — rough-set stone with good handholds, maybe fifteen feet to a flat roof. From the roof you can reach the adjacent building and come down on Tallow Lane, well clear of the alley.",
+              "failure": "The wall looks smooth and slick with condensation. You will need to find another way out."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 Carmine Veil blades (use Spy stats, MM p. 349; each carries a carmine dagger as a secondary weapon, 1d4 + 2 piercing, and a hand crossbow)"],
+              "difficulty": "Medium",
+              "tactics": "The Veil blades are professionals, not bravos. Their orders are to retrieve the ledger and confirm death — they prefer not to leave additional bodies in an alley that is about to receive Watch attention. They will use Cunning Action to disengage if the fight goes badly, and one will break off to report while the other continues. If the party flees rather than fights, the blades pursue through two blocks of smoke-filled streets before losing them in the fire chaos. They are not trying to kill the party tonight — yet. Running is a valid option and should feel like one.",
+              "terrain": "The alley is 60 feet long and 8 feet wide, closed at the south end. The fire's glow provides dim light from the north. Boxes and refuse from the tannery provide scattered cover. The tannery wall is to the east (climbable with DC 12 Athletics). The alley mouth to the north leads to Tallow Lane and the bucket-line chaos."
+            }
+          ],
+          "roleplayNotes": "Pace this scene quickly — the fire, the footsteps, and the dead man create natural urgency. Do not let the party linger over Corvin Ashe's body for long. The emotional weight of the dying man and his four words should land hard, but the boots are coming. If the party examines the ledger, it is clearly coded — names replaced with symbols, numbers in a cipher that will require a key. The Carmine Veil blades, if captured or cornered, will say nothing about who they work for (though that is obvious from the daggers) and nothing about the ledger's contents (they do not know them). One of them, if the party has captured both and separated them, will let slip that they were told 'the asset was compromised at the Cat' — a phrase that tells an attentive player someone in or near the Drowned Cat was watching Corvin Ashe.",
+          "loot": [
+            "Corvin Ashe's ledger (coded, quest item — cannot be read without the cipher key)",
+            "Corvin Ashe's belt pouch: 4 silver pieces, a tallow candle stub, a folded note in a different hand reading only 'Mercer St, Fenn's cellar, what you need is there' with no signature",
+            "From the Veil blades (if defeated): 2 carmine daggers (1d4+2 piercing, no special properties, but recognisable as Veil markers), 2 hand crossbows with 20 bolts each, 8 gp total, a thin leather token stamped with a Veil mark that will get the holder a meeting with a low-ranking Veil fence"
+          ]
+        },
+        {
+          "name": "Smoke and Questions",
+          "description": "The party finds a brief refuge and begins to piece together who Corvin Ashe was and what they are holding. The fire is still burning; the Watch is arriving from the high city in force, which means the Shamble is filling with armed men who will ask questions. If the party returns to the Drowned Cat, Hetch is still behind his bar, studiously pretending the alley behind his establishment contains nothing of interest. The note from Corvin Ashe's pocket points toward Fenn's cellar on Mercer Street — but Mercer Street is in the heart of the fire zone. Several residents of the Shamble who knew Corvin Ashe are available to paint a picture of the man.",
+          "readAloud": "\"An hour after midnight and the Old Quarter is still burning. From the roof of whatever building you have found shelter on, or from the shadow of the Pergola's southern arcade, you can see the Watch bucket-lines trying to contain the blaze — fifty men from the high city, working three blocks away, pouring river water on buildings that are going to fall regardless. Closer to you, the Shamble's own residents move in that particular way that poor people move around fires: quickly, carrying everything they own, watching which way the wind is blowing. No one looks at you twice. No one in the Shamble looks at strangers twice — it is a survival mechanism. The ledger in your hands is unremarkable to look at. A tradesman's account book, soft brown leather, the pages filled with columns of symbols and numbers in a careful, clerk's hand. Whatever it contains, Corvin Ashe worked hard to make it look like nothing. He died for it anyway.\"",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "Examining the ledger carefully, you identify three distinct sections: a list of names rendered in symbol-code, a series of dates and quantities that might be transactions, and a third section that uses a different cipher entirely — tighter, more careful, as though Ashe knew this part was the most dangerous. Two symbols recur in the third section: one that looks like a stylised goblet, and one that resembles the sun-and-drop sigil of the Sanguine Communion.",
+              "failure": "The ledger is impenetrable without a key. It is clearly coded, clearly significant, and completely illegible to you in its current state."
+            },
+            {
+              "skill": "History",
+              "dc": 14,
+              "success": "The tattoo on Corvin Ashe's wrist — the sparrow — is a known Veil mark for low-level informants called 'songbirds': people who observe and report rather than act. They are typically embedded in legitimate institutions — clerks, servants, tradespeople. A songbird embedded in a government office would have access to financial records.",
+              "failure": "You know the sparrow is a guild mark of some kind, but its specific meaning in the Veil's hierarchy is beyond your knowledge."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Hetch, when approached with care and the right amount of coin (5 gp helps considerably), confirms that Corvin Ashe was a regular — in the Cat almost every night for two years, always alone, always left before the third bell. Three nights ago he was jumpy, kept looking at the door, paid for his ale with a gold piece and did not wait for change. He also confirms that the alley behind the Cat was being watched by two people Hetch did not recognise, starting four days ago. They were not Watch.",
+              "failure": "Hetch has nothing to say about Corvin Ashe, fires, alleys, or anything else. He is very busy, as you can see."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 Gutter Wolves street gang members (use Bandit stats, MM p. 343) sent to sweep the fire zone for anything valuable and to 'make sure the annex burned clean'"],
+              "difficulty": "Easy",
+              "tactics": "The Gutter Wolves are not sent to fight; they are sent to loot and confirm. If they spot the party near the fire zone carrying something that looks like an account book, their captain (a fifth bandit with 18 HP and a shortsword) will demand to see it. They are bullies who respect a show of force — a DC 13 Intimidation check or dropping the first two of them quickly will cause the rest to back off. They can be persuaded to talk with DC 15 Persuasion and a coin bribe (they know they were hired through a third party called Maret, a fence in the Thieves' Market, but not by whom).",
+              "terrain": "The street in front of a still-smoking building, lit by the dying fire. Debris and scattered household items from evacuated tenements cover the road. Three alleys provide escape routes. The street is 30 feet wide."
+            }
+          ],
+          "roleplayNotes": "This scene is primarily investigative and social. The fire creates a backdrop of controlled chaos that the party can use — everyone is distracted and looking at the fire, not at them. Emphasise the ordinariness of Corvin Ashe: he was a clerk, probably attached to the tax authority, who spent two years gathering evidence of something enormous and then ran out of road. His four words were not a dramatic last speech; they were the last of a plan made in advance for exactly this situation. The note from his pocket pointing to Fenn's cellar is clearly pre-placed information, not something he said in his last moments. He was careful, patient, and he trusted the information would find the right people. Whether the party lives up to that trust is up to them.",
+          "loot": [
+            "From Hetch (available for purchase): information worth its weight, sold at 2 gp per useful fact",
+            "From the Gutter Wolves (if searched): 12 gp combined, a note reading 'sweep Mercer and the annex vicinity, bring any paper you find to Maret at the Pergola, do not read it' in a bureaucratic hand that a DC 14 History check identifies as using the Revenue Authority's standard phrasing",
+            "Found in the fire debris near the annex (DC 13 Investigation): a partially burned ledger page in Fenn's handwriting listing a payment to 'Merchant House Cavarra, supply contract, ecclesiastical allocation' — one edge has burned away but the date survives: six months before the Emperor's death"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Cipher and the Knife",
+      "description": "With a partial picture of the ledger's significance and the note pointing them toward Fenn's cellar, the party moves deeper into the Shamble's underworld. They must navigate the Thieves' Market, make contact with Wren Quill — either finding her in the Veil safehouse or being brought to her by events — and obtain the cipher key that will decode Corvin Ashe's ledger. Meanwhile the Carmine Veil is actively hunting them, the corrupt tax-collector Aldric Fenn has noticed attention coming his way, and the administration's agents are quietly asking questions in the neighbourhood. The act culminates in the decoded ledger and the descent into Fenn's cellar to seize the physical evidence.",
+      "objectives": [
+        "Navigate the Thieves' Market without being captured by Veil agents",
+        "Make contact with Wren Quill and earn enough of her trust to receive the cipher key",
+        "Decode the ledger and understand what Corvin Ashe discovered",
+        "Infiltrate Fenn's tax-collector office and access the cellar",
+        "Seize the vial of widow's tears and Fenn's second ledger as physical evidence"
+      ],
+      "scenes": [
+        {
+          "name": "The Thieves' Market",
+          "description": "The party comes to the Pergola and the Thieves' Market, whether following the cipher trail, tracking the Gutter Wolf connection to the fence named Maret, or simply seeking the Carmine Veil safehouse that any Shamble resident can point them toward (the Veil's presence is an open secret; its exact address is not). The Market is crowded even at this hour in the aftermath of the fire — people evacuated from the Old Quarter are selling what they grabbed on the way out, and opportunists are buying. The Veil house-boss Orluk has people at the Market watching for the party.",
+          "readAloud": "\"The Pergola smells of lamp oil and wet wool and the particular human density of a market that never quite closes. Overhead, canvas awnings sag between the stone pillars, trapping the lantern-light in amber. The stalls are close together, their goods presented without labels or invoices — a woman selling lockpicks and calling them 'precision tools,' a man with a tray of sealed letters offering 'correspondence retrieval services,' a row of apothecary jars whose contents are described only by colour and effect. At the far end, beyond the last stall, a narrow townhouse with a faded green door stands at the edge of the lamplight. The door has no sign. Between you and it, the crowd shifts and thins and shifts again, and twice you have noticed the same face at the periphery of your vision — a narrow face, a dark coat, moving parallel to you through the market with the particular patience of someone who has nowhere else to be.\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "The person shadowing the party is not trying to close distance — they are tracking, waiting for the party to stop somewhere enclosed. There is a second watcher near the green door, identifiable by the way they keep glancing at the first. They are coordinating. The house-boss knows the party is here.",
+              "failure": "You feel watched but cannot pin it down — the Market's natural density and movement make surveillance hard to confirm."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "The cipher-monger Durga, at her stall near the market's centre, agrees to examine the ledger's cipher structure for 10 gp. She identifies it as a 'Veil sparrow-code' — a standard Veil informant cipher of the kind issued to embedded songbirds. She cannot crack it without the paired key, which the issuing Veil handler would hold, but she can confirm what the ledger's three sections contain: an index of names, a transaction record, and what she calls 'the hot part' — a section in a tighter personal cipher that sits inside the sparrow-code like a letter inside a letter.",
+              "failure": "Durga looks at the ledger and looks at you and names a price you cannot afford or will not pay, and the negotiation goes nowhere."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 14,
+              "success": "You slip the Veil watchers and reach the green door ahead of their coordination. You have perhaps five minutes before they realise you have moved.",
+              "failure": "The watchers clock your approach. By the time you reach the green door, Orluk's people are positioned behind you and a messenger has already gone inside."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 Carmine Veil spies (Spy stats, MM p. 349) plus 1 Veil enforcer (use Thug stats with 20 HP and a hand crossbow, acting as coordinator)"],
+              "difficulty": "Medium",
+              "tactics": "Orluk's people are not supposed to create a scene in the Market — it would be very bad for business and the Pergola master would not forgive it. They will try to herd the party to the safehouse rather than fight in the open. If the party refuses to be herded and combat breaks out in the Market, the enforcer signals for help (two more thugs arrive in 3 rounds) while the spies use their Cunning Action to create distance and pick targets from range. The Market crowd will scatter. A DC 14 Persuasion or Deception check during the confrontation will pause it — Orluk's people have orders to bring the party in unharmed if possible.",
+              "terrain": "The Pergola (200 feet long, 30 feet wide, covered). Stalls and awning poles provide cover throughout. The crowd provides obscurement but also impediment — movement through the market costs an extra 5 feet per 10 feet of movement during a crowd (halved if the crowd has scattered from combat). Three side-exits from the arcade."
+            }
+          ],
+          "roleplayNotes": "The Thieves' Market scene is the pivot between flight and negotiation. The party has been running since the alley; here they have to decide whether to keep running or to turn and engage with the world hunting them. Wren Quill is the key to that shift — she is in the safehouse, she has the cipher key, and she has been waiting for exactly this kind of opportunity to act against the machinery she has been serving. Orluk, the house-boss, is the interesting complication: he is not a villain so much as a professional, and his orders from the Mother of Knives are to bring the ledger-holders in, not to harm them. A clever party can use this. The scene should feel like the party's first experience of the Shamble's logic: violence is a last resort, information is the real currency, and knowing who wants what is more valuable than any sword.",
+          "loot": [
+            "From Durga (if paid): the cipher analysis, identifying the three-section structure and confirming a paired key must exist",
+            "From the Market (available for purchase at DM's discretion): antitoxin (50 gp), thieves' tools (25 gp), forged travel papers (30 gp), a week's worth of rations (3 gp), a dark lantern (7 gp)",
+            "Found on the Veil enforcer (if defeated or pickpocketed, DC 14 Sleight of Hand): a sealed note from Orluk reading 'Bring them to me. The Mother wants them breathing.' — which tells the party more than Orluk intended"
+          ]
+        },
+        {
+          "name": "The Sparrow in the Safehouse",
+          "description": "Whether the party enters the Carmine Veil safehouse through negotiation with Orluk, through Wren Quill's own intervention (she will slip them a message via a Market urchin if the fight outside is going badly), or through the back-garden entrance from the river-stairs, this scene is their first real conversation with Wren Quill. She has the cipher key. She also has a conscience, a guilty conscience, and a healthy fear of what the Mother of Knives will do when she discovers Wren disobeyed direct orders. This is also where the ledger is decoded, and the party learns what Corvin Ashe spent two years finding out.",
+          "readAloud": "\"The room is small and smells of tallow and old wool. A single candle on the windowsill, shuttered so its light does not reach the street. On the pallet in the corner, cross-legged, with a knife balanced on her knee and the particular stillness of someone who has been very frightened for long enough that it has started to look like calm, sits a young woman. She is perhaps twenty, dark-haired, with ink stains on her fingers and a Veil tattoo — the sparrow — on her left wrist, identical to the dead man's. She looks at the ledger in your hands and closes her eyes for a moment. 'He got it to you,' she says, not a question. 'He actually got it to you.' She opens her eyes. They are not relieved, exactly. 'You should know,' she says, 'that every person who has touched that book for the last three months is either dead or hiding in a room exactly like this one. And you should know what is in it, since it is apparently going to get you killed regardless.' She reaches under the pallet and comes up with a folded square of paper — a small grid of symbol-to-letter substitutions in two different hands, the key and its copy. 'Ask your questions quickly. Orluk will figure out I have this by morning.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Wren Quill is genuinely frightened and genuinely committed — the combination of those two things is what an honest person looks like when they have done something brave and are not sure they were right to. She is not playing an angle. She disobeyed the Veil because what is in the ledger horrified her, and she is now waiting to see if that was a fatal error in judgement.",
+              "failure": "You cannot tell if Wren is being honest or running a more subtle manipulation. Her fear seems real, but fear is easy to perform."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 11,
+              "success": "With the cipher key, the ledger decodes in an hour of careful work. The full picture: a series of payments from an account held by the Sanguine Communion's ecclesiastical suppliers to Merchant House Cavarra, for a commodity listed as 'widow's tears' — a tasteless, odourless poison with no visible effect for ten days. Two purchases. The dates place the second purchase four months before the Emperor's death. The third section of the ledger — Corvin Ashe's own tight cipher within the sparrow-code — is his analysis: the timing, the dose, the access required, the conclusion that the Emperor's death was not natural. And a single sentence at the end, in plain language rather than cipher, added after the rest: 'The cup in Fenn's cellar. Physical evidence. Tell Severine.'",
+              "failure": "Even with the key the cipher is slow work. You decode enough to understand the broad shape — poison, the church, the Emperor — but the details require another hour and a quieter location."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Wren Quill, given enough of the party's honesty and enough evidence that they intend to do something with the ledger rather than sell it, will share what she knows beyond the cipher key: that Corvin Ashe was her source inside the Revenue Authority for two years, that she was ordered three weeks ago to 'manage his transition' (which is Veil language for silence him), that she refused, that she has been in this room ever since waiting to see if the Mother of Knives was watching her for the refusal or if she had gotten away with it, and that she does not, in fact, think she has gotten away with it.",
+              "failure": "Wren gives you the cipher key — she was always going to give you the cipher key, that is why she signalled you. But she keeps her own counsel about the Veil's internal situation and her reasons. She is not yet sure she trusts you with more than the mechanics."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the emotional and informational centrepiece of the act. Take the time to let the ledger's decoded contents land with weight — this is the moment the party understands what they are holding. The murder of an emperor, proven, on paper, in a dead man's careful hand. The church's involvement. The specific poison, the specific account. Corvin Ashe spent two years on this. Wren Quill risked her life to let it reach the party. The information should feel enormous and also terrifying: the people who did this burned a city block to cover their tracks. Wren can become a recurring ally from this point if the party treats her well — she has guild contacts, knows the Shamble, and will be looking for a new allegiance now that the Veil has turned against her. She will mention, almost in passing, that there is a route to Princess Severine — not direct, but through a chain of trusted intermediaries, and the first link is a noblewoman in the Gilded Reach who runs a salon and is known to be sympathetic to Severine's cause. This is the forward hook into scenario 2.",
+          "loot": [
+            "The cipher key (quest item — decodes the ledger)",
+            "Wren Quill's personal intelligence (non-material but valuable): the Veil's internal structure, Orluk's position, the Mother of Knives's interest in the ledger, and the chain of contacts toward Princess Severine",
+            "Wren's emergency kit under the pallet: 15 gp in small coins, a set of thieves' tools, two vials of antitoxin, a forged travel pass in a false name, a shortsword"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Cup in the Cellar",
+      "description": "The decoded ledger has given the party what they need to know. Now they need what they need to prove it: the physical evidence in Fenn's cellar — the sealed vial of widow's tears with the merchant's mark connecting it to the church account. But Fenn's office is on Mercer Street in the heart of the fire-damaged Old Quarter, the corrupt collector has a pair of hired thugs, and the administration's agents are already circling. This act is the scenario's climax: the infiltration of the tax office, the confrontation with Fenn, the seizure of the vial, and the encounter with a final wave of Veil assassins sent to silence the ledger-holders before they can reach Severine's people. It ends with the party alive, the evidence in hand, and a name and an address that will take them out of the Shamble and into the beginning of the larger game.",
+      "objectives": [
+        "Reach Fenn's tax office on Mercer Street without attracting Watch attention",
+        "Infiltrate the office and access the hidden cellar",
+        "Neutralise Fenn and his guards",
+        "Seize the vial of widow's tears and Fenn's second ledger",
+        "Survive the Veil's final attempt to recover the evidence",
+        "Receive Wren's introduction and the route toward Princess Severine"
+      ],
+      "scenes": [
+        {
+          "name": "Fenn's Office on Mercer Street",
+          "description": "The party approaches the partially fire-damaged tax collector's office in the grey pre-dawn. The Mercer Street block is still being watched by two City Watch officers assigned to prevent looting in the fire zone, but the Watch officers are cold and bored and susceptible to distraction or bribery. Inside, Aldric Fenn has been awake all night cataloguing what the fire spared. He knows the records annex burned. He does not yet know about Corvin Ashe's ledger. He is about to find out.",
+          "readAloud": "\"Mercer Street at the fourth bell before dawn smells of wet ash and the memory of fire. The buildings on the south side are half-shells, their upper floors collapsed inward, their ground floors draped with Water Authority seals warning against entry. The north side fared better — the wind was wrong for the fire's spread — and Fenn's tax office stands intact if smoke-stained, its shutters closed and a thin line of candlelight leaking from beneath the door. Two City Watch officers lean against the wall opposite, collars up against the morning chill, not watching the street with any great attention. Inside, through the shutters, you can hear the scratch of a pen and, once, a sound that might be a man talking to himself in a rapid, frightened undertone. The office is one story, built over a deep cellar you know exists but would not guess at from the outside. Somewhere beneath that scratching pen and that frightened murmur is a sealed vial and a ledger that proves an emperor was murdered. All you need to do is get past the Watch, through the door, past two hired thugs, past the collector himself, and find a hidden trapdoor that only the man holding the key around his neck knows is there.\"",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 12,
+              "success": "You talk your way past the Watch officers with a plausible story — Revenue Authority assessors doing emergency inventory, a request from a senior official, concern about the sealed documents inside. The officers are not enthusiastic about their post and are quite happy to look the other way.",
+              "failure": "The Watch officers are more alert than they appear. They want names, authorisation, and a reason to let you in, and they intend to record all three in their log."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "Using the smoke-damaged south side as cover and the Watch officers' inattention, the party moves around to the office's rear window — unlatched, as Fenn has been venting the smoke smell — and enters without alerting anyone.",
+              "failure": "A loose piece of debris from the fire zone gives away your approach. The Watch officers turn around. Fenn's thugs hear the noise inside."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "Examining the office before confronting Fenn, you locate the rug concealing the cellar trapdoor. You also notice that Fenn has been burning papers in his hearth — but carelessly, and the edges of several documents have survived. One legible fragment mentions 'ecclesiastical supply account, Cavarra intermediary' and a sum of gold that matches a figure in Corvin Ashe's decoded ledger exactly.",
+              "failure": "The office is a mess of water-damaged papers, overturned cabinets, and the general chaos of a man who has been frantically cataloguing under stress. The cellar door is invisible beneath the rug."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 thugs (Thug stats, MM p. 350; armed with clubs and light crossbows, 10 gp each on their persons)", "Aldric Fenn (use Commoner stats but with 12 HP; not a fighter, but he will attempt to flee for a back window to summon the Watch if not contained immediately)"],
+              "difficulty": "Easy",
+              "tactics": "The thugs are between the party and Fenn. They are loyal to Fenn's coin, not to Fenn personally, and a DC 13 Intimidation check or a quick demonstration of the party's competence (dropping one of them fast) will cause the other to drop his weapon and step back. Fenn himself is a coward and a cornered one — he will try to bargain immediately with whatever he thinks the party wants. He knows about the cellar and the second ledger but does not understand that Corvin Ashe's decoded document references his records specifically. When he understands this, his willingness to bargain increases dramatically.",
+              "terrain": "The tax office ground floor (40 feet by 20 feet): three filing-cabinet rows, a large central desk, a hearth on the west wall, a door to the back storeroom, and the front door to Mercer Street. Dim candlelight. The trapdoor is beneath the rug under Fenn's desk."
+            }
+          ],
+          "roleplayNotes": "Fenn is a grey villain — he is not ideologically committed to anything except his own comfort and survival, and that makes him dangerous and useful in equal measure. He took bribes, he facilitated transactions he knew were irregular, and he was too frightened and too greedy to ask what widow's tears was used for. Now the consequences have found him and he will say almost anything to make them go away. He can be intimidated into unlocking the cellar (DC 14 Intimidation), persuaded that cooperation is his only way out (DC 13 Persuasion), or simply relieved of the key around his neck. What he cannot offer the party is genuine safety — the moment they are gone, he will send word to whoever he thinks can help him, which means the administration. The party should feel the clock ticking.",
+          "loot": [
+            "From the cellar iron chest (after acquiring Fenn's key or breaking the lock, DC 17 Thieves' Tools): the sealed vial of widow's tears with the merchant's mark of House Cavarra (quest item — physical evidence of the poisoning), 120 gp in mixed coin, Fenn's second ledger (quest item — names three additional church-connected accounts and Merchant House Cavarra as an intermediary, also names a noble family in the Gilded Reach as a Crane administration front), three bottles of expensive wine",
+            "From Fenn's burned documents (salvageable fragment): the Cavarra account reference with matching sum (corroborating evidence)",
+            "From Fenn himself (if searched or if he empties his pockets in surrender): the cellar key, 22 gp, a signet ring of the Revenue Authority (worth 15 gp as gold, worth more as an identifier)"
+          ]
+        },
+        {
+          "name": "The Knives Come Due",
+          "description": "The party emerges from Fenn's office with the vial, the second ledger, and the decoded first ledger, and they are met in the street by the Veil's final play. Orluk, realising that the ledger is about to move out of his reach and understanding the personal consequences of losing it, has deployed three seasoned Veil blades with orders that have changed since the early evening: the ledger and the evidence are to be retrieved, and the holders are no longer required to be breathing. The encounter on Mercer Street in the pre-dawn is the scenario's climax combat — exhausted party, dangerous opponents, a Watch presence two blocks away that the party cannot afford to attract. Wren Quill arrives midway through to even the odds.",
+          "readAloud": "\"The door opens onto grey pre-dawn and the smell of ash, and the three figures who have been waiting in the shadow of the collapsed chandler's building opposite step out into the street. They are not trying to be subtle anymore. The one in the centre is carrying a lantern; its light catches the curved carmine daggers that the other two hold reversed along their forearms in the way that means they know exactly what they are doing. The one with the lantern looks at you with the calm of someone who has stopped finding this complicated. 'The book and the vial,' he says. 'And the rest of your things, since you won't be needing them. The Mother sends her regards to the late Corvin Ashe.' Down the street, two Watch officers are turning the corner at the far end of Mercer, a hundred and fifty feet away. They have not seen this yet. They will in about twenty seconds.\"",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "You spot Wren Quill on the roof of the building to your left, a shortbow in hand. She catches your eye and touches two fingers to her lips — a shushing gesture — and then to her wrist where the sparrow tattoo is. She is here. She is ready.",
+              "failure": "The street is dark and your attention is on the three blades. You do not see Wren until she fires."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "The lead blade is professional enough to weigh odds honestly. If the party has already demonstrated they are not easy targets — and if you can sell the idea that the Watch officers at the end of the street are about to become very interested in three people with Veil daggers — he will pause the engagement and give you ten seconds to argue for an alternative.",
+              "failure": "The blades are past negotiation. They have orders and a professional reputation to maintain."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 Carmine Veil assassin-blades (use Spy stats with 27 HP and 18 Dexterity; each carries a carmine dagger with 1d4+2 piercing plus DC 13 Con save or 2d6 poison damage on a hit)", "Wren Quill arrives at initiative count 15 of round 2, acting as an ally (use Scout stats, MM p. 349, with a shortbow)"],
+              "difficulty": "Hard",
+              "tactics": "The three Veil blades fight as a coordinated unit, using the Flanking optional rule to generate advantage when possible (two versus one target). They target the character holding the ledger or the vial preferentially. The lantern-holder uses his action on round one to smash the lantern on the cobblestones (creating a 10-foot radius of burning oil, DC 12 Dex save or 1d4 fire damage per round until doused) and then enters melee. The Watch officers at the end of Mercer Street will arrive at the start of round 5 to investigate the noise — at which point both parties are in trouble, and the Veil blades may elect to disengage rather than be caught with Veil weapons in hand by the Watch. Wren's arrival in round 2 should feel like a genuine turn of the tide.",
+              "terrain": "Mercer Street (50 feet wide, smoke-stained cobblestones, pre-dawn grey light). The collapsed chandler's building provides rubble cover (half cover, difficult terrain in a 20-foot radius). The burning oil pool from the lantern creates area denial. Fenn's office door is behind the party. The Watch officers are at the north end of the street, 150 feet away."
+            }
+          ],
+          "roleplayNotes": "This is the scenario's physical and emotional climax. The party has been running, investigating, and negotiating for two acts; now they stand in a street with proof of an emperor's murder in their hands and three professional killers in front of them. Wren's arrival should feel earned — she is paying a debt and burning a bridge simultaneously, because after this the Veil will know she has turned. Let her fight with skill and economy; she is not dramatic, just effective. After the blades are dealt with, the Watch officers arrive to find a body or two and a great deal of broken glass. This is the moment to move fast. The scene's denouement is Wren Quill giving the party a name and an address in the Gilded Reach — not Severine directly, who is isolated and watched, but a way toward her: a noblewoman called Lady Vesper Aurelle who runs a literary salon and is known to receive unusual guests if properly introduced. 'She holds the door,' Wren says. 'She is not your friend. But she likes interesting things, and you have become very interesting.' The party's pathway from the Shamble into the high city — and toward Scenarios 2 and 3 — has opened.",
+          "loot": [
+            "From the Veil blades (if defeated): 3 carmine daggers (each with the poison property described above, worth 30 gp each to a fence, more to someone who understands their significance), 35 gp combined, a sealed letter on the lantern-holder addressed to Orluk in a hand the party cannot yet identify (the seal is a signet — a small sun with a drop beneath it, the Sanguine Communion's mark — though faint enough to require a DC 15 Religion check to recognise)",
+            "Wren Quill's gift upon parting: the route to Lady Vesper Aurelle — a written introduction in Veil cipher that Wren translates into plain language, and a carmine token that will get the party through the Gilded Reach's outer gate as 'guests of a member'",
+            "The scenario's primary evidence cache: Corvin Ashe's decoded ledger, Fenn's second ledger, the sealed vial of widow's tears with House Cavarra's mark — together constituting proof of the Emperor's murder that Princess Severine can use"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Corvin Ashe",
+      "role": "Inciting Figure / Dead Informant",
+      "description": "A slight, ink-stained man of perhaps forty, with the calloused fingers of a lifetime clerk and a sparrow tattoo on his left wrist marking him as a Carmine Veil songbird embedded in the Revenue Authority for two years. He is dead at the scenario's opening, which means the party encounters him only as a body — but the ledger he compiled and the four words he spent his last breath on speak louder than anything he might have said alive. He was meticulous, patient, and brave in the particular way that timid people are brave when they have run out of road: he gathered his evidence, coded it carefully, pre-placed the physical proof with Fenn's note, and arranged for the cipher key to be with Wren Quill. He knew he was going to die. He made sure the information would outlive him anyway.",
+      "motivation": "Corvin Ashe spent two years embedded in the Revenue Authority watching financial irregularities he did not understand until the pattern became impossible to misread: poison purchased through a church account, the account active in the months before the Emperor's death, the records quietly slated for destruction. He did not go to the authorities because the authorities, as far as he could tell, were involved. He went to the one person he trusted — Wren Quill — and when he felt the trap closing, he sent the ledger toward whoever would take it. His motivation was simple: someone murdered the Emperor, and he was the one who found the proof, and that meant it was his job to make sure the proof got somewhere it could matter."
+    },
+    {
+      "name": "Wren \"Sparrow\" Quill",
+      "role": "Key Ally / Carmine Veil Informant (Turned)",
+      "description": "Twenty years old, dark-haired, with a compact and efficient manner that belongs to someone who has been learning how to be invisible since childhood. The sparrow tattoo on her left wrist matches Corvin Ashe's and explains itself: they used the same handler, the same guild, the same trade. She has been a Veil informant since she was fifteen, recruited for her facility with locks and languages and her total absence of home ties. She is clever, observant, and possessed of a conscience she finds deeply inconvenient. She disobeyed a kill order for the first time in her career because the target was Corvin Ashe, who trusted her, and because the ledger's contents horrified her. She is now in the position of having burned her relationship with the Veil to protect information she believes the right people need to see.",
+      "motivation": "Wren wants the ledger to reach Princess Severine and she wants to survive the consequences of helping it do so. These two desires are in constant tension. She will help the party as much as she can manage within the constraints of her own survival — which are real constraints, because Orluk and the Mother of Knives are not abstractions but people with long memories and longer reaches. If the party can convince her that they are likely to succeed and that being on their side offers more safety than being against them, she will commit more fully. She is looking for a reason to believe the right side is also the winning side."
+    },
+    {
+      "name": "Aldric Fenn",
+      "role": "Corrupt Minor Official / Reluctant Source",
+      "description": "Assistant Collector for the Revenue Authority, fifty-two years old, soft in every way that a man who has spent a career avoiding risk becomes soft. His office survived the fire by luck and his complicity survived three years by careful management: he asked no questions, he signed what he was told to sign, and he kept his second set of accounts in a cellar he trusted no one else to know about. He is not evil so much as thoroughly compromised, and the distinction has mattered to him greatly until tonight, when the distinction has stopped mattering to anyone else. He will cooperate given any significant pressure, and what he offers in cooperation is extensive: not just the vial and the second ledger, but six months of anxious memory he has been carrying alone.",
+      "motivation": "Fenn wants to survive this and to resume his comfortable, compromised life. He believes this is still possible if the right people decide he is more useful alive than dead, which is not an unreasonable belief and is one a clever party can exploit. He has no loyalty to the administration beyond the self-interested kind; he will betray anyone for the right guarantee."
+    },
+    {
+      "name": "Orluk",
+      "role": "Antagonist / Carmine Veil House-Boss",
+      "description": "A compact, grey-eyed human of indeterminate middle age who manages the Thieves' Market safehouse for the Carmine Veil with the calm efficiency of a man who has long since made peace with the nature of his work. He is not cruel for pleasure — cruelty is inefficient — but he is thorough, and his orders from the Mother of Knives are clear. He is less a villain than a professional obstacle: the party's goals run directly counter to his interests, and he will pursue his interests until they become too expensive to maintain. He will not, notably, pursue them past his own survival.",
+      "motivation": "Orluk wants the ledger and the evidence recovered and the holders silenced. These are his orders. He would prefer to execute them neatly, with minimal collateral noise in the Market he maintains, and he is genuinely frustrated that the situation has become as untidy as it has. If the Mother of Knives withdraws the order — which she might, given developments the party cannot yet see — Orluk will stop instantly and with no hard feelings. He is an employee."
+    },
+    {
+      "name": "Hetch",
+      "role": "Background Ally / Information Source",
+      "description": "The barman of the Drowned Cat, a heavyset ex-dockworker of fifty-five who lost three fingers to a rope-pulley accident twenty years ago and has been pulling ale with the remaining seven ever since. He knows everything that happens in a three-block radius because his establishment is the neutral ground of the Shamble and neutral ground attracts information the way rot attracts flies. He keeps this information for himself unless given a very good reason to share it. He is not loyal to any faction, is cautiously fond of the party if they handle his tavern and his customers with care, and will be a recurring source of ground-level Shamble intelligence if cultivated.",
+      "motivation": "Hetch wants the Drowned Cat to stay standing, which means he wants the neighbourhood not to burn down around it, which means he has a modest stake in the party's success that he will never admit to out loud. He also genuinely liked Corvin Ashe, who tipped well and never made trouble, and he is the kind of man who registers debts of that kind even when he cannot do anything about them."
+    }
+  ],
+  "rewards": {
+    "xp": 900,
+    "gold": "195 gp total (120 gp from Fenn's cellar, 35 gp from the Veil blades, 22 gp from Fenn's person, 8 gp from the initial Veil blades, 10 gp miscellaneous from gang and debris finds)",
+    "items": [
+      "Corvin Ashe's decoded ledger (plot item — proof of the Emperor's murder, names church account and Cavarra intermediary, drives scenarios 1 and 3)",
+      "Fenn's second ledger (plot item — names three additional church accounts, names a Crane-linked noble family in the Gilded Reach, drives scenarios 2 and 3)",
+      "Sealed vial of widow's tears with House Cavarra merchant's mark (plot item — physical evidence of the poisoning, the 'cup' in Corvin Ashe's dying words)",
+      "Wren Quill's introduction to Lady Vesper Aurelle (plot item — the party's passage out of the Shamble and into the Gilded Reach, hooks scenario 2)",
+      "Carmine token for the Gilded Reach gate (social item — grants entry to the Gilded Reach as guests of a Veil member)",
+      "3 carmine daggers (each +2 to attack rolls, 1d4+2 piercing plus DC 13 Con save or 2d6 poison damage; identifiable as Veil weapons)",
+      "Revenue Authority signet ring (worth 15 gp as gold, worth significantly more as a social prop in the right circumstances)",
+      "2 vials of antitoxin (from Wren's emergency kit)",
+      "Shortsword (from Wren's kit, standard stats)",
+      "Thieves' tools (complete set, from Wren's kit)"
+    ],
+    "story": "The party has done what Corvin Ashe spent two years attempting: they have gathered proof that Emperor Caius Vermeil III was murdered, identified the poison, traced the purchase to a church-linked account, and secured the physical evidence. They have made a genuine ally in Wren Quill, who has burned her relationship with the Carmine Veil to help them and is now committed to their success. They have learned that the Crimson Throne is not empty by accident but by design, and that the design belongs to someone with the reach to suborn a city official, employ a guild of assassins, and destroy an entire city block's worth of records in a single night. They stand at the entrance to a larger game they did not choose to enter and cannot now exit. The Shamble is no longer safe for them; the Gilded Reach awaits. Faction standing adjustments: Carmine Veil standing drops by 1 (Orluk is angry; the Mother of Knives is, apparently, watching). Wren Quill counts as a personal ally outside faction standing. Princess Severine's loyalists standing increases by 1 when contact is made."
+  },
+  "twists": [
+    "The fire in the Old Quarter was not primarily set to kill Corvin Ashe — it was set to destroy the paper records in the tax annex, eliminating the only institutional documentation of the church account's transactions. Ashe's death was a secondary objective, and the fact that he died in the alley rather than the fire is a failure the administration has not yet registered. The party's possession of the ledger is not yet known to the people who ordered the fire.",
+    "Orluk's final-act orders — kill the ledger-holders rather than retrieve them — came not from his standing instructions from the Mother of Knives but from a second channel, a sealed note delivered to the safehouse an hour before the Mercer Street confrontation. The note is in a handwriting the party cannot identify yet, and its seal is a faint Sanguine Communion mark. Someone inside the church is coordinating with the Veil directly, bypassing the Mother of Knives — which suggests either she does not know, or the arrangement is more tangled than the Veil's public structure implies.",
+    "Fenn's second ledger, if examined carefully, names a noble family in the Gilded Reach — House Pellaine — as an administrative front for the Lord-Regent Crane. House Pellaine is on the guest list for Lady Vesper Aurelle's literary salon, which the party will be attending in scenario 2. The name is there before they know it matters.",
+    "The child Brin who hid in the Roost cellar and saw the arsonists described one of them as having a limp. If the party encounters Brother Caelum Voss (the reform-minded confessor who becomes a companion NPC) during the campaign's later acts, attentive players may recognise that Caelum walks with a slight, old injury to his left knee — not a limp exactly, but notable under certain circumstances. This is a false thread: Caelum is not the arsonist. But someone who knows Caelum has been using his distinctive gait as a frame, and that someone's identity is a thread that runs into scenario 3."
+  ],
+  "dmTips": [
+    "The scenario's emotional core is the weight of Corvin Ashe's trust. He was nobody — a clerk, a low-level informant, a man who spent two years in danger for reasons that were probably too large for him — and he bet his last breath on strangers. Let that weight sit with the party. The ledger is not just evidence; it is the accumulated work of a dead man's slow courage. If players start to treat it as merely a quest item, have Wren Quill say something about Ashe that humanises him. He had a sister in the river-towns. He kept a cat. He tipped well. These details cost nothing and mean everything.",
+    "The Carmine Veil should feel like a system, not a villain. The blades pursuing the party are professionals doing a job. Orluk is a manager who dislikes disorder. The Mother of Knives is a distant, structural fact. This is important because in later scenarios the party will need to work with the Veil, and establishing early that it is amoral rather than evil gives that relationship texture. The moment to seed this is in Wren Quill's conversation: she does not hate the Veil, she has simply found something she will not do for it.",
+    "Fenn is the scenario's most flexible character. A party that handles him cleverly can turn him into a minor ongoing asset — he has access to Revenue Authority records, he desperately wants absolution, and he knows the faces of the administration's local fixers. A party that handles him badly can still get what they need from his cellar, but they will have created an enemy who will eventually find the courage to report them. Decide early which version Fenn is based on how the party treats him.",
+    "The fire should feel like a character. Return to it throughout the scenario — the glow on the horizon as the party investigates, the smell of ash in the Thieves' Market, the scorched-earth logic of a faction that would burn a city block to destroy an account entry. The fire is the administration saying, in physical and violent terms, what it values and what it considers expendable. The people who lived in those buildings are the Shamble's ordinary residents. The party should feel that.",
+    "Seed the campaign's larger mysteries with restraint. The Sanguine Communion's seal on the note to Orluk is there for attentive players, not for announcement. The ledger's third section should feel significant and slightly terrible when decoded, but the party does not yet understand the full shape of the conspiracy — they know the Emperor was poisoned and the church was involved in the purchase, and that is enough for now. Do not explain the Carnelian, the Crimson Conclave, or the blood-covenant this scenario. Let the mystery breathe. The player who reads 'widow's tears, ecclesiastical account, Cavarra intermediary' and immediately asks 'but why would the church poison the Emperor' has found exactly the question that will drive them through four scenarios.",
+    "Wren Quill's introduction to Lady Vesper Aurelle should feel earned, not granted. Aurelle is not a friendly contact but a door — a powerful woman with her own agenda who will admit interesting people because interesting people are useful. The Carmine token is a social key, not a friendship bracelet. When the party arrives in the Gilded Reach in scenario 2, they are arriving as visitors with a borrowed credential, not as allies with a powerful backer. That precariousness is intentional."
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "ct-char-002",
+  "name": "Sister Aveline Marsh",
+  "status": "alive",
+  "race": "Aasimar",
+  "subrace": "Protector",
+  "class": "Cleric",
+  "level": 1,
+  "background": "Acolyte",
+  "alignment": "Lawful Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 10,
+    "current": 10
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Insight",
+    "Religion",
+    "Medicine",
+    "Persuasion"
+  ],
+  "languages": [
+    "Common",
+    "Celestial",
+    "Draconic"
+  ],
+  "equipment": [
+    "Scale mail",
+    "Shield",
+    "Holy symbol of the Sanguine Communion (silver cup with a crimson drop)",
+    "Mace",
+    "Priest's pack",
+    "Prayer book, worn and annotated in the margins",
+    "A vial of consecrated water",
+    "Incense sticks (10)",
+    "Vestments (white and crimson, travel-worn)",
+    "Belt pouch containing 8 gp",
+    "Waterskin",
+    "Rations (5)",
+    "A small illuminated icon of the Covenant, painted on ivory"
+  ],
+  "weapons": [
+    {
+      "name": "Mace",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Scale mail",
+    "type": "medium"
+  },
+  "features": [
+    "Darkvision (Aasimar racial — you can see in dim light within 60 feet as though it were bright light, and in darkness as though it were dim light; you can't discern color in darkness, only shades of grey)",
+    "Celestial Resistance (Aasimar racial — you have resistance to necrotic damage and radiant damage, halving all such damage you receive)",
+    "Healing Hands (Protector Aasimar racial — as an action, you can touch a creature and cause it to regain a number of hit points equal to your level, once per long rest; at level 1 this restores 1 hit point)",
+    "Light Bearer (Aasimar racial — you know the Light cantrip; Charisma is your spellcasting ability for it)",
+    "Radiant Soul (Protector Aasimar racial — starting at 3rd level, you can use your action to unleash the divine energy within yourself; until you use an action to end it, you manifest spectral wings and can fly at a speed equal to your walking speed; once per long rest)",
+    "Disciple of Life (Life Domain feature — whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level; at level 1 this means Cure Wounds restores 1d8+3+3 = 1d8+6 hit points)",
+    "Spellcasting (Wisdom-based; as a cleric you prepare a number of spells equal to your Wisdom modifier + your cleric level, choosing from the full cleric spell list plus your domain spells; spell save DC 13, spell attack +5)",
+    "Shelter of the Faithful (Acolyte background — as an acolyte of the Sanguine Communion, you command the respect of those who share your faith; you and your companions can expect free healing and care at a Communion shrine or cathedral, though not necessarily equipment or coin)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Celestial Resistance",
+    "Healing Hands",
+    "Light Bearer",
+    "Disciple of Life",
+    "Spellcasting",
+    "Shelter of the Faithful"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Light",
+      "Sacred Flame",
+      "Guidance",
+      "Spare the Dying"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Cure Wounds",
+        "Bless",
+        "Healing Word",
+        "Guiding Bolt",
+        "Detect Evil and Good",
+        "Bane"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I recite a short prayer under my breath when I am frightened or uncertain — not loudly enough to be heard, but my lips move. I find it genuinely difficult to be unkind to anyone, which people sometimes mistake for weakness; it is not weakness, it is a choice I renew every morning. I keep careful notes in the margins of my prayer book and have strong opinions about proper liturgical form.",
+    "ideals": "The Communion's purpose is to bind the people of the Empire together in something greater than faction or bloodline. The covenant is the foundation of that — the sacred promise between the dynasty and the divine order that gives the rites their meaning. I believe in that promise with everything I have, and I believe it demands more of those who administer it than they have been giving.",
+    "bonds": "There is a young novice at the Cathedral chapter-house whose name is Petyr, who has the same gift I have — the faint light under the skin, the warmth that heals without trying. I taught him his first prayers. He is twelve. Whatever the truth of the church turns out to be, I will not let that truth destroy him.",
+    "flaws": "I have been trained to trust the institution more than my instincts, and when the two conflict I experience a kind of paralysis that can look like obedience but is really fear. I am afraid of what I will have to become if the church I have given my life to turns out to be rotten at the core."
+  },
+  "appearance": "Aveline Marsh is luminous in the precise and unsettling way of the Aasimar — not beautifully lit so much as lit from within, as though a candle burned somewhere just beneath the surface of her skin. She is of middling height and slender build, with the straight posture of a woman who was taught early that how you hold yourself is a form of speech. Her hair is the color of old ivory, fine and straight, worn in a practical braid that falls past her shoulder blades and is threaded with a single cord of crimson silk — Communion colors, worn with the matter-of-fact devotion of someone who has never thought to remove it. Her eyes are the soft gold of sunlight through honey, and they carry an unnerving quality of patient attention, as though she is listening not just to your words but to something behind them. Her skin is warm golden-brown, and in darkness it faintly, faintly glows — a barely perceptible luminescence that she cannot entirely suppress and that makes sleeping in the same room as her somewhat eerie. Her face is round and kind, not beautiful in the classical sense but deeply reassuring, the kind of face that makes frightened people want to speak. She wears travel-worn white-and-crimson vestments over her scale mail, the crimson thread faded from many washings, and carries her holy symbol — a silver cup with a drop of crimson enamel at its base — on a chain at her throat. Her hands are slender and always slightly warm to the touch.",
+  "backstory": "Aveline Marsh was left at the steps of a Sanguine Communion shrine when she was three days old, wrapped in plain linen with nothing to identify her parents except the faint golden glow that even then was visible under her eyelids. The prioress who found her called it a sign and raised her accordingly. Aveline grew up inside the faith the way others grow up inside a family: it was the air she breathed, the language she thought in, the framework through which the world made sense.\n\nThe Communion's doctrine was clear on Aasimar: they were messengers of the covenant's blessing, living proof of the dynasty's divine sanction, evidence that the blood-promise made by the first Vermeil emperor had drawn celestial favor down through the centuries. Aveline believed this. She believes it still, in the sense that she believes the doctrine is true as far as it goes and has simply not asked, until recently, how far that was.\n\nShe took her vows at sixteen, was assigned to the Coronne chapter-house at eighteen, and spent three years doing the work she was born for: healing the sick in the Shamble charitable-ward the church maintains as a public virtue exercise, instructing novices, assisting at the great seasonal rites. She was good at all of it. She was particularly good at the healing — she could lay her hands on a feverish child and feel the warmth flow out of her and into the child like water finding its level, effortless, natural, unmistakably real. She took this as confirmation. The covenant works through me, she would think, and feel grateful.\n\nThen the Emperor died, and small things began to snag at her.\n\nThe way the senior confessors closed ranks. The chapter-house accounts she was asked to copy out and then told to forget she had seen. A brother confessor who asked too many questions about the Sanguinarium beneath the cathedral, and who was reassigned to a frontier posting within a fortnight. The Rite of Remembrance she attended as part of her duties, where the incense was a shade too sharp and one of the worshippers left looking grey and dazed in a way she had seen before in blood-loss patients.\n\nAveline is not a suspicious person by nature. She is, by training and by temperament, a person who gives institutions the benefit of the doubt. But she is also a healer, which means she has spent years learning to read bodies, and a body does not lie the way words can. The man who left that Rite of Remembrance was not blessed. He was drained.\n\nShe has not told anyone. She has been trying to find another explanation. She has been failing to find one. And then, in the chaos of a burning Old Quarter and a dead man in an alley with a ledger in his hands, she found herself caught up in something that offered, finally, the possibility of an answer — even if the answer terrified her more than the question."
+}

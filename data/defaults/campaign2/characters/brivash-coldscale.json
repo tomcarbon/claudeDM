@@ -1,0 +1,137 @@
+{
+  "id": "ct-char-005",
+  "name": "Brivash Coldscale",
+  "status": "alive",
+  "race": "Dragonborn",
+  "subrace": "Silver",
+  "class": "Paladin",
+  "level": 1,
+  "background": "Noble",
+  "alignment": "Lawful Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 17,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 8,
+      "modifier": -1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 12,
+    "current": 12
+  },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Athletics",
+    "Persuasion",
+    "Insight",
+    "History"
+  ],
+  "languages": [
+    "Common",
+    "Draconic",
+    "Elvish"
+  ],
+  "equipment": [
+    "Plate armor",
+    "Shield",
+    "Longsword",
+    "Javelin",
+    "Javelin (2)",
+    "Javelin (3)",
+    "Javelin (4)",
+    "Javelin (5)",
+    "Explorer's pack",
+    "Holy symbol of the Order of the Silver Wing (a foreign military-religious order, worn openly)",
+    "A signet ring of the Coldscale clan, silver with an embossed frost-dragon device",
+    "A letter of commendation from Princess Severine Vermeil, sealed, not yet delivered",
+    "Belt pouch containing 25 gp",
+    "Fine clothes (for court occasions, kept rolled in the pack)",
+    "Waterskin",
+    "Rations (5)",
+    "A lock of silver-white hair in a small vial — a relic of his order's founder"
+  ],
+  "weapons": [
+    {
+      "name": "Longsword",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Javelin",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Plate armor",
+    "type": "heavy"
+  },
+  "features": [
+    "Draconic Ancestry: Silver (Dragonborn racial — your draconic ancestry is silver, and your breath weapon is a 15-foot cone of cold; creatures in the area must make a DC 13 Constitution saving throw, taking 2d6 cold damage on a failed save and half on a success; once per short or long rest; Charisma is the relevant ability for the DC calculation: 8 + proficiency 2 + CHA mod 3 = 13)",
+    "Damage Resistance: Cold (Dragonborn racial — you have resistance to cold damage, halving all cold damage you receive)",
+    "Divine Sense (Paladin level 1 — as an action you can open your awareness to detect such forces; until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet that is not behind total cover, and you know its type; you can use this feature a number of times equal to 1 + your Charisma modifier per long rest, so 4 times per long rest at level 1)",
+    "Lay on Hands (Paladin level 1 — your blessed touch can heal wounds; you have a pool of healing power that replenishes when you take a long rest; with that pool you can restore a total of 5 hit points per paladin level, so 5 hit points at level 1; as an action you can touch a creature and draw power from the pool to restore hit points to that creature, in any increment; alternatively you can expend 5 hit points from your pool to cure one disease or one poison affecting the creature)",
+    "Position of Privilege (Noble background — thanks to your noble birth, people are inclined to think the best of you; you are welcome in high society, and people assume you have the right to be wherever you are; the common folk go out of their way to accommodate you, and you can secure an audience with local nobility if you need to)"
+  ],
+  "traits": [
+    "Draconic Ancestry: Silver",
+    "Cold Resistance",
+    "Divine Sense",
+    "Lay on Hands",
+    "Position of Privilege"
+  ],
+  "spells": {
+    "spellcastingAbility": "none",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I stand too straight and speak too formally in social settings, and I am aware of this and am unable to correct it. I was raised to treat a man's word as his most valuable property and a broken oath as a wound that does not close. I find the casual dishonesty of Coronne's political culture not merely irritating but physically uncomfortable, like a smell that does not fade.",
+    "ideals": "An oath made to a just cause does not become wrong simply because circumstances make it inconvenient. Princess Severine Vermeil is the legitimate heir. The law of succession is clear. The fact that honoring this principle is complicated and dangerous is precisely the point — anyone can honor principles when it costs nothing.",
+    "bonds": "My clan sent me south as a gesture of formal alliance with House Vermeil, and I carry that commission seriously. But my commitment to the Princess is not political — I met her once, briefly, at a formal reception, and she spoke to me not as a foreign curiosity but as a person. She asked my name before she told me hers. I have not forgotten that.",
+    "flaws": "I believe, at a level below conscious thought, that right conduct is self-evidently legible to anyone who is paying attention, and therefore that people who act wrongly are choosing to. This makes me too quick to write people off as corrupt when they may merely be frightened, which is a moral error I keep making."
+  },
+  "appearance": "Brivash Coldscale stands six feet four and is built like a dressed-stone wall — broad, deep-chested, and seemingly immovable, with the dense, contained physicality of a creature whose body was designed over eons for something more robust than comfort. His scales are the silver-white of fresh frost on iron, smooth and close-set across his face, neck, and hands, shading to a pale blue-grey along the edges of his jaw and the heavy ridges above his eyes. His eyes are a clear, cold pale blue, almost white at the iris, with the vertical slit pupil of his draconic heritage that makes humans faintly uneasy in a way they cannot always name. He is not beautiful in any human idiom, but he is striking — the kind of presence that clears space in a crowded room without the owner doing anything in particular to cause it. He wears his plate armor with the ease of long practice, kept at a standard of maintenance that borders on devotional: every piece brushed clean, every buckle aligned, the silver-chased gauntlets gleaming. His holy symbol — a stylized wing in flight, the device of the Order of the Silver Wing from his homeland — is mounted at the center of his breastplate rather than worn on a chain. His longsword is a straight, functional blade of good quality, neither ornate nor plain, the grip wrapped in white leather that has been replaced recently. He is the only Dragonborn most Coronnites have ever seen at close range, and he has learned to treat the staring as a form of tribute.",
+  "backstory": "The Coldscale clan holds three river-fords on the eastern marches of a country the Sanguine Empire's maps call simply 'the Draconic Principalities' — a collection of Dragonborn city-states that the Empire has been treating as vassals since the time of Caius Vermeil the First, and that the Dragonborn city-states have been quietly treating as equals ever since, in the way of people who have learned that the argument is not worth the cost while remaining clear about their own position.\n\nBrivash was his clan-lord's third son, which is the ideal position for a man of his temperament: not first, which would require him to administer, and not fourth, which would require him to scramble. Third sons of warrior-clans take oaths, and Brivash had been collecting oaths since he was old enough to understand what they cost. At twelve he swore to the Order of the Silver Wing, an ancient Dragonborn military-religious tradition that held, simply, that an oath to a just ruler was a sacred thing and that the defense of legitimate succession was among the highest callings a warrior could answer. He spent his teens in the Order's training halls and his early twenties in its field service, fighting border disputes and providing formal military escort to diplomatic missions.\n\nWhen the Coldscale clan entered into a formal alliance with House Vermeil three years ago — a trade agreement dressed in the language of a sworn compact, as such things always were in Veldoran — Brivash was the obvious choice to serve as the clan's honor-guard representative at the Coronne court. He arrived in the capital with his armor, his sword, a letter of introduction sealed with his clan's device, and a set of assumptions about Veldoran's court culture that lasted approximately eleven days before the reality of the place stripped them one by one.\n\nThe Coronne court was not what the Order's histories had prepared him for. It was magnificent in its appointments and vicious in its manners — a place where the most powerful people in the Empire spoke in indirections, where the highest praise was always slightly poisoned, and where the man who smiled most warmly was almost certainly the most dangerous person in the room. Brivash was not suited to it. He was, as several courtiers noted in his hearing, too literal for the Gilded Reach. He took it as a compliment.\n\nHe met Princess Severine Vermeil at a formal reception and formed his judgment of her in the first five minutes: here was someone who understood what her position required and was trying, against considerable odds and with insufficient support, to meet that requirement. She was young, she was isolated, and the wolves circling her wore jewels and called it courtesy. Brivash found this intolerable in the specific way he finds any threat to a legitimate claim intolerable — not emotionally, but formally, at the level of oaths and obligations.\n\nWhen the Emperor died, the clan's formal alliance with House Vermeil became politically awkward. Brivash received a diplomatic letter from home suggesting a posture of studied neutrality while the succession sorted itself out. He read the letter once, folded it carefully, and did not respond. His oath was not to a political convenience. When agents of Lord-Regent Crane's administration suggested, with exquisite politeness, that it might be appropriate for him to return home pending resolution of the succession question, he declined, with equal politeness, and began looking for ways to be useful outside the channels that Crane's people could observe."
+}

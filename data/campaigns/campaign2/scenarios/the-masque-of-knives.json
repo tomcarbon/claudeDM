@@ -1,0 +1,417 @@
+{
+  "id": "ct-scenario-002",
+  "title": "The Masque of Knives",
+  "subtitle": "Where Every Face is a Lie and Every Dance Ends in Blood",
+  "levelRange": "3-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The Gilded Reach — Aurelle House and Grounds",
+    "description": "Lady Vesper Aurelle's estate sprawls across the finest hill in the Gilded Reach, a district of manicured pleasure-gardens and gleaming manor houses where the great noble families of Veldoran conduct their slow, elegant war. The Aurelle estate is the jewel of the district: a three-story manor house of pale limestone and carved mahogany, its ballrooms large enough to stable a cavalry troop, its wine cellars older than the dynasty, its gardens a labyrinth of sculpted topiary and rose-hedged pathways that conceal as much as they reveal. Once a year, at the height of the Festival of the Bright Sangue, Lady Vesper hosts the Grande Masque — a masquerade of five hundred guests where the Empire's most dangerous people wear the most beautiful masks and say the most extraordinary things with perfect deniability, because at a masque nobody was quite themselves and no accusation could stick. This year, with the succession unresolved and three factions circling one another like wolves over a dying fire, the Grande Masque is not a social occasion. It is a battlefield with chandeliers.",
+    "atmosphere": "The air is heavy with beeswax candles, attar of roses, and the faint, iron-sweet smell of secrets. Every surface glitters — the chandeliers, the silver plate, the faceted gems sewn into half-masks of gilded leather and lacquered bone. Conversation is performance, silence is calculation, and the music never quite drowns out the sound of alliances being made and broken in quiet corners. Outside, the topiary garden breathes fog in the small hours of the morning, and among the sculpted hedges something hungers that did not receive an invitation. The Grande Masque is beautiful the way a sharpened blade is beautiful: entirely intentional, and capable of drawing blood without warning.",
+    "keyLocations": [
+      {
+        "name": "The Grand Ballroom",
+        "description": "The heart of the masque and the largest interior space on the estate: a rectangular hall sixty feet long and forty wide, lit by four enormous chandeliers hung with three hundred candles each, their light shattered into prismatic constellations by the crystal drops hanging between them. The floor is polished black marble inlaid with a crimson stag — the Vermeil sigil, a reminder that Lady Vesper's family owes its title to the dynasty she now navigates so carefully. Twin staircases sweep to a minstrel's gallery above, where a twelve-piece ensemble plays without pause. The ballroom is the place of public performance: formal greetings, the ceremonial first dance, the announcement of Lady Vesper's 'honors' (loaded compliments that signal political alignments to those who know the code). Nothing said in the ballroom is truly private, which means the most dangerous conversations happen elsewhere.",
+        "features": [
+          "The minstrel's gallery above, accessible from a discreet servants' stair — a vantage point for observation and eavesdropping",
+          "Four alcoves behind arras curtains on the east wall, traditionally used for quiet conversation and clandestine exchanges",
+          "The crimson stag floor inlay — a subtle reminder that even Lady Vesper's hospitality has a dynastic context",
+          "A servant's passage behind the north wall, running the length of the ballroom, used by Aurelle staff and exploitable by anyone who learns its entrance"
+        ],
+        "encounters": [
+          "The formal introductions gauntlet — every new guest must navigate Lady Vesper's ritual greetings, a Deception or Performance check to maintain a false identity",
+          "The three claimants' retinues maneuvering for favorable positions in the room, each creating social currents the party must navigate or exploit"
+        ],
+        "secrets": [
+          "One of the musicians in the gallery is a Carmine Veil operative, using the music as cover to pass coded messages between servants moving through the crowd",
+          "The servants' passage behind the north wall opens onto a narrow stair that descends to the wine cellars — Lady Vesper's private thoroughfare for guests she wants to move without observation"
+        ]
+      },
+      {
+        "name": "The Salon Wing",
+        "description": "A succession of smaller reception rooms off the main corridor east of the ballroom: the Blue Salon with its Veldoran silk wallcovering and its reputation for candid conversation; the Map Room, lined with charts of the Empire's provinces and used as a de facto war council chamber by anyone who can get a few moments alone with Duke Valmont's aides; and Lady Vesper's private audience chamber, which she calls the Ivory Salon, where the most important conversations of the evening will take place behind a locked door. The salon wing is where the real business of the Grande Masque is conducted: faction deals, blackmail exchanges, the reading of coded letters left in jacket pockets. It is also where the party will find the most damning evidence of the Conclave's involvement, if they know where to look.",
+        "features": [
+          "The Blue Salon: intimate, with a reputation for honesty — a social convention Lady Vesper enforces by exiling those who are caught lying there outright",
+          "The Map Room: large campaign maps of the frontier marches and the river valleys, with pins and colored ribbons marking troop positions — Valmont's aides have been busy",
+          "The Ivory Salon: Lady Vesper's private meeting room, locked (DC 15 Thieves' Tools), with a hidden document compartment behind the portrait of her late husband (DC 17 Investigation to find)",
+          "A discreet connecting passage between the Map Room and the wine cellars, normally kept locked but findable with DC 14 Investigation"
+        ],
+        "encounters": [
+          "A private conversation between Lord-Regent Crane and an unidentified hooded figure, overheard through a thin wall if the party positions themselves correctly in the Blue Salon",
+          "A diplomatic standoff between Severine's attendant and Valmont's aide, which the party can mediate, sabotage, or exploit for faction standing"
+        ],
+        "secrets": [
+          "The hooded figure meeting Crane is a Crimson Conclave intermediary — Brother Veth, a junior confessor in secular clothes — and the conversation concerns the timing of 'the offering' at 'the appointed hour during the dance,' meaning the assassination attempt on Severine",
+          "The hidden compartment in the Ivory Salon holds a sealed letter bearing the Sanguine Communion's wax seal but addressed in Crane's handwriting, detailing a payment to 'the Carmine arrangement' — the contract on Severine's life, routed through the Veil to deniable hands"
+        ]
+      },
+      {
+        "name": "The Topiary Garden and the Maze",
+        "description": "Behind the manor house, the estate gardens spread across two acres of immaculate Veldoran formal design: gravel paths between sculpted hedges of yew and hornbeam, rose parterre beds, an ornamental pond reflecting the manor's lights, and at the garden's far end, the great topiary maze — twelve-foot hedges grown into walls over a century and a half, the interior a quarter-acre of winding paths, dead ends, and a central clearing with a stone fountain in the shape of the Aurelle bear-and-sword crest. During the masque, guests drift into the garden for air and assignations; later in the evening, when the fog comes off the river, the garden empties of the innocent and fills with those who prefer not to be seen. The maze is the site of the scenario's sharpest combat: the assassination team — professional operatives dispatched to kill Princess Severine if she cannot be separated from the ballroom — uses it as their staging ground and their killing ground.",
+        "features": [
+          "The ornamental pond: a navigation landmark and potential hazard in a running fight (difficult terrain, three feet deep, very cold)",
+          "The maze entrance: an archway of carved hornbeam, visible from the manor's rear terrace, not from the ballroom windows",
+          "The central clearing and fountain: the assassination team's planned kill site, a twenty-foot circular space offering no cover except the fountain itself",
+          "Fog cover: after midnight, river fog rolls across the garden, reducing visibility to thirty feet and granting advantage on Stealth checks in the garden"
+        ],
+        "encounters": [
+          "The assassination team: four operatives in black half-masks, Veil-contracted but Conclave-paid, using the maze to ambush Severine and eliminate anyone with her",
+          "The rapier duel: a challenge issued publicly in the ballroom, settled privately in the garden — a legitimate duel gone wrong when the challenger is actually a distraction and the second draws a hidden crossbow"
+        ],
+        "secrets": [
+          "The lead assassin carries a token of the Crimson Conclave — a small disc of carnelian (the same blood-red stone as the Throne) inscribed on the reverse with the Conclave's private sigil, a thorned crown over three drops of blood",
+          "A second team of two Veil watchers is positioned near the ornamental pond to observe and report; they are not combatants and will flee if confronted, but carry coded messages that implicate their handler in the Shamble"
+        ]
+      },
+      {
+        "name": "The Wine Cellars",
+        "description": "Beneath the manor, accessible by a stone stair from the kitchens and by Lady Vesper's private passage from the salon wing, the cellars run the full footprint of the house and then some — vaulted chambers of dressed stone holding three generations of Aurelle vintages in rack upon rack, with a deeper, older section that the estate records call the 'Foundation Cellar' and that Lady Vesper's servants call, in whispers, the Bone Room. The Foundation Cellar was built on a pre-Vermeil structure that the estate's original owners used for purposes the church has since declared impermissible; the walls are still marked with faded sigils that a trained eye will recognize as early Communion iconography, predating the church's current aesthetic by two hundred years. It is here, in this oldest room, that the Conclave intermediary plans to perform a minor blood-rite to consecrate the assassination — a ritual that will leave physical evidence tying the plot to the church if the party can disrupt it and secure the materials.",
+        "features": [
+          "The main cellar: dimly lit by bracketed torches, long rows of wine racks creating a maze-like layout ideal for ambushes and concealment",
+          "The Foundation Cellar: a low-vaulted room, dry despite its age, with pre-Vermeil Communion sigils carved into the stone — DC 14 Religion to identify them as two centuries older than the current church's iconography",
+          "A locked iron door at the Foundation Cellar's far end, behind which the estate records indicate a 'sealed storage' area (DC 16 Thieves' Tools; behind it is a cold, empty room with a fresh chalk Conclave circle on the floor and a small locked chest)",
+          "The kitchen stair: a secondary access point monitored by Aurelle servants who can be bribed (DC 12 Persuasion + 5 gp) or deceived (DC 14 Deception)"
+        ],
+        "encounters": [
+          "Brother Veth performing the consecration rite in the Foundation Cellar, accompanied by two Aurelle staff he has bribed and pressed into service",
+          "A confrontation with the Veil handler who bankrolled the assassins, found retrieving a dead-drop from behind a wine rack near the kitchen stair — she will fight to escape and burn her papers if cornered"
+        ],
+        "secrets": [
+          "The locked chest behind the iron door contains Brother Veth's personal correspondence with High Confessor Mordent Vale himself, using a cipher the party can decode with DC 16 Investigation or Arcana — the letters discuss 'the Masque arrangement' in terms that make the Conclave's direction of the assassination unmistakable",
+          "The chalk Conclave circle incorporates blood drawn from a prior sacrifice — a DC 13 Medicine check reveals it is human, and recent, within the last week, suggesting the Conclave has already been conducting rites in the capital"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Armed with the ledger recovered in the Shamble and bearing hard-won invitations to the Grande Masque, the party infiltrates Lady Vesper Aurelle's masquerade in the Gilded Reach. The Grande Masque is the Empire's most consequential social event of the year, drawing all three succession claimants and their factions under one gilded roof for an evening that everyone knows will reshape the succession — no one yet knows it will also see blood on the marble. The Sanguine Communion's hidden arm, the Crimson Conclave, has used the Carmine Veil as a cutout to contract a team of assassins to kill Princess Severine during the festivities, eliminating the one claimant who is not their creature. The party must move through the masque's elaborate social theatre — establishing false identities, gathering blackmail, dancing and flattering and eavesdropping — while identifying the threat and deciding how to act on it. Their choices will determine faction standing with all three claimants and with the Veil, and the evidence they uncover — a Conclave token, letters bearing church seals, a pre-Vermeil blood circle in the cellars — will drive them toward the Cathedral in the next chapter.",
+  "hook": "The ledger Corvin Ashe died clutching in the Shamble named names. One of them — listed under the entry for 'widow's tears, ecclesiastical account 7' — was Castellan Brevick of House Aurelle, a minor functionary who handled the estate's supply contracts. Wren Sparrow, the party's Carmine Veil contact, has turned this into an invitation: a discreet word to a discreet forger, a sealed card bearing the Aurelle bear-and-sword, and now the party holds invitations to the Grande Masque under whatever names they choose to wear. The problem is that Wren herself received, through her guild's private channels, a warning she is not supposed to have seen: the Mother of Knives has accepted a contract against Severine Vermeil, to be executed during the masque. Wren does not know if she should tell the party. She tells them anyway, because she is trying very hard to be the kind of person who does. The party attends the most dangerous party in the Empire wearing strangers' faces, carrying a dead man's secrets, and knowing that somewhere among the five hundred masked guests there are killers waiting for the music to cover a scream.",
+  "acts": [
+    {
+      "title": "Act 1: The Invitation and the Lie",
+      "description": "The party arrives at the Grande Masque, establishes their false identities, and begins the delicate work of social navigation. They must convince Lady Vesper's social gatekeepers, identify the three claimants and their key retinue members, establish initial contacts, and pick up the first threads of the assassination plot from the gossip and movement patterns of the crowd.",
+      "objectives": [
+        "Pass Lady Vesper's entrance ritual and establish convincing false identities",
+        "Locate and assess all three succession claimants and their key attendants",
+        "Gather initial intelligence on the assassination plot through observation and conversation",
+        "Make meaningful contact with at least one claimant or high-value NPC",
+        "Identify the suspicious movement of Carmine Veil operatives within the masque"
+      ],
+      "scenes": [
+        {
+          "name": "The Welcome and the Scrutiny",
+          "description": "The party arrives at the Aurelle estate in whatever finery they can muster and passes through Lady Vesper's formal receiving line — a social ritual that is also a rigorous assessment. Lady Vesper has an extraordinary memory for faces, voices, and the fine gradations of lying, and her major-domo Cedric Cross examines every invitation with the attention of a man who knows that forgeries exist.",
+          "readAloud": "\"The torchlit avenue of linden trees leads you to the manor's main entrance, where a hundred other guests are filing in from their carriages under the watchful eyes of liveried footmen and two men near the door whose sword-hilts are visible beneath their formal coats. Above, the manor blazes with light — every window luminous, the chandeliers visible through the tall glass panes as constellations of gold. The air smells of rose water and expensive horses. You join the queue through the grand doors, and when you reach the receiving hall, you see her. Lady Vesper Aurelle stands at the center of a pool of candlelight in a gown of ivory silk and jet beadwork, a half-mask of white-lacquered bone covering the upper half of her face, her dark eyes beneath it taking in everything with the casual thoroughness of a woman who has been reading rooms since before she could read words. Beside her, her major-domo Cedric Cross holds the guest list in white-gloved hands. 'Your invitation,' he says, when you reach the head of the line, his tone making it neither a question nor a courtesy. 'And your name.'\"",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "Your false name and cover story pass Cross's examination without a wrinkle. Lady Vesper herself meets your eyes over Cross's shoulder and offers the particular smile she reserves for guests who have impressed her in some small way.",
+              "failure": "Cross pauses, comparing your face to the invitation with the expression of a man doing arithmetic he does not like. Lady Vesper steps forward and asks one perfectly calibrated question about your supposed mutual acquaintance. A second Deception check at DC 12 may salvage the situation, or the party may need to produce a bribe or a better lie."
+            },
+            {
+              "skill": "Performance",
+              "dc": 13,
+              "success": "Your bearing, deportment, and manner of speaking are entirely consistent with the class implied by your invitation. Cross marks you present with a small, satisfied nod.",
+              "failure": "Something is slightly off — a wrong vowel, an unfamiliar fork of etiquette. Cross's pen hesitates. You are admitted but noted as persons warranting a second look later in the evening."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Watching Lady Vesper's eyes during the receiving line, you notice she is not simply greeting guests. She is cataloguing reactions — watching who stiffens when Princess Severine's small party enters, who relaxes when Lord-Regent Crane arrives, who looks immediately toward the salon wing as if expecting a prearranged meeting. She is running the room already.",
+              "failure": "Lady Vesper is charming, gracious, and utterly opaque. You understand she is intelligent; her specific interests this evening remain unclear."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene establishes the masque's social register and introduces Lady Vesper as a key NPC — neither ally nor enemy at this point, but an enormously perceptive actor with her own agenda. She knows more about this evening than she will admit. If the party's false identities were well-constructed with Wren's help, this scene should be tense but winnable. If any character has particularly low Charisma or a conspicuous feature (Yrsa's half-orc heritage, Nyssa's tiefling horns), let the player address this creatively — the masque's mask convention provides some cover. Play up the spectacle of the arriving crowd: the sweep of gowns, the click of heels on marble, the dizzying multiplication of masked faces. This is a world the party has not moved through before, and it should feel it.",
+          "loot": [
+            "A masque program (hand-printed card listing the evening's formal events, dances, and 'honored announcements' in Lady Vesper's coded social shorthand — DC 13 Investigation to decode one significant item: 'The Sovereign Rose dance, third set, is Lady Vesper's signal for guests of particular importance to withdraw to the Ivory Salon')",
+            "Intelligence from a loose-tongued minor noble in the receiving queue: the Valmont faction arrived two attendants short of their expected number, suggesting bodyguards were repositioned elsewhere on the grounds"
+          ]
+        },
+        {
+          "name": "The Dance of Claimants",
+          "description": "The masque is in full flower. The three claimants and their factions circle the ballroom in the elaborate minuet of Veldoran politics — formal courtesies, loaded pleasantries, the careful public display of alliances and distances. The party must move through this field of social lightning without being struck, while gathering the intelligence they need about the assassination plot and the players behind it.",
+          "readAloud": "\"The ballroom is a universe of its own. Five hundred masked faces in every color and material drift and eddy beneath the chandeliers — gilded ceramic, carved ebony, silver filigree, one extraordinary construction of blue peacock feathers that belongs to someone very certain of their own magnificence. The music is a stately pavane, and couples move through its figures with the mechanical grace of people who have been trained from childhood never to look as though they are thinking. At the north end of the room, beneath the largest chandelier, Princess Severine Vermeil stands in a gown of deep crimson, her mask a simple half-face of white silk with a painted crimson stag — making her identity a deliberate statement of defiance. She is surrounded by exactly four attendants, all of them watching the room with the eyes of people who know they are outnumbered. At the south end, Lord-Regent Crane moves through the crowd like water finding the lowest course, smiling at everyone, pausing for brief words that somehow always leave the recipient looking thoughtful rather than pleased. And near the east windows, a broad-shouldered figure in a soldier's formal coat and a plain iron mask stands still while the crowd moves around him like a river around a rock: Duke Roderick Valmont, who has not bothered to dance and does not appear to intend to.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "You navigate a conversation with one of the claimants or their key attendants, establishing enough rapport for a private word later in the evening. The contact is guarded but willing. Choose which claimant faction to approach first — the outcome affects faction standing.",
+              "failure": "The conversation is polite and ends without purchase. You have made no enemy, but you have made no headway either. Try a different approach or a different target."
+            },
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "Watching the crowd's motion over several minutes, you notice a pattern: three guests in unmatched grey half-masks have stationed themselves at each of the ballroom's exits. They are not socializing and they are not drinking. They are watching Severine. One of them makes brief eye contact with a servant near the salon corridor and gives the slightest nod.",
+              "failure": "The crowd is enormous and in constant motion. You note that Severine's party looks tense, but so does everyone near the Lord-Regent. The specific threat pattern does not resolve."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "From the gallery above, or a carefully chosen alcove below, you catch fragments of a conversation between Lord-Regent Crane and a man in a confessor-grey cloak over formal clothes: '...the appointed hour...the garden side...she must be outside the ballroom...' before the music swells and obscures the rest.",
+              "failure": "The music and the ambient conversation create an impenetrable wall of sound. You can see Crane in close conversation with someone but cannot hear a word."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 14,
+              "success": "You reach the servants' passage behind the north wall and move the length of the ballroom unseen, emerging in position to observe the salon corridor and the east alcoves without being noticed yourself.",
+              "failure": "A footman spots you entering the passage and moves to intercept. You must talk your way out (DC 12 Persuasion or Deception) or withdraw before you are marked as a person of interest."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the social heart of the scenario and should run long enough to feel genuinely immersive. Give each player a different social angle to pursue — the party does not have to move as a unit and probably should not. One character might shadow the grey-masked watchers; another might dance with Severine's attendant and extract information through charm; a third might plant themselves near Crane and eavesdrop. Use the three claimants as distinct presences with distinct body language and social gravity: Severine is quietly brave and alert, aware she is in danger and determined not to show it; Crane is the most socially adept person in the room, and every conversation with him should leave the party feeling they revealed more than they intended; Valmont is blunt, watchful, and genuinely does not enjoy this, which makes him paradoxically more approachable than the polished courtiers. Track faction standing adjustments based on whom the party courts and what promises or impressions they leave. The Carmine Veil operatives — the grey-masked watchers — should be identifiable through observation before the party needs to act on it.",
+          "loot": [
+            "A dance card picked from a pocket by a dexterous character (DC 13 Sleight of Hand) belonging to one of the grey-masked watchers: it lists no dances but has a time and the notation 'garden gate, second bell after midnight' in cipher (DC 14 Investigation to decode)",
+            "A signed note pressed into a character's hand by one of Severine's attendants if the party made contact with her faction: 'She knows. She wants to speak privately. Third alcove, during the pavane. Come alone or do not come.' This is genuine — Severine has her own intelligence network and has already identified the party as unknowns worth investigating"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Blade Beneath the Rose",
+      "description": "The masque moves into its later hours and the real machinery of the evening begins to move. The assassination plot accelerates toward execution. The party must gather the crucial evidence in the wine cellars and the salon wing while simultaneously tracking and confronting the assassins before they can reach Severine. A duel is issued publicly, designed as a diversion, and the true killers slip into the garden. The party faces a split of attention and a window of violence.",
+      "objectives": [
+        "Uncover the evidence in the Ivory Salon or the wine cellars linking the assassination to the Sanguine Communion",
+        "Identify the full assassination team and their plan before it is executed",
+        "Survive or defuse the duel-as-diversion",
+        "Intervene in the garden maze before or during the assassination attempt on Severine",
+        "Secure at least one piece of hard evidence tying the plot to the Conclave"
+      ],
+      "scenes": [
+        {
+          "name": "The Ivory Salon and the Cellars Below",
+          "description": "While the ballroom's attention is consumed by the formal 'Sovereign Rose' announcement and the political maneuvering it triggers, the party has a narrow window to investigate the Ivory Salon and potentially descend to the wine cellars. Both locations hold evidence that will become critical later. Time is not unlimited — the masque's clock is running, and the assassination is scheduled for the second bell after midnight.",
+          "readAloud": "\"The corridor east of the ballroom is quieter than the great hall — a different kind of quiet, not peaceful but watchful. Candles burn in wall-sconces at long intervals, leaving the spaces between them in soft shadow. From behind the closed door of the Blue Salon you hear lowered voices, the particular tone of people saying important things carefully. The door to the Ivory Salon stands at the corridor's end, its handle a cast bronze bear — the Aurelle crest. The lock is a good one. Beyond a turning in the corridor, a plain door with no crest stands slightly open, and a cold draft carries from it the smell of stone and old wine and something darker underneath, like old copper. Two paths. The clock on the corridor wall reads half past the eleventh hour.\"",
+          "skillChecks": [
+            {
+              "skill": "Thieves' Tools",
+              "dc": 15,
+              "success": "The Ivory Salon lock yields in under a minute. The room beyond is exactly what you expected — a small, elegant meeting room — and exactly what you did not. Behind the portrait of the late Lord Aurelle, a shallow compartment holds a sealed letter bearing the Sanguine Communion's red wax sun-over-chalice seal, but the handwriting on the address is Lord-Regent Crane's. The letter is addressed to no one, because it was never meant to leave this room; it was Crane's insurance, hidden where a trusted intermediary could retrieve it.",
+              "failure": "The lock resists. Three minutes pass. You hear footsteps approaching from the ballroom corridor — a servant, or someone else. You must abandon the attempt or take the risk of being found at a locked door."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 17,
+              "success": "Searching the Ivory Salon thoroughly — including the compartment behind the portrait — you find not only the sealed letter but a second item: a small carnelian disc the size of a coin, inscribed on one face with the Sanguine Communion's public sun-over-chalice and on the reverse with a mark you have not seen before — a thorned crown over three drops of blood. It means nothing to you yet. It will.",
+              "failure": "The letter in the portrait compartment is found on a lower DC check, but the carnelian disc was tucked into the underside of the desk drawer and requires a more thorough search than time permits."
+            },
+            {
+              "skill": "Religion",
+              "dc": 14,
+              "success": "Descending to the Foundation Cellar, you recognize the carved sigils on the walls immediately. They are Communion iconography, but wrong — older than the current church by at least two centuries, predating the reform of the rites under the third Vermeil emperor. These marks are from the original covenant ceremonies, the ones the church's official history calls 'primitive error.' Someone has been using this room for rituals that the church does not officially permit.",
+              "failure": "The sigils are clearly religious in character and clearly old, but their specific period and significance within the Communion's history is beyond your knowledge. They feel wrong, but you cannot articulate why."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You reach the Foundation Cellar in time to observe Brother Veth — a young man in a confessor's grey coat worn over a formal shirt, his face pale with the focused intensity of someone performing a memorized ritual — drawing the final lines of a chalk circle on the floor, two bribed Aurelle servants watching the door. He has not noticed you. You can observe, interrupt, or wait.",
+              "failure": "The kitchen stair creaks under your weight. One of the servants at the Foundation Cellar door turns and shouts. Brother Veth spins, knocking over his chalk, and the confrontation becomes immediate."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Brother Veth (use Acolyte stat block, CR 1/4, armed with a ritual knife he is not trained to use — attack +2, 1d4+0 piercing; AC 10 in formal clothes; 9 HP; Spells: Sacred Flame, Guidance, Cure Wounds x1 — he is a bureaucrat, not a warrior)",
+                "2 bribed Aurelle servants (use Commoner stat block, CR 0, carrying kitchen knives; they will flee if Veth is incapacitated or if either of them is reduced below half HP)"
+              ],
+              "difficulty": "Easy",
+              "tactics": "Brother Veth's priority is destroying evidence — he will grab his satchel of correspondence and attempt to burn it in the chalk circle or scatter it into the wine racks rather than fight. If cornered without an escape route, he is cowardly and will offer information in exchange for his life. He knows the full outline of the assassination plan, the identity of the lead assassin (a Veil contractor named Sable), and the Conclave's chain of command for the operation — though he does not know High Confessor Vale by name, only as 'the Shepherd.' The servants attack only in self-defense.",
+              "terrain": "Foundation Cellar, 25 feet by 20 feet, low stone ceiling. Wine racks provide half cover. The chalk circle on the floor is not magically active yet but the materials (blood, ash, a small quantity of widow's tears in a vial) are physically dangerous if the vial is broken — DC 12 Constitution save or poisoned for 1 hour. The kitchen stair exit is the only one not blocked by the party's entry."
+            }
+          ],
+          "roleplayNotes": "Brother Veth is a true believer in the Conclave's mission, but he is young and frightened and in over his head. If the party captures and questions him without killing him, he is a significant information source — he can name Crane's involvement, confirm the assassination's target and timing, and describe the lead assassin's appearance (a tall woman in a black gown and a raven mask). He will not willingly name the Shepherd but can be broken with a DC 14 Intimidation or DC 16 Persuasion check. The sealed letter from the Ivory Salon, combined with the carnelian disc and Veth's testimony, constitutes the 'hard evidence' the scenario requires. The party should leave the cellars knowing they are running out of time — the second bell after midnight is the assassination's trigger, and the clock is moving.",
+          "loot": [
+            "The sealed letter (quest item — Crane's handwriting, Communion seal, references 'the Masque arrangement' and an account number matching Corvin Ashe's ledger from scenario 1; connects the Emperor's poisoning to the current assassination plot)",
+            "Brother Veth's satchel (if secured before he destroys it): personal correspondence with the Conclave in cipher (DC 16 Investigation to decode fully; partial decode on DC 13 reveals references to 'the Shepherd,' 'the Renewal,' and a date six weeks hence — the coronation window)",
+            "A vial of widow's tears (quest item and poison; identical formulation to the one used on the Emperor, per the ledger; DC 15 Medicine to confirm the match)",
+            "12 gp on Brother Veth's person and a Communion seal ring (worth 8 gp as silver, priceless as evidence)",
+            "The carnelian disc with the Conclave's private sigil — the thorned crown over three drops of blood (quest item, connects to the Cathedral in scenario 3)"
+          ]
+        },
+        {
+          "name": "Steel in the Garden",
+          "description": "The ballroom erupts in the controlled scandal of a public challenge — a young Valmont retainer has accused a man in Crane colors of cheating at cards, and the formal demand for satisfaction empties the east side of the room as spectators jostle for position. It is, of course, manufactured: the duel is a diversion, and as every eye in the ballroom turns east, Severine's grey-masked watchers use the chaos to maneuver her toward the garden doors. The real killers are already in the maze.",
+          "readAloud": "\"The challenge comes at the eleventh hour and fifty minutes, which you now understand is not a coincidence. A Valmont retainer in a green-and-gold domino mask throws a card at a man in Crane blue and raises his voice above the music: 'You are a cheat and a coward, sir, and I will have satisfaction.' The music stops. Five hundred masked faces turn. The Lord-Regent himself moves toward the east alcoves to watch, taking half the room's attention with him. And in the sudden repositioning of the crowd — in the moment when everyone is looking east and no one is looking west — you see it: two of the grey-masked watchers at Severine's sides, steering her, her own face turning in confusion as they press toward the garden doors. She does not understand what is happening. She is trusting people she should not trust. The garden doors open onto fog and silence, and the topiary swallows them.\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "The Valmont retainer's challenge is too precisely timed and too perfectly escalating to be spontaneous. This is choreography. Someone in the Valmont camp was paid to make noise at exactly this moment — not a faction move, just a diversion-for-hire, the kind of work the Carmine Veil sells to anyone with coin.",
+              "failure": "The challenge appears genuine. You lose a round of action responding to what seems like a real crisis before the movement toward the garden doors catches your eye."
+            },
+            {
+              "skill": "Athletics or Acrobatics",
+              "dc": 12,
+              "success": "You push through the crowd and reach the garden doors before they close, maintaining line of sight to Severine's group as it enters the topiary path.",
+              "failure": "The crowd is a wall of formal wear and elbows. You lose the group for thirty seconds — enough time for them to enter the maze proper. You must navigate the maze entrance without a guide."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "2 grey-masked watchers posing as Severine's escort (use Spy stat block, CR 1, rapiers and daggers; they are Veil contractors and will fight to protect their mission but will break if outnumbered and surrounded)",
+                "The lead assassin Sable (use Assassin stat block, CR 8, but reduced to effectively CR 5 at the party's level: HP 60, AC 15 leather armor under a formal gown, rapier +6 attack 1d8+4 piercing plus 3d6 poison on a failed DC 14 Constitution save on first hit per turn; Crossbow +6 1d8+4 piercing, Multiattack x2 in melee; Cunning Action; Sneak Attack 3d6 — she is professional, cold, and will retreat rather than die if seriously outmatched)",
+                "1 additional Veil operative acting as Sable's lookout near the maze entrance (use Thug stat block, CR 1/2; will attempt to delay pursuit rather than fight to the death)"
+              ],
+              "difficulty": "Hard",
+              "tactics": "The maze fight is the scenario's primary combat and should feel dangerous and mobile. Sable is a professional — she positions herself in the central clearing near the fountain where she has sightlines to the maze paths, uses the fog for concealment when moving between positions, and targets healers and spellcasters first. The two watcher-escorts attempt to slow the party at the maze entrance while Sable positions herself for the kill shot on Severine, who is unarmed and untrained. If the party separates, one member should be able to reach Severine and position themselves as a shield while others engage the assassins. Sable fights with absolute economy: no taunts, no speeches, just clean efficient violence. If reduced below 20 HP, she disengages and attempts to flee over the garden wall rather than die. On the lead assassin's body (or dropped equipment if she flees): a carnelian token matching the one in the Ivory Salon — the Conclave's commission mark. She will not reveal who hired her even under duress; she will, however, confirm that her contract came through the Veil, not directly from the church, and that the payment was accompanied by a 'Communion letter of surety' — church-backed currency.",
+              "terrain": "The topiary maze, paths five feet wide between twelve-foot hedges, with a twenty-foot circular clearing at the center around a stone fountain. Fog reduces visibility to thirty feet. The fountain provides three-quarter cover when crouched behind it. Hedge corners are blind — creatures moving around them have advantage on Stealth checks. The ornamental pond is fifteen feet south of the maze entrance, three feet deep, difficult terrain. One of the topiary animals (a sculpted bear, eight feet tall) is positioned near the clearing and can be climbed with DC 12 Athletics for a height advantage."
+            }
+          ],
+          "roleplayNotes": "The garden combat is the scenario's emotional crescendo and should feel like a release of the evening's accumulated tension. Severine, once the immediate threat is neutralized, is neither a helpless victim nor a passive reward — she is angry, frightened, and formidably intelligent, and her first act after the fight is to demand to know who the party actually is and how they knew about the threat. This conversation, conducted in the foggy garden over the bodies of assassins, is one of the scenario's most significant roleplay moments: Severine Vermeil is deciding whether to trust the party, and the party is deciding whether to tell her the truth. What they share, and what they withhold, shapes their relationship with the most important surviving Vermeil for the rest of the campaign. Play Severine as a woman who has spent her entire life being underestimated and who is done with it: she asks precise questions, listens without interruption, and visibly calculates. She is not grateful in the simpering way of fictional princesses. She is grateful the way a commander is grateful to soldiers who held a line she did not know was threatened.",
+          "loot": [
+            "Sable's rapier (masterwork weapon, +1 to attack rolls, worth 350 gp — or kept as a trophy)",
+            "Sable's equipment belt: 3 vials of Veil-standard contact poison (injury poison, DC 13 Constitution save or 2d6 poison damage per round for 3 rounds, neutralized by antitoxin), a garrote of braided silk, a compact grappling hook and 30 feet of thin black cord",
+            "The carnelian commission token on Sable's person (quest item — matches the one in the Ivory Salon, confirms the same organization commissioned both the assassination and the cellar rite)",
+            "A letter of introduction (unsigned, on Sanguine Communion letterhead) that reads only: 'The bearer has rendered service to the Shepherd's purpose. Honor her contract without question.' Worth nothing in gold; worth everything as evidence",
+            "22 gp and 3 Aurelle estate jewels (stolen from guests as cover for the Veil operatives' presence), worth 45 gp total"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Morning After the Masque",
+      "description": "The assassination has been foiled and the evidence gathered. Now the party must extract themselves and their intelligence from the Gilded Reach before the Conclave and the Veil realize what has been lost, manage the consequences of the evening's violence, and find their path forward toward the Cathedral. Lady Vesper, who is both more informed and more involved than she appeared, offers one final conversation that closes the evening and opens the next chapter.",
+      "objectives": [
+        "Secure all gathered evidence and ensure the party's exit from the estate before Watch involvement",
+        "Resolve the conversation with Princess Severine and establish faction standing with her",
+        "Navigate Lady Vesper's post-masque accounting — she knows more than she let on, and she will collect her due",
+        "Identify the Conclave sigil on the commission token and understand what it points toward",
+        "Exit the scenario with clear motivation to investigate the Cathedral"
+      ],
+      "scenes": [
+        {
+          "name": "The Reckoning with Lady Vesper",
+          "description": "As the masque's clock approaches the second hour after midnight and the last sober guests are calling for their carriages, Lady Vesper sends word through a servant that she wishes a private word with the party. The Blue Salon is empty at this hour, the candles burning low. She knows — or suspects — something significant happened in her cellars and her garden, and she is not the sort of woman who lets significant things happen on her property without understanding them.",
+          "readAloud": "\"The Blue Salon is quiet at this hour, emptied of the earlier crowd, the silk wallcovering seeming to absorb the last of the candlelight. Lady Vesper has removed her mask. Without it, she is older than you expected and sharper — a lean woman in her early fifties with iron-grey hair and the eyes of someone who has outlived three political regimes by being useful to all of them. She is still wearing her gown, but one hand holds a glass of something dark red, and she does not offer you any. She looks at each of you in turn with the same expression a moneylender uses when reviewing accounts. 'Something happened in my cellars tonight,' she says at last. 'And something happened in my garden. I am not a fool, and I am not going to pretend otherwise. What I would like from you is a choice: you tell me what it was, and in exchange I tell you what I know about the thing it is part of. Or you tell me nothing, in which case I tell you nothing, and you leave my estate by the servants' entrance before the Watch arrives to count the unconscious men in my topiary.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Lady Vesper is not bluffing about the Watch — one of her footmen has already been sent to delay their arrival, meaning she is also delaying them, not summoning them. She wants the information more than she wants the party arrested. The question is what she intends to do with it.",
+              "failure": "Lady Vesper's expression is perfectly controlled. Whether she is genuinely in the dark or simply negotiating from a position of feigned ignorance is impossible to determine."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "You share enough of the truth — the Conclave connection, the assassination contract, the evidence gathered — to satisfy Vesper without revealing everything. In exchange, she tells you what she knows: Castellan Brevick, the name from Corvin Ashe's ledger, confessed to her three days ago that he had been approached by a church official to allow 'a small private ceremony' in the Foundation Cellar. She had him beaten and dismissed. She did not go to the Watch because she did not yet understand who was behind it. She does now. 'The Cathedral,' she says. 'Whatever you are looking for, it is in the Cathedral. And the Sanguinarium beneath it. There is a man called the Shepherd, and I have heard his name in connection with two other deaths this year that were ruled natural causes.'",
+              "failure": "Vesper receives your partial truth with polite skepticism and provides only minimal reciprocation — Brevick's name and a general warning that 'the church is not what it presents itself as,' which the party already knew. A supplementary DC 13 Insight check can reopen the negotiation."
+            },
+            {
+              "skill": "Deception",
+              "dc": 17,
+              "success": "You construct a plausible alternative account that satisfies Lady Vesper's immediate questions without revealing the depth of what you found. She accepts it, but her eyes say she does not entirely believe you — she files the discrepancy away for later, which is exactly how Lady Vesper Aurelle operates.",
+              "failure": "Lady Vesper stops you mid-sentence. 'You are lying to me,' she says without rancor, 'which is your right. But I have been lied to by professionals, and you are not quite professionals.' A new Persuasion DC 14 opens to try a more honest approach."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Lady Vesper is one of the campaign's most interesting recurring NPCs — an information broker who operates through social authority rather than faction allegiance, who has survived three regimes by knowing exactly when to share what she knows and with whom. This conversation should feel like a negotiation between intelligent adults, not an interrogation. She is not hostile to the party; she is assessing them. If they impress her — with honesty, with the quality of their evidence, with demonstrated competence — she becomes a valuable asset: a person in the Gilded Reach who owes them a favor, who has access to noble gossip and official schedules, and who can smooth their path into Coronne's upper registers. If they try to deceive her badly, she becomes a complication without becoming an enemy. She will not betray them to the Conclave under any foreseeable circumstances — she knows the Conclave's players too well to want to be in debt to them.",
+          "loot": [
+            "Lady Vesper's contact address in the Gilded Reach (a calling card with a private cipher for reaching her via a specific bookseller in the upper Shamble — worth more as an asset than any gold)",
+            "A sealed note from Severine, delivered via Lady Vesper's servant before Severine's party departed: it names a meeting point in the Cathedral precinct's public gardens, two days hence, and asks the party to bring 'whatever you found in the cellars.' Signed only with a small painted crimson stag."
+          ]
+        },
+        {
+          "name": "Evidence and Exodus",
+          "description": "The party makes their exit from the Aurelle estate as the pre-dawn grey begins to lighten the garden. The fog is thick, the last carriages are departing, and the Watch — whose arrival Lady Vesper delayed as long as she could — will be at the gate within the hour. The party has what they came for. They now need to leave before anyone looks too closely at the unconscious men in the topiary.",
+          "readAloud": "\"The garden is silent in the hour before dawn, the fog settled thick and white between the hedges, the sculpted animals looming out of it like creatures half-remembered from a dream. The last carriage lanterns are disappearing down the linden avenue. Somewhere beyond the estate wall, the city is waking — the distant clang of a market bell, the bark of a dog, the rumble of delivery carts on the stone roads of the Gilded Reach. You stand in the servants' yard with everything you came for: the sealed letter, the vial, the token, the testimony of a frightened confessor, the memory of a princess who looked at you across the fog-shrouded garden and said nothing for a long moment before saying, 'I did not know how close it was.' You have a name: the Shepherd. You have a destination: the Cathedral. And you have, in the pale cold of the last hour of the masque, the absolute certainty that the thing beneath the Crimson Throne is more awake and more hungry than anyone in the Empire yet understands. The road to Coronne is three miles. The Sanguine Cathedral's towers are visible from the city gate, rising above the river mist like something that has always been there and always will be. The question is what you will find when you go inside.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "The party exits through the servants' gate before the Watch arrives, unobserved and unrecorded. No warrant will be issued for persons matching your descriptions.",
+              "failure": "A Watch sergeant at the gate stops the party for questioning (DC 13 Deception to account for your presence, or DC 14 Persuasion to convince him the matter is handled; failure here means a Notoriety increase of 1 with the City Watch and the possibility of being followed)"
+            },
+            {
+              "skill": "Investigation",
+              "dc": 15,
+              "success": "Examining the carnelian commission token in good light, you notice that the thorned crown on the reverse is not merely decorative — the thorns are positioned to form letters in an archaic Veldoran script that predates the current alphabet. The letters spell a word: SANGUA. The old word for blood-covenant. This is not just a faction token. It is a liturgical seal.",
+              "failure": "The carnelian disc is clearly significant and clearly ecclesiastical, but its deeper meaning is beyond your current understanding. A cleric or a scholar might be able to interpret the reverse inscription."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This closing scene is deliberately quieter and more reflective than what preceded it. The party has survived a genuinely dangerous evening and gathered information that changes the shape of the conspiracy — they now know the Conclave is behind both the Emperor's death and the attempted assassination of Severine, they have physical evidence linking Crane to the Conclave's operations, and they have a direction: the Cathedral. Let the scene breathe. Give each character a moment to react to what they learned — particularly Sister Aveline, if she is in the party, for whom the church's involvement should land with personal force; and Magister Elias Crane, whose distant family connection to the Lord-Regent has just taken on a significantly darker character. The scenario should end not on a note of triumph but on a note of reckoning: the party has climbed one rung of a very dark ladder and can now see farther into the abyss below.",
+          "loot": [
+            "All evidence gathered through the scenario (the sealed letter, the vial of widow's tears, Brother Veth's correspondence, the two carnelian tokens, the letter of Communion surety from Sable's effects) — these are cumulative quest items, not individual scene loot, and their value is narrative",
+            "Wren Sparrow's message, delivered by a Shamble runner boy who somehow found the party at the estate gate (Wren has eyes everywhere): 'The Mother has been told the contract failed. She is not pleased. Whoever hired through us will be looking for another route. Watch the Cathedral precinct. And for the love of the river, be careful.' No signature."
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Lady Vesper Aurelle",
+      "role": "Hostess / Information Broker",
+      "description": "A lean woman in her early fifties with iron-grey hair worn in an elaborate formal arrangement and eyes the dark amber of old wine, Lady Vesper is the most accomplished social operator in the Gilded Reach and quite possibly in the Empire. She has no formal political faction and holds no title beyond the one her late husband's land conferred, which is exactly the source of her power: she is useful to everyone and owned by no one. She has hosted this masquerade for twenty-two years and has watched the Empire's rot progress with the clear-eyed concern of a woman who knows that her comfort depends on the social order holding together just a little longer.",
+      "motivation": "Vesper wants stability — not because she is naive about the Empire's corruption, but because she is old enough to remember the last time the succession was contested by force, and she knows what the alternative to gilded rot looks like. She will provide the party with genuine assistance if they demonstrate they are working toward a resolution that does not involve the city burning. She is more deeply informed about the Conclave's movements than she initially admits, having been watching them since Castellan Brevick's confession."
+    },
+    {
+      "name": "Princess Severine Vermeil",
+      "role": "Protected Target / Potential Ally",
+      "description": "The late Emperor's only acknowledged child arrives at the masque in deliberate crimson, her identity on display rather than concealed, her mask the simplest in the room — an act of political theater that says she will not hide her name in her father's city. She is nineteen years old and has had four years of political education compressed into the six weeks since her father's death. She is clever in the way of someone who learned to be clever out of self-preservation, warm in the way of someone who is still surprised when warmth is returned, and considerably braver than the people around her give her credit for.",
+      "motivation": "Severine wants her father's crown, not for its power but because she genuinely believes she is the only claimant who will not burn the Empire down in the getting of it. She has her own intelligence sources, fragile and limited, and she is already aware that the Conclave is moving against her. She needs allies who are not already in someone else's pocket — which makes the party, strangers with no declared faction, uniquely interesting to her."
+    },
+    {
+      "name": "Lord-Regent Aldous Crane",
+      "role": "Antagonist (Hidden) / Political Force",
+      "description": "The Lord-Regent attends the Grande Masque without a mask, which is itself a statement: he has nothing to hide, and he would like you to believe that. He is a tall, spare man of sixty with scholar's hands and a diplomat's smile that begins in his eyes and stops before it reaches them. He controls the mechanisms of state — treasury, granaries, court schedules — and deploys that control with the patience of a man who has been playing a longer game than anyone in the room yet realizes. His connection to the Crimson Conclave is the campaign's central hidden fact, and nothing in his conduct tonight will reveal it to a casual observer.",
+      "motivation": "Crane is the Conclave's chosen instrument for the succession. He does not intend to sit the Crimson Throne himself — he intends to sit beside whoever does and hold the real power from that position, backed by the Conclave's supernatural leverage. The assassination of Severine is his most direct act of aggression so far, conducted through two layers of deniability, and he will be genuinely disturbed — though he will not show it — when it fails."
+    },
+    {
+      "name": "Duke Roderick Valmont",
+      "role": "Complicating Force / Potential Ally",
+      "description": "The frontier general attends the masque because he was told it would be rude not to, and he considers rudeness a waste of energy better spent on directness. He is fifty-three, broad as a barn door, with a campaigner's hands and a soldier's plain iron mask that he chose because it was the one his orderly suggested and he did not have strong feelings about it. His twenty thousand soldiers are three days' march from the capital. He is not plotting a coup; he is waiting to see if a coup is necessary. He genuinely admires honesty and despises what he correctly identifies as the masquerade-as-usual political culture of Coronne.",
+      "motivation": "Valmont wants the Empire stabilized under a ruler who will pay his soldiers and feed the border provinces. He would prefer not to march on the capital — he knows what marching on a capital costs, in coin and in blood. If the party can demonstrate that there is a subtler path to resolution, he will listen. He is the scenario's most accessible claimant for a direct approach precisely because he is not playing the social game."
+    },
+    {
+      "name": "Sable",
+      "role": "Antagonist / Lead Assassin",
+      "description": "A tall woman in a black silk gown and a raven half-mask, Sable is a senior Carmine Veil contractor who handles 'appointments of the highest sensitivity' — the guild's language for political assassination. She has no other name on record. Her manner in the brief window before violence is entirely social: she dances, she makes small talk, she accepts champagne and does not drink it. She is the most dangerous person in the ballroom and the least interesting to look at, which is precisely the point.",
+      "motivation": "Sable is professional and transactional. She took the contract, she intends to complete it, and she will evaluate the cost-benefit of fighting the party against the cost-benefit of retreating and taking a kill fee. She is not loyal to the Conclave — she does not know who the Conclave is, only that their letters of surety clear the guild's highest-tier payment standard. If she escapes, she becomes a recurring complication: she does not take failure personally, but she does not forget faces."
+    },
+    {
+      "name": "Brother Veth",
+      "role": "Antagonist (Minor) / Information Source",
+      "description": "A junior confessor of the Sanguine Communion, Veth is twenty-six years old and terrified. He was assigned the consecration rite in the cellars because he is too junior to be missed if something goes wrong and too indoctrinated to refuse a direct Conclave instruction. He believes in the Renewal with genuine if anxious faith. He has never done anything violent in his life. He carries enough documentary evidence to implicate the Conclave if the party is thorough in securing his satchel.",
+      "motivation": "Veth wants to complete the rite, receive the Shepherd's approval, and return to the Cathedral alive. When confronted, his priority shifts immediately to self-preservation — he will offer information for immunity from injury with very little prompting, though extracting specific names requires pressure."
+    },
+    {
+      "name": "Wren Sparrow",
+      "role": "Ally / Complication",
+      "description": "The party's Carmine Veil contact does not attend the masque — she is not invited and would not risk the exposure. She is, however, watching its approaches and managing the intelligence flow to the party as best she can from outside the estate. Her warning about the assassination contract came from a fragment of intercepted guild communication that she was not supposed to see, and sharing it with the party constitutes a second act of disobedience against the Mother of Knives in as many weeks. She is increasingly aware that she has chosen a side and that the Mother will eventually notice.",
+      "motivation": "Wren is trying to be on the right side of what she increasingly suspects is a genuinely catastrophic conspiracy, even at considerable personal risk. The Mother of Knives' displeasure is not a small thing. She gives the party what she can, when she can, and asks only that they understand what it costs her."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "gold": "95 gp total (22 gp from Sable's effects, 45 gp in stolen jewels from Veil operatives, 12 gp from Brother Veth, plus miscellaneous coin from the cellar confrontation; Lady Vesper's estate does not pay bounties)",
+    "items": [
+      "Sable's masterwork rapier (+1 to attack rolls, elegant Veil craftsmanship, worth 350 gp)",
+      "3 vials of Veil-standard contact poison (injury, DC 13 Constitution save or 2d6 poison damage per round for 3 rounds)",
+      "The sealed letter in Crane's handwriting (quest item — connects the Emperor's assassination account to the current Conclave plot)",
+      "The carnelian commission token with the Conclave's private sigil (quest item — the thorned crown inscription reads SANGUA in archaic script; points toward the Cathedral)",
+      "A Communion letter of surety signed by an unnamed church official (quest item — written on Cathedral paper, worth nothing in gold, everything as evidence)",
+      "Vial of widow's tears (quest item and poison — matches the formulation from Corvin Ashe's ledger; DC 15 Medicine to confirm)",
+      "Brother Veth's satchel of ciphered Conclave correspondence (quest item — decoded references reveal the Shepherd's title, the Renewal's timeline, and the Sanguinarium location)",
+      "Communion seal ring (8 gp as silver, priceless as evidence of Conclave rank)",
+      "Lady Vesper's calling card with private cipher (social asset — access to Gilded Reach information network)",
+      "Severine's sealed note with meeting location (quest item — opens access to the Princess and her faction for scenario 3)"
+    ],
+    "story": "The party has prevented the assassination of Princess Severine Vermeil and gathered the first hard evidence that the Sanguine Communion's inner circle — the Crimson Conclave — is orchestrating the succession crisis from behind the church's public face. Lord-Regent Crane is confirmed as the Conclave's instrument, though the chain of command above him remains obscure. The carmine token points toward the Cathedral and the Sanguinarium beneath it. Faction standing has shifted: the party's relationship with Severine's loyalists depends on how openly they aided her; their standing with the Carmine Veil is complicated by their interference with a guild contract; and Crane's administration will not move openly against them yet, but they have been marked. The Mother of Knives is dissatisfied with the evening's outcome and will be asking questions. The road to the Cathedral is now the only road forward."
+  },
+  "twists": [
+    "The two grey-masked watchers who escorted Severine into the garden were not Conclave plants — they were genuine Severine loyalists who had been separately deceived by a forged note telling them Severine needed to be moved for her safety. The Conclave's operational sophistication is such that they turned Severine's own guard against her without the guards ever knowing it.",
+    "The Valmont retainer who issued the dueling challenge genuinely believes it was his own idea, arising from a card game that Crane's people arranged to go badly in exactly the right way. Duke Valmont does not know his man was used as a diversion; if he finds out, his fury at being manipulated will make him more receptive to the party's overtures, not less.",
+    "Lady Vesper Aurelle knew about the assassination contract twenty-four hours in advance — she has a Carmine Veil source of her own, too discreet for Wren to know about. She chose not to warn anyone, instead arranging the evening so that people with an interest in stopping it would have the opportunity to do so. Whether this makes her an ally, a manipulator, or both is a question the party may wrestle with.",
+    "The carnelian token bears the same material as the Crimson Throne itself. This is not coincidence: the Conclave uses shards of carnelian broken from the throne-vault's outer stone as commission seals for operations sanctioned at the highest level. A DC 16 Arcana or DC 15 History check allows a character to recall that carnelian holds significance in early Veldoran covenant theology — but the full implication awaits the Cathedral."
+  ],
+  "dmTips": [
+    "The masque's social mechanics are the scenario's defining feature and should occupy at least as much table time as the combat. Resist the temptation to compress the social scenes into a single Persuasion roll and move to the action. The masque's political theater — the dances, the coded announcements, the faction maneuvering — is where the party learns the shape of the conspiracy, earns faction standing, and makes choices that will echo through the rest of the campaign. Give each player a different social pressure point: the character with Insight to read the room, the character with Deception to maintain the cover, the character with Persuasion to work the claimants, the character with Stealth to follow the grey-masked watchers. Let them divide and pursue.",
+    "The three claimants should feel distinct and real, not like quest-dispensers. Severine's bravery is quiet and costs her; Crane's charm is the most dangerous thing in the room; Valmont's bluntness is a relief and a trap. If the party manages to have meaningful conversations with all three in a single evening, they should come away with three genuinely different impressions of who should sit the Throne — and no clear answer.",
+    "The garden combat should feel like a transition from one world to another. Inside, everything is beautiful and controlled and governed by social rules. Outside, in the fog, with assassins in the maze, the rules are different. Use the environmental contrast deliberately: the sounds of music from the manor drifting across the garden while the fight is happening, the absurdity of rapier duels between formally dressed people in a topiary maze, the fog that makes the world shrink to thirty feet and everything outside that radius feel hypothetical.",
+    "Brother Veth is the scenario's most important information source and the most human antagonist. He is not evil — he is young and frightened and has been told that the Renewal is salvation. If the party takes him prisoner and treats him with any degree of decency, he will eventually, over the course of a long conversation, tell them everything he knows. This includes details about the Sanguinarium's layout that will be valuable in scenario 3. If they kill him, they lose that resource and must rely on the written evidence alone.",
+    "Faction standing adjustments from this scenario should be deliberate and consequential. Siding openly with Severine gains her loyalty and loses Crane's tolerance — he will now consider the party a threat. Bringing Valmont into the loop about the diversion used against his man can shift him from neutral to sympathetic. The Carmine Veil's reaction to the party interfering with a guild contract is complicated: the Mother of Knives respects competence and may see the party as useful rather than simply hostile, but that assessment will cost the party a favor to establish.",
+    "Plant the Nyssa Vael thread carefully in this scenario if she is in the party. The carnelian token is made of the same material as the Crimson Throne, and the Throne's entity is Nyssa's patron, the Whispering Crown. When she handles the token, give her a whisper — something felt rather than heard, a pulse of warmth, a moment of disorientation, a fragment of a dream she has been having since her power first manifested. Do not explain it. Let it sit. The Cathedral will explain it."
+  ]
+}

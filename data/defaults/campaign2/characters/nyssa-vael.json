@@ -1,0 +1,145 @@
+{
+  "id": "ct-char-008",
+  "name": "Nyssa Vael",
+  "status": "alive",
+  "race": "Tiefling",
+  "subrace": "",
+  "class": "Warlock",
+  "level": 1,
+  "background": "Hermit",
+  "alignment": "Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 17,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Arcana",
+    "Religion",
+    "History",
+    "Investigation"
+  ],
+  "languages": [
+    "Common",
+    "Infernal",
+    "Elvish"
+  ],
+  "equipment": [
+    "Leather armor",
+    "Dagger",
+    "A component pouch (herbs, chalk, a vial of red sand that she did not buy)",
+    "Scholar's pack",
+    "A journal filled with dreams written down each morning in a cramped hand (twelve years of dreams, the earliest entries in a child's writing)",
+    "A small block of dark red wax with an impression she has never been able to identify stamped into its surface (found on her person at the foundling home, wrapped in the same cloth she was wrapped in)",
+    "Belt pouch containing 6 gp",
+    "Waterskin",
+    "Rations (5)",
+    "An hourglass from the hermitage (the sand is deep crimson, runs the wrong direction sometimes)",
+    "A set of herbalist's tools from her years of hermit study",
+    "Common clothes"
+  ],
+  "weapons": [
+    {
+      "name": "Dagger",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Eldritch Blast (cantrip)",
+      "attackBonus": 5,
+      "damage": "1d10",
+      "damageType": "force"
+    }
+  ],
+  "armor": {
+    "name": "Leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Darkvision (Tiefling racial — thanks to your infernal heritage, you have superior vision in dark and dim conditions; you can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light; you can't discern color in darkness, only shades of grey)",
+    "Hellish Resistance (Tiefling racial — you have resistance to fire damage, halving all fire damage you receive)",
+    "Infernal Legacy (Tiefling racial — you know the Thaumaturgy cantrip; at 3rd level you can cast Hellish Rebuke as a 2nd-level spell once per long rest; at 5th level you can cast Darkness once per long rest; Charisma is your spellcasting ability for these spells)",
+    "Otherworldly Patron: The Whispering Crown (Warlock level 1 — you have struck a pact with an entity of ancient and cryptic power known to you only as the Whispering Crown; its nature, its purpose, and the full terms of the bargain you made remain unclear, even to you; its voice comes in dreams and in the red-hour just before dawn, and it speaks always of thirst, of old promises, and of a seat that waits for the right blood — you have learned not to ask it to clarify)",
+    "Pact Magic (Warlock level 1 — your arcane research and pact have given you the facility with magical spells; spell save DC 13, spell attack bonus +5; as a warlock your spell slots are recovered on a short or long rest rather than only on a long rest; at level 1 you have 1 slot of 1st level, which is restored on any rest)",
+    "Pact of the Tome (Warlock Pact Boon — your patron gives you a grimoire called the Book of Shadows; when you gain this feature, choose three cantrips from any class's spell list; while the book is on your person, you can cast those cantrips at will; the book contains eldritch secrets; if it is lost, you can perform a 1-hour ceremony to receive a replacement from your patron)",
+    "Discovery (Hermit background — the quiet seclusion of your extended hermitage gave you access to a unique and powerful discovery; work with your DM to determine the exact nature of your revelation — for Nyssa, the discovery is the content of her dream-journal: a twelve-year record of visions she now suspects are not dreams at all but transmissions, and their content has grown increasingly specific and verifiable in ways she cannot explain)"
+  ],
+  "traits": [
+    "Darkvision",
+    "Hellish Resistance",
+    "Infernal Legacy",
+    "Otherworldly Patron: The Whispering Crown",
+    "Pact Magic (1 slot, recovered on short or long rest)",
+    "Pact of the Tome",
+    "Discovery"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Eldritch Blast",
+      "Thaumaturgy",
+      "Chill Touch",
+      "Prestidigitation",
+      "Guidance"
+    ],
+    "level1": {
+      "slots": 1,
+      "known": [
+        "Hex",
+        "Arms of Hadar"
+      ]
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am more comfortable with written words than spoken ones, and I often write things in my journal before I say them, testing the sentence. I have an unsettling habit of knowing things I have no reason to know — a name, a route, a fact about a person I have just met — and I have learned to introduce these revelations carefully because the alternative is that people find me frightening before I've had a chance to be useful. I smell faintly of red sand and something warm, like heated stone.",
+    "ideals": "I have spent twelve years trying to understand what I am and what was done to me before I was old enough to choose. Whatever the answer is, I intend to know it completely — not the comfortable version, not the version that leaves certain questions unasked. The whole truth. Even if the whole truth turns out to be that I am not entirely what I thought I was.",
+    "bonds": "The foundling home where I grew up is called the House of the Quiet Reed, a Communion-adjacent charity in the Shamble. The prioress who raised me — Sister Corva — is not a kind woman, but she is an honest one, and she told me plainly what she found with me and what she did not know. I have never hated her for her honesty. I would protect her from anything that wanted to use the home as leverage against me.",
+    "flaws": "I am so accustomed to my own company that I misread social cues in groups of more than three people and fall back on a silence that others read as coldness or contempt and that is, in fact, genuine uncertainty about what the situation requires. I also have a complicated relationship with the voice that speaks to me at dawn: I know I should not trust it entirely and I know I cannot dismiss it, and I have not found a stable position between those two truths."
+  },
+  "appearance": "Nyssa Vael has the kind of appearance that is beautiful in a way that takes a moment to fully register, because the individual elements are strange before they are attractive: the small curved horns that rise from her temples and curve gently back above her ears, ivory-pale against hair that is a deep, saturated burgundy, almost black in dim light; the eyes that are the amber of old resin with fine horizontal pupils that expand in darkness until they swallow most of the iris; the skin that is a deep plum-grey, smooth and fine-pored, with a faint luminescence at the cheekbones that might be a trick of the light. She is of medium height and slight build, with the economy of movement of someone who spent years alone in a hermitage and developed a stillness she cannot entirely shed in company. She is twenty-four and looks both younger and older than that depending on the light: younger because her face is round and soft, older because her eyes have been watching things others cannot see for long enough to leave a mark. She dresses plainly in dark leather and common clothes, keeping nothing on her person that draws attention, which means she draws attention entirely through her face and her stillness. The dream-journal is always either in her pack or in her hands; she refers to it frequently, checking something against some internal record. The crimson-sand hourglass lives in her pack and she only brings it out in private. The wax block with the unidentifiable stamp is around her neck on a cord, tucked under her collar.",
+  "backstory": "The foundling home called the House of the Quiet Reed is not the worst place to begin a life, though it is also not the best. It sits in a mid-district alley in the Shamble, funded by a modest Communion charitable endowment and run by Sister Corva, a lean and tireless woman who has been managing foundlings for thirty years and approaches the work with the brisk unsentimental efficiency of a person who understands that sentiment without resources solves nothing. Nyssa arrived there at three weeks old, wrapped in undyed linen, placed at the gate at an hour when no one was watching. Sister Corva could determine very little about her origins except that someone had thought to wrap her warmly and that the block of red wax with its unreadable stamp was placed deliberately on her chest, not accidentally dropped.\n\nThe infernal heritage was apparent from birth, which meant that growing up was a particular negotiation: not dangerous, not exceptional, but marked in a way that required constant management of how others saw you. Coronne was not a city with large numbers of Tieflings and was not a city that responded well to what it did not recognize, and the Shamble was in many ways the best place to navigate that, because the Shamble runs on practicality and has little energy left over for discrimination against the supernatural. By the time Nyssa was ten, most of the neighbors had decided that a Tiefling girl who was quiet and helpful and did not steal was an acceptable presence, and she was mostly left in peace.\n\nThe dreams started when she was twelve. Not nightmares — she wants to be clear about this, in her own journal and to anyone who asks — not fear-dreams, but something closer to a transmission. A voice at the edge of hearing, speaking of old things: a seat of red stone, a promise made in blood, a covenant that had grown hungry. The voice did not frighten her. It felt, she wrote at thirteen in a careful child's hand, like remembering something that had not happened yet. She wrote every dream down upon waking, building a twelve-year record that she has read and re-read and cross-referenced until the patterns in it are more familiar than any living face.\n\nAt sixteen she sought out a hermitage in the hills above Coronne, a small community of scholars and contemplatives maintained by an eclectic religious order with no strong Communion affiliation. She spent five years there, learning what she could — herbalism, lore, the rudiments of arcane theory — and continuing her journal, and sitting in meditation at the red-hour before dawn when the voice was clearest. The voice called itself nothing. It spoke of thirst and of a promise. She did not know what to call the relationship she was in, and she still does not, but at twenty-one she discovered that she could cast a spell — a small thing, a shiver of force that leapt from her hand and struck the hermitage wall hard enough to leave a scorch — and that the casting felt like the voice felt, like something sliding into a place it had been designed for.\n\nShe returned to Coronne two years ago to find the city changed: an Emperor dying slowly (dead now, poisoned), a succession crisis building, and the Sanguine Communion — whose charity had housed her, whose theology she had studied carefully in the hermitage library — appearing in her dream-journal with an increasing frequency she could not account for. Phrases: the Rite of Renewal. The Carnelian opens. The covenant thirsts. The red seat receives.\n\nShe does not know what any of it means with certainty. She suspects, and her suspicions are carefully written in cipher in the last twelve pages of the journal, and she has not yet read those pages aloud to anyone. The night of the fire in the Old Quarter she had been sitting at a table in the Drowned Cat, re-reading a passage from five years ago that had come suddenly, unsettlingly specific, when the smoke came through the cracks. She was in the alley because the journal said she would be. That is a fact she has written down and has not yet found a comfortable interpretation for."
+}

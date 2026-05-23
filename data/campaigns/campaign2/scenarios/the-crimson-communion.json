@@ -1,0 +1,444 @@
+{
+  "id": "ct-scenario-003",
+  "title": "The Crimson Communion",
+  "subtitle": "Beneath the Altar, the Debt Runs Red",
+  "levelRange": "5-7",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "The Sanguine Cathedral and the Sanguinarium",
+    "description": "The Sanguine Cathedral crowns the far bank of the River Sangue in a blaze of white limestone and carnelian-tinted glass — a monument to three hundred years of state faith, its bell-towers visible from every district of Coronne. To the faithful it is a house of the Communion rite, of confessors in white robes and the scent of sacred incense, of vaulted naves where amber lanterns never go out. To the Crimson Conclave it is the visible face of a much older institution. Beneath the cathedral's foundations, carved into the river-bluffs over centuries by hands that never appeared in any treasury record, lies the Sanguinarium: a crypt-city of staggering, terrible scale. Bone-tiled vaults extend under half the river district. Incense drifts through corridors where the torches burn with an unnatural red tinge. Every door is warded with blood-seals that punish the uninvited. In the deepest sanctum, the Reliquary of Accord, the Conclave has hoarded three centuries of blood sacrifice in sealed carnelian vessels — the slow, accumulated tithe paid to the thing bound in the throne above. And at the very heart of the Sanguinarium, in the Chamber of the Renewal Rite, High Confessor Mordent Vale is preparing the final act of a plan three hundred years in the making.",
+    "atmosphere": "Gothic horror pressed beneath the surface of solemn faith. Above ground the cathedral is magnificent and faintly oppressive — too perfect, too still, the confessors moving with a rehearsed serenity that feels like a mask. The further the party descends, the more the mask slips: the incense thickens to a smell that is no longer quite incense, the carved reliefs on the walls shift from pious scenes to older images that are harder to look at directly, and the blood-wards pulse with a faint warmth as if something on the other side can feel approach. The Sanguinarium operates on the logic of nightmare: every corridor looks almost right, every door is just slightly too low, and the deeper one goes the more one hears — or almost hears — something vast and rhythmic, like a heartbeat magnified to the scale of a building. The horror here is not the horror of monsters in the dark but the horror of institutions: the realization that the church the Empire has worshipped for three centuries has been feeding it, and the thing being fed is nearly full.",
+    "keyLocations": [
+      {
+        "name": "The Cathedral Nave and Confession Halls",
+        "description": "The public face of the Sanguine Cathedral: an enormous nave of white limestone with carnelian-veined pillars supporting barrel vaults sixty feet overhead, lit by hundreds of amber oil-lamps whose flames burn without flickering regardless of drafts. Side chapels line the nave, each dedicated to an aspect of the covenant theology. The confession halls are rows of curtained booths where the faithful submit their sins and their small, willing offerings of blood to the confessors — a thin scratch on the palm over a silver bowl, blessed and carried away. It looks like ceremony. It is anything but.",
+        "features": [
+          "Sixty-foot vaulted nave with carnelian-veined limestone pillars — Investigation DC 14 notes the carnelian is architecturally unnecessary; it is decorative, or devotional",
+          "Amber oil-lamps that burn with extraordinary steadiness — Arcana DC 15 identifies a low-level enchantment keeping them alight; the magic has the same faint signature as the blood-wards below",
+          "Confession booths — Perception DC 13 while waiting in queue notes that the silver offering-bowls carried out are fuller than they should be for willing scratches; the blood does not come from the penitents alone",
+          "A locked sacristy door behind the high altar (Thieves' Tools DC 16, or a Cleric/Religion character can attempt DC 14 Persuasion with a confessor) leads to robing rooms and the stair to the Sanguinarium"
+        ],
+        "encounters": [
+          "3 confessors (priest stats) on their rounds — alert but not hostile unless the party acts suspiciously",
+          "2 Conclave sentinels (cult fanatic stats) in plain white robes near the high altar, watching for uninvited visitors to the sacristy"
+        ],
+        "secrets": [
+          "The offering-blood from every confession rite is routed through the sacristy to a collection cistern and then carried below — the entire parish of Coronne has been tithing blood to the Carnelian for generations without knowing it",
+          "A concealed door behind the largest side-chapel's relief of 'the First Covenant' (Investigation DC 17) leads to a second, faster descent into the Sanguinarium, used by senior conclave members"
+        ]
+      },
+      {
+        "name": "The Incense Sanctuaries",
+        "description": "The uppermost level of the Sanguinarium, directly beneath the cathedral floor. These vaulted chambers were once genuine meditation retreats for senior confessors, and some still function as such — but the incense burned here is compounded with dried blood and a mild soporific derived from a river-plant the church has farmed in secret for a century. The effect is a pleasant heaviness, a loosening of judgment, a willingness to comply. Confessors who spend years in the sanctuaries become compliant, uncritical, and deeply devoted to the Conclave's direction without ever understanding why. The walls are covered in illuminated inscriptions in archaic Veldoranese that, read carefully, are not prayers but contract terms.",
+        "features": [
+          "Heavy incense smoke filling all corridors — Constitution save DC 12 on entering or suffer disadvantage on Wisdom (Insight) checks for 1 hour while in the sanctuaries",
+          "Illuminated contract-inscriptions on the walls — Religion DC 14 to recognize them as covenant language; Arcana DC 16 to recognize the binding structure as a form of oath-magic that accumulates over years of exposure",
+          "Alcoves with senior confessors in deep meditation — they are not dangerous but will raise an alarm if disturbed; Stealth DC 14 to pass without waking them",
+          "A locked apothecary cabinet containing the incense compound components — Investigation DC 13 identifies the soporific ingredient; Medicine DC 15 identifies its long-term psychological effects"
+        ],
+        "encounters": [
+          "A roving patrol of 2 cult fanatics in deep-crimson under-robes, distinguishable from ordinary confessors only by a carnelian pin at the throat"
+        ],
+        "secrets": [
+          "Among the meditating confessors is Brother Caelum Voss, the party's inside man — if they have him as an NPC companion, he recognizes a senior confessor he trusts and must choose whether to warn them and blow the infiltration or stay silent",
+          "One illuminated inscription on the east wall reads, in archaic script, 'the Renewal comes when the Throne stands empty and the Heir kneels willing' — this is the Rite's triggering condition; it requires a legitimate claimant to participate, willingly or otherwise"
+        ]
+      },
+      {
+        "name": "The Bone-Tiled Vaults",
+        "description": "The middle levels of the Sanguinarium, where the Conclave's true history is stored. Miles of shelf-lined corridors contain the church's actual records: not the censored documents held in the public archive but the unredacted accounts of every covenant renewal, every negotiated sacrifice, every arrangement made with every Lord-Regent and Emperor going back two hundred and eighty years. The floors are paved with tiles of pressed bone — the remains of those who died in service to the covenant, their ash compressed and sealed under lacquer. The blood-wards here are active and visible: dark lines of dried blood drawn across door-frames and junction-points that flare red when an uninvited person crosses them, dealing 2d8 necrotic damage and alerting the nearest patrol.",
+        "features": [
+          "Blood-ward threshold lines on all internal doors — Arcana DC 15 to identify the ward; DC 18 to temporarily suppress it without triggering (requires a drop of willingly-given blood applied to the center mark); DC 20 to permanently dismantle",
+          "The Records Archive: thousands of vellum documents in iron-clasped cases — Investigation DC 14 to locate documents about Lord-Regent Crane's induction into the Conclave (signed six years ago, two years before the Emperor's death); DC 17 to find the original covenant agreement in a locked case (evidence of the first Vermeil emperor's bargain)",
+          "A chamber called the Memory Room, sealed with a more complex ward (Arcana DC 20 or Religion DC 18 to bypass), containing three carnelian vessels — each holds the distilled essence of a Conclave member who volunteered to become 'permanent offerings'; they are not dead, exactly, and the vessels hum if brought near a living person",
+          "Bone-tile floors creak and shift unpredictably — Stealth checks in these corridors are made at disadvantage unless the party has been warned (Brother Caelum Voss or similar inside contact can provide this intelligence in advance)"
+        ],
+        "encounters": [
+          "Wight patrol: 2 wights in tattered confessors' robes, moving silently between archive rows — these are senior conclave members who 'gave themselves more fully' and are now undead servants",
+          "Specter: the remnant of a Communion worshipper who stumbled into the vaults years ago and was drained by a blood-ward; it is confused and hostile, attacking anyone it perceives as an intruder"
+        ],
+        "secrets": [
+          "The records confirm what the party may have suspected: Lord-Regent Aldous Crane was inducted into the Conclave six years ago in a private ceremony presided over by Mordent Vale. The document bears Crane's signature and his blood-mark. He is not a passive tool but an active participant who believes he is building a new order.",
+          "A sealed case in the deepest archive row contains letters between High Confessor Mordent Vale and an unnamed correspondent in Vermeil Keep — the letters describe 'the Heir's preparation' and reference a date: the coronation, three weeks hence. The Rite of Renewal is timed to the crowning ceremony."
+        ]
+      },
+      {
+        "name": "The Reliquary of Accord",
+        "description": "A circular vault at the lowest accessible level of the Sanguinarium, sixty feet across and thirty feet high, its domed ceiling carved with a relief of the first Vermeil emperor kneeling before a figure that has been deliberately defaced — chiseled smooth at some point, leaving only the posture of supplication and a reaching hand that ends in nothing. The floor is covered in carnelian vessels of every size, hundreds of them, stoppered with wax seals imprinted with the Vermeil stag. They glow faintly in the dark with a light that is not quite red. This is three hundred years of accumulated blood sacrifice: the slow, regular tithe that has sustained the Carnelian's bound slumber and kept the covenant's promises intact. The air here is thick enough to taste. The glow of the vessels pulses at irregular intervals, like a sleeper shifting in dream.",
+        "features": [
+          "Hundreds of carnelian vessels in floor-to-ceiling racks — Arcana DC 16 to identify the stored substance as refined vital essence, not merely blood; the refinement process is what the Communion rites actually accomplish",
+          "The defaced ceiling relief — Religion DC 15 to identify the posture as a Veldoranese covenant-oath gesture; History DC 18 to recall that this same posture appears in a single surviving account of the first coronation, described as 'the Emperor's gratitude to the Unnamed Patron'",
+          "An overwhelming psychic pressure in the room — Wisdom save DC 14 on entering or experience a vivid waking vision: the throne room above, the carnelian seat blazing like a coal, and something vast pressing against the stone from below, patient and hungry and aware",
+          "A locked iron door at the far end (Thieves' Tools DC 17) leads to the Conclave's ritual preparation chamber and ultimately to the Chamber of the Renewal Rite beyond"
+        ],
+        "encounters": [
+          "Blood Construct: a hulking guardian of hardened congealed blood and bound bone, shaped like a broad-shouldered human figure but featureless and jointless (use animated armor stats with these modifications: resistance to piercing and slashing damage; on taking fire or radiant damage, loses resistance for 1 round; on death, collapses into a pool of blood-infused matter that is still faintly warm)",
+          "2 shadows lurking in the spaces between the vessel racks — the remnants of workers who spent too long near the stored essence and were slowly hollowed out"
+        ],
+        "secrets": [
+          "If any vessel is opened (intentionally or accidentally by combat spillage), the stored essence does not flow like liquid — it drifts upward, seeking the ceiling, and the nearest living creature must make a DC 15 Constitution save or have their maximum HP reduced by 1d6 until a long rest, as the essence is drawn toward vitality",
+          "The Carnelian's awareness reaches this room: any character who touches a vessel must make a DC 13 Wisdom save or receive a fragment of the entity's dream — visions of the throne from below, of every Vermeil emperor who sat it, of three centuries of feeding as experienced by the feeder"
+        ]
+      },
+      {
+        "name": "The Chamber of the Renewal Rite",
+        "description": "The innermost sanctum of the Sanguinarium, accessible only from the Reliquary of Accord, cut directly from the river-bluff bedrock and shaped with evident magical effort into a perfect circle seventy feet across. The floor is a mosaic of carnelian and pale limestone depicting the covenant's cosmology in symbols that predate the Empire — this room is older than the cathedral above it by perhaps a thousand years. In the center stands the ritual dais: a low carnelian platform with iron channels cut into its surface, leading to a central collection point. The channels are stained but not fresh. Twelve iron chairs in a ring, each with restraint-brackets at the wrists, face the dais. The air here does not circulate. Whatever scent the Sanguinarium carries elsewhere, here there is nothing — an olfactory void that is somehow more disturbing than any smell. High Confessor Mordent Vale works here nightly, preparing the final rite.",
+        "features": [
+          "The ancient mosaic floor — Arcana DC 18 or Religion DC 16 to read the cosmology depicted: the entity called the Carnelian (symbol: a many-tined crown) is shown receiving a blood-covenant from a crowned human figure, and in a second panel the crowned figure grows old while the Carnelian grows larger; in a third panel the Carnelian fills the entire cosmos",
+          "The iron chairs with restraint brackets — twelve positions, one for each member of the Crimson Conclave during the Rite; Investigation DC 12 notes that the brackets are new iron mounted in hundred-year-old stone; previous rites used different restraint methods",
+          "Mordent Vale's working notes, left on a lectern: in dense theological shorthand, they describe the Rite's mechanics — twelve Conclave members offering full life-essence (not blood but death, total death) to bridge the gap between the accumulated tithe and full incarnation; Crane is listed as the thirteenth, the 'Vessel', who will host the Carnelian's consciousness at the moment of incarnation and speak the final words of covenant with the living throne",
+          "A curtained alcove containing Conclave robes in deep crimson, a set of carnelian ceremonial daggers (worth 75 gp each as art objects, but also function as +1 daggers against undead), and a sealed letter addressed to Lord-Regent Crane confirming his role in the upcoming ceremony"
+        ],
+        "encounters": [
+          "High Confessor Mordent Vale if discovered in the act of preparation (see npcsInvolved — use priest stats with mage spell list grafted; see Act 3 for full encounter)",
+          "If Vale is not yet present: 3 cult fanatics in full crimson ceremonial robes performing preparatory rites — they fight to the death rather than flee, as abandoning the ceremony is a mortal sin by their covenant-oath"
+        ],
+        "secrets": [
+          "Crane does not know he is slated to be the Vessel — he believes he will be the Conclave's chosen emperor, crowned and empowered by the renewal. Vale has deceived him utterly. Crane is not the puppet-master's puppet; he is the sacrifice.",
+          "The Rite can be disrupted rather than stopped outright: if the iron channels in the ritual dais are physically destroyed or filled with non-blood material before the ceremony, the Rite cannot be completed without a week-long reconsecration — enough time to warn the factions and mount a response"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Armed with the evidence gathered at the masquerade — a Conclave sigil, proof of the church's hidden hand in the succession crisis, and the name of a church-controlled account that traces back to the Emperor's poison — the party descends into the Sanguine Cathedral and the crypt-city of the Sanguinarium that honeycombs the bluffs beneath it. What begins as a covert investigation into the church's inner workings becomes something more terrible than any political intrigue: the discovery that the Sanguine Communion has been feeding a bound blood-entity for three hundred years through the congregation's own devotions; that the entity, the Carnelian, is waking; that High Confessor Mordent Vale intends to fully incarnate it at the coming coronation through a mass sacrifice of his own Conclave; and that Lord-Regent Aldous Crane — the man who holds the keys to Coronne — is the chosen Vessel, though he does not know his role is not that of a king but of a container. The party must navigate the cathedral's public face, infiltrate the blood-warded vaults below, survive the Sanguinarium's undead guardians and blood-constructs, and confront Vale before the Rite of Renewal is prepared to completion. They escape bearing the full truth of the conspiracy and a deadline — the coronation, three weeks away — and must race back toward the political factions with the knowledge of what is coming.",
+  "hook": "The evidence from the Gilded Reach masquerade pointed here: a carnelian sigil worn by an assassin hired through a church-controlled account, a letter fragment referencing the 'Renewal rite' and 'the Vessel's preparation,' the too-calm certainty of the Lord-Regent whenever the church is mentioned. Brother Caelum Voss, the reform-minded confessor who has been the party's inside contact, sends word through Wren Sparrow that he has found something in the Sanguinarium he was never meant to find, and that he is afraid in a way that confession cannot touch. He can get the party inside — there is a way through the cathedral's lower sacristy that the ordinary confessors use and that the Conclave sentinels consider beneath watching. But he cannot come with them past a certain point. Below that point, he says, are things that should not exist beneath a house of prayer, and a truth about the Communion that will change what every living Veldoranese believes about their faith and their empire. The party has a name now — High Confessor Mordent Vale — and a location. They have until the coronation.",
+  "acts": [
+    {
+      "title": "Act 1: The Cathedral's Teeth",
+      "description": "The party infiltrates the Sanguine Cathedral through Brother Caelum Voss's contact and begins the descent into the Sanguinarium. They navigate the cathedral's public face — confession halls, incense sanctuaries, and the sacristy stair — encountering the first signs that the institution they are inside is not what it presents to the world. By the end of this act they have descended to the Bone-Tiled Vaults and hold their first concrete evidence linking the church hierarchy to the succession conspiracy.",
+      "objectives": [
+        "Gain entry to the Sanguine Cathedral without alerting Conclave sentinels",
+        "Penetrate the sacristy and locate the descent to the Sanguinarium",
+        "Navigate the Incense Sanctuaries without triggering an alarm or succumbing to the soporific compound",
+        "Reach the Bone-Tiled Vaults and begin investigating the records archive",
+        "Locate evidence of Lord-Regent Crane's Conclave membership"
+      ],
+      "scenes": [
+        {
+          "name": "White Walls, Red Secrets",
+          "description": "The party enters the Sanguine Cathedral and navigates the public nave, confession halls, and sacristy under Brother Caelum Voss's guidance — or alone, if he cannot safely accompany them. The cathedral's magnificence is real, but the closer they look, the more wrong details accumulate: the carnelian veining in the pillars that pulses faintly in torchlight, the offering-bowls that leave the confession hall fuller than they should, the confessors who smile without their eyes changing. Getting through the sacristy door and into the descent stair requires bypassing at least one layer of Conclave surveillance.",
+          "readAloud": "\"The Sanguine Cathedral is the most beautiful building in Coronne, and you are inside it now with stolen reasons in your pockets and murder in your recent history. The nave stretches ahead of you for nearly two hundred feet, lined with pillars of white limestone threaded through with veins of carnelian that catch the lamplight and hold it in a way that stone should not — as if the mineral is drinking the flame rather than reflecting it. The amber lamps overhead are perfectly still despite the drafts from the river doors, their flames unwavering, burning with a steadiness that feels less like good engineering and more like instruction. Confessors in spotless white move between the penitents with the unhurried precision of people who have performed the same motions ten thousand times. A woman kneels in a booth to your left, pulling up her sleeve; the confessor inside reaches for a silver bowl. When the confessor emerges a minute later, the bowl is covered with a white cloth that has a red stain spreading at the center. He carries it toward the high altar without looking at anyone, and no one looks at him. You are in the mouth of something vast, and it does not yet know you are here.\"",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "You notice the offering-bowls carried from the confession booths are significantly fuller than a willing scratch on the palm could produce. The cloth coverings are damp. There is a copper smell over the incense.",
+              "failure": "The nave is overwhelming in its detail and grandeur. You see the ceremony but cannot parse what is wrong about it."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 14,
+              "success": "Moving in ones and twos, filtering through the congregation as penitents, you reach the sacristy side-passage without drawing the attention of the two sentinel-confessors flanking the high altar.",
+              "failure": "One of the Conclave sentinels near the high altar notices your group moving against the flow of the congregation and begins to watch you. Further movement toward the sacristy requires a Deception check (DC 15) or the sentinel calls for colleagues."
+            },
+            {
+              "skill": "Religion",
+              "dc": 15,
+              "success": "The liturgical text carved above the high altar is from the standard Communion scripture — except for one clause, which is not in any public text you have ever read. It refers to 'the Patron's portion, due in perpetuity, rendered through the faithful without their knowing.' The church has been taking more than it was given. Far more.",
+              "failure": "The liturgical text seems orthodox, a standard invocation of the covenant's blessings."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 cult fanatics (Conclave sentinels in plain white robes, carnelian pins at the throat)", "1 priest (head confessor, arrives as backup if alarm is raised)"],
+              "difficulty": "Medium",
+              "tactics": "The sentinels fight to contain rather than kill — they want the party taken alive for questioning and will use grapple and Hold Person to subdue rather than lethal strikes if possible. If the fight spills into the public nave, 2d4 ordinary confessors flee while 1d3 defend themselves reflexively. The head confessor uses Spiritual Weapon and Command to control the battlefield from range. Conclave members always swallow a tiny carnelian bead when facing capture — this is visible as a gesture; Perception DC 12 notices it; the bead is a tracking ward the Conclave uses to locate captured members.",
+              "terrain": "Cathedral nave and sacristy approach: open space 200 feet long and 60 feet wide, with rows of wooden pews providing half cover, carnelian pillars providing three-quarter cover, and alcove chapels offering brief concealment. The sacristy door is a locked iron-banded oak door behind the high altar. The floor is polished marble — running in anything other than soft-soled shoes requires a DC 10 Acrobatics check to avoid slipping."
+            }
+          ],
+          "roleplayNotes": "This scene should establish the cathedral as magnificent and wrong simultaneously. The beauty is real — this is a genuinely impressive institution that has sustained a city for centuries — but the wrongness is real too, and it should accumulate in details rather than arriving as an obvious shock. A character like Sister Aveline Marsh, if present, faces a particularly difficult moment here: this is her faith, her institution, and every suspicious detail is a wound. Brother Caelum Voss, if accompanying the party, is tightly controlled but visibly distressed — he knows what is beneath them and he has been praying for a different explanation for months. Let him have a quiet moment: a hand pressed to a pillar, a long look at the nave, a whispered 'I should have left when I first suspected.' The party is about to learn something that cannot be unlearned, and this scene is the last moment before the descent.",
+          "loot": [
+            "2 carnelian pins from subdued sentinels (worth 8 gp each, also function as a Conclave identification token in the upper levels — DC 12 Deception to pass as minor conclave members while wearing them)",
+            "Sacristy key ring: grants access to robing rooms, the offering-cistern room, and the descent stair to the Sanguinarium below",
+            "A confessor's journal left in the sacristy: the last dozen entries document the author's growing unease with 'the amounts collected,' their questions being deflected by senior confessors, and a final entry reading simply 'I have been reassigned below. I am afraid to go.'"
+          ]
+        },
+        {
+          "name": "The Weight of Incense",
+          "description": "The party descends the sacristy stair into the Incense Sanctuaries, the uppermost level of the Sanguinarium, where the air is heavy with a compound that softens judgment and deepens compliance. They must navigate around meditating senior confessors and a patrol of Conclave members in crimson under-robes, identify the soporific effect and resist it, and find the passage to the lower vaults. The illuminated contract-inscriptions on the walls begin to tell a story, and a character with religious or arcane knowledge can start to read the shape of what the Communion really is.",
+          "readAloud": "\"The stair descends for longer than the cathedral's foundations should allow, cut from the river-bluff's living rock, the walls slick with mineral seep that shines faintly in the light of your lamp. The air thickens as you descend, growing warm and sweet with incense that is unlike anything burned in the nave above — it has a depth to it, a heaviness, that settles in the back of the throat and in the muscles behind the eyes. The first chamber at the stair's bottom is a long corridor of meditation alcoves, curtained in deep red, and in each one a figure sits in stillness so complete it takes a moment to be certain they are breathing. Their hands rest palm-up in their laps. Their faces are serene in a way that no face in the Shamble above has ever been serene — as if every question they ever had has been answered, and the answer satisfied them entirely. On the walls between the alcoves, illuminated manuscripts in a hand that is eight hundred years old cover every surface. The letters are Veldoranese but the phrasing is archaic; you catch fragments: '...the covenant renewed in perpetuity, the Patron's portion to be gathered through the instrument of the faithful, without compulsion, without awareness...' The warm air presses against you like a hand, patient and persuasive, asking you to sit, to breathe, to stop needing to know.\"",
+          "skillChecks": [
+            {
+              "skill": "Constitution save",
+              "dc": 12,
+              "success": "You recognize the sweet heaviness of the incense for what it is — a compound that wants you calm and compliant — and you hold it at the edge of your awareness without letting it settle. You suffer no mechanical effect.",
+              "failure": "The incense is in your blood before you identify it. You have disadvantage on Wisdom (Insight) checks for the next hour and find yourself unusually inclined to believe reassuring explanations."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "A thorough but quiet examination of the apothecary cabinet in the corridor's central alcove reveals the incense formula: dried blood, powdered river-lily (a known mild sedative), and something that Arcana DC 15 identifies as distilled covenant-essence — a trace amount of the entity's own influence, making the incense not just chemically soporific but subtly attuned to the Carnelian's will.",
+              "failure": "The apothecary cabinet is locked and you cannot identify the incense composition without more time or tools."
+            },
+            {
+              "skill": "Religion",
+              "dc": 14,
+              "success": "The illuminated wall inscriptions are contract terms in the oldest form of Veldoranese ecclesiastical law. They are binding oaths — not decorations but a functional covenant document, renewed in each generation by the act of adding a new layer of illumination over the old. The entire corridor is a three-hundred-year-old contract with a signatory that is not human. And the faithful above, who have never read it, are party to its terms.",
+              "failure": "The inscriptions are in archaic script and ecclesiastical shorthand you cannot fully parse. They appear devotional."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 cult fanatics (Conclave members in deep-crimson under-robes, carnelian pins, hands folded — they look like confessors until they move)"],
+              "difficulty": "Easy",
+              "tactics": "The patrol moves slowly, checks the meditation alcoves, and speaks in low voices. They are not expecting an incursion this far in — the Conclave's confidence in the blood-wards and the cathedral's reputation as impenetrable has made them somewhat complacent. If the party is detected, they fight to contain the incursion and will attempt to reach a blood-ward alarm point (a smear of blood on a specific carved mark in the corridor wall); if they reach it, a 2-round countdown triggers two wight responders from the lower vaults. If subdued quietly, their robes and carnelian pins can be taken — at this level, wearing them grants advantage on Deception checks to pass as Conclave initiates.",
+              "terrain": "Long, curtained corridor (120 feet by 15 feet) with meditation alcoves every 20 feet. Red curtains provide concealment but not cover. The floor is stone and quiet; the incense haze reduces effective darkvision range by 10 feet. The alarm blood-ward is at the corridor's far end — a carved spiral mark at waist height on the east wall."
+            }
+          ],
+          "roleplayNotes": "The incense should feel physically present in the description — not just a smell but a temperature, a softness in the joints, a loosening of the urgency that drove the party down here. The meditating confessors are a useful horror image: these are people who may have been genuinely devout, who descended to serve and were slowly, gently, chemically rewired. If Nyssa Vael is present (the Tiefling Warlock whose patron is secretly the Carnelian), she should feel something specific here: a faint resonance, as if the incense-compound is tuned to a frequency she recognizes from her dreams. Do not explain it yet — just note that her patron feels very close.",
+          "loot": [
+            "Conclave under-robes (2 sets, deep crimson): wearing them grants advantage on Deception to pass as minor Conclave members in the Sanguinarium; Conclave members of senior rank will eventually ask questions the party cannot answer",
+            "Apothecary cabinet contents: 3 vials of incense compound (can be deployed as a smokable sedative: 10-ft radius cloud, DC 12 Constitution save or disadvantage on Wisdom checks and saving throws for 10 minutes), 1 vial labeled 'clarifier' that proves to be an antidote to the incense's soporific effect",
+            "A folded note in a Conclave robe pocket, unsigned: 'Vale says the Vessel confirmed his attendance at the ceremony. Do not deviate from the sequence. The Patron will know if you do.'"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Depths of the Accord",
+      "description": "The party descends through the Bone-Tiled Vaults, navigating blood-wards, wight patrols, and the archive's terrible documentary evidence, before reaching the Reliquary of Accord and confronting the physical reality of three centuries of accumulated sacrifice. By the end of this act they hold the full truth: the covenant, the Carnelian, Crane's role, the Rite of Renewal, and the coronation deadline.",
+      "objectives": [
+        "Navigate the blood-ward threshold lines without triggering catastrophic alerts",
+        "Locate and recover the Records Archive documents linking Crane to the Conclave",
+        "Find Vale's working notes describing the Rite of Renewal and its timetable",
+        "Survive the Reliquary of Accord and its guardians",
+        "Understand the Carnelian and the nature of the covenant before confronting Vale"
+      ],
+      "scenes": [
+        {
+          "name": "The Archive of Sins",
+          "description": "The party penetrates the Bone-Tiled Vaults and the vast documentary archive the Conclave has maintained for three hundred years. Blood-wards line every door. Wight patrols move in silence between the rows. The records here are the raw, unredacted history of the Sanguine Empire — every secret, every arrangement, every sacrifice — and they are guarded proportionally. Finding the right documents means navigating both the physical hazards and an archive organized according to a logic that is theological rather than clerical.",
+          "readAloud": "\"The vaults open before you like the inside of a skull. The ceiling is low — six feet, perhaps seven — and every surface is covered: the floors with tiles of pale grey that have the texture of old ceramic but the faint warmth of something that was recently living; the walls with iron-clasped cases of documents, ten feet deep in all directions, lit by oil-lamps in iron cages that hang from chains and turn slowly, casting shadows that shift and elongate across the rows. The air is cold here, a cold that has nothing to do with depth or stone, a cold that feels deliberate. And across every door-frame and corridor junction, dark lines are drawn in dried blood — some old, near-black; some fresh, a deep brown-red, renewed in the last few days. They pulse once, slowly, as you watch. Something beyond them is aware of you, considering. Ahead in the rows, between case seven and case eight, a figure in tattered white moves with the measured pace of something that has no reason to hurry anymore. It was a confessor once. You can still tell from the cut of the robe. The tattered white has gone grey with the years and the thing that wears it does not breathe.\"",
+          "skillChecks": [
+            {
+              "skill": "Arcana",
+              "dc": 15,
+              "success": "The blood-ward lines can be temporarily suppressed by applying a drop of willingly-given blood to the mark's center point — the ward reads the offering and stands down for 10 minutes. Forcing through without suppression triggers 2d8 necrotic damage and a silent alarm that the nearest undead patrol will respond to within 2 rounds.",
+              "failure": "The ward lines are clearly magical and clearly dangerous. Their suppression mechanism is not apparent without further study."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "The archive is organized not alphabetically or chronologically but by covenant period, each period corresponding to a specific Emperor's reign. The documents about Lord-Regent Crane are filed under 'Interregnum Arrangements' in the most recent section — a case six years old with a blood-seal that the party's willingly-given offering can open. Inside: Crane's induction documents, his signature, his blood-mark, and a letter in Vale's own hand welcoming him as 'the Vessel by which the Empire will finally serve the Patron rather than merely tithe to it.'",
+              "failure": "The archive's organizational logic defeats casual searching. Without understanding the covenant-period system, finding specific documents requires 30 minutes of searching and at least three blood-ward crossings."
+            },
+            {
+              "skill": "History",
+              "dc": 17,
+              "success": "Some of the oldest cases contain documents you recognize as significant from academic records — records that were supposed to have been destroyed in the burning of the Old Archive three hundred years ago. They were not destroyed. They were moved here. Among them: the actual terms of the first Vermeil covenant, which are considerably more explicit than the church's official account. The entity's name in the document is 'the Carnelian, also called the Thirsting Crown.' The covenant's promised price is not a symbolic rite but 'full incarnation in the body of an heir, upon the expiration of the covenant term.' The Empire has had an expiration date since the first Emperor sat the throne.",
+              "failure": "The oldest documents are in an archaic dialect that resists quick reading. Their significance is clear from their age and the care with which they are stored, but the specific content eludes you."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 wights (former senior Conclave members, in tattered confessors' robes)", "1 specter (a Communion worshipper who wandered into the vaults and was slowly drained)"],
+              "difficulty": "Hard",
+              "tactics": "The wights patrol in a coordinated pattern that covers the archive rows without leaving gaps — they were organized administrators in life and their patrol route reflects that methodical intelligence. They use their Life Drain to weaken rather than kill outright, preferring to reduce intruders to a state where they can be brought to Vale for questioning. The specter is not coordinated with the wights and appears suddenly from between case rows when the party has already engaged the wights, complicating the fight. The specter attacks whichever character is most isolated. Radiant damage turns both wight and specter; bright light (such as from a Daylight spell or equivalent) causes the specter to become incorporeal and retreat for 1d4 rounds.",
+              "terrain": "Archive rows (narrow: 4-foot aisles between towering 10-foot case stacks, making formation fighting impossible). The stacks can be pulled over as an action (Athletics DC 14) to create difficult terrain in a 10-foot radius and potentially pin a wight (DC 13 Strength save to escape or be restrained). Oil-lamp cages hang at head height — a miss by 4+ might strike a lamp and start a small fire. The cold radiates from the floor: Constitution save DC 10 at the start of each round of combat or suffer 1 cold damage (more atmospheric than dangerous, but the cold is real)."
+            }
+          ],
+          "roleplayNotes": "The archive scene is fundamentally about information, and the information is worse than the monsters. The wights should be scary, but the documents should be scarier. A character like Magister Elias Crane — the estranged distant cousin of the Lord-Regent — faces something devastating here: proof that his family member is not a passive pawn but an active conspirator who signed his name to the covenant in blood. Give that character a moment: a held breath over the document, hands that are not quite steady, and the choice of whether to say something or fold the paper away and keep moving. The party may want to take time to read everything. The pressure of the wight patrols means they cannot — they must choose what to take and what to leave, which means choosing what to know and what to leave unknown.",
+          "loot": [
+            "Crane's Conclave induction documents (quest item — irrefutable evidence of Crane's membership, signed and blood-marked; admissible before any Imperial court still functioning)",
+            "The original Vermeil covenant terms (quest item — the first Emperor's actual agreement, naming the Carnelian and specifying the incarnation condition; devastating political and theological evidence)",
+            "Vale's correspondence file (quest item — letters between Vale and Crane over six years, documenting the plan to murder the Emperor, manage the succession, and prepare the Rite)",
+            "2 wight-worn confessor rings: each a plain carnelian band that functions as a signet ring of a senior Conclave officer (DC 14 Deception to impersonate a senior member in the lower levels)",
+            "A locked iron box in one case (Thieves' Tools DC 15): contains 120 gp in assorted coin that was confiscated from a noble family whose patriarch had discovered too much; a note inside names the family and the date of their 'voluntary donation'"
+          ]
+        },
+        {
+          "name": "The Reliquary and the Dreaming",
+          "description": "The party pushes through to the Reliquary of Accord and encounters the physical, visceral reality of what the Communion rites have been building toward: hundreds of carnelian vessels containing three centuries of refined vital essence, glowing faintly in the dark, pulsing with the Carnelian's near-waking heartbeat. They must fight the blood-construct and shadows guarding the space and survive the psychic pressure of proximity to the entity's stored accumulation — visions of the throne, of every emperor who sat it, and of what is waiting beneath it.",
+          "readAloud": "\"The iron door at the vault's end is not locked. It has been left open, and through it comes a light you cannot name: not red, not orange, not the color of blood or fire but the color of something that has been fed blood for three hundred years and has been thinking about it. The Reliquary of Accord holds that light in a thousand vessels — carnelian jars of every size, stoppered with wax and stacked in iron racks that fill the circular chamber floor to ceiling, their glow pulsing at long, irregular intervals that are too slow for a breath and too fast for a heartbeat. The room smells of nothing. The absence of smell is the worst thing about it. Your own pulse feels very loud in here. A figure stands at the center of the room, facing away from you, almost human in outline — but the joints are wrong, the surface is wrong, and when it turns to face you, where there should be a face there is a smooth convexity of something dark and dried and sealed, as if the features were there once and were used up. Behind it, in the spaces between the vessel racks, the shadows are moving of their own accord, drawn to your warmth like moths to a lamp. The vessel nearest to you pulses once, and you feel something touch the inside of your mind — not a thought, not a voice, but an appetite, vast and patient and close.\"",
+          "skillChecks": [
+            {
+              "skill": "Wisdom save",
+              "dc": 14,
+              "success": "The psychic pressure washes against you without finding purchase. You are aware of the entity's attention but it does not enter your mind. You can function clearly.",
+              "failure": "A waking vision floods your senses for one full round: the throne room from below, the carnelian seat blazing with contained fire, and a presence pressing against the stone that has been waiting for three hundred years and knows exactly how much longer it must wait. You are stunned for 1 round as the vision passes."
+            },
+            {
+              "skill": "Arcana",
+              "dc": 16,
+              "success": "The vessels contain not blood but something far more refined — vital essence, the distilled animating force that makes living things alive, extracted from blood through the Communion rite's alchemical-theological process over centuries. The quantity stored here represents millions of small extractions. Individually, each offering was too small to harm the donor. Collectively, this room represents an incalculable amount of transferred life. The Carnelian is not merely fed: it is nearly full.",
+              "failure": "The vessels clearly contain something magical and organic. The scale is staggering but the specifics of the substance's nature are beyond your ability to determine without extended study."
+            },
+            {
+              "skill": "Religion",
+              "dc": 15,
+              "success": "The defaced ceiling relief is not merely vandalism — it was deliberately altered at some point to remove the Carnelian's image, replacing it with a smooth void. Someone wanted the covenant's other party to be anonymous, unseen, unknown. The alteration is two hundred years old. Whoever ordered it feared that the entity's depiction would allow it to be named, identified, and perhaps countered. The absence is itself informative: whoever sits at the altar above is not worshipping nothing. They are worshipping something too dangerous to show.",
+              "failure": "The defaced relief was clearly important but its original content and the reason for its defacement are not apparent."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 blood construct (use animated armor stats: AC 18, HP 33, immune to poison and psychic, resistant to piercing/slashing; on taking fire or radiant damage loses resistance for 1 round; on death collapses to a 10-ft pool of warm congealed blood that counts as difficult terrain for 1 minute)", "2 shadows (lurking between vessel racks, emerging when the blood construct engages)"],
+              "difficulty": "Hard",
+              "tactics": "The blood construct moves to intercept the party's approach to the reliquary's far door, using its bulk to occupy the narrow lanes between vessel racks and force the party into unfavorable positions. It cannot be reasoned with or frightened. The shadows use the vessel racks as concealment and attack from behind, targeting characters already engaged with the construct. If any vessel is broken in the fighting (spillage from a missed attack or area effect — the construct may slam a vessel rack, Dexterity DC 13 or a vessel falls; alternatively, an area spell has a 1-in-6 chance of striking a rack), the contents drift upward and the nearest living creature must make DC 15 Constitution save or have maximum HP reduced by 1d6 until a long rest. Radiant damage affects shadows normally; the blood construct is immune to radiant but is slowed by fire (speed reduced by 10 ft for 1 round after taking fire damage).",
+              "terrain": "Circular vault (60 feet across, 30 feet high). Iron vessel racks create lanes of 5-foot-wide movement between them — the party cannot fight side by side and flanking requires navigating around rack ends. The ceiling's relief is visible overhead; a torch held up reveals the defaced section directly above the central ritual dais. Carnelian vessels glow faintly throughout — there is enough ambient light to see without artificial sources, but the light is directionally unhelpful and makes shadows harder to spot (Perception checks to detect approaching shadows are at -2)."
+            }
+          ],
+          "roleplayNotes": "The Reliquary scene is the emotional and informational peak of Act 2 — the moment where everything the party has suspected coheres into a tangible, physical horror. Make the vessels real: describe their weight, the faint warmth of them, the way the glow shifts from vessel to vessel as if the substance inside is communicating. A character who touches a vessel gets a vision of the throne from below (Wisdom DC 13 save or see it — and choose whether to describe it to them before or after the combat, as a distraction or a reveal). By the end of this scene the party knows what the Carnelian is, what the Rite of Renewal will accomplish, and what is at stake. The horror is no longer abstract. It is filling three hundred vessels on iron racks in a room beneath the most beloved institution in the Empire.",
+          "loot": [
+            "4 carnelian ceremonial vessels (empty, decorative quality — worth 45 gp each to collectors, but also serve as arcane foci for rituals involving blood or life essence)",
+            "Blood construct binding shard: a fragment of the construct's armature, inscribed with a blood-ward binding sigil — Arcana DC 14 identifies it as a component usable in constructing a blood-ward of your own (requires 1 hour and a DC 16 Arcana check; the ward deals 1d8 necrotic to the next creature that crosses it without willingly applying blood to it)",
+            "The iron door key to the Chamber of the Renewal Rite, found on a hook beside the far door — it is warm to the touch"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The High Confessor's Design",
+      "description": "The party reaches the Chamber of the Renewal Rite, confronts the truth of Vale's plan in full, and faces the High Confessor himself — either in the ritual chamber or in the vaults as he returns to prepare the ceremony. They have the option to disrupt the ritual dais and buy time, or to engage Vale directly. The act ends with the party in possession of the full truth and a hard deadline, escaping the Sanguinarium to race back toward the political factions with the knowledge of what is coming at the coronation.",
+      "objectives": [
+        "Enter the Chamber of the Renewal Rite and recover Vale's working notes",
+        "Understand the full mechanics of the Rite and its requirement for Crane as the Vessel",
+        "Disrupt the ritual dais or confront High Confessor Mordent Vale",
+        "Escape the Sanguinarium alive with the evidence",
+        "Race back toward the political factions with the coronation deadline three weeks away"
+      ],
+      "scenes": [
+        {
+          "name": "The Confessor's Mathematics",
+          "description": "The party enters the Chamber of the Renewal Rite and examines Vale's working notes and the ritual space itself. Whether Vale is present depends on the time of day — he works in the chamber in the late-night hours. If he is present, the party faces an immediate encounter with the campaign's primary antagonist; if not, they have time to read, understand, and begin disrupting the ritual dais before he returns. Either way, this scene culminates in a confrontation — direct or interrupted — with Vale.",
+          "readAloud": "\"The Chamber of the Renewal Rite is a perfect circle of bare bedrock, and it has been here longer than the cathedral above it or the Empire that built the cathedral. The walls show tool-marks that are not of any technique used in the last three centuries. The floor mosaic took an architect more familiar with pre-Imperial symbolism than with Veldoranese craft — the tiled images spiral toward a center dais of pale carnelian that squats like an altar in the room's heart, its iron channels catching your lamplight in lines that run toward the central point like a clock face counting toward nothing good. Twelve iron chairs in a ring, their restraint brackets worn smooth with previous occupancy. And at the lectern beside the dais, a figure in the full crimson vestments of the High Confessor turns to face you with the particular expression of a person who has prepared, with great care, for many contingencies, and who is genuinely uncertain, for the first time in years, which one this is. He is older than you expected — a man in his late sixties with a scholar's careful eyes and the hands of someone who works with small, precise instruments. He is not afraid. That, more than anything, should concern you. 'I told the sentinels above that the blood-wards would be sufficient,' he says, in a voice of absolute calm. 'I was wrong. You are more resourceful than the Conclave's reports suggested. I find, somewhat to my own surprise, that this pleases me.' He looks at the documents in your hands. He looks at your faces. 'How much do you know?' he asks. 'All of it, I think. Tell me if I am wrong.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "Vale is not performing calm — he is genuinely calm, and that is far more disturbing than rage or desperation would be. He believes in the Rite with the certainty of a mathematician who has checked the proofs. He is also, you realize, testing the party: the question 'how much do you know' is not curiosity, it is tactical assessment. He is deciding whether they can be used.",
+              "failure": "Vale is difficult to read. He appears calm but you cannot determine whether this is genuine composure or a negotiating posture."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 20,
+              "success": "You find the argument that penetrates Vale's certainty: not a moral appeal (he has heard and answered those to his own satisfaction) but a practical one — the Rite requires Crane's willing participation, and Crane does not know he is the Vessel rather than the emperor. If Crane learns the truth before the coronation, he will not go willingly. You have the documents. You can show them to Crane. Vale pauses — genuinely pauses — and the conversation becomes negotiation rather than combat, at least temporarily. He will not abandon the Rite, but he may be willing to bargain information for a few days' delay.",
+              "failure": "Vale has heard every moral argument about the covenant and made his peace with each of them. He is politely unmoved, and after a moment of waiting for more, he moves toward the door."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "Vale's working notes on the lectern are dense but navigable. The Rite requires twelve Conclave members offering total life-essence (death, not blood) and one Vessel — Crane — to host the incarnated consciousness. The Rite is triggered by speaking the covenant oath in the presence of the active throne. Critically: the Rite can only be performed at the physical location of the throne, not in the Sanguinarium. The ceremony Vale is preparing here is the preparatory rite; the Renewal itself must happen in the throne room of Vermeil Keep during the coronation. They need to get there. And they need the party to not be there to stop them.",
+              "failure": "Vale's notes are in a shorthand you cannot fully decode without extended study. The broad shape of the Rite is clear but the specific vulnerabilities are not."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["High Confessor Mordent Vale (use priest stat block for base stats, add mage spell list: cantrips — Sacred Flame, Toll the Dead, Thaumaturgy; 1st level — Bane, Command, Inflict Wounds, Shield of Faith; 2nd level — Hold Person, Spiritual Weapon; 3rd level — Animate Dead, Bestow Curse, Spirit Guardians; 4th level — Banishment; Vale has 4 uses of Channel Divinity — Touch of Death option deals 5 + 2x cleric level necrotic damage)", "3 cult fanatics in full ceremonial robes (arrive as reinforcements at end of round 2 if any alarm was triggered in the vaults)"],
+              "difficulty": "Deadly",
+              "tactics": "Vale is not a fighter and does not pretend to be one — he is a scholar and an administrator who has prepared this chamber as a defensive position over years of anticipation. On his turn he uses Command and Hold Person to neutralize the party's most physically capable members, then applies Bestow Curse and Toll the Dead against spellcasters. His Spirit Guardians fill the restricted circular space with punishing radiant-necrotic energy. If reduced to half HP he uses Animate Dead to raise any fallen Conclave members as zombies (cultist-corpses from earlier combat can be raised this way), steps behind the ritual dais for half cover, and casts Banishment against the most dangerous party member. He will not flee — he cannot leave the ritual notes and documents behind, and he will not allow them to be taken. At 10 HP remaining he offers a bargain: his life for the party's safe exit and a three-day delay before he reports their presence. He will keep this bargain, not from honor, but because he believes three days will not matter in the end. The cult fanatic reinforcements arrive from the Reliquary corridor and attempt to flank the party from behind.",
+              "terrain": "Circular chamber (70 feet across). The ritual dais at center is difficult terrain (the iron channels create uneven footing). The twelve iron chairs provide partial cover (AC 5 against ranged attacks from behind them). The mosaic floor is bone-dry and unusually resonant — footsteps echo in ways that make Stealth impossible. The ceiling is 20 feet high with a carved smoke channel directly above the dais; a Climb check DC 13 accesses iron rungs in the wall, allowing an archer to take a high-ground position. The room has one entrance (the iron door from the Reliquary) and one curtained alcove on the west wall (Conclave robes, ceremonial daggers — the daggers function as +1 weapons for the purpose of striking blood-constructs and undead)."
+            }
+          ],
+          "roleplayNotes": "Vale is the most important NPC encounter of the scenario, and this scene should reflect that weight. He is not a raving zealot — he is a composed, elderly scholar who has done terrible things with complete intellectual conviction and no apparent guilt. Let him speak. He will explain the covenant's history with the serenity of someone describing a natural phenomenon: the Empire bargained for three hundred years of power, the bill is due, the Rite is the payment mechanism. He does not think he is evil. He thinks he is the only person honest enough to accept the consequences of what the first Vermeil emperor set in motion. The tragedy is that he is not entirely wrong about the history. He is wrong about the solution — the Rite does not pay the debt cleanly, it feeds something that will never be satisfied — but his reading of the covenant's terms is accurate. A character who argues with him on the facts of history, rather than on moral grounds, will find him a more interesting and more dangerous interlocutor than one who simply condemns him. If the party does not fight Vale to a conclusion here — either through negotiation, stealth, or a tactical withdrawal after securing the notes — that is a valid outcome. They do not have to defeat him today. They have to know the full truth and get out with the evidence. The defeat of Vale is for scenario 4.",
+          "loot": [
+            "Vale's complete working notes on the Rite of Renewal (quest item — full mechanical description, timetable, participant list, triggering conditions; contains everything needed to understand how to disrupt or prevent the Rite at the coronation)",
+            "The sealed letter to Lord-Regent Crane confirming his role as the Vessel — the letter describes the ceremony Crane believes he is attending, the crowned emperor, and then in a single final paragraph describes what the Vessel's consciousness makes room for when the Carnelian incarnates (essential evidence for turning Crane against the Conclave in scenario 4)",
+            "4 carnelian ceremonial daggers from the alcove (each worth 75 gp as an art object, functions as a +1 dagger for the purpose of striking undead and blood-constructs)",
+            "Mordent Vale's personal seal-ring (a carnelian ring bearing the High Confessor's sigil — with this ring and appropriate vestments, the party can pass as Vale's authorized representatives to uninformed Conclave members; DC 13 Deception while wearing it)",
+            "Vale's private journal (not a quest item but a rich roleplaying resource: decades of theological reflection on the covenant, written with genuine intelligence and the slow, incremental moral compromises of a person who crossed a line so gradually he never felt the crossing)"
+          ]
+        },
+        {
+          "name": "The Race to Light",
+          "description": "The party escapes the Sanguinarium and makes their way out of the cathedral precinct with the evidence. The escape is not clean — Conclave sentinels above have been put on alert, and the party must reach the street and disappear into the river district before a full lockdown can be coordinated. Once free, the weight of what they know lands fully: the coronation is three weeks away, the full Conclave and Crane will be in Vermeil Keep for the ceremony, and Vale is preparing to end the Empire and begin something much worse. They need allies, they need a plan, and they need to move.",
+          "readAloud": "\"The stair back to the cathedral's sacristy has never been so long. The blood-warded doors stand open — you suppressed them on the way down and the suppression holds, barely — and the incense sanctuaries are quiet, the meditating confessors undisturbed. But above, you can hear the cathedral's rhythm has changed: feet moving at double-pace, a voice giving instructions in a low urgent tone, the metallic sound of something being slid into brackets. They know something has happened. They do not yet know what or who. The sacristy key still works. The robing room is empty. The door to the nave opens onto a different world than the one you descended from — or perhaps the same world, but you are different now. The amber lamps burn as steadily as ever. The confessors move as they always have. The penitents kneel in the booths. None of them know. None of them know what their worship has been paying for, or what it is about to pay for in full, or that the coronation three weeks from now is not the beginning of a new emperor's reign but the closing of a three-hundred-year-old transaction. The river air on the cathedral steps tastes of mud and brine and the distant fires of the Shamble, and it is the most beautiful thing you have breathed in hours.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 15,
+              "success": "You exit through the cathedral's river-side door rather than the main entrance, cut through the bridge market's evening crowd, and are three streets into the river district before the cathedral's gates close behind you. No pursuit.",
+              "failure": "Two Conclave sentinels spot your group as you cross the nave toward the side exit. They do not engage — too public — but they follow at a distance; you must lose them in the river district streets (Stealth DC 13 or Deception DC 15, or use knowledge of the district to lead them into a dead end or the Watch's path)."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Brother Caelum Voss, waiting at the pre-arranged meeting point near the river stairs, takes in the party's state and the documents they carry without asking unnecessary questions. He provides immediate safe passage to a Communion reformist safe-house he has held in reserve for precisely this kind of emergency. He has been waiting for proof of something like this for two years.",
+              "failure": "Caelum Voss is overwhelmed by what the party tells him and needs time to process before he can act. He does not obstruct, but he cannot provide active assistance for 24 hours."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 cult fanatics (Conclave pursuit team, dispatched from the cathedral's eastern exit to cut off the river approach)", "1 blood ooze (a congealed blood-construct, smaller than the Reliquary guardian — use gray ooze stats, reskinned as a slow-moving mass of congealed essence that has leaked from a cracked vessel during the earlier fighting and followed the party's heat-signature up through the drain system; it emerges from a gutter-grate in the bridge market at the worst possible moment)"],
+              "difficulty": "Medium",
+              "tactics": "The cult fanatics are disciplined and coordinated — they try to herd the party back toward the cathedral rather than fighting in the open street. They use the crowd as cover and shield, relying on the party's reluctance to cause a public scene. One fanatic hangs back and watches; if the party engages, he runs back to the cathedral for reinforcements. The blood ooze is not tactical — it moves toward warmth, splits if struck by slashing or piercing damage, and is destroyed by fire or cold damage. Its surprise emergence in the middle of the street causes a public panic that actually helps the party escape: the fanatics cannot maintain their cordon when civilians are running in all directions.",
+              "terrain": "River district bridge market at evening: a busy commercial street with market stalls (partial cover, difficult terrain when overturned), a low stone bridge railing (a shove or trip sends someone into the river, 1d6 bludgeoning damage and Strength DC 13 to swim to shore in the current), torch-lit storefronts, and a crowd of approximately 30 civilians who scatter at the first sign of violence. The Watch post is one street away — 3 rounds to respond if a scene is made; Watch intervention will end the Conclave pursuit but also means awkward questions for the party."
+            }
+          ],
+          "roleplayNotes": "The escape scene should deliver a tonal release after the gothic compression of the Sanguinarium — the party is back in the open air, in the city, surrounded by the ordinary chaos of the river district's evening. But the release is shadowed by what they now know. Use the contrast: a fishmonger arguing with a customer over the price of eel; a pair of children chasing each other through the market; a Watch patrol yawning over their post. None of them know. The party is carrying the weight of a secret that affects every person in this city, and they are three weeks from the moment it either destroys the Empire or is stopped by whatever the party can arrange in time. The scenario ends not with a victory but with a deadline. That is intentional. The party should feel the urgency of it — not despair, but the focused, clarifying pressure of knowing exactly what is at stake and how much time they have.",
+          "loot": [
+            "Wren Sparrow, if present at the safe-house, produces a Carmine Veil emergency kit: 100 gp in mixed small coin (for bribes and emergencies), 2 vials of antitoxin, a set of forged travel papers good for passage through any city gate, and a message tube with a pre-prepared cipher for contacting the Mother of Knives directly — a resource the Veil does not offer lightly",
+            "Brother Caelum Voss, if persuaded, provides a letter of introduction to a Communion reformist bishop in the high city who has been gathering evidence of Conclave corruption for years and is waiting for exactly this kind of testimony",
+            "The party retains all documents recovered from the Sanguinarium — the full evidentiary package needed to turn Crane, expose Vale, and convince any of the three political factions that the Rite is real and imminent"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "High Confessor Mordent Vale",
+      "role": "Primary Antagonist",
+      "description": "A man in his late sixties with the angular, attentive face of a scholar who has spent fifty years refining his convictions. He wears the High Confessor's full vestments only in the Sanguinarium; above ground he dresses in plain white with a single carnelian pin. His voice is unhurried, precise, and genuinely warm — he has a gift for making the people he is about to destroy feel heard and respected. He has led the Sanguine Communion for twenty-two years and the Crimson Conclave for eighteen, and in that time he has not been cruel so much as absolutely certain: certain that the covenant is real, that the incarnation is inevitable, and that it is better to complete the process cleanly than to let it fray into chaos.",
+      "motivation": "Vale does not want power for himself. He wants completion. The covenant was made, it must be honored, and the only question is whether the payment is made deliberately and with dignity or chaotically and with mass suffering. He believes the second option — the covenant fraying without the Rite — would result in something far worse than a controlled incarnation: the Carnelian waking without a Vessel, without the constraint of the throne's binding, and consuming the city at random. In this he is technically correct, which makes him far more dangerous than a purely self-interested villain. He has also genuinely accepted that he will die in the Rite along with the eleven other Conclave members. He is at peace with that. He has been at peace with it for years."
+    },
+    {
+      "name": "Lord-Regent Aldous Crane",
+      "role": "Apparent Antagonist / Potential Reluctant Ally",
+      "description": "The Lord-Regent does not appear in person in this scenario, but he is present in every document the party recovers from the Sanguinarium. The Crane the records reveal is more complex than the cold administrator the party has seen in the political arena: he was inducted into the Conclave six years ago by a man he trusted, told he would be the instrument of the Empire's renewal and transformation, and has genuinely believed that the Rite would make him the first truly empowered emperor in three centuries. He is intelligent, ruthless, and capable of great cruelty in the service of his ambitions — but he does not know he is slated to die. He does not know he is the Vessel.",
+      "motivation": "Crane wants what he has always wanted: order, authority, and the end of what he sees as the Empire's three-hundred-year adolescence. He believes the Carnelian's incarnation, properly managed, will give the new emperor genuine supernatural authority that will end the succession crisis once and for all. He has convinced himself this is governance, not evil. The letter describing his actual role — which the party now carries — is the precise document needed to shatter that conviction and potentially turn Crane into an enemy of the Conclave in scenario 4."
+    },
+    {
+      "name": "Brother Caelum Voss",
+      "role": "Inside Contact / Moral Compass",
+      "description": "A reform-minded confessor in his mid-forties, soft-spoken and permanently anxious in the way of a man who has known something terrible for two years and been unable to act on it. He arranged the party's entry to the cathedral, maintains the contact with the outside world, and has been building a quiet dossier of small irregularities in the Sanguinarium that individually prove nothing and collectively prove everything. He is one of the few senior confessors whose years in the incense sanctuaries have not blunted his judgment — he has a peculiar constitutional resistance to the soporific compound that he has never mentioned to anyone, because it implies he was never as compliant as the Conclave expected.",
+      "motivation": "Caelum Voss does not want the church destroyed. He wants it reformed, cleaned, and returned to what he believes it was meant to be: a genuine institution of faith rather than a three-century blood-subscription service for an ancient entity. He will provide the party with every resource he can safely offer, but he will balk at actions that would precipitate a public collapse of the Communion's institutional legitimacy — he fears the social consequences of an empire learning, overnight, that its entire faith was a mechanism of feeding. He is a complicating factor and an invaluable one."
+    },
+    {
+      "name": "Wren Sparrow (Wren Quill)",
+      "role": "Intelligence Broker / Carmine Veil Contact",
+      "description": "The party's gateway to the Carmine Veil reappears at the scenario's end, waiting at the river-district safe-house with the calm efficiency of someone who expected the party to come out carrying exactly what they are carrying. She has had two teams watching the cathedral for a week. She has not shared this with the party because the Veil's surveillance of the cathedral is one of its most closely-held operational assets. Now that the party has the documents, the calculus changes: the Mother of Knives needs to know about the Rite, and the party needs the Veil's logistics network for scenario 4.",
+      "motivation": "Wren is operating without clear authorization from the Mother of Knives on this operation and she knows it. She disobeyed orders to silence the Corvin Ashe connection; she has been running the party as informal assets without guild approval; and she is now sitting in a safe-house with evidence that the biggest political event of the century is a trap. She has to bring this up the chain, and she is not certain the Mother of Knives will react the way Wren hopes. The Veil serves whoever pays. Whether the party can make a case for the Veil to act against the Conclave depends on whether they can argue that the Rite's outcome is worse for the Veil's interests than the current crisis."
+    },
+    {
+      "name": "The Carnelian (the Thirsting Crown)",
+      "role": "Unseen Presence / True Antagonist",
+      "description": "The entity bound within the carnelian throne is not physically present in the Sanguinarium, but its influence permeates the Reliquary and touches anyone who handles its stored tithe. It does not communicate in language — its contact is sensory and appetitive, a warmth and a pull that is unmistakably awareness. It has been awake enough to feel the party's presence in the Reliquary since they entered. It is not malicious in the way of a villain: it is a thing that feeds, that has always fed, and that is now very close to full and very close to awake.",
+      "motivation": "The Carnelian wants incarnation: the completion of the covenant that will allow it to exist fully in the physical world rather than the constrained semi-existence of a bound entity. It does not particularly care which empire or dynasty or set of human beings this requires — they are the medium of its expression, not its concern. A character like Nyssa Vael, whose patron is secretly the Carnelian, will have a more complex encounter in the Reliquary: the entity recognizes her specifically, and its contact with her is subtly different from its contact with the others — not threatening, but possessive. As if she belongs to it already."
+    }
+  ],
+  "rewards": {
+    "xp": 4500,
+    "gold": "295 gp total (120 gp from the locked iron box in the archive, 100 gp from the Carmine Veil emergency kit, 75 gp from one sold ceremonial dagger, various smaller loot items)",
+    "items": [
+      "Vale's Complete Rite of Renewal Notes (plot item — the full mechanics, timetable, and participant list for the coronation ceremony; essential for scenario 4 planning)",
+      "Crane's Conclave Induction Documents (plot item — signed evidence of Crane's conspiracy membership; admissible in Imperial court and personally devastating to Crane if shown to him)",
+      "The Original Vermeil Covenant Terms (plot item — the first Emperor's actual contract with the Carnelian; theological and historical evidence of extraordinary significance)",
+      "The Sealed Letter Describing Crane's Role as Vessel (plot item — the document that can turn Crane against the Conclave if delivered to him before the coronation)",
+      "4 Carnelian Ceremonial Daggers (+1 daggers vs. undead and blood-constructs, worth 75 gp each as art objects)",
+      "Mordent Vale's Personal Seal-Ring (carnelian signet; passes as Vale's authorization to uninformed Conclave members — DC 13 Deception while wearing)",
+      "Carmine Veil Emergency Kit: 100 gp coin, 2 vials antitoxin, forged travel papers, cipher for direct Mother of Knives contact",
+      "Incense Compound Vials x3 (smokable sedative, DC 12 Con save or disadvantage on Wisdom checks and saves for 10 minutes)",
+      "Clarifier Vial x1 (antidote to incense compound's soporific effect)",
+      "Blood Construct Binding Shard (component for crafting a blood-ward; Arcana DC 16 to construct)",
+      "Brother Caelum Voss's Letter of Introduction to the Reformist Bishop (social/faction asset for the high city)",
+      "Vale's Personal Journal (roleplaying resource — decades of theological reflection; potential player handout)"
+    ],
+    "story": "The party has descended into the Sanguine Cathedral and returned with the full architecture of the conspiracy in their hands. They know the Carnelian is real. They know the covenant is real. They know the Rite of Renewal will incarnate the entity at the coronation, that it will kill twelve Conclave members and hollow out Lord-Regent Crane as the Vessel, and that Vale has been preparing this outcome for twenty-two years with the patience and precision of a man who believes absolutely in what he is doing. They know, as well, that Crane does not know he is the sacrifice rather than the prize — a vulnerability. They have three weeks before the coronation. They have a full evidence package that can move the political factions if presented correctly. They have the Carmine Veil's grudging attention. And they have, for the first time in the campaign, a plan: get to Vermeil Keep, turn the pieces that can be turned, and stop the Rite before the entity that has been fed for three hundred years finishes waking up."
+  },
+  "twists": [
+    "Lord-Regent Crane is not the conspiracy's master — he is its final sacrifice, chosen as the Vessel to host the Carnelian's consciousness not because he is powerful but because he is sufficiently ambitious and sufficiently isolated that no one will interrupt his death before it is complete. The man who believes he is about to become the most powerful ruler in Veldoran's history is walking into his own funeral.",
+    "The Rite of Renewal cannot be completed in the Sanguinarium — it must be performed at the physical location of the Crimson Throne, which means the Conclave needs the coronation ceremony to proceed. Every faction's push toward a quick coronation, including Princess Severine's allies and Duke Valmont's political maneuvering, is inadvertently serving the Conclave's timetable. The party slowing the coronation is as valid a strategy as stopping the Rite directly.",
+    "Nyssa Vael's patron, the Whispering Crown, has been the Carnelian this entire time — the entity has been cultivating her as a secondary Vessel option, one with a genuine covenant connection who might be used if Crane fails or is withdrawn. The Reliquary scene should plant this as a disturbing intimation without confirming it; confirmation is a scenario 4 reveal.",
+    "The incense sanctuaries' soporific compound has been slowly affecting every senior confessor who spends time in the Sanguinarium — including Brother Caelum Voss, who believes he is resistant to it. His constitutional resistance has slowed but not stopped the effect. He is more sympathetic to the Conclave's institutional worldview than he realizes, and in a crisis moment he may hesitate or choose the church's survival over the party's safety without understanding why.",
+    "Vale's offer of a three-day delay in exchange for sparing his life is genuine, but the three days serve him as much as they serve the party: three days is exactly how long the preparatory rite in the Sanguinarium takes to reach the point where the coronation timing is locked. By accepting the delay, the party may inadvertently allow the timetable to crystallize."
+  ],
+  "dmTips": [
+    "The cathedral infiltration should feel fundamentally different from a dungeon crawl. The danger above ground is social and reputational, not physical: every wrong move in the nave is a scene, and scenes have consequences (Watch notification, Conclave alert, public attention). Use the party's Notoriety score as a real lever here. A group with high Notoriety cannot walk into the Sanguine Cathedral as casually as a group with low Notoriety, and the difference should be felt in the planning stage.",
+    "The Sanguinarium's blood-wards are the signature feature of this scenario. Make them feel like a living security system rather than static obstacles: have them pulse when the party passes nearby, show the faint warmth of the suppression reaction when blood is applied, describe the wards in each corridor before the party commits to crossing. Blood-ward encounters that feel like puzzle-solving (identify, suppress, cross) are more interesting than ward encounters that are just damage-dealing traps.",
+    "Mordent Vale is the campaign's most important character interaction outside of Princess Severine. Do not rush the confrontation. Let him speak. His argument — that the covenant is real, the debt is due, and controlled payment is preferable to chaotic default — is not without merit, and a party that argues with him purely on moral grounds will find him politely unmovable. The character who unsettles him is the one who argues on practical grounds: what happens after incarnation? The Carnelian fed, fully awake, in the body of the Lord-Regent of the Empire? Vale has answers for that too, but they are theological answers, and theology is thinner armor than his composure suggests.",
+    "Nyssa Vael's thematic thread reaches a critical point in the Reliquary. If she is a party member or an NPC companion, the Carnelian's recognition of her in the vessel-chamber should be deeply unsettling — not threatening, but the specific, particular attention of something that has been watching her for a long time and is pleased to see her here. Do not explain it. Let it sit. The party may ask her about it afterward; let her be genuinely uncertain what she felt.",
+    "The scenario's horror register is different from most D&D horror. The monsters are real but secondary. The primary horror is institutional and historical: the revelation that the beloved state church has been a blood-subscription service for three hundred years, that every confession rite has been a small contribution to an entity's feeding fund, that the people who prayed in the nave above are parties to a covenant they never agreed to and cannot escape. Give the party space to feel the weight of this. After the Reliquary, before the confrontation with Vale, a beat of silence in which they simply look at each other and understand what they are carrying is more effective than moving immediately to the next combat.",
+    "The scenario ends with a deadline, not a victory, and that is intentional. The party has the evidence and the knowledge — the final scenario will be about using those assets. Do not let them feel they have won; do not let them feel they have lost. The Sanguinarium is behind them, the coronation is three weeks ahead, and the weight of three hundred years of a nation's secret is in their packs. That is exactly where the story needs them to be."
+  ]
+}

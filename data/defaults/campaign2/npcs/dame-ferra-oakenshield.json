@@ -1,0 +1,147 @@
+{
+  "id": "ct-npc-003",
+  "name": "Dame Ferra Oakenshield",
+  "status": "alive",
+  "race": "Mountain Dwarf",
+  "subrace": "",
+  "class": "Fighter",
+  "level": 1,
+  "background": "Soldier",
+  "alignment": "Lawful Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 17,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 13,
+    "current": 13
+  },
+  "armorClass": 18,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "History",
+    "Intimidation",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Dwarvish"
+  ],
+  "equipment": [
+    "Chain mail",
+    "Shield bearing a scratched-out crest -- the Valmont stag under a diagonal bar",
+    "Longsword",
+    "Handaxe (2)",
+    "Javelin (4)",
+    "Explorer's pack",
+    "Belt pouch containing 8 gp",
+    "A knight's ring of service -- the Valmont sigil filed off the face, leaving a blank oval of silver",
+    "Whetstone",
+    "Rations (5)",
+    "Rope, hempen (50 feet)",
+    "Flint and steel",
+    "A sealed document case, flat and battered, secured with two brass locks -- the proof she has carried for eighteen months"
+  ],
+  "weapons": [
+    {
+      "name": "Longsword",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Handaxe",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Javelin",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Chain Mail",
+    "type": "heavy"
+  },
+  "features": [
+    "Fighting Style: Defense (while Ferra is wearing armor, she gains a +1 bonus to AC -- this is already included in her listed AC of 18)",
+    "Second Wind (as a bonus action Ferra can regain 1d10+1 hit points; this ability recharges on a short or long rest; it represents her veteran's ability to push through punishment that would stop a lesser soldier)",
+    "Dwarven Resilience (advantage on saving throws against poison, and resistance to poison damage -- a racial feature reflecting Ferra's dwarven constitution, hardened by generations of underground living and hard campaigning)",
+    "Dwarven Combat Training (proficiency with battleaxe, handaxe, light hammer, and warhammer as racial weapon training, in addition to all martial weapons granted by the Fighter class)",
+    "Stonecunning (whenever Ferra makes an Intelligence (History) check related to the origin of stonework, she is considered proficient in the History skill and adds double her proficiency bonus to the check, reflecting the racial affinity for architecture, construction, and the memory of stone)",
+    "Soldier: Military Rank (Ferra held the rank of Knight-Sergeant in Duke Valmont's household guard before her cashiering; she can still invoke her former rank among soldiers, veterans, and military types who do not know she has been stripped of it, and she does so deliberately when necessary, though it costs her something each time)"
+  ],
+  "traits": [
+    "Fighting Style: Defense",
+    "Second Wind",
+    "Dwarven Resilience",
+    "Dwarven Combat Training",
+    "Stonecunning",
+    "Military Rank"
+  ],
+  "spells": {
+    "spellcastingAbility": "none",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    },
+    "level2": {
+      "slots": 0,
+      "known": []
+    },
+    "level3": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I follow orders until the order is wrong. I kept following them for too long once, and I know exactly what that cost -- counted it in bodies in a burning village that had nothing to do with any war. I do not raise my voice. I do not repeat myself. I do what I say I will do, and I expect the same.",
+    "ideals": "The code exists because chaos is worse. I still believe that. I have simply stopped believing that the code is the same thing as the institution that claims to embody it. Valmont wears the law like a uniform; I want to be someone who carries it in the bone. Those are different things, and I learned the difference at Ashvale.",
+    "bonds": "I carry the testimony of seven soldiers who refused the same order I refused -- the ones who did not survive refusing it. They are the reason the sealed case exists and the reason I will not let it end with me. Beyond that: I am learning, slowly, that oaths to people can be worth more than oaths to institutions, and the people in this company are beginning to matter to me in that way.",
+    "flaws": "I am better at absorbing harm than at accepting help, which is a structural problem in a party. I also have a specific and inflexible contempt for officers who give unlawful orders and then survive them, and if Duke Valmont appears before me in a context where I cannot act, I do not trust my own self-control."
+  },
+  "appearance": "Ferra stands four and a half feet tall, which is standard for a mountain dwarf and somewhat below eye level for most of the people she has spent her military career politely, wordlessly daring to underestimate her. She is broad-shouldered and dense with muscle, moving with the economical precision of someone who has worn heavy armor for fifteen years and no longer thinks about it. Her hair is a dark reddish-brown, the color of old oak, cut short on the sides and kept to a tight functional braid at the back of her head; a single narrow silver ring is braided into it at the end, the only jewelry she wears. Her face is broad and square-jawed, with the particular deep lines that come from spending years outdoors in hard weather, and a nose that has been broken twice and set competently once. Her eyes are the flat, medium grey of old iron, and they assess incoming information with the same unhurried thoroughness she brings to reading a battlefield. Her chain mail is old and well-maintained, every link polished and even, because a soldier with rust on her armor is a soldier who does not respect the life the armor protects. The scratched-out crest on her shield is the one concession to emotion she allows herself to display: she did not file the Valmont stag off. She scratched a bar through it with the point of her own dagger, which is different, and the difference matters to her.",
+  "backstory": "Ferra Oakenshield was fourth-generation military in a family that had served in various capacities for the lords of the frontier marches for as long as anyone could trace the name. Her grandmother fought in the skirmish wars at the border; her father was a siege-engineer; her eldest brother died on the march that made Roderick Valmont famous. Ferra herself took the oath at eighteen and spent the next fifteen years earning every advancement through the kind of grinding competence that does not make ballads but keeps people alive in bad ground. She was made Knight-Sergeant at thirty-two, attached to the Duke's household guard, which was the appointment her father had always told her was the pinnacle worth aiming for.\n\nAshvale happened in the third year of her household posting. The village of Ashvale sits in the lower marches, a farming settlement of perhaps four hundred souls that had been accused -- on the basis of evidence Ferra later determined was fabricated by a garrison captain with a grudge and a gambling debt to the wrong people -- of sheltering a group of deserters from the main legion. The order came down through the chain of command: punitive action, collective responsibility, the settlement to be made an example. Ferra recognized the order for what it was before she read it twice. She refused it in writing, countersigned by seven of her soldiers who had reached the same conclusion. The captain carried the order down the chain to a more compliant unit. One hundred and twelve people died in Ashvale. The garrison captain was promoted. Ferra was stripped of rank, her soldiers who had refused were court-martialed on fabricated charges, and three of them were hanged before a sympathetic magistrate intervened on the remaining four.\n\nShe spent the next year documenting it. Sworn statements, the original forged evidence against Ashvale, the chain of command, the subsequent promotions. She had it all sealed and copied in three sets. She sent one to a lord-justice in the capital who had not yet been bought. She kept one. The third she gave to the most disreputable lawyer in Coronne she could find, with instructions to file it publicly if she died without countermanding. Then she came to Coronne to find what use a disgraced knight could be -- and, she does not quite admit, to try to find someone in this city worth serving, because she has discovered that she cannot live without an oath and she intends to choose the next one far more carefully.",
+  "dmNotes": {
+    "roleplaying": "Ferra is the party's most reliable combat asset and, less obviously, one of its most reliable ethical anchors. Play her as someone whose principles have been tested nearly to breaking and who emerged not cynical but more precise: she knows exactly where her lines are now because she has already paid for discovering them the hard way. She does not moralize. She states what she will and will not do, once, quietly, and then she acts accordingly. In combat she is protective without fuss -- she moves to cover weaker party members as a matter of tactical habit, not sentiment, and she does not draw attention to it. She respects the player's decision-making in the field and will execute on orders she disagrees with up to the point where the order is wrong, at which point she will say so in three words and stop. Her warming toward the party is visible not in what she says but in what she does: she cleans her armor in proximity to people she trusts, she sharpens her blade at the edge of the fire rather than alone, she begins to anticipate the player's preferred tactics and adapt to them without discussion. She is quietly looking for someone worth swearing to. If the player earns that -- through consistent integrity, not heroics -- it becomes the most steadfast loyalty in the campaign. The sealed case is a long-fuse plot device: she will not discuss it freely, but it surfaces at the right moment and its contents will matter to the Valmont arc.",
+    "voice": "Ferra speaks in short, declarative sentences with a faint northern frontier burr -- not quite Valmont marches but close enough to it that military characters will recognize the region. She uses military brevity not because she dislikes language but because she was trained that unnecessary words in the field cost seconds and seconds cost lives, and the habit has not entirely transferred out of the field. She is dryer than she appears. Examples: 'Left flank is exposed. I will address it.' / 'That order is unlawful. I will not carry it. We can discuss that or move past it.' / On Valmont, if pressed: 'The Duke is a good general and an honest man who looked away from Ashvale and called it pragmatism. I have more respect for honest monsters than for honest men who do monstrous things by committee.' / On her cashiering: 'The code says an unlawful order is not an order. The chain of command says otherwise. One of those things is correct, and I know which.' / Rare warmth: 'You fought well. Watch your right side -- you have a habit of dropping the shoulder. Fix it before it gets used against you.' / Very rare: 'I came here to find something worth serving. I am beginning to suspect I am looking in the right direction.'"  ,
+    "motivations": "Primary: Get the Ashvale documentation into the hands of someone who can use it to formally indict the garrison captain and the officers who gave the order, ideally someone with enough standing in the succession crisis to be untouchable -- Princess Severine, if she takes the throne, would have both the authority and the incentive to make Valmont's military faction accountable. Secondary: Understand what is actually happening in the succession crisis before it resolves into another Ashvale -- a conflict where the official story is a lie and the people who die are the ones without names. She does not want to back the wrong claimant again. Tertiary: Find, define, and commit to an oath that she can hold without reservation. She is not done being a soldier. She is done being a soldier for the wrong reasons.",
+    "secrets": "Ferra's deepest secret is the specific content of the sealed case: it contains not only the Ashvale documentation but a sworn statement from the surviving soldiers identifying the officer who passed the order downward. That officer is now a colonel in Valmont's frontier garrison -- a man Valmont trusts, publicly commends, and does not know committed this. This puts Ferra in a poisonous position: exposing the colonel exposes a Valmont loyalty she cannot yet afford to antagonize, so the case stays sealed until she finds leverage. The second secret is that one of the soldiers who refused at Ashvale and survived is now in Coronne -- a man named Stig, working as a docker in the Shamble. She knows he is here and has not contacted him because she does not know if he has been turned, and because seeing him would make the grief of the three who died too immediate to manage. The third secret -- and this one has bearing on the main campaign -- is that among the documents she preserved from the Ashvale inquiry is a requisition order for Valmont's supplies that passed through a specific church accounting office: the same account name that appears in Corvin Ashe's ledger. She does not know yet that these are connected. When she finds out, the Valmont-Conclave link will crystallize through her.",
+    "attitude": "Ferra treats the party with a direct, assessing pragmatism that warms toward respect over time. She does not invest trust quickly, but when she gives it she gives it without reservation, and the shift from provisional to full trust is marked by a specific, observable change: she stops watching the player's tactical choices for errors and starts anticipating them as allies. She is professionally deferential to the player's lead without being sycophantic about it -- she will contradict a bad decision once and then fall in line if the decision is made, noting afterward whether she was right. She is instinctively aligned with Brother Caelum in values -- they both chose integrity over institutional comfort -- and she feels this without quite articulating it; they are comfortable in each other's silences. She is wary around Wren Sparrow for the first half of the campaign, specifically because Wren represents the Carmine Veil, which is the kind of institution Ferra has spent her career learning to distrust. But Wren's competence and her evident willingness to break a bad order is something Ferra understands at a cellular level, and she will name that, eventually, which will matter to Wren considerably more than Wren will let on. She regards Mirabel Thorne with uncomplicated respect: unregistered magic in a church-regulated city is not so different from refusing an unlawful order in a chain of command, and Ferra recognizes the shape of someone living outside a system that wants them contained. Maddox Quill she finds exhausting, amusing, and occasionally useful -- she has a dry appreciation for his information and a genuine impatience with his methods, which is a comedy duo that writes itself."
+  }
+}
