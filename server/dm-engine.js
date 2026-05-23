@@ -152,21 +152,19 @@ function loadNpcs(dataDir, playerEmail, campaignId, sessionDbId) {
   return [];
 }
 
-function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState) {
+// buildStableSystemPrompt returns content that is byte-stable for the duration of a session.
+// The Claude Agent SDK applies prompt caching automatically on the system prompt; this content
+// is therefore reused across turns with cache hits. Per-turn volatile state (character HP,
+// world state, NPC stats, party composition) lives in buildGameStateContext and is prepended
+// to the user prompt instead, so it can change freely without invalidating the cache.
+function buildStableSystemPrompt(dataDir, playerEmail, campaignId, sessionDbId, dmPersonality) {
   const cid = campaignId || 'demo';
   const settings = dmPersonality || loadDmSettings(dataDir, playerEmail);
-  const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid, sessionDbId) : null;
-  const scenario = scenarioId ? loadScenario(dataDir, scenarioId, cid) : null;
-  const npcs = loadNpcs(dataDir, playerEmail, cid, sessionDbId);
 
-  // Compute paths for file references — use session dirs when available
   const slug = playerEmail ? emailToSlug(playerEmail) : null;
   const charPathPrefix = sessionDbId
     ? `data/sessions/${sessionDbId}/characters`
     : slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
-  const npcPathPrefix = sessionDbId
-    ? `data/sessions/${sessionDbId}/npcs`
-    : `data/defaults/${cid}/npcs`;
 
   const lengthPreset = RESPONSE_LENGTH_PRESETS[settings.responseLength] || RESPONSE_LENGTH_PRESETS.standard;
   const responseLengthGuide = lengthPreset.guide;
@@ -263,35 +261,6 @@ Expected contents:
 - \`npcs/\` — NPC JSON files for this session
 
 When you Read or Edit character/NPC data during play, ALWAYS use this session's directory. Do NOT touch \`data/players/...\` or \`data/defaults/...\` — those are player libraries and templates, not active gameplay data. The session directory is the source of truth while the game is in progress.`;
-
-  // --- Player character block ---
-  if (character) {
-    prompt += `
-
-## Player Character
-${character.name} — Level ${character.level} ${character.subrace ? (character.subrace.toLowerCase().includes(character.race.toLowerCase()) ? character.subrace : `${character.subrace} ${character.race}`) : character.race} ${character.class} (${character.background})
-HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
-Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
-Character file: ${charPathPrefix}/${character._filename || (character.id + '.json')} (use Read to check current state, Edit to update)
-Character ID for AwardXP: ${character.id}`;
-  }
-
-  if (scenario) {
-    prompt += `
-
-## Active Scenario: ${scenario.title}
-${scenario.synopsis || ''}`;
-    if (scenario.hook) {
-      prompt += `
-Hook: ${scenario.hook}`;
-    }
-    if (scenario.acts) {
-      prompt += `
-Acts: ${scenario.acts.map((a, i) => `Act ${i + 1}: ${a.title}`).join(', ')}`;
-    }
-    prompt += `
-Scenario file: data/campaigns/${cid}/scenarios/ (Read for full details)`;
-  }
 
   prompt += `
 
@@ -406,105 +375,6 @@ You have an **UpdateWorldState** tool that persists a structured snapshot of the
 
 Pass only the fields that changed — they merge with the existing state. Keep \`recentEvents\` to the last 3-5 significant events. Keep \`narrativeNotes\` brief (1-2 sentences about what's likely next).`;
 
-  // Inject current world state if available (critical for session resume context)
-  if (worldState && typeof worldState === 'object' && Object.keys(worldState).length > 0) {
-    prompt += `
-
-## Current World State (from last update: ${worldState.updatedAt || 'unknown'})`;
-    if (worldState.location) prompt += `\n**Location:** ${worldState.location}`;
-    if (worldState.inGameDay) prompt += `\n**In-Game Day:** ${worldState.inGameDay}`;
-    if (worldState.inGameTime) prompt += `\n**Time:** ${worldState.inGameTime}`;
-    if (worldState.recentEvents && worldState.recentEvents.length > 0) {
-      prompt += `\n**Recent Events:**\n${worldState.recentEvents.map(e => `- ${e}`).join('\n')}`;
-    }
-    if (worldState.activeQuests && worldState.activeQuests.length > 0) {
-      prompt += `\n**Active Quests:**\n${worldState.activeQuests.map(q => `- ${q.name}: ${q.status}`).join('\n')}`;
-    }
-    if (worldState.keyRelationships && worldState.keyRelationships.length > 0) {
-      prompt += `\n**Key Relationships:**\n${worldState.keyRelationships.map(r => `- ${r}`).join('\n')}`;
-    }
-    if (worldState.pendingEffects && worldState.pendingEffects.length > 0) {
-      prompt += `\n**Pending Effects:**\n${worldState.pendingEffects.map(e => `- ${e}`).join('\n')}`;
-    }
-    if (worldState.narrativeNotes) prompt += `\n**DM Notes:** ${worldState.narrativeNotes}`;
-  }
-
-  // Build a map of NPC IDs replaced by companion players
-  const companionsByNpcId = {};
-  if (Array.isArray(companionPlayers)) {
-    for (const cp of companionPlayers) {
-      if (cp.companionNpcId) companionsByNpcId[cp.companionNpcId] = cp;
-    }
-  }
-
-  if (npcs.length > 0) {
-    prompt += `
-
-## NPC Companions (You control these)`;
-    for (const npc of npcs) {
-      const cp = companionsByNpcId[npc.id];
-      if (cp && cp.companionCharacterName) {
-        // This NPC slot is controlled by a companion player with their own character
-        prompt += `
-### ~~${npc.name}~~ → REPLACED by **${cp.companionCharacterName}** (controlled by companion player ${cp.playerName || cp.playerEmail})
-${npc.name} is NOT in the party. ${cp.companionCharacterName} has taken their slot.
-${cp.companionCharacterName}'s character file: ${charPathPrefix}/${String(cp.companionCharacterName).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.json (use Read to check stats)
-Character ID for AwardXP: look up in the character file`;
-      } else if (cp) {
-        // Companion player controlling the NPC directly (no character swap)
-        prompt += `
-### ${npc.name} — Level ${npc.level} ${npc.race} ${npc.class} ⚡ CONTROLLED BY COMPANION PLAYER ${cp.playerName || cp.playerEmail}
-HP: ${npc.hitPoints.current}/${npc.hitPoints.max} | AC: ${npc.armorClass}
-**This NPC is controlled by a human companion player, not by you.** Their actions come via the Companion Actions block.
-File: ${npcPathPrefix}/${npc._filename || (npc.id + '.json')}
-Character ID for AwardXP: ${npc.id}`;
-      } else {
-        prompt += `
-### ${npc.name} — Level ${npc.level} ${npc.race} ${npc.class}
-HP: ${npc.hitPoints.current}/${npc.hitPoints.max} | AC: ${npc.armorClass}`;
-        if (npc.dmNotes) {
-          prompt += `
-Roleplaying: ${npc.dmNotes.roleplaying || ''}
-Voice: ${npc.dmNotes.voice || ''}
-Motivation: ${npc.dmNotes.motivation || ''}
-Secret: ${npc.dmNotes.secrets || ''}
-Attitude: ${npc.dmNotes.attitude || ''}`;
-        }
-        prompt += `
-File: ${npcPathPrefix}/${npc._filename || (npc.id + '.json')}
-Character ID for AwardXP: ${npc.id}`;
-      }
-    }
-  }
-
-  // Build party composition from companionConfig (which NPCs are removed, open slots, reserved)
-  if (companionConfig && companionConfig.states && npcs.length > 0) {
-    const states = companionConfig.states;
-    const reservations = companionConfig.reservations || {};
-    const removedNpcs = npcs.filter(n => states[n.id] === 'removed');
-    const openNpcs = npcs.filter(n => states[n.id] === 'player' && !companionsByNpcId[n.id]);
-    const reservedNpcs = npcs.filter(n => states[n.id] === 'reserved' && !companionsByNpcId[n.id]);
-
-    if (removedNpcs.length > 0 || openNpcs.length > 0 || reservedNpcs.length > 0) {
-      prompt += `
-
-## Party Composition (Host Configuration)`;
-      if (removedNpcs.length > 0) {
-        prompt += `
-**These NPCs are NOT in the party and should not appear:** ${removedNpcs.map(n => n.name).join(', ')}.`;
-      }
-      if (openNpcs.length > 0) {
-        prompt += `
-**${openNpcs.length} open player slot(s)** (${openNpcs.map(n => n.name).join(', ')}). Until a player joins, the DM controls these as NPCs.`;
-      }
-      if (reservedNpcs.length > 0) {
-        const details = reservedNpcs.map(n => `${n.name} (reserved for ${reservations[n.id] || 'a specific player'})`).join(', ');
-        prompt += `
-**Reserved player slot(s):** ${details}. Until the reserved player joins, the DM controls these as NPCs.`;
-      }
-    }
-  }
-
   prompt += `
 
 ## Multiplayer Companion Actions
@@ -567,6 +437,163 @@ You have 5 additional tools to help manage gameplay:
 - **Virtues over guard-rails.** The player's choices drive the story — including into danger, death, and failure. Real consequences make the game worth playing.`;
 
   return prompt;
+}
+
+// buildGameStateContext returns the volatile per-turn state — character HP, world state,
+// NPC stats, party composition, active scenario. This block is prepended to the user prompt
+// rather than included in the system prompt so it can change every turn without invalidating
+// the SDK's automatic prompt cache.
+function buildGameStateContext(dataDir, characterId, scenarioId, playerEmail, campaignId, sessionDbId, companionPlayers, companionConfig, worldState) {
+  const cid = campaignId || 'demo';
+  const character = characterId ? loadCharacter(dataDir, characterId, playerEmail, cid, sessionDbId) : null;
+  const scenario = scenarioId ? loadScenario(dataDir, scenarioId, cid) : null;
+  const npcs = loadNpcs(dataDir, playerEmail, cid, sessionDbId);
+
+  const slug = playerEmail ? emailToSlug(playerEmail) : null;
+  const charPathPrefix = sessionDbId
+    ? `data/sessions/${sessionDbId}/characters`
+    : slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
+  const npcPathPrefix = sessionDbId
+    ? `data/sessions/${sessionDbId}/npcs`
+    : `data/defaults/${cid}/npcs`;
+
+  const companionsByNpcId = {};
+  if (Array.isArray(companionPlayers)) {
+    for (const cp of companionPlayers) {
+      if (cp.companionNpcId) companionsByNpcId[cp.companionNpcId] = cp;
+    }
+  }
+
+  let body = '';
+
+  if (character) {
+    body += `
+
+## Player Character
+${character.name} — Level ${character.level} ${character.subrace ? (character.subrace.toLowerCase().includes(character.race.toLowerCase()) ? character.subrace : `${character.subrace} ${character.race}`) : character.race} ${character.class} (${character.background})
+HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
+Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
+Character file: ${charPathPrefix}/${character._filename || (character.id + '.json')} (use Read to check current state, Edit to update)
+Character ID for AwardXP: ${character.id}`;
+  }
+
+  if (scenario) {
+    body += `
+
+## Active Scenario: ${scenario.title}
+${scenario.synopsis || ''}`;
+    if (scenario.hook) {
+      body += `
+Hook: ${scenario.hook}`;
+    }
+    if (scenario.acts) {
+      body += `
+Acts: ${scenario.acts.map((a, i) => `Act ${i + 1}: ${a.title}`).join(', ')}`;
+    }
+    body += `
+Scenario file: data/campaigns/${cid}/scenarios/ (Read for full details)`;
+  }
+
+  if (worldState && typeof worldState === 'object' && Object.keys(worldState).length > 0) {
+    body += `
+
+## Current World State (from last update: ${worldState.updatedAt || 'unknown'})`;
+    if (worldState.location) body += `\n**Location:** ${worldState.location}`;
+    if (worldState.inGameDay) body += `\n**In-Game Day:** ${worldState.inGameDay}`;
+    if (worldState.inGameTime) body += `\n**Time:** ${worldState.inGameTime}`;
+    if (worldState.recentEvents && worldState.recentEvents.length > 0) {
+      body += `\n**Recent Events:**\n${worldState.recentEvents.map(e => `- ${e}`).join('\n')}`;
+    }
+    if (worldState.activeQuests && worldState.activeQuests.length > 0) {
+      body += `\n**Active Quests:**\n${worldState.activeQuests.map(q => `- ${q.name}: ${q.status}`).join('\n')}`;
+    }
+    if (worldState.keyRelationships && worldState.keyRelationships.length > 0) {
+      body += `\n**Key Relationships:**\n${worldState.keyRelationships.map(r => `- ${r}`).join('\n')}`;
+    }
+    if (worldState.pendingEffects && worldState.pendingEffects.length > 0) {
+      body += `\n**Pending Effects:**\n${worldState.pendingEffects.map(e => `- ${e}`).join('\n')}`;
+    }
+    if (worldState.narrativeNotes) body += `\n**DM Notes:** ${worldState.narrativeNotes}`;
+  }
+
+  if (npcs.length > 0) {
+    body += `
+
+## NPC Companions (You control these)`;
+    for (const npc of npcs) {
+      const cp = companionsByNpcId[npc.id];
+      if (cp && cp.companionCharacterName) {
+        body += `
+### ~~${npc.name}~~ → REPLACED by **${cp.companionCharacterName}** (controlled by companion player ${cp.playerName || cp.playerEmail})
+${npc.name} is NOT in the party. ${cp.companionCharacterName} has taken their slot.
+${cp.companionCharacterName}'s character file: ${charPathPrefix}/${String(cp.companionCharacterName).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.json (use Read to check stats)
+Character ID for AwardXP: look up in the character file`;
+      } else if (cp) {
+        body += `
+### ${npc.name} — Level ${npc.level} ${npc.race} ${npc.class} ⚡ CONTROLLED BY COMPANION PLAYER ${cp.playerName || cp.playerEmail}
+HP: ${npc.hitPoints.current}/${npc.hitPoints.max} | AC: ${npc.armorClass}
+**This NPC is controlled by a human companion player, not by you.** Their actions come via the Companion Actions block.
+File: ${npcPathPrefix}/${npc._filename || (npc.id + '.json')}
+Character ID for AwardXP: ${npc.id}`;
+      } else {
+        body += `
+### ${npc.name} — Level ${npc.level} ${npc.race} ${npc.class}
+HP: ${npc.hitPoints.current}/${npc.hitPoints.max} | AC: ${npc.armorClass}`;
+        if (npc.dmNotes) {
+          body += `
+Roleplaying: ${npc.dmNotes.roleplaying || ''}
+Voice: ${npc.dmNotes.voice || ''}
+Motivation: ${npc.dmNotes.motivation || ''}
+Secret: ${npc.dmNotes.secrets || ''}
+Attitude: ${npc.dmNotes.attitude || ''}`;
+        }
+        body += `
+File: ${npcPathPrefix}/${npc._filename || (npc.id + '.json')}
+Character ID for AwardXP: ${npc.id}`;
+      }
+    }
+  }
+
+  if (companionConfig && companionConfig.states && npcs.length > 0) {
+    const states = companionConfig.states;
+    const reservations = companionConfig.reservations || {};
+    const removedNpcs = npcs.filter(n => states[n.id] === 'removed');
+    const openNpcs = npcs.filter(n => states[n.id] === 'player' && !companionsByNpcId[n.id]);
+    const reservedNpcs = npcs.filter(n => states[n.id] === 'reserved' && !companionsByNpcId[n.id]);
+
+    if (removedNpcs.length > 0 || openNpcs.length > 0 || reservedNpcs.length > 0) {
+      body += `
+
+## Party Composition (Host Configuration)`;
+      if (removedNpcs.length > 0) {
+        body += `
+**These NPCs are NOT in the party and should not appear:** ${removedNpcs.map(n => n.name).join(', ')}.`;
+      }
+      if (openNpcs.length > 0) {
+        body += `
+**${openNpcs.length} open player slot(s)** (${openNpcs.map(n => n.name).join(', ')}). Until a player joins, the DM controls these as NPCs.`;
+      }
+      if (reservedNpcs.length > 0) {
+        const details = reservedNpcs.map(n => `${n.name} (reserved for ${reservations[n.id] || 'a specific player'})`).join(', ');
+        body += `
+**Reserved player slot(s):** ${details}. Until the reserved player joins, the DM controls these as NPCs.`;
+      }
+    }
+  }
+
+  if (!body) return '';
+  return `[GAME STATE — current as of turn start]${body}
+
+[END GAME STATE]`;
+}
+
+// Backwards-compat wrapper. Production code (DmEngine._buildOptions / DmEngine.run) calls
+// buildStableSystemPrompt and buildGameStateContext separately so the stable prefix can be
+// cached. This combined form is kept for tests and any caller that wants the full prompt.
+function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState) {
+  const stable = buildStableSystemPrompt(dataDir, playerEmail, campaignId, sessionDbId, dmPersonality);
+  const gameState = buildGameStateContext(dataDir, characterId, scenarioId, playerEmail, campaignId, sessionDbId, companionPlayers, companionConfig, worldState);
+  return gameState ? `${stable}\n\n${gameState}` : stable;
 }
 
 function rollDice(notation) {
@@ -971,7 +998,10 @@ class DmEngine {
   }
 
   _buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState) {
-    const systemPrompt = buildSystemPrompt(this.dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
+    // Stable-only system prompt so the SDK's automatic prompt cache hits across turns within
+    // a session. Volatile state (worldState, character HP, NPCs, party composition) is
+    // prepended to the user prompt in DmEngine.run instead.
+    const systemPrompt = buildStableSystemPrompt(this.dataDir, playerEmail, campaignId, sessionDbId, dmPersonality);
     const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId, sessionDbId);
     const dmSettings = loadDmSettings(this.dataDir, playerEmail);
     const opts = {
@@ -1055,6 +1085,10 @@ class DmEngine {
           if (message.session_id) {
             this.sessionId = message.session_id;
           }
+          const usage = message.usage || message.message?.usage;
+          if (usage) {
+            console.log(`[DM:USAGE] session=${this.sessionId} input=${usage.input_tokens || 0} output=${usage.output_tokens || 0} cache_read=${usage.cache_read_input_tokens || 0} cache_create=${usage.cache_creation_input_tokens || 0}`);
+          }
           yield { type: 'dm_complete', sessionId: this.sessionId };
           continue;
         }
@@ -1074,6 +1108,11 @@ class DmEngine {
     const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
     let isStaleResume = false;
 
+    // Volatile per-turn game state — prepended to the user prompt so it can change every turn
+    // without invalidating the cached system-prompt prefix.
+    const gameState = buildGameStateContext(this.dataDir, characterId, scenarioId, playerEmail, campaignId, sessionDbId, companionPlayers, companionConfig, worldState);
+    const withGameState = (msg) => gameState ? `${gameState}\n\n${msg}` : msg;
+
     // Phase 2: Auto-summary nudge — append to user message if overdue
     let augmentedMessage = userMessage;
     if (typeof dmMessagesSinceLastSummary === 'number' && dmMessagesSinceLastSummary >= SUMMARY_NUDGE_THRESHOLD) {
@@ -1083,7 +1122,7 @@ class DmEngine {
     if (this.sessionId) {
       options.resume = this.sessionId;
       try {
-        yield* this._streamQuery(augmentedMessage, options);
+        yield* this._streamQuery(withGameState(augmentedMessage), options);
         return;
       } catch (err) {
         // Stale session — fall back to a fresh session with history context
@@ -1113,7 +1152,7 @@ class DmEngine {
       // Phase 4: Warm-up turn on stale session resume
       // Send a hidden warm-up query so the AI reviews the recap before responding to the player
       if (isStaleResume && recap.length > 0) {
-        const warmupPrompt = `[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION]\n\n[System: This is a warm-up turn after a server restart. Review the above session history and world state. Confirm your understanding of the current story state, party status, active quests, and location in 2-3 brief sentences. Then call UpdateWorldState to persist your understanding. Do NOT address the player directly — this message is internal.]`;
+        const warmupPrompt = withGameState(`[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION]\n\n[System: This is a warm-up turn after a server restart. Review the above session history and world state. Confirm your understanding of the current story state, party status, active quests, and location in 2-3 brief sentences. Then call UpdateWorldState to persist your understanding. Do NOT address the player directly — this message is internal.]`);
         console.log(`[DM:WARMUP] campaign=${campaignId} player=${playerEmail} recapLength=${recap.length}`);
         yield { type: 'dm_warmup', text: 'The DM is reviewing the story so far...' };
         // Run warm-up query to establish context
@@ -1129,17 +1168,19 @@ class DmEngine {
         if (this.sessionId) {
           const resumeOptions = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
           resumeOptions.resume = this.sessionId;
-          yield* this._streamQuery(augmentedMessage, resumeOptions);
+          yield* this._streamQuery(withGameState(augmentedMessage), resumeOptions);
           return;
         }
         // If warm-up didn't produce a session ID, fall through to the non-warm-up path
         console.warn(`[DM:WARMUP_FAILED] No session ID from warm-up, falling through to direct recap`);
       }
 
-      prompt = `[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${prompt}`;
+      prompt = withGameState(`[SESSION RESUMED — CAMPAIGN: ${charLabel} | SCENARIO: ${scenarioLabel}]\n[Continue this character's story. Do NOT confuse with any other campaign.]\n\n${recap}\n\n[END OF PREVIOUS SESSION — The player now says:]\n\n${augmentedMessage}`);
+      yield* this._streamQuery(prompt, freshOptions);
+      return;
     }
 
-    yield* this._streamQuery(prompt, freshOptions);
+    yield* this._streamQuery(withGameState(augmentedMessage), freshOptions);
   }
 
   abort() {
@@ -1150,4 +1191,4 @@ class DmEngine {
   }
 }
 
-module.exports = { DmEngine, loadDmSettings, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } };
+module.exports = { DmEngine, loadDmSettings, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, buildStableSystemPrompt, buildGameStateContext, loadScenario } };
