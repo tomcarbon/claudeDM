@@ -392,6 +392,35 @@ function DmSettings() {
         </div>
       </div>
 
+      {/* Large campaigns — archival & condensing */}
+      <div className="settings-section" style={{ marginTop: '1.5rem' }}>
+        <h3>📜 Large Campaigns</h3>
+        <p className="settings-help" style={{ fontSize: '0.85em', opacity: 0.8 }}>
+          Once a session grows past this many messages, the older story (up to the last chapter
+          summary) is archived and condensed into a compact "arc summary" the DM and you see in
+          its place. Condensing happens when you resume a session. Set to 0 to disable.
+        </p>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.5rem' }}>
+          <span>Archive &amp; condense every</span>
+          <input
+            type="number"
+            min="0"
+            step="50"
+            value={settings.archiveThreshold ?? 500}
+            disabled={!canEdit}
+            onChange={e => {
+              if (!canEdit) return;
+              const v = Math.max(0, parseInt(e.target.value, 10) || 0);
+              setSettings(prev => ({ ...prev, archiveThreshold: v }));
+              setHasUnsavedChanges(true);
+              setSaved(false);
+            }}
+            style={{ width: '6rem' }}
+          />
+          <span>messages</span>
+        </label>
+      </div>
+
       {/* Save / Reset */}
       <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
         <button onClick={handleSave} disabled={saving || !canEdit}>

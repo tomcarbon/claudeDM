@@ -31,6 +31,8 @@ export default function useWebSocket() {
   const [permissionRequest, setPermissionRequest] = useState(null);
   const [sessionId, setSessionId] = useState(null);
   const [sessionsChanged, setSessionsChanged] = useState(0);
+  const [arcSummaries, setArcSummaries] = useState([]); // condensed earlier arcs (compaction)
+  const [archiveSeq, setArchiveSeq] = useState(0);       // server compaction watermark
   const wsRef = useRef(null);
   const reconnectTimer = useRef(null);
   const partialTextRef = useRef('');
@@ -111,6 +113,14 @@ export default function useWebSocket() {
 
         case 'session_id':
           setSessionId(msg.sessionId);
+          break;
+
+        case 'session_compacted':
+          // Server archived + condensed older history at resume. Replace the live message
+          // tail and adopt the new arc summaries + watermark so the next auto-save is in sync.
+          if (Array.isArray(msg.messages)) setMessages(msg.messages);
+          setArcSummaries(Array.isArray(msg.arcSummaries) ? msg.arcSummaries : []);
+          setArchiveSeq(msg.archiveSeq || 0);
           break;
 
         case 'permission_request':
@@ -549,5 +559,9 @@ export default function useWebSocket() {
     sendChatTypingStatus,
     chatTypingPlayers,
     sessionsChanged,
+    arcSummaries,
+    setArcSummaries,
+    archiveSeq,
+    setArchiveSeq,
   };
 }

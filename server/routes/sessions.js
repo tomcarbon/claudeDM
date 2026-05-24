@@ -302,6 +302,37 @@ module.exports = function (dataDir) {
     }
   });
 
+  // GET archived raw messages for a session (powers future export/download).
+  // Compaction moves older messages out of the live session into archive.jsonl.
+  router.get('/:id/archive', (req, res) => {
+    try {
+      const requester = getAuthenticatedPlayer(dataDir, req);
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
+        return res.status(404).json({ error: 'Session not found' });
+      }
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      if (!canWriteSession(data, requester)) {
+        const settings = getSessionSettings(data);
+        if (settings.visibility !== 'public') {
+          return res.status(404).json({ error: 'Session not found' });
+        }
+      }
+      const archivePath = path.join(path.dirname(filePath), 'archive.jsonl');
+      if (!fs.existsSync(archivePath)) {
+        return res.json({ sessionId: data.id, count: 0, messages: [] });
+      }
+      const messages = fs.readFileSync(archivePath, 'utf-8')
+        .split('\n')
+        .filter(l => l.length > 0)
+        .map(l => { try { return JSON.parse(l); } catch { return null; } })
+        .filter(Boolean);
+      res.json({ sessionId: data.id, count: messages.length, messages });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
   // POST create new session
   router.post('/', (req, res) => {
     try {
@@ -450,6 +481,12 @@ module.exports = function (dataDir) {
       delete payload.players;
       delete payload.settings; // settings updated via dedicated endpoint
       delete payload.dmPersonality; // locked at session creation
+      // Compaction bookkeeping is server-owned — never let a client auto-save overwrite it.
+      const incomingArchiveSeq = Number(req.body.archiveSeq || 0);
+      const existingArchiveSeq = Number(existing.archiveSeq || 0);
+      delete payload.archiveSeq;
+      delete payload.arcSummaries;
+      delete payload.archiveMeta;
 
       const updated = {
         ...existing,
@@ -474,6 +511,13 @@ module.exports = function (dataDir) {
           && (!incomingStates || Object.keys(incomingStates).length === 0)) {
         updated.companionConfig = { ...(updated.companionConfig || {}), states: existingStates };
         console.warn(`[Sessions] PUT ${req.params.id} — preserved existing companionConfig.states (incoming was empty)`);
+      }
+      // If the client is auto-saving from pre-compaction state (an older archiveSeq), its
+      // full in-memory array would resurrect messages the server already archived + trimmed.
+      // Keep the server's compacted history; the client reconciles on the next session_compacted.
+      if (existingArchiveSeq > 0 && incomingArchiveSeq < existingArchiveSeq && Array.isArray(req.body.messages)) {
+        updated.messages = existing.messages;
+        console.warn(`[Sessions] PUT ${req.params.id} — ignored stale messages (client seq ${incomingArchiveSeq} < server ${existingArchiveSeq}); preserved compacted history`);
       }
       // Backfill sessionId on any message that lacks it — client auto-save paths
       // construct message objects without the field, and the DM's recap formatter

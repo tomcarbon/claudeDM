@@ -979,6 +979,48 @@
   border-color: var(--gold);
 }
 
+/* Condensed earlier arcs (compaction "Story So Far") */
+.arc-summaries {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.arc-summary-card {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 0.5rem 0.85rem;
+}
+.arc-summary-header {
+  cursor: pointer;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  list-style: none;
+}
+.arc-summary-header::-webkit-details-marker { display: none; }
+.arc-summary-days {
+  color: var(--text-muted, #9aa);
+  font-weight: 400;
+}
+.arc-summary-hint {
+  color: var(--text-muted, #9aa);
+  font-weight: 400;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+.arc-summary-body {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--border);
+  white-space: pre-wrap;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
 /* Player messages */
 .message-player {
   background: rgba(100, 140, 200, 0.1);

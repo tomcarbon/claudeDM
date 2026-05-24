@@ -121,6 +121,10 @@ function Adventure({
     sendTypingStatus,
     typingPlayers,
     sessionsChanged,
+    arcSummaries,
+    setArcSummaries,
+    archiveSeq,
+    setArchiveSeq,
   } = ws;
   const { player } = usePlayer();
   const [input, setInput] = useState('');
@@ -580,6 +584,8 @@ function Adventure({
     setSessionReadOnly(false);
     setSessionSettings(prev => ({ visibility: 'public', allowBots: prev.allowBots, maxBots: prev.maxBots ?? 2 }));
     setGateRevealedUpTo(-1); // Reset gate for new session
+    setArcSummaries([]); // Fresh session has no condensed arcs yet
+    setArchiveSeq(0);
 
     // Snapshot DM personality settings for this session
     let sessionDmPersonality = null;
@@ -690,6 +696,9 @@ Set the scene and begin the story.`;
           reservations: companionReservations,
         },
         dmPersonality: dmPersonalityRef.current || undefined,
+        // Echo the compaction watermark so the server can reject stale saves that would
+        // resurrect archived messages (see PUT /sessions/:id guard).
+        archiveSeq: archiveSeq || 0,
       };
 
       console.log(`[Save] Payload — messages: ${payload.messages.length}, claudeSessionId: ${payload.claudeSessionId ? 'yes' : 'no'}`);
@@ -806,6 +815,9 @@ Set the scene and begin the story.`;
         setCompanionReservations(session.companionConfig.reservations || {});
       }
       setSessionCompanionPlayers(session.companionPlayers || {});
+      // Hydrate compaction state — the server may further compact at resume and push an update.
+      setArcSummaries(session.arcSummaries || []);
+      setArchiveSeq(session.archiveSeq || 0);
       const loadedMessages = normalizeSavedMessages(session.messages);
       // Inject session ID system message for hosts and companions (not observers)
       // Skip if the last message is already a "Session resumed" for this session (avoids dup on re-load)
@@ -1632,6 +1644,21 @@ Set the scene and begin the story.`;
 
         {/* Story area */}
         <div className="story-area" ref={storyRef}>
+          {/* Condensed earlier arcs (compaction) — raw transcript archived server-side */}
+          {Array.isArray(arcSummaries) && arcSummaries.length > 0 && (
+            <div className="arc-summaries">
+              {arcSummaries.map((arc, i) => (
+                <details key={arc.seq ?? i} className="arc-summary-card">
+                  <summary className="arc-summary-header">
+                    📜 {arc.title || `Earlier Arc ${i + 1}`}
+                    {arc.daysRange ? <span className="arc-summary-days"> · {arc.daysRange}</span> : null}
+                    <span className="arc-summary-hint"> — Story so far (tap to expand)</span>
+                  </summary>
+                  <div className="arc-summary-body">{arc.blurb}</div>
+                </details>
+              ))}
+            </div>
+          )}
           {messages.slice(0, gateInfo.renderUpTo).map((msg, i) => (
             <div key={i} className={`story-message story-${msg.type}`}>
               {msg.type === 'player' && (

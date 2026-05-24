@@ -137,6 +137,8 @@ export const api = {
   getAllGames: (showAll) => fetchJson(`/sessions/my-games${showAll ? '?all=true' : ''}`),
   getSessions: () => fetchJson('/sessions'),
   getSession: (id) => fetchJson(`/sessions/${id}`),
+  // Raw messages archived by compaction (for export/download).
+  getSessionArchive: (id) => fetchJson(`/sessions/${id}/archive`),
   createSession: (data) => fetchJson('/sessions', { method: 'POST', body: JSON.stringify(data) }),
   updateSession: (id, data) => fetchJson(`/sessions/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteSession: (id) => fetchJson(`/sessions/${id}`, { method: 'DELETE' }),

@@ -891,9 +891,21 @@ function formatMessageForRecap(m) {
  * @param {Array} messageHistory - Full message history
  * @param {Object} [worldState] - Current world state snapshot (if available)
  */
-function buildSmartRecap(messageHistory, worldState) {
+function buildSmartRecap(messageHistory, worldState, arcSummaries) {
   const messages = messageHistory.filter(m => m.type === 'player' || m.type === 'dm' || m.type === 'companion');
   const parts = [];
+
+  // Inject condensed earlier arcs first — these replace raw history archived by compaction.
+  if (Array.isArray(arcSummaries) && arcSummaries.length > 0) {
+    parts.push('=== EARLIER ARCS (condensed — raw transcript archived) ===');
+    for (const arc of arcSummaries) {
+      const header = arc.title
+        ? `[${arc.title}${arc.daysRange ? ` — ${arc.daysRange}` : ''}]`
+        : '';
+      parts.push(`${header ? header + '\n' : ''}${arc.blurb || ''}`.trim());
+    }
+    parts.push('=== END EARLIER ARCS ===');
+  }
 
   // Inject world state at the top if available
   if (worldState && typeof worldState === 'object' && Object.keys(worldState).length > 0) {
@@ -973,6 +985,44 @@ function buildSmartRecap(messageHistory, worldState) {
   }
 
   return parts.join('\n\n');
+}
+
+const ARC_SUMMARY_SYSTEM = `You are condensing a completed story arc of a D&D 5e campaign into a single flowing recap of 500-1000 words.
+Preserve: character and NPC names, locations, key decisions and their consequences, rewards and notable items, unresolved plot threads and hooks, and the party's status at the end of the arc.
+Write in past tense, narrative prose. Be compact — this recap permanently replaces the raw transcript for this span, so it must stand on its own. Do not invent events that are not in the source. Output only the recap text, with no preamble or headers.`;
+
+/**
+ * One-shot, tool-free summarization used by the compaction module to produce arc blurbs.
+ * Reuses the SDK query path, model selection, and concurrency semaphore so it bills and
+ * throttles exactly like a DM turn (subscription auth — no API key).
+ */
+async function summarizeArc(inputText, { dataDir, playerEmail } = {}) {
+  let model;
+  try { model = loadDmSettings(dataDir, playerEmail)?.model; } catch { /* default model */ }
+  await querySemaphore.acquire();
+  try {
+    const options = {
+      systemPrompt: ARC_SUMMARY_SYSTEM,
+      cwd: PROJECT_ROOT,
+      maxTurns: 1,
+      includePartialMessages: false,
+      allowedTools: [],
+      canUseTool: async () => ({ behavior: 'deny', message: 'No tools during summarization.' }),
+    };
+    if (model) options.model = model;
+    const q = query({ prompt: inputText, options });
+    let out = '';
+    for await (const message of q) {
+      if (message.type === 'assistant' && !message.partial) {
+        const blocks = message.message?.content || [];
+        out += blocks.filter(b => b.type === 'text').map(b => b.text).join('\n');
+      }
+      if (message.type === 'result') break;
+    }
+    return out.trim();
+  } finally {
+    querySemaphore.release();
+  }
 }
 
 class DmEngine {
@@ -1104,7 +1154,7 @@ class DmEngine {
     }
   }
 
-  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState, dmMessagesSinceLastSummary }) {
+  async *run(userMessage, { characterId, scenarioId, onPermissionRequest, messageHistory, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState, dmMessagesSinceLastSummary, arcSummaries }) {
     const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
     let isStaleResume = false;
 
@@ -1139,10 +1189,10 @@ class DmEngine {
     let prompt = augmentedMessage;
     let recap = null;
 
-    if (messageHistory && messageHistory.length > 0) {
-      recap = buildSmartRecap(messageHistory, worldState);
+    if ((messageHistory && messageHistory.length > 0) || (arcSummaries && arcSummaries.length > 0)) {
+      recap = buildSmartRecap(messageHistory || [], worldState, arcSummaries);
       const recapStrategy = (messageHistory || []).some(m => m.type === 'dm' && CHAPTER_SUMMARY_PATTERN.test(m.text)) ? 'chapter-summaries' : 'raw-messages';
-      console.log(`[DM:RECAP] campaign=${campaignId} player=${playerEmail} strategy=${recapStrategy} recapLength=${recap.length} historyMessages=${messageHistory.length}`);
+      console.log(`[DM:RECAP] campaign=${campaignId} player=${playerEmail} strategy=${recapStrategy} recapLength=${recap.length} historyMessages=${(messageHistory || []).length}`);
       // Build identity-enriched resume header
       const character = characterId ? loadCharacter(this.dataDir, characterId, playerEmail, campaignId, sessionDbId) : null;
       const scenario = scenarioId ? loadScenario(this.dataDir, scenarioId, campaignId) : null;
@@ -1191,4 +1241,4 @@ class DmEngine {
   }
 }
 
-module.exports = { DmEngine, loadDmSettings, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, buildStableSystemPrompt, buildGameStateContext, loadScenario } };
+module.exports = { DmEngine, loadDmSettings, summarizeArc, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, buildStableSystemPrompt, buildGameStateContext, loadScenario, buildSmartRecap } };

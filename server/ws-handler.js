@@ -2,7 +2,8 @@ const { WebSocketServer } = require('ws');
 const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
-const { DmEngine } = require('./dm-engine');
+const { DmEngine, summarizeArc } = require('./dm-engine');
+const { maybeCompact } = require('./compaction');
 const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession } = require('./player-data');
 const { auditDmTurn, formatWarnings, logAuditTrace } = require('./dm-audit');
 
@@ -581,6 +582,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         const sessionForState = await readSessionByDbIdAsync(sessionDbId);
         const worldState = sessionForState?.worldState || undefined;
         const dmMessagesSinceLastSummary = sessionForState?.dmMessagesSinceLastSummary || 0;
+        const arcSummaries = sessionForState?.arcSummaries || undefined;
 
         const stream = engine.run(playerText, {
           characterId: engineCtx.characterId,
@@ -594,6 +596,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           dmPersonality: engineCtx.dmPersonality || undefined,
           worldState,
           dmMessagesSinceLastSummary,
+          arcSummaries,
         });
 
         const auditToolCalls = [];
@@ -867,6 +870,29 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           if (msg.messages && Array.isArray(msg.messages)) {
             messageHistory = msg.messages;
           }
+          // Rolling compaction runs here, at resume — the one race-free moment where the
+          // client's in-memory history equals the file (it just loaded it) and no player
+          // turn has happened yet, so the server can archive + condense + trim authoritatively.
+          if (currentSessionDbId && messageHistory.length > 0) {
+            try {
+              const result = await maybeCompact(dataDir, currentSessionDbId, {
+                summarize: (text) => summarizeArc(text, { dataDir, playerEmail: wsEntry.playerEmail }),
+              });
+              if (result && result.compacted) {
+                messageHistory = result.liveMessages;
+                const ctx = sessionEngines.get(currentSessionDbId);
+                if (ctx) ctx.messageHistory = result.liveMessages;
+                broadcastSessionMessage(currentSessionDbId, 'session_compacted', {
+                  messages: result.liveMessages,
+                  arcSummaries: result.arcSummaries,
+                  archiveSeq: result.archiveSeq,
+                });
+                console.log(`[WS] Resume compaction — session ${currentSessionDbId}: archived ${result.archivedCount}, live=${result.liveMessages.length}, seq=${result.archiveSeq}`);
+              }
+            } catch (e) {
+              console.error('[WS] Resume compaction error:', e);
+            }
+          }
           send('session_status', { status: 'idle' });
           console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, campaign: ${campaignId}, player: ${wsEntry.playerEmail}, history: ${messageHistory.length} messages`);
           break;
@@ -1107,12 +1133,14 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             // Load world state and summary counter from session for context persistence
             let singlePlayerWorldState;
             let singlePlayerSummaryCount = 0;
+            let singlePlayerArcSummaries;
             if (currentSessionDbId) {
               try {
                 const sessData = await readSessionByDbIdAsync(currentSessionDbId);
                 if (sessData) {
                   singlePlayerWorldState = sessData.worldState || undefined;
                   singlePlayerSummaryCount = sessData.dmMessagesSinceLastSummary || 0;
+                  singlePlayerArcSummaries = sessData.arcSummaries || undefined;
                 }
               } catch { /* ignore */ }
             }
@@ -1128,6 +1156,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               dmPersonality: dmPersonality || undefined,
               worldState: singlePlayerWorldState,
               dmMessagesSinceLastSummary: singlePlayerSummaryCount,
+              arcSummaries: singlePlayerArcSummaries,
               onPermissionRequest: (toolName, input, toolUseID) => {
                 return new Promise((resolve) => {
                   const description = describeToolUse(toolName, input);
