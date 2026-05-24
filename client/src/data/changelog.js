@@ -1,10 +1,23 @@
-export const CURRENT_VERSION = '1.0.16';
+export const CURRENT_VERSION = '1.0.17';
 
 export const CHANGELOG = [
   {
+    version: '1.0.17',
+    date: '2026-05-23',
+    title: 'Current Release',
+    compareFrom: '1.0.16',
+    compareRef: 'e025c0b ("v1.0.16")',
+    highlights: [
+      'New campaign: "The Crimson Throne" (campaign2) — a premium political-intrigue and gothic-horror adventure spanning levels 1–10, set in the original Sanguine Empire of Veldoran. Climb from gutter nobodies in the slums of Coronne to kingmakers at the foot of the blood-red throne across 4 linked scenarios (Ashes of the Old Quarter, The Masque of Knives, The Crimson Communion, and The Throne of Thorns), with 8 playable characters and 5 NPC companions. Now unlocked on the Home page (previously "Coming Soon").',
+      'Urban intrigue sandbox: the Crimson Throne plays as a city-and-court sandbox rather than a wilderness trek — districts gated by reputation and disguise, a Notoriety track with the City Watch, and a five-faction standing system (Princess Severine, Lord-Regent Crane, Duke Valmont, the Sanguine Communion, and the Carmine Veil) where pleasing one power tends to anger another.',
+      'Prompt-caching refactor: the DM system prompt is now split into a byte-stable static section (personality, turn-pacing rules, server/session context, rules reference, and tool docs) and a volatile per-turn section (character HP and resources, NPC stats, world state, and party composition). The static prefix is sent as the system prompt so the Agent SDK\'s automatic prompt cache hits across turns within a session, while the volatile game state is prepended to each user message so it can change every turn without invalidating the cached prefix — trimming input-token cost and latency on every DM turn. Per-turn usage logging now reports cache_read and cache_creation token counts.',
+      'DM prompt test suite realigned with the v1.0.16 "Server Context / This Session" rewrite: fixed two stale system-prompt assertions that still referenced the removed "Campaign Identity" block and the old session-path rule. Full test suite is green again (95/95).',
+    ],
+  },
+  {
     version: '1.0.16',
     date: '2026-05-01',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.15',
     compareRef: '08bc3db ("v1.0.15 official")',
     highlights: [
