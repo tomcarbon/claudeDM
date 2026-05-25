@@ -251,7 +251,7 @@ describe('buildSystemPrompt', () => {
     const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
     expect(prompt).toContain('Aim for roughly 500 words per response');
     expect(prompt).toContain('Difficulty preference: 50/100');
-    expect(prompt).toContain('Player agency style: collaborative');
+    expect(prompt).toContain('Player agency: collaborative');
   });
 
   it('includes rules reference paths', () => {
@@ -289,39 +289,51 @@ describe('buildSystemPrompt', () => {
     expect(prompt).not.toContain('## NPC Companions');
   });
 
-  describe('turn pacing rules scale with playerAutonomy', () => {
-    function buildWithAutonomy(value) {
+  describe('turn pacing rules scale with playerAgency (autonomy derived from it)', () => {
+    function buildWithAgency(agency) {
       writeJson(path.join(tmpDir, 'dm-settings.json'), {
         humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
-        horror: 20, puzzleFocus: 50, playerAutonomy: value,
-        tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'collaborative',
+        horror: 20, puzzleFocus: 50,
+        tone: 'balanced', narrationStyle: 'descriptive', playerAgency: agency,
       });
       return buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
     }
 
-    it('includes low-autonomy pacing rules when playerAutonomy <= 25', () => {
-      const prompt = buildWithAutonomy(10);
+    it('includes low-autonomy pacing rules for railroaded agency (autonomy 0)', () => {
+      const prompt = buildWithAgency('railroaded');
       expect(prompt).toContain('Response Scope & Turn Pacing');
       expect(prompt).toContain('Maximum 2 location transitions');
     });
 
-    it('includes medium-autonomy pacing rules when playerAutonomy is 26-74', () => {
-      const prompt = buildWithAutonomy(50);
+    it('includes medium-autonomy pacing rules for collaborative agency (autonomy 50)', () => {
+      const prompt = buildWithAgency('collaborative');
       expect(prompt).toContain('Response Scope & Turn Pacing');
       expect(prompt).toContain('Maximum 1 location transition');
       expect(prompt).toContain('No narrative chaining');
     });
 
-    it('includes high-autonomy pacing rules when playerAutonomy >= 75', () => {
-      const prompt = buildWithAutonomy(100);
+    it('includes high-autonomy pacing rules for sandbox agency (autonomy 100)', () => {
+      const prompt = buildWithAgency('sandbox');
       expect(prompt).toContain('Response Scope & Turn Pacing');
       expect(prompt).toContain('ZERO unsolicited transitions');
       expect(prompt).toContain('LITERAL CONFIRMATIONS');
       expect(prompt).toContain('STOP EARLY');
     });
 
+    it('derives autonomy from agency even when a stale numeric playerAutonomy disagrees', () => {
+      // playerAgency=sandbox (→100) must win over a contradictory stored playerAutonomy=0
+      writeJson(path.join(tmpDir, 'dm-settings.json'), {
+        humor: 50, drama: 50, responseLength: 'standard', difficulty: 50,
+        horror: 20, puzzleFocus: 50, playerAutonomy: 0,
+        tone: 'balanced', narrationStyle: 'descriptive', playerAgency: 'sandbox',
+      });
+      const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+      expect(prompt).toContain('ZERO unsolicited transitions');
+      expect(prompt).not.toContain('Maximum 2 location transitions');
+    });
+
     it('places pacing rules before the server context block', () => {
-      const prompt = buildWithAutonomy(50);
+      const prompt = buildWithAgency('collaborative');
       const pacingIndex = prompt.indexOf('Response Scope & Turn Pacing');
       const serverContextIndex = prompt.indexOf('Server Context');
       expect(pacingIndex).toBeGreaterThan(-1);

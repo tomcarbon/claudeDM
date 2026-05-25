@@ -3,6 +3,16 @@ const fs = require('fs');
 const path = require('path');
 const { requireAdmin } = require('../admin-auth');
 const { requirePlayer, getAuthenticatedPlayer } = require('../player-auth');
+const { AGENCY_TO_AUTONOMY } = require('../dm-engine');
+
+// playerAgency is the canonical control; playerAutonomy is always derived from it so the two
+// can never drift apart (the prompt builder derives it too, this keeps stored/returned data clean).
+function withDerivedAutonomy(settings) {
+  if (settings && AGENCY_TO_AUTONOMY[settings.playerAgency] !== undefined) {
+    return { ...settings, playerAutonomy: AGENCY_TO_AUTONOMY[settings.playerAgency] };
+  }
+  return settings;
+}
 
 module.exports = function (dataDir) {
   const router = express.Router();
@@ -58,9 +68,9 @@ module.exports = function (dataDir) {
     const global = readGlobalSettings();
     const user = readUserSettings(email);
     if (user) {
-      return { ...global, ...user, _isPersonalized: true };
+      return { ...withDerivedAutonomy({ ...global, ...user }), _isPersonalized: true };
     }
-    return { ...global, _isPersonalized: false };
+    return { ...withDerivedAutonomy(global), _isPersonalized: false };
   }
 
   // GET effective settings for requesting player (user -> global -> defaults)
@@ -76,7 +86,7 @@ module.exports = function (dataDir) {
       const email = req.player.email;
       const global = readGlobalSettings();
       const existing = readUserSettings(email) || {};
-      const updated = { ...global, ...existing, ...req.body };
+      const updated = withDerivedAutonomy({ ...global, ...existing, ...req.body });
       // Strip metadata before writing
       delete updated._isPersonalized;
       const filePath = path.join(userSettingsDir, emailToFilename(email));
@@ -95,7 +105,7 @@ module.exports = function (dataDir) {
   // PUT update global template (admin only)
   router.put('/global', adminOnly, (req, res) => {
     try {
-      const updated = { ...readGlobalSettings(), ...req.body };
+      const updated = withDerivedAutonomy({ ...readGlobalSettings(), ...req.body });
       fs.writeFileSync(globalSettingsFile, JSON.stringify(updated, null, 2));
       res.json(updated);
     } catch (err) {
