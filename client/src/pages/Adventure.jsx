@@ -125,6 +125,7 @@ function Adventure({
     setArcSummaries,
     archiveSeq,
     setArchiveSeq,
+    setActiveSessionId,
   } = ws;
   const { player } = usePlayer();
   const [input, setInput] = useState('');
@@ -475,6 +476,13 @@ function Adventure({
       setSessionReadOnly(sessionAccess.readOnly === true);
     }
   }, [savedSessionDbId, sessionAccess]);
+
+  // Feed the canonical session DB id into the WS hook so it can stamp player/companion
+  // messages with sessionId (drives the #xxxxxxxx badge). Covers single-player, where
+  // sessionAccess.sessionDbId stays null but savedSessionDbId is set on create/load.
+  useEffect(() => {
+    setActiveSessionId(savedSessionDbId || null);
+  }, [savedSessionDbId, setActiveSessionId]);
 
   // Load party data from session endpoint so all participants can see the host's character.
   // Refresh when status returns to idle (after DM turn completes) to pick up stat changes.

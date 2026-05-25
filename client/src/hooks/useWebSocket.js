@@ -20,6 +20,10 @@ export default function useWebSocket() {
   const [sessionAccess, setSessionAccess] = useState({ sessionDbId: null, canWrite: false, readOnly: true });
   const sessionAccessRef = useRef(sessionAccess);
   useEffect(() => { sessionAccessRef.current = sessionAccess; }, [sessionAccess]);
+  // Canonical current-session DB id, fed by the parent (covers single-player, where
+  // sessionAccess.sessionDbId stays null) and by the session_access handler. Used to
+  // stamp player/companion messages so their session badge always renders.
+  const currentSessionIdRef = useRef(null);
   const [sessionParticipants, setSessionParticipants] = useState([]);
   const [companionTurns, setCompanionTurns] = useState([]);
   const [turnStatus, setTurnStatus] = useState(null);
@@ -133,7 +137,7 @@ export default function useWebSocket() {
           break;
 
         case 'session_player_message':
-          setMessages(prev => [...prev, { type: 'player', text: msg.text, sessionId: msg.sessionId }]);
+          setMessages(prev => [...prev, { type: 'player', text: msg.text, sessionId: msg.sessionId || currentSessionIdRef.current || undefined }]);
           break;
 
         case 'sessions_changed':
@@ -155,6 +159,7 @@ export default function useWebSocket() {
           break;
 
         case 'session_access':
+          currentSessionIdRef.current = msg.sessionDbId || currentSessionIdRef.current;
           setSessionAccess({
             sessionDbId: msg.sessionDbId || null,
             ownerEmail: msg.ownerEmail || null,
@@ -346,7 +351,7 @@ export default function useWebSocket() {
 
   const sendMessage = useCallback((text) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
-      setMessages(prev => [...prev, { type: 'player', text }]);
+      setMessages(prev => [...prev, { type: 'player', text, sessionId: currentSessionIdRef.current || undefined }]);
       wsRef.current.send(JSON.stringify({ type: 'user_message', text }));
     }
   }, []);
@@ -481,10 +486,12 @@ export default function useWebSocket() {
         type: 'companion',
         characterName: characterName || npcName || 'Companion',
         text,
-        sessionId: sessionAccessRef.current?.sessionDbId || undefined,
+        sessionId: sessionAccessRef.current?.sessionDbId || currentSessionIdRef.current || undefined,
       }]);
     }
   }, []);
+
+  const setActiveSessionId = useCallback((id) => { currentSessionIdRef.current = id || null; }, []);
 
   const retractCompanionTurn = useCallback(() => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
@@ -563,5 +570,6 @@ export default function useWebSocket() {
     setArcSummaries,
     archiveSeq,
     setArchiveSeq,
+    setActiveSessionId,
   };
 }
