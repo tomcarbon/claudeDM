@@ -331,7 +331,12 @@ The JSON files are the source of truth for HP, spell slots, abilities, and statu
 ## Combat Flow & Live State Updates
 Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > Track HP.
 Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
-**File updates must be immediate — never deferred.** Whenever HP changes, a resource or consumable is spent, gold changes hands, or items are gained/lost/modified — in combat or out — update the relevant JSON file(s) via Edit **in that same response**. Never say "I'll update after combat" or "I'll track this and update later." The player's character widgets read these files in real time, so deferred edits show stale data. **One exception: for XP, use the AwardXP tool, not manual Edits.**
+**Real-time file updates during combat are MANDATORY.** Every time a character or NPC takes damage, heals, uses a consumable, or spends a resource, update their JSON file via Edit **immediately, in that same response** — do NOT batch updates for "after combat." The player's character widgets read these files in real time, so a deferred edit means the player stares at stale HP while the fight continues.
+
+## Character Updates (MANDATORY — never deferred)
+**Updates must happen in the same response as the change — never deferred.** Whenever HP changes, a resource or consumable is spent, gold changes hands, or items are gained/lost/modified — in combat or out — update the relevant JSON file(s) via Edit **in that same response**. Never say "I'll update after combat" or "I'll track this and update later." The player's UI reads directly from these files, so a deferred edit shows stale data. **One exception: for XP, use the AwardXP tool, not manual Edits.**
+
+A note on enforcement: an **automatic post-turn reconciliation check** inspects every response. If you narrate a stat change (damage, healing, loot, gold, ammo, a death) without a matching file edit, the system will make you go back and apply it before the player's turn can resume — adding latency they will notice. Get it right the first time: edit as you narrate.
 
 ## Never Reset Characters to Defaults
 Never reset characters or NPCs to their default templates without explicit player permission. Do not use the restore-defaults API during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
@@ -341,7 +346,7 @@ When a character or NPC dies (3 failed death saves, instant death, etc.), use th
 A creature is dead after its hit points reach zero or below from combat or spell damage.
 
 ## State Reconciliation
-The JSON files are the source of truth — if they don't match the story, the data is wrong. Periodically Read each character/NPC file and compare it against the narrative (level, XP, HP, equipment, gold), fixing any drift immediately via Edit. Reconcile at these triggers:
+Reconciliation is a **safety net on top of** the real-time edits above — not a substitute for them. Do not let changes pile up to "reconcile later"; edit as you narrate, then use these checkpoints to catch anything missed. The JSON files are the source of truth — if they don't match the story, the data is wrong. Read each character/NPC file, compare it against the narrative (level, XP, HP, equipment, gold), and fix any drift immediately via Edit at these triggers:
 - After every level-up
 - After every combat encounter (confirm the real-time HP edits weren't missed)
 - Periodically during long sessions
@@ -1256,6 +1261,27 @@ class DmEngine {
     }
 
     yield* this._streamQuery(withGameState(augmentedMessage), freshOptions);
+  }
+
+  // Reconciliation pass: resume the just-completed turn's Claude session and send an internal
+  // correction message so the agent applies file edits it narrated but skipped. This MUST resume
+  // an existing session (this.sessionId) — without the turn's context there is nothing to
+  // reconcile, so if there's no session id we yield nothing and let the caller move on. The
+  // caller is responsible for suppressing any narrative this produces; only tool_use matters.
+  async *runReconcile(reconcilePrompt, { characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState }) {
+    if (!this.sessionId) {
+      console.warn('[DM:RECONCILE] no Claude session to resume — skipping reconciliation');
+      return;
+    }
+    const options = this._buildOptions(characterId, scenarioId, onPermissionRequest, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState);
+    options.resume = this.sessionId;
+    try {
+      yield* this._streamQuery(reconcilePrompt, options);
+    } catch (err) {
+      // Resume failed (e.g. stale session). Reconciling in a fresh session has no context, so we
+      // just log and stop — the caller proceeds and the turn ends rather than trapping the player.
+      console.warn(`[DM:RECONCILE] resume failed sessionDb=${sessionDbId} staleClaudeId=${this.sessionId} error="${err.message}"`);
+    }
   }
 
   abort() {

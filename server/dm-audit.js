@@ -122,6 +122,44 @@ function auditDmTurn(responseText, toolCalls) {
   return warnings;
 }
 
+// Categories that represent a persisted-state change and can therefore be fixed by a file edit
+// after the fact. Phantom-roll categories are deliberately excluded — a missed dice roll cannot
+// be reconciled by editing a file, and re-rolling after narration would violate dice integrity.
+// `spell_cast` is also excluded: it's a noisy signal (cantrips use no slot) and slot tracking is
+// handled in-session, not by the character JSON the player's widgets read.
+const RECONCILABLE_CATEGORIES = new Set([
+  'damage_or_healing',
+  'item_gained',
+  'item_lost_or_consumed',
+  'currency',
+  'ammunition',
+  'death_or_status',
+  'xp_award',
+]);
+
+// Should the turn trigger an automatic reconciliation pass? Only if the audit flagged a
+// file-backed stat change that wasn't matched by a tool call.
+function needsReconcile(warnings) {
+  return Array.isArray(warnings) && warnings.some(w => RECONCILABLE_CATEGORIES.has(w.category));
+}
+
+// Build the internal correction message sent to the DM agent during a reconciliation pass.
+// It is NOT narrative — the agent is told to apply the missing edits silently and confirm in
+// one line. charPathPrefix / npcPathPrefix are the session-scoped directories computed the same
+// way as in buildGameStateContext (e.g. data/sessions/<id>/characters).
+function buildReconcilePrompt(warnings, charPathPrefix, npcPathPrefix) {
+  const items = (warnings || [])
+    .filter(w => RECONCILABLE_CATEGORIES.has(w.category))
+    .map(w => `- [${w.category}] "${w.trigger}" — ...${w.excerpt}...`)
+    .join('\n');
+  return `[Internal reconciliation check — do NOT narrate this to the player, do NOT advance the story.]
+Your previous response described the following game-state changes, but no matching file edit or tool call was detected:
+
+${items}
+
+For each one, Read the affected character/NPC file under \`${charPathPrefix}\` (NPCs under \`${npcPathPrefix}\`) and apply the change now via Edit — for XP use the AwardXP tool. If a file already reflects the change (i.e. this was a false alarm), leave it untouched. Do not invent new changes beyond what you already narrated. Reply with a single line summarizing what you edited (or "already correct") — produce no story narrative.`;
+}
+
 function formatWarnings(warnings, sessionDbId) {
   if (!warnings || warnings.length === 0) return null;
   const lines = warnings.map(w => `  - [${w.category}] "${w.trigger}" — ...${w.excerpt}...`);
@@ -142,4 +180,4 @@ function logAuditTrace(sessionDbId, responseText, toolCalls, warnings) {
   console.log(`[DM:AUDIT] session=${sessionDbId || 'unknown'} text=${textLen}c tools=${calls.length} (${summary}) warnings=${(warnings || []).length}`);
 }
 
-module.exports = { auditDmTurn, formatWarnings, logAuditTrace };
+module.exports = { auditDmTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt, RECONCILABLE_CATEGORIES };

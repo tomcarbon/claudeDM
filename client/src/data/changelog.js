@@ -1,10 +1,27 @@
-export const CURRENT_VERSION = '1.0.17';
+export const CURRENT_VERSION = '1.0.18';
 
 export const CHANGELOG = [
   {
+    version: '1.0.18',
+    date: '2026-05-25',
+    title: 'Current Release',
+    compareFrom: '1.0.17',
+    compareRef: '93c556a ("v1.0.17 update to Whats New section.")',
+    highlights: [
+      'Rolling campaign compaction for long games: once a session\'s live history crosses a threshold (default 500 messages, configurable per player), the older span up to the last chapter-summary boundary is moved to an append-only `archive.jsonl` and replaced by a single condensed "arc summary." The trimmed session keeps only the recent tail, so even a marathon campaign loads cheaply and the on-disk session file / auto-save payload stays bounded. Compaction runs at session resume — the one race-free moment when the client\'s in-memory history equals the file — so the server can archive, condense, and trim authoritatively without racing the client\'s full-array auto-save. Condensing prefers the chapter summaries already in the span (distilling summaries of summaries) and falls back to the raw transcript only on a forced cut.',
+      'Arc summaries in the story feed + DM context: condensed earlier arcs render as collapsible "📜 Story so far" cards above the live messages, and are injected into the DM\'s recap (as an "EARLIER ARCS (condensed)" block) so the model reconstructs a long campaign from a handful of blurbs instead of hundreds of raw messages. A new `session_compacted` WebSocket event pushes the trimmed history, arc summaries, and a compaction watermark to all clients on resume; the `PUT /sessions/:id` save handler guards against stale clients resurrecting already-archived messages, and `GET /sessions/:id/archive` exposes the raw archived transcript for export.',
+      'New "📜 Large Campaigns" DM setting: an "Archive & condense every N messages" control (default 500, set to 0 to disable) lets you tune or turn off compaction. Summarization uses a dedicated tool-less, single-turn query that respects the session\'s configured DM model and goes through the same concurrency semaphore as DM turns.',
+      'Default DM model upgraded from Claude Sonnet 4.5 to Sonnet 4.6.',
+      'DM system-prompt audit: each personality slider now expands into an explicit behavioral guide rather than a bare number — Difficulty, Darkness, and Puzzle-vs-Combat each get a low/mid/high directive, and emoji usage is now tone-aware (restrained for gritty/noir/atmospheric, free for whimsical/heroic). Player Agency is now the single canonical control with Player Autonomy always derived from it (server-side on read and write), so the two can never contradict. Bookkeeping (XP/loot announcements, chapter summaries, file updates) is explicitly exempted from the response word target and the turn-pacing limits, and HP/inventory upkeep is governed by two complementary sections: mandatory real-time edits during play plus a "State Reconciliation" safety-net pass with clear triggers.',
+      'Character sheets now reliably reflect the story before the "Ready" light returns. Two-part fix: (1) the runtime DM prompt re-emphasizes that file updates are MANDATORY and immediate — a dedicated "Character Updates" section and a "Real-time file updates during combat are MANDATORY" directive were restored, with State Reconciliation reframed as a safety net on top of live edits rather than a substitute. (2) A new automatic post-turn reconciliation pass closes the loop on the existing audit: if the DM narrates a stat change (damage, healing, loot, gold, ammunition, a death, or XP) without a matching file edit or tool call, the server resumes the same Claude session and has the DM apply the missing edits before emitting the turn-complete status — so by the time the green Ready signal appears, the sheets are already saved. The pass is internal (it never surfaces a second DM message), bounded to two attempts, skips dice-roll discrepancies (which cannot be fixed after the fact), and never traps the player on "thinking" — any error falls through to Ready.',
+      'Session-ID badges now render on every player and companion message, including single-player sessions: the WebSocket hook stamps each message with a canonical session ID fed from the Adventure page (covering the single-player case where the multiplayer session-access ID stays null), so the `#xxxxxxxx` badge always appears.',
+      'Demo campaign defaults retuned: Response Length set to Brief, Difficulty 100→55, Darkness 100→35, and the Eldon and Pip companions start at 66 XP to match the rest of the demo roster.',
+    ],
+  },
+  {
     version: '1.0.17',
     date: '2026-05-23',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.16',
     compareRef: 'e025c0b ("v1.0.16")',
     highlights: [

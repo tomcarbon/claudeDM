@@ -5,7 +5,7 @@ const path = require('path');
 const { DmEngine, summarizeArc } = require('./dm-engine');
 const { maybeCompact } = require('./compaction');
 const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession } = require('./player-data');
-const { auditDmTurn, formatWarnings, logAuditTrace } = require('./dm-audit');
+const { auditDmTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt } = require('./dm-audit');
 
 // Module-level chat rooms: chatKey -> Set<wsEntry>
 // Each wsEntry: { ws, playerEmail, playerName, isAdmin }
@@ -22,6 +22,57 @@ const sessionEngines = new Map();
 const engineCleanupTimers = new Map();
 const sessionFirstFireTimers = new Map(); // sessionDbId -> setTimeout handle for first-turn grace period
 let nextConnectionId = 1;
+
+// Post-turn enforcement: if the audit flagged narrated-but-unsaved stat changes, resume the
+// turn's Claude session and have the DM apply the missing file edits before the turn ends.
+// Runs only when needed (clean turns return immediately), is bounded to MAX_RECONCILE_ATTEMPTS,
+// suppresses any narrative the pass produces, and never throws — the caller must still reach its
+// `finally` and emit the 'idle'/Ready status. Shared by the single-player and multiplayer paths.
+const MAX_RECONCILE_ATTEMPTS = 2;
+async function reconcileTurnIfNeeded({ engine, warnings, auditDmText, auditToolCalls, runOpts }) {
+  if (!needsReconcile(warnings)) return; // fast path: nothing to fix, zero added latency
+
+  const sessionDbId = runOpts.sessionDbId;
+  const cid = runOpts.campaignId || 'demo';
+  const slug = runOpts.playerEmail ? emailToSlug(runOpts.playerEmail) : null;
+  const charPathPrefix = sessionDbId ? `data/sessions/${sessionDbId}/characters`
+    : slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
+  const npcPathPrefix = sessionDbId ? `data/sessions/${sessionDbId}/npcs`
+    : `data/defaults/${cid}/npcs`;
+
+  const allToolCalls = Array.isArray(auditToolCalls) ? [...auditToolCalls] : [];
+  let current = warnings;
+  try {
+    for (let attempt = 1; attempt <= MAX_RECONCILE_ATTEMPTS; attempt++) {
+      console.warn(`[DM:RECONCILE] session=${sessionDbId} attempt=${attempt}/${MAX_RECONCILE_ATTEMPTS} applying missed edits`);
+      const prompt = buildReconcilePrompt(current, charPathPrefix, npcPathPrefix);
+      for await (const event of engine.runReconcile(prompt, runOpts)) {
+        if (event.type === 'tool_use') allToolCalls.push({ name: event.name, input: event.input });
+        // Intentionally suppress dm_partial/dm_response/dm_warmup — this is an internal pass and
+        // must not surface as a second DM message to the player.
+      }
+      current = auditDmTurn(auditDmText, allToolCalls);
+      if (!needsReconcile(current)) {
+        console.log(`[DM:RECONCILE] session=${sessionDbId} resolved after attempt=${attempt}`);
+        return;
+      }
+    }
+    const formatted = formatWarnings(current, sessionDbId);
+    console.warn(`[DM:RECONCILE_GIVEUP] session=${sessionDbId} still unbacked after ${MAX_RECONCILE_ATTEMPTS} attempts\n${formatted || ''}`);
+  } catch (e) {
+    console.error('[DM:RECONCILE] error:', e);
+  }
+}
+
+// Server-side dice-roll text formatter. Mirrors the client formatter in
+// `client/src/hooks/useWebSocket.js` byte-for-byte so dice_roll messages persisted by the
+// server look identical to ones written by the client's auto-save.
+function formatDiceRoll({ notation, rolls, modifier, total, label }) {
+  const rollsStr = rolls.length > 1 ? `[${rolls.join(', ')}]` : `${rolls[0]}`;
+  const modStr = modifier > 0 ? ` + ${modifier}` : modifier < 0 ? ` - ${Math.abs(modifier)}` : '';
+  const prefix = label ? `${label} — ` : '';
+  return `${prefix}${notation}: ${rollsStr}${modStr} = ${total}`;
+}
 
 function getRoomParticipants(chatKey) {
   if (!chatRooms.has(chatKey)) return [];
@@ -601,6 +652,12 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
         const auditToolCalls = [];
         let auditDmText = '';
+        let auditWarnings = [];
+        // Ordered record of every renderable event emitted during this turn (DM narration chunks
+        // and dice rolls, in stream order). Used at dm_complete to persist the canonical full
+        // turn — the previous code only saved the final dm_response and no dice rolls, so a host
+        // who disconnected mid-turn would lose every intermediate combat chunk.
+        const turnEvents = [];
         for await (const event of stream) {
           switch (event.type) {
             case 'dm_partial':
@@ -615,6 +672,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                 notation: event.notation, rolls: event.rolls,
                 modifier: event.modifier, total: event.total, label: event.label,
               });
+              turnEvents.push({ type: 'dice_roll', text: formatDiceRoll(event) });
               break;
             case 'tool_use':
               auditToolCalls.push({ name: event.name, input: event.input });
@@ -623,57 +681,75 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               engineCtx.messageHistory.push({ type: 'dm', text: event.text, sessionId: sessionDbId });
               auditDmText += (auditDmText ? '\n\n' : '') + event.text;
               broadcastSessionMessage(sessionDbId, 'dm_response', { text: event.text });
+              turnEvents.push({ type: 'dm', text: event.text });
               break;
             case 'dm_complete':
               broadcastSessionMessage(sessionDbId, 'dm_complete', { sessionId: event.sessionId });
               try {
-                const auditWarnings = auditDmTurn(auditDmText, auditToolCalls);
+                auditWarnings = auditDmTurn(auditDmText, auditToolCalls);
                 logAuditTrace(sessionDbId, auditDmText, auditToolCalls, auditWarnings);
                 const formatted = formatWarnings(auditWarnings, sessionDbId);
                 if (formatted) console.warn(formatted);
               } catch (e) { console.error('[DM:AUDIT] error:', e); }
-              // Persist turn messages + DM response to session JSON
-              // (Defensive: skip messages already present from a racing client auto-save.)
+              // Persist the full ordered turn (player + companions + every DM chunk + every
+              // dice roll) to the session JSON, reconciling against whatever partial fragment
+              // the host's client managed to write before any disconnect. The server is
+              // authoritative for the turn boundary; idempotent against a connected host whose
+              // own auto-save already captured the complete turn.
               try {
                 const sess = await readSessionByDbIdAsync(sessionDbId);
                 if (sess) {
                   if (event.sessionId) sess.claudeSessionId = event.sessionId;
                   if (!Array.isArray(sess.messages)) sess.messages = [];
-                  const lastDm = engineCtx.messageHistory.filter(m => m.type === 'dm').pop();
 
-                  // De-dupe check: if the file already has the host's player text followed by this DM text
-                  // near the end, the client already saved them via auto-save. Skip the append.
-                  const tail = sess.messages.slice(-Math.max(2 + companionTurnsArr.length, 4));
-                  const hasPlayerText = tail.some(m => m.type === 'player' && m.text === hostTurn.text);
-                  const hasDmText = lastDm && tail.some(m => m.type === 'dm' && m.text === lastDm.text);
-                  const alreadyPersisted = hasPlayerText && hasDmText;
+                  const turnTimestamp = new Date().toISOString();
+                  const playerMsg = { type: 'player', text: hostTurn.text, timestamp: turnTimestamp, sessionId: sessionDbId };
+                  const companionMsgs = companionTurnsArr.map(ct => ({
+                    type: 'companion',
+                    characterName: ct.characterName || ct.npcName || ct.npcId,
+                    playerName: ct.playerName,
+                    text: ct.text,
+                    timestamp: turnTimestamp,
+                    sessionId: sessionDbId,
+                  }));
+                  const stampedTurnEvents = turnEvents.map(te => ({ ...te, timestamp: turnTimestamp, sessionId: sessionDbId }));
+                  let lastDmText = null;
+                  for (let i = turnEvents.length - 1; i >= 0; i--) {
+                    if (turnEvents[i].type === 'dm') { lastDmText = turnEvents[i].text; break; }
+                  }
 
-                  if (!alreadyPersisted) {
-                    // Append host's player message
-                    sess.messages.push({ type: 'player', text: hostTurn.text, timestamp: new Date().toISOString(), sessionId: sessionDbId });
-                    // Append companion actions
-                    for (const ct of companionTurnsArr) {
-                      sess.messages.push({
-                        type: 'companion',
-                        characterName: ct.characterName || ct.npcName || ct.npcId,
-                        playerName: ct.playerName,
-                        text: ct.text,
-                        timestamp: new Date().toISOString(),
-                        sessionId: sessionDbId,
-                      });
-                    }
-                    // Append DM response (last dm text from messageHistory)
-                    if (lastDm) {
-                      sess.messages.push({ type: 'dm', text: lastDm.text, timestamp: new Date().toISOString(), sessionId: sessionDbId });
+                  // Find the latest occurrence of this turn's player message in the file.
+                  // Safe to scan unbounded: at dm_complete no later turn has been written yet,
+                  // so the latest matching player line is by definition THIS turn's.
+                  let playerIdx = -1;
+                  for (let i = sess.messages.length - 1; i >= 0; i--) {
+                    const m = sess.messages[i];
+                    if (m && m.type === 'player' && m.text === hostTurn.text) { playerIdx = i; break; }
+                  }
+
+                  if (playerIdx >= 0) {
+                    const fullyPersisted = lastDmText
+                      ? sess.messages.slice(playerIdx + 1).some(m => m.type === 'dm' && m.text === lastDmText)
+                      : true;
+                    if (fullyPersisted) {
+                      console.log(`[WS] dm_complete: client already persisted full turn, skipping append (session ${sessionDbId})`);
+                    } else {
+                      // Trim partial fragment of this turn (anything from the player message
+                      // onward — could be just [player], or [player, dm₁, dice₁, …]) and
+                      // replace with the canonical full turn.
+                      sess.messages = sess.messages.slice(0, playerIdx);
+                      sess.messages.push(playerMsg, ...companionMsgs, ...stampedTurnEvents);
+                      console.log(`[WS] dm_complete: reconciled partial client save at idx ${playerIdx} with ${stampedTurnEvents.length} turn events (session ${sessionDbId})`);
                     }
                   } else {
-                    console.log(`[WS] dm_complete: messages already persisted by client auto-save, skipping append (session ${sessionDbId})`);
+                    sess.messages.push(playerMsg, ...companionMsgs, ...stampedTurnEvents);
+                    console.log(`[WS] dm_complete: client did not persist, appended canonical turn (${stampedTurnEvents.length} events, session ${sessionDbId})`);
                   }
 
                   // Track summary counter regardless of who persisted the messages
-                  if (lastDm) {
+                  if (lastDmText) {
                     const SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
-                    if (SUMMARY_PATTERN.test(lastDm.text)) {
+                    if (SUMMARY_PATTERN.test(lastDmText)) {
                       sess.dmMessagesSinceLastSummary = 0;
                     } else {
                       sess.dmMessagesSinceLastSummary = (sess.dmMessagesSinceLastSummary || 0) + 1;
@@ -693,6 +769,26 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               break;
           }
         }
+
+        // Enforcement: apply any narrated-but-unsaved stat changes before the turn's `finally`
+        // emits 'idle'. Status stays 'thinking' (Ready stays off) until this resolves.
+        await reconcileTurnIfNeeded({
+          engine,
+          warnings: auditWarnings,
+          auditDmText,
+          auditToolCalls,
+          runOpts: {
+            characterId: engineCtx.characterId,
+            scenarioId: engineCtx.scenarioId,
+            campaignId: engineCtx.campaignId,
+            playerEmail: ownerEmail,
+            companionPlayers: activeCompanions.length > 0 ? activeCompanions : undefined,
+            sessionDbId,
+            companionConfig: engineCtx.companionConfig || undefined,
+            dmPersonality: engineCtx.dmPersonality || undefined,
+            worldState,
+          },
+        });
       } catch (err) {
         console.error('[WS] DM engine error (multiplayer fire):', err);
         broadcastSessionMessage(sessionDbId, 'error', { error: err.message || 'DM engine error' });
@@ -1169,6 +1265,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
             const auditToolCalls = [];
             let auditDmText = '';
+            let auditWarnings = [];
             for await (const event of stream) {
               switch (event.type) {
                 case 'dm_partial':
@@ -1226,7 +1323,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   send('dm_complete', { sessionId: event.sessionId });
                   broadcastToSessionWatchers('dm_complete', { sessionId: event.sessionId });
                   try {
-                    const auditWarnings = auditDmTurn(auditDmText, auditToolCalls);
+                    auditWarnings = auditDmTurn(auditDmText, auditToolCalls);
                     logAuditTrace(currentSessionDbId, auditDmText, auditToolCalls, auditWarnings);
                     const formatted = formatWarnings(auditWarnings, currentSessionDbId);
                     if (formatted) console.warn(formatted);
@@ -1242,6 +1339,25 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   break;
               }
             }
+
+            // Enforcement: apply any narrated-but-unsaved stat changes before the `finally`
+            // emits 'idle'. Status stays 'thinking' (Ready stays off) until this resolves.
+            await reconcileTurnIfNeeded({
+              engine,
+              warnings: auditWarnings,
+              auditDmText,
+              auditToolCalls,
+              runOpts: {
+                characterId,
+                scenarioId,
+                campaignId,
+                playerEmail: wsEntry.playerEmail,
+                sessionDbId: currentSessionDbId || undefined,
+                companionConfig: companionConfig || undefined,
+                dmPersonality: dmPersonality || undefined,
+                worldState: singlePlayerWorldState,
+              },
+            });
           } catch (err) {
             console.error('[WS] Engine error:', err);
             send('error', { error: err.message || 'DM engine error' });
