@@ -7,7 +7,7 @@ const { awardXp } = require('./xp-utils');
 const { startCombat, nextTurn, applyDamage, applyHealing, setCondition, getCombatStatus, endCombat } = require('./combat-utils');
 const { useResource, castSpell, processRest, checkResources } = require('./resource-utils');
 const { advanceTime, scheduleEvent, checkCalendar, generateWeather } = require('./calendar-utils');
-const { emailToSlug, getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir } = require('./player-data');
+const { emailToSlug, getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir, getSessionFilePath } = require('./player-data');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 
@@ -402,8 +402,11 @@ You have an **UpdateWorldState** tool that persists a structured snapshot of the
 4. When writing a chapter summary
 5. When the player saves or ends a session
 6. After any significant NPC relationship change
+7. **When the party learns significant intelligence** — named NPCs, factions, villains, places, bounties, secrets. Record each as a \`keyFacts\` entry with its exact names and numbers (e.g. "Kesh Bloodtide — half-orc, leads the Saltmere Reavers (8-10 crew) from the Serpent's Maw sea caves 5 mi south; 100 gp bounty"). These entries are durable — when updating, pass the full list back and never drop or alter an entry unless the story established it changed.
 
-Pass only the fields that changed — they merge with the existing state. Keep \`recentEvents\` to the last 3-5 significant events. Keep \`narrativeNotes\` brief (1-2 sentences about what's likely next).`;
+Pass only the fields that changed — they merge with the existing state. Keep \`recentEvents\` to the last 3-5 significant events. Keep \`narrativeNotes\` brief (1-2 sentences about what's likely next).
+
+**Anti-confabulation rule:** The \`keyFacts\` in the World State are canon. Before introducing a named NPC, faction, or location connected to an established plot thread, check the World State — NEVER invent a new name, leader, or detail for an entity that may already exist. If you cannot recall the specifics of an established entity, say so in-fiction (an NPC may simply not know) rather than fabricating a replacement version. A half-remembered fact retold with new names corrupts the campaign.`;
 
   prompt += `
 
@@ -539,6 +542,9 @@ Scenario file: data/campaigns/${cid}/scenarios/ (Read for full details)`;
     }
     if (worldState.keyRelationships && worldState.keyRelationships.length > 0) {
       body += `\n**Key Relationships:**\n${worldState.keyRelationships.map(r => `- ${r}`).join('\n')}`;
+    }
+    if (worldState.keyFacts && worldState.keyFacts.length > 0) {
+      body += `\n**Established Facts (canonical — never contradict or rename these):**\n${worldState.keyFacts.map(f => `- ${f}`).join('\n')}`;
     }
     if (worldState.pendingEffects && worldState.pendingEffects.length > 0) {
       body += `\n**Pending Effects:**\n${worldState.pendingEffects.map(e => `- ${e}`).join('\n')}`;
@@ -849,6 +855,7 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sess
             status: z.string(),
           })).optional().describe('Active quests with current status (replaces previous list)'),
           keyRelationships: z.array(z.string()).optional().describe('Key NPC relationships and attitudes (replaces previous list)'),
+          keyFacts: z.array(z.string()).optional().describe('Durable established campaign facts — named NPCs, factions, places, bounties with their canonical details, e.g. "Kesh Bloodtide — half-orc pirate, leads the Saltmere Reavers (8-10 crew) from the Serpent\'s Maw sea caves 5 mi south of Saltmere; 100 gp bounty". Replaces previous list — ALWAYS pass the full updated list and never drop or rename an entry unless the story established it is no longer true.'),
           pendingEffects: z.array(z.string()).optional().describe('Active spell effects, conditions, or timers'),
           narrativeNotes: z.string().optional().describe('Brief DM notes about what should happen next or current story state'),
         },
@@ -857,11 +864,9 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sess
             if (!sessionDbId || !playerEmail) {
               return { content: [{ type: 'text', text: 'No active session to update world state.' }], isError: true };
             }
-            const slug = emailToSlug(playerEmail);
-            const cid = campaignId || 'demo';
-            // Find the session file
-            const sessionsDir = path.join(dataDir, 'players', slug, cid, 'sessions');
-            const sessionFilePath = path.join(sessionsDir, `${sessionDbId}.json`);
+            // Sessions live at data/sessions/<id>/session.json — the same path every
+            // reader uses (ws-handler readSessionByDbId, recap injection, counters).
+            const sessionFilePath = getSessionFilePath(dataDir, sessionDbId);
             if (!fs.existsSync(sessionFilePath)) {
               return { content: [{ type: 'text', text: `Session file not found: ${sessionDbId}` }], isError: true };
             }
@@ -875,6 +880,7 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sess
             if (args.recentEvents !== undefined) updated.recentEvents = args.recentEvents;
             if (args.activeQuests !== undefined) updated.activeQuests = args.activeQuests;
             if (args.keyRelationships !== undefined) updated.keyRelationships = args.keyRelationships;
+            if (args.keyFacts !== undefined) updated.keyFacts = args.keyFacts;
             if (args.pendingEffects !== undefined) updated.pendingEffects = args.pendingEffects;
             if (args.narrativeNotes !== undefined) updated.narrativeNotes = args.narrativeNotes;
             session.worldState = updated;
@@ -946,6 +952,7 @@ function buildSmartRecap(messageHistory, worldState, arcSummaries) {
     if (worldState.recentEvents?.length > 0) wsLines.push(`Recent Events: ${worldState.recentEvents.join('; ')}`);
     if (worldState.activeQuests?.length > 0) wsLines.push(`Active Quests: ${worldState.activeQuests.map(q => `${q.name} (${q.status})`).join('; ')}`);
     if (worldState.keyRelationships?.length > 0) wsLines.push(`Key Relationships: ${worldState.keyRelationships.join('; ')}`);
+    if (worldState.keyFacts?.length > 0) wsLines.push(`Established Facts (canonical): ${worldState.keyFacts.join('; ')}`);
     if (worldState.pendingEffects?.length > 0) wsLines.push(`Pending Effects: ${worldState.pendingEffects.join('; ')}`);
     if (worldState.narrativeNotes) wsLines.push(`DM Notes: ${worldState.narrativeNotes}`);
     wsLines.push('=== END WORLD STATE ===');

@@ -1,10 +1,23 @@
-export const CURRENT_VERSION = '1.0.18';
+export const CURRENT_VERSION = '1.0.19';
 
 export const CHANGELOG = [
   {
+    version: '1.0.19',
+    date: '2026-06-07',
+    title: 'Current Release',
+    compareFrom: '1.0.18',
+    compareRef: '6a80b2c ("v1.0.18")',
+    highlights: [
+      'Fixed the bug behind "the DM forgot my story arc": the UpdateWorldState tool — the DM\'s persistent memory of locations, quests, relationships, and recent events — had been writing to a session path that doesn\'t exist (`data/players/<slug>/<campaign>/sessions/<id>.json` instead of the canonical `data/sessions/<id>/session.json`). Every call since the feature shipped silently failed with "Session file not found," so the World State Snapshot injected into every DM turn and every resume recap was always empty. With that safety net offline, long campaigns relied solely on raw transcript memory across resumes — which is how an established villain ("Kesh Bloodtide, leader of the Saltmere Reavers") could decay into fragments the DM then confabulated around ("the Bloodtide Reavers, led by Captain Morrigan Saltblade"). The tool now writes to the same path every reader uses, so world state actually persists and survives server restarts.',
+      'New `keyFacts` world-state field for durable campaign lore: established proper nouns — named NPCs, factions, villains, places, bounties, secrets — are now recorded as canonical one-line facts (e.g. "Kesh Bloodtide — half-orc, leads the Saltmere Reavers (8-10 crew) from the Serpent\'s Maw sea caves 5 mi south; 100 gp bounty") that are never re-summarized. Unlike `recentEvents` (capped at 3-5 and replaced each update), keyFacts persist for the life of the campaign and are injected into both the per-turn game state ("Established Facts — never contradict or rename these") and the resume recap\'s World State Snapshot. The DM system prompt gains a matching trigger ("when the party learns significant intelligence, record it with exact names and numbers") and an explicit anti-confabulation rule: before introducing a named NPC, faction, or location tied to an established plot thread, check the world state — never invent a new name for an entity that may already exist; if the specifics aren\'t in context, an NPC can simply not know, but a half-remembered fact retold with new names corrupts the campaign.',
+      'Claude session continuity no longer breaks on reload: after loading a saved session, the client\'s in-memory Claude session ID was null until the next turn\'s session_id event — an auto-save firing in that window wrote `claudeSessionId: null` to the session file, and a mid-turn crash made the wipe permanent, forcing the next resume to rebuild context from a lossy recap instead of resuming the SDK conversation. Two-part fix: the client now adopts the saved Claude session ID immediately on resume, and the `PUT /sessions/:id` handler gains a guard (alongside the existing characterId and companionConfig guards) so a null claudeSessionId can never overwrite a stored one.',
+      'Regression coverage for all of the above: 4 new tests — UpdateWorldState persists to the canonical session path and merges keyFacts without dropping existing fields; the PUT guard preserves a stored claudeSessionId against a null auto-save while still accepting genuine new IDs. Full suite: 108/108 green.',
+    ],
+  },
+  {
     version: '1.0.18',
     date: '2026-05-25',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.17',
     compareRef: '93c556a ("v1.0.17 update to Whats New section.")',
     highlights: [

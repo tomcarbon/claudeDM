@@ -502,6 +502,13 @@ module.exports = function (dataDir) {
       if (!updated.characterId && existing.characterId) {
         updated.characterId = existing.characterId;
       }
+      // Never let a stale auto-save wipe a stored Claude session id. After a session load,
+      // the client's sessionId state is null until the next turn's session_id event — an
+      // auto-save in that window would otherwise overwrite the id and break SDK conversation
+      // resume (forcing a lossy recap rebuild on the next resume).
+      if (!updated.claudeSessionId && existing.claudeSessionId) {
+        updated.claudeSessionId = existing.claudeSessionId;
+      }
       // Defense in depth: never wipe a non-empty companionConfig.states with an empty one.
       // Without this guard, a stale auto-save during session load can erase the host's
       // selected/removed/player slot configuration, causing removed NPCs to reappear.

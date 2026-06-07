@@ -384,3 +384,50 @@ describe('loadScenario', () => {
     expect(loadScenario(tmpDir, 'nonexistent', CAMPAIGN)).toBeNull();
   });
 });
+
+describe('UpdateWorldState MCP tool', () => {
+  it('persists worldState (incl. keyFacts) to data/sessions/<id>/session.json', async () => {
+    const { DmEngine } = require('../dm-engine');
+    const sessionId = 'ws-tool-test';
+    const sessionFile = path.join(tmpDir, 'sessions', sessionId, 'session.json');
+    writeJson(sessionFile, { id: sessionId, messages: [] });
+
+    const engine = new DmEngine(tmpDir);
+    const server = engine._getMcpToolServer(EMAIL, CAMPAIGN, sessionId);
+    const toolEntry = server.instance._registeredTools['UpdateWorldState'];
+    expect(toolEntry).toBeTruthy();
+
+    const res = await toolEntry.handler({
+      location: 'Saltmere town square',
+      keyFacts: ['Kesh Bloodtide — half-orc, leads the Saltmere Reavers; 100 gp bounty'],
+    }, {});
+
+    expect(res.isError).toBeFalsy();
+    const saved = JSON.parse(fs.readFileSync(sessionFile, 'utf-8'));
+    expect(saved.worldState.location).toBe('Saltmere town square');
+    expect(saved.worldState.keyFacts).toEqual(['Kesh Bloodtide — half-orc, leads the Saltmere Reavers; 100 gp bounty']);
+  });
+
+  it('merges keyFacts into existing worldState without dropping other fields', async () => {
+    const { DmEngine } = require('../dm-engine');
+    const sessionId = 'ws-tool-merge';
+    const sessionFile = path.join(tmpDir, 'sessions', sessionId, 'session.json');
+    writeJson(sessionFile, {
+      id: sessionId,
+      messages: [],
+      worldState: { location: 'Old Lighthouse', recentEvents: ['Beacon restored'] },
+    });
+
+    const engine = new DmEngine(tmpDir);
+    const server = engine._getMcpToolServer(EMAIL, CAMPAIGN, sessionId);
+    const toolEntry = server.instance._registeredTools['UpdateWorldState'];
+
+    const res = await toolEntry.handler({ keyFacts: ['Warden Callis — keeper of the Old Lighthouse'] }, {});
+
+    expect(res.isError).toBeFalsy();
+    const saved = JSON.parse(fs.readFileSync(sessionFile, 'utf-8'));
+    expect(saved.worldState.location).toBe('Old Lighthouse');
+    expect(saved.worldState.recentEvents).toEqual(['Beacon restored']);
+    expect(saved.worldState.keyFacts).toEqual(['Warden Callis — keeper of the Old Lighthouse']);
+  });
+});

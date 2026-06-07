@@ -412,6 +412,9 @@ export default function useWebSocket() {
   }, []);
 
   const resumeSession = useCallback((claudeSessionId, characterId, scenarioId, savedMessages, player, campaignId, companionConfig, dmPersonality) => {
+    // Adopt the saved Claude session id locally so auto-saves fired before the next
+    // turn's session_id event don't write claudeSessionId: null back to the server.
+    setSessionId(claudeSessionId || null);
     const payload = {
       type: 'session_resume',
       claudeSessionId,

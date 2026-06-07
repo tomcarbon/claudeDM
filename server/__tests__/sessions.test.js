@@ -513,3 +513,34 @@ describe('session creation limit', () => {
     expect(res2.status).toBe(201);
   });
 });
+
+describe('PUT /:id — claudeSessionId guard', () => {
+  it('preserves a stored claudeSessionId when an auto-save sends null', async () => {
+    const session = makeSession({ claudeSessionId: 'claude-abc-123' });
+    const filePath = createSessionFile(tmpDir, HOST.email, 'demo', session);
+
+    // Simulate the post-load auto-save window: client state has claudeSessionId null
+    const res = await request('PUT', `/api/sessions/${session.id}`, {
+      body: { claudeSessionId: null, messages: [{ type: 'player', text: 'hi' }] },
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+
+    expect(res.status).toBe(200);
+    const saved = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    expect(saved.claudeSessionId).toBe('claude-abc-123');
+  });
+
+  it('still accepts a new non-null claudeSessionId', async () => {
+    const session = makeSession({ claudeSessionId: 'claude-old' });
+    const filePath = createSessionFile(tmpDir, HOST.email, 'demo', session);
+
+    const res = await request('PUT', `/api/sessions/${session.id}`, {
+      body: { claudeSessionId: 'claude-new', messages: [] },
+      headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
+    });
+
+    expect(res.status).toBe(200);
+    const saved = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    expect(saved.claudeSessionId).toBe('claude-new');
+  });
+});
