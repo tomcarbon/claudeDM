@@ -1,0 +1,65 @@
+{
+  "id": "nihon",
+  "title": "The Floating World",
+  "subtitle": "Yōkai, Samurai, and the Eight Million Gods of Hinomoto",
+  "type": "open-world",
+  "levelRange": "1-10",
+  "estimatedSessions": "12+",
+  "synopsis": "Walk the vermilion torii roads of Hinomoto — a mythic land of the rising sun where samurai keep their oaths, shinobi keep their secrets, and the yaoyorozu-no-kami (the eight million gods) watch from every mountain, river, and old stone lantern. Bow to the sacred deer of Kasuga, climb to the floating shrine on the tide, and ascend the snow-crowned Fuji-no-yama to face an oni-king. Every shrine, every bowl of noodles, and every polite phrase is drawn from the real Japan — clearly flagged ✅ Real (true today, useful on your trip) or 🐉 Fantasy (invented for the tale) — so the adventure doubles as preparation for a journey to the land itself. 💀⛩️",
+  "hook": "You arrive at the edge of Hinomoto as cherry petals drift on the wind. A folded letter, sealed with a fox-paw print, asks you to carry an offering to the Great Shrine of a Thousand Torii in old Heian-kyō. But the kami are restless this season: lanterns gutter without wind, the sacred deer bow to no one, and something with too many tails is whispering beneath the mountain. The road of ten thousand gates is yours to walk — mind your manners, wash your hands at the temizu basin, and never, ever insult a tanuki's belly.",
+  "setting": {
+    "name": "Hinomoto, the Land of the Rising Sun",
+    "description": "A long chain of mist-wreathed islands strung between a cold northern sea and a warm southern current. Terraced rice paddies climb the hills, red-lacquered shrine gates frame mountain paths, and castle towns bustle beneath the keeps of warring clans. Pine-clad peaks give way to bamboo groves, hot-spring valleys, and a coastline studded with shrines built out over the tide. It is a land where the spirit world presses close against the living one — a fox in the road may be a god in disguise, and an old umbrella left too long may grow an eye and a tongue.",
+    "atmosphere": "Refined and dangerous in equal measure. Incense and pine smoke, the clack of geta sandals on stone, the distant boom of a temple bell at dusk. Beauty is everywhere and so is obligation — giri (duty) and on (debt) bind every soul. Behind the paper screens, blades and intrigues wait; beyond the village edge, the yōkai of the wild grow bold after dark.",
+    "regions": [
+      {
+        "name": "Heian-kyō, the Capital of Peace and Tranquility",
+        "description": "The ancient imperial capital of winding lanes, willow-lined canals, and ten thousand shrines (the fantasy analog of real Kyoto). Geisha districts glow with lantern light, and the mountainside shrine of a thousand vermilion torii climbs into the cedars. Refined, ritual-bound, and riddled with fox-spirits."
+      },
+      {
+        "name": "Kasuga and the Deer Park",
+        "description": "A sacred plain of grassy parkland where tame deer — messengers of the kami — roam freely among moss-furred stone lanterns (the fantasy analog of real Nara). At its heart squats a great bronze Buddha in a hall the size of a mountain. The deer bow; the gods are watching."
+      },
+      {
+        "name": "Edo, the Shōgun's City",
+        "description": "A sprawling, roaring castle town of merchants, sumō rings, fish markets, and bathhouses, ruled from a great keep by the warlord who holds the land in his fist (the fantasy analog of real Tokyo). Shinobi slip between the lantern-lit stalls; fortunes and throats are cut with equal speed."
+      },
+      {
+        "name": "The Hot-Spring Vale of Hakone",
+        "description": "A misty valley of sulfur springs and cedar inns beneath the great mountain, where travelers soak away the road in steaming open-air baths (the fantasy analog of real Hakone). Bathe correctly or offend the bath-spirits — and the locals."
+      },
+      {
+        "name": "Itsukushima and Fuji-no-yama",
+        "description": "A holy island whose great gate stands out in the sea, appearing to float when the tide comes in (the analog of real Miyajima), and beyond it the perfect snow-capped cone of the sacred mountain Fuji (real Mt. Fuji). The climax of the journey — and the lair of the Oni-King."
+      }
+    ]
+  },
+  "linkedScenarios": [
+    "05e727c5-a0bd-42d3-88d5-1d56ff44925a",
+    "7d0328da-fab5-4245-b092-ba5781b26e3c",
+    "c4cbddfe-0aa8-4362-89ec-14e4da958f06",
+    "e97b10da-26cc-4c4a-b853-9187e4a867f6"
+  ],
+  "wildernessStarts": [
+    { "x": 38, "y": 48, "label": "The Torii Road into Heian-kyō" },
+    { "x": 45, "y": 58, "label": "Kasuga Deer Park" },
+    { "x": 58, "y": 40, "label": "The Gates of Edo" },
+    { "x": 52, "y": 50, "label": "Hakone Hot-Spring Vale" },
+    { "x": 64, "y": 62, "label": "The Floating Torii of Itsukushima" }
+  ],
+  "explorationRules": "The party travels Hinomoto along pilgrim roads, post-stations (shukuba), and mountain passes. Each day of travel, the DM rolls for weather, wandering yōkai, and chance encounters (traveling monks, merchant caravans, a fox-wedding rain, a roadside Jizō statue). Shrines and temples offer rest, blessings, omikuji fortunes, and rumors. Settlements follow real etiquette — bow on arrival, remove footwear indoors, purify at the temizu basin. Scenario locations trigger their full storylines when the party arrives and engages; between them, the DM improvises pilgrimage events. Throughout, the DM weaves in REAL Japanese culture, language, food, and geography, always marking each detail ✅ Real (true today / useful for a real trip) or 🐉 Fantasy (invented for the adventure).",
+  "culturalPrimer": {
+    "note": "This campaign is also trip prep. Everything tagged ✅ Real is true today and genuinely useful in Japan; everything tagged 🐉 Fantasy is invented for the story. The DM should surface these naturally in play.",
+    "entries": [
+      { "topic": "Greetings & politeness", "real": "✅ 'Konnichiwa' (kon-nee-chee-wah) = hello. 'Sumimasen' (soo-mee-mah-sen) = excuse me / sorry / to get attention. 'Arigatō gozaimasu' (ah-ree-gah-toh go-zai-mahs) = thank you very much. A small bow accompanies most greetings.", "fantasy": "🐉 In Hinomoto, bowing to a kitsune-in-disguise may earn its favor — or its mischief." },
+      { "topic": "Shrines vs. temples", "real": "✅ Shintō SHRINES (jinja) have torii gates; Buddhist TEMPLES (tera) have larger roofed gates and often a pagoda. At a shrine you bow twice, clap twice, pray, bow once. At a temple you do NOT clap — you press palms silently.", "fantasy": "🐉 Clapping at the wrong holy site here might wake whatever sleeps beneath it." },
+      { "topic": "Temizu (purification basin)", "real": "✅ Before entering a shrine, rinse left hand, then right, then pour water into your left hand to rinse your mouth, then let water run down the dipper handle. Never drink directly from the dipper.", "fantasy": "🐉 The water-spirit of a basin can read a traveler's intentions in how carefully they purify." },
+      { "topic": "Shoes off indoors", "real": "✅ Remove your shoes at the genkan (entry step) of homes, inns (ryokan), many restaurants, and temple buildings. Point toes toward the door when you set them down. Slippers are often provided — but never wear them on tatami mats.", "fantasy": "🐉 A zashiki-warashi house-spirit judges guests by whether they line up their shoes neatly." },
+      { "topic": "Onsen / sentō bathing", "real": "✅ Wash and rinse THOROUGHLY at the seated showers BEFORE entering the communal bath. No soap in the bath water. Bathe naked; the small towel never touches the water. Tattoos are restricted at some baths.", "fantasy": "🐉 The bath-vale of Hakone is watched by spirits who scald the rude and soothe the courteous." },
+      { "topic": "Money & manners", "real": "✅ Japan is heavily cash-friendly; place cash and cards on the small TRAY at the register rather than into the cashier's hand. Tipping is NOT customary and can confuse or offend. Convenience stores (konbini) are everywhere and excellent.", "fantasy": "🐉 A tanuki merchant pays in leaves that look like gold until dawn — count your change." },
+      { "topic": "Slurping & eating", "real": "✅ Slurping ramen/soba is fine and even polite. Don't stick chopsticks upright in rice (funeral imagery) and don't pass food chopstick-to-chopstick. 'Itadakimasu' before eating; 'gochisōsama' after.", "fantasy": "🐉 Leaving one bite for the kami of the hearth is an old Hinomoto courtesy." },
+      { "topic": "Trains & cities (for the real trip)", "real": "✅ In modern Japan: get a rechargeable IC card (Suica/ICOCA/PASMO) for trains and konbini; stand on the correct side of the escalator; trains are punctual to the minute; stay quiet and don't take phone calls aboard.", "fantasy": "🐉 In feudal Hinomoto you'll travel by foot, palanquin, and ferry instead — but the courtesy of quiet on the road is just as old." },
+      { "topic": "Yokosuka & the Kanagawa coast (real trip note)", "real": "✅ Yokosuka sits on the Miura Peninsula in Kanagawa Prefecture, ~1 hour south of Tokyo by Keikyū or JR line — a port/navy city known for 'Navy Burgers' and 'Yokosuka curry.' Nearby and easy to reach: Yokohama (Minato Mirai, Chinatown), Kamakura (its OWN Great Buddha / Daibutsu at Kōtoku-in — a separate one from Nara's — plus Hase-dera and the Enoden tram), Enoshima island, and Hakone's hot springs. Trains run frequently; an IC card covers them all. 'Yokosuka e ikitai desu' = 'I want to go to Yokosuka.'", "fantasy": "🐉 In Hinomoto, the Miura coast is where the sea-kami's tides run strongest — and where the floating-torii pilgrimage of the finale begins." }
+    ]
+  }
+}

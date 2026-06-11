@@ -420,8 +420,8 @@ describe('session settings — turnMode removed', () => {
 });
 
 describe('session creation limit', () => {
-  it('allows creating sessions up to the default limit (3)', async () => {
-    for (let i = 0; i < 3; i++) {
+  it('allows creating sessions up to the default limit (10)', async () => {
+    for (let i = 0; i < 10; i++) {
       const res = await request('POST', '/api/sessions', {
         body: { name: `Session ${i + 1}`, characterId: 'char-1', scenarioId: 'demo' },
         headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },
@@ -430,9 +430,9 @@ describe('session creation limit', () => {
     }
   });
 
-  it('rejects the 4th session at default limit', async () => {
-    // Create 3 sessions via files
-    for (let i = 0; i < 3; i++) {
+  it('rejects the 11th session at default limit', async () => {
+    // Create 10 sessions via files
+    for (let i = 0; i < 10; i++) {
       createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: `existing-${i}` }));
     }
 
@@ -446,10 +446,13 @@ describe('session creation limit', () => {
   });
 
   it('counts sessions across all campaigns', async () => {
-    // Create 2 in demo, 1 in campaign1
-    createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: 'demo-1' }));
-    createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: 'demo-2' }));
-    createSessionFile(tmpDir, HOST.email, 'campaign1', makeSession({ id: 'camp1-1' }));
+    // Create 6 in demo and 4 in campaign1 — 10 total, hitting the default limit
+    for (let i = 0; i < 6; i++) {
+      createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: `demo-${i}` }));
+    }
+    for (let i = 0; i < 4; i++) {
+      createSessionFile(tmpDir, HOST.email, 'campaign1', makeSession({ id: `camp1-${i}` }));
+    }
 
     const res = await request('POST', '/api/sessions', {
       body: { name: 'Should fail', characterId: 'char-1', scenarioId: 'demo' },
@@ -467,7 +470,7 @@ describe('session creation limit', () => {
     players[HOST.email].maxSessions = 5;
     fs.writeFileSync(playersPath, JSON.stringify(players, null, 2));
 
-    // Create 4 sessions (would fail at default limit of 3)
+    // Create 4 sessions (the explicit custom limit caps at 5)
     for (let i = 0; i < 4; i++) {
       createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: `session-${i}` }));
     }
@@ -488,12 +491,12 @@ describe('session creation limit', () => {
   });
 
   it('deleting a session frees up a slot', async () => {
-    // Create 3 sessions
-    for (let i = 0; i < 3; i++) {
+    // Create 10 sessions (the default limit)
+    for (let i = 0; i < 10; i++) {
       createSessionFile(tmpDir, HOST.email, 'demo', makeSession({ id: `session-${i}` }));
     }
 
-    // Can't create a 4th
+    // Can't create an 11th
     const res1 = await request('POST', '/api/sessions', {
       body: { name: 'Blocked', characterId: 'char-1', scenarioId: 'demo' },
       headers: { 'x-player-email': HOST.email, 'x-campaign-id': 'demo' },

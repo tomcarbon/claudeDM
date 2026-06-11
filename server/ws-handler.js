@@ -5,7 +5,20 @@ const path = require('path');
 const { DmEngine, summarizeArc } = require('./dm-engine');
 const { maybeCompact } = require('./compaction');
 const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession } = require('./player-data');
-const { auditDmTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt } = require('./dm-audit');
+const { auditDmTurn, auditPlayerTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt } = require('./dm-audit');
+
+// Collapse warnings to one per category so a transfer flagged by both the DM-narration scan and the
+// player-intent scan doesn't double-report in the reconcile prompt.
+function dedupeWarningsByCategory(warnings) {
+  const seen = new Set();
+  const out = [];
+  for (const w of warnings || []) {
+    if (!w || seen.has(w.category)) continue;
+    seen.add(w.category);
+    out.push(w);
+  }
+  return out;
+}
 
 // Module-level chat rooms: chatKey -> Set<wsEntry>
 // Each wsEntry: { ws, playerEmail, playerName, isAdmin }
@@ -686,7 +699,14 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             case 'dm_complete':
               broadcastSessionMessage(sessionDbId, 'dm_complete', { sessionId: event.sessionId });
               try {
-                auditWarnings = auditDmTurn(auditDmText, auditToolCalls);
+                // Scan raw host + companion turn texts (not the assembled playerText, which embeds
+                // character sheets whose equipment can contain "X gp" and would false-positive).
+                const playerTurnText = [hostTurn.text, ...companionTurnsArr.map(t => t.text)]
+                  .filter(Boolean).join('\n');
+                auditWarnings = dedupeWarningsByCategory([
+                  ...auditDmTurn(auditDmText, auditToolCalls),
+                  ...auditPlayerTurn(playerTurnText, auditToolCalls),
+                ]);
                 logAuditTrace(sessionDbId, auditDmText, auditToolCalls, auditWarnings);
                 const formatted = formatWarnings(auditWarnings, sessionDbId);
                 if (formatted) console.warn(formatted);
@@ -1323,7 +1343,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   send('dm_complete', { sessionId: event.sessionId });
                   broadcastToSessionWatchers('dm_complete', { sessionId: event.sessionId });
                   try {
-                    auditWarnings = auditDmTurn(auditDmText, auditToolCalls);
+                    // Audit the DM's narration AND the player's own turn text — a transfer the
+                    // player declared ("I give everyone 1 gp") is often paraphrased qualitatively by
+                    // the DM and never restated as a number, so the narration scan alone misses it.
+                    auditWarnings = dedupeWarningsByCategory([
+                      ...auditDmTurn(auditDmText, auditToolCalls),
+                      ...auditPlayerTurn(playerText, auditToolCalls),
+                    ]);
                     logAuditTrace(currentSessionDbId, auditDmText, auditToolCalls, auditWarnings);
                     const formatted = formatWarnings(auditWarnings, currentSessionDbId);
                     if (formatted) console.warn(formatted);

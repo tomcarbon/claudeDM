@@ -1,0 +1,131 @@
+{
+  "id": "b0b192f2-c11a-435d-9eeb-2b355ff79eab",
+  "name": "Master Sōjō",
+  "status": "alive",
+  "race": "Tengu",
+  "subrace": "Karasu-tengu (Crow-Winged Mountain Spirit)",
+  "class": "Monk",
+  "level": 1,
+  "background": "Hermit",
+  "alignment": "Lawful Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Acrobatics",
+    "Insight",
+    "Perception",
+    "Athletics"
+  ],
+  "languages": [
+    "Common (Nihongo)",
+    "Yōkai-go (the tongue of spirits)",
+    "Auran (the speech of the mountain winds)"
+  ],
+  "equipment": [
+    "A tokin (small black cap of a yamabushi mountain ascetic)",
+    "A feathered hauchiwa fan said to stir the mountain winds",
+    "A set of prayer beads for ascetic meditation",
+    "A bundle of training switches for correcting a student's form",
+    "A gourd of clear mountain spring water",
+    "A purse holding 6 gp (he has little use for money)"
+  ],
+  "weapons": [
+    {
+      "name": "Bō (quarterstaff, monk weapon)",
+      "attackBonus": 5,
+      "damage": "1d6+3 (1d8+3 two-handed)",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Unarmed Strike (talon and wing)",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Flurry of Blows (bonus action, 1 ki, two unarmed strikes)",
+      "attackBonus": 5,
+      "damage": "1d4+3 each",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Unarmored Defense (10 + DEX mod + WIS mod)",
+    "type": "none"
+  },
+  "features": [
+    "Unarmored Defense (AC = 10 + Dexterity modifier + Wisdom modifier)",
+    "Martial Arts (use DEX for unarmed strikes and monk weapons; unarmed damage die 1d4; one unarmed strike as a bonus action after an Attack action)",
+    "Glide (tengu trait, reflavored: crow-feathered wings allow him to glide and slow any fall; he can hover briefly and descend safely from any height)",
+    "Mountain-Crow Senses (advantage on Perception checks relying on sight or hearing in the open air and mountains)",
+    "Sword-Saint's Eye (Insight flavor: legend says tengu can read an opponent's intent; he often knows a strike before it is thrown)",
+    "Discovery (Hermit feature: in long mountain solitude he uncovered a profound truth about ki and the breath of the wind)"
+  ],
+  "traits": [
+    "Glide",
+    "Martial Arts",
+    "Mountain-Crow Senses",
+    "Sword-Saint's Eye"
+  ],
+  "spells": {
+    "spellcastingAbility": "none",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I demand excellence and accept no excuses, least of all my own. I correct sloppy form, lazy thinking, and dishonorable conduct on sight, whether or not I was asked. Yet I never raise my hand against a student I have not first tried to teach.",
+    "ideals": "Mastery through discipline. The wind does not strive, yet it moves mountains over time. True strength is patience, humility, and the endless polishing of the self. Pride in skill is earned; pride in self is poison.",
+    "bonds": "Long ago I taught a warrior who used my lessons for slaughter, and his sins are mine to answer for. I will train worthy students and guide them toward honor, so that what I give the world is a blade that protects rather than one that butchers.",
+    "flaws": "My pride is a mountain I have spent centuries climbing and never summited. I mistake my harshness for kindness, and I drive students so hard I sometimes break what I meant to forge."
+  },
+  "appearance": "A tall, imperious figure with the head and wings of a great black crow and the body of a lean, powerful old ascetic. Glossy blue-black feathers cover his head and shoulders, framing sharp golden eyes that miss nothing, and a long, hard beak that clacks when he is displeased. Folded against his back are immense crow wings that, unfurled, span twice his height. He wears the dark robe and small black tokin cap of a yamabushi mountain hermit, and carries a feathered fan and a polished bō staff. He stands with the unhurried, perfect balance of a master who has not been surprised by anything in a hundred years, and his every gesture is precise to the point of severity.",
+  "backstory": "Master Sōjō is a karasu-tengu, a crow-winged spirit of the high places, and he dwells, as the greatest of his kind are said to dwell, upon a wind-scoured peak in the manner of Sōjōbō, the legendary tengu king of Mount Kurama who in old tales taught the young warrior Yoshitsune the secrets of the sword. For centuries Sōjō has been one of the mountain's sword-saints, a master of ki and the blade who accepts students only rarely and trains them without mercy, because the mountain is unforgiving and so must its lessons be. His great regret is an ancient one: he once trained a brilliant, ruthless warrior who took everything Sōjō taught and turned it to conquest and slaughter, and the old tengu has never forgiven himself for forging so fine a blade and aiming it so poorly. When omens of a gathering darkness reached his peak, Sōjō descended for the first time in generations, drawn by the sense that the coming crisis would turn on whether a few worthy souls could be made strong enough, and honorable enough, in time. He attached himself to the party as a teacher and a test, gruff and exacting, watching to see whether these are students worth the breaking and the making.",
+  "dmNotes": {
+    "roleplaying": "Master Sōjō is the proud, demanding sword-master who is secretly kind, the stern mentor whose harshness is a discipline of love. Play him as severe, exacting, and quick to criticize: he corrects the party's footwork, their tactics, their manners, and their morals, often unasked, and rarely offers praise, because in his philosophy praise makes students soft. But underneath, every harsh word is in service of making them strong enough to survive, and his kindness shows in deeds, not words: appearing at the exact moment a student is overwhelmed, taking a blow meant for a reckless pupil, leaving a perfect solution just within reach so they can 'discover' it themselves. He's a magnificent combatant, gliding above the battlefield, striking with staff and talon, reading enemies before they move, but he often holds back deliberately, forcing the party to fight their own battles and stepping in only when pride would cost a life. Let his rare, gruff approvals (a single clipped 'Adequate.' or a almost-imperceptible nod) feel like enormous rewards. ✅ Real folklore: tengu as mountain spirits and master swordsmen who taught legendary warriors (Sōjōbō of Mount Kurama teaching Yoshitsune); karasu-tengu (crow-beaked) versus long-nosed tengu; yamabushi ascetic dress and association with mountains and wind. 🐉 Invented: this individual's name, his disgraced former student, and his monk build.",
+    "voice": "Imperious, precise, and clipped, the voice of a teacher who has said everything a thousand times and expects to be understood the first time. He speaks in aphorisms and corrections: 'Your stance is a question. Make it an answer.' 'You swing as though the sword were angry. The sword is never angry. Only you.' His beak clacks when he's irritated, which is often. He addresses students as 'child' or 'pupil' regardless of their age and withholds their names as a deliberate discipline, granting them only when truly earned. On the rare occasion he praises, it is a single dry word, and it should feel monumental. When he speaks of his fallen student, the imperious tone cracks into something old and grieved.",
+    "motivations": "Primary: forge the party, especially its warriors, into souls strong AND honorable enough to meet the coming darkness, so that his lessons protect the world rather than scar it. Secondary: atone for his disgraced student by proving he can teach mastery without breeding monsters. Tertiary: uphold the ancient dignity and duty of the tengu sword-saints, and find, before he tires of the world, a student worthy of inheriting all he knows.",
+    "secrets": "The ruthless warrior Sōjō once trained and disowned is not safely dead, he is connected, directly or through his legacy, to the very darkness now threatening the floating world. Sōjō suspects this and descended his mountain not only to teach the party but to face, and end, what he created. He carries enormous guilt that the catastrophe ahead may be, in part, his own fault, the bitter fruit of a lesson well taught to a wicked heart. He hides this behind his sternness and has told no one that his harshness toward the party is also fear: terror that he will once again make a weapon that turns on the world. He is also, beneath the pride, profoundly lonely, and the party are the closest things to companions he has allowed himself in a century.",
+    "attitude": "Stern, exacting, and proud to the point of arrogance, but fundamentally honorable and, where it counts, deeply kind. He is generous with criticism and miserly with praise, holds everyone (himself most of all) to an impossible standard, and bristles at laziness, dishonor, and self-pity. He respects effort, courage, and humility, and warms, very slowly, to students who keep getting up. He has no patience for cruelty to the weak and will intervene against it instantly and without mercy. Toward those who finally earn his regard, his gruffness becomes a fierce, paternal, unspoken devotion."
+  }
+}

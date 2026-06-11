@@ -1,0 +1,511 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1536 1024" width="1536" height="1024">
+  <defs>
+    <!-- ====== filters (Inkscape-safe) ====== -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="4"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.30  0 0 0 0 0.22  0 0 0 0 0.10  0 0 0 0.35 0"/>
+    </filter>
+    <filter id="blotch" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.005 0.007" numOctaves="4" seed="17"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.34  0 0 0 0 0.23  0 0 0 0 0.08  0 0 0 1.5 -0.58"/>
+      <feGaussianBlur stdDeviation="0.7"/>
+    </filter>
+    <radialGradient id="vig" cx="0.5" cy="0.5" r="0.72">
+      <stop offset="0" stop-color="#5b3d1a" stop-opacity="0"/>
+      <stop offset="0.62" stop-color="#5b3d1a" stop-opacity="0"/>
+      <stop offset="0.85" stop-color="#5b3d1a" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#3c2610" stop-opacity="0.42"/>
+    </radialGradient>
+
+    <!-- ====== island outlines: real-Japan layout ====== -->
+    <!-- Honshu: long arc SW->NE with Noto, Boso, Izu, Kii peninsulas + Edo Bay -->
+    <path id="honshuI" d="M 432,678
+      C 446,656 462,644 486,634 C 514,622 544,606 576,596
+      C 608,586 636,580 664,572 C 686,566 706,554 728,544
+      C 744,536 756,524 762,506 C 766,492 764,472 772,458
+      C 776,450 786,446 792,452 C 798,458 796,470 794,482
+      C 792,494 796,506 808,510 C 826,514 844,500 862,490
+      C 894,474 924,458 954,440 C 988,420 1020,398 1052,372
+      C 1082,348 1110,322 1136,294 C 1156,272 1170,254 1182,238
+      C 1188,230 1196,232 1198,240 C 1200,250 1206,256 1216,252
+      C 1228,247 1236,236 1246,228 C 1254,222 1262,228 1260,238
+      C 1256,260 1248,286 1238,312 C 1226,344 1210,374 1188,400
+      C 1166,424 1140,444 1112,458 C 1092,468 1072,470 1060,480
+      C 1054,490 1054,502 1052,514 C 1050,534 1050,552 1042,570
+      C 1036,584 1030,594 1022,598 C 1014,600 1010,592 1012,582
+      C 1014,570 1014,558 1008,548 C 1002,538 992,532 982,530
+      C 972,528 964,534 962,544 C 960,554 956,564 948,572
+      C 940,580 932,586 924,590 C 918,594 914,604 910,614
+      C 908,622 902,624 898,618 C 894,610 892,600 886,596
+      C 878,592 870,598 860,604 C 844,612 826,620 808,628
+      C 800,632 796,642 794,654 C 792,668 788,684 780,696
+      C 774,706 764,710 756,704 C 748,698 744,686 740,676
+      C 736,666 730,658 722,652 C 714,646 706,640 700,644
+      C 694,648 692,656 686,660 C 676,666 660,672 644,676
+      C 616,682 588,688 560,692 C 528,696 496,698 470,696
+      C 452,694 438,690 432,678 Z"/>
+    <!-- Ezo (Hokkaido), NE across the Tsugaru strait -->
+    <path id="ezoI" d="M 1310,222
+      C 1298,200 1296,172 1306,148 C 1316,122 1336,100 1362,88
+      C 1388,76 1418,72 1444,82 C 1468,90 1484,110 1490,134
+      C 1496,158 1492,182 1480,200 C 1470,214 1454,222 1438,220
+      C 1430,219 1426,210 1418,208 C 1402,204 1386,206 1372,212
+      C 1358,218 1344,226 1332,228 C 1322,230 1314,230 1310,222 Z"/>
+    <!-- Shikoku, south of western Honshu across the Seto Inland Sea -->
+    <path id="shikokuI" d="M 585,780
+      C 591,764 603,754 619,748 C 639,740 663,736 687,736
+      C 711,736 735,740 755,750 C 767,756 775,766 771,776
+      C 765,788 749,794 729,798 C 707,803 683,806 659,804
+      C 635,802 613,798 599,792 C 591,788 585,786 585,780 Z"/>
+    <!-- Kyushu, at the SW end -->
+    <path id="kyushuI" d="M 396,700
+      C 414,704 430,714 442,730 C 454,746 460,766 462,788
+      C 464,812 458,838 444,860 C 432,878 414,890 394,888
+      C 372,886 354,872 344,850 C 334,828 330,802 334,776
+      C 338,750 348,726 364,712 C 374,703 386,698 396,700 Z"/>
+    <!-- Itsukushima: small isle in the Inland Sea off SW Honshu -->
+    <path id="itsukuI" d="M 540,716 C 536,706 546,696 560,697
+      C 574,698 582,708 578,718 C 574,727 560,731 550,727
+      C 545,725 542,721 540,716 Z"/>
+    <!-- minor isles: Sado, Awaji, Oki, Tsushima, Goto, Tanega, Sanriku rock -->
+    <path id="isSado" d="M 988,358 C 980,350 984,338 996,334 C 1008,330 1020,336 1020,348 C 1020,358 1010,366 1000,366 C 994,366 992,364 988,358 Z"/>
+    <path id="isAwaji" d="M 708,694 C 704,684 712,676 722,678 C 732,680 736,690 730,698 C 724,704 712,702 708,694 Z"/>
+    <path id="isOki" d="M 556,520 C 554,513 561,508 569,509 C 577,510 581,516 578,522 C 575,528 560,526 556,520 Z"/>
+    <path id="isTsu" d="M 258,640 C 256,633 263,628 271,629 C 279,630 283,636 280,642 C 277,648 262,646 258,640 Z"/>
+    <path id="isGoto" d="M 264,812 C 262,805 269,800 277,801 C 285,802 289,808 286,814 C 283,820 268,818 264,812 Z"/>
+    <path id="isTane" d="M 434,934 C 432,927 439,922 447,923 C 455,924 459,930 456,936 C 453,942 438,940 434,934 Z"/>
+    <path id="isSanriku" d="M 1288,326 C 1286,319 1293,314 1301,315 C 1309,316 1313,322 1310,328 C 1307,334 1292,332 1288,326 Z"/>
+
+    <!-- ====== small symbols ====== -->
+    <g id="wave">
+      <path d="M0,0 q6,-6 12,0 q6,6 12,0" fill="none" stroke="#84948c" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g id="mtn">
+      <path d="M0,0 L16,-26 L32,0 Z" fill="#e0cf9d" stroke="#4a3a26" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M16,-26 L21,-13 M16,-26 L19,-5" fill="none" stroke="#4a3a26" stroke-width="1" opacity="0.5"/>
+    </g>
+    <g id="tree">
+      <path d="M0,0 L0,-5" stroke="#4a3a26" stroke-width="1.4"/>
+      <path d="M-7,-7 C-9,-13 -4,-17 0,-16 C5,-18 9,-13 7,-7 C9,-4 4,-3 0,-4 C-4,-3 -9,-4 -7,-7 Z" fill="#aeb887" stroke="#4a3a26" stroke-width="1.2"/>
+    </g>
+    <g id="pine">
+      <path d="M0,0 L0,-4" stroke="#4a3a26" stroke-width="1.4"/>
+      <path d="M-6,-4 L0,-11 L6,-4 Z M-5,-9 L0,-16 L5,-9 Z M-4,-14 L0,-20 L4,-14 Z" fill="#93a37e" stroke="#4a3a26" stroke-width="1"/>
+    </g>
+    <g id="cherry">
+      <path d="M0,0 L0,-5" stroke="#6e4a3a" stroke-width="1.4"/>
+      <path d="M-7,-7 C-9,-13 -4,-17 0,-16 C5,-18 9,-13 7,-7 C9,-4 4,-3 0,-4 C-4,-3 -9,-4 -7,-7 Z" fill="#e9c3c6" stroke="#a86a72" stroke-width="1.1"/>
+    </g>
+    <g id="torii" stroke="#c0392b" stroke-width="2.6" stroke-linecap="round" fill="none">
+      <path d="M-8,0 L-6.5,-13"/>
+      <path d="M8,0 L6.5,-13"/>
+      <path d="M-9,-9.5 L9,-9.5"/>
+      <path d="M-12,-14 Q0,-18 12,-14"/>
+      <path d="M0,-15.5 L0,-9.5"/>
+    </g>
+    <g id="house">
+      <rect x="-5" y="-5" width="10" height="5" fill="#e9dfc2" stroke="#4a3a26" stroke-width="1.1"/>
+      <path d="M-8,-5 Q0,-10 8,-5" fill="none" stroke="#4a3a26" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+    <g id="lantern" stroke="#4a3a26" stroke-width="1.2" fill="#d8cba6">
+      <path d="M-3,0 L3,0 M0,0 L0,-4"/>
+      <rect x="-2.5" y="-8" width="5" height="4"/>
+      <path d="M-4,-8 Q0,-11 4,-8"/>
+    </g>
+    <g id="deer" fill="#5a4733">
+      <path d="M0,0 L0,-6 Q0,-10 4,-10 L11,-10 Q12,-13 15,-13 L15,-16 L16.5,-13 Q18.5,-12.5 17.5,-10.5 L14,-9.5 L14,0 L12.4,0 L12.4,-6 L4.6,-6 L4.6,0 Z"/>
+      <path d="M15,-16 L13,-19 M15,-16 L17,-19" stroke="#5a4733" stroke-width="0.9" fill="none"/>
+    </g>
+    <g id="boat">
+      <path d="M-15,0 Q0,7 15,0 L11,-1.5 L-11,-1.5 Z" fill="#4a3a26"/>
+      <path d="M0,-1.5 L0,-18" stroke="#4a3a26" stroke-width="1.3"/>
+      <path d="M2,-17 Q14,-11 3,-3 Z" fill="#cbb98c" stroke="#4a3a26" stroke-width="1"/>
+      <path d="M3,-13 L9,-10 M3,-8 L8,-6" stroke="#4a3a26" stroke-width="0.8"/>
+    </g>
+    <g id="steam">
+      <path d="M0,0 C3,-3 -3,-7 0,-11" fill="none" stroke="#93a1a6" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <path id="eastSeaPath" d="M 850,790 Q 1010,742 1170,778" fill="none"/>
+    <path id="setoPath" d="M 598,724 Q 668,712 738,724" fill="none"/>
+  </defs>
+
+  <!-- ================= PARCHMENT BASE ================= -->
+  <rect width="1536" height="1024" fill="#ebd9ac"/>
+  <rect width="1536" height="1024" fill="#a3bbb1" opacity="0.24"/>
+  <!-- ================= SEA TEXTURE (waves) ================= -->
+  <g opacity="0.55">
+    <!-- Sea of Nihon (upper left) -->
+    <use xlink:href="#wave" x="150" y="250"/><use xlink:href="#wave" x="230" y="180"/>
+    <use xlink:href="#wave" x="320" y="240"/><use xlink:href="#wave" x="420" y="210"/>
+    <use xlink:href="#wave" x="520" y="270"/><use xlink:href="#wave" x="640" y="310"/>
+    <use xlink:href="#wave" x="760" y="300"/><use xlink:href="#wave" x="880" y="260"/>
+    <use xlink:href="#wave" x="700" y="430"/><use xlink:href="#wave" x="560" y="470"/>
+    <use xlink:href="#wave" x="420" y="490"/><use xlink:href="#wave" x="300" y="560"/>
+    <use xlink:href="#wave" x="180" y="430"/><use xlink:href="#wave" x="150" y="700"/>
+    <use xlink:href="#wave" x="240" y="752"/><use xlink:href="#wave" x="170" y="880"/>
+    <use xlink:href="#wave" x="320" y="940"/><use xlink:href="#wave" x="990" y="290"/>
+    <use xlink:href="#wave" x="1090" y="230"/><use xlink:href="#wave" x="1180" y="150"/>
+    <use xlink:href="#wave" x="1060" y="120"/><use xlink:href="#wave" x="900" y="380"/>
+    <!-- Tsugaru / Ezo waters -->
+    <use xlink:href="#wave" x="1262" y="180"/><use xlink:href="#wave" x="1330" y="290"/>
+    <use xlink:href="#wave" x="1450" y="280"/><use xlink:href="#wave" x="1240" y="90"/>
+    <!-- The Eastern Sea (Pacific, lower right) -->
+    <use xlink:href="#wave" x="1310" y="400"/><use xlink:href="#wave" x="1400" y="340"/>
+    <use xlink:href="#wave" x="1440" y="490"/><use xlink:href="#wave" x="1310" y="570"/>
+    <use xlink:href="#wave" x="1390" y="650"/><use xlink:href="#wave" x="1440" y="740"/>
+    <use xlink:href="#wave" x="1290" y="710"/><use xlink:href="#wave" x="1180" y="560"/>
+    <use xlink:href="#wave" x="1100" y="650"/><use xlink:href="#wave" x="1190" y="690"/>
+    <use xlink:href="#wave" x="1080" y="770"/><use xlink:href="#wave" x="960" y="710"/>
+    <use xlink:href="#wave" x="860" y="700"/><use xlink:href="#wave" x="900" y="870"/>
+    <use xlink:href="#wave" x="780" y="900"/><use xlink:href="#wave" x="640" y="900"/>
+    <use xlink:href="#wave" x="500" y="950"/><use xlink:href="#wave" x="1030" y="910"/>
+    <use xlink:href="#wave" x="560" y="868"/><use xlink:href="#wave" x="420" y="950"/>
+    <use xlink:href="#wave" x="1120" y="430"/>
+  </g>
+
+  <!-- ================= COASTAL WATER-LINES (ring pairs) ================= -->
+  <g fill="none" stroke-linejoin="round">
+    <use xlink:href="#honshuI" stroke="#7c6b4d" stroke-width="26" opacity="0.22"/>
+    <use xlink:href="#honshuI" stroke="#dad2ad" stroke-width="23"/>
+    <use xlink:href="#honshuI" stroke="#7c6b4d" stroke-width="16" opacity="0.35"/>
+    <use xlink:href="#honshuI" stroke="#dad2ad" stroke-width="13"/>
+    <use xlink:href="#honshuI" stroke="#7c6b4d" stroke-width="8" opacity="0.5"/>
+    <use xlink:href="#honshuI" stroke="#dad2ad" stroke-width="5.5"/>
+    <use xlink:href="#ezoI" stroke="#7c6b4d" stroke-width="24" opacity="0.3"/>
+    <use xlink:href="#ezoI" stroke="#dad2ad" stroke-width="21"/>
+    <use xlink:href="#ezoI" stroke="#7c6b4d" stroke-width="12" opacity="0.5"/>
+    <use xlink:href="#ezoI" stroke="#dad2ad" stroke-width="9"/>
+    <use xlink:href="#shikokuI" stroke="#7c6b4d" stroke-width="20" opacity="0.3"/>
+    <use xlink:href="#shikokuI" stroke="#dad2ad" stroke-width="17"/>
+    <use xlink:href="#shikokuI" stroke="#7c6b4d" stroke-width="10" opacity="0.5"/>
+    <use xlink:href="#shikokuI" stroke="#dad2ad" stroke-width="7"/>
+    <use xlink:href="#kyushuI" stroke="#7c6b4d" stroke-width="22" opacity="0.3"/>
+    <use xlink:href="#kyushuI" stroke="#dad2ad" stroke-width="19"/>
+    <use xlink:href="#kyushuI" stroke="#7c6b4d" stroke-width="11" opacity="0.5"/>
+    <use xlink:href="#kyushuI" stroke="#dad2ad" stroke-width="8"/>
+    <use xlink:href="#itsukuI" stroke="#7c6b4d" stroke-width="9" opacity="0.5"/>
+    <use xlink:href="#itsukuI" stroke="#dad2ad" stroke-width="6.5"/>
+    <use xlink:href="#isSado" stroke="#7c6b4d" stroke-width="10" opacity="0.45"/>
+    <use xlink:href="#isSado" stroke="#dad2ad" stroke-width="7.5"/>
+    <use xlink:href="#isAwaji" stroke="#7c6b4d" stroke-width="9" opacity="0.45"/>
+    <use xlink:href="#isAwaji" stroke="#dad2ad" stroke-width="6.5"/>
+    <use xlink:href="#isOki" stroke="#7c6b4d" stroke-width="10" opacity="0.45"/>
+    <use xlink:href="#isOki" stroke="#dad2ad" stroke-width="7.5"/>
+    <use xlink:href="#isTsu" stroke="#7c6b4d" stroke-width="10" opacity="0.45"/>
+    <use xlink:href="#isTsu" stroke="#dad2ad" stroke-width="7.5"/>
+    <use xlink:href="#isGoto" stroke="#7c6b4d" stroke-width="10" opacity="0.45"/>
+    <use xlink:href="#isGoto" stroke="#dad2ad" stroke-width="7.5"/>
+    <use xlink:href="#isTane" stroke="#7c6b4d" stroke-width="10" opacity="0.45"/>
+    <use xlink:href="#isTane" stroke="#dad2ad" stroke-width="7.5"/>
+    <use xlink:href="#isSanriku" stroke="#7c6b4d" stroke-width="10" opacity="0.45"/>
+    <use xlink:href="#isSanriku" stroke="#dad2ad" stroke-width="7.5"/>
+  </g>
+
+  <!-- ================= LAND ================= -->
+  <g stroke-linejoin="round">
+    <use xlink:href="#honshuI" fill="#e6d3a0"/>
+    <use xlink:href="#ezoI" fill="#e6d3a0"/>
+    <use xlink:href="#shikokuI" fill="#e6d3a0"/>
+    <use xlink:href="#kyushuI" fill="#e6d3a0"/>
+    <use xlink:href="#honshuI" fill="none" stroke="#c8b481" stroke-width="6" opacity="0.5"/>
+    <use xlink:href="#ezoI" fill="none" stroke="#c8b481" stroke-width="6" opacity="0.5"/>
+    <use xlink:href="#shikokuI" fill="none" stroke="#c8b481" stroke-width="5" opacity="0.5"/>
+    <use xlink:href="#kyushuI" fill="none" stroke="#c8b481" stroke-width="5" opacity="0.5"/>
+    <use xlink:href="#honshuI" fill="none" stroke="#4a3a26" stroke-width="2.4"/>
+    <use xlink:href="#ezoI" fill="none" stroke="#4a3a26" stroke-width="2.4"/>
+    <use xlink:href="#shikokuI" fill="none" stroke="#4a3a26" stroke-width="2.2"/>
+    <use xlink:href="#kyushuI" fill="none" stroke="#4a3a26" stroke-width="2.2"/>
+    <use xlink:href="#itsukuI" fill="#decb92" stroke="#4a3a26" stroke-width="1.8"/>
+    <use xlink:href="#isSado" fill="#dcc78e" stroke="#4a3a26" stroke-width="1.5"/>
+    <use xlink:href="#isAwaji" fill="#dcc78e" stroke="#4a3a26" stroke-width="1.5"/>
+    <use xlink:href="#isOki" fill="#dcc78e" stroke="#4a3a26" stroke-width="1.5"/>
+    <use xlink:href="#isTsu" fill="#dcc78e" stroke="#4a3a26" stroke-width="1.5"/>
+    <use xlink:href="#isGoto" fill="#dcc78e" stroke="#4a3a26" stroke-width="1.5"/>
+    <use xlink:href="#isTane" fill="#dcc78e" stroke="#4a3a26" stroke-width="1.5"/>
+    <use xlink:href="#isSanriku" fill="#dcc78e" stroke="#4a3a26" stroke-width="1.5"/>
+  </g>
+
+  <!-- plains tufts -->
+  <g fill="none" stroke="#8a7a4e" stroke-width="1.1" opacity="0.4" stroke-linecap="round">
+    <path d="M600,640 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+    <path d="M700,602 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+    <path d="M988,492 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+    <path d="M1012,470 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+    <path d="M912,510 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+    <path d="M1092,338 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+    <path d="M524,672 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+    <path d="M662,776 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+    <path d="M396,742 l2,-4 l2,4 m4,0 l2,-4 l2,4"/>
+  </g>
+
+  <!-- ================= LAKE BIWA + RIVERS ================= -->
+  <g transform="rotate(12 704 576)">
+    <ellipse cx="704" cy="576" rx="8" ry="15" fill="#a8c4c6" stroke="#4a3a26" stroke-width="1.1"/>
+  </g>
+  <g fill="none" stroke="#7d97a4" stroke-linecap="round" opacity="0.9">
+    <path d="M704,592 C702,606 698,620 700,640" stroke-width="2"/>
+    <path d="M952,470 C960,488 968,506 978,526" stroke-width="2.2"/>
+    <path d="M1105,330 C1118,350 1128,372 1124,396" stroke-width="2"/>
+  </g>
+
+  <!-- ================= MOUNTAINS ================= -->
+  <g>
+    <!-- The Cloud Spine (Hida/Kiso alps) -->
+    <use xlink:href="#mtn" transform="translate(744,548) scale(0.85)"/>
+    <use xlink:href="#mtn" transform="translate(772,528) scale(1.1)"/>
+    <use xlink:href="#mtn" transform="translate(804,510) scale(0.95)"/>
+    <use xlink:href="#mtn" transform="translate(834,492) scale(1.15)"/>
+    <use xlink:href="#mtn" transform="translate(868,474) scale(0.9)"/>
+    <use xlink:href="#mtn" transform="translate(896,458) scale(1.05)"/>
+    <use xlink:href="#mtn" transform="translate(786,560) scale(0.65)"/>
+    <use xlink:href="#mtn" transform="translate(822,544) scale(0.7)"/>
+    <!-- Tohoku ridge (northern Honshu) -->
+    <use xlink:href="#mtn" transform="translate(1052,428) scale(0.9)"/>
+    <use xlink:href="#mtn" transform="translate(1082,400) scale(1.05)"/>
+    <use xlink:href="#mtn" transform="translate(1112,372) scale(0.9)"/>
+    <use xlink:href="#mtn" transform="translate(1140,342) scale(1.0)"/>
+    <use xlink:href="#mtn" transform="translate(1166,310) scale(0.85)"/>
+    <use xlink:href="#mtn" transform="translate(1090,436) scale(0.62)"/>
+    <use xlink:href="#mtn" transform="translate(1126,408) scale(0.66)"/>
+    <!-- Chugoku hills -->
+    <use xlink:href="#mtn" transform="translate(478,668) scale(0.55)"/>
+    <use xlink:href="#mtn" transform="translate(548,650) scale(0.5)"/>
+    <!-- Ezo mountains -->
+    <use xlink:href="#mtn" transform="translate(1352,142) scale(0.8)"/>
+    <use xlink:href="#mtn" transform="translate(1388,128) scale(0.95)"/>
+    <use xlink:href="#mtn" transform="translate(1424,142) scale(0.75)"/>
+    <!-- Kyushu + Shikoku interior -->
+    <use xlink:href="#mtn" transform="translate(380,800) scale(0.65)"/>
+    <use xlink:href="#mtn" transform="translate(412,824) scale(0.6)"/>
+    <use xlink:href="#mtn" transform="translate(700,762) scale(0.55)"/>
+  </g>
+  <text x="860" y="436" font-family="serif" font-size="15" font-style="italic" fill="#6b5333" text-anchor="middle" opacity="0.85" transform="rotate(-26 860 436)">The Cloud Spine</text>
+  <!-- ================= FORESTS ================= -->
+  <g>
+    <!-- Chugoku woods (W Honshu) -->
+    <use xlink:href="#tree" transform="translate(452,672)"/>
+    <use xlink:href="#tree" transform="translate(468,684)"/>
+    <use xlink:href="#pine" transform="translate(495,690)"/>
+    <!-- Tohoku pines -->
+    <use xlink:href="#pine" transform="translate(1042,446)"/>
+    <use xlink:href="#pine" transform="translate(1066,430)"/>
+    <use xlink:href="#pine" transform="translate(1148,300)"/>
+    <use xlink:href="#pine" transform="translate(1172,272)"/>
+    <!-- Ezo pine woods -->
+    <use xlink:href="#pine" transform="translate(1340,190)"/>
+    <use xlink:href="#pine" transform="translate(1372,196)"/>
+    <use xlink:href="#pine" transform="translate(1408,192)"/>
+    <use xlink:href="#pine" transform="translate(1444,184)"/>
+    <use xlink:href="#pine" transform="translate(1330,130)"/>
+    <use xlink:href="#pine" transform="translate(1452,120)"/>
+    <!-- Shikoku -->
+    <use xlink:href="#tree" transform="translate(634,772)"/>
+    <use xlink:href="#tree" transform="translate(736,772)"/>
+    <use xlink:href="#pine" transform="translate(612,786)"/>
+    <!-- Kyushu -->
+    <use xlink:href="#tree" transform="translate(382,742)"/>
+    <use xlink:href="#tree" transform="translate(412,756)"/>
+    <use xlink:href="#pine" transform="translate(372,860)"/>
+  </g>
+
+  <!-- ================= RICE TERRACES (Chugoku) ================= -->
+  <g fill="none" stroke="#6e7f55" stroke-width="1.5" opacity="0.85" stroke-linecap="round">
+    <path d="M508,664 Q530,652 552,664"/>
+    <path d="M512,656 Q530,646 548,656"/>
+    <path d="M516,648 Q530,641 544,648"/>
+    <path d="M520,641 Q530,636 540,641"/>
+  </g>
+
+  <!-- ================= SAKURA VALE (Yamato cherry grove) ================= -->
+  <g>
+    <use xlink:href="#cherry" transform="translate(578,640)"/>
+    <use xlink:href="#cherry" transform="translate(596,650) scale(0.9)"/>
+    <use xlink:href="#cherry" transform="translate(610,636) scale(0.85)"/>
+    <use xlink:href="#cherry" transform="translate(588,660) scale(0.8)"/>
+  </g>
+  <text x="594" y="676" font-family="serif" font-size="12" font-style="italic" fill="#8a5a62" text-anchor="middle">Sakura Vale</text>
+
+  <!-- ================= HEIAN-KYO (675,585) ================= -->
+  <g>
+    <path d="M648,556 Q664,538 680,556" fill="#e0cf9d" stroke="#4a3a26" stroke-width="1.6"/>
+    <path d="M662,576 C657,571 654,566 652,562" fill="none" stroke="#6b5333" stroke-width="1.3" stroke-dasharray="3,3"/>
+    <use xlink:href="#torii" transform="translate(660,574) scale(0.55)"/>
+    <use xlink:href="#torii" transform="translate(653,562) scale(0.55)"/>
+    <use xlink:href="#house" transform="translate(662,586)"/>
+    <use xlink:href="#house" transform="translate(676,581)"/>
+    <use xlink:href="#house" transform="translate(688,588)"/>
+    <use xlink:href="#house" transform="translate(668,599)"/>
+    <use xlink:href="#house" transform="translate(683,600)"/>
+    <g transform="translate(700,592)">
+      <rect x="-3.2" y="-21" width="6.4" height="21" fill="#e9dfc2" stroke="#4a3a26" stroke-width="1.1"/>
+      <path d="M-9,-7 Q0,-11.5 9,-7" fill="none" stroke="#4a3a26" stroke-width="2.2"/>
+      <path d="M-7.5,-14 Q0,-18 7.5,-14" fill="none" stroke="#4a3a26" stroke-width="2"/>
+      <path d="M-6,-21 Q0,-24.5 6,-21" fill="none" stroke="#c0392b" stroke-width="2"/>
+      <path d="M0,-24.5 L0,-28" stroke="#c0392b" stroke-width="1.4"/>
+    </g>
+  </g>
+  <text x="664" y="624" font-family="serif" font-size="20" font-weight="bold" fill="#3b2a17" text-anchor="middle" paint-order="stroke" stroke="#e6d8b0" stroke-width="3" stroke-linejoin="round">Heian-kyō</text>
+
+  <!-- ================= KASUGA (748,650) ================= -->
+  <g>
+    <use xlink:href="#tree" transform="translate(728,630) scale(0.85)"/>
+    <use xlink:href="#tree" transform="translate(764,628) scale(0.8)"/>
+    <use xlink:href="#tree" transform="translate(722,652) scale(0.75)"/>
+    <g transform="translate(748,648)">
+      <rect x="-14" y="-7" width="28" height="7" fill="#e9dfc2" stroke="#4a3a26" stroke-width="1.2"/>
+      <path d="M-18,-7 Q0,-15 18,-7" fill="none" stroke="#4a3a26" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M-9,-7 L-9,0 M0,-7 L0,0 M9,-7 L9,0" stroke="#c0392b" stroke-width="1.2"/>
+    </g>
+    <use xlink:href="#lantern" transform="translate(732,660)"/>
+    <use xlink:href="#lantern" transform="translate(764,660)"/>
+    <use xlink:href="#deer" transform="translate(752,674) scale(0.75)"/>
+    <use xlink:href="#deer" transform="translate(740,678) scale(-0.65,0.65)"/>
+  </g>
+  <text x="782" y="698" font-family="serif" font-size="18" font-weight="bold" fill="#3b2a17" text-anchor="middle" paint-order="stroke" stroke="#e6d8b0" stroke-width="3" stroke-linejoin="round">Kasuga</text>
+
+  <!-- ================= FUJI-NO-YAMA (862,540) + HAKONE ================= -->
+  <g transform="translate(862,540)">
+    <path d="M-40,0 C-22,-7 -16,-24 -8,-40 L8,-40 C16,-24 22,-7 40,0 Z" fill="#e0cf9d" stroke="#4a3a26" stroke-width="2"/>
+    <path d="M-8,-40 L8,-40 C10,-34 7,-31 4,-33 C1,-29 -2,-34 -5,-30 C-8,-33 -9,-36 -8,-40 Z" fill="#f4efe2" stroke="#4a3a26" stroke-width="1.2"/>
+    <path d="M2,-30 L8,-12 M-3,-28 L-7,-8" stroke="#4a3a26" stroke-width="1" opacity="0.45" fill="none"/>
+  </g>
+  <text x="838" y="566" font-family="serif" font-size="15" font-style="italic" fill="#3b2a17" text-anchor="middle" paint-order="stroke" stroke="#e6d8b0" stroke-width="3" stroke-linejoin="round">Fuji-no-yama</text>
+  <g>
+    <ellipse cx="916" cy="558" rx="5" ry="3" fill="#a8c4c6" stroke="#4a3a26" stroke-width="0.9"/>
+    <ellipse cx="928" cy="564" rx="4.5" ry="2.8" fill="#a8c4c6" stroke="#4a3a26" stroke-width="0.9"/>
+    <ellipse cx="921" cy="549" rx="4" ry="2.5" fill="#a8c4c6" stroke="#4a3a26" stroke-width="0.9"/>
+    <use xlink:href="#steam" transform="translate(915,553)"/>
+    <use xlink:href="#steam" transform="translate(922,544)"/>
+    <use xlink:href="#steam" transform="translate(928,559)"/>
+  </g>
+  <text x="942" y="600" font-family="serif" font-size="17" font-weight="bold" fill="#3b2a17" text-anchor="middle" paint-order="stroke" stroke="#e6d8b0" stroke-width="3" stroke-linejoin="round">Hakone</text>
+
+  <!-- ================= EDO on EDO BAY (962,520) ================= -->
+  <g>
+    <g transform="translate(956,506)">
+      <path d="M-13,0 L13,0 L9,-7 L-9,-7 Z" fill="#b8a98a" stroke="#4a3a26" stroke-width="1.2"/>
+      <rect x="-8" y="-15" width="16" height="8" fill="#efe8d6" stroke="#4a3a26" stroke-width="1.1"/>
+      <path d="M-11,-15 Q0,-19 11,-15" fill="none" stroke="#4a3a26" stroke-width="2.2"/>
+      <rect x="-5.5" y="-22" width="11" height="6" fill="#efe8d6" stroke="#4a3a26" stroke-width="1"/>
+      <path d="M-8,-22 Q0,-26 8,-22" fill="none" stroke="#4a3a26" stroke-width="2"/>
+      <path d="M0,-26 L0,-29" stroke="#c0392b" stroke-width="1.4"/>
+    </g>
+    <use xlink:href="#house" transform="translate(934,514)"/>
+    <use xlink:href="#house" transform="translate(946,520)"/>
+    <use xlink:href="#house" transform="translate(960,524)"/>
+    <use xlink:href="#house" transform="translate(972,520)"/>
+    <use xlink:href="#house" transform="translate(940,532)"/>
+    <use xlink:href="#house" transform="translate(954,538)"/>
+    <path d="M974,532 L992,538 M970,542 L986,550" stroke="#4a3a26" stroke-width="1.8"/>
+    <use xlink:href="#boat" transform="translate(1000,556) scale(0.5)"/>
+  </g>
+  <text x="922" y="556" font-family="serif" font-size="21" font-weight="bold" fill="#3b2a17" text-anchor="middle" paint-order="stroke" stroke="#e6d8b0" stroke-width="3" stroke-linejoin="round">Edo</text>
+  <text x="1044" y="618" font-family="serif" font-size="13" font-style="italic" fill="#5a6660" text-anchor="middle">Edo Bay</text>
+
+  <!-- ================= ITSUKUSHIMA (in the Seto Inland Sea) ================= -->
+  <g>
+    <use xlink:href="#pine" transform="translate(571,712) scale(0.6)"/>
+    <g transform="translate(556,712) scale(1.15)">
+      <rect x="-5" y="-4" width="10" height="4" fill="#e9dfc2" stroke="#4a3a26" stroke-width="1"/>
+      <path d="M-7,-4 Q0,-8 7,-4" fill="none" stroke="#c0392b" stroke-width="2"/>
+    </g>
+    <use xlink:href="#torii" transform="translate(528,750) scale(1.5)"/>
+    <path d="M514,754 q7,3 14,0 q7,-3 14,0" fill="none" stroke="#84948c" stroke-width="1.3" opacity="0.75"/>
+  </g>
+  <text x="540" y="782" font-family="serif" font-size="14" font-weight="bold" fill="#3b2a17" text-anchor="middle" paint-order="stroke" stroke="#dad2ad" stroke-width="3" stroke-linejoin="round">Itsukushima</text>
+
+  <!-- ================= ISLAND + SEA LABELS ================= -->
+  <text x="1396" y="174" font-family="serif" font-size="16" fill="#3b2a17" text-anchor="middle" letter-spacing="2" paint-order="stroke" stroke="#dad2ad" stroke-width="3">Ezo-ga-shima</text>
+  <text x="668" y="790" font-family="serif" font-size="15" fill="#3b2a17" text-anchor="middle" letter-spacing="1.5" paint-order="stroke" stroke="#e6d8b0" stroke-width="3">Shikoku</text>
+  <text x="398" y="804" font-family="serif" font-size="15" fill="#3b2a17" text-anchor="middle" letter-spacing="1" paint-order="stroke" stroke="#e6d8b0" stroke-width="3">Kyūshū</text>
+  <text font-family="serif" font-size="28" font-style="italic" fill="#5f6b64" letter-spacing="5" opacity="0.9">
+    <textPath xlink:href="#eastSeaPath" startOffset="50%" text-anchor="middle">The Eastern Sea</textPath>
+  </text>
+  <text font-family="serif" font-size="13" font-style="italic" fill="#5f6b64" letter-spacing="2" opacity="0.9">
+    <textPath xlink:href="#setoPath" startOffset="50%" text-anchor="middle">Seto Inland Sea</textPath>
+  </text>
+  <text x="330" y="310" font-family="serif" font-size="20" font-style="italic" fill="#5f6b64" text-anchor="middle" letter-spacing="4" opacity="0.85">Sea of Nihon</text>
+
+  <!-- ================= SAILING BOATS ================= -->
+  <use xlink:href="#boat" transform="translate(330,430)"/>
+  <use xlink:href="#boat" transform="translate(1240,560) scale(0.9)"/>
+  <use xlink:href="#boat" transform="translate(652,716) scale(0.5)"/>
+
+  <!-- ================= COMPASS ROSE ================= -->
+  <g transform="translate(200,565)">
+    <circle r="64" fill="none" stroke="#4a3a26" stroke-width="1" opacity="0.6"/>
+    <circle r="50" fill="none" stroke="#4a3a26" stroke-width="1.6"/>
+    <g transform="rotate(45)" opacity="0.9">
+      <path d="M0,-36 L5,-7 L0,-9 Z M0,36 L-5,7 L0,9 Z M-36,0 L-7,-5 L-9,0 Z M36,0 L7,5 L9,0 Z" fill="#4a3a26"/>
+      <path d="M0,-36 L-5,-7 L0,-9 Z M0,36 L5,7 L0,9 Z M-36,0 L-7,5 L-9,0 Z M36,0 L7,-5 L9,0 Z" fill="#e8d9b6" stroke="#4a3a26" stroke-width="0.8"/>
+    </g>
+    <path d="M0,-58 L7,-9 L0,-12 Z M0,58 L-7,9 L0,12 Z M-58,0 L-9,-7 L-12,0 Z M58,0 L9,7 L12,0 Z" fill="#4a3a26"/>
+    <path d="M0,-58 L-7,-9 L0,-12 Z M0,58 L7,9 L0,12 Z M-58,0 L-9,7 L-12,0 Z M58,0 L9,-7 L12,0 Z" fill="#e8d9b6" stroke="#4a3a26" stroke-width="0.9"/>
+    <circle r="7" fill="#e8d9b6" stroke="#4a3a26" stroke-width="1.5"/>
+    <circle r="2.5" fill="#c0392b"/>
+    <path d="M0,-58 L4,-66 L0,-74 L-4,-66 Z" fill="#c0392b"/>
+    <text x="0" y="-80" font-family="serif" font-size="20" font-weight="bold" fill="#3b2a17" text-anchor="middle">N</text>
+  </g>
+
+  <!-- ================= SEA DRAGON (bottom-right) ================= -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1228,858 C1238,806 1300,798 1320,846 C1325,857 1326,862 1325,866 L1310,862 C1312,850 1308,836 1296,828 C1278,816 1254,824 1244,844 C1240,852 1238,858 1238,862 Z"
+          fill="#e6d3a0" stroke="#4a3a26" stroke-width="2.8"/>
+    <path d="M1342,862 C1352,818 1404,812 1420,850 C1424,858 1424,862 1423,866 L1408,862 C1409,852 1404,840 1392,834 C1378,827 1362,834 1356,848 C1353,855 1352,859 1352,862 Z"
+          fill="#e6d3a0" stroke="#4a3a26" stroke-width="2.8"/>
+    <g fill="none" stroke="#4a3a26" stroke-width="1.4" opacity="0.85">
+      <path d="M1250,838 q8,-6 16,0 M1268,826 q8,-6 16,0 M1288,830 q8,-6 16,0 M1262,850 q8,-6 16,0 M1284,844 q8,-6 16,0"/>
+      <path d="M1362,846 q8,-6 16,0 M1380,840 q8,-6 16,0 M1372,856 q8,-6 16,0"/>
+    </g>
+    <path d="M1244,830 L1250,810 L1260,824 Z M1264,816 L1270,796 L1280,810 Z M1286,812 L1292,794 L1302,808 Z M1306,822 L1312,806 L1320,820 Z
+             M1356,840 L1362,822 L1372,836 Z M1376,830 L1382,814 L1392,828 Z"
+          fill="#c0392b" stroke="#4a3a26" stroke-width="1.2"/>
+    <path d="M1228,858 C1216,852 1206,844 1202,834 C1212,836 1218,834 1220,828 C1212,826 1204,820 1200,812
+             C1196,804 1196,794 1202,788 C1210,780 1224,780 1232,788 C1238,794 1240,802 1238,810
+             C1236,818 1232,824 1232,832 C1232,842 1234,850 1238,858 Z"
+          fill="#e6d3a0" stroke="#4a3a26" stroke-width="2.8"/>
+    <path d="M1201,797 L1183,789 L1196,805 Z" fill="#e6d3a0" stroke="#4a3a26" stroke-width="2.2"/>
+    <path d="M1186,792 C1191,797 1195,800 1199,801" fill="none" stroke="#c0392b" stroke-width="1.6"/>
+    <path d="M1224,782 C1224,772 1232,764 1242,762 M1214,781 C1212,771 1217,763 1224,760" fill="none" stroke="#4a3a26" stroke-width="2"/>
+    <path d="M1200,794 C1186,786 1180,774 1184,764 M1204,810 C1188,812 1178,822 1180,834" fill="none" stroke="#4a3a26" stroke-width="1.6"/>
+    <path d="M1238,790 L1252,780 L1246,794 L1260,790 L1250,802 L1262,802 L1248,812 Z" fill="#c0392b" stroke="#4a3a26" stroke-width="1.1" opacity="0.95"/>
+    <circle cx="1216" cy="796" r="2.6" fill="#4a3a26"/>
+    <path d="M1428,860 C1442,844 1450,828 1442,810 C1456,818 1468,808 1462,792" fill="none" stroke="#4a3a26" stroke-width="2.8"/>
+    <path d="M1462,792 L1452,780 L1466,784 L1464,770 L1474,782 L1480,772 L1478,790 L1468,798 Z" fill="#c0392b" stroke="#4a3a26" stroke-width="1.2"/>
+    <path d="M1208,864 q8,-6 16,0 M1230,868 q8,-6 16,0 M1322,870 q8,-6 16,0 M1344,866 q8,-6 16,0 M1424,868 q8,-6 16,0 M1188,856 q8,-6 16,0"
+          fill="none" stroke="#84948c" stroke-width="1.6" opacity="0.85"/>
+  </g>
+  <text x="1320" y="906" font-family="serif" font-size="14" font-style="italic" fill="#5f6b64" text-anchor="middle" letter-spacing="2" opacity="0.9">here stirs the Ryū of the Deep</text>
+
+  <!-- ================= TITLE CARTOUCHE ================= -->
+  <g>
+    <rect x="72" y="58" width="392" height="130" fill="#eee1bc" stroke="#4a3a26" stroke-width="3"/>
+    <rect x="80" y="66" width="376" height="114" fill="none" stroke="#4a3a26" stroke-width="1.2"/>
+    <path d="M72,58 l14,14 M464,58 l-14,14 M72,188 l14,-14 M464,188 l-14,-14" stroke="#4a3a26" stroke-width="1.2"/>
+    <use xlink:href="#torii" transform="translate(116,160) scale(1.5)"/>
+    <text x="282" y="118" font-family="serif" font-size="42" font-weight="bold" fill="#3b2a17" text-anchor="middle" letter-spacing="8">HINOMOTO</text>
+    <path d="M150,134 L414,134" stroke="#c0392b" stroke-width="1.6"/>
+    <text x="282" y="164" font-family="serif" font-size="20" font-style="italic" fill="#5a432a" text-anchor="middle" letter-spacing="3">· The Floating World ·</text>
+    <g transform="translate(434,206) rotate(8)">
+      <rect x="-13" y="-13" width="26" height="26" fill="#c0392b" opacity="0.88"/>
+      <path d="M-7,-7 L7,-7 M-7,-1 L3,-1 M-7,5 L7,5 M-1,-7 L-1,7" stroke="#eee1bc" stroke-width="2" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- ================= AGING OVERLAYS ================= -->
+  <rect width="1536" height="1024" filter="url(#blotch)" opacity="0.45"/>
+  <rect width="1536" height="1024" filter="url(#grain)" opacity="0.4"/>
+  <rect width="1536" height="1024" fill="url(#vig)"/>
+
+  <!-- ================= BORDER FRAME ================= -->
+  <g fill="none" stroke="#4a3a26">
+    <rect x="16" y="16" width="1504" height="992" stroke-width="5"/>
+    <rect x="30" y="30" width="1476" height="964" stroke-width="1.6"/>
+    <path d="M16,16 l14,14 M1520,16 l-14,14 M16,1008 l14,-14 M1520,1008 l-14,-14" stroke-width="1.6"/>
+    <rect x="22" y="22" width="6" height="6" fill="#c0392b" stroke="none"/>
+    <rect x="1508" y="22" width="6" height="6" fill="#c0392b" stroke="none"/>
+    <rect x="22" y="996" width="6" height="6" fill="#c0392b" stroke="none"/>
+    <rect x="1508" y="996" width="6" height="6" fill="#c0392b" stroke="none"/>
+  </g>
+</svg>

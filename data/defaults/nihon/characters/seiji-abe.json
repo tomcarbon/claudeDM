@@ -1,0 +1,133 @@
+{
+  "id": "bb8bb5f6-dbb0-4d95-af7b-0ec2b6cf6673",
+  "name": "Seiji Abe",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Wizard",
+  "level": 1,
+  "background": "Sage",
+  "alignment": "Lawful Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 9,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 7,
+    "current": 7
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Insight"
+  ],
+  "languages": [
+    "Common",
+    "Draconic",
+    "Celestial"
+  ],
+  "equipment": [
+    "Spellbook (a scroll-bound grimoire of yin-yang talismans)",
+    "Quarterstaff (lacquered ritual staff)",
+    "Component pouch (ink, vermilion, paper charms)",
+    "Arcane focus (a brush-and-mirror divining tool)",
+    "Scholar's pack",
+    "Sheaf of blank ofuda paper talismans (20)",
+    "A folded paper shikigami in the shape of a crane",
+    "A bottle of black ink and a calligraphy brush",
+    "A set of fine robes (court diviner's attire)",
+    "Belt pouch containing 12 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff (Ritual Staff)",
+      "attackBonus": 1,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Dagger (Ritual Knife)",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Unarmored (court robes)",
+    "type": "none"
+  },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Spellcasting (Intelligence-based arcane magic from your spellbook)",
+    "Arcane Recovery (once per day on a short rest, recover spell slots of combined level up to 1)",
+    "Ritual Casting (cast prepared wizard spells with the ritual tag without expending a slot)",
+    "Shikigami (paper familiar flavor — folded paper servants carry your minor talismanic magic)",
+    "Researcher (Sage feature: you know where to find lore or who would know it)"
+  ],
+  "traits": [
+    "Spellcasting",
+    "Arcane Recovery",
+    "Ritual Casting",
+    "Shikigami"
+  ],
+  "spells": {
+    "spellcastingAbility": "Intelligence",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Fire Bolt",
+      "Mage Hand",
+      "Minor Illusion"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Magic Missile",
+        "Mage Armor",
+        "Shield",
+        "Sleep",
+        "Detect Magic",
+        "Charm Person"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak in measured, precise words and cannot abide superstition unsupported by observation. ⛩️ I note omens, count crows, and read the patterns of yin and yang in everything. There is always a calculation running behind my calm.",
+    "ideals": "Knowledge. The seen world rests upon the unseen, and the diviner who maps it wields true power. To understand the order of heaven and earth is to hold the brush that writes fate.",
+    "bonds": "My grandfather, the court onmyōji Abe no Yasunori, taught me the divining arts and vanished pursuing a comet-omen that he claimed foretold a calamity. His unfinished grimoire is in my hands, and I mean to complete the prophecy he could not.",
+    "flaws": "I trust my own deductions over the warnings of others, and my curiosity about forbidden lore has led me into rooms I should never have opened. I can be coldly dismissive of those I judge to be fools."
+  },
+  "appearance": "A slender, soft-handed scholar of Hinomoto with ink-stained fingers and an unhurried, watchful manner. 🦊 He wears the tall black cap and flowing pale-gray robes of a court diviner, embroidered at the hem with the swirling yin-yang and the five elemental sigils. His eyes are dark and quick, the eyes of a man always reading something — a face, a sky, a shadow that fell the wrong way. A folded paper crane often perches on his shoulder, and his sleeves rustle with tucked-away ofuda talismans inked in vermilion. He carries a lacquered staff more for ritual than for fighting, and moves through the world as though every step were a calculated stroke of the brush.",
+  "backstory": "Seiji Abe descends from a venerable line of onmyōji — diviners and exorcists who once advised the imperial court on auspicious days, the warding of demons, and the reading of the heavens. Raised in his grandfather's shrine-observatory, Seiji learned the twin sciences of astronomy and astrology, the folding of paper shikigami servants, and the binding of restless yōkai with inked talismans. When his grandfather, the great Abe no Yasunori, observed a blood-red comet and declared it the herald of a coming calamity, the old man set out alone to chart the omen to its source — and never returned. Seiji inherited his grandfather's half-finished grimoire, a book of yin-yang formulae and warding-charms whose final pages trail off mid-prophecy. Now he travels the floating world as a wandering diviner, completing the rituals his grandfather began, cataloguing the spirits and portents he encounters, and following the thread of that crimson omen toward whatever disaster it foretells — hoping to understand it before it arrives, and perhaps to stop it."
+}

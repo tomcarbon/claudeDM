@@ -1,0 +1,135 @@
+{
+  "id": "b05c78b7-17d8-476c-8358-231394fcf2cf",
+  "name": "Suzu Amakawa",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Cleric",
+  "level": 1,
+  "background": "Acolyte",
+  "alignment": "Neutral Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 10,
+    "current": 10
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Insight",
+    "Religion",
+    "Medicine",
+    "Persuasion"
+  ],
+  "languages": [
+    "Common",
+    "Celestial",
+    "Sylvan"
+  ],
+  "equipment": [
+    "Scale mail (ceremonial lamellar)",
+    "Shield (lacquered with a shrine sigil)",
+    "Kagura-bell (sacred dance bell, holy symbol)",
+    "Quarterstaff (gohei wand-staff)",
+    "Light crossbow (ritual bow)",
+    "Crossbow bolts (20)",
+    "Priest's pack",
+    "Sheaf of ofuda talismans (20)",
+    "A vial of purifying shrine water",
+    "A book of prayers and kami-rites",
+    "A stick of incense and a small censer",
+    "A set of miko vestments (white and crimson)",
+    "Belt pouch containing 15 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff (Gohei Staff)",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Light Crossbow",
+      "attackBonus": 2,
+      "damage": "1d8",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Scale mail and shield",
+    "type": "medium"
+  },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Spellcasting (Wisdom-based divine magic, prepared from the cleric list)",
+    "Divine Domain: Life (heavy armor proficiency; domain spells Bless and Cure Wounds always prepared)",
+    "Disciple of Life (your healing spells restore additional 2 + spell level hit points)",
+    "Ritual Casting (cast prepared cleric spells with the ritual tag without expending a slot)",
+    "Shelter of the Faithful (Acolyte feature: aid and lodging from shrines of the kami)"
+  ],
+  "traits": [
+    "Spellcasting",
+    "Divine Domain: Life",
+    "Disciple of Life",
+    "Ritual Casting"
+  ],
+  "spells": {
+    "spellcastingAbility": "Wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Sacred Flame",
+      "Guidance",
+      "Spare the Dying"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Bless",
+        "Cure Wounds",
+        "Healing Word",
+        "Shield of Faith",
+        "Detect Magic"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I greet strangers with a bow and a bright, easy warmth, and I leave a small offering at every roadside shrine. ⛩️ I dance the kagura at dusk to thank the kami, and I hum prayers under my breath without noticing. I believe most troubles ease with patience and a kind word.",
+    "ideals": "Reverence. The kami dwell in every river, tree, and stone, and to honor them is to keep the world in balance. Life is sacred and given in trust; I am its caretaker, not its master.",
+    "bonds": "I serve the mountain shrine of Amaterasu where I was dedicated as a child, and its old priestess is the only mother I have known. When a creeping blight of restless spirits began to foul our sacred spring, she sent me into the world to find its source and cleanse it.",
+    "flaws": "I see the good in people even when there is little to see, and my trust has been abused more than once. I find it hard to refuse anyone in need, which sometimes means I give away more than I can spare."
+  },
+  "appearance": "A poised young woman of Hinomoto with long black hair tied low with a crimson cord, dressed in the white kimono and scarlet hakama of a shrine maiden. 🦊 Over her vestments she wears ceremonial lamellar for the road, and she carries a lacquered shield marked with her shrine's sun-sigil. A small brass kagura-bell hangs at her sash, chiming softly when she moves, and strips of folded ofuda paper rustle in her sleeve. Her face is open and kind, often lit with a ready smile, but there is a steadiness in her dark eyes that speaks of real conviction. She walks with the unhurried grace of someone who has spent her life sweeping temple courtyards and dancing for the gods.",
+  "backstory": "Suzu Amakawa was given to the great sun-shrine on the misty heights of Hinomoto as a small child, and the old priestess there raised her in the rites of the kami. She grew up learning the sacred kagura dances, the chants that honor Amaterasu the sun-goddess, the folding of purifying ofuda, and the quiet daily devotions that keep the spirit world and the human world in gentle balance. As a miko she tended the shrine's eternal lamp, blessed travelers and newborns, and learned that the warmth of the kami could mend a wound or steady a failing heart. Then a wrongness crept into the shrine's sacred spring — its clear water turning brackish, restless ghosts gathering in the cedar grove at dusk, the local farms souring with bad luck and illness. The aging priestess, too frail to travel, pressed her holy symbol and her blessing into Suzu's hands and sent her out into the wider floating world to trace the corruption to its root. Now Suzu walks the roads as a wandering shrine-maiden, healing the sick, soothing troubled spirits, and following the thread of the blight toward whatever dark thing lies at its source — armored in faith and armed with the light of the kami she has served all her life."
+}

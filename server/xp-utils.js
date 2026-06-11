@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir } = require('./player-data');
+const { getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir, getSessionFilePath } = require('./player-data');
 
 function loadJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -156,4 +156,122 @@ function awardXp(dataDir, characterId, xpAmount, playerEmail, campaignId, sessio
   };
 }
 
-module.exports = { awardXp };
+function readJsonSafe(filePath) {
+  try {
+    return loadJson(filePath);
+  } catch {
+    return null;
+  }
+}
+
+function dirExists(dir) {
+  try {
+    return fs.statSync(dir).isDirectory();
+  } catch {
+    return false;
+  }
+}
+
+// Read every *.json in a directory as a character/NPC record (attaching _filename),
+// skipping anything that fails to parse.
+function readRecords(dir) {
+  return listJsonFiles(dir)
+    .map((file) => {
+      const data = readJsonSafe(path.join(dir, file));
+      if (data) data._filename = file;
+      return data;
+    })
+    .filter(Boolean);
+}
+
+function isAlive(record) {
+  return String(record.status || 'alive').toLowerCase() !== 'dead';
+}
+
+// Build the live party roster for an equal XP split: all present player characters
+// plus DM-controlled NPCs. Excludes the dead, NPCs the host has marked "removed", and
+// NPCs currently puppeted by a human companion player (those are handled by that player).
+function resolvePartyRoster(dataDir, { playerEmail, campaignId, sessionId, characterId }) {
+  const cid = campaignId || 'demo';
+  const seen = new Set();
+  const roster = [];
+  const add = (record) => {
+    if (!record || !record.id || seen.has(record.id) || !isAlive(record)) return;
+    seen.add(record.id);
+    roster.push(record);
+  };
+
+  // Player characters
+  if (sessionId && dirExists(getSessionCharactersDir(dataDir, sessionId))) {
+    // Session is the live source of truth — captures the main PC and any
+    // companion-replacement PCs in multiplayer.
+    readRecords(getSessionCharactersDir(dataDir, sessionId)).forEach(add);
+  } else if (characterId) {
+    const match = findCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId, sessionId);
+    if (match) add({ ...match.data, _filename: match.file });
+  }
+
+  // DM-controlled NPCs
+  const npcDir = sessionId && dirExists(getSessionNpcsDir(dataDir, sessionId))
+    ? getSessionNpcsDir(dataDir, sessionId)
+    : path.join(dataDir, 'defaults', cid, 'npcs');
+
+  let states = {};
+  let companionPlayers = {};
+  if (sessionId) {
+    const session = readJsonSafe(getSessionFilePath(dataDir, sessionId)) || {};
+    states = (session.companionConfig && session.companionConfig.states) || {};
+    companionPlayers = session.companionPlayers || {};
+  }
+
+  for (const npc of readRecords(npcDir)) {
+    if (states[npc.id] === 'removed') continue;       // host removed this slot
+    if (companionPlayers[npc.id]) continue;           // a human companion controls this NPC
+    add(npc);
+  }
+
+  return roster;
+}
+
+// Award XP equally across the live party (present PCs + DM-controlled NPCs).
+// Provide exactly one of { totalXp } (split equally) or { xpEach } (flat per-member amount).
+// Each member is awarded via awardXp(), so XP/level/file updates target the session-scoped
+// files when a sessionId is supplied.
+function awardPartyXp(dataDir, { totalXp, xpEach } = {}, context = {}) {
+  const { playerEmail, campaignId, sessionId, characterId } = context;
+
+  const hasTotal = Number.isFinite(Number(totalXp));
+  const hasEach = Number.isFinite(Number(xpEach));
+  if (hasTotal === hasEach) {
+    throw new Error('Provide exactly one of totalXp or xpEach.');
+  }
+
+  const roster = resolvePartyRoster(dataDir, { playerEmail, campaignId, sessionId, characterId });
+  if (roster.length === 0) {
+    throw new Error('No eligible party members found to award XP.');
+  }
+
+  const share = hasEach
+    ? Math.floor(Number(xpEach))
+    : Math.floor(Number(totalXp) / roster.length);
+  if (share <= 0) {
+    throw new Error(`Computed share is not positive (${share}). totalXp/xpEach too small for party of ${roster.length}.`);
+  }
+
+  const members = roster.map((member) =>
+    awardXp(dataDir, member.id, share, playerEmail, campaignId, sessionId)
+  );
+
+  const distributed = share * roster.length;
+  const remainder = hasTotal ? Math.max(0, Math.floor(Number(totalXp)) - distributed) : 0;
+
+  return {
+    partySize: roster.length,
+    xpEach: share,
+    distributed,
+    remainder,
+    members,
+  };
+}
+
+module.exports = { awardXp, awardPartyXp, resolvePartyRoster };

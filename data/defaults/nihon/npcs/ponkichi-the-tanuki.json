@@ -1,0 +1,133 @@
+{
+  "id": "4a0641eb-85c7-461a-9889-3b4617a92eca",
+  "name": "Ponkichi",
+  "status": "alive",
+  "race": "Tanuki",
+  "subrace": "Bake-danuki (Shapeshifting Yōkai)",
+  "class": "Rogue",
+  "level": 1,
+  "background": "Charlatan",
+  "alignment": "Chaotic Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Deception",
+    "Sleight of Hand",
+    "Persuasion",
+    "Performance",
+    "Stealth",
+    "Insight"
+  ],
+  "languages": [
+    "Common (Nihongo)",
+    "Yōkai-go (the tongue of spirits)"
+  ],
+  "equipment": [
+    "A gourd of fragrant rice sake (sloshing, never quite empty)",
+    "A leaf-stamping kit (turns leaves into convincing 'coins' for 1 hour)",
+    "A folding paper fan painted with a grinning tanuki",
+    "A straw rain-hat and a clay sake bottle hung from his belt",
+    "A small drum-belly (his own round stomach, used for the famous belly-drumming)",
+    "A coin purse holding 8 gp (some real, some... leaves)"
+  ],
+  "weapons": [
+    {
+      "name": "Tanto (short blade)",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Sling (smooth river stones)",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Belly-Drum Thunderclap (1/short rest, DC 11 WIS save or distracted)",
+      "attackBonus": 0,
+      "damage": "0 (distraction, grants ally advantage)",
+      "damageType": "none"
+    }
+  ],
+  "armor": {
+    "name": "Padded traveling garb (concealed beneath fur)",
+    "type": "light"
+  },
+  "features": [
+    "Expertise (Deception and Sleight of Hand: double proficiency bonus)",
+    "Sneak Attack (1d6 extra damage when you have advantage or an ally is adjacent to the target)",
+    "Thieves' Cant (secret signs and slang of rogues and con-artists)",
+    "Shapeshift (yōkai trait, reflavored: 3/long rest, assume the form of a Small or Medium humanoid or a mundane Small object for up to 1 hour; reverts if he takes damage)",
+    "Leaf-Coins (yōkai trait: transmute leaves into illusory coins for up to 1 hour; close inspection or a DC 11 Investigation reveals the truth)",
+    "Belly Drum (can drum his round stomach to produce eerie booming, a thunderclap, or festival rhythms)",
+    "Favor of Fortune (Charlatan flavor: once per day, treat a failed Deception or Persuasion check as a roll of 10 if it would be funnier)"
+  ],
+  "traits": [
+    "Shapeshift",
+    "Leaf-Coins",
+    "Belly Drum",
+    "Sneak Attack"
+  ],
+  "spells": {
+    "spellcastingAbility": "none",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I never met a stranger I couldn't charm or a free meal I couldn't talk my way into. I laugh too loud, drink too much sake, and tell stories that grow taller every time I tell them. When things get tense, I crack a joke and drum my belly.",
+    "ideals": "Joy. Life is a festival and the whole point is to celebrate it. Luck favors the merry, and a coin shared (even a fake one) is a coin well spent.",
+    "bonds": "These travelers laughed at my jokes when no one else would and didn't run when they learned what I am. I would shapeshift into a teakettle and let myself be sold to a stranger before I'd let one of them come to harm.",
+    "flaws": "I cannot resist a prank, a wager, or a cup of sake, even when all three together are clearly a terrible idea. My leaf-coins have gotten the party banned from at least three respectable establishments."
+  },
+  "appearance": "A plump, jolly raccoon-dog standing upright on two legs, about three and a half feet tall, with thick brown-and-cream fur, a masked face, a fluffy ringed tail, and an enormous round belly that he drums with evident pride. He wears a straw rain-hat tilted at a rakish angle and carries a clay sake bottle. His eyes are bright, mischievous, and a little glassy from drink. When he shapeshifts, the transformation shimmers like heat-haze, and there is always one tell he forgets to hide, a flash of tail, a tuft of fur, the smell of sake.",
+  "backstory": "Ponkichi is a bake-danuki, one of the shapeshifting raccoon-dog spirits whose clay statues stand outside every sake-shop and noodle-stall in the land, paw raised in welcome, belly round with good fortune. For decades he ran a 'most reputable' roadside teahouse where the tea was real, the smiles were real, and the change he handed back was, more often than not, a handful of autumn leaves that turned back to leaves by morning. The trick is old and the tanuki are famous for it, and Ponkichi worked it cheerfully until the day a hungry magistrate's enforcer came to collect taxes and Ponkichi, panicking, paid the year's levy entirely in maple leaves. The deception held just long enough for him to flee into the floating world with nothing but his gourd and his good humor. He fell in with the party during a festival, won them a rigged dice game, lost it all back out of guilt, and has been their loyal (if larcenous) companion ever since. Beneath the buffoonery is a creature who genuinely believes that a little luck, a little laughter, and a lot of sake can carry anyone through the darkest road.",
+  "dmNotes": {
+    "roleplaying": "Ponkichi is comic relief with a heart of gold, never a fool. Play him as warm, quick-witted, and irrepressibly cheerful, the friend who defuses tension with a joke and a belly-drum but who is secretly watching everyone's faces to make sure they're okay. He LOVES schemes: disguises, cons, festival games, and elaborate plans that go sideways in funny ways. Let his shapeshifting be a recurring gag and a real utility, he'll turn into a tea-kettle to eavesdrop, a beautiful courtesan to distract a guard, or a second copy of a party member to confuse enemies, but he always leaves one comical tell. When real danger threatens his friends, the laughter drops and he becomes startlingly brave, throwing himself between the party and the blade. Use him to lighten dark moments without undercutting their weight. ✅ Real folklore: tanuki belly-drumming (tanuki-bayashi), leaf-money, shapeshifting into objects and people, jolly luck statues outside shops, fondness for sake. 🐉 Invented: his specific name, history, and rogue class build.",
+    "voice": "Loud, jovial, and a little slurred from sake. He speaks in cheerful run-ons, peppers his sentences with 'pom-poko!' (the sound of his belly-drum), addresses friends as 'my dear' and 'old bean,' and narrates his own cons in real time as if they were already legendary. Sample: 'Pom-poko! Now THIS, my dear friends, is the part of the story where Ponkichi the Magnificent saves everyone's hides, watch the hat, watch the hat, don't watch the tail, watch the HAT.' When he turns serious, the patter stops cold and his voice drops to something quiet and surprisingly tender.",
+    "motivations": "Primary: keep the party laughing, fed, and alive, in roughly that order, because they are the first beings in a long time who saw what he is and stayed. Secondary: stay one hop ahead of the magistrate's enforcers who still want their taxes in real coin. Tertiary: prove, mostly to himself, that a trickster can also be a true friend, that luck and loyalty aren't opposites.",
+    "secrets": "The leaf-coins aren't entirely harmless: every time Ponkichi passes fake money, a tiny thread of the recipient's good fortune sticks to him, which is part of why he's so lucky and why bad luck seems to trail the people he cheats. He doesn't fully understand this and would be horrified to learn he's been quietly siphoning others' fortune for years. He also still carries the maple leaf he paid the magistrate with, dried and pressed, as a reminder of the day his tricks finally caught up with him.",
+    "attitude": "Instantly, almost aggressively friendly, the kind of friend who hugs you before he knows your name and means it. He's loyal to a fault, generous with everything (including things that aren't his), and physically incapable of letting a sad silence go unfilled. He's wary of magistrates, tax-collectors, and anyone wearing an official seal, and will quietly shapeshift into furniture if one appears. He adores children, dogs, and anyone who laughs at his jokes."
+  }
+}

@@ -14,7 +14,7 @@ const DEFAULT_SETTINGS = {
   maxBots: 2,
 };
 
-const DEFAULT_MAX_SESSIONS = 3;
+const DEFAULT_MAX_SESSIONS = 10;
 
 function getOwnerPlayer(session) {
   return (session.players || []).find(p => p.role === 'owner')

@@ -1,0 +1,138 @@
+{
+  "id": "336f7e50-dbcd-4cc3-97ab-79f9dd6d03e8",
+  "name": "Kasumi",
+  "status": "alive",
+  "race": "Kitsune",
+  "subrace": "Zenko (Celestial Fox of Inari, Three-Tailed)",
+  "class": "Sorcerer",
+  "level": 1,
+  "background": "Acolyte",
+  "alignment": "Lawful Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 7,
+    "current": 7
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Constitution",
+    "Charisma"
+  ],
+  "skills": [
+    "Arcana",
+    "Deception",
+    "Insight",
+    "Religion"
+  ],
+  "languages": [
+    "Common (Nihongo)",
+    "Yōkai-go (the tongue of spirits)",
+    "Celestial (the speech of Inari's court)"
+  ],
+  "equipment": [
+    "A lacquered fan painted with rice stalks and foxfire",
+    "A string of red prayer-beads blessed at an Inari shrine",
+    "A folded paper talisman (ofuda) bearing Inari's seal",
+    "A small bronze mirror (kagami) used for scrying and self-reflection",
+    "A pouch of consecrated rice grains",
+    "A silk purse containing 12 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Foxfire (Fire Bolt cantrip)",
+      "attackBonus": 5,
+      "damage": "1d10",
+      "damageType": "fire"
+    },
+    {
+      "name": "Ritual Dagger (tantō)",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shocking Grasp (cantrip)",
+      "attackBonus": 5,
+      "damage": "1d8 (no reaction on hit)",
+      "damageType": "lightning"
+    }
+  ],
+  "armor": {
+    "name": "Enchanted silk kimono (no armor; mage armor when cast)",
+    "type": "none"
+  },
+  "features": [
+    "Spellcasting (Charisma-based arcane sorcery, reflavored as innate fox-spirit magic)",
+    "Sorcerous Origin: Divine Soul (blessed by Inari; can swap a known spell for a cleric spell, reflavored as celestial fox-magic)",
+    "Shapeshift (yōkai trait, reflavored: 3/long rest, assume the form of a Medium humanoid for up to 8 hours; an Inari-blessed fox holds the shape even when she sleeps)",
+    "Foxfire (can conjure pale blue-white spirit flames that shed light but burn only what she wills)",
+    "Tails of Wisdom (she has three tails; legend holds she gains a fourth at her next great act of devotion or betrayal)",
+    "Inari's Messenger (Acolyte flavor: recognized as a sacred servant at any Inari shrine, granting sanctuary and aid)"
+  ],
+  "traits": [
+    "Shapeshift",
+    "Foxfire",
+    "Tails of Wisdom"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Fire Bolt",
+      "Shocking Grasp",
+      "Minor Illusion",
+      "Prestidigitation"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Charm Person",
+        "Cure Wounds"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak in riddles and half-truths even when the plain answer would do, because mystery is a kind of courtesy among my kind. I am unfailingly elegant, observant, and slow to reveal what I truly think. I watch more than I speak.",
+    "ideals": "Devotion. I serve Inari, lord of rice and foxes, and through that service I serve the harmony of all things. Faith is not blind, it is the discipline of trusting a wisdom larger than my own.",
+    "bonds": "I was sent to walk with these mortals, and somewhere along the road duty became affection. I do not yet know what I will do if my god's will and my heart's will diverge.",
+    "flaws": "My loyalties are divided, and I have never told the party so. I will keep a secret long past the point where honesty would serve them better, and call it discretion."
+  },
+  "appearance": "In her mortal seeming, Kasumi is a willowy young woman of unusual grace, with silver-white hair, amber eyes that catch the light like a candle-flame, and a faint dusting of russet markings along her cheekbones. She wears a flowing kimono of pale silk embroidered with rice stalks and stylized flames. Look closely and the illusion frays at the edges: the shadow she casts has three tails, her ears come to soft points beneath her hair, and pale foxfire drifts from her sleeves when she works magic. In her true form she is a graceful three-tailed fox with snow-white fur and eyes like banked embers.",
+  "backstory": "Kasumi is a zenko, a benevolent celestial fox in the service of Inari Ōkami, god of rice, prosperity, foxes, and the threshold between the seen and unseen worlds. She has lived long enough to grow three tails, each one a mark of accumulated wisdom, and legend among her kind holds that a fox may earn up to nine, becoming at last a kyūbi no kitsune of near-divine power. For most of her existence she served as a messenger between the shrines, carrying Inari's blessings to faithful villages and Inari's warnings to faithless lords. Then the rice began to fail across the floating world, the festivals fell silent, and something old and hungry stirred beneath the mountains. Inari dispatched Kasumi to walk among mortals, ostensibly as a guide and protector to the party whose path crosses the heart of the troubles, but her god gave her a second, sealed instruction that she has not opened and dares not disobey. So she walks beside them, elegant and ambiguous, a true friend and a sworn servant, hoping the day never comes when those two things cannot both be true.",
+  "dmNotes": {
+    "roleplaying": "Kasumi is the elegant, enigmatic guide, the party member who always seems to know more than she's saying, because she does. Play her with restraint and grace: she rarely raises her voice, prefers questions to statements, and lets silences stretch. She's genuinely warm beneath the formality and clearly cares for the party, but she's constitutionally incapable of full transparency, and the tension between her affection and her secret orders is her whole character. Use her to deliver lore, omens, and Inari's cryptic guidance, and to occasionally steer the party in directions whose true purpose she won't explain. Her shapeshifting and illusion magic make her a superb infiltrator and face. In combat she's a glass cannon, deadly foxfire from range, fragile up close, so she'll use Subtle and Distant Spell to strike from cover. ✅ Real folklore: kitsune gain tails with age and wisdom (up to nine), serve the rice-god Inari as messengers, shapeshift (often into beautiful women), conjure foxfire (kitsune-bi), and have a known weakness for being revealed by their shadow or reflection. 🐉 Invented: her name, her sealed second order, and her specific sorcerer build.",
+    "voice": "Measured, melodic, and faintly archaic, the cadence of someone who has spoken to gods. She favors metaphor drawn from rice, foxes, fire, and seasons: 'The rice does not ask the rain why it falls.' She addresses the party formally at first ('honored travelers') and only softens to names as trust grows. When she's hiding something, which is often, she answers a question with a question or a proverb. Her rare moments of plain, unguarded speech should land hard precisely because they're so rare.",
+    "motivations": "Primary: faithfully serve Inari, whose will she trusts even when she doesn't understand it. Secondary: protect and guide the party safely through the unfolding crisis, a duty that has quietly become a genuine bond. Tertiary: earn her fourth tail, not for power's sake, but because each tail is proof she has lived devotion rather than merely professed it. She is terrified of the day these motivations conflict.",
+    "secrets": "DIVIDED LOYALTY (the core of her character): Inari's sealed second instruction commands Kasumi to ensure a particular outcome at the journey's end, one that may require betraying or sacrificing a member of the party, or steering them toward Inari's hidden agenda rather than their own goals. She has not opened the seal and is afraid to, because she suspects what it says. She has grown to love these mortals and does not know whether her god's wisdom or her own heart should win when the moment comes. Foreshadow this slowly: a hesitation before answering certain questions, a sorrow she won't explain, a moment where she could tell the truth and chooses silence. The reveal should be a genuine crisis of loyalty, not a villain unmasking, she is good, and that is what makes it painful.",
+    "attitude": "Courteous, watchful, and warm beneath a veil of formality. She is unfailingly polite even to enemies and treats the party with growing, carefully-managed affection. She trusts Inari absolutely and mortals provisionally. She is wary of being seen too clearly, she dislikes mirrors and bright light that might reveal her tails or her shadow, and grows guarded whenever someone seems to look at her too closely. With those who earn her trust she becomes quietly, fiercely protective."
+  }
+}

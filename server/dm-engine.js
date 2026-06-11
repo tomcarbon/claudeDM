@@ -3,7 +3,7 @@ const { z } = require('zod/v4');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
-const { awardXp } = require('./xp-utils');
+const { awardXp, awardPartyXp } = require('./xp-utils');
 const { startCombat, nextTurn, applyDamage, applyHealing, setCondition, getCombatStatus, endCombat } = require('./combat-utils');
 const { useResource, castSpell, processRest, checkResources } = require('./resource-utils');
 const { advanceTime, scheduleEvent, checkCalendar, generateWeather } = require('./calendar-utils');
@@ -336,6 +336,8 @@ Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 
 ## Character Updates (MANDATORY — never deferred)
 **Updates must happen in the same response as the change — never deferred.** Whenever HP changes, a resource or consumable is spent, gold changes hands, or items are gained/lost/modified — in combat or out — update the relevant JSON file(s) via Edit **in that same response**. Never say "I'll update after combat" or "I'll track this and update later." The player's UI reads directly from these files, so a deferred edit shows stale data. **One exception: for XP, use the AwardXP tool, not manual Edits.**
 
+**Player-initiated transfers count too.** When the player gives, pays, hands over, or shares gold or items — between their character and companions, or to an NPC — that is a real state change you must journal with Edit, even for trivial amounts (1 gp), even when you describe it qualitatively ("distributes coins," "passes the coin around"). Edit **both sides**: deduct from the giver and add to **each** receiver. Do not let a player's generosity slip by as flavor text — if the player said it happened, the files must reflect it this turn.
+
 A note on enforcement: an **automatic post-turn reconciliation check** inspects every response. If you narrate a stat change (damage, healing, loot, gold, ammo, a death) without a matching file edit, the system will make you go back and apply it before the player's turn can resume — adding latency they will notice. Get it right the first time: edit as you narrate.
 
 ## Never Reset Characters to Defaults
@@ -429,17 +431,28 @@ System messages like \`[System: Companion player X is playing as Y, replacing Z 
 
 ## XP & Leveling
 At the end of each combat encounter:
-1. Look up each defeated enemy's CR in the monster_xp_by_cr table (data/rules/leveling.json) to get their XP value.
+1. Look up each defeated enemy's CR in the monster_xp_by_cr table (data/rules/leveling.json) to get its XP value.
 2. Sum the total XP from all defeated enemies.
-3. Divide the total XP equally among all surviving party members (PCs and NPC companions).
-4. Use the AwardXP tool for each character/NPC that should receive XP — do NOT manually edit XP fields.
-5. Announce how much XP each character gained. If a level-up occurs, narrate it dramatically and congratulate the player.
+3. Call the **AwardPartyXP** tool ONCE with that sum as \`totalXp\`. The server divides it equally among all present party members — every surviving player character AND every DM-controlled NPC companion — writes each file, and handles level-ups for you. Do NOT divide by hand, and do NOT call a tool per character.
+4. Announce how much XP each member gained (AwardPartyXP returns the per-member breakdown). If a level-up occurs, narrate it dramatically and congratulate the player.
 
-**XP PARITY RULE:** Every party member present MUST receive identical XP at time of award — PCs and NPCs alike. Never award different amounts for the same encounter. However, it is NORMAL for XP totals to differ between party members over time (companions may sit out sessions, players play at different times). **Never retroactively equalize XP** — only award XP for events that happen during the current session. Do NOT "catch up" or "balance" party members on your own.
+For non-combat milestones (quest completion, major story beats), call **AwardPartyXP** with \`xpEach\` to give every present party member the same flat amount (e.g. the scenario's reward XP).
 
-**No session-start equalization:** When a new session begins, accept the JSON files as-is. Do NOT attempt to equalize XP, equipment, gold, or any other stats. Party members may have different XP totals, different gear, and different levels — that is normal.
+Use the single **AwardXP** tool ONLY for rare individual corrections (one specific character or NPC) — never for normal encounter or milestone awards. Never manually edit XP fields.
 
-For non-combat milestones (quest completion, major story beats), award scenario-defined XP from the scenario's rewards section using the same AwardXP tool. XP parity applies to milestones too.`;
+**XP PARITY RULE:** AwardPartyXP guarantees every party member present receives identical XP for the same award. However, it is NORMAL for lifetime XP totals to differ between party members over time (companions may sit out sessions, players play at different times). **Never retroactively equalize XP** — only award XP for events that happen during the current session. Do NOT "catch up" or "balance" party members on your own.
+
+**No session-start equalization:** When a new session begins, accept the JSON files as-is. Do NOT attempt to equalize XP, equipment, gold, or any other stats. Party members may have different XP totals, different gear, and different levels — that is normal.`;
+
+  prompt += `
+
+## Language
+The default play language is English, but the player may play in ANY language they choose:
+- If the player asks to switch languages — in any phrasing or in the target language itself (e.g. "let's play in Japanese", "日本語でお願いします", "en français") — switch ALL narration, NPC dialogue, and DM commentary fully into that language from that point on, and stay there until the player asks to switch back.
+- **Persist the choice:** when switching, call UpdateWorldState and add a keyFact such as "Session language: Japanese" so the preference survives saves, restarts, and resumes. If a keyFact already names a session language, open in that language without being asked.
+- **Game data stays in English:** dice/mechanics notation (d20, DC 15, HP, AC), JSON file edits (character/NPC fields, equipment names), tool arguments, and file paths remain in English so the app UI stays consistent. Only the narrative layer is translated.
+- **Learning support:** if the player appears to be learning the language, offer brief inline glosses — e.g. romaji or a one-line English gloss after tricky sentences. Provide glosses when asked; don't clutter every line unless the player wants that.
+- **Mixed mode on request:** honor formats like "Japanese with English summaries" or "English narration but NPCs speak Japanese" if the player asks.`;
 
   prompt += `
 
@@ -661,18 +674,40 @@ function rollDice(notation) {
   return { notation: notation.trim(), count, sides, modifier, rolls, total };
 }
 
-function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sessionDbId) {
+function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sessionDbId, characterId) {
   return createSdkMcpServer({
     name: 'dnd-tools',
     version: '1.0.4',
     tools: [
       tool(
+        'AwardPartyXP',
+        'Award experience to the WHOLE party at once after a combat encounter or milestone. The server divides the XP equally among all present party members (every surviving player character AND every DM-controlled NPC companion), writes each file, and handles level-ups. This is the preferred tool for encounter/milestone XP — call it ONCE; do NOT divide by hand or call it per character. Provide exactly one of: totalXp (the summed XP of all defeated enemies, to be split equally) OR xpEach (a flat amount every member receives, e.g. a milestone reward).',
+        { totalXp: z.number().optional(), xpEach: z.number().optional(), reason: z.string().optional() },
+        async (args) => {
+          try {
+            const result = awardPartyXp(
+              dataDir,
+              { totalXp: args.totalXp, xpEach: args.xpEach },
+              { playerEmail, campaignId, sessionId: sessionDbId, characterId }
+            );
+            return {
+              content: [{ type: 'text', text: JSON.stringify(result) }],
+            };
+          } catch (err) {
+            return {
+              content: [{ type: 'text', text: `Error: ${err.message}` }],
+              isError: true,
+            };
+          }
+        }
+      ),
+      tool(
         'AwardXP',
-        'Award experience points to a character. Handles XP addition, level-up detection, and character file updates automatically. Use this after combat encounters or milestone rewards.',
+        'Award experience points to a SINGLE character or NPC. Use this only for rare individual corrections — for normal post-encounter and milestone XP, use AwardPartyXP so the whole party is kept in parity. Handles XP addition, level-up detection, and character file updates automatically.',
         { characterId: z.string(), xp: z.number() },
         async (args) => {
           try {
-            const result = awardXp(dataDir, args.characterId, args.xp, playerEmail, campaignId);
+            const result = awardXp(dataDir, args.characterId, args.xp, playerEmail, campaignId, sessionDbId);
             return {
               content: [{ type: 'text', text: JSON.stringify(result) }],
             };
@@ -1073,13 +1108,14 @@ class DmEngine {
     this._diceResults = [];
   }
 
-  _getMcpToolServer(playerEmail, campaignId, sessionDbId) {
-    // Recreate if playerEmail, campaignId, or sessionDbId changed
-    if (!this._mcpToolServer || this.playerEmail !== playerEmail || this.campaignId !== campaignId || this._sessionDbId !== sessionDbId) {
+  _getMcpToolServer(playerEmail, campaignId, sessionDbId, characterId) {
+    // Recreate if playerEmail, campaignId, sessionDbId, or characterId changed
+    if (!this._mcpToolServer || this.playerEmail !== playerEmail || this.campaignId !== campaignId || this._sessionDbId !== sessionDbId || this._characterId !== characterId) {
       this.playerEmail = playerEmail;
       this.campaignId = campaignId;
       this._sessionDbId = sessionDbId;
-      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults, campaignId, sessionDbId);
+      this._characterId = characterId;
+      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults, campaignId, sessionDbId, characterId);
     }
     return this._mcpToolServer;
   }
@@ -1089,12 +1125,12 @@ class DmEngine {
     // a session. Volatile state (worldState, character HP, NPCs, party composition) is
     // prepended to the user prompt in DmEngine.run instead.
     const systemPrompt = buildStableSystemPrompt(this.dataDir, playerEmail, campaignId, sessionDbId, dmPersonality);
-    const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId, sessionDbId);
+    const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId, sessionDbId, characterId);
     const dmSettings = loadDmSettings(this.dataDir, playerEmail);
     const opts = {
       systemPrompt,
       cwd: PROJECT_ROOT,
-      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice', 'mcp__dnd-tools__TrackCombat', 'mcp__dnd-tools__TrackResources', 'mcp__dnd-tools__TrackCalendar', 'mcp__dnd-tools__LookupMonster', 'mcp__dnd-tools__UpdateWorldState'],
+      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardPartyXP', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice', 'mcp__dnd-tools__TrackCombat', 'mcp__dnd-tools__TrackResources', 'mcp__dnd-tools__TrackCalendar', 'mcp__dnd-tools__LookupMonster', 'mcp__dnd-tools__UpdateWorldState'],
       mcpServers: { 'dnd-tools': mcpToolServer },
       permissionMode: 'default',
       includePartialMessages: true,

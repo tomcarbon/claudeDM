@@ -108,6 +108,16 @@ function Home() {
         </div>
         <CampaignCards campaignId="campaign4" locked={false} />
       </div>
+
+      {/* ── The Floating World (Mythic Feudal Japan) ── */}
+      <div className="tier-box tier-premium">
+        <div className="tier-header">
+          <span className="tier-badge tier-badge-premium">Premium</span>
+          <h3 className="tier-title">The Floating World ⛩️</h3>
+          <p className="tier-subtitle">Samurai, shinobi, and the eight million gods of mythic Hinomoto — woven with real Japanese culture, language, and geography as genuine prep for a journey to Japan. Levels 1–10.</p>
+        </div>
+        <CampaignCards campaignId="nihon" locked={false} />
+      </div>
     </div>
   );
 }

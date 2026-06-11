@@ -1,10 +1,26 @@
-export const CURRENT_VERSION = '1.0.19';
+export const CURRENT_VERSION = '1.0.20';
 
 export const CHANGELOG = [
   {
+    version: '1.0.20',
+    date: '2026-06-10',
+    title: 'Current Release',
+    compareFrom: '1.0.19',
+    compareRef: '22e96e4 ("v1.0.19 — fix DM long-campaign memory: UpdateWorldState path bug, keyFacts canon lore, claudeSessionId wipe guard")',
+    highlights: [
+      'New campaign: "The Floating World" (nihon) — a premium mythic-feudal-Japan adventure for levels 1–10, set in Hinomoto, the Land of the Rising Sun. Walk the vermilion torii roads past the sacred deer of Kasuga, climb to the shrine that floats on the tide at Itsukushima, and ascend snow-crowned Fuji-no-yama to face an Oni-King across 4 linked scenarios (The Thousand Torii, The Deer of Kasuga, The Shōgun\'s Edo, and The Floating Torii and the Mountain of Fire), with 6 playable characters and 5 NPC companions. Its distinguishing feature: every shrine, dish, and custom is drawn from the real Japan and flagged in the scenario text as ✅ Real (true today, useful on an actual trip) or 🐉 Fantasy (invented for the tale), so the campaign doubles as genuine prep for a journey to Japan. Its five regions are mythic analogs of real places — Heian-kyō (Kyoto), Kasuga\'s deer park (Nara), Edo (Tokyo), the hot-spring vale of Hakone, and Itsukushima/Fuji (Miyajima and Mt. Fuji). Unlocked on the Home page as a Premium tier.',
+      'Play in any language: the DM now follows the player into whatever language they want to play in. Ask in any phrasing — "let\'s play in Japanese," "日本語でお願いします," "en français" — and all narration, NPC dialogue, and DM commentary switch fully into that language and stay there until you switch back. The choice is durable: the DM records it as a world-state keyFact ("Session language: Japanese") so it survives saves, server restarts, and resumes, and re-opens the session in that language without being asked again. Game data stays in English under the hood — dice/mechanics notation (d20, DC 15, HP, AC), JSON file edits, tool arguments, and file paths — so only the narrative layer is translated and the app UI stays consistent. For language learners, the DM offers brief inline glosses (romaji or a one-line English gloss) on request, and honors mixed modes like "Japanese narration with English summaries." Pairs naturally with the Nihon campaign as a low-stakes way to practice before a trip.',
+      'New AwardPartyXP tool for one-call party XP: after an encounter the DM now calls AwardPartyXP once with the summed enemy XP (or a flat milestone amount), and the server resolves the live party roster, splits the XP equally, writes every file, and handles per-member level-ups — instead of the DM dividing by hand and calling a per-character tool repeatedly. The roster logic is the careful part: it includes all present player characters plus DM-controlled NPC companions, and deliberately excludes the dead, NPC slots the host marked "removed," and NPCs currently puppeted by a human companion player (their XP is that player\'s to award). This makes XP parity structural rather than a rule the model has to remember each time. The single-character AwardXP tool remains for rare individual corrections only.',
+      'Player-declared transfers no longer slip through as flavor text: the post-turn reconciliation audit now also scans the player\'s own turn text, not just the DM\'s narration. When a player says "I give everyone 1 gp" or "I hand Pip the amulet," the DM often paraphrases it qualitatively ("Bramble passes the coins around") and never restates a number — so the narration-only scan missed it and the files drifted. A new player-intent scan catches first-person gold/item transfers (and only those — player-declared damage, spell slots, death, ammo, and XP are deliberately excluded, since merely saying "I deal 8 damage" must not force a file edit), and the reconcile prompt now explicitly applies both sides of a transfer: deduct from the giver, add to each receiver. Warnings from the two scans are de-duplicated by category so a transfer flagged by both doesn\'t double-report. The DM system prompt also gains a matching "player-initiated transfers count too" directive, even for trivial amounts.',
+      'World maps wired up for three more campaigns: the World Map page now renders dedicated illustrated maps for The Crimson Throne (the imperial capital Vermeil, districts clickable into scenarios), The Astral Convergence (the Astral Sea), and The Floating World (Hinomoto, drawn true to the real geography of Japan from Itsukushima to Edo) — previously these campaigns fell through to the default Shattered Coast map. New map art and components ship for each.',
+      'Session cap raised from 3 to 10 concurrent sessions per player (the per-player custom override still applies on top), so you can keep more campaigns in flight at once.',
+      'Test coverage for all of the above: new suites for AwardPartyXP roster resolution and equal-split math, and for the player-turn transfer audit; the session-limit tests were updated for the new default cap. Full suite: 120/120 green.',
+    ],
+  },
+  {
     version: '1.0.19',
     date: '2026-06-07',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.18',
     compareRef: '6a80b2c ("v1.0.18")',
     highlights: [

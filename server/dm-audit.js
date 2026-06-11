@@ -70,6 +70,41 @@ const ROLL_PATTERNS = [
   },
 ];
 
+// Player-initiated transaction patterns. The post-turn audit scans the DM's narration, but a
+// transfer the player declares ("I give everyone 1 gp") is often paraphrased qualitatively by the
+// DM ("Bramble distributes coins") and never restated as a number — so the DM-text scan misses it.
+// We therefore also scan the player's own turn text. Only categories a PLAYER can initiate as a
+// concrete state change are included; DM-adjudicated outcomes (damage, spell slots, death, XP,
+// ammo, dice rolls) are deliberately excluded — a player merely *saying* "I deal 8 damage" must
+// not force a file edit. Patterns use first-person phrasing the DM-narration patterns don't cover.
+const PLAYER_INTENT_PATTERNS = [
+  {
+    category: 'currency',
+    re: /\b\d+\s*(?:gp|sp|cp|pp|ep|gold pieces?|silver pieces?|copper pieces?|platinum pieces?)\b|\bpays?\s+\d+\b|\bslides?\s+\d+\s+(?:gold|silver|copper)\b/i,
+  },
+  {
+    category: 'item_lost_or_consumed',
+    re: /\b(?:I|we)\s+(?:give|gives|hand|hand over|drop|drops|pay|pays|spend|spends|use|uses|eat|eats|drink|drinks)\b|\bgive\s+(?:everyone|each|them|him|her|it|us|the\s+\w+)\b/i,
+  },
+  {
+    category: 'item_gained',
+    re: /\b(?:I|we)\s+(?:take|takes|grab|grabs|pick up|picks up|pocket|pockets|keep|keeps|loot|loots)\b/i,
+  },
+];
+
+// Build a warning object with a trimmed excerpt of the surrounding text. Shared by the DM-narration
+// and player-intent scans. `source` (optional) records which side of the table the signal came from.
+function buildWarning(category, match, text, source) {
+  const idx = match.index || 0;
+  const excerpt = text
+    .slice(Math.max(0, idx - 30), idx + 80)
+    .replace(/\s+/g, ' ')
+    .trim();
+  const w = { category, trigger: match[0], excerpt };
+  if (source) w.source = source;
+  return w;
+}
+
 function auditDmTurn(responseText, toolCalls) {
   if (!responseText || typeof responseText !== 'string') return [];
   const calls = Array.isArray(toolCalls) ? toolCalls : [];
@@ -122,6 +157,27 @@ function auditDmTurn(responseText, toolCalls) {
   return warnings;
 }
 
+// Scan the PLAYER's turn text for declared transactions (gold / item transfers) that require a
+// backing file edit. Mirrors auditDmTurn's satisfied-by-Edit logic but only for player-initiable
+// categories, and only when no backing Edit/TrackResources call happened this turn. Warnings are
+// tagged source:'player' so logs/telemetry can tell them apart from narration-derived warnings.
+function auditPlayerTurn(playerText, toolCalls) {
+  if (!playerText || typeof playerText !== 'string') return [];
+  const calls = Array.isArray(toolCalls) ? toolCalls : [];
+  const editCount = calls.filter(t => t.name === 'Edit').length;
+  const trackResourcesCount = calls.filter(t => /TrackResources/.test(t.name || '')).length;
+  // A file edit (or resource track) happened this turn — assume the declared transfer was applied.
+  if (editCount > 0 || trackResourcesCount > 0) return [];
+
+  const warnings = [];
+  for (const { category, re } of PLAYER_INTENT_PATTERNS) {
+    const m = playerText.match(re);
+    if (!m) continue;
+    warnings.push(buildWarning(category, m, playerText, 'player'));
+  }
+  return warnings;
+}
+
 // Categories that represent a persisted-state change and can therefore be fixed by a file edit
 // after the fact. Phantom-roll categories are deliberately excluded — a missed dice roll cannot
 // be reconciled by editing a file, and re-rolling after narration would violate dice integrity.
@@ -153,11 +209,11 @@ function buildReconcilePrompt(warnings, charPathPrefix, npcPathPrefix) {
     .map(w => `- [${w.category}] "${w.trigger}" — ...${w.excerpt}...`)
     .join('\n');
   return `[Internal reconciliation check — do NOT narrate this to the player, do NOT advance the story.]
-Your previous response described the following game-state changes, but no matching file edit or tool call was detected:
+Your previous turn involved the following game-state changes (narrated by you or requested by the player), but no matching file edit or tool call was detected:
 
 ${items}
 
-For each one, Read the affected character/NPC file under \`${charPathPrefix}\` (NPCs under \`${npcPathPrefix}\`) and apply the change now via Edit — for XP use the AwardXP tool. If a file already reflects the change (i.e. this was a false alarm), leave it untouched. Do not invent new changes beyond what you already narrated. Reply with a single line summarizing what you edited (or "already correct") — produce no story narrative.`;
+For each one, Read the affected character/NPC file under \`${charPathPrefix}\` (NPCs under \`${npcPathPrefix}\`) and apply the change now via Edit — for XP use the AwardXP tool. Apply both sides of any transfer (deduct from the giver, add to each receiver). If a file already reflects the change (i.e. this was a false alarm), leave it untouched. Do not invent new changes beyond what was already described. Reply with a single line summarizing what you edited (or "already correct") — produce no story narrative.`;
 }
 
 function formatWarnings(warnings, sessionDbId) {
@@ -180,4 +236,4 @@ function logAuditTrace(sessionDbId, responseText, toolCalls, warnings) {
   console.log(`[DM:AUDIT] session=${sessionDbId || 'unknown'} text=${textLen}c tools=${calls.length} (${summary}) warnings=${(warnings || []).length}`);
 }
 
-module.exports = { auditDmTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt, RECONCILABLE_CATEGORIES };
+module.exports = { auditDmTurn, auditPlayerTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt, RECONCILABLE_CATEGORIES };

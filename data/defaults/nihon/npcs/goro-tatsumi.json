@@ -1,0 +1,127 @@
+{
+  "id": "15b4f81c-99b7-468b-a114-2b0d75019c06",
+  "name": "Gorō Tatsumi",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Fighter",
+  "level": 1,
+  "background": "Soldier",
+  "alignment": "Lawful Neutral",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 12,
+    "current": 12
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "History"
+  ],
+  "languages": [
+    "Common (Nihongo)"
+  ],
+  "equipment": [
+    "A weathered traveling cloak bearing the faded mon (crest) of a fallen house",
+    "His late lord's broken jade hair-ornament, kept wrapped in silk",
+    "A whetstone and oiled cloth for blade maintenance",
+    "A bundle of incense for offerings to the dead",
+    "A worn copy of his clan's code of bushidō",
+    "A coin purse holding 9 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Katana (longsword)",
+      "attackBonus": 5,
+      "damage": "1d8+3 (1d10+3 two-handed)",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Wakizashi (shortsword)",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Yumi (longbow)",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Dō-maru (lamellar half-armor) with shield",
+    "type": "medium"
+  },
+  "features": [
+    "Fighting Style: Dueling (+2 to damage when wielding a single one-handed weapon and no other weapon)",
+    "Second Wind (bonus action, regain 1d10 + fighter level HP, once per short/long rest)",
+    "Two-Sword Stance (Niten Ichi-ryū, flavor: when wielding katana and wakizashi together he fights with practiced ambidexterity)",
+    "Iaijutsu Draw (flavor: when he wins initiative in the first round, his first katana strike is delivered with frightening speed and precision)",
+    "Military Rank (Soldier flavor: former retainer of a samurai house; commoners and old soldiers still defer to his bearing)"
+  ],
+  "traits": [
+    "Fighting Style: Dueling",
+    "Second Wind",
+    "Iaijutsu Draw"
+  ],
+  "spells": {
+    "spellcastingAbility": "none",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I speak rarely and act decisively. I keep my blade and my word equally sharp. I rise before dawn to train and tend my weapons before I tend myself.",
+    "ideals": "Honor (Gi). A warrior without honor is a sword without an edge, dangerous to no one but himself. I will do what is right even when it costs me everything, because everything is exactly what it has already cost me.",
+    "bonds": "I failed my lord and he died for it. I cannot undo that, but I can spend the rest of my life ensuring no one else under my protection falls. These travelers are that protection now.",
+    "flaws": "My shame runs so deep I sometimes seek death in battle to pay for my failure, taking reckless risks that endanger the very people I swore to guard. I struggle to forgive myself, and so I struggle to forgive others."
+  },
+  "appearance": "A broad-shouldered man in his early forties, weathered and grey at the temples, with a face like cracked leather and eyes that have seen too much. He wears travel-stained lamellar armor over a dark kimono, the crest of his fallen house scraped half away in shame. Two swords ride at his left hip in the manner of a true samurai: the long katana and the shorter wakizashi, both immaculately maintained though their lacquered sheaths are chipped and scarred. He moves with the economical stillness of a man who never wastes a motion, and he rarely smiles.",
+  "backstory": "Gorō Tatsumi was once a respected retainer of House Aoki, sworn sword to a daimyō he loved like a father. When a rival lord moved against the house with poison and treachery rather than open war, Gorō, who had trained all his life to meet steel with steel, never saw the dagger in the dark. His lord died in his arms in a burning manor, and Gorō, bound by bushidō, should have followed him in death by his own hand. He raised the blade to do it and could not, not from cowardice, but from a sudden, shameful conviction that throwing his life away would honor no one and undo nothing. So he became rōnin, a masterless wave-man drifting across the floating world, carrying his lord's broken hair-ornament and his own unbearable failure. He sells his sword to those who need protecting, never for gold but as penance, and he has resolved that if he cannot die with honor, he will at least die in the act of saving someone who could not save themselves. He fell in with the party guarding them through a mountain pass and simply never left, because for the first time since the fire, the silence in his chest grew a little quieter when they laughed.",
+  "dmNotes": {
+    "roleplaying": "Gorō is the gruff mentor seeking redemption, the steady, dangerous, deeply wounded heart of the party. Play him as a man of few words and absolute principle: he doesn't lecture, he demonstrates. He's hard on the younger or rasher party members not out of cruelty but because he's terrified of failing to protect them as he failed his lord. Let his bushidō, honor, duty, courage, compassion, sincerity, be something he genuinely lives, not just talks about; have him stop to offer incense for slain enemies, refuse to strike a yielding foe, keep his word even when it's costly. His arc is forgiveness: learning that survival is not betrayal, that he is allowed to live. Push gently on his death-seeking flaw, in a desperate fight he may try something suicidally heroic, and a party that talks him down (or calls him on it) is doing real character work. ✅ Real history/folklore: rōnin (masterless samurai), bushidō virtues, the paired katana-and-wakizashi (daishō), the cultural weight of a retainer's duty to his lord. 🐉 Invented: House Aoki, his name, and the specifics of his fall.",
+    "voice": "Low, clipped, and formal. He uses few words and means all of them, favoring short declaratives: 'No. We hold here.' 'A blade is honest. Men are not.' He addresses the party with rough courtesy that warms over time, 'boy,' 'girl,' or a curt nod becoming, eventually, their actual names, which from him is a gift. When he speaks of his lord or his failure his voice goes very quiet and very flat, the tone of a man holding something heavy very still. He does not joke, but a dry, weary humor surfaces rarely, and it's worth more for being rare.",
+    "motivations": "Primary: protect those under his guard absolutely, so that no one else dies the way his lord did, on his watch, for his failure. Secondary: find a way to honor his dead lord that doesn't require his own death, a redemption he doesn't yet believe he's allowed. Tertiary: pass on what he knows, the blade, the code, the bitter lessons, so that his life of training amounts to something more than one terrible night.",
+    "secrets": "Gorō still carries the wakizashi he raised to perform seppuku the night his lord died, and the deepest shame of his life is not that he failed to stop the assassination, but that when honor demanded he follow his lord in death, he chose to live. He has told no one. He believes this makes him a coward and a betrayer of everything he stands for, and the protective recklessness he shows in battle is his attempt to settle that debt by dying in a way that finally means something. The truth, that choosing to live and protect others was the more courageous and honorable path, is the lesson he most needs and least believes.",
+    "attitude": "Reserved, watchful, and slow to trust, but bedrock-loyal once committed. He treats strangers with wary formality, enemies with grim professionalism, and the helpless with unexpected gentleness, he'll carry an exhausted child or share his last rice without a word. With the party he is gruff and demanding at first, softening into a fierce, paternal devotion he would never name aloud. He despises treachery, poison, and those who prey on the weak, and reserves a cold, controlled fury for them."
+  }
+}

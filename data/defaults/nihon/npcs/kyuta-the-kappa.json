@@ -1,0 +1,142 @@
+{
+  "id": "6d377b47-6481-46ba-a126-dd914cd9d2f8",
+  "name": "Kyūta",
+  "status": "alive",
+  "race": "Kappa",
+  "subrace": "River-Dwelling Suiko (Water Spirit)",
+  "class": "Cleric",
+  "level": 1,
+  "background": "Hermit",
+  "alignment": "Neutral Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 10,
+    "current": 10
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Medicine",
+    "Nature",
+    "Religion",
+    "Insight"
+  ],
+  "languages": [
+    "Common (Nihongo)",
+    "Yōkai-go (the tongue of spirits)",
+    "Aquan (the speech of rivers and rain)"
+  ],
+  "equipment": [
+    "A holy symbol of the river-kami (a smooth blue river-stone bored through the center)",
+    "A satchel of fresh cucumbers (kappa's favorite food and offering) — Cucumbers (6)",
+    "A set of healer's tools, herbs, and clean bandages",
+    "A bamboo flask of pure river water (for refilling his head-dish in emergencies)",
+    "A woven reed mat for resting near water",
+    "A small purse holding 5 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Bō (quarterstaff)",
+      "attackBonus": 3,
+      "damage": "1d6+1 (1d8+1 two-handed)",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Sacred Flame (cantrip)",
+      "attackBonus": 0,
+      "damage": "1d8 (DEX save DC 13)",
+      "damageType": "radiant"
+    },
+    {
+      "name": "Grappling Pull (kappa trait, in or near water)",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Natural shell (turtle carapace) and tunic",
+    "type": "natural"
+  },
+  "features": [
+    "Spellcasting (Wisdom-based divine magic of the river-kami; prepare WIS mod + cleric level spells)",
+    "Divine Domain: Life (Disciple of Life: healing spells restore additional 2 + spell level HP)",
+    "Amphibious (kappa trait: can breathe air and water equally)",
+    "Swim Speed (30 ft. swim speed; moves and fights with grace underwater)",
+    "Head-Dish (sara) (kappa trait: a water-filled dish atop his head grants his power; if it empties or dries, he is weakened — disadvantage on attacks and ability checks — until refilled)",
+    "Compelled Courtesy (kappa trait: kappa are bound by deep politeness; if he bows, he must return any bow, even spilling his head-dish to do so)",
+    "Discovery (Hermit feature: in his river solitude he learned the secret rhythms of water that heal flesh and quiet pain)"
+  ],
+  "traits": [
+    "Amphibious",
+    "Head-Dish (sara)",
+    "Compelled Courtesy",
+    "Swim Speed"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": [
+      "Sacred Flame",
+      "Spare the Dying",
+      "Guidance"
+    ],
+    "level1": {
+      "slots": 2,
+      "known": [
+        "Cure Wounds",
+        "Bless (Life Domain, always prepared)",
+        "Healing Word",
+        "Create or Destroy Water",
+        "Sanctuary"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I am gentle, painstakingly polite, and a little shy on land. I bow to everyone, apologize for everything, and fuss over the smallest scrape as though it were a mortal wound. I am happiest knee-deep in a clear river with a cucumber in hand.",
+    "ideals": "Mercy. All life is precious and all suffering is worth easing, friend or foe, beast or spirit. To heal is the holiest act, and I would empty my own head-dish before I let a creature die in front of me.",
+    "bonds": "My home river was poisoned and the kami fell silent. These travelers are my new river now, and I will keep them whole and breathing whatever it costs my own strength.",
+    "flaws": "My binding courtesy can be turned against me, anyone who bows to me forces me to bow back, even into danger, even spilling the water that keeps me strong. And I freeze with fear far from water, where I feel weak and exposed."
+  },
+  "appearance": "A child-sized, amphibious yōkai about four feet tall, with smooth greenish skin, webbed hands and feet, and a hard turtle-like shell across his back. His face is gentle and a little froglike, with large dark kind eyes and a small beaked mouth. Atop his head is a shallow dish-like depression, the sara, brimming with clear water that he guards with constant, anxious care, tilting his head carefully and never moving too fast for fear of spilling it. He wears a simple reed tunic and a satchel of cucumbers, and smells faintly of cool river-water and water-weed. On land he moves with a shy, careful shuffle; in water he becomes suddenly graceful and confident.",
+  "backstory": "Kyūta is a kappa, one of the gentle river-spirits who dwell in the clear streams and ponds of the floating world, and like all his kind he is bound by two great truths: the water-filled dish atop his head is the seat of his power, and he is constrained by an almost helpless, ritual politeness. For generations Kyūta tended a sacred river, keeping its waters pure, guiding lost travelers across its fords, healing injured beasts on its banks, and serving as a humble priest to the river-kami whose voice he could hear in the current. Then upstream something foul took root, mines, or sorcery, or the same spreading darkness troubling the whole land, and his river ran first murky, then poisonous, then silent. The kami's voice faded to nothing, the fish died, and Kyūta, heartbroken and weakening as his beloved waters fouled, finally left the only home he had ever known to seek the source of the sickness and, if he could, a way to heal it. He met the party at a river-crossing, bowed to them (and so was honor-bound to help them when they bowed back), patched their wounds, shyly shared his cucumbers, and discovered that for the first time since his river fell silent, he was needed. He has been the party's devoted healer ever since.",
+  "dmNotes": {
+    "roleplaying": "Kyūta is the gentle, water-dwelling healer, the soft and beating heart of the party, and his folklore-bound quirks are central to playing him. He's painfully polite, easily flustered on land, and fusses lovingly over every injury, but in or near water he transforms into a confident, even formidable presence, fast, graceful, and surprisingly strong (kappa in legend can drag horses into rivers). Make his HEAD-DISH a live mechanic and a recurring tension: he tilts his head with constant care, panics if it threatens to spill, and is visibly weakened (disadvantage) if it empties or dries out in sun or far from water, a clever enemy or environment can exploit this, and a thoughtful party will protect it. Lean into his COMPELLED COURTESY for both comedy and danger: the classic kappa trick is that if you bow to a kappa, it MUST bow back, spilling its dish, so an enemy who bows could disable him, and Kyūta cannot stop himself from returning the courtesy. In combat he prefers to heal, protect, and pacify rather than kill, and is genuinely distressed by bloodshed, though he'll defend his friends fiercely, especially near water. ✅ Real folklore: the water-filled head-dish (sara) as the source of a kappa's power that must stay full; their compulsive politeness and the bow-back trick; love of cucumbers (hence cucumber sushi, 'kappa-maki'); river-dwelling, amphibious, and strong swimmers who grapple prey in water. 🐉 Invented: his name, his poisoned home-river, and his cleric build.",
+    "voice": "Soft, earnest, and apologetic, with a slight watery burble to it. He over-bows and over-apologizes ('Oh! Forgive me, forgive me, allow me to, oh, please hold still, this will only sting a moment...'), refers to himself humbly, and lights up with shy delight at small kindnesses or a fresh cucumber. He addresses the party with gentle honorifics and calls them 'friend' the moment they show him courtesy. When he speaks of his dead river his voice goes quiet and grief-stricken. In water, or when a friend is dying under his hands, his voice steadies into something calm, focused, and quietly commanding, the priest beneath the shy spirit.",
+    "motivations": "Primary: keep every member of the party alive and whole, healing is his faith, his joy, and his reason for being, and he experiences a companion's death as a profound spiritual failure. Secondary: find and cleanse the source of the corruption that poisoned his home river and silenced its kami, in hope of restoring the waters and hearing the kami's voice again. Tertiary: simply belong somewhere again, to have a 'river' to tend, which the party has unexpectedly become.",
+    "secrets": "Kyūta's connection to his dying river runs deeper than he admits: as the waters were poisoned, a sliver of the corruption seeped into his own head-dish, and on rare bad nights the water in his sara darkens and whispers to him in the voice of whatever silenced the kami. He hides this in shame and fear, terrified that he is slowly being tainted and that one day his healing hands might turn. He also knows, from the kami's last fading words, a crucial clue about the nature or location of the spreading darkness, but it came to him as a half-drowned dream he doesn't yet trust himself to interpret. And though he'd never boast of it, a kappa's true strength in the water is far greater than his shy manner suggests, he could drown a grown warrior, and the gentleness is a choice, not a limitation.",
+    "attitude": "Gentle, humble, anxious, and bottomlessly kind, the sort of soul who apologizes to the mosquito he swats. He's shy and deferential with strangers, devoted and protective with friends, and merciful even toward enemies, he'll heal a fallen foe and is grieved by killing. He's wary of dry, sunlit places far from water (where he feels weak and exposed) and of anyone who notices his head-dish too keenly. Show him simple courtesy, or share a cucumber, and you have a friend for life; bow to him and, helplessly, he is yours."
+  }
+}
