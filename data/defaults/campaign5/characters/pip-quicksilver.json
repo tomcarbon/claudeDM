@@ -1,0 +1,127 @@
+{
+  "id": "4378d0b2-d363-423b-a81e-374e64b89de2",
+  "name": "Pip Quicksilver",
+  "status": "alive",
+  "race": "Halfling",
+  "subrace": "Lightfoot Halfling",
+  "class": "Rogue",
+  "level": 9,
+  "background": "Outlander",
+  "alignment": "Chaotic Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 20,
+      "modifier": 5
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 63,
+    "current": 63
+  },
+  "armorClass": 18,
+  "speed": 25,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "dexterity",
+    "intelligence"
+  ],
+  "skills": [
+    "Stealth",
+    "Acrobatics",
+    "Perception",
+    "Sleight of Hand",
+    "Nature",
+    "Survival",
+    "Investigation"
+  ],
+  "languages": [
+    "Common",
+    "Halfling",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Cinderweave Cloak (resistance to fire damage)",
+    "+1 Studded Leather Armor",
+    "+1 Shortsword",
+    "Shortbow",
+    "Quiver with Arrows (40)",
+    "Two daggers",
+    "Thieves' tools",
+    "Burglar's pack",
+    "A brass spyglass looted from a corsair",
+    "A staff carved with a map of somewhere far away",
+    "A belt pouch containing 70 gp"
+  ],
+  "weapons": [
+    {
+      "name": "+1 Shortsword",
+      "attackBonus": 10,
+      "damage": "1d6+6",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortbow",
+      "attackBonus": 9,
+      "damage": "1d6+5",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Sneak Attack (once per turn, on advantage or flank)",
+      "attackBonus": 0,
+      "damage": "5d6",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "+1 Studded Leather Armor",
+    "type": "light"
+  },
+  "features": [
+    "Expertise (Stealth, Perception, Nature, Survival — double proficiency)",
+    "Sneak Attack (5d6)",
+    "Thieves' Cant",
+    "Cunning Action (Dash, Disengage, or Hide as a bonus action)",
+    "Roguish Archetype: Scout",
+    "Skirmisher (move up to half speed as a reaction when an enemy ends its turn within 5 ft)",
+    "Survivalist (expertise in Nature and Survival)",
+    "Uncanny Dodge (halve damage from one attack per turn as a reaction)",
+    "Evasion (take no damage on successful Dex saves, half on failure)",
+    "Lucky (reroll natural 1s on attacks, checks, and saves)",
+    "Brave (advantage on saves vs. being frightened)",
+    "Nimble (move through the space of larger creatures)"
+  ],
+  "traits": [
+    "Naturally Stealthy (can hide when obscured by a creature at least one size larger)",
+    "Halfling Nimbleness (moves easily through the burning-dust dunes)"
+  ],
+  "spells": null,
+  "personality": {
+    "traits": "I've walked further than anyone I know, and I intend to walk further still — even if 'further' is a plane made of fire. I map everything, out loud.",
+    "ideals": "Freedom. No cage holds me — not a cell, not a contract, not a wall of flame.",
+    "bonds": "I promised the Ashen Vow scouts I'd be the eyes that walk in first and the feet that walk everyone back out.",
+    "flaws": "I trust my own luck far more than the situation ever warrants."
+  },
+  "appearance": "A wiry lightfoot halfling with wind-chapped cheeks, a mop of sandy hair, and quick hazel eyes that never stop cataloguing exits. He travels light, his studded leather worn soft, a coil of silk rope always over one shoulder. He moves so quietly that companions routinely lose track of where he's gotten to.",
+  "backstory": "Pip was an outrider and pathfinder who had crossed deserts, tundra, and trackless marsh before he ever heard the word 'planar.' When the Ashen Vow needed a scout who could survive terrain nobody had mapped, his reputation for walking out of places that swallowed whole caravans made him the obvious pick. He signed on for the same reason he does everything: the far side of that rift is somewhere he has never been, and Pip Quicksilver cannot abide a place he hasn't seen for himself."
+}

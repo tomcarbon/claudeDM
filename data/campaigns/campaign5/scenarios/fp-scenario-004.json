@@ -1,0 +1,333 @@
+{
+  "id": "fp-scenario-004",
+  "title": "The Sultan's Flame",
+  "subtitle": "The Cinder Gate and the Throne of Ash",
+  "levelRange": "16-18",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "The Charred Reach and the Tomb-Caldera of Auronax's Kin",
+    "description": "Beyond the last brass wall of the City of Brass, the plane stops pretending to have mercy. The Charred Reach is the deep fire — a wound in the world older than the efreet, where a fire primordial died screaming and was buried in its own cooling flesh. The land here is a vast caldera miles across, its floor a lattice of black basalt islands drifting on a lake of white-hot magma, its sky a churning ceiling of ember-storm that rains sparks like falling stars. At the caldera's heart, ringed by seven obsidian pylons and a scaffold of conscript-forged brass, stands the Cinder Gate: a ritual archway the size of a city gate, half-built, its frame already weeping planar light where it will one day tear open onto the Material Plane. The entombed heart of the dead primordial — the Ember Crown — hangs suspended at the arch's apex, chained in gold, pulsing like a second sun. This is where Grand Vizier Malik al-Nar has come to finish his masterwork.",
+    "atmosphere": "Everything here is too hot, too loud, and too old. The heat is a physical weight that presses on the lungs; without fire protection, flesh blisters in minutes and the ember-rain sets hair and cloth alight. Sound carries strangely across the magma lake — the roar of lava falls, the ring of azer hammers driven at spearpoint, the low subsonic groan of the primordial's tomb, and beneath it all a rhythmic tolling as the ritual counts down to completion. The light is hellish and beautiful: orange, gold, and bruise-purple, throwing every figure into stark silhouette. There is a terrible grandeur to the place, the sense of standing inside a god's grave while someone loots it.",
+    "keyLocations": [
+      {
+        "name": "The Ashen Approach",
+        "description": "The only land route into the caldera is a knife-ridge of cooled basalt called the Ashen Approach, a two-mile causeway that winds between magma channels toward the outer ring of the Cinder Gate works. Salamander sentries coil at watchfire posts along its length, and brass warding-glyphs sunk into the stone scream an alarm if crossed without the Vizier's sigil. To either side, sheer drops fall into rivers of molten rock.",
+        "features": [
+          "Narrow basalt causeway (10-20 ft wide) flanked by magma channels — falling in means 18d10 fire damage and near-certain death",
+          "Salamander watchfire posts every quarter mile, each with a signal horn that summons reinforcements in 1d4 rounds",
+          "Brass alarm-glyphs (DC 22 Arcana or Thieves' Tools to disable) buried at three chokepoints",
+          "Ember-storm overhead: every hour of exposure without fire resistance forces a DC 15 Constitution save or 1 level of exhaustion"
+        ],
+        "encounters": [
+          "A salamander patrol (4 salamanders + 1 salamander guard captain) sweeping the causeway",
+          "A fire elemental myrmidon roving sentinel that patrols the midpoint and cannot be reasoned with",
+          "Optional: Auronax arrives to ferry the party across the magma channels if befriended in earlier scenarios, bypassing the causeway entirely"
+        ],
+        "secrets": [
+          "Khadim Emberhand recognizes the causeway's warding-glyphs as clan-work — he can disable them silently because he knows the maker's mark and the counter-cadence, granting the party a stealth approach",
+          "One watchfire post is manned by conscript salamanders who broke free of Malik's binding and will not raise the alarm if approached by Vyx, who knows their shame"
+        ]
+      },
+      {
+        "name": "The Conscript Forge-Yards",
+        "description": "A terraced hell of open-air smithies clinging to the caldera's inner wall, where captured azer forge-clans hammer the final brass segments of the Cinder Gate's frame under the whips of salamander overseers. The air rings with coerced labor. Slag-rivers pour down channels cut into the terraces. This is where Khadim Emberhand once worked, and the shame of it is written into every anvil.",
+        "features": [
+          "Terraced forge-platforms connected by brass gantries and chain-hoists (difficult terrain, and any gantry can be sabotaged to drop a section into the magma)",
+          "Hundreds of enslaved azer laborers — a potential uprising if freed, but noncombatants who will die if the fight comes to them",
+          "Slag-channels that can be redirected (DC 20 Strength or Thieves' Tools at the sluice controls) to flood a terrace with molten rock",
+          "The clan-anvil where Khadim cast the Cinder Gate's keystone — still bearing his maker's mark"
+        ],
+        "encounters": [
+          "Salamander overseers (2 salamander guards + 3 salamanders) driving the labor",
+          "A fire elemental myrmidon 'foreman' bound to the largest forge",
+          "Freeing the azer clans triggers a running battle as the party covers a mass escape toward the causeway"
+        ],
+        "secrets": [
+          "The keystone Khadim forged has a deliberate flaw — a hairline fault he cast into it during his last hour as a slave, hoping someone would one day exploit it. This is the Cinder Gate's structural weak point",
+          "Freeing the azer clans gives the party a war-band for the final assault, but also puts hundreds of innocents in the blast radius of the endgame"
+        ]
+      },
+      {
+        "name": "The Sultan's Sepulcher-Barge",
+        "description": "Malik did not leave the imprisoned Sultan behind in the palace vaults — he brought his prisoner to the Charred Reach as insurance and as fuel. Sultan Marrash al-Djinni is bound within a sealed brass sarcophagus mounted on a floating obsidian barge tethered near the Cinder Gate, where his royal fire is being siphoned drop by drop to power the ritual. The barge drifts on the magma lake, reachable only by chain-bridge or by air.",
+        "features": [
+          "A floating obsidian barge on the magma lake, tethered by brass chains to the Gate scaffold",
+          "The Sultan's brass sarcophagus, sealed with a nine-lock binding matrix (DC 25 Arcana over multiple turns, or shattered by destroying the four anchor-sigils)",
+          "Siphon-conduits draining the Sultan's flame into the Ember Crown above — cutting them frees the Sultan but destabilizes the whole ritual violently",
+          "Salamander guard detail (2 salamander guards) and a fire elemental myrmidon warden stationed on the barge"
+        ],
+        "encounters": [
+          "The barge warden fight — a fire elemental myrmidon + 2 salamander guards defending the sarcophagus",
+          "Freeing the Sultan mid-battle: an ancient, wrathful noble efreeti ally OR, if the siphon has run too long, a dying king who can only offer the party one last gift before he goes out"
+        ],
+        "secrets": [
+          "The Sultan's flame is not fully spent — if the party reaches him before the ritual completes, he can be freed and fights as a devastating ally against Malik. If they arrive after the countdown, they find only ash and a final decree",
+          "Nadira al-Zahra, if present, will be visibly shaken at the sight of her father — her ambition and her grief war openly here, foreshadowing her choice"
+        ]
+      },
+      {
+        "name": "The Throne of Ash",
+        "description": "The ritual platform at the caldera's exact center: a disc of fused obsidian and conscript-brass suspended over the deepest magma, dominated by the half-built Cinder Gate and the caged Ember Crown blazing above it. Malik al-Nar has raised a throne here — the Throne of Ash — from which he intends to watch a world burn. Lava falls curtain the platform on three sides. This is where it ends.",
+        "features": [
+          "Central ritual disc (120 ft diameter) ringed by seven obsidian pylons channeling the Ember Crown's power",
+          "The Cinder Gate archway, at 90% completion — a countdown mechanic, not just scenery",
+          "Lava falls and erupting magma vents as environmental hazards (see boss encounter)",
+          "The Ember Crown chained at the arch's apex — the primordial-heart relic and the ritual's power source"
+        ],
+        "encounters": [
+          "The final confrontation: Malik al-Nar (buffed efreeti) + 2 fire elemental myrmidons + 1 salamander guard, amid live lava hazards",
+          "Environmental turns: erupting vents, collapsing pylons, and the Gate's completion countdown pressuring the party to act, not stall"
+        ],
+        "secrets": [
+          "Striking the keystone Khadim forged (the flawed brass segment low on the arch's left haunch) with a critical hit or a targeted attack collapses the Gate's frame, ending the ritual and stripping Malik of the Ember Crown's protective aura",
+          "The Ember Crown can be seized, shattered, or left chained — each choice is a different ending, and each has a price"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party crosses into the Charred Reach — a dead primordial's tomb-caldera — to end Grand Vizier Malik al-Nar's Cinder Gate before it tears permanently open onto the Material Plane and looses the armies of the efreet upon their homeland. To reach the ritual, they must run the Ashen Approach, decide whether to free the enslaved azer forge-clans, and find the imprisoned rightful ruler, Sultan Marrash al-Djinni, whose royal flame Malik is siphoning as fuel. At the Throne of Ash, they face Malik himself — an efreeti lord empowered by the Ember Crown — amid lava falls and a ritual countdown. The keystone the companion Khadim Emberhand once forged is the Gate's hidden flaw, and the Sultan, if freed in time, is a devastating ally. But the true climax is a choice with no clean answer: stop the Gate and go home, seize the Gate as a weapon, back Nadira al-Zahra's bid for the throne, or spend everything in a pyrrhic victory that saves a world and costs the party its own.",
+  "hook": "The countdown has already begun. Whether the party arrives by Auronax's wings, by Captain Zafirah's brass galleon, or on foot up the Ashen Approach, the sky over the Charred Reach tells them they are nearly too late: the Cinder Gate's light has begun to bleed through, and on clear moments the party can see, through the half-formed arch, the burning silhouette of their own home city on the far side. Malik does not need much longer. Every hour they delay, the Sultan's flame burns lower and the Gate burns brighter. There is no more time to plan. There is only the fire ahead and the choice waiting at the center of it.",
+  "acts": [
+    {
+      "title": "Act 1: The Ashen Approach",
+      "description": "The party breaches the outer defenses of the Charred Reach — the causeway, the sentries, and the ember-storm — and gets its first full look at the scale of what Malik has built. This act is about pressure and reconnaissance: choosing a route, spending or saving resources against expendable-but-lethal guards, and deciding early whether to move in silence or announce themselves with fire.",
+      "objectives": [
+        "Cross into the caldera via the Ashen Approach, Auronax's wings, or Zafirah's galleon",
+        "Deal with salamander sentries and the roving myrmidon without triggering a full alarm (or accept that you have)",
+        "Survive the ember-storm and heat without burning through your fire protection",
+        "Get eyes on the Cinder Gate, the forge-yards, and the Sultan's barge — and grasp the countdown"
+      ],
+      "scenes": [
+        {
+          "name": "The Threshold of the Reach",
+          "description": "The party stands at the lip of the caldera and sees the whole terrible machine at once — the magma lake, the drifting basalt islands, the seven pylons, the caged Ember Crown, and the half-built Gate leaking the light of home. The scale of it lands like a physical blow.",
+          "readAloud": "\"The last brass wall of the city falls away behind you, and the Charred Reach opens like a wound. You stand on the rim of a caldera miles across, its floor a shattered mirror of black islands adrift on a lake of white fire. Ember-storm churns overhead, raining sparks that hiss and die on your cloaks. And there, at the very heart of it — impossible, enormous — hangs the Cinder Gate: an archway the size of a city's main gate, wrapped in scaffolding of hammered brass, half-finished and already alive with light. Something is chained at its apex, blazing like a captured star. And when the ember-storm parts, just for a heartbeat, you see through the arch — not fire, not the plane, but a night sky you know, and a city you have walked, silhouetted in flame. Home. On the other side of that gate. A low tolling rolls across the magma lake, patient as a heartbeat, and you understand it for what it is: a countdown.\"",
+          "skillChecks": [
+            { "skill": "Perception", "dc": 18, "success": "You pick out the layout: the causeway in, the terraced forge-yards worked by azer slaves, a tethered barge near the Gate with brass conduits running off it, and salamander pickets along every approach. You also mark the roving fire elemental myrmidon on the causeway's midpoint.", "failure": "The sheer scale and glare overwhelm the details — you know the Gate is at the center and the way in is guarded, but you'll be improvising the specifics." },
+            { "skill": "Arcana", "dc": 20, "success": "You read the ritual's shape in the pylon-light: the Ember Crown is the power source, the seven pylons are channels, and the Gate is perhaps a day from completion — but the tolling is accelerating. Disrupting the Crown or the frame would cripple the whole thing.", "failure": "The magic is beyond casual reading — vast, primordial, and wrong. You know only that it is nearly done." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Let the weight of arrival land before any dice. This is the moment the campaign has built toward. If Khadim is present, he goes silent at the sight of the forge-yards; if Nadira is present, she stares at the barge; if Cassian is present, part of him is drawn toward the Crown's warmth in a way that should worry the player. Establish the countdown as real and diegetic — the party cannot dawdle here indefinitely.",
+          "loot": []
+        },
+        {
+          "name": "Running the Causeway",
+          "description": "The party commits to a route into the caldera. On foot means the Ashen Approach and its sentries; by air means Auronax and the ember-storm; by sea means Zafirah threading a magma channel. Whatever the choice, the outer guard must be beaten, slipped, or subverted — and the party learns that Malik's mooks are individually lethal at this tier.",
+          "readAloud": "\"The way in narrows to a spine of black rock barely wide enough for two abreast, magma channels seething to either side close enough to scorch. Ahead, watchfires burn at intervals, and around each one coils a salamander sentry, spear-tail lashing, brass horn slung at its side. The heat rolls off the causeway in visible waves. One horn-blast and this whole ridge will fill with fire. Somewhere at its midpoint, a shape of living flame paces back and forth — no salamander, but a soldier of pure elemental fire, waiting.\"",
+          "skillChecks": [
+            { "skill": "Stealth", "dc": 20, "success": "Moving fire-lit shadow to fire-lit shadow, the party slips past a sentry post without raising a horn — buying a silent approach to the next chokepoint.", "failure": "A boot scrapes basalt at the wrong moment. The nearest salamander's head snaps up — roll initiative before it reaches its horn, or the alarm goes out." },
+            { "skill": "Arcana", "dc": 22, "success": "You disable a buried brass alarm-glyph at a chokepoint before it can scream. (Khadim, if present, does this automatically and silently — he knows the maker's mark.)", "failure": "The glyph flares as you cross it, sending a shrill note skyward. A salamander patrol is now inbound — 1d4 rounds." },
+            { "skill": "Survival", "dc": 15, "success": "You read the ember-storm's rhythm and time your crossings between the worst of the spark-rain, sparing the party a level of exhaustion.", "failure": "The storm catches you in the open. Anyone without fire resistance takes 2d6 fire damage and must make a DC 15 Constitution save or gain a level of exhaustion." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 salamanders", "1 salamander guard (captain, buffed: +30 HP, Multiattack adds a third tail strike)", "1 fire elemental myrmidon (roving sentinel, only if the party fights toward the midpoint)"],
+              "difficulty": "Hard",
+              "tactics": "The salamanders fight to hold the causeway and buy time for a horn-blast — one will always break off to sound the alarm if the party doesn't stop it. They use their reach and Heated Body to punish melee, and grapple with their tails to shove characters toward the magma channels (a grappled, shoved character must make a DC 16 Strength save or fall in — 18d10 fire, effectively lethal). The myrmidon is relentless and tactical, positioning to split the party. This encounter is a warning shot: at this tier, even 'trash mobs' can kill a careless PC via the environment.",
+              "terrain": "10-20 ft basalt causeway over magma channels. No cover. Falling in is 18d10 fire damage. Watchfires provide bright light; the ember-storm imposes lightly obscured conditions beyond 60 ft."
+            }
+          ],
+          "roleplayNotes": "If Vyx is present and the party approaches the conscript-manned watchfire post, she can talk those broken salamanders down — they will not sound the alarm, and may even point the party to the barge. If Auronax was befriended, offer the air route as a genuine bypass that trades the causeway fight for an ember-storm survival sequence and a dramatic strafing arrival. Reward earlier relationship-building; don't force the hard road on a party that earned an easier one.",
+          "loot": [
+            "Salamander guard captain's brass warhorn (can be used once to feign a false 'all clear', DC 18 Deception to fool the forge-yard overseers)",
+            "A satchel of the Vizier's sigil-tokens (3) that suppress the alarm-glyphs for one crossing each",
+            "220 gp in trade-brass and a fire-opal worth 500 gp taken from the captain"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Fire and Iron",
+      "description": "Inside the caldera, the party must decide how to spend the little time left. The conscript forge-yards hold hundreds of enslaved azer — and Khadim's shame, and the secret of the Gate's flaw. The Sultan's sepulcher-barge holds the imprisoned rightful ruler and the campaign's central twist made flesh. Both are optional in sequence but load-bearing for the finale: free the azer for a war-band and the keystone's secret; free the Sultan for a game-changing ally. Doing both costs time; doing neither makes the boss far deadlier.",
+      "objectives": [
+        "Choose whether to liberate the azer forge-clans (war-band + keystone secret) — and cover their escape if you do",
+        "Reach the Sultan's barge and decide whether to free Marrash al-Djinni before the siphon drains him",
+        "Learn the Cinder Gate's structural weak point (Khadim's flawed keystone)",
+        "Manage the tightening countdown — every scene here costs time the party may not have"
+      ],
+      "scenes": [
+        {
+          "name": "The Forge-Yards of the Damned",
+          "description": "The party moves through the terraced smithies where captured azer beat Malik's Gate into being at spearpoint. Here Khadim confronts his past, the keystone's flaw is revealed, and the party weighs a mass liberation that could arm them for the finale — or fill the endgame's blast radius with innocents.",
+          "readAloud": "\"The terraces descend before you in rings of fire, each one an open smithy where squat, brass-skinned figures — azer, hundreds of them — swing hammers in exhausted unison. Salamander overseers pace the gantries above, whips of living flame uncoiled. The heat here is the heat of a working forge multiplied a thousandfold, and the sound is worse: not the honest ring of a smith at his craft, but the flat, hopeless clang of labor without hope. At the largest anvil, a brass segment cools — a keystone, meant for the Gate's arch — and stamped into its base, small enough that no overseer ever noticed, is a maker's mark you have seen before. Khadim's mark.\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 16, "success": "You read the azer's discipline for what it is: not loyalty, but coiled fury. They are one spark from revolt. A freed forge-clan would fight Malik with everything they have.", "failure": "The azer keep their eyes down; you can't tell if they'd fight or scatter if freed." },
+            { "skill": "Thieves' Tools", "dc": 20, "success": "You reach the sluice controls and rig a slag-channel to flood a terrace on command — a devastating trap you can spring during the liberation or save for the boss fight.", "failure": "The sluice mechanism is heavier and better-guarded than it looked; forcing it now risks a premature, uncontrolled slag-flood." },
+            { "skill": "Arcana", "dc": 18, "success": "Examining Khadim's keystone (or listening to him), you confirm the flaw: a hairline fault cast into the brass that, if struck hard at the Gate, will propagate through the whole frame and bring the arch down. A targeted attack or critical hit on the installed keystone ends the ritual.", "failure": "The keystone looks like sound work; without Khadim's confession you'd never spot the deliberate weakness." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 salamanders", "2 salamander guards", "1 fire elemental myrmidon (forge foreman)"],
+              "difficulty": "Hard",
+              "tactics": "The overseers fight to keep the slaves in line first and kill intruders second — they will threaten and strike at the azer to cow them, which the party can exploit or be enraged by. If the azer are freed mid-fight, the encounter becomes a chaotic mass brawl: the party must protect noncombatant azer while the war-band's stronger smiths (treat as azer, MM) join in. The foreman myrmidon guards the sluice controls.",
+              "terrain": "Terraced forge-platforms, brass gantries (can be sabotaged to drop enemies into magma), slag-channels (redirectable for 6d10 fire damage in a line). Difficult terrain throughout; abundant improvised hazards for a clever party."
+            }
+          ],
+          "roleplayNotes": "This is Khadim's scene. Let him speak the guilt he's carried all campaign: he forged part of this, and he built the flaw hoping someone brave would one day use it. Freeing the azer is a genuine moral-and-tactical fork — it grants a war-band and a proud clan-oath of aid for the finale, but it also means hundreds of freed innocents are now inside the caldera when the Throne of Ash comes down. Do not resolve this tension for the player. Present it, honestly, and let them own the consequence.",
+          "loot": [
+            "Khadim's Keystone Lore (the Gate's weak point — mechanical intel, not an item)",
+            "Azer war-band pledge (if freed): a squad of azer smiths who will fight alongside the party in Act 3, or cover a retreat",
+            "A masterwork adamantine forge-hammer (nonmagical, +250 gp, deals bludgeoning — non-fire, valuable here)",
+            "Overseers' strongbox: 400 gp and 3 vials of essence of fire (thrown, 3d6 fire, DC 15 Dex)"
+          ]
+        },
+        {
+          "name": "The Sepulcher-Barge",
+          "description": "The party crosses to the drifting obsidian barge where Sultan Marrash al-Djinni lies sealed in a brass sarcophagus, his royal flame siphoned to feed the Ember Crown. This is the campaign's twist confirmed in the flesh: the withdrawn Sultan was never withdrawn — he was imprisoned, and Malik has ruled on stolen fire. Freeing him is a race against the siphon.",
+          "readAloud": "\"The barge drifts on the magma like a coffin on a black river, tethered to the Gate scaffold by chains as thick as your waist. At its center stands a sarcophagus of hammered brass, sealed with nine glowing locks, and from its seams run glass conduits — thin, bright veins of captured fire flowing up the tethers toward the caged Crown above. Something inside the sarcophagus is alive. You feel it: a pressure, a heat, an ancient and royal fury, dimming by the moment as the siphon does its patient work. Whatever the City of Brass was told about its withdrawn Sultan, the truth is here, chained and bleeding light. Malik did not inherit the throne. He stole its fire.\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 25, "success": "You unravel the nine-lock binding matrix directly, springing the sarcophagus open without collateral. (This takes time — advance the countdown.)", "failure": "The matrix resists; you'll have to break it the hard way by destroying the four anchor-sigils instead, which draws the barge warden's attention." },
+            { "skill": "Investigation", "dc": 18, "success": "You trace the siphon-conduits and find the cutoff: severing them frees the Sultan's remaining flame instantly, but the feedback will lash the whole ritual and everyone on the barge (all creatures on the barge take 4d6 fire, DC 17 Dex for half).", "failure": "The conduit network is a snarl; cutting the wrong one just spills more of the Sultan's fire into the Crown." },
+            { "skill": "Religion", "dc": 16, "success": "You recognize the royal binding-rites and can speak the Sultan's true name and titles, steadying his failing flame and buying him the strength to fight at your side if freed this round.", "failure": "You free a king who is nearly spent — if released, he can grant one last boon but cannot join the final battle." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 fire elemental myrmidon (barge warden)", "2 salamander guards"],
+              "difficulty": "Hard",
+              "tactics": "The warden and guards defend the sarcophagus and will target whoever works the locks. They fight on a floating, shifting platform — the barge tilts as weight moves across it (DC 12 Acrobatics when the barge lurches or fall prone toward the edge). If the party severs the siphon, the resulting feedback blast hits friend and foe alike; a smart party times it to catch the guards.",
+              "terrain": "Floating obsidian barge on magma; unstable footing; edges drop into the lake (18d10 fire). Brass tethers can be climbed to reach the Gate scaffold directly — an optional fast route into Act 3 that skips ahead but leaves the barge fight unfinished behind you."
+            }
+          ],
+          "roleplayNotes": "The state you find the Sultan in depends on how much time the party spent. If they came here promptly, Marrash al-Djinni rises as an ancient noble efreeti ally — wrathful, regal, and a wrecking ball in the finale (grant Malik a real, mechanical reason to fear him). If they dawdled through the forge-yards and Act 1, the siphon has nearly finished: they free a dying king who thanks them, names Malik's crime for the record, grants a single parting gift (a wish, a blessing, or his own crown-fire channeled into one PC), and gutters out. Both are valid; both are earned by the clock. If Nadira is present, this is the crucible of her arc — her father, dying or freed, standing between her and the throne she covets. Play her grief and ambition honestly and let the player see the betrayal-or-loyalty fork coming.",
+          "loot": [
+            "The Sultan's freed aid (ally in the finale) OR the Sultan's Last Gift (one wish spell, or a permanent +2 to one PC's Constitution as royal fire enters their blood, or a Blessing of the True Flame granting fire immunity for 24 hours)",
+            "The Brass Signet of Marrash (proof of Malik's crime; commands loyalty from lawful efreet — huge leverage in the 'ally with Nadira' or 'restore the throne' endings)",
+            "1,200 gp in royal regalia stripped by Malik's jailers and stored on the barge"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Throne of Ash",
+      "description": "The final confrontation at the ritual's heart. Malik al-Nar stands empowered by the Ember Crown, guarded by his elite, amid lava falls and a Gate one push from completion. The party must beat him, decide the fate of the Cinder Gate and the Emberscar, and live with the ending they choose. This is a genuinely lethal high-level fight and a genuine branching climax — no rigged safety nets, and no single mandated outcome.",
+      "objectives": [
+        "Defeat or neutralize Grand Vizier Malik al-Nar",
+        "Survive the lava hazards and the Gate's completion countdown",
+        "Exploit the keystone flaw and/or the Sultan's aid if you secured them",
+        "Decide the fate of the Cinder Gate, the Ember Crown, and the Emberscar rift — and pay its price"
+      ],
+      "scenes": [
+        {
+          "name": "The Vizier's Welcome",
+          "description": "The party reaches the Throne of Ash and finds Malik al-Nar waiting — not surprised, not afraid, delighted. He has time for exactly one conversation, and he uses it to offer the party the same wish-wrapped poison he offered the puppet court: a gate home, for a price. This is the last off-ramp before blood, and the last chance for the player to see the shape of the choices ahead.",
+          "readAloud": "\"The ritual disc spreads before you, a hundred and twenty feet of fused obsidian and stolen brass suspended over the caldera's deepest fire, curtained on three sides by falling sheets of lava. Above it all, the Ember Crown blazes in its golden cage, and beneath the Crown, at the foot of the half-built Gate, a throne of ash — and on it, waiting, Grand Vizier Malik al-Nar. He rises, unhurried, twelve feet of blue-flame nobility wrapped in molten gold, and he spreads his hands as though welcoming honored guests. 'You came so far,' he says, and his voice is warm, delighted, genuinely pleased. 'Across the dust, across the fire, into my very grave. You want to go home. I can open that door — I am opening it now.' He gestures to the Gate, weeping the light of your world. 'Serve me through it. One of you stays as surety, the rest walk home heroes. A generous wage. Efreeti wages always are.' He smiles, and every one of his teeth is a small flame. 'Or you can be fuel. The Crown is hungry, and the Gate needs only a little more fire. Choose quickly. The tolling does not wait, and neither, I confess, do I.'\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 20, "success": "Every clause of Malik's offer is a noose. 'Home' means his home in yours; 'surety' means an eternity of bound service; 'heroes' means his agents. There is no version of his bargain that does not end with the party or their world enslaved.", "failure": "The offer sounds almost reasonable — which is exactly the trap. A failed read leaves the player genuinely tempted." },
+            { "skill": "Persuasion", "dc": 22, "success": "If the party holds the Sultan's freed self or his Signet, they can shatter Malik's composure — naming his crime aloud in front of his own guard sows a flicker of doubt (the salamander guard hesitates, entering the fight one round late).", "failure": "Malik laughs off the accusation. 'The Sultan withdrew. Everyone knows this. Everyone who wishes to keep breathing.'" }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Give Malik his one scene. He is silver-tongued, patient, and cruel, and he genuinely believes he's being generous. Let the player feel the pull of the offer — that's what makes refusing it heroic. Do not let Malik monologue past the player's patience; when they act, he acts. If they attack mid-sentence, he's ready — he expected nothing less. This scene exists to frame the endings, not to delay them.",
+          "loot": []
+        },
+        {
+          "name": "The Sultan's Flame",
+          "description": "The boss battle. Malik al-Nar, empowered by the Ember Crown, fights with his elite guard amid live lava hazards and a Gate that is still completing. This is a lethal, honest, high-level encounter designed to threaten a real TPK if the party is careless — and to reward every advantage they earned (the keystone, the freed Sultan, the azer war-band, the slag-sluice).",
+          "readAloud": "\"The pleasantries end. Malik al-Nar throws back his head and the Ember Crown answers, its light pouring down into him until his blue fire burns white at the edges. The salamander at his side uncoils with a shriek, and from the pylons two soldiers of living flame stride onto the disc, forming up like a wall. Behind them, the Gate tolls — closer now, faster — and a lava fall along the eastern edge surges, spitting gouts of molten rock across the obsidian. 'You should have taken the wage,' Malik says, almost sadly, and the whole caldera seems to lean in to watch. There is nowhere left to run. There is only this fire, and the door beyond it, and the choice you will have to live with — if you live at all.\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 16, "success": "You cross the buckling, vent-riddled disc without being caught by an eruption, reaching the keystone or the Crown-cage as intended.", "failure": "A magma vent erupts under your path — 4d10 fire damage, DC 16 Dexterity save for half, and your movement stops." },
+            { "skill": "Arcana", "dc": 21, "success": "You read the rhythm of the Ember Crown's aura and time a strike for the half-second each round when Malik's protection ebbs, landing a telling blow (advantage on one attack against him this round, once per round).", "failure": "The Crown's aura is a chaotic blaze; you can't predict its gaps and take a searing 3d6 fire feedback for the attempt." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Malik al-Nar (efreeti, heavily buffed: 350 HP; AC 20; Legendary Resistance 3/day; 3 legendary actions/round — Hurl Flame, Move, or Wreathing Blaze [each creature within 15 ft takes 3d6 fire]; while the Ember Crown hangs intact he has resistance to nonmagical damage and regains 20 HP at the start of each of his turns; his Innate Spellcasting includes wall of fire, fireball, and one Gate an efreeti's wish 1/day used to buff himself or curse a PC)",
+                "2 fire elemental myrmidons",
+                "1 salamander guard (buffed: +30 HP)",
+                "Environmental: erupting magma vents, an eastern lava fall that floods 15 ft of the disc edge each round, and the Gate completion countdown"
+              ],
+              "difficulty": "Deadly",
+              "tactics": "Malik opens with wall of fire to split the party and isolate the squishiest PC, then uses Hurl Flame and legendary Wreathing Blaze to grind down clustered melee. He targets healers and controllers first, using his wish to counter a party-defining moment (dispel a key buff, or curse the paladin mid-smite). He fights near the Ember Crown to keep its regeneration and resistance aura, and will NOT willingly leave it — this is his weakness and the party's lever. THE KEYSTONE: a targeted attack (called shot, AC 18) or any critical hit against the installed keystone on the arch's left haunch propagates the fault Khadim cast — the Gate frame buckles, the Ember Crown's cage tears loose, and Malik LOSES his regeneration, his damage resistance, and one Legendary Resistance immediately. Once the Crown is down, Malik is a beatable (still deadly) efreeti. THE SULTAN: if freed and hale, Marrash al-Djinni enters on round 2 as an allied efreeti of equal power, drawing Malik's legendary actions and evening the field — the single biggest force-multiplier the party can bring. THE MYRMIDONS AND GUARD: screen Malik, body-block the keystone, and shove PCs toward the lava falls (grapple + shove, DC 16 Strength or take 6d10 and be knocked prone at the disc's edge). THE COUNTDOWN: if the party turtles and stalls, the Gate completes in 6 rounds — narrate the tolling accelerating each round. On completion, the Emberscar tears fully open, Malik gains a fresh 20 HP/round from the flood of primordial fire, and the ending options narrow to 'seize it or die.' Pressure the party to ACT.",
+              "terrain": "120 ft obsidian ritual disc over the deepest magma. Lava falls curtain three sides (any forced movement off the edge is effectively lethal). Erupting vents create shifting difficult terrain and area damage. Seven pylons provide partial cover and can be toppled (DC 22 Strength or targeted destruction, 60 HP each) to disrupt the ritual — toppling three or more collapses the Crown-cage like striking the keystone does. The Gate itself is the countdown clock and the prize."
+            }
+          ],
+          "roleplayNotes": "Run this fight honestly. It is meant to be survivable only through the advantages the party earned and smart use of the environment — the keystone, the freed Sultan, the azer war-band, the slag-sluice, toppling pylons. A party that skipped every optional beat and stands toe-to-toe with a full-power Malik should be in real danger of a TPK, and that danger must be real. Do NOT fabricate HP, invent last-second rescues, or soften the dice to save them. If they fall, they fall — the plane is lethal and the stakes were always mortal. Conversely, a party that leveraged its allies and terrain should get to feel like the fire-plane conquerors they've become. Honor the number either way. See dmTips for the specifics of the multiple endings that follow the kill (or the wound, or the bargain).",
+          "loot": [
+            "Malik's Molten Crown-Circlet (magic item: while worn, resistance to fire damage and once per long rest cast wall of fire; radiates his cruelty faintly — a cursed-feeling trophy)",
+            "The Vizier's Scimitar of the White Flame (+3 scimitar, extra 2d6 fire damage, sheds bright light 20 ft)",
+            "Malik's hoard-token: a bound-service ledger naming every soul he enslaved (worth immense political capital in the City of Brass)",
+            "The Ember Crown itself (see endings — relic, not pocket loot; deciding its fate IS the climax)"
+          ]
+        },
+        {
+          "name": "The Fate of the Fire",
+          "description": "The battle is over; the choice is not. With Malik down or broken and the Ember Crown loose, the party must decide what becomes of the Cinder Gate, the Crown, the Emberscar, and the City of Brass — and how, or whether, they go home. This scene is a branching resolution, not a fixed ending; the DM presents the levers and lets the players pull them.",
+          "readAloud": "\"The last echo of the fight rolls away across the magma lake and does not return. Malik al-Nar lies broken at the foot of his half-built Gate — or bound, or fled into the fire, depending on the mercy you chose. Above you, the Ember Crown swings free of its shattered cage, no longer feeding the ritual, blazing with the trapped heart of a dead god. The Cinder Gate stands unfinished, its light guttering, the silhouette of home flickering in and out of the arch. The tolling has stopped. For the first time since you entered the Charred Reach, the great machine is silent, and it is waiting — as is everyone still standing on this disc — for you to decide what happens next. The door home is right there. So is the power to burn worlds. So is a throne with no rightful ruler on it, and a plane full of the bound and the broken watching to see what kind of heroes crossed their fire.\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 22, "success": "You understand the Gate and Crown well enough to steer the ending you chose cleanly — to open a controlled one-way portal home, to safely shatter the Crown and seal the Emberscar forever, or to repurpose the Gate as a stable, guarded passage.", "failure": "The magic is beyond safe handling; your chosen ending happens, but with a violent cost (see the pyrrhic branch)." },
+            { "skill": "Persuasion", "dc": 20, "success": "In the aftermath, you can bind the watching factions — freed azer, Nadira's loyalists, the city's remnant court — to the future you want (a restored Sultan, a new queen, a sealed plane, an alliance).", "failure": "The factions fracture; whatever you decide, someone with power leaves this caldera as your enemy." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the campaign's true climax and it belongs to the players. Present the levers — the Gate, the Crown, the Emberscar, the empty throne, the freed Sultan or his last decree, Nadira's ambition — and let them choose. See the twists[] and dmTips[] for the branch details. Whatever they choose, give it weight and consequence, name the price, and let it be theirs. There is no 'correct' ending. There is only the one they earn.",
+          "loot": [
+            "The chosen ending's reward (see rewards.story and dmTips for branch-specific outcomes)",
+            "Passage home (or the deliberate choice to stay), resolved narratively based on the branch"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Malik al-Nar",
+      "role": "Primary Antagonist / Boss",
+      "description": "Grand Vizier of the City of Brass, an efreeti noble of towering height and terrible elegance, his flesh a slow-burning blue flame sheathed in molten gold, his every gesture unhurried and precise. Where lesser efreet rage, Malik smiles. He has ruled in the imprisoned Sultan's name for years, patient enough to steal a throne one careful lie at a time, and cruel enough to grind a dead god's heart into an engine for burning worlds. He treats even his own destruction as a mildly disappointing negotiation.",
+      "motivation": "Malik wants to complete the Cinder Gate and lead the armies of the efreet through the Emberscar to conquer and burn the Material Plane, crowning himself the sovereign who gave the efreet a whole new world to rule. Beneath the imperial ambition is a simpler hunger: to be the one who decides, forever, who lives in fire and who dies in it. He offers wish-wrapped bargains not from generosity but because a leash given willingly is stronger than any chain."
+    },
+    {
+      "name": "Sultan Marrash al-Djinni",
+      "role": "Imprisoned Rightful Ruler / Potential Ally",
+      "description": "The rightful Sultan of the Efreet, canonical sovereign of the City of Brass, now a diminished blaze sealed in a brass sarcophagus and siphoned drop by drop to fuel his usurper's ritual. Even bound and bleeding light, he carries an ancient, mountainous dignity — a king who has been betrayed but not broken. If freed in time, his royal fire is a wrath the plane itself remembers to fear.",
+      "motivation": "Marrash wants his throne restored, his usurper answered, and the crime against the City of Brass made known — but more than vengeance, he wants the efreet spared the ruin Malik's war would bring down on them when the Material Plane inevitably answers fire with steel. Whether he lives to reclaim the throne, dies granting the party a final gift, or abdicates in favor of his estranged heir, his last concern is the survival of his people and the sealing of the wound Malik tore open."
+    },
+    {
+      "name": "Nadira al-Zahra",
+      "role": "Companion / Estranged Heir / Betrayal Tension",
+      "description": "Exiled efreeti noble and the Sultan's estranged heir, proud and imperious, a powerful caster-warrior who has opposed Malik since before the party arrived — and who has never once forgotten that the throne is, by right, hers. In the Charred Reach her two hungers finally collide: the ruin of Malik, which she shares with the party, and the crown, which she wants for herself.",
+      "motivation": "Nadira wants Malik destroyed and the throne restored — to her. She genuinely opposes the Cinder Gate and the burning of the Material Plane, but she may push the party toward endings that leave her wearing the Ember Crown or seated on the Throne of Ash. Confronted with her father dying or freed on the sepulcher-barge, she must choose between loyalty and ambition, and the party's trust (or leverage, via the Sultan's Signet) can tip her either way. She is the campaign's living reminder that the last enemy is not always the one you came to kill."
+    },
+    {
+      "name": "Khadim Emberhand",
+      "role": "Companion / Keystone-Forger / Redemption",
+      "description": "Azer forge-master, escaped conscript, gruff and honorable and quietly eating himself alive with guilt. He forged part of the Cinder Gate's frame before he fled the very forge-yards the party now walks through — and in his last hour as a slave, he cast a deliberate flaw into the keystone, a hairline fault meant for a braver hand than his to one day exploit. Returning here is his penance and his reckoning.",
+      "motivation": "Khadim wants to unmake what he was forced to build and to free the clans still chained to Malik's anvils. The keystone's flaw is the shape of his hope: proof that even a broken man in a slave's collar can bury a weapon in a tyrant's masterwork and wait for rescue. He will fight to the last to bring the Gate down, and to see his people walk out of the fire he could not save them from before."
+    },
+    {
+      "name": "Auronax",
+      "role": "Ally / Aerial Support",
+      "description": "A young brass dragon, stranded and hunted on the plane, proud and comic and endlessly enamored of his own cleverness, a hoarder of stories and riddles rather than gold. If befriended in earlier scenarios, he is the party's wings — the one creature who can ferry them across the magma lake, strafe the causeway defenders, and, crucially, help wrench open a stable gate home when the Cinder Gate is gone.",
+      "motivation": "Auronax wants off this plane and home to somewhere his scales won't get him hunted — but he has come, against every instinct of self-preservation, because the party earned it and because a dragon who helped close the Emberscar is a dragon with a truly excellent story to tell. His gate-craft is the party's clean way home in the endings that don't repurpose Malik's Gate."
+    }
+  ],
+  "rewards": {
+    "xp": 30000,
+    "gold": "Approximately 15,000 gp in trade-brass, royal regalia, fire-opals, and the contents of Malik's hoard-token ledger, plus branch-dependent windfalls (a restored Sultan's gratitude, Nadira's patronage, or the salvage rights to the Cinder Gate works)",
+    "items": [
+      "Malik's Molten Crown-Circlet (resistance to fire; wall of fire 1/long rest; faintly cursed trophy)",
+      "The Vizier's Scimitar of the White Flame (+3 scimitar, +2d6 fire, sheds bright light)",
+      "The Brass Signet of Marrash (proof of Malik's usurpation; commands lawful efreet loyalty)",
+      "The Sultan's Last Gift, if he was freed too late (one wish spell, OR permanent +2 Constitution to one PC, OR 24-hour fire immunity Blessing of the True Flame)",
+      "The Ember Crown (relic — its fate is the climax, not simple loot: shatter it to seal the Emberscar, seize it for immense power at a corrupting price, or leave it chained)",
+      "Masterwork adamantine forge-hammer and 3 vials of essence of fire from the forge-yards"
+    ],
+    "story": "The party has reached the burning heart of the Elemental Plane of Fire, freed or avenged the rightful Sultan, and brought down Grand Vizier Malik al-Nar — but the campaign's true ending is the one they choose for the Cinder Gate and the Emberscar. STOP THE GATE & GO HOME: they shatter the Ember Crown, seal the Emberscar forever, and return through a clean portal (Auronax's craft or the Sultan's parting gift) as the heroes who closed a burning wound in the world — leaving the City of Brass to rebuild under a restored Marrash. SEIZE / REPURPOSE THE GATE: they claim the Cinder Gate as a stable, guarded passage or take the Ember Crown's power for themselves — immense reward, and a leash of consequence, for a relic forged from a dead god's heart does not serve without exacting its price. ALLY WITH NADIRA: they back the estranged heir's claim, and she takes the Throne of Ash — a new, prouder sovereign who owes them everything and may or may not remember it, with her father restored, avenged, or quietly set aside. PYRRHIC / TRAGIC: they win, but the cost is terrible — a companion spent to close the Gate, the freed azer caught in the collapse, a PC bound as the Crown's new anchor, or a home saved by heroes who can never return to it. And if the dice turn against them at the Throne of Ash, the plane claims them, the Gate opens, and the fire they crossed the world to stop pours through — a lethal ending honestly earned. Whatever they choose, the Realm of Eternal Flame remembers the names of the outworlders who walked into a god's grave and decided the fate of the fire.",
+    "xpNote": "Award milestone XP sufficient to carry survivors from level 16 toward the campaign's conclusion. Boss and guard XP by CR: Malik (buffed, treat as CR 15+) plus 3 fire elemental myrmidons (CR 7 each), a buffed salamander guard (CR 6), and the Act 1-2 encounters. Divide equally among all surviving party members and companions per XP parity rules."
+  },
+  "twists": [
+    "The 'withdrawn' Sultan was never withdrawn — Malik al-Nar imprisoned Sultan Marrash al-Djinni and has ruled the City of Brass in his name for years, siphoning the rightful ruler's royal flame to power the very ritual meant to burn the Material Plane. Every royal bargain the party was ever offered came from a usurper's puppet court.",
+    "Malik's offer of a 'gate home' is an efreeti wish-trap: 'serve me through it' means eternal bound service, 'one of you stays as surety' means a companion enslaved forever, and 'walk home heroes' means walk home as his agents. There is no clause of the bargain that does not end in servitude — refusing it is the only honest victory.",
+    "The Cinder Gate's fatal flaw was built into it by one of the party's own companions: Khadim Emberhand cast a deliberate hairline fault into the keystone during his last hour as a slave. The weapon that can bring down Malik's masterwork was hidden inside it by a broken man betting on the party's courage.",
+    "The last enemy may not be the one they came to kill. Nadira al-Zahra opposed Malik all campaign — but she wants the throne, and at the Throne of Ash, with her father dying or freed and the Ember Crown swinging loose, her ambition may turn a trusted companion into the final obstacle between the party and a clean ending.",
+    "The Ember Crown is the trapped heart of a dead fire primordial, and it does not care who wears it. Seizing its power to repurpose the Gate or to fuel a chosen future binds the taker to a god's grave-hunger — a corrupting price the party may not discover until long after they think the story ended."
+  ],
+  "dmTips": [
+    "THE ENDINGS ARE OPTIONS, NOT A MANDATE. The four branches (stop the Gate & go home, seize/repurpose the Gate, ally with Nadira for the throne, pyrrhic/tragic) are levers to present, not rails to enforce. If the players invent a fifth ending you didn't anticipate — freeing the azer to run the City of Brass as a republic, using the Sultan's Signet to broker a truce, hurling the Ember Crown into the magma and damning the consequences — honor it. Follow player agency. Your job at the Throne of Ash is to make the levers and their prices vivid, then get out of the way.",
+    "ADAPT TO THE DICE, EVEN TO A TPK. This is a lethal high-level finale on a plane that was always trying to kill the party. Run the boss fight honestly: real DCs set before the roll, no phantom HP, no last-second deus ex machina rescues, no softening a natural 1 or walking back a natural 20. If the party overreaches a full-power Malik with no allies and the dice go cold, let the Charred Reach claim them — a TPK here is a valid, earned ending, and the players' characters can be reset via Settings if they wish to try the plane again. The stakes were mortal from scenario one; make them mean it.",
+    "MALIK'S TACTICS. He opens with wall of fire to isolate the party's weakest link, then grinds clustered melee with Hurl Flame and legendary Wreathing Blaze. He targets healers and controllers first and spends his 1/day wish to erase a party-defining moment (dispel a critical buff, curse a smiter mid-swing, or cage a PC in a fresh wall of fire). He fights within the Ember Crown's aura for its regeneration and damage resistance and will NOT willingly leave it — a patient, positional villain who treats the fight as a negotiation he's winning. Use his Legendary Resistances to deny the party's first two 'I win' spells so their later successes feel earned.",
+    "THE KEYSTONE IS THE LEVER. Khadim's flawed keystone (arch's left haunch, AC 18 for a called shot; any critical hit also triggers it) is the intended path to a survivable fight: striking it collapses the Gate frame, tears the Ember Crown's cage loose, and immediately strips Malik of his regeneration, his nonmagical-damage resistance, and one Legendary Resistance. Telegraph this — let Khadim shout its location, let an Arcana check spot the fault. A party that earned the intel should get to use it. Toppling three or more pylons achieves the same collapse for a party that never learned about the keystone.",
+    "REWARD THE OPTIONAL BEATS. Everything the party did in Acts 1-2 should pay off here: a freed and hale Sultan enters on round 2 as an allied efreeti and is the single biggest force-multiplier available; the azer war-band can screen the myrmidons or cover a retreat; the rigged slag-sluice is a one-shot terrain nuke; Auronax provides an aerial reposition and the clean gate home. A party that leveraged its allies should feel like the fire-plane conquerors they've become. A party that skipped everything faces Malik at full power and should feel the difference.",
+    "RUN THE COUNTDOWN AS PRESSURE, NOT A GOTCHA. The tolling that accelerates toward Gate completion exists to stop the party from turtling and to force decisions, not to spring an unfair loss. Narrate it every round or two so the players feel the clock. If they stall for six rounds the Gate completes, the Emberscar tears fully open, Malik gains a fresh 20 HP/round, and the endings narrow toward 'seize it or die' — a consequence of their choices, transparently signposted, never a surprise.",
+    "RUNNING THE MULTIPLE ENDINGS. When the fight resolves, slow down and give the choice its due. Lay out the levers plainly: the guttering Gate (a door home), the loose Ember Crown (power and a corrupting price), the torn Emberscar (seal it or leave it), and the empty Throne of Ash (Marrash restored, Nadira crowned, or no one). Name the price of each branch out loud — shattering the Crown seals the plane but ends the party's easy road home; seizing it grants power that will hunt the taker; backing Nadira makes a queen who owes them a debt she may not honor. Let the players deliberate, let companions argue their stakes (Khadim for the azer, Nadira for the throne, the Sultan for his people), and let the party own the outcome. Then give the ending weight: an epilogue beat for each survivor, the fate of the City of Brass, and the last image of the fire behind them as they go home — or don't.",
+    "THE PYRRHIC BRANCH IS EARNED, NOT IMPOSED. Tragic endings — a companion spent to hold the Gate closed, the freed azer caught in the collapse, a PC volunteering as the Crown's new anchor, a home saved by heroes who can never return — are powerful, but they belong to the players. Offer the tragic lever (someone must stay to seal it; the Crown needs a living will to bind it) and let a player choose to pay it. Do not kill a beloved companion by fiat for pathos. The best pyrrhic endings are the ones the table chooses with their eyes open.",
+    "HONOR THE COMPANIONS' SECRETS TO THE END. Vyx risks re-compulsion near the Ember Crown (a ticking dread — near the Crown, roll to see if the binding-call takes her at the worst moment); Cassian is drawn to the Crown's warmth and may half-want to stay; Nadira's ambition peaks at the throne; Zerai's bound kin can be freed with Malik's ledger; Khadim's guilt resolves at the keystone. This is the last scenario — pay off every thread you can, and let each companion's arc land alongside the party's victory or fall."
+  ]
+}

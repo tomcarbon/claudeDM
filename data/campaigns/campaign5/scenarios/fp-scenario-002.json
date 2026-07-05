@@ -1,0 +1,389 @@
+{
+  "id": "fp-scenario-002",
+  "title": "The Sea of Fire",
+  "subtitle": "Crossing an Ocean That Burns",
+  "levelRange": "11-13",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "The Sea of Fire and the Brass Galleon Ravyah",
+    "description": "Beyond the ash-choked Plains of Burning Dust lies an ocean without water — a boundless expanse of molten rock that heaves and rolls like a living tide, its surface skinning over into black obsidian crusts that shatter and sink and reform with every swell. No ordinary vessel could survive here. The only ships that ply the Sea of Fire are brass-hulled galleons, their double hulls filled with insulating salamander-hide and cooled by bound water-elemental cores, crewed by the desperate, the exiled, and the damned. The party must cross this hellish gulf to reach the City of Brass — and the sea belongs to the salamander corsairs of the Grand Vizier's navy, who hunt the trade lanes for cargo, coin, and chained azer to feed the forge-districts.",
+    "atmosphere": "Heat is a physical weight, pressing on the chest, drying the eyes, curling the edges of parchment. The air shimmers and lies, bending distant sails into mirages and swallowing sound in the roar of the molten swell. Everything glows: the sea from below in sullen orange, the sky a bruised vault of smoke and drifting cinders that fall like burning snow. Brass fittings are too hot to touch bare-handed. The galleon groans as its hull expands and contracts, and the crew speak in low voices, because in the Sea of Fire the thing that finds you first is usually the thing that was listening.",
+    "keyLocations": [
+      {
+        "name": "The Emberport of Cinderfall",
+        "description": "A ramshackle free-port clinging to the last obsidian headland where the Plains meet the Sea of Fire — the final foothold of land before the molten ocean. Gantries of blackened iron reach out over the lava like fishing piers, and brass galleons ride at anchor in cooled basins carved from the shore. It is a lawless place of smuggler's contracts, azer-refugee shanties, salamander bounty-brokers, and grey-market chandlers who will sell you a fire-resistant cargo net or sell you out, depending on the hour.",
+        "features": [
+          "Cooling basins where galleons dock, their molten wakes damped by bound water-elemental cores",
+          "The Broken Ladle — a chandler's tavern built into an overturned galleon hull, where passage is bought and rumors are sold",
+          "A bounty-board of salamander brokers listing prices for azer 'strays,' brass-dragon sightings, and marked ships",
+          "Refugee shanties packed with azer families fleeing conscription into Malik al-Nar's forge-clans"
+        ],
+        "encounters": [
+          "Negotiating passage with Captain Zafirah aboard the Ravyah, who is wary of newcomers and vets them hard",
+          "A salamander bounty-broker takes unsettling interest in the party and may tip off the corsairs",
+          "Breaking up a snatch-gang dragging azer children toward a chained barge (moral flashpoint before the sea is even crossed)"
+        ],
+        "secrets": [
+          "The harbormaster is on Malik al-Nar's payroll and sells sailing manifests to the corsair fleet — this is why so many 'independent' ships vanish",
+          "Zafirah runs an underground line ferrying escaped azer to a hidden marid cove; she tests whether the party can be trusted with that secret"
+        ]
+      },
+      {
+        "name": "The Brass Galleon Ravyah",
+        "description": "Captain Zafirah's ship — a two-masted brass galleon with sails of woven salamander-silk that will not burn, its double hull sweating heat, its decks laid with cooled slate so the crew can walk without searing their soles. Below the waterline (such as it is) sits the ship's beating heart: a bound water elemental in a brass cistern that keeps the hull from melting. The Ravyah is fast, patched, and famous in the wrong circles — a grey-market runner that has outsailed the corsair navy a dozen times and will not survive a thirteenth without luck.",
+        "features": [
+          "The elemental cistern amidships — a bound water-elemental core that cools the hull; if it fails, the ship dies in minutes",
+          "Salamander-silk sails that catch the fire-winds and cannot ignite",
+          "A hidden lower hold behind a false bulkhead where Zafirah smuggles escaped azer",
+          "Ballistae loaded with cold-iron harpoons and pots of alchemical brine for repelling salamander boarders"
+        ],
+        "encounters": [
+          "Life aboard: the party earns the crew's trust (or doesn't) across days of watches, storms, and short rations",
+          "A salamander corsair raider closes for a boarding action across the molten swell",
+          "The cooling cistern is sabotaged or damaged in battle, forcing a desperate repair while the hull begins to glow"
+        ],
+        "secrets": [
+          "Zafirah is a marid exile, banished from her own people for a crime she will not name; she loathes the efreet and quietly wars against Malik's slave trade",
+          "One of the crew is a salamander broker's informant who has been signaling the corsairs at night"
+        ]
+      },
+      {
+        "name": "The Obsidian Shoals",
+        "description": "A drowned archipelago of floating obsidian isles and half-submerged black reefs where the molten current runs shallow and treacherous. Fire-newts nest in the reef caves, and the isles drift on the tide, opening and closing channels without warning. It is a graveyard of ships — brass ribs and cooled slag-hulls jut from the crust — and the corsairs use it as a hunting maze, herding prey into dead-end channels where the lava boils up in geysers.",
+        "features": [
+          "Drifting obsidian isles that reshape the navigable channels each hour",
+          "Lava geysers and magma surge-vents — environmental hazard along any pursued route",
+          "Wrecks of foundered galleons, some still holding cargo, coin, or trapped survivors",
+          "Fire-newt reef nests that swarm anything that runs aground"
+        ],
+        "encounters": [
+          "A running chase through the shoals as a corsair frigate herds the Ravyah toward the geyser fields",
+          "Fire elementals rise from a surge-vent when the party's hull scrapes an obsidian reef",
+          "Boarding or scuttling a wrecked corsair vessel to raid its hold"
+        ],
+        "secrets": [
+          "A foundered corsair ship in the shoals still holds a chained azer slave-hold below its buckled deck — the moral choice of the scenario",
+          "The largest drifting isle hides the mouth of Captain Zafirah's marid cove, a sanctuary for escaped azer"
+        ]
+      },
+      {
+        "name": "The Corsair Reaver Sirocco",
+        "description": "A salamander corsair frigate of Malik al-Nar's navy — a wicked, low-slung raider of blackened brass and bone-white bulwarks, its ram forged into a serpent's fanged maw, its decks crawling with coiled salamander reavers who slither faster than a man can run. The Sirocco flies no colors; it does not need to. In its buckled belly, behind iron grates, chained azer forge-slaves are shipped toward the City of Brass to be worked to death building the Grand Vizier's great machine.",
+        "features": [
+          "A serpent-ram prow and grappling-lines of red-hot chain for boarding",
+          "A slave-hold below decks — iron cages of azer captives, guarded and shackled",
+          "The captain's cabin, hung with charts marked in Ignan showing corsair patrol routes and a manifest bearing a Vizier's seal",
+          "Braziers and fire-cannon that hurl gouts of magma across boarding distance"
+        ],
+        "encounters": [
+          "A full boarding battle: salamander reavers, a corsair captain, and a bound fire elemental engine-guard",
+          "Freeing (or abandoning) the chained azer in the hold under fire",
+          "Recovering the manifest that first names Grand Vizier Malik al-Nar and reveals the Sultan has withdrawn"
+        ],
+        "secrets": [
+          "The manifest is sealed with the Vizier's mark, not the Sultan's — the first hard evidence that Malik al-Nar rules the City of Brass in the Sultan's absence",
+          "The corsair captain carries binding-tokens: iron sigils that compel salamanders, hinting how Malik controls his navy — and a clue to companion Vyx's dread"
+        ]
+      },
+      {
+        "name": "The Threshold of Brass (Approach to the City)",
+        "description": "The far shore of the Sea of Fire, where the molten horizon is broken at last by a shape too vast to be a mountain: the City of Brass, riding its colossal disc above the flame, its spires blazing like a second sun, its walls of hammered metal throwing back the light of the burning sea. Ships converge here into crowded, watched lanes beneath the guns of efreeti sky-galleys, and every captain lowers their voice, because from here on the rules belong to the efreet — and every word is a trap.",
+        "features": [
+          "The first full sight of the City of Brass rising from the molten sea — a cinematic vista and act-closer",
+          "Crowded approach-lanes patrolled by efreeti sky-galleys demanding papers, tolls, and answers",
+          "The Lightning Reefs — a final magma-shoal the Ravyah must thread to reach the customs road",
+          "Signal-beacons of green flame marking the safe channel into the city's cooling harbor"
+        ],
+        "encounters": [
+          "An efreeti customs sky-galley intercepts the Ravyah for inspection — bluff, bribe, or fight",
+          "A final corsair ambush at the threshold, timed to catch the party before the city's guns can intervene",
+          "Zafirah must decide whether to run her azer refugees past the customs blockade — and whether the party helps"
+        ],
+        "secrets": [
+          "Passing customs requires forged papers or a name that opens doors; Zafirah has neither, and the party's Act 2 choices determine what leverage she can offer",
+          "An efreeti inspector can be turned into an unwitting source, dropping the name of Malik's court and its bound-service law — foreshadowing scenario 3"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Stranded on the Elemental Plane of Fire, the party learns that the only road home runs through the City of Brass — and the only way there crosses the Sea of Fire, an ocean of molten rock ruled by the salamander corsair navy of the Grand Vizier. In the free-port of Cinderfall they must win passage from Captain Zafirah, a marid exile who ferries cargo and secret human freight aboard her brass galleon Ravyah. The crossing is a gauntlet: corsair raiders hunt the trade lanes, the molten shoals hide geysers and fire elementals, and life aboard tests whether the party can be trusted with Zafirah's most dangerous secret — the escaped azer she smuggles to freedom. When they take or raid a corsair vessel, they find its belly full of chained azer slaves bound for the forge-districts, and a sealed manifest that finally names their enemy: Grand Vizier Malik al-Nar, who rules the City of Brass while the Sultan has mysteriously withdrawn. The party must choose whether to free the slaves under fire, and carry that choice — and the corsairs' vengeance — to the very threshold of the City of Brass, which rises burning on the horizon as the scenario ends.",
+  "hook": "The party reaches the last headland of solid ground and the truth is undeniable: the rift home is gone, and the City of Brass — where efreeti lords can open a gate to the Material Plane — lies across an ocean of fire. Every honest captain in Cinderfall turned them away or vanished. Only one name keeps surfacing in the smoke-filled back rooms of the Broken Ladle: Captain Zafirah of the Ravyah, a marid who hates the efreet enough to run their blockade and take passengers no one else will. She does not trust strangers, she does not sail for free, and she is already being hunted. If the party wants to reach the City of Brass alive, they must convince her they are worth the risk — and survive the crossing.",
+  "acts": [
+    {
+      "title": "Act 1: The Price of Passage",
+      "description": "In the free-port of Cinderfall the party must secure passage across the Sea of Fire. This act emphasizes investigation, social maneuvering, and moral tone-setting: earning Captain Zafirah's trust, learning how the corsair navy hunts the lanes, and confronting the azer-slavery trade for the first time in the refugee shanties. It establishes the stakes, the enemy, and the price of taking the wrong contract.",
+      "objectives": [
+        "Find and win passage from Captain Zafirah aboard the Ravyah",
+        "Learn how the salamander corsairs hunt the trade lanes and why independent ships vanish",
+        "Discover the azer-refugee crisis and the conscription/slavery trade firsthand",
+        "Provision the galleon and prepare for a crossing that everyone warns will not be easy"
+      ],
+      "scenes": [
+        {
+          "name": "The Broken Ladle",
+          "description": "The party enters Cinderfall's chandler-tavern to find a captain willing to cross. The room is a smoke-thick den of smugglers, azer refugees, and salamander bounty-brokers, and the party's questions do not go unnoticed. Zafirah is here, watching from a shadowed booth, deciding whether they are marks, marks-to-be-robbed, or the rare thing worth the risk.",
+          "readAloud": "\"The Broken Ladle is the belly of a dead ship — an overturned brass hull half-buried in the obsidian shore, its ribs strung with lanterns of caged flame that throw everyone's shadow twelve feet up the curving walls. The heat inside is a living thing; sweat sheets off you before you've crossed the threshold. Salamander brokers coil at the bar, their scales clicking against the brass, and a knot of soot-stained azer refugees nurse cups in the far corner, watching the door as if it might come for them. From a booth wreathed in pipe-smoke, a tall figure in a coat of blue-green scale watches you over the rim of a cup — golden eyes, unreadable, already measuring what you're worth.\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 15, "success": "You read the room correctly: the scaled figure in the booth is the captain everyone whispers about, and she is not hostile — she is cautious. The salamander at the bar, however, keeps glancing at you and then at the door. He is marking you.", "failure": "The tavern is a wall of unfamiliar faces and hostile heat; you cannot tell friend from bounty-hunter, and you may blunder into the wrong conversation." },
+            { "skill": "Persuasion", "dc": 16, "success": "You convince Zafirah you are worth a hearing. She names her price — steep — and her terms, and warns you that anyone who sails with her sails against the corsair navy. She does not yet reveal her real cargo.", "failure": "Zafirah dismisses you as a liability or a plant. You'll need another angle — coin up front, a favor, or proof you can handle yourselves — before she'll reconsider." },
+            { "skill": "Investigation", "dc": 14, "success": "Working the room, you learn the pattern: 'independent' ships that file a manifest with the harbormaster tend to vanish in the shoals. Someone in Cinderfall is selling sailing plans to the corsairs.", "failure": "You gather only contradictory rumors and a few names, none of which cohere into anything useful." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Zafirah is the gatekeeper of the whole scenario — play her as proud, dry, and wounded under the armor. She despises the efreet and their slave trade but hides it behind mercenary bluntness. She is testing the party constantly: how they treat the azer refugees in the corner tells her more than anything they say. If the party is cruel or dismissive to the refugees, her price doubles or she walks. If they show decency, she softens. Do NOT let her trust come cheap or instantly — it should be earned across this act. The marking salamander broker is the seed of the Act 2 ambush.",
+          "loot": [
+            "A grey-market chandler's list: fire-resistant cargo netting, cold-iron harpoons, and alchemical brine (for sale, not free)",
+            "A whispered rumor (free, if the party is kind to the refugees): 'The corsairs answer to a Vizier now, not the Sultan. The Sultan's not been seen in a year.'"
+          ]
+        },
+        {
+          "name": "The Snatch-Gang",
+          "description": "In the refugee shanties, the party witnesses the slavery trade in the raw: a salamander snatch-gang dragging azer families toward a chained barge bound for the corsair fleet. This is the scenario's first moral flashpoint — and how the party responds decides whether Zafirah will ever trust them with her real secret.",
+          "readAloud": "\"The shanties press close and desperate, lean-tos of scavenged brass plate and salamander-hide against the last cliff of solid ground. You hear it before you see it — a child's cry, cut short, and the wet slither of something fast moving over hot stone. Around the corner, three salamanders have a knot of azer by the neck-chains: broad, bronze-skinned folk with hair of living flame, hands scarred from the forge, being hauled toward a low iron barge that rides the molten shallows. One of the azer — an old smith, his beard guttering like a dying coal — meets your eyes. He doesn't beg. He just looks at you, and waits to see what kind of people you are.\"",
+          "skillChecks": [
+            { "skill": "Intimidation", "dc": 16, "success": "You convince the snatch-gang that this cargo is more trouble than it's worth. They release the azer and withdraw, spitting curses — but they will remember your faces, and word travels to the corsairs.", "failure": "The salamanders laugh off your threats. They have a writ of conscription bearing a Vizier's seal, and they intend to use their blades to enforce it." },
+            { "skill": "Persuasion", "dc": 18, "success": "You buy the azer's freedom outright or talk the gang into a face-saving retreat. The old smith, Khadim (if using the companion), or a nameless elder, marks you as an ally and passes word to Zafirah that you are to be trusted.", "failure": "Words are not enough. The gang wants coin the party may not have, or blood." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 salamanders (snatch-gang)", "1 salamander overseer"],
+              "difficulty": "Medium",
+              "tactics": "The salamanders use Reach and their Heated Body to punish anyone who grapples them. The overseer stays back and tries to drag the chained azer onto the barge and cast off rather than fight to the death — the party may have to choose between killing the gang and stopping the barge. If the fight turns against them, the salamanders flee into the molten shallows where the party cannot easily follow, and carry a grudge into Act 2.",
+              "terrain": "Cramped shanty alleys of hot brass plate opening onto a molten-shallow barge dock. Narrow footing (5 ft lanes), spilled coals as difficult/damaging terrain, and the iron barge itself as a moving objective. Falling into the molten shallows is lethal (see lava hazard, dmTips)."
+            }
+          ],
+          "roleplayNotes": "This scene is deliberately placed before the party has fully earned Zafirah's trust — how they act when no one is 'grading' them is exactly what earns it. The azer are proud, not pitiable; they fight alongside the party if freed. Do not railroad a rescue: the party may pass by, may fail, may only save some. All are valid, and Zafirah's later trust (and price) scales to the outcome. This also plants the azer-slavery thread the whole scenario turns on, and can introduce the companion Khadim Emberhand as one of the captives if the table is using him.",
+          "loot": [
+            "The overseer's conscription writ, sealed with an unfamiliar mark (foreshadows the Vizier's seal)",
+            "A set of azer forge-tongs and a coil of unmeltable brass wire (30 gp, or gifted by grateful azer)",
+            "If the azer are freed: a fire-opal token that Zafirah recognizes as a mark of the underground railroad"
+          ]
+        },
+        {
+          "name": "Casting Off",
+          "description": "Passage secured, the party boards the Ravyah and the galleon puts to sea. This is a breather scene — establishing the ship, the crew, the cooling cistern that keeps them all alive, and the long dread of the crossing ahead. It is also where an observant party may notice the traitor aboard.",
+          "readAloud": "\"The Ravyah slips her cooling basin at the turn of the tide, her salamander-silk sails snapping taut in the fire-wind, and Cinderfall's last lanterns sink behind you into the smoke. Then there is nothing but the sea — a heaving plain of molten rock from horizon to horizon, glowing sullen orange, skinning over into black glass crusts that crack and sink and reform in the ship's wake. The brass hull ticks and groans as it drinks the heat. Amidships, a brass cistern sweats and shudders, and within it you glimpse a churning of impossible water — the bound elemental that is the only thing between this ship and a molten grave. Captain Zafirah takes the wheel herself, her golden eyes fixed on the burning horizon, and says, without turning: 'Three days to the shoals. Pray we're the only thing out here that's hungry.'\"",
+          "skillChecks": [
+            { "skill": "Perception", "dc": 15, "success": "On the night watch you catch a crewman at the rail, shuttering and unshuttering a hooded flame-lantern in a slow rhythm — signaling something out in the dark. There is an informant aboard.", "failure": "The watches pass without incident, and the signal-lantern's rhythm blends into the ordinary flicker of the ship's lights." },
+            { "skill": "Arcana", "dc": 14, "success": "You understand the cooling cistern's binding: the water elemental is the ship's beating heart, and if its brass housing is breached the Ravyah will glow, buckle, and sink into the melt within minutes. It is the ship's single point of failure — and its most obvious sabotage target.", "failure": "The cistern is clearly magical and important, but its exact function and fragility escape you." },
+            { "skill": "Persuasion", "dc": 13, "success": "Sharing a watch and a short ration, you win over a share of the crew. In Act 2 they'll fight harder at your side and one may take a blow meant for you.", "failure": "The crew stays wary of the passengers; you're cargo with legs until you prove otherwise." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Use this scene to build relationships and dread in equal measure. Let players talk to the crew, learn Zafirah's dry history (she'll deflect the marid-exile question hard — that's a scenario-3 thread), and feel the scale of the sea. If the party caught the traitor's signal, DON'T resolve it here — let it hang. Whether they confront, watch, or miss the informant changes how the Act 2 ambush unfolds (forewarned, betrayed at the worst moment, or blindsided). The cistern's fragility, seeded here, pays off when it's damaged in battle.",
+          "loot": [
+            "A berth, hot rations, and the grudging respect of the crew (or not)",
+            "If the informant is caught: a corsair signal-cipher and a binding-token stamped with a serpent sigil (ties to the corsair navy's chain of command)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Corsairs on the Molten Swell",
+      "description": "The crossing turns to war. The salamander corsair navy runs the Ravyah down, and the party must fight a naval battle across the burning sea, survive a chase through the geyser-riddled Obsidian Shoals, and hold the ship together as its cooling heart is threatened. This act is the scenario's action spine: ship-to-ship combat, boarding actions, fire elementals rising from the melt, and the mounting evidence of who truly rules the Sea of Fire.",
+      "objectives": [
+        "Survive the corsair Sirocco's pursuit and boarding action",
+        "Protect the Ravyah's cooling cistern from sabotage or battle damage",
+        "Navigate the running chase through the Obsidian Shoals and its lava hazards",
+        "Recover intelligence that begins to name the true enemy"
+      ],
+      "scenes": [
+        {
+          "name": "Sail on the Fire",
+          "description": "A corsair frigate — the Sirocco — appears on the burning horizon and gives chase. The party must help the Ravyah run, fight, or outmaneuver the faster raider across open molten sea, while ballistae trade cold-iron harpoons and magma-cannon across the swell.",
+          "readAloud": "\"'Sail!' The lookout's cry cracks across the deck. Off the port quarter, low and black against the glare, a shape cuts the molten swell faster than anything that size has a right to move — a corsair frigate, its prow forged into a fanged serpent's maw, its decks boiling with coiled shapes that catch the firelight and glisten. A gout of magma arcs from its bow and hisses into the sea a spear's length off your rail, throwing up a curtain of glowing spray. Zafirah's knuckles whiten on the wheel. 'The Sirocco,' she says, and for the first time you hear fear under the iron. 'Malik's own hound. Ballistae — NOW — and someone get below and guard my cistern with your life.'\"",
+          "skillChecks": [
+            { "skill": "Vehicles (Water/Fire)", "dc": 15, "success": "You read the fire-winds and the swell and coax an extra knot from the Ravyah, buying distance and letting the ballistae crews find their range. The party lands the first telling hit on the Sirocco's rigging.", "failure": "You misjudge a swell; the galleon wallows, the corsair closes the gap, and its grappling-crews ready their red-hot chains." },
+            { "skill": "Athletics", "dc": 14, "success": "You work a ballista under fire, driving a cold-iron harpoon into the Sirocco's hull and fouling its ram approach.", "failure": "The ballista jams or the shot goes wide, and the corsair lines up its serpent-ram for a boarding run." },
+            { "skill": "Perception", "dc": 15, "success": "You spot the corsair's plan: it's not trying to sink you, it's herding you — driving the Ravyah toward the Obsidian Shoals where the geysers and reefs will do its work. Knowing this lets Zafirah choose the ground.", "failure": "The corsair's maneuvering seems merely aggressive; the party doesn't realize they're being funneled into a trap until the shoals close around them." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["The corsair frigate Sirocco (as a naval-combat hazard: magma-cannon volleys, ram attempts, grappling runs)", "2 salamander harpooners firing from the corsair's rail"],
+              "difficulty": "Hard",
+              "tactics": "Run this as a naval chase, not a slugfest. The Sirocco is faster but the Ravyah is tougher; the corsair wants a boarding, not a sinking (chained slaves and cargo don't survive a scuttling). Alternate between ship-scale beats (dodge the ram, foul the rigging, weather a magma volley) and character-scale moments (a harpooner picks off a crewman, a fire cracks out on the salamander-silk that must be beaten out). Salamander harpooners have Reach and can drag a boarded character to the rail. Escalate toward the inevitable grapple that opens the next scene.",
+              "terrain": "Open molten sea with rolling swells (movement/positioning penalties on the pitching deck, DC 12 Dex to act at the rail without falling), drifting obsidian crusts, and the two ships' decks. A character knocked overboard lands in molten rock — see the lava hazard in dmTips."
+            }
+          ],
+          "roleplayNotes": "This is the set-piece the scenario has been promising — lean into cinema. Describe the heat-haze, the serpent-ram, the red-hot grappling chains hissing as they bite the rail. Give every party member something to do at ship-scale (the wizard can douse a sail-fire with a cold spell, the fighter can crew a ballista, the rogue can cut a grappling line). If the traitor from Act 1 was never caught, THIS is when he strikes — sabotaging the cistern or cutting a critical line at the worst moment. Do not let the naval math override drama: the point is the desperate, sweating fight to stay ahead of Malik's hound.",
+          "loot": []
+        },
+        {
+          "name": "The Cistern and the Boarding",
+          "description": "The Sirocco closes and grapples. Salamander reavers pour across red-hot chains onto the Ravyah's deck while, below, the cooling cistern is breached — by battle damage or the traitor's blade — and the hull begins to glow. The party must repel boarders topside AND save the ship's failing heart before it sinks them all.",
+          "readAloud": "\"Chains of glowing iron whip across the gap and bite deep into the Ravyah's rail, and the two hulls slam together with a shriek of tortured brass. Then they come — salamanders pouring over the side faster than thought, seven feet of coiled muscle and living heat, their spears already swinging. And below, from the direction of the cistern, you hear the sound every sailor on the Sea of Fire dreads: a sharp brassy CRACK, then the rising hiss of bound water boiling free. The deck beneath your boots begins, very faintly, to glow. Zafirah's voice tears across the chaos: 'The cistern's breached! Hold the deck and get BELOW or we all cook together!'\"",
+          "skillChecks": [
+            { "skill": "Tinker's Tools / Arcana", "dc": 16, "success": "Working in searing heat, you patch the breached cistern housing and coax the wounded elemental back into its binding. The hull's glow subsides. You've saved the ship — barely.", "failure": "The patch won't hold under battle conditions; the cistern keeps failing and the party is on a hard clock (see dmTips) to win the boarding fast and reach the shoals before the hull buckles." },
+            { "skill": "Perception", "dc": 14, "success": "You spot the traitor mid-sabotage — the signal-crewman from the night watch, a corsair blade in his hand at the cistern housing. Stopping him prevents further damage and reveals the corsair binding-token he carries.", "failure": "The saboteur melts back into the chaos; the damage is done and you never learn how the corsairs got aboard so cleanly." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 salamanders (corsair reavers)", "1 salamander corsair captain", "1 fire elemental (the Sirocco's bound engine-guard, if it boards)"],
+              "difficulty": "Deadly",
+              "tactics": "Split the party's attention — the whole point. Boarders press the deck while the cistern burns on a timer below. The corsair captain targets Zafirah (kill or capture the captain and the crew scatters). Salamanders use Heated Body and Reach; grabbing or grappling them deals fire damage. The fire elemental is IMMUNE to fire (see dmTips) — the party must reach for cold, force, radiant, or bludgeoning, or shove it overboard into its own element. If the cistern fails entirely, the fight becomes a fighting retreat toward the shoals as the deck grows too hot to stand on.",
+              "terrain": "Two grappled decks awash in coals and spilled magma (damaging difficult terrain), the belowdecks cistern chamber (cramped, rising heat), and the red-hot grappling chains themselves (crossable but 1d6 fire to grapple across). The pitching swell continues — DC 12 Dex to keep footing when the hulls grind."
+            }
+          ],
+          "roleplayNotes": "This is the scenario's hardest fight and its thesis on fire-immune foes: the fire elemental cannot be burned, and salamanders shrug off flame — a party that only brought fire damage is in real trouble, which is exactly the lesson the campaign wants to teach. Reward creative non-fire solutions (shoving the elemental into the sea, dousing a salamander with the ship's alchemical brine, cold-iron harpoons). Keep the cistern clock visible and tense but survivable. If a PC drops overboard into the melt, honor the lava hazard — this is a lethal scenario and the sea does not forgive. Zafirah fights like a cornered marid: brief flashes of water-magic that hint at what she really is.",
+          "loot": [
+            "The corsair captain's cutlass (a +1 weapon of blackened brass, deals cold damage — deliberately non-fire) and a pouch of 120 gp in efreeti trade-glass",
+            "A salamander binding-token, iron stamped with the serpent sigil (the corsairs are compelled, not merely loyal — a clue about how Malik controls his navy)",
+            "Charts of corsair patrol routes through the shoals, marked in Ignan"
+          ]
+        },
+        {
+          "name": "The Geyser Run",
+          "description": "Crippled or victorious, the Ravyah is driven into the Obsidian Shoals — a drifting maze of black reefs and lava geysers where the corsairs mean to finish the herding they began. The party must navigate the shifting channels, survive the surge-vents, and either lose their pursuers in the maze or turn and make a stand among the wrecks.",
+          "readAloud": "\"The open sea narrows and darkens as the Obsidian Shoals rise around you — jagged isles of black glass drifting on the tide, half-sunk reefs, the brass ribs of a hundred foundered ships jutting from the crust like the bones of drowned leviathans. The channels twist and close and open again as the isles grind past one another. And then the first geyser blows: a column of molten rock erupting from a surge-vent dead ahead, roaring forty feet into the smoke-choked sky, close enough that the heat sears your face and gobbets of glowing stone rain down across the deck. Somewhere behind you in the maze, a serpent-prow is still hunting.\"",
+          "skillChecks": [
+            { "skill": "Survival / Vehicles", "dc": 16, "success": "You read the drift of the isles and the pulse of the surge-vents, threading the Ravyah through the maze between eruptions. You break contact with the pursuers — or lure them onto a reef.", "failure": "You misjudge a channel; the hull scrapes an obsidian reef with a shriek, and something in the melt below takes notice (fire elementals rise — see combat)." },
+            { "skill": "Nature", "dc": 14, "success": "You recognize the rhythm of the surge-vents — they blow on a count. Timing your passage to the lull lets the party cross the geyser field unscathed.", "failure": "The vents seem to erupt at random; crossing the field means running the gauntlet blind (each round in the field, a random surge-vent may blow — 6d6 fire, DC 15 Dex for half)." },
+            { "skill": "Perception", "dc": 15, "success": "Among the wrecks you spot one that's different — a foundered corsair ship, recently sunk, its buckled deck still above the crust, and from within its hull comes a sound that shouldn't be there: the clank of chains and a hoarse, hopeless voice calling out. Survivors. Slaves.", "failure": "The wrecks are a blur of hazard and shadow; the party sails past the trapped slave-hold without noticing it (the DM may give a second chance via the marid cove thread, or let it stand as a haunting missed opportunity)." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["2 fire elementals (risen from a breached surge-vent)", "swarming fire newts (if the hull grounds on a reef nest)"],
+              "difficulty": "Hard",
+              "tactics": "The fire elementals are an environmental threat as much as an enemy — they rise where the hull scrapes the reef and try to board and spread fire across the deck and rigging. FIRE IMMUNE (see dmTips); force the party to non-fire answers again, or to simply outrun them by getting the ship back into open channel. Fire newts swarm only if the Ravyah grounds — a punishment for a failed navigation check, not a guaranteed fight. The real antagonist here is the terrain: geysers, drifting isles, and the ever-present pursuer.",
+              "terrain": "The Obsidian Shoals — shifting channels (the navigable map changes each round), lava surge-vents (6d6 fire in a 20-ft radius when they blow, DC 15 Dex half), drifting isles that can crush a ship between them (DC 15 Vehicles to avoid), and ship wrecks providing cover, salvage, and the trapped slave-hold."
+            }
+          ],
+          "roleplayNotes": "The geyser run is where 'chase across a lava sea' becomes literal — keep it kinetic and improvisational (see dmTips for running it loose). This scene also plants the moral choice of Act 3: the trapped corsair-wreck slave-hold. Whether the party notices it here, stumbles on it later, or is led to it by Zafirah's marid-cove contacts, the choice to divert and free the captives — under fire, at cost — is the scenario's ethical heart. Do not force it; make it available and let the party's character decide.",
+          "loot": [
+            "Salvage from the wrecks: a fire-resistant sea-chest holding 200 gp, a potion of fire giant strength, and a spare bound water-elemental core (a replacement cistern heart — invaluable to Zafirah)",
+            "Ignan-marked corsair navigation charts of the shoals (safe channels and geyser timings)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Hold of Chains and the Burning City",
+      "description": "The scenario's moral and narrative climax. The party confronts the chained azer slave-hold aboard a corsair wreck (or a captured Sirocco), makes the choice to free them or not, and in doing so uncovers the manifest that names Grand Vizier Malik al-Nar and reveals the Sultan has withdrawn. Then the Ravyah threads the final reef to the very threshold of the City of Brass — a cinematic arrival, an efreeti customs gauntlet, and the promise of the intrigue to come.",
+      "objectives": [
+        "Reach the corsair slave-hold and confront the moral choice of the captive azer",
+        "Recover the sealed manifest naming Malik al-Nar and revealing the Sultan's withdrawal",
+        "Decide the fate of the freed azer (Zafirah's marid cove, the City, or elsewhere)",
+        "Run the final approach and customs gauntlet to arrive in sight of the City of Brass"
+      ],
+      "scenes": [
+        {
+          "name": "The Hold of Chains",
+          "description": "Aboard the foundered corsair vessel (or the boarded Sirocco), the party descends into the slave-hold: iron cages of chained azer, worked to the bone and bound for the forge-districts, guarded and locked. Freeing them means fighting through guards, breaking bindings, and getting them off a sinking or contested ship under fire — a costly, deliberate choice.",
+          "readAloud": "\"You drop through the buckled hatch into a darkness that stinks of scorched iron and despair. Your light finds them slowly — rows of iron cages bolted to the canting deck, and inside, packed shoulder to shoulder, the azer: broad bronze folk with hair of guttering flame, their wrists raw beneath binding-shackles, their eyes hollow with the particular exhaustion of the forge-slave. An old smith presses his face to the bars. 'You're not corsairs,' he rasps, hardly daring the word. 'Are you... have you come to open the cages?' Behind you, the wrecked hull groans and settles another handspan into the melt. There is not much time, and there is a guard stirring in the dark at the far end of the hold.\"",
+          "skillChecks": [
+            { "skill": "Thieves' Tools", "dc": 15, "success": "You spring the cage locks and the binding-shackles. Freed, the azer are not helpless — the smiths arm themselves with anything to hand and fight beside you to escape.", "failure": "The efreeti-forged locks resist you; you'll need the guards' keys, brute force, or Khadim's forge-craft (if using the companion) to break them, costing precious time as the wreck settles." },
+            { "skill": "Arcana", "dc": 16, "success": "You recognize the binding-shackles as the same compulsion-magic on the salamander corsairs — the azer are magically bound to obey, and breaking the master-sigil frees them all at once. It bears a Vizier's mark.", "failure": "The shackles are clearly magical and cruel, but you can't unravel the binding by magic — only strike them off by hand, cage by cage." },
+            { "skill": "Persuasion", "dc": 14, "success": "You steady the terrified captives and organize an orderly escape up to the Ravyah. Even the weakest make it out. The old smith swears the azer clans will remember this.", "failure": "Panic spreads; the escape is chaotic and some captives are lost to the melt or the guards unless the party takes charge fast." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 salamanders (slave-hold guards)", "1 azer overseer-turncoat (a bound azer forced to guard his own kin — can be freed rather than killed)", "1 fire elemental (chained as a hold-guardian)"],
+              "difficulty": "Hard",
+              "tactics": "Fought in a cramped, canting, slowly-sinking hold — claustrophobic and urgent. The guards fight to keep the cages locked; the chained fire elemental (FIRE IMMUNE) guards the master-sigil and can be freed/turned if its binding is broken, becoming neutral or even aiding the party. The azer overseer is a tragedy, not a villain — a bound slave forced to guard slaves; a party that realizes this can break his shackle and turn him. The clock is the sinking wreck: every round it settles deeper and the heat climbs.",
+              "terrain": "A cramped, canting slave-hold below a foundered hull, iron cages as cover and obstacle, rising heat and seeping magma through a breached seam (damaging terrain that worsens each round), a single buckled hatch as the escape route."
+            }
+          ],
+          "roleplayNotes": "This is the ethical heart of the scenario — give it weight and give the players room. Freeing the azer is costly: it takes time under fire, risks the party, and paints a target on them for the corsair navy. Passing them by to save the ship and their own skins is a valid, human choice with its own consequences (Zafirah's contempt, a haunting the campaign can echo). Do NOT moralize at the table; let the choice speak. The old smith can be Khadim Emberhand (companion), whose secret guilt over the Cinder Gate makes his rescue resonate. However it goes, the master-sigil the party recovers here is stamped with the Vizier's seal — the thread that leads straight into the next scene.",
+          "loot": [
+            "The freed azer's gratitude: a masterwork set of fire-forged tools, a bar of star-iron (non-fire-conductive metal, 150 gp), and a standing debt the azer clans will honor in the City of Brass",
+            "The master-binding-sigil — an efreeti compulsion-relic stamped with Malik al-Nar's personal seal (KEY EVIDENCE)"
+          ]
+        },
+        {
+          "name": "A Name in the Smoke",
+          "description": "In the corsair captain's cabin (aboard the wreck or the taken Sirocco), the party finds the manifest — and reads, for the first time, the name of the enemy they've been fighting all along. The papers reveal that the corsair navy answers to Grand Vizier Malik al-Nar, that the azer are being shipped to build a great machine, and that the Sultan of the Efreet has withdrawn from all rule.",
+          "readAloud": "\"The captain's cabin is a nest of charts and cruelty — walls hung with maps of the burning sea marked in Ignan script, a strongbox of trade-glass, and manacles bolted to the bulkhead. On the chart-table, weighted under a dagger, lies a manifest sealed in wax the color of dried blood. You break it. The ledger lists cargo the way a butcher lists meat: azer forge-clans by the head, tallied and priced, consigned to the forge-districts of the City of Brass 'for the works of the Cinder Gate.' And at the foot of every page, the same seal, the same signature in a fine efreeti hand: By order of the Grand Vizier, Malik al-Nar, in the Sultan's Name — the Sultan being, the manifest notes almost carelessly, 'withdrawn from all audience and not to be troubled.'\"",
+          "skillChecks": [
+            { "skill": "Investigation", "dc": 15, "success": "Cross-reading the manifest and charts, you piece it together: one efreeti noble — Malik al-Nar — commands the navy, the slave trade, and something called the Cinder Gate, all under a Sultan who has not been seen in a year. This is who rules the City of Brass now.", "failure": "The papers are damning but fragmentary; you have a name, Malik al-Nar, but not yet the shape of his design." },
+            { "skill": "History", "dc": 16, "success": "You recall that the Sultan of the Efreet is the ancient, canonical ruler of the City of Brass, whose word is law across the Plane of Fire. For a mere Vizier to rule 'in his name' while he is 'not to be troubled' is either a regency — or a usurpation.", "failure": "The efreeti court is a mystery to you; you don't yet grasp how strange it is that a Vizier, not the Sultan, signs these orders." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the reveal the whole scenario has been building toward — deliver it as a quiet, chilling beat after the fury of the slave-hold. The name Malik al-Nar should land like a stone. Zafirah, reading over the party's shoulder, goes very still — she has hunted this name for years. Let the players connect the dots themselves (the binding-tokens, the conscription writs, the Cinder Gate reference) rather than lecturing. Plant, but do NOT resolve, the deeper question: why has the Sultan 'withdrawn'? That mystery is the engine of scenarios 3 and 4. Keep the Cinder Gate a name without explanation here — a hook, not a briefing.",
+          "loot": [
+            "The sealed manifest naming Malik al-Nar and referencing the Cinder Gate (KEY PLOT ITEM)",
+            "Ignan sea-charts of the full crossing and the City of Brass approach lanes",
+            "The corsair captain's strongbox: 300 gp in efreeti trade-glass and a single writ of safe-passage bearing a minor court seal (usable to bluff the customs gauntlet)"
+          ]
+        },
+        {
+          "name": "In Sight of the City of Brass",
+          "description": "The final beat: the Ravyah threads the last reef and the City of Brass rises burning on the horizon. The party must run the efreeti customs gauntlet — sky-galleys demanding papers and answers — decide the fate of their freed azer, and arrive in the shadow of the metropolis where every word is a trap and the real game begins.",
+          "readAloud": "\"For three days the horizon has been only fire and smoke. Now, as the Ravyah threads the last reef, the smoke thins — and you see it. The City of Brass. It does not sit upon the sea; it rides above it, a continent of hammered metal balanced on a colossal disc that floats upon the flame, its towers blazing so bright they throw a second sunrise across the molten water, its walls flinging back the light of the burning sea until the whole horizon is gold and terrible. Sky-galleys of black iron patrol the approach-lanes, and one is already turning toward you, a horn braying across the melt, signal-flags demanding you heave to and be inspected. Zafirah lets out a slow breath. 'Home of my enemies,' she murmurs. 'Whatever you do in there — trust no promise, and count your souls when you leave. The efreet never give. They only lend, and they always collect.'\"",
+          "skillChecks": [
+            { "skill": "Deception", "dc": 17, "success": "You bluff the customs inspector with the captured writ of safe-passage and a confident lie, and the sky-galley waves the Ravyah through into the cooling harbor — freed azer and all.", "failure": "The inspector smells something wrong. The party must bribe (heavily), fight (suicidal, under the city's guns), or surrender the 'cargo' — an unbearable choice after all they've done." },
+            { "skill": "Persuasion", "dc": 15, "success": "You turn the inspection into a conversation and draw the efreeti out: he lets slip that all trade now passes through the Vizier's ministries, that 'bound-service' is the law of the city, and that petitions to the Sultan are 'no longer received.' Foreshadowing for the road ahead.", "failure": "The inspector is all business and menace; you learn nothing and are lucky to pass at all." },
+            { "skill": "Insight", "dc": 14, "success": "You read the fear beneath the inspector's arrogance — even this efreeti official is afraid of the Vizier's court. Whatever Malik al-Nar is, the whole city walks softly around him.", "failure": "The efreeti's alien pride is unreadable; you can't tell menace from routine." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 efreeti (customs inspector, ONLY if the gauntlet turns to violence — a deadly, ill-advised fight under the city's guns)", "2 salamander marines (the inspector's escort)"],
+              "difficulty": "Deadly",
+              "tactics": "This encounter should almost never happen — it is the failure state, not the goal. The efreeti inspector is a wall of fire-immune power backed by the sky-galley's guns; fighting here is meant to feel suicidal, steering the party toward guile. If it does erupt, the efreeti uses its innate magic (wall of fire, invisibility, its own immunity to fire) and expects the sky-galley to blow the Ravyah out of the melt the moment blood is drawn. Use it to underscore the theme: in the City of Brass, force loses. Words — and their traps — are the only weapon.",
+              "terrain": "The crowded approach-lanes beneath the City of Brass, sky-galley guns bearing on the Ravyah from above, the final Lightning Reefs (magma-shoal) to either side, and the customs road ahead. Nowhere to run that the city's guns don't reach."
+            }
+          ],
+          "roleplayNotes": "End on the vista and the dread, not on dice. The reveal of the City of Brass should be a genuine 'wow' moment — spend words on it. The customs gauntlet is a taste of the scenario-3 intrigue: efreeti dealings are traps, promises are leashes, and even the inspector fears the Vizier. Resolve the freed-azer thread here according to the party's choices — Zafirah can spirit them to her marid cove, the azer clans in the city can shelter them, or a bad customs roll forces a heartbreaking last stand for their freedom. Whatever happens, close with the Ravyah passing into the shadow of the burning city and the promise that the true game — court, bargain, and betrayal — begins on the far side of that gate. That is the handoff to 'The City of Brass.'",
+          "loot": [
+            "Safe arrival in the City of Brass (the reward is the destination itself)",
+            "If the azer are delivered safe: a fire-opal sigil of the azer resistance (a token of welcome and aid in scenario 3)",
+            "Zafirah's standing offer of future passage and her hard-won trust (a recurring ally for the campaign)"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Captain Zafirah",
+      "role": "Ferry Captain / Reluctant Ally",
+      "description": "A tall, imperious marid exile in a long coat of blue-green scale, her skin faintly iridescent and cool to the touch in a world of fire, her eyes molten gold. She captains the brass galleon Ravyah with dry competence and a permanent air of someone waiting to be betrayed. Banished from her own people for a crime she will not name, she has made the Sea of Fire her exile and her war, running the efreeti blockade and smuggling escaped azer to freedom under the corsairs' noses.",
+      "motivation": "Zafirah loathes the efreet and their slave trade with a cold, patient hatred, and she quietly wages a one-woman war against Malik al-Nar's navy by ferrying azer escapees to a hidden cove. She takes the party's coin because she needs it, but she takes their measure because she needs allies more. She wants to strike at the trade that broke her, and she is testing whether these strangers are worth trusting with the thing that would get her killed — her underground railroad. She guards the secret of her exile fiercely; it is a thread for later."
+    },
+    {
+      "name": "Malik al-Nar",
+      "role": "Unseen Antagonist (named this scenario)",
+      "description": "The Grand Vizier of the City of Brass, an ambitious efreeti noble who does not appear in person this scenario but whose hand is on everything — the corsair navy, the slave trade, the conscription writs, the binding-sigils that compel salamanders and azer alike. Silver-tongued, patient, and cruel, he rules the City of Brass 'in the Sultan's name' while the Sultan himself has withdrawn from all rule. This scenario is where the party first learns his name and begins to grasp the scope of his design.",
+      "motivation": "Malik is assembling something called the Cinder Gate, and he devours azer forge-clans by the shipload to build it. He rules through binding-magic and fear, and the 'withdrawal' of the Sultan is stranger and darker than it appears. In this scenario he is a name on a bloody manifest and a seal on a slave-ledger — the enemy behind the enemy, whose true shape the party will not confront until the City and the Charred Reach beyond it."
+    },
+    {
+      "name": "The Old Smith (Khadim Emberhand, optional)",
+      "role": "Rescued Azer / Moral Anchor",
+      "description": "An aged azer forge-master with a beard of guttering coal and forge-scarred hands, first glimpsed among the conscripted refugees or chained in a corsair slave-hold. Proud even in chains, he does not beg — he simply waits to see what kind of people the party are. If the table is using the companion Khadim Emberhand, this is him; his rescue here plants the seed of a party member who carries a terrible secret about the very machine his people are dying to build.",
+      "motivation": "He wants his people free of the forge-districts and the binding-shackles, and he wants to strike back at the Vizier who consigns azer clans to death by the ledger. He knows the forge-districts and the works of the City of Brass better than any free creature should, and that knowledge — and his guilt over what he was once forced to build — makes him a dangerous ally and a haunted one."
+    },
+    {
+      "name": "The Salamander Corsair Captain",
+      "role": "Antagonist / Set-Piece Villain",
+      "description": "The master of the reaver frigate Sirocco — seven feet of coiled, blackened-brass menace, a serpent-bodied salamander whose fanged grin is fixed by the binding-sigil burned into the back of his skull. He hunts the trade lanes not entirely by choice: like his crew, he is compelled by Malik al-Nar's binding-magic, a slave who enslaves. He is nonetheless a lethal and cunning corsair, and killing him is the fastest way to break the Sirocco's crew.",
+      "motivation": "Bound to serve, the captain hunts azer and independent shipping for the Vizier's fleet, herding prey into the geyser-fields of the Obsidian Shoals. A perceptive party may glimpse the compulsion-sigil that drives him and wonder whether he, too, is a victim of the same chains he forges for others — a mirror of companion Vyx's dread, and a first hint at how Malik's control might be broken."
+    }
+  ],
+  "rewards": {
+    "xp": 6800,
+    "gold": "About 1,040 gp total (120 gp corsair pouch, 200 gp wreck sea-chest, 300 gp corsair strongbox, 150 gp star-iron bar, plus assorted trade-glass and salvage)",
+    "items": [
+      "Corsair captain's cutlass (+1 blackened-brass weapon, deals cold damage — a deliberately non-fire option)",
+      "Potion of fire giant strength (from the shoal wrecks)",
+      "A spare bound water-elemental core (a replacement cistern heart — invaluable to Captain Zafirah)",
+      "Master-binding-sigil stamped with Malik al-Nar's seal (key evidence; may be studied to counter efreeti compulsion magic)",
+      "The sealed corsair manifest naming Malik al-Nar and the Cinder Gate (key plot item)",
+      "Fire-opal sigil of the azer resistance (a token of aid in the City of Brass, if the azer are freed and delivered safe)",
+      "Writ of safe-passage bearing a minor court seal (single-use bluff to enter the city)"
+    ],
+    "story": "The party has crossed the Sea of Fire and arrived in sight of the City of Brass, but the true reward is knowledge and consequence. They now know the name of their enemy — Grand Vizier Malik al-Nar — and that he rules the City of Brass through a slave-fed war machine while the Sultan has inexplicably withdrawn. The choices they made on the burning sea travel with them: freed azer become allies and a resistance network within the city, or their absence becomes a quiet weight; Captain Zafirah becomes a hard-won friend and a recurring ferry across the flame, or a wary contractor who keeps her secrets. The corsair navy now hunts the party by name, and the doors of the burning city are opening onto a game of bargains, court intrigue, and wish-wording traps where force loses and every promise is a leash."
+  },
+  "twists": [
+    "The salamander corsairs are not merely loyal to Malik al-Nar — they are magically COMPELLED by binding-sigils burned into their flesh. The corsair captain hunting the party is as much a slave as the azer in his hold, a mirror that complicates every kill and foreshadows how Malik's control might one day be broken.",
+    "Captain Zafirah is not just a mercenary smuggler but a marid exile waging a secret war on the efreeti slave trade, running an underground railroad for escaped azer. Her mercenary bluntness is armor; the party's decency (or cruelty) toward the refugees determines whether she ever reveals her true cause — and her true nature.",
+    "The manifest the party recovers reveals the scenario's central bombshell: the Sultan of the Efreet, ancient and canonical ruler of the City of Brass, has 'withdrawn from all audience' and a mere Grand Vizier now rules in his name. What looks like a regency is the first visible edge of a usurpation the party cannot yet see the shape of.",
+    "The azer are not being enslaved merely for labor — the manifest consigns them to the 'works of the Cinder Gate,' a great machine whose purpose is never explained here. The party is shipping toward the City of Brass carrying the first thread of a design that reaches all the way to the Charred Reach and the fate of two worlds."
+  ],
+  "dmTips": [
+    "IMPROV LATITUDE — this scenario is a menu, not a rail. The scenes are building blocks you may reorder, cut, or invent around freely. If the party charters a different ship, stows away, or tries to fly across the sea, follow them — the required beats are only these: they cross the Sea of Fire, they clash with the corsair navy, they confront the azer-slavery trade and make a moral choice, and they learn the name Malik al-Nar and that the Sultan has withdrawn. Everything else — Cinderfall, the specific fights, the traitor, the geyser run — is flavor you can bend to the table. When player choices pull away from the written path, follow the players; the beats will find them.",
+    "HONOR PLAYER AGENCY over the plot. If the party befriends the corsair captain instead of killing him, freeing him from his binding-sigil, run with it — that's a better story than the one written, and it seeds the Vizier's downfall. If they refuse to free the slaves, do not punish them with authorial contempt; let the choice stand and let consequences (Zafirah's coldness, a haunting the campaign can echo) speak for themselves. Invent NPCs, side-deals, and complications on the fly; the world is a sandbox and the burning sea is big.",
+    "RUNNING A CHASE ACROSS A LAVA SEA: keep it kinetic and abstract, not a hex-grid slog. Track a simple 'distance' state (Closing / Even / Breaking Away) that shifts each round on the party's ship-scale checks (Vehicles, Athletics on a ballista, a clever spell). Every round, give ONE ship-scale beat (dodge the ram, weather a magma volley, foul the rigging) and ONE character-scale beat (a harpooner picks off a crewman, a sail catches fire, a boarder makes the rail). Let players narrate wild stunts and reward them with advantage. The geyser field adds a ticking hazard: each round in it, a surge-vent may blow (6d6 fire, DC 15 Dex half) — telegraph it one round ahead so players can react. The drifting isles can close a channel or crush a ship (DC 15 Vehicles). Don't roll for everything; roll when failure is interesting.",
+    "HANDLING FIRE-IMMUNE FOES is the campaign's core tactical lesson, sharpened here. Salamanders are RESISTANT to fire; fire elementals, efreeti, and most natives are outright IMMUNE. A party leaning on fireballs will feel useless — that's intended. Loudly reward non-fire answers: cold, force, radiant, thunder, and plain bludgeoning/piercing/slashing all land full. Environmental judo works beautifully — shove a fire elemental into deep melt (it's in its element but off your deck), douse a salamander with the ship's alchemical brine (improvised cold/water), drop a foe into cooling seawater analogues, or use the cold-iron harpoons and the cold-damage corsair cutlass. Remind players via NPC dialogue ('Steel and cold, not flame — flame's their mother's milk') rather than a lecture. Make fire immunity a puzzle to solve, not a wall to bang on.",
+    "THE LAVA HAZARD is lethal and unforgiving — this is a gritty, deadly scenario and the molten sea does not do dramatic rescues. A creature that falls into the Sea of Fire (or a surge-vent, or the molten shallows) takes catastrophic fire damage each round (guideline: 10d10 fire on entry and 6d10 at the start of each turn submerged, no save; adjust to your table's lethality) and sinks fast. Fire-resistant creatures halve it and can survive briefly; fire-immune natives swim in it freely (which is why the corsairs board rather than sink you). Telegraph the danger constantly — the heat, the glowing spray, the crewman who slips and is simply gone — so that when a PC goes over the rail, the players understood the stakes. Honor the dice: if a character dies to the melt, narrate it with weight and respect, then let the survivors carry it. Do NOT fabricate ledges, lucky handholds, or convenient rescues to undo an honest fall.",
+    "THE MORAL CHOICE (freeing the slave-hold) is the scenario's heart — protect it from railroading in BOTH directions. Do not force the rescue, and do not force the abandonment. Present it honestly: freeing the azer costs time under fire, risks the party, and marks them for the corsair navy's vengeance, while sailing past saves the ship and their skins at the price of their conscience. Make both the cost and the reward real, then step back and let the players' characters decide. Whatever they choose, the campaign remembers it — freed azer become a resistance network in the City of Brass; a hold left to sink becomes a quiet weight Zafirah and the story can echo. Never moralize at the table; let the choice speak.",
+    "PACING & TURN DISCIPLINE: end responses at genuine decision points and never narrate past a combat trigger, a boarding, or the arrival of a new threat without stopping for player input. The corsair ambush, the cistern breach, the descent into the slave-hold, and the customs gauntlet are all hard stops — set the scene, then hand the spotlight back. Short player confirmations ('sure,' 'we sail on') advance only the specific action discussed, not the whole crossing. When in doubt, stop early; the players can always say 'keep going.'",
+    "SEED THE NEXT SCENARIO but do not spend it. The Cinder Gate, the Sultan's true fate, the bound-service law, and Malik's court are all named or hinted here as hooks — leave them as mysteries. The customs inspector's fear, the Vizier's seal, the azer resistance token, and Zafirah's marid cove are the threads that pull into 'The City of Brass.' End the scenario on the vista of the burning city and the promise that force loses on the far side of that gate — the game there is bargains, court intrigue, and wish-wording traps, and the party is about to learn that the efreet never give. They only lend, and they always collect."
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "45340d76-3f22-4a05-a4f1-6c2455740f4b",
+  "name": "Khadim Emberhand",
+  "status": "alive",
+  "race": "Azer",
+  "subrace": "Forge-Clan Azer",
+  "class": "Fighter",
+  "level": 9,
+  "background": "Guild Artisan (Forge-Smith)",
+  "alignment": "Lawful Neutral",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 18,
+      "modifier": 4
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 88,
+    "current": 88
+  },
+  "armorClass": 20,
+  "speed": 25,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "History (smithing lore)",
+    "Insight",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Ignan",
+    "Primordial",
+    "Dwarvish"
+  ],
+  "equipment": [
+    "Brass-plated forge armor (heavy)",
+    "Reinforced tower shield",
+    "Emberhand warhammer (masterwork, +1)",
+    "Handaxe",
+    "Smith's tools (masterwork)",
+    "Portable anvil and tongs",
+    "Bellows-satchel of forge coals",
+    "Cinderweave Cloak (resistance to fire damage)",
+    "Ledger of clan names lost to conscription",
+    "A shard of the Cinder Gate keystone he cast (kept hidden)",
+    "Belt pouch containing 60 gp and 40 sp"
+  ],
+  "weapons": [
+    {
+      "name": "Emberhand Warhammer (+1)",
+      "attackBonus": 9,
+      "damage": "1d8+5",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Warhammer (two-handed)",
+      "attackBonus": 9,
+      "damage": "1d10+5",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Handaxe",
+      "attackBonus": 8,
+      "damage": "1d6+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Heated Body (unarmed / touch)",
+      "attackBonus": 8,
+      "damage": "1d10+4",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "Brass-plated forge armor",
+    "type": "heavy"
+  },
+  "features": [
+    "Fighting Style: Defense (+1 AC while wearing armor)",
+    "Second Wind (bonus action, regain 1d10+9 HP, once per rest)",
+    "Action Surge (one additional action, once per rest)",
+    "Extra Attack (2 attacks per Attack action)",
+    "Indomitable (reroll a failed saving throw, once per rest)",
+    "Martial Archetype: Champion (Improved Critical — crit on 19-20)",
+    "Remarkable Athlete (half proficiency to non-proficient STR/DEX/CON checks; longer running jump)",
+    "Illumination (sheds bright light 10 ft, dim light additional 10 ft)"
+  ],
+  "traits": [
+    "Fire Immunity (azer)",
+    "Heated Body (creature that touches Khadim or hits him with a melee attack takes 1d10 fire damage)",
+    "Heated Weapons (metal melee weapons deal an extra 1d6 fire damage on hit)",
+    "Superior Forge-Craft (advantage on smithing and metallurgy checks)",
+    "Bound to Flame (does not need to breathe; unharmed by extreme heat)"
+  ],
+  "spells": null,
+  "personality": {
+    "traits": "I measure my words like I measure metal — carefully, and never more than needed. When I have done wrong, I say so plainly and I do not spare myself. I take the heaviest load and the front rank without being asked.",
+    "ideals": "Craft. A thing built well outlives the one who built it, and a thing built for evil damns him forever. My hands must answer for what they have made.",
+    "bonds": "My forge-clan was marched in chains to the Charred Reach. I will free every one of them or die in the trying. And I will unmake the Gate I helped raise.",
+    "flaws": "My guilt is a hammer I turn on myself. I sometimes court death as penance rather than fight to live, and I distrust my own judgment because it once served a tyrant."
+  },
+  "appearance": "A broad, dwarf-like humanoid a shade under five feet, seemingly cast from living brass — his skin is burnished metal that glows amber at the seams, and his beard and eyebrows are literal flame, flickering low when he is calm and roaring when he is roused. Old hammer-scars and forge-brands mar his forearms, and a fresh, self-inflicted burn in the shape of a keystone sits over his heart. He wears brass forge-plate blackened by ash, and his warhammer is worn smooth at the grip. Bright light spills from him constantly, so he can never truly hide.",
+  "backstory": "Khadim Emberhand was forge-master of a proud azer clan in the outer districts of the City of Brass, a maker of gates, hinges, and the great brass keels of efreeti galleons. When the Grand Vizier Malik al-Nar's conscriptors came, they did not ask. Khadim's clan was marched to the Charred Reach and set to work on the frame of the Cinder Gate — a portal meant to loose the efreet upon the Material Plane. Khadim, the finest caster among them, was made to forge the keystone that anchors the whole structure. He did it. He told himself he had no choice, and for a time he believed it. Then, on a night when the overseers grew careless, he broke a salamander's grip, killed two guards, and fled across the Plains of Burning Dust, leaving his clan behind. He carries a shard of that keystone and the knowledge of exactly where the Gate is weakest — because he built the weakness in, a secret flaw hidden in the casting, hoping one day someone would come who could use it.",
+  "dmNotes": {
+    "roleplaying": "Khadim is the party's anchor and its conscience made of iron. Play him as slow to speak, immovable in a fight, and quietly wracked by guilt. He volunteers for the front rank, the rear guard, the door that might be trapped — always the dangerous post, partly from courage and partly from a need to atone. He respects competence and hates cruelty, especially cruelty dressed up as law. When the party debates a hard moral choice, Khadim is the voice that says the hard, honest thing. He is a superb smith and will repair the party's gear, reforge broken weapons, and read the make of any metalwork or structure — a skill that matters enormously near the Gate. Let his guilt surface in small ways: he flinches at the sound of chains, he over-pays azer refugees, he touches the burn over his heart when the Gate is mentioned.",
+    "voice": "Low, deliberate, and rough as a file on iron, with the clipped cadence of someone who thinks before every sentence. Uses forge and metal metaphors. Rarely raises his voice — when he does, flame roars off his beard and everyone notices. Example: 'A gate is only as strong as its keystone. I know this. I know it the way a man knows the name of his own crime.' When encouraging an ally, he is gruff but warm: 'Stand behind me. I have taken worse than this and gone back to the anvil the same night.'",
+    "motivations": "Primary: free his enslaved forge-clan from the Charred Reach. Secondary: unmake the Cinder Gate he helped build — total, personal atonement. Tertiary: protect the party as living proof that his hands can still make something good. Underneath it all, he wants to be able to forgive himself, and does not believe he ever will.",
+    "secrets": "SECRET: Khadim forged part of the Cinder Gate's frame — specifically its anchoring keystone — before he fled, and he knows the ritual structure's exact structural weak point because he deliberately cast a hidden flaw into it. He carries a shard of that keystone. If the party reaches the Charred Reach in Scenario 004, Khadim can show them precisely where to strike to collapse the Gate — but revealing this means confessing he built the thing in the first place, a confession he dreads. He has told no one. He half-expects the party to hate him when they learn it, and part of him believes he deserves that.",
+    "attitude": "Reserved and formal at first, fiercely loyal once trust is earned. He is protective of the weak, deferential to no tyrant, and openly contemptuous of Malik's court and its bound-service laws. He warms slowly to the party and treats their gear like his own children. Toward azer refugees and freed slaves he is tender in a way that surprises people. Toward efreeti nobility — including Nadira — he is guarded and watchful, having learned that highborn promises are how his clan ended up in chains."
+  }
+}

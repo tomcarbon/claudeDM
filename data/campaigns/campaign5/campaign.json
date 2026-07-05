@@ -1,0 +1,47 @@
+{
+  "id": "campaign5",
+  "title": "Realm of Eternal Flame",
+  "subtitle": "Into the Plane of Fire and the City of Brass",
+  "type": "open-world",
+  "levelRange": "9-18",
+  "estimatedSessions": "20+",
+  "synopsis": "A planar rift called the Emberscar tore open above the surface world, bleeding fire and ash into the mortal realm. Chasing it to the far side, the party crosses into the Elemental Plane of Fire — and the gate collapses behind them, stranding them in a blazing, hostile world where the ground is cinder, the seas are molten rock, and the sky itself burns. The only power that can open a road home rules from the City of Brass: the efreet, genies of fire and ambition, for whom every bargain hides a catch. To survive the Plains of Burning Dust, cross the Sea of Fire, navigate the deadly politics of the Charcoal Palace, and reach the Charred Reach beyond, the party must outlast a plane that wants them dead and outwit lords who deal in souls. Something is being built in the deep fire. Someone means to turn the Emberscar into a permanent road for a burning army. And the throne of the City of Brass is not sitting as it should.",
+  "hook": "You went through the rift to close it. It closed itself — behind you. Now you stand on an endless plain of burning dust under a sky of rolling flame, the way home sealed, and every native you meet tells you the same thing: only the efreeti lords of the City of Brass can open a gate between the planes. They can. Whether they will — and what they will ask in return — is the whole of the road ahead. Refugees flee the city in chains-scars. Salamander hunters comb the dunes for something, or someone. And far across the molten horizon, brass spires catch the firelight like a promise and a trap.",
+  "setting": {
+    "name": "The Elemental Plane of Fire",
+    "description": "An infinite, blazing plane where fire is not a hazard but the substance of the world. Rolling dunes of burning ash stretch beneath a sky of living flame; oceans of molten rock lap against shores of black glass; and cities of brass and obsidian rise where beings of fire forge, scheme, and rule. Water is precious and air runs hot enough to sear unprotected lungs. Salamanders, azers, fire elementals, magma mephits, fire giants, and the proud efreet call it home — and to most of them, a party of mortals is either prey, property, or a passing amusement. The plane does not hate intruders. It simply was never made to keep them alive.",
+    "atmosphere": "Relentless, radiant, and merciless. Heat presses on everything like a physical weight; the light never fully dims; and the beauty of the place — molten seas glowing gold, brass towers mirror-bright, ember storms sweeping the dunes — is inseparable from its lethality. Survival is measured in water rations and shade, and mercy is a currency few natives bother to spend.",
+    "regions": [
+      {
+        "name": "The Plains of Burning Dust",
+        "description": "A vast waste of ash dunes, obsidian mesas, and sudden firestorms where the party first arrives. Caravans of azer refugees flee across it, driven from the City of Brass by conscription, while salamander hunting parties range the dunes for escaped slaves and stranger quarry. Somewhere among the black-glass canyons, a brass dragon hides from those who hunt it. There is no water here that a mortal can drink and no shade that lasts, and the heat itself is an enemy that never sleeps."
+      },
+      {
+        "name": "The Sea of Fire",
+        "description": "An ocean of molten rock stretching past the horizon, crossed only aboard brass-hulled galleons whose keels ride the churning lava. Salamander corsairs prowl its currents under the Grand Vizier's banner, floating isles of cooled obsidian drift on the tides, and fire-newt reefs glow beneath the surface. Somewhere in a hidden cove, a marid exile runs a grey-market ferry for those with coin, cargo, or secrets worth carrying to the City of Brass."
+      },
+      {
+        "name": "The City of Brass",
+        "description": "The jewel and terror of the plane: a colossal metropolis of mirror-bright metal riding a great disc above the Sea of Fire, ruled by the efreet. Its Grand Bazaar sells anything for a price — including prices paid in years, memories, and souls. Bound elementals light its streets, azer forge-clans labor at spearpoint in its industrial districts, and in the Charcoal Palace the court intrigues beneath a Sultan who has not been seen in public for a long, long time. Here a careless word in a bargain can cost a lifetime of service, and everyone is selling something."
+      },
+      {
+        "name": "The Charred Reach",
+        "description": "The deep fire beyond the city, where the plane grows older and angrier: a caldera-tomb of a dead primordial, ringed by lava falls and swept by ember storms. Few efreet go there willingly, and fewer return. Something enormous is being built in its heart — a ritual of brass and bound flame vast enough to tear a permanent road between the planes — and whoever completes it will hold the fate of two worlds in an open hand."
+      }
+    ]
+  },
+  "linkedScenarios": [
+    "fp-scenario-001",
+    "fp-scenario-002",
+    "fp-scenario-003",
+    "fp-scenario-004"
+  ],
+  "wildernessStarts": [
+    { "x": 40, "y": 30, "label": "Emberscar Landing (Plains of Burning Dust)" },
+    { "x": 55, "y": 40, "label": "Obsidian Mesas" },
+    { "x": 45, "y": 55, "label": "Shore of the Sea of Fire" },
+    { "x": 62, "y": 60, "label": "The City of Brass" },
+    { "x": 72, "y": 78, "label": "The Charred Reach" }
+  ],
+  "explorationRules": "The Plane of Fire is actively hostile to mortal life. Between scenario locations, the DM runs survival-driven overland travel: each stretch of the Plains of Burning Dust or the Sea of Fire costs water and risks exhaustion. Unprotected characters make periodic Constitution saves against the heat (rising DC in firestorms or near lava), gaining levels of exhaustion on failure; fire-resistance gear (like the party's issued Cinderweave cloaks), the create-water/create-food magic, and shade or shelter mitigate this. Drinkable water is a genuine resource to track. Random events each leg: ember storms and heat mirages, salamander hunting parties or corsair patrols, azer refugee caravans and their news, drifting obsidian isles, ruins and relics of dead primordials, and grey-market traders who will sell passage, water, or information for coin or favors. Crucially, most fire-plane natives are immune or resistant to fire damage — parties that rely only on fire spells will struggle, and the DM should reward varied damage types and clever use of the terrain (dousing foes in the rare cold, collapsing obsidian, cutting binding-chains). Planar travel home is not freely available: only the efreeti lords of the City of Brass (or a freed brass dragon's magic, late in the tale) can open a gate, which is the engine of the whole campaign."
+}

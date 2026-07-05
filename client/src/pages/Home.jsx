@@ -118,6 +118,16 @@ function Home() {
         </div>
         <CampaignCards campaignId="nihon" locked={false} />
       </div>
+
+      {/* ── Realm of Eternal Flame (Elemental Plane of Fire) ── */}
+      <div className="tier-box tier-premium">
+        <div className="tier-header">
+          <span className="tier-badge tier-badge-premium">Premium</span>
+          <h3 className="tier-title">Realm of Eternal Flame 🔥</h3>
+          <p className="tier-subtitle">Stranded on the Elemental Plane of Fire, cross ash wastes and molten seas to the City of Brass, where every efreeti bargain hides a catch. Levels 9–18.</p>
+        </div>
+        <CampaignCards campaignId="campaign5" locked={false} />
+      </div>
     </div>
   );
 }

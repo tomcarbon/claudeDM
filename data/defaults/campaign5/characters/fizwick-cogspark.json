@@ -1,0 +1,173 @@
+{
+  "id": "fa952b51-a049-4495-a9ac-86c1cf6a7fd2",
+  "name": "Fizwick Cogspark",
+  "status": "alive",
+  "race": "Gnome",
+  "subrace": "Rock Gnome",
+  "class": "Wizard",
+  "level": 9,
+  "background": "Sage",
+  "alignment": "Chaotic Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 20,
+      "modifier": 5
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 54,
+    "current": 54
+  },
+  "armorClass": 15,
+  "speed": 25,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "intelligence",
+    "wisdom"
+  ],
+  "skills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Insight"
+  ],
+  "languages": [
+    "Common",
+    "Gnomish",
+    "Draconic",
+    "Primordial"
+  ],
+  "equipment": [
+    "Cinderweave Cloak (resistance to fire damage)",
+    "Quarterstaff",
+    "Two daggers",
+    "Arcane focus (a crystal orb wound with clockwork)",
+    "Spellbook (brass-bound, salamander-hide cover)",
+    "Bracers of Defense (+2 AC when unarmored)",
+    "Scholar's pack",
+    "A set of tinker's tools",
+    "Ink, quill, and a folio of planar diagrams",
+    "A belt pouch containing 55 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff",
+      "attackBonus": 3,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 6,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Ray of Frost (cantrip, ranged spell attack)",
+      "attackBonus": 9,
+      "damage": "3d8",
+      "damageType": "cold"
+    }
+  ],
+  "armor": null,
+  "features": [
+    "Spellcasting (Intelligence-based)",
+    "Arcane Recovery (recover spell slots totaling half wizard level on a short rest)",
+    "Arcane Tradition: School of Evocation",
+    "Evocation Savant (halved cost/time to copy evocation spells)",
+    "Sculpt Spells (protect allies from your own evocation spells)",
+    "Potent Cantrip (targets take half damage on a successful save vs. your cantrips)",
+    "Empowered Evocation (add Intelligence modifier to one evocation spell's damage)",
+    "Darkvision (60 ft)",
+    "Gnome Cunning (advantage on Int, Wis, Cha saves vs. magic)"
+  ],
+  "traits": [
+    "Artificer's Lore (double proficiency on History checks about magic items, alchemy, technology)",
+    "Tinker (construct tiny clockwork devices)",
+    "Prefers cold and force spells on the fire plane, where flame is nearly useless"
+  ],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 17,
+    "spellAttackBonus": 9,
+    "cantrips": [
+      "Ray of Frost",
+      "Fire Bolt",
+      "Mage Hand",
+      "Prestidigitation",
+      "Minor Illusion"
+    ],
+    "level1": {
+      "slots": 4,
+      "prepared": [
+        "Magic Missile",
+        "Shield",
+        "Mage Armor",
+        "Chromatic Orb",
+        "Feather Fall"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "prepared": [
+        "Misty Step",
+        "Mirror Image",
+        "Scorching Ray",
+        "Web"
+      ]
+    },
+    "level3": {
+      "slots": 3,
+      "prepared": [
+        "Counterspell",
+        "Fireball",
+        "Fly",
+        "Dispel Magic"
+      ]
+    },
+    "level4": {
+      "slots": 3,
+      "prepared": [
+        "Ice Storm",
+        "Wall of Force",
+        "Greater Invisibility"
+      ]
+    },
+    "level5": {
+      "slots": 1,
+      "prepared": [
+        "Cone of Cold",
+        "Bigby's Hand"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I have a working theory for everything and a device for most of it. I narrate my own spellcasting like a lecture nobody asked for.",
+    "ideals": "Knowledge. Every plane is a puzzle box, and the flame is the finest lock I have ever been invited to pick.",
+    "bonds": "My spellbook is bound in the hide of the first salamander that tried to eat me; I would burn the planes to keep it.",
+    "flaws": "My curiosity has a longer reach than my sense of self-preservation."
+  },
+  "appearance": "A diminutive rock gnome barely three feet tall, with wild copper hair perpetually singed at the tips and brass-rimmed goggles pushed up on his forehead. His fingers are ink-stained and heat-blistered, and a faint rime of frost clings to whichever hand last cast Ray of Frost. His orb-focus ticks softly like a pocket watch.",
+  "backstory": "Fizwick spent forty years cataloguing the Elemental Plane of Fire from a safe scholarly distance — reading, theorizing, and never once expecting to be sent there. When the Emberscar opened, the Ashen Vow needed someone who had studied the far side, and his life's work of diagrams and half-mad theories suddenly became the party's only map. He accepted at once, quietly thrilled, and immediately began preparing cold and force spells: fire, he lectured anyone who would listen, is precisely the wrong weapon to bring to a plane made of it."
+}

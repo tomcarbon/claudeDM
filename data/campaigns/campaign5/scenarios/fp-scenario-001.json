@@ -1,0 +1,302 @@
+{
+  "id": "fp-scenario-001",
+  "title": "Gate of Ash",
+  "subtitle": "No Way Back but Through the Fire",
+  "levelRange": "9-11",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "The Plains of Burning Dust",
+    "description": "An endless waste of grey ash and black glass beneath a sky the color of a smith's forge at midnight, the Plains of Burning Dust are the outer marches of the Elemental Plane of Fire. Here the ground itself smolders, obsidian mesas jut from dunes of powdered cinder, and rivers of slow magma carve glowing veins across the horizon. Nothing native to the Material Plane was meant to breathe this air, where every lungful is hot enough to blister and the wind arrives as walls of superheated grit. This is where the Emberscar rift spat the party out — and where it slammed shut behind them, leaving no seam in the burning air to mark the way home.",
+    "atmosphere": "Relentless, oppressive heat that never relents and never cools, a furnace that has no night. The light is the sullen orange of banked coals, and shadows are sharp-edged and violet. Sound carries strangely across the dunes — the distant boom of firestorms, the grinding groan of shifting obsidian, and, always at the edge of hearing, the hiss of things that hunt. The air tastes of sulfur and iron. Survival is not assumed here; it is earned, hour by hour, against thirst, exhaustion, and the plane's simple, patient hostility to living flesh.",
+    "keyLocations": [
+      {
+        "name": "The Emberscar Landfall",
+        "description": "A blackened crater of fused glass where the rift deposited the party, ringed by cooling splash-patterns of the molten rock thrown up when the gate tore open and then collapsed. The air here still shivers with residual planar energy, a fading scar in reality where home used to be within arm's reach. Twisted remnants of whatever else came through — scorched crates, a horse's bleached skeleton, a broken wagon wheel — lie half-buried in the ash, testament to others who crossed and did not last.",
+        "features": [
+          "A shrinking patch of unstable planar residue where the rift stood, giving off a faint pull that Detect Magic reads as a dying portal-echo",
+          "Fused-glass crater rim that provides the only defensible high ground for miles",
+          "Scattered debris from prior crossings — mundane Material-Plane gear now brittle and heat-warped"
+        ],
+        "encounters": [
+          "The dawning realization, mechanically enforced, that the rift is gone: any attempt to reopen or step back through fails",
+          "A pack of magma mephits boils up out of a nearby lava seam, drawn by the fresh planar disturbance and living warmth"
+        ],
+        "secrets": [
+          "A dying scholar of the Ashen Vow, half-buried in the debris, can gasp out that the City of Brass is the only place a gate home can be opened — before expiring",
+          "The planar residue will fully dissipate within a day; a Wizard who studies it (DC 20 Arcana) confirms the collapse was deliberate, sealed from the far side, not a natural failure"
+        ]
+      },
+      {
+        "name": "The Obsidian Mesas",
+        "description": "A range of sheer black glass tablelands rising from the ash sea like the broken teeth of a buried god. Their flanks are polished mirror-smooth by millennia of grit-laden wind, and their flat summits offer the only shade and the only vantage in the wastes. Salamander hunting parties use the mesa passes as ambush corridors, and the narrow defiles between them funnel travelers into killing ground. Heat pools in the airless canyons below, while the summits catch a scouring, blistering wind.",
+        "features": [
+          "Mirror-glass cliffs that require climbing gear and DC 15 Athletics to scale, but grant a commanding view of caravan routes and hunting parties from the top",
+          "Shaded overhangs that halve the pace of heat exhaustion for a party that shelters through the worst of the 'day'",
+          "Narrow defiles perfect for ambush by either the party or its hunters"
+        ],
+        "encounters": [
+          "A salamander hunting party lying in wait in a defile, coiled among the black rocks",
+          "A firenewt scouting patrol riding giant striders, tracking the azer caravans"
+        ],
+        "secrets": [
+          "One mesa summit bears the claw-scored, soot-blackened entrance to Auronax's hidden lair, invisible from below",
+          "Ancient azer glyphs cut into a sheltered mesa wall mark safe water-analog seeps (cooling vents) and the old refugee road to the Sea of Fire"
+        ]
+      },
+      {
+        "name": "The Azer Refugee Road",
+        "description": "A rutted track of packed cinder winding between the mesas, marked by the passage of many feet and the abandoned belongings of the desperate. Along it move the azer caravans — brass-skinned, flame-bearded forge-folk fleeing conscription into the Grand Vizier's war-works. Broken-down cook-wagons, a fallen elder wrapped in a smith's apron for a shroud, discarded tools too heavy to carry: the road is a story of people running from something worse than the wastes.",
+        "features": [
+          "A slow-moving caravan of azer refugees — families, forge-clan elders, and a handful of exhausted guards",
+          "Cook-fires and repair-forges that, ironically, are the safest camps in the waste because the azer know how to read the plane",
+          "Cached supplies and heat-ward charms the azer will trade or gift to those who prove themselves no threat"
+        ],
+        "encounters": [
+          "First contact with the azer caravan — tense, weapons half-drawn, until intentions are established",
+          "A salamander corsair raid on the caravan mid-scene, forcing the party to choose whether to defend strangers"
+        ],
+        "secrets": [
+          "The azer speak in fearful whispers of Malik al-Nar and the conscription gangs; an elder named Bhurax knows the City of Brass is where all roads — and all captives — ultimately lead",
+          "One young azer scout has seen the brass dragon Auronax in chains and can point the party toward the salamander camp where he is held"
+        ]
+      },
+      {
+        "name": "The Slag Pits",
+        "description": "A blistered expanse of open magma pools and crusted-over lava crust where salamander hunters make their camp and cage their catches. Chains of black iron, forged not to melt, hang from obsidian gibbets. Here the party may find the brass dragon Auronax — young, proud, and utterly furious at the indignity of capture — pinned beneath binding chains while his salamander captors decide whether to sell him to the City or simply flay him for his hide.",
+        "features": [
+          "Open magma pools that serve as both terrain hazard and execution pit (falling in is almost certainly lethal)",
+          "Anti-teleport binding chains of cold-forged black iron holding a captive of considerable value",
+          "A salamander war-camp of hide tents stretched over rib-bones, ringed by sentries"
+        ],
+        "encounters": [
+          "The salamander guard force and their fire-elemental brute holding the camp",
+          "A tense negotiation-or-rescue for the captive brass dragon Auronax"
+        ],
+        "secrets": [
+          "Auronax knows the safe routes to the Sea of Fire and can, in time, help reopen a gate home — but only if freed and genuinely befriended, not bullied",
+          "The salamanders were paid in azer captives by one of Malik al-Nar's factors; a branded requisition-slate in the camp names the Grand Vizier and hints at the Cinder Gate"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Contracted, coerced, or simply swept through the Emberscar rift, the party arrives on the Elemental Plane of Fire only to watch the gate collapse behind them — sealed, deliberately, from the far side. Stranded in the Plains of Burning Dust with no way home, they must first survive the wastes themselves: killing heat, failing supplies, and the slow grind of exhaustion. As they push deeper they encounter azer refugee caravans fleeing forced conscription into the war-works of the Grand Vizier Malik al-Nar, and the salamander hunting parties that prey on those caravans. In the salamander slag-pits they find a prize the hunters mean to sell — Auronax, a young brass dragon in binding chains. Freeing and befriending the proud dragon (never bullying him) gains the party their first true ally on the plane and their first real answer: the only power that can open a gate back to the Material Plane sits at the heart of the City of Brass, and the road there runs across an ocean of fire.",
+  "hook": "The Ashen Vow order paid in blood and gold to send the party through the Emberscar to close it from the far side — or perhaps the rift simply took them, uncaring, mid-battle on their own world. Either way, the last thing they see of home is the fire-torn sky above a burning city, and then the searing wrench of planar passage. When their vision clears they stand in a crater of black glass under a furnace sky, and behind them the rift shrinks, folds, and winks out — not fading naturally, but slammed shut as if a hand on the other side had closed a door. A dying scholar in the debris uses his last breath to tell them the truth: there is one way home, and it lies through the City of Brass. Everything between here and there wants them dead.",
+  "acts": [
+    {
+      "title": "Act 1: Landfall in the Ash",
+      "description": "The party arrives, the rift collapses, and the brutal reality of the Plane of Fire sets in. This act is about establishing the stakes — there is no easy way home — and introducing the plane's central survival pressure: heat and exhaustion. The first lethal encounter proves that this is a dangerous, high-level environment where fire damage is often useless against the natives.",
+      "objectives": [
+        "Survive the initial planar arrival and confirm the rift is gone",
+        "Learn from the dying Ashen Vow scholar that the City of Brass is the only route home",
+        "Endure the first stretch of the ash wastes and its heat/exhaustion mechanics",
+        "Repel the first native predators and discover that fire damage means little here"
+      ],
+      "scenes": [
+        {
+          "name": "The Gate Slams Shut",
+          "description": "The party materializes in the Emberscar landfall crater as the rift collapses behind them. The opening scene must land the emotional and mechanical weight of being stranded, then immediately test the party against a native threat that shrugs off fire.",
+          "readAloud": "\"The wrench of passage ends and you stagger onto ground that crunches like broken glass beneath your boots. The air hits you like the open mouth of a forge — a dry, roaring heat that dries your eyes and cracks your lips in a single breath. Overhead there is no sun, only a sky the deep sullen orange of banked coals, stretching horizon to horizon. Behind you, the Emberscar still hangs in the air, a wound of light through which you can just make out the fire-torn sky of the world you left. Then it shudders. The edges fold inward like burning paper, the light collapses to a point — and with a sound like a slammed iron door, it is gone. Where the way home stood, there is only shimmering, empty, superheated air. You are on the far side now. And you are alone.\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 20, "success": "Studying the fading planar residue, you confirm the rift did not fail on its own — it was sealed deliberately from this side, folded shut by an outside will. Someone did not want anyone following you through.", "failure": "The residual energy is chaotic and fading fast; you can tell only that the passage is well and truly closed, with no obvious way to reopen it from here." },
+            { "skill": "Survival", "dc": 15, "success": "You immediately grasp the danger of the heat and organize the party — rationing exertion and seeking the crater rim's meager shade buys time before exhaustion sets in.", "failure": "The disorientation of arrival costs precious minutes in the open heat; the first level of exhaustion will come sooner than it should." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 magma mephits", "2 fire elementals (lesser, use standard Fire Elemental stats)"],
+              "difficulty": "Medium",
+              "tactics": "The mephits boil up out of a lava seam first, harrying the party and using their death-burst and fire-breath to soften ranks, then the fire elementals surge in behind. Every one of these creatures is IMMUNE to fire damage — a party that leads with fireballs and flame-tongue blades accomplishes nothing. This encounter is a deliberate, early tuition in the plane's core rule: bring force, cold, radiant, or plain steel. Enemies target obvious spellcasters and anyone whose weapons glow with flame.",
+              "terrain": "Fused-glass crater with a raised, defensible rim. A live lava seam bisects the low ground — anyone shoved or knocked into it takes 10d10 fire damage. Loose ash provides difficult terrain and can be kicked up for improvised concealment."
+            }
+          ],
+          "roleplayNotes": "Do not rush past the collapse of the rift — let it land. The players should feel the door close. Let them try, once, to reopen or step back through, and let it fail, honestly. The dying Ashen Vow scholar (see loot/secrets) is the first thread of hope: he can be found before or after the mephit fight, and he gives the party their destination with his last breath. Emphasize the heat in every description; it is a character in this act.",
+          "loot": [
+            "The dying scholar's satchel: a heat-cracked journal naming the City of Brass and the efreeti lords as the only gate-openers, plus 30 gp in trade-bars and a Potion of Fire Resistance",
+            "A salvageable Cinderweave Cloak (grants resistance to fire damage) from a long-dead prior traveler in the debris",
+            "A brass-cased planar compass, needle spinning uselessly now, but which will later point toward strong planar gates"
+          ]
+        },
+        {
+          "name": "The First March",
+          "description": "The party's first real traverse of the ash wastes, where the enemy is the plane itself. This scene formalizes the heat-and-exhaustion survival loop that will recur throughout the campaign.",
+          "readAloud": "\"There is no path, only the endless grey-black expanse of ash rolling to a horizon that never seems to grow closer. The dust rises with every step, coating your throats, working into every seam of armor and cloth. The heat is a physical weight pressing down on your shoulders, and time bleeds together in the changeless orange light — an hour or a day, you cannot say. Then, ahead, a shape resolves from the shimmer: a range of black mesas rising like the fins of some vast buried beast, and at their feet, faint but unmistakable, the rutted track of many feet. Someone travels this waste. Someone survives it. The question is whether they will welcome you or hunt you.\"",
+          "skillChecks": [
+            { "skill": "Constitution", "dc": 13, "success": "You endure the march without succumbing; the heat taxes you but you press on unbroken. (This is the recurring heat-save mechanic — see dmTips.)", "failure": "The heat overwhelms you: gain one level of exhaustion. A creature without fire resistance or shelter must repeat this save each hour of open travel, the DC climbing by 1 each time." },
+            { "skill": "Survival", "dc": 14, "success": "You find a sheltered seam of cooling vents where the party can rest out of the worst heat, halving exhaustion accrual and letting a spent party recover a level of exhaustion on a long rest.", "failure": "There is no shelter to be found in the open; the party marches on, exposed." },
+            { "skill": "Perception", "dc": 15, "success": "You spot the caravan track and the dust-plume of movement ahead, and can choose your approach — openly, or from cover.", "failure": "You stumble onto the refugee road without warning, and whoever is on it sees you first." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene exists to teach the survival loop before stakes get lethal. Track exhaustion honestly and openly — the players should learn to manage it, seek shade, and value their Cinderweave Cloaks and fire-resistance sources. Reward clever planar survival (creating shade with spells, rationing exertion, moving during the 'cooler' banked-coal cycle). The mesas and the refugee road on the horizon are the bridge into Act 2.",
+          "loot": [
+            "A heat-ward charm scavenged from a dead traveler on the road (advantage on the first heat save each day, single use per day)",
+            "A cache of azer trail-rations (fire-baked hardtack, 'Ash-cake (10)') left at an old campsite"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Road of Refugees",
+      "description": "The party makes contact with the azer refugee caravans fleeing conscription and the salamander hunting parties that prey on them. This act builds the plane's politics — the shadow of Malik al-Nar and the conscription war-works falls across the wastes — and forces the party to choose sides in a fight that is not, at first, theirs.",
+      "objectives": [
+        "Make peaceful contact with an azer refugee caravan",
+        "Learn about the conscription gangs and the name Malik al-Nar",
+        "Survive or repel salamander hunting parties",
+        "Discover that a captive brass dragon is held in the salamander slag-pits"
+      ],
+      "scenes": [
+        {
+          "name": "Brass-Skinned Strangers",
+          "description": "First contact with the azer caravan. Tense, wary, and easily tipped into violence — but the azer are potential friends, not foes, and the scene rewards restraint and diplomacy.",
+          "readAloud": "\"They see you before you reach them. The caravan halts — a dozen laden cook-wagons and repair-forges drawn by lumbering fire-beasts — and figures spread out to meet you. They are shorter than a human, broad and heavy, their skin the dull gleam of unpolished brass, and their beards and hair are living flame that curls and snaps in the hot wind. Hammers and forge-tongs rise, not quite raised to strike. An elder steps forward, one hand on a great smith's maul, her molten eyes moving from face to face, weighing you. 'Material-walkers,' she says, her voice like coals settling in a grate. 'You reek of the Scar. Are you the Vizier's dogs come to drag us back to the forges — or are you as lost as you look?'\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 14, "success": "You convince the azer you are no agents of the Vizier but stranded travelers seeking a way home. Elder Bhurax lowers her maul and offers the party the safety of the caravan fires — and answers.", "failure": "The azer remain deeply suspicious and keep the party at spear's length, sharing nothing freely; they will not attack unprovoked, but they will not help either." },
+            { "skill": "Insight", "dc": 13, "success": "You read genuine terror beneath the azers' hostility — these are refugees running from something, not raiders. Naming their fear (conscription, the Vizier) as a shared enemy wins their trust faster.", "failure": "You misread the tension as simple aggression and risk escalating a standoff that never needed to happen." },
+            { "skill": "History", "dc": 16, "success": "You recall that azer forge-clans of the Plane of Fire have long resisted efreeti domination; framing yourselves as fellow enemies of the City's tyranny resonates deeply.", "failure": "You know nothing of azer politics and must win them over on sincerity alone." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The azer are proud, grief-worn, and honorable. Elder Bhurax leads this caravan; she lost half her clan to the conscription gangs and buried her forge-brother in the ash two days ago. She speaks the name Malik al-Nar with a mix of hatred and fear, and can explain — in broad, frightened strokes — that the Grand Vizier is building something terrible in the deep fire and feeding azer forge-clans into it. She confirms the City of Brass is where all roads lead. A young scout named Kel has seen a brass dragon in salamander chains and will guide the party to the slag-pits if trust is earned. Do NOT let this become a fight by default — the azer are the party's introduction to allies on this plane.",
+          "loot": [
+            "Elder Bhurax gifts a set of azer-forged Cinderweave wrappings (a spare fire-resistance layer) if trust is won",
+            "Trade goods: a vial of quenching-oil (douses one fire-based effect once), and a hand-drawn ash-map of the refugee road and the mesas"
+          ]
+        },
+        {
+          "name": "Corsairs on the Road",
+          "description": "A salamander hunting party — outriders of Malik's forces — falls on the caravan. The party must decide whether to defend strangers, and in doing so faces reach-weapon skirmishers who are immune to fire and deadly at range.",
+          "readAloud": "\"The attack comes with the wind. One moment the caravan grinds along the cinder track; the next, shapes pour down from a mesa defile — serpentine bodies of copper and flame, the upper torsos of warriors rising from long coiling tails, spears trailing sparks in their fists. The salamanders move like fire given hunger, encircling the wagons, driving the azer toward the open magma. An azer child screams. Elder Bhurax bellows and swings her maul, but the caravan guards are few and the raiders are many, and their eyes — burning coals in cruel faces — are already turning toward the strangers in Material-Plane steel. 'The Vizier pays well for brass-skins,' one hisses, tasting the air. 'And better for lost little heroes.'\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 15, "success": "You reach the encircled azer families in time to break the salamanders' line and pull the vulnerable clear of the magma's edge.", "failure": "You cannot cover the ground fast enough; a salamander drives an azer to the brink of a lava pool before you can intervene, raising the stakes of the fight." },
+            { "skill": "Intimidation", "dc": 16, "success": "A show of lethal force makes the surviving salamanders reconsider; if the raid is going badly for them, a failed morale check sends the rest slithering back into the mesas.", "failure": "The salamanders are contemptuous of Material-Plane softness and fight to the last." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["4 salamanders", "1 salamander flame-caller (use Salamander stats with the spellcasting of a Mage, fire spells reflavored)", "2 fire snakes (salamander young)"],
+              "difficulty": "Hard",
+              "tactics": "The salamanders fight as skirmishers, using their reach spears and Tail (grapple + fire) to control the battlefield and their Heated Body to punish anyone who closes. They are IMMUNE to fire and VULNERABLE to cold — a party that has learned the plane's lesson leads with cold and force. They prioritize dragging azer captives toward the magma and grappling spellcasters. If reduced below half strength and clearly losing, survivors attempt to flee to warn the slag-pit camp (which raises the alert level for the next scene).",
+              "terrain": "The refugee road between two mesas, cluttered with cook-wagons (cover and improvised barricades) and flanked by open magma pools. Wagons can catch fire; a burning wagon becomes a 10-ft hazard zone. The defile above is a salamander reinforcement route and a possible party escape/high-ground option."
+            }
+          ],
+          "roleplayNotes": "This is the first genuinely lethal fight of the campaign — play the salamanders as competent, cruel, and tactically smart. Let the dice fall honestly; at levels 9-11 a party can absolutely lose a member here if they fight fire with fire. The azer will remember whether the party defended them. Victory earns the loyalty of Bhurax's caravan and the guidance of Kel the scout to the slag-pits. If the party abandons the azer, the survivors scatter and the party loses that thread of aid — a valid but costly choice.",
+          "loot": [
+            "Salamander spears (reach weapons, deal an extra 1d6 fire on a hit for anyone willing to wield them)",
+            "A branded requisition-slate taken from the flame-caller, stamped with Malik al-Nar's seal, ordering 'brass-stock and the caged wyrm delivered to the pits'",
+            "40 gp in efreeti trade-brass and a pouch of fire-opals (worth 120 gp) carried by the raiders"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Caged Wyrm",
+      "description": "Following the requisition-slate and Kel's guidance to the salamander slag-pits, the party finds the captive brass dragon Auronax. This act climaxes with the choice of how to free him — through force, guile, or bargain — and how to treat him afterward. Auronax is proud; he can be freed but must be befriended, never bullied. His freedom is the party's first great ally and the key that names their true destination.",
+      "objectives": [
+        "Reach the salamander slag-pit camp and locate the captive Auronax",
+        "Defeat, outwit, or negotiate past the salamander guard force and their elemental brute",
+        "Free Auronax from the binding chains",
+        "Earn Auronax's trust and learn that the City of Brass is the only way home"
+      ],
+      "scenes": [
+        {
+          "name": "The Slag-Pit Camp",
+          "description": "The party approaches the salamander war-camp where Auronax is held. This scene supports stealth, assault, or negotiation, and confronts the party with a set-piece guardian: a fire giant enforcer or greater elemental in the salamanders' pay.",
+          "readAloud": "\"The slag-pits announce themselves long before you see them: a reek of sulfur and scorched hide, the clang of chains, and a deep, furious rumble that is not the plane's thunder but something living and enraged. From the lip of a dune you look down into a bowl of cracked lava-crust ringed with hide tents stretched over the rib-bones of things too large to name. Salamanders lounge and spar among the fires. And there, at the camp's heart, pinned spread beneath a web of black-iron chains that steam where they touch him, lies a dragon — young, sleek, his scales the burnished gold of polished brass, one wing bent at an angle that makes you wince. He thrashes, and the chains sing taut, and a salamander overseer lays a heated goad across his flank. The dragon does not cry out. He only fixes those molten-gold eyes on his tormentor and says, in a voice of dry, defiant wit, 'You'll want to savor this, worm. When I'm free, I intend to make the retelling last a very long time.'\"",
+          "skillChecks": [
+            { "skill": "Stealth", "dc": 16, "success": "The party threads the camp's blind spots, reaching the chains or a commanding position without raising the full alarm — the opening fight begins on your terms.", "failure": "A sentry catches your approach; the camp rouses to full alert and the guardian brute is ready when the fighting starts." },
+            { "skill": "Deception", "dc": 17, "success": "Posing as Vizier's factors come to collect the 'caged wyrm' (the requisition-slate sells it), you can walk into the camp and get close to Auronax before anyone thinks to question you.", "failure": "The overseer smells the lie; the ruse collapses and combat begins at a disadvantage." },
+            { "skill": "Investigation", "dc": 14, "success": "You spot the anchor-runes binding the black-iron chains; shattering or dispelling the central anchor (AC 17, 30 hp, or Dispel Magic vs DC 16) releases Auronax all at once, mid-fight, turning the tide.", "failure": "The chains' binding mechanism is not obvious; freeing Auronax will require freeing each of the four anchor-points individually under fire." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["3 salamanders", "1 salamander overseer (Salamander with extra hp)", "1 fire giant OR 1 efreeti enforcer (set-piece guardian — scale to party)", "2 magma mephits (camp alarm)"],
+              "difficulty": "Deadly",
+              "tactics": "This is the act's set-piece and the most dangerous fight so far. The set-piece guardian — a fire giant enforcer hurling molten boulders, or an efreeti in Malik's service wielding fire and invisibility — anchors the camp while salamanders flank. ALL are immune to fire. The salamanders focus on keeping the party away from Auronax's chains. The single greatest tactical lever is FREEING AURONAX: once loosed, the brass dragon is a powerful ally who breathes molten fire (useless on the immune salamanders, so he fights with claws, tail, and his Sleep breath / Frightful Presence, and his sheer bulk) and turns a Deadly fight winnable. Reward players who prioritize the chains over trading blows. If the guardian is a fire giant, it will try to bull-rush party members into the magma pits.",
+              "terrain": "A bowl of cracked lava-crust honeycombed with open magma pools (10d10 fire on a fall). Hide tents and rib-bone frames offer cover and can be collapsed onto enemies. The obsidian gibbets and chain-anchors are interactive objects central to the rescue. Thin crust in places may give way under a fire giant's weight (or a shove), opening new hazards mid-fight."
+            }
+          ],
+          "roleplayNotes": "The whole encounter pivots on Auronax. However the party enters — sneaking, bluffing, or charging — the smart and rewarding play is to free the dragon, and the scene should make that lever visible. Auronax is proud, funny, and fiercely dignified even in chains; he trades barbs with his captors and sizes up the party even mid-rescue. Crucially, he responds to respect, not command. A party that frees him and treats him as an equal gains a devoted ally; a party that frees him and then tries to leash, bully, or claim him as a mount earns cold contempt and, at best, grudging directions. Play his pride straight.",
+          "loot": [
+            "The salamander overseer's hoard-chest: 180 gp in efreeti brass, a Potion of Greater Healing, and a Ring of Warmth (fitting)",
+            "The black-iron binding chains (anti-teleport, valuable to the right buyer; Auronax will suggest melting them down out of spite)",
+            "A cache of azer captives' confiscated tools that can be returned to Bhurax's caravan for goodwill"
+          ]
+        },
+        {
+          "name": "The Dragon's Bargain",
+          "description": "With Auronax freed, the party earns their first ally and their true heading. This roleplay-driven denouement establishes the campaign's central goal: the City of Brass is the only road home.",
+          "readAloud": "\"The last chain falls away with a shriek of tortured metal, and Auronax rises — unfolding to his full length, favoring his hurt wing, but every inch of him regal despite the soot and the shackle-scars. He shakes himself, scattering ash, and turns those molten-gold eyes on you with an expression somewhere between wounded pride and dawning, grudging warmth. 'Well,' he rumbles, 'that was undignified. I had it entirely under control, you understand — another decade or two and I'd have talked them to death.' He huffs a curl of smoke, then dips his great head, once, in something that is almost a bow. 'Auronax. Youngest and finest of my line, hoarder of tales, and — it appears — in your debt. You have the look of the freshly stranded about you. Material-walkers, yes? Then hear the one truth that matters in all this burning waste: there is exactly one place where a gate home can be opened, and one set of hands cruel enough to open it. The City of Brass. The efreeti lords. And the road there runs across a sea of fire.' His eyes gleam. 'Fortunately for you, I know the way. Unfortunately for all of us, so does everyone who wants us dead.'\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 15, "success": "You speak to Auronax as an equal and a friend; he commits fully to guiding the party to the Sea of Fire and beyond, and shares what he knows of the City's dangers.", "failure": "Auronax gives you your heading and a wary respect, but keeps his distance for now — his full loyalty must still be earned on the road ahead." },
+            { "skill": "Insight", "dc": 14, "success": "You sense Auronax is holding something back — a personal grudge against the City that will surface later — and that his help is genuine but tangled with his own agenda.", "failure": "You take the dragon's bravado at face value and miss the shadow behind his humor." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the campaign's mission statement, delivered by its most charming NPC. Let Auronax be a delight — proud, verbose, hoarding stories the way other dragons hoard gold, quick with a joke and quicker to take offense at any slight to his dignity. He is the party's guide into scenario 2 (the Sea of Fire) and a recurring ally. End the scenario here, on the horizon: the mesas behind them, the distant glow of the Sea of Fire ahead, and the City of Brass a rumor of smoke on the edge of the world. This is a natural save-point and the launching pad for scenario 2.",
+          "loot": [
+            "Auronax's goodwill (the single most valuable reward of the scenario — an ally and guide)",
+            "Auronax gifts a scale shed in the fight: a Brass Dragon Scale that can be worked into fire-resistant armor or sold for 200 gp (he'd prefer you keep it)",
+            "Directions and a hand-scorched route-map to the shores of the Sea of Fire and the smuggler-captains who cross it"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Auronax",
+      "role": "Ally / Guide / Rescued Captive",
+      "description": "A young brass dragon of burnished gold scales and molten-gold eyes, sleek and proud even after captivity, with a bent wing slowly healing from his time in chains. Auronax is a hoarder not of coin but of stories, riddles, and clever turns of phrase, and he narrates his own life as though it were an epic already being written. Beneath the wit and the wounded dignity is real courage and real loneliness — he has been stranded and hunted on this plane long enough to hunger for company that treats him as a peer.",
+      "motivation": "Auronax wants his freedom, his dignity, and an audience worthy of his tales. Freed and respected, he becomes a devoted ally who genuinely wishes to help the party home — partly out of debt, partly out of his own unspoken grudge against the City of Brass and the efreeti who have made this plane a place of chains. He must be befriended, never bullied or claimed; any attempt to leash him earns cold contempt. His full loyalty is a reward earned across the road ahead."
+    },
+    {
+      "name": "Elder Bhurax",
+      "role": "Refugee Leader / Information Source",
+      "description": "A broad, grief-worn azer matriarch with skin of dull unpolished brass and a beard of guttering flame, leaning on a great smith's maul she is more than willing to use. She leads a caravan of forge-clan refugees fleeing conscription, and she has buried too many of her people in the ash to trust easily or grieve openly.",
+      "motivation": "Bhurax wants to get the surviving remnant of her clan out of the Vizier's reach and somewhere the conscription gangs cannot follow. She hates and fears Malik al-Nar in equal measure. She will aid travelers who prove themselves no threat and true enemies of the City's tyranny, trading knowledge, supplies, and the guidance of her scouts for protection and shared purpose."
+    },
+    {
+      "name": "Kel",
+      "role": "Scout / Guide to the Slag-Pits",
+      "description": "A young, quick azer scout with a nervous flicker to his flame-hair and a runner's wiry build, Kel ranges ahead of Bhurax's caravan to spot conscription gangs and salamander hunters. He has seen more of the wastes than any of his years should allow, including the brass dragon in the salamanders' chains.",
+      "motivation": "Kel wants to prove himself useful and to strike back, however he can, against the raiders who scattered his clan. He knows the location of the salamander slag-pit camp and will guide the party there if they earn the caravan's trust — hoping the freeing of the caged dragon might turn the tide against the hunters who prey on his people."
+    },
+    {
+      "name": "The Salamander Overseer",
+      "role": "Antagonist / Slaver-Hunter",
+      "description": "A cruel, coil-bodied salamander captain in the pay of Malik al-Nar's factors, its copper hide scarred from a hundred hunts and its coal-bright eyes lit with contempt for all soft-fleshed things. It runs the slag-pit camp, collecting azer captives and prize catches — like the brass dragon Auronax — for delivery to the City of Brass.",
+      "motivation": "The overseer serves the Grand Vizier's war-works for profit and for the pleasure of dominance. It sees the azer as stock and the dragon as a payday, and it regards the stranded party as either fresh captives or an amusing hunt. It fights cruelly and cleverly, and it will flee to warn the City's forces rather than die pointlessly — making it a thread that could reappear."
+    },
+    {
+      "name": "Malik al-Nar",
+      "role": "Distant Antagonist (unseen this scenario)",
+      "description": "The Grand Vizier of the City of Brass, an ambitious and silver-tongued efreeti noble whose name is spoken in fear across the wastes. He does not appear in person in this scenario, but his shadow falls over everything: the conscription gangs, the salamander hunters, the requisition-slates, and the caged dragon are all threads of his design. Patient, cruel, and endlessly clever.",
+      "motivation": "Malik is assembling the resources — azer forge-clans, captive elementals, prize creatures — for a war-work in the deep fire that the party does not yet understand. In this scenario his purpose is felt as pressure and dread: the reason the azer flee, the reason the salamanders hunt, and the reason a brass dragon lies in chains. He is the destination's dark heart, glimpsed only through his works."
+    }
+  ],
+  "rewards": {
+    "xp": 6800,
+    "gold": "Approximately 490 gp in efreeti trade-brass, fire-opals, and gems (30 gp scholar's bars, 40 gp raider brass, 120 gp fire-opals, 180 gp overseer's hoard, 120 gp in assorted gems and salvage)",
+    "items": [
+      "Cinderweave Cloak (resistance to fire damage) — salvaged from the landfall debris",
+      "Potion of Fire Resistance and Potion of Greater Healing",
+      "Ring of Warmth (recovered from the overseer's hoard)",
+      "Salamander reach-spears (+1d6 fire damage) and a Brass Dragon Scale (200 gp or fire-resistant crafting material)",
+      "Brass-cased planar compass (will later point toward strong planar gates)",
+      "Malik al-Nar's branded requisition-slate (plot item — first hard evidence of the Grand Vizier's design)"
+    ],
+    "story": "The party has survived their first steps on the Elemental Plane of Fire, learned that the only road home runs through the City of Brass, and won their first true ally in the brass dragon Auronax. They have also made an impression — for good or ill — on the azer refugees, and put themselves squarely on the radar of Malik al-Nar's forces. The requisition-slate names the Grand Vizier for the first time, planting the seed of the campaign's true conflict. Ahead lies the Sea of Fire and the smuggler-captains who dare to cross it, with the City of Brass a rumor of smoke on the burning horizon."
+  },
+  "twists": [
+    "The rift did not fail on its own — a Wizard studying the residue (DC 20 Arcana) discovers it was deliberately sealed from this side, folded shut by an outside will. Someone wanted the party stranded, or at least wanted no one following them through.",
+    "The salamander hunters are not free-roaming predators but paid agents of Malik al-Nar's conscription war-works, as the branded requisition-slate reveals. The wastes are not lawless — they are a hunting-ground managed from the City of Brass.",
+    "Auronax must be befriended, not bullied. A party that frees the dragon and then tries to leash him, ride him, or claim his hoard earns cold contempt and only grudging aid — the plane's first lesson that here, even rescue can be a transaction with strings, and pride matters more than gold.",
+    "Auronax carries an unspoken personal grudge against the City of Brass (surfaced only on a successful Insight). His help is genuine, but his agenda is his own — a thread that will complicate the road ahead."
+  ],
+  "dmTips": [
+    "These scenes are a MENU, not a track. Follow player agency: reorder, skip, or invent encounters and regions freely, and adapt to the dice. The party may reach the azer, the salamanders, or Auronax in any order — or bypass a beat entirely and reach the City of Brass by a route you invent. The four key locations are landmarks to hang improvisation on, not a corridor to march the players down. When in doubt, stop at a decision point and let the players choose their heading.",
+    "Run HEAT and EXHAUSTION as the plane's baseline threat. A living, non-fire-resistant creature traveling the open wastes makes a Constitution saving throw (DC 13, climbing +1 each hour of exposure) or gains a level of exhaustion. Fire-resistant creatures, those sheltering in shade/cooling vents, and those with Cinderweave Cloaks have advantage or are exempt. Shelter and a long rest can recover a level. Make the survival loop visible and let clever play (spell-made shade, rationing exertion, azer heat-charms) genuinely matter — but never fudge it into a non-threat. Exhaustion is a real clock.",
+    "FIRE-IMMUNE ENEMIES are the plane's central combat lesson. Salamanders, fire elementals, magma mephits, fire giants, azer, and efreet are ALL immune (or highly resistant) to fire damage — a party that leads with Fireball, Flame Strike, and flame-tongue weapons will feel helpless. Telegraph this early (the opening mephit/elemental fight) and reward players who pivot to force, cold, radiant, thunder, and plain steel. Salamanders are additionally VULNERABLE to cold — a party that figures this out should feel brilliant. Do not soften enemy immunities to spare a fire-heavy party; let them adapt.",
+    "This is high-level, LETHAL play. At levels 9-11 the salamander raid and especially the slag-pit set-piece can kill a careless party member — and that is correct. Decide DCs and enemy tactics before the dice fall and honor the results. A TPK or a death here is a valid outcome; the story bends to the dice, never the reverse.",
+    "The slag-pit fight pivots on FREEING AURONAX. Make the chains and their anchor-runes a visible, interactive tactical lever — a party that spends actions loosing the dragon turns a Deadly fight winnable, while a party that ignores him and trades blows with a fire giant will struggle. Reward the clever, thematic play.",
+    "Scale the set-piece guardian to your table: a fire giant for a martial, front-loaded party, or an efreeti (invisibility, wall of fire, wish-flavored threats) for a party that wants a taste of the efreeti cunning to come. Either way it should feel like the biggest thing they've faced this scenario.",
+    "Auronax is the emotional payoff — play him as a joy. Proud, verbose, a hoarder of stories and riddles, wounded in dignity as much as body, quick with a joke and quicker to take offense at any slight. He is the party's guide into scenario 2 and a recurring ally, so invest in the relationship. Let respect earn his loyalty and let bullying cost it, honestly.",
+    "Seed the larger campaign quietly. The name Malik al-Nar, the conscription war-works, the deliberately-sealed rift, and Auronax's hidden grudge are all threads for scenarios 2-4. Drop them as atmosphere and rumor here; do not over-explain. The players should leave this scenario knowing only that home lies through the City of Brass, and that something patient and cruel rules there.",
+    "End on the horizon. The natural save-point is Auronax's bargain, with the Sea of Fire glowing ahead. Complete the post-encounter checklist — award the XP, distribute loot, update world state (location: Plains of Burning Dust → shores of the Sea of Fire; ally gained: Auronax; antagonist named: Malik al-Nar) — before closing the session."
+  ]
+}

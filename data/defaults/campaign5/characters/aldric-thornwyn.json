@@ -1,0 +1,151 @@
+{
+  "id": "b818ae76-fc08-4ea5-9f00-b7d0cb8f8834",
+  "name": "Aldric Thornwyn",
+  "status": "alive",
+  "race": "Half-Elf",
+  "subrace": "",
+  "class": "Paladin",
+  "level": 9,
+  "background": "Noble",
+  "alignment": "Lawful Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 20,
+      "modifier": 5
+    }
+  },
+  "hitPoints": {
+    "max": 72,
+    "current": 72
+  },
+  "armorClass": 20,
+  "speed": 30,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "wisdom",
+    "charisma"
+  ],
+  "skills": [
+    "Persuasion",
+    "Insight",
+    "Athletics",
+    "Religion"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Sylvan"
+  ],
+  "equipment": [
+    "Cinderweave Cloak (resistance to fire damage)",
+    "+1 Plate Armor",
+    "Shield engraved with the Ancient Oak",
+    "+1 Longsword",
+    "Holy symbol of the Ashen Vow (a green flame within a laurel)",
+    "Explorer's pack",
+    "Signet ring of House Thornwyn",
+    "A scroll of pedigree",
+    "A vial of consecrated spring water",
+    "A belt pouch containing 45 gp"
+  ],
+  "weapons": [
+    {
+      "name": "+1 Longsword",
+      "attackBonus": 8,
+      "damage": "1d8+4",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Divine Smite (radiant, on hit, expend a spell slot)",
+      "attackBonus": 8,
+      "damage": "2d8 (3d8 vs. fiends/undead) per slot level",
+      "damageType": "radiant"
+    }
+  ],
+  "armor": {
+    "name": "+1 Plate Armor",
+    "type": "heavy"
+  },
+  "features": [
+    "Divine Sense (detect celestials, fiends, undead)",
+    "Lay on Hands (pool of 45 HP)",
+    "Fighting Style: Protection",
+    "Divine Smite (expend a spell slot to deal 2d8+ radiant on a hit)",
+    "Divine Health (immune to disease)",
+    "Extra Attack (two attacks per Attack action)",
+    "Sacred Oath: Oath of the Ancients",
+    "Channel Divinity: Nature's Wrath (ensnare a foe) and Turn the Faithless (turn fey and fiends)",
+    "Aura of Protection (allies within 10 ft add +5 CHA to saving throws)",
+    "Aura of Warding (you and allies within 10 ft have resistance to damage from spells)",
+    "Darkvision (60 ft)",
+    "Fey Ancestry (advantage vs. charm, immune to magical sleep)"
+  ],
+  "traits": [
+    "Skill Versatility (proficiency in two skills of choice)",
+    "Bears the Ashen Vow's green-flame brand over his heart"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 17,
+    "spellAttackBonus": 9,
+    "cantrips": [],
+    "level1": {
+      "slots": 4,
+      "prepared": [
+        "Bless",
+        "Cure Wounds",
+        "Shield of Faith",
+        "Ensnaring Strike (oath)",
+        "Speak with Animals (oath)"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "prepared": [
+        "Lesser Restoration",
+        "Aid",
+        "Misty Step (oath)",
+        "Moonbeam (oath)"
+      ]
+    },
+    "level3": {
+      "slots": 2,
+      "prepared": [
+        "Dispel Magic",
+        "Revivify",
+        "Aura of Vitality",
+        "Protection from Energy (oath)",
+        "Plant Growth (oath)"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak to a burning wasteland the same way I would speak to a spring meadow — with reverence for the life still fighting to hold on.",
+    "ideals": "Life. The green things and the living creatures will always outlast the fires that try to consume them.",
+    "bonds": "Every ember I let spread is a garden I failed to protect back home.",
+    "flaws": "My faith in renewal makes me slow to accept that some things must be let go."
+  },
+  "appearance": "A tall, willowy half-elf whose auburn hair is threaded with sprigs of pressed ivy that never quite wilt. His plate is chased with living-oak filigree, and a faint verdant sheen clings to him even amid ash — the Aura of Warding made visible. His eyes are the pale grey-green of new leaves.",
+  "backstory": "Heir to a minor forest barony, Aldric took the Oath of the Ancients before a grove that had sheltered his family for nine generations. When the Emberscar opened and firestorms began to scorch the old woods, he saw his oath and his homeland demand the same thing. He petitioned the Ashen Vow for a place among those crossing into the flame, trading his title for a longsword and a promise: that green things would grow again on both sides of the rift."
+}

@@ -1,0 +1,177 @@
+{
+  "id": "40cf9dcf-8d30-4932-9a87-c6b9073792af",
+  "name": "Seraphine Dawnwhistle",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Cleric",
+  "level": 9,
+  "background": "Acolyte",
+  "alignment": "Neutral Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 20,
+      "modifier": 5
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 63,
+    "current": 63
+  },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "wisdom",
+    "charisma"
+  ],
+  "skills": [
+    "Insight",
+    "Medicine",
+    "Religion",
+    "Persuasion"
+  ],
+  "languages": [
+    "Common",
+    "Celestial",
+    "Ignan"
+  ],
+  "equipment": [
+    "Cinderweave Cloak (resistance to fire damage)",
+    "+1 Half Plate Armor",
+    "Light crossbow",
+    "Case with 20 bolts",
+    "Silvered mace",
+    "Radiant holy symbol of the Dawnfather (a rising sun)",
+    "Priest's pack",
+    "A prayer book",
+    "5 sticks of incense",
+    "A belt pouch containing 40 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Silvered Mace",
+      "attackBonus": 4,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Light Crossbow",
+      "attackBonus": 6,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Sacred Flame (cantrip, DEX save DC 17)",
+      "attackBonus": 0,
+      "damage": "2d8+5",
+      "damageType": "radiant"
+    }
+  ],
+  "armor": {
+    "name": "+1 Half Plate Armor",
+    "type": "medium"
+  },
+  "features": [
+    "Spellcasting (Wisdom-based, prepare Wis mod + cleric level spells per day)",
+    "Divine Domain: Light",
+    "Bonus Cantrip: Light",
+    "Warding Flare (reaction, impose disadvantage on an attacker, Wis mod uses per long rest)",
+    "Channel Divinity: Turn Undead",
+    "Channel Divinity: Radiance of the Dawn (2d10+9 radiant in a 30-ft radius, no fire immunity relief)",
+    "Destroy Undead (CR 1 or lower)",
+    "Divine Intervention (call on the Dawnfather, 9% chance per long rest)",
+    "Potent Spellcasting (add Wis modifier to cantrip damage)"
+  ],
+  "traits": [
+    "Ritual Casting (can cast prepared cleric spells as rituals)",
+    "Extra language and skill proficiency from human versatility"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 17,
+    "spellAttackBonus": 9,
+    "cantrips": [
+      "Sacred Flame",
+      "Light",
+      "Guidance",
+      "Spare the Dying"
+    ],
+    "level1": {
+      "slots": 4,
+      "prepared": [
+        "Cure Wounds",
+        "Healing Word",
+        "Bless",
+        "Shield of Faith",
+        "Burning Hands (domain)",
+        "Faerie Fire (domain)"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "prepared": [
+        "Spiritual Weapon",
+        "Lesser Restoration",
+        "Aid",
+        "Scorching Ray (domain)",
+        "Flaming Sphere (domain)"
+      ]
+    },
+    "level3": {
+      "slots": 3,
+      "prepared": [
+        "Spirit Guardians",
+        "Revivify",
+        "Mass Healing Word",
+        "Beacon of Hope",
+        "Daylight (domain)"
+      ]
+    },
+    "level4": {
+      "slots": 3,
+      "prepared": [
+        "Death Ward",
+        "Guardian of Faith (domain)",
+        "Banishment"
+      ]
+    },
+    "level5": {
+      "slots": 1,
+      "prepared": [
+        "Greater Restoration",
+        "Flame Strike (domain)",
+        "Mass Cure Wounds"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I carry my own dawn into every dark place. Where others see only ash, I look for the first light through the smoke.",
+    "ideals": "Hope. No night is so long that the sun forgets to rise, and no soul is so lost that light cannot find it.",
+    "bonds": "The Ashen Vow trusts me to keep this company alive; I will bury none of them if a prayer can prevent it.",
+    "flaws": "I burn my own reserves too freely healing others, and have nearly guttered out more than once doing so."
+  },
+  "appearance": "A serene human woman in her thirties with sun-dark skin and a corona of tight golden-brown curls she keeps bound in a circlet of polished brass. Her half plate is enameled the pale gold of first light, and when she calls on her domain a soft radiance leaks from the seams of her armor. Faint sunburst scars mark where she has channeled the Dawn too hard.",
+  "backstory": "Seraphine served a frontier chapel of the Dawnfather that stood, by ill luck, directly beneath where the Emberscar first tore the sky. She sheltered her congregation through three nights of falling fire, her Warding Flare the only thing between them and the burning ash. When the Ashen Vow assembled a company to seal the rift from within, she volunteered before the recruiter finished speaking — she had already seen what the flame does to the unprepared, and meant to be the light that walks in ahead of it."
+}

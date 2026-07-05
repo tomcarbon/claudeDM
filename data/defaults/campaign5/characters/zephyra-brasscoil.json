@@ -1,0 +1,164 @@
+{
+  "id": "5c285aac-4e8a-478a-97a1-5769394109a6",
+  "name": "Zephyra Brasscoil",
+  "status": "alive",
+  "race": "Tiefling",
+  "subrace": "",
+  "class": "Sorcerer",
+  "level": 9,
+  "background": "Charlatan",
+  "alignment": "Chaotic Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 10,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 20,
+      "modifier": 5
+    }
+  },
+  "hitPoints": {
+    "max": 63,
+    "current": 63
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "constitution",
+    "charisma"
+  ],
+  "skills": [
+    "Persuasion",
+    "Deception",
+    "Arcana",
+    "Intimidation"
+  ],
+  "languages": [
+    "Common",
+    "Infernal",
+    "Draconic"
+  ],
+  "equipment": [
+    "Cinderweave Cloak (resistance to fire damage — layered atop innate tiefling resistance)",
+    "Quarterstaff",
+    "Two daggers",
+    "Arcane focus (a brass dragon-scale amulet, warm to the touch)",
+    "Dungeoneer's pack",
+    "A set of weighted dice and marked cards",
+    "A forged writ of passage stamped with a City-of-Brass seal",
+    "A belt pouch containing 65 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Quarterstaff",
+      "attackBonus": 3,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 6,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Chromatic Orb (ranged spell attack, choose damage type)",
+      "attackBonus": 9,
+      "damage": "3d8",
+      "damageType": "force/cold/lightning/acid/thunder/fire/poison"
+    }
+  ],
+  "armor": null,
+  "features": [
+    "Spellcasting (Charisma-based)",
+    "Sorcerous Origin: Draconic Bloodline (Brass Dragon)",
+    "Dragon Ancestor (Brass; can speak and understand Draconic, double proficiency on Cha checks with dragons)",
+    "Draconic Resilience (+1 HP per sorcerer level; AC = 13 + Dex mod when unarmored)",
+    "Elemental Affinity (add Charisma modifier to one fire damage roll; spend 1 sorcery point for fire resistance for 1 hour)",
+    "Font of Magic (9 sorcery points; convert between sorcery points and spell slots)",
+    "Metamagic: Quickened Spell, Twinned Spell, Empowered Spell",
+    "Darkvision (60 ft)",
+    "Hellish Resistance (resistance to fire damage)",
+    "Infernal Legacy (Thaumaturgy cantrip; Hellish Rebuke at 2nd level and Darkness, each once per long rest, Cha-based)"
+  ],
+  "traits": [
+    "Doubly fire-resistant (tiefling Hellish Resistance plus Elemental Affinity), but leans on force, cold, and lightning against fire-immune foes",
+    "Silver-tongued grifter who talks her way past bindings and bargains alike"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 17,
+    "spellAttackBonus": 9,
+    "cantrips": [
+      "Fire Bolt",
+      "Ray of Frost",
+      "Shocking Grasp",
+      "Mage Hand",
+      "Prestidigitation",
+      "Minor Illusion"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Chromatic Orb",
+        "Magic Missile",
+        "Shield",
+        "Charm Person"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "known": [
+        "Mirror Image",
+        "Scorching Ray"
+      ]
+    },
+    "level3": {
+      "slots": 3,
+      "known": [
+        "Counterspell",
+        "Fireball",
+        "Lightning Bolt"
+      ]
+    },
+    "level4": {
+      "slots": 3,
+      "known": [
+        "Greater Invisibility"
+      ]
+    },
+    "level5": {
+      "slots": 1,
+      "known": [
+        "Cone of Cold"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I could sell a salamander a scarf. Every locked door is just a conversation I haven't had yet.",
+    "ideals": "Freedom. Bindings, contracts, and cages exist to be slipped — especially the efreeti kind.",
+    "bonds": "The brass warmth in my blood is my one honest thing; I'd cross a plane of fire to learn where it came from.",
+    "flaws": "I bluff first and think second, and my mouth has written checks my spell slots can't always cash."
+  },
+  "appearance": "A striking tiefling with burnished brass-gold skin, curling horns filed to a polished sheen, and eyes like molten amber. A faint metallic shimmer runs along her jaw and knuckles — the mark of her draconic line. She dresses in scavenged finery, all confidence and misdirection, her dragon-scale amulet always warm against her sternum.",
+  "backstory": "Zephyra grew up running cons in a portside city, never quite fitting the infernal story her horns told — her magic answered to brass, not brimstone, and warmth pooled in her chest whenever she lied well. She was mid-swindle when the Emberscar opened over the harbor, and in the chaos she saw an opportunity too grand to pass up: a forged writ, a place among the Ashen Vow's expedition, and a free ride to the one city that might explain the dragon in her blood. She signed on as the party's face, telling herself it was just another job — and only half believing it."
+}

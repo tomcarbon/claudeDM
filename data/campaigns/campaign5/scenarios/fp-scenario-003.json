@@ -1,0 +1,381 @@
+{
+  "id": "fp-scenario-003",
+  "title": "The City of Brass",
+  "subtitle": "Every Bargain Has a Catch",
+  "levelRange": "13-16",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "The City of Brass",
+    "description": "A colossal efreeti metropolis riding a disc of hammered brass across the Sea of Fire, the City of Brass is the greatest and cruelest jewel of the Elemental Plane of Fire. Its walls are forty-foot ramparts of gleaming metal that never cool, its towers taper into needles that scratch a sky of smoke and ember, and its streets throng with efreet, salamanders, azer bond-servants, fire genasi, and a thousand kinds of merchant, thief, and enslaved elemental. Here anything can be bought — spices, secrets, songs, souls — and every transaction is a contract, every contract a snare. Bound-service law rules the districts: debt is chains, and chains are eternal. Above it all rises the Charcoal Palace, seat of the withdrawn Sultan, where the Grand Vizier Malik al-Nar holds court and, though few dare say it aloud, holds the throne.",
+    "atmosphere": "Heat that presses like a hand on the chest, and a perpetual amber twilight lit by molten canals and the glow of a hundred thousand forge-fires. The air tastes of hot brass, cinnamon, sulfur, and burnt sugar. Everywhere there is music, bargaining, and the ring of hammers — and everywhere, just beneath the splendor, the clink of chains and the flat, watchful eyes of the Sultan's guards. Splendor and dread braided so tightly they cannot be told apart. A place where a smile is a blade half-drawn and a promise is a leash.",
+    "keyLocations": [
+      {
+        "name": "The Brazen Gate and the Custom House",
+        "description": "The city's landward gate for those who arrive by galleon: a titanic archway of brass filigree flanked by two salamander sentries the size of siege engines, coiled around pillars of black glass. Beyond it squats the Custom House, where efreeti officials in robes of living flame catalogue every soul who enters, assign each a debt-bond of entry, and stamp travelers with a brand of smoke that marks their status in the city.",
+        "features": [
+          "A queue of the desperate, the enslaved, and the ambitious that never fully empties",
+          "Ledger-obelisks of black glass on which entry-debts are magically inscribed and cannot be erased without an efreeti's assent",
+          "A 'Traveler's Brand' of cool smoke pressed onto the wrist that glows brighter the deeper one falls into debt"
+        ],
+        "encounters": [
+          "Talking past the efreeti customs official Vashti Emberquill, who tries to bind each newcomer into an inflated entry-debt",
+          "A salamander sentry singles out the party if they carry obvious contraband, weapons of note, or a freed salamander (Vyx) in their company"
+        ],
+        "secrets": [
+          "The entry-debt is deliberately padded; a successful Insight or Investigation reveals the true rate is a tenth of what is quoted, and haggling it down earns grudging respect",
+          "Vashti keeps a private ledger of 'persons of interest' flagged by the Vizier's office — the party's names may already be on it if word of the Sea of Fire reached the city ahead of them"
+        ]
+      },
+      {
+        "name": "The Grand Bazaar",
+        "description": "An endless labyrinth of stalls, caravanserais, auction blocks, and shaded arcades that sprawls across half the city's disc. Under canopies of woven brass-thread and spider-silk, merchants sell everything the multiverse can produce and several things it cannot: bottled screams, a week of another person's memories, the true name of a minor devil, passage to any plane — for the right price. Slave-blocks stand beside spice-sellers; a fortune-teller's booth abuts an assassin's guild storefront that pretends to sell rugs.",
+        "features": [
+          "The Street of Bound Elementals, where fire, magma, and smoke elementals are sold in brass cages and rented by the hour to any buyer",
+          "The Cinnamon Tier, a merchants' quarter where information brokers hold court over glasses of molten-gold liquor",
+          "Auction blocks where 'passage home' and 'a gate to any world' are offered as headline lots — always with fine print"
+        ],
+        "encounters": [
+          "Bargaining with the information-broker Qadir ibn Sahl for the truth about who really rules the city",
+          "A pickpocket ring (fire genasi urchins) tests the party; one of them can be turned into a guide to the underclass",
+          "A slave-block sale of azer forge-workers being shipped to the Charred Reach — a moral flashpoint the party may try to disrupt"
+        ],
+        "secrets": [
+          "Every 'gate home' sold in the Bazaar routes through paperwork stamped by the Vizier's office, not the Sultan's — a paper trail proving Malik controls all planar traffic",
+          "The azer being auctioned are not being sold as labor; the manifest (Investigation DC 18) lists them as 'consignment to the Cinder Gate' — they are fuel"
+        ]
+      },
+      {
+        "name": "The Charcoal Palace",
+        "description": "A mountain of black brass and smoked glass at the city's heart, its spires venting gouts of flame like a living furnace. Within, the Court of Cinders convenes beneath a ceiling painted with the burning of a hundred conquered worlds. Courtiers of flame drift through halls of mirrored heat, and at the far end, upon a throne of coals, sits the empty splendor of rulership — for the Sultan is never quite present, and it is the Grand Vizier who speaks, and rules, in his name.",
+        "features": [
+          "The Court of Cinders, a throne room where petitions are heard and bargains are struck before a court that is all smiles and knives",
+          "The Whispering Colonnade, a gallery where nobles trade poisons, alliances, and rumor",
+          "The Sultan's Balcony, from which the ruler has not addressed the city in over a year — the drapes drawn, the throne shadowed"
+        ],
+        "encounters": [
+          "Navigating a formal audience before Malik al-Nar and his puppet court, where the 'gate home' bargain is offered",
+          "Efreeti nobles test the party with veiled insults, loaded questions, and offered gifts that are themselves contracts",
+          "Salamander palace guards and a bound fire elemental myrmidon escort — a fight the party should be steered to avoid"
+        ],
+        "secrets": [
+          "The Sultan does not sit on the throne of coals; a masked efreeti double does, animated on state occasions. Insight DC 20 during an audience notices the figure never speaks its own words",
+          "A sealed passage behind the Whispering Colonnade descends to the palace vaults where the true Sultan is imprisoned"
+        ]
+      },
+      {
+        "name": "The Palace Vaults",
+        "description": "Far below the Charcoal Palace, past bound-elemental wards and locked bronze doors, lies a vault of absolute silence and killing cold-by-contrast — a place kept unnaturally still amid the city's roar. Here, sealed within a brass sarcophagus inscribed with binding-glyphs that drink his fire, lies Sultan Marrash al-Djinni, the rightful ruler of the City of Brass, dimmed to a coal and dreaming in chains.",
+        "features": [
+          "The brass sarcophagus of the Sultan, ringed by seven binding-glyphs, each keyed to a different lock",
+          "A chamber of confiscated relics — trophies Malik has stripped from rivals and heroes over the years",
+          "Ever-burning brazier-wards that alert the palace if the vault is breached without the proper sigils"
+        ],
+        "encounters": [
+          "Slipping past or subverting the vault's warden, a bound noble efreeti who serves against her will",
+          "The moment of discovery — finding the Sultan alive, sealed, and aware — which recontextualizes every bargain the party has been offered"
+        ],
+        "secrets": [
+          "The Sultan can speak faintly through the sarcophagus and confirms the whole truth: Malik usurped him, imprisoned him, and builds the Cinder Gate in his name",
+          "Freeing him fully requires all seven glyph-keys, several of which are held by figures the party must recruit or defeat in Scenario 4 — this is a thread, not a same-visit payoff"
+        ]
+      },
+      {
+        "name": "The Ashfall Undercity",
+        "description": "Beneath the gleaming streets, in the disc's underbelly, live the city's forgotten: escaped bond-servants, azer resistance cells, exiled nobles, and the desperate poor who keep the forges burning and receive nothing for it. Lit by leaking magma-veins and the dull glow of illegal shrines, the Undercity is where rebellion breathes — quietly, carefully, and always one betrayal from the executioner's coals.",
+        "features": [
+          "The Broken Anvil, a hidden azer-resistance safehouse marked by a hammer split down its head",
+          "Nadira al-Zahra's exile-court, a faction of dissident nobles operating from a repurposed cistern",
+          "Smuggling channels connecting to Captain Zafirah's grey-market routes back to the Sea of Fire"
+        ],
+        "encounters": [
+          "First contact with the azer resistance, who suspect every stranger of being a Vizier's informant",
+          "Meeting Nadira al-Zahra, the Sultan's exiled heir, and weighing her offer of alliance against her naked ambition for the throne",
+          "A Vizier's purge-squad raids a safehouse while the party is present — a fight with real stakes for their new allies"
+        ],
+        "secrets": [
+          "Nadira knows her father is imprisoned rather than merely withdrawn, but has withheld it to keep the party dependent on her",
+          "The azer resistance is led by kin of the companion Khadim Emberhand and knows the Cinder Gate's structural weak point"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Stranded on the Elemental Plane of Fire, the party arrives at last at the City of Brass — the one place that can open a gate home. But the city is a gilded snare. To win passage they must survive the Custom House, work the Grand Bazaar for coin and truth, and secure an audience at the Charcoal Palace, where the Grand Vizier Malik al-Nar's puppet court offers them exactly what they want: a gate home. The offer is real. The wording is a trap — an efreeti bargain whose fine print binds them to eternal service, demands the life of one companion, or delivers the whole party to the Cinder Gate as ritual fuel. As they investigate, the party uncovers the city's central lie: the Sultan has not withdrawn — Malik has imprisoned Sultan Marrash al-Djinni in the palace vaults and rules in his name, building the Cinder Gate to invade the world beyond the Emberscar. To have any hope of a bargain that isn't a leash, the party must go underground, recruit the resistance — Nadira al-Zahra's dissident faction, the azer rebels, and their old ally the brass dragon Auronax — and prepare to bring the Vizier down. This is a chapter of tongues, not swords: intrigue, investigation, and a wish-bargain that will test whether the party reads the fine print.",
+  "hook": "The brass-hulled galleon slides into the Sea of Fire's greatest harbor and the City of Brass fills the whole horizon — a wall of gleaming metal taller than any mountain the party has seen, ringing like a struck bell in the heat. Somewhere behind those walls is the only power in this plane that can open a gate home. Captain Zafirah kills the galleon's fire-drive at the customs mooring, turns to the party, and says quietly: 'This is as far as I take you openly. In there, everyone smiles, and everyone lies, and the man who runs it all will offer you your heart's desire before you've finished bowing. Listen to every word twice. Especially the small ones.'",
+  "acts": [
+    {
+      "title": "Act 1: Through the Brazen Gate",
+      "description": "The party enters the City of Brass, navigates the Custom House and its debt-bonds, takes the measure of the Grand Bazaar, and begins to learn the city's rules — that everything is a contract, and every contract has a catch. This act establishes the intrigue, the stakes, and the party's first threads of leverage and suspicion. Emphasize atmosphere, social maneuvering, and investigation over combat.",
+      "objectives": [
+        "Pass through the Custom House without being crushed by an inflated entry-debt",
+        "Establish a base of operations and read the political temperature of the city",
+        "Work the Grand Bazaar for coin, contacts, and the first hints that the Sultan no longer rules",
+        "Draw the attention of, or seek out, someone who can arrange a palace audience"
+      ],
+      "scenes": [
+        {
+          "name": "The Custom House",
+          "description": "At the Brazen Gate, efreeti officials process the party's entry. The customs official Vashti Emberquill quotes a ruinous entry-debt and offers 'convenient' terms of bond-service to cover it. How the party handles this first contract sets the tone: those who read the fine print, haggle shrewdly, or invoke the right names fare far better than those who simply agree.",
+          "readAloud": "\"The Brazen Gate swallows you whole — an arch of brass filigree so vast the galleon behind you looks like a child's toy. Two salamanders thick as temple columns uncoil to watch you pass, their molten eyes tracking every step. Beyond, in the shade of the Custom House, an efreeti in robes of slow blue flame looks up from an obelisk of black glass. She does not rise. 'Newcomers,' she says, and it is not a greeting but an appraisal. 'Entry to the City of Brass is, of course, free. The debt is merely for... processing. Breathing our air. The honor of our streets.' She taps the obelisk and figures of fire crawl across it — a sum that would beggar a small kingdom. 'I can offer terms. Bond-service is so tidy. Sign here, and everything is arranged.' Her smile has too many teeth.\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 16, "success": "You catch it immediately: the quoted debt is padded tenfold, and the 'convenient terms' would bind you into indentured service the moment ink meets glass. She expects you not to notice. Naming the true rate earns a flicker of respect and a fair price.", "failure": "The figures blur together in the heat and the confident cadence of her voice; the deal sounds almost reasonable, which is exactly the danger." },
+            { "skill": "Persuasion", "dc": 15, "success": "You haggle the entry-debt down to a fraction, paying a modest fee in gold rather than in years. Vashti marks you as someone who knows the game — worth watching, worth not cheating twice.", "failure": "She holds firm, and the debt stands at an amount that will hang over the party unless resolved by other means." },
+            { "skill": "Deception", "dc": 17, "success": "You imply a connection to a noble house or a standing invitation to court. Vashti cannot verify it quickly and waves you through rather than risk offending a patron — but she flags your names in her private ledger for later scrutiny.", "failure": "Your bluff rings hollow; she summons a salamander sentry to 'assist with your documentation,' escalating scrutiny." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene teaches the entire chapter's grammar in miniature: in the City of Brass, the first offer is always a trap, and the fine print is where the danger lives. Reward players who slow down, ask questions, and read the contract. Do NOT punish a party that pays in gold to avoid trouble — but make clear that agreeing to a bond-debt has teeth. If a freed salamander (the companion Vyx) is in the party, the sentries take pointed notice; play the tension of a former slave walking free through the master's gate.",
+          "loot": [
+            "A 'Traveler's Brand' of cool smoke on each character's wrist (narrative status marker; glows brighter with debt)",
+            "If haggled well: a Custom House chit granting one free re-entry, useful later"
+          ]
+        },
+        {
+          "name": "The Grand Bazaar",
+          "description": "The party enters the sprawling Grand Bazaar to gather coin, gear, and — more importantly — information. Merchants and brokers will sell them anything, including rumors about the throne. Here the party first hears the headline lot whispered through the auction tents: passage home, a gate to any world, for sale. And here, if they dig, they find the first crack in the city's official story.",
+          "readAloud": "\"The Bazaar is not a market; it is a country made of markets. Canopies of brass-thread and spider-silk stretch to the smoke-hazed horizon, and beneath them flows a river of the multiverse's every appetite. A stall of bottled screams. A seller of other people's memories, uncorked for a sip. A rug-merchant whose eyes measure your throats. And threading through it all, criers calling the day's great auctions: 'PASSAGE HOME! A gate to any world you name! Bid at the Cinnamon Tier before the third bell!' The word 'home' lands in your chest like a hook. Somewhere in this din is everything you need — and everyone who would sell you to get it.\"",
+          "skillChecks": [
+            { "skill": "Investigation", "dc": 16, "success": "Tracing the 'passage home' auctions, you find every gate-contract in the Bazaar is stamped and cleared by the Vizier's office — not the Sultan's seal. Someone other than the throne controls all planar traffic in and out of the city.", "failure": "The auction system is a bureaucratic maze; you learn a gate can be bought but not who ultimately authorizes it." },
+            { "skill": "Persuasion", "dc": 15, "success": "The information-broker Qadir ibn Sahl, over a glass of molten-gold liquor, will part with a dangerous truth for the right coin or favor: 'The Sultan? Ah. No one has seen the Sultan address his city in over a year. The Vizier speaks for him now. Speaks... quite a lot.' He will say no more without greater payment.", "failure": "Qadir smiles, pockets your coin, and gives you only pleasant nothings; the deeper truth costs more than you offered." },
+            { "skill": "Sleight of Hand", "dc": 15, "success": "You catch and turn the tables on a fire-genasi pickpocket ring; the cornered urchin, impressed rather than afraid, offers to guide you through the Undercity for a cut.", "failure": "The urchins lift a small item or a pouch of coin before melting into the crowd — a minor loss, and a lesson." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the investigation engine of the chapter — let players pull threads in any order. Seed three breadcrumbs here: (1) all gates route through the Vizier, not the Sultan; (2) the Sultan hasn't been seen in a year; (3) azer are being 'consigned to the Cinder Gate.' Do not force all three; a party that only catches one still has a hook. Qadir is a repeatable information source — the DM should feel free to invent additional brokers, stalls, and rumors to match where the players push. The slave-block of azer bound for the Charred Reach is a deliberate moral flashpoint: if the party intervenes, improvise consequences rather than blocking them.",
+          "loot": [
+            "Access to the Bazaar's markets (fire-resistant gear, planar reagents, exotic consumables at DM discretion)",
+            "Qadir ibn Sahl as a recurring, purchasable information source",
+            "A stolen auction-house manifest (Investigation DC 18) listing azer 'consignment to the Cinder Gate'"
+          ]
+        },
+        {
+          "name": "An Invitation to Court",
+          "description": "Word of capable outsiders spreads quickly in a city that runs on leverage. Whether the party seeks an audience or the audience seeks them, a gilded summons arrives from the Charcoal Palace: the Grand Vizier Malik al-Nar wishes to receive the travelers who crossed the Sea of Fire. It is an honor, a trap, and an opportunity, all folded into one embossed brass card.",
+          "readAloud": "\"You return to your lodging to find a courtier waiting — an efreeti of impeccable poise, robes the deep red of banked coals, holding a card of embossed brass on a silk cushion as though it were a sacred relic. 'The Grand Vizier Malik al-Nar,' the courtier intones, 'Voice of the Sultan, Keeper of the Cinder, Hand of the Throne, extends his gracious welcome. He has heard of your... remarkable journey. He wonders whether the City of Brass might not be of service to travelers so far from home.' The card is warm to the touch, and the words engraved upon it read simply: An audience. At your convenience. The Vizier is patient. It does not feel like a request.\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 15, "success": "Every honorific on the card orbits the Vizier, not the Sultan. This summons comes from Malik personally, and the phrase 'the Vizier is patient' reads less like courtesy and more like a man who is very sure he will get what he wants.", "failure": "It reads as a straightforward, if grand, diplomatic invitation." },
+            { "skill": "History", "dc": 16, "success": "You recall or piece together that a Grand Vizier speaking for the Sultan is a role, not a rank — and that in efreeti law, the Voice of the Sultan can bind the city's power only while the Sultan lives and consents. That consent has not been publicly demonstrated in a very long time.", "failure": "You know efreet honor their contracts obsessively, but the specifics of their court law escape you." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene bridges to Act 2. The party can accept immediately, or spend time preparing — gathering intelligence, securing allies, or learning wish-bargain law before they walk into the Vizier's court. Reward preparation: a party that learns how efreeti wishes are worded (through Qadir, a sage, or the Undercity) will have a real chance to catch the catch in Act 2. If the party refuses the audience entirely, Malik simply escalates his charm and patience — he wants them at the Cinder Gate, and there is more than one way to arrange it.",
+          "loot": [
+            "The Vizier's audience card (grants entry to the Charcoal Palace)",
+            "If the party researches beforehand: a broker's primer on efreeti wish-wording (mechanical aid for spotting the Act 2 catch)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Puppet Court",
+      "description": "The party attends the Court of Cinders and receives the Grand Vizier's offer: a genuine gate home. But the bargain is an efreeti wish-trap, its fine print a leash. This is the intrigue centerpiece of the chapter — a scene of tongues and contracts where the party must read the catch, counter-offer, stall, or refuse. Woven through it are the clues that the throne itself is a lie: the Sultan does not truly sit upon it.",
+      "objectives": [
+        "Attend the audience at the Court of Cinders and survive its social hazards",
+        "Recognize the catch in Malik al-Nar's 'gate home' bargain before agreeing to anything",
+        "Notice the cracks in the court's story — the silent Sultan, the masked double, the Vizier who rules",
+        "Leave the palace with leverage rather than a leash"
+      ],
+      "scenes": [
+        {
+          "name": "The Court of Cinders",
+          "description": "The party is received in the great throne room of the Charcoal Palace. Malik al-Nar presides — silver-tongued, patient, gracious — while a court of efreeti nobles watches like cats at a mouse-hole. Petitioners come and go; gifts are offered that are secretly contracts; every pleasantry is a probe. The party must hold their own in a room where a misplaced word can cost a soul, all while the throne of coals sits behind Malik, occupied by a figure who never quite speaks.",
+          "readAloud": "\"The Court of Cinders opens before you like the inside of a furnace made beautiful. The ceiling is a mural of burning worlds; the courtiers are flame given the shape of nobility, drifting and murmuring, every eye upon you. And there, descending from a dais of coals, comes the Grand Vizier himself — Malik al-Nar. He is magnificent: tall, robed in red and gold, his beard a curl of contained fire, his smile as warm as a hearth and as fixed as a mask. 'Welcome,' he says, and his voice is a balm. 'Travelers from beyond the Emberscar. So very far from home. You must be exhausted. You must be homesick.' Behind him, half in shadow on the throne of coals, sits a crowned figure who does not move, does not speak, does not so much as turn its head. 'Come,' says Malik, spreading his hands. 'Let us discuss how the City of Brass might send you home.'\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 20, "success": "You watch the crowned figure on the throne through the whole audience. It never speaks its own words. When it 'assents,' Malik's lips move a half-beat before its do. That is not the Sultan ruling — that is a puppet, or a double, animated for show.", "failure": "The Sultan seems merely aloof and silent, as befits a distant, weary ruler." },
+            { "skill": "Persuasion", "dc": 17, "success": "You navigate the court's barbs and loaded gifts with grace, declining the contract-laden 'presents' without offense and earning a measure of standing. Malik's estimation of you rises — which makes him both more respectful and more careful.", "failure": "A misstep — accepting a gift, an incautious boast — hands the court a small hook into the party, a debt or obligation to be called in later." },
+            { "skill": "Arcana", "dc": 18, "success": "You sense the binding-magic saturating the room: the court itself is a contract-engine, and the Vizier's words carry the weight of enforceable magic. Whatever he offers, if agreed to aloud, will bind as surely as a signed pact.", "failure": "You feel the ambient power but cannot tell that spoken agreement here is magically binding — a dangerous blind spot." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Play Malik as genuinely charming, never a mustache-twirler. He offers real courtesy, real sympathy, real help — that is what makes him dangerous. The masked double on the throne is the single most important clue in the chapter; reward any player who watches it. Salamander guards and a bound fire elemental myrmidon line the walls, and the DM should make it visually clear that starting a fight here is suicide at this stage — this is a scene to WIN with words. Let the players feel the room's teeth without drawing blood.",
+          "loot": []
+        },
+        {
+          "name": "The Bargain",
+          "description": "Malik al-Nar makes his offer plainly: a permanent gate home, opened by the power of the City of Brass, in exchange for terms. The offer is real — the gate would genuinely work. The catch is in the wording, and it is monstrous. This is the wish-bargain the whole chapter builds toward; the party must parse it, counter it, stall it, or walk away.",
+          "readAloud": "\"'Here is what I can give you,' Malik says, and the whole court leans in. 'A gate. Not a merchant's flickering doorway, but a true and permanent passage, opened by the might of the City of Brass, delivering you home — the very world you left bleeding beyond the Emberscar. I ask so little in return.' He lets the silence stretch, warm and generous. 'Only that you enter my service, and the service of this throne, for as long as the gate shall stand. A small thing. A formality. Swear it, and I will open the way this very night.' His smile widens. 'You would be home before you finished thanking me.'\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 18, "success": "The trap is in three words: 'for as long as the gate shall stand.' A permanent gate stands forever. You would serve the throne for as long as the gate exists — which is to say, eternally. It is not passage home; it is eternal bondage dressed as a gift.", "failure": "The terms sound demanding but survivable — a period of service for a way home. The permanence of the gate does not register as the permanence of the debt." },
+            { "skill": "Investigation", "dc": 19, "success": "Pressing Malik on specifics, you force the fine print into the open. Depending on how he is cornered, the 'service' resolves into one of the traps: eternal service to the throne, OR the surrender of one companion as the gate's 'anchor,' OR the party's delivery to the Cinder Gate ritual to power the crossing — you as the fuel. Every version ends with the party's freedom or lives forfeit.", "failure": "Malik deflects your questions with charm and generalities; the fine print stays hidden until it is too late to matter." },
+            { "skill": "Persuasion", "dc": 20, "success": "You decline without giving offense, or counter-offer terms of your own that Malik must publicly weigh before his court. You buy time and standing rather than accepting a leash. Malik, intrigued and unbothered, lets you go — he is patient, and he has other means.", "failure": "A clumsy refusal insults the court; the audience ends coldly and the Vizier's patience curdles toward other, less courteous plans." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the scene the chapter exists for. See the twists[] entry for the exact catch-wording and the dmTips[] for how to adjudicate it fairly. Core principle: the offer must be REAL and the catch must be CATCHABLE. Never let the trap be un-spottable, and never let a player who correctly reads the fine print be railroaded into it anyway. If the party swears the oath without catching the catch, do not spring a gotcha instantly — let the dread build, give one more chance to notice (an ally's warning, a too-eager glint in Malik's eye), and make the consequence a story engine, not a session-ender. If they catch it and walk, Malik respects them more and the game continues toward the true confrontation.",
+          "loot": []
+        },
+        {
+          "name": "The Silent Throne",
+          "description": "Whether during the audience or after, the party's suspicions about the throne come to a head. The Sultan's year-long silence, the masked figure that never speaks, the Vizier who holds every honorific — the pieces demand an answer. This scene is where the party resolves to learn what has really happened to Sultan Marrash al-Djinni, turning the chapter from 'get a gate' to 'expose the usurper.'",
+          "readAloud": "\"The audience ends, and the great brass doors of the Court of Cinders swing shut behind you. But the image will not leave you: the crowned figure on the throne of coals, silent as a statue, while Malik al-Nar spoke and spoke and spoke in its name. In the Whispering Colonnade beyond the court, nobles trade poisons and secrets in low voices, and you catch a fragment as you pass — one courtier to another, behind a fan of flame: '...a year now, and still he speaks for the Sultan. One begins to wonder whether the Sultan speaks at all.' The other's reply is only a glance toward a sealed passage at the colonnade's end, and then silence.\"",
+          "skillChecks": [
+            { "skill": "Perception", "dc": 17, "success": "You mark the sealed passage at the end of the Whispering Colonnade — its wards fresher than the ancient stone around it, guarded more heavily than any treasury. Something down there matters more than gold.", "failure": "The colonnade is a blur of nobles and intrigue; the sealed passage does not stand out from the palace's many locked doors." },
+            { "skill": "Persuasion", "dc": 18, "success": "You coax a frightened minor courtier into a whispered confession: the Sultan has not been seen in the flesh in over a year, and those who ask too loudly about his health tend to be reassigned to 'distant duties' and never return.", "failure": "The courtiers you approach clam up the moment the Sultan's name is spoken; fear seals every mouth in the palace." },
+            { "skill": "Stealth", "dc": 17, "success": "You mark the guard rotations and ward-timings on the sealed passage, gathering what you'd need to breach it later — a plan for the vaults begins to form.", "failure": "You cannot linger long enough to case the passage without drawing a guard's attention; a return, better prepared, will be needed." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene pivots the party's goal. How much they suspect depends on their investigation — see the dmTips[] on twist-pacing. A party that has caught the clues will be hungry to breach the vaults; a party that has missed them may need the Undercity allies of Act 3 to spell it out. Either path is valid. Do NOT dump the full truth here unless the players have earned it; the Whispering Colonnade should raise the question, and the Undercity and the vaults should answer it.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Fire Beneath",
+      "description": "Driven underground by what they've learned, the party descends into the Ashfall Undercity to recruit the allies they'll need to challenge Malik al-Nar — Nadira al-Zahra's dissident faction, the azer resistance, and their old companion the brass dragon Auronax. Here they confirm the full truth: the Sultan is imprisoned in the palace vaults, and the Cinder Gate is nearly built. This act converts intrigue into alliance and sets the stage for the assault to come in Scenario 4.",
+      "objectives": [
+        "Descend into the Ashfall Undercity and make contact with the resistance",
+        "Weigh and secure an alliance with Nadira al-Zahra, despite her ambitions",
+        "Win the trust of the azer resistance and learn the Cinder Gate's weakness",
+        "Reunite with or recruit Auronax as a means of opening a true gate home",
+        "Confirm the Sultan's imprisonment and commit to bringing Malik down"
+      ],
+      "scenes": [
+        {
+          "name": "The Broken Anvil",
+          "description": "Guided into the Undercity, the party finds the azer resistance in a hidden safehouse marked by a hammer split down its head. The azer are suspicious to the point of hostility — the Vizier's informants are everywhere — but they hold the key facts: the truth of the Cinder Gate, and a structural weakness only a forge-master would know.",
+          "readAloud": "\"Below the gleaming streets, the city changes its face. The magma-veins here leak untended, casting a sullen red glow over passages of soot-black brass. Your guide leads you to a door marked with a single sigil: a smith's hammer, split cleanly down the head. Inside, a dozen azer — squat, bronze-skinned, their beards literal flame — go still as stone the moment you enter. Hammers are set down slowly, deliberately, within easy reach. An old azer with a scarred face and eyes like banked coals rises. 'Strangers,' she says, in a voice like grinding millstones. 'From up-city, by your smell. You'll understand if we don't offer you a seat. The last strangers who found this door were the Vizier's, and we buried what he left of our people. So. Talk. And talk true, or don't talk at all.'\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 18, "success": "You convince the resistance leader you are no informant — better still if you can name Khadim Emberhand, whose kin lead this cell, or show proof of Malik's crimes. She warms by degrees: 'Then hear the truth up-city dares not speak. The Vizier builds a gate — the Cinder Gate — to loose our masters upon your world. And he feeds it with our people. Azer, chained and consigned, burned as fuel to open it.'", "failure": "The azer remain unconvinced and guarded; they will not share their secrets until the party proves itself another way — a raid survived, a captive freed, a debt paid." },
+            { "skill": "Insight", "dc": 16, "success": "You read the resistance leader true: her hostility is grief and fear, not malice. These are desperate people who have been betrayed before. Meeting that with honesty rather than bravado is the only key that fits this lock.", "failure": "You misjudge the room, reading the caution as mere rudeness, and risk giving offense that costs the party their trust." },
+            { "skill": "History", "dc": 17, "success": "From the resistance's account and your own knowledge, you piece together the Cinder Gate's nature: a permanent, army-scale portal powered by conscripted azer and the Ember Crown, being raised in the Charred Reach beyond the city. This is why every gate in the city routes through Malik — he hoards planar power for the invasion.", "failure": "You grasp that the Gate is a weapon of invasion but not its mechanism or its dependence on the azer and the Crown." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["A Vizier's purge-squad: 2 salamanders", "4 azer loyalist enforcers (bound against their will)", "1 efreeti overseer"],
+              "difficulty": "Hard",
+              "tactics": "Optional and situational — springs only if the party is careless, betrayed, or chooses to make a stand. The purge-squad raids the safehouse mid-conversation. The efreeti overseer directs from the rear, ordering the bound azer forward as expendable shields; freeing or turning the bound azer (a moral and tactical option) breaks the squad. The salamanders fight to the death; the overseer flees to report if the tide turns. Fighting alongside the resistance cements the alliance in blood.",
+              "terrain": "Cramped forge-safehouse of soot-black brass, magma channels along the floor (5 ft of movement into a channel = 3d10 fire damage), narrow chokepoints, and racks of half-finished weapons the party or azer can seize."
+            }
+          ],
+          "roleplayNotes": "The azer resistance is the party's most reliable ally and their best source of hard intelligence. Their leader is kin to the companion Khadim Emberhand — if Khadim is present, this reunion should carry real weight and unlock their trust far faster. The purge-squad fight is optional; a stealthy, careful party can earn the alliance through words alone. Do NOT force combat here if the players are playing the intrigue well — reward that.",
+          "loot": [
+            "The azer resistance as a committed ally for the Scenario 4 assault",
+            "Intelligence on the Cinder Gate's location (the Charred Reach) and its dependence on azer fuel and the Ember Crown",
+            "Azer-forged weapons (non-fire damage, useful against fire-immune foes) offered to trusted allies"
+          ]
+        },
+        {
+          "name": "Nadira's Exile-Court",
+          "description": "In a repurposed cistern deep in the Undercity, the exiled efreeti noble Nadira al-Zahra — the Sultan's estranged heir — holds a shadow-court of dissident nobles. She offers the party a powerful alliance against Malik. But Nadira wants the throne, and her aid comes with the quiet expectation that the party will serve her claim. She knows more than she says.",
+          "readAloud": "\"The passage opens into a vast cistern, its dry basin transformed into a court-in-exile: threadbare finery, salvaged brass, and perhaps a score of efreeti nobles who have lost everything but their pride. At the center, on a chair that is almost a throne, sits a woman of terrible poise — Nadira al-Zahra. Her flames burn a cold, imperial blue, and her eyes take your measure the way a jeweler appraises a stone. 'So,' she says. 'The travelers from beyond the Emberscar, who so interest my dear usurping cousin. Sit. We have an enemy in common, you and I, and I am in a rare mood to be generous.' Her smile is beautiful and entirely without warmth. 'Tell me — how badly do you want to go home? And what are you willing to do to earn it?'\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 17, "success": "You read Nadira clearly: her opposition to Malik is genuine, but so is her hunger for the throne. She will help you — as long as helping you serves her claim. And she is holding something back, some card she has not played. Trust her aid, but not her whole heart.", "failure": "Nadira reads as a straightforward ally, a wronged heir united with you against a common foe — a dangerously incomplete picture." },
+            { "skill": "Persuasion", "dc": 18, "success": "You negotiate a real alliance without surrendering the party's freedom of action — aid against Malik in exchange for supporting her legitimate claim, with your own conditions attached. Nadira, respecting a shrewd bargainer, agrees.", "failure": "Nadira sets the terms, and the alliance tilts toward her interests; she now expects the party to advance her to the throne as the price of her help." },
+            { "skill": "History", "dc": 18, "success": "You know the shape of efreeti succession: as the Sultan's heir, Nadira's claim would supersede any Vizier's authority the instant it were proven the Sultan could no longer rule — or the instant the Sultan named her. This is why Malik exiled her, and why she is so very interested in what has become of her father.", "failure": "You understand she is the heir and Malik's rival, but not the legal machinery that makes her so dangerous to him." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Nadira is the chapter's richest roleplay: an ally the party genuinely needs, whose ambition makes her a potential betrayer. She secretly KNOWS her father is imprisoned rather than withdrawn (see secrets), but has withheld it to keep the party dependent on her — a party that catches her in this omission gains leverage over her. Play the betrayal tension without predetermining betrayal; her arc should respond to how the party treats her. If the companion Nadira al-Zahra is in the party, reconcile the two: the exile-court is her faction, and this scene becomes a homecoming freighted with her own ambitions.",
+          "loot": [
+            "Nadira al-Zahra's dissident-noble faction as a (conditional) ally",
+            "A palace map and the guard-timings needed to breach the vaults — Nadira's price is loyalty to her cause",
+            "The half-truth that the Sultan is 'more than withdrawn,' which she will only fully confirm if pressed or caught out"
+          ]
+        },
+        {
+          "name": "The Caged Sky (Auronax)",
+          "description": "The party learns that their old ally, the brass dragon Auronax, has been captured and is being held in the city — a prize hunted down at Malik's order, both to remove a potential gate-maker and to serve as a trophy. Freeing Auronax secures a genuine means of opening a gate home that does not route through the Vizier — and reunites the party with a proud, story-hoarding friend.",
+          "readAloud": "\"The word reaches you through the resistance's whispers: a brass dragon, caged. Not just any brass dragon — Auronax, the young, proud, riddle-loving wyrm who helped you cross the Plains of Burning Dust, now hunted down and hauled in chains into the City of Brass. They keep him in a menagerie-vault beneath a noble's estate, muzzled with a binding-collar that drinks his breath and his magic, displayed like a trophy. When you find him, his golden scales are dulled, his proud head bowed — but at the sight of you, one great eye cracks open, and a rasp of the old humor returns: 'Well. Took you long enough. I had almost run out of stories to tell the walls.'\"",
+          "skillChecks": [
+            { "skill": "Stealth", "dc": 18, "success": "You infiltrate the menagerie-vault unseen, reaching Auronax's cage without raising the estate's guard — buying the time you need to work at the binding-collar.", "failure": "A patrol takes notice; you'll have to move fast or fight your way out with a half-freed dragon at your side." },
+            { "skill": "Arcana", "dc": 19, "success": "You unravel the binding-collar's enchantment, freeing Auronax's breath and magic. Restored, he can — once you are all clear of the city — open a true gate home under his own power, one that owes nothing to Malik al-Nar.", "failure": "The collar resists your magic; you'll need the azer resistance's forge-craft or brute force to break it, complicating the escape." },
+            { "skill": "Persuasion", "dc": 15, "success": "You rekindle Auronax's spirit and pride, and he commits fully to the party's cause — not merely a means of escape, but an ally who will fight at the Cinder Gate to see Malik humbled and the azer freed.", "failure": "Auronax is grateful but wary and diminished; he will help you leave, but must be won over further before he'll risk himself against the Vizier." }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": ["1 noble efreeti collector", "2 salamander guards", "1 bound fire elemental myrmidon"],
+              "difficulty": "Hard",
+              "tactics": "Triggers if the rescue is discovered. The efreeti collector fights to protect his 'investment,' ordering the myrmidon and salamanders to subdue rather than kill (he wants his trophies intact). A freed Auronax turns the fight decisively — his non-fire breath (reflavored, or use his frightful presence and physical attacks) is one of the few things on this plane that bypasses fire immunity. Coordinating with the dragon should feel triumphant.",
+              "terrain": "A menagerie-vault of brass cages holding bound elementals and exotic beasts; freeing other captives (DC 15 checks) creates chaos and allies; molten display-pools scattered as hazards."
+            }
+          ],
+          "roleplayNotes": "Auronax is the emotional payoff of Act 3 and the party's clean solution to the wish-trap: a gate home that Malik does not control. Play him proud, comic, and wounded — his captivity should sting, and his rescue should feel like reclaiming a friend. This scene also quietly answers the central strategic problem: the party no longer NEEDS Malik's bargain, which frees them to refuse it and fight. If the party already freed and befriended Auronax in Scenario 1 and he was separated, adjust so this is a rescue-from-recapture; if they never bonded with him, play up the reunion of shared history.",
+          "loot": [
+            "Auronax freed — a means of opening a true gate home independent of Malik al-Nar",
+            "Auronax as a committed ally for the Scenario 4 assault on the Cinder Gate",
+            "Relics and freed captives from the collector's menagerie (DM discretion; potential future allies)"
+          ]
+        },
+        {
+          "name": "The Sealed Sarcophagus",
+          "description": "With allies gathered and the vault's defenses mapped, the party breaches the palace vaults and confirms the chapter's ultimate truth: Sultan Marrash al-Djinni is not withdrawn — he is imprisoned, sealed in a brass sarcophagus, dimmed to a coal but alive and aware. He confirms everything and points the party toward the Cinder Gate. This is the hinge into Scenario 4.",
+          "readAloud": "\"Past the sealed passage, down and down through wards that drink the heat from your bones, you come to a vault of terrible silence. In its center rests a sarcophagus of brass, ringed by seven glyphs that pulse like slow heartbeats, each one drinking the fire from the figure within. For there IS a figure — an efreeti of immense and ancient majesty, crowned, his flames guttered to the last red coal, his eyes closed. As you approach, those eyes open. They find you. And a voice, faint as ash settling, fills the vault: 'Travelers... from beyond the Emberscar. So. My gaoler has been busy in my name.' The coal-dim eyes burn with a banked and patient fury. 'I am Marrash al-Djinni, Sultan of the Efreet, rightful lord of this city. And I have a great deal to tell you about the man who calls himself my Voice.'\"",
+          "skillChecks": [
+            { "skill": "Arcana", "dc": 19, "success": "You read the sarcophagus's binding: seven glyphs, seven keys, several held by figures beyond your present reach. You cannot free the Sultan tonight — but you learn exactly what freeing him will require, a quest that reaches into the Charred Reach itself.", "failure": "The binding is beyond your immediate understanding; you know only that the Sultan cannot simply be released by force, and that trying may kill him or alert the palace." },
+            { "skill": "Insight", "dc": 16, "success": "You take the Sultan's true measure: this is no broken prisoner but a coiled, patient ruler biding his time, and his interests genuinely align with yours against Malik — though a Sultan of the Efreet is never entirely safe to trust either.", "failure": "You cannot tell whether the Sultan is ally, manipulator, or something in between — a question to carry warily into what comes next." },
+            { "skill": "History", "dc": 18, "success": "From the Sultan's account and the vault's confiscated relics, you confirm the full shape of Malik's scheme: usurpation cloaked in law, the Cinder Gate raised in the Charred Reach, powered by conscripted azer and the Ember Crown, aimed at the world beyond the Emberscar. Everything connects.", "failure": "You grasp that the Sultan's imprisonment and the Cinder Gate are one plot, but the mechanism binding them stays hazy until the Charred Reach." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the chapter's climactic revelation and its bridge to Scenario 4 — do not gate it behind a single roll. A party that investigated well arrives here having already guessed the truth; let them feel vindicated. A party that missed the clues has it confirmed in full. Critically: the Sultan CANNOT be freed this visit — the seven glyph-keys are a Scenario 4 thread, several held by Malik and his inner circle in the Charred Reach. Freeing the Sultan is the reward for stopping the Cinder Gate, not a same-night payoff. Play Marrash as majestic, furious, patient, and not entirely trustworthy — he is still an efreeti Sultan, and his gratitude will have its own wording.",
+          "loot": [
+            "Confirmation of the full twist: the Sultan imprisoned, Malik ruling, the Cinder Gate nearly complete",
+            "The Sultan's charge: reach the Charred Reach, stop the Cinder Gate, and gather the seven glyph-keys to free him",
+            "A relic or token from the confiscated-relics chamber (DM discretion; a gift toward the coming assault)"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Malik al-Nar",
+      "role": "Primary Antagonist / Grand Vizier",
+      "description": "A magnificent efreeti noble, tall and robed in red and gold, his beard a curl of contained fire and his smile as warm as a hearth and as fixed as a mask. Malik is the picture of gracious statesmanship — patient, silver-tongued, endlessly courteous — and it is precisely this warmth that makes him terrifying. He never raises his voice, never shows his hand, and never offers a gift that is not also a snare. He styles himself Voice of the Sultan, Keeper of the Cinder, and Hand of the Throne.",
+      "motivation": "Malik has usurped and imprisoned the Sultan and rules the City of Brass in his name. He is building the Cinder Gate to loose the efreeti armies upon the world exposed by the Emberscar, powering it with conscripted azer and the Ember Crown. He wants the party bound into his service or delivered to the Gate as fuel — and he is patient enough to get his way by charm, contract, or, failing those, by force."
+    },
+    {
+      "name": "Sultan Marrash al-Djinni",
+      "role": "Imprisoned Rightful Ruler",
+      "description": "An efreeti of immense and ancient majesty, crowned and once-mighty, now sealed in a brass sarcophagus in the palace vaults, his flames guttered to a single patient coal. Even dimmed and imprisoned, he radiates the coiled authority of a lord who has ruled for centuries and intends to rule again. His fury is banked, not broken.",
+      "motivation": "Marrash wants his throne, his freedom, and Malik's head. His interests align with the party's against the Vizier — he will guide them toward the Cinder Gate and the seven glyph-keys that can free him — but he remains a Sultan of the Efreet, and even his gratitude comes with careful wording. He is an ally of convenience, not a safe one."
+    },
+    {
+      "name": "Nadira al-Zahra",
+      "role": "Ambitious Ally / Exiled Heir",
+      "description": "An exiled efreeti noble of terrible poise, her flames burning a cold imperial blue and her eyes appraising everyone as a jeweler appraises a stone. As the Sultan's estranged heir, exiled by Malik, she leads a shadow-court of dissident nobles from a repurposed cistern in the Undercity. Proud, brilliant, and beautiful without warmth, she is the party's most powerful potential ally — and their most dangerous.",
+      "motivation": "Nadira genuinely opposes Malik and the Cinder Gate, but she covets the throne that is her birthright and will bend every alliance toward securing it. She secretly knows her father is imprisoned rather than withdrawn, and has withheld this to keep the party dependent on her. She may push them toward choices that serve her claim — and her loyalty, real as far as it goes, has a horizon."
+    },
+    {
+      "name": "Auronax",
+      "role": "Ally / Captured Brass Dragon",
+      "description": "A young brass dragon, proud and riddle-loving, who aided the party across the Plains of Burning Dust and has since been hunted down and caged in the City of Brass — muzzled by a binding-collar that drinks his breath and magic, displayed as a noble's trophy. Even dulled and bowed, his old humor survives, dry as desert wind: he has been telling stories to the walls.",
+      "motivation": "Auronax wants his freedom, his dignity, and his revenge on the Vizier who caged him. Once freed, he offers the party something priceless: a means to open a true gate home under his own power, owing nothing to Malik al-Nar. He hoards stories and riddles, is prouder than is good for him, and will fight at the Cinder Gate to see Malik humbled and the bound elementals freed."
+    },
+    {
+      "name": "Qadir ibn Sahl",
+      "role": "Information Broker",
+      "description": "A smooth, unhurried efreeti information-broker who holds court in the Bazaar's Cinnamon Tier over glasses of molten-gold liquor. He knows a great deal about who really runs the City of Brass and will part with it by the measured spoonful, always for the right coin or favor, never for free.",
+      "motivation": "Qadir trades in truth as a commodity and survives by never being caught holding too much of it too loudly. He will sell the party the cracks in the city's official story — the silent Sultan, the Vizier's grip on every gate — but he prices dangerous knowledge dearly and will not risk his own neck for anyone's cause."
+    },
+    {
+      "name": "The Azer Resistance Leader",
+      "role": "Ally / Rebel Forge-Master",
+      "description": "An old azer with a scarred face and eyes like banked coals, leader of a resistance cell hidden behind the split-hammer sigil of the Broken Anvil. Squat, bronze-skinned, her beard a living flame, she is suspicious to the point of hostility — the Vizier's informants have bled her people before — but honest, brave, and unbreakable once her trust is earned. She is kin to the companion Khadim Emberhand.",
+      "motivation": "She fights to free her enslaved people and to stop the Cinder Gate that burns them as fuel. She holds the Gate's structural secrets and will share them, and her cell's strength, with any who prove themselves true allies rather than the Vizier's spies. Her grief and caution are the price of past betrayals."
+    }
+  ],
+  "rewards": {
+    "xp": 12000,
+    "gold": "Highly variable — the City of Brass runs on debt and favor rather than coin. A resourceful party may accrue 2,000–6,000 gp through Bazaar dealings, freed-captive gratitude, and the collector's menagerie, offset by entry-debts and the price of information.",
+    "items": [
+      "Azer-forged weapons dealing non-fire damage (invaluable against the plane's fire-immune natives)",
+      "A broker's primer on efreeti wish-wording (mechanical aid for parsing binding contracts)",
+      "Planar reagents and fire-resistant gear purchasable in the Grand Bazaar",
+      "A confiscated relic or token from the palace vaults (DM discretion, geared toward the Charred Reach assault)",
+      "Auronax freed — a true gate home independent of Malik al-Nar"
+    ],
+    "story": "The party has penetrated the gilded snare of the City of Brass and uncovered its central lie: the Sultan is imprisoned, Malik al-Nar rules in his name, and the Cinder Gate is nearly complete. By refusing (or outwitting) the wish-bargain and forging alliances in the Undercity — Nadira al-Zahra's faction, the azer resistance, and the freed brass dragon Auronax — they have turned themselves from Malik's prospective servants into the only force that can stop him. They carry the Sultan's charge to the Charred Reach: destroy the Cinder Gate, gather the seven glyph-keys, and decide the fate of a usurper, a throne, and the world beyond the Emberscar. The alliances they built, the promises they made, and the bargains they refused will all come due at the fire's heart."
+  },
+  "twists": [
+    "THE WISH-BARGAIN CATCH: Malik's offer is a REAL, working gate home in exchange for entering his service 'for as long as the gate shall stand.' Because the gate is permanent, it stands forever — so the service is eternal. The catch resolves into one of three forms depending on how the party probes it: (a) ETERNAL SERVICE — the party is bound to the throne for all time; (b) A PRICE OF ONE COMPANION — one named party member becomes the gate's living 'anchor,' surrendered forever; or (c) RITUAL FUEL — the 'gate' is opened by feeding the party into the Cinder Gate ritual in the Charred Reach. The offer is genuine; the wording is the leash. It must be catchable (Insight/Investigation) and never sprung as an un-spottable gotcha.",
+    "THE THRONE IS A LIE: The Sultan has not withdrawn — Malik al-Nar has imprisoned Sultan Marrash al-Djinni in a brass sarcophagus in the palace vaults and rules in his name. The crowned figure on the throne of coals during audiences is a masked double that never speaks its own words (Insight DC 20 catches it). Every 'royal' bargain the party is offered actually comes from Malik's puppet court.",
+    "MALIK CONTROLS EVERY GATE: All planar traffic — including every 'passage home' sold in the Bazaar — is stamped and cleared by the Vizier's office, not the Sultan's seal. Malik hoards the city's power to open gates because he is building the one gate that matters: the Cinder Gate, an army-scale invasion portal in the Charred Reach.",
+    "THE AZER ARE FUEL, NOT LABOR: The azer being auctioned and 'consigned to the Cinder Gate' are not being sold as workers — the manifest lists them as fuel, burned to power the ritual (Investigation DC 18). This is the moral engine that turns the azer resistance into the party's staunchest allies.",
+    "NADIRA'S WITHHELD TRUTH: Nadira al-Zahra already knows her father is imprisoned rather than withdrawn, but has hidden it to keep the party dependent on her aid. A party that catches her omission (Insight, or corroboration from the vaults) gains real leverage over their proud, ambitious ally — and a warning about the betrayal tension to come."
+  ],
+  "dmTips": [
+    "IMPROV LATITUDE — THE SCENES ARE A MENU, NOT A RAIL. Present the City of Brass as a sandbox of intrigue and let players pull threads in any order. If they skip the Bazaar and go straight for an audience, run it. If they refuse the audience and go underground first, follow them. Reorder, compress, or expand scenes freely, and invent NPCs, stalls, brokers, factions, and rumors on the fly to match where the players push. Player agency drives this chapter — the spine is a framework you are licensed to deviate from.",
+    "ADJUDICATE THE WISH-BARGAIN FAIRLY — THIS IS THE HEART OF THE CHAPTER. Three absolutes: (1) The offer must be REAL — the gate genuinely works; this is not a fake-out. (2) The catch must be CATCHABLE — always allow Insight/Investigation (and reward players who did wish-wording research beforehand with advantage or a lower DC) to expose the fine print BEFORE they agree. Never spring an un-spottable gotcha. (3) HONOR THE PLAYERS' READING — if they catch the catch and refuse or counter-offer, respect it and move on; do not railroad them into the trap anyway. If they DO swear the oath without noticing, don't end the session with a snap of the fingers — build dread, give one last chance to notice (an ally's frantic warning, a too-eager glint in Malik's eye), and make the consequence a STORY ENGINE (a debt to escape, a companion to rescue) rather than an instant loss. The bargain should feel dangerous and fair, never like a DM 'gotcha.'",
+    "PACE THE TWIST TO PLAYER INVESTIGATION. How much of the truth (Sultan imprisoned, Malik's Cinder Gate) you reveal should track how hard the players dig. Reveal in layers: Layer 1 (easy, seed in the Bazaar) — the Sultan hasn't been seen in a year and all gates route through the Vizier. Layer 2 (moderate, the court and colonnade) — the throne's figure never speaks, there's a heavily-warded sealed passage, courtiers fear to speak the Sultan's name. Layer 3 (earned, the Undercity and vaults) — full confirmation: the Sultan is sealed alive and Malik rules. A party that investigates hard should arrive at the sarcophagus already suspecting the truth and feel vindicated; a party that missed the clues gets it confirmed by the resistance or the Sultan himself. Never dump all three layers at once, and never withhold the truth entirely from a party that earned it.",
+    "FAVOR INTRIGUE AND SOCIAL PLAY OVER COMBAT. This is the talking chapter of the campaign. Every combat encounter here (the purge-squad raid, the Auronax rescue, palace guards) is OPTIONAL and situational — spring them only when the party is careless, betrayed, or chooses to fight. A group that plays the intrigue brilliantly can pass through the whole city with barely a blade drawn, and that should be rewarded, not punished with forced fights.",
+    "MAKE THE THREATS LEVEL-APPROPRIATE BUT RARELY OPTIMAL TO FIGHT. At levels 13–16 the city's muscle — efreeti nobles, bound fire elemental myrmidons, salamander guards, fire giants — is deadly, and in the Court of Cinders or the palace it is overwhelming. Use this to make clear that violence in the wrong room is suicide: the party should WANT to solve the Charcoal Palace with words. Save the real fights for the Undercity, where the party has allies, and hold the great efreeti battle for Malik himself in Scenario 4.",
+    "REMEMBER FIRE IMMUNITY. Most City-of-Brass natives are immune or resistant to fire. Spotlight and reward non-fire damage sources — this is exactly why the azer-forged weapons and the freed Auronax's breath matter. A party leaning only on fire will struggle, by design; let the plane teach that lesson.",
+    "PLAY MALIK AS CHARM, NOT MENACE. He is never a snarling villain. He is warm, patient, generous, and genuinely helpful right up until the fine print. The horror is that he means his smile. Let the players like him a little — it makes the catch land harder and the eventual confrontation richer.",
+    "HANDLE THE COMPANIONS' HOMECOMINGS. Several of the party's companions have deep ties here: Nadira al-Zahra's exile-court IS this chapter's faction; the azer resistance is kin to Khadim Emberhand; the fire genasi scout Zerai has bound-servant kin and a Bazaar creditor in this city; the salamander Vyx risks the binding-call near the Ember Crown's influence. If those companions are present, weave their personal stakes into these scenes — reunions, debts, and dangers made personal. Reconcile any companion/NPC name overlaps (e.g. Nadira) so the exile-court is that companion's own faction and homecoming.",
+    "DO NOT FREE THE SULTAN THIS CHAPTER. The seven glyph-keys are a Scenario 4 thread — several are held by Malik and his inner circle in the Charred Reach. Discovering the Sultan alive is the climax of THIS chapter; freeing him is the reward for stopping the Cinder Gate in the NEXT. If players try to force the sarcophagus open, make it clearly dangerous (it may kill the dimmed Sultan or alarm the whole palace) and let the Sultan himself counsel patience.",
+    "END EVERY SESSION AT A DECISION POINT AND KEEP THE STAKES HONEST. This chapter can end with the party allied and defiant, or bound by a bargain they must now escape, or somewhere in between — all are valid. Whatever bargains they strike, promises they make, and allies they win or alienate should carry forward into the Charred Reach. Track them; the Cinder Gate assault in Scenario 4 will call every one of these debts due."
+  ]
+}

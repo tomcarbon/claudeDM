@@ -1,0 +1,156 @@
+{
+  "id": "3d59ab91-aa56-4157-aee6-a5714441238c",
+  "name": "Faelar Nightbreeze",
+  "status": "alive",
+  "race": "Elf",
+  "subrace": "Wood Elf",
+  "class": "Ranger",
+  "level": 9,
+  "background": "Outlander",
+  "alignment": "Neutral Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 20,
+      "modifier": 5
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 72,
+    "current": 72
+  },
+  "armorClass": 18,
+  "speed": 35,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "strength",
+    "dexterity"
+  ],
+  "skills": [
+    "Perception",
+    "Survival",
+    "Stealth",
+    "Nature",
+    "Investigation"
+  ],
+  "languages": [
+    "Common",
+    "Elvish",
+    "Primordial"
+  ],
+  "equipment": [
+    "Cinderweave Cloak (resistance to fire damage)",
+    "+1 Studded Leather Armor",
+    "+1 Longbow",
+    "Quiver with Arrows (60)",
+    "Two shortswords",
+    "Explorer's pack",
+    "A planar compass that tugs toward open portals",
+    "A hunting trophy — a salamander fang",
+    "A druidic charm of woven ashen reeds",
+    "A belt pouch containing 50 gp"
+  ],
+  "weapons": [
+    {
+      "name": "+1 Longbow",
+      "attackBonus": 12,
+      "damage": "1d8+6",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortsword",
+      "attackBonus": 9,
+      "damage": "1d6+5",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Planar Warrior (bonus action mark, next hit converts to force)",
+      "attackBonus": 12,
+      "damage": "+1d8",
+      "damageType": "force"
+    }
+  ],
+  "armor": {
+    "name": "+1 Studded Leather Armor",
+    "type": "light"
+  },
+  "features": [
+    "Favored Enemy: Elementals (advantage on Survival to track, Int checks to recall lore)",
+    "Natural Explorer: Wastes (double proficiency benefits while traveling ash wastes)",
+    "Fighting Style: Archery (+2 to ranged weapon attack rolls)",
+    "Spellcasting (Wisdom-based)",
+    "Primeval Awareness (expend a spell slot to sense aberrations, elementals, fey, and more)",
+    "Extra Attack (two attacks per Attack action)",
+    "Land's Stride (difficult terrain and nonmagical plants don't slow you)",
+    "Ranger Archetype: Horizon Walker",
+    "Detect Portal (sense the nearest planar portal within 1 mile)",
+    "Planar Warrior (bonus action; target takes an extra 1d8 force damage on your next hit, converting the attack's damage to force)",
+    "Ethereal Step (cast Etherealness at the start of your turn, once per short rest)",
+    "Fey Ancestry (advantage vs. charm, immune to magical sleep)",
+    "Trance (4 hours of meditation replaces sleep)"
+  ],
+  "traits": [
+    "Mask of the Wild (can hide when lightly obscured by natural phenomena, including ash and smoke)",
+    "Fleet of Foot (base walking speed 35 ft)",
+    "The archery-force blend of Planar Warrior lets him harm fire-immune natives no bow alone could touch"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 15,
+    "spellAttackBonus": 7,
+    "cantrips": [],
+    "level1": {
+      "slots": 4,
+      "prepared": [
+        "Hunter's Mark",
+        "Cure Wounds",
+        "Zephyr Strike",
+        "Protection from Evil and Good (archetype)"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "prepared": [
+        "Pass without Trace",
+        "Spike Growth",
+        "Misty Step (archetype)"
+      ]
+    },
+    "level3": {
+      "slots": 2,
+      "prepared": [
+        "Lightning Arrow",
+        "Conjure Barrage",
+        "Haste (archetype)"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I speak little and watch everything. I read a strange land the way others read a familiar book, and I have never met terrain I couldn't learn.",
+    "ideals": "Balance. Even a plane of endless fire has an order to it, and I mean to find where this one has broken.",
+    "bonds": "The rifts wound the boundaries between worlds; mending that seam is the hunt of my life.",
+    "flaws": "I keep my own counsel so tightly that my companions rarely know my plan until it has already begun."
+  },
+  "appearance": "A lean wood elf with bark-brown skin, moss-green eyes, and dark hair bound back with a leather cord. He wears mottled grey-and-ash leathers that blend into smoke and dune alike, and moves with the unhurried economy of a hunter who has never once been rushed. His planar compass hangs at his belt, needle forever twitching toward the nearest tear in the world.",
+  "backstory": "Faelar was a border-warden of the deep forests who first noticed the world's seams fraying — small planar bleeds, portals opening where none should be — long before the Emberscar made the problem impossible to ignore. He walked the Horizon Walker's path to hunt the things that slip between worlds, and when the great rift tore open he already understood it better than the scholars who studied it. The Ashen Vow gave him a compass and a purpose; he had, in truth, been hunting toward this his whole life."
+}

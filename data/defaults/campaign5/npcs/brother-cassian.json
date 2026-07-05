@@ -1,0 +1,192 @@
+{
+  "id": "cdf2f8b3-5e03-469a-b843-bb1f26901512",
+  "name": "Brother Cassian",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "Material-Plane Human (Fire-Touched)",
+  "class": "Cleric",
+  "level": 9,
+  "background": "Acolyte (Order of the Ashen Vow)",
+  "alignment": "Neutral Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 18,
+      "modifier": 4
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 63,
+    "current": 63
+  },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Religion (expertise-flavor, +6)",
+    "History (planar lore, +6)",
+    "Medicine (+8)",
+    "Insight (+8)",
+    "Persuasion (+6)",
+    "Arcana (+6)"
+  ],
+  "languages": [
+    "Common",
+    "Celestial",
+    "Ignan",
+    "Primordial",
+    "Draconic"
+  ],
+  "equipment": [
+    "Chain mail",
+    "Shield bearing the Ashen Vow sigil",
+    "Warhammer",
+    "Holy symbol of the Ashen Vow (amulet of grey flame)",
+    "Traveling spellbook of prayers and planar notes",
+    "Journal documenting his years stranded on the plane",
+    "Cinderweave Cloak (resistance to fire damage)",
+    "A half-signed contract in Malik's hand (hidden in the journal's spine)",
+    "Healer's kit",
+    "Belt pouch containing 55 gp"
+  ],
+  "weapons": [
+    {
+      "name": "Warhammer",
+      "attackBonus": 4,
+      "damage": "1d8",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Sacred Flame (cantrip)",
+      "attackBonus": 0,
+      "damage": "2d8 (DEX save DC 16)",
+      "damageType": "radiant"
+    },
+    {
+      "name": "Spiritual Weapon (spectral maul)",
+      "attackBonus": 8,
+      "damage": "1d8+4",
+      "damageType": "force"
+    }
+  ],
+  "armor": {
+    "name": "Chain mail",
+    "type": "heavy"
+  },
+  "features": [
+    "Divine Domain: Light Domain",
+    "Warding Flare (reaction: impose disadvantage on an attacker; WIS-mod uses per long rest)",
+    "Channel Divinity (2 per rest): Turn Undead, Radiance of the Dawn (deal 2d10+cleric level radiant in 30 ft)",
+    "Destroy Undead (CR 1 or lower)",
+    "Divine Intervention (10% chance to call on a fading connection to his order's flame)",
+    "Potent Spellcasting (add WIS modifier to cleric cantrip damage)",
+    "Ritual Casting and Prepared Spellcasting (WIS-based)"
+  ],
+  "traits": [
+    "Ashen Vow Discipline (advantage on saves against fear and despair)",
+    "Fire-Touched (slowly gaining resistance to fire damage as the plane transforms him)",
+    "Scholar of the Planes (advantage on lore checks about the Elemental Plane of Fire, the City of Brass, and efreeti pacts)",
+    "Ember in the Blood (his veins glow faintly with inner fire; the transformation advances under stress)"
+  ],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 16,
+    "spellAttackBonus": 8,
+    "cantrips": [
+      "Sacred Flame",
+      "Light",
+      "Guidance",
+      "Spare the Dying",
+      "Thaumaturgy"
+    ],
+    "level1": {
+      "slots": 4,
+      "prepared": [
+        "Cure Wounds",
+        "Healing Word",
+        "Bless",
+        "Guiding Bolt",
+        "Detect Magic",
+        "Faerie Fire"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "prepared": [
+        "Lesser Restoration",
+        "Spiritual Weapon",
+        "Aid",
+        "Prayer of Healing",
+        "Flaming Sphere",
+        "Zone of Truth"
+      ]
+    },
+    "level3": {
+      "slots": 3,
+      "prepared": [
+        "Revivify",
+        "Spirit Guardians",
+        "Mass Healing Word",
+        "Beacon of Hope",
+        "Dispel Magic",
+        "Daylight"
+      ]
+    },
+    "level4": {
+      "slots": 3,
+      "prepared": [
+        "Death Ward",
+        "Guardian of Faith",
+        "Banishment",
+        "Wall of Fire"
+      ]
+    },
+    "level5": {
+      "slots": 1,
+      "prepared": [
+        "Flame Strike",
+        "Greater Restoration",
+        "Mass Cure Wounds"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I talk too much, especially when I am frightened, which is often. I find comfort in cataloguing and comforting others, and I hand out kindness the way other men hand out coin. There is a warmth in me that I am no longer sure is entirely my own.",
+    "ideals": "Compassion. The Ashen Vow teaches that even in a realm of endless fire, mercy is the one flame worth tending. I will heal the wounded, bury the dead, and speak gently to the despairing.",
+    "bonds": "My order sent me through a rift years ago to study the plane and I was stranded when it closed. My brothers of the Ashen Vow believe me dead. I mean to see the Material Plane, and them, once more.",
+    "flaws": "I am afraid of dying, more than a man of faith should be, and the plane has offered me a way not to. Part of me has already said yes, and I have not told a soul — least of all myself."
+  },
+  "appearance": "A soft-spoken, slightly stooped scholar in his fifties, robes patched a dozen times and grey with ash, an Ashen Vow amulet of dull flame at his throat. His kind, tired eyes have of late taken on a faint inner light, and when he is startled or moved, thin lines beneath his skin glow like cooling embers — a thing he tucks his sleeves down to hide. His hands are ink-stained and gentle, forever fussing with a journal, a bandage, or a cup of something warm pressed into a companion's grip. He looks entirely human. He is, slowly, becoming something else.",
+  "backstory": "Brother Cassian came to the Elemental Plane of Fire as a young cleric of the Ashen Vow, an order that ministers to the dying and studies the places where the planes bleed together. He crossed a rift to record the truth of the fire plane and to bring mercy where he could — and the rift closed behind him, stranding him for years among salamanders, azer, and the cruelties of the City of Brass. He survived by being useful and kind: a healer who asked nothing, a listener in a realm that rarely listens. But the plane has been working on him all that while, seeping fire into his blood, and somewhere in the long loneliness he was approached by a patient, silver-tongued efreeti noble named Malik al-Nar, who offered him something the Ashen Vow never could — an end to the fear of death. Cassian has half-signed that bargain. He tells the party he only wants to go home. He is no longer sure it is true.",
+  "dmNotes": {
+    "roleplaying": "Cassian is the party's healer, lorekeeper, and warm heart — jimjar-with-a-darker-secret energy. Play him as gentle, funny, and endlessly talkative, the sort who narrates his own nervousness, presses food and comfort on everyone, and knows an alarming amount about efreeti pacts, planar law, and the City of Brass. He is genuinely good and genuinely brave in his rambling way, and the party will and should love him. But a shadow runs underneath: the plane is changing him, and he has half-bargained his soul to Malik for immortality. The DM should keep the darkness subtle for a long stretch — a glow he hides, a strange calm about danger, a moment where he defends an efreeti bargain a touch too readily, a reluctance to name what 'home' costs him now — so that the reveal lands like a betrayal by the person you trusted most. Let his internal war be real: he does not want to be a traitor, and the party's friendship may be the thing that saves him from Malik, or the thing his half-made bargain forces him to betray.",
+    "voice": "Warm, wry, and verbose, tumbling from thought to thought with self-deprecating asides and gentle humor, especially when scared. Quotes his order, mislays the ends of his own sentences, and comforts by talking. Example: 'Now, the efreeti — and I say this with real affection for a people who once tried to render me for tallow — the efreeti never lie, which is precisely what makes them so dreadful. Every word true, every meaning a trap. Here, drink this, you look half-dead. Where was I? Ah. Do not, under any circumstances, agree to anything phrased as a gift.' On the rare occasion his mask slips, his voice goes quiet and very still, and the ember-light shows at his collar: 'I am not as afraid of the fire as I was. I have wondered, lately, whether that is faith... or something else.'",
+    "motivations": "Primary (stated): return to the Material Plane and to his brothers of the Ashen Vow, who believe him dead. Secondary: heal, comfort, and shepherd the party through a lethal realm — a vocation he takes utterly seriously. Tertiary (hidden even from himself): escape the fear of death that has gnawed him for years, an escape Malik has dangled before him. His true, unspoken struggle is whether he still wants to leave at all.",
+    "secrets": "SECRET: The plane is transforming Brother Cassian — fire is entering his veins, and part of him no longer wants to go home. Years of loneliness and mortal dread led him to half-bargain with Malik al-Nar for immortality; the contract is begun but not sealed, hidden in the spine of his journal. He has told no one. The transformation and the bargain advance under stress and proximity to Malik's power, and at a critical moment Malik may call the debt due — forcing Cassian to choose between the party who became his family and the deathless existence he secretly craves. Whether he betrays them, resists, or is redeemed should hinge on how the party has treated him, making the friendship itself the mechanism of the reveal.",
+    "attitude": "Kind, chatty, and quietly devoted to everyone he travels with — a mother-hen cleric who remembers who slept badly and who took a wound. He is warm to strangers, especially the suffering and the dying, whom he tends without judgment. He is unnervingly comfortable around efreeti and their bargains, which he explains away as scholarly detachment. Toward Malik he shows a complicated, guilty deference he cannot quite account for. He adores the party's rougher members — he frets over Vyx's shame, admires Khadim's craft, mothers Zerai — and the deeper that love grows, the more agonizing his half-made bargain becomes. The party's affection is both his temptation's rival and his best hope of redemption."
+  }
+}

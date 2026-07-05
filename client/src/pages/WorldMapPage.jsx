@@ -7,6 +7,7 @@ import GiantsMap from '../components/GiantsMap';
 import CrimsonThroneMap from '../components/CrimsonThroneMap';
 import AstralMap from '../components/AstralMap';
 import NihonMap from '../components/NihonMap';
+import PlaneOfFireMap from '../components/PlaneOfFireMap';
 
 function WorldMapPage() {
   const navigate = useNavigate();
@@ -84,6 +85,18 @@ function WorldMapPage() {
           The mythic Land of the Rising Sun, drawn true to the real geography of Japan — from Itsukushima on the Inland Sea to Edo in the east. Browse adventures on the Scenarios page. ⛩️
         </p>
         <NihonMap />
+      </div>
+    );
+  }
+
+  if (campaignId === 'campaign5') {
+    return (
+      <div>
+        <h2>The Elemental Plane of Fire 🔥</h2>
+        <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          A blazing plane of ash wastes and molten seas, crowned by the City of Brass. Click a region to view its scenario.
+        </p>
+        <PlaneOfFireMap onLocationClick={handleLocationClick} />
       </div>
     );
   }

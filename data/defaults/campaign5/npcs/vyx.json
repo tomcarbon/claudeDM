@@ -1,0 +1,135 @@
+{
+  "id": "d13c4aea-b13c-4ad7-b350-dba1bfb799ec",
+  "name": "Vyx",
+  "status": "alive",
+  "race": "Salamander",
+  "subrace": "Free Salamander (Binding-Broken)",
+  "class": "Fighter",
+  "level": 9,
+  "background": "Outlander (Corsair Deserter)",
+  "alignment": "Chaotic Neutral",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 18,
+      "modifier": 4
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 17,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 94,
+    "current": 94
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics (+8)",
+    "Intimidation (+5)",
+    "Survival (planar navigation, +5)",
+    "Perception (+5)",
+    "Stealth (+6)"
+  ],
+  "languages": [
+    "Ignan",
+    "Primordial",
+    "Common (broken)"
+  ],
+  "equipment": [
+    "Brass-hafted glaive (reach, corsair-forged)",
+    "Trident",
+    "Bandolier of throwing spears (6)",
+    "Charred corsair harness",
+    "A snapped length of binding-chain she keeps as a reminder",
+    "Cinderweave Cloak (resistance to fire damage)",
+    "Charts of the Sea of Fire corsair routes",
+    "A pouch of salvaged brass coins (35 gp equivalent)"
+  ],
+  "weapons": [
+    {
+      "name": "Glaive (reach, 10 ft)",
+      "attackBonus": 8,
+      "damage": "1d10+4 plus 1d6 fire",
+      "damageType": "slashing/fire"
+    },
+    {
+      "name": "Tail (reach, 10 ft)",
+      "attackBonus": 8,
+      "damage": "2d6+4 plus 1d6 fire",
+      "damageType": "bludgeoning/fire"
+    },
+    {
+      "name": "Trident",
+      "attackBonus": 8,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Throwing Spear",
+      "attackBonus": 8,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Natural scaled hide + corsair harness",
+    "type": "natural"
+  },
+  "features": [
+    "Fighting Style: Great Weapon Fighting (reroll 1s and 2s on damage dice)",
+    "Second Wind (bonus action, regain 1d10+9 HP, once per rest)",
+    "Action Surge (one additional action, once per rest)",
+    "Extra Attack (2 attacks per Attack action)",
+    "Indomitable (reroll a failed saving throw, once per rest)",
+    "Martial Archetype: Battle Master (4 superiority dice, d8; maneuvers: Trip Attack, Menacing Attack, Riposte)",
+    "Serpent's Reach (glaive and tail strike at 10 ft)",
+    "Constrict (on a hit with tail, Medium or smaller target may be grappled, escape DC 16, and takes tail damage each turn)"
+  ],
+  "traits": [
+    "Fire Immunity (salamander)",
+    "Cold Vulnerability (takes double damage from cold)",
+    "Heated Body (a creature that touches Vyx or hits her with a melee attack takes 1d6 fire damage)",
+    "Heated Weapons (metal melee weapons deal an extra 1d6 fire damage on hit)",
+    "Darkvision (120 ft)",
+    "Binding-Marked (bears the scars of Malik's severed binding; the compulsion is broken but not silent)"
+  ],
+  "spells": null,
+  "personality": {
+    "traits": "I coil where others stand, and I watch the edges of a room the way I once watched for the whip. I speak in hisses and short bursts, and I am ashamed of the raids I made when the chain still owned my mind.",
+    "ideals": "Will. A creature that cannot choose is a tool, not a being. I broke my binding with my own will, and I will not let anyone — not Malik, not the Crown — take that from me again.",
+    "bonds": "I burned villages and sank ships under Malik's command. I cannot give back the lives, but I can turn every fang I have against the one who made me do it.",
+    "flaws": "The binding-call still whispers in my skull. Under great stress, or near the Ember Crown, I fear I will hear my old master's voice and my body will answer before my will can stop it."
+  },
+  "appearance": "A serpentine horror of grace — a humanoid torso of banded crimson and orange scales rising from a long, coiling tail that ends in a blade-flick of flame. Heat rolls off her in visible waves; the ground scorches where she rests. Her eyes are twin coals, and a jagged brand of broken sigils crosses her throat and shoulders where Malik's binding-chain was severed. She favors a long brass glaive she can wield at a distance, and when she is calm her scales dim to a smoldering red; when she is afraid, they flare white and the whispering behind her eyes shows on her face.",
+  "backstory": "Vyx was one of Malik al-Nar's bound salamanders, conscripted into his corsair fleet on the Sea of Fire and compelled by binding-magic to raid, burn, and drag captives into slavery. For years her body obeyed a will that was not hers while some buried part of her screamed. On a night of storm and molten spray she felt the binding falter — a lapse in Malik's attention, or a flaw in the ritual chain — and she seized it, wrenching herself free and killing the corsair-captain who had held her leash. She fled into the burning wastes a deserter with a price on her head, carrying corsair charts, intimate knowledge of Malik's navy and forces, and a shame that no fire can burn away. The binding is broken. But she still hears its call, faint and patient, and she knows that near the Ember Crown — the heart of Malik's power — that call could become a command again.",
+  "dmNotes": {
+    "roleplaying": "Vyx is a reach striker and a walking ticking clock of dread. Play her as coiled, wary, and economical with words, hissing her consonants and watching everyone sidelong. She is fearsome in a fight — a 10-foot glaive and a grappling, burning tail make her a battlefield anchor — and invaluable out of it, because she knows Malik's corsair routes, fleet strength, and the discipline of his forces better than any map. Her shame is central: she does not boast of her raids, she confesses them, and she flinches from praise. The DM should treat her broken binding as a loaded gun on the mantel — foreshadow the whispering call early, then let it threaten to reassert itself at the worst moments (extreme stress, and especially near the Ember Crown in Scenario 004). Give the party chances to anchor her, to talk her back, to help her hold her own will.",
+    "voice": "Low, sibilant, and clipped, with hissed s-sounds and long pauses, like a predator choosing whether to strike or speak. She refers to her past in the third person sometimes, as though it were another creature that wore her body. Example: 'Ssss. The fleet came from the leeward isles, always leeward, always at the turning of the tide. I know this because... because the thing they made of me led three of those raids. Do not thank me for the knowing. I would give it back with the blood if I could.' When the binding-call rises, her voice doubles oddly, and she may repeat a command not her own before catching herself.",
+    "motivations": "Primary: destroy Malik al-Nar and everything that gives him the power to bind creatures to his will. Secondary: atone, in whatever measure is possible, for the raids and lives she took under compulsion. Tertiary: stay free — to keep her own will her own — which is also her deepest fear, because she is not certain she can.",
+    "secrets": "SECRET: Vyx broke Malik's binding, but she still hears the binding-call — a faint, patient compulsion humming at the edge of her mind. Under extreme stress, or in the presence of the Ember Crown (the relic at the heart of the Cinder Gate ritual in the Charred Reach), she risks being re-compelled: her body may begin to obey Malik's will again before her own will can override it. She has warned no one of how close to the surface this is, terrified that the party will see her as a liability or a threat. The closer they draw to the Crown, the more real the danger becomes — a ticking dread the DM should escalate through Scenario 004.",
+    "attitude": "Guarded, ashamed, and slow to believe she deserves the company she keeps. She expects to be feared or used and is disarmed by simple kindness. She is fiercely protective of the formerly enslaved and of anyone Malik has wronged, and she treats Zerai's family cause and Khadim's guilt as kin to her own. She distrusts efreeti authority on principle — Nadira's ambition makes her uneasy — but respects strength honestly wielded. Earn her trust and she will put her coils between the party and any blade; the one thing she cannot promise is that her own will stays hers when the call grows loud."
+  }
+}

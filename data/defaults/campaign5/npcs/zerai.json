@@ -1,0 +1,153 @@
+{
+  "id": "1f6da43c-c878-4c0a-bc62-415fe481a531",
+  "name": "Zerai",
+  "status": "alive",
+  "race": "Genasi",
+  "subrace": "Fire Genasi",
+  "class": "Rogue",
+  "level": 9,
+  "background": "Urchin (Bazaar Survivor)",
+  "alignment": "Chaotic Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 66,
+    "current": 66
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Stealth (expertise, +12)",
+    "Acrobatics (expertise, +12)",
+    "Sleight of Hand (+8)",
+    "Perception (+6)",
+    "Investigation (+5)",
+    "Deception (+5)",
+    "Survival (+6)"
+  ],
+  "languages": [
+    "Common",
+    "Ignan",
+    "Primordial",
+    "Thieves' Cant"
+  ],
+  "equipment": [
+    "Studded leather armor",
+    "Twin shortswords",
+    "Shortbow",
+    "Arrows (20)",
+    "Thieves' tools (masterwork)",
+    "Grappling hook and 50 ft silk rope",
+    "Ash-cloak (grants advantage on Stealth in smoke and heat-shimmer)",
+    "Cinderweave Cloak (resistance to fire damage)",
+    "Set of forged bond-service papers",
+    "A locket with likenesses of his bound kin",
+    "Belt pouch containing 45 gp saved toward a manumission price"
+  ],
+  "weapons": [
+    {
+      "name": "Shortsword (main hand)",
+      "attackBonus": 8,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortsword (off hand)",
+      "attackBonus": 8,
+      "damage": "1d6",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Shortbow",
+      "attackBonus": 8,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dagger",
+      "attackBonus": 8,
+      "damage": "1d4+4",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Studded leather armor",
+    "type": "light"
+  },
+  "features": [
+    "Sneak Attack (5d6 extra damage once per turn)",
+    "Cunning Action (bonus action Dash, Disengage, or Hide)",
+    "Uncanny Dodge (halve damage from one attacker's hit as a reaction)",
+    "Evasion (no damage on successful DEX save, half on failure)",
+    "Expertise (Stealth, Acrobatics)",
+    "Roguish Archetype: Scout",
+    "Skirmisher (move up to half speed as a reaction when an enemy ends its turn within 5 ft)",
+    "Survivalist (proficiency and expertise flavor in Survival/Nature)",
+    "Reliable Talent (treat a d20 roll of 9 or lower as a 10 on proficient ability checks)"
+  ],
+  "traits": [
+    "Fire Resistance (fire genasi)",
+    "Darkvision (60 ft)",
+    "Reach to the Blaze (knows the Produce Flame cantrip; can cast Burning Hands once per long rest)",
+    "Bazaar Instincts (advantage on checks to navigate crowds, black markets, and back-alleys)"
+  ],
+  "spells": {
+    "spellcastingAbility": "constitution",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 6,
+    "cantrips": [
+      "Produce Flame"
+    ],
+    "level1": {
+      "slots": 1,
+      "known": [
+        "Burning Hands (once per long rest, innate)"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I watch the exits before I sit down. I trust actions, never words, and it takes a long time to earn either from me. When I decide someone is mine to protect, that is final.",
+    "ideals": "Freedom. No one should wear a collar they did not choose. Every coin I steal or earn buys someone one step closer to walking free.",
+    "bonds": "My mother, my brother, and my little sister are still bound-servants in the City of Brass. Every gold piece, every job, every risk — it is all for the price of their papers.",
+    "flaws": "I have lied and stolen for so long that honesty feels like a trap I am walking into. I will abandon a plan the instant it endangers my kin, even if it strands the party."
+  },
+  "appearance": "A lean, wary young man whose skin holds a deep coal-red hue, veined faintly with lines that glow like banked embers when his pulse quickens. His hair is a fixed, motionless crest of dark flame-colored spikes, and warmth radiates off him in the cold and light in the dark. Quick, dark eyes never stop moving. He dresses in ash-gray leathers cut for silence and speed, a locket tucked always against his chest, and he keeps his hands near his blades even when he smiles — which is rarely, and never for long.",
+  "backstory": "Zerai was born into bond-service in the smoke-choked underbelly of the City of Brass, his family's papers held by a bazaar creditor for a debt none of them had chosen. He learned to climb before he learned to read, to pick a lock before he learned his letters, and to disappear into heat-shimmer and crowd. He clawed his own papers loose through a decade of theft and clever running, but the job that was meant to buy his family free — a heist against a caravan he did not know belonged to Malik al-Nar — went catastrophically wrong. The creditor doubled the family's debt as punishment, and Zerai has been chasing that ever-growing sum ever since. He scouts, he steals, he survives, and he saves, one coin at a time, toward the day he can walk into that counting-house and buy his mother, his brother, and his sister out of their collars.",
+  "dmNotes": {
+    "roleplaying": "Zerai is the party's eyes, ears, and advance edge. Play him wary and economical — he speaks little, notices everything, and positions himself where he can see all the exits. He is not cold, but his warmth is guarded and comes out sideways: a watch stood without being asked, a trap spotted just in time, a quiet word to a frightened child. He is the best scout and infiltrator the party has, invaluable in the City of Brass where he knows every alley, fence, and bolt-hole. His loyalty, once earned, is absolute — but it competes with a deeper loyalty to his enslaved kin, and the DM should let that tension bite when the party's goals and his family's freedom diverge. He hates slavery with a cold fury and will risk everything to free a bound-servant.",
+    "voice": "Quiet, clipped, and low, with the flat wariness of someone raised where a loud voice draws the wrong attention. Speaks in short sentences; volunteers little; asks sharp, practical questions. Warms by a few degrees around those he trusts, and the ember-veins under his skin flare when his temper does. Example: 'Two guards on the counting-house, one bored, one not. The bored one we can walk past. The other one... I have a plan for the other one. Stay behind me and do not run unless I run.' On the rare occasion he opens up: 'I have a sister. She is nine. She has never once stood in a room she was allowed to leave.'",
+    "motivations": "Primary: buy the freedom of his mother, brother, and little sister, whose bond-service papers are still held by a City of Brass creditor. Secondary: never wear a collar again, and never let anyone he cares for wear one. Tertiary: prove — mostly to himself — that the boy who lied and stole to survive can also be someone worth trusting.",
+    "secrets": "SECRET: Zerai is a former thief who was indentured to a bazaar creditor after a heist went wrong — specifically a job that unknowingly struck at Malik al-Nar's interests, which is why his family's debt was cruelly doubled and why Malik's people may recognize his face. His kin remain bound-servants in the City of Brass, and freeing them is his true, private agenda — one he will pursue even at the party's expense if forced to choose. He has not told the party that his old job put him on Malik's radar, and he fears that association could get them all killed if it surfaces at the wrong moment.",
+    "attitude": "Guarded, watchful, slow to trust, and fierce once he does. He tests new companions quietly before committing, and treats grand promises with open suspicion. Toward the enslaved and the poor of the City of Brass he is unexpectedly gentle and generous. Toward creditors, slavers, and Malik's officials he is cold and dangerous. He is wary of Nadira's highborn ambitions — nobility is what put his family in chains — but will grudgingly work with her against Malik. He respects Khadim's guilt because he understands carrying a weight you cannot set down."
+  }
+}

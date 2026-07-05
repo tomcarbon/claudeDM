@@ -1,0 +1,176 @@
+{
+  "id": "a0ecf8dd-9b82-4439-a2d9-47fb6f0d86ab",
+  "name": "Nadira al-Zahra",
+  "status": "alive",
+  "race": "Efreeti",
+  "subrace": "Half-Efreeti Noble (Sultan's Heir)",
+  "class": "Sorcerer",
+  "level": 10,
+  "background": "Noble (Exiled Heir)",
+  "alignment": "Lawful Neutral",
+  "experience": 64000,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 20,
+      "modifier": 5
+    }
+  },
+  "hitPoints": {
+    "max": 85,
+    "current": 85
+  },
+  "armorClass": 17,
+  "speed": 30,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "Constitution",
+    "Charisma"
+  ],
+  "skills": [
+    "Arcana (+6)",
+    "Persuasion (expertise, +13)",
+    "Intimidation (+9)",
+    "History (royal lineage, +6)",
+    "Insight (+5)"
+  ],
+  "languages": [
+    "Common",
+    "Ignan",
+    "Primordial",
+    "Abyssal",
+    "Auran",
+    "Aquan",
+    "Terran"
+  ],
+  "equipment": [
+    "Flame-silk royal robes (warded, +1 to AC included)",
+    "Scimitar of the Brass Throne (heirloom, deals fire on command)",
+    "Signet ring of the al-Zahra line (proof of her claim)",
+    "Circlet of banked flame (focus)",
+    "Cinderweave Cloak (resistance to fire damage)",
+    "A sealed letter naming her the Sultan's heir",
+    "Coffer of jewels and 400 gp (what remained after exile)"
+  ],
+  "weapons": [
+    {
+      "name": "Scimitar of the Brass Throne",
+      "attackBonus": 6,
+      "damage": "1d6+2",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Scimitar (flame active)",
+      "attackBonus": 6,
+      "damage": "1d6+2 plus 1d6 fire",
+      "damageType": "slashing/fire"
+    },
+    {
+      "name": "Fire Bolt (cantrip)",
+      "attackBonus": 9,
+      "damage": "2d10",
+      "damageType": "fire"
+    }
+  ],
+  "armor": null,
+  "features": [
+    "Sorcerous Origin: Wild Flame Bloodline (Draconic/Elemental variant — fire)",
+    "Font of Magic (10 sorcery points)",
+    "Metamagic (Quickened Spell, Twinned Spell, Careful Spell)",
+    "Elemental Affinity (add CHA modifier to one fire damage roll of a spell; spend 1 sorcery point for fire resistance for 1 hour)",
+    "Efreeti Nobility (innate Enlarge/Reduce, Gaseous Form, Invisibility, Wall of Fire once per day each)",
+    "Empowered Presence (advantage on Persuasion/Intimidation against efreeti and fire creatures)"
+  ],
+  "traits": [
+    "Fire Immunity (efreeti heritage)",
+    "Darkvision (120 ft)",
+    "Innate Command of Flame (can ignite or snuff nonmagical flames at will)",
+    "Regal Bearing (creatures of the fire plane instinctively recognize her bloodline)",
+    "Does Not Need to Breathe"
+  ],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 17,
+    "spellAttackBonus": 9,
+    "cantrips": [
+      "Fire Bolt",
+      "Prestidigitation",
+      "Minor Illusion",
+      "Mind Sliver",
+      "Mage Hand",
+      "Control Flames"
+    ],
+    "level1": {
+      "slots": 4,
+      "known": [
+        "Shield",
+        "Mage Armor",
+        "Burning Hands"
+      ]
+    },
+    "level2": {
+      "slots": 3,
+      "known": [
+        "Scorching Ray",
+        "Misty Step",
+        "Suggestion"
+      ]
+    },
+    "level3": {
+      "slots": 3,
+      "known": [
+        "Fireball",
+        "Counterspell",
+        "Haste"
+      ]
+    },
+    "level4": {
+      "slots": 3,
+      "known": [
+        "Wall of Fire",
+        "Dimension Door"
+      ]
+    },
+    "level5": {
+      "slots": 2,
+      "known": [
+        "Immolation",
+        "Dominate Person"
+      ]
+    }
+  },
+  "personality": {
+    "traits": "I carry myself as what I am: the rightful heir of the Brass Throne. I do not ask twice, and I do not forget a slight or a debt. Beneath the imperious mask, I feel my father's imprisonment like a coal in my chest.",
+    "ideals": "Order. A realm without a true ruler is a realm that burns. The throne is not a prize — it is a duty owed to the millions who suffer under a usurper.",
+    "bonds": "My father, the Sultan, was betrayed and cast down by Malik al-Nar. I will see the usurper unmade and the throne restored — to its rightful heir, which is to say, to me.",
+    "flaws": "My certainty that I should rule is so absolute that I will bend allies, truths, and even the party toward my claim without always telling them so. I mistake my ambition for destiny."
+  },
+  "appearance": "Tall and commanding, with skin the deep bronze of heated metal and eyes that flicker with literal flame at the pupils. Her long hair moves like slow fire, and faint ember-runes of her royal line trace her collarbones and the backs of her hands. She wears flame-silk robes that ripple like a mirage and carries herself as though a court still surrounds her. Even in ash and exile she is immaculate, imperious, and impossible to overlook — a queen who has simply misplaced her palace.",
+  "backstory": "Nadira al-Zahra is the acknowledged heir of Sultan Marrash al-Djinni, ruler of the City of Brass — and for that reason, the Grand Vizier Malik al-Nar could not allow her near the throne. When Malik moved against her father, he had Nadira exiled on a fabricated charge, stripping her of her guard, her fortune, and her court, and casting her into the Plains of Burning Dust to die. She did not die. She has spent her exile gathering allies among the azer resistance, disgraced nobles, and grey-market captains, nursing a single burning purpose: return to the City of Brass, expose Malik, and take back what is hers. She genuinely opposes the Cinder Gate and the conquest of the Material Plane — but she has never once stopped believing that the crisis is also her path back to the throne, and that whatever serves her claim serves the realm.",
+  "dmNotes": {
+    "roleplaying": "Nadira is the party's most powerful ally and its most dangerous. Play her as regal, brilliant, and controlled, a natural leader who assumes command of any room she enters and is usually right to. She is not a cartoon villain-in-waiting — her opposition to Malik and the Gate is completely sincere, and she can be generous, even noble. But every plan she proposes quietly bends toward putting an al-Zahra back on the throne, and she will withhold information, steer decisions, and leverage the party toward that end without fully disclosing it. The DM should let her be genuinely helpful for a long time so that the betrayal tension is earned, not telegraphed. Give her show-stopping magical moments — she is a fireball-and-counterspell powerhouse — and let her pride occasionally cost the party when she refuses to bow, hide, or compromise her dignity.",
+    "voice": "Cultured, precise, and commanding, with the unhurried cadence of someone accustomed to being obeyed. She favors formal address, royal 'we' when moved, and cutting understatement over shouting. Warmth, when it comes, is deliberate and feels like a bestowed gift. Example: 'You mistake me. I do not ask for your swords — I offer you a place in the only future worth having. Malik sits on a throne of ash and lies. We will correct that. And when we do, remember who opened the way for you.' Under threat her voice stays level while the flame in her eyes flares white-hot.",
+    "motivations": "Primary: overthrow Malik al-Nar, free her imprisoned father the Sultan, and reclaim the Brass Throne — for herself. Secondary: stop the Cinder Gate, which she opposes on genuine principle. Tertiary: rebuild the al-Zahra dynasty and rule justly, as she is certain only she can. The contradiction she will not examine: she cannot always tell where 'saving the realm' ends and 'crowning myself' begins.",
+    "secrets": "SECRET: Nadira is the Sultan's rightful heir, exiled by Malik on a false charge. She sincerely opposes the Cinder Gate — but she also covets the throne itself, and will subtly push the party toward choices that serve her claim over other valid outcomes (for example, favoring her taking power over restoring her father to full rule, or over any republic/rebel alternative). At the climax she may press the party to install her rather than simply free the Sultan or dismantle the monarchy, and she is capable of a real betrayal if the party's chosen ending threatens her ascension. She keeps the depth of her ambition hidden behind the wholly true story of her exile.",
+    "attitude": "Imperious, gracious, and calculating in equal measure. She treats the party as valued instruments of a shared cause — allies she genuinely comes to respect, but instruments nonetheless. She is courteous to those who defer to her and icy to those who challenge her standing. She regards Khadim's craftsmanship and Vyx's insider knowledge as assets, is wary of Cassian's bargains with Malik, and views Zerai's low-born pragmatism with a mix of disdain and reluctant admiration. Win her genuine loyalty and she is a staunch protector; wound her pride or threaten her claim and the temperature in the room drops before it soars."
+  }
+}

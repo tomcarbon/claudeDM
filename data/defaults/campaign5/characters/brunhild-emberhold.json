@@ -1,0 +1,118 @@
+{
+  "id": "1b034466-c754-4b11-9ac1-cfb573dfc20a",
+  "name": "Brunhild Emberhold",
+  "status": "alive",
+  "race": "Dwarf",
+  "subrace": "Mountain Dwarf",
+  "class": "Fighter",
+  "level": 9,
+  "background": "Soldier",
+  "alignment": "Lawful Good",
+  "experience": 48000,
+  "abilities": {
+    "strength": {
+      "score": 20,
+      "modifier": 5
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 81,
+    "current": 81
+  },
+  "armorClass": 21,
+  "speed": 25,
+  "proficiencyBonus": 4,
+  "savingThrows": [
+    "strength",
+    "constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "Survival"
+  ],
+  "languages": [
+    "Common",
+    "Dwarvish",
+    "Ignan"
+  ],
+  "equipment": [
+    "Cinderweave Cloak (resistance to fire damage)",
+    "+1 Plate Armor",
+    "Shield of the Bulwark (+2 AC)",
+    "+1 Warhammer",
+    "Two javelins",
+    "Explorer's pack",
+    "Ashen Vow signet of rank",
+    "A whetstone and smith's hammer",
+    "A set of bone dice",
+    "A belt pouch containing 60 gp"
+  ],
+  "weapons": [
+    {
+      "name": "+1 Warhammer",
+      "attackBonus": 10,
+      "damage": "1d8+6",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Javelin",
+      "attackBonus": 9,
+      "damage": "1d6+5",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "+1 Plate Armor",
+    "type": "heavy"
+  },
+  "features": [
+    "Fighting Style: Defense (+1 AC while wearing armor)",
+    "Second Wind (bonus action, regain 1d10+9 HP, once per short rest)",
+    "Action Surge (one additional action, once per short rest)",
+    "Extra Attack (two attacks per Attack action)",
+    "Indomitable (reroll a failed saving throw, once per long rest)",
+    "Martial Archetype: Battle Master",
+    "Combat Superiority (four superiority dice, d8; recover on short rest)",
+    "Maneuvers: Trip Attack, Riposte, Precision Attack, Menacing Attack, Disarming Attack",
+    "Know Your Enemy (learn a creature's relative combat capabilities after study)",
+    "Darkvision (60 ft)",
+    "Dwarven Resilience (advantage on saves vs. poison, resistance to poison damage)",
+    "Stonecunning (double proficiency on History checks related to stonework)"
+  ],
+  "traits": [
+    "Dwarven Combat Training (proficient with battleaxe, handaxe, light hammer, warhammer)",
+    "Dwarven Armor Training (proficient with light and medium armor)",
+    "Anvil-steady: refuses to be moved from a line she has sworn to hold"
+  ],
+  "spells": null,
+  "personality": {
+    "traits": "I plant my boots and dare the world to move me. I size up a battlefield the way a mason sizes up a wall.",
+    "ideals": "Greater Good. The strong stand in front so the weak may stand at all.",
+    "bonds": "The Ashen Vow gave my shattered clan a purpose again; I will not fail the oath they set upon me.",
+    "flaws": "I would rather take a blow meant for another than admit I cannot win a fight."
+  },
+  "appearance": "A granite-shouldered mountain dwarf of 4'6\", her copper beard forked and bound in blackened iron clasps. Old forge-burns mottle her forearms, and a fresh ashfall of grey dusts her plate no matter how often she polishes it. She stands with the immovable patience of a foundation stone.",
+  "backstory": "Brunhild held the last gate of Emberhold Deep when a fire-touched incursion boiled up from a collapsed magma vent — the first tremor of the Emberscar to reach the mountain holds. Her shield wall broke; she alone did not. The Ashen Vow order found her weeks later, still standing guard over a tomb of her kin, and offered her a purpose worthy of her stubbornness: cross into the flame itself and shut the wound at its source. She took the oath before they finished the offer."
+}
