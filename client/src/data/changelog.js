@@ -1,10 +1,23 @@
-export const CURRENT_VERSION = '1.0.20';
+export const CURRENT_VERSION = '1.0.21';
 
 export const CHANGELOG = [
   {
+    version: '1.0.21',
+    date: '2026-07-04',
+    title: 'Current Release',
+    compareFrom: '1.0.20',
+    compareRef: 'df4a551 ("v1.0.20")',
+    highlights: [
+      'New campaign: "Realm of Eternal Flame" (campaign5) — a premium high-level planar adventure for levels 9–18, set on the Elemental Plane of Fire and its terrible jewel, the City of Brass. A rift called the Emberscar tears open above the surface world; the party chases it through to the far side, the gate seals behind them, and they are stranded on a plane where the ground is cinder, the seas are molten rock, and the sky itself burns. The only power that can open a road home rules from the City of Brass — the efreet, genies of fire and ambition, for whom every bargain hides a catch. Across 4 linked scenarios the party crosses the Plains of Burning Dust, sails the Sea of Fire on brass-hulled galleons, navigates the deadly court politics of the Charcoal Palace, and descends into the Charred Reach, where something vast is being built in the deep fire — a ritual to turn the Emberscar into a permanent road for a burning army. Ships with 8 playable characters and 5 NPC companions, and unlocks on the Home page as a Premium tier.',
+      'A survival plane, not a backdrop: the Plane of Fire is actively hostile to mortal life, and the campaign is built around it. Between scenario locations the DM runs survival-driven overland travel — each leg of the ash wastes or the molten sea costs drinkable water (a genuine tracked resource) and risks exhaustion through periodic Constitution saves against the heat, with the DC rising in firestorms and near lava. Fire-resistance gear like the party\'s issued Cinderweave cloaks, create-food-and-water magic, and shade or shelter mitigate it. Random travel events populate every leg: ember storms and heat mirages, salamander hunting parties and corsair patrols, azer refugee caravans bearing news, drifting obsidian isles, primordial ruins, and grey-market traders who sell passage, water, or secrets for coin or favors. Crucially, most fire-plane natives are immune or resistant to fire, so parties that lean only on fire spells will struggle — the DM is directed to reward varied damage types and clever use of terrain. Getting home is the engine of the whole campaign: only the efreeti lords (or a freed brass dragon\'s magic, late in the tale) can open a planar gate.',
+      'World Map wired up for the new plane: the World Map page now renders a dedicated illustrated map of the Elemental Plane of Fire — the Plains of Burning Dust, the Sea of Fire, the City of Brass, and the Charred Reach, each region clickable into its scenario — via a new PlaneOfFireMap component. Previously a new campaign without its own map fell through to the default Shattered Coast map.',
+      'Housekeeping: removed a set of stale top-level `data/npcs/` NPC files left over from the pre-campaign data layout; all NPCs now live under their per-campaign default directories.',
+    ],
+  },
+  {
     version: '1.0.20',
     date: '2026-06-10',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.19',
     compareRef: '22e96e4 ("v1.0.19 — fix DM long-campaign memory: UpdateWorldState path bug, keyFacts canon lore, claudeSessionId wipe guard")',
     highlights: [
