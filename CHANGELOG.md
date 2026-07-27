@@ -2,6 +2,28 @@
 
 All notable changes to this project are documented here.
 
+## [Unreleased] - 2026-07-25
+Reliability overhaul targeting the three production failure modes (wrong character sheets / lost XP, forgotten story arcs, silent XP-tool errors), based on an audit of two exported production sessions:
+
+**Correctness**
+- New canonical character/NPC file resolver (`server/entity-resolver.js`): session-dir-first, first-tier-wins. Cross-tier duplicates (the normal snapshot state) no longer throw "Ambiguous character reference" — this bug made essentially every AwardPartyXP call in a saved session fail in-band, which is why sheets stayed at starter stats.
+- Unicode-safe slugify: "Daichi Musō" now slugs to `daichi-muso` (was `daichi-mus`), and the companion-copy path resolves by character id before writing, deleting stale same-id duplicates instead of minting a second file.
+- `TrackResources` (ammo, rests, spell slots) and `TrackCombat`/`TrackCalendar` now target the session snapshot and key state per-session — long-rest HP restores previously wrote to the player library, which the UI and DM never read during play.
+- JSON "recovery" is now read-only: a corrupt-looking read can no longer overwrite a live session character with its level-1 library/defaults copy (the observed mid-session revert). All character/session writes are atomic (temp file + rename), and session.json read-modify-writes are serialized through a per-session queue.
+- Session characterId bindings are validated and self-healed at creation, watch, resume, and turn-fire; a dangling id (both audited production sessions had one) now surfaces as a visible system warning instead of failing silently.
+
+**Story-arc durability**
+- Single-player turns are now persisted server-side at dm_complete (previously only the client auto-save held them — a crash before auto-save caused the stale-resume "wrong scene" bug). The session PUT dedupes so client saves can't resurrect or truncate server-persisted turns.
+- The server auto-appends a per-turn digest to `worldState.recentEvents` after every DM turn — the resume snapshot can no longer be older than the last turn even if the DM never calls UpdateWorldState.
+- Resume recap now tells the DM the transcript wins over a stale world-state snapshot.
+- 401 subscription-auth expiry (the crash driver: Max-plan OAuth tokens expiring mid-session) is now detected and surfaced as "run `claude login` on the server" instead of a generic engine error. The error itself is environmental and recurs when the token expires — resume is now robust to it.
+
+**Prompt & cleanup**
+- Runtime DM system prompt restructured: ~4.5k → ~2.7k tokens, 22 → 13 sections, duplicate rules collapsed, three pacing variants merged into one parameterized block. Fixed a real contradiction where two of three XP touchpoints instructed the discouraged single-target AwardXP tool instead of AwardPartyXP (also fixed in the reconcile prompt).
+- The ~500-word multiplayer companion block is now omitted from solo-session prompts.
+- Bot self-play farm (~1,700 lines) only loads when `data/bot-config.json` has `"enabled": true`; legacy flat-dir fallbacks (`data/characters|npcs|scenarios`) removed; `emailToSlug` deduplicated into `player-data.js`.
+- Not changed: dice tooling — the audit found all 302 combat narrations in both production transcripts were backed by real RollDice calls; that complaint was not reproduced.
+
 ## [1.0.7] - 2026-03-13
 Changes since `1.0.6` (starting after commit `fd1f299`, "This is v1.0.6 and corresponding whats new section update."):
 

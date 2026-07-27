@@ -4,8 +4,10 @@ const fsp = fs.promises;
 const path = require('path');
 const { DmEngine, summarizeArc } = require('./dm-engine');
 const { maybeCompact } = require('./compaction');
-const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession } = require('./player-data');
+const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession, updateSessionFile } = require('./player-data');
 const { auditDmTurn, auditPlayerTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt } = require('./dm-audit');
+const { slugify, verifySessionIntegrity } = require('./entity-resolver');
+const { writeJsonAtomic } = require('./json-recovery');
 
 // Collapse warnings to one per category so a transfer flagged by both the DM-narration scan and the
 // player-intent scan doesn't double-report in the reconcile prompt.
@@ -49,7 +51,7 @@ async function reconcileTurnIfNeeded({ engine, warnings, auditDmText, auditToolC
   const cid = runOpts.campaignId || 'demo';
   const slug = runOpts.playerEmail ? emailToSlug(runOpts.playerEmail) : null;
   const charPathPrefix = sessionDbId ? `data/sessions/${sessionDbId}/characters`
-    : slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
+    : `data/players/${slug || 'unknown-player'}/${cid}/characters`;
   const npcPathPrefix = sessionDbId ? `data/sessions/${sessionDbId}/npcs`
     : `data/defaults/${cid}/npcs`;
 
@@ -195,36 +197,118 @@ async function isMultiplayerSession(sessionDbId) {
 
 // Module-level session read helper (set inside attachWebSocket)
 let _findAndReadSession = async () => null;
+// Data dir for serialized session updates (set inside attachWebSocket)
+let _dataDir = null;
 
+const SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
+
+// Recognize subscription-auth expiry (the production "DM died mid-boat-chase" cause)
+// so the client can show an actionable message instead of a generic engine error.
+function describeEngineError(message) {
+  const raw = String(message || 'DM engine error');
+  if (/401|authentication_error|Failed to authenticate|invalid.*api key|OAuth token has expired/i.test(raw)) {
+    return {
+      error: raw,
+      authError: true,
+      hint: 'Claude subscription auth expired on the server. Run `claude login` (or `claude setup-token`) on the server, then retry your last message.',
+    };
+  }
+  return { error: raw };
+}
+
+// Reconcile one completed turn's canonical events into sess.messages. Idempotent
+// against a client whose auto-save already captured the full turn; replaces any
+// partial fragment. Shared by the single-player and multiplayer dm_complete paths.
+// Runs inside an updateSessionFile mutator.
+function persistCanonicalTurn(sess, { sessionDbId, claudeSessionId, playerMsg, companionMsgs = [], stampedTurnEvents, lastDmText }) {
+  if (claudeSessionId) sess.claudeSessionId = claudeSessionId;
+  if (!Array.isArray(sess.messages)) sess.messages = [];
+
+  // Find the latest occurrence of this turn's player message in the file.
+  // Safe to scan unbounded: at dm_complete no later turn has been written yet,
+  // so the latest matching player line is by definition THIS turn's.
+  let playerIdx = -1;
+  for (let i = sess.messages.length - 1; i >= 0; i--) {
+    const m = sess.messages[i];
+    if (m && m.type === 'player' && m.text === playerMsg.text) { playerIdx = i; break; }
+  }
+
+  if (playerIdx >= 0) {
+    const fullyPersisted = lastDmText
+      ? sess.messages.slice(playerIdx + 1).some(m => m.type === 'dm' && m.text === lastDmText)
+      : true;
+    if (fullyPersisted) {
+      console.log(`[WS] dm_complete: client already persisted full turn, skipping append (session ${sessionDbId})`);
+    } else {
+      // Trim partial fragment of this turn (anything from the player message
+      // onward — could be just [player], or [player, dm₁, dice₁, …]) and
+      // replace with the canonical full turn.
+      sess.messages = sess.messages.slice(0, playerIdx);
+      sess.messages.push(playerMsg, ...companionMsgs, ...stampedTurnEvents);
+      console.log(`[WS] dm_complete: reconciled partial client save at idx ${playerIdx} with ${stampedTurnEvents.length} turn events (session ${sessionDbId})`);
+    }
+  } else {
+    sess.messages.push(playerMsg, ...companionMsgs, ...stampedTurnEvents);
+    console.log(`[WS] dm_complete: client did not persist, appended canonical turn (${stampedTurnEvents.length} events, session ${sessionDbId})`);
+  }
+
+  // Track summary counter regardless of who persisted the messages
+  for (const te of stampedTurnEvents) {
+    if (te.type !== 'dm') continue;
+    sess.dmMessagesSinceLastSummary = SUMMARY_PATTERN.test(te.text)
+      ? 0
+      : (sess.dmMessagesSinceLastSummary || 0) + 1;
+  }
+  appendTurnToWorldState(sess, playerMsg.text, lastDmText);
+}
+
+// Server-maintained world-state digest, appended after EVERY completed DM turn.
+// Guarantees the resume snapshot can never be older than the last turn, even when
+// the DM never volunteers an UpdateWorldState call. The DM's tool still owns the
+// structured fields (location, quests, keyFacts).
+function appendTurnToWorldState(session, playerText, dmText) {
+  if (!playerText && !dmText) return;
+  const clip = (s, n) => {
+    const t = String(s || '').replace(/\s+/g, ' ').trim();
+    return t.length > n ? `${t.slice(0, n - 1)}…` : t;
+  };
+  const ws = session.worldState || (session.worldState = {});
+  if (!Array.isArray(ws.recentEvents)) ws.recentEvents = [];
+  ws.recentEvents.push(`Turn: "${clip(playerText, 120)}" → ${clip(dmText, 200)}`);
+  while (ws.recentEvents.length > 8) ws.recentEvents.shift();
+  ws.updatedAt = new Date().toISOString();
+}
+
+// All three go through updateSessionFile so concurrent writers (world-state tool,
+// message persistence, counters) can't clobber each other's fields.
 async function persistTurnToSession(sessionDbId, turnData) {
-  const session = await _findAndReadSession(sessionDbId);
-  if (!session) return;
-  if (!session.pendingTurns) session.pendingTurns = {};
-  session.pendingTurns[turnData.playerEmail] = turnData;
-  session.updatedAt = new Date().toISOString();
-  const fp = await _findSessionFilePath(sessionDbId);
-  if (fp) await fsp.writeFile(fp, JSON.stringify(session, null, 2));
+  try {
+    await updateSessionFile(_dataDir, sessionDbId, (session) => {
+      if (!session.pendingTurns) session.pendingTurns = {};
+      session.pendingTurns[turnData.playerEmail] = turnData;
+    });
+  } catch { /* session file may not exist yet */ }
 }
 
 async function removeTurnFromSession(sessionDbId, playerEmail) {
-  const session = await _findAndReadSession(sessionDbId);
-  if (!session || !session.pendingTurns) return null;
-  const turn = session.pendingTurns[playerEmail];
-  if (!turn) return null;
-  delete session.pendingTurns[playerEmail];
-  session.updatedAt = new Date().toISOString();
-  const fp = await _findSessionFilePath(sessionDbId);
-  if (fp) await fsp.writeFile(fp, JSON.stringify(session, null, 2));
-  return turn.text || null;
+  let text = null;
+  try {
+    await updateSessionFile(_dataDir, sessionDbId, (session) => {
+      const turn = session.pendingTurns && session.pendingTurns[playerEmail];
+      if (!turn) return false;
+      text = turn.text || null;
+      delete session.pendingTurns[playerEmail];
+    });
+  } catch { /* session file may not exist yet */ }
+  return text;
 }
 
 async function clearPendingTurns(sessionDbId) {
-  const session = await _findAndReadSession(sessionDbId);
-  if (!session) return;
-  session.pendingTurns = {};
-  session.updatedAt = new Date().toISOString();
-  const fp = await _findSessionFilePath(sessionDbId);
-  if (fp) await fsp.writeFile(fp, JSON.stringify(session, null, 2));
+  try {
+    await updateSessionFile(_dataDir, sessionDbId, (session) => {
+      session.pendingTurns = {};
+    });
+  } catch { /* session file may not exist yet */ }
 }
 
 // Module-level file path helper (set inside attachWebSocket)
@@ -238,6 +322,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   // Wire module-level helpers to closure functions (defined below)
   _findSessionFilePath = (id) => findSessionFilePathAsync(id);
   _findAndReadSession = (id) => readSessionByDbIdAsync(id);
+  _dataDir = dataDir;
 
   function broadcastChatParticipants(chatKey) {
     const participants = getRoomParticipants(chatKey);
@@ -259,6 +344,43 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     const fp = getSessionFilePath(dataDir, sessionDbId);
     if (fs.existsSync(fp)) return fp;
     return null;
+  }
+
+  // Verify (and where possible heal) the session's character bindings. Runs at the
+  // three safe anchors — session watch, resume, and turn fire — never mid-turn.
+  // Unresolvable bindings surface as a visible system message instead of failing
+  // silently (a dangling characterId is how sheets stopped updating in production).
+  async function runSessionIntegrityCheck(sessionDbId) {
+    if (!sessionDbId) return;
+    try {
+      let appendedWarning = null;
+      await updateSessionFile(dataDir, sessionDbId, (sess) => {
+        const integrity = verifySessionIntegrity(dataDir, sess);
+        let changed = integrity.changed;
+        if (integrity.warnings.length > 0) {
+          const text = `⚠️ Session integrity: ${integrity.warnings.join(' ')}`;
+          const already = Array.isArray(sess.messages)
+            && sess.messages.some(m => m && m.type === 'system' && m.text === text);
+          if (!already) {
+            if (!Array.isArray(sess.messages)) sess.messages = [];
+            sess.messages.push({ type: 'system', text, timestamp: new Date().toISOString(), sessionId: sessionDbId });
+            appendedWarning = text;
+            changed = true;
+          }
+        }
+        if (!changed) return false;
+      });
+      if (appendedWarning) {
+        console.error(`[WS] ${appendedWarning} (session ${sessionDbId})`);
+        broadcastSessionMessage(sessionDbId, 'session_player_message', {
+          text: appendedWarning,
+          timestamp: new Date().toISOString(),
+          sessionId: sessionDbId,
+        });
+      }
+    } catch (e) {
+      console.error('[WS] Session integrity check error:', e);
+    }
   }
 
   async function findSessionFilePathAsync(sessionDbId) {
@@ -641,6 +763,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         // Snapshot session data dir if needed
         const cid = engineCtx.campaignId || 'demo';
         try { snapshotToSession(dataDir, sessionDbId, ownerEmail, cid); } catch (e) { console.error('[WS] Snapshot error:', e); }
+        await runSessionIntegrityCheck(sessionDbId);
 
         // Load world state and summary counter from session for context persistence
         const sessionForState = await readSessionByDbIdAsync(sessionDbId);
@@ -717,75 +840,39 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               // authoritative for the turn boundary; idempotent against a connected host whose
               // own auto-save already captured the complete turn.
               try {
-                const sess = await readSessionByDbIdAsync(sessionDbId);
-                if (sess) {
-                  if (event.sessionId) sess.claudeSessionId = event.sessionId;
-                  if (!Array.isArray(sess.messages)) sess.messages = [];
-
-                  const turnTimestamp = new Date().toISOString();
-                  const playerMsg = { type: 'player', text: hostTurn.text, timestamp: turnTimestamp, sessionId: sessionDbId };
-                  const companionMsgs = companionTurnsArr.map(ct => ({
-                    type: 'companion',
-                    characterName: ct.characterName || ct.npcName || ct.npcId,
-                    playerName: ct.playerName,
-                    text: ct.text,
-                    timestamp: turnTimestamp,
-                    sessionId: sessionDbId,
-                  }));
-                  const stampedTurnEvents = turnEvents.map(te => ({ ...te, timestamp: turnTimestamp, sessionId: sessionDbId }));
-                  let lastDmText = null;
-                  for (let i = turnEvents.length - 1; i >= 0; i--) {
-                    if (turnEvents[i].type === 'dm') { lastDmText = turnEvents[i].text; break; }
-                  }
-
-                  // Find the latest occurrence of this turn's player message in the file.
-                  // Safe to scan unbounded: at dm_complete no later turn has been written yet,
-                  // so the latest matching player line is by definition THIS turn's.
-                  let playerIdx = -1;
-                  for (let i = sess.messages.length - 1; i >= 0; i--) {
-                    const m = sess.messages[i];
-                    if (m && m.type === 'player' && m.text === hostTurn.text) { playerIdx = i; break; }
-                  }
-
-                  if (playerIdx >= 0) {
-                    const fullyPersisted = lastDmText
-                      ? sess.messages.slice(playerIdx + 1).some(m => m.type === 'dm' && m.text === lastDmText)
-                      : true;
-                    if (fullyPersisted) {
-                      console.log(`[WS] dm_complete: client already persisted full turn, skipping append (session ${sessionDbId})`);
-                    } else {
-                      // Trim partial fragment of this turn (anything from the player message
-                      // onward — could be just [player], or [player, dm₁, dice₁, …]) and
-                      // replace with the canonical full turn.
-                      sess.messages = sess.messages.slice(0, playerIdx);
-                      sess.messages.push(playerMsg, ...companionMsgs, ...stampedTurnEvents);
-                      console.log(`[WS] dm_complete: reconciled partial client save at idx ${playerIdx} with ${stampedTurnEvents.length} turn events (session ${sessionDbId})`);
-                    }
-                  } else {
-                    sess.messages.push(playerMsg, ...companionMsgs, ...stampedTurnEvents);
-                    console.log(`[WS] dm_complete: client did not persist, appended canonical turn (${stampedTurnEvents.length} events, session ${sessionDbId})`);
-                  }
-
-                  // Track summary counter regardless of who persisted the messages
-                  if (lastDmText) {
-                    const SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
-                    if (SUMMARY_PATTERN.test(lastDmText)) {
-                      sess.dmMessagesSinceLastSummary = 0;
-                    } else {
-                      sess.dmMessagesSinceLastSummary = (sess.dmMessagesSinceLastSummary || 0) + 1;
-                    }
-                  }
-                  sess.updatedAt = new Date().toISOString();
-                  const fp = await findSessionFilePathAsync(sessionDbId);
-                  if (fp) await fsp.writeFile(fp, JSON.stringify(sess, null, 2));
+                const turnTimestamp = new Date().toISOString();
+                const playerMsg = { type: 'player', text: hostTurn.text, timestamp: turnTimestamp, sessionId: sessionDbId };
+                const companionMsgs = companionTurnsArr.map(ct => ({
+                  type: 'companion',
+                  characterName: ct.characterName || ct.npcName || ct.npcId,
+                  playerName: ct.playerName,
+                  text: ct.text,
+                  timestamp: turnTimestamp,
+                  sessionId: sessionDbId,
+                }));
+                const stampedTurnEvents = turnEvents.map(te => ({ ...te, timestamp: turnTimestamp, sessionId: sessionDbId }));
+                let lastDmText = null;
+                for (let i = turnEvents.length - 1; i >= 0; i--) {
+                  if (turnEvents[i].type === 'dm') { lastDmText = turnEvents[i].text; break; }
                 }
+
+                await updateSessionFile(dataDir, sessionDbId, (sess) => {
+                  persistCanonicalTurn(sess, {
+                    sessionDbId,
+                    claudeSessionId: event.sessionId,
+                    playerMsg,
+                    companionMsgs,
+                    stampedTurnEvents,
+                    lastDmText,
+                  });
+                });
               } catch (e) { console.error('[WS] Failed to persist multiplayer turn:', e); }
               break;
             case 'session_id':
               broadcastSessionMessage(sessionDbId, 'session_id', { sessionId: event.sessionId });
               break;
             case 'error':
-              broadcastSessionMessage(sessionDbId, 'error', { error: event.error });
+              broadcastSessionMessage(sessionDbId, 'error', describeEngineError(event.error));
               break;
           }
         }
@@ -811,7 +898,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         });
       } catch (err) {
         console.error('[WS] DM engine error (multiplayer fire):', err);
-        broadcastSessionMessage(sessionDbId, 'error', { error: err.message || 'DM engine error' });
+        broadcastSessionMessage(sessionDbId, 'error', describeEngineError(err.message));
       } finally {
         // Set status to idle for all
         for (const entry of (sessionRooms.get(sessionDbId) || [])) {
@@ -1009,6 +1096,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               console.error('[WS] Resume compaction error:', e);
             }
           }
+          // Fire-and-forget (see session_watch note); the pre-turn check is blocking.
+          runSessionIntegrityCheck(currentSessionDbId);
           send('session_status', { status: 'idle' });
           console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, campaign: ${campaignId}, player: ${wsEntry.playerEmail}, history: ${messageHistory.length} messages`);
           break;
@@ -1128,6 +1217,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           // Snapshot character/NPC files to session-scoped directory (creates if not exists, skips existing)
           if (canWrite && ownerEmail) {
             try { snapshotToSession(dataDir, requestedSessionId, ownerEmail, session.campaignId || campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
+            // Fire-and-forget: must not delay the watch handshake (session_access /
+            // turn_status ordering). The blocking check runs before each DM turn fires.
+            runSessionIntegrityCheck(requestedSessionId);
           }
 
           // Restore pending turns from session JSON into in-memory map (reconnect support)
@@ -1244,6 +1336,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             // Snapshot session data if we have a saved session
             if (currentSessionDbId && wsEntry.playerEmail) {
               try { snapshotToSession(dataDir, currentSessionDbId, wsEntry.playerEmail, campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
+              await runSessionIntegrityCheck(currentSessionDbId);
             }
 
             // Load world state and summary counter from session for context persistence
@@ -1286,6 +1379,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             const auditToolCalls = [];
             let auditDmText = '';
             let auditWarnings = [];
+            // Ordered record of renderable events this turn (DM chunks + dice rolls),
+            // persisted server-side at dm_complete so a crash before the client's
+            // auto-save can no longer lose the turn (the stale-resume bug).
+            const turnEvents = [];
             for await (const event of stream) {
               switch (event.type) {
                 case 'dm_partial':
@@ -1315,33 +1412,42 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                     total: event.total,
                     label: event.label,
                   });
+                  turnEvents.push({ type: 'dice_roll', text: formatDiceRoll(event) });
                   break;
                 case 'dm_response':
                   messageHistory.push({ type: 'dm', text: event.text, sessionId: currentSessionDbId || undefined });
                   auditDmText += (auditDmText ? '\n\n' : '') + event.text;
                   send('dm_response', { text: event.text });
                   broadcastToSessionWatchers('dm_response', { text: event.text });
-                  // Track summary counter in session JSON (single-player path)
-                  if (currentSessionDbId) {
-                    try {
-                      const sessForCounter = await readSessionByDbIdAsync(currentSessionDbId);
-                      if (sessForCounter) {
-                        const SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
-                        if (SUMMARY_PATTERN.test(event.text)) {
-                          sessForCounter.dmMessagesSinceLastSummary = 0;
-                        } else {
-                          sessForCounter.dmMessagesSinceLastSummary = (sessForCounter.dmMessagesSinceLastSummary || 0) + 1;
-                        }
-                        sessForCounter.updatedAt = new Date().toISOString();
-                        const fp = await findSessionFilePathAsync(currentSessionDbId);
-                        if (fp) await fsp.writeFile(fp, JSON.stringify(sessForCounter, null, 2));
-                      }
-                    } catch { /* ignore counter update failure */ }
-                  }
+                  turnEvents.push({ type: 'dm', text: event.text });
                   break;
                 case 'dm_complete':
                   send('dm_complete', { sessionId: event.sessionId });
                   broadcastToSessionWatchers('dm_complete', { sessionId: event.sessionId });
+                  // Persist the full turn (player message + every DM chunk + every dice
+                  // roll) + summary counter + world-state digest, serialized against
+                  // other session.json writers. The client auto-save remains; the PUT
+                  // handler dedupes against what's persisted here.
+                  if (currentSessionDbId) {
+                    try {
+                      const turnTimestamp = new Date().toISOString();
+                      const playerMsg = { type: 'player', text: playerText, timestamp: turnTimestamp, sessionId: currentSessionDbId };
+                      const stampedTurnEvents = turnEvents.map(te => ({ ...te, timestamp: turnTimestamp, sessionId: currentSessionDbId }));
+                      let lastDmText = null;
+                      for (let i = turnEvents.length - 1; i >= 0; i--) {
+                        if (turnEvents[i].type === 'dm') { lastDmText = turnEvents[i].text; break; }
+                      }
+                      await updateSessionFile(dataDir, currentSessionDbId, (sess) => {
+                        persistCanonicalTurn(sess, {
+                          sessionDbId: currentSessionDbId,
+                          claudeSessionId: event.sessionId,
+                          playerMsg,
+                          stampedTurnEvents,
+                          lastDmText,
+                        });
+                      });
+                    } catch (e) { console.error('[WS] Failed to persist single-player turn:', e); }
+                  }
                   try {
                     // Audit the DM's narration AND the player's own turn text — a transfer the
                     // player declared ("I give everyone 1 gp") is often paraphrased qualitatively by
@@ -1360,8 +1466,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   broadcastToSessionWatchers('session_id', { sessionId: event.sessionId });
                   break;
                 case 'error':
-                  send('error', { error: event.error });
-                  broadcastToSessionWatchers('error', { error: event.error });
+                  send('error', describeEngineError(event.error));
+                  broadcastToSessionWatchers('error', describeEngineError(event.error));
                   break;
               }
             }
@@ -1386,8 +1492,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             });
           } catch (err) {
             console.error('[WS] Engine error:', err);
-            send('error', { error: err.message || 'DM engine error' });
-            broadcastToSessionWatchers('error', { error: err.message || 'DM engine error' });
+            send('error', describeEngineError(err.message));
+            broadcastToSessionWatchers('error', describeEngineError(err.message));
           } finally {
             processing = false;
             send('session_status', { status: 'idle' });
@@ -1424,33 +1530,46 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           if (msg.characterName !== prevCharName && companionSheetsSent.has(currentSessionDbId)) {
             companionSheetsSent.get(currentSessionDbId).delete(msg.characterId || msg.characterName);
           }
-          // Persist character choice to session JSON
+          // Persist character choice to session JSON (serialized with other writers)
           try {
-            const sessionFile = await readSessionByDbIdAsync(currentSessionDbId);
-            if (sessionFile && sessionFile.companionPlayers && sessionFile.companionPlayers[wsEntry.companionNpcId]) {
-              sessionFile.companionPlayers[wsEntry.companionNpcId].characterId = msg.characterId || null;
-              sessionFile.companionPlayers[wsEntry.companionNpcId].characterName = msg.characterName || null;
-              sessionFile.updatedAt = new Date().toISOString();
-              const fp = await findSessionFilePathAsync(currentSessionDbId);
-              if (fp) await fsp.writeFile(fp, JSON.stringify(sessionFile, null, 2));
-            }
+            await updateSessionFile(dataDir, currentSessionDbId, (sessionFile) => {
+              const claim = sessionFile.companionPlayers && sessionFile.companionPlayers[wsEntry.companionNpcId];
+              if (!claim) return false;
+              claim.characterId = msg.characterId || null;
+              claim.characterName = msg.characterName || null;
+            });
           } catch (err) {
             console.error('[WS] Failed to persist companion character choice:', err);
           }
           broadcastSessionParticipants(currentSessionDbId);
 
-          // Copy companion's character file to the session directory (neutral, shared)
+          // Copy companion's character file to the session directory (neutral, shared).
+          // Resolve by id first: if any session file already holds this character id,
+          // overwrite THAT file (and remove stale same-id duplicates) instead of
+          // minting a new filename from a re-slugified name — that's how one
+          // character ended up as both daichi-mus.json and daichi-muso.json.
           if (msg.characterData && msg.characterId) {
             try {
               const sessCharDir = getSessionCharactersDir(dataDir, currentSessionDbId);
               await fsp.mkdir(sessCharDir, { recursive: true });
-              const charSlug = String(msg.characterData.name || msg.characterId)
-                .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-              const destPath = path.join(sessCharDir, `${charSlug}.json`);
-              const charDataToWrite = { ...msg.characterData, _filename: `${charSlug}.json` };
-              // Always write to session dir — overwrites are safe in session scope
-              await fsp.writeFile(destPath, JSON.stringify(charDataToWrite, null, 2));
-              console.log(`[WS] Copied companion character "${msg.characterData.name}" to session dir: ${destPath}`);
+
+              const existingFiles = (await fsp.readdir(sessCharDir)).filter(f => f.endsWith('.json'));
+              const sameId = [];
+              for (const f of existingFiles) {
+                try {
+                  const d = JSON.parse(await fsp.readFile(path.join(sessCharDir, f), 'utf-8'));
+                  if (d.id === msg.characterId) sameId.push(f);
+                } catch { /* skip unreadable */ }
+              }
+
+              const destFile = sameId[0] || `${slugify(msg.characterData.name || msg.characterId)}.json`;
+              const charDataToWrite = { ...msg.characterData, _filename: destFile };
+              writeJsonAtomic(path.join(sessCharDir, destFile), charDataToWrite);
+              for (const stale of sameId.slice(1)) {
+                await fsp.unlink(path.join(sessCharDir, stale));
+                console.warn(`[WS] Removed duplicate character file ${stale} (same id as ${destFile})`);
+              }
+              console.log(`[WS] Copied companion character "${msg.characterData.name}" to session dir: ${path.join(sessCharDir, destFile)}`);
             } catch (err) {
               console.error(`[WS] Failed to copy companion character to session dir:`, err);
             }

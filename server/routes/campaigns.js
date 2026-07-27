@@ -22,22 +22,6 @@ function readCampaignEntries(campaignDir) {
       }
     }
   }
-  // Also scan for legacy flat JSON files (backwards compat)
-  const files = fs.readdirSync(campaignDir).filter(f => f.endsWith('.json'));
-  for (const file of files) {
-    const filePath = path.join(campaignDir, file);
-    try {
-      const stat = fs.statSync(filePath);
-      if (!stat.isFile()) continue;
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      // Skip if already found via subdir scan
-      if (!entries.some(e => e.data.id === data.id)) {
-        entries.push({ filePath, data });
-      }
-    } catch (err) {
-      console.error(`[Campaigns] Failed to parse ${file}:`, err.message);
-    }
-  }
   return entries;
 }
 

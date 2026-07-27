@@ -1,14 +1,16 @@
 const crypto = require('crypto');
 
-// In-memory combat state keyed by a context key (sessionDbId or playerEmail)
+// In-memory combat state, keyed per session when a sessionId exists — two
+// concurrent sessions in the same campaign must never share combat state.
 const combatStates = new Map();
 
-function getContextKey(playerEmail, campaignId) {
+function getContextKey(playerEmail, campaignId, sessionId) {
+  if (sessionId) return `sess:${sessionId}`;
   return `${playerEmail || 'guest'}:${campaignId || 'demo'}`;
 }
 
-function startCombat(playerEmail, campaignId, combatants) {
-  const key = getContextKey(playerEmail, campaignId);
+function startCombat(playerEmail, campaignId, sessionId, combatants) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   if (combatStates.has(key)) {
     return { error: 'Combat already in progress. Use "end" to finish current combat first.' };
   }
@@ -62,8 +64,8 @@ function startCombat(playerEmail, campaignId, combatants) {
   };
 }
 
-function nextTurn(playerEmail, campaignId) {
-  const key = getContextKey(playerEmail, campaignId);
+function nextTurn(playerEmail, campaignId, sessionId) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   const state = combatStates.get(key);
   if (!state || !state.active) return { error: 'No active combat.' };
 
@@ -103,8 +105,8 @@ function nextTurn(playerEmail, campaignId) {
   };
 }
 
-function applyDamage(playerEmail, campaignId, targetName, amount) {
-  const key = getContextKey(playerEmail, campaignId);
+function applyDamage(playerEmail, campaignId, sessionId, targetName, amount) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   const state = combatStates.get(key);
   if (!state || !state.active) return { error: 'No active combat.' };
 
@@ -126,8 +128,8 @@ function applyDamage(playerEmail, campaignId, targetName, amount) {
   };
 }
 
-function applyHealing(playerEmail, campaignId, targetName, amount) {
-  const key = getContextKey(playerEmail, campaignId);
+function applyHealing(playerEmail, campaignId, sessionId, targetName, amount) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   const state = combatStates.get(key);
   if (!state || !state.active) return { error: 'No active combat.' };
 
@@ -147,8 +149,8 @@ function applyHealing(playerEmail, campaignId, targetName, amount) {
   };
 }
 
-function setCondition(playerEmail, campaignId, targetName, condition, roundsLeft, remove) {
-  const key = getContextKey(playerEmail, campaignId);
+function setCondition(playerEmail, campaignId, sessionId, targetName, condition, roundsLeft, remove) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   const state = combatStates.get(key);
   if (!state || !state.active) return { error: 'No active combat.' };
 
@@ -171,8 +173,8 @@ function setCondition(playerEmail, campaignId, targetName, condition, roundsLeft
   return { action: 'condition', target: target.name, added: condition, roundsLeft, conditions: target.conditions };
 }
 
-function getCombatStatus(playerEmail, campaignId) {
-  const key = getContextKey(playerEmail, campaignId);
+function getCombatStatus(playerEmail, campaignId, sessionId) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   const state = combatStates.get(key);
   if (!state || !state.active) return { active: false, message: 'No active combat.' };
 
@@ -192,8 +194,8 @@ function getCombatStatus(playerEmail, campaignId) {
   };
 }
 
-function endCombat(playerEmail, campaignId) {
-  const key = getContextKey(playerEmail, campaignId);
+function endCombat(playerEmail, campaignId, sessionId) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   const state = combatStates.get(key);
   if (!state || !state.active) return { active: false, message: 'No active combat to end.' };
 

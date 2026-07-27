@@ -1,36 +1,32 @@
-const fs = require('fs');
-const path = require('path');
+const { findCharacterOrNpcFile, describeRoster } = require('./entity-resolver');
+const { writeJsonAtomic } = require('./json-recovery');
 
-// In-memory spell slot tracking per session context
+// In-memory spell slot tracking, keyed per session when a sessionId exists.
 const spellSlotUsage = new Map(); // key -> { characterId -> { level -> used } }
 
-function getContextKey(playerEmail, campaignId) {
+function getContextKey(playerEmail, campaignId, sessionId) {
+  if (sessionId) return `sess:${sessionId}`;
   return `${playerEmail || 'guest'}:${campaignId || 'demo'}`;
 }
 
-function emailToSlug(email) {
-  return email.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+// Resolve through the canonical session-first resolver so resource edits land on
+// the same file the DM and the player's UI read (the session snapshot during play).
+function findCharacterFile(dataDir, characterId, playerEmail, campaignId, sessionId) {
+  const match = findCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId, sessionId);
+  if (!match) return null;
+  return { filePath: match.filePath, data: match.data };
 }
 
-function findCharacterFile(dataDir, characterId, playerEmail, campaignId) {
-  const slug = emailToSlug(playerEmail);
-  const cid = campaignId || 'demo';
-  const charDir = path.join(dataDir, 'players', slug, cid, 'characters');
-  if (!fs.existsSync(charDir)) return null;
-  for (const f of fs.readdirSync(charDir).filter(f => f.endsWith('.json'))) {
-    try {
-      const data = JSON.parse(fs.readFileSync(path.join(charDir, f), 'utf-8'));
-      if (data.id === characterId || data.name?.toLowerCase() === characterId?.toLowerCase()) {
-        return { filePath: path.join(charDir, f), data };
-      }
-    } catch { /* skip */ }
-  }
-  return null;
+function notFoundError(dataDir, characterId, playerEmail, campaignId, sessionId) {
+  return {
+    error: `Character "${characterId}" not found. Known party: ` +
+      describeRoster(dataDir, playerEmail, campaignId, sessionId),
+  };
 }
 
-function useResource(dataDir, playerEmail, campaignId, characterId, resource, quantity) {
-  const found = findCharacterFile(dataDir, characterId, playerEmail, campaignId);
-  if (!found) return { error: `Character "${characterId}" not found.` };
+function useResource(dataDir, playerEmail, campaignId, sessionId, characterId, resource, quantity) {
+  const found = findCharacterFile(dataDir, characterId, playerEmail, campaignId, sessionId);
+  if (!found) return notFoundError(dataDir, characterId, playerEmail, campaignId, sessionId);
 
   const { filePath, data } = found;
   if (!Array.isArray(data.equipment)) return { error: `${data.name} has no equipment array.` };
@@ -59,7 +55,7 @@ function useResource(dataDir, playerEmail, campaignId, characterId, resource, qu
     data.equipment[idx] = `${resource} (${newQty})`;
   }
 
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  writeJsonAtomic(filePath, data);
 
   const result = {
     action: 'use',
@@ -73,8 +69,8 @@ function useResource(dataDir, playerEmail, campaignId, characterId, resource, qu
   return result;
 }
 
-function castSpell(playerEmail, campaignId, characterId, spellLevel) {
-  const key = getContextKey(playerEmail, campaignId);
+function castSpell(playerEmail, campaignId, sessionId, characterId, spellLevel) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   if (!spellSlotUsage.has(key)) spellSlotUsage.set(key, {});
   const sessionSlots = spellSlotUsage.get(key);
   if (!sessionSlots[characterId]) sessionSlots[characterId] = {};
@@ -95,9 +91,9 @@ function castSpell(playerEmail, campaignId, characterId, spellLevel) {
   };
 }
 
-function processRest(dataDir, playerEmail, campaignId, characterId, restType) {
-  const found = findCharacterFile(dataDir, characterId, playerEmail, campaignId);
-  if (!found) return { error: `Character "${characterId}" not found.` };
+function processRest(dataDir, playerEmail, campaignId, sessionId, characterId, restType) {
+  const found = findCharacterFile(dataDir, characterId, playerEmail, campaignId, sessionId);
+  if (!found) return notFoundError(dataDir, characterId, playerEmail, campaignId, sessionId);
 
   const { filePath, data } = found;
   const results = { action: 'rest', type: restType, character: data.name, changes: [] };
@@ -111,7 +107,7 @@ function processRest(dataDir, playerEmail, campaignId, characterId, restType) {
     }
 
     // Reset spell slot tracking for this character
-    const key = getContextKey(playerEmail, campaignId);
+    const key = getContextKey(playerEmail, campaignId, sessionId);
     if (spellSlotUsage.has(key) && spellSlotUsage.get(key)[characterId]) {
       delete spellSlotUsage.get(key)[characterId];
       results.changes.push('All spell slots restored');
@@ -123,13 +119,13 @@ function processRest(dataDir, playerEmail, campaignId, characterId, restType) {
     results.changes.push('Hit dice can be spent to heal (DM: ask player how many hit dice to spend)');
   }
 
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  writeJsonAtomic(filePath, data);
   return results;
 }
 
-function checkResources(dataDir, playerEmail, campaignId, characterId) {
-  const found = findCharacterFile(dataDir, characterId, playerEmail, campaignId);
-  if (!found) return { error: `Character "${characterId}" not found.` };
+function checkResources(dataDir, playerEmail, campaignId, sessionId, characterId) {
+  const found = findCharacterFile(dataDir, characterId, playerEmail, campaignId, sessionId);
+  if (!found) return notFoundError(dataDir, characterId, playerEmail, campaignId, sessionId);
 
   const { data } = found;
   const resources = [];
@@ -146,7 +142,7 @@ function checkResources(dataDir, playerEmail, campaignId, characterId) {
   }
 
   // Spell slot status
-  const key = getContextKey(playerEmail, campaignId);
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   const used = spellSlotUsage.get(key)?.[characterId] || {};
   const spellInfo = {};
   if (data.spells) {

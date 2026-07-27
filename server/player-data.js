@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json-recovery');
 
 const DEFAULT_CAMPAIGN = 'demo';
 
@@ -58,7 +59,7 @@ function copyDefaultsToDir(sourceDir, targetDir) {
     if (fs.existsSync(targetFile)) continue; // don't overwrite existing player data
     const data = JSON.parse(fs.readFileSync(path.join(sourceDir, file), 'utf-8'));
     addStatusAlive(data);
-    fs.writeFileSync(targetFile, JSON.stringify(data, null, 2), { mode: 0o644 });
+    writeJsonAtomic(targetFile, data);
   }
 }
 
@@ -111,7 +112,9 @@ function copyFilesIfNotExist(srcDir, dstDir) {
   for (const file of files) {
     const dstFile = path.join(dstDir, file);
     if (fs.existsSync(dstFile)) continue;
-    fs.copyFileSync(path.join(srcDir, file), dstFile);
+    // Atomic write (not copyFileSync) — the DM/UI may read the session dir mid-snapshot.
+    const data = JSON.parse(fs.readFileSync(path.join(srcDir, file), 'utf-8'));
+    writeJsonAtomic(dstFile, data);
   }
 }
 
@@ -133,6 +136,38 @@ function snapshotToSession(dataDir, sessionId, ownerEmail, campaignId) {
     const playerChars = getPlayerCharactersDir(dataDir, ownerEmail, cid);
     copyFilesIfNotExist(playerChars, dstChars);
   }
+}
+
+// --- Serialized session.json updates ---
+// Several writers touch session.json concurrently mid-turn (world-state tool,
+// message persistence, counters). All server-side read-modify-writes go through
+// this per-session queue so none of them clobbers another's fields.
+
+const sessionUpdateQueues = new Map(); // sessionId -> tail Promise
+
+/**
+ * Read-modify-write session.json under a per-session async lock.
+ * `mutatorFn(session)` edits the object in place; return false to skip the write.
+ * Resolves to the (possibly updated) session object.
+ */
+function updateSessionFile(dataDir, sessionId, mutatorFn) {
+  const prev = sessionUpdateQueues.get(sessionId) || Promise.resolve();
+  const run = prev.then(async () => {
+    const filePath = getSessionFilePath(dataDir, sessionId);
+    const session = JSON.parse(await fs.promises.readFile(filePath, 'utf-8'));
+    const result = await mutatorFn(session);
+    if (result !== false) {
+      session.updatedAt = new Date().toISOString();
+      writeJsonAtomic(filePath, session);
+    }
+    return session;
+  });
+  const tail = run.catch(() => {}); // keep the queue alive after a failed update
+  sessionUpdateQueues.set(sessionId, tail);
+  tail.then(() => {
+    if (sessionUpdateQueues.get(sessionId) === tail) sessionUpdateQueues.delete(sessionId);
+  });
+  return run;
 }
 
 function resetSingleEntity(dataDir, email, entityType, entityId, campaignId) {
@@ -177,7 +212,7 @@ function resetSingleEntity(dataDir, email, entityType, entityId, campaignId) {
 
   const data = JSON.parse(fs.readFileSync(path.join(defaultDir, matchedFile), 'utf-8'));
   addStatusAlive(data);
-  fs.writeFileSync(path.join(playerDir, matchedFile), JSON.stringify(data, null, 2));
+  writeJsonAtomic(path.join(playerDir, matchedFile), data);
 }
 
 module.exports = {
@@ -197,4 +232,5 @@ module.exports = {
   provisionAllCampaignDefaults,
   resetPlayerData,
   resetSingleEntity,
+  updateSessionFile,
 };

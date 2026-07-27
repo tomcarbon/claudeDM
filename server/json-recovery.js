@@ -2,8 +2,19 @@ const fs = require('fs');
 const path = require('path');
 
 /**
+ * Write JSON atomically: write to a temp file in the same directory, then rename.
+ * Readers can never observe a partially-written file.
+ */
+function writeJsonAtomic(filePath, obj) {
+  const tmpPath = `${filePath}.tmp-${process.pid}-${Math.random().toString(36).slice(2)}`;
+  fs.writeFileSync(tmpPath, JSON.stringify(obj, null, 2));
+  fs.renameSync(tmpPath, filePath);
+}
+
+/**
  * Attempt to read and parse a JSON file.
- * On parse failure, retries once after a short delay (handles race with mid-write Edit tool).
+ * On parse failure, retries once immediately (a non-atomic writer — e.g. the SDK
+ * Edit tool — may have been mid-write on the first read).
  */
 function safeReadJsonFile(filePath) {
   for (let attempt = 0; attempt < 2; attempt++) {
@@ -12,21 +23,20 @@ function safeReadJsonFile(filePath) {
       const data = JSON.parse(raw);
       return { ok: true, data };
     } catch (err) {
-      if (attempt === 0) {
-        // Brief pause — Edit tool may be mid-write
-        const start = Date.now();
-        while (Date.now() - start < 100) { /* spin */ }
-        continue;
-      }
+      if (attempt === 0) continue;
       return { ok: false, error: err.message, filePath };
     }
   }
 }
 
 /**
- * Try to recover a corrupt JSON file from a list of fallback directories.
- * Searches by filename first, then by matching `id` field.
- * If a valid copy is found, overwrites the corrupt file and returns the data.
+ * Try to find a readable copy of a corrupt JSON file in a list of fallback
+ * directories. Searches by filename first, then by matching `id` field.
+ *
+ * READ-ONLY: returns the fallback data for the caller's response but never
+ * overwrites the file on disk — the "corrupt" read may be a transient race, and
+ * the fallback copy (player library / campaign defaults) is usually an older
+ * tier whose data must not clobber live session state.
  */
 function tryRecover(corruptFilePath, filename, recoveryDirs) {
   for (const dir of recoveryDirs) {
@@ -37,8 +47,7 @@ function tryRecover(corruptFilePath, filename, recoveryDirs) {
     if (fs.existsSync(candidate)) {
       const result = safeReadJsonFile(candidate);
       if (result.ok) {
-        fs.writeFileSync(corruptFilePath, JSON.stringify(result.data, null, 2));
-        console.warn(`[json-recovery] Recovered ${filename} from ${dir}`);
+        console.warn(`[json-recovery] Read fallback for ${filename} from ${dir} (original left untouched)`);
         return { recovered: true, source: dir, data: result.data };
       }
     }
@@ -55,8 +64,7 @@ function tryRecover(corruptFilePath, filename, recoveryDirs) {
           if (f === filename) continue; // already tried
           const fResult = safeReadJsonFile(path.join(dir, f));
           if (fResult.ok && fResult.data.id === targetId) {
-            fs.writeFileSync(corruptFilePath, JSON.stringify(fResult.data, null, 2));
-            console.warn(`[json-recovery] Recovered ${filename} (id: ${targetId}) from ${path.join(dir, f)}`);
+            console.warn(`[json-recovery] Read fallback for ${filename} (id: ${targetId}) from ${path.join(dir, f)} (original left untouched)`);
             return { recovered: true, source: dir, data: fResult.data };
           }
         }
@@ -67,7 +75,7 @@ function tryRecover(corruptFilePath, filename, recoveryDirs) {
 }
 
 /**
- * Read all JSON files from a directory with corruption detection and auto-recovery.
+ * Read all JSON files from a directory with corruption detection and read-fallback.
  *
  * @param {string} dir - Directory to read JSON files from
  * @param {string[]} recoveryDirs - Ordered list of fallback directories for recovery
@@ -97,7 +105,7 @@ function readJsonDirWithRecovery(dir, recoveryDirs = []) {
       continue;
     }
 
-    // Corrupt — attempt recovery
+    // Corrupt — attempt read-fallback
     console.error(`[json-recovery] Corrupt file: ${filePath} — ${result.error}`);
     const recovery = tryRecover(filePath, f, recoveryDirs);
 
@@ -133,6 +141,7 @@ function readJsonDirWithRecovery(dir, recoveryDirs = []) {
 }
 
 module.exports = {
+  writeJsonAtomic,
   safeReadJsonFile,
   tryRecover,
   readJsonDirWithRecovery,

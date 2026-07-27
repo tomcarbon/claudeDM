@@ -4,7 +4,7 @@ import { api, hasActiveSession } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import { useCampaign } from '../context/CampaignContext';
 import StatBlock from '../components/StatBlock';
-import SpellTag from '../components/SpellTag';
+import SpellList from '../components/SpellList';
 
 function CharacterDetail() {
   const { id } = useParams();
@@ -185,43 +185,7 @@ function CharacterDetail() {
         </div>
       )}
 
-      {char.spells && (char.spells.cantrips?.length > 0 || char.spells.knownSpells?.length > 0 || char.spells.level1?.known?.length > 0) && (
-        <div className="detail-section">
-          <h3>Spells</h3>
-          {char.spells.spellcastingAbility && (
-            <div style={{ marginBottom: '0.5rem', fontSize: '0.9em', color: 'var(--text-muted)' }}>
-              Spellcasting: {char.spells.spellcastingAbility} | Save DC {char.spells.spellSaveDC} | Attack +{char.spells.spellAttackBonus}
-            </div>
-          )}
-          {char.spells.cantrips?.length > 0 && (
-            <div><strong>Cantrips:</strong> {char.spells.cantrips.map(s => <SpellTag key={s} name={s} />)}</div>
-          )}
-          {char.spells.level1?.known?.length > 0 && (
-            <div style={{ marginTop: '0.3rem' }}>
-              <strong>1st Level ({char.spells.level1.slots} slots):</strong>{' '}
-              {char.spells.level1.known.map(s => <SpellTag key={s} name={s} />)}
-            </div>
-          )}
-          {char.spells.knownSpells?.length > 0 && !char.spells.level1?.known && (
-            <div style={{ marginTop: '0.3rem' }}>
-              <strong>1st Level ({char.spells.spellSlots?.['1st'] || 0} slots):</strong>{' '}
-              {char.spells.knownSpells.map(s => <SpellTag key={s} name={s} />)}
-            </div>
-          )}
-          {char.spells.level2?.known?.length > 0 && (
-            <div style={{ marginTop: '0.3rem' }}>
-              <strong>2nd Level ({char.spells.level2.slots} slots):</strong>{' '}
-              {char.spells.level2.known.map(s => <SpellTag key={s} name={s} />)}
-            </div>
-          )}
-          {char.spells.level3?.known?.length > 0 && (
-            <div style={{ marginTop: '0.3rem' }}>
-              <strong>3rd Level ({char.spells.level3.slots} slots):</strong>{' '}
-              {char.spells.level3.known.map(s => <SpellTag key={s} name={s} />)}
-            </div>
-          )}
-        </div>
-      )}
+      <SpellList spells={char.spells} />
 
       {char.personality && (
         <div className="detail-section">

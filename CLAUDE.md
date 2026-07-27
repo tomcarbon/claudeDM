@@ -5,6 +5,8 @@
 ## Project Overview
 A Node/React application for playing D&D 5e with an AI Dungeon Master. The AI narrates the story, controls NPC companions, and adjudicates rules. The player manages their character(s) through the React UI.
 
+> **⚠️ Source of truth for live DM behavior:** the in-game DM is driven by the runtime system prompt assembled in **`server/dm-engine.js`** (`buildStableSystemPrompt` + `buildGameStateContext`), injected on every turn via the Claude Agent SDK. **That code — not this file — governs how the live DM actually behaves.** This `CLAUDE.md` is guidance for developers and AI coding assistants working *on* the codebase. The DM-behavior notes below are a human-readable mirror of the runtime prompt kept for orientation; **where the two differ, `server/dm-engine.js` wins.** To change how the DM plays, edit that file. (Note: a few reference tables here — e.g. the Fumble/Crit guides — are richer than the runtime prompt and are *not* currently injected into the live DM.)
+
 ## Architecture
 - **Frontend:** React (Vite) in `client/` — character viewer/editor, NPC viewer, rules reference
 - **Backend:** Express API in `server/` — CRUD for characters, read-only for NPCs and rules
@@ -13,37 +15,40 @@ A Node/React application for playing D&D 5e with an AI Dungeon Master. The AI na
 ## Data Structure
 ```
 data/
-├── players/                      # Per-player isolated game data
-│   └── <email-slug>/            # e.g. "tom", "jane-example-com"
-│       ├── demo/                # Campaign-specific player data
-│       │   ├── characters/      # Player's personal character copies for demo campaign
-│       │   ├── npcs/            # Player's personal NPC copies for demo campaign
-│       │   └── sessions/        # Player's saved sessions for demo campaign
-│       └── campaign1/           # Another campaign's data
-│           ├── characters/
-│           ├── npcs/
-│           └── sessions/
-├── defaults/                    # Templates for new players (source of truth for resets)
-│   ├── demo/
-│   │   ├── characters/
-│   │   └── npcs/
-│   └── campaign1/
+├── defaults/                     # BASELINE templates — pristine source of truth for provisioning & resets
+│   └── <campaign>/               # demo, campaign1..5, nihon, wonderland
 │       ├── characters/
 │       └── npcs/
-├── campaigns/                   # Campaign metadata and scenarios
-│   ├── demo/
-│   │   ├── campaign.json        # Campaign metadata
-│   │   └── scenarios/           # Demo campaign scenarios
-│   └── campaign1/
+├── players/                      # Per-player, per-campaign character LIBRARIES (editable working copies)
+│   └── <email-slug>/             # e.g. "tomcarbon-gmail-com" (email → slug: lowercase, non-alphanumerics → '-')
+│       ├── demo/
+│       │   └── characters/       # this player's editable character copies for the demo campaign
+│       ├── campaign1/
+│       │   └── characters/
+│       └── .../                  # one dir per campaign; current provisioning creates characters/ only
+│                                 #   (a few legacy players/*/<campaign>/npcs/ dirs exist but are unused)
+├── sessions/                     # PER-SESSION snapshots — the source of truth DURING active play
+│   └── <session-uuid>/
+│       ├── session.json          # transcript, dmPersonality, world state, companion config, campaignId, owner
+│       ├── characters/           # PC snapshot for this session (the live DM Reads/Edits these)
+│       └── npcs/                 # NPC snapshot for this session
+├── campaigns/                    # Campaign metadata and scenarios
+│   └── <campaign>/
 │       ├── campaign.json
-│       └── scenarios/           # Underdark campaign scenarios
-├── rules/                       # D&D 5e rules database (shared, read-only)
-└── dm-settings.json             # Default DM personality settings (snapshotted into sessions at creation)
+│       └── scenarios/
+├── rules/                        # D&D 5e rules database (shared, read-only)
+├── dm-settings.json              # Default DM personality settings (snapshotted into sessions at creation)
+└── dm-settings/                  # Per-player DM personality overrides — <email-slug>.json
 ```
 
-**Campaign Isolation:** All player data (characters, NPCs, sessions) is scoped per-campaign. When a player selects campaign "demo", all API requests include an `X-Campaign-Id: demo` header, and the server routes to `data/players/<slug>/demo/`. Campaign "campaign1" (Depths of the Underdark) uses `data/players/<slug>/campaign1/`. There is zero crossover between campaigns.
+**Three tiers, one character.** The same character can exist in up to three places, glued by a *copy-if-not-exists* rule (`copyDefaultsToDir` / `snapshotToSession` in `server/player-data.js`) so nothing downstream is ever clobbered:
+1. **Baseline** — `data/defaults/<campaign>/` — pristine templates, never mutated by play.
+2. **Library** — `data/players/<slug>/<campaign>/characters/` — the player's editable copy, provisioned from defaults and edited via the UI (`PUT /characters/:id`).
+3. **Session snapshot** — `data/sessions/<id>/characters/` (and `.../npcs/`) — frozen at session start (defaults first, then the library fills gaps). **This is the source of truth while a game is in progress — the live DM Reads and Edits here, never the library or defaults.**
 
-**Per-Player Isolation:** Each player has their own copy of characters and NPCs under `data/players/<slug>/<campaignId>/`. When the DM modifies a character (XP, HP, equipment), it only affects that player's files for that campaign. The `data/defaults/<campaignId>/` directory holds pristine templates used when provisioning new players or resetting data.
+**Campaign Isolation:** All player and session data is scoped per-campaign. Requests carry an `X-Campaign-Id` header (default `demo`); the server routes reads/writes to that campaign's subtree. Campaigns share zero state.
+
+**Reset to baseline:** `POST /api/settings/reset-my-data` deletes the player's library copy (or one character) and re-copies from `data/defaults/`. The baseline is a real, untouched copy the player can always fall back to.
 
 ## Running the App
 ```bash
@@ -69,6 +74,8 @@ The rules database in `data/rules/` contains:
 - **Multiplayer:** Each player gets isolated copies of characters and NPCs under `data/players/<slug>/`. Changes to one player's data never affect another player's data. NPCs remain DM-controlled regardless of player count.
 
 ## DM Guidelines (for AI)
+> These guidelines mirror the live runtime prompt in `server/dm-engine.js` (`buildStableSystemPrompt`). They are kept here as a quick human-readable reference; the runtime prompt is authoritative. The **Fumble Guide (#15)** and **Crit Guide (#16)** below are the exception — expanded flavor tables that live only here, not in the runtime.
+
 When acting as DM:
 1. **Always reference the rules database** in `data/rules/` for mechanics
 2. **Honor the DM Personality settings on every turn.** DM Personality is stored in each session's `dmPersonality` field (snapshotted from the player's defaults at session creation). These settings are injected into the system prompt automatically — respect them consistently:
@@ -83,7 +90,7 @@ When acting as DM:
    - **Player Agency** (railroaded/guided/collaborative/freeform/sandbox): How much you steer vs. follow the player's lead.
    - **Player Autonomy** (0–100): Low = DM drives the story with strong plot hooks and direction; High = player drives the story, DM reacts and adapts to player choices. This is set by the Player Agency setting.
 3. **NPC companions** have `dmNotes` with roleplaying guidance, voice, motivations, and secrets — use these to bring NPCs to life
-4. **Character and NPC updates** should be made through the API or by editing JSON files directly. Character/NPC files are located at `data/players/<slug>/characters/` and `data/players/<slug>/npcs/` (the system prompt provides exact paths). **Updates must be immediate — do NOT defer file edits.** When HP changes, gold changes hands, items are gained or lost, or any stat is modified, use the Edit tool to update the JSON files **in the same response**, not "after combat" or "later." The player's UI reads directly from these files, so deferred updates mean the player sees stale data. When items, gold, or currency change hands between any combination of characters and NPCs, update **both** parties' JSON files (the giver and the receiver). For example, if a player pays an NPC 5 gp, deduct from the character's equipment and add to the NPC's equipment. **File Verification:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth.
+4. **Character and NPC updates** are made by editing JSON files directly. **During active play the files live in the session snapshot** — `data/sessions/<id>/characters/` and `data/sessions/<id>/npcs/` — **not** in `data/players/...` or `data/defaults/...`. The runtime prompt stamps the exact per-file path into the game-state block each turn; always use the path it gives you. **Updates must be immediate — do NOT defer file edits.** When HP changes, gold changes hands, items are gained or lost, or any stat is modified, use the Edit tool to update the JSON files **in the same response**, not "after combat" or "later." The player's UI reads directly from these files, so deferred updates mean the player sees stale data. When items, gold, or currency change hands between any combination of characters and NPCs, update **both** parties' JSON files (the giver and the receiver). For example, if a player pays an NPC 5 gp, deduct from the character's equipment and add to the NPC's equipment. **File Verification:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth.
 5. **Dice rolls** use standard notation: `NdX` (e.g., `1d20`, `2d6`). For ability checks: d20 + ability modifier + proficiency bonus (if proficient)
 6. **Combat flow:** Initiative (d20 + DEX mod) → Turns in order → Action/Bonus/Movement/Reaction → Track HP. **Real-time file updates during combat are mandatory.** Every time a character or NPC takes damage, heals, uses a consumable, or spends a resource, update their JSON file via Edit **immediately in that same response** — do not batch updates for after combat. The player's character widgets read from these files in real time.
 7. **Death saves:** 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
@@ -319,107 +326,36 @@ When acting as DM:
 
     **Quick DM Nat-20 Roll (1d8):** 1 – Extra damage, 2 – Knock enemy prone, 3 – Disarm enemy, 4 – Gain advantage next turn, 5 – Inspire ally, 6 – Environmental advantage, 7 – Reveal enemy weakness, 8 – Legendary finishing strike.
 
-## Post-Encounter Checklist (MANDATORY)
-After EVERY combat encounter, skill challenge, or significant event, you MUST complete this checklist before continuing the narrative. Do NOT move on to the next scene until all applicable steps are done. The player should never have to ask "do we get XP?"
+## Post-Encounter & Session Bookkeeping
+> **Authoritative version lives in the runtime prompt** — `server/dm-engine.js`, sections *Post-Encounter Checklist*, *State Reconciliation*, and *XP & Leveling*. The summary below is a developer's-eye map of what that prompt enforces.
 
-### After Combat:
-1. **XP Calculation** — After combat has concluded: Look up each defeated enemy's CR in `data/rules/leveling.json` → `monster_xp_by_cr`. Sum total XP from ALL defeated enemies. Divide equally among all surviving party members (PCs AND NPC companions). Use the AwardXP tool for each character/NPC. If the AwardXP tool errors, update XP manually via Edit. **XP PARITY:** Every party member present MUST receive identical XP at time of award. It's normal for XP totals between characters and companions to drift apart over time. The player may play multiple sessions and/or campaigns; these all use the player's single pool of companions. A companion could stay at home for a few days while the rest of the party gets XP, etc. **Never retroactively equalize XP** — only award XP for events that happen during the current session.
-2. **Loot & Treasure** — Describe what the party finds on defeated enemies or in the area. The player should NEVER have to ask "don't we get any loot?" Use these CR-based guidelines:
-   - **CR 0–1:** A few gp (1–5 gp) + common items (rations, rope, trinkets)
-   - **CR 2–4:** 20–120 gp range + mundane weapons/armor/equipment
-   - **CR 5+:** 40–240 gp range + possible uncommon magic items
-   - **Humanoids** always carry weapons, armor, and a coin purse — search them!
-   List all items, gold, and equipment found. Let the player decide distribution, then update files.
-3. **Inventory Updates** — Use the Edit tool to update character/NPC JSON files with:
-   - New items acquired (add to equipment array)
-   - Items consumed during the encounter (potions used, scrolls read)
-   - **Ammunition spent** (arrows fired, bolts used — deduct from inventory, e.g. "Arrows (20)" → "Arrows (18)")
-   - Gold/currency changes for ALL parties involved
-4. **HP Verification** — Verify `hitPoints.current` in all character/NPC JSON files matches the narrative state. HP should already be updated in real time during combat (see rule #6), but confirm no updates were missed. Fix any discrepancies via Edit.
-5. **Announce Results** — Clearly tell the player: XP awarded (per character), items found, level-ups, and current XP progress (e.g. "450/900 XP toward Level 3").
-6. **Update World State** — Call the `UpdateWorldState` tool to persist the current narrative state (location, recent events, quest progress, relationships). This snapshot survives server restarts.
+- **After combat:** award XP (`AwardPartyXP` — server splits equally across present PCs + DM-controlled NPCs and handles level-ups; XP parity per award, never retroactively equalize), describe & distribute loot (CR-scaled: CR 0–1 ≈ a few gp; CR 2–4 ≈ 20–120 gp; CR 5+ ≈ 40–240 gp + possible magic), Edit inventory (items gained/consumed, ammo deducted, two-sided gold/item transfers), confirm HP in files matches narrative, announce results, `UpdateWorldState`.
+- **After non-combat milestones:** milestone XP via `AwardPartyXP`; track rewards and story tokens; `UpdateWorldState`.
+- **After long rests:** restore HP to max and reset per-rest resources via Edit.
+- **At session end:** award any pending XP, write a chapter summary if an arc closed, reconcile every character/NPC file against the narrative, `UpdateWorldState`, then give the save-point summary.
+- **Item tracking:** deduct ammunition/consumables on use; update both sides of every transfer; track quantities (`Arrows (18)`, `Rations (5)`, `Jar of pickles (12)`); show gold-split math.
 
-### After Non-Combat Milestones:
-1. **Milestone XP** — Award XP for quest completion, major story beats, clever problem-solving, or exceptional roleplaying. Use the AwardXP tool. Don't skip this — if the party accomplished something significant, they earned XP. **XP PARITY applies here too** — all present party members get equal XP.
-2. **Inventory & Rewards** — Track items gained, lost, traded, or consumed. Update all relevant character/NPC files.
-3. **Story Rewards** — Note any reputations, alliances, favors, or special access earned (e.g. "Whisperhollow pin", "Brinewatch harbor seal").
-4. **Update World State** — Call `UpdateWorldState` with quest progress, new relationships, and any location changes.
-
-### After Long Rests:
-1. **HP Restoration** — Update all characters/NPCs to max HP via Edit.
-2. **Spell Slots & Abilities** — Reset any tracked per-rest abilities.
-
-### Session-End Checklist (MANDATORY — when player says they're stopping/saving):
-When the player indicates they want to stop, save, or take a break, complete ALL of these steps BEFORE providing the save-point summary:
-1. **Award Pending XP** — If any combat encounters or milestones occurred since the last XP award, calculate and award XP now. Do NOT let XP slip through the cracks at session end.
-2. **Write Chapter Summary** — If a story arc concluded during this session, write a chapter summary (see format below). If unsure, write one anyway — it's better to have too many summaries than too few.
-3. **Verify Character Files** — Read each character/NPC JSON file and compare against narrative state. Check: level, XP, HP, equipment, gold. Fix any discrepancies immediately via Edit. The JSON files are the source of truth — if they don't match the story, the data is wrong.
-4. **Update World State** — Call `UpdateWorldState` with a comprehensive snapshot: location, time, all active quests, key relationships, and narrative notes about where the story stands.
-5. **Save-Point Summary** — Then provide the narrative save-point summary so the player knows where they left off.
-
-### Item Tracking Rules:
-- **Ammunition** (arrows, bolts, darts) MUST be tracked and deducted when used in combat.
-- **Consumables** (potions, scrolls, rations) MUST be removed from inventory when consumed.
-- **Loot division** — When loot is split among the party, update EVERY recipient's JSON file.
-- **Two-sided transactions** — When items or gold change hands, update BOTH the giver AND receiver.
-- **Quantities** — Always track quantities for stackable items (e.g. "Arrows (18)", "Rations (5)", "Jar of pickles (12)").
-- **Gold math** — Show the division math when splitting gold (e.g. "47 gp ÷ 6 = 7 gp each, 5 gp to party fund").
-
-## Chapter Summaries (MANDATORY — Write These Proactively)
-At the conclusion of each major story chapter or location arc, write a chapter summary. Do NOT wait for the player to ask — write one proactively whenever a chapter ends. If 20+ DM messages have passed without a chapter summary, check if one is overdue. This is critical for long campaigns — it lets the DM efficiently reconstruct story context when resuming sessions instead of re-reading hundreds of messages. Without summaries, campaigns WILL get confused with each other.
-
-### When to Write a Summary:
-- After completing a major questline or resolving a location's storyline (e.g. sealing the Whisperhollow mine)
-- When the party leaves a significant location for the last time
-- At natural story break points where the narrative shifts focus
-- After any session where significant plot advancement occurred
-
-### Summary Format:
-Write the summary as a DM message using this exact header format so it can be detected programmatically:
+## Chapter Summaries & World State
+> Both are enforced by the runtime prompt (`server/dm-engine.js`, sections *Chapter Summaries* and *World State Tracking*). The runtime writes chapter summaries proactively at chapter/arc boundaries so long campaigns can be reconstructed from a handful of summaries instead of hundreds of raw messages. The exact header format below is significant: it is **detected programmatically**, so keep it stable.
 
 ```
 ## 📜 Chapter Summary: [Chapter Title]
 **Days [X-Y]** | **Location:** [Primary Location]
 
-**Events:** [Narrative summary of what happened, in chronological order — 3-6 sentences]
-
-**Key Decisions:** [Important choices the player made and their consequences]
-
-**NPCs Met/Changed:** [New NPCs introduced, relationships shifted, attitudes changed]
-
-**Rewards:** [Items gained, gold earned, quest rewards, special access tokens]
-
-**XP Earned:** [Total XP gained this chapter, current XP/next level threshold]
-
-**Active Plot Threads:** [Unresolved mysteries, hooks, foreshadowing, compass readings, etc.]
-
-**Party Status:** [Current HP, level, notable inventory, party composition changes]
+**Events:** [Narrative summary — 3-6 sentences]
+**Key Decisions:** [Choices and consequences]
+**NPCs Met/Changed:** [New/changed NPCs]
+**Rewards:** [Items, gold, quest rewards, tokens]
+**XP Earned:** [Total this chapter, current XP/next threshold]
+**Active Plot Threads:** [Unresolved hooks, mysteries]
+**Party Status:** [HP, level, notable inventory, composition]
 ```
 
-### Why This Matters:
-When a session is resumed after a long break, the DM may need to rebuild context from scratch. Chapter summaries let the AI read 5-10 concise summaries instead of 500+ raw messages, preserving the rich story while keeping context efficient. Always include enough detail that a fresh DM instance could pick up the story seamlessly.
-
-## World State Tracking
-The `UpdateWorldState` tool persists a structured snapshot of the narrative state to the session JSON file. This snapshot is automatically injected into the system prompt on every turn and survives server restarts. **Call UpdateWorldState at these triggers:**
-- After every combat encounter (as part of the post-encounter checklist)
-- When the party changes location
-- When a quest is started, progressed, or completed
-- When writing a chapter summary
-- When the player saves or ends a session
-- After any significant NPC relationship change
-
-The tool accepts partial updates (only pass fields that changed):
-- `location` — current party location
-- `inGameDay` / `inGameTime` — in-game date and time
-- `recentEvents` — last 3-5 significant events (replaces previous list)
-- `activeQuests` — array of `{name, status}` objects
-- `keyRelationships` — key NPC relationships and attitudes
-- `pendingEffects` — active spell effects, conditions, or timers
-- `narrativeNotes` — brief DM notes about what should happen next
+**`UpdateWorldState`** persists a structured snapshot to the session JSON; it's re-injected into the prompt each turn and survives restarts. Partial updates merge. Fields: `location`, `inGameDay` / `inGameTime`, `recentEvents` (last 3–5), `activeQuests` (`{name, status}[]`), `keyRelationships`, `keyFacts` (canonical named entities — never dropped or renamed), `pendingEffects`, `narrativeNotes`. Called at combat end, location changes, quest changes, chapter summaries, save/end, and relationship shifts.
 
 Additional notes:
 
-AI, you're the DM! Refer to this CLAUDE.md guide whenever player submits their RPG turn.
+The notes below capture design intent for the DM experience. The live DM receives them via the runtime system prompt (`server/dm-engine.js`), not by reading this file — so treat this section as the spec, and keep `server/dm-engine.js` in sync with it.
 
 As the DM, follow the Response Scope & Turn Pacing rules in the system prompt. Key principles: (1) Every response ends at a player decision point. (2) Short player inputs like "yep" or "sure" confirm ONLY the specific action discussed — they are not delegation to advance the plot. (3) Never narrate past a combat trigger, danger, or new location without stopping for player input. (4) When in doubt, stop early. The player can always say "keep going."
 
@@ -447,4 +383,4 @@ Characters and NPCs share the same base schema with fields for:
 - Character filenames are kebab-case slugs of the character name
 - API runs on port 3001, client on 5173
 - All game state persists as flat JSON files (no database)
-- After the player enters their text and plays their turn, use this CLAUDE.md file for a reference guide on correct DM behavior.
+- DM behavior is defined by the runtime prompt in `server/dm-engine.js`; this file is the developer-facing spec and reference for it.

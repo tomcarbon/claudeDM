@@ -290,7 +290,12 @@ export default function useWebSocket() {
           break;
 
         case 'error':
-          setMessages(prev => [...prev, { type: 'system', text: `Error: ${msg.error}` }]);
+          setMessages(prev => [...prev, {
+            type: 'system',
+            text: msg.authError
+              ? `⚠️ ${msg.hint || 'Claude subscription auth expired on the server — re-login and retry.'}`
+              : `Error: ${msg.error}`,
+          }]);
           break;
       }
     };

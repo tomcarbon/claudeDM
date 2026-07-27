@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 
-const { loadDmSettings, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, loadScenario } } = require('../dm-engine');
+const { loadDmSettings, _testing: { loadCharacter, loadNpcs, buildSystemPrompt, buildStableSystemPrompt, loadScenario } } = require('../dm-engine');
 const { ensurePlayerDataExists, getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir, snapshotToSession } = require('../player-data');
 
 let tmpDir;
@@ -261,16 +261,49 @@ describe('buildSystemPrompt', () => {
     expect(prompt).toContain('data/rules/spells.json');
   });
 
-  it('includes multiplayer companion actions documentation', () => {
-    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+  it('includes multiplayer companion actions documentation when companions are present', () => {
+    const companionPlayers = [{
+      playerEmail: 'alice@test.com', playerName: 'Alice', companionNpcId: 'npc-1',
+      companionCharacterName: null, companionCharacterId: null,
+    }];
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN, companionPlayers);
     expect(prompt).toContain('--- Companion Actions ---');
     expect(prompt).toContain('companion players');
+  });
+
+  it('includes the companion block when the host configured open slots (no one joined yet)', () => {
+    const companionConfig = { states: { 'npc-1': 'player' }, reservations: {} };
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN, undefined, undefined, companionConfig);
+    expect(prompt).toContain('--- Companion Actions ---');
+  });
+
+  it('omits the multiplayer companion block for solo sessions', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    expect(prompt).not.toContain('--- Companion Actions ---');
+    expect(prompt).not.toContain('## Multiplayer Companion Actions');
   });
 
   it('includes post-encounter checklist', () => {
     const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
     expect(prompt).toContain('Post-Encounter Checklist');
     expect(prompt).toContain('AwardXP');
+  });
+
+  it('instructs AwardPartyXP for normal awards with no contradictory AwardXP instruction', () => {
+    const prompt = buildSystemPrompt(tmpDir, 'char-1', null, EMAIL, CAMPAIGN);
+    // The old prompt said "for XP, use the AwardXP tool" in one section and
+    // "use AwardPartyXP" in another — the discouraged single-target tool won half
+    // the time. The restructured prompt must never instruct AwardXP for normal awards.
+    expect(prompt).not.toMatch(/for XP,? use the AwardXP tool/i);
+    expect(prompt).toContain('AwardPartyXP');
+    expect(prompt).toMatch(/AwardXP.*ONLY for rare individual corrections/s);
+  });
+
+  it('stays within the prompt token budget (~2.5k tokens for the stable prompt)', () => {
+    // Regression guard against prompt re-bloat: the solo stable prompt was ~18k chars
+    // (~4.5k tokens) before the restructure; keep it under ~11k chars (~2.7k tokens).
+    const prompt = buildStableSystemPrompt(tmpDir, EMAIL, CAMPAIGN, undefined, undefined, false);
+    expect(prompt.length).toBeLessThan(11000);
   });
 
   it('handles missing character gracefully', () => {

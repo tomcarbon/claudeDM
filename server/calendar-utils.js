@@ -3,7 +3,8 @@ const crypto = require('crypto');
 // In-memory calendar state per session context
 const calendarStates = new Map();
 
-function getContextKey(playerEmail, campaignId) {
+function getContextKey(playerEmail, campaignId, sessionId) {
+  if (sessionId) return `sess:${sessionId}`;
   return `${playerEmail || 'guest'}:${campaignId || 'demo'}`;
 }
 
@@ -22,8 +23,8 @@ const WEATHER_TABLE = [
   { type: 'Beautiful', desc: 'Perfect weather. Warm sun, gentle breeze, birdsong. Party morale high.' },
 ];
 
-function getOrCreateCalendar(playerEmail, campaignId) {
-  const key = getContextKey(playerEmail, campaignId);
+function getOrCreateCalendar(playerEmail, campaignId, sessionId) {
+  const key = getContextKey(playerEmail, campaignId, sessionId);
   if (!calendarStates.has(key)) {
     calendarStates.set(key, {
       day: 1,
@@ -35,8 +36,8 @@ function getOrCreateCalendar(playerEmail, campaignId) {
   return calendarStates.get(key);
 }
 
-function advanceTime(playerEmail, campaignId, days, hours) {
-  const cal = getOrCreateCalendar(playerEmail, campaignId);
+function advanceTime(playerEmail, campaignId, sessionId, days, hours) {
+  const cal = getOrCreateCalendar(playerEmail, campaignId, sessionId);
 
   const totalHours = (days || 0) * 24 + (hours || 0);
   cal.hour += totalHours;
@@ -64,8 +65,8 @@ function advanceTime(playerEmail, campaignId, days, hours) {
   };
 }
 
-function scheduleEvent(playerEmail, campaignId, name, inDays) {
-  const cal = getOrCreateCalendar(playerEmail, campaignId);
+function scheduleEvent(playerEmail, campaignId, sessionId, name, inDays) {
+  const cal = getOrCreateCalendar(playerEmail, campaignId, sessionId);
   const onDay = cal.day + (inDays || 1);
   cal.events.push({ name, onDay });
   cal.events.sort((a, b) => a.onDay - b.onDay);
@@ -79,8 +80,8 @@ function scheduleEvent(playerEmail, campaignId, name, inDays) {
   };
 }
 
-function checkCalendar(playerEmail, campaignId) {
-  const cal = getOrCreateCalendar(playerEmail, campaignId);
+function checkCalendar(playerEmail, campaignId, sessionId) {
+  const cal = getOrCreateCalendar(playerEmail, campaignId, sessionId);
   const timeOfDay = cal.hour < 6 ? 'night' : cal.hour < 12 ? 'morning' : cal.hour < 18 ? 'afternoon' : 'evening';
 
   return {
@@ -93,8 +94,8 @@ function checkCalendar(playerEmail, campaignId) {
   };
 }
 
-function generateWeather(playerEmail, campaignId) {
-  const cal = getOrCreateCalendar(playerEmail, campaignId);
+function generateWeather(playerEmail, campaignId, sessionId) {
+  const cal = getOrCreateCalendar(playerEmail, campaignId, sessionId);
 
   // If weather already generated today, return it
   if (cal.weatherToday) return { action: 'weather', day: cal.day, ...cal.weatherToday, cached: true };

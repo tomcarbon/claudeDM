@@ -3,10 +3,11 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
-const { emailToSlug, getSessionDir, getSessionFilePath, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, provisionPlayerDefaults, snapshotToSession } = require('../player-data');
+const { emailToSlug, getSessionDir, getSessionFilePath, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, provisionPlayerDefaults, snapshotToSession, updateSessionFile } = require('../player-data');
 const { broadcastToAll } = require('../ws-handler');
 const { loadDmSettings } = require('../dm-engine');
-const { safeReadJsonFile, tryRecover } = require('../json-recovery');
+const { safeReadJsonFile, tryRecover, writeJsonAtomic } = require('../json-recovery');
+const { verifySessionIntegrity } = require('../entity-resolver');
 
 const DEFAULT_SETTINGS = {
   visibility: 'public', // 'private' | 'public'
@@ -401,10 +402,7 @@ module.exports = function (dataDir) {
       // Write session to neutral shared location: data/sessions/<id>/session.json
       const sessionDir = getSessionDir(dataDir, session.id);
       fs.mkdirSync(sessionDir, { recursive: true });
-      fs.writeFileSync(
-        path.join(sessionDir, 'session.json'),
-        JSON.stringify(session, null, 2)
-      );
+      writeJsonAtomic(path.join(sessionDir, 'session.json'), session);
       // Snapshot characters and NPCs from defaults + player library into session dir
       snapshotToSession(dataDir, session.id, requester.email, session.campaignId);
 
@@ -444,7 +442,18 @@ module.exports = function (dataDir) {
         }
       }
 
+      // Final binding check: heal by name/slug where possible; NEVER fail silently.
+      // A dangling characterId is exactly how sheets stopped updating in production.
+      const integrity = verifySessionIntegrity(dataDir, session);
+      if (integrity.changed) {
+        writeJsonAtomic(path.join(sessionDir, 'session.json'), session);
+      }
+      if (integrity.warnings.length > 0) {
+        console.error(`[Sessions] POST ${session.id} — UNRESOLVED character binding:\n  ${integrity.warnings.join('\n  ')}`);
+      }
+
       const result = withSessionAccess(session, requester);
+      if (integrity.warnings.length > 0) result.warnings = integrity.warnings;
       res.status(201).json(result);
       broadcastToAll('sessions_changed');
     } catch (err) {
@@ -453,7 +462,7 @@ module.exports = function (dataDir) {
   });
 
   // PUT update session
-  router.put('/:id', (req, res) => {
+  router.put('/:id', async (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
       if (!requester) {
@@ -463,78 +472,104 @@ module.exports = function (dataDir) {
       if (!filePath) {
         return res.status(404).json({ error: 'Session not found' });
       }
-      const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      if (!canWriteSession(existing, requester)) {
+      const precheck = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      if (!canWriteSession(precheck, requester)) {
         return res.status(403).json({ error: 'Only the session creator can modify this session.' });
       }
       console.log(`[Sessions] PUT ${req.params.id} — messages: ${(req.body.messages || []).length}, claudeSessionId: ${req.body.claudeSessionId ? 'yes' : 'no'}`);
-      const ownerEmail = getOwnerEmail(existing);
-      const ownerName = getOwnerName(existing);
-      const payload = { ...req.body };
-      delete payload.id;
-      delete payload.createdAt;
-      delete payload.updatedAt;
-      delete payload.ownerEmail;
-      delete payload.ownerName;
-      delete payload.playerEmail;
-      delete payload.playerName;
-      delete payload.players;
-      delete payload.settings; // settings updated via dedicated endpoint
-      delete payload.dmPersonality; // locked at session creation
-      // Compaction bookkeeping is server-owned — never let a client auto-save overwrite it.
-      const incomingArchiveSeq = Number(req.body.archiveSeq || 0);
-      const existingArchiveSeq = Number(existing.archiveSeq || 0);
-      delete payload.archiveSeq;
-      delete payload.arcSummaries;
-      delete payload.archiveMeta;
 
-      const updated = {
-        ...existing,
-        ...payload,
-        id: existing.id,
-        ownerEmail: ownerEmail || requester.email,
-        ownerName: ownerName || requester.name,
-        playerEmail: ownerEmail || requester.email,
-        playerName: ownerName || requester.name,
-        updatedAt: new Date().toISOString(),
-      };
-      // Never allow an update to blank an existing characterId
-      if (!updated.characterId && existing.characterId) {
-        updated.characterId = existing.characterId;
-      }
-      // Never let a stale auto-save wipe a stored Claude session id. After a session load,
-      // the client's sessionId state is null until the next turn's session_id event — an
-      // auto-save in that window would otherwise overwrite the id and break SDK conversation
-      // resume (forcing a lossy recap rebuild on the next resume).
-      if (!updated.claudeSessionId && existing.claudeSessionId) {
-        updated.claudeSessionId = existing.claudeSessionId;
-      }
-      // Defense in depth: never wipe a non-empty companionConfig.states with an empty one.
-      // Without this guard, a stale auto-save during session load can erase the host's
-      // selected/removed/player slot configuration, causing removed NPCs to reappear.
-      const incomingStates = updated.companionConfig?.states;
-      const existingStates = existing.companionConfig?.states;
-      if (existingStates && Object.keys(existingStates).length > 0
-          && (!incomingStates || Object.keys(incomingStates).length === 0)) {
-        updated.companionConfig = { ...(updated.companionConfig || {}), states: existingStates };
-        console.warn(`[Sessions] PUT ${req.params.id} — preserved existing companionConfig.states (incoming was empty)`);
-      }
-      // If the client is auto-saving from pre-compaction state (an older archiveSeq), its
-      // full in-memory array would resurrect messages the server already archived + trimmed.
-      // Keep the server's compacted history; the client reconciles on the next session_compacted.
-      if (existingArchiveSeq > 0 && incomingArchiveSeq < existingArchiveSeq && Array.isArray(req.body.messages)) {
-        updated.messages = existing.messages;
-        console.warn(`[Sessions] PUT ${req.params.id} — ignored stale messages (client seq ${incomingArchiveSeq} < server ${existingArchiveSeq}); preserved compacted history`);
-      }
-      // Backfill sessionId on any message that lacks it — client auto-save paths
-      // construct message objects without the field, and the DM's recap formatter
-      // relies on it to disambiguate campaigns in multi-session contexts.
-      if (Array.isArray(updated.messages)) {
-        for (const m of updated.messages) {
-          if (m && typeof m === 'object' && !m.sessionId) m.sessionId = updated.id;
+      // Serialized read-modify-write: the DM turn persistence and world-state tool
+      // write session.json concurrently with client auto-saves.
+      const updated = await updateSessionFile(dataDir, precheck.id, (existing) => {
+        const ownerEmail = getOwnerEmail(existing);
+        const ownerName = getOwnerName(existing);
+        // Snapshot server-authoritative values BEFORE the payload is applied —
+        // `precheck` was read outside the lock and may already be stale.
+        const prior = {
+          characterId: existing.characterId,
+          claudeSessionId: existing.claudeSessionId,
+          companionStates: existing.companionConfig?.states,
+          messages: existing.messages,
+          archiveSeq: Number(existing.archiveSeq || 0),
+        };
+        const payload = { ...req.body };
+        delete payload.id;
+        delete payload.createdAt;
+        delete payload.updatedAt;
+        delete payload.ownerEmail;
+        delete payload.ownerName;
+        delete payload.playerEmail;
+        delete payload.playerName;
+        delete payload.players;
+        delete payload.settings; // settings updated via dedicated endpoint
+        delete payload.dmPersonality; // locked at session creation
+        // Server-owned state — never let a client auto-save overwrite it.
+        const incomingArchiveSeq = Number(req.body.archiveSeq || 0);
+        const existingArchiveSeq = prior.archiveSeq;
+        delete payload.archiveSeq;
+        delete payload.arcSummaries;
+        delete payload.archiveMeta;
+        delete payload.worldState;               // written by the DM tool + turn digest
+        delete payload.dmMessagesSinceLastSummary; // written by turn persistence
+        delete payload.pendingTurns;             // written by the turn queue
+
+        Object.assign(existing, payload, {
+          ownerEmail: ownerEmail || requester.email,
+          ownerName: ownerName || requester.name,
+          playerEmail: ownerEmail || requester.email,
+          playerName: ownerName || requester.name,
+        });
+        // Never allow an update to blank an existing characterId
+        if (!existing.characterId && prior.characterId) {
+          existing.characterId = prior.characterId;
         }
-      }
-      fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
+        // Never let a stale auto-save wipe a stored Claude session id. After a session load,
+        // the client's sessionId state is null until the next turn's session_id event — an
+        // auto-save in that window would otherwise overwrite the id and break SDK conversation
+        // resume (forcing a lossy recap rebuild on the next resume).
+        if (!existing.claudeSessionId && prior.claudeSessionId) {
+          existing.claudeSessionId = prior.claudeSessionId;
+        }
+        // Defense in depth: never wipe a non-empty companionConfig.states with an empty one.
+        // Without this guard, a stale auto-save during session load can erase the host's
+        // selected/removed/player slot configuration, causing removed NPCs to reappear.
+        const incomingStates = existing.companionConfig?.states;
+        if (prior.companionStates && Object.keys(prior.companionStates).length > 0
+            && (!incomingStates || Object.keys(incomingStates).length === 0)) {
+          existing.companionConfig = { ...(existing.companionConfig || {}), states: prior.companionStates };
+          console.warn(`[Sessions] PUT ${req.params.id} — preserved existing companionConfig.states (incoming was empty)`);
+        }
+        // If the client is auto-saving from pre-compaction state (an older archiveSeq), its
+        // full in-memory array would resurrect messages the server already archived + trimmed.
+        // Keep the server's compacted history; the client reconciles on the next session_compacted.
+        if (existingArchiveSeq > 0 && incomingArchiveSeq < existingArchiveSeq && Array.isArray(req.body.messages)) {
+          existing.messages = prior.messages;
+          console.warn(`[Sessions] PUT ${req.params.id} — ignored stale messages (client seq ${incomingArchiveSeq} < server ${existingArchiveSeq}); preserved compacted history`);
+        }
+        // Server-side turn persistence may be AHEAD of the client's auto-save (the
+        // server appends the canonical turn at dm_complete; the client's PUT can
+        // arrive with an array from before that append). If the incoming array is a
+        // prefix of what the server already has, keep the server's longer history.
+        if (Array.isArray(req.body.messages) && Array.isArray(prior.messages)
+            && prior.messages.length > req.body.messages.length) {
+          const isPrefix = req.body.messages.every((m, i) => {
+            const s = prior.messages[i];
+            return s && m && s.type === m.type && s.text === m.text;
+          });
+          if (isPrefix) {
+            existing.messages = prior.messages;
+            console.log(`[Sessions] PUT ${req.params.id} — kept server messages (${prior.messages.length}) over shorter client array (${req.body.messages.length})`);
+          }
+        }
+        // Backfill sessionId on any message that lacks it — client auto-save paths
+        // construct message objects without the field, and the DM's recap formatter
+        // relies on it to disambiguate campaigns in multi-session contexts.
+        if (Array.isArray(existing.messages)) {
+          for (const m of existing.messages) {
+            if (m && typeof m === 'object' && !m.sessionId) m.sessionId = existing.id;
+          }
+        }
+      });
       res.json(withSessionAccess(updated, requester));
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -577,7 +612,7 @@ module.exports = function (dataDir) {
 
       existing.settings = currentSettings;
       existing.updatedAt = new Date().toISOString();
-      fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
+      writeJsonAtomic(filePath, existing);
       res.json({ settings: currentSettings });
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -602,7 +637,7 @@ module.exports = function (dataDir) {
       const label = req.body.label != null ? String(req.body.label).trim().substring(0, 60) || null : null;
       existing.label = label;
       existing.updatedAt = new Date().toISOString();
-      fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
+      writeJsonAtomic(filePath, existing);
       res.json({ label: existing.label });
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -677,7 +712,7 @@ module.exports = function (dataDir) {
         joinedAt: new Date().toISOString(),
       };
       session.updatedAt = new Date().toISOString();
-      fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
+      writeJsonAtomic(filePath, session);
       broadcastToAll('sessions_changed');
       res.json({
         npcId,
@@ -723,7 +758,7 @@ module.exports = function (dataDir) {
 
       delete session.companionPlayers[npcId];
       session.updatedAt = new Date().toISOString();
-      fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
+      writeJsonAtomic(filePath, session);
       broadcastToAll('sessions_changed');
       res.json({
         npcId,
@@ -789,7 +824,7 @@ module.exports = function (dataDir) {
       };
       session.players.push(player);
       session.updatedAt = new Date().toISOString();
-      fs.writeFileSync(filePath, JSON.stringify(session, null, 2));
+      writeJsonAtomic(filePath, session);
       res.status(201).json(player);
     } catch (err) {
       res.status(500).json({ error: err.message });

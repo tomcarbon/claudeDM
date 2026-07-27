@@ -80,7 +80,7 @@ const ctx = () => ({ campaignId: CAMPAIGN, sessionId: SESSION_ID });
 
 describe('resolvePartyRoster', () => {
   it('includes live PCs + DM NPCs, excludes dead/removed/companion-controlled', () => {
-    const ids = resolvePartyRoster(tmpDir, ctx()).map((m) => m.id).sort();
+    const ids = resolvePartyRoster(tmpDir, ctx()).map((m) => m.data.id).sort();
     expect(ids).toEqual(['npc-dm', 'pc-ally', 'pc-hero']);
   });
 });
@@ -120,5 +120,38 @@ describe('awardPartyXp', () => {
 
   it('rejects a share that rounds down to zero', () => {
     expect(() => awardPartyXp(tmpDir, { totalXp: 2 }, ctx())).toThrow(/not positive/i);
+  });
+
+  // Regression: the production layout — every character also exists in the player
+  // library and campaign defaults with the SAME id (snapshotToSession copies them).
+  // The old resolver treated this as "Ambiguous character reference" and every
+  // AwardPartyXP call failed in-band.
+  it('awards to the SESSION copies when the same ids exist in library and defaults', () => {
+    const libDir = path.join(tmpDir, 'players', 'tom-example-com', CAMPAIGN, 'characters');
+    const defNpcDir = path.join(tmpDir, 'defaults', CAMPAIGN, 'npcs');
+    writeJson(path.join(libDir, 'pc-hero.json'), makeChar('pc-hero'));
+    writeJson(path.join(libDir, 'pc-ally.json'), makeChar('pc-ally'));
+    writeJson(path.join(defNpcDir, 'npc-dm.json'), makeChar('npc-dm'));
+
+    const result = awardPartyXp(tmpDir, { xpEach: 50 }, { ...ctx(), playerEmail: 'tom@example.com' });
+    expect(result.partySize).toBe(3);
+
+    // Session copies updated…
+    expect(readChar(getSessionCharactersDir(tmpDir, SESSION_ID), 'pc-hero').experience).toBe(50);
+    expect(readChar(getSessionNpcsDir(tmpDir, SESSION_ID), 'npc-dm').experience).toBe(50);
+    // …library and defaults copies untouched
+    expect(readChar(libDir, 'pc-hero').experience).toBe(0);
+    expect(readChar(defNpcDir, 'npc-dm').experience).toBe(0);
+  });
+
+  it('does not double-award when a stale duplicate file shares an id in the session dir', () => {
+    const charDir = getSessionCharactersDir(tmpDir, SESSION_ID);
+    // Duplicate of pc-hero under a truncated slug (the daichi-mus case)
+    writeJson(path.join(charDir, 'pc-her.json'), makeChar('pc-hero'));
+
+    const result = awardPartyXp(tmpDir, { xpEach: 100 }, ctx());
+    expect(result.partySize).toBe(3); // deduped by id — not 4
+    const awarded = result.members.filter((m) => m.id === 'pc-hero');
+    expect(awarded).toHaveLength(1);
   });
 });

@@ -213,7 +213,7 @@ Your previous turn involved the following game-state changes (narrated by you or
 
 ${items}
 
-For each one, Read the affected character/NPC file under \`${charPathPrefix}\` (NPCs under \`${npcPathPrefix}\`) and apply the change now via Edit — for XP use the AwardXP tool. Apply both sides of any transfer (deduct from the giver, add to each receiver). If a file already reflects the change (i.e. this was a false alarm), leave it untouched. Do not invent new changes beyond what was already described. Reply with a single line summarizing what you edited (or "already correct") — produce no story narrative.`;
+For each one, Read the affected character/NPC file under \`${charPathPrefix}\` (NPCs under \`${npcPathPrefix}\`) and apply the change now via Edit — for XP use the AwardPartyXP tool (AwardXP only for a single-character correction). Apply both sides of any transfer (deduct from the giver, add to each receiver). If a file already reflects the change (i.e. this was a false alarm), leave it untouched. Do not invent new changes beyond what was already described. Reply with a single line summarizing what you edited (or "already correct") — produce no story narrative.`;
 }
 
 function formatWarnings(warnings, sessionDbId) {

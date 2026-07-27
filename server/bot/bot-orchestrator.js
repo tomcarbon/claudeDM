@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { emailToSlug } = require('../player-data');
 const { listBotAccounts, createBotAccount, deleteBotAccount, deleteAllBotAccounts } = require('./bot-accounts');
 const { BotApiClient } = require('./bot-api-client');
 const { BotWebSocketClient } = require('./bot-ws-client');
@@ -313,7 +314,7 @@ class BotOrchestrator {
 
   _hasHumanCompanions(bot, slot) {
     try {
-      const slug = String(bot.email).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      const slug = emailToSlug(bot.email);
       const sessionFile = path.join(this.dataDir, 'players', slug, slot.campaignId || 'demo', 'sessions', `${slot.sessionId}.json`);
       if (!fs.existsSync(sessionFile)) return false;
       const session = JSON.parse(fs.readFileSync(sessionFile, 'utf-8'));

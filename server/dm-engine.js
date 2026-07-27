@@ -7,7 +7,9 @@ const { awardXp, awardPartyXp } = require('./xp-utils');
 const { startCombat, nextTurn, applyDamage, applyHealing, setCondition, getCombatStatus, endCombat } = require('./combat-utils');
 const { useResource, castSpell, processRest, checkResources } = require('./resource-utils');
 const { advanceTime, scheduleEvent, checkCalendar, generateWeather } = require('./calendar-utils');
-const { emailToSlug, getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir, getSessionFilePath } = require('./player-data');
+const { emailToSlug, getSessionNpcsDir, getSessionFilePath, updateSessionFile } = require('./player-data');
+const { findCharacterOrNpcFile } = require('./entity-resolver');
+const { writeJsonAtomic } = require('./json-recovery');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 
@@ -57,7 +59,7 @@ function loadDmSettings(dataDir, playerEmail) {
   // Try per-user settings first, fall back to global
   let userSettings = null;
   if (playerEmail) {
-    const slug = String(playerEmail).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const slug = emailToSlug(playerEmail);
     const userFile = path.join(dataDir, 'dm-settings', `${slug}.json`);
     userSettings = loadJson(userFile);
   }
@@ -84,45 +86,32 @@ function loadDmSettings(dataDir, playerEmail) {
 }
 
 function loadCharacter(dataDir, characterId, playerEmail, campaignId, sessionDbId) {
-  // Search session dir first, then player library, then campaign defaults, then legacy
-  const dirs = [];
-  if (sessionDbId) {
-    dirs.push(getSessionCharactersDir(dataDir, sessionDbId));
-  }
-  if (playerEmail) {
-    dirs.push(getPlayerCharactersDir(dataDir, playerEmail, campaignId));
-  }
-  dirs.push(path.join(dataDir, 'defaults', campaignId || 'demo', 'characters'));
-  // Legacy fallback
-  dirs.push(path.join(dataDir, 'characters'));
-  for (const dir of dirs) {
-    try {
-      const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-      for (const file of files) {
-        const data = loadJson(path.join(dir, file));
-        if (data && data.id === characterId) {
-          data._filename = file;
-          return data;
-        }
-      }
-    } catch { /* dir may not exist */ }
-  }
-  return null;
+  // Canonical session-first resolution (entity-resolver). _dir records where the
+  // file was actually found so the prompt stamps a truthful path.
+  const match = findCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId, sessionDbId);
+  if (!match) return null;
+  const data = match.data;
+  data._filename = match.file;
+  data._dir = match.dir;
+  return data;
+}
+
+// Render an absolute data-dir path as the repo-relative form the DM prompt uses
+// (e.g. "data/sessions/<id>/characters"). Relative to dataDir, not PROJECT_ROOT,
+// so it stays correct when dataDir lives elsewhere (tests, alternate deploys).
+function toPromptPath(dataDir, absDir) {
+  const rel = path.relative(dataDir, absDir);
+  return rel && !rel.startsWith('..') ? path.posix.join('data', rel.split(path.sep).join('/')) : absDir;
 }
 
 function loadScenario(dataDir, scenarioId, campaignId) {
-  // Try campaign-specific scenarios first, then fall back to legacy global dir
   const campaignDir = path.join(dataDir, 'campaigns', campaignId || 'demo', 'scenarios');
-  const dirs = [campaignDir, path.join(dataDir, 'scenarios')];
-  for (const dir of dirs) {
-    try {
-      const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-      for (const file of files) {
-        const data = loadJson(path.join(dir, file));
-        if (data && data.id === scenarioId) return data;
-      }
-    } catch { /* dir may not exist */ }
-  }
+  try {
+    for (const file of fs.readdirSync(campaignDir).filter(f => f.endsWith('.json'))) {
+      const data = loadJson(path.join(campaignDir, file));
+      if (data && data.id === scenarioId) return data;
+    }
+  } catch { /* dir may not exist */ }
   return null;
 }
 
@@ -133,8 +122,6 @@ function loadNpcs(dataDir, playerEmail, campaignId, sessionDbId) {
     dirsToTry.push(getSessionNpcsDir(dataDir, sessionDbId));
   }
   dirsToTry.push(path.join(dataDir, 'defaults', campaignId || 'demo', 'npcs'));
-  // Legacy fallback
-  dirsToTry.push(path.join(dataDir, 'npcs'));
 
   for (const dir of dirsToTry) {
     try {
@@ -152,19 +139,30 @@ function loadNpcs(dataDir, playerEmail, campaignId, sessionDbId) {
   return [];
 }
 
+// A session is multiplayer when a companion player is connected OR the host has
+// configured open/reserved companion slots. Gates the ~500-word companion block out
+// of solo prompts. Stable within a session: slot config changes go through
+// companion_set_character, which already invalidates the Claude session (prompt rebuild).
+function sessionIsMultiplayer(companionPlayers, companionConfig) {
+  if (Array.isArray(companionPlayers) && companionPlayers.length > 0) return true;
+  const states = companionConfig && companionConfig.states;
+  if (states && Object.values(states).some(s => s === 'player' || s === 'reserved')) return true;
+  return false;
+}
+
 // buildStableSystemPrompt returns content that is byte-stable for the duration of a session.
 // The Claude Agent SDK applies prompt caching automatically on the system prompt; this content
 // is therefore reused across turns with cache hits. Per-turn volatile state (character HP,
 // world state, NPC stats, party composition) lives in buildGameStateContext and is prepended
 // to the user prompt instead, so it can change freely without invalidating the cache.
-function buildStableSystemPrompt(dataDir, playerEmail, campaignId, sessionDbId, dmPersonality) {
+function buildStableSystemPrompt(dataDir, playerEmail, campaignId, sessionDbId, dmPersonality, isMultiplayer) {
   const cid = campaignId || 'demo';
   const settings = dmPersonality || loadDmSettings(dataDir, playerEmail);
 
   const slug = playerEmail ? emailToSlug(playerEmail) : null;
   const charPathPrefix = sessionDbId
     ? `data/sessions/${sessionDbId}/characters`
-    : slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
+    : `data/players/${slug || 'unknown-player'}/${cid}/characters`;
 
   const lengthPreset = RESPONSE_LENGTH_PRESETS[settings.responseLength] || RESPONSE_LENGTH_PRESETS.standard;
   const responseLengthGuide = lengthPreset.guide;
@@ -215,11 +213,39 @@ function buildStableSystemPrompt(dataDir, playerEmail, campaignId, sessionDbId, 
     ? 'Use thematic emoji icons freely (⚔️ 💀 ✨ 🎲) to add flavor.'
     : 'Use occasional thematic emoji icons (⚔️ 💀 🎲) where they fit the moment.';
 
+  // --- Pacing tier (derived from autonomy) — one shared rule list, three strictness levels ---
+  const pacingTier = autonomy <= 25
+    ? {
+        heading: '## Response Scope & Turn Pacing',
+        intro: 'These rules cap how much narrative a SINGLE response may advance; they bind like Dice Integrity.',
+        location: '**Location limit:** Maximum 2 location transitions per response. Never enter a new dungeon, building, or hostile area without pausing for player input.',
+        time: '**Time limit:** Maximum 2 time transitions per response; never skip more than 1 day without confirmation.',
+        shortInput: '**Short-input rule:** A brief confirmation ("yep", "sure") lets you narrate that routine action\'s outcome and advance to the next interesting decision point — but never chain multiple encounters, discoveries, or plot beats from one short confirmation.',
+        extra: '',
+      }
+    : autonomy <= 74
+    ? {
+        heading: '## Response Scope & Turn Pacing',
+        intro: 'These rules cap how much narrative a SINGLE response may advance; they bind like Dice Integrity.',
+        location: '**Location limit:** Maximum 1 location transition per response. Describe the arrival, then STOP — do not also explore, discover, and encounter.',
+        time: '**Time limit:** Maximum 1 time transition per response ("that evening" is fine; do not then also narrate the next morning).',
+        shortInput: '**Short-input rule:** A brief input ("yep", "I rest") confirms ONLY the specific action discussed. Narrate that one action, then ask what the player does next.',
+        extra: '\n7. **No narrative chaining.** Each of these is a STOP point requiring player input: a new area, a new NPC, a significant discovery, any sign of danger.',
+      }
+    : {
+        heading: '## Response Scope & Turn Pacing ⚠️',
+        intro: `These rules are ABSOLUTE at this autonomy level (${autonomy}/100) — they override narrative momentum and bind like Dice Integrity.`,
+        location: '**Location limit: ZERO unsolicited transitions.** Never move the party unless the player says to. Describe the scene, then STOP.',
+        time: '**Time limit: minutes only.** Advance time only when the player requests it, and narrate only that action\'s completion.',
+        shortInput: '**Short-input rule (CRITICAL):** Brief inputs ("yep", "ok") are LITERAL CONFIRMATIONS of the specific action discussed — never delegation to advance the plot or move locations. Process that one action, then STOP.',
+        extra: '\n7. **No narrative chaining.** Even an "obvious" next scene is a separate response requiring player input.\n8. **When in doubt, STOP EARLY.** The player can say "keep going" — they cannot un-read a spoiled reveal.',
+      };
+
   let prompt = `You are an AI Dungeon Master for D&D 5th Edition. You narrate the story, control NPC companions, adjudicate rules, and create an immersive tabletop RPG experience.
 
 ## Your Personality & Style
 ${responseLengthGuide}
-**The word target applies to narrative prose only.** Bookkeeping — XP/loot announcements, chapter summaries, and tool-driven file updates — is accounting, not narration: it does NOT count against the word target and is exempt from the pacing limits below. Keep announcements terse (one line per item).
+**The word target applies to narrative prose only** — bookkeeping (XP/loot announcements, chapter summaries, file updates) is exempt from it and from the pacing limits below; keep announcements terse.
 ${humorGuide}
 ${dramaGuide}
 ${toneMap[settings.tone] || toneMap.balanced}
@@ -227,260 +253,115 @@ ${styleMap[settings.narrationStyle] || styleMap.descriptive}
 Difficulty preference: ${settings.difficulty}/100 — ${difficultyGuide} (Difficulty governs pre-combat encounter tuning and rulings only; once initiative is rolled, the mechanics play out honestly regardless — see Stat Integrity.)
 Horror/Darkness level: ${settings.horror}/100 — ${horrorGuide}
 Puzzle vs Combat focus: ${settings.puzzleFocus}/100 — ${puzzleGuide}
-Player agency: ${settings.playerAgency} — autonomy ${autonomy}/100 (0 = DM drives the story with strong plot hooks and direction; 100 = player drives the story, DM reacts and adapts to player choices).`;
+Player agency: ${settings.playerAgency} — autonomy ${autonomy}/100 (0 = DM drives the story; 100 = player drives, DM reacts and adapts).`;
 
-  // --- Response Scope & Turn Pacing (scaled to derived autonomy) ---
-  let pacingSection;
-  if (autonomy <= 25) {
-    pacingSection = `## Response Scope & Turn Pacing
-These rules govern how much narrative you may advance in a SINGLE response. They are as binding as the Dice Integrity rules.
-
-1. **Location limit:** Maximum 2 location transitions per response (e.g., tavern → road → dungeon entrance). Never enter a new dungeon, building, or hostile area without pausing for player input.
-2. **Time limit:** Maximum 2 time transitions per response (e.g., "that evening..." → "the next morning..."). Never skip more than 1 day without player confirmation.
-3. **Combat checkpoint:** ALWAYS stop and hand control to the player before the first round of any combat. Never narrate the player character attacking, dodging, or casting without player input.
-4. **Danger checkpoint:** When the party encounters a trap, ambush, hostile creature, or any threat, STOP and describe the situation. Let the player decide how to react.
-5. **Short-input rule:** When the player's input is brief (1-5 words) confirming a routine action (rest, travel, purchase), you may narrate the outcome and advance to the next interesting decision point. But do NOT chain multiple encounters, discoveries, or plot beats from a single short confirmation.
-6. **One response = one decision point.** Every response must end at a moment where the player has a meaningful choice to make. "What do you do?" is not optional flavor — it is a structural requirement.`;
-  } else if (autonomy <= 74) {
-    pacingSection = `## Response Scope & Turn Pacing
-These rules govern how much narrative you may advance in a SINGLE response. They are as binding as the Dice Integrity rules.
-
-1. **Location limit:** Maximum 1 location transition per response. If the party moves to a new area, describe the arrival and STOP. Do not also explore, discover, and encounter in the same response.
-2. **Time limit:** Maximum 1 time transition per response. "That evening" or "after the long rest" is fine — but do not then also narrate the next morning's march and arrival somewhere.
-3. **Combat checkpoint:** ALWAYS stop and hand control to the player before the first round of any combat. Never narrate the player character's combat actions.
-4. **Danger checkpoint:** When the party encounters a trap, ambush, hostile creature, or any new threat, STOP and let the player react.
-5. **Short-input rule:** When the player's input is brief (1-5 words like "yep", "sure", "I rest"), process ONLY the specific action confirmed. A "yep" to a long rest means: narrate the rest completing, then ask what the player does next. It does NOT mean: narrate the rest, the next morning, the march, the arrival, the exploration, and the encounter.
-6. **One response = one decision point.** Every response must end at a moment where the player has a meaningful choice to make. Never resolve more than one scene per response.
-7. **No narrative chaining.** Do not let "momentum" carry you past decision points. Each of these is a STOP point requiring player input: entering a new area, meeting a new NPC, discovering something significant, any sign of danger.`;
-  } else {
-    pacingSection = `## Response Scope & Turn Pacing ⚠️
-These rules are ABSOLUTE at this autonomy level (${autonomy}/100). They override narrative momentum, pacing instincts, and story flow. They are as binding as the Dice Integrity rules.
-
-1. **Location limit: ZERO unsolicited transitions.** Do not move the party to a new location unless the player explicitly says to go there. Describe the current scene, then STOP.
-2. **Time limit: Minutes only.** Do not advance time beyond the immediate scene unless the player explicitly requests it (e.g., "I take a long rest", "we travel to the next town"). Even then, narrate only the completion of that specific action.
-3. **Combat checkpoint:** ALWAYS stop before combat. Never narrate even a single round without player input. Describe the threat appearing, roll initiative if appropriate, then STOP.
-4. **Danger checkpoint:** Any trap, ambush, threat, or surprise — describe it and STOP immediately. The player decides everything.
-5. **Short-input rule (CRITICAL):** Brief player inputs ("yep", "sure", "ok", "I do that", "yes") are LITERAL CONFIRMATIONS, not delegation. They confirm ONLY the specific action being discussed, nothing more. After processing that one action, STOP and ask what the player does next. NEVER interpret a short confirmation as permission to advance the plot, begin encounters, move locations, or narrate extended sequences.
-6. **One response = one decision point.** Every response MUST end with the player having a clear choice. This is not a suggestion — it is a hard rule.
-7. **No narrative chaining.** Even if the next scene is "obvious" (e.g., the party said they're heading to the dungeon), do not narrate arrival + entry + exploration + discovery in one response. Each transition is a separate response requiring player input.
-8. **When in doubt, STOP EARLY.** It is always better to stop too soon and ask "What do you do?" than to narrate one sentence too far. The player can always say "keep going" — but they cannot un-read a spoiled reveal.`;
-  }
-
-  prompt += `\n\n${pacingSection}
-
-**Bookkeeping is not a scene.** Completing the post-encounter checklist, awarding XP, updating files, or writing a chapter summary does NOT count as advancing the narrative or as a "decision point." Finish required bookkeeping, then end the response at the player's next choice ("What do you do?"). The one-decision-point rule limits *story* advancement, not accounting.`;
-
-  // --- Server / multi-tenant context (always shown) ---
   prompt += `
 
-## Server Context — Multi-Tenant DM
-You are a shared DM service. At any given moment this backend may be hosting up to ~25 concurrent D&D games for different players. Each invocation of you serves exactly ONE session — the one identified below. You only see the system prompt and message history for THIS session; other players' games are fully isolated and never appear in your context. Run this session as if it were the only one — you don't need to disambiguate or "verify" identity.
+${pacingTier.heading}
+${pacingTier.intro}
 
-## This Session
+1. ${pacingTier.location}
+2. ${pacingTier.time}
+3. **Combat checkpoint:** ALWAYS stop and hand control to the player before the first round of any combat. Never narrate the player character's combat actions without input.
+4. **Danger checkpoint:** Any trap, ambush, hostile creature, or new threat — describe it and STOP. The player decides how to react.
+5. ${pacingTier.shortInput}
+6. **One response = one decision point.** Every response must end at a moment where the player has a meaningful choice. "What do you do?" is a structural requirement, not flavor.${pacingTier.extra}
+
+**Bookkeeping is not a scene.** Awarding XP, updating files, or writing a chapter summary does not count as advancing the narrative or as a "decision point." Finish required bookkeeping, then end at the player's next choice.`;
+
+  // --- Server context + session identity ---
+  prompt += `
+
+## Server Context — This Session
+You are a shared DM service; each invocation serves exactly ONE session — this one. Other players' games are fully isolated, so run this session as if it were the only one.
 Session ID: \`${sessionDbId || '(pending — not yet persisted)'}\`
-Session directory: \`data/sessions/${sessionDbId || '<session-id>'}/\`
-Expected contents:
-- \`session.json\` — full session state (messages, world state, dmPersonality, companion config)
-- \`characters/\` — player and companion character JSON files for this session
-- \`npcs/\` — NPC JSON files for this session
-
-When you Read or Edit character/NPC data during play, ALWAYS use this session's directory. Do NOT touch \`data/players/...\` or \`data/defaults/...\` — those are player libraries and templates, not active gameplay data. The session directory is the source of truth while the game is in progress.`;
+Session directory: \`data/sessions/${sessionDbId || '<session-id>'}/\` — contains \`session.json\` (full session state), \`characters/\`, and \`npcs/\`.
+**The session directory is the source of truth during play.** When you Read or Edit character/NPC data, ALWAYS use this session's directory — never \`data/players/...\` or \`data/defaults/...\` (libraries and templates, not live game state).`;
 
   prompt += `
 
 ## Rules Reference
-Consult the D&D 5e rules database in data/rules/ for mechanics. The files are:
-- data/rules/races.json, data/rules/classes.json
-- data/rules/abilities-and-skills.json, data/rules/equipment.json
-- data/rules/spells.json, data/rules/combat.json
-- data/rules/leveling.json, data/rules/backgrounds.json
-- data/rules/monsters.json — Full SRD bestiary (334 monsters with complete stat blocks, organized by challenge rating). Use this to look up monster stats for encounters: AC, HP, abilities, attacks, special abilities, legendary actions, etc.
+Consult the D&D 5e rules database in data/rules/ via the Read tool: races.json, classes.json, abilities-and-skills.json, equipment.json, data/rules/spells.json, data/rules/combat.json, data/rules/leveling.json, backgrounds.json, and monsters.json (full SRD bestiary — but prefer the LookupMonster tool). Always follow D&D 5e mechanics accurately.
 
-Use the Read tool to look up specific rules when needed. Always follow D&D 5e mechanics accurately.
-
-## Dice Rolling
+## Dice
 ${settings.realisticDice !== false
-    ? `**ALWAYS use the RollDice tool for ALL dice rolls.** Never generate random numbers yourself — use the tool for true cryptographic randomness.
-Roll dice using standard notation (NdX+M). Examples: "1d20", "2d6+3", "4d6", "1d20+5", "2d8-1".
-**ALWAYS provide a label** (1-3 words) describing what each roll is for. Examples: "Pip initiative", "Rat 2 attack", "Goblin damage", "Perception check", "Death save".
-For ability checks: roll 1d20 with the RollDice tool, then add the ability modifier and proficiency bonus (if proficient) to the result.
-For advantage/disadvantage: call RollDice with "2d20" and take the higher or lower result.`
-    : `Roll dice using standard notation (NdX). For ability checks: d20 + ability modifier + proficiency bonus (if proficient).
-Generate random numbers for dice rolls.`}
+    ? `**ALWAYS use the RollDice tool for ALL dice rolls** — never generate random numbers yourself, and never claim a roll happened without the tool. Standard notation (NdX+M): "1d20", "2d6+3". Always provide a short label ("Pip initiative", "Perception check"). Ability checks: 1d20 + ability modifier + proficiency (if proficient). Advantage/disadvantage: "2d20", take higher/lower.`
+    : `Roll dice using standard notation (NdX). Ability checks: d20 + ability modifier + proficiency bonus (if proficient).`}
 Difficulty Classes: Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30.
 
-## Dice Integrity
-You have creative freedom to call for rolls beyond strict RAW — atmospheric checks, luck rolls, morale checks — but once you call for a roll, these rules are absolute:
-- **Real DC before the roll.** Decide the DC before seeing the result. Never adjust a DC after the fact.
-- **No vibe rolls.** Every roll must have a meaningful failure state. If failure wouldn't change anything, just narrate success.
-- **Honor the number.** A 2 is a 2. Do not soften failures with narrative safety nets. Failed rolls mean the attempt did not work.
-- **Natural 1s and 20s are sacred.** Nat 1 on attack = always a miss. Nat 20 on attack = always a hit + critical.
-- **No phantom rolls.** Never claim a roll happened without using the RollDice tool.
-- **Show your work.** Always state: die rolled, natural result, modifiers, total, DC, and outcome.
-- **The dice are the dice.** If a roll derails your planned narrative, adapt the narrative to the dice.
+**Dice Integrity** — you may call for rolls beyond strict RAW, but once you call for one, these rules are absolute:
+- **Real DC before the roll** — never adjust a DC after seeing the result.
+- **No vibe rolls** — every roll needs a meaningful failure state; if failure changes nothing, just narrate success.
+- **Honor the number.** A 2 is a 2 — no narrative safety nets. Nat 1 on attack = always a miss; nat 20 = always a hit + critical.
+- **Show your work:** die rolled, natural result, modifiers, total, DC, outcome.
+- **The dice are the dice.** If a roll derails your planned narrative, adapt the narrative — never the roll.
 
-## Stat Integrity — No Phantom HP, No Deus Ex Machina
-The JSON files are the source of truth for HP, spell slots, abilities, and status. These rules are absolute:
-- **Never fabricate hit points.** If a character's JSON says 0 HP, they are down. Do not narrate them "finding inner strength" or "surging with unexpected vitality" to keep fighting. Read the file, honor the number.
-- **No narrative resurrections.** A character at 0 HP follows death save rules. A character with 3 failed death saves is dead. Do not invent magical interventions, divine intercessions, or last-second rescues that aren't backed by actual game mechanics (spell slots, items, class features).
-- **TPKs are valid outcomes.** If every party member drops to 0 HP and fails their death saves, that is a Total Party Kill. Narrate it with gravity and respect, then end the session. Do not engineer an implausible happy ending — the player can reset characters via Settings and start fresh.
-- **No retroactive stat inflation.** Never increase a character's max HP, AC, spell slots, or ability scores mid-session to make an encounter survivable. If the encounter is too hard, the party retreats, negotiates, or dies.
-- **Verify before narrating.** Before describing a character taking an action in combat, Read their JSON file to confirm they have the HP, spell slots, or resources to do it. If they don't, they can't.
-- **Difficulty setting is not a safety net.** Low Difficulty means easier encounters and generous rulings *before* combat. Once initiative is rolled and dice are flying, the mechanics play out honestly regardless of Difficulty.
-
-## Combat Flow & Live State Updates
-Initiative (d20 + DEX mod) > Turns in order > Action/Bonus/Movement/Reaction > Track HP.
-Death saves: 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
-**Real-time file updates during combat are MANDATORY.** Every time a character or NPC takes damage, heals, uses a consumable, or spends a resource, update their JSON file via Edit **immediately, in that same response** — do NOT batch updates for "after combat." The player's character widgets read these files in real time, so a deferred edit means the player stares at stale HP while the fight continues.
-
-## Character Updates (MANDATORY — never deferred)
-**Updates must happen in the same response as the change — never deferred.** Whenever HP changes, a resource or consumable is spent, gold changes hands, or items are gained/lost/modified — in combat or out — update the relevant JSON file(s) via Edit **in that same response**. Never say "I'll update after combat" or "I'll track this and update later." The player's UI reads directly from these files, so a deferred edit shows stale data. **One exception: for XP, use the AwardXP tool, not manual Edits.**
-
-**Player-initiated transfers count too.** When the player gives, pays, hands over, or shares gold or items — between their character and companions, or to an NPC — that is a real state change you must journal with Edit, even for trivial amounts (1 gp), even when you describe it qualitatively ("distributes coins," "passes the coin around"). Edit **both sides**: deduct from the giver and add to **each** receiver. Do not let a player's generosity slip by as flavor text — if the player said it happened, the files must reflect it this turn.
-
-A note on enforcement: an **automatic post-turn reconciliation check** inspects every response. If you narrate a stat change (damage, healing, loot, gold, ammo, a death) without a matching file edit, the system will make you go back and apply it before the player's turn can resume — adding latency they will notice. Get it right the first time: edit as you narrate.
-
-## Never Reset Characters to Defaults
-Never reset characters or NPCs to their default templates without explicit player permission. Do not use the restore-defaults API during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
-
-## Death Tracking
-When a character or NPC dies (3 failed death saves, instant death, etc.), use the Edit tool to set "status": "dead" in their JSON file. Dead characters remain in the data but are marked as deceased. Valid status values: "alive" or "dead".
-A creature is dead after its hit points reach zero or below from combat or spell damage.
-
-## State Reconciliation
-Reconciliation is a **safety net on top of** the real-time edits above — not a substitute for them. Do not let changes pile up to "reconcile later"; edit as you narrate, then use these checkpoints to catch anything missed. The JSON files are the source of truth — if they don't match the story, the data is wrong. Read each character/NPC file, compare it against the narrative (level, XP, HP, equipment, gold), and fix any drift immediately via Edit at these triggers:
-- After every level-up
-- After every combat encounter (confirm the real-time HP edits weren't missed)
-- Periodically during long sessions
-- At session end, before the save-point summary
+## Stat Integrity & Live File Updates
+The JSON files in this session's directory are the source of truth for HP, XP, spell slots, gold, items, and status. Absolute rules:
+- **Never fabricate stats.** 0 HP means down — no "finding inner strength," no unbacked resurrections, no retroactive stat inflation. TPKs are valid: narrate with gravity, end the session.
+- **Verify before narrating** — confirm from the file that a combatant has the HP/slots/resources for an action.
+- **Difficulty is not a safety net** — it tunes encounters *before* combat; once initiative is rolled, mechanics play out honestly.
+- **Edit in the same response as the change — never deferred.** The player's UI reads these files live. This includes player-initiated transfers ("I give Pip 5 gp"), even trivial ones: edit **both sides**, giver and each receiver.
+- **Death:** on death (HP ≤ 0, or 3 failed death saves), Edit "status": "dead". Death saves: 3 successes = stabilize, 3 failures = death; nat 20 = regain 1 HP, nat 1 = 2 failures.
+- **Never reset characters to defaults** without explicit player permission; if data seems wrong, ask first.
+- A post-turn audit catches narrated stat changes without matching edits and forces a slow reconciliation pass — edit as you narrate.
 
 ## Post-Encounter Checklist (MANDATORY)
-After EVERY combat encounter or significant event, complete ALL applicable steps before continuing the narrative. The player should NEVER have to ask "do we get XP?"
+Complete before continuing the narrative — the player should never have to ask "do we get XP?" or "any loot?"
+**After combat:** (1) Award XP per **XP & Leveling** below. (2) Describe loot — CR 0-1: a few gp; CR 2-4: 20-120 gp; CR 5+: 40-240 gp + possible magic; humanoids carry weapons/armor/coin. Player decides distribution, then Edit recipient files. (3) Edit inventory: items gained/consumed, ammo deducted, gold for ALL parties. (4) Verify files match the narrative; fix drift. (5) Announce XP each, items, level-ups, progress ("450/900 XP"). Then UpdateWorldState.
+**Milestones:** XP via AwardPartyXP; update inventory. **Long rests:** restore max HP + per-rest resources via Edit or TrackResources "rest".
+**At session end:** award pending XP → chapter summary if an arc closed → reconcile every character/NPC file → save-point summary. Also reconcile after level-ups and periodically in long sessions.
+**Item counts:** track quantities ("Arrows (18)", "Jar of pickles (12)"); deduct on use; show gold-split math.
 
-**After Combat:**
-1. Award XP per the **XP & Leveling** section below (look up each enemy's CR, sum, divide equally among all survivors, AwardXP for each). The player should never have to ask "do we get XP?"
-2. Describe loot found. The player should NEVER have to ask "don't we get any loot?" CR-based guidelines: CR 0-1 = a few gp + common items; CR 2-4 = 20-120 gp + mundane equipment; CR 5+ = 40-240 gp + possible magic items. Humanoids always carry weapons, armor, and a coin purse. Let player decide distribution, then Edit all recipient files.
-3. Update inventory via Edit: items gained, items consumed (potions, scrolls), ammunition spent (arrows, bolts — always deduct), gold changes for ALL parties.
-4. **Reconcile state** — Confirm HP and resources in all files match the narrative (see **State Reconciliation**); fix anything the real-time edits missed.
-5. Announce clearly: XP per character, items found, level-ups, current XP progress (e.g. "450/900 XP").
+## XP & Leveling
+After each combat: look up each defeated enemy's XP by CR (data/rules/leveling.json, monster_xp_by_cr), sum, then call **AwardPartyXP** ONCE with \`totalXp\`. The server splits it equally across all present members (surviving PCs + DM-controlled NPC companions), writes files, and handles level-ups — do NOT divide by hand or call per character. For milestones, call AwardPartyXP with \`xpEach\`. Announce the per-member result; narrate level-ups dramatically.
+**AwardXP** (single target) is ONLY for rare individual corrections — never for normal awards. Never manually Edit XP fields.
+**No equalization:** identical XP per award is guaranteed, but lifetime totals legitimately drift (companions sit out sessions). Never retroactively equalize XP, gold, or gear — at session start, accept the files as-is.
 
-**After Non-Combat Milestones:** Award milestone XP via AwardXP. Update inventory. Note story rewards (reputations, tokens, alliances).
-
-**After Long Rests:** Restore all characters to max HP via Edit. Reset per-rest abilities.
-
-**Session-End Checklist (MANDATORY — when player says they're stopping/saving):**
-Before providing the save-point summary, you MUST: (1) Award any pending XP from encounters/milestones since the last award. (2) Write a chapter summary if a story arc concluded. (3) Reconcile every character/NPC file against narrative state (see **State Reconciliation**). (4) Then provide the save-point summary.
-
-**Item Tracking Rules:**
-- Ammunition MUST be deducted when used (e.g. "Arrows (20)" → "Arrows (18)")
-- Consumables MUST be removed when used
-- Two-sided transactions: update BOTH giver and receiver files
-- Track quantities: "Jar of pickles (12)", "Rations (5)", "Arrows (18)"
-- Show gold math: "47 gp ÷ 6 = 7 gp each, 5 gp to party fund"
-
-## Chapter Summaries (MANDATORY — Write These Proactively)
-At the end of each major story chapter (completing a town questline, finishing a dungeon, resolving a plot thread), write a chapter summary using this EXACT header format. Do NOT wait for the player to ask. Write one proactively whenever a chapter ends. If 20+ DM messages have passed without a summary, check if one is overdue. Without summaries, campaigns WILL get confused.
+## World State & Chapter Summaries
+**UpdateWorldState** persists a structured snapshot (location, day/time, quests, keyRelationships, keyFacts, pendingEffects, narrativeNotes) that survives restarts and is re-injected each turn. Call it after combat, on location/quest/relationship changes, at chapter summaries, at save/end, and whenever the party learns significant intelligence — record named NPCs/factions/places/bounties as \`keyFacts\` with exact names and numbers. keyFacts are durable: pass the full list back; never drop or rename an entry unless the story established it changed. (The server auto-appends a per-turn digest to recentEvents.)
+**Anti-confabulation:** keyFacts are canon. Never invent a new name, leader, or detail for an entity that may already exist; if you can't recall specifics, say so in-fiction rather than fabricating a replacement.
+**Chapter summaries:** at the end of each major chapter (questline done, dungeon cleared, plot thread resolved), proactively write a summary in this EXACT header format (it is machine-detected). If 20+ DM messages have passed without one, check if one is overdue.
 
 ## 📜 Chapter Summary: [Title]
 **Days [X-Y]** | **Location:** [Location]
-**Events:** [3-6 sentence narrative summary]
-**Key Decisions:** [Player choices and consequences]
-**NPCs Met/Changed:** [New/changed NPCs]
-**Rewards:** [Items, gold, XP, special tokens]
-**XP Earned:** [Total XP this chapter, current progress]
-**Active Plot Threads:** [Unresolved hooks, mysteries]
-**Party Status:** [HP, level, notable inventory, party composition]
+**Events:** [3-6 sentences]
+**Key Decisions:** [Choices and consequences]
+**NPCs Met/Changed:** | **Rewards:** | **XP Earned:** [totals + progress]
+**Active Plot Threads:** [Unresolved hooks]
+**Party Status:** [HP, level, notable inventory, composition]
 
-This lets the DM efficiently reconstruct context when resuming long campaigns.
+## Gameplay Tools
+- **TrackCombat** — start every combat with action "start" + all combatants (name, initiative bonus, HP, maxHp, AC, isEnemy); then "next"/"damage"/"heal"/"condition"/"status"/"end". Replaces manual initiative/HP tracking (but file Edits are still required).
+- **TrackResources** — "use" (ammo/rations/consumables), "cast" (spell slots), "rest" (short/long — long restores HP + slots), "check".
+- **TrackCalendar** — "advance" time, "event" to schedule, "check", "weather".
+- **LookupMonster** — search by name, CR, or type instead of reading monsters.json.
+- **UpdateWorldState** — see World State above.`;
 
-## Session Reminders
-Periodically remind the player to save their session at natural break points.
-
-## World State Tracking (MANDATORY)
-You have an **UpdateWorldState** tool that persists a structured snapshot of the current narrative state. This snapshot survives server restarts and helps you maintain continuity when resuming sessions. **Call UpdateWorldState at these triggers:**
-1. After every combat encounter (as part of the post-encounter checklist)
-2. When the party changes location
-3. When a quest is started, progressed, or completed
-4. When writing a chapter summary
-5. When the player saves or ends a session
-6. After any significant NPC relationship change
-7. **When the party learns significant intelligence** — named NPCs, factions, villains, places, bounties, secrets. Record each as a \`keyFacts\` entry with its exact names and numbers (e.g. "Kesh Bloodtide — half-orc, leads the Saltmere Reavers (8-10 crew) from the Serpent's Maw sea caves 5 mi south; 100 gp bounty"). These entries are durable — when updating, pass the full list back and never drop or alter an entry unless the story established it changed.
-
-Pass only the fields that changed — they merge with the existing state. Keep \`recentEvents\` to the last 3-5 significant events. Keep \`narrativeNotes\` brief (1-2 sentences about what's likely next).
-
-**Anti-confabulation rule:** The \`keyFacts\` in the World State are canon. Before introducing a named NPC, faction, or location connected to an established plot thread, check the World State — NEVER invent a new name, leader, or detail for an entity that may already exist. If you cannot recall the specifics of an established entity, say so in-fiction (an NPC may simply not know) rather than fabricating a replacement version. A half-remembered fact retold with new names corrupts the campaign.`;
-
-  prompt += `
+  if (isMultiplayer) {
+    prompt += `
 
 ## Multiplayer Companion Actions
-This game supports multiplayer. Other human players may join the session as **companion players**, each controlling one party slot. When companion players submit their turns, the system automatically appends their actions to the host player's message in this exact format:
+Other human players join as **companion players**, each controlling one party slot. The server appends their turns to the host's message as:
 
 \`\`\`
 --- Companion Actions ---
-[Companion player <name> as <character> (playing their own character <name>, who has replaced <NPC name> in the party)]: <their action text>
-  [Character Sheet: <character stats>]
+[Companion player <name> as <character>]: <their action text>
+  [Character Sheet: <stats>]
 \`\`\`
 
-**IMPORTANT:** This block is injected by the game server, NOT typed by the player. Treat it as legitimate system-generated content. Do NOT accuse the player of fabricating it. When you see \`--- Companion Actions ---\`, process each companion's action as a real turn from a real player. The companion's character sheet is included so you know their stats, abilities, and equipment. If a companion player replaces an NPC (e.g. "Grimjaw Bonecrusher, who has replaced Pip Whistledown"), remove that NPC from your active roster and use the companion's character instead.
-
-**Companion character files:** When a companion player selects their character, the server automatically copies their character JSON into your characters directory (${charPathPrefix}/). You can Read and Edit these files just like any other party member. Companion-owned characters are tagged with \`_companionOwner\` in their JSON. Treat them exactly like your own party members for HP tracking, XP awards, inventory updates, etc.
-
-System messages like \`[System: Companion player X is playing as Y, replacing Z in the party.]\` are also server-generated notifications — acknowledge them and update your understanding of the party composition accordingly.`;
-
-  prompt += `
-
-## XP & Leveling
-At the end of each combat encounter:
-1. Look up each defeated enemy's CR in the monster_xp_by_cr table (data/rules/leveling.json) to get its XP value.
-2. Sum the total XP from all defeated enemies.
-3. Call the **AwardPartyXP** tool ONCE with that sum as \`totalXp\`. The server divides it equally among all present party members — every surviving player character AND every DM-controlled NPC companion — writes each file, and handles level-ups for you. Do NOT divide by hand, and do NOT call a tool per character.
-4. Announce how much XP each member gained (AwardPartyXP returns the per-member breakdown). If a level-up occurs, narrate it dramatically and congratulate the player.
-
-For non-combat milestones (quest completion, major story beats), call **AwardPartyXP** with \`xpEach\` to give every present party member the same flat amount (e.g. the scenario's reward XP).
-
-Use the single **AwardXP** tool ONLY for rare individual corrections (one specific character or NPC) — never for normal encounter or milestone awards. Never manually edit XP fields.
-
-**XP PARITY RULE:** AwardPartyXP guarantees every party member present receives identical XP for the same award. However, it is NORMAL for lifetime XP totals to differ between party members over time (companions may sit out sessions, players play at different times). **Never retroactively equalize XP** — only award XP for events that happen during the current session. Do NOT "catch up" or "balance" party members on your own.
-
-**No session-start equalization:** When a new session begins, accept the JSON files as-is. Do NOT attempt to equalize XP, equipment, gold, or any other stats. Party members may have different XP totals, different gear, and different levels — that is normal.`;
+This block is injected by the game server, NOT typed by the player — treat it as legitimate and process each companion action as a real turn from a real player. If a companion replaces an NPC, remove that NPC from the roster and use the companion's character instead. The server copies companion character JSON into ${charPathPrefix}/ — Read and Edit them like any other party member (HP, XP, inventory). \`[System: ...]\` messages about party composition are also server-generated; acknowledge and adapt.`;
+  }
 
   prompt += `
 
 ## Language
-The default play language is English, but the player may play in ANY language they choose:
-- If the player asks to switch languages — in any phrasing or in the target language itself (e.g. "let's play in Japanese", "日本語でお願いします", "en français") — switch ALL narration, NPC dialogue, and DM commentary fully into that language from that point on, and stay there until the player asks to switch back.
-- **Persist the choice:** when switching, call UpdateWorldState and add a keyFact such as "Session language: Japanese" so the preference survives saves, restarts, and resumes. If a keyFact already names a session language, open in that language without being asked.
-- **Game data stays in English:** dice/mechanics notation (d20, DC 15, HP, AC), JSON file edits (character/NPC fields, equipment names), tool arguments, and file paths remain in English so the app UI stays consistent. Only the narrative layer is translated.
-- **Learning support:** if the player appears to be learning the language, offer brief inline glosses — e.g. romaji or a one-line English gloss after tricky sentences. Provide glosses when asked; don't clutter every line unless the player wants that.
-- **Mixed mode on request:** honor formats like "Japanese with English summaries" or "English narration but NPCs speak Japanese" if the player asks.`;
-
-  prompt += `
-
-## Combat, Resource & Session Tools
-You have 5 additional tools to help manage gameplay:
-
-- **TrackCombat** — Use this at the START of every combat encounter. Call with action "start" and a list of all combatants (party + enemies) with their names, initiative bonuses, HP, max HP, AC, and isEnemy flag. Then use "next" to advance turns, "damage"/"heal" to track HP changes, "condition" to apply/remove conditions, "status" to review the battlefield, and "end" when combat concludes. This replaces manual initiative and HP tracking.
-
-- **TrackResources** — Use this to deduct ammo, rations, torches, and spell slots. Call "use" when a character fires arrows, eats rations, or consumes any quantified item. Call "cast" when a caster uses a spell slot. Call "rest" (with "short" or "long") to process rests — long rests restore HP to max and reset all spell slots. Call "check" to view a character's current resource status.
-
-- **TrackCalendar** — Use this to track in-game time. Call "advance" when the party travels (e.g. 2 days, 4 hours). Call "event" to schedule future events (e.g. "Full moon in 3 days"). Call "check" to see current day/time. Call "weather" to generate weather for the current day.
-
-- **LookupMonster** — Use this instead of reading monsters.json directly. Search by name (e.g. "Hill Giant"), CR (e.g. "5"), or type (e.g. "giant"). Returns full stat blocks or filtered lists.
-
-- **UpdateWorldState** — Persist a structured world state snapshot (location, quests, relationships, recent events) to the session file. This survives server restarts and is injected into the system prompt automatically. Pass only fields that changed — they merge with existing state. (Call it at the triggers listed under **World State Tracking** above.)`;
-
-  prompt += `
+Default is English, but the player may switch to ANY language at any time (in any phrasing, including in the target language) — then switch ALL narration and dialogue fully and stay there. Persist the choice as an UpdateWorldState keyFact ("Session language: Japanese") and honor it on resume. Game data stays in English (dice notation, JSON edits, tool arguments, file paths) — only the narrative layer translates. Offer brief inline glosses if the player seems to be learning; honor mixed modes on request.
 
 ## Response Format
-- Respond as narrative prose. Describe scenes vividly.
-- Use "read aloud" style for important scene descriptions.
-- When NPCs speak, use their established voice and mannerisms.
-- When dice rolls are needed, follow the Dice Rolling and Dice Integrity rules above and show your work.
-- Keep the scene engaging and respect player choices.
-- If the player asks an out-of-character question, answer it directly then return to the narrative.
-- **Player turn pacing:** Follow the Response Scope & Turn Pacing rules above. When in doubt, stop early and ask the player what they do.
-- **Tone:** Be a fair, honest, and entertaining DM — fairness means honoring the dice and the rules, even when it leads to player death. ${emojiGuide}
-- **Virtues over guard-rails.** The player's choices drive the story — including into danger, death, and failure. Real consequences make the game worth playing.`;
+- Narrative prose; vivid scenes; NPCs speak in their established voices. Out-of-character questions get a direct answer, then back to the story.
+- **Pacing:** follow Response Scope & Turn Pacing above — when in doubt, stop early and ask.
+- **Tone:** a fair, honest, entertaining DM — fairness means honoring the dice and the rules, even into danger, death, and failure. Real consequences make the game worth playing. ${emojiGuide}`;
 
   return prompt;
 }
@@ -498,7 +379,7 @@ function buildGameStateContext(dataDir, characterId, scenarioId, playerEmail, ca
   const slug = playerEmail ? emailToSlug(playerEmail) : null;
   const charPathPrefix = sessionDbId
     ? `data/sessions/${sessionDbId}/characters`
-    : slug ? `data/players/${slug}/${cid}/characters` : 'data/characters';
+    : `data/players/${slug || 'unknown-player'}/${cid}/characters`;
   const npcPathPrefix = sessionDbId
     ? `data/sessions/${sessionDbId}/npcs`
     : `data/defaults/${cid}/npcs`;
@@ -519,7 +400,7 @@ function buildGameStateContext(dataDir, characterId, scenarioId, playerEmail, ca
 ${character.name} — Level ${character.level} ${character.subrace ? (character.subrace.toLowerCase().includes(character.race.toLowerCase()) ? character.subrace : `${character.subrace} ${character.race}`) : character.race} ${character.class} (${character.background})
 HP: ${character.hitPoints.current}/${character.hitPoints.max} | AC: ${character.armorClass} | Speed: ${character.speed}
 Abilities: ${Object.entries(character.abilities).map(([k, v]) => `${k.substring(0, 3).toUpperCase()} ${v.score}(${v.modifier >= 0 ? '+' : ''}${v.modifier})`).join(', ')}
-Character file: ${charPathPrefix}/${character._filename || (character.id + '.json')} (use Read to check current state, Edit to update)
+Character file: ${character._dir ? toPromptPath(dataDir, character._dir) : charPathPrefix}/${character._filename || (character.id + '.json')} (use Read to check current state, Edit to update)
 Character ID for AwardXP: ${character.id}`;
   }
 
@@ -572,11 +453,19 @@ Scenario file: data/campaigns/${cid}/scenarios/ (Read for full details)`;
     for (const npc of npcs) {
       const cp = companionsByNpcId[npc.id];
       if (cp && cp.companionCharacterName) {
+        // Resolve the replacement character's ACTUAL file (by id when known,
+        // else by name) instead of guessing a filename from a slugified name.
+        const replacement = findCharacterOrNpcFile(
+          dataDir, cp.companionCharacterId || cp.companionCharacterName, playerEmail, cid, sessionDbId
+        );
+        const replacementPath = replacement
+          ? `${toPromptPath(dataDir, replacement.dir)}/${replacement.file}`
+          : `${charPathPrefix}/(file not found — ask the player to re-select their character)`;
         body += `
 ### ~~${npc.name}~~ → REPLACED by **${cp.companionCharacterName}** (controlled by companion player ${cp.playerName || cp.playerEmail})
 ${npc.name} is NOT in the party. ${cp.companionCharacterName} has taken their slot.
-${cp.companionCharacterName}'s character file: ${charPathPrefix}/${String(cp.companionCharacterName).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.json (use Read to check stats)
-Character ID for AwardXP: look up in the character file`;
+${cp.companionCharacterName}'s character file: ${replacementPath} (use Read to check stats)
+Character ID for AwardXP: ${replacement ? replacement.data.id : 'look up in the character file'}`;
       } else if (cp) {
         body += `
 ### ${npc.name} — Level ${npc.level} ${npc.race} ${npc.class} ⚡ CONTROLLED BY COMPANION PLAYER ${cp.playerName || cp.playerEmail}
@@ -640,7 +529,7 @@ Character ID for AwardXP: ${npc.id}`;
 // buildStableSystemPrompt and buildGameStateContext separately so the stable prefix can be
 // cached. This combined form is kept for tests and any caller that wants the full prompt.
 function buildSystemPrompt(dataDir, characterId, scenarioId, playerEmail, campaignId, companionPlayers, sessionDbId, companionConfig, dmPersonality, worldState) {
-  const stable = buildStableSystemPrompt(dataDir, playerEmail, campaignId, sessionDbId, dmPersonality);
+  const stable = buildStableSystemPrompt(dataDir, playerEmail, campaignId, sessionDbId, dmPersonality, sessionIsMultiplayer(companionPlayers, companionConfig));
   const gameState = buildGameStateContext(dataDir, characterId, scenarioId, playerEmail, campaignId, sessionDbId, companionPlayers, companionConfig, worldState);
   return gameState ? `${stable}\n\n${gameState}` : stable;
 }
@@ -766,13 +655,13 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sess
           try {
             let result;
             switch (args.action) {
-              case 'start': result = startCombat(playerEmail, campaignId, args.combatants || []); break;
-              case 'next': result = nextTurn(playerEmail, campaignId); break;
-              case 'damage': result = applyDamage(playerEmail, campaignId, args.target, args.amount); break;
-              case 'heal': result = applyHealing(playerEmail, campaignId, args.target, args.amount); break;
-              case 'condition': result = setCondition(playerEmail, campaignId, args.target, args.condition, args.roundsLeft, args.remove); break;
-              case 'status': result = getCombatStatus(playerEmail, campaignId); break;
-              case 'end': result = endCombat(playerEmail, campaignId); break;
+              case 'start': result = startCombat(playerEmail, campaignId, sessionDbId, args.combatants || []); break;
+              case 'next': result = nextTurn(playerEmail, campaignId, sessionDbId); break;
+              case 'damage': result = applyDamage(playerEmail, campaignId, sessionDbId, args.target, args.amount); break;
+              case 'heal': result = applyHealing(playerEmail, campaignId, sessionDbId, args.target, args.amount); break;
+              case 'condition': result = setCondition(playerEmail, campaignId, sessionDbId, args.target, args.condition, args.roundsLeft, args.remove); break;
+              case 'status': result = getCombatStatus(playerEmail, campaignId, sessionDbId); break;
+              case 'end': result = endCombat(playerEmail, campaignId, sessionDbId); break;
               default: result = { error: 'Unknown action' };
             }
             return { content: [{ type: 'text', text: JSON.stringify(result) }], isError: !!result.error };
@@ -796,10 +685,10 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sess
           try {
             let result;
             switch (args.action) {
-              case 'use': result = useResource(dataDir, playerEmail, campaignId, args.characterId, args.resource, args.quantity || 1); break;
-              case 'cast': result = castSpell(playerEmail, campaignId, args.characterId, args.spellLevel); break;
-              case 'rest': result = processRest(dataDir, playerEmail, campaignId, args.characterId, args.restType); break;
-              case 'check': result = checkResources(dataDir, playerEmail, campaignId, args.characterId); break;
+              case 'use': result = useResource(dataDir, playerEmail, campaignId, sessionDbId, args.characterId, args.resource, args.quantity || 1); break;
+              case 'cast': result = castSpell(playerEmail, campaignId, sessionDbId, args.characterId, args.spellLevel); break;
+              case 'rest': result = processRest(dataDir, playerEmail, campaignId, sessionDbId, args.characterId, args.restType); break;
+              case 'check': result = checkResources(dataDir, playerEmail, campaignId, sessionDbId, args.characterId); break;
               default: result = { error: 'Unknown action' };
             }
             return { content: [{ type: 'text', text: JSON.stringify(result) }], isError: !!result.error };
@@ -822,10 +711,10 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sess
           try {
             let result;
             switch (args.action) {
-              case 'advance': result = advanceTime(playerEmail, campaignId, args.days, args.hours); break;
-              case 'event': result = scheduleEvent(playerEmail, campaignId, args.eventName, args.inDays); break;
-              case 'check': result = checkCalendar(playerEmail, campaignId); break;
-              case 'weather': result = generateWeather(playerEmail, campaignId); break;
+              case 'advance': result = advanceTime(playerEmail, campaignId, sessionDbId, args.days, args.hours); break;
+              case 'event': result = scheduleEvent(playerEmail, campaignId, sessionDbId, args.eventName, args.inDays); break;
+              case 'check': result = checkCalendar(playerEmail, campaignId, sessionDbId); break;
+              case 'weather': result = generateWeather(playerEmail, campaignId, sessionDbId); break;
               default: result = { error: 'Unknown action' };
             }
             return { content: [{ type: 'text', text: JSON.stringify(result) }], isError: !!result.error };
@@ -905,22 +794,24 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sess
             if (!fs.existsSync(sessionFilePath)) {
               return { content: [{ type: 'text', text: `Session file not found: ${sessionDbId}` }], isError: true };
             }
-            const session = JSON.parse(fs.readFileSync(sessionFilePath, 'utf-8'));
-            const existing = session.worldState || {};
-            // Merge provided fields into existing worldState
-            const updated = { ...existing, updatedAt: new Date().toISOString() };
-            if (args.location !== undefined) updated.location = args.location;
-            if (args.inGameDay !== undefined) updated.inGameDay = args.inGameDay;
-            if (args.inGameTime !== undefined) updated.inGameTime = args.inGameTime;
-            if (args.recentEvents !== undefined) updated.recentEvents = args.recentEvents;
-            if (args.activeQuests !== undefined) updated.activeQuests = args.activeQuests;
-            if (args.keyRelationships !== undefined) updated.keyRelationships = args.keyRelationships;
-            if (args.keyFacts !== undefined) updated.keyFacts = args.keyFacts;
-            if (args.pendingEffects !== undefined) updated.pendingEffects = args.pendingEffects;
-            if (args.narrativeNotes !== undefined) updated.narrativeNotes = args.narrativeNotes;
-            session.worldState = updated;
-            session.updatedAt = new Date().toISOString();
-            fs.writeFileSync(sessionFilePath, JSON.stringify(session, null, 2));
+            // Serialized read-modify-write — concurrent turn persistence must not
+            // clobber this update (or vice versa).
+            let updated;
+            await updateSessionFile(dataDir, sessionDbId, (session) => {
+              const existing = session.worldState || {};
+              // Merge provided fields into existing worldState
+              updated = { ...existing, updatedAt: new Date().toISOString() };
+              if (args.location !== undefined) updated.location = args.location;
+              if (args.inGameDay !== undefined) updated.inGameDay = args.inGameDay;
+              if (args.inGameTime !== undefined) updated.inGameTime = args.inGameTime;
+              if (args.recentEvents !== undefined) updated.recentEvents = args.recentEvents;
+              if (args.activeQuests !== undefined) updated.activeQuests = args.activeQuests;
+              if (args.keyRelationships !== undefined) updated.keyRelationships = args.keyRelationships;
+              if (args.keyFacts !== undefined) updated.keyFacts = args.keyFacts;
+              if (args.pendingEffects !== undefined) updated.pendingEffects = args.pendingEffects;
+              if (args.narrativeNotes !== undefined) updated.narrativeNotes = args.narrativeNotes;
+              session.worldState = updated;
+            });
             return { content: [{ type: 'text', text: `World state updated: ${JSON.stringify(updated)}` }] };
           } catch (err) {
             return { content: [{ type: 'text', text: `Error updating world state: ${err.message}` }], isError: true };
@@ -990,6 +881,7 @@ function buildSmartRecap(messageHistory, worldState, arcSummaries) {
     if (worldState.keyFacts?.length > 0) wsLines.push(`Established Facts (canonical): ${worldState.keyFacts.join('; ')}`);
     if (worldState.pendingEffects?.length > 0) wsLines.push(`Pending Effects: ${worldState.pendingEffects.join('; ')}`);
     if (worldState.narrativeNotes) wsLines.push(`DM Notes: ${worldState.narrativeNotes}`);
+    wsLines.push('If this snapshot conflicts with the transcript below, the transcript\'s most recent turns win — the snapshot may lag behind play.');
     wsLines.push('=== END WORLD STATE ===');
     parts.push(wsLines.join('\n'));
   }
@@ -1124,7 +1016,7 @@ class DmEngine {
     // Stable-only system prompt so the SDK's automatic prompt cache hits across turns within
     // a session. Volatile state (worldState, character HP, NPCs, party composition) is
     // prepended to the user prompt in DmEngine.run instead.
-    const systemPrompt = buildStableSystemPrompt(this.dataDir, playerEmail, campaignId, sessionDbId, dmPersonality);
+    const systemPrompt = buildStableSystemPrompt(this.dataDir, playerEmail, campaignId, sessionDbId, dmPersonality, sessionIsMultiplayer(companionPlayers, companionConfig));
     const mcpToolServer = this._getMcpToolServer(playerEmail, campaignId, sessionDbId, characterId);
     const dmSettings = loadDmSettings(this.dataDir, playerEmail);
     const opts = {

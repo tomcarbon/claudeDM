@@ -7,10 +7,7 @@ module.exports = function (dataDir) {
 
   function getScenarioDir(req) {
     const campaignId = req.campaignId || 'demo';
-    const campaignScenarios = path.join(dataDir, 'campaigns', campaignId, 'scenarios');
-    if (fs.existsSync(campaignScenarios)) return campaignScenarios;
-    // Fallback to legacy flat dir
-    return path.join(dataDir, 'scenarios');
+    return path.join(dataDir, 'campaigns', campaignId, 'scenarios');
   }
 
   // GET all scenarios (summary view)

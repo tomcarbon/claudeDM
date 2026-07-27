@@ -1,17 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const { getPlayerCharactersDir, getSessionCharactersDir, getSessionNpcsDir, getSessionFilePath } = require('./player-data');
+const { getSessionCharactersDir, getSessionNpcsDir, getSessionFilePath } = require('./player-data');
+const { requireCharacterOrNpcFile } = require('./entity-resolver');
+const { writeJsonAtomic } = require('./json-recovery');
 
 function loadJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-}
-
-function normalize(value) {
-  return String(value || '').trim().toLowerCase();
-}
-
-function slugify(value) {
-  return normalize(value).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
 function listJsonFiles(dir) {
@@ -22,96 +16,19 @@ function listJsonFiles(dir) {
   }
 }
 
-function collectMatches(dataDir, characterRef, playerEmail, campaignId, sessionId) {
-  const ref = normalize(characterRef);
-  const refSlug = slugify(characterRef);
-  const candidateDirs = [];
-
-  // Session-scoped directories first (source of truth during gameplay)
-  if (sessionId) {
-    candidateDirs.push(
-      { kind: 'character', dir: getSessionCharactersDir(dataDir, sessionId) },
-      { kind: 'npc', dir: getSessionNpcsDir(dataDir, sessionId) },
-    );
-  }
-
-  // Player library
-  if (playerEmail) {
-    candidateDirs.push(
-      { kind: 'character', dir: getPlayerCharactersDir(dataDir, playerEmail, campaignId) },
-    );
-  }
-
-  // Campaign defaults for NPCs
-  candidateDirs.push(
-    { kind: 'npc', dir: path.join(dataDir, 'defaults', campaignId || 'demo', 'npcs') },
-  );
-
-  // Legacy fallback
-  if (!playerEmail && !sessionId) {
-    candidateDirs.push(
-      { kind: 'character', dir: path.join(dataDir, 'characters') },
-      { kind: 'npc', dir: path.join(dataDir, 'npcs') },
-    );
-  }
-
-  const exactIdMatches = [];
-  const looseMatches = [];
-
-  for (const candidate of candidateDirs) {
-    const files = listJsonFiles(candidate.dir);
-    for (const file of files) {
-      const fullPath = path.join(candidate.dir, file);
-      const data = loadJson(fullPath);
-      if (!data) continue;
-
-      if (data.id === characterRef) {
-        exactIdMatches.push({ ...candidate, file, data });
-        continue;
-      }
-
-      const id = normalize(data.id);
-      const name = normalize(data.name);
-      const fileStem = normalize(path.basename(file, '.json'));
-
-      if (id === ref || name === ref || fileStem === ref) {
-        looseMatches.push({ ...candidate, file, data });
-        continue;
-      }
-
-      const nameSlug = slugify(data.name);
-      if (nameSlug && nameSlug === refSlug) {
-        looseMatches.push({ ...candidate, file, data });
-      }
-    }
-  }
-
-  if (exactIdMatches.length > 0) return exactIdMatches;
-  return looseMatches;
-}
-
-function findCharacterOrNpcFile(dataDir, characterRef, playerEmail, campaignId, sessionId) {
-  const matches = collectMatches(dataDir, characterRef, playerEmail, campaignId, sessionId);
-  if (matches.length === 0) return null;
-  if (matches.length > 1) {
-    const options = matches.map(m => `${m.data.name} (${m.data.id})`).join(', ');
-    throw new Error(`Ambiguous character reference "${characterRef}". Matches: ${options}`);
-  }
-  return matches[0];
-}
-
-function awardXp(dataDir, characterId, xpAmount, playerEmail, campaignId, sessionId) {
-  const result = findCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId, sessionId);
-  if (!result) {
-    throw new Error(`Character not found: ${characterId}`);
-  }
+// Award XP to a single character/NPC and persist the file. `preResolved`
+// ({ kind, dir, file }) skips reference resolution — awardPartyXp uses it so each
+// roster member updates its own already-located file instead of re-resolving by id.
+function awardXp(dataDir, characterId, xpAmount, playerEmail, campaignId, sessionId, preResolved) {
+  const result = preResolved || requireCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId, sessionId);
 
   const awardedXp = Number(xpAmount);
   if (!Number.isFinite(awardedXp)) {
     throw new Error(`Invalid XP amount: ${xpAmount}`);
   }
 
-  const { data: character, dir, file: filename, kind } = result;
+  const { dir, file: filename, kind } = result;
+  const character = loadJson(path.join(dir, filename));
   const previousXp = Number(character.experience) || 0;
   const previousLevel = character.level || 1;
   const newXp = Math.max(0, previousXp + awardedXp);
@@ -138,10 +55,7 @@ function awardXp(dataDir, characterId, xpAmount, playerEmail, campaignId, sessio
   character.level = newLevel;
   character.proficiencyBonus = newProficiencyBonus;
 
-  fs.writeFileSync(
-    path.join(dir, filename),
-    JSON.stringify(character, null, 2)
-  );
+  writeJsonAtomic(path.join(dir, filename), character);
 
   return {
     kind,
@@ -172,14 +86,13 @@ function dirExists(dir) {
   }
 }
 
-// Read every *.json in a directory as a character/NPC record (attaching _filename),
-// skipping anything that fails to parse.
-function readRecords(dir) {
+// Read every *.json in a directory as a character/NPC record, remembering where
+// each one came from (so awards can write back to the exact same file).
+function readRecords(dir, kind) {
   return listJsonFiles(dir)
     .map((file) => {
       const data = readJsonSafe(path.join(dir, file));
-      if (data) data._filename = file;
-      return data;
+      return data ? { kind, dir, file, data } : null;
     })
     .filter(Boolean);
 }
@@ -191,13 +104,14 @@ function isAlive(record) {
 // Build the live party roster for an equal XP split: all present player characters
 // plus DM-controlled NPCs. Excludes the dead, NPCs the host has marked "removed", and
 // NPCs currently puppeted by a human companion player (those are handled by that player).
+// Each entry is { kind, dir, file, data } — deduped by data.id.
 function resolvePartyRoster(dataDir, { playerEmail, campaignId, sessionId, characterId }) {
   const cid = campaignId || 'demo';
   const seen = new Set();
   const roster = [];
   const add = (record) => {
-    if (!record || !record.id || seen.has(record.id) || !isAlive(record)) return;
-    seen.add(record.id);
+    if (!record || !record.data.id || seen.has(record.data.id) || !isAlive(record.data)) return;
+    seen.add(record.data.id);
     roster.push(record);
   };
 
@@ -205,10 +119,10 @@ function resolvePartyRoster(dataDir, { playerEmail, campaignId, sessionId, chara
   if (sessionId && dirExists(getSessionCharactersDir(dataDir, sessionId))) {
     // Session is the live source of truth — captures the main PC and any
     // companion-replacement PCs in multiplayer.
-    readRecords(getSessionCharactersDir(dataDir, sessionId)).forEach(add);
+    readRecords(getSessionCharactersDir(dataDir, sessionId), 'character').forEach(add);
   } else if (characterId) {
-    const match = findCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId, sessionId);
-    if (match) add({ ...match.data, _filename: match.file });
+    const match = requireCharacterOrNpcFile(dataDir, characterId, playerEmail, campaignId, sessionId);
+    add(match);
   }
 
   // DM-controlled NPCs
@@ -224,9 +138,9 @@ function resolvePartyRoster(dataDir, { playerEmail, campaignId, sessionId, chara
     companionPlayers = session.companionPlayers || {};
   }
 
-  for (const npc of readRecords(npcDir)) {
-    if (states[npc.id] === 'removed') continue;       // host removed this slot
-    if (companionPlayers[npc.id]) continue;           // a human companion controls this NPC
+  for (const npc of readRecords(npcDir, 'npc')) {
+    if (states[npc.data.id] === 'removed') continue;   // host removed this slot
+    if (companionPlayers[npc.data.id]) continue;       // a human companion controls this NPC
     add(npc);
   }
 
@@ -235,8 +149,8 @@ function resolvePartyRoster(dataDir, { playerEmail, campaignId, sessionId, chara
 
 // Award XP equally across the live party (present PCs + DM-controlled NPCs).
 // Provide exactly one of { totalXp } (split equally) or { xpEach } (flat per-member amount).
-// Each member is awarded via awardXp(), so XP/level/file updates target the session-scoped
-// files when a sessionId is supplied.
+// Each member's award writes back to the exact file the roster found it in — the
+// session-scoped copy during play — never re-resolved by id.
 function awardPartyXp(dataDir, { totalXp, xpEach } = {}, context = {}) {
   const { playerEmail, campaignId, sessionId, characterId } = context;
 
@@ -259,7 +173,7 @@ function awardPartyXp(dataDir, { totalXp, xpEach } = {}, context = {}) {
   }
 
   const members = roster.map((member) =>
-    awardXp(dataDir, member.id, share, playerEmail, campaignId, sessionId)
+    awardXp(dataDir, member.data.id, share, playerEmail, campaignId, sessionId, member)
   );
 
   const distributed = share * roster.length;

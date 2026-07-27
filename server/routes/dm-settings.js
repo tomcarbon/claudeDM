@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { emailToSlug } = require('../player-data');
 const { requireAdmin } = require('../admin-auth');
 const { requirePlayer, getAuthenticatedPlayer } = require('../player-auth');
 const { AGENCY_TO_AUTONOMY } = require('../dm-engine');
@@ -41,7 +42,7 @@ module.exports = function (dataDir) {
   };
 
   function emailToFilename(email) {
-    return String(email).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.json';
+    return emailToSlug(email) + '.json';
   }
 
   function readGlobalSettings() {

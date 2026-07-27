@@ -4,6 +4,7 @@ import { usePlayer } from '../context/PlayerContext';
 import RichText from '../components/RichText';
 import { getCollapseThreshold } from '../utils/displaySettings';
 import { parseGold } from '../utils/gold';
+import { getLeveledSpells, spellName, ORDINALS as ORDINAL_LABELS } from '../components/SpellList';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
@@ -1639,12 +1640,12 @@ Set the scene and begin the story.`;
                 {entry.equipment && entry.equipment.length > 0 && (
                   <span className="party-detail-line">Equipment: {entry.equipment.map(e => typeof e === 'string' ? e : e.name || '?').join(', ')}</span>
                 )}
-                {entry.spells?.cantrips && entry.spells.cantrips.length > 0 && (
-                  <span className="party-detail-line">Cantrips: {entry.spells.cantrips.map(s => typeof s === 'string' ? s : s.name || '?').join(', ')}</span>
+                {entry.spells?.cantrips && entry.spells.cantrips.map(spellName).filter(Boolean).length > 0 && (
+                  <span className="party-detail-line">Cantrips: {entry.spells.cantrips.map(spellName).filter(Boolean).join(', ')}</span>
                 )}
-                {entry.spells?.level1 && (Array.isArray(entry.spells.level1) ? entry.spells.level1 : entry.spells.level1.known || []).length > 0 && (
-                  <span className="party-detail-line">Spells: {(Array.isArray(entry.spells.level1) ? entry.spells.level1 : entry.spells.level1.known || []).map(s => typeof s === 'string' ? s : s.name || '?').join(', ')}</span>
-                )}
+                {getLeveledSpells(entry.spells).map(({ level, list }) => (
+                  <span key={level} className="party-detail-line">{ORDINAL_LABELS[level]} Level: {list.join(', ')}</span>
+                ))}
               </div>
             </div>
           );

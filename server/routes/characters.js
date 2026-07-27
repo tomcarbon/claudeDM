@@ -6,7 +6,8 @@ const { awardXp } = require('../xp-utils');
 const { requirePlayer } = require('../player-auth');
 const { getPlayerCharactersDir, getSessionCharactersDir, ensurePlayerDataExists, provisionPlayerDefaults } = require('../player-data');
 const { generateRandomCharacter, getCharacterOptions } = require('../character-generator');
-const { readJsonDirWithRecovery } = require('../json-recovery');
+const { readJsonDirWithRecovery, writeJsonAtomic } = require('../json-recovery');
+const { slugify } = require('../entity-resolver');
 
 const MAX_CHARACTERS = 100;
 
@@ -127,7 +128,7 @@ module.exports = function (dataDir) {
       delete data.id;
       delete data._filename;
       data.id = uuidv4();
-      const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const slug = slugify(data.name);
       const filename = `${slug}.json`;
       const destPath = path.join(charDir, filename);
 
@@ -142,7 +143,7 @@ module.exports = function (dataDir) {
         });
       }
 
-      fs.writeFileSync(destPath, JSON.stringify(data, null, 2));
+      writeJsonAtomic(destPath, data);
       res.status(201).json(data);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -179,13 +180,13 @@ module.exports = function (dataDir) {
       }
       const options = { ...req.body, campaignId: req.campaignId };
       const character = generateRandomCharacter(dataDir, options);
-      const slug = character.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const slug = slugify(character.name);
       let filename = `${slug}.json`;
       // Avoid filename collisions
       if (fs.existsSync(path.join(charDir, filename))) {
         filename = `${slug}-${Date.now()}.json`;
       }
-      fs.writeFileSync(path.join(charDir, filename), JSON.stringify(character, null, 2));
+      writeJsonAtomic(path.join(charDir, filename), character);
       res.status(201).json(character);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -231,9 +232,9 @@ module.exports = function (dataDir) {
         return res.status(400).json({ error: `Maximum of ${MAX_CHARACTERS} characters reached. Delete a character to make room.` });
       }
       const char = { ...req.body, id: uuidv4() };
-      const slug = char.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const slug = slugify(char.name);
       const filename = `${slug}.json`;
-      fs.writeFileSync(path.join(charDir, filename), JSON.stringify(char, null, 2));
+      writeJsonAtomic(path.join(charDir, filename), char);
       res.status(201).json(char);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -251,7 +252,7 @@ module.exports = function (dataDir) {
       const updated = { ...req.body, id: char.id };
       const filename = char._filename;
       delete updated._filename;
-      fs.writeFileSync(path.join(charDir, filename), JSON.stringify(updated, null, 2));
+      writeJsonAtomic(path.join(charDir, filename), updated);
       res.json(updated);
     } catch (err) {
       res.status(500).json({ error: err.message });
