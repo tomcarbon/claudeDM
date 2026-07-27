@@ -1,10 +1,27 @@
-export const CURRENT_VERSION = '1.0.21';
+export const CURRENT_VERSION = '1.1.22';
 
 export const CHANGELOG = [
   {
+    version: '1.1.22',
+    date: '2026-07-27',
+    title: 'Current Release',
+    compareFrom: '1.0.21',
+    compareRef: '97e6156 ("whats new for v1.0.21 and image for fire plane.")',
+    highlights: [
+      'Reliability overhaul: this release is built from an audit of two exported production sessions and targets the three failure modes players actually hit — character sheets stuck at starter stats / lost XP, forgotten story arcs on resume, and XP tool calls failing silently. The headline fix is a new canonical character/NPC file resolver (server/entity-resolver.js) that resolves every name or id session-directory-first with a strict first-tier-wins rule. Previously, the moment a session snapshot existed, every character legitimately lived in two or three places at once (session copy, player library, defaults) and the old lookup threw "Ambiguous character reference" — which made essentially every AwardPartyXP call in a saved session fail in-band. That one bug is why sheets never seemed to level up.',
+      'No more mid-session character reverts: the JSON corruption-recovery path is now strictly read-only — a corrupt-looking read can no longer "repair" a live session character by overwriting it with its level-1 library or defaults copy (the observed cause of a character suddenly reverting mid-adventure). On top of that, all character and session writes are now atomic (temp file + rename, so a crash mid-write can never leave a half-written JSON file), and session.json read-modify-writes are serialized through a per-session queue so concurrent turn traffic can\'t interleave and drop each other\'s updates.',
+      'Bookkeeping tools now edit the copy the game actually reads: TrackResources (ammo, spell slots, short/long rests) and TrackCombat/TrackCalendar now target the session snapshot and keep their state per-session — previously a long rest\'s HP restore wrote to the player library, which neither the UI nor the DM reads during play. Related session-integrity fixes: slugify is now Unicode-safe ("Daichi Musō" → daichi-muso, not daichi-mus), the companion-copy path resolves by character id before writing (deleting stale same-id duplicates instead of minting a second file), and the session\'s characterId binding is validated and self-healed at creation, watch, resume, and turn-fire — a dangling id (both audited production sessions had one) now surfaces as a visible system warning instead of failing silently.',
+      'Story arcs survive crashes and resumes: single-player turns are now persisted server-side the moment the DM turn completes — previously only the client\'s auto-save held them, so a crash in that window rewound the story to an older scene on resume. The session save handler dedupes so client auto-saves can\'t resurrect or truncate server-persisted turns. The server also auto-appends a one-line digest of every DM turn to the world state\'s recentEvents, so the resume snapshot can never lag behind the last thing that happened even if the DM never calls UpdateWorldState — and the resume recap now explicitly tells the DM that the transcript wins over a stale world-state snapshot.',
+      'Subscription-auth expiry is now diagnosed, not mysterious: the crash driver behind several abandoned sessions was the server\'s Max-plan OAuth token expiring mid-session, which surfaced as a generic engine error. A 401 is now detected and reported in the story feed as an actionable warning — re-run `claude login` on the server — and resuming after re-auth works cleanly.',
+      'DM system prompt slimmed and de-contradicted: the runtime prompt was restructured from ~4.5k to ~2.7k tokens (22 → 13 sections), collapsing duplicate rules and merging three turn-pacing variants into one parameterized block. This fixed a genuine contradiction: two of the three XP touchpoints still instructed the DM to use the discouraged single-target AwardXP tool instead of AwardPartyXP (the reconcile prompt had the same bug). The ~500-word multiplayer companion block is now omitted from solo-session prompts entirely.',
+      'Full spell lists in the UI: a new shared SpellList component renders every spell level — cantrips through 9th — on the Character and NPC detail pages and in the Adventure party panel, where previously only cantrips and 1st-level spells appeared. It tolerates every spell-data shape the app has used over time (prepared/known objects, bare arrays, and the legacy flat schema).',
+      'Cleanup and verification: the bot self-play farm (~1,700 lines) now only loads when data/bot-config.json has "enabled": true; legacy flat-directory fallbacks (data/characters|npcs|scenarios) are removed; emailToSlug is deduplicated into player-data.js. And one non-fix worth reporting: the audit checked the "DM fakes its dice rolls" complaint and found all 302 combat narrations across both production transcripts were backed by real RollDice tool calls — not reproduced, nothing changed. Test suite grew from 120 to 139 tests, all green, including a new entity-resolver suite.',
+    ],
+  },
+  {
     version: '1.0.21',
     date: '2026-07-04',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.20',
     compareRef: 'df4a551 ("v1.0.20")',
     highlights: [

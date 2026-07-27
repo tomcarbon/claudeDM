@@ -2,7 +2,9 @@
 
 All notable changes to this project are documented here.
 
-## [Unreleased] - 2026-07-25
+## [1.1.22] - 2026-07-27
+Changes since `1.0.21` (starting after commit `97e6156`, "whats new for v1.0.21 and image for fire plane."):
+
 Reliability overhaul targeting the three production failure modes (wrong character sheets / lost XP, forgotten story arcs, silent XP-tool errors), based on an audit of two exported production sessions:
 
 **Correctness**
