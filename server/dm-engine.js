@@ -1044,6 +1044,54 @@ class DmEngine {
         }
         return { behavior: 'deny', message: 'No permission handler available.' };
       },
+      hooks: {
+        // Validate JSON after every file write. A malformed Edit/Write to a
+        // character/NPC JSON file otherwise lands on disk silently and is only
+        // discovered later by readers (json-recovery), which serve stale
+        // fallback data and log a "Corrupt file" error on every poll. Catching
+        // it here feeds the parse error straight back to the model so it fixes
+        // the file in the same turn, before any reader observes the corruption.
+        PostToolUse: [
+          {
+            hooks: [
+              async (input) => {
+                try {
+                  const toolName = input && input.tool_name;
+                  if (toolName !== 'Edit' && toolName !== 'Write' && toolName !== 'MultiEdit') {
+                    return {};
+                  }
+                  const filePath = input.tool_input && input.tool_input.file_path;
+                  if (!filePath || !filePath.endsWith('.json')) {
+                    return {};
+                  }
+                  const absPath = path.isAbsolute(filePath) ? filePath : path.resolve(PROJECT_ROOT, filePath);
+                  let raw;
+                  try {
+                    raw = fs.readFileSync(absPath, 'utf-8');
+                  } catch {
+                    // File unreadable/missing — not this hook's concern.
+                    return {};
+                  }
+                  try {
+                    JSON.parse(raw);
+                  } catch (parseErr) {
+                    console.warn(`[DM:hook] Edit produced invalid JSON in ${filePath} — ${parseErr.message}; blocking for same-turn repair`);
+                    return {
+                      decision: 'block',
+                      reason: `Your last ${toolName} left ${filePath} as invalid JSON (${parseErr.message}). The file is now unparseable and cannot be loaded. Re-read the file and fix the JSON syntax — look for stray or doubled quotes and missing or extra commas around the section you just edited — so that it parses cleanly. Do not continue until this file is valid JSON.`,
+                    };
+                  }
+                  return {};
+                } catch (hookErr) {
+                  // A hook must never crash the turn.
+                  console.warn(`[DM:hook] PostToolUse json-validate failed: ${hookErr.message}`);
+                  return {};
+                }
+              },
+            ],
+          },
+        ],
+      },
     };
     if (dmSettings.model) {
       opts.model = dmSettings.model;

@@ -1,6 +1,39 @@
 const fs = require('fs');
 const path = require('path');
 
+// Throttle repeated "Corrupt file" logs. A persistently-corrupt file is re-read
+// on every client poll (per player, every few seconds), which otherwise floods
+// the log with an identical line forever. We log the first occurrence in full,
+// then at most one summary per file every CORRUPT_LOG_SUMMARY_MS, and clear the
+// record once the file reads cleanly again.
+const CORRUPT_LOG_SUMMARY_MS = 5 * 60 * 1000; // 5 minutes
+const corruptLogState = new Map(); // key: `${filePath}|${error}` -> { firstAt, lastSummaryAt, count }
+
+function noteCorruptRead(filePath, error) {
+  const key = `${filePath}|${error}`;
+  const now = Date.now();
+  const existing = corruptLogState.get(key);
+  if (!existing) {
+    corruptLogState.set(key, { firstAt: now, lastSummaryAt: now, count: 1 });
+    console.error(`[json-recovery] Corrupt file: ${filePath} — ${error}`);
+    return;
+  }
+  existing.count += 1;
+  if (now - existing.lastSummaryAt >= CORRUPT_LOG_SUMMARY_MS) {
+    const mins = Math.round((now - existing.firstAt) / 60000);
+    console.error(`[json-recovery] Corrupt file (still corrupt after ${existing.count} reads over ~${mins} min): ${filePath} — ${error}`);
+    existing.lastSummaryAt = now;
+  }
+}
+
+function clearCorruptRead(filePath) {
+  if (corruptLogState.size === 0) return;
+  const prefix = `${filePath}|`;
+  for (const key of corruptLogState.keys()) {
+    if (key.startsWith(prefix)) corruptLogState.delete(key);
+  }
+}
+
 /**
  * Write JSON atomically: write to a temp file in the same directory, then rename.
  * Readers can never observe a partially-written file.
@@ -102,11 +135,12 @@ function readJsonDirWithRecovery(dir, recoveryDirs = []) {
     if (result.ok) {
       result.data._filename = f;
       items.push(result.data);
+      clearCorruptRead(filePath); // file is healthy again — reset throttle so a future corruption re-logs immediately
       continue;
     }
 
-    // Corrupt — attempt read-fallback
-    console.error(`[json-recovery] Corrupt file: ${filePath} — ${result.error}`);
+    // Corrupt — attempt read-fallback (throttled logging: full line once, then a summary every 5 min)
+    noteCorruptRead(filePath, result.error);
     const recovery = tryRecover(filePath, f, recoveryDirs);
 
     if (recovery.recovered) {
