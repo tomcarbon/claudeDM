@@ -75,6 +75,33 @@ describe('maybeCompact', () => {
     expect(sess.messages[sess.messages.length - 1].text).toBe(messages[519].text);
   });
 
+  it('never empties the live window when the newest message is a chapter summary', async () => {
+    // Regression: the DM closes a chapter and the player resumes. The only/last boundary
+    // is the final message, so cutting there archived all 554 messages and left live=0.
+    const id = 'sess-empty-tail';
+    const messages = makeMessages(554, [553]);
+    writeSession(id, { id, dmPersonality: { archiveThreshold: 500 }, messages });
+
+    const res = await maybeCompact(dataDir, id, { summarize: fakeSummarize });
+    expect(res.compacted).toBe(false);
+
+    const sess = readSession(id);
+    expect(sess.messages.length).toBe(554); // history left fully intact
+    expect(archiveLines(id).length).toBe(0);
+  });
+
+  it('falls back to an older boundary when the newest one leaves too small a tail', async () => {
+    const id = 'sess-older-boundary';
+    const messages = makeMessages(554, [296, 553]);
+    writeSession(id, { id, dmPersonality: { archiveThreshold: 500 }, messages });
+
+    const res = await maybeCompact(dataDir, id, { summarize: fakeSummarize });
+    expect(res.compacted).toBe(true);
+    expect(res.archivedCount).toBe(297);          // cut at 296, not 553
+    expect(res.liveMessages.length).toBe(257);
+    expect(archiveLines(id).length + res.liveMessages.length).toBe(554); // no loss
+  });
+
   it('does not compact below the threshold', async () => {
     writeSession('s2', { id: 's2', dmPersonality: { archiveThreshold: 500 }, messages: makeMessages(300, [100]) });
     const res = await maybeCompact(dataDir, 's2', { summarize: fakeSummarize });

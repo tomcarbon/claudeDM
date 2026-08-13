@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented here.
 
+## [1.1.23] - 2026-08-13
+Changes since `1.1.22` (starting after commit `5f54d9d`, "v1.1.22 from server."):
+
+- Fixed an empty-live-window bug in rolling compaction (`server/compaction.js`). `decideCut` preferred the last chapter-summary boundary without checking what remained after it; when the newest message was itself a summary (the normal state right after the DM closes a chapter), the cut archived the whole array and left `messages: []`, so the session loaded as a blank adventure. Observed in production on a 554-message session with summaries at indices 192/296/553.
+- Boundary candidates must now leave at least `MIN_KEEP_TAIL` (20) messages live; otherwise compaction falls back to an older boundary or declines the cycle and waits for the tail to grow.
+- Added an independent backstop in `maybeCompact`: a cut producing a zero-length live tail is refused and warned about rather than committed.
+- No data loss — `archive.jsonl` is append-only and the affected session was restored in full from it.
+- 2 new regression tests in `server/__tests__/compaction.test.js` (empty-tail refusal; fallback to an older boundary). Compaction suite 8 → 10; full suite 139 → 141, all green.
+- Reverted play-state XP that had leaked into `data/defaults/*/npcs/*.json` baselines; defaults are pristine templates and must not carry session progress.
+
 ## [1.1.22] - 2026-07-27
 Changes since `1.0.21` (starting after commit `97e6156`, "whats new for v1.0.21 and image for fire plane."):
 

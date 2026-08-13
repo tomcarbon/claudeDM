@@ -1,10 +1,23 @@
-export const CURRENT_VERSION = '1.1.22';
+export const CURRENT_VERSION = '1.1.23';
 
 export const CHANGELOG = [
   {
+    version: '1.1.23',
+    date: '2026-08-13',
+    title: 'Current Release',
+    compareFrom: '1.1.22',
+    compareRef: '5f54d9d ("v1.1.22 from server.")',
+    highlights: [
+      'Fixed a long-campaign bug that could blank out an in-progress adventure. Rolling compaction (added in v1.0.18) archives the older part of a long session up to the last chapter-summary boundary and keeps the recent tail live. But a chapter summary is normally the *newest* message in the transcript — the DM writes it the moment an arc closes — so if you resumed right after a chapter ended, the "boundary" the compactor chose was the final message, the archived span became the entire history, and the live window was left with nothing in it. The session then loaded as an empty adventure. This was hit in production on a 554-message campaign whose chapter summary happened to land on the very last message.',
+      'Boundary selection now requires a usable tail: a chapter summary is only accepted as a cut point if it still leaves at least 20 messages live. Otherwise the compactor falls back to an older boundary, or simply declines to compact this cycle and waits — the tail catches up on its own as play continues, so nothing is permanently skipped. A second, independent backstop in the commit path refuses any cut that would empty the live window and logs a warning instead of writing it, so no future variation of this can blank a transcript either.',
+      'No history was lost in the incident that surfaced this. The archive (archive.jsonl) is append-only by design and had every message, so the affected campaign was restored in full from it — which is exactly the safety property the archive format exists for. Two regression tests now pin both halves of the fix, reproducing the exact production shape (compaction suite 8 → 10 tests; full suite 139 → 141, all green).',
+      'Housekeeping: reverted play-state XP that had leaked into the pristine NPC baselines under data/defaults/ — those files are templates used to provision and reset characters, so they must not carry progress from anyone\'s session.',
+    ],
+  },
+  {
     version: '1.1.22',
     date: '2026-07-27',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.21',
     compareRef: '97e6156 ("whats new for v1.0.21 and image for fire plane.")',
     highlights: [

@@ -19,6 +19,7 @@ const { getSessionFilePath } = require('./player-data');
 const DEFAULT_THRESHOLD = 500;        // live messages before a cycle is considered
 const HARD_CEILING_MULTIPLIER = 2;    // force a cut even without a boundary past this
 const KEEP_TAIL_ON_FORCED_CUT = 100;  // messages kept live when force-cutting
+const MIN_KEEP_TAIL = 20;             // a boundary must leave at least this much live
 const CHAPTER_SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
 
 // Serialize compaction per session within this process.
@@ -39,10 +40,16 @@ function isChapterSummary(m) {
 function decideCut(messages, threshold) {
   if (!Array.isArray(messages) || messages.length < threshold) return null;
 
-  // Prefer the last chapter-summary boundary (a clean arc end), mirroring buildSmartRecap.
+  // Prefer the last chapter-summary boundary (a clean arc end), mirroring buildSmartRecap —
+  // but only one that still leaves a usable live tail. A summary is typically the newest
+  // message right after the DM closes a chapter, and cutting there would archive the whole
+  // array and leave the session with an empty transcript. Skip back to an older boundary
+  // (or wait) instead; the tail catches up as play continues.
   let lastSummaryIdx = -1;
   for (let i = 0; i < messages.length; i++) {
-    if (isChapterSummary(messages[i])) lastSummaryIdx = i;
+    if (isChapterSummary(messages[i]) && messages.length - (i + 1) >= MIN_KEEP_TAIL) {
+      lastSummaryIdx = i;
+    }
   }
   if (lastSummaryIdx >= 0) return { cutIdx: lastSummaryIdx, forced: false };
 
@@ -151,6 +158,13 @@ async function maybeCompact(dataDir, sessionDbId, { summarize, thresholdOverride
     const span = messages.slice(0, cut.cutIdx + 1);
     const liveTail = messages.slice(cut.cutIdx + 1);
     if (span.length === 0) return { compacted: false };
+    // Backstop: never trim the live window to nothing. Archiving is a display/context
+    // optimization, and a session whose transcript renders empty is worse than one that
+    // is merely large, so refuse the cut rather than commit it.
+    if (liveTail.length === 0) {
+      console.warn(`[Compaction] refusing empty-tail cut for ${sessionDbId}; leaving history intact.`);
+      return { compacted: false };
+    }
 
     // 1) Generate the blurb FIRST — the only external/fallible step — before any mutation.
     let blurb = '';
