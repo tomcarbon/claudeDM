@@ -1,0 +1,76 @@
+{
+  "id": "3c573a87-7888-4932-9969-886c81a44a24",
+  "name": "Pellamy Doss",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Rogue",
+  "level": 3,
+  "background": "Guild Artisan",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 9, "modifier": -1 },
+    "dexterity": { "score": 15, "modifier": 2 },
+    "constitution": { "score": 11, "modifier": 0 },
+    "intelligence": { "score": 16, "modifier": 3 },
+    "wisdom": { "score": 14, "modifier": 2 },
+    "charisma": { "score": 13, "modifier": 1 }
+  },
+  "hitPoints": { "max": 18, "current": 18 },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Dexterity", "Intelligence"],
+  "skills": ["Insight", "Persuasion", "Investigation", "History", "Perception", "Sleight of Hand"],
+  "languages": ["Common", "Dwarvish", "Gnomish"],
+  "equipment": [
+    "Leather armor, which he wears with visible embarrassment",
+    "Penknife (dagger)",
+    "Light crossbow and 20 bolts, which he has never fired at a person",
+    "Thieves' tools, acquired at sixty-six for one specific purpose",
+    "A clerk's writing case: pens, ink, sand, and a rule",
+    "Fair copies in his own hand of three ledger entries, dated and initialled",
+    "Forty-one years of the Hall's procedural handbook, annotated",
+    "A small bottle of tincture from a physician at Tallowport, taken twice a day, unremarked",
+    "Belt pouch containing 22 gp — his entire savings"
+  ],
+  "weapons": [
+    { "name": "Penknife (Dagger)", "attackBonus": 4, "damage": "1d4+2", "damageType": "piercing" },
+    { "name": "Light Crossbow", "attackBonus": 4, "damage": "1d8+2", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Leather armor", "type": "light" },
+  "features": [
+    "Expertise (double proficiency on Investigation and History)",
+    "Sneak Attack (2d6 extra damage once per turn when you have advantage, or when an ally is within 5 feet of the target)",
+    "Thieves' Cant",
+    "Cunning Action (bonus action to Dash, Disengage or Hide)",
+    "Roguish Archetype: Thief",
+    "Fast Hands (use the Cunning Action bonus action to make a Sleight of Hand check, use thieves' tools, or use an object)",
+    "Second-Story Work (climbing costs no extra movement)",
+    "Guild Membership (Guild Artisan feature, reflavored: forty-one years as a clerk of the Harbour Reckoners; every clerk on the chain knows him and about half of them owe him)"
+  ],
+  "traits": ["Expertise", "Sneak Attack", "Cunning Action", "Fast Hands"],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "I speak quietly and I do not repeat myself, which people mistake for diffidence. I know the procedure of the Reckoners' Hall better than any living person including the Reckoners, and I will explain it to you in exhaustive detail if you ask, and you should ask.",
+    "ideals": "The record. A book that says a false thing is worse than no book at all, because people arrange their whole lives around a book. I wrote three false things into one. That is the entire content of my conscience at this point.",
+    "bonds": "Three entries, in my hand, dated, initialled, in a book behind a brass case at Tallowport. I intend to see them struck out before I am finished, and I have arranged everything else around that.",
+    "flaws": "I did what I was told for forty-one years and I did it very well, and I am now sixty-eight and trying to undo eight months of it, and there is a version of this where I am simply a coward who ran out of time to be one."
+  },
+  "appearance": "A thin, stooped, extremely quiet man of sixty-eight, dressed like a clerk because he has never owned anything else: black coat gone green at the seams, ink on two fingers, spectacles he cleans constantly. He has the particular papery neatness of somebody who has spent forty-one years not spilling anything on a ledger. He is grey in a way that has recently stopped being about age, and he has a cough that he has learned to have quietly, at the far end of the deck, with his back turned. He carries a writing case everywhere and produces from it, at need, exactly the document required.",
+  "backstory": "Pellamy Doss was a clerk of the Harbour Reckoners for forty-one years, at Tallowport and before that at two smaller halls down the chain, and in that time he entered, by his own estimate, somewhere over eleven thousand callings into the ledger. He was scrupulous, invisible and completely trusted, and about eight months before the campaign begins he was told — not ordered, told, in the tone people use for routine, by somebody entitled to tell him — to enter three callings against the brig Widow's Compass that he knew perfectly well had not happened, because on the third of those dates he had personally been standing on the beach at Nethercombe watching Idony Marrach hove to with a broken mainmast eleven miles from where the entry places her. He entered them. He initialled them. He went home. Then he retired, four months early, and spent his savings on a physician at Tallowport who told him a thing he has told nobody, and he has spent the months since making fair copies of three entries in his own hand and waiting for somebody to walk into the Hall carrying evidence, because he does not have the standing to be believed alone and he knows exactly how little time he has to be believed at all.",
+  "dmNotes": {
+    "roleplaying": "Pellamy is the campaign's exposition and its conscience, and the trick to running him is that he never asks to be forgiven. He states what he did — flatly, once, without softening and without dramatising — and then he goes back to being useful. Use him as the party's key to the Reckoners' Hall: he knows every procedure, every clerk, every form, and exactly which rule can be bent by which person, and he will explain the institution to the players in a way that makes the wall they keep hitting comprehensible rather than arbitrary. He recruits himself in bw-scenario-002, from a side table, in one quiet sentence, and asks for a half share. He is physically frail — 18 hit points and Constitution 11 — and the DM should let him be in danger and let the party feel that. He should never fire the crossbow at a person in the whole campaign.",
+    "voice": "Quiet, precise, and unhurried, with the specific vocabulary of a career clerk: entries, standings, initials, procedure, the Hall in session. He does not raise his voice and he does not repeat himself, so people lean in, which he has known and used for forty years. His self-accusations are delivered in exactly the same register as his procedural explanations, which is what makes them land: 'I wrote these. The Fair Increase reported them and I entered them and I initialled them, and I was told to, and I did it.' No pause for effect. He never says 'I'm sorry' about the entries and if the party tries to absolve him he changes the subject to something factual.",
+    "motivations": "Primary: to see three specific entries struck out of the ledger of callings at Tallowport, publicly, in front of the Hall in session at the year's turn. That is the whole of it and everything else is subordinate. Secondary: to give the party the institutional knowledge they need to do it, because he cannot do it alone and knows it. Tertiary: to be finished before he stops being able to work, which is a race he has calculated and is currently, narrowly, winning.",
+    "secrets": "HE IS DYING. A physician at Tallowport told him something four months ago and he has told nobody, and he has budgeted his remaining months against the date of the year's turn with the same care he once used on a quarterly return — which is why he signed the Articles for a half share, why he never talks about afterwards, and why he is entirely calm about physical danger in a way the party may misread as courage. Foreshadow it with almost nothing: a cough at the far end of the deck with his back turned, a bottle of tincture taken twice a day, a moment where somebody mentions next summer and he simply does not respond. He will confirm it if asked directly, in one sentence, and will not discuss it further. SECOND SECRET: he knows which of the sitting Reckoners gave him the instruction, and he has not said the name aloud, because a clerk's word against a Reckoner is nothing and he is saving it for a room in which it will not be nothing. He will give the name to the party at the year's turn and not before, and if pressed earlier he will say so plainly rather than lie.",
+    "attitude": "Deferential in manner and completely immovable in substance. He calls the party 'captain' and 'ma'am' and 'sir' and does exactly what he has decided to do. He is warm toward the crew, especially Sefi Nightjar, whom he teaches to read properly over the course of the campaign in the evenings without ever making an occasion of it. He is unsentimental about Idony Marrach — he did not know her — and clear-eyed about the Reckoners, whom he does not hate: 'They are not wicked. They are a great many careful people, and about four of them are bought, and the other forty cannot tell which four, and that is the entire disease.' Toward his own guilt he is neither self-flagellating nor forgiving; he treats it as an error in a book that has to be corrected before the book closes."
+  }
+}

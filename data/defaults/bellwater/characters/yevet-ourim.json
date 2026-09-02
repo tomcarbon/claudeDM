@@ -1,0 +1,76 @@
+{
+  "id": "b3945e91-2798-4d5d-b150-4a8c8e4de763",
+  "name": "Yevet Ourim",
+  "status": "alive",
+  "race": "Gnome",
+  "subrace": "Rock Gnome",
+  "class": "Wizard",
+  "level": 3,
+  "background": "Sage",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 8, "modifier": -1 },
+    "dexterity": { "score": 14, "modifier": 2 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 17, "modifier": 3 },
+    "wisdom": { "score": 12, "modifier": 1 },
+    "charisma": { "score": 10, "modifier": 0 }
+  },
+  "hitPoints": { "max": 20, "current": 20 },
+  "armorClass": 12,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Intelligence", "Wisdom"],
+  "skills": ["Arcana", "History", "Investigation", "Insight"],
+  "languages": ["Common", "Gnomish", "Draconic"],
+  "equipment": [
+    "Quarterstaff",
+    "Spellbook, bound in sailcloth against the wet",
+    "Component pouch",
+    "Tinker's tools",
+    "Navigator's tools, a log-line and glass, and a lead with fourteen fathoms marked",
+    "A sextant of her own making, in a padded case, which she trusts more than any person",
+    "Her soundings: eleven years of measured depths down the Grey Sounding, in nine notebooks",
+    "A notebook of quiet folk bell-tones, begun recently, mostly wrong",
+    "Scholar's pack",
+    "Belt pouch containing 12 gp"
+  ],
+  "weapons": [
+    { "name": "Quarterstaff", "attackBonus": 1, "damage": "1d6-1", "damageType": "bludgeoning" },
+    { "name": "Fire Bolt (cantrip)", "attackBonus": 5, "damage": "2d10", "damageType": "fire" },
+    { "name": "Dagger", "attackBonus": 4, "damage": "1d4+2", "damageType": "piercing" }
+  ],
+  "armor": { "name": "None — a tarred canvas coat (Mage Armor when cast: AC 15)", "type": "none" },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Gnome Cunning (advantage on Intelligence, Wisdom and Charisma saving throws against magic)",
+    "Artificer's Lore (add twice proficiency bonus to History checks related to magic items, alchemical objects and technological devices)",
+    "Tinker (proficiency with tinker's tools; can construct tiny clockwork devices with 1 hour's work and 10 gp of materials)",
+    "Arcane Recovery (once per day on a short rest, recover expended spell slots totalling up to 2 levels)",
+    "Arcane Tradition: School of Divination",
+    "Divination Savant (halved time and gold to copy divination spells into her spellbook)",
+    "Portent (at each long rest, roll two d20s and record them; may replace any attack roll, saving throw or ability check made by herself or a creature she can see with one of these rolls, once each per long rest)",
+    "Researcher (Sage feature: when she does not know a piece of information, she often knows where and from whom she can obtain it)"
+  ],
+  "traits": ["Gnome Cunning", "Tinker", "Arcane Recovery", "Portent", "Divination Savant"],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": ["Fire Bolt", "Mage Hand", "Minor Illusion"],
+    "level1": {
+      "slots": 4,
+      "known": ["Magic Missile", "Shield", "Detect Magic", "Comprehend Languages", "Identify", "Feather Fall", "Find Familiar", "Mage Armor"]
+    },
+    "level2": { "slots": 2, "known": ["Misty Step", "Locate Object"] }
+  },
+  "personality": {
+    "traits": "I take a sounding, I write it down, and then I believe the number. I am not being difficult. I have been right about the bottom of the Grey Sounding for eleven years while the printed chart has been wrong, and nobody has changed the printed chart.",
+    "ideals": "Measurement. A dead reckoning is a chain of small honest statements about where you have been, and if one link is a guess the whole thing is a lie, and people drown from lies about position more than from any storm.",
+    "bonds": "Nine notebooks of soundings taken by hand over eleven years down the length of this chain. They are the only honest set that exists. If this ship goes down I would want somebody to get the notebooks off her.",
+    "flaws": "I trust my numbers over any person in the room, including people who are telling me things about themselves that my numbers cannot measure. I have been told I am cold. I am not cold. I simply have a method and it does not have a place in it for how somebody's face looked."
+  },
+  "appearance": "A small, precise rock gnome of indeterminate middle age with wire-rimmed spectacles pushed up into greying hair, permanently ink-stained fingers, and a coat with nine pockets that all have specific contents. She moves around a deck with the wary economy of someone who has been knocked over by a boom exactly once and drew conclusions. There is always a notebook. When she is thinking she taps a pencil against her front teeth, which drives the bosun to distraction, and she has been asked to stop four times in six years and has genuinely not noticed doing it.",
+  "backstory": "Yevet Ourim came to the Bellwater Chain twenty years ago as an instrument-wright's apprentice from somewhere inland that she does not talk about much, and discovered that a chain of two hundred islands with a deep fog-bound channel running down its spine is the single most interesting navigational problem in the world. She has been taking soundings ever since — by hand, with a lead-line, off the rail of whatever vessel would carry her, in nine notebooks that now constitute the only accurate depth survey of the Grey Sounding in existence. The printed chart is wrong in eleven places and she has written to the Reckoners' Hall about it four times over eleven years and received four courteous acknowledgements. She signed the Articles of the Widow's Compass six years ago because Idony Marrach was the first master who read her notebooks all the way through and then altered course on the strength of them. She is aboard as chart-maker, instrument-wright and, when required, the ship's only source of arcane assistance, which she regards as a distinctly secondary qualification. She has recently started a tenth notebook, which contains struck bell-tones written out in her own invented notation, and about a third of what is in it is wrong, and she is aware of that and is going to fix it."
+}

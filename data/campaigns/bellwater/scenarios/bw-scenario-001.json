@@ -1,0 +1,422 @@
+{
+  "id": "bw-scenario-001",
+  "title": "The Ledger and the Nine Marks",
+  "subtitle": "An Inheritance With a Bell Attached",
+  "levelRange": "3-4",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Tallowport and the Lee Shore of Coyne",
+    "description": "Tallowport in the last month of the year: rain coming off the roofs in sheets, the tide-mills grinding on the ebb, and every chandler's window lit against a grey afternoon. This is the clearing-house of the Bellwater Chain — the place where credit is decided, hulls are surveyed, shares are counted and marks are written. The Reckoners' Hall stands above the quay, a long stone room with a locked brass case behind the table, and in that case is the ledger of callings that decides which ships still exist. Down at the quay, third along, lies the brig Widow's Compass: a hundred and ten feet of tired, well-found, badly indebted ship with a fouled bottom and eleven hands aboard who have not been paid since their captain died. Forty miles to leeward, past the last of the harbour lights, the island of Coyne shows a low black back to the ocean and takes the full weight of the westerly on a beach of grey shingle that has killed nine ships in living memory.",
+    "atmosphere": "Wet rope, wet wool, tar, cheap wine and the smell of a chandler's back room. Grief that nobody has time for. The specific noise of a working harbour in bad weather — halyards slapping, a hand-pump, someone swearing on a slipway — and then, cutting through all of it, bronze. The first act is small and indoors and about money. The second is a scramble. The third is surf, in the dark, with a rope in your hands and forty people up to their waists in it.",
+    "keyLocations": [
+      {
+        "name": "Quillam's Back Room, Tallowport",
+        "description": "A chandler's storeroom smelling of hemp and pitch, with a table cleared of cordage for the reading of a will. Nine people crowd in: a clerk of the Harbour Reckoners with a flat voice and a locked satchel, the ship's officers, and a girl of nineteen standing at the back with her arms folded who does not sit down at any point.",
+        "features": [
+          "The will itself: three sentences, notarised, leaving the brig, her gear and her Articles to the party, and the ledger standing with them",
+          "A fair copy of the Articles of the Widow's Compass on parchment, worn soft at the folds, with eleven marks and signatures at the foot and a pen laid beside it",
+          "A tally of the ship's debts: yard fee outstanding at Tallowport, two months' wages owing to eleven hands, and the ledger at nine marks with forty days to the year's turn"
+        ],
+        "encounters": [
+          "The reading, and the pen — the party may sign the Articles or not, and both are real choices with different scenarios ahead",
+          "Ondine Marrach, the dead captain's daughter, who has just learned she does not inherit her mother's ship",
+          "The Reckoners' clerk, who is polite, correct, and in no hurry to be helpful"
+        ],
+        "secrets": [
+          "The clerk's satchel holds the Hall's copy of the nine callings. Persuasion or a bribe gets a look at the dates; the dates are the seed of the whole campaign, because three of them are days when no ship was anywhere near the position given",
+          "Idony Marrach left no money at all. Whatever she had went somewhere, and the party will not learn where until bw-scenario-004"
+        ]
+      },
+      {
+        "name": "The Widow's Compass at the Quay",
+        "description": "A brig of a hundred and ten feet, twenty years old, well-found and badly used: sound in her frames, foul on her bottom, with a mainmast scarfed six feet above the deck where something took the head off it years ago. Eleven hands aboard, unpaid, sitting on the fore hatch in the rain waiting to find out what they are now.",
+        "features": [
+          "A copy of the Articles nailed inside the companionway, at eye height, where every hand can read them and nobody can claim not to have",
+          "The ship's bell, small and old, cast from the same wreck-bronze as every harbour bell on the chain, rung out for the captain three days ago",
+          "A fouled bottom that has not been careened in fourteen months and costs the ship two knots she badly needs"
+        ],
+        "encounters": [
+          "Eleven hands who want to know, in order: whether they are paid, whether they are sailing, and who is in the great cabin now",
+          "Bettram Oke the cook, who complains for a solid minute about the state of the stores and has already restowed them properly",
+          "A yard foreman who wants the outstanding fee before the ship moves and will take shares instead of coin"
+        ],
+        "secrets": [
+          "Idony's cabin holds her working charts, and the Grey Sounding sheet has three bell-buoy positions crossed out in pencil and re-marked half a mile off",
+          "The bosun, Grull Ashpike, will not go below into the after hold, and gives three different reasons in three days"
+        ]
+      },
+      {
+        "name": "The Reckoners' Hall",
+        "description": "A long stone room above the quay with a table down the middle and a brass case behind it, locked, containing the ledger of callings. Three Reckoners sit at any hour. They are clerks, not magistrates, and their whole authority is that two hundred harbours have agreed the book is true.",
+        "features": [
+          "The brass case, and the ledger inside it, which is read aloud to a claimant but never handed over",
+          "A slate on the wall listing marked hulls and their standings, with WIDOW'S COMPASS at the head of it in chalk",
+          "A queue of masters and supercargoes waiting to have callings entered, struck, or argued about"
+        ],
+        "encounters": [
+          "Reckoner Avice Holl, who strikes the party's first mark at the end of this scenario and does not look pleased about it",
+          "A master of a Windward Beads smack having a calling refused entry on a technicality, and being quietly furious about it",
+          "The Hall's fee-clerk, who charges for everything including the reading of your own standing"
+        ],
+        "secrets": [
+          "Of the three Reckoners sitting today, one has been on the Hollow Bell's books for two years. The party has no way to know which yet, and the DM should not tip it",
+          "The ledger has a second column, unexplained to claimants, recording who reported each calling. Three of Idony's nine were reported by the same name"
+        ]
+      },
+      {
+        "name": "The Lee Shore of Coyne",
+        "description": "Forty miles to leeward, a low island of grey shingle with the whole westerly ocean piling onto it. The grain hulk Marigold Rowe has parted her cable and gone on broadside, half a mile off the beach, in a rising gale with the tide making. Forty souls aboard: crew, a supercargo, and twenty-two passengers being carried up the chain for the harvest.",
+        "features": [
+          "Surf running four feet and building, on shingle that shelves steeply and pulls back hard",
+          "The hulk lying over with her decks awash on the seaward side, everyone crowded into the weather rigging",
+          "A hamlet of nine houses on the point whose people are already out with lanterns and are the only other help within forty miles"
+        ],
+        "encounters": [
+          "The run down from Tallowport, in the dark, on a rising sea with a fouled bottom",
+          "Getting a line to the hulk, which is the whole problem and can be solved four different ways",
+          "The hulk breaking up on the second tide, with people still in her, whether or not the party is ready"
+        ],
+        "secrets": [
+          "The Marigold Rowe's master parted his cable because his ground tackle was condemned gear bought cheap at Ambergrace — the first thread of the cartel, buried in something that looks like ordinary bad luck",
+          "A second vessel stood off the beach for two hours and did not close. Nobody aboard her can be identified tonight, but two of the Coyne hamlet saw her, and she showed no light"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party inherits a brig, a crew, a set of written Articles and nine marks against the ship's name, with forty days until the year turns and a nine-marked hull is broken up on the strand by the custom of the Sounding. They have barely finished counting what they have been left when a bell rings down at the quay: the grain hulk Marigold Rowe is on the lee shore of Coyne with forty souls aboard and the tide making. Answering it costs them the last of their credit, a night in filthy weather, and possibly a life. It earns them one mark struck off nine, the gratitude of a hamlet with nothing to give, and the beginning of an understanding that the ledger they are trying to pay down is not entirely honest.",
+  "hook": "Idony Marrach was buried on Tuesday and her will is read on Thursday in the back of a chandler's shop, and the clerk gets to the end of it in four minutes flat. The ship is yours. The crew is yours if they'll have you. The Articles are on the table and there's a pen beside them. And the ledger is yours too, all nine marks of it, because a standing follows the hull and not the master, and there are forty days until the year turns. Somebody asks what happens then, and the clerk says, in exactly the tone you would use for a tide table: 'Then she's broken up on the strand, and the timber's sold, and the shares are paid out of it. It's in the custom. There's no appeal because there's never needed to be one.' And down at the quay, through the rain, the harbour bell starts up.",
+  "articlesAtStake": [
+    {
+      "article": 1,
+      "note": "The whole scenario. A calling is heard in the first act and the party either answers it or does not, and Article One is the reason there is a campaign either way."
+    },
+    {
+      "article": 6,
+      "note": "If anyone dies on the beach at Coyne — and someone may — the dead are named and rung out before the ship sails, whatever the tide is doing. The crew will not let this slide and the DM should not either."
+    },
+    {
+      "article": 8,
+      "note": "Introduced in the first scene, when the party signs. Two hands consider leaving during the reading and one of them says so out loud, which is how the party learns that Article Eight is real and binds them."
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: The Will and the Articles",
+      "description": "An inheritance, a debt, and a document with a pen beside it. This act is small, indoors, and entirely about what the party has just been handed and what it is going to cost them. It also introduces the Articles as a real object in the world — nailed inside the companionway, signed by eleven other people, and enforced.",
+      "objectives": [
+        "Hear the will and understand the ledger: nine marks, forty days, and no appeal",
+        "Read the Articles, and decide whether to sign them",
+        "Meet the crew and establish whether they will sail under a new command",
+        "Learn from the Reckoners' Hall what a mark is, how one is struck, and what nine of them mean"
+      ],
+      "scenes": [
+        {
+          "name": "The Reading",
+          "description": "The will is read in a chandler's back room. Three sentences of inheritance and one of debt. The Articles are on the table with a pen beside them, and Ondine Marrach is standing at the back not sitting down. This scene establishes everything the campaign is about and should be played slowly.",
+          "readAloud": "\"The room smells of hemp and pitch and there is nowhere to put your elbows. Quillam has cleared a coil of two-inch off the table and that is as much ceremony as anyone has arranged. The clerk from the Hall reads it in the voice you would use for a tide table: 'To be given over entire — the brig Widow's Compass, her boats, her cordage, her charts and instruments, and her Articles as signed. To be given over with her — the ledger standing at the Hall, which this office records at nine marks.' He closes the book. Somebody's chair creaks. He sets a folded parchment on the table, worn soft along its creases, with eleven signatures and marks at the foot of it, and lays a pen beside it, and he says: 'Forty days to the turn. A nine-marked hull is broken up on the strand and the timber sold and the shares paid out of it, by the custom. There's no appeal, because there's never needed to be one.' At the back of the room a girl of nineteen with her arms folded says, to nobody, 'She never ignored a bell in her life.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "The clerk is not enjoying this and is not hiding it well. He believes the ledger is correct, and he does not believe it is just — which are two different things, and he knows the difference. He will let a question go further than his office should.",
+              "failure": "A clerk reading a document. You learn nothing from his face because there is nothing on it that you can read in the time you have."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The tally of the ship's debts is on the table with everything else, and reading it properly tells you the shape of the problem: an outstanding yard fee at Tallowport, two months owing to eleven hands, and no cash at all in the estate. Idony Marrach died without a coin. For a master of twenty years, that is strange enough to file away.",
+              "failure": "The numbers are there and they are bad, and you take away the general impression of 'bad' without the detail that would have told you something."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "The clerk opens his satchel and lets you read the nine callings — dates, positions, and the name of the vessel that reported each. He gives you a quarter of an hour and stands over you the whole time. Write the dates down. You will want them later.",
+              "failure": "'The ledger is read at the Hall, in the Hall, by a Reckoner. Not in a chandler's back room by a clerk who wants to keep his place.' He is not being difficult. He is being correct, which is worse."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Do not rush the pen. The Articles are the campaign's central object and this is the only scene in which the party is genuinely free to refuse them. Read the eight articles out — actually read them, from data/campaigns/bellwater/campaign.json → shipsArticles — and let the players react to each one. Article Eight ('any hand may quit at any port and takes their shares with them') should get a reaction from the crew present, because it is about to become true for two of them. If the party does not sign, the crew will not sail, and the scenario becomes a much harder problem about hiring strangers in forty days; that is a legitimate branch and the DM should be ready to run it rather than forcing the signature. Ondine Marrach speaks exactly twice in this scene and leaves before it ends.",
+          "loot": [
+            "The brig Widow's Compass, entire — the campaign's home and its central liability",
+            "Idony Marrach's charts and instruments, including a Grey Sounding sheet with three bell-buoy positions crossed out and re-marked",
+            "The fair copy of the Articles"
+          ]
+        },
+        {
+          "name": "Eleven Hands on the Fore Hatch",
+          "description": "The crew, in the rain, waiting to be told. This is the scene where the party discovers that a ship is a group of people with their own arithmetic, and that two of them are already halfway ashore.",
+          "readAloud": "\"They have been sitting on the fore hatch in the rain for a while, from the look of them, and they stand up when you come over the side because that is what you do, not because they have decided anything. Eleven of them. A grey-headed woman with a marlinspike through her belt who does not stand up at all, because she is already up, checking a splice, and has been since dawn. A big half-orc with a bosun's whistle who looks at your boots. A girl in the rigging above your head who has clearly been listening for an hour. And a dwarf coming up out of the galley wiping his hands on his apron, saying, before anyone has said anything else at all: 'There's four months' flour aboard, and it's good flour, and if we're not sailing I want it off before it spoils, because I'm not carrying spoiled flour on my conscience as well as everything else.'\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "You say the thing they need to hear, which is not a speech — it is a plan, with dates in it. Nine hands agree to stay on. Crew Regard holds at 5 and two of the doubters look at each other and shrug.",
+              "failure": "You say something reasonable and it lands flat, because reasonable is not the same as convincing to people who have not been paid in two months. Two hands invoke Article Eight on the spot, take their shares in kind out of the slop chest, and walk. The ship is short-handed for the rest of the scenario and every Athletics check aloft is at disadvantage until they are replaced."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "The sailing master, Marda Kell, has not looked at you once. She is not being rude. She is grieving, and she does not have a mechanism for saying so, and she will do her job perfectly for as long as it takes for someone to notice.",
+              "failure": "The grey-headed woman with the marlinspike is unfriendly. That is all you get."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Every named crew member here is either a pre-made PC or an NPC companion from data/defaults/bellwater/. Use their files. Marda Kell knows the Articles by heart and will quote them at the party before the scenario is out; Grull Ashpike is the bosun and citing articles aloud is literally his job; Bettram Oke complains without stopping and has already done the work; Sefi Nightjar is nineteen and has never been off the chain and is listening from the rigging. If a player is running one of these characters, hand the beat to them instead of playing it. Article Eight should be invoked out loud by at least one hand in this scene — that is the teaching moment, and it must be honoured mechanically or the whole feature is a bluff.",
+          "loot": [
+            "Four months' stores, well stowed, and a cook who has already counted them",
+            "The ship's boats: a longboat and a jolly-boat, both sound",
+            "A slop chest worth about 40 gp in kind"
+          ]
+        },
+        {
+          "name": "The Brass Case",
+          "description": "The Reckoners' Hall, where the party goes to hear their own standing read aloud. An education in how the Sounding actually works, delivered by clerks who charge a fee for it.",
+          "readAloud": "\"The Hall is one long stone room above the quay and it smells of ink and wet coats. There is a table, and behind the table a brass case with a lock on it the size of a fist, and behind the case a slate with a list of names chalked up. Yours is at the top. WIDOW'S COMPASS — IX. Reckoner Avice Holl reads your standing out to you in a voice pitched to carry to the back of the room, which is the point of it, and the room listens, which is also the point. Nine callings. Nine dates. Nine positions. And after each one, in the same flat voice: 'Not answered.' At the end she closes the book and says, 'That's the standing. You may have it struck by answering, one for one, and entered here by a Reckoner or by two masters' oath. Forty days.' And a fee-clerk at your elbow says, 'Fourpence for the reading.'\"",
+          "skillChecks": [
+            {
+              "skill": "History",
+              "dc": 12,
+              "success": "You know the shape of the Sounding well enough to know what it is: a mutual salvage compact, older than any of these buildings, that works because everyone believes it works. It has no enforcement but reputation. Which means it cannot survive being proved false — and that a false calling is not just theft, it is an attack on the only thing holding two hundred harbours together.",
+              "failure": "It is a rule and there is a book, and that is as much as anyone has explained to you."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 15,
+              "success": "The ledger has a second column that nobody explains to claimants: who reported each calling. Three of Idony's nine were reported by the same vessel, a Leeward-registered lighter called the Fair Increase. You have half a second to read it before the book closes.",
+              "failure": "Columns of dates and positions, read too fast, in a room full of people watching you be humiliated."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "One of the three Reckoners at the table stops writing while your standing is read, and does not start again until it is over. You cannot tell which of the three from where you are standing, only that it happened.",
+              "failure": "Three clerks doing clerking."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The Hall must not read as villainous. The Reckoners are clerks doing a job that two hundred harbours have agreed is worth doing, and the ledger is genuinely the only thing standing between the chain and open salvage-piracy. Avice Holl in particular should be scrupulously fair and completely unmoved. The horror of this scene is bureaucratic, not sinister. Plant the name Fair Increase lightly and do not follow up on it — it returns in bw-scenario-003.",
+          "loot": [
+            "The nine dates and positions, if the party has got them by any route — the campaign's first hard document",
+            "The name Fair Increase, on a successful Investigation"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Bell and the Run Down",
+      "description": "A calling, and the decision to answer it, and forty miles of bad water in the dark on a fouled bottom. This act teaches seamanship as ordinary skill checks with stated DCs, teaches that answering a bell costs something before it pays anything, and puts the party's new ship under real strain for the first time.",
+      "objectives": [
+        "Hear the calling and decide, out loud, with the crew watching, whether to answer it",
+        "Get the ship out of Tallowport on a falling tide with a yard fee unpaid",
+        "Run forty miles to leeward in a rising gale without losing the mast or the deck cargo",
+        "Arrive at Coyne with enough of the ship and the crew intact to be useful"
+      ],
+      "scenes": [
+        {
+          "name": "Bronze Over the Rooftops",
+          "description": "The harbour bell at Tallowport, rung by hand at the head of the quay, and the whole town stopping to listen. The party's first calling and their first Article One decision.",
+          "readAloud": "\"You hear it before you understand it: a flat, carrying, unmusical note off the head of the quay, and then again, and then again, and the rain-noise of the whole town seems to drop away underneath it. Every head on the waterfront comes up. A man on a slipway sets down a maul without looking at it. And then the runner comes past you at a dead sprint, shouting the position to anybody who can carry canvas: 'MARIGOLD ROWE, ON THE BEACH AT COYNE, PARTED HER CABLE, FORTY SOULS ABOARD AND THE TIDE MAKING!' Marda Kell has come up beside you without you noticing. She does not say anything about articles. She says, 'Forty miles. We can be off Coyne in five hours if we sail on this tide. There's two other hulls in this harbour could do it faster and neither of them is moving yet.'\"",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 10,
+              "success": "Two other vessels at Tallowport could make Coyne tonight — a fast leeward schooner and a revenue cutter — and neither is casting off. Both are watching to see whether anyone else goes first.",
+              "failure": "Chaos on a waterfront in the rain. You can barely see the end of the quay."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "The yard foreman lets the ship go with the fee unpaid, on the strength of where she is going, and adds a coil of new three-inch to the deck because 'you'll want it, on shingle.' Crew Regard +1 if the party asked rather than simply sailing.",
+              "failure": "The foreman puts a hand on the bollard and says the fee is the fee. Sailing anyway is legal — a calling overrides a lien on the chain — but it costs the party their standing at that yard, which will matter when they need careening in bw-scenario-003."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the Article One beat and it must be a real decision, which means the DM has to make not going survivable. If the party does not answer: no lightning, no crew mutiny in the moment. A tenth mark is entered at the Hall within the day, Crew Regard drops by 2, and nobody aboard speaks to the party for a full day, exactly as the Articles say. The campaign continues, harder, and the party has learned that the restitution written in the file is the restitution that happens. Name the article aloud when you apply it: Grull Ashpike is the bosun and citing the Articles is his function aboard.",
+          "loot": []
+        },
+        {
+          "name": "Forty Miles to Leeward",
+          "description": "The passage. Five hours of hard sailing on a rising sea with a fouled bottom, in the dark, on a ship the party have owned for two days. Run this as a sequence of stated checks with real consequences and let the crew be visibly competent.",
+          "readAloud": "\"By the time the harbour lights are astern the wind has gone into the west and got up half again, and the Compass is doing something she has not done for fourteen months, which is work. She is slow — the growth on her bottom is two knots of a good ship, and everybody aboard knows it — and she rolls badly on the quarter, and every third sea comes green over the weather rail and goes down the length of the deck in a rush of white. Sefi Nightjar is aloft in it, barefoot, because tabi grip better than boots on a wet foot-rope, and she is laughing at something. Bettram Oke has got a fire going in the galley in this, which should not be possible, and there is soup. The bell in the fore rigging is lashed silent so it will not sound false, and that lashing is somebody's whole job tonight.\"",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 13,
+              "success": "You get the topsail off her before the squall comes through, working aloft on a wet foot-rope in the dark. The ship stands up and stops burying her lee rail.",
+              "failure": "You get it done, eventually, and the ship takes a bad sea across the waist in the meantime: 1d6 bludgeoning to anyone on deck, and a boat is stove on the chocks. On a failure by 5 or more the character goes off the yard and is only saved by their lifeline — half damage, and a lasting fright."
+            },
+            {
+              "skill": "Survival",
+              "dc": 14,
+              "success": "You read the weather and lay the course to make Coyne on the top of the tide rather than an hour after it, which will turn out to be the difference between forty rescued and thirty-one.",
+              "failure": "You make Coyne, but late and to leeward, and you must beat back up in the dark, and the tide is falling when you arrive. Act 3 begins with the surf already breaking on the hulk's deck."
+            },
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "You take a cast of the lead at the right moment and find fifteen fathoms shoaling fast, which is not where the chart says the bottom should be. Idony's Grey Sounding sheet was right and the printed chart is wrong.",
+              "failure": "You have no soundings and are navigating on faith and a fouled bottom, which the sailing master will mention exactly once, without heat."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Nobody fights anything in this scene and that is deliberate. The point of the passage is that the sea is the antagonist, that the crew are good at their jobs, and that the ship is slow because of a maintenance problem the party cannot currently afford to fix — which is the setup for bw-scenario-003. If the party has a character with a relevant background (Sailor, especially), give them the spotlight and let the checks be theirs. Crew Regard +1 if the party stands a watch themselves rather than staying aft.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Hulk and the Surf",
+      "description": "The rescue. Forty people in the weather rigging of a broaching grain hulk, half a mile off a shingle beach in four feet of surf, on a falling tide, in the dark. There is no monster here and no villain: there is a physical problem with several honest solutions and a clock.",
+      "objectives": [
+        "Get a line from the beach or the ship to the Marigold Rowe",
+        "Take forty people off her before the second tide breaks her up",
+        "Decide what to do about the twenty-two passengers, the crew, and the cargo, in that order or another one",
+        "Get back to Tallowport and have the mark struck"
+      ],
+      "scenes": [
+        {
+          "name": "The Beach at Coyne",
+          "description": "Arrival. The hamlet is already out with lanterns; the hulk is over on her beam ends with everyone in the weather rigging; the surf is four feet and building. The party's problem is a rope, and it can be solved four ways, all of them legitimate.",
+          "readAloud": "\"There is a line of lanterns strung along the shingle, nine houses' worth of people who have been out here for three hours already, and out in the black there is a shape lying at a wrong angle with something white breaking over it every eight seconds. When the lanterns swing you can see them: forty people in the weather rigging of a grain hulk on her beam ends, packed along the shrouds like birds on a wire, and they have been there since the middle of the afternoon. A woman on the beach with her skirts to her knees in the backwash grabs your arm and says, quite calmly, 'We've thrown three lines and the set takes them all south. You'll want to go from up the point.' And behind her, higher up the shingle, a boy of about eleven is holding the hamlet's bell in both arms, still ringing it, because nobody has told him to stop.\"",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 15,
+              "success": "You swim, or row, or wade a line out through the break to the hulk. It is the hardest physical thing any of you have done and it works, and now there is a rope between the beach and forty people.",
+              "failure": "The set takes you south and you are dragged three hundred yards down the beach and come out on your hands and knees with no line and no breath: 2d6 bludgeoning and a level of exhaustion. The attempt can be repeated. The tide will not wait for a third."
+            },
+            {
+              "skill": "Survival",
+              "dc": 13,
+              "success": "You read the set and the shelve and see what the hamlet-woman saw: go from up the point and the current carries a line onto the wreck instead of past it. Every attempt to get a line across is at advantage from here on.",
+              "failure": "The water is doing something complicated in the dark and you cannot see what."
+            },
+            {
+              "skill": "Animal Handling",
+              "dc": 12,
+              "success": "The hamlet has a dog that will swim anything and a pony that will stand in the backwash and haul. Both are worth more than any three people tonight.",
+              "failure": "The dog will not go into that. Nothing sensible would."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "The hamlet does exactly what you ask, immediately, without argument, because you came when the bell rang. Everything in this act is one step easier. Say this out loud to the players: this is what the Sounding buys.",
+              "failure": "They help anyway. They were helping before you arrived. But they do it their way and around you, and the coordination costs you an hour you cannot spare."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Resist the urge to add a monster. There is nothing in the water at Coyne but water, and the whole design of the campaign's opening depends on the sea being enough. Track the count: forty aboard at the start, and the number the party gets off is the number that lived, and it should be said out loud at the end. A perfect run saves all forty. A poor run loses six to nine. Losing all forty should not be possible from any single failure; the hamlet and the crew are competent and will get some off no matter what.",
+          "loot": [
+            "The Marigold Rowe's manifest, salvaged wet, showing her ground tackle bought at Ambergrace nine months ago and condemned gear at that",
+            "About 120 gp of the hulk's cargo recoverable at the party's discretion — and Article Two applies to every copper of it"
+          ]
+        },
+        {
+          "name": "The Second Tide",
+          "description": "The hulk breaks up on the second tide, whether or not everyone is off her. The climax of the scenario and, if the party has been slow, the first time Article Six comes into play.",
+          "readAloud": "\"At about four in the morning the Marigold Rowe stops moving with the sea and starts moving against it, and everyone on that beach who has ever been to sea knows exactly what that means and goes very quiet. She takes about ninety seconds. The mainmast goes first, sideways and slow, dragging the whole weather rigging with it, and then her back goes somewhere amidships with a noise you feel in the shingle under your boots, and then she is not a ship any more, she is timber, coming ashore in a long spreading line down the tide with the grain going out of her in a pale slick that you can see even in the dark.\"",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 13,
+              "success": "You get the cold ones warm and the drowned ones breathing. Two people who would otherwise have died on the shingle do not.",
+              "failure": "You do what can be done. Two of them die anyway, on the beach, with people working on them, which is worse than dying in the water."
+            },
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "Out beyond the break, for perhaps a minute, there is a vessel lying to with no light showing at all. She is gone before you can raise anyone else to look. Two people from the hamlet saw her too, hours ago, and say she has been there since before dark and never closed.",
+              "failure": "Black water and breaking white, and nothing else in it."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "If anyone died — from the hulk, the hamlet or the party — Article Six activates immediately and the DM should name it: the dead are named and rung out before the ship sails on. Do it properly, on the beach, at dawn, with the hamlet's bell and Anselm Coyle or another character saying the names. It costs a tide. The crew will not accept less and the party should feel the crew's certainty about it. This is the campaign's tone in a single scene: the compact is not sentimental, it is expensive, and people keep it anyway.",
+          "loot": [
+            "Nothing from the wreck that is not shared by the Articles",
+            "The hamlet gives what it has: a barrel of salt fish, forty fathoms of hand-laid line, and the name of every person aboard who lived"
+          ]
+        },
+        {
+          "name": "One Struck From Nine",
+          "description": "Back at Tallowport. The mark is struck, the party's standing goes from nine to eight, and Reckoner Avice Holl does not look pleased about it, which is the last beat of the scenario and the first beat of the campaign's real question.",
+          "readAloud": "\"Avice Holl unlocks the brass case and takes the ledger out and reads the entry, and two masters swear to the answering, and she takes a pen and rules a line through one calling and writes the date beside it, and closes the book. It takes about forty seconds. It ought to feel like more than it does. WIDOW'S COMPASS — VIII goes up on the slate, and somebody at the back of the Hall makes a small approving noise, and you are turning to go when you catch the look on Holl's face. It is not relief and it is not congratulation. She is looking at the ledger the way you would look at a chart that has just disagreed with your lead-line.\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "That was not disapproval. Avice Holl expected you to fail, and not because she thinks poorly of you. She has seen ships try to work down a standing before, and something has gone wrong for every one of them, and she has never been able to say what.",
+              "failure": "A clerk who does not like you. There are a great many of those."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "End the scenario here, on the look, not on a reward. If the party asks Holl directly she says nothing useful and means it kindly. She becomes an ally in bw-scenario-004 and this look is the first thread of that. Award the XP, pay the shares by Article Two in front of everyone, and let the players work out that eight marks in thirty-six days is not obviously achievable.",
+          "loot": [
+            "One mark struck. Eight remain, and thirty-six days",
+            "The party's shares of the Coyne salvage, counted by the ledger in front of the whole crew"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Reckoner Avice Holl",
+      "role": "Harbour Reckoner, Tallowport / Neutral / Later Ally",
+      "description": "Fifty, grey, dressed like a clerk because she is one. She reads standings aloud in a voice pitched to carry and has never once softened a word of one. She is scrupulously fair and completely unmoved, and she has been quietly troubled for two years by a pattern in the ledger that she cannot articulate and has told nobody about.",
+      "motivation": "The ledger must be true, because the ledger is the only thing the Sounding actually is. She would rather it were harsh than doubtful."
+    },
+    {
+      "name": "Quillam",
+      "role": "Chandler, Tallowport / Ally",
+      "description": "A wide, wheezing man who has sold cordage to every hull on the chain and extended credit to about half of them. He liked Idony Marrach and lends the party his back room for the reading without being asked. He will give the party thirty days' credit on stores and not a day more, and he will say so in exactly those words.",
+      "motivation": "To be owed money by people who pay, which he considers a form of friendship."
+    },
+    {
+      "name": "The Clerk of the Hall",
+      "role": "Reckoners' clerk / Neutral",
+      "description": "A young man with a locked satchel and no first name that anyone uses. He reads the will, quotes the custom, charges fourpence for a reading, and will bend exactly one rule for the party in this scenario if they give him a reason to.",
+      "motivation": "To keep his place, and — barely admitted — to not be part of something unjust."
+    },
+    {
+      "name": "Nesta Trewe",
+      "role": "Coyne hamlet, headwoman / Ally",
+      "description": "Sixty, up to her knees in the backwash with her skirts hitched, running a rescue with nine houses and no equipment and doing it better than anyone else on that beach. She has been out since three in the afternoon. She will not take payment and will be genuinely offended if it is offered twice.",
+      "motivation": "A ship answered a bell for Coyne in her grandmother's time. That is the entire reason, and she considers it sufficient."
+    },
+    {
+      "name": "Master Duro Ganne",
+      "role": "Master of the Marigold Rowe / Survivor",
+      "description": "Forty-five, in shock, and about to spend the rest of his life explaining that he bought his ground tackle cheap at Ambergrace and it was condemned gear. He knows exactly whose fault this is and it is his, and he is not wrong, and he is also not the whole story.",
+      "motivation": "To have been unlucky rather than negligent, which he will never quite manage to believe."
+    }
+  ],
+  "rewards": {
+    "xp": 2400,
+    "gold": "Approximately 180 gp in shares after the ledger count — the party's own shares of about 120 gp of recovered cargo, plus 60 gp of gratitude money pressed on them at Tallowport by the Marigold Rowe's owners, who are relieved and cheap in equal measure",
+    "items": [
+      "The brig Widow's Compass, entire, with her boats, cordage, charts and instruments",
+      "Idony Marrach's working charts, including a Grey Sounding sheet with three bell-buoy positions crossed out in pencil and re-marked half a mile off their charted positions",
+      "The Marigold Rowe's wet manifest, showing ground tackle purchased at Ambergrace nine months ago",
+      "Forty fathoms of hand-laid line and a barrel of salt fish from the Coyne hamlet — worth little and given at real cost",
+      "Thirty days' credit at Quillam's chandlery, Tallowport"
+    ],
+    "story": "The party owns a ship, owes eleven people two months' wages, and has struck one mark from nine with thirty-six days to the year's turn. More importantly they have learned three things they will need: that the Articles are enforced and enforced identically every time; that answering a bell costs before it pays and the chain's poorest people do it anyway; and that there is something wrong with the ledger, which Idony Marrach's re-marked chart, three callings reported by the same lighter, and the look on Avice Holl's face all point at from different directions."
+  },
+  "twists": [
+    "The Marigold Rowe did not simply have bad luck. Her ground tackle was condemned gear bought cheap at Ambergrace nine months ago, and her master will say so himself, ashamed, without understanding that he has just handed the party the first thread of the cartel.",
+    "A vessel lay off Coyne showing no light for the whole of the rescue and never closed. Two of the hamlet saw her before dark. She is not identified in this scenario and should not be — she was waiting for the hulk to break up, and the party will not learn what that means until bw-scenario-002.",
+    "Idony Marrach died without a coin to her name after twenty years as a master. The tally of the estate says so plainly and nobody remarks on it. Where the money went is answered in bw-scenario-004 and is the emotional centre of the whole campaign.",
+    "Three of the nine callings against the Widow's Compass were reported by the same vessel: a Leeward-registered lighter called the Fair Increase. Plant the name and do not follow up on it."
+  ],
+  "dmTips": [
+    "READ THE ARTICLES OUT LOUD in the first scene, from data/campaigns/bellwater/campaign.json → shipsArticles. All eight of them. This is the one scenario where the party is free to refuse to sign, and the feature only works if they meet it as a document rather than as a summary. Nail a copy inside the companionway in fiction and refer back to it physically whenever an article comes up.",
+    "ENFORCE ARTICLE ONE AS WRITTEN if the party does not answer the Coyne bell. A tenth mark, Crew Regard 5→3, and nobody aboard speaks to them for a day. Do not add a lecture, a storm, a mutiny or a moral. The restitution in the file is the whole of the consequence, and the players learning that it is exactly the whole of it is what makes the rest of the campaign work.",
+    "TRACK CREW REGARD FROM SCENE ONE. Start at 5. Persist it through UpdateWorldState as a line in narrativeNotes reading 'Crew Regard: N/10', and say aloud in fiction whenever it moves and why. In this scenario there are four natural movements: signing the Articles well or badly, answering or ignoring the bell, standing a watch during the passage, and ringing out the dead at Coyne.",
+    "THE SEA IS THE ANTAGONIST AND IT IS ENOUGH. There is no combat encounter in this scenario and that is deliberate. Do not add a sahuagin raid, a storm elemental or a kraken. If the party is bored, give them a harder physical problem, not a monster. The campaign has fights in it later and they land better for this one having none.",
+    "THE HAMLET AT COYNE IS THE CAMPAIGN'S THESIS. Nine houses with nothing, out on a beach for three hours before anyone with a ship arrived, because a vessel answered for them two generations ago. Play Nesta Trewe straight and let the players notice what the Sounding is actually for. Everything the Hollow Bell is doing later is measured against this beach.",
+    "COUNT THE FORTY. Say the number out loud at the start of Act 3 and again at the end. Thirty-four is a different scenario from forty and the players should feel that in their chests without being told to. Do not fudge it, in either direction.",
+    "USE THE PRE-MADE CREW AS PEOPLE, NOT SCENERY. Marda Kell, Ottilie Vance, Grull Ashpike, Sefi Nightjar, Anselm Coyle and Yevet Ourim are in data/defaults/bellwater/characters/, and Ondine Marrach, Bettram Oke and Pellamy Doss are in the npcs directory. Whoever is not being played by a player is aboard and has opinions. Grull cites the Articles because that is a bosun's job; Marda knows them by heart; Bettram complains and has already done the work.",
+    "ONDINE MARRACH SHOULD BE HARD TO LIKE IN THIS SCENARIO. She has just been passed over for her mother's ship in front of the whole waterfront and she is nineteen. She speaks twice at the reading and leaves before it ends, and she is aboard when the party sails because it is her ship in every way that is not written down. Do not rush her toward warmth.",
+    "PACE IT AS THREE SESSIONS: the will and the crew and the Hall; the bell and the passage; the beach and the second tide and the mark. If the party spends a whole session in Tallowport asking questions about the ledger, that is a good session and the bell can ring at the top of the next one.",
+    "DO NOT INVENT SHIP RULES. There is no vehicle stat block, no hull hit points and no naval combat subsystem in this campaign. Hull condition is narrative plus a world-state line: 'bottom foul, two knots slow' is a fact about the fiction that makes passages longer and pursuits fail, and that is all it needs to be. If you find yourself writing a rule, stop."
+  ]
+}

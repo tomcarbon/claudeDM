@@ -1,5 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo } from 'react';
-import { api } from '../api/client';
+import { api, API_BASE } from '../api/client';
 import { usePlayer } from '../context/PlayerContext';
 import RichText from '../components/RichText';
 import { getCollapseThreshold } from '../utils/displaySettings';
@@ -19,6 +19,15 @@ function hpColor(current, max) {
   if (pct >= 75) return '#27ae60';
   if (pct >= 40) return '#f1c40f';
   return '#e74c3c';
+}
+
+// Scene imagery (docs/adr/0002-scene-imagery.md §7). The transcript never receives a path or a
+// URL — only a campaign id and an asset id — so the browser builds the URL itself and its request
+// goes back through the asset route's manifest lookup. Absolute API_BASE because in dev the client
+// is served by Vite on :5173 with no proxy, while the API is on :3001.
+function sceneImageUrl(campaignId, assetId) {
+  if (!campaignId || !assetId) return null;
+  return `${API_BASE}/campaigns/${encodeURIComponent(campaignId)}/assets/${encodeURIComponent(assetId)}`;
 }
 
 function normalizeSavedMessages(rawMessages) {
@@ -45,11 +54,22 @@ function normalizeSavedMessages(rawMessages) {
     if (!text) return null;
 
     const msg = {
-      type: ['system', 'player', 'companion', 'dm', 'dm_partial', 'dm_warmup', 'dice_roll'].includes(inferredType) ? inferredType : 'system',
+      type: ['system', 'player', 'companion', 'dm', 'dm_partial', 'dm_warmup', 'dice_roll', 'scene_image'].includes(inferredType) ? inferredType : 'system',
       text,
     };
     if (entry.characterName) msg.characterName = entry.characterName;
     if (entry.playerName && msg.type === 'companion') msg.playerName = entry.playerName;
+    // Scene images carry the id the <img> is rebuilt from, plus the manifest's alt text. Without
+    // this the picture would render during play and silently become a bare line of text on
+    // reload — the `if (!text) return null` above and the type whitelist are the two filters it
+    // has to survive (ADR 0002 §7.1, ETHICS.md condition S3).
+    if (msg.type === 'scene_image') {
+      if (entry.assetId) msg.assetId = entry.assetId;
+      if (entry.kind) msg.kind = entry.kind;
+      if (entry.title) msg.title = entry.title;
+      if (entry.alt) msg.alt = entry.alt;
+      if (entry.caption) msg.caption = entry.caption;
+    }
     return msg;
   }).filter(Boolean);
 }
@@ -1700,6 +1720,37 @@ Set the scene and begin the story.`;
                 <div className="message-dice">
                   <span className="message-sender">Dice</span>
                   <p className="dice-result">{msg.text}</p>
+                </div>
+              )}
+              {msg.type === 'scene_image' && (
+                <div className="message-scene-image">
+                  <span className="message-sender">Scene</span>
+                  {sceneImageUrl(campaignId, msg.assetId) ? (
+                    <a
+                      href={sceneImageUrl(campaignId, msg.assetId)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'block', maxWidth: msg.kind === 'portrait' ? '320px' : '100%' }}
+                    >
+                      <img
+                        src={sceneImageUrl(campaignId, msg.assetId)}
+                        alt={msg.alt || msg.title || msg.text || 'Scene image'}
+                        loading="lazy"
+                        style={{
+                          display: 'block',
+                          width: '100%',
+                          height: 'auto',
+                          borderRadius: '8px',
+                          border: '1px solid var(--border, rgba(127, 127, 127, 0.35))',
+                        }}
+                      />
+                    </a>
+                  ) : null}
+                  {(msg.caption || msg.title || msg.text) && (
+                    <p style={{ color: 'var(--text-muted, #999)', fontStyle: 'italic', margin: '0.4rem 0 0' }}>
+                      {msg.caption || msg.title || msg.text}
+                    </p>
+                  )}
                 </div>
               )}
               {(msg.type === 'dm' || msg.type === 'dm_partial') && (

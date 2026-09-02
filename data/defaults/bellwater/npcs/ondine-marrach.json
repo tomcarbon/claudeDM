@@ -1,0 +1,76 @@
+{
+  "id": "572f8ba1-7f7f-4b27-88b3-056592e94326",
+  "name": "Ondine \"Ondi\" Marrach",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Ranger",
+  "level": 3,
+  "background": "Sailor",
+  "alignment": "Chaotic Good",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 13, "modifier": 1 },
+    "dexterity": { "score": 16, "modifier": 3 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 11, "modifier": 0 },
+    "wisdom": { "score": 15, "modifier": 2 },
+    "charisma": { "score": 9, "modifier": -1 }
+  },
+  "hitPoints": { "max": 28, "current": 28 },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Strength", "Dexterity"],
+  "skills": ["Athletics", "Perception", "Survival", "Nature", "Insight"],
+  "languages": ["Common", "Elvish"],
+  "equipment": [
+    "Studded leather armor",
+    "Longbow and 40 arrows",
+    "Shortsword",
+    "Boat-hook (spear)",
+    "Her mother's second ledger, in a waxed wallet, which nobody knows she has",
+    "A first mate's certificate signed by Idony Marrach nine months ago",
+    "Explorer's pack",
+    "Belt pouch containing 6 gp"
+  ],
+  "weapons": [
+    { "name": "Longbow (Archery)", "attackBonus": 7, "damage": "1d8+3", "damageType": "piercing" },
+    { "name": "Shortsword", "attackBonus": 5, "damage": "1d6+3", "damageType": "piercing" },
+    { "name": "Boat-hook (Spear)", "attackBonus": 3, "damage": "1d6+1", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Studded leather armor", "type": "light" },
+  "features": [
+    "Favored Enemy: Humanoids (sailors and salvage crews) — advantage on Survival checks to track them and on Intelligence checks to recall information about them",
+    "Natural Explorer: Coast — doubled proficiency bonus on Intelligence and Wisdom checks related to coastal terrain; the party is not slowed by difficult coastal terrain, cannot become lost by non-magical means, and finds twice as much food when foraging",
+    "Fighting Style: Archery (+2 to attack rolls with ranged weapons)",
+    "Spellcasting (Wisdom-based, ranger)",
+    "Primeval Awareness (expend a spell slot to sense whether certain creature types are within 1 mile)",
+    "Ranger Archetype: Hunter",
+    "Colossus Slayer (once per turn, deal an extra 1d8 damage to a creature already below its hit point maximum)",
+    "Ship's Passage (Sailor feature)"
+  ],
+  "traits": ["Favored Enemy", "Natural Explorer: Coast", "Colossus Slayer", "Primeval Awareness"],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 4,
+    "cantrips": [],
+    "level1": { "slots": 3, "known": ["Hunter's Mark", "Cure Wounds", "Fog Cloud"] }
+  },
+  "personality": {
+    "traits": "I do the work first and argue afterwards, which everybody mistakes for agreeing with them. I do not fill silences. I am nineteen and I am extremely tired of being told that I am nineteen.",
+    "ideals": "Proof. Everybody on this chain has an opinion about my mother and not one of them has a document. I want the thing written down and signed and put in front of people, and then they can say what they like.",
+    "bonds": "This ship is mine in every way that is not written down, and it has been given to strangers, and I am aboard anyway because the alternative is not being aboard.",
+    "flaws": "I resent the people I have decided to serve under, every day, in a way I would not admit under torture, and it makes me short with them at exactly the moments they need me to be generous."
+  },
+  "appearance": "Nineteen, wiry, sun-scoured, with her mother's jaw and her mother's habit of looking at the weather rather than at whoever is talking. She wears studded leather because a mate has to board things sometimes and carries a longbow in an oilskin case that she maintains obsessively. Her hair is cut short and badly, by herself, with a rigging knife. There is a first mate's certificate in her sea-chest signed nine months ago in a hand that was already unsteady, and she has not looked at it since the funeral.",
+  "backstory": "Ondine Marrach was born aboard the Widow's Compass and has spent perhaps eleven months of her life ashore in total. Idony taught her the chain the way other mothers teach a trade — buoy by buoy, reef by reef, the note of every harbour bell — and rated her able at fifteen and made her mate at eighteen, nine months before the fever. Then the will was read in the back of a chandler's shop and the ship went to somebody else, and Ondi stood at the back of that room with her arms folded and said two things and left before it was over. She is still aboard. She is first mate by inheritance and by nobody's vote, she is very good at it, and every single day she has to decide again to keep doing it. What nobody knows is that four months before she died, Idony gave her a second ledger — a small waxed wallet of dated entries in her mother's hand, kept privately, that records among other things a payment taken from a leeward company eleven years ago and returned in full eight days later. Ondi has read it perhaps forty times. She has not decided whether the eight days make it better or worse, and she has not shown it to anyone, and she is not sure whether that is protection or cowardice.",
+  "dmNotes": {
+    "roleplaying": "Ondi is the campaign's hardest companion to like in the first scenario and the one the players will care about most by the last. Play her as competent, curt and scrupulously fair: she does not sabotage, she does not sulk publicly, and she never once fails to do her job. The resentment comes out sideways — in a beat of silence before she says 'aye', in doing a task correctly and in a way that makes it clear she would have done it differently, in being fractionally kinder to the crew than to the party. She is nineteen and being treated as a subordinate on the deck she was born on. Give her the sea-competence scenes: she should be the one who knows the note of the buoy, the set of the tide, the name of the hamlet. Her arc across four scenarios goes resentment → utility → alliance → the fund book, and the DM should let it move slowly and only in response to the party actually earning it. Do not warm her up early. Do not have her apologise for how she has behaved; she will simply, at some point around bw-scenario-003, start saying 'we' instead of 'you'.",
+    "voice": "Short sentences. Concrete nouns. She talks about weather, water, gear and people's work, and almost never about feelings, and when she does it arrives with no warning and stops as suddenly. 'Buoy's wrong.' 'That's a Nethercombe bell.' 'She never ignored a bell in her life.' She calls the party by their rank or their job rather than their names for the first scenario and a half. When she is angry she gets quieter and more precise, exactly like her mother, and everyone aboard who knew Idony finds this unbearable and nobody says so.",
+    "motivations": "Primary: to find out who her mother actually was, and specifically whether the nine marks mean what the whole chain thinks they mean. Secondary: to keep the Widow's Compass afloat and out of the breakers, which she would do for a captain she despised. Tertiary, and barely admitted: to be handed the ship, properly, by somebody with the standing to do it — which is a thing she wants so much that she cannot look directly at it, and which is exactly what Vennor Lowther will offer her in bw-scenario-003.",
+    "secrets": "THE SECOND LEDGER. Idony Marrach kept a private book, given to Ondi four months before she died, recording among other things that eleven years ago she took money from a leeward salvage company and returned it in full eight days later. Ondi has had it since the funeral, has read it dozens of times, and has shown it to nobody. She does not know whether it makes her mother better or worse and she is terrified that the party will decide for her. Foreshadow it: she goes very still when the Fair Increase is mentioned; she asks Pellamy Doss a strangely specific question about the year eleven years ago; she is the only person aboard who is not surprised that Idony died without a coin. The reveal should come from her, voluntarily, at a moment of her choosing — best in bw-scenario-003 after somebody has been decent to her — and it should be an act of trust rather than a confession. SECOND SECRET, smaller and load-bearing: Idony told the Reckoners' Hall the Sharrow buoy was wrong two years ago and was told to enter a note, and told Ondi about it, and Ondi has been saying so to anyone who would listen ever since and has never once been believed. When the party proves it in bw-scenario-002, watch what that does to her.",
+    "attitude": "Cold-formal to the party at first: correct, useful, and about four degrees below room temperature. Warm and easy with the crew, and she will notice if the party treats the crew badly and will hold it. She loathes being managed and responds badly to any attempt to reassure her; she responds extremely well to being given a job that matters and left alone to do it. Toward Idony's memory she is fiercely protective in public and completely unresolved in private. Toward Lowther's offer in bw-scenario-003 she is genuinely tempted, and if she takes it she leaves under Article Eight with her shares paid in front of the whole crew, and she is standing on the other side of the Hall at the year's turn, and the DM must be willing to let that happen."
+  }
+}

@@ -1,0 +1,464 @@
+{
+  "id": "bw-scenario-003",
+  "title": "Careened at Ambergrace",
+  "subtitle": "The Only Yard That Will Take a Nine-Marked Hull",
+  "levelRange": "6-8",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "Ambergrace, the Salvage Town",
+    "description": "The leeward boomtown, built literally out of other people's ships. Hulls set on end make the walls; spars make the rafters; a whole street called Deck Row is roofed with the deck of a barque that came ashore in the year of the short harvest, planking and all, with the seams still paid. Ambergrace runs on salvage law — what the sea gives up belongs to whoever gets it ashore — and salvage law is administered by three men in a counting-house who are all, in different ways, employees. There is a shipyard here that will take any hull and ask nothing, which is the only reason the Widow's Compass has come: no windward yard will careen a nine-marked ship, and the Compass has a fouled bottom, a sprung plank forward and thirty days to the year's turn. There is also a labour market where contracts are signed by men who cannot read them, a foundry with three furnaces that runs at night, and behind three respectable doors — a marine insurer, a chandlery and a bank — the Hollow Bell.",
+    "atmosphere": "Money, sawdust, hot metal and cheerfulness. Ambergrace is not sinister to look at: it is busy, prosperous, well-fed and friendly, with good food and better wages than anywhere on the windward side, and half the people here came from the Beads because there was nothing to eat there. That is the horror of it. Everybody is being perfectly nice, the terms are all written down, and every single arrangement in this town is a hook with something on it. The cruelty here is entirely economic — a debt, a ruin, a man press-ganged by a contract he could not read — and it is administered by pleasant people during office hours.",
+    "keyLocations": [
+      {
+        "name": "The Careening Beach and Skene's Yard",
+        "description": "A hard shingle beach inside a spit, where hulls are hove down on their sides at low water to have their bottoms cleaned and repaired. Skene's is the biggest yard on the chain and will take anything: nine marks, no papers, no questions, and a fee structure that is explained cheerfully and at length.",
+        "features": [
+          "A careening hard with heaving-down tackle, a capstan, and space for four hulls at once",
+          "The Widow's Compass on her side for four days, unrigged, unballasted, defenceless, and unable to leave",
+          "A fee book in which the party's name is written on the first morning, in a hand that has written a great many names"
+        ],
+        "encounters": [
+          "Bevis Skene, the yard master, who is genuinely good at his job and genuinely working for someone else",
+          "Four days ashore in a town that is studying the party",
+          "The fee, which is more than the party has, and the four ways of settling it that are offered without being pushed"
+        ],
+        "secrets": [
+          "Skene's yard is owned outright by the Hollow Bell through the marine insurer on Deck Row, and the yard's fee book is a recruitment list",
+          "The yard's smith made the re-shackle the party pulled off the Sharrow buoy, and his maker's mark is stamped on tools all over this beach"
+        ]
+      },
+      {
+        "name": "Deck Row and the Three Doors",
+        "description": "The commercial street, roofed with a wrecked barque's deck, where the respectable business of Ambergrace is done. Three of the doors on it — Lowther & Sons, Marine Assurance; the Grace Chandlery; and the Leeward Deposit — are the Hollow Bell wearing a coat.",
+        "features": [
+          "A marine insurer who will write a policy on a nine-marked hull at a rate nobody else would offer, and means every word of it",
+          "A chandlery with better stock than Tallowport and prices that make no commercial sense",
+          "A deposit bank that lends against shares, against hulls, and against a person's contract"
+        ],
+        "encounters": [
+          "Vennor Lowther, who is charming, forthright, and will tell the party almost the entire truth if they ask him properly",
+          "A shipmaster signing over a half share of his own hull to cover a yard fee, in public, without appearing to mind",
+          "The Fair Increase, a leeward lighter, lying at the Deck Row quay — the vessel that reported three of Idony Marrach's nine callings"
+        ],
+        "secrets": [
+          "Lowther & Sons insures eleven of the fourteen vessels lost on the Sharrow. Every policy was written within four months of the loss",
+          "The Leeward Deposit holds notes signed by two Harbour Reckoners, and one of them is a name the party will recognise"
+        ]
+      },
+      {
+        "name": "The Grace Foundry",
+        "description": "Three furnaces behind a wall at the town's northern end, running at night, ostensibly casting fittings for the yard. It is the second most important building in the campaign and the party can get inside it in this scenario if they are careful.",
+        "features": [
+          "Three furnaces, moulds, a finishing floor, and a stock of scrap bronze that includes bell-crown fragments",
+          "A pattern shop with wooden moulds for bells in four sizes, none of which are ship's bells",
+          "A night shift of eleven men, none of whom are from Ambergrace and none of whom can leave"
+        ],
+        "encounters": [
+          "Getting in: a wall, a gate, a night watchman, and dogs",
+          "A moulder called Ryse Halloran who will talk to anybody who is not from this town",
+          "Getting out, which is harder, because somebody counts the men off the floor at the end of the shift"
+        ],
+        "secrets": [
+          "The foundry casts harbour bells and buoy bells from stolen bronze. But it is the smaller of the two operations — the real recasting is done at Ossary Deep, underwater, where the old moulds are, and this floor only finishes what comes up",
+          "Ryse Halloran signed a contract he could not read four years ago and has been working it off ever since. His debt has grown every year. He is the campaign's single clearest statement of what the Hollow Bell actually is"
+        ]
+      },
+      {
+        "name": "The Salvage Court",
+        "description": "A counting-house with three chairs, where salvage law is administered by three men in an afternoon. It is a real court with real authority in this town, and the party may end up in front of it.",
+        "features": [
+          "Salvage law as written: what the sea gives up belongs to whoever gets it ashore, and possession is nine-tenths of everything",
+          "A docket, a clerk, and no appeal beyond the chain's general opinion, which does not reach Ambergrace",
+          "A standing arrangement by which yard fees, once entered, become debts enforceable against a hull"
+        ],
+        "encounters": [
+          "The party's yard fee, entered as a debt and enforceable against the Widow's Compass",
+          "Ryse Halloran's contract, if the party tries to buy it out or break it",
+          "A hearing about the false bell, if the party is bold enough to bring one — which they will lose, informatively"
+        ],
+        "secrets": [
+          "Two of the three men on the salvage court draw a salary from Lowther & Sons and the third does not, and the third is the one who will tell the party so",
+          "The court's own records show the ownership chain from Skene's Yard to Lowther & Sons to a name that is not a person: the Hollow Bell Company of Ambergrace, registered eleven years ago, with a founder's name the party will meet in bw-scenario-004"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The Widow's Compass cannot go on. Her bottom is foul, her forward plank is sprung, she is two knots slower than she should be, and no windward yard on the chain will careen a nine-marked hull. Ambergrace will — Ambergrace will take anything — and so the party sails into a town built out of wrecked ships, hauls their only asset onto its side on a beach for four days, and finds out what that costs. The fee is more than they have. The offers made to cover it are reasonable, legal, written down, and all hooks. Somebody aboard is going to be offered a genuinely good way out at the rest of the crew's expense, and the offer is good, and it is meant. This is the scenario built for the Articles: four days of a party that cannot leave, in a town where everything is a contract, with a crew who each have their own arithmetic and Article Eight in their pockets. It ends with a clean hull, the party in somebody's book, and the name of who casts the bells.",
+  "hook": "You come into Ambergrace on the afternoon tide with the pumps going and everybody in a mood, and the first thing you see is that the town is beautiful. It should not be. It is built out of dead ships — hulls up on end for walls, spars for roof-trees, a whole street decked over with somebody's barque — and it ought to look like a graveyard, and instead it looks like a place where things get made. There is money here. There is hot food at the quay at four in the afternoon and a man selling it who is fat and cheerful and from the Beads. There is a yard on the spit with four hulls hove down on the hard and a capstan going and a hundred people working, and a foreman comes down the beach to meet you before you have even got a line ashore, wiping his hands, smiling, and says: 'Nine marks, is it? Doesn't signify here. Bring her in on the top of the tide tomorrow and we'll have her over by noon. Skene's the name, and I'll want your names in the book, that's all, just the book.'",
+  "articlesAtStake": [
+    {
+      "article": 2,
+      "note": "Ambergrace is a salvage town and there is money lying about in it. The temptation here is not to steal from a wreck but to sell something of the ship's — a spare anchor, a bolt of canvas, the false bell — and settle the fee without telling anyone. Article Two catches it and the count is done in front of everyone."
+    },
+    {
+      "article": 5,
+      "note": "Somebody will offer the party a freight to carry off the leeward side, well paid, no questions, and it is exactly the sort of cargo Article Five exists for. The offer is genuinely lucrative and would clear the yard fee outright."
+    },
+    {
+      "article": 7,
+      "note": "Four days ashore in a town where everything is expensive and every hand aboard is unpaid. Something goes out of the ship's stores in this scenario and the count will show it."
+    },
+    {
+      "article": 8,
+      "note": "THE SCENARIO'S CENTRE. A named NPC companion is offered a berth, a debt cleared, or a passage home, on terms that are genuinely better than anything the party can match. If they take it, they invoke Article Eight, they are paid their shares in front of the whole crew, and they go. The DM must honour this. If Article Eight is not real here it is not real anywhere and the feature is a bluff."
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Hove Down",
+      "description": "The ship goes over on her side on the careening hard and stays there for four days, and the party discovers what a fee is in a town where fees become debts. This act is about being immobilised, on purpose, by pleasant people.",
+      "objectives": [
+        "Get the Widow's Compass onto the hard and hove down without losing a mast",
+        "Learn the fee, and understand that it is more than the party has",
+        "Hear the four ways it can be settled, none of which are threats",
+        "Survive four days ashore in a town that is politely studying the crew"
+      ],
+      "scenes": [
+        {
+          "name": "Four Days on Her Side",
+          "description": "The careening itself — a genuinely difficult, dangerous piece of work that the yard does superbly — and the specific vulnerability of a ship that has been unrigged and laid over and cannot leave.",
+          "readAloud": "\"Heaving down a brig is a violent business done very carefully. They take the guns out of her, and the ballast, and the stores, and then they run tackles from the mastheads to a capstan on the beach and they walk her over — and there is a moment where a hundred and ten feet of ship that has been upright for twenty years goes past the point where she wants to come back, and every single person on that beach stops breathing for about four seconds. Then she is over. Her bottom is out of the water and it is a horrible sight: fourteen months of weed hanging off her in grey curtains, barnacle in sheets, and forward, where you touched on the Sharrow, a plank sprung out from the frame by the width of two fingers. Skene walks the length of her with a maul, tapping, and says nothing at all for twenty minutes, and then he says: 'Six weeks' work, or four days if you pay for the men. Which is it?'\"",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 13,
+              "success": "The party's own crew work the heaving-down tackle alongside the yard hands and the ship goes over as sweetly as anyone has seen. Skene notices, says so, and knocks something off the fee because he genuinely respects it.",
+              "failure": "A tackle surges under load and the ship comes over with a lurch. Nobody is killed; a yard hand's arm is broken and the party will be charged for his month. 1d6 bludgeoning to anyone on the tackle."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "The fee book on the yard office table is not a fee book. Read up the page and it is a list of masters, ships, amounts, and — in a fourth column — what each one settled with. Very few of them settled with money.",
+              "failure": "You sign the book. Everyone signs the book. It is just the book."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Bevis Skene is not lying to you about anything and is not going to. He is a good shipwright who is very fond of ships and has been employed for eleven years by people he does not enquire about, and he has decided that not enquiring is a professional virtue.",
+              "failure": "A yard master doing sums."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The careening should be a pleasure to watch and terrifying to think about afterwards. Skene's yard does excellent work at a fair price and everything about the transaction is above board — and at the end of it the party's only asset is on its side on a beach in a town that owns the beach. Make the players feel the immobility without threatening them once. Nobody in Ambergrace threatens anybody; that is the entire aesthetic.",
+          "loot": [
+            "A clean bottom and a repaired forward plank, worth two knots and the ship's structural integrity",
+            "The yard's fee: 400 gp, entered in the book, and the party has about 90 gp"
+          ]
+        },
+        {
+          "name": "Four Ways to Settle",
+          "description": "The offers. All four are made kindly, in daylight, with paperwork, and all four are real. This is the scene that defines the Hollow Bell.",
+          "readAloud": "\"Skene doesn't press. That is the thing about him. He tells you the number — four hundred, which is about four hundred more than you have — and then he says, in the tone of a man listing the weather options, 'Now. There's four roads out of that and none of them is bad. One: pay it. Two: Lowther on Deck Row will write it against the hull, and you'll pay it out over three years, and the paper sits with him. Three: there's freight going off the leeward side wants a fast brig and pays two hundred a run, and two runs clears you. Four —' and here he looks past you at the crew on the beach, not unkindly, just looking, '— four, some of your hands take yard berths and their signing money comes to me. I'd have that big bosun tomorrow at forty a year and think myself lucky.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "Option two is the hook. A note written against the hull means Lowther holds a paper on the ship, and a paper on the ship survives the year's turn — which means if the Compass is broken up on the strand at Tallowport, Lowther collects the timber. He would quite like that outcome and is not in any hurry to conceal it.",
+              "failure": "Four offers, all of them better than being stuck on a beach."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "The freight in option three is Article Five's whole reason for existing. Ask two questions at the quay and you find out what it is: eighty-one people from three Beads hamlets, contracted to the Grace Foundry, to be carried off the windward side to Ambergrace. The contracts are legal. The people signed them. Most of them cannot read.",
+              "failure": "Freight is freight. Two hundred a run is a very good rate for a brig."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "You get the fee down to 280 gp on the strength of the party's own crew having worked the careening. Skene does this because he wants to, and Lowther will hear about it and think less of him for it.",
+              "failure": "'Four hundred. It's the same for everyone, and that's the only good thing I can say about it.'"
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "None of these offers is a trap in the sense of being dishonest. All four are exactly what they say. Option three is the Article Five test and the DM must make it genuinely tempting: two runs clears the debt, the cargo walks aboard willingly, the contracts are legal, and refusing it means the party still owes four hundred pounds with twenty-six days to the year's turn. If they take it, do not have lightning strike — apply Article Five as written: it goes back on the quay before the ship sails, whoever loaded it pays the freight out of their own shares, Crew Regard -2. And then let the party sit with the fact that the eighty-one people are still going to Ambergrace in somebody's hull.",
+          "loot": []
+        },
+        {
+          "name": "The Fair Increase at the Quay",
+          "description": "The lighter that reported three of Idony Marrach's nine callings is lying two hundred yards from the party's own hull, and her master is drinking on Deck Row.",
+          "readAloud": "\"Pellamy Doss has been very quiet since you got here, and on the second afternoon you find out why: he is standing at the head of the Deck Row quay looking at a leeward lighter with a green sheer-strake, and when you come up beside him he says, without turning round, 'Fair Increase. Out of here. Eleven years on this quay.' He is holding his own copy of three entries in his own hand. 'I wrote these,' he says. 'The Fair Increase reported them and I entered them and I initialled them, and I was told to, and I did it, and each one of them says that the Widow's Compass heard a calling at a position and did not answer.' He folds the paper. 'The third of those days I know for a fact that Idony Marrach was hove to off Nethercombe with a dead engine of a mainmast, because I was standing on the beach at Nethercombe watching her.'\"",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "The Fair Increase's own log, if the party gets aboard her, records her positions for the relevant dates — and on all three she was nowhere near the callings she reported. She reported them because she was told to, from a shore office, in writing.",
+              "failure": "A lighter at a quay with nobody aboard but a watchman."
+            },
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "You get aboard the Fair Increase as a chandler's man, a customs clerk or a prospective buyer, and you get twenty minutes with her log. Take what you can carry.",
+              "failure": "The watchman is not stupid and this is not a town where strangers wander aboard vessels. You are seen, and Lowther knows your face by the evening."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 15,
+              "success": "You come off her with three loose pages of the log in your shirt, which is theft, and which is admissible nowhere, and which is the proof.",
+              "failure": "You come off her with nothing and a torn shirt, and the log is moved ashore that night."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the scene where the false marks stop being a suspicion and become a documented fraud with a named vessel and a named shore office attached. Pellamy Doss is the moral centre of it: he wrote three of them, he says so plainly, he does not ask for forgiveness, and he offers to swear to it in front of the Hall at the year's turn. Do not let the party absolve him. He will not accept it.",
+          "loot": [
+            "Three pages of the Fair Increase's log, stolen, showing her positions on the dates of three of the party's nine marks",
+            "The written instruction that sent her — signed with a shore office's chop, not a name"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Offer",
+      "description": "Somebody aboard the Widow's Compass is offered a way out of the whole thing at the rest of the crew's expense, and it is a genuinely good offer, made in good faith, by someone who means it. This act is the Articles under load, and it is the reason this scenario exists.",
+      "objectives": [
+        "Meet Vennor Lowther, who will tell the party most of the truth if asked properly",
+        "Discover what has been offered, to whom, and on what terms",
+        "Let the person offered make their own decision — including leaving",
+        "Decide what the party does about the eighty-one people contracted to the foundry"
+      ],
+      "scenes": [
+        {
+          "name": "Lowther, Behind the First Door",
+          "description": "Vennor Lowther of Lowther & Sons, Marine Assurance: forthright, likeable, entirely candid within limits, and the best argument the Hollow Bell has. He is not the master of it and he is not lying.",
+          "readAloud": "\"Lowther & Sons is a small clean office with a good fire and a decanter, and Vennor Lowther is about fifty, in a plain coat, with the manner of a man who has never in his life needed to raise his voice. He gives you the chair by the fire. He pours. And before you have asked him anything at all he says: 'You've come about the Sharrow, and before you start — yes. I insure eleven of those hulls. Yes, every policy inside four months of the loss. Yes, I know exactly how that reads, and if I were you I would read it the same way.' He sits down opposite. 'Now. Ask me your questions, and I'll answer the ones I can, and I'll tell you plainly when I won't, which is more than you'll get at the Hall.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "Every word he says is true. He is also structuring the conversation so that the questions he cannot answer never quite get asked. He is not the master of the Hollow Bell — he genuinely does not cast bells or move buoys — and he has been extremely careful for eleven years to have no idea who does.",
+              "failure": "The most honest man you have met on the chain, and you have no idea what to do with that."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "He gives you the name. Not the person — the company: the Hollow Bell Company of Ambergrace, registered eleven years ago at the salvage court, and he says, 'The founder's name is on the registration and I would not go and read it here, if I were you, because the clerk reports who reads it.'",
+              "failure": "'That's one I won't answer. I told you I'd tell you when.' And he does not, and he refills your glass, and the conversation moves on pleasantly."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 20,
+              "success": "You get nothing further and you make an enemy who will be polite about it forever. There is no version of this where threatening Lowther helps, and a party that tries should be allowed to fail at it cleanly.",
+              "failure": "He looks genuinely disappointed in you, which is worse, and the Widow's Compass finds its yard fee due in full the following morning."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Lowther is the campaign's best argument for the other side and he should be allowed to make it: the Sounding has always served the people with hulls, the Beads have been poor for a century under it, Ambergrace feeds four thousand people and the Sounding never fed anybody, and salvage law is at least written down. He is wrong, but he is not stupid and he is not a hypocrite, and the party should have difficulty answering him. Save the actual refutation for bw-scenario-004, where his master makes the same argument better and it is much harder to hear.",
+          "loot": [
+            "The name of the company, and the fact that the salvage court's clerk reports who reads its registration"
+          ]
+        },
+        {
+          "name": "A Genuinely Good Offer",
+          "description": "The scenario's centre. One of the ship's people is offered something they have wanted for years, on terms nobody can fault, and the price is the rest of the crew. The DM chooses who, based on what the table has come to care about.",
+          "readAloud": "\"It happens on the third evening and it is not a secret; that is the part that takes you a while to understand. There is no whispered meeting behind a warehouse. There is a note delivered openly to the ship's people by a yard boy in the afternoon, and an invitation to Lowther's office, and then whoever it was comes back down the beach at about eight and stands at the edge of the firelight and does not sit down. And when they finally say it, they say it in front of everybody, because that is what the Articles are for. 'They've offered me something. And I want to tell you all what it is, and then I want to think about it, and I'd rather you heard it from me.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "They have not decided. They are genuinely torn, they told the party out of respect rather than as a negotiating position, and nothing said in the next ten minutes will be forgotten by them.",
+              "failure": "You cannot read them at all, which is itself unusual and unsettling."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 17,
+              "success": "You give them a reason to stay that is about them rather than about the ship, and it works, and they stay — and the offer stands open for the rest of the campaign, which the DM should mention once and then never again. Crew Regard +1.",
+              "failure": "Nothing you say is wrong and none of it is enough. They take it, invoke Article Eight, and go."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "CHOOSE THE TARGET FROM WHAT THE TABLE CARES ABOUT. Suggested offers, each real and each specific: to GRULL ASHPIKE, forty a year as yard bosun and his six years at Ambergrace expunged from anybody's memory — he walked out of this town and has never told the party what he loaded here. To BETTRAM OKE, a cook's berth ashore at a Deck Row eating-house, nine years of hating the sea over, and no more hiding that he cannot swim. To PELLAMY DOSS, a physician at Ambergrace who genuinely might buy him another year, in exchange for the three pages of log. To SEFI NIGHTJAR, nineteen and never off the chain, an apprenticeship and a wage and a room with a window. To ONDINE MARRACH, her mother's ship — Lowther will buy out the party's interest and put Ondi in command, and it is the single most tempting offer in the campaign. Whoever is chosen, the offer must be good enough that the players are not sure, and the DM must honour Article Eight if they take it: shares paid in front of the whole crew, and they go, and the ship sails short-handed. Do not sabotage the offer, do not reveal it as a trick, and do not bring them back next week. If they go, they are gone until bw-scenario-004, where they are standing on the other side of the hall.",
+          "loot": []
+        },
+        {
+          "name": "Ryse Halloran's Contract",
+          "description": "A moulder at the Grace Foundry who signed something four years ago that he could not read. The clearest statement in the campaign of what the Hollow Bell actually does to people.",
+          "readAloud": "\"He is about thirty-five and he looks fifty, and he talks to you because you are not from here and he has not talked to anyone who is not from here in a long time. He is not in chains. Nobody is in chains in Ambergrace; the whole town would be offended by the suggestion. He shows you the paper himself, folded into eight, soft as cloth. 'Four year ago,' he says. 'Passage off the Beads, keep and a wage, and the passage against the wage till it's clear.' He turns it over. 'They read it me. I've since had it read me by someone else.' He looks at you with no self-pity at all. 'It's compound. The passage. So it's grown every year I've been at it, and this year it grew more than I earned, and it'll do that again. There's no end on it. That's not them cheating — that's what I signed. It's in the paper. It's just in the paper in a place I couldn't get to.'\"",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The contract is exactly what he says: legal, enforceable at the salvage court, compound, and endless. There are eleven men on the night shift and about ninety in the town on paper like this.",
+              "failure": "A dense legal document. You get the gist and the gist is bad."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "The salvage court will discharge one contract for cash at face value plus a fee: 250 gp for Halloran. It is a fortune to the party right now, and it buys exactly one man out of ninety, and the court will write another eleven next month.",
+              "failure": "The court is not interested in discussing contracts with parties who are not party to them."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Do not let the party solve this. Ninety contracts, 250 gp each, and a court that writes more every month: the arithmetic is deliberately impossible and the point is that the party leaves Ambergrace having not fixed it. If they buy Halloran out — which they should be allowed to do, at real cost — he signs the Articles and comes with them, and he knows where the moulds are, which pays off in bw-scenario-004. If they do not, he is still there at the year's turn and should be named in the final scene. Tone floor: nobody is whipped, nobody is chained, nobody is a slave, and the cruelty is entirely a piece of paper. That is what makes it stick.",
+          "loot": [
+            "Ryse Halloran's contract, if bought out (250 gp) — and Halloran himself, who knows the foundry floor and what comes up from the Deep to be finished on it"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Foundry at Night",
+      "description": "The party gets inside the Grace Foundry, finds the bell-moulds, and learns that this floor is only the finishing shop — the real recasting happens underwater at Ossary Deep, where the old moulds are. They leave Ambergrace with a clean hull, a name, and somebody's attention.",
+      "objectives": [
+        "Get into the Grace Foundry at night",
+        "Find the bell-moulds and establish that harbour bells are being cast here",
+        "Learn that the foundry is the smaller half, and where the larger half is",
+        "Get the ship off the beach and out of Ambergrace"
+      ],
+      "scenes": [
+        {
+          "name": "Over the Foundry Wall",
+          "description": "A wall, a gate, a night watch and dogs. A straightforward infiltration with a real alternative: Ryse Halloran can walk the party in as relief hands if they have earned him.",
+          "readAloud": "\"The Grace Foundry runs at night because bronze does not care what time it is and because the town sleeps better not watching. From the wall you can see all three furnaces going and the light coming up off the finishing floor in that particular orange that makes everybody look like a woodcut. Eleven men on the floor. A watchman on the gate with a lantern and two rangy dogs on a running line. And beyond the furnaces, at the back, a low shed with no windows and a good lock, which is where anything worth locking up in this town would be.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 15,
+              "success": "Over the wall, past the running line, and into the shadow of the moulding shed without a dog lifting its head.",
+              "failure": "A dog gives tongue. You have one round to deal with it quietly before the watchman comes round the furnace end with his lantern up."
+            },
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "You walk in through the gate as relief hands off a leeward lighter, and the watchman waves you through without looking up, because eleven men on a night shift is a number nobody counts on the way in — only on the way out.",
+              "failure": "'I don't know you.' He is not alarmed, only correct, and you are not getting in this way tonight."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 14,
+              "success": "The lock on the moulding shed is a good one and you have it in ninety seconds.",
+              "failure": "The lock is a good one. Force it and it shows, and somebody will know by morning."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "1 bandit captain (the night watchman, Sabbe, who is not a bandit but has the stat block and the temperament)",
+                "4 thugs (yard men who come at a shout)",
+                "2 wolves (the yard dogs, using the wolf stat block, which will break off the instant they are not being fought)"
+              ],
+              "difficulty": "Hard",
+              "tactics": "This fight should not happen and the DM should give the party three chances to avoid it. If it does happen, run it as people defending a workplace, not monsters: Sabbe shouts for the yard before he draws, the thugs arrive in ones and twos over three rounds, and everyone in the fight is trying to hold rather than kill. Any character reduced to 0 hit points here is knocked out and wakes up in the salvage court, not dead. Killing yard men in Ambergrace ends the party's freedom of movement in this town permanently and should be made obviously undesirable in fiction before a blade is drawn.",
+              "terrain": "A foundry floor at night: three open furnaces (5d6 fire damage for anything shoved in, and everyone knows it), moulding sand underfoot as difficult terrain, gantries and stacked pig-bronze for cover, and eleven contracted workmen who will not fight for either side and will get in everybody's way."
+            }
+          ],
+          "roleplayNotes": "If the party bought out Ryse Halloran in Act 2, he walks them in and the whole infiltration is a conversation instead of a Stealth check. That is the correct reward for the expensive, unprofitable, decent thing they did, and the DM should make the connection explicit afterwards.",
+          "loot": []
+        },
+        {
+          "name": "Four Sizes of Bell",
+          "description": "The moulding shed. Wooden patterns for bells in four sizes, none of them ship's bells, and a stock of scrap that includes bell-crown fragments with harbour marks still on them.",
+          "readAloud": "\"The shed is full of wooden patterns and the patterns are bells. Four sizes, racked and numbered, and none of them is a ship's bell — they are too big, and the profiles are wrong, and Anselm Coyle has gone very still beside you because he knows exactly what he is looking at. Harbour bell. Buoy bell. Two sizes of hamlet bell. And in the corner, in a crate, the scrap that goes back into the furnace: bronze in fragments, and on four or five of them, curved and unmistakable, part of a crown, part of a mark, part of a founder's date. Somebody's harbour. Somebody's whole right to be answered for, going into a crate to be melted down and hung on a chain in the fog with a false pattern on it.\"",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "The shed's tally board records what has come up and what has gone out for eleven months. Twenty-two bells finished on this floor in that time. Every one of them arrived rough-cast and was only finished here.",
+              "failure": "Patterns, sand and scrap. You can see what it is; you cannot prove the scale of it."
+            },
+            {
+              "skill": "History",
+              "dc": 14,
+              "success": "The crown fragments carry three founder's dates and all three are older than Ambergrace. Nobody on the leeward side ever cast a bell that old. These came from the windward hamlets and from somewhere older than any of them.",
+              "failure": "Old bronze."
+            },
+            {
+              "skill": "Perception",
+              "dc": 15,
+              "success": "The rough castings on the finishing bench are wet, and they are wet with salt water, and there is weed in the seam of one of them. These were not cast on this floor. They were cast underwater and brought up.",
+              "failure": "Bronze in a foundry, being worked on. Nothing about that is strange."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene delivers the scenario's promised outcome — the name of who casts the bells — but the important beat is the last one: the castings come up out of the sea. The Grace Foundry is a finishing shop. The moulds are at Ossary Deep, in the drowned foundry-city where the first bells of the chain were poured, and that sets up bw-scenario-004 completely. If Ryse Halloran is with the party he says it flatly: 'They come up wet. They've always come up wet. We don't ask.'",
+          "loot": [
+            "Four bell-crown fragments with partial harbour marks and founder's dates, portable and damning",
+            "The shed's tally board, or a copy of it: twenty-two bells in eleven months",
+            "The knowledge that the castings come up from the Deep, which is the whole of the next scenario"
+          ]
+        },
+        {
+          "name": "Off the Beach",
+          "description": "The Widow's Compass comes off the hard, clean and two knots faster, and the party leaves Ambergrace with a debt, a name, a stack of evidence and somebody's full attention. Nineteen days to the year's turn.",
+          "readAloud": "\"They right her on the morning tide and she comes up off her side like something surfacing, and when she is upright and the ballast is going back in you can already see the difference in the way she sits. Skene walks round her twice with his maul and says, 'That's a good hull. Whoever built her knew what she was for,' which is the only compliment anyone in this town has paid you. And as you warp out past the Deck Row quay, Vennor Lowther is standing at the head of it in his plain coat with his hands behind his back, and he does not wave and he is not gloating. He watches you the whole way out, the way you would watch a figure you had entered in a book, and when the town is dropping astern Pellamy Doss says, to nobody in particular: 'Nineteen days.'\"",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "The Fair Increase warps out of Deck Row an hour behind you, in no hurry, on the same course. She will be over the horizon astern of you for the next three days and she will not close.",
+              "failure": "You leave Ambergrace and Ambergrace lets you."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "End on Lowther watching. No pursuit, no ambush, no parting threat — the Hollow Bell does not do those, which is exactly why it is frightening. Total the position out loud: nineteen days to the year's turn, marks still standing (however many the party has cleared by answering honest callings between scenarios), a yard fee owed to whoever they settled with, and the whole thing coming to a head at Ossary Deep.",
+          "loot": [
+            "A clean, sound, fast ship: the fouled bottom and the sprung plank are both fixed and the Compass is two knots faster for the rest of the campaign"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Bevis Skene",
+      "role": "Yard master, Ambergrace / Neutral",
+      "description": "Sixty, enormous hands, absolutely superb at his job, and employed for eleven years by people he has made a policy of not enquiring about. He will careen a nine-marked hull because a hull is a hull. He respects good seamanship visibly and will knock money off the fee for it. He is not a villain and he is not innocent, and he has never once had to decide which.",
+      "motivation": "Good work on good hulls, and a quiet life in which nobody makes him think about the fee book's fourth column."
+    },
+    {
+      "name": "Vennor Lowther",
+      "role": "Lowther & Sons, Marine Assurance / The Hollow Bell's respectable face",
+      "description": "Fifty, plain coat, good fire, decanter. Candid to the exact edge of what he can say and completely honest about where that edge is. He insures eleven of the fourteen Sharrow hulls and volunteers this before being asked. He is not the master of the Hollow Bell and has spent eleven years carefully not finding out who is.",
+      "motivation": "The Sounding served people with hulls and never fed the Beads; Ambergrace feeds four thousand; salvage law is at least written down. He believes all of this, and it is not entirely wrong, and that is the problem."
+    },
+    {
+      "name": "Ryse Halloran",
+      "role": "Moulder, Grace Foundry / Potential companion",
+      "description": "Thirty-five, looks fifty, four years into a compound passage-debt he signed and could not read. Not chained, not beaten, not a slave — just a man holding a folded piece of paper with no end on it. He talks to the party because they are not from here. He knows the foundry floor and knows the castings come up wet.",
+      "motivation": "To get to the end of a document that does not have one. He is not bitter and that makes it worse."
+    },
+    {
+      "name": "Sabbe",
+      "role": "Night watchman, Grace Foundry / Obstacle",
+      "description": "A hard, competent, unimaginative man with two dogs and a lantern, who will shout for the yard before he draws and who is defending a workplace rather than a lair. Use the bandit captain stat block. He should not be killed and the fiction should make that clear before anyone rolls initiative.",
+      "motivation": "His wage, his dogs, and getting to the end of the shift."
+    },
+    {
+      "name": "The Third Man of the Salvage Court",
+      "role": "Salvage court, Ambergrace / Unexpected ally",
+      "description": "An elderly clerk-magistrate named Ganneth Orry who is the only one of the three who draws no salary from Lowther & Sons, and who will say so to the party's face if they get him alone. He will not rule against the other two and he will tell the party exactly where the Hollow Bell Company's registration is filed and who reports on people reading it.",
+      "motivation": "To be able to say, eventually, that he told someone."
+    }
+  ],
+  "rewards": {
+    "xp": 8600,
+    "gold": "Net negative, and that is the point: the yard fee is 400 gp (280 gp if negotiated) against about 90 gp in hand. Whatever the party recovers in this scenario — roughly 300 gp from selling salvage they should not sell, from the Deck Row market, or from honest callings answered on passage — goes straight into the fee or into Ryse Halloran's 250 gp contract, and the arithmetic should not comfortably cover both.",
+    "items": [
+      "A clean bottom and a repaired forward plank — the Widow's Compass is two knots faster for the rest of the campaign",
+      "Four bell-crown fragments from the foundry scrap, with partial harbour marks and founder's dates older than Ambergrace",
+      "The Grace Foundry tally board: twenty-two bells finished in eleven months, all of them arriving rough-cast from elsewhere",
+      "Three stolen pages of the Fair Increase's log, showing her nowhere near three callings she reported",
+      "The written shore-office instruction that sent her, chopped and unsigned",
+      "The name: the Hollow Bell Company of Ambergrace, registered eleven years ago at the salvage court",
+      "Ryse Halloran, if bought out — a moulder who knows what comes up wet from the Deep"
+    ],
+    "story": "The ship is whole and fast and the party is in somebody's book. They know the company's name, they know the false marks were written to order by a shore office, they know harbour bells are being melted and recast, and they know the Grace Foundry is only the finishing shop — the moulds are underwater, at Ossary Deep, where the first bells of the chain were poured. They may also be one hand short, because somebody was offered something good and took it, and the Articles were honoured. Nineteen days to the year's turn."
+  },
+  "twists": [
+    "Nobody in Ambergrace threatens the party once. Every offer is legal, written down, explained kindly and honoured to the letter. The town's whole method is paperwork and pleasantness, and a party braced for a pirate den should find that far more unsettling than a fight.",
+    "Option two — a note written against the hull — means Lowther holds a paper on the ship that survives the year's turn. If the Widow's Compass is broken up on the strand at Tallowport, Lowther collects the timber. He is not concealing this and is not in a hurry either way.",
+    "The freight offered in option three is eighty-one people from three Beads hamlets, contracted to the Grace Foundry, who signed willingly and mostly cannot read. This is Article Five with money attached, and refusing it leaves the party still owing four hundred pounds.",
+    "The offer made to one of the ship's people in Act 2 is real, good, meant, and remains open. If they take it, Article Eight applies exactly as written and they are gone. The DM must honour this. They reappear in bw-scenario-004 on the other side of the hall.",
+    "The Grace Foundry is the smaller half. The rough castings arrive wet, with weed in the seams: the bells are being cast underwater at Ossary Deep, in the drowned foundry where the first bells of the chain were poured, and everything the party has been chasing on the surface has been the finishing shop."
+  ],
+  "dmTips": [
+    "AMBERGRACE MUST BE LIKEABLE. Good food, good wages, cheerful people, better stock in the shops than Tallowport, and half the town is from the Beads because there was nothing to eat there. If the players enjoy being in Ambergrace, the scenario is working. The moment it becomes a den of villains it stops meaning anything.",
+    "NOBODY THREATENS ANYBODY. Not once, by anyone, in the whole scenario. Every hostile act in this town is a signature, a fee, a clause or a polite refusal. If you find yourself writing a menacing line for an Ambergrace NPC, cut it and replace it with a piece of paper.",
+    "ARTICLE EIGHT IS THE POINT OF THIS SCENARIO AND YOU MUST BE WILLING TO LOSE THE NPC. Choose the target from what the table has come to care about, make the offer genuinely better than anything the party can match, and if it is taken, pay the shares in front of the whole crew and let them walk. Do not reveal it as a trick, do not have them return contritely next session, and do not punish them. An Article Eight that never fires is a bluff, and the players will know.",
+    "THE FEE ARITHMETIC SHOULD NOT WORK. 400 gp for the yard, 250 gp for Halloran's contract, about 90 gp in hand, and nineteen days. Let the party feel the squeeze and let them solve it in whatever combination of ugly ways they choose — selling the false bell (which they promised Nethercombe), taking Lowther's note, or working honest callings for their fees. Every route costs something the campaign will remember.",
+    "RYSE HALLORAN IS THE SCENARIO'S ARGUMENT and he should be played with no self-pity whatsoever. He is not in chains, nobody has hurt him, and he explains his own ruin clearly and without bitterness because he understands it perfectly. The party cannot fix ninety contracts. Let them fail at that and do not soften it.",
+    "GIVE LOWTHER HIS BEST ARGUMENT and do not let the party win it easily. The Sounding has always served the people who own hulls; the Beads have been poor for a century under it; Ambergrace feeds four thousand people. He is wrong about what to do, not about what is true, and the campaign's ending is much better if the players have been genuinely troubled by him here.",
+    "THE FOUNDRY FIGHT SHOULD NOT HAPPEN. Give three clear routes past it — Halloran walking them in, the relief-hand deception, and simple stealth — and if it does happen, run it as workplace defence with nobody dying. Killing yard men in Ambergrace ends the party's ability to move in this town and should be visibly a bad idea before initiative is rolled.",
+    "TRACK CREW REGARD HARD IN THIS SCENARIO. Four days ashore in an expensive town with an unpaid crew is where Articles Two, Five, Seven and Eight all come live at once. Name every article you apply, out loud, in fiction — Grull Ashpike is the bosun and that is his job — and apply the written restitution rather than one you invent.",
+    "PACE IT AS FOUR SESSIONS: the careening and the fee and the four offers; Deck Row, Lowther, and the Fair Increase; the offer to one of the ship's people and Ryse Halloran; the foundry and the departure. Do not rush the third session; it is the best one.",
+    "END ON LOWTHER WATCHING FROM THE QUAY. No pursuit, no ambush, no parting line. He watches the ship out of the harbour with his hands behind his back like a man checking an entry, and Pellamy Doss says 'nineteen days,' and that is the end of the scenario."
+  ]
+}

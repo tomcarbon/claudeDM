@@ -1,0 +1,83 @@
+{
+  "id": "e65f79f3-87a5-4cc2-8a8d-415311de604d",
+  "name": "Aldous Penn",
+  "status": "alive",
+  "race": "Halfling",
+  "subrace": "Stout",
+  "class": "Cleric",
+  "level": 2,
+  "background": "Acolyte",
+  "alignment": "Lawful Good",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 10, "modifier": 0 },
+    "dexterity": { "score": 15, "modifier": 2 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 8, "modifier": -1 },
+    "wisdom": { "score": 15, "modifier": 2 },
+    "charisma": { "score": 12, "modifier": 1 }
+  },
+  "hitPoints": { "max": 17, "current": 17 },
+  "armorClass": 15,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Wisdom", "Charisma"],
+  "skills": ["Medicine", "Persuasion", "Insight", "Religion"],
+  "languages": ["Common", "Halfling"],
+  "equipment": [
+    "Chain shirt, which he has owned for thirty years and put on twice",
+    "Mace",
+    "Light crossbow and 20 bolts",
+    "Holy symbol: a wooden hearth-token on a cord, carved by his mother",
+    "The House chapel's register of services, kept in his own hand for nineteen years",
+    "A herbalism kit and a small dispensary of exactly seven remedies",
+    "Priest's pack",
+    "A chair cushion he carries from room to room, which the House finds hilarious",
+    "Belt pouch containing 9 gp"
+  ],
+  "weapons": [
+    { "name": "Mace", "attackBonus": 2, "damage": "1d6", "damageType": "bludgeoning" },
+    { "name": "Light Crossbow", "attackBonus": 4, "damage": "1d8+2", "damageType": "piercing" },
+    { "name": "Sacred Flame (cantrip, DEX save DC 12)", "attackBonus": 0, "damage": "1d8", "damageType": "radiant" }
+  ],
+  "armor": { "name": "Chain shirt", "type": "medium" },
+  "features": [
+    "Lucky (when you roll a 1 on an attack roll, ability check or saving throw, reroll and must use the new roll)",
+    "Brave (advantage on saving throws against being frightened)",
+    "Halfling Nimbleness (can move through the space of any creature of a size larger than yours)",
+    "Stout Resilience (advantage on saving throws against poison, and resistance to poison damage)",
+    "Divine Domain: Life",
+    "Bonus Proficiency (heavy armor)",
+    "Disciple of Life (healing spells of 1st level or higher restore an additional 2 + the spell's level hit points)",
+    "Channel Divinity (1 use per short or long rest)",
+    "Channel Divinity: Turn Undead",
+    "Channel Divinity: Preserve Life (restore hit points equal to five times cleric level, divided among creatures within 30 ft., up to half their maximum each)",
+    "Shelter of the Faithful (Acolyte feature)"
+  ],
+  "traits": ["Disciple of Life", "Preserve Life", "Stout Resilience", "Lucky"],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 4,
+    "cantrips": ["Sacred Flame", "Spare the Dying", "Light"],
+    "level1": {
+      "slots": 3,
+      "known": ["Bless (domain)", "Cure Wounds (domain)", "Healing Word", "Sanctuary", "Detect Poison and Disease", "Guiding Bolt"]
+    }
+  },
+  "personality": {
+    "traits": "I have been the chaplain of this House for nineteen years and I know every single one of these people, and I have attached myself to four strangers within a day of a death, and I would like somebody to notice how strange that is.",
+    "ideals": "Speak. Whatever it is. The longest silences do the most harm and I have watched this House keep three of them for a decade each.",
+    "bonds": "Nineteen years of a register in my own hand: every service, every burial, every one of the four children born up here. It is the only record of this place that is about people rather than numbers.",
+    "flaws": "I heard the argument through the study wall on the night he died and I said nothing, and I have said nothing every day since, and every day it gets harder to say, and I am now the person in this House most in need of the advice I give everybody else."
+  },
+  "appearance": "A round, comfortable, entirely unremarkable stout halfling of about sixty, in a chaplain's plain coat and a scarf he has worn every winter since anyone can remember. He carries a chair cushion from room to room, which the House has found funny for nineteen years and which he keeps doing because his back is his back. He has a good, easy, unhurried face and the specific competence of a man who has spent two decades sitting with people who are unhappy. Since the second night he has been sleeping badly and it shows, and he tells anyone who asks that it is the cold.",
+  "backstory": "Aldous Penn came up Coldharrow Pass nineteen years ago to serve a winter as chaplain to the Reckoning House and simply never went back down. There is not a great deal for a chaplain to do among twelve reckoners — they are not an irreligious lot but they are a preoccupied one — so he made himself into something else instead: the House's physician, its register-keeper, the person who sits with anyone who is ill, and the only individual in the building whose entire job is other people rather than arithmetic. He knows every one of the twelve, most of them for over a decade, including all three of the House's long-running silences and both of its old grudges. On the second night he was in the chapel-room, which shares a wall with the Master's study, and he heard fifteen minutes of an argument between Hollis Ardwen and Ilsabet Wray, and he could not make out words but he could make out which two people, and he could tell it was the third such argument that week. He has not told anybody. He told himself on the first morning that it was not relevant, on the second that it would only make trouble for a colleague, on the third that it was too late to explain the delay — and by the fifth day he has attached himself to four armed strangers who arrived the day before the death, because they are the only people in the building he is certain did not do it, and he is waiting for one of them to ask him a question he can answer honestly.",
+  "dmNotes": {
+    "roleplaying": "Aldous is the party's way in. He attaches himself to them on the third morning, unprompted, because he trusts nobody inside — and the DM should let the players enjoy that for a session before they work out what it means about him. He is warm, funny, extremely well-informed about all twelve residents, and completely unreliable about the one thing that matters: he will discuss anybody's history, grudges, health and marriage, and will change the subject with visible clumsiness if the second night's argument comes up. Use him as the campaign's social encyclopaedia and as its second demonstration (after Marta Sull) that a decent person can behave evasively for reasons that are not murder. In practical terms he is a Life cleric who will heal anybody without being asked, including the residents, including — on the last night — the woman in the room with a man outside the door.",
+    "voice": "Comfortable, unhurried, slightly circular. He tells anecdotes with too much scene-setting and gets to the point about ninety seconds after he could have. He calls people by their first names, all twelve of them, which nobody else in the building does. When he is avoiding something his sentences get shorter and more cheerful, which is a tell that any player watching him for two conversations will pick up. When he finally says the thing, he says it plainly and without excuses, and then he apologises exactly once and not again.",
+    "motivations": "Primary: to get this House to thaw without it tearing itself apart, which he has decided is his actual job and which he is failing at. Secondary: to be asked. He desperately wants somebody to ask him what he heard through the wall, because he has been unable to volunteer it for five days and every day makes it worse. Tertiary: to look after everybody's body and everybody's sleep, which he does continuously and which is why he is the first person to notice that Ilsabet Wray has not slept since Tuesday.",
+    "secrets": "HE HEARD THE ARGUMENT. On the second night, in the chapel-room on the other side of the study wall, he heard fifteen minutes of Hollis Ardwen and Ilsabet Wray arguing, and he knew which two voices, and he knew it was the third time that week. He has said nothing. His reasons decayed in a specific and very human order — not relevant, then not fair to a colleague, then too late to explain the delay — and by day five the silence itself is the thing he cannot get past. He will tell the party the moment anybody asks him directly what he heard on the second night, and he will be enormously relieved, and he will not forgive himself for the five days. THIS IS A SECOND ROUTE TO THE STUDY ARGUMENT ALONGSIDE SENNET VOLE, and the DM should treat it as a gift for a party that has been kind to him rather than as a clue with a DC. SECOND SECRET, small and sad: he has not been down the pass in nineteen years and is no longer sure he could, and has stopped telling people he means to.",
+    "attitude": "Immediately, disarmingly friendly toward the party, and quietly desperate underneath it. Toward the twelve: affectionate, protective and clear-eyed — he likes them all, has no illusions about any of them, and would be genuinely destroyed by any of them being the answer. Toward Merrit Doane he is patient in a way nobody else in the building manages. Toward Ilsabet Wray he is worried about her health and has been for a fortnight, which is a fact he will volunteer freely and which is more useful than he knows. Toward the accusation in rh-scenario-004 he does not interfere, does not plead, and afterwards sits with her, which is the last thing he does in the campaign and should be shown and not remarked upon."
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "2dcd3d9e-7af4-4cfc-929d-2885a76a5f13",
+  "name": "Pim Farrow",
+  "status": "alive",
+  "race": "Gnome",
+  "subrace": "Rock Gnome",
+  "class": "Bard",
+  "level": 2,
+  "background": "Entertainer",
+  "alignment": "Chaotic Good",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 8, "modifier": -1 },
+    "dexterity": { "score": 14, "modifier": 2 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 14, "modifier": 2 },
+    "wisdom": { "score": 10, "modifier": 0 },
+    "charisma": { "score": 15, "modifier": 2 }
+  },
+  "hitPoints": { "max": 17, "current": 17 },
+  "armorClass": 13,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Dexterity", "Charisma"],
+  "skills": ["Persuasion", "Insight", "Deception", "Acrobatics", "Performance"],
+  "languages": ["Common", "Gnomish", "Elvish"],
+  "equipment": [
+    "Leather armor",
+    "Rapier",
+    "Dagger",
+    "A hurdy-gurdy in a fitted case, which is the reason he was welcome here at all",
+    "A tin whistle for when people cannot stand the hurdy-gurdy any more",
+    "Tinker's tools",
+    "Entertainer's pack",
+    "A commonplace book of songs, gossip and rhymes collected over twenty years of winters",
+    "Belt pouch containing 13 gp"
+  ],
+  "weapons": [
+    { "name": "Rapier", "attackBonus": 4, "damage": "1d8+2", "damageType": "piercing" },
+    { "name": "Dagger", "attackBonus": 4, "damage": "1d4+2", "damageType": "piercing" },
+    { "name": "Vicious Mockery (cantrip)", "attackBonus": 4, "damage": "1d4", "damageType": "psychic" }
+  ],
+  "armor": { "name": "Leather armor", "type": "light" },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Gnome Cunning (advantage on Intelligence, Wisdom and Charisma saving throws against magic)",
+    "Artificer's Lore (add twice proficiency bonus to History checks related to magic items, alchemical objects and technological devices — including, as it turns out, a brass orrery)",
+    "Tinker (proficiency with tinker's tools; can construct tiny clockwork devices with 1 hour's work and 10 gp of materials)",
+    "Bardic Inspiration (d6, bonus action, 2 uses per long rest)",
+    "Jack of All Trades (add half proficiency bonus, rounded down, to any ability check that does not already include it)",
+    "Song of Rest (d6 extra healing to allies who spend Hit Dice on a short rest)",
+    "By Popular Demand (Entertainer feature: can always find a place to perform, earning modest lodging and food, and becoming locally known)"
+  ],
+  "traits": ["Bardic Inspiration", "Jack of All Trades", "Gnome Cunning", "Tinker"],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 4,
+    "cantrips": ["Vicious Mockery", "Minor Illusion"],
+    "level1": { "slots": 3, "known": ["Charm Person", "Healing Word", "Disguise Self"] }
+  },
+  "personality": {
+    "traits": "I play for an hour after supper every night whether anybody wants it or not, and by the fourth night they want it, and by the sixth night they are telling me things. That is not a trick. It is just what happens when you are the only pleasant noise in a building.",
+    "ideals": "Everybody talks eventually, and they talk to the person who is not asking. A constable gets an answer. A musician gets the truth about somebody's brother.",
+    "bonds": "Twenty years of commonplace books, one per winter, full of songs and gossip and rhymes from places that no longer have anybody in them who remembers.",
+    "flaws": "I collect people's confidences the way other people collect coins, and I have never once been entirely clear with myself about why, and there are three or four things in my book that I should not have written down."
+  },
+  "appearance": "A neat, cheerful rock gnome of about ninety with white hair worn long, an extremely good coat gone shiny at the elbows, and the hands of somebody who has played a stringed instrument for eighty years. He carries a hurdy-gurdy in a fitted case that he treats considerably better than he treats himself. He has a gift for being the least alarming person in any room and deploys it constantly. When he is genuinely thinking his face goes completely blank, which happens perhaps four times in eight days and each time somebody notices and is unsettled.",
+  "backstory": "Pim Farrow has wintered indoors for sixty years — that is the whole trade of a travelling musician in this province, and he learned young that a man with an instrument and a good temper can be welcome anywhere from first frost to thaw and eat better than he has any right to. He has wintered in manor houses, monasteries, a tax office, a lighthouse and once, memorably, a gaol. He has twenty years of commonplace books full of what people tell a musician after the fourth night, which is a great deal more than they tell anyone official, and he has never once made trouble with any of it, which is the reason he keeps being invited back. He took the Reckoning House contract because it is a warm building with twelve people in it and an actual hearth, and because he has always wanted to see the orrery. On the first night he plays for an hour after supper and nobody asks him to. On the fourth night three separate people find a reason to sit near him. And by the sixth night Pim Farrow, ninety years old, holding a hurdy-gurdy, is the single most effective investigator in that building — and is starting to be quite seriously frightened, because he has worked out that somebody in the room likes his playing and killed a man on Tuesday."
+}

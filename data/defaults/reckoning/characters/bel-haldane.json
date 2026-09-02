@@ -1,0 +1,69 @@
+{
+  "id": "050d3030-b56c-4f70-8c8b-c721e2fa8d9a",
+  "name": "Bel Haldane",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Fighter",
+  "level": 2,
+  "background": "Soldier",
+  "alignment": "Lawful Good",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 16, "modifier": 3 },
+    "dexterity": { "score": 14, "modifier": 2 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 9, "modifier": -1 },
+    "wisdom": { "score": 13, "modifier": 1 },
+    "charisma": { "score": 11, "modifier": 0 }
+  },
+  "hitPoints": { "max": 20, "current": 20 },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Strength", "Constitution"],
+  "skills": ["Athletics", "Intimidation", "Perception", "Insight"],
+  "languages": ["Common", "Dwarvish"],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Longsword",
+    "Handaxe",
+    "Light crossbow and 20 bolts",
+    "The escort contract, countersigned by Hollis Ardwen four weeks ago",
+    "A whistle, and a small brass badge of a provincial escort company",
+    "Explorer's pack, and a bedroll she has slept on in worse places than a loft",
+    "A set of dice her old company used, which she does not play with any more",
+    "Belt pouch containing 12 gp"
+  ],
+  "weapons": [
+    { "name": "Longsword", "attackBonus": 5, "damage": "1d8+3", "damageType": "slashing" },
+    { "name": "Longsword, two-handed", "attackBonus": 5, "damage": "1d10+3", "damageType": "slashing" },
+    { "name": "Handaxe", "attackBonus": 5, "damage": "1d6+3", "damageType": "slashing" },
+    { "name": "Light Crossbow", "attackBonus": 4, "damage": "1d8+2", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Chain mail and shield", "type": "heavy" },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Fighting Style: Protection (when a creature you can see attacks a target other than you within 5 feet, use your reaction to impose disadvantage on the attack roll, if you are wielding a shield)",
+    "Second Wind (bonus action, regain 1d10+2 hit points, once per short or long rest)",
+    "Action Surge (one additional action, once per short or long rest)",
+    "Military Rank (Soldier feature: soldiers and provincial officers recognise her authority and will extend her courtesy, access and simple assistance)"
+  ],
+  "traits": ["Fighting Style: Protection", "Second Wind", "Action Surge"],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "I put myself between things. That is not a metaphor; it is what I was trained to do and it is what I do in a room full of frightened people. I say what I am going to do before I do it, every time, so that nobody has to guess.",
+    "ideals": "Nobody decides this in a corridor. Twelve frightened people in a locked building will convict somebody by Thursday if there is no one standing in the way of it, and I have seen exactly that happen once and I will not watch it twice.",
+    "bonds": "The contract. Stores in, fair copy out. I signed it, Hollis Ardwen countersigned it, and one of us is going to keep it.",
+    "flaws": "I am not clever and I know it, and in a house full of people who do arithmetic for a living I have started deferring to anyone who sounds certain, which is precisely how the wrong person gets named."
+  },
+  "appearance": "A broad, plain, weather-marked woman of about thirty-five with her hair cropped for a helmet she is no longer issued, wearing chain mail that she maintains obsessively because it is the most valuable thing she owns. She has a soldier's habit of standing where she can see both doors and a sergeant's habit of counting people as they come into a room. Her hands are scarred across the knuckles. She is entirely without small talk and knows it, and compensates by being reliably, unfailingly present: the person who is already awake when you come down at four in the morning.",
+  "backstory": "Bel Haldane made sergeant in a provincial escort company at twenty-six and left it at thirty-one, after a winter in a border village where a dozen frightened people decided among themselves who was to blame for a sickness and did something about it three days before anyone with authority arrived. She had been eleven miles away and had done nothing wrong at all, and it has organised the rest of her life. Since then she has taken contracts as a private escort: caravans, tax convoys, and this winter a stores contract up Coldharrow Pass to an almanac-house — carry the winter stores in, wait out the snow, carry the fair copy of the Almanac down at thaw. It is the easiest money she has ever been offered and she took it precisely because it was boring. She read the contract twice, watched Hollis Ardwen countersign it in a small dry hand, and thought about nothing much for four weeks. On the second night in the House she stands in a hall full of people in nightshirts, looking at a man at the foot of a stair and at eleven faces deciding, in about four minutes, what happened — and she recognises exactly what she is looking at, and the whole of her working life narrows to one job she never asked for."
+}

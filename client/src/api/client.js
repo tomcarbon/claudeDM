@@ -1,4 +1,7 @@
-const API_BASE = `http://${window.location.hostname}:3001/api`;
+// Exported so <img src> can be built for campaign assets. An <img> cannot carry the
+// X-Player-Email / X-Campaign-Id headers the fetch helpers below add, which is why the asset
+// route takes the campaign id as a path segment instead (docs/adr/0002-scene-imagery.md §5).
+export const API_BASE = `http://${window.location.hostname}:3001/api`;
 
 function getPlayerHeaders() {
   try {

@@ -1,15 +1,132 @@
+# ---------------------------------------------------------------------------
+# claudeDM — .gitignore
+#
+# READ THIS BEFORE REORGANISING data/.
+#
+# Everything under data/ falls into exactly one of two groups, and the rules
+# below are written per-directory to keep them apart:
+#
+#   PRODUCT (committed) — the game itself, identical for every player:
+#       data/campaigns/**   campaign.json + scenarios/*.json
+#       data/defaults/**    starting characters and NPCs, incl. the .jpg
+#                           portraits that sit beside the .json
+#       data/rules/**       races, classes, spells, monsters, ...
+#
+#   PLAY DATA (never committed) — anything the running server writes about a
+#   person. It is personal data; the directory names alone are derived from
+#   email addresses (server/player-data.js: emailToSlug):
+#       data/players.json          account records incl. password hashes
+#       data/players/<slug>/...    that person's character library
+#       data/sessions/<uuid>/...   session.json, archive.jsonl, transcripts
+#       data/chat/YYYY-MM-DD.json  party chat archives
+#       data/dm-settings/<slug>.json and data/dm-settings.json
+#       data/characters/...        pre-campaign layout, kept for migrations
+#
+# There is deliberately NO blanket `data/` or `data/**` rule. A blanket rule
+# would silently stop new campaigns from being committed and nobody would
+# notice until a campaign went missing from a fresh clone. Ignore directories
+# one at a time, and when you add a directory that the server writes into,
+# add it here in the same commit.
+#
+# Style note: each play-data directory is ignored as `dir/*` (its contents),
+# not `dir/`, so the noDelete.txt / .gitkeep placeholders below can be
+# re-included. Git cannot re-include a file whose parent directory is
+# excluded, so `dir/` would make those negations silently do nothing.
+#
+# WHAT THIS FILE CANNOT DO: it does not touch history. data/players.json —
+# email addresses and unsalted SHA-256 password hashes — is present in 11
+# commits already in this repository, and .gitignore has no effect on commits
+# that already exist. Those records come back with every clone and every
+# checkout of an old commit. Removing them means rewriting history, which the
+# board considered and decided against; see the incident record
+# 2026-08-31-claudedm-player-data-in-git-history. Treat those hashes as
+# disclosed to anyone who has ever cloned this repository.
+# ---------------------------------------------------------------------------
+
+
+# --- Build artefacts and tooling -------------------------------------------
 node_modules/
 client/node_modules/
 client/dist/
-.env
 *.log
 .DS_Store
-data/sessions/*.json
-data/characters/*.json
-data/dm-settings.json
-data/dm-settings/*.json
-data/players/*.json
-data/chat/*.json
-data/players.json
+
+# Scratch directories used during development.
 tempola/
 work/
+
+
+# --- Secrets ----------------------------------------------------------------
+# No secret belongs in this repository, not even briefly.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+
+# --- Play data: accounts and credentials ------------------------------------
+# The account store: email, display name, unsalted SHA-256 password hash, role.
+# Written by server/routes/players.js and server/bot/bot-accounts.js.
+data/players.json
+
+# Belt and braces: any file called players.json, anywhere in the tree. This is
+# the one file that has already leaked, so it is worth the small cost that a
+# future campaign may not use that filename for product content.
+players.json
+
+# Bot-farm configuration (self-play harness). Creates real accounts.
+data/bot-config.json
+
+
+# --- Play data: per-player character libraries ------------------------------
+# data/players/<email-derived slug>/<campaign>/characters/*.json
+# and, for the bot harness, <campaign>/sessions/*.json.
+# The slug is a reversible transform of an email address, so the directory
+# NAMES are personal data too, not only the file contents.
+data/players/*
+# The app expects data/players/ to exist in a fresh clone; the placeholder is
+# what makes an empty directory survive a clone, so it stays committed.
+!data/players/noDelete.txt
+!data/players/.gitkeep
+
+
+# --- Play data: sessions ----------------------------------------------------
+# data/sessions/<uuid>/session.json, archive.jsonl, characters/, npcs/.
+# session.json holds the full transcript of everything anyone typed.
+data/sessions/*
+!data/sessions/noDelete.txt
+!data/sessions/.gitkeep
+
+
+# --- Play data: party chat --------------------------------------------------
+# data/chat/YYYY-MM-DD.json — one file per day of out-of-character chat.
+data/chat/*
+!data/chat/.gitkeep
+!data/chat/noDelete.txt
+
+
+# --- Play data: DM settings -------------------------------------------------
+# Per-player overrides, one file per account, named from the email slug.
+data/dm-settings/*
+!data/dm-settings/.gitkeep
+!data/dm-settings/noDelete.txt
+# Instance-wide DM settings, edited at runtime by an admin. This is deployment
+# state, not product. The committed template lives at
+# data/defaults/demo/dm-settings.json, which this anchored rule does not match.
+data/dm-settings.json
+
+
+# --- Play data: legacy flat character directory -----------------------------
+# Pre-campaign layout. Empty apart from its placeholder, but migration scripts
+# still write here, so keep it ignored rather than deleting the rule.
+data/characters/*
+!data/characters/noDelete.txt
+!data/characters/.gitkeep
+
+
+# --- Crash debris -----------------------------------------------------------
+# writeJsonAtomic (server/json-recovery.js) writes <file>.tmp-<pid>-<rand>
+# next to its target and renames it. A crash mid-write leaves these behind,
+# including inside data/campaigns/ and data/defaults/.
+*.tmp-*

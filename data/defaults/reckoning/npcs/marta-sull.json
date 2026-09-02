@@ -1,0 +1,75 @@
+{
+  "id": "d22d2373-79d4-4209-a207-3fdc105707d4",
+  "name": "Marta Sull",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Fighter",
+  "level": 2,
+  "background": "Folk Hero",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 16, "modifier": 3 },
+    "dexterity": { "score": 14, "modifier": 2 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 9, "modifier": -1 },
+    "wisdom": { "score": 13, "modifier": 1 },
+    "charisma": { "score": 11, "modifier": 0 }
+  },
+  "hitPoints": { "max": 20, "current": 20 },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Strength", "Constitution"],
+  "skills": ["Animal Handling", "Survival", "Athletics", "Perception"],
+  "languages": ["Common", "Halfling"],
+  "equipment": [
+    "Chain shirt",
+    "Drover's staff (quarterstaff), six feet of ash, worn smooth",
+    "Two handaxes",
+    "Light crossbow and 20 bolts",
+    "Four mules' worth of harness, blankets and hoof tools, maintained obsessively",
+    "Land vehicles proficiency and a cart she left at the bottom of the pass",
+    "A tin of goose grease for the mules' hocks, which she also uses on her own hands",
+    "One jar of the House's preserved cherries, hidden in her bedroll",
+    "Belt pouch containing 7 gp"
+  ],
+  "weapons": [
+    { "name": "Drover's Staff (Quarterstaff)", "attackBonus": 5, "damage": "1d6+3", "damageType": "bludgeoning" },
+    { "name": "Drover's Staff, two-handed", "attackBonus": 5, "damage": "1d8+3", "damageType": "bludgeoning" },
+    { "name": "Handaxe", "attackBonus": 5, "damage": "1d6+3", "damageType": "slashing" },
+    { "name": "Light Crossbow", "attackBonus": 4, "damage": "1d8+2", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Chain shirt", "type": "medium" },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Fighting Style: Defense (+1 to AC while wearing armor)",
+    "Second Wind (bonus action, regain 1d10+2 hit points, once per short or long rest)",
+    "Action Surge (one additional action, once per short or long rest)",
+    "Rustic Hospitality (Folk Hero feature: common folk will shelter and hide her, and she is trusted on sight by working people — which is worth precisely nothing among twelve reckoners)"
+  ],
+  "traits": ["Fighting Style: Defense", "Second Wind", "Action Surge", "Rustic Hospitality"],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "I talk to the mules more than I talk to people and the mules have never once looked at me the way this House does. I am useful with my hands and I say so, repeatedly, in case anyone was thinking of asking what I am for.",
+    "ideals": "You do the job you were paid for and you do not make yourself a problem. That is how a drover eats for thirty years.",
+    "bonds": "Four mules in a shed. They are the only things in this building that are mine and I have checked on them eleven times since Tuesday.",
+    "flaws": "I am terrified of being blamed, and being terrified of being blamed makes a person behave in exactly the way that gets them blamed, and I can see myself doing it and I cannot stop."
+  },
+  "appearance": "A stringy, tough, sun-and-wind-cured woman of about forty-five in a chain shirt under three layers of wool, with a six-foot ash staff she has carried for twenty years and hands that are cracked across every knuckle. She has an outdoor person's discomfort with warm rooms and sits near doors. Since the second night she has developed a habit of standing up when anyone comes into a room and then not knowing what to do with herself, which she is aware of and cannot break.",
+  "backstory": "Marta Sull has driven mules for thirty years — timber, salt, wool, and in the last decade whatever a provincial escort company needs moved over ground that carts cannot manage. She took the Reckoning House contract because it paid well for four days' work and eight days' waiting, and because Coll Rannoch, who she has worked with twice, said the pass was manageable if you went early. She got four mules and the House's whole winter up nine miles of switchback ahead of a storm, which is genuinely a considerable piece of work, and nobody in the building has mentioned it. Then a man died and Marta Sull, who is an outsider, who arrived the day before, who was in the yard that evening and can only half account for it, worked out inside about ninety seconds that she was the obvious answer to everybody's problem. She has been visibly, catastrophically nervous ever since. She has also — on the first afternoon, before any of this, out of nothing more than thirty years of taking small liberties in strange kitchens — put a jar of the House's preserved cherries in her bedroll, and has spent every day since being unable to give it back without explaining it.",
+  "dmNotes": {
+    "roleplaying": "Marta is the campaign's demonstration of how an innocent person behaves when they are frightened of being suspected, and she should be run as an exact structural rhyme for Corwin Tace: guilty of a trivial thing, behaving exactly like a murderer, and impossible to reassure. She stands up when people enter rooms. She over-explains where she was. She volunteers alibis nobody asked her for. She goes out to the mule shed eleven times a day because it is the only place she is not being looked at. If the party is kind to her she attaches to them completely and is enormously useful — she is a strong, competent, level-headed fighter the moment there is something physical to do, and she is superb in the courier rescue. If the party is suspicious of her she deteriorates fast. Use her early: her behaviour in rh-scenario-001 and 002 should teach the players, at no cost, that fear reads exactly like guilt — so that when they meet Tace, and later Kirren, they have a chance of not being fooled.",
+    "voice": "Plain, rural, and slightly too fast when she is nervous, which is most of the time. She over-answers questions: asked where she was, she gives fifteen minutes of detail nobody wanted, and then apologises for it, and then adds more. She talks to the mules in complete sentences and to people in fragments. Her humour, when she relaxes, is dry and surprisingly filthy and everyone is delighted by it. When she is genuinely at ease — which happens perhaps twice — she stops explaining herself and just says the thing, and it is always sensible.",
+    "motivations": "Primary: get to thaw without being accused of anything. Secondary: get four mules down that pass alive, which she regards as her actual contract regardless of what the paper says. Tertiary: be useful enough that somebody in this building notices she brought their entire winter up nine miles of switchback in front of a storm, which nobody has said one word about and which she is not going to mention.",
+    "secrets": "THE CHERRIES. On the first afternoon, before anyone died, she took a jar of the House's preserved cherries out of the undercroft and put it in her bedroll, because she has taken small liberties in strange kitchens for thirty years and thought nothing of it. It is worth about fourpence. Since Tuesday it has been the single most dangerous object in her life: she cannot put it back without being seen, cannot produce it without explaining it, and cannot stop thinking about it. If the party searches the loft they will find it, and her reaction will be so extreme and so guilty that a table which has not been paying attention will spend a session on her. THIS IS THE POINT. It is a deliberately trivial secret that behaves in every observable way like a guilty one, and it is the campaign's cheapest and most honest lesson about the difference between fear and guilt. When it comes out, play her mortification absolutely straight and do not let anybody laugh at her until she does.",
+    "attitude": "Anxious, deferential, and desperate to be liked by people who have not noticed she exists. Toward the party: initially wary, then — if they treat her decently even once — loyal past any reasonable point. Toward the twelve residents: intimidated by all of them, and genuinely frightened of Halva Onn for no reason she can articulate. Toward Wat Ormery: the one resident she can talk to, because he keeps animals and knows what a mule costs, and they spend two evenings in the shed together saying almost nothing, and she gives him a partial alibi for the second night without ever realising she has done it. Toward Ash the deerhound: adoring, and the dog likes her, which she considers the only good news of the entire week."
+  }
+}

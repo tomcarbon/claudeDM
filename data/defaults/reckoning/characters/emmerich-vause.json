@@ -1,0 +1,73 @@
+{
+  "id": "8f539594-919f-4bcc-9fe0-567d71c8f9c0",
+  "name": "Emmerich Vause",
+  "status": "alive",
+  "race": "Half-Elf",
+  "subrace": "",
+  "class": "Wizard",
+  "level": 2,
+  "background": "Sage",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 8, "modifier": -1 },
+    "dexterity": { "score": 13, "modifier": 1 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 16, "modifier": 3 },
+    "wisdom": { "score": 10, "modifier": 0 },
+    "charisma": { "score": 14, "modifier": 2 }
+  },
+  "hitPoints": { "max": 14, "current": 14 },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Intelligence", "Wisdom"],
+  "skills": ["Arcana", "History", "Investigation", "Insight", "Perception", "Persuasion"],
+  "languages": ["Common", "Elvish", "Draconic", "Dwarvish"],
+  "equipment": [
+    "Spellbook",
+    "Component pouch",
+    "Two daggers",
+    "Quarterstaff",
+    "A set of calculating rods and a table of logarithms in his own hand",
+    "Three years of the published Almanac, bought at his own expense and annotated throughout",
+    "Scholar's pack",
+    "Spectacles, and a spare pair, because he broke a pair once and lost a month",
+    "Belt pouch containing 18 gp"
+  ],
+  "weapons": [
+    { "name": "Dagger", "attackBonus": 3, "damage": "1d4+1", "damageType": "piercing" },
+    { "name": "Fire Bolt (cantrip)", "attackBonus": 5, "damage": "1d10", "damageType": "fire" },
+    { "name": "Quarterstaff", "attackBonus": 1, "damage": "1d6-1", "damageType": "bludgeoning" }
+  ],
+  "armor": { "name": "None — a travelling coat (Mage Armor when cast: AC 14)", "type": "none" },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Fey Ancestry (advantage on saving throws against being charmed; magic cannot put him to sleep)",
+    "Skill Versatility (proficiency in two extra skills of choice: Perception and Persuasion)",
+    "Arcane Recovery (once per day on a short rest, recover expended spell slots totalling up to 1 level)",
+    "Arcane Tradition: School of Divination",
+    "Divination Savant (halved time and gold to copy divination spells into his spellbook)",
+    "Portent (at each long rest, roll two d20s and record them; may replace any attack roll, saving throw or ability check made by himself or a creature he can see with one of these rolls, once each per long rest)",
+    "Researcher (Sage feature: when he does not know a piece of information, he often knows where and from whom he can obtain it)"
+  ],
+  "traits": ["Portent", "Divination Savant", "Arcane Recovery"],
+  "spells": {
+    "spellcastingAbility": "intelligence",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": ["Fire Bolt", "Mage Hand", "Prestidigitation"],
+    "level1": {
+      "slots": 3,
+      "known": ["Detect Magic", "Identify", "Comprehend Languages", "Magic Missile", "Shield", "Mage Armor", "Sleep", "Alarm"]
+    }
+  },
+  "personality": {
+    "traits": "I check the arithmetic. I check it again. I have been in this house four days and I have found two errors in the tide tables that nobody asked me to look for, and I mentioned both of them, and I am aware that this is why I am not invited to things.",
+    "ideals": "A published number is a promise to a stranger. Somebody in a hundred I will never meet is going to plant a field on the strength of a figure in a book, and whoever set that figure owes them a duty they will never be thanked for.",
+    "bonds": "Three years of the Almanac, bought with my own money and annotated to death, in my pack. It is the reason I took this contract and I will not pretend otherwise.",
+    "flaws": "I am extremely good at reading a table and extremely bad at reading a room. I have twice, in this building, said the entirely correct thing to somebody who was crying."
+  },
+  "appearance": "A slight, untidy half-elf of about forty-five in a good coat that has been slept in, with spectacles permanently pushed up on his forehead and a second pair in his breast pocket after an incident he will describe if asked. Ink to the second knuckle. He has the distracted courtesy of somebody who is genuinely pleased to see you and is also halfway through a calculation, and the unnerving habit of stopping mid-sentence, going somewhere behind his own eyes for eight seconds, and coming back with a number.",
+  "backstory": "Emmerich Vause is a provincial mathematician of no particular distinction and enormous specific competence, who spent twenty years teaching arithmetic to merchants' sons and then discovered, at about forty, that the thing he actually loved was the Almanac. Not the astrology of it and not the romance of it: the reduction — the long, exact, unglamorous process by which a column of nightly observations becomes a printed date that a farmer in a hundred he will never visit plants a field by. He has bought and annotated three years of it at his own expense. He knows the House's published tables better than most of the people who compute them and has written twice to the Master Reckoner about a discrepancy in the eastern frost figures and received one very short reply. When an escort contract came up that ended at the Reckoning House he took it for less than the going rate and did not disguise why. He is the only outsider in that building who can read what the reckoners actually do, and on the fourth day he sits down with three bound quires and a table of logarithms and finds that the eastern frost dates are nine days late three years running — and he says so out loud, to the wrong person, in a room where somebody is listening."
+}

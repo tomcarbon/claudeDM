@@ -671,7 +671,7 @@
 
 .tier-badge-premium {
   background: #22c55e;
-  color: #0a1628;
+  color: var(--bg-dark);
 }
 
 .tier-title {
@@ -795,7 +795,7 @@
 }
 .mode-toggle-btn.active {
   background: var(--gold);
-  color: var(--bg-dark, #1a1a2e);
+  color: var(--bg-dark);
 }
 
 /* Campaign card extras */
@@ -819,7 +819,7 @@
   padding: 0.8rem 2rem;
   font-size: 1.1em;
   background: var(--gold);
-  color: var(--bg-dark, #1a1a2e);
+  color: var(--bg-dark);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -1002,11 +1002,11 @@
 }
 .arc-summary-header::-webkit-details-marker { display: none; }
 .arc-summary-days {
-  color: var(--text-muted, #9aa);
+  color: var(--text-muted);
   font-weight: 400;
 }
 .arc-summary-hint {
-  color: var(--text-muted, #9aa);
+  color: var(--text-muted);
   font-weight: 400;
   font-size: 0.8rem;
   font-style: italic;
@@ -1184,7 +1184,7 @@
 .btn-send {
   padding: 0.6rem 1.2rem;
   background: var(--gold);
-  color: var(--bg-dark, #1a1a2e);
+  color: var(--bg-dark);
   border: none;
   border-radius: 8px;
   font-weight: bold;
@@ -1267,7 +1267,7 @@
   min-width: 3.5em;
 }
 .party-gold {
-  color: var(--gold, #f0c040);
+  color: var(--gold);
   font-weight: 500;
 }
 .party-ac {
@@ -1563,7 +1563,7 @@
 }
 .btn-save:hover:not(:disabled) {
   background: var(--gold);
-  color: var(--bg-dark, #1a1a2e);
+  color: var(--bg-dark);
 }
 .btn-save:disabled {
   opacity: 0.4;
@@ -1716,7 +1716,7 @@
   text-underline-offset: 2px;
 }
 .spell-tag-btn:hover {
-  color: var(--accent, #6366f1);
+  color: var(--accent);
 }
 .spell-detail-popup {
   position: absolute;
@@ -1724,8 +1724,8 @@
   left: 50%;
   transform: translateX(-50%);
   width: min(360px, 90vw);
-  background: var(--bg-card, #1e1e2e);
-  border: 1px solid var(--border, #333);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.75rem;
   z-index: 100;
@@ -1746,7 +1746,7 @@
 }
 .spell-detail-school {
   font-size: 0.78rem;
-  color: var(--text-muted, #888);
+  color: var(--text-muted);
   white-space: nowrap;
 }
 .spell-detail-meta {
@@ -1755,20 +1755,20 @@
   gap: 0.15rem;
   margin-bottom: 0.5rem;
   font-size: 0.82rem;
-  color: var(--text-muted, #aaa);
+  color: var(--text-muted);
 }
 .spell-detail-desc {
   margin-bottom: 0.4rem;
-  color: var(--text, #ddd);
+  color: var(--text);
 }
 .spell-detail-classes {
   font-size: 0.78rem;
-  color: var(--text-muted, #888);
+  color: var(--text-muted);
   font-style: italic;
 }
 .spell-detail-notes {
   font-size: 0.78rem;
-  color: #f0c040;
+  color: var(--gold);
   margin-top: 0.3rem;
 }
 
@@ -1838,7 +1838,7 @@
   z-index: 1000;
 }
 .permission-modal {
-  background: var(--bg-card, #2a2a3e);
+  background: var(--bg-card);
   border: 2px solid var(--gold);
   border-radius: 12px;
   padding: 1.5rem;
@@ -1865,7 +1865,7 @@
 }
 .permission-detail code,
 .permission-tool code {
-  background: var(--bg-dark, #1a1a2e);
+  background: var(--bg-dark);
   padding: 0.1em 0.4em;
   border-radius: 3px;
   font-size: 0.9em;
@@ -1949,7 +1949,7 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: calc(100% + 6px);
-  background: rgba(22, 33, 62, 0.95);
+  background: rgba(var(--bg-card-rgb), 0.95);
   border: 1px solid var(--marker-color, var(--gold));
   border-radius: 6px;
   padding: 0.4rem 0.6rem;
@@ -1981,7 +1981,7 @@
 .map-crossroads-label {
   position: absolute;
   transform: translate(-50%, -50%);
-  background: rgba(22, 33, 62, 0.9);
+  background: rgba(var(--bg-card-rgb), 0.9);
   border: 1px solid var(--gold);
   border-radius: 8px;
   padding: 0.35rem 0.55rem;
@@ -2004,7 +2004,7 @@
 
 .map-legend-panel {
   margin-top: 0.9rem;
-  background: rgba(22, 33, 62, 0.9);
+  background: rgba(var(--bg-card-rgb), 0.9);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.7rem 0.85rem;
@@ -2182,7 +2182,7 @@
   width: 100%;
   padding: 0.35rem 0.5rem;
   background: var(--gold);
-  color: var(--bg-dark, #1a1a2e);
+  color: var(--bg-dark);
   border: none;
   border-radius: 5px;
   font-size: 0.82em;
@@ -2317,7 +2317,7 @@
 }
 
 .chat-archive-date-btn:hover {
-  background: var(--bg-hover, rgba(255,255,255,0.06));
+  background: var(--bg-hover);
   border-color: var(--gold);
 }
 
@@ -2518,7 +2518,7 @@
 .chat-msg-system-text {
   display: block;
   font-size: 0.8em;
-  color: #f0c040;
+  color: var(--gold);
   font-style: italic;
 }
 
@@ -2577,7 +2577,7 @@
 .chat-send-btn {
   padding: 0.4rem 0.6rem;
   background: var(--gold);
-  color: var(--bg-dark, #1a1a2e);
+  color: var(--bg-dark);
   border: none;
   border-radius: 5px;
   font-size: 0.78em;

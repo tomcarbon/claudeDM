@@ -1,0 +1,65 @@
+{
+  "id": "2d0148fe-4223-4f51-85d9-6461bef5ff15",
+  "name": "Ash",
+  "status": "alive",
+  "race": "Beast (Deerhound)",
+  "subrace": "",
+  "class": "House Hound",
+  "level": 2,
+  "background": "Outlander",
+  "alignment": "Unaligned",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 13, "modifier": 1 },
+    "dexterity": { "score": 14, "modifier": 2 },
+    "constitution": { "score": 12, "modifier": 1 },
+    "intelligence": { "score": 3, "modifier": -4 },
+    "wisdom": { "score": 12, "modifier": 1 },
+    "charisma": { "score": 7, "modifier": -2 }
+  },
+  "hitPoints": { "max": 5, "current": 5 },
+  "armorClass": 12,
+  "speed": 40,
+  "proficiencyBonus": 2,
+  "savingThrows": [],
+  "skills": ["Perception"],
+  "languages": [],
+  "equipment": [
+    "A worn leather collar with WAT ORMERY punched into it in tin letters",
+    "A blanket in the mule shed that he has flattened into exactly his own shape",
+    "One antler tine, chewed, hidden behind the woodpile since the summer"
+  ],
+  "weapons": [
+    { "name": "Bite", "attackBonus": 3, "damage": "1d6+1", "damageType": "piercing" }
+  ],
+  "armor": { "name": "None", "type": "none" },
+  "features": [
+    "Keen Hearing and Smell (advantage on Wisdom (Perception) checks that rely on hearing or smell)",
+    "Statline: SRD mastiff — AC 12, 5 hit points, bite +3 for 1d6+1 piercing damage; if the target is a creature it must succeed on a DC 11 Strength saving throw or be knocked prone",
+    "Sighthound (flavor: bred to run down deer on open hill; on ground he knows, he is faster than anything in this campaign)",
+    "House Hound (flavor: has the run of the Reckoning House and the yard, knows every person in it by scent, and is not permitted in the computing rooms, which he respects absolutely)"
+  ],
+  "traits": ["Keen Hearing and Smell", "Sighthound"],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "Leans. Deerhounds lean, entirely and without warning, against whoever is nearest, and Ash does it to everybody in this House except one person.",
+    "ideals": "The yard, the shed, the hearth, and Wat Ormery, in ascending order.",
+    "bonds": "Wat Ormery, who fed him out of a glove when he was nine weeks old and has not been out of his sight for more than a day since.",
+    "flaws": "He is frightened of one person in this building, has been since the second night, and has absolutely no way of telling anyone why — and the reason is not the reason everybody will assume."
+  },
+  "appearance": "A big, grey, rough-coated deerhound of about four, all leg and ribcage and beard, who moves through a stone hall with his head at the height of an average person's hand and takes advantage of the fact constantly. He sleeps in front of the hall fire in the evening and in the mule shed at night. He has a habit of leaning his entire considerable weight against people without warning, which he does to every single resident of this House except one, and to that one he does something else entirely: he gets up and moves to the other side of the room, quietly, without fuss, every single time.",
+  "backstory": "Ash was bred in the village of Ambry Vale for running deer on the open hill and was given to Wat Ormery as a nine-week-old puppy four winters ago, and has been the Reckoning House's dog ever since. He has the run of the hall, the yard, the undercroft and the mule shed, and is not permitted in the computing rooms, a rule he has never once broken because it was explained to him firmly at nine weeks and dogs are not complicated. He knows every person in this building by scent and by tread on a stair. He is entirely uninterested in the Almanac. On the second night he was in the mule shed with Wat Ormery and heard nothing that anybody could use. And since the second night he has refused to go near one of the twelve residents — will not take food from them, gets up and moves when they sit down, and has twice growled at nothing when they came into the hall — which the House noticed within a day and which is now, quietly, one of the strongest pieces of evidence anybody in this building believes they have. It is wrong.",
+  "dmNotes": {
+    "roleplaying": "Ash is a clue with a tail and he is a false one, and running him honestly is one of the most enjoyable jobs in this campaign. Play him as an actual dog: he leans, he sighs enormously, he is in the way, he appears at the exact wrong moment carrying something he should not have, and he is entirely uninterested in the investigation. He has 5 hit points and must never be put in a fight — if combat starts he should be shut in the mule shed by an NPC before initiative is rolled, and any DM who kills him has misread this file. He is a multiplayer companion slot in a campaign with almost no combat, which means a player running Ash is running a scent-and-noise character: Keen Hearing and Smell gives advantage on hearing and smell Perception, he can be sent to find a person in the building, and he will bark at the postern being opened at four in the morning. Let that be genuinely useful. Let it also, twice, be spectacularly misleading.",
+    "voice": "None. He does not talk, does not understand plot, and should never be given interior monologue by the DM. His entire communicative range is: leaning, the enormous sigh, the tail, the ears, the specific whine of a deerhound who wants a door opened, and getting up and moving away from Corwin Tace. Describe what he does; never describe what he thinks. The one exception a DM may allow is a player running Ash narrating their own dog-logic at the table, which is funny and harmless and does not bind the fiction.",
+    "motivations": "Wat Ormery. Food. The fire. The yard. Running, on open ground, which he has not been able to do since first frost and which is making him restless in a way the whole House has noticed and attributed to the death.",
+    "secrets": "HE IS AVOIDING CORWIN TACE, AND HE IS WRONG. Two days before the murder — on the evening the party arrived, in fact — Tace kicked him in the undercroft for being underfoot while he was at the strongbox. Nobody saw it. Ash has avoided him ever since, and because the avoidance started on the second night, the entire House has concluded that the dog knows something. Merrit Doane says so out loud. It is one of the three or four things holding the case against Tace together in the residents' minds, and it is a kick and nothing else. The DM should let this run: let the party notice the dog's behaviour, let it feel like a genuine clue, let it point exactly the wrong way, and let the truth come out sideways — from Oriel Fenn, who saw the bruise on his flank and drew her own conclusions, or from Tace himself when he is finally cornered and says, wretchedly, 'It is a DOG. I kicked it. Once. Because it was under my feet.' A dog cannot testify. That is the whole lesson.",
+    "attitude": "Devoted to Wat Ormery. Affectionate and indiscriminate toward everyone else in the House, and toward the party from the first evening, because they smell of mules and outside. Adores Marta Sull, who smells of mules more than anyone. Tolerates Oriel Fenn, who feeds him and is stern about it. Avoids Corwin Tace absolutely and visibly. Toward Ilsabet Wray — and this matters, and the DM should place it carefully and never comment on it — he is exactly as friendly as he has always been, and leans on her at the long table on the sixth morning like he does every morning, and she puts a hand on his head without thinking about it."
+  }
+}

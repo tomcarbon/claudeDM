@@ -1,0 +1,75 @@
+{
+  "id": "ecd1d327-8984-434d-b968-6429e7b7fb14",
+  "name": "Sefi Nightjar",
+  "status": "alive",
+  "race": "Halfling",
+  "subrace": "Lightfoot",
+  "class": "Rogue",
+  "level": 3,
+  "background": "Urchin",
+  "alignment": "Chaotic Good",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 8, "modifier": -1 },
+    "dexterity": { "score": 17, "modifier": 3 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 10, "modifier": 0 },
+    "wisdom": { "score": 12, "modifier": 1 },
+    "charisma": { "score": 14, "modifier": 2 }
+  },
+  "hitPoints": { "max": 24, "current": 24 },
+  "armorClass": 14,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Dexterity", "Intelligence"],
+  "skills": ["Stealth", "Sleight of Hand", "Acrobatics", "Perception", "Investigation", "Athletics"],
+  "languages": ["Common", "Halfling"],
+  "equipment": [
+    "Leather armor",
+    "Rigging knife (dagger) on a lanyard, and a second one in her boot",
+    "Shortsword",
+    "Shortbow and 20 arrows",
+    "Thieves' tools",
+    "Burglar's pack",
+    "A rigger's fid and a coil of small stuff",
+    "No boots at all in fine weather, on principle",
+    "A tin box of things found on decks over eight years, none of them worth anything",
+    "Belt pouch containing 8 gp"
+  ],
+  "weapons": [
+    { "name": "Rigging Knife (Dagger)", "attackBonus": 5, "damage": "1d4+3", "damageType": "piercing" },
+    { "name": "Shortsword", "attackBonus": 5, "damage": "1d6+3", "damageType": "piercing" },
+    { "name": "Shortbow", "attackBonus": 5, "damage": "1d6+3", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Leather armor", "type": "light" },
+  "features": [
+    "Lucky (when you roll a 1 on an attack roll, ability check or saving throw, reroll and must use the new roll)",
+    "Brave (advantage on saving throws against being frightened)",
+    "Halfling Nimbleness (can move through the space of any creature of a size larger than yours)",
+    "Naturally Stealthy (can attempt to hide even when obscured only by a creature at least one size larger)",
+    "Expertise (double proficiency on Stealth and with thieves' tools)",
+    "Sneak Attack (2d6 extra damage once per turn when you have advantage, or when an ally is within 5 feet of the target)",
+    "Thieves' Cant",
+    "Cunning Action (bonus action to Dash, Disengage or Hide)",
+    "Roguish Archetype: Thief",
+    "Fast Hands (use the Cunning Action bonus action to make a Sleight of Hand check, use thieves' tools, or use an object)",
+    "Second-Story Work (climbing costs no extra movement; running jump distance increases by your Dexterity modifier in feet)",
+    "City Secrets (Urchin feature, reflavored: she can move between any two points on a working waterfront at twice normal speed, by routes nobody else uses)"
+  ],
+  "traits": ["Sneak Attack", "Cunning Action", "Fast Hands", "Second-Story Work", "Lucky"],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "I am up the mast before anyone has finished saying the order, and I am laughing about something, and I will not tell you what. I ask an enormous number of questions about places I have never been, and I have never been anywhere.",
+    "ideals": "Belonging. I was owed nothing by anybody until I was eleven years old and somebody put a hand down and pulled me over a rail, and I have been paying that back for eight years and I intend to go on paying it.",
+    "bonds": "This ship. Not the captain, not the trade, not the chain — the actual timber. I know every foot of her rigging by feel in the dark and if she is broken up on the strand at Tallowport I do not know what I am.",
+    "flaws": "I have never set foot off the Bellwater Chain and I am nineteen, and I would say yes to almost anything that promised to change that, and I know that about myself and it frightens me."
+  },
+  "appearance": "A small, wiry lightfoot halfling of nineteen who is almost never on the deck when you look for her, because she is thirty feet above it. Barefoot in anything short of ice — she maintains that boots on a wet foot-rope are how people die — with cropped dark hair, a rigging knife on a lanyard round her neck and another in her boot on the rare occasions she wears one. She has an old rope-burn scar across the palm of her left hand from her second year aboard. She talks fast, listens faster, and has an unnerving habit of already being in whatever conversation you thought you were having privately, because she was above it in the shrouds.",
+  "backstory": "Sefi Nightjar was eleven and working a Tallowport quay for whatever a small fast person could get, which was not much and was not always legal, when the Widow's Compass warped in short-handed and somebody put a hand over the rail and pulled her aboard for an afternoon's work. She has never left. Idony Marrach fed her, taught her the rigging, put her name on the Articles at fourteen and paid her a full share from the day she could do a full hand's work, which was earlier than anyone expected. She has been up and down the chain more times than she can count and has never once been off it: not to the mainland, not to the leeward islands beyond Ambergrace, nowhere. Eight years of one brig and four hundred miles of water, and the honest truth is that it has been the happiest place she can imagine and also the whole world, and she has recently started to notice the difference between those two things. She is the best hand aloft on this ship and probably in this harbour. She is also nineteen, and somebody is eventually going to offer her a way to see somewhere else, and she does not know yet what she will say."
+}

@@ -1,13 +1,70 @@
+/* =====================================================================
+   PALETTE
+   ---------------------------------------------------------------------
+   The background family is the four surface/border tokens below. They
+   are declared ONCE, as RGB channel triples, so the solid colour and
+   every translucent variant come from the same source.
+
+   Rules for App.css (and any new CSS):
+     solid       ->  var(--bg-card)
+     translucent ->  rgba(var(--bg-card-rgb), 0.9)
+   Never write these values out by hand again; a hardcoded copy is a
+   colour that will not follow the next palette change.
+
+   TWO FAMILIES ARE SHIPPED. Forest is active.
+   TO SWITCH TO AMBER: delete `.amber` from the selector marked
+   "PALETTE SWITCH" below. That one edit is the entire change.
+
+   NOT part of the family, and deliberately untouched by a palette
+   change: --accent, --gold, and the damage / healing / spell-school /
+   status colours in App.css. Those carry meaning, not decoration.
+   ===================================================================== */
+
 :root {
-  --bg-dark: #1a1a2e;
-  --bg-card: #16213e;
-  --bg-sidebar: #0f3460;
+  /* Background family — FOREST (active) */
+  --bg-dark-rgb:    20, 32, 26;   /* #14201a  page, inputs, wells      */
+  --bg-card-rgb:    23, 40, 31;   /* #17281f  cards, panels, popups    */
+  --bg-sidebar-rgb: 22, 56, 39;   /* #163827  sidebars, chat headers   */
+  --border-rgb:     30, 50, 40;   /* #1e3228  hairlines, dividers      */
+}
+
+/* ---- PALETTE SWITCH -------------------------------------------------
+   ALTERNATIVE FAMILY — AMBER (dark umber / oiled leather).
+   Matched to the Forest family luminance-for-luminance, so every
+   contrast ratio below is the same in either family (within 1%).
+   To activate: delete `.amber` from the selector on the next line.
+   -------------------------------------------------------------------- */
+:root.amber {
+  --bg-dark-rgb:    37, 28, 21;   /* #251c15  page, inputs, wells      */
+  --bg-card-rgb:    46, 34, 25;   /* #2e2219  cards, panels, popups    */
+  --bg-sidebar-rgb: 66, 44, 29;   /* #422c1d  sidebars, chat headers   */
+  --border-rgb:     55, 43, 34;   /* #372b22  hairlines, dividers      */
+}
+/* ---- end palette switch --------------------------------------------- */
+
+:root {
+  /* Surfaces — derived from whichever family is active above */
+  --bg-dark:    rgb(var(--bg-dark-rgb));
+  --bg-card:    rgb(var(--bg-card-rgb));
+  --bg-sidebar: rgb(var(--bg-sidebar-rgb));
+  --border:     rgb(var(--border-rgb));
+
+  /* Neutral hover wash — intentionally family-independent white,
+     so it reads the same whatever the background family is. */
+  --bg-hover: rgba(255, 255, 255, 0.06);
+
+  /* Brand + semantic — do NOT retune these with the background family */
   --accent: #e94560;
   --accent-hover: #ff6b81;
   --gold: #f0c040;
   --text: #eee;
   --text-muted: #999;
-  --border: #2a2a4a;
+
+  /* --accent-rgb is the same colour as --accent, written as channels so
+     translucent washes can be derived from it. Keep the two in step. */
+  --accent-rgb: 233, 69, 96;          /* = --accent #e94560 */
+  --accent-dim: rgba(var(--accent-rgb), 0.15);
+
   font-family: 'Segoe UI', system-ui, sans-serif;
   line-height: 1.5;
   color: var(--text);

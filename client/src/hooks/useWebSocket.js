@@ -75,6 +75,22 @@ export default function useWebSocket() {
           setMessages(prev => [...prev, { type: 'dice_roll', text: formatDiceRoll(msg) }]);
           break;
 
+        case 'scene_image':
+          // The DM showed a picture (docs/adr/0002-scene-imagery.md §7). Ids and text only —
+          // Adventure.jsx builds the image URL from campaignId + assetId. `text` is supplied by
+          // the server and is non-empty, so the message survives save/reload through
+          // normalizeSavedMessages (condition S3).
+          setMessages(prev => [...prev, {
+            type: 'scene_image',
+            assetId: msg.assetId,
+            kind: msg.kind,
+            title: msg.title,
+            alt: msg.alt,
+            caption: msg.caption,
+            text: msg.text || msg.caption || msg.title || msg.alt || '',
+          }]);
+          break;
+
         case 'dm_warmup':
           // Show warm-up status as a system message while DM reviews context after restart
           setMessages(prev => [...prev, { type: 'dm_warmup', text: msg.text, visible: msg.visible !== false }]);

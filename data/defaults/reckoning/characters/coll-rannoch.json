@@ -1,0 +1,73 @@
+{
+  "id": "fb5d46c8-3ec4-46c5-af36-2c3c78da076a",
+  "name": "Coll Rannoch",
+  "status": "alive",
+  "race": "Dwarf",
+  "subrace": "Mountain Dwarf",
+  "class": "Ranger",
+  "level": 2,
+  "background": "Outlander",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 14, "modifier": 2 },
+    "dexterity": { "score": 15, "modifier": 2 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 10, "modifier": 0 },
+    "wisdom": { "score": 14, "modifier": 2 },
+    "charisma": { "score": 8, "modifier": -1 }
+  },
+  "hitPoints": { "max": 20, "current": 20 },
+  "armorClass": 14,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Strength", "Dexterity"],
+  "skills": ["Athletics", "Survival", "Perception", "Nature", "Animal Handling"],
+  "languages": ["Common", "Dwarvish"],
+  "equipment": [
+    "Studded leather armor",
+    "Longbow and 40 arrows",
+    "Shortsword",
+    "Handaxe",
+    "Mason's tools, which he has not used in twenty years and will not part with",
+    "Sixty feet of rope, ice-nails, and a set of snow-shoes of his own making",
+    "Explorer's pack",
+    "A hand-drawn map of Coldharrow Pass with nine winters of notes on it",
+    "Belt pouch containing 9 gp"
+  ],
+  "weapons": [
+    { "name": "Longbow (Archery)", "attackBonus": 6, "damage": "1d8+2", "damageType": "piercing" },
+    { "name": "Shortsword", "attackBonus": 4, "damage": "1d6+2", "damageType": "piercing" },
+    { "name": "Handaxe", "attackBonus": 4, "damage": "1d6+2", "damageType": "slashing" }
+  ],
+  "armor": { "name": "Studded leather armor", "type": "light" },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Dwarven Resilience (advantage on saving throws against poison, and resistance to poison damage)",
+    "Dwarven Combat Training (proficiency with battleaxe, handaxe, light hammer and warhammer)",
+    "Dwarven Armor Training (proficiency with light and medium armor)",
+    "Tool Proficiency: mason's tools",
+    "Stonecunning (doubled proficiency bonus on History checks related to stonework)",
+    "Favored Enemy: Beasts — advantage on Survival checks to track them and on Intelligence checks to recall information about them",
+    "Natural Explorer: Mountain — doubled proficiency bonus on Intelligence and Wisdom checks related to mountain terrain; difficult terrain does not slow the party's travel, they cannot become lost by non-magical means, and they find twice as much food when foraging",
+    "Fighting Style: Archery (+2 to attack rolls with ranged weapons)",
+    "Spellcasting (Wisdom-based, ranger)",
+    "Wanderer (Outlander feature: excellent memory for geography, and can find food and fresh water for himself and up to five others each day)"
+  ],
+  "traits": ["Favored Enemy: Beasts", "Natural Explorer: Mountain", "Fighting Style: Archery", "Dwarven Resilience"],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 4,
+    "cantrips": [],
+    "level1": { "slots": 2, "known": ["Hunter's Mark", "Goodberry"] }
+  },
+  "personality": {
+    "traits": "I tell you the true thing about the ground and then I stop talking. If I say a slope will not hold, it will not hold, and I am not going to argue about it with somebody who has been on a mountain for a week.",
+    "ideals": "You get people there and you get them back. That is the whole of a guide's trade and there is no clever version of it.",
+    "bonds": "I brought these people up that pass. Whatever happens in this building, they are mine until thaw, and I cannot get a single one of them out, and that is the worst position I have ever been in.",
+    "flaws": "I have nothing at all to offer indoors. Nine days of this and I have been useful for about four hours of it, and I have started going out to the yard in weather that does not need me, just to be somewhere I understand."
+  },
+  "appearance": "A short, immensely solid mountain dwarf of about a hundred and sixty, weather-cured to the colour of a saddle, with a beard gone iron-grey and bound into two plaits against the wind. He wears studded leather and a coat of layered wool that he made himself, and he carries a longbow he keeps unstrung and dry with a religiosity that everyone finds funny except him. Indoors he is subtly wrong-sized and unhappy and takes the seat nearest the door. Out in the yard, in a wind that has other people bent double, he stands perfectly upright with his eyes half shut, reading it.",
+  "backstory": "Coll Rannoch was a mason for the first sixty years of his working life and a mountain guide for the forty after that, and the change happened for reasons he sums up as 'I stopped liking ceilings.' He has taken people over Coldharrow Pass nine winters running: surveyors, tax officers, a bishop, a wedding party, and now four mules of winter stores and an escort contract for the Reckoning House. He has a hand-drawn map of that pass with nine winters of annotations on it and he does not lend it. He is the one who says, on the last switchback, that once they are in they are in — and he means the winter, and he is not wrong twice. What he is entirely unprepared for is the eight days that follow: a building, twelve strangers, an investigation conducted in corridors, and a guide's whole professional identity reduced to knowing about wolves. He knows exactly how impassable that pass is, which makes him the one person in the House who is completely certain nobody came in from outside — and on the fifth afternoon, when a courier gets two-thirds of the way up and stops, he is the one who has to say out loud that going out for him is possible and going down is not, and be believed."
+}

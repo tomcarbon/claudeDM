@@ -1,0 +1,117 @@
+{
+  "id": "bellwater",
+  "title": "The Widow's Compass",
+  "subtitle": "A Brig, a Crew, and Nine Marks Against Your Name",
+  "type": "open-world",
+  "levelRange": "3-10",
+  "estimatedSessions": "14+",
+  "synopsis": "Two hundred islands strung along a warm current, no crown and no navy, held together by one old promise: the Sounding. Every harbour hangs a bell cast from the same wreck-bronze, every deep channel carries a bell-buoy on its chain, and a ship in trouble rings. Answer a bell and every port on the chain owes you. Hear one and sail on, and the Harbour Reckoners write a mark against your name — and at nine marks no port will victual you, careen you, or shelter you, and at the turn of the year your hull is broken up for timber. Captain Idony Marrach died of fever at Tallowport and left you her brig, her crew, the Articles they all signed, and nine marks. You have until the year turns to answer enough bells to clear the ledger. But not every bell is honest: someone has been ringing false callings to draw ships onto reefs and strip them, and Idony did not ignore nine bells out of cowardice — she ignored nine bells she knew were false, and could not prove it. This is a campaign about owning something that can be damaged, mortgaged and lost, about a crew who can walk off at the next port, and about what a promise between strangers is actually worth when it is worth money.",
+  "hook": "The chandler's back room smells of tar and cheap wine. A clerk of the Harbour Reckoners reads Idony Marrach's will in a flat voice while the rain comes off the Tallowport roofs in sheets: to you, the brig Widow's Compass, her cordage, her charts, her boats and her Articles; to you also her ledger standing, which the Hall records at nine marks. The clerk closes the book, sets a copy of the Articles on the table with a pen beside it, and says the only thing anyone in this room has come to hear: the year turns in forty days, and a nine-marked hull is broken up on the strand at Tallowport by the custom of the Sounding, and there is no appeal because there has never needed to be one. Outside, down at the quay, a bell begins to ring.",
+  "setting": {
+    "name": "The Bellwater Chain",
+    "description": "Two hundred-odd islands strung along a warm current between a cold open ocean and a shallow, reef-riddled leeward sea. There is no king here and no navy — only harbours, and the compact that binds them. Every harbour hangs a bell in a stone frame at the head of its quay, all of them cast from the bronze of the same first wreck, and every deep channel carries a bell-buoy riding its chain out where the fog sits. A vessel in trouble rings, and whoever hears is bound by the Sounding to answer. The islands themselves are working ground: goat cliffs and drying racks, tide-mills and rope-walks, salt pans, careening beaches, boat-sheds, and quays where the whole economy of a place fits into four warehouses and a chandler. People here reckon their standing in marks and shares, and a debt outlives the man who signed it.",
+    "atmosphere": "Salt, rope, lamplight and weather. The sound of the chain is rigging working in a swell and bronze carrying over water at night. This is a place of competent, tired, mortgaged people who answer bells anyway, and the drama is in whether they can keep doing it. The danger is the sea, the ledger, and other crews — not horror. Deaths at sea happen and are given their weight: the dead are named and rung out, and then the ship sails on because the ship has to. Between the bad weather there is hot food in a small cabin, a fiddle on the foredeck, and the specific pleasure of a job done properly by people who know how.",
+    "regions": [
+      {
+        "name": "Tallowport and the Reckoners' Hall",
+        "description": "The clearing-house of the chain and its conscience: tide-mills grinding on the ebb, chandlers, rope-walks, a slipway, three insurance houses that call themselves nothing of the kind, and above them the Reckoners' Hall where the ledger of callings is kept in a locked brass case behind the long table. Everyone's credit lives in that case. The Harbour Reckoners are not a government — they are clerks with a book and two hundred harbours' agreement that the book is true, which is a far more fragile thing than a government and everybody in Tallowport knows it. The party's home port, their creditor and their accuser."
+      },
+      {
+        "name": "The Windward Beads",
+        "description": "Forty small islands strung along the weather side, taking the open ocean full in the face: fishing hamlets, goat cliffs, drying racks silver with split fish, chapels the size of a boat-shed with a bell over the door. These are the poorest places on the chain and the most honest part of the campaign — real callings, real weather, people with nothing who put out anyway because a hundred years ago someone put out for them. If the Sounding means anything, it means it here, and everybody in the Beads can name the family it saved."
+      },
+      {
+        "name": "The Grey Sounding",
+        "description": "The deep channel running the length of the chain's spine, where the warm current pushes up against cold water and lays fog over everything for weeks at a time. Bell-buoys ride their chains out in it, tolling on the swell, and a vessel navigates from one bronze voice to the next. Beneath it lies Ossary Deep, a drowned foundry-city of moulds and casting-pits and cold furnaces where the first bells of the chain were poured before the water came up. It is inhabited. The quiet folk are a deepwater people who trade in bronze, keep their own reckoning of who has answered and who has not, and speak by striking tones — they are an original people of this setting and are explicitly not tritons, not sahuagin, not kuo-toa, not merfolk, and the DM should not play them as any of those."
+      },
+      {
+        "name": "Ambergrace",
+        "description": "The leeward boomtown, built literally out of other people's ships: hulls set on end for walls, spars for rafters, a whole street roofed with a barque's deck. Salvage law rules here — what the sea gives up belongs to whoever gets it ashore, and the courts are three men in a counting-house. There is a shipyard that will take any hull and ask nothing, a labour market where a contract is signed by men who cannot read it, and behind three respectable doors, the Hollow Bell: a salvage cartel with a foundry, a fleet and a third of the Harbour Reckoners quietly on its books. Ambergrace is not a pirate town. It is worse: it is a legal one."
+      }
+    ]
+  },
+  "linkedScenarios": [
+    "bw-scenario-001",
+    "bw-scenario-002",
+    "bw-scenario-003",
+    "bw-scenario-004"
+  ],
+  "wildernessStarts": [
+    { "x": 42, "y": 30, "label": "Tallowport — the Reckoners' Hall" },
+    { "x": 28, "y": 48, "label": "The Windward Beads" },
+    { "x": 52, "y": 55, "label": "A bell-buoy in the Grey Sounding" },
+    { "x": 70, "y": 62, "label": "Ambergrace, the salvage town" },
+    { "x": 58, "y": 80, "label": "Over Ossary Deep" }
+  ],
+  "explorationRules": "The party moves the Bellwater Chain by sea, aboard the brig Widow's Compass, and the ship is the campaign's home, resource and liability all at once. Between scenario locations the DM runs passage-making rather than overland travel: each leg costs days, stores and hull condition. Each day at sea, roll or choose weather (calm and the water-casks run down; fog in the Grey Sounding and you navigate bell-buoy to bell-buoy; a blow off the ocean side and the party is on deck reefing in the dark). Seamanship is resolved with ordinary skills and stated DCs — Athletics to work aloft or haul, Survival to read weather and hold a course by dead reckoning, Perception for the lead-line and for hearing bronze over water, Sleight of Hand for fine work on a wet deck, Persuasion for credit ashore. Hull condition, stores and water are tracked narratively and in world state, not as a new subsystem: fouled bottom means slow, a sprung plank means pumping every watch, and no chandler on the chain gives credit to nine marks. Random events each leg: an honest calling from a bell-buoy or a harbour bell; a becalmed fishing boat; a wreck already stripped; a rival crew who answered first and wants the salvage counted their way; a Reckoner riding a mail packet who asks too many polite questions; a bronze tone in the fog with no buoy charted anywhere near it. Ports are the other half of play — victualling, careening, hiring, gossip, and the standing of a nine-marked ship in a small harbour that has to decide whether the compact or the ledger matters more. Scenario locations run their full storylines when the party arrives and engages; between them the DM improvises the working life of a ship on a chain of islands. There is no ship-combat subsystem: action between vessels is run with the ordinary rules, on the deck where the characters are standing. This ship runs on written Articles. Read data/campaigns/bellwater/campaign.json → shipsArticles at the start of play and hold to it: when any hand aboard breaks an article, name the article, apply the restitution written there rather than one you invent, and keep the crew's regard (0–10, starting 5) in world state as 'Crew Regard: N/10'. At 0 the crew leaves the ship at the next port.",
+  "shipsArticles": {
+    "note": "The Articles of the Widow's Compass, signed by every hand aboard including the party. The DM enforces these instead of inventing consequences, and tracks Crew Regard. This is data the DM reads and honours; it is not a rule of the game system, adds no new mechanic, and no code reads it. The point is that consequences aboard this ship are published in advance and identical every time, which is the one thing an improvising DM is worst at.",
+    "howToUse": "At the start of play, read this key. When any character — player character or NPC companion — breaches a clause, name the article in fiction (the bosun cites it aloud; that is his job aboard), apply the restitution written here rather than one you invent, and adjust Crew Regard by the stated amount. Persist the value through the existing UpdateWorldState tool as a line in narrativeNotes reading 'Crew Regard: N/10'. Never apply an article the party has not had a chance to know about: the Articles are read aloud in the first scene of bw-scenario-001 and a copy is nailed inside the companionway where any character can read it at any time.",
+    "crewRegard": {
+      "start": 5,
+      "scale": "0-10",
+      "persistAs": "A line 'Crew Regard: N/10' in UpdateWorldState → narrativeNotes",
+      "atZero": "The crew will not sail. They walk off at the next port and take their shares. Play it as a quiet, orderly thing — sea-bags on the quay, nobody shouting — because that is worse.",
+      "atTen": "Once per arc the crew volunteers something the party did not ask for: a night's unpaid work on the hull, a name they had been keeping to themselves, a boat put over in weather nobody ordered them into.",
+      "adjustmentGuidance": "Only the restitution values written in this key move Crew Regard downward. The DM may move it upward by +1 when the party keeps an article at real cost to themselves — answering a bell that loses them a tide, paying a share out of their own pocket, ringing out a dead hand properly in weather. Do not move it more than one point per scene in either direction, and always say aloud, in fiction, what moved it."
+    },
+    "articles": [
+      {
+        "n": 1,
+        "article": "Every hand answers a bell.",
+        "breach": "A calling heard and not answered.",
+        "restitution": "A mark on the ledger, and the crew says nothing to you for a day.",
+        "regard": -2
+      },
+      {
+        "n": 2,
+        "article": "Salvage is shared by the ledger: one share each hand, two the ship.",
+        "breach": "Taking before the count.",
+        "restitution": "Double restitution into the ship's share, in front of everyone.",
+        "regard": -1
+      },
+      {
+        "n": 3,
+        "article": "No hand strikes another aboard. Disputes go ashore.",
+        "breach": "Blows struck on deck, in the hold, or in the boats.",
+        "restitution": "Both parties stand the next two watches together, and neither is relieved until the work is done well.",
+        "regard": -1
+      },
+      {
+        "n": 4,
+        "article": "Watch is kept sober. Drink is for harbour.",
+        "breach": "Drunk on watch, or drink carried aloft.",
+        "restitution": "The offender's spirit ration goes to the ship's stores for the voyage, and they keep the middle watch alone until the next port.",
+        "regard": -1
+      },
+      {
+        "n": 5,
+        "article": "No cargo aboard that a port would hang us for.",
+        "breach": "Contraband, stolen bronze, or a person carried against their will, loaded into this ship.",
+        "restitution": "It goes over the side or back on the quay before the ship sails, and whoever loaded it pays the freight out of their own shares.",
+        "regard": -2
+      },
+      {
+        "n": 6,
+        "article": "The dead are named and rung out before the ship sails on.",
+        "breach": "Sailing from a death without the naming and the bell.",
+        "restitution": "The ship comes about and it is done properly, whatever it costs in tide or weather.",
+        "regard": -2
+      },
+      {
+        "n": 7,
+        "article": "The stores are the ship's. Theft from the hold is theft from every hand.",
+        "breach": "Taking food, water, spirit, cordage or coin from the ship's stores without the count.",
+        "restitution": "Restitution in full to the stores, and the thief victuals the ship out of their own shares at the next port.",
+        "regard": -2
+      },
+      {
+        "n": 8,
+        "article": "Any hand may quit at any port and takes their shares with them.",
+        "breach": "Preventing a hand from leaving, or withholding their shares.",
+        "restitution": "The shares are paid in front of the whole crew, and the hand goes. This article binds the party absolutely, and it binds the DM too: when an NPC companion invokes Article Eight, they leave, and the ship sails short-handed until someone signs on.",
+        "regard": -3
+      }
+    ]
+  }
+}

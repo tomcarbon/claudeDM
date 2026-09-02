@@ -1,0 +1,79 @@
+{
+  "id": "bfdbdf93-dc31-40ba-8e99-1ee9c693f3d1",
+  "name": "Anselm Coyle",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Cleric",
+  "level": 3,
+  "background": "Acolyte",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 14, "modifier": 2 },
+    "dexterity": { "score": 11, "modifier": 0 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 9, "modifier": -1 },
+    "wisdom": { "score": 16, "modifier": 3 },
+    "charisma": { "score": 13, "modifier": 1 }
+  },
+  "hitPoints": { "max": 24, "current": 24 },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Wisdom", "Charisma"],
+  "skills": ["Insight", "Religion", "Medicine", "Persuasion"],
+  "languages": ["Common", "Celestial"],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Warhammer",
+    "Handaxe",
+    "A bell-priest's hand bell of wreck-bronze, small, older than the chapel he was ordained in",
+    "A book of the naming rite, water-stained through",
+    "Holy symbol: a bell-frame worked in bronze",
+    "Priest's pack",
+    "A list, kept for nineteen years, of every person he has rung out",
+    "Belt pouch containing 15 gp"
+  ],
+  "weapons": [
+    { "name": "Warhammer", "attackBonus": 4, "damage": "1d8+2", "damageType": "bludgeoning" },
+    { "name": "Handaxe", "attackBonus": 4, "damage": "1d6+2", "damageType": "slashing" },
+    { "name": "Sacred Flame (cantrip, DEX save DC 13)", "attackBonus": 0, "damage": "2d8", "damageType": "radiant" }
+  ],
+  "armor": { "name": "Chain mail and shield", "type": "heavy" },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Divine Domain: Tempest",
+    "Bonus Proficiencies (martial weapons and heavy armor)",
+    "Wrath of the Storm (reaction, when a creature within 5 ft. hits you, deal 2d8 lightning or thunder damage on a failed Dexterity save; uses equal to Wisdom modifier per long rest)",
+    "Channel Divinity (1 use per short or long rest)",
+    "Channel Divinity: Turn Undead",
+    "Channel Divinity: Destructive Wrath (deal maximum damage instead of rolling, for lightning or thunder damage)",
+    "Shelter of the Faithful (Acolyte feature: he and his companions receive free healing and care at any chapel of the Sounding, and he can call on the hamlet priests of the Beads for support)",
+    "Bell-Priest of the Sounding (flavor: ordained to ring the callings, bless the buoys, and name the dead)"
+  ],
+  "traits": ["Wrath of the Storm", "Channel Divinity", "Destructive Wrath"],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": ["Sacred Flame", "Guidance", "Thaumaturgy"],
+    "level1": {
+      "slots": 4,
+      "known": ["Bless", "Cure Wounds", "Healing Word", "Shield of Faith", "Fog Cloud (domain)", "Thunderwave (domain)"]
+    },
+    "level2": {
+      "slots": 2,
+      "known": ["Lesser Restoration", "Spiritual Weapon", "Gust of Wind (domain)", "Shatter (domain)"]
+    }
+  },
+  "personality": {
+    "traits": "I do the rite properly even when there is nobody to see it and the tide is against us, because the point of a rite is that it does not depend on whether it is convenient. I am slower to speak than anyone expects a priest to be. I have a bad, dry, sudden laugh that surprises people.",
+    "ideals": "The compact. Two hundred harbours agreed a thing about strangers a long time ago and have kept it, mostly, at cost, and I do not know a better argument for anything than that.",
+    "bonds": "I rang my own father out on Nethercombe's harbour bell when I was twenty-two. I know the note of that bell the way you know a voice.",
+    "flaws": "If the Sounding is rotten then my whole life is a mistake, and I have known for two years that something is wrong with it and have been very carefully not looking, and I am a coward about exactly one thing and it is the only thing that matters."
+  },
+  "appearance": "A big, slow-moving, grey-bearded man of about fifty in chain mail that he wears aboard ship, which everyone tells him is madness and which he does not discuss. His hands are a fisherman's rather than a scholar's; he was one until he was nineteen. He carries a small bronze hand bell at his belt that is older than the chapel he was ordained in, and he rings it at dawn and at dusk and over the dead, and the crew of the Widow's Compass have got so used to the sound that they cannot sleep properly without it. He has a habit of standing at the rail during a blow with his face into it, quite happily, which nobody has ever explained.",
+  "backstory": "Anselm Coyle was born in the Windward Beads hamlet of Nethercombe, went to the fishing at eleven, and would have died in it like everyone else in his family except that at nineteen he was in a boat that answered a bell. He has never talked about that night in detail. He was ordained as a bell-priest of the Sounding at twenty-one, which in the Beads is less a priesthood than a job: you ring the callings, you keep the harbour bell oiled and true, you bless the buoys when a boat goes out to them, and you name the dead and ring them out so that the sea does not get to keep them anonymously. He did it in Nethercombe for eleven years, rang his own father out on that harbour bell at twenty-two, and came aboard the Widow's Compass at thirty-five as her priest and her surgeon's mate, and has been aboard ever since. Two years ago Nethercombe's harbour bell went missing and was written off at the Hall as theft for the metal, and the hamlet has not been able to afford another, which means that if a boat out of Nethercombe is in trouble there is nothing to ring. Anselm Coyle has been quietly, methodically not thinking about what that means for two years, and the first time he gets his head under the lip of a recast bell and reads a mark he knows, it is going to take him apart."
+}

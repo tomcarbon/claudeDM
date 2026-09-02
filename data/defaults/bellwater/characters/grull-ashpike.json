@@ -1,0 +1,74 @@
+{
+  "id": "cf61b230-2075-457d-9330-ee426173c40b",
+  "name": "Grull Ashpike",
+  "status": "alive",
+  "race": "Half-Orc",
+  "subrace": "",
+  "class": "Barbarian",
+  "level": 3,
+  "background": "Sailor",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 17, "modifier": 3 },
+    "dexterity": { "score": 14, "modifier": 2 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 8, "modifier": -1 },
+    "wisdom": { "score": 12, "modifier": 1 },
+    "charisma": { "score": 10, "modifier": 0 }
+  },
+  "hitPoints": { "max": 32, "current": 32 },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Strength", "Constitution"],
+  "skills": ["Athletics", "Perception", "Intimidation", "Survival"],
+  "languages": ["Common", "Orc"],
+  "equipment": [
+    "Boarding axe (battleaxe)",
+    "Two javelins",
+    "Marlinspike (dagger)",
+    "Bosun's call on a lanyard",
+    "A rope-worker's palm and needle, in a leather roll",
+    "50 ft. of hemp rope and a grapnel",
+    "No armor of any kind, ever, on a ship — 'you go over the side in that, you stay over the side'",
+    "A folded copy of the Articles, soft as cloth, carried in an inside pocket",
+    "Belt pouch containing 10 gp"
+  ],
+  "weapons": [
+    { "name": "Boarding Axe (Battleaxe)", "attackBonus": 5, "damage": "1d8+3", "damageType": "slashing" },
+    { "name": "Boarding Axe, two-handed", "attackBonus": 5, "damage": "1d10+3", "damageType": "slashing" },
+    { "name": "Javelin", "attackBonus": 5, "damage": "1d6+3", "damageType": "piercing" },
+    { "name": "Marlinspike (Dagger)", "attackBonus": 5, "damage": "1d4+3", "damageType": "piercing" }
+  ],
+  "armor": { "name": "None (Unarmored Defense: 10 + DEX + CON)", "type": "none" },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Menacing (proficiency in the Intimidation skill)",
+    "Relentless Endurance (when dropped to 0 hit points without being killed outright, drop to 1 instead, once per long rest)",
+    "Savage Attacks (on a critical hit with a melee weapon, roll one of the weapon's damage dice one additional time)",
+    "Rage (3 per long rest: advantage on Strength checks and saves, +2 melee damage, resistance to bludgeoning, piercing and slashing)",
+    "Unarmored Defense (AC 10 + Dexterity modifier + Constitution modifier when wearing no armor)",
+    "Reckless Attack (gain advantage on Strength-based melee attacks this turn; attacks against you have advantage until your next turn)",
+    "Danger Sense (advantage on Dexterity saving throws against effects you can see, such as traps and spells)",
+    "Primal Path: Path of the Berserker",
+    "Frenzy (while raging, may make a single melee weapon attack as a bonus action each turn; on ending the rage, suffer one level of exhaustion)",
+    "Ship's Passage (Sailor feature)"
+  ],
+  "traits": ["Rage", "Unarmored Defense", "Reckless Attack", "Danger Sense", "Frenzy", "Relentless Endurance"],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "I say the article number and then I say what happens, and I do not editorialise, because the moment a bosun starts editorialising he is just a large man with an opinion. I sing on the capstan. I am much funnier than anyone expects and I do not let strangers find that out.",
+    "ideals": "The written thing. A rule that is nailed up where everyone can read it is worth ten rules that live in a captain's head, because a nailed-up rule cannot change its mind about you in the middle of the night.",
+    "bonds": "Six years I loaded hulls at Ambergrace and I walked out of that town on my own feet, which not many do, and I have never told a single soul aboard this ship what was in the last four cargoes I handled.",
+    "flaws": "I settle arguments with my hands. I know exactly what Article Three says because I quote it at other people twice a month, and I have broken it three times in six years, and every time I have stood the watches and every time I have known I would do it again."
+  },
+  "appearance": "A very large half-orc of about forty with grey coming into his stubble, arms like cable and a bosun's call on a lanyard that he uses instead of shouting. He goes barefoot on deck in all weathers and wears no armour on principle, and the principle has a specific dead friend behind it that he will explain to anyone once. His forearms carry twenty years of rope-scars and a badly-done tattoo of a bell that he got at nineteen in Ambergrace and has not looked at properly in a long time. Ashore he stands too still and takes up too much room and is aware of it. Aloft, in a gale, he is the most reassuring object on the ship.",
+  "backstory": "Grull Ashpike loaded hulls at Ambergrace from the age of fourteen: six years on the quays of a town built out of other people's ships, where the wages were the best on the chain and nobody ever asked what was in the crate. He was good at it and he was well paid and he walked out at twenty with nothing but a bag, which is a thing very few people manage to do in a town where every arrangement is a contract, and he has never explained how. He came windward, went to sea properly, and made bosun on the Widow's Compass eight years ago under Idony Marrach, who read him the Articles on the quay before she let him sign and then held to them without exception for eight years, which he had not previously known was a thing that happened. He has been the Articles' loudest enforcer ever since — citing them aloud, by number, in front of everybody, which is exactly what a bosun is for. What he has never told anyone is what he loaded in his last four months at Ambergrace, or why the sight of a stripped wreck makes him go quiet, or that he recognised the maker's mark on a certain shackle the moment it came over the rail."
+}

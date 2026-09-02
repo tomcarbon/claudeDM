@@ -1,0 +1,71 @@
+{
+  "id": "4938e9aa-5b60-436f-b375-66b0e533793d",
+  "name": "Wren Amberdy",
+  "status": "alive",
+  "race": "Halfling",
+  "subrace": "Lightfoot",
+  "class": "Rogue",
+  "level": 2,
+  "background": "Criminal (Spy)",
+  "alignment": "Chaotic Neutral",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 8, "modifier": -1 },
+    "dexterity": { "score": 17, "modifier": 3 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 13, "modifier": 1 },
+    "wisdom": { "score": 12, "modifier": 1 },
+    "charisma": { "score": 11, "modifier": 0 }
+  },
+  "hitPoints": { "max": 17, "current": 17 },
+  "armorClass": 14,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Dexterity", "Intelligence"],
+  "skills": ["Deception", "Stealth", "Investigation", "Perception", "Acrobatics", "Insight"],
+  "languages": ["Common", "Halfling"],
+  "equipment": [
+    "Leather armor",
+    "Two daggers",
+    "Shortsword",
+    "Shortbow and 20 arrows",
+    "Thieves' tools, in a roll of grey felt so they do not chime",
+    "Burglar's pack",
+    "A dark lantern with a shutter that does not squeak, because she oiled it",
+    "A folding lens for reading small handwriting upside down at a distance",
+    "Belt pouch containing 14 gp"
+  ],
+  "weapons": [
+    { "name": "Dagger", "attackBonus": 5, "damage": "1d4+3", "damageType": "piercing" },
+    { "name": "Shortsword", "attackBonus": 5, "damage": "1d6+3", "damageType": "piercing" },
+    { "name": "Shortbow", "attackBonus": 5, "damage": "1d6+3", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Leather armor", "type": "light" },
+  "features": [
+    "Lucky (when you roll a 1 on an attack roll, ability check or saving throw, reroll and must use the new roll)",
+    "Brave (advantage on saving throws against being frightened)",
+    "Halfling Nimbleness (can move through the space of any creature of a size larger than yours)",
+    "Naturally Stealthy (can attempt to hide even when obscured only by a creature at least one size larger)",
+    "Expertise (double proficiency on Stealth and with thieves' tools)",
+    "Sneak Attack (1d6 extra damage once per turn when you have advantage, or when an ally is within 5 feet of the target)",
+    "Thieves' Cant",
+    "Cunning Action (bonus action to Dash, Disengage or Hide)",
+    "Criminal Contact (Criminal feature: a reliable contact who acts as her liaison to a network of other criminals, and who is four days' ride away and might as well be on the moon)"
+  ],
+  "traits": ["Sneak Attack", "Cunning Action", "Expertise", "Lucky"],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "I ask permission for the small things and not for the large ones, which people find charming right up until they work out what it means. I am extremely good company and I am always, always reading the room for exits.",
+    "ideals": "Information wants to be in my hands. Not published — that would be reckless — just in my hands, where I can see it, because I have never once been hurt by something I already knew.",
+    "bonds": "I have never had a job where the client was in the same building as the answer. It is deeply unnerving and I keep having to remind myself that I cannot simply leave at the end of the week.",
+    "flaws": "Everything I am good at in this House is illegal, and I know exactly how illegal, and I do it anyway and then I am wounded when people treat me as though I have done something illegal."
+  },
+  "appearance": "A small, quick, extremely presentable lightfoot halfling of about thirty in good plain clothes that are deliberately a little dull, with a face people find hard to describe afterwards, which she has worked on. She wears her tools in a roll of grey felt so they do not chime, keeps her boots soft-soled, and has the specific talent of being in a room for twenty minutes before anyone registers that she came in. In conversation she is warm, funny and entirely present, and roughly a third of her attention is on the drawer behind you.",
+  "backstory": "Wren Amberdy has spent twelve years being paid to read other people's papers. Not to steal, mostly — to read, memorise, and put back exactly as found — which is a specialised trade with a small clientele of merchants, litigants and the occasional discreet provincial official, and which has kept her comfortable and out of gaol on the strength of never once getting greedy. She came up Coldharrow Pass this winter as part of an escort contract because the money was fine and the work was nothing: four mules and eight days' walking, and then four months of sitting in a warm building reading whatever was lying about, which for Wren is a holiday. She had already, by the end of the first day, established where the House's strongbox was, which drawer the archivist kept locked, and that the Master Reckoner's day-book had thirty-one predecessors on a shelf. She had done all of that out of pure habit and with no intention whatever. On the third morning she is standing in a cellar looking at a body, working out that every single one of those habits is now the difference between a murderer being named and not, and finding that she has no idea at all how she feels about being useful."
+}

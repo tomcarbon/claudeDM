@@ -1,0 +1,79 @@
+{
+  "id": "70d93152-7895-444a-8553-9ddc8da94057",
+  "name": "Ledda of Ossary",
+  "status": "alive",
+  "race": "Quiet Folk",
+  "subrace": "Ossary Deep (bronze-caste, bell-speaker)",
+  "class": "Druid",
+  "level": 4,
+  "background": "Hermit",
+  "alignment": "Neutral Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": { "score": 8, "modifier": -1 },
+    "dexterity": { "score": 15, "modifier": 2 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 12, "modifier": 1 },
+    "wisdom": { "score": 17, "modifier": 3 },
+    "charisma": { "score": 10, "modifier": 0 }
+  },
+  "hitPoints": { "max": 31, "current": 31 },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Intelligence", "Wisdom"],
+  "skills": ["Nature", "Perception", "Medicine", "Religion"],
+  "languages": ["Bell-tone (the struck speech of the quiet folk)", "Aquan", "Common (halting)"],
+  "equipment": [
+    "Hide armor of layered kelp and cured skin, non-metal as her tradition requires",
+    "Bronze scimitar, four hundred years old, recovered from a moulding hall",
+    "Sling and a pouch of shaped stones",
+    "A collar of eleven small hammered bells at her throat, each a different note, which is how she speaks",
+    "A bronze bar carried across her back — a striker, a lever and a tool, and the mark of her caste",
+    "Druidic focus: a length of knotted kelp strung with bell-fragments",
+    "A tally of hammered bronze markers, fifteen of them, kept in a net bag",
+    "Herbalism kit"
+  ],
+  "weapons": [
+    { "name": "Bronze Scimitar", "attackBonus": 4, "damage": "1d6+2", "damageType": "slashing" },
+    { "name": "Thorn Whip (cantrip)", "attackBonus": 5, "damage": "1d6", "damageType": "piercing" },
+    { "name": "Sling", "attackBonus": 4, "damage": "1d4+2", "damageType": "bludgeoning" }
+  ],
+  "armor": { "name": "Kelp-and-hide armor (no metal)", "type": "medium" },
+  "features": [
+    "Deepwater Heritage (Quiet Folk trait: swim speed 40 ft.; can breathe air and water; darkvision 120 ft.; resistance to cold damage)",
+    "Bell-Tongue (Quiet Folk trait: speaks by striking tones on a worn collar of bells, and can be understood in fragments by anyone who has spent time listening; struck speech carries roughly a mile underwater)",
+    "Druidic (knows the secret language of druids)",
+    "Spellcasting (Wisdom-based, druid)",
+    "Circle of the Land: Coast",
+    "Bonus Cantrip (an additional druid cantrip)",
+    "Natural Recovery (on a short rest, recover expended spell slots totalling up to 2 levels, once per day)",
+    "Circle Spells (Coast: Mirror Image and Misty Step are always prepared and do not count against her prepared total)",
+    "Wild Shape (2 uses per short or long rest: beasts of CR 1/2 or lower, with a swimming speed permitted; no flying speed)",
+    "Discovery (Hermit feature, reflavored: her people's count of the ships lost above Ossary Deep is a record nobody on the surface has, and she carries it)"
+  ],
+  "traits": ["Deepwater Heritage", "Bell-Tongue", "Wild Shape", "Natural Recovery"],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": ["Shape Water", "Thorn Whip", "Guidance", "Druidcraft"],
+    "level1": { "slots": 4, "known": ["Cure Wounds", "Fog Cloud", "Speak with Animals", "Entangle"] },
+    "level2": { "slots": 3, "known": ["Lesser Restoration", "Hold Person", "Mirror Image (circle)", "Misty Step (circle)"] }
+  },
+  "personality": {
+    "traits": "I say a thing once, in tone, and then I wait, and I am prepared to wait considerably longer than any surface person finds comfortable. I count. I have counted for two years and I have the count with me.",
+    "ideals": "The answering. A rung bell is a question and the whole of what my people and yours have in common is that somebody is supposed to come. Everything else about your compact I could take or leave.",
+    "bonds": "Fifteen markers in a net bag, one for every hull that has died above our city, and five of them are for ships that nobody on the surface has ever missed.",
+    "flaws": "I have argued against my own people's great bell for two years and lost every time, and I came up here instead of staying to argue it again, and I do not know whether that was diplomacy or running away."
+  },
+  "appearance": "Tall, long-limbed and grey as a wet stone, with wide dark eyes set for a hundred fathoms and a scattering of small hard bronze-coloured nodules along her forearms and spine that are not decoration. She wears layered kelp-and-hide armour with no metal in it anywhere except the bronze she carries deliberately: a bar across her back, a scimitar four hundred years old, and at her throat a collar of eleven small hammered bells, each a different note, which she strikes with a knuckle when she speaks. Out of water she moves carefully and looks slightly wrong-scaled, like a heron on a lawn. In water she is the most graceful thing anyone aboard has ever seen and it is a little frightening.",
+  "backstory": "Ledda is of the quiet folk of Ossary Deep — a deepwater people who have lived for four hundred years in the drowned foundry-city beneath the Grey Sounding, working bronze, keeping their own reckoning, and speaking by striking tones. They are not tritons, not sahuagin, not kuo-toa and not merfolk, and they would be politely baffled by all four comparisons. For two years Ledda has kept her people's count of the ships that have died on the Sharrow above their city: fifteen markers hammered into the reef face, five of them for hulls that fell over the ledge into deep water and were never found, never reported and never entered in any ledger anywhere. In all that time not one person from the surface has asked her people a single question. Her people's answer to this is being cast at the far end of their city: a bell large enough to be heard for eighty miles, made from the recovered fragments of every stolen harbour bell they have salvaged, intended to be hung at the threshold of Ossary Deep and struck — a calling that can never be answered, ringing forever, proving in bronze that the compact was always a lie. Ledda has argued against it for two years and lost every time. She came up to the surface, and then aboard the Widow's Compass, because somebody finally rang a bell honestly over that reef, and she wants very badly to be able to go home and tell her people to stop.",
+  "dmNotes": {
+    "roleplaying": "LEDDA IS AN ORIGINAL PEOPLE OF THIS SETTING AND MUST NOT BE PLAYED AS A TRITON, A SAHUAGIN, A KUO-TOA OR A MERFOLK. Do not use those words, those descriptions or those stat blocks. She is grey, bronze-working, deepwater, and she speaks in struck tones. The single most important thing about running her is the LANGUAGE GRADIENT: when she joins after bw-scenario-002 the party understands perhaps a third of what she says, and the DM should narrate that honestly — give the players a number, a direction, an emotion, and let them guess at the rest. Over the following two scenarios, as Yevet Ourim's notebook fills and characters make Performance checks to answer her on a bell, close the gap: a half, then most of it, then all. Never hand over a translator and never let a spell trivialise it permanently; Comprehend Languages gets one conversation and is worth spending a slot on. She is patient in a way that is genuinely unnerving — she will wait forty seconds for an answer without any discomfort at all — and she has no small talk of any kind. She is also, crucially, not a noble victim: her people are building something terrible and she knows it.",
+    "voice": "Struck tones, rendered in fragments. Write her dialogue as short, concrete, and slightly wrong in its joins: 'Fifteen. Not nine. Fifteen, and five with no name.' 'You rang. For the four. That was — ' and then a tone the party cannot read. She uses numbers constantly and abstractions almost never; she has words for depth, weight, count, metal, answer and dead, and she has to build everything else out of those. When she speaks Common it is halting and oddly formal and she dislikes doing it. Her humour, when it appears, is extremely dry and about two beats slower than anyone expects. She addresses people by what they do rather than by name for a long time: 'the one who rings', 'the one who counts', 'the loud one'.",
+    "motivations": "Primary: to be able to go home and say that the surface answered — that somebody came, rang a bell for four strangers in a forepeak, and did not go quiet when it became inconvenient. That is the whole of what she is looking for and it is why she is aboard. Secondary: to see the fifteen entered somewhere, in some book, by somebody, because her people's count exists and no surface record acknowledges it. Tertiary: to stop the great bell, which she cannot do from up here, and which is why every day she spends aboard costs her something.",
+    "secrets": "THE GREAT BELL. Her people have spent two years casting a bell in a pit at the far end of Ossary Deep, from the recovered fragments of every stolen harbour bell they have salvaged. It is not for rescue. Hung at the threshold and struck, it would be heard for eighty miles as a calling with no ship at the end of it, from every direction, forever — a proof in bronze that the compact was always a lie, and it would work, and it would end the Sounding for everyone including the Beads hamlets who have nothing else. Ledda has argued against it for two years and lost. She does not conceal this exactly; she simply cannot yet say it in a language the party understands, and by the time she can, they are most of the way to Ossary Deep. The reveal belongs in bw-scenario-004 Act 1 and should land as a complication rather than a betrayal. SECOND SECRET, smaller: she made the condition her people set — that whatever the party finds, they will say out loud, on the surface, in front of their own kind — because her people have watched surface folk find things and go quiet before, and she expects the party to fail it. She would very much like to be wrong.",
+    "attitude": "Watchful, patient, entirely unsentimental, and slowly, grudgingly hopeful. She is not grateful to the party and should never be played as grateful; she is evaluating them, continuously, and she says so. She warms specifically to Anselm Coyle, who rings bells properly, and to Yevet Ourim, who writes tones down and gets them wrong and keeps trying. She has no patience at all for Ottilie Vance's charm and no interest in credit, favours or reputation. Toward the Reckoners' Hall she is coldly contemptuous — a book kept by people who never asked anyone below the surface anything. Toward the ending: if the party breaks the Sounding, she leaves quietly and her people ring their bell; if the party reforms it, she goes home with something to argue with; if the party takes the cartel's place, she leaves without a word, and that silence should be the loudest thing in the last scene."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "78b36dbf-bc7a-4584-8bd2-3e9d2ba91680",
+  "name": "Ysolde Marrow",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Cleric",
+  "level": 2,
+  "background": "Acolyte",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": { "score": 13, "modifier": 1 },
+    "dexterity": { "score": 11, "modifier": 0 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 14, "modifier": 2 },
+    "wisdom": { "score": 16, "modifier": 3 },
+    "charisma": { "score": 9, "modifier": -1 }
+  },
+  "hitPoints": { "max": 17, "current": 17 },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Wisdom", "Charisma"],
+  "skills": ["Insight", "Religion", "Medicine", "History"],
+  "languages": ["Common", "Celestial", "Dwarvish"],
+  "equipment": [
+    "Chain shirt",
+    "Shield",
+    "Mace",
+    "Light crossbow and 20 bolts",
+    "Holy symbol: a small brass sun-disc, much worn",
+    "A book of the rites for the dead, in three hands, two of them her teachers'",
+    "Herbalism kit and a surgeon's roll",
+    "Priest's pack",
+    "A notebook in which she has written the names of everyone she has said the rites over",
+    "Belt pouch containing 15 gp"
+  ],
+  "weapons": [
+    { "name": "Mace", "attackBonus": 3, "damage": "1d6+1", "damageType": "bludgeoning" },
+    { "name": "Light Crossbow", "attackBonus": 2, "damage": "1d8", "damageType": "piercing" },
+    { "name": "Sacred Flame (cantrip, DEX save DC 13)", "attackBonus": 0, "damage": "1d8", "damageType": "radiant" }
+  ],
+  "armor": { "name": "Chain shirt and shield", "type": "medium" },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Divine Domain: Knowledge",
+    "Blessings of Knowledge (proficiency in two extra languages — Celestial and Dwarvish — and doubled proficiency bonus on History and Religion checks)",
+    "Channel Divinity (1 use per short or long rest)",
+    "Channel Divinity: Turn Undead",
+    "Channel Divinity: Knowledge of the Ages (gain proficiency with one skill or tool of choice for 10 minutes)",
+    "Shelter of the Faithful (Acolyte feature: she and her companions receive free healing and care at temples of her faith, and can call on its priests for support)"
+  ],
+  "traits": ["Blessings of Knowledge", "Knowledge of the Ages", "Channel Divinity"],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": ["Sacred Flame", "Guidance", "Spare the Dying"],
+    "level1": {
+      "slots": 3,
+      "known": ["Command (domain)", "Identify (domain)", "Cure Wounds", "Bless", "Healing Word", "Detect Magic", "Sanctuary"]
+    }
+  },
+  "personality": {
+    "traits": "I say the words over people whether or not anybody liked them, because the rite is not a compliment. I ask questions slowly and I let the silence afterwards go on longer than is comfortable, and a surprising number of people fill it.",
+    "ideals": "The dead get the truth. Not comfort, not a story that lets the living sleep — the truth, said out loud, with their name attached. Everything else I do in a house like this follows from that.",
+    "bonds": "There is a notebook in my pack with every name I have said the rites over in eleven years, and I can tell you something true about each of them, and I intend to be able to do that for Hollis Ardwen.",
+    "flaws": "I am the conscience in every room I walk into and I know precisely how insufferable that is, and I keep doing it, and I have lost two friendships to it and expect to lose more."
+  },
+  "appearance": "A calm, square-built woman of about forty with grey coming in early and a face that people tell things to. She wears a chain shirt under a plain travelling robe and carries a mace she has used perhaps four times in her life. Her hands are steady, capable and always slightly chapped from washing. She has the specific stillness of somebody who has sat with a great many dying people and stopped finding it frightening, and it makes her either extremely comforting or extremely unnerving to be near, depending entirely on what you are hiding.",
+  "backstory": "Ysolde Marrow was ordained at twenty-four into an order that keeps records: registers of births and deaths, the rites for the dead, the small unglamorous archive of who a person was. For eleven years she has travelled a circuit of provincial villages doing the parts of the job that nobody wants — sitting with the dying, washing and preparing the dead, saying the words over people whose families are too poor or too far or too angry to come. She has a notebook with every name in it. She takes escort work in winter because the circuit does not run in snow and because a party of four on a mountain road is exactly the kind of thing that eventually needs someone who can set a bone and say a rite. On the third morning at the Reckoning House she says the words over Hollis Ardwen in a cold room with twelve people standing in the doorway not quite coming in, and then she stays behind after they have gone up to breakfast, and she washes and prepares him properly, unhurried, in thin grey light — and in doing that, without any check or any cleverness, she finds out that the injuries below his neck have no bruising around them at all."
+}

@@ -1,0 +1,63 @@
+{
+  "campaignId": "wonderland",
+  "version": 1,
+  "assets": [
+    {
+      "id": "map-wonderland",
+      "kind": "map",
+      "status": "ready",
+      "file": "wonderland-map.png",
+      "title": "Wonderland",
+      "alt": "An aged-parchment map of Wonderland framed in playing-card suits. North, a great dark rabbit hole spills cards toward the Rabbit Warren and its Pool of Tears. West lies the Tulgey Wood, its dark trees carrying grinning Cheshire faces. North-east stands the Mad Tea Quarter under a broken clock tower. South-east, behind red-flagged walls, sits the Queen's Domain and the Palace of Hearts. A river winds down the middle; the compass rose points This Way, Other Way and Back Again.",
+      "showWhen": "The party consults a map, asks where they are, plans a journey between regions, or first arrives in the Rabbit Warren, the Tulgey Wood, the Mad Tea Quarter or the Queen's Domain.",
+      "provenance": "wonderland-map.png.provenance.md",
+      "markers": [
+        {
+          "id": "rabbit-warren",
+          "name": "The Rabbit Warren",
+          "subtitle": "Pool of Tears",
+          "scenarioId": "wl-scenario-001",
+          "x": 30,
+          "y": 20,
+          "color": "#a855f7"
+        },
+        {
+          "id": "tulgey-wood",
+          "name": "The Tulgey Wood",
+          "subtitle": "Cheshire Reaches",
+          "scenarioId": "wl-scenario-002",
+          "x": 22,
+          "y": 52,
+          "color": "#22c55e"
+        },
+        {
+          "id": "tea-quarter",
+          "name": "The Mad Tea Quarter",
+          "subtitle": "Broken Clock Tower",
+          "scenarioId": "wl-scenario-003",
+          "x": 70,
+          "y": 40,
+          "color": "#f59e0b"
+        },
+        {
+          "id": "queens-domain",
+          "name": "The Queen's Domain",
+          "subtitle": "Palace of Hearts",
+          "scenarioId": "wl-scenario-004",
+          "x": 55,
+          "y": 80,
+          "color": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "npc-cheshire-cat",
+      "kind": "portrait",
+      "status": "specified",
+      "spec": "cheshire-cat-spec.md",
+      "title": "The Cheshire Cat",
+      "alt": "A disembodied crescent grin with gleaming teeth, hanging in dark branches.",
+      "showWhen": "The Cheshire Cat appears or speaks for the first time in a scene."
+    }
+  ]
+}

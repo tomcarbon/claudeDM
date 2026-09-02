@@ -1,0 +1,91 @@
+{
+  "id": "fcdf7ec9-d7c1-4f4a-8b4a-74a4095bd95c",
+  "name": "Bettram Oke",
+  "status": "alive",
+  "race": "Dwarf",
+  "subrace": "Mountain Dwarf",
+  "class": "Cleric",
+  "level": 3,
+  "background": "Guild Artisan",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 15, "modifier": 2 },
+    "dexterity": { "score": 12, "modifier": 1 },
+    "constitution": { "score": 16, "modifier": 3 },
+    "intelligence": { "score": 10, "modifier": 0 },
+    "wisdom": { "score": 15, "modifier": 2 },
+    "charisma": { "score": 8, "modifier": -1 }
+  },
+  "hitPoints": { "max": 27, "current": 27 },
+  "armorClass": 18,
+  "speed": 25,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Wisdom", "Charisma"],
+  "skills": ["Insight", "Persuasion", "Medicine", "Religion"],
+  "languages": ["Common", "Dwarvish"],
+  "equipment": [
+    "Chain mail",
+    "Shield",
+    "Mace",
+    "Warhammer",
+    "Cook's knives in a canvas roll, honed every single day",
+    "Brewer's supplies",
+    "A surgeon's kit: needles, thread, splints, and a bone-saw he has used twice and does not discuss",
+    "Holy symbol: a small pewter hearth-plate on a cord",
+    "Priest's pack",
+    "A cork lifebelt of his own making, kept in his bunk, never once worn where anyone could see",
+    "Belt pouch containing 11 gp"
+  ],
+  "weapons": [
+    { "name": "Mace", "attackBonus": 4, "damage": "1d6+2", "damageType": "bludgeoning" },
+    { "name": "Warhammer", "attackBonus": 4, "damage": "1d8+2", "damageType": "bludgeoning" },
+    { "name": "Sacred Flame (cantrip, DEX save DC 12)", "attackBonus": 0, "damage": "2d8", "damageType": "radiant" }
+  ],
+  "armor": { "name": "Chain mail and shield", "type": "heavy" },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Dwarven Resilience (advantage on saving throws against poison, and resistance to poison damage)",
+    "Dwarven Combat Training (proficiency with battleaxe, handaxe, light hammer and warhammer)",
+    "Dwarven Armor Training (proficiency with light and medium armor)",
+    "Tool Proficiency: brewer's supplies",
+    "Stonecunning (doubled proficiency bonus on History checks related to stonework)",
+    "Divine Domain: Life",
+    "Bonus Proficiency (heavy armor)",
+    "Disciple of Life (healing spells of 1st level or higher restore an additional 2 + the spell's level hit points)",
+    "Channel Divinity (1 use per short or long rest)",
+    "Channel Divinity: Turn Undead",
+    "Channel Divinity: Preserve Life (restore hit points equal to five times cleric level, divided among creatures within 30 ft., up to half their maximum each)",
+    "Guild Membership (Guild Artisan feature, reflavored: the ships' cooks and victuallers of the chain know him and will feed and shelter him in any port)"
+  ],
+  "traits": ["Disciple of Life", "Preserve Life", "Dwarven Resilience", "Stonecunning"],
+  "spells": {
+    "spellcastingAbility": "wisdom",
+    "spellSaveDC": 12,
+    "spellAttackBonus": 4,
+    "cantrips": ["Sacred Flame", "Spare the Dying", "Guidance"],
+    "level1": {
+      "slots": 4,
+      "known": ["Bless (domain)", "Cure Wounds (domain)", "Healing Word", "Detect Poison and Disease", "Purify Food and Drink"]
+    },
+    "level2": {
+      "slots": 2,
+      "known": ["Lesser Restoration (domain)", "Spiritual Weapon (domain)", "Aid"]
+    }
+  },
+  "personality": {
+    "traits": "I complain continuously and I have never once failed to show up. Those two facts are not in tension and I will not have them treated as though they are. If I have stopped complaining, something is badly wrong and you should find out what.",
+    "ideals": "Feeding people. There is a great deal of theology in the world and most of it is decoration on top of the actual thing, which is that somebody has to get hot food into eleven wet people at four in the morning and it might as well be me.",
+    "bonds": "One voyage. I signed on for one voyage nine years ago and I have never got round to leaving, and every single person aboard this ship knows what I am for.",
+    "flaws": "I cannot swim. I have never been able to swim. I have hidden it for nine years aboard a brig, which is the most ridiculous piece of cowardice on this chain, and it has got harder to say every single year."
+  },
+  "appearance": "A broad, grizzled mountain dwarf of about a hundred and forty, in an apron over chain mail, which is a combination he sees nothing odd about. His beard is bound up in a net when he cooks and comes down when he does not. He has a permanent squint from thirty years of galley smoke and a set of knives in a canvas roll that he hones every day without fail and lets nobody else touch. He moves around a pitching deck with the flat-footed certainty of somebody who has decided that falling over is simply not going to be part of his day. He is never seen closer to the rail than four feet, and nobody has ever remarked on it.",
+  "backstory": "Bettram Oke was a brewer and a hearth-priest in a mountain town nine hundred miles from any sea, and he came down to the coast at about a hundred and thirty for reasons involving a family argument that he will describe at length and never actually explain. He signed aboard the Widow's Compass for one voyage — Tallowport to the leeward islands and back, six weeks — and disliked every hour of it, and the ship was short a cook on the return leg, and he stayed. That was nine years ago. In that time he has fed eleven people three times a day through four gales, two groundings and one fever that took the captain, and he has set eleven broken bones and stitched more cuts than he has counted, and he has complained without stopping for nine consecutive years about the damp, the motion, the quality of the flour, the impossibility of getting a decent onion in the Beads, and the sea itself, which he regards as a fundamentally unserious substance. He is the ship's cook, the ship's surgeon, and — though nobody has ever said it in these words — the reason the Widow's Compass is a home and not just a hull. And he cannot swim, has never learned, is a hundred and forty years old and profoundly too proud to start, and has kept it hidden for nine years aboard a sailing ship, which requires a degree of daily vigilance that nobody around him has ever suspected.",
+  "dmNotes": {
+    "roleplaying": "Bettram is the ship's warmth and its running joke, and the joke has to be affectionate or he does not work. The comedy engine is simple and never gets old: he complains bitterly about something, at length, in specific and inventive detail, while doing that exact thing extremely well and having in fact already finished it. He is the first person on deck after a bad watch with something hot; he is the one who notices somebody has not eaten; he is the one who says the unsayable thing at a funeral because he does not care about atmosphere. Use him to regulate the campaign's tone: when a scenario has been grim for too long, cut to Bettram being furious about onions. When the party needs to be told something true, have him say it in the middle of a complaint so that it lands sideways. In combat he is a Life cleric and a solid one, and he will always, always spend his round healing the person nearest to going down rather than doing anything clever.",
+    "voice": "A continuous low grumble that periodically resolves into a complete and devastating sentence. Long compound complaints with a specific noun at the end of them: 'Four months of flour, and it's good flour, and I'll not carry spoiled flour on my conscience as well as everything else.' He addresses everyone including the captain by their first name and has done from the first day and nobody has ever successfully objected. When he is being serious he goes short and quiet and everybody notices immediately, which is exactly why it works.",
+    "motivations": "Primary: get hot food into these people and keep them alive, in that order, every day, forever. Secondary: to be needed, which he would deny with genuine indignation and which is the actual reason he never took the six-week return passage he signed for. Tertiary: to be buried in the ground, on a hill, a long way from any water — which he has mentioned exactly once, drunk, and which is the only glimpse anybody has had of what the sea costs him.",
+    "secrets": "HE CANNOT SWIM. Nine years aboard a brig and he has never learned and has hidden it completely, and hiding it is a daily piece of work: he is never within four feet of the rail, he has a cork lifebelt of his own making in his bunk that he has never worn, he volunteers for every job that keeps him amidships, and he has twice let people think he was shirking rather than explain. He is a hundred and forty years old and far too proud to learn now, and the shame of it is out of all proportion and completely real. This should come out in water — Coyne's surf, the Sharrow, or the descent to Ossary Deep — at the worst possible moment, and the way the party handles it is one of the campaign's better tests of them. Do not play the reveal for laughs. SECOND SECRET, quieter: he has known for about four years that Grull Ashpike will not go below into the after hold, and he has never asked why, and he moves the stores around so that Grull never has to.",
+    "attitude": "Fond, exasperated and entirely committed. He treats the party as a set of people who need feeding and supervising and who are, on the whole, doing their best. He is one of the two people aboard who will tell a new captain that they have made a mistake, and he will do it in the galley rather than on the deck, and he will do it once. He is unbothered by rank, unimpressed by anybody's plans, and reliably the last person to panic. Toward Ondine Marrach he is protective in a way that is entirely unspoken and would embarrass them both. Toward the sea he maintains a nine-year grudge that is the closest thing this ship has to a religion."
+  }
+}

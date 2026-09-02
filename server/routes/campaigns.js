@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
+const { findReadyAsset, resolveAssetFile, contentTypeFor } = require('../asset-manifest');
 
 function readCampaignEntries(campaignDir) {
   if (!fs.existsSync(campaignDir)) return [];
@@ -97,6 +98,57 @@ module.exports = function (dataDir) {
       res.json(campaigns);
     } catch (err) {
       res.status(500).json({ error: err.message });
+    }
+  });
+
+  // GET/HEAD one campaign asset by ID.
+  //
+  // Scene imagery — docs/adr/0002-scene-imagery.md §5. This route resolves an **id** to bytes by
+  // looking it up in that campaign's assets.json. It never treats the id as a path, and it never
+  // falls back to doing so. It is deliberately NOT express.static over data/: that tree holds
+  // players.json, every player library and every session transcript.
+  //
+  // The campaign id is in the path rather than the X-Campaign-Id header the rest of the client
+  // sends, because an <img src> cannot carry a custom header.
+  //
+  // Authorisation matches GET /api/campaigns/:id, which already serves unauthenticated callers.
+  // Campaign art is the same class of content as the campaign synopsis. (ADR §5, §10.5 — VP Cyber
+  // Security has not yet ruled; if they want requirePlayer here it is one middleware.)
+  //
+  // Unknown campaign and unknown asset are indistinguishable: same status, same body, so the route
+  // does not enumerate what exists.
+  function assetNotFound(res) {
+    return res.status(404).json({ error: 'Unknown asset' });
+  }
+
+  router.get('/:campaignId/assets/:assetId', (req, res) => {
+    try {
+      const cid = sanitizeCampaignId(req.params.campaignId);
+      if (!cid) return assetNotFound(res);
+
+      // Exact string equality against the manifest. Unknown, `specified` and malformed entries
+      // are all equally not-found.
+      const entry = findReadyAsset(dataDir, cid, req.params.assetId);
+      if (!entry) return assetNotFound(res);
+
+      // entry.file has already been validated as a bare filename with an allowed extension;
+      // resolveAssetFile re-asserts containment (and symlink containment) before returning a path.
+      const resolved = resolveAssetFile(dataDir, cid, entry);
+      if (!resolved) return assetNotFound(res);
+
+      const contentType = contentTypeFor(resolved.filename);
+      if (!contentType) return assetNotFound(res);
+
+      res.set('Content-Type', contentType);
+      res.set('X-Content-Type-Options', 'nosniff');
+      res.set('Cache-Control', 'public, max-age=3600');
+      // Explicit root: sendFile resolves the (relative) filename against it and refuses to escape.
+      res.sendFile(resolved.filename, { root: resolved.root, dotfiles: 'deny' }, (err) => {
+        if (err && !res.headersSent) assetNotFound(res);
+      });
+    } catch (err) {
+      console.error('[Assets] Failed to serve asset:', err.message);
+      if (!res.headersSent) assetNotFound(res);
     }
   });
 

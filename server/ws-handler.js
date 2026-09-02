@@ -810,6 +810,22 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               });
               turnEvents.push({ type: 'dice_roll', text: formatDiceRoll(event) });
               break;
+            case 'scene_image':
+              // Scene imagery (docs/adr/0002-scene-imagery.md §7). Same path as dice_roll:
+              // broadcast to every watcher, and record in turnEvents so persistCanonicalTurn
+              // writes it into session.messages in stream order.
+              // The payload carries ids and text, never a path and never a URL — the browser
+              // builds the URL from campaignId + assetId, so its request goes back through the
+              // asset route's manifest lookup.
+              broadcastSessionMessage(sessionDbId, 'scene_image', {
+                assetId: event.assetId, kind: event.kind, title: event.title,
+                alt: event.alt, caption: event.caption, text: event.text,
+              });
+              turnEvents.push({
+                type: 'scene_image', assetId: event.assetId, kind: event.kind,
+                title: event.title, alt: event.alt, caption: event.caption, text: event.text,
+              });
+              break;
             case 'tool_use':
               auditToolCalls.push({ name: event.name, input: event.input });
               break;
@@ -1414,6 +1430,21 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   });
                   turnEvents.push({ type: 'dice_roll', text: formatDiceRoll(event) });
                   break;
+                case 'scene_image': {
+                  // Scene imagery (docs/adr/0002-scene-imagery.md §7) — the dice_roll path
+                  // exactly: send to the player, broadcast to every watcher, and record in
+                  // turnEvents so the turn persists with the picture in stream order.
+                  // `text` is non-empty by construction in the tool (condition S3), which is what
+                  // stops normalizeSavedMessages dropping the entry on reload.
+                  const sceneImage = {
+                    assetId: event.assetId, kind: event.kind, title: event.title,
+                    alt: event.alt, caption: event.caption, text: event.text,
+                  };
+                  send('scene_image', sceneImage);
+                  broadcastToSessionWatchers('scene_image', sceneImage);
+                  turnEvents.push({ type: 'scene_image', ...sceneImage });
+                  break;
+                }
                 case 'dm_response':
                   messageHistory.push({ type: 'dm', text: event.text, sessionId: currentSessionDbId || undefined });
                   auditDmText += (auditDmText ? '\n\n' : '') + event.text;

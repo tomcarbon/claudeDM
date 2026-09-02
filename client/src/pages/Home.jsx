@@ -128,6 +128,26 @@ function Home() {
         </div>
         <CampaignCards campaignId="campaign5" locked={false} />
       </div>
+
+      {/* ── The Widow's Compass (Bellwater Chain) ── */}
+      <div className="tier-box tier-premium">
+        <div className="tier-header">
+          <span className="tier-badge tier-badge-premium">Premium</span>
+          <h3 className="tier-title">The Widow's Compass 🔔</h3>
+          <p className="tier-subtitle">You inherit a brig, her crew, the Articles they all signed — and nine marks against her name on a ledger that decides which ships still exist. Answer bells the length of an archipelago before the year turns. Levels 3–10.</p>
+        </div>
+        <CampaignCards campaignId="bellwater" locked={false} />
+      </div>
+
+      {/* ── A Winter at the Reckoning House (fair-play mystery) ── */}
+      <div className="tier-box tier-premium">
+        <div className="tier-header">
+          <span className="tier-badge tier-badge-premium">Premium</span>
+          <h3 className="tier-title">A Winter at the Reckoning House ❄️</h3>
+          <p className="tier-subtitle">Snowed in with twelve reckoners and the Master Reckoner dead at the foot of the gallery stair. Eight days, one building, and a solution written down before play begins. Levels 2–5.</p>
+        </div>
+        <CampaignCards campaignId="reckoning" locked={false} />
+      </div>
     </div>
   );
 }

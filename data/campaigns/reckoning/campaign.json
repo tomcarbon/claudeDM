@@ -1,0 +1,232 @@
+{
+  "id": "reckoning",
+  "title": "A Winter at the Reckoning House",
+  "subtitle": "Twelve Residents, Eight Days, One Fixed Answer",
+  "type": "open-world",
+  "levelRange": "2-5",
+  "estimatedSessions": "6-8",
+  "synopsis": "For two hundred years the Reckoning House above Ambry Vale has computed and published the Almanac — the tide, frost, planting and eclipse tables that every farm, harbour and mill in the province plans its year by. Twelve reckoners winter there, snowed in from first frost to thaw, working the tables by lamplight around a great brass orrery. You came up Coldharrow Pass ahead of the storm under contract: carry the winter stores in, carry the fair copy of the Almanac down to the printers at thaw. The pass closed behind you. On the second night, Master Reckoner Hollis Ardwen is found at the foot of the gallery stair with his skull broken, and it reads as a fall. It was not. There are twelve people in this House, eight days until the couriers can get up the pass, and one of them did it. And the corpse is not the whole of it: someone has been falsifying the eastern frost tables for three years, and if the fair copy goes down uncorrected the eastern hundreds will plant nine days early and lose the crop. You can solve the murder and still fail. You can fail the murder and still save the harvest. This is a fair-play mystery with a solution written down before play began, and it is a short campaign on purpose: six to eight sessions, one building, one winter, one answer.",
+  "hook": "The last mile of Coldharrow Pass takes four hours in a rising wind, and the House comes out of the snow all at once — a black stone block with one lit window, four storeys and no ornament, built by people who cared about arithmetic and nothing else. They take the stores off your mules without much ceremony and give you beds in the loft and a place at the long table, and by full dark the pass behind you is gone under six feet of drift and will not open again until thaw. That is fine. That was always the contract. On the first night you learn twelve names and hear an argument through a wall. On the second night, the kitchen boy is sick in the yard and the apprentice is screaming in the hall, and Master Reckoner Hollis Ardwen is lying at the foot of the gallery stair with his head broken open and his lamp still burning, upright and cold, on the rail four storeys above him.",
+  "setting": {
+    "name": "The Reckoning House at Coldharrow",
+    "description": "A two-hundred-year-old stone almanac-house standing alone above the village of Ambry Vale, under Coldharrow Pass. It exists to compute and publish the Almanac: the tide, frost, planting, market and eclipse tables that the whole province runs its year by, printed each spring from a single handwritten fair copy carried down the pass by courier. Twelve reckoners winter here, working the tables by lamp and candle in rooms whose windows are small because glass is expensive and the wind is not. The House is one building and stays one building: a hall four storeys to the roof with a brass orrery on a plinth at its centre, computing rooms and a master's study off the gallery, an undercroft of stores and ledgers, a sealed vault of two centuries of raw observations, a drying loft, a yard, a woodpile, and a postern door in the wall. Outside the wall is a pass that is genuinely impassable, and the campaign does not pretend otherwise.",
+    "atmosphere": "Lamplight, snow-light, wet wool and arithmetic. Cold and close, but not gothic and not haunted — the fires are lit, the food is good, and there is nothing in this building that is not a person. The dread is entirely social: you are eating breakfast with the person who did it, and they are passing you the bread. The House keeps time by a clock that strikes the quarters and by the habits of people who have wintered together for twenty years, and both of those turn out to be evidence. There is no ghost, no possession, no curse, and no supernatural solution of any kind; a DM who reaches for one has failed the campaign. The one lit window is a person doing sums. Everything terrible here was done by someone tired.",
+    "regions": [
+      {
+        "name": "The Hall and the Orrery",
+        "description": "The heart of the House: a stone hall four storeys to the roof-beams, warmed by one great hearth and one iron stove, with the long table down the middle where all twelve eat three times a day. At its centre on a plinth stands the orrery — a brass model of sun, moon and the six known planets, geared to a hand-crank and hung with counterweights on labelled hooks along the plinth's rim, each weight named on a small brass plate. A gallery stair runs up the wall, round three sides, to a landing on the third storey. Meals happen here, arguments happen here, and on the second night the Master Reckoner is found at the foot of the stair here."
+      },
+      {
+        "name": "The Computing Rooms and the Master's Study",
+        "description": "Off the gallery: four long rooms of sloped desks where the reckoners work in pairs, checking each other's arithmetic; shelves of three years of published tables in bound quires; the House's copies of every Almanac back to its founding; and at the end of the passage, Master Reckoner Ardwen's study, with its own small stove, its own lamp, and a day-book in which he wrote a line about every day of his life for thirty-one years. There is a page missing from it, cut close to the gutter with a penknife."
+      },
+      {
+        "name": "The Undercroft and the Vault",
+        "description": "Below: barrel-vaulted cellars of stores, the winter's flour and salt fish and cider, the bursar's counting-room with its strongbox and tally books, the cold-store, and at the far end behind an iron-bound door, the reckoning-vault. Two centuries of raw observations are sealed in it — the nightly measurements from which every published table was computed — behind a mechanism of dials and cranks that opens to a sequence nobody living has been taught, because the Master and the Archivist each held half and one of them is dead."
+      },
+      {
+        "name": "The Yard, the Loft and the Pass",
+        "description": "The woodpile under its lean-to, the mule shed, the postern door in the yard wall that gives onto the open hill, the drying loft under the roof where the House's coats and linen hang over the kitchen flue, and beyond the wall the pass itself. The pass is not a route: it is six feet of drift, a wind that takes the breath out of a person in twenty minutes, and wolves that have come down further than they should have this year. Nobody comes in and nobody goes out until thaw. On the fifth day something does come up the pass, most of the way, and does not arrive."
+      }
+    ]
+  },
+  "linkedScenarios": [
+    "rh-scenario-001",
+    "rh-scenario-002",
+    "rh-scenario-003",
+    "rh-scenario-004"
+  ],
+  "wildernessStarts": [
+    { "x": 50, "y": 40, "label": "The Hall, beneath the orrery" },
+    { "x": 38, "y": 30, "label": "The computing rooms" },
+    { "x": 55, "y": 62, "label": "The undercroft" },
+    { "x": 30, "y": 60, "label": "The yard and the postern" },
+    { "x": 62, "y": 20, "label": "The gallery landing" }
+  ],
+  "explorationRules": "This campaign is one building and eight days, and the exploration is social and forensic rather than geographic. The party does not travel: they move between the hall, the computing rooms, the undercroft, the vault, the loft, the yard and the gallery, and every one of those rooms has people in it who have known each other for twenty years and have opinions about being asked questions by an outsider with a contract. Run the House on its clock — the striking quarters, three meals at the long table with all twelve present, the working day at the desks, the banking of fires at night — and let the party's investigation happen inside that routine rather than instead of it, because breakfast with the suspects is the whole flavour of the thing. Time is the resource: eight days, and each day the party has roughly six useful scenes' worth of hours. Searching a room properly, sitting with a witness until they talk, preparing the body, or working through a quire of tables each costs a meaningful part of a day, and some evidence does not wait — snow-melt dries, ash is swept, people get their story straight overnight. Skill checks are stated with a DC and a failure outcome, and a failed roll costs time and never closes the case: every clue has a second route to it, which costs a day. Between scenes, improvise House life: an argument about the eastern tables, a stove that will not draw, wolves heard on the hill, the cook refusing to have investigators in her kitchen at dinner, the apprentice telling everyone who did it and being wrong, a resident who was perfectly friendly yesterday declining to speak today. There are three combat set-pieces in the whole campaign and no others: a party that expects to fight its way to an answer should feel that not working. There is no supernatural element anywhere in this campaign, and no side-quests, bandit camps or dungeons — the vault is a locked room in the same building and stays one. This is a fair-play mystery with a fixed solution. Before the first scene, Read data/campaigns/reckoning/campaign.json → caseFile and treat it as ground truth exactly as you treat a character's hit points: the culprit does not change because a player suspects someone else, clues are found or missed on honest rolls (offer the listed alternate route, never the answer), and you never state the solution until the party accuses or the eight days end.",
+  "caseFile": {
+    "note": "The solution, fixed before play. The DM reads this and does not change it. This is the mystery-genre version of the app's existing 'no phantom hit points' rule: a character's HP is whatever the file says, and the culprit here is whoever this key says, regardless of what would be more dramatic in the moment. No code reads this key; it is data the DM honours. Table courtesy note: like every other scenario file in this app, this data is served in full by the API and is readable by anyone who looks. Secrecy here is an agreement between people at a table, not a control. Do not read it out, do not render it in any client page, and do not hint at its contents outside the clues below.",
+    "dmContract": [
+      "1. THE CULPRIT IS FIXED. Ilsabet Wray killed Hollis Ardwen. Do not change this because the players suspect someone else, because a different answer would be a better twist, or because the party built a compelling case against an innocent. Do not confirm a suspicion the evidence does not support, and do not let an NPC's improvised line imply guilt that this file does not record.",
+      "2. CLUES ARE FOUND OR MISSED ON HONEST ROLLS. Use the app's existing dice-integrity rules: roll it, take the result, narrate it. Do not re-hide a clue the party has already found, and do not quietly hand over one they missed. When a check fails, offer the clue's alternateRoute instead — it costs a day of the eight, and that cost is the point.",
+      "3. NEVER STATE THE SOLUTION, in character or out of it, however directly you are asked, until the party makes an accusation or the eight days run out. If a player asks the DM out of character who did it, decline warmly and offer them a lead instead.",
+      "4. A WRONG ACCUSATION RUNS THE FAILURE STATE. The story continues; it does not reset, rewind or retcon. There is no second chance handed out, and the campaign has a real ending in which the wrong person is taken down the pass.",
+      "5. ILSABET IS NOT A MONSTER. She is fifty-four, exhausted, frightened, and has been carrying this for six days by the time anyone suspects her. Play her with pity. She confesses to C3 and C8 presented together and to nothing less — not to intimidation, not to a good Persuasion roll alone, not to being cornered. The confession is a collapse, not a villain's speech, and it should be hard to watch."
+    ],
+    "victim": {
+      "name": "Hollis Ardwen",
+      "role": "Master Reckoner of the House, 61",
+      "found": "At the foot of the gallery stair in the hall, at 22:20 on the second night, by the apprentice Merrit Doane. Face down, limbs arranged as if he had gone down the last flight and struck the flags. His own lamp is not with him: it is standing upright on the gallery rail three storeys above, cold, its oil barely burned.",
+      "actualCauseOfDeath": "A single blow to the back of the skull, high and slightly left, delivered on the gallery landing with the orrery's detached brass sun-weight. He died there, within a minute, without turning round. Everything else about the scene was arranged afterwards.",
+      "characterNote": "Exact, humourless, entirely incorruptible, and about to ruin two people — himself included. He had found the falsified eastern tables, established that his own House had published them under his imprimatur for three years, and had drafted an errata sheet to be bound into the spring Almanac naming the negligence, the House, and the signature on it. He intended to publish it and then resign. Nobody liked him. Everyone relied on him."
+    },
+    "culprit": {
+      "name": "Ilsabet Wray",
+      "role": "Senior Computer of the House, 54",
+      "motive": "Not money. She signed off three years of eastern frost tables without checking the reduction, out of overwork and pride, and the error rode down the pass into print three times. Ardwen's errata sheet would have bound her name to the House's negligence in a document that every farm in the province keeps on a nail by the door for a year. She went up the gallery stair on the second night to ask him to hold it back one season and let her correct it quietly. He refused, because he was incapable of anything else. She picked up the sun-weight off the plinth rail on the landing where it had been left after the evening's setting, and she hit him with it.",
+      "afterwards": "She had no plan and she has no second one. She arranged the body at the stair-foot because a fall was the only story she could think of, wiped the weight on her cuff and hung it back on the plinth — on the wrong hook, because the labels are small and her hands were shaking — went down the servants' stair, and lay awake. At about three in the morning she came down to the hall and burned the missing page of Ardwen's day-book in the stove, which is the single most incriminating thing she did and the only one she planned.",
+      "confessesOnlyWhen": "confronted with C3 and C8 together",
+      "behaviourUnderSuspicion": "She does not lie well and does not try very hard. Asked where she was, she says her room, which is true from 20:40 and false from 21:10 to 21:45, and she gives the true answer in a flat voice and the false one slightly too quickly. She is helpful, competent and present throughout the investigation; she offers to check the party's arithmetic; she is genuinely, visibly relieved when suspicion falls on Tace and hates herself for it. Under pressure she gets quieter, not louder. She will not let anyone else hang: if the party accuses Tace or Oduya in front of the House and the accusation is going to stick, she does not step forward — she goes to her room, and on the seventh night she tries to leave by the postern into the pass, which is how the failure state begins."
+    },
+    "method": "Struck once from behind on the gallery landing with the orrery's detached brass sun-weight — a pear-shaped counterweight of about four pounds on a bronze hook-eye, normally hung on the plinth rim and lifted onto the landing rail during the evening setting of the mechanism. The body was then carried and arranged at the foot of the gallery stair to read as a fall, and the post-mortem injuries taken in that arrangement are the giveaway. The weight was wiped on the cuff of a House-coat and rehung on the plinth on the wrong labelled hook. The lamp, which Ardwen invariably set on the rail while he worked at the orrery's upper gearing, was never moved, because Wray never thought about it.",
+    "weapon": {
+      "what": "The orrery's brass sun-weight, roughly four pounds, pear-shaped, on a bronze eye.",
+      "whereItIsNow": "Hanging on the plinth of the orrery in the hall, in plain sight of everyone, on the hook labelled MARS.",
+      "whereItBelongs": "The hook labelled SOL, two hooks along.",
+      "physicalEvidence": "Cleaned, but not by anyone who knows how brass takes a stain: there is a faint dark line in the seam where the eye meets the body of the weight, and the polish on it is fresher than on any other weight on the plinth."
+    },
+    "timeline": [
+      { "time": "19:00", "event": "Supper in the hall. All twelve residents and the party present. Pell Oduya has a nosebleed at the table and goes out to the yard pump with it; two journeymen and the laundress see him. He returns with his sleeve marked and finishes his meal." },
+      { "time": "19:45", "event": "The table breaks up. Ardwen and Oduya exchange words at the foot of the stair about a reduction Oduya has done twice and got wrong twice; it is loud enough that four people hear it and remember it as a quarrel." },
+      { "time": "20:15", "event": "Ardwen and Wray argue in the Master's study, heard through the wall by Sennet Vole sitting at the hall fire on the other side of it. Vole hears no words, but he times it: it began after the quarter chime and ran to just before the half." },
+      { "time": "20:40", "event": "Wray leaves the study and goes up to her room. Halva Onn passes her on the gallery and says she looked ill." },
+      { "time": "21:00", "event": "Corwin Tace goes down to the undercroft with the tally book. Oriel Fenn sees him go and hears him below her kitchen floor. He stays until 22:00, alone, doing something he will not describe." },
+      { "time": "21:10", "event": "Ardwen climbs to the gallery landing to set the orrery's upper gearing for the night, as he does every night. He sets his lamp on the gallery rail, as he does every night." },
+      { "time": "21:15", "event": "THE BLOW. Wray comes up the servants' stair to the landing to plead with him once more. He does not turn round. She lifts the sun-weight off the rail and strikes him once, high at the back of the skull. He is dead within the minute." },
+      { "time": "21:20-21:40", "event": "Wray takes the body down the last flight and arranges it at the stair-foot as a fall, causing the post-mortem injuries. She wipes the weight on her coat cuff, hangs it on the plinth, and leaves by the servants' stair. She does not touch the lamp." },
+      { "time": "21:45", "event": "Jory Pike goes out the postern for wood, as he does twice every evening, leaving the bootprints in the yard snow that will be taken for an intruder's." },
+      { "time": "22:20", "event": "Merrit Doane comes down for a book, finds the body, and raises the House." },
+      { "time": "03:00 (approx.)", "event": "Wray comes down to the hall alone and burns the page from Ardwen's day-book in the stove. She cuts it out with his own penknife and leaves the knife on the desk, which is a mistake she does not know she has made." }
+    ],
+    "clues": [
+      {
+        "id": "C1",
+        "where": "The gallery rail, three storeys above the body",
+        "what": "Ardwen's lamp, standing upright on the rail, cold, its oil barely spent.",
+        "found": "Investigation DC 12 at the gallery, or automatically if any character goes up to the landing and looks at the rail before the second morning.",
+        "alternateRoute": "Ysobel Kirren, unprompted or asked about Ardwen's habits, says he always set the lamp on the rail while he worked the upper gearing and always carried it down again. Costs the party a conversation, not a day.",
+        "proves": "He never walked down that stair carrying a light. A man does not fall down a stair he was not on. The fall is staged.",
+        "failureText": "The gallery is dark and the House is in uproar; you find nothing but a cold draught and a great many footprints on the stair."
+      },
+      {
+        "id": "C2",
+        "where": "The orrery plinth in the hall",
+        "what": "The brass sun-weight hanging on the hook labelled MARS, two hooks from where it belongs, its polish fresher than its neighbours and a dark line in the seam of the eye.",
+        "found": "Perception DC 14 while examining the orrery",
+        "alternateRoute": "Ask Ysobel Kirren, who keeps the orrery and knows every hook by name, whether anything about it is wrong. She will see it in a second and be appalled. She will not volunteer it, because she is hiding something else entirely.",
+        "proves": "The weight was taken off and put back by someone who knows the orrery well enough to rehang it and was rattled enough to get it wrong. That narrows the House considerably: a stranger would not have rehung it at all.",
+        "failureText": "Brass, gears and a great many small hooks with small labels. It is beautiful and it tells you nothing."
+      },
+      {
+        "id": "C3",
+        "where": "The body, laid out in the cold-store off the undercroft",
+        "what": "A depressed fracture high at the back of the skull, slightly left of centre, with a curved margin. The other injuries — the broken forearm, the ribs, the face — have no bruising around them at all.",
+        "found": "Medicine DC 13 on the body",
+        "alternateRoute": "If a character prepares the body for burial properly and unhurriedly (Ysolde Marrow's rites, or any character who spends an hour on it with respect), the examination is free and no roll is made.",
+        "proves": "He was struck, and then he was moved. Dead men do not bruise. HALF OF WHAT MAKES WRAY CONFESS.",
+        "failureText": "A broken man at the foot of a stair. You can tell he is dead and you can tell it was his head, and you cannot tell any more than that by lamplight in a cold room."
+      },
+      {
+        "id": "C4",
+        "where": "The drying loft, under the roof",
+        "what": "A House-coat, laundered but smeared at the cuff with lamp-oil and a grey-black trace of brass polish, hanging with a dozen others.",
+        "found": "Investigation DC 14 in the loft, or freely given by Nan Gaddy to anyone who has been kind to her",
+        "alternateRoute": "Nan Gaddy the laundress will tell any character who treats her as a person — not a witness — that a coat came to her wash on the third morning with polish on the cuff and that she thought it odd because nobody polishes anything in winter.",
+        "proves": "Narrows the field to the three residents who wear House-coats of that cut and size: Wray, Onn, and Kirren. It does not name the culprit on its own, and should not be allowed to.",
+        "failureText": "Wet wool, a great deal of it, and every coat in the House smells of lamp-oil because every room in the House is lit by lamps."
+      },
+      {
+        "id": "C5",
+        "where": "The computing rooms, in the bound quires of the last three published Almanacs",
+        "what": "The eastern hundreds' frost dates for three consecutive years, each one nine days late against the raw observation, each quire signed off at the foot in a small upright hand: I.W.",
+        "found": "Investigation DC 13, or History DC 13, or any character with the mathematics to check a reduction",
+        "alternateRoute": "Merrit Doane, who was Ardwen's protégé and helped him look, will show the party the same three quires if asked what the Master had been working on — but he believes it proves Tace stole money, and will say so at volume.",
+        "proves": "The falsification, its size, its duration, and the signature at the bottom of it. This is the harvest thread and the motive thread at once, and it is available from the first day.",
+        "failureText": "Columns of figures in four hands, cross-checked and initialled, and no way to tell a wrong one from a right one without the raw observations to compare them against."
+      },
+      {
+        "id": "C6",
+        "where": "The sealed reckoning-vault in the undercroft",
+        "what": "Two centuries of raw nightly observations, including the eastern frost readings for the last three years — every one of them correct.",
+        "found": "Opening the vault: the mechanism, in rh-scenario-002. Not a single roll but a sequence of them, and a conversation with Halva Onn.",
+        "alternateRoute": "None. This clue requires the vault. That is why the vault is a scenario and not a lock.",
+        "proves": "The error was not made at the instrument. It was made at publication, by a person, deliberately or by unforgivable carelessness — and either way it was signed for. Combined with C5, this is what makes the harvest saveable.",
+        "failureText": "The mechanism does not turn. It has not turned for anyone but the Master and the Archivist in forty years, and one of those is dead."
+      },
+      {
+        "id": "C7",
+        "where": "The bursar's strongbox in the counting-room",
+        "what": "Three letters from a grain factor in the eastern hundreds, promising Corwin Tace a share on 'early-frost purchases' against advance sight of the tables.",
+        "found": "Thieves' tools against the strongbox (DC 15), or Tace himself under sustained pressure once he believes he is suspected of murder",
+        "alternateRoute": "Oriel Fenn knows Tace has been getting letters he does not put in the House bag, and will say so on the fourth day if the party has not made an enemy of her.",
+        "proves": "Tace's fraud, in full. He sold advance sight of the tables and took money for it. It is real, it is criminal, and it is NOT the murder — it is the money motive that isn't.",
+        "failureText": "A strongbox that stays shut, and a bursar who becomes markedly harder to find."
+      },
+      {
+        "id": "C8",
+        "where": "The ash-pan of the hall stove, on the third morning",
+        "what": "The missing page of Ardwen's day-book, burned but not consumed — the stove was banked and the page went in flat. Legible in patches: '...spoke to I.W. She asks for time. There is no time; the copy goes down at thaw and I will not send it down false... errata bound in, and my own name to the negligence of the House...'",
+        "found": "Investigation DC 15 in the hall after the night alarm — and the ash-pan is emptied on the fourth morning by whoever lays the fires, so this clue is on a clock",
+        "alternateRoute": "Sennet Vole, who sleeps badly and sits by the fire at all hours, heard someone at the stove in the small hours and can say roughly when, though not who. That gets the party to the ash-pan; it does not get them the page if the pan has been emptied. If the pan is emptied, the page is gone and the case must be closed on C3 plus a confession drawn out of the timeline instead — see failureState.",
+        "proves": "That Ardwen told Wray what he intended and what it would cost her, in his own hand, hours before he died. THE OTHER HALF OF THE CONFESSION.",
+        "failureText": "Ash, clinker and the corner of something that might have been paper, crumbling to nothing between your fingers."
+      },
+      {
+        "id": "C9",
+        "where": "The gallery landing",
+        "what": "Snow-melt bootprints drying on the boards: one set going up, one set coming down, the same small boot, and neither of them Ardwen's — he wore a broad flat sole and there is a set of those too, going up only.",
+        "found": "Perception DC 13, ON THE FIRST DAY ONLY",
+        "alternateRoute": "None. THIS CLUE DRIES. If the party does not look at the landing floor before the end of the first full day after the body is found, the prints are gone and no roll will bring them back. This is the campaign's clock made physical, and the DM must let it expire — say plainly, in narration, that the boards are dry now.",
+        "proves": "Someone went up the stair and came down again, and it was not the dead man, and their feet were smaller than his.",
+        "failureText": "Boards, dust, and the wet mess of a dozen people who have been up and down this stair since the alarm."
+      }
+    ],
+    "herrings": [
+      {
+        "id": "H1",
+        "looksLike": "Corwin Tace, the bursar, has been taking money from a grain factor and will lie about every single thing he did on the night of the murder to keep the party away from the strongbox. He is evasive, hostile, contradicts himself twice, and has an obvious financial interest in the eastern tables being wrong.",
+        "theTruth": "The fraud is real and he is guilty of it. He did not kill Ardwen and did not know Ardwen had found the tables.",
+        "disprovedBy": "The hour. Tace went down to the undercroft at 21:00 with the tally book and stayed until 22:00; Oriel Fenn saw him go and heard him below her floor the whole time, and the cellarer's tally in the book is written up in his hand in a sequence that takes an hour. Fenn will confirm it once she is asked properly, and she will not be asked properly by anyone who has been rude in her kitchen.",
+        "whatItCosts": "A day, and possibly Tace's cooperation for the rest of the campaign."
+      },
+      {
+        "id": "H2",
+        "looksLike": "Pell Oduya, the journeyman, quarrelled with Ardwen at the foot of the stair at 19:45 in front of witnesses, and was seen washing blood out of his own sleeve.",
+        "theTruth": "A nosebleed at supper at 19:00 — he gets them all winter — seen by the laundress and two journeymen, and washed out long before the death.",
+        "disprovedBy": "Medicine DC 12 on the sleeve establishes the blood is hours older than the death and dried before laundering; Nan Gaddy the laundress will say so for free; and Oriel Fenn saw him take the nosebleed at her table.",
+        "whatItCosts": "Half a day. Oduya is young and frightened and will make himself look worse under questioning."
+      },
+      {
+        "id": "H3",
+        "looksLike": "Bootprints in the yard snow leading to and from the postern door, and the postern unbarred — evidence of an intruder from outside.",
+        "theTruth": "Jory Pike, the sixteen-year-old kitchen boy, goes out the postern for wood twice every evening and did so at 21:45. He is frightened of being blamed, will lie about the second trip, and the cook will lie for him.",
+        "disprovedBy": "Survival DC 12 in the yard: no track leads TO the postern from beyond the wall, only from the woodpile, and the pass beyond is untrodden and impassable. The log tally in the undercroft matches two trips. The cook will confirm it once she is convinced the boy is not going to be hanged for it.",
+        "whatItCosts": "A day, and the trust of the two people in the House most willing to talk to outsiders."
+      }
+    ],
+    "alibis": [
+      { "who": "Ilsabet Wray, Senior Computer", "at2115": "CLAIMS her room from 20:40. In fact in her room 20:40 to 21:10, on the gallery landing 21:10 to 21:40, back in her room after 21:45.", "corroborated": "Nobody. Halva Onn saw her go up at 20:40 and no one saw her again until morning." },
+      { "who": "Corwin Tace, Bursar", "at2115": "In the undercroft with the tally book, alone.", "corroborated": "Oriel Fenn saw him go down at 21:00 and heard him below the kitchen floor until 22:00. He will not say this himself because he was falsifying an entry." },
+      { "who": "Pell Oduya, Journeyman", "at2115": "In the journeymen's room playing at draughts.", "corroborated": "Two other journeymen, who will say so at once and are telling the truth." },
+      { "who": "Ysobel Kirren, Instrument-wright", "at2115": "In her workshop off the undercroft.", "corroborated": "Nobody, which frightens her. She was melting down two brass fittings she had taken from the orrery's spares." },
+      { "who": "Sennet Vole, Emeritus", "at2115": "At the hall fire, where he sits every evening until the House is abed.", "corroborated": "Anyone who crossed the hall. He was there. He heard the argument at 20:15 and timed it by the chime, and he heard someone on the servants' stair around the quarter past nine and thought nothing of it." },
+      { "who": "Merrit Doane, Apprentice", "at2115": "In the computing rooms, working late on his own initiative.", "corroborated": "Nobody until he came down at 22:20 and found the body. He is the one person with no alibi who is entirely innocent, and he knows it, which is why he shouts about Tace." },
+      { "who": "Halva Onn, Archivist", "at2115": "In her room.", "corroborated": "Nobody, but she passed Wray on the gallery at 20:40 and remembers it exactly." },
+      { "who": "Oriel Fenn, Cook", "at2115": "In her kitchen, clearing supper and setting the morning's bread.", "corroborated": "Jory Pike, and the bread." },
+      { "who": "Jory Pike, Kitchen boy", "at2115": "In the kitchen, then out the postern for wood at 21:45.", "corroborated": "Oriel Fenn, who will initially say he was in the kitchen the whole evening to protect him." },
+      { "who": "Nan Gaddy, Laundress", "at2115": "In the laundry off the yard.", "corroborated": "Nobody, and she is not troubled by it in the slightest." },
+      { "who": "Wat Ormery, Porter", "at2115": "In the mule shed with Ash the deerhound and a bad ankle.", "corroborated": "The party's own drover, Marta Sull, who was in the shed with him for part of it." },
+      { "who": "The party and their companions", "at2115": "Wherever the DM and the players established on the first night. The party are outsiders and are suspected by at least four residents from the second morning onward.", "corroborated": "Each other, which the House does not regard as worth much." }
+    ],
+    "theOtherThread": {
+      "what": "The falsified eastern frost tables, and the fair copy of the Almanac that goes down the pass at thaw.",
+      "stakes": "If the fair copy goes down uncorrected, the eastern hundreds plant nine days early on a frost date that is wrong, and lose the crop. This is a larger harm than one dead man and the campaign says so out loud.",
+      "howItIsFixed": "The party must (a) establish the error — C5 alone is enough to suspect it, C5 plus C6 is enough to prove it; and (b) get a correction into the fair copy before it is sealed for the courier, which requires either the Master's seal (now unavailable), the Archivist Halva Onn's cooperation, or the House assembled and persuaded in rh-scenario-004.",
+      "separability": "THIS IS THE DESIGN. The murder and the harvest are separate threads with separate outcomes. A party can name Wray correctly and let the crop fail. A party can save the eastern hundreds and take the wrong person down the pass. Do not merge these into one success condition, and do not let solving one automatically resolve the other."
+    },
+    "failureState": {
+      "wrongAccusation": "If the party accuses the wrong person and the House accepts it, the riders take that person down the pass at thaw. Play the rest of the campaign straight: the accused protests, or does not; the House is relieved to have an answer; the party is paid and thanked. On the seventh night Ilsabet Wray attempts the postern and the pass — she is found in the yard, or she is not found until thaw. If she lives, her health breaks over the following year and a letter reaches the party about two years later, from Halva Onn, enclosing a page in Wray's hand. The story continues. It does not reset.",
+      "noAccusation": "If the eight days end with no accusation, the couriers come up, the body goes down, and it is recorded as a fall. The House goes back to work. Wray does not.",
+      "harvestFails": "If the false tables are not caught before the fair copy is sealed, the eastern hundreds plant nine days early on the printed frost date and lose the crop. This is narrated at the campaign's close as a consequence, not a punishment, and it happens whether or not the murder was solved.",
+      "bothFail": "Both threads can fail together, and the campaign still ends properly: the party goes down the pass at thaw with their contract fulfilled to the letter, and the DM should let that land without editorialising."
+    },
+    "notThis": [
+      "There is no ghost, no possession, no curse, no prophecy and no supernatural cause of any kind. The Almanac is arithmetic. The orrery is brass and gears. If the DM finds itself reaching for a magical explanation, the campaign has failed.",
+      "There is no second murderer, no accomplice and no conspiracy. Wray acted alone, on impulse, with no plan.",
+      "There is no trial and no execution scene. This ends with an accusation in a hall and a page of errata.",
+      "This is not a combat campaign. Three set-pieces exist in the whole eight days — the wolves on the road up (rh-scenario-001), the courier in the drifts (rh-scenario-003), and the fire in the drying loft (rh-scenario-004) — and there are no others. A party that tries to fight its way to an answer should feel that not working.",
+      "This is not a sandbox. There are no side-quests down the pass, no bandit camp and no dungeon under the House. The vault is a locked room in the same building and stays one.",
+      "Do not extend this campaign past eight sessions. Six to eight is the whole claim. If it seems to need more, it has stopped being this campaign."
+    ]
+  }
+}

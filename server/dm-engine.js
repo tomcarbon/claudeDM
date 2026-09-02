@@ -10,6 +10,7 @@ const { advanceTime, scheduleEvent, checkCalendar, generateWeather } = require('
 const { emailToSlug, getSessionNpcsDir, getSessionFilePath, updateSessionFile } = require('./player-data');
 const { findCharacterOrNpcFile } = require('./entity-resolver');
 const { writeJsonAtomic } = require('./json-recovery');
+const { listReadyAssets, buildSceneImagerySection, flattenAndTruncate, PAYLOAD_TITLE_MAX, PAYLOAD_ALT_MAX, PAYLOAD_CAPTION_MAX } = require('./asset-manifest');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 
@@ -338,6 +339,17 @@ After each combat: look up each defeated enemy's XP by CR (data/rules/leveling.j
 - **LookupMonster** — search by name, CR, or type instead of reading monsters.json.
 - **UpdateWorldState** — see World State above.`;
 
+  // Scene imagery (docs/adr/0002-scene-imagery.md §6). Belongs in the STABLE half of the prompt:
+  // the manifest cannot change within a session, so listing it here costs a few hundred tokens
+  // once, cached, instead of every turn. Empty string when the campaign has no ready assets, so
+  // campaigns without a manifest see no prompt change at all.
+  //
+  // Condition S1 (ETHICS.md Review 2 §R5): buildSceneImagerySection truncates and flattens every
+  // injected field and caps how many assets are listed. This file is DM-writable (canUseTool
+  // auto-allows Edit) and campaign-scoped, so anything injected here would otherwise persist into
+  // every later session of this campaign, for every player — risk E11.
+  prompt += buildSceneImagerySection(dataDir, cid);
+
   if (isMultiplayer) {
     prompt += `
 
@@ -563,7 +575,15 @@ function rollDice(notation) {
   return { notation: notation.trim(), count, sides, modifier, rolls, total };
 }
 
-function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sessionDbId, characterId) {
+// Cap on how many images one turn may show. The tool description asks the model nicely; this is
+// the mechanism behind the ask (ETHICS.md Review 2 §R3.1 — a recommendation, taken because it is
+// one comparison). The counter is reset per turn in DmEngine._streamQuery.
+const MAX_SCENE_IMAGES_PER_TURN = 3;
+
+// sceneImages is a per-engine buffer { queue, shown }, closed over exactly like diceResults.
+// campaignId is likewise closed over: ShowSceneImage has no campaign parameter, so the model has
+// nothing with which to name a campaign other than the one its session is for.
+function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sessionDbId, characterId, sceneImages) {
   return createSdkMcpServer({
     name: 'dnd-tools',
     version: '1.0.4',
@@ -622,6 +642,83 @@ function createMcpToolServer(dataDir, playerEmail, diceResults, campaignId, sess
             if (diceResults) diceResults.push(result);
             return {
               content: [{ type: 'text', text: JSON.stringify(result) }],
+            };
+          } catch (err) {
+            return {
+              content: [{ type: 'text', text: `Error: ${err.message}` }],
+              isError: true,
+            };
+          }
+        }
+      ),
+      // ShowSceneImage — the only tool added by ADR 0002. Registering a tool here changes the
+      // application's effective permission policy, because canUseTool auto-allows every tool whose
+      // name begins with `mcp__`; do not add a second one without an Ethics review first
+      // (ETHICS.md Review 2 §R4(b), clause (iii)).
+      tool(
+        'ShowSceneImage',
+        'Show the players a picture from this campaign\'s illustrated assets — a map, a location, an NPC '
+        + 'portrait, or an item. The picture appears in the story transcript for every player at the table, '
+        + 'at the point in the turn where you call this. Use the asset ids listed in the Scene Imagery '
+        + 'section of your instructions, and follow the guidance there about when each one is appropriate. '
+        + 'You may only show images that are listed there. Do not call this more than once or twice in a '
+        + 'turn — a picture every turn stops being an event.',
+        {
+          assetId: z.string().describe('The id of an image from the Scene Imagery list in your instructions, exactly as written. This is an id, never a filename and never a path.'),
+          caption: z.string().optional().describe('One short line in your narrative voice, shown under the picture. Optional.'),
+        },
+        async (args) => {
+          try {
+            // campaignId is closed over from this function's arguments — resolved from the session,
+            // not supplied by the model. There is no campaign parameter to abuse.
+            const cid = campaignId || 'demo';
+            const ready = listReadyAssets(dataDir, cid);
+            const entry = ready.find(a => a.id === args.assetId) || null;
+
+            // Condition S2 (ETHICS.md Review 2 §R5): on an unknown, `specified` or malformed id,
+            // nothing happens except this return value. Nothing is pushed, nothing is broadcast,
+            // nothing is persisted, no player sees anything, and no path is ever derived — the
+            // tool never touches the assets directory at all. The echoed id goes to the model only.
+            if (!entry) {
+              const validIds = ready.map(a => a.id).join(', ') || '(none — this campaign has no illustrated assets)';
+              const echoed = String(args.assetId ?? '').slice(0, 120);
+              return {
+                content: [{ type: 'text', text: `Unknown asset id ${JSON.stringify(echoed)}. No image was shown. Valid ids for this campaign: ${validIds}.` }],
+                isError: true,
+              };
+            }
+
+            if (!sceneImages) {
+              return {
+                content: [{ type: 'text', text: 'Scene imagery is unavailable in this session. No image was shown.' }],
+                isError: true,
+              };
+            }
+            if (sceneImages.shown >= MAX_SCENE_IMAGES_PER_TURN) {
+              return {
+                content: [{ type: 'text', text: `Already showed ${MAX_SCENE_IMAGES_PER_TURN} images this turn — that is the limit. No image was shown. Narrate without one and save the picture for a later turn.` }],
+                isError: true,
+              };
+            }
+
+            const title = flattenAndTruncate(entry.title, PAYLOAD_TITLE_MAX) || entry.id;
+            const alt = flattenAndTruncate(entry.alt, PAYLOAD_ALT_MAX) || title;
+            const caption = flattenAndTruncate(args.caption, PAYLOAD_CAPTION_MAX);
+            sceneImages.queue.push({
+              assetId: entry.id,
+              kind: entry.kind,
+              title,
+              alt,
+              caption,
+              // Non-empty transcript text (condition S3): normalizeSavedMessages drops any saved
+              // message with no text, and a transcript read outside the app should still say what
+              // the players were shown.
+              text: caption || title || alt,
+            });
+            sceneImages.shown += 1;
+
+            return {
+              content: [{ type: 'text', text: JSON.stringify({ shown: true, id: entry.id, title }) }],
             };
           } catch (err) {
             return {
@@ -998,6 +1095,9 @@ class DmEngine {
     this.campaignId = null;
     this._mcpToolServer = null;
     this._diceResults = [];
+    // Scene-imagery buffer, the dice-results pattern plus a per-turn counter.
+    // `queue` is drained into the event stream; `shown` caps images per turn.
+    this._sceneImages = { queue: [], shown: 0 };
   }
 
   _getMcpToolServer(playerEmail, campaignId, sessionDbId, characterId) {
@@ -1007,7 +1107,7 @@ class DmEngine {
       this.campaignId = campaignId;
       this._sessionDbId = sessionDbId;
       this._characterId = characterId;
-      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults, campaignId, sessionDbId, characterId);
+      this._mcpToolServer = createMcpToolServer(this.dataDir, playerEmail, this._diceResults, campaignId, sessionDbId, characterId, this._sceneImages);
     }
     return this._mcpToolServer;
   }
@@ -1022,7 +1122,7 @@ class DmEngine {
     const opts = {
       systemPrompt,
       cwd: PROJECT_ROOT,
-      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardPartyXP', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice', 'mcp__dnd-tools__TrackCombat', 'mcp__dnd-tools__TrackResources', 'mcp__dnd-tools__TrackCalendar', 'mcp__dnd-tools__LookupMonster', 'mcp__dnd-tools__UpdateWorldState'],
+      allowedTools: ['Read', 'Glob', 'Grep', 'Edit', 'mcp__dnd-tools__AwardPartyXP', 'mcp__dnd-tools__AwardXP', 'mcp__dnd-tools__RollDice', 'mcp__dnd-tools__TrackCombat', 'mcp__dnd-tools__TrackResources', 'mcp__dnd-tools__TrackCalendar', 'mcp__dnd-tools__LookupMonster', 'mcp__dnd-tools__UpdateWorldState', 'mcp__dnd-tools__ShowSceneImage'],
       mcpServers: { 'dnd-tools': mcpToolServer },
       permissionMode: 'default',
       includePartialMessages: true,
@@ -1101,6 +1201,8 @@ class DmEngine {
 
   async *_streamQuery(prompt, options) {
     this._diceResults.length = 0;
+    this._sceneImages.queue.length = 0;
+    this._sceneImages.shown = 0;
     await querySemaphore.acquire();
     yield { type: 'dm_warmup', text: querySemaphore._active >= querySemaphore._max ? 'Waiting for other DM turns to finish...' : 'Thinking...' };
     this.activeQuery = query({ prompt, options });
@@ -1110,6 +1212,11 @@ class DmEngine {
         while (this._diceResults.length > 0) {
           const diceResult = this._diceResults.shift();
           yield { type: 'dice_roll', ...diceResult };
+        }
+        // Same for scene images, so a picture lands in stream order between the narration
+        // that set it up and the narration that follows.
+        while (this._sceneImages.queue.length > 0) {
+          yield { type: 'scene_image', ...this._sceneImages.queue.shift() };
         }
 
         if (message.type === 'system' && message.subtype === 'init') {
@@ -1160,6 +1267,9 @@ class DmEngine {
       while (this._diceResults.length > 0) {
         const diceResult = this._diceResults.shift();
         yield { type: 'dice_roll', ...diceResult };
+      }
+      while (this._sceneImages.queue.length > 0) {
+        yield { type: 'scene_image', ...this._sceneImages.queue.shift() };
       }
     } finally {
       this.activeQuery = null;

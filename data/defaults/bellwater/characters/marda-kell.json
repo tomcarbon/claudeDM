@@ -1,0 +1,71 @@
+{
+  "id": "6d15a397-8efe-4492-98f7-989fcddaa8ef",
+  "name": "Marda Kell",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Fighter",
+  "level": 3,
+  "background": "Sailor",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 16, "modifier": 3 },
+    "dexterity": { "score": 14, "modifier": 2 },
+    "constitution": { "score": 15, "modifier": 2 },
+    "intelligence": { "score": 9, "modifier": -1 },
+    "wisdom": { "score": 13, "modifier": 1 },
+    "charisma": { "score": 11, "modifier": 0 }
+  },
+  "hitPoints": { "max": 28, "current": 28 },
+  "armorClass": 17,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Strength", "Constitution"],
+  "skills": ["Athletics", "Perception", "Insight", "Intimidation"],
+  "languages": ["Common", "Dwarvish"],
+  "equipment": [
+    "Chain shirt",
+    "Shield, painted with the Widow's Compass's own mark",
+    "Boarding sword (longsword)",
+    "Belaying pin (club)",
+    "Light crossbow and 20 bolts",
+    "Navigator's tools",
+    "50 ft. of silk rope",
+    "A brass-cased pocket compass, hers since she was nineteen",
+    "Idony Marrach's second-best hat, which she has never worn",
+    "Common clothes and a tarred jacket",
+    "Belt pouch containing 10 gp"
+  ],
+  "weapons": [
+    { "name": "Boarding Sword (Longsword, Dueling)", "attackBonus": 5, "damage": "1d8+5", "damageType": "slashing" },
+    { "name": "Belaying Pin (Club)", "attackBonus": 5, "damage": "1d4+3", "damageType": "bludgeoning" },
+    { "name": "Light Crossbow", "attackBonus": 4, "damage": "1d8+2", "damageType": "piercing" }
+  ],
+  "armor": { "name": "Chain shirt and shield", "type": "medium" },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Fighting Style: Dueling (+2 damage with a one-handed melee weapon and no other weapon in hand)",
+    "Second Wind (bonus action, regain 1d10+3 hit points, once per short or long rest)",
+    "Action Surge (one additional action, once per short or long rest)",
+    "Martial Archetype: Champion",
+    "Improved Critical (weapon attacks score a critical hit on a roll of 19 or 20)",
+    "Ship's Passage (Sailor feature: can secure free passage for herself and companions on a sailing ship in exchange for work)"
+  ],
+  "traits": ["Fighting Style: Dueling", "Second Wind", "Action Surge", "Improved Critical"],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": { "slots": 0, "known": [] }
+  },
+  "personality": {
+    "traits": "I say the thing that needs saying and then I go and do the work, and I do not require anyone to agree with me first. I have never once raised my voice on a deck and I have never once had to. I answer questions about the ship in enormous detail and questions about myself in four words.",
+    "ideals": "Competence. A ship is a promise made to eleven other people that you will do your part properly in the dark and in the wet, and there is no higher thing than keeping it. The Articles are that promise written down so nobody can pretend they did not know.",
+    "bonds": "Eleven years as Idony Marrach's mate. She taught me this chain buoy by buoy and reef by reef, and then she left the ship to strangers, and I have not said one word about that to anyone and I am not going to.",
+    "flaws": "I cannot say that I am grieving. I can work sixteen hours, I can splice in the dark, I can bring a brig off a lee shore, and I cannot say four words about how I feel, and everyone aboard can see it and nobody can help me."
+  },
+  "appearance": "A weathered, grey-headed woman of about fifty with a face that has spent thirty years in the wind and gives nothing away. She wears a tarred jacket, canvas trousers and no ornament of any kind except a small silver ring on a lanyard round her neck that she does not explain. Her hands are enormous, hard, and permanently marked with old rope-burn and older tar. She wears a marlinspike through her belt where another officer would wear a dagger, and she uses it forty times a day. In a crisis she becomes very slightly slower and very much clearer, and the whole ship steadies around her without anyone deciding to.",
+  "backstory": "Marda Kell went to sea at twelve out of a Windward Beads hamlet with nothing in it but drying racks and a bell over a chapel door, and she has never in thirty-eight years been ashore for longer than five weeks together. She came aboard the Widow's Compass as an able hand and made mate inside two years, and for eleven years she and Idony Marrach ran that brig up and down the Bellwater Chain in a partnership that never once needed to be discussed. She knows every bell-buoy on the Grey Sounding by its note. She knows where the printed chart is wrong and has known for a decade. She knows the Articles by heart, all eight of them, and has enforced them on herself twice at real cost. And when Idony died of a fever at Tallowport and the will was read in the back of a chandler's shop, Marda Kell learned along with everybody else in the room that the ship had gone to somebody else — and she stood up, and went back aboard, and checked a splice, and has done her job perfectly every day since. She is not sulking and she is not plotting. She simply has no mechanism for saying that it hurt, and the ship is the only place she has ever known how to be."
+}

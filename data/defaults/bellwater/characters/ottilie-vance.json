@@ -1,0 +1,85 @@
+{
+  "id": "190279c7-ff63-4964-a6ee-d55239a2f8b5",
+  "name": "Ottilie Vance",
+  "status": "alive",
+  "race": "Half-Elf",
+  "subrace": "",
+  "class": "Bard",
+  "level": 3,
+  "background": "Entertainer",
+  "alignment": "Chaotic Good",
+  "experience": 900,
+  "abilities": {
+    "strength": { "score": 8, "modifier": -1 },
+    "dexterity": { "score": 15, "modifier": 2 },
+    "constitution": { "score": 14, "modifier": 2 },
+    "intelligence": { "score": 10, "modifier": 0 },
+    "wisdom": { "score": 12, "modifier": 1 },
+    "charisma": { "score": 17, "modifier": 3 }
+  },
+  "hitPoints": { "max": 24, "current": 24 },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": ["Dexterity", "Charisma"],
+  "skills": [
+    "Persuasion",
+    "Deception",
+    "Insight",
+    "Investigation",
+    "History",
+    "Acrobatics",
+    "Performance",
+    "Perception",
+    "Intimidation",
+    "Sleight of Hand"
+  ],
+  "languages": ["Common", "Elvish", "Halfling"],
+  "equipment": [
+    "Leather armor",
+    "Rapier",
+    "Dagger",
+    "A concertina in a sealskin case, which has been round the chain four times",
+    "The ship's supercargo book, in her own hand, going back three years",
+    "A folder of letters of credit, most of which are not quite what they appear to be",
+    "Entertainer's pack",
+    "A good coat, kept dry at all costs, for going ashore in",
+    "Belt pouch containing 15 gp"
+  ],
+  "weapons": [
+    { "name": "Rapier", "attackBonus": 4, "damage": "1d8+2", "damageType": "piercing" },
+    { "name": "Dagger", "attackBonus": 4, "damage": "1d4+2", "damageType": "piercing" },
+    { "name": "Vicious Mockery (cantrip)", "attackBonus": 5, "damage": "1d4", "damageType": "psychic" }
+  ],
+  "armor": { "name": "Leather armor", "type": "light" },
+  "features": [
+    "Darkvision (60 ft.)",
+    "Fey Ancestry (advantage on saving throws against being charmed; magic cannot put her to sleep)",
+    "Skill Versatility (proficiency in two extra skills of choice: Investigation and History)",
+    "Bardic Inspiration (d6, bonus action, 3 uses per long rest)",
+    "Jack of All Trades (add half proficiency bonus, rounded down, to any ability check that does not already include it)",
+    "Song of Rest (d6 extra healing to allies who spend Hit Dice on a short rest)",
+    "Expertise (double proficiency on Persuasion and Deception)",
+    "Bard College: College of Lore",
+    "Bonus Proficiencies (three extra skills: Perception, Intimidation, Sleight of Hand)",
+    "Cutting Words (reaction, expend Bardic Inspiration to subtract the die from an enemy's attack roll, ability check or damage roll)",
+    "By Popular Demand (Entertainer feature: can always find a place to perform, earning modest lodging and food, and becoming locally known)"
+  ],
+  "traits": ["Bardic Inspiration", "Jack of All Trades", "Cutting Words", "Expertise"],
+  "spells": {
+    "spellcastingAbility": "charisma",
+    "spellSaveDC": 13,
+    "spellAttackBonus": 5,
+    "cantrips": ["Vicious Mockery", "Minor Illusion"],
+    "level1": { "slots": 4, "known": ["Charm Person", "Healing Word", "Disguise Self", "Heroism"] },
+    "level2": { "slots": 2, "known": ["Suggestion", "Enhance Ability"] }
+  },
+  "personality": {
+    "traits": "I am the reason we have flour. I am cheerful in a way that is about ninety per cent genuine and the other ten per cent is load-bearing. I remember the name of every chandler's wife on this chain and the name of every chandler's wife's mother, and I am not sorry about it.",
+    "ideals": "Credit. Not money — credit: the willingness of a stranger to hand over four barrels of salt fish today because they believe you will be back. Everything on these islands runs on it and almost nobody understands that it is the same substance as the Sounding.",
+    "bonds": "Every favour I call in is one I cannot call in twice, and I have been spending them faster than I earn them for eight months, and the ledger of that is in my head and nowhere else.",
+    "flaws": "I would rather talk my way out of a thing than be honest and take the smaller loss, even when the smaller loss is obviously correct. And when the talking finally stops working I have nothing else prepared, because I never have."
+  },
+  "appearance": "A brisk, bright, extremely well-turned-out woman of about thirty-five in a coat that is markedly better than anything else aboard and is kept in oilcloth to make sure it stays that way. Half-elven, sharp-featured, with her hair pinned up in a way that survives weather and a manner that survives everything else. She carries a concertina in a sealskin case, a folder of paper under her arm, and a small book she writes in constantly. Ashore she is the most convincing person on the quay. Aboard, in a blow, she is soaked and furious and reefing a topsail with everyone else, and that is the version her crewmates like best.",
+  "backstory": "Ottilie Vance came out of a travelling company that worked the leeward island circuit — three wagons, nine people, a repertoire of four plays — and discovered at about nineteen that she was very much better at negotiating the company's lodging than at being in the plays. She drifted into the coasting trade as a purser's clerk, found she had a genuine gift for the specific alchemy of a chandler's back office, and signed the Articles of the Widow's Compass six years ago as supercargo. Since then she has kept a brig victualled through two bad seasons, a lost cargo and a captain's long illness, largely by knowing exactly who owes whom what along four hundred miles of small harbours, and by being the sort of person a warehouse-keeper will do one more favour for. The trouble is that credit is finite and hers is nearly spent: a nine-marked hull cannot be victualled on charm forever, and every port that has extended the Compass one more month has done it on Ottilie's word rather than the ship's. She has not told anybody how thin it has got. She is not sure she knows how to."
+}
