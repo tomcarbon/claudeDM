@@ -646,6 +646,13 @@
   background: rgba(34, 197, 94, 0.06);
 }
 
+/* A campaign whose campaign.json asks for no badge (or an unrecognised one). Neutral on purpose:
+   the green box is what "Premium" looks like, and an unlabelled campaign should not borrow it. */
+.tier-plain {
+  border-color: var(--border);
+  background: rgba(var(--bg-card-rgb), 0.5);
+}
+
 .tier-header {
   display: flex;
   align-items: center;
@@ -674,6 +681,13 @@
   color: var(--bg-dark);
 }
 
+/* Badge text the client has no colour for. It still renders — the label belongs to the campaign,
+   not to this stylesheet. */
+.tier-badge-plain {
+  background: var(--border);
+  color: var(--text);
+}
+
 .tier-title {
   font-size: 1.15em;
   color: var(--text);
@@ -698,6 +712,23 @@
 /* Locked tier box — slightly muted overall */
 .tier-locked {
   opacity: 0.75;
+}
+
+/* Shown above the campaign list when the list came from the last successful load because the
+   server did not answer. Stale and labelled beats blank. */
+.tier-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent-dim);
+  color: var(--text-muted);
+  font-size: 0.9em;
 }
 
 /* Locked / Coming Soon cards */

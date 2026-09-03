@@ -32,9 +32,9 @@ function WorldMapPage() {
   if (campaignId === 'campaign3') {
     return (
       <div>
-        <h2>Storm of the Giants</h2>
+        <h2>The Shattered Vaunt</h2>
         <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', marginBottom: '1rem' }}>
-          The Sword Coast trembles as the Ordning shatters and giantkind wages war. Click a region to view its scenario.
+          The Cormorant Coast trembles as the Vaunting shatters and giantkind wages war. Click a region to view its scenario.
         </p>
         <GiantsMap onLocationClick={handleLocationClick} />
       </div>

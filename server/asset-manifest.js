@@ -17,6 +17,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { flattenAndTruncate } = require('../shared/text-bounds.mjs');
 
 // A public asset id. Lowercase, hyphenated, bounded. Never used as a path component.
 const ASSET_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,63}$/;
@@ -49,18 +50,9 @@ const PAYLOAD_TITLE_MAX = 120;
 const PAYLOAD_ALT_MAX = 500;
 const PAYLOAD_CAPTION_MAX = 300;
 
-// Collapse a manifest string to one bounded, single-line, control-character-free value.
-// Returns '' for anything that is not a string.
-function flattenAndTruncate(value, maxLength) {
-  if (typeof value !== 'string') return '';
-  // Strip C0/C1 control characters (including newlines) and collapse runs of whitespace.
-  const flat = value
-    .replace(/[\u0000-\u001F\u007F-\u009F]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  if (flat.length <= maxLength) return flat;
-  return flat.slice(0, Math.max(0, maxLength - 1)) + '…';
-}
+// flattenAndTruncate lives in shared/text-bounds.mjs so that this module and the client's
+// open-world opening message (WO-0007) bound text with ONE implementation rather than two
+// copies that can drift. It is re-exported below; existing importers are unaffected.
 
 function campaignAssetsDir(dataDir, campaignId) {
   return path.resolve(dataDir, 'campaigns', campaignId, 'assets');

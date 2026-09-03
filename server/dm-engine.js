@@ -493,7 +493,7 @@ HP: ${npc.hitPoints.current}/${npc.hitPoints.max} | AC: ${npc.armorClass}`;
           body += `
 Roleplaying: ${npc.dmNotes.roleplaying || ''}
 Voice: ${npc.dmNotes.voice || ''}
-Motivation: ${npc.dmNotes.motivation || ''}
+Motivation: ${npc.dmNotes.motivations || ''}
 Secret: ${npc.dmNotes.secrets || ''}
 Attitude: ${npc.dmNotes.attitude || ''}`;
         }

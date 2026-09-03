@@ -1,5 +1,12 @@
 import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo } from 'react';
 import { api, API_BASE } from '../api/client';
+import {
+  flattenAndTruncate,
+  CAMPAIGN_EXPLORATION_RULES_MAX,
+  CAMPAIGN_SETTING_NAME_MAX,
+  CAMPAIGN_START_LABEL_MAX,
+  CAMPAIGN_START_LABELS_MAX,
+} from '../../../shared/text-bounds.mjs';
 import { usePlayer } from '../context/PlayerContext';
 import RichText from '../components/RichText';
 import { getCollapseThreshold } from '../utils/displaySettings';
@@ -638,9 +645,33 @@ function Adventure({
       setSessionActive(true);
       activeCharacterIdRef.current = selectedCharacter;
 
-      const campaign = campaigns.find(c => c.id === selectedCampaign);
-      const settingName = campaign?.setting?.name || campaign?.title || 'Unknown';
-      const startLocations = campaign?.wildernessStarts?.map(s => s.label).join(', ') || 'a random location';
+      // The open-world opening message needs explorationRules, setting and wildernessStarts. The
+      // campaign LIST endpoint deliberately omits all three (summarizeCampaign returns a narrow
+      // summary), so fetch the full record for the one campaign being started. GET
+      // /api/campaigns/:id already returns them — no server change. Falls back to the summary,
+      // and then to the hardcoded defaults, so a failed request cannot block starting a session.
+      let campaign = campaigns.find(c => c.id === selectedCampaign);
+      try {
+        campaign = (await api.getCampaign(selectedCampaign)) || campaign;
+      } catch (e) {
+        console.warn('[Adventure] Could not fetch full campaign; opening message falls back to defaults:', e);
+      }
+
+      // Bound every campaign-supplied string before it enters the DM's opening message.
+      // campaign.json is a file the DM can Edit and it is campaign-scoped, so an unbounded field
+      // would be a durable channel into every later session of this campaign for every player
+      // (ETHICS.md Review 2, risk E11). Same helper and same reasoning as condition S1 applies to
+      // the asset manifest — shared/text-bounds.mjs is the single implementation of both.
+      const settingName = flattenAndTruncate(campaign?.setting?.name, CAMPAIGN_SETTING_NAME_MAX)
+        || flattenAndTruncate(campaign?.title, CAMPAIGN_SETTING_NAME_MAX)
+        || 'Unknown';
+      const startLocations = (campaign?.wildernessStarts || [])
+        .slice(0, CAMPAIGN_START_LABELS_MAX)
+        .map(s => flattenAndTruncate(s?.label, CAMPAIGN_START_LABEL_MAX))
+        .filter(Boolean)
+        .join(', ') || 'a random location';
+      const explorationRules = flattenAndTruncate(campaign?.explorationRules, CAMPAIGN_EXPLORATION_RULES_MAX)
+        || 'each day of travel, consider encounters and discoveries';
       const companionRoster = buildCompanionRoster();
       const openingPrompt = `⚠️ NEW SESSION — CLEAN SLATE. Disregard any prior campaign context, characters, or story. This is a brand-new adventure starting from scratch.
 
@@ -656,7 +687,7 @@ This is a free-exploration campaign, not a linear scenario. Here's how to run it
 - Scattered across the region are adventure locations linked to this campaign's scenarios that the party may discover through travel
 - When the party approaches a scenario location, run its associated storyline organically
 - Between locations, improvise events: random encounters, environmental hazards, foraging, ruins, travelers, wildlife, and environmental storytelling
-- Use the exploration rules: ${campaign?.explorationRules || 'each day of travel, consider encounters and discoveries'}
+- Use the exploration rules: ${explorationRules}
 - Let the player drive the direction — be a sandbox DM
 
 Set the opening scene now. Describe where the party wakes up, what they see, and what choices lie before them.`;

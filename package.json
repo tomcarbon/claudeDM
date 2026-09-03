@@ -1,8 +1,11 @@
 {
   "name": "dnd-companion",
-  "version": "1.0.15",
+  "version": "1.0.24",
   "description": "D&D 5th Edition Companion App - DM'd by AI",
   "private": true,
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "postinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",

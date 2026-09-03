@@ -1,5 +1,7 @@
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCampaign } from '../context/CampaignContext';
+import { badgeClassName, boxClassName, cardBadge, cardBlurb, cardTitle, sortCampaigns } from '../utils/campaignListing';
 
 const CAMPAIGN_CARDS = [
   { label: 'Start Adventure', desc: 'Begin a text adventure with the AI Dungeon Master.', path: '/adventure', className: 'card-adventure' },
@@ -43,7 +45,33 @@ function CampaignCards({ campaignId, locked }) {
   );
 }
 
+function CampaignTier({ campaign }) {
+  const badge = cardBadge(campaign);
+  const blurb = cardBlurb(campaign);
+  return (
+    <div className={boxClassName(campaign)}>
+      <div className="tier-header">
+        {badge && <span className={badgeClassName(campaign)}>{badge}</span>}
+        <h3 className="tier-title">{cardTitle(campaign)}</h3>
+        {blurb && <p className="tier-subtitle">{blurb}</p>}
+      </div>
+      <CampaignCards campaignId={campaign.id} locked={false} />
+    </div>
+  );
+}
+
 function Home() {
+  const { campaigns, campaignsLoading, campaignsError, campaignsStale, reloadCampaigns } = useCampaign();
+  const ordered = useMemo(() => sortCampaigns(campaigns), [campaigns]);
+
+  // Three ways this page can have nothing to show, and each says something different:
+  //  - first load, nothing cached      -> "Loading campaigns..."
+  //  - the fetch failed, nothing cached -> the error, and a way to retry
+  //  - the fetch worked and returned [] -> the server genuinely has no campaigns
+  // If there is anything to show at all — cached or fresh — it is shown, with a warning when it
+  // is not fresh. A stale list beats a blank page: every route into the app is behind these cards.
+  const nothingToShow = ordered.length === 0;
+
   return (
     <div>
       <h2>Welcome, Adventurer</h2>
@@ -51,103 +79,42 @@ function Home() {
         Your D&D 5th Edition companion awaits. Choose your path:
       </p>
 
-      {/* ── Level One Demo (Free Tier) ── */}
-      <div className="tier-box tier-demo">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-demo">Free</span>
-          <h3 className="tier-title">Level One Demo</h3>
-          <p className="tier-subtitle">The Shattered Coast — 4 scenarios, full party, AI Dungeon Master</p>
+      {campaignsError && !campaignsStale && (
+        <div className="error" role="alert">
+          <p>Could not load the campaign list: {campaignsError}</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>
+            The game server may be down. Nothing has been lost — your characters and saved games are
+            on the server and will be here when it answers.
+          </p>
+          <button onClick={reloadCampaigns} disabled={campaignsLoading}>
+            {campaignsLoading ? 'Trying...' : 'Try again'}
+          </button>
         </div>
-        <CampaignCards campaignId="demo" locked={false} />
-      </div>
+      )}
 
-      {/* ── Depths of the Underdark (Active Campaign) ── */}
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">Depths of the Underdark</h3>
-          <p className="tier-subtitle">Descend into the subterranean world of drow, fungi forests, and ancient evils. Levels 3–12.</p>
+      {campaignsStale && (
+        <div className="tier-notice" role="status">
+          <span>
+            Showing the campaign list from your last visit — the server did not answer
+            ({campaignsError}). Anything added since will be missing.
+          </span>
+          <button onClick={reloadCampaigns} disabled={campaignsLoading}>
+            {campaignsLoading ? 'Trying...' : 'Retry'}
+          </button>
         </div>
-        <CampaignCards campaignId="campaign1" locked={false} />
-      </div>
+      )}
 
-      {/* ── Madness in Wonderland (Active Campaign) ── */}
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">Madness in Wonderland</h3>
-          <p className="tier-subtitle">Through the Looking Glass into an Alice-inspired Feywild demiplane of riddles, madness, and tyranny. Levels 5–15.</p>
-        </div>
-        <CampaignCards campaignId="wonderland" locked={false} />
-      </div>
+      {campaignsLoading && nothingToShow && !campaignsError && (
+        <div className="loading">Loading campaigns...</div>
+      )}
 
-      {/* ── The Crimson Throne (Active Campaign) ── */}
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">The Crimson Throne</h3>
-          <p className="tier-subtitle">Climb from the gutter to the palace in a crumbling empire where an heirless throne, scheming houses, and a blood-cult fight over the crown. Levels 1–10.</p>
-        </div>
-        <CampaignCards campaignId="campaign2" locked={false} />
-      </div>
+      {!campaignsLoading && !campaignsError && nothingToShow && (
+        <div className="loading">No campaigns found. Check data/campaigns on the server.</div>
+      )}
 
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">Storm of the Giants</h3>
-          <p className="tier-subtitle">When the Ordning shatters, the world trembles. An epic war between giant-kind and the small folk. Levels 5–15.</p>
-        </div>
-        <CampaignCards campaignId="campaign3" locked={false} />
-      </div>
-
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">The Astral Convergence</h3>
-          <p className="tier-subtitle">Journey beyond the material plane into the Astral Sea. Levels 8–20.</p>
-        </div>
-        <CampaignCards campaignId="campaign4" locked={false} />
-      </div>
-
-      {/* ── The Floating World (Mythic Feudal Japan) ── */}
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">The Floating World ⛩️</h3>
-          <p className="tier-subtitle">Samurai, shinobi, and the eight million gods of mythic Hinomoto — woven with real Japanese culture, language, and geography as genuine prep for a journey to Japan. Levels 1–10.</p>
-        </div>
-        <CampaignCards campaignId="nihon" locked={false} />
-      </div>
-
-      {/* ── Realm of Eternal Flame (Elemental Plane of Fire) ── */}
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">Realm of Eternal Flame 🔥</h3>
-          <p className="tier-subtitle">Stranded on the Elemental Plane of Fire, cross ash wastes and molten seas to the City of Brass, where every efreeti bargain hides a catch. Levels 9–18.</p>
-        </div>
-        <CampaignCards campaignId="campaign5" locked={false} />
-      </div>
-
-      {/* ── The Widow's Compass (Bellwater Chain) ── */}
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">The Widow's Compass 🔔</h3>
-          <p className="tier-subtitle">You inherit a brig, her crew, the Articles they all signed — and nine marks against her name on a ledger that decides which ships still exist. Answer bells the length of an archipelago before the year turns. Levels 3–10.</p>
-        </div>
-        <CampaignCards campaignId="bellwater" locked={false} />
-      </div>
-
-      {/* ── A Winter at the Reckoning House (fair-play mystery) ── */}
-      <div className="tier-box tier-premium">
-        <div className="tier-header">
-          <span className="tier-badge tier-badge-premium">Premium</span>
-          <h3 className="tier-title">A Winter at the Reckoning House ❄️</h3>
-          <p className="tier-subtitle">Snowed in with twelve reckoners and the Master Reckoner dead at the foot of the gallery stair. Eight days, one building, and a solution written down before play begins. Levels 2–5.</p>
-        </div>
-        <CampaignCards campaignId="reckoning" locked={false} />
-      </div>
+      {ordered.map(campaign => (
+        <CampaignTier key={campaign.id} campaign={campaign} />
+      ))}
     </div>
   );
 }

@@ -5,7 +5,7 @@ const GIANTS_LOCATIONS = [
   {
     id: 'ravaged-lowlands',
     name: 'The Ravaged Lowlands',
-    subtitle: 'Grudd Haug',
+    subtitle: 'Cobbleheap',
     scenarioId: 'sg-scenario-001',
     scenario: 'The Hill Giant Gluttony',
     x: 30,
@@ -15,19 +15,19 @@ const GIANTS_LOCATIONS = [
   {
     id: 'frozen-reaches',
     name: 'The Frozen Reaches',
-    subtitle: 'Svardborg',
+    subtitle: 'Drifthold',
     scenarioId: 'sg-scenario-002',
-    scenario: 'The Frozen Throne',
+    scenario: 'The Ice Jarl',
     x: 55,
     y: 25,
     color: '#3b82f6',
   },
   {
     id: 'ironslag-depths',
-    name: 'The Ironslag Depths',
-    subtitle: "Duke Zalto's Forge",
+    name: 'The Cinderworks Depths',
+    subtitle: "Duke Vharkul's Forge",
     scenarioId: 'sg-scenario-003',
-    scenario: 'The Vonindod Rises',
+    scenario: 'The Gravenmark Rises',
     x: 70,
     y: 65,
     color: '#ef4444',
@@ -35,9 +35,9 @@ const GIANTS_LOCATIONS = [
   {
     id: 'stormreach-above',
     name: 'The Stormreach Above',
-    subtitle: 'The Maelstrom',
+    subtitle: 'The Skyfast',
     scenarioId: 'sg-scenario-004',
-    scenario: 'The Maelstrom',
+    scenario: 'The Skyfast',
     x: 45,
     y: 80,
     color: '#a855f7',
@@ -45,10 +45,10 @@ const GIANTS_LOCATIONS = [
 ];
 
 const WILDERNESS_STARTS = [
-  { x: 40, y: 30, label: 'Triboar Crossroads' },
+  { x: 40, y: 30, label: 'Wainscross' },
   { x: 30, y: 45, label: 'Ravaged Lowlands' },
   { x: 55, y: 25, label: 'Frozen Coast' },
-  { x: 50, y: 55, label: 'Ironslag Approach' },
+  { x: 50, y: 55, label: 'Cinderworks Approach' },
   { x: 45, y: 75, label: 'Stormreach Tower' },
 ];
 
@@ -60,7 +60,7 @@ function GiantsMap({ onLocationClick, interactive = true, partyLocation, compact
       <div className="world-map-wrapper">
         <img
           src={mapImage}
-          alt="Storm of the Giants — The Sword Coast & Savage Frontier"
+          alt="The Shattered Vaunt — The Cormorant Coast & Far Frontier"
           className="world-map-image"
           draggable={false}
         />

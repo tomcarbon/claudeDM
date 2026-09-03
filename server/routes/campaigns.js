@@ -55,6 +55,22 @@ function withCampaignAccess(campaign, requester) {
   };
 }
 
+// How a campaign asks to be presented in the campaign list. Optional; every key inside it is
+// optional too, and the client has a fallback for each (WO-0009, and see
+// client/src/utils/campaignListing.js for the fallbacks). It is presentation only: nothing in
+// this server reads `listing`, and in particular `listing.badge` is a label, not an
+// entitlement — no route gates on it.
+function summarizeListing(campaign) {
+  const listing = campaign.listing;
+  if (!listing || typeof listing !== 'object' || Array.isArray(listing)) return null;
+  return {
+    order: typeof listing.order === 'number' ? listing.order : null,
+    badge: typeof listing.badge === 'string' ? listing.badge : null,
+    title: typeof listing.title === 'string' ? listing.title : null,
+    blurb: typeof listing.blurb === 'string' ? listing.blurb : null,
+  };
+}
+
 function summarizeCampaign(campaign, requester) {
   const ownerEmail = getOwnerEmail(campaign);
   const ownerName = campaign.ownerName || campaign.playerName || null;
@@ -68,6 +84,7 @@ function summarizeCampaign(campaign, requester) {
     estimatedSessions: campaign.estimatedSessions,
     synopsis: campaign.synopsis,
     hook: campaign.hook,
+    listing: summarizeListing(campaign),
     ownerEmail,
     ownerName,
     canWrite,

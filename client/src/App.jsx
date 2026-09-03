@@ -31,7 +31,7 @@ function AppContent() {
   const location = useLocation();
   const ws = useWebSocket();
   const { player } = usePlayer();
-  const { campaignId, selectCampaign } = useCampaign();
+  const { campaignId, selectCampaign, campaign, campaignsLoading } = useCampaign();
   const [sessionActive, setSessionActive] = useState(false);
   const globalChatJoinedRef = useRef(null);
   const [selectedCharacter, setSelectedCharacter] = useState('');
@@ -44,6 +44,14 @@ function AppContent() {
 
   const onAdventure = location.pathname === '/adventure';
   const isAdmin = player?.role === 'admin';
+
+  // Sidebar subtitle. This used to be a ternary over five campaign ids falling through to
+  // 'Single Player Demo', so campaign2 and campaign5 — which the ternary never named — showed the
+  // demo's label (WO-0009). It is the campaign's own title now, so a new campaign names itself.
+  // Fallbacks, because the list is fetched and can be absent: a non-breaking space while it loads
+  // (so the sidebar does not jump), and the raw id if the server never answers or does not know
+  // this campaign — an id is ugly but true, and tells you which campaign you are in.
+  const campaignLabel = campaign?.title || (campaignsLoading ? '\u00a0' : (campaignId || '\u00a0'));
 
   // Reset adventure session when campaign changes (skip if a cross-campaign load is in progress)
   useEffect(() => {
@@ -92,7 +100,7 @@ function AppContent() {
     <div className="app">
       <nav className="sidebar">
         <img src="/coat-of-arms.png" alt="Coat of Arms" className="sidebar-crest" />
-        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignId === 'campaign1' ? 'Depths of the Underdark' : campaignId === 'wonderland' ? 'Madness in Wonderland' : campaignId === 'campaign3' ? 'Storm of the Giants' : campaignId === 'campaign4' ? 'The Astral Convergence' : campaignId === 'nihon' ? 'The Floating World' : 'Single Player Demo'}</span></h1>
+        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignLabel}</span></h1>
         <div className="currently-playing">Playing: {sessionActive && activeSessionLabel ? activeSessionLabel : 'None'}</div>
         <div className="sidebar-divider" />
         <ul>

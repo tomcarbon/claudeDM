@@ -2,6 +2,62 @@
 
 All notable changes to this project are documented here.
 
+## [1.0.24] - 2026-09-01
+Changes since `1.1.23` (starting after commit `90889ec`, "v1.0.23"):
+
+**Numbering:** this release is `1.0.24`, matching the branch `demo_1.0.24` and `package.json`. The previous entry is `[1.1.23]`, so the displayed number goes down. The minor digit has been mis-keyed between `1.0.x` and `1.1.x` since 1.1.22 while the patch number ran as one reliable counter (21 → 22 → 23 → 24); this is one release train, not two. Key on the patch number and the commit hash. Unresolved — see the note at the end of this entry.
+
+**Two new campaigns**
+- `bellwater` — "The Widow's Compass", open-world, levels 3-10, 14+ sessions. Six pregenerated characters (`data/defaults/bellwater/characters/`), four NPCs, four scenarios (`data/campaigns/bellwater/scenarios/bw-scenario-00{1..4}.json`). Carries a campaign-specific `shipsArticles` block in `campaign.json`.
+- `reckoning` — "A Winter at the Reckoning House", open-world, levels 2-5, 6-8 sessions. Six pregenerated characters, three NPCs, four scenarios (`rh-scenario-00{1..4}.json`). Carries a `caseFile` block in `campaign.json` — the mystery's solution is fixed in data before play, not decided by the DM mid-game.
+- Both appear in the campaign list on the home page, each with its own `listing` block (`bellwater` order 90, `reckoning` order 100, both badged `Premium`) — see the data-driven list below.
+
+**`campaign3` renamed — "The Shattered Vaunt"**
+- Retitled to **The Shattered Vaunt**, subtitle "When the Vaunting Breaks, the World Trembles", with `listing.blurb` updated to match. `setting.name` is now "The Cormorant Coast and the Far Frontier".
+- Scenario titles: **3 of 4 changed** ("The Hill Giant Gluttony" is unchanged). **Filenames were deliberately not changed** — `data/campaigns/campaign3/scenarios/` still contains `the-frozen-throne.json`, `the-maelstrom.json` and `the-vonindod-rises.json` while the `title` inside each now reads differently. `linkedScenarios` resolves by id (`sg-scenario-001`…`004`), so nothing is broken; but path and title now disagree, and that will confuse the next person to open the directory. Worth a follow-up that renames the files and the ids together, as one change, rather than drifting further.
+- All five NPC files under `data/defaults/campaign3/npcs/` are replaced: `adela-renwick`, `nimbrel`, `ondrek`, `orla-mabrey`, `solvane`. **In git this is five deletions plus five untracked additions, not renames** — see the staging note under Repository hygiene.
+- All eight files under `data/defaults/campaign3/characters/` are edited, and all eight character **names are unchanged**; the edits are to prose inside them.
+- `client/src/components/GiantsMap.jsx`: one region name and two map labels changed; `alt` text now reads "The Shattered Vaunt — The Cormorant Coast & Far Frontier".
+- `client/src/data/changelog.js`: the two historical What's New entries that named this campaign and its map now use the current names, each carrying a bracketed "[Entry updated in v1.0.24…]" note. The entries' version, date and `compareRef` are untouched — only the prose inside them changed, and the change is declared in the entry rather than made silently. Rationale is in the WO-0010 deliverable.
+
+**Companion motivations reached the DM empty (fix)**
+- `server/dm-engine.js:496` read `npc.dmNotes.motivation`; every `dmNotes` object in the project uses `motivations`. The NPC block built for the DM therefore carried `Motivation: ` with an empty value for every NPC, in every session, since the line was written. Now reads `motivations`.
+- Cross-checked the sibling keys rather than fixing only the reported one: the code reads exactly `roleplaying`, `voice`, `motivations`, `secrets` and `attitude`, and all five are present in all **55** `dmNotes` objects in `data/` — 55/55 each. `motivations` was the only mismatch; there is no second instance of this bug.
+
+**Campaign list is data-driven; sidebar names the campaign**
+- `client/src/pages/Home.jsx` no longer hardcodes the campaign cards. It renders `GET /api/campaigns` through the new `client/src/utils/campaignListing.js`. Presentation travels with the campaign in an optional `listing` block (`order`, `badge`, `title`, `blurb`) in `campaign.json`; every key is optional and has a client-side fallback, so a campaign with no `listing` still renders — canonical title and subtitle, unbadged, sorted last. All ten campaigns now carry one (nine `Premium`, one `Free`).
+- Appearance is preserved by assertion, not by eye: the check reconstructs the previous list from `git show HEAD:client/src/pages/Home.jsx` and reports identical campaigns, order, badges, titles, copy and box classes.
+- `client/src/App.jsx` — the sidebar subtitle was a five-way ternary over campaign ids falling through to the literal `'Single Player Demo'`. `campaign2` and `campaign5` were never named by it, so both displayed the demo's label. Now derives from `campaign?.title`, with a non-breaking space while the list loads and the raw id if the server never answers.
+- `summarizeCampaign` (`server/routes/campaigns.js`) gained `listing` via a new `summarizeListing`. `listing.badge` is a label and not an entitlement — nothing server-side gates on it, and there is no billing code.
+- New `.tier-plain`, `.tier-badge-plain` and `.tier-notice` in `client/src/App.css`; the last labels a campaign list served from the previous successful load when the server does not answer.
+
+**Open-world opening message uses the campaign's own fields**
+- `client/src/pages/Adventure.jsx` now fetches the full campaign record (`GET /api/campaigns/:id`) when starting an open-world session, so `explorationRules`, `setting` and `wildernessStarts` reach the DM. The list endpoint's `summarizeCampaign` deliberately omits all three, so these had always been hardcoded fallbacks — every open-world session had told the DM to choose a start "from: a random location". No server change was required; `withCampaignAccess` already spreads the whole file.
+- Campaign-supplied strings are bounded before they enter the opening message, via the new `shared/text-bounds.cjs` (`flattenAndTruncate` plus per-field caps) — the same helper and the same reasoning as the asset manifest. `campaign.json` is DM-editable and campaign-scoped, so an unbounded field would be a durable prompt channel into every later session of that campaign for every player.
+- Measured before shipping: 9 of 10 campaigns now supply a corrected setting name, and 0 of 10 are truncated by the caps.
+- Falls back to the list summary and then to the previous hardcoded defaults, so a failed request cannot block starting a session.
+
+**Interface palette**
+- Background family moved from blue to forest green; every surface token is now derived from four `--bg-*-rgb` variables in `client/src/index.css`. `--accent`, `--gold` and the damage / healing / spell-school / status colours in `App.css` are deliberately excluded — they carry meaning, not decoration.
+- A second family, **amber** (dark umber), ships alongside it, luminance-matched so every contrast ratio is the same within 1%. It is **not a runtime setting**: nothing sets the `.amber` class and there is no toggle in the UI. Activating it is a source edit — delete `.amber` from the `:root.amber` selector marked "PALETTE SWITCH".
+
+**Scene imagery — prototype, not wired into play**
+- New `server/asset-manifest.js` (+ `server/__tests__/asset-manifest.test.js`): reads a per-campaign `assets.json`, validates it, and renders the id list into the DM's prompt.
+- New read-only asset route `GET /api/campaigns/:campaignId/assets/:assetId` (`server/routes/campaigns.js:141`). It resolves the id through the manifest and never treats it as a path.
+- New `ShowSceneImage` DM tool (`server/dm-engine.js:654-659`), added to `allowedTools` at `dm-engine.js:1125`; `campaignId` is closed over, so the tool takes no campaign parameter. Inline rendering in the transcript via `client/src/pages/Adventure.jsx` and `server/ws-handler.js`.
+- **State of the prototype, stated plainly:** the tool handler has never executed — invoking it requires the Agent SDK. Only `wonderland` has an `assets.json`, and of its two entries one is `status: "ready"` (`map-wonderland`, with `wonderland-map.png` and a provenance note) and one is `status: "specified"` with no file. No other campaign has a manifest. Nothing here should be relied on during play yet.
+
+**Repository hygiene**
+- `.gitignore` rewritten for the campaign-era data layout (WO-0002). The old patterns matched only the pre-campaign flat layout (`data/sessions/*.json`, `data/players/*.json`), so live session and player *directories* were untracked but not ignored — 74 play-data files that a `git add -A` would have committed. Now ignores the contents of `data/players/`, `data/sessions/`, `data/chat/`, `data/dm-settings/` and `data/characters/` while keeping `data/campaigns/**`, `data/defaults/**` and `data/rules/**` committable, including the `.jpg` portraits, with the `noDelete.txt` / `.gitkeep` placeholders re-included by negation.
+- Not fixed by that change, and not fixable by it: `data/players.json` is present in 11 earlier commits and `.gitignore` has no effect on history.
+- **`git commit -a` is unsafe on this release.** It stages modifications to tracked files only. The `campaign3` NPC replacement is five deletions of tracked files plus five *untracked* additions, so `commit -a` would apply the deletions, miss the replacements, and ship `campaign3` with **no NPC files at all**. Three other new modules (`shared/text-bounds.cjs`, `shared/text-bounds.mjs`, `client/src/utils/campaignListing.js`) would be dropped the same way. Use `git add -A`, then read `git diff --cached --stat` before committing.
+- Added an `engines` field to the root `package.json`: `"node": "^20.19.0 || >=22.12.0"`, matching the range Vite already declares. `require(ESM)` needs that floor, and `npm run server` (`node server/index.js`) never loads Vite — so on an older Node the API failed at require time with nothing having warned. There is no `.npmrc`, so this is advisory (npm warns; it does not block an install).
+
+**Open, for the maintainer**
+- The `1.0.x` / `1.1.x` minor-digit split is still unreconciled; this entry continues to carry both numbers rather than deciding. One reconciliation entry declaring the current series would end it.
+- `package.json` `"version"` was stale at `1.0.15` (last touched eight releases ago) and is set to `1.0.24` here. `client/package.json` remains at the Vite default `0.0.0`.
+- There are still no git tags.
+
 ## [1.1.23] - 2026-08-13
 Changes since `1.1.22` (starting after commit `5f54d9d`, "v1.1.22 from server."):
 
