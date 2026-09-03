@@ -58,8 +58,8 @@
         ]
       },
       {
-        "name": "The Temple of Umberlee",
-        "description": "A dramatic clifftop temple overlooking the harbor, dedicated to the capricious sea goddess Umberlee. The stolen relic — a golden trident called the Tidecaller's Fork — was taken from the temple's inner sanctum during the festival's opening ceremony. The temple's high priestess, Sister Ondara, is furious and has offered a substantial reward for the relic's return.",
+        "name": "The Temple of Kelvarra",
+        "description": "A dramatic clifftop temple overlooking the harbor, dedicated to the capricious sea goddess Kelvarra. The stolen relic — a golden trident called the Tidecaller's Fork — was taken from the temple's inner sanctum during the festival's opening ceremony. The temple's high priestess, Sister Ondara, is furious and has offered a substantial reward for the relic's return.",
         "features": [
           "An open-air sanctum with a commanding view of the harbor and city below",
           "Tidal pools within the temple that rise and fall with the ocean, used in religious ceremonies",
@@ -91,8 +91,8 @@
       }
     ]
   },
-  "synopsis": "During Saltmere's celebrated Festival of Masks, a wealthy merchant named Aldric Voss is found dead in an alley and a sacred relic is stolen from the Temple of Umberlee. The party is drawn into the investigation, interviewing four suspects with alibis, motives, and secrets of their own. As they peel back layers of deception, they discover the shocking truth: the 'victim' faked his own death as part of an elaborate scheme to steal the relic, frame a rival, and disappear with a new identity. The adventure culminates in a dramatic chase through the festival crowds as the party races to catch Voss before he escapes the city.",
-  "hook": "The party is enjoying Saltmere's Festival of Masks when screams erupt from a nearby alley. They find a masked body in merchant's clothing, a jeweled dagger in its back, and a panicked crowd scattering in all directions. The city watch arrives moments later but is overwhelmed by festival security duties. Captain Reva Ashford, recognizing the party as capable outsiders untainted by local politics, deputizes them on the spot and asks them to investigate before the trail goes cold amid the festival chaos. Sister Ondara of the Temple of Umberlee offers 100 gold for the return of the stolen Tidecaller's Fork, which disappeared the same night.",
+  "synopsis": "During Saltmere's celebrated Festival of Masks, a wealthy merchant named Aldric Voss is found dead in an alley and a sacred relic is stolen from the Temple of Kelvarra. The party is drawn into the investigation, interviewing four suspects with alibis, motives, and secrets of their own. As they peel back layers of deception, they discover the shocking truth: the 'victim' faked his own death as part of an elaborate scheme to steal the relic, frame a rival, and disappear with a new identity. The adventure culminates in a dramatic chase through the festival crowds as the party races to catch Voss before he escapes the city.",
+  "hook": "The party is enjoying Saltmere's Festival of Masks when screams erupt from a nearby alley. They find a masked body in merchant's clothing, a jeweled dagger in its back, and a panicked crowd scattering in all directions. The city watch arrives moments later but is overwhelmed by festival security duties. Captain Reva Ashford, recognizing the party as capable outsiders untainted by local politics, deputizes them on the spot and asks them to investigate before the trail goes cold amid the festival chaos. Sister Ondara of the Temple of Kelvarra offers 100 gold for the return of the stolen Tidecaller's Fork, which disappeared the same night.",
   "acts": [
     {
       "title": "Act 1: A Death at the Festival",
@@ -101,7 +101,7 @@
         "Examine the crime scene in the alley",
         "Learn the identity of the victim (Aldric Voss, wealthy merchant)",
         "Interview the four primary suspects",
-        "Visit the Temple of Umberlee to examine the relic theft scene"
+        "Visit the Temple of Kelvarra to examine the relic theft scene"
       ],
       "scenes": [
         {
@@ -128,7 +128,7 @@
             { "skill": "Insight", "dc": 12, "success": "You detect that Lysara Moonveil, the rival merchant, is genuinely surprised and upset by Voss's death — her grief seems authentic, which weakens her motive.", "failure": "Lysara seems guarded and evasive, which could indicate guilt or simply caution." },
             { "skill": "Persuasion", "dc": 13, "success": "Dorian Blacktide, the disgruntled former business partner, admits he confronted Voss earlier that day about unpaid debts but insists he left the argument peacefully. He reveals that Voss had been behaving strangely for weeks — selling off assets, canceling contracts, and visiting the harbor at odd hours.", "failure": "Dorian is hostile and uncooperative, insisting he has nothing to say and demanding you leave." },
             { "skill": "Intimidation", "dc": 14, "success": "Serek the Fence, a small-time smuggler who Voss used for under-the-table deals, nervously reveals that Voss paid him to acquire a set of forged identity documents two weeks ago — papers for a man named 'Edric Marsh' with Voss's physical description.", "failure": "Serek clams up and refuses to discuss his business dealings, threatening to disappear if pressed further." },
-            { "skill": "Insight", "dc": 13, "success": "Maren Duskwell, Voss's estranged wife, seems more angry than grieving. She reveals Voss recently changed his will to leave everything to the Temple of Umberlee rather than her, which she found suspicious and infuriating.", "failure": "Maren presents a composed facade of appropriate grief that reveals nothing useful." }
+            { "skill": "Insight", "dc": 13, "success": "Maren Duskwell, Voss's estranged wife, seems more angry than grieving. She reveals Voss recently changed his will to leave everything to the Temple of Kelvarra rather than her, which she found suspicious and infuriating.", "failure": "Maren presents a composed facade of appropriate grief that reveals nothing useful." }
           ],
           "combatEncounters": [],
           "roleplayNotes": "Each suspect should feel like a distinct character with their own voice and demeanor. Lysara is proud and sharp-tongued. Dorian is bitter and resentful. Serek is nervous and slippery. Maren is cold and controlled. None of them committed murder because no murder occurred, but each has secrets that make them look suspicious. The key clues are Dorian's revelation about Voss's strange behavior and Serek's admission about the forged documents.",
@@ -136,8 +136,8 @@
         },
         {
           "name": "The Temple Crime Scene",
-          "description": "The party visits the Temple of Umberlee to examine where the Tidecaller's Fork was stolen from. Sister Ondara provides context about the relic and the theft, while the crime scene reveals that the thief had intimate knowledge of the temple's layout and security — knowledge only an insider or major donor like Aldric Voss would possess.",
-          "readAloud": "\"The Temple of Umberlee perches on the clifftop like a ship's prow cutting through stone, its open-air sanctum lashed by salt wind and spray from the waves crashing far below. Sister Ondara, a weathered woman with the bearing of a ship captain, leads you through halls decorated with coral and driftwood to the inner vault. The heavy door stands open, its lock picked with surgical precision — not a scratch on the mechanism. Inside, an empty display pedestal sits beneath a shaft of moonlight, the indentation where the golden trident rested still visible in the velvet lining. 'The Tidecaller's Fork has protected this city for generations,' Ondara says, her voice tight with controlled fury. 'Without it, Umberlee's favor is uncertain, and the storms will come.'\"",
+          "description": "The party visits the Temple of Kelvarra to examine where the Tidecaller's Fork was stolen from. Sister Ondara provides context about the relic and the theft, while the crime scene reveals that the thief had intimate knowledge of the temple's layout and security — knowledge only an insider or major donor like Aldric Voss would possess.",
+          "readAloud": "\"The Temple of Kelvarra perches on the clifftop like a ship's prow cutting through stone, its open-air sanctum lashed by salt wind and spray from the waves crashing far below. Sister Ondara, a weathered woman with the bearing of a ship captain, leads you through halls decorated with coral and driftwood to the inner vault. The heavy door stands open, its lock picked with surgical precision — not a scratch on the mechanism. Inside, an empty display pedestal sits beneath a shaft of moonlight, the indentation where the golden trident rested still visible in the velvet lining. 'The Tidecaller's Fork has protected this city for generations,' Ondara says, her voice tight with controlled fury. 'Without it, Kelvarra's favor is uncertain, and the storms will come.'\"",
           "skillChecks": [
             { "skill": "Investigation", "dc": 14, "success": "The lock was picked by an expert, but you find a tiny fragment of blue velvet caught in the mechanism — the same shade as the clothing on the body in the alley. The thief was wearing Aldric Voss's distinctive blue velvet.", "failure": "The lock was picked cleanly. You find no physical evidence left by the thief." },
             { "skill": "Religion", "dc": 12, "success": "You notice the display pedestal's velvet lining shows an indentation that does not quite match a trident's shape — the tines are slightly too close together, as if the displayed item was a replica rather than the genuine article.", "failure": "The pedestal seems ordinary, designed to hold a trident-shaped relic." },
@@ -146,7 +146,7 @@
           "combatEncounters": [],
           "roleplayNotes": "Sister Ondara is a true believer but also politically savvy. She suspects the theft is connected to the murder and wants both resolved. She does not know the trident is a fake — that secret died with the previous high priest. If confronted with evidence that the trident might not be genuine, she becomes defensive but ultimately more concerned about the political implications than the theological ones.",
           "loot": [
-            "Sister Ondara provides the party with a potion of healing and a blessing of Umberlee (advantage on one saving throw against water-based hazards, single use)"
+            "Sister Ondara provides the party with a potion of healing and a blessing of Kelvarra (advantage on one saving throw against water-based hazards, single use)"
           ]
         }
       ]
@@ -268,8 +268,8 @@
     {
       "name": "Sister Ondara",
       "role": "Quest Giver / Complication",
-      "description": "The high priestess of Umberlee's temple in Saltmere, Ondara is a formidable woman with salt-streaked black hair, storm-gray eyes, and a voice that carries the weight of the sea. She dresses in robes of deep blue and green, and her bearing suggests she is more accustomed to commanding ships than conducting sermons.",
-      "motivation": "Ondara wants the Tidecaller's Fork returned to maintain the temple's prestige and Umberlee's supposed protection over the city. She does not know the trident is a fake — if confronted with this truth, she will be furious but will try to suppress the information to protect the temple's reputation. She may become an antagonist if the party threatens to reveal the fraud."
+      "description": "The high priestess of Kelvarra's temple in Saltmere, Ondara is a formidable woman with salt-streaked black hair, storm-gray eyes, and a voice that carries the weight of the sea. She dresses in robes of deep blue and green, and her bearing suggests she is more accustomed to commanding ships than conducting sermons.",
+      "motivation": "Ondara wants the Tidecaller's Fork returned to maintain the temple's prestige and Kelvarra's supposed protection over the city. She does not know the trident is a fake — if confronted with this truth, she will be furious but will try to suppress the information to protect the temple's reputation. She may become an antagonist if the party threatens to reveal the fraud."
     },
     {
       "name": "Cora Tidewatcher",
@@ -282,7 +282,7 @@
     "xp": 400,
     "gold": "100 gp total (100 gp reward from Sister Ondara for returning the Tidecaller's Fork)",
     "items": [
-      "Blessing of Umberlee (advantage on one saving throw against water-based hazards, single use)",
+      "Blessing of Kelvarra (advantage on one saving throw against water-based hazards, single use)",
       "Potion of Healing",
       "Voss's theatrical jeweled dagger (25 gp value)",
       "Writ of Investigation (may grant future favors with Saltmere's city watch)"
@@ -291,7 +291,7 @@
   },
   "twists": [
     "The 'victim' Aldric Voss faked his own death and is actually the architect of the entire scheme. The murder is a fraud, the body a staged prop, and the merchant is very much alive and planning to flee the city with a new identity.",
-    "The sacred Tidecaller's Fork stolen from the Temple of Umberlee is itself a fake — the genuine relic was sold by a corrupt previous high priest years ago. Voss discovered this and stole the fake as leverage, meaning the party must decide what to do with this dangerous secret.",
+    "The sacred Tidecaller's Fork stolen from the Temple of Kelvarra is itself a fake — the genuine relic was sold by a corrupt previous high priest years ago. Voss discovered this and stole the fake as leverage, meaning the party must decide what to do with this dangerous secret.",
     "Cora Tidewatcher, the seemingly uninvolved innkeeper, is a key piece of the puzzle — Voss's paid alibi and the weakest link in his deception. Her confession unlocks the final act of the adventure.",
     "None of the four suspects are guilty of murder, because no murder was committed. Each suspect's secrets and hostilities are real but ultimately irrelevant to the central crime, serving as red herrings that make the investigation feel more complex and realistic."
   ],

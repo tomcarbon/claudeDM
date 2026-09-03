@@ -15,7 +15,7 @@
         "features": [
           "Central well with dwarven rune carvings along its inner rim",
           "The Pickaxe & Pint tavern with a mining-themed interior and a faded map of the Ironvein tunnels behind the bar",
-          "A small shrine to Moradin maintained by the village elder, Brenna Stonemantle"
+          "A small shrine to Vundar maintained by the village elder, Brenna Stonemantle"
         ],
         "encounters": [
           "Roleplaying with nervous villagers who share conflicting stories about why the mine was sealed",
@@ -90,7 +90,7 @@
         ],
         "secrets": [
           "The shadow creature is the spirit of the last mine overseer, Thrain Stonemantle, Brenna's ancestor, who gave his life to become the Heart's eternal guardian",
-          "The Heart of the Mountain is a shard of divine power left by Moradin himself, and removing it would collapse the mountain"
+          "The Heart of the Mountain is a shard of divine power left by Vundar himself, and removing it would collapse the mountain"
         ]
       }
     ]
@@ -122,8 +122,8 @@
         },
         {
           "name": "The Elder's Plea and the Hidden Journal",
-          "description": "Brenna Stonemantle, the elderly village leader, meets with the party privately at the shrine to Moradin, sharing what she knows and what she suspects. If the party gains her trust, she reveals her grandmother's hidden journal, which contains crucial information about the mine's true purpose.",
-          "readAloud": "\"Brenna leads you to a small stone shrine behind her cottage, its walls carved with the stern face of Moradin, the dwarven god of the forge. Candles flicker around a simple altar, and the old woman's hands tremble as she turns to face you. 'My grandmother sealed that mine,' she says, her voice barely above a whisper. 'She never told us why — only that some things are worth more than gold, and some doors are closed out of love, not fear.' She glances at the altar stone, and you notice fresh scratches around its edges, as if someone has recently tried to move it.\"",
+          "description": "Brenna Stonemantle, the elderly village leader, meets with the party privately at the shrine to Vundar, sharing what she knows and what she suspects. If the party gains her trust, she reveals her grandmother's hidden journal, which contains crucial information about the mine's true purpose.",
+          "readAloud": "\"Brenna leads you to a small stone shrine behind her cottage, its walls carved with the stern face of Vundar, the dwarven god of the forge. Candles flicker around a simple altar, and the old woman's hands tremble as she turns to face you. 'My grandmother sealed that mine,' she says, her voice barely above a whisper. 'She never told us why — only that some things are worth more than gold, and some doors are closed out of love, not fear.' She glances at the altar stone, and you notice fresh scratches around its edges, as if someone has recently tried to move it.\"",
           "skillChecks": [
             { "skill": "Persuasion", "dc": 12, "success": "Brenna trusts you enough to reveal the altar stone can be moved, and beneath it lies her grandmother's leather-bound journal describing the Heart of the Mountain.", "failure": "Brenna remains guarded about her family's secrets but still asks for your help with the mine." },
             { "skill": "Investigation", "dc": 14, "success": "You notice the altar stone sits on a hidden pivot mechanism and can be swung aside to reveal a hollow compartment containing an old journal wrapped in oilcloth.", "failure": "The shrine appears to be a simple place of worship with nothing unusual about its construction." }
@@ -132,7 +132,7 @@
           "roleplayNotes": "Brenna is torn between her duty to keep her family's secret and her fear for the village's survival. She knows more than she initially lets on. If the party is respectful of dwarven customs and the shrine, she warms to them quickly. The journal is written in Dwarvish and describes the Heart of the Mountain as a 'gift from the Soulforger himself' that must never be moved or claimed.",
           "loot": [
             "Grandmother Stonemantle's journal (quest item, written in Dwarvish)",
-            "A small silver holy symbol of Moradin worth 15 gp"
+            "A small silver holy symbol of Vundar worth 15 gp"
           ]
         },
         {
@@ -140,7 +140,7 @@
           "description": "The party approaches the mine entrance and must deal with the sealed doors. The dwarven rune lock presents the first puzzle, and the antechamber beyond holds the first signs of what lurks within. The remains of the three missing villagers' lanterns and supplies are found just inside, but the villagers themselves are nowhere to be seen.",
           "readAloud": "\"The mine entrance looms before you, set into the mountainside like a wound in the rock. Two massive iron doors, green with age and webbed with cracks in their ancient welds, stand as the last barrier between the village and whatever stirs below. Dwarven runes circle the door frame in an unbroken ring, their edges still sharp despite decades of weathering. As you approach, the vibration in the ground intensifies, and the runes begin to glow with a faint blue-silver light, as if responding to your presence. Three bedrolls and a shattered lantern lie abandoned at the door's base — the missing villagers made it this far.\"",
           "skillChecks": [
-            { "skill": "Arcana", "dc": 13, "success": "You recognize the runes as a protective ward sequence. By tracing them in the correct order — following the pattern of Moradin's hammer strikes as depicted in dwarven lore — the doors can be opened without force.", "failure": "The runes are clearly magical but their purpose and activation method remain unclear to you." },
+            { "skill": "Arcana", "dc": 13, "success": "You recognize the runes as a protective ward sequence. By tracing them in the correct order — following the pattern of Vundar's hammer strikes as depicted in dwarven lore — the doors can be opened without force.", "failure": "The runes are clearly magical but their purpose and activation method remain unclear to you." },
             { "skill": "Athletics", "dc": 18, "success": "With tremendous effort, you wrench the weakened doors open, though the noise echoes deep into the tunnels and alerts creatures within.", "failure": "The doors hold fast, their cold iron frames unyielding despite the cracked welds." }
           ],
           "combatEncounters": [
@@ -199,7 +199,7 @@
           "description": "The party discovers the missing villagers trapped in a reinforced supply chamber, barricaded in by animated mining equipment that patrols the corridor outside. Freeing them requires dealing with the enchanted tools, and nearby, the second rune lock bars passage to the lower levels where the deep sanctuary awaits.",
           "readAloud": "\"The tunnel opens into a wider junction where three passages meet. In one, you see the faint glow of a dying torch and hear desperate voices calling out. A barricade of overturned carts and timber beams blocks the passage entrance, and on this side of the barricade, a pair of pickaxes float in the air, their heads swinging in slow, menacing arcs as they patrol back and forth like tireless sentinels. Against the far wall, a stone door is carved with a ring of dwarven runes identical in style to those at the mine entrance — another lock, another puzzle standing between you and the depths below.\"",
           "skillChecks": [
-            { "skill": "Arcana", "dc": 14, "success": "You recognize the animation magic on the tools is tied to the mine's protective enchantments — they are guardians, not attackers, responding to unauthorized intrusion. Speaking the dwarven word for 'friend' or presenting Moradin's holy symbol causes them to stand down.", "failure": "The animated tools appear to be hostile constructs that must be destroyed." },
+            { "skill": "Arcana", "dc": 14, "success": "You recognize the animation magic on the tools is tied to the mine's protective enchantments — they are guardians, not attackers, responding to unauthorized intrusion. Speaking the dwarven word for 'friend' or presenting Vundar's holy symbol causes them to stand down.", "failure": "The animated tools appear to be hostile constructs that must be destroyed." },
             { "skill": "Investigation", "dc": 15, "success": "The second rune lock's sequence is hinted at by markings on the supply room walls — the trapped villagers had been trying to solve it before they were cornered, and their partial work gives you advantage on the Arcana check to open it.", "failure": "The rune lock remains inscrutable without additional clues." },
             { "skill": "Arcana", "dc": 14, "success": "You complete the rune sequence and the stone door grinds open, revealing a spiraling passage descending toward the sound of rushing water.", "failure": "The runes flash red and reset. You may try again but the animated tools become agitated, making further attempts more dangerous." }
           ],
@@ -207,7 +207,7 @@
             {
               "enemies": ["2 animated pickaxes (use flying sword stats)", "1 animated mining cart (use rug of smothering stats, reflavored as a charging cart)"],
               "difficulty": "Medium",
-              "tactics": "The pickaxes engage the nearest threats while the mining cart attempts to charge down the tunnel at anyone approaching the barricade. If the dwarven word for 'friend' is spoken or Moradin's symbol is presented, all animated objects immediately cease hostility and return to dormant positions.",
+              "tactics": "The pickaxes engage the nearest threats while the mining cart attempts to charge down the tunnel at anyone approaching the barricade. If the dwarven word for 'friend' is spoken or Vundar's symbol is presented, all animated objects immediately cease hostility and return to dormant positions.",
               "terrain": "Wide junction (20 ft) with three branching tunnels, overturned cart barricade, and mine cart rails. The rails allow the animated cart to charge in straight lines at double speed."
             }
           ],
@@ -252,7 +252,7 @@
           "description": "The party emerges into the awe-inspiring Deep Sanctuary, a natural cavern transformed by dwarven hands into a cathedral of carved stone pillars and soaring darkness. The Heart of the Mountain pulses at the chamber's center, its golden light warm and inviting, but a creature of living shadow circles it endlessly, keening with a sound like grief given voice.",
           "readAloud": "\"The tunnel opens and the world falls away. You stand at the threshold of a cavern so immense it could hold a castle within its walls. Stalagmites as thick as ancient oaks have been carved into pillars depicting dwarven history — the forging of the first weapons, the founding of great halls, the discovery of something radiant in the deep dark. And there, at the chamber's heart, you see it: a crystalline geode the size of a warhorse, split open to reveal an interior blazing with warm golden light that pushes back the darkness like a miniature sun. Around it, a creature of pure shadow circles endlessly, its form shifting between something vaguely dwarven and something formless and anguished. It turns eyeless sockets toward you and releases a sound that is not a scream but a sob — ancient, exhausted, and utterly alone.\"",
           "skillChecks": [
-            { "skill": "Religion", "dc": 13, "success": "You recognize the Heart of the Mountain as a divine relic — a shard of Moradin's creative power, left in the world to anchor and protect this mountain. Removing it would be catastrophic.", "failure": "The geode is clearly magical and immensely powerful, but its exact nature eludes you." },
+            { "skill": "Religion", "dc": 13, "success": "You recognize the Heart of the Mountain as a divine relic — a shard of Vundar's creative power, left in the world to anchor and protect this mountain. Removing it would be catastrophic.", "failure": "The geode is clearly magical and immensely powerful, but its exact nature eludes you." },
             { "skill": "Insight", "dc": 12, "success": "The shadow creature's movements are not predatory — they are protective and ritualistic. It is guarding the Heart, not threatening it. Its anguish comes from isolation, not malice.", "failure": "The creature appears hostile and territorial, circling the geode like a predator guarding its kill." },
             { "skill": "Arcana", "dc": 14, "success": "Speaking the passphrase from the bridge faces while touching the rune lock on the dais will complete the protective ward circuit and pacify the guardian, giving it the peace it has been denied for decades.", "failure": "The rune lock on the dais is clearly the final puzzle, but its solution remains unclear." }
           ],
@@ -280,7 +280,7 @@
             { "skill": "Deception", "dc": 14, "success": "If the party chooses to conceal the Heart's existence and simply report the mine is clear, the villagers accept the story without question.", "failure": "Brenna senses you are holding something back and presses for the truth." }
           ],
           "combatEncounters": [],
-          "roleplayNotes": "This is the denouement. Let the players decide what to tell the village. Brenna will weep if told about her grandfather Thrain's sacrifice and his final message. The party's choices here determine Whisperhollow's future — will it become a place of sacred guardianship, or will the secret be buried again? There is no wrong answer, but the consequences differ. If the village takes up the guardianship, Whisperhollow will slowly prosper as Moradin's blessing flows through the Heart. If the secret is buried, the mine will eventually need new guardians.",
+          "roleplayNotes": "This is the denouement. Let the players decide what to tell the village. Brenna will weep if told about her grandfather Thrain's sacrifice and his final message. The party's choices here determine Whisperhollow's future — will it become a place of sacred guardianship, or will the secret be buried again? There is no wrong answer, but the consequences differ. If the village takes up the guardianship, Whisperhollow will slowly prosper as Vundar's blessing flows through the Heart. If the secret is buried, the mine will eventually need new guardians.",
           "loot": [
             "Brenna's reward: 45 gp (the village's savings) and a standing invitation to Whisperhollow",
             "If the party returns Thrain's cloak clasp to Brenna, she gifts them a family heirloom: a potion of greater healing her grandmother brewed decades ago"
@@ -293,7 +293,7 @@
     {
       "name": "Brenna Stonemantle",
       "role": "Quest Giver / Village Elder",
-      "description": "A stout, silver-haired dwarven woman in her late years, Brenna carries herself with quiet dignity despite the weight of worry on her shoulders. She wears a simple apron over practical clothing and keeps a well-worn holy symbol of Moradin tucked into her belt, her fingers finding it unconsciously whenever she is anxious.",
+      "description": "A stout, silver-haired dwarven woman in her late years, Brenna carries herself with quiet dignity despite the weight of worry on her shoulders. She wears a simple apron over practical clothing and keeps a well-worn holy symbol of Vundar tucked into her belt, her fingers finding it unconsciously whenever she is anxious.",
       "motivation": "Brenna wants to protect her village and uncover the truth about her grandmother's decision to seal the mine. She suspects the mine holds something important but fears what that knowledge might cost. Above all, she hopes to learn the fate of her grandfather Thrain, who she was told died in a mining accident but whose body was never recovered."
     },
     {
