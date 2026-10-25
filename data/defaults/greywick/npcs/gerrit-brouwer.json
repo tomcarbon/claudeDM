@@ -1,0 +1,129 @@
+{
+  "id": "16f180fb-0e76-4b5a-b2dd-a57f2bfe8769",
+  "name": "Gerrit Brouwer",
+  "status": "alive",
+  "race": "Farm-Raised",
+  "subrace": "",
+  "class": "Hunter",
+  "level": 3,
+  "background": "Groundskeeper",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Perception",
+    "Nature",
+    "Survival",
+    "Stealth",
+    "Occult"
+  ],
+  "languages": [
+    "English",
+    "Dutch"
+  ],
+  "equipment": [
+    "Heavy coat: a canvas work coat lined with sheepskin, patched at both elbows",
+    "Lever-action rifle (.30), for the foxes and the woodchucks, which hangs over his door",
+    ".30 cartridges (20)",
+    "Hatchet in his belt, for kindling and stakes",
+    "Keys: the crypt, the coach house, the garden gates, the potting sheds, and the north wing's ground-floor door",
+    "A clay pipe and a tin of Dutch tobacco",
+    "A forty-foot orchard ladder in the coach house",
+    "An iron poker, the one in his bedroom doorframe, which he will pull out for someone who needs it",
+    "Wallet containing $17"
+  ],
+  "weapons": [
+    {
+      "name": "Lever-action rifle",
+      "attackBonus": 4,
+      "damage": "2d6+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Hatchet",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Know Your Quarry (Hunter: after an hour studying a creature's sign, declare it your quarry: advantage on Survival to track it and Perception to find it, you know which way it went, and once a turn a weapon hit on it deals 1d6 extra, applied at the table)",
+    "Fieldcraft (Hunter: can't be lost in woods, fields or hill country by anything natural; moves stealthily at normal pace outdoors; in a short rest sets a snare or tripwire bell that warns of anything within 30 ft of camp)",
+    "Cold Focus (Hunter, 2nd level: on a failed fear check against your quarry you still gain the Dread but have advantage on your next attack against it; on a success you may move half your speed without provoking)",
+    "Way of the Hunt: Hunter of the Uncanny (Hunter, 3rd level: once you have declared a supernatural creature your quarry, the GM tells you one of its rules about what hurts it or bars it)",
+    "Up Before Dawn (Farm-Raised origin: a long rest takes 6 hours; can't be surprised while awake in the last hour before sunrise; advantage on saves against exhaustion from hard work, cold and lost sleep; notices without a check when animals are frightened or wrong)",
+    "Every Path and Gate (Groundskeeper background: he knows every path, outbuilding, gate and wall gap on the bluff, where the drains run and where the ground has been disturbed; other caretakers and sextons talk to him, and he knows who has keys to what)"
+  ],
+  "traits": [
+    "Know Your Quarry",
+    "Fieldcraft",
+    "Cold Focus",
+    "Hunter of the Uncanny",
+    "Every Path and Gate"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say what I mean in as few words as I can. I can sit still for an hour without noticing. I do not sleep with a door shut and I never will again.",
+    "ideals": "You keep the master's wishes, even after the master is gone. You do not leave a man shut in.",
+    "bonds": "Mr. Jasper, who opened the door for me in '71. The grounds, which I have kept thirty-eight years. Mr. Linus, who used to follow me round the orchard.",
+    "flaws": "I am an old man and I am more frightened of that stair than of anything on God's earth. I drink, still, a little. I kept quiet for twenty-two years because Mrs. Quell asked me to."
+  },
+  "appearance": "A thick, weathered man of seventy with a full white beard stained yellow round the mouth, small bright blue eyes in a face like a walnut, enormous hands, a sheepskin-lined canvas coat and a felt hat older than the new house. Smells of pipe smoke, leaf mould and dog.",
+  "backstory": "Gerrit Brouwer came down from Columbia County in 1855 at thirty-two to dig the foundations of Abram Greywick's new house, stayed on as an under-gardener, and has been head groundskeeper since 1875. He kept the orchard, the walled garden, the drive and the crypt, and buried two Greywicks. In October 1871, hiding from old Abram's temper with a bottle, he slept in the stone house's pantry with the bolt shot, and woke in the river room as it was in 1852, with a woman sitting by the window with her back to him. Two nights later Jasper opened the door with an old iron key and brought him out, and drove a poker into the stair door's jamb so it could not shut on them. He has never told anyone but Jasper, at Mrs. Quell's asking. The will leaves him $1,000.",
+  "dmNotes": {
+    "roleplaying": "Gerrit is the party's witness to Rule 3 and their guide to the grounds. He gives CLUES A5, B3 and E1 the first time anyone asks him straight, by daylight, away from the house (gw-scenario-002). He keeps the crypt key and the ladder and knows the bluff path. He joins the party from Tuesday if asked, and he will not go up the north stair at night unless someone he trusts goes first; then he will go anywhere. Hunter of the Uncanny: if the party lets him declare the Juffrouw his quarry, the GM tells him one rule about what bars her (the lamp, or iron).",
+    "voice": "Slow, deep, Columbia County Dutch-English: 'Ja', 'the missus', 'Mr. Jasper', sentences that end before you expect. Calls the ghost the Juffrouw and nothing else. Spits before he says anything he does not like saying.",
+    "motivations": "Primary: get Mr. Linus out, as Mr. Jasper got him out. Secondary: do right by Mr. Jasper's will. Tertiary: never be shut in again.",
+    "secrets": "He knows that Leonora sent him to Poughkeepsie for seeds on 24 September, the day Jasper was locked in, which no gardener would do in September; he did not think about it until the party asks. He also knows the old pantry bolt is still on the inside of the cellar kitchen door, which matters in gw-scenario-004.",
+    "attitude": "Toward the party: wary until they ask him straight, then loyal. Toward Mrs. Quell: deferential, fond, and finished with her silence. Toward Leonora: a gardener's politeness, which hardens to nothing at all once he knows. Toward Linus: like a grandfather."
+  }
+}

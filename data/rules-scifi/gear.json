@@ -1,0 +1,990 @@
+{
+  "_meta": {
+    "category": "scifi",
+    "source": "Written for claudeDM (Sci-Fi category). Mostly original; a few general-mechanics sentences (e.g. opportunity attacks, passive checks, stat-block phrasing) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Adventuring gear for Sci-Fi campaigns, era-tagged. Costs are in dollars for items available in the 1980s/modern eras and in credits for future-only items (a credits campaign may price multi-era items at 1 cr = $1). Ammunition is recorded on character sheets as counted equipment lines such as \"9mm rounds (45)\" and deducted shot by shot (see combat.json ammunition). Medical items implement the no-magic healing rules in combat.json healing.",
+    "total_items": 85
+  },
+  "gear": [
+    {
+      "name": "Walkie-talkie (pair)",
+      "category": "communications",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 80,
+      "weight": "1 lb. each",
+      "description": "Handheld radios with a range of about 2 miles in a city, 5 in open country. Anyone with a scanner on the channel can listen in."
+    },
+    {
+      "name": "Military field radio",
+      "category": "communications",
+      "eras": [
+        "1980s",
+        "modern"
+      ],
+      "cost": 1500,
+      "weight": "15 lb.",
+      "description": "Backpack radio with a range of 20 miles and encrypted channels (Computers DC 20 to intercept)."
+    },
+    {
+      "name": "Police scanner",
+      "category": "communications",
+      "eras": [
+        "1980s",
+        "modern"
+      ],
+      "cost": 150,
+      "weight": "1 lb.",
+      "description": "Listen to police, fire and ambulance radio. Gives advantage on checks to anticipate a police response."
+    },
+    {
+      "name": "Pager",
+      "category": "communications",
+      "eras": [
+        "1980s"
+      ],
+      "cost": 100,
+      "weight": "-",
+      "description": "Receives numeric messages; you find a payphone to call back."
+    },
+    {
+      "name": "Brick cellphone",
+      "category": "communications",
+      "eras": [
+        "1980s"
+      ],
+      "cost": 3000,
+      "weight": "2 lb.",
+      "description": "Late-1980s car or bag phone. Works only in major cities; the battery lasts about 30 minutes of talk."
+    },
+    {
+      "name": "Smartphone",
+      "category": "communications",
+      "eras": [
+        "modern"
+      ],
+      "cost": 700,
+      "weight": "-",
+      "description": "Calls, messages, maps, camera, internet. Can be tracked by anyone with police or carrier access (Computers DC 15). Counts as a consumer device for hacking (DC 10)."
+    },
+    {
+      "name": "Burner phone",
+      "category": "communications",
+      "eras": [
+        "modern"
+      ],
+      "cost": 40,
+      "weight": "-",
+      "description": "Prepaid phone bought with cash. Hard to link to you unless it is used near your own phone."
+    },
+    {
+      "name": "Earpiece comm",
+      "category": "communications",
+      "eras": [
+        "future"
+      ],
+      "cost": 150,
+      "weight": "-",
+      "description": "Bone-conduction earbud with a 10-mile mesh range; links squad members and their HUDs."
+    },
+    {
+      "name": "Comm unit",
+      "category": "communications",
+      "eras": [
+        "future"
+      ],
+      "cost": 400,
+      "weight": "-",
+      "description": "Wrist or palm device: voice, video, data, local network, translator for common human languages."
+    },
+    {
+      "name": "Field dressing",
+      "category": "medical",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 5,
+      "weight": "-",
+      "description": "Single-use bandage. As an action, end Bleeding on a creature without a check.",
+      "uses": 1
+    },
+    {
+      "name": "Medkit",
+      "category": "medical",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 100,
+      "weight": "3 lb.",
+      "description": "First aid supplies. Gives advantage on Medicine checks to stabilize; required for the Medic's Field Medicine. 10 uses.",
+      "uses": 10
+    },
+    {
+      "name": "Trauma kit",
+      "category": "medical",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 300,
+      "weight": "6 lb.",
+      "description": "Tourniquets, chest seals, IV fluids. As an action, a creature proficient in Medicine can treat a creature that has been at 0 HP for under 1 minute: it becomes stable and regains 1 HP. 3 uses.",
+      "uses": 3
+    },
+    {
+      "name": "Painkillers",
+      "category": "medical",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 10,
+      "weight": "-",
+      "description": "A dose taken as an action grants 1d4 + 1 temporary hit points for 1 hour and ends the Shaken condition. A second dose within 8 hours: CON save DC 12 or poisoned for 1 hour.",
+      "uses": 1
+    },
+    {
+      "name": "Adrenaline auto-injector",
+      "category": "medical",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "cost": 150,
+      "weight": "-",
+      "description": "As an action, inject a creature at 0 HP: it is stable and regains 1 HP. Once per creature per long rest.",
+      "uses": 1
+    },
+    {
+      "name": "Med-stim",
+      "category": "medical",
+      "eras": [
+        "future"
+      ],
+      "cost": 200,
+      "weight": "-",
+      "description": "Bonus action, self or adjacent creature: regain 2d4 + 2 HP. A creature can take 3 stims per long rest safely; each one beyond that requires a DC 12 CON save or the creature gains 1 level of exhaustion.",
+      "uses": 1
+    },
+    {
+      "name": "Combat stim",
+      "category": "medical",
+      "eras": [
+        "future"
+      ],
+      "cost": 400,
+      "weight": "-",
+      "description": "Bonus action: for 1 minute you have advantage on STR and DEX checks and saves and +10 ft speed. When it wears off, CON save DC 13 or gain 1 level of exhaustion.",
+      "uses": 1
+    },
+    {
+      "name": "Antitoxin",
+      "category": "medical",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 50,
+      "weight": "-",
+      "description": "Advantage on saves against poison for 1 hour; ends the poisoned condition from a toxin taken in the last minute.",
+      "uses": 1
+    },
+    {
+      "name": "Gas mask",
+      "category": "medical",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 120,
+      "weight": "3 lb.",
+      "description": "Immunity to inhaled gases (tear gas, smoke, most toxins). Disadvantage on Perception checks that rely on sight while worn."
+    },
+    {
+      "name": "Rebreather mask",
+      "category": "medical",
+      "eras": [
+        "future"
+      ],
+      "cost": 300,
+      "weight": "1 lb.",
+      "description": "Filters toxic atmospheres and supplies 1 hour of air in vacuum or underwater."
+    },
+    {
+      "name": "Lockpicks",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 60,
+      "weight": "-",
+      "description": "Pick mechanical locks with a DEX (Sleight of Hand) or INT (Mechanics) check; proficiency with lockpicks adds your proficiency bonus. Without lockpicks, mechanical locks can't be picked."
+    },
+    {
+      "name": "Electronic lock bypass",
+      "category": "tools",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "cost": 800,
+      "weight": "1 lb.",
+      "description": "Keypad and card-reader shim. Advantage on Mechanics or Computers checks to open electronic locks."
+    },
+    {
+      "name": "Mechanic's tools",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 150,
+      "weight": "15 lb.",
+      "description": "Wrenches, sockets, screwdrivers. Required for most Mechanics repairs and Jury-Rig without penalty (otherwise disadvantage)."
+    },
+    {
+      "name": "Electronics toolkit",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 250,
+      "weight": "5 lb.",
+      "description": "Soldering iron, multimeter, wire, components. Required for electronic repairs, bugs and alarms without disadvantage."
+    },
+    {
+      "name": "Hacking rig",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 1200,
+      "weight": "3 lb.",
+      "description": "1980s: acoustic-coupler modem, handheld terminal, line-tap clips. Modern: laptop with exploit kits and a wireless adapter. Future: neural deck with intrusion software. Lacking one, Computers checks against secured systems have disadvantage."
+    },
+    {
+      "name": "Laboratory kit",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 500,
+      "weight": "20 lb.",
+      "description": "Portable chemistry and biology lab. Analyze samples, identify toxins and synthesize simple compounds."
+    },
+    {
+      "name": "Pharmacology kit",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 300,
+      "weight": "4 lb.",
+      "description": "Reference drugs and testing reagents. Identify drugs and toxins; prepare painkillers or sedatives with a Medicine or Science check."
+    },
+    {
+      "name": "Disguise kit",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 100,
+      "weight": "3 lb.",
+      "description": "Makeup, wigs, prosthetics and costume pieces. Proficiency adds your bonus to checks to create a disguise."
+    },
+    {
+      "name": "Forgery kit",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 200,
+      "weight": "5 lb.",
+      "description": "Papers, inks, laminator or printer, stamps. Proficiency adds your bonus to create false documents; scrutinizing one is Investigation against your forgery check."
+    },
+    {
+      "name": "Camera kit",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 600,
+      "weight": "4 lb.",
+      "description": "Camera body, lenses and film or memory cards. Long lens: photograph clear details at 300 ft."
+    },
+    {
+      "name": "Navigation kit",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 80,
+      "weight": "2 lb.",
+      "description": "Maps, compass, protractor, altimeter. Advantage on Survival checks to navigate without electronics."
+    },
+    {
+      "name": "Multitool",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 50,
+      "weight": "-",
+      "description": "Pliers, blades and drivers in one; substitutes for mechanic's tools on simple tasks (DC 10 or less)."
+    },
+    {
+      "name": "Duct tape",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 5,
+      "weight": "1 lb.",
+      "description": "Binds a creature's wrists (escape DC 13) or holds anything together for an hour."
+    },
+    {
+      "name": "Handcuffs",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 30,
+      "weight": "1 lb.",
+      "description": "Restrain a grappled or incapacitated creature (action). Escape: DEX (Sleight of Hand) DC 20 or STR DC 25; lockpicks DC 15."
+    },
+    {
+      "name": "Crowbar",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 15,
+      "weight": "5 lb.",
+      "description": "Advantage on STR checks where leverage helps. Also a melee weapon (see equipment.json)."
+    },
+    {
+      "name": "Bolt cutters",
+      "category": "tools",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 40,
+      "weight": "5 lb.",
+      "description": "Cut chains, padlocks and fences as an action (STR DC 10)."
+    },
+    {
+      "name": "Binoculars",
+      "category": "surveillance",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 100,
+      "weight": "2 lb.",
+      "description": "See distant objects as if 10 times closer. Advantage on Perception checks to spot things more than 300 ft away."
+    },
+    {
+      "name": "Night-vision goggles",
+      "category": "surveillance",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 2500,
+      "weight": "2 lb.",
+      "description": "Darkvision 60 ft (1980s: 40 ft and a visible green glow if anyone looks for it). A flashbang or bright light while worn imposes disadvantage on the save."
+    },
+    {
+      "name": "Thermal scope",
+      "category": "surveillance",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "cost": 4000,
+      "weight": "1 lb.",
+      "description": "Mounted on a Longarm: see warm bodies through smoke and darkness to 300 ft; half cover from foliage or smoke doesn't apply against your shots. Zombies and robots show as cold."
+    },
+    {
+      "name": "Rifle scope",
+      "category": "surveillance",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 300,
+      "weight": "1 lb.",
+      "description": "Mounted on a Longarm: when you Aim, you also ignore disadvantage for attacking at long range."
+    },
+    {
+      "name": "Bug (listening device)",
+      "category": "surveillance",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 250,
+      "weight": "-",
+      "description": "Planted with Sleight of Hand. Transmits audio to a receiver within 1,000 ft (1980s) or over the network (modern/future). Battery lasts 1 week."
+    },
+    {
+      "name": "Bug detector",
+      "category": "surveillance",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 400,
+      "weight": "1 lb.",
+      "description": "Advantage on checks to find bugs, trackers and hidden cameras."
+    },
+    {
+      "name": "GPS tracker",
+      "category": "surveillance",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "cost": 150,
+      "weight": "-",
+      "description": "Magnetic tracker reporting location to your phone or comm. In the 1980s use a radio beacon with a 1-mile range instead."
+    },
+    {
+      "name": "Camera drone",
+      "category": "surveillance",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "cost": 1200,
+      "weight": "3 lb.",
+      "description": "Remote quadcopter: AC 13, HP 5, fly 60 ft, 20-minute battery, 2-mile range. Piloting checks to fly it in combat or wind."
+    },
+    {
+      "name": "Motion tracker",
+      "category": "surveillance",
+      "eras": [
+        "future"
+      ],
+      "cost": 3500,
+      "weight": "3 lb.",
+      "description": "Shows movement of Small or larger objects within 100 ft as blips (distance and direction, not identity). Walls don't block it. Beeps unless muted."
+    },
+    {
+      "name": "Flashlight",
+      "category": "light",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 20,
+      "weight": "1 lb.",
+      "description": "Bright light in a 60-ft cone and dim light for another 60 ft. Can be taped to a weapon."
+    },
+    {
+      "name": "Weapon light",
+      "category": "light",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "cost": 150,
+      "weight": "-",
+      "description": "Rail-mounted flashlight. Shining it into a creature's eyes (bonus action) gives disadvantage on its next attack against you unless it succeeds on a DC 10 CON save."
+    },
+    {
+      "name": "Chemical light stick",
+      "category": "light",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 2,
+      "weight": "-",
+      "description": "Dim light in a 10-ft radius for 6 hours."
+    },
+    {
+      "name": "Road flare",
+      "category": "light",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 5,
+      "weight": "1 lb.",
+      "description": "Bright red light in a 30-ft radius for 15 minutes; can ignite flammable material."
+    },
+    {
+      "name": "Rope (50 ft)",
+      "category": "climbing",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 20,
+      "weight": "5 lb.",
+      "description": "Nylon climbing rope; holds 1,000 lb."
+    },
+    {
+      "name": "Grappling hook",
+      "category": "climbing",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 40,
+      "weight": "4 lb.",
+      "description": "Thrown 30 ft up or across; DEX (Acrobatics) DC 10 to catch."
+    },
+    {
+      "name": "Climbing harness and gear",
+      "category": "climbing",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 150,
+      "weight": "8 lb.",
+      "description": "Advantage on Athletics checks to climb with rope; prevents falls if anchored."
+    },
+    {
+      "name": "Backpack",
+      "category": "survival",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 40,
+      "weight": "3 lb.",
+      "description": "Holds about 1 cubic foot / 30 lb of gear."
+    },
+    {
+      "name": "Bedroll or sleeping bag",
+      "category": "survival",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 30,
+      "weight": "5 lb.",
+      "description": "Allows a long rest in the open without risking exhaustion from cold."
+    },
+    {
+      "name": "Canteen",
+      "category": "survival",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 10,
+      "weight": "1 lb.",
+      "description": "Holds 1 quart of water."
+    },
+    {
+      "name": "MRE (ration)",
+      "category": "survival",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 10,
+      "weight": "1 lb.",
+      "description": "One day of food. Self-heating in modern and future eras."
+    },
+    {
+      "name": "Compass",
+      "category": "survival",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 15,
+      "weight": "-",
+      "description": "Always know which way is north (on Earth-like worlds with a magnetic field)."
+    },
+    {
+      "name": "Water purification tablets",
+      "category": "survival",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 10,
+      "weight": "-",
+      "description": "Make 1 gallon of water safe to drink. 20 tablets."
+    },
+    {
+      "name": "Vacuum suit",
+      "category": "survival",
+      "eras": [
+        "future"
+      ],
+      "cost": 5000,
+      "weight": "30 lb.",
+      "description": "Soft spacesuit with 6 hours of air, mag boots and a helmet light. Holed by a critical hit: lose 1 hour of air per round until patched (action, Mechanics DC 10 with a patch kit)."
+    },
+    {
+      "name": "Mag boots",
+      "category": "survival",
+      "eras": [
+        "future"
+      ],
+      "cost": 400,
+      "weight": "4 lb.",
+      "description": "Walk on metal surfaces in zero gravity at half speed; cannot be knocked prone or pushed while active."
+    },
+    {
+      "name": "Home computer",
+      "category": "computers",
+      "eras": [
+        "1980s"
+      ],
+      "cost": 1500,
+      "weight": "25 lb.",
+      "description": "8-bit or early 16-bit desktop with a floppy drive and a 1200-baud modem. Dial into bulletin boards, phone-company switches and university mainframes. No internet: hacking a system requires its phone number or a physical terminal."
+    },
+    {
+      "name": "Portable terminal",
+      "category": "computers",
+      "eras": [
+        "1980s"
+      ],
+      "cost": 2500,
+      "weight": "12 lb.",
+      "description": "Luggable computer with a built-in acoustic coupler. Counts as a hacking rig for phone-line intrusion."
+    },
+    {
+      "name": "Magnetic tape reel",
+      "category": "computers",
+      "eras": [
+        "1980s"
+      ],
+      "cost": 30,
+      "weight": "2 lb.",
+      "description": "Mainframe data storage. Reading one requires a compatible tape drive, found in corporate and government data centers."
+    },
+    {
+      "name": "Laptop",
+      "category": "computers",
+      "eras": [
+        "modern"
+      ],
+      "cost": 1200,
+      "weight": "4 lb.",
+      "description": "General-purpose computer. With the right software it counts as a hacking rig."
+    },
+    {
+      "name": "Data slate",
+      "category": "computers",
+      "eras": [
+        "future"
+      ],
+      "cost": 600,
+      "weight": "1 lb.",
+      "description": "Flexible tablet with holographic display; reads any common data format and stores a lifetime of records."
+    },
+    {
+      "name": "Neural jack cable",
+      "category": "computers",
+      "eras": [
+        "future"
+      ],
+      "cost": 200,
+      "weight": "-",
+      "description": "Connects a Synthetic or a cyber-equipped human directly to a port (the Synthetic's Data Link advantage requires it)."
+    },
+    {
+      "name": "9mm rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 25,
+      "weight": "1 lb.",
+      "description": "Box of pistol ammunition, also fed by most SMGs. On a character sheet record as 'equipment' entry \"9mm rounds (50)\" and count down."
+    },
+    {
+      "name": ".38 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 25,
+      "weight": "1 lb.",
+      "description": "Revolver ammunition (.357 revolvers can also fire it)."
+    },
+    {
+      "name": ".45 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 30,
+      "weight": "2 lb.",
+      "description": "Ammunition for .45 pistols and some SMGs."
+    },
+    {
+      "name": "Magnum rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 40,
+      "weight": "2 lb.",
+      "description": ".357 or .44 magnum (specify)."
+    },
+    {
+      "name": ".22 rounds (100)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 10,
+      "weight": "1 lb.",
+      "description": "Rimfire rounds for .22 pistols and rifles."
+    },
+    {
+      "name": "Shotgun shells (25)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 20,
+      "weight": "3 lb.",
+      "description": "12-gauge buckshot or slugs (specify)."
+    },
+    {
+      "name": "Rifle rounds (60)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 60,
+      "weight": "3 lb.",
+      "description": "Intermediate rifle cartridges (5.56mm or 7.62x39mm, specify) for assault rifles and carbines."
+    },
+    {
+      "name": "Full-power rifle rounds (20)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 40,
+      "weight": "2 lb.",
+      "description": "7.62mm/.30-06/.308 for battle, hunting and sniper rifles."
+    },
+    {
+      "name": "Machine-gun belt (100)",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 150,
+      "weight": "7 lb.",
+      "description": "Linked rounds for a light machine gun."
+    },
+    {
+      "name": "Spare magazine",
+      "category": "ammunition",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 30,
+      "weight": "-",
+      "description": "Pre-loaded magazines make the weapon's listed reload possible; without one, reloading a detachable-magazine weapon takes an action and a free hand."
+    },
+    {
+      "name": "Power cell",
+      "category": "ammunition",
+      "eras": [
+        "future"
+      ],
+      "cost": 100,
+      "weight": "-",
+      "description": "Recharges an energy weapon's magazine to full; swapping cells is the weapon's reload. Recharging a spent cell takes 1 hour at a power outlet."
+    },
+    {
+      "name": "Caseless magazine",
+      "category": "ammunition",
+      "eras": [
+        "future"
+      ],
+      "cost": 60,
+      "weight": "1 lb.",
+      "description": "Full magazine for a caseless pistol or pulse rifle."
+    },
+    {
+      "name": "Suppressor",
+      "category": "accessories",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 600,
+      "weight": "1 lb.",
+      "description": "Threaded onto a pistol, SMG or rifle: the weapon gains the suppressed property (heard within about 60 ft). Reduces range by a quarter. Can't fit revolvers or shotguns. Illegal in many places."
+    },
+    {
+      "name": "Gun cleaning kit",
+      "category": "accessories",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 20,
+      "weight": "1 lb.",
+      "description": "Cleaning a weapon during a short rest means its first fumble before the next rest is a miss rather than a jam."
+    },
+    {
+      "name": "Bipod",
+      "category": "accessories",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 80,
+      "weight": "1 lb.",
+      "description": "When prone or braced, a Longarm or Heavy Weapon ignores the heavy property's STR penalty and the light machine gun's standing penalty."
+    },
+    {
+      "name": "Smoke grenade",
+      "category": "misc",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 30,
+      "weight": "1 lb.",
+      "description": "Thrown 30/60 ft: creates a 20-ft-radius cloud of heavily obscuring smoke for 1 minute (10 rounds); a strong wind disperses it in 4 rounds."
+    },
+    {
+      "name": "Body bag",
+      "category": "misc",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 20,
+      "weight": "3 lb.",
+      "description": "Holds one body. Two people can carry a filled bag at normal speed; one person drags it at half speed."
+    },
+    {
+      "name": "Fake ID",
+      "category": "misc",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 300,
+      "weight": "-",
+      "description": "A cheap forgery passes casual inspection; a careful check is Investigation DC 12. Better forgeries are made with a Forgery kit."
+    },
+    {
+      "name": "Chain and padlock",
+      "category": "misc",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 25,
+      "weight": "4 lb.",
+      "description": "Secures a door or vehicle; break it with STR DC 20 or bolt cutters."
+    },
+    {
+      "name": "Fuel can (5 gal)",
+      "category": "misc",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "cost": 20,
+      "weight": "35 lb.",
+      "description": "Petrol. Makes 10 Molotov cocktails, or keeps a car running another 100 miles."
+    }
+  ]
+}

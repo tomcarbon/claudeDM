@@ -1,0 +1,473 @@
+{
+  "id": "bc-scenario-003",
+  "title": "Lot Seven",
+  "subtitle": "An Auction by Invitation, a Tommy Gun in Maiden Lane, and a Bird with an Empty Belly",
+  "levelRange": "5-6",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Downtown San Francisco, the Bay Bridge and Treasure Island, Thursday 10 to Friday 11 November 1938",
+    "description": "Thirty-six hours. On Thursday morning the crane goes on view at Gilchrist & Lowe, a discreet auction house in a converted bank on Sutter Street with a loading door onto Maiden Lane. At eight that evening it is sold by invitation to a room of collectors, and a minute after the hammer falls the lights go out and Mick Larrabee's men take it at gunpoint and run for the bridge. The chase ends on Treasure Island, among the plaster palaces of an Exposition that will not open for three months, where Larrabee's men crack the base of the crane with a tire iron and find it empty. By Friday morning the party should understand that the robbery was arranged by the woman who was robbed, that she took the bonds out herself on Wednesday night, and that she sails for Honolulu at nine on Saturday morning. And they should have, by now, enough to know who killed Ned. What they do not have is the gun.",
+    "atmosphere": "Thursday is velvet and candlelight: the hush of an auction room, numbered paddles, a man in white gloves holding a crane up to a lamp, the scratch of fountain pens, women in furs, the clink of a coffee cup on a saucer. Then glass breaking, a burst of automatic fire into a plaster ceiling, screams, plaster dust like snow in a spotlight, and a black Buick slewing out of Maiden Lane onto Kearny with its doors still open. The Bay Bridge at night is a mile-long tunnel of sodium lamps with the black water two hundred feet below. Treasure Island is a dream city half-built: towers with no tops, statues still in their crates, floodlights, mud, scaffolds, a carousel under a tarpaulin, the whole lit up like a stage for nobody. And the evening papers, the same night, are full of the news from Germany and Austria: synagogues burning, shop windows smashed, thousands arrested. Magda reads it in the back of a cab and says nothing at all.",
+    "keyLocations": [
+      {
+        "name": "Gilchrist & Lowe, Sutter Street",
+        "description": "Auction rooms in a former savings bank between Grant and Kearny: a sale room under a coffered ceiling with eighty gilt chairs, a rostrum, a viewing gallery behind brass rails, offices upstairs, and at the back a stock room and loading door onto Maiden Lane, a narrow alley of shops.",
+        "features": [
+          "The rostrum, the clerk's desk, a telephone bidder's booth with a curtain",
+          "The viewing cabinet where the crane stands on a velvet plinth under a lamp on Thursday from ten until five",
+          "The Maiden Lane loading door, with a night watchman who drinks, and a fuse box beside it"
+        ],
+        "encounters": [
+          "Mr. Lionel Gilchrist, auctioneer, silver-haired, nervous about publicity",
+          "Kenji Okada, lacquer restorer, engaged to check and clean the crane before the sale",
+          "Pellingham, Corinne Marsh and her lawyer Mr. Strand at the viewing; at eight, the sale room full"
+        ],
+        "secrets": [
+          "CLUE F1: Mr. Okada, examining the crane at eleven on Thursday morning, finds that the base has been opened twice: once months ago with a fine blade and good shellac by a careful European craftsman, and again within the last two days, crudely, with a heated knife, the new shellac still soft enough to take a thumbnail. He will tell the auctioneer, who will tell him to say nothing. He will tell the party if they ask him with respect. Forensics DC 12 on the base finds the soft shellac even without him.",
+          "CLUE F7 (bonus): Mr. Gilchrist, if pressed about his consignor (Persuasion DC 14), says Mrs. Marsh insisted on an evening sale on her own premises' insurance terms: lots on the house's premises are insured by the house at their reserve, $10,000. She asked about the insurance twice.",
+          "CLUE P3: at the viewing, Pellingham, standing very close to Corinne by the cabinet, says quietly (Perception DC 13 to overhear, or automatically for anyone within ten feet): 'A sale, madam, was not our understanding. Remember what I hold of your husband's.' She answers: 'You'll have your bird, Ambrose. Bid.'"
+        ]
+      },
+      {
+        "name": "Okada Lacquer and Restoration, Post Street, Japantown",
+        "description": "A narrow workshop with a living room behind it, in the Japanese neighbourhood around Post and Buchanan: shelves of brushes, pots of urushi lacquer under damp cloths, a drying cabinet, and a bench by the window where Kenji Okada has repaired lacquer for Gump's and half the collectors in California for thirty years.",
+        "features": [
+          "A drying cabinet humid as a greenhouse, because real lacquer cures in damp, not heat",
+          "Mr. Okada's daughter, Emi, nineteen, a student at the state college, who keeps the books and translates for the older customers"
+        ],
+        "encounters": [
+          "Kenji Okada, 61, precise, proud, quietly furious that someone took a hot knife to a piece like that"
+        ],
+        "secrets": [
+          "Mr. Okada knows the crane. He saw a photograph of it in a Viennese collector's catalogue from 1912, 'Sammlung Ehrlich'. He has the catalogue. That is a further clue, if any is needed, that the crane belongs to Magda's family.",
+          "He will testify to what he saw, in court if needed, to anyone who treats the work with respect. He is not interested in money."
+        ]
+      },
+      {
+        "name": "The Fairmont",
+        "description": "The great white hotel on the crown of Nob Hill, with its marble lobby, its ballroom, and below stairs a warren of service corridors, a laundry, a staff canteen and the cloakroom where, on Thursday 3 November, Annie Rourke checked four hundred coats.",
+        "features": [
+          "The Mason Street side door, used by staff and by guests who would rather not be seen leaving",
+          "The ladies' lounge off the ballroom corridor, with a wastebasket that the attendant empties at midnight",
+          "The cloakroom: brass tickets, a long rail of furs, a counter, and Annie"
+        ],
+        "encounters": [
+          "Annie Rourke, 22, cloakroom attendant, Irish, Mission District, sharp as a tack and saving to marry",
+          "Mrs. Edith Carver, Corinne's bridge partner at the ball, who is easily found through Kit Vandermeer's mother"
+        ],
+        "secrets": [
+          "CLUE G5: at 11:40 on the night of the ball, emptying the ladies' lounge wastebasket, Annie found a pair of dove-grey French kid evening gloves, almost new, and kept them because they cost $12. The right forefinger is speckled with fine black stippling, and there is a brown spot on the right cuff. She has not worn them because of the spot. She will hand them over for $5 and a promise she will not lose her job; she is frightened of the hotel, not the police. Forensics DC 12: powder stippling and dried blood. Dr. Lindqvist will confirm both in an hour.",
+          "Mrs. Carver says (Society DC 12, or automatically through Kit's mother) that Corinne 'went to powder her nose at a quarter to eleven and came back at half past, in a different pair of gloves, I remember, because I said how pretty the new ones were'.",
+          "The Mason Street doorman saw a lady in silver fox go out at 10:42 and come back at 11:33. He did not think about it; ladies do. He will think about it for a dollar."
+        ]
+      },
+      {
+        "name": "Montgomery Street and Market Street",
+        "description": "The Financial District: granite banks, bond houses with brass plates, and two blocks away on Market the Matson Navigation Company's ticket office with its posters of Waikiki and its model of a white liner in the window.",
+        "features": [
+          "Harlan Fitch & Co., Bonds and Securities, second floor, a frosted door and a clerk who reads the racing pages",
+          "The Matson office: polished wood counters, a sailing board, a passenger list for Saturday's sailing pinned up for the press"
+        ],
+        "encounters": [
+          "Harlan Fitch, 60, careful, respectable, who has stayed respectable by never asking a question he did not want answered",
+          "A Matson booking clerk, young, impressed by newspapers and policemen"
+        ],
+        "secrets": [
+          "CLUE F4: Fitch (Persuasion DC 14, Intimidation DC 13, or a badge) admits that a widow in grey came to him on Wednesday afternoon and asked how a person might sell $38,000 of United States Treasury bearer bonds 'without a fuss'. He told her it could not be done quickly in San Francisco without questions, but that a bank in Honolulu might be more relaxed. She came back at ten on Thursday morning and asked for the name of one. He gave it.",
+          "CLUE F3: the Matson clerk (Research DC 10 on the posted list, or any charm at all): Mrs. C. J. Marsh, one-way, first class, sailing Saturday 12 November at nine from Pier 35, booked and paid in cash ($225) on Thursday 10 November at 9:30 in the morning, before the auction. Cash she did not have on Tuesday."
+        ]
+      },
+      {
+        "name": "Treasure Island",
+        "description": "Four hundred acres of new land in the middle of the Bay, reached from the Bay Bridge by a ramp down onto Yerba Buena Island and a causeway. At night the Exposition is a half-built city under floodlights: the Tower of the Sun with scaffolding on its upper stages, the Court of the Moon, colonnades without roofs, statues in crates, a lagoon with no water in it yet, mud, timber stacks, and Larrabee's hauling yard behind the long hangars at the island's south end.",
+        "features": [
+          "The causeway: one lane each way, a watchman's hut and a barrier pole that a Buick can go through",
+          "The great courts: plaster walls forty feet high, scaffolds, ladders, a crane on tracks, open trenches for the fountains",
+          "Larrabee's yard: trucks, a timber shed, a tin office, a generator, a dog on a chain"
+        ],
+        "encounters": [
+          "Larrabee's robbery crew: Tiny Mulcahy (Mob Lieutenant), a Tommy-Gun Hood, a Getaway Driver and three Dockside Goons",
+          "Two Exposition night watchmen (Night Watchman) and a Guard Dog, who are on nobody's side",
+          "Larrabee himself, who drives out to the yard at ten to see his diamonds"
+        ],
+        "secrets": [
+          "CLUE F5: when the party catches up, Larrabee's men have already cracked the base of the crane open with a tire iron on the hood of a truck, and found nothing but a cavity lined with oilcloth and a smear of soft shellac. Whoever is caught swears it was empty. Larrabee, if he is there, is murderously angry, at the party, whom he thinks beat him to it.",
+          "Larrabee, beaten or persuaded (Intimidation or Persuasion DC 15), says the job was a tip: 'A woman telephoned Wednesday night. Said the bird would be at Gilchrist's, the Maiden Lane door's never bolted, the watchman drinks, and the lights are on a fuse box by the door. Classy voice. Didn't give a name.'",
+          "The crane itself has a cracked base and a chipped rock but the bird is undamaged. Mr. Okada can repair it in a month. Pellingham, told, will weep, and mean it."
+        ]
+      }
+    ]
+  },
+  "synopsis": "The crane goes on view on Thursday morning and a lacquer restorer finds that its base was opened two days ago with a hot knife. A cloakroom girl at the Fairmont has a pair of gloves with powder burns on the forefinger. Dolan, if the party has given him Kerrigan, gives them Ned's notebook in return. At eight the sale begins in a room full of collectors, with Pellingham bidding against a telephone bidder who is Corinne's lawyer running the price up, and at the fall of the hammer the lights go out and Larrabee's men take the crane at gunpoint out of the Maiden Lane door. The chase runs down Kearny, along Market and up onto the Bay Bridge, through the tunnel on Yerba Buena Island and down the causeway onto Treasure Island, where the party catches the robbers among the plaster palaces and finds the crane's base cracked open and empty. Larrabee was tipped by a woman's voice. By Friday morning Corinne's housekeeper, a bond dealer and the Matson Line have told the party the rest: Corinne took the bonds herself on Wednesday night, arranged the robbery to cover it and to collect the auction house's insurance, and sails at nine on Saturday morning. Then an envelope arrives from the Mark Hopkins, in violet ink.",
+  "hook": "Thursday 10 November, ten in the morning, and the fog has lifted for once so that from the top of Sutter Street you can see right down to the Ferry Building and the bridge. Gilchrist & Lowe's doors are open for viewing. Inside it is hushed and warm and smells of furniture polish and lilies, and the crane stands alone in a glass cabinet on a plinth of black velvet under a single lamp, with a typed card that says only LOT 7. Mr. Pellingham is already there, on a gilt chair that has been brought for him, looking at it the way some men look at the sea. Corinne Marsh comes in at a quarter past, in grey, with a silver fox stole on her shoulders. Somebody in the party, without meaning to, looks at the fur.",
+  "cluesAvailable": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F7",
+    "G4",
+    "G5",
+    "G6",
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Viewing Hours",
+      "description": "Thursday 10 November, ten until seven. The crane on view; the Fairmont's cloakroom; Dolan's notebook. This act closes in on the killer with three clues (G5 the gloves, G6 the notebook, G4 the cable-car crews if not yet found), plants the first clue that the bonds are already gone (F1 the soft shellac), and plants the conclusion 'Pellingham holds something that belongs to the killing' with its first clues (P1 Lonnie's hat, P3 the overheard exchange).",
+      "objectives": [
+        "Examine the crane at the viewing, or talk to Mr. Okada",
+        "Find the gloves at the Fairmont and break Corinne's alibi",
+        "Trade with Dolan: Kerrigan, or other proof, for Ned's notebook",
+        "Get into the sale"
+      ],
+      "scenes": [
+        {
+          "name": "Under the Lamp",
+          "description": "Gilchrist & Lowe's viewing gallery. Mr. Okada has been engaged to clean the crane before the sale and works on it in a back room at eleven. Pellingham and Corinne speak by the cabinet. Everyone is watching everyone.",
+          "readAloud": "In the back room Mr. Okada has the crane on a square of white silk on his bench, under a magnifying lamp, and he is not cleaning it. He is looking at the base with a jeweller's loupe in his eye, and he does not look up when you come in. 'Someone,' he says at last, very quietly, in careful English, 'has taken a hot knife to this. In the last two days. A kitchen knife, I think, heated on a stove.' He presses the edge of his thumbnail into the seam of the base and shows you: a little crescent mark in the black, soft as candle wax. 'Three hundred years,' he says. 'And a kitchen knife.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 11,
+              "success": "Mr. Okada tells you everything: two openings, one old and careful, one new and crude (Clue F1), and that he knows the piece from a 1912 Viennese catalogue, Sammlung Ehrlich, which he has at his shop. He will say all of it again in court.",
+              "failure": "Mr. Okada says the piece is in good condition and that he has been asked by Mr. Gilchrist not to discuss consignments. A Forensics DC 12 on the base still finds the soft shellac (Clue F1)."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "By the cabinet you overhear Pellingham and Corinne: 'A sale, madam, was not our understanding. Remember what I hold of your husband's.' 'You'll have your bird, Ambrose. Bid.' (Clue P3.) What does Pellingham hold of Carlton Marsh's?",
+              "failure": "Pellingham and Corinne speak by the cabinet, briefly, and part looking like two people who have just agreed on something neither of them likes."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Corinne is more frightened today than at any time this week, and also exhilarated, like someone who has bought a ticket. Lonnie, in the corner, keeps looking at her and away, the way you look at a dog that has bitten you.",
+              "failure": "Everyone in this room wants something. That is all you can tell."
+            }
+          ]
+        },
+        {
+          "name": "The Cloakroom Girl",
+          "description": "The Fairmont, below stairs. Annie Rourke and the gloves; Mrs. Carver and the forty-five minutes; the Mason Street doorman. This is where Corinne's alibi of thirty witnesses breaks.",
+          "readAloud": "The Fairmont's cloakroom is a long low room under the ballroom with a counter and a rail of coats and furs that goes back further than the light does, and Annie Rourke is behind the counter with a library book and a cup of tea. She hears what you want, looks at you for a long time, and then reaches under the counter and puts a tissue-paper parcel on it. Inside are a pair of dove-grey evening gloves, very fine. 'I found them in the ladies' basket,' she says. 'Thursday last, twenty to twelve. I was going to wear them to my sister's wedding. Only there's that spot on the cuff, and I don't think it's coffee.'",
+          "skillChecks": [
+            {
+              "skill": "Forensics",
+              "dc": 12,
+              "success": "The right forefinger and the web of the right glove are peppered with fine black stippling: powder from a pistol fired by the hand inside it. The brown spot on the cuff is dried blood. (Clue G5.) Size six and a half; Corinne's size, as any good glove counter would know.",
+              "failure": "The gloves have marks on them. Hattie Lindqvist can tell you what they are within an hour (Clue G5 is still found)."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Annie hands the gloves over for $5 and a promise she will not lose her job, and agrees to say where she found them to a policeman, if it is Dolan and not 'that big red one'.",
+              "failure": "Annie wants $10 and a promise in writing. She is not greedy; she is careful. The gloves are hers to sell."
+            },
+            {
+              "skill": "Society",
+              "dc": 12,
+              "success": "Mrs. Edith Carver, Corinne's bridge partner, found through Kit's mother or the Fairmont's tea room: Corinne went to powder her nose at a quarter to eleven and came back at half past in a different pair of gloves. The Mason Street doorman, for a dollar: a lady in silver fox out at 10:42, in at 11:33. Together with the cable-car crews (Clue G4, available at the California and Hyde barn if not yet found) the alibi is gone.",
+              "failure": "Mrs. Carver does not discuss her friends with strangers. Kit's mother can be asked again, or the doorman can be found at the end of his shift."
+            }
+          ]
+        },
+        {
+          "name": "Ned's Notebook",
+          "description": "Dolan's office at the Hall of Justice, or a booth at a lunch counter where nobody will see them. If the party has given Dolan Kerrigan, or the gloves, or the pistol register, he gives them Ned's notebook. If not, this scene still happens, but Dolan only reads them the last page.",
+          "readAloud": "Dolan takes a cheap black notebook out of his inside pocket and puts it on the table between you and keeps his hand flat on it for a moment, the way a man keeps his hand on a Bible. 'He wrote everything down,' he says. 'Every case. Every lie anybody ever told him.' He takes his hand away. 'Last page. I've read it fifty times. I didn't show you because of the bottom line. Read it.' Ned's square capitals: MRS. H. STRAND = ? VIENNESE? / CRANE, SERRA DA ESTRELA, MON / PELLINGHAM, MARK H., WANTS IT BAD, 5000 TALK / V.M. SAYS CARLTON NEVER TOLD HER A THING. LIAR. / 11 TALLOW. And at the bottom, underlined twice: C. SAYS DROP IT. 'She was right,' Dolan says. 'Wasn't she.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Dolan lets the party copy the notebook (Clue G6) and agrees to wait for their evidence until Friday midnight, as promised, without arresting anyone early. If they gave him Kerrigan, he says, in a voice like a closing door, 'I'll deal with Wally,' and Heat drops by 2.",
+              "failure": "Dolan reads them the last page (Clue G6) but keeps the book. He still wants Cass in his office at midnight on Friday unless he has a better name."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Dolan no longer believes the agency did it. He believes it was Corinne Marsh, and he is afraid of what her lawyer and her friends will do to a lieutenant who tries to arrest her on fox hairs and gloves. He needs the gun.",
+              "failure": "Dolan is hard to read. He is a cop."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "None planned. Kerrigan, if not yet exposed, is at Gilchrist & Lowe in the evening as the 'police presence', and has told Larrabee there will be no other police there"
+      ]
+    },
+    {
+      "title": "Act 2: The Hammer Falls",
+      "description": "Thursday 10 November, eight until ten. The sale, the robbery, and the chase across the Bay Bridge to Treasure Island. This act is the campaign's big action set piece. It plants P2, Lonnie's panicked confession in the dark, and ends with the crane in Larrabee's hands on Treasure Island and the party on their way to take it back.",
+      "objectives": [
+        "Attend the sale, as bidders, press, staff or guests",
+        "Survive the robbery and keep the bystanders alive",
+        "Follow the crane",
+        "Catch Larrabee's men before they can hide the crane, or what they think is in it"
+      ],
+      "scenes": [
+        {
+          "name": "Do I Hear Nine?",
+          "description": "The sale room at eight. Lots one to six (a Chinese screen, two Meissen figures, a pair of Georgian candlesticks, a Persian rug, a bronze Buddha) go quickly. Then Lot Seven, and the room goes very still. Pellingham bids against a telephone bidder behind the curtain, who is Corinne's lawyer Oliver Strand running the price up on her instructions. The party can bid (with whose money?), expose the shill, or simply watch Pellingham's face.",
+          "readAloud": "'Lot Seven,' says Mr. Gilchrist, and a porter in white gloves lifts the crane from its cabinet and holds it up under the lamp, and eighty people stop breathing at once. 'An important Japanese lacquer figure of a crane, Edo period. I have a commission bid of three thousand. Three thousand five hundred. Four. Four thousand, the gentleman in grey, thank you, sir. Five on the telephone.' Mr. Pellingham's paddle rises and falls without hurry. Behind the telephone curtain, a man's voice murmurs. 'Seven. Seven thousand five hundred. Eight on the telephone. Do I hear nine?' Pellingham's face has gone the colour of putty. 'Nine,' he says.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "The telephone bidder is a shill. The porter at the booth relays bids a fraction before Pellingham's paddle falls, as if the man behind the curtain can see the room; and Mr. Strand, Corinne's lawyer, is not in his seat. Corinne, three rows back, is watching Pellingham with a face like a card player's.",
+              "failure": "The bidding is very fast and very expensive, and Pellingham is losing his temper by a dollar a second."
+            },
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "A party member can bid, convincingly, with money they do not have, to drive the price up or to draw the telephone bidder out. Pellingham will look at them with real hatred and real respect.",
+              "failure": "Mr. Gilchrist asks to see the bidder's bank reference. The room turns to look."
+            },
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "At 'Going once', you notice the night watchman is not at the stock-room door, and the stock-room door is open an inch, and there is a draught from it that should not be there.",
+              "failure": "'Going twice.'"
+            }
+          ]
+        },
+        {
+          "name": "The Lights Go Out",
+          "description": "At the fall of the hammer, at $9,000 to Pellingham, someone at the fuse box in the stock room throws the main switch. Three of Larrabee's men come through the stock room with flashlights and a Tommy gun, which fires one burst into the coffered ceiling. In the dark, plaster dust, screams, a woman's pearls breaking, the porter knocked down, the crane gone out of the Maiden Lane door into a black Buick. In the chaos, Lonnie Pruitt, panicking, grabs the nearest party member's arm and says the thing he has been not saying for a week.",
+          "readAloud": "The hammer comes down, 'Sold, nine thousand, Mr. Pellingham,' and every light in the room goes out at once. There is one long breath of dark. Then flashlights from the back, three of them, and a voice like a gravel truck, 'Nobody moves,' and somebody does, and the Tommy gun goes off into the ceiling, a sound like the end of the world, a dozen bright flashes and the coffered plaster coming down like snow in the beams of the flashlights. A woman screams. A string of pearls breaks and you hear them bouncing on the floor. A man runs past you with the crane in his arms like a baby. And close beside you, in the dark, someone takes hold of your sleeve with both hands and a boy's voice says, 'I didn't shoot nobody. I swear to God. I only picked it up.'",
+          "skillChecks": [
+            {
+              "skill": "Acrobatics",
+              "dc": 13,
+              "success": "A character vaults the rail, gets through the stock room behind the robbers and reaches Maiden Lane in time to see the Buick and its plates, and to get one shot or one jump onto its running board before it goes. (A shot here is +2 Heat.)",
+              "failure": "Chairs, people, plaster. By the time you reach Maiden Lane, there is only the smell of exhaust and a Buick's taillights turning onto Kearny."
+            },
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "Lonnie, in the dark, is telling the truth, and his whole body is shaking. Before he can say more, Pellingham's voice calls 'Lonnie' from the front of the room, calmly, and the boy lets go and is gone. (Clue P2.) What did he pick up?",
+              "failure": "A boy's voice, in the dark, swearing he didn't shoot anybody. Then gone. (Clue P2 is still found; what it means needs thinking about.)"
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "The porter has a cracked skull from a pistol butt and a woman has been cut by falling plaster; a Doctor stabilises both in the dark in a minute. Dolan, arriving later, will remember who stayed to help.",
+              "failure": "You do what you can. The ambulance comes in eleven minutes."
+            }
+          ]
+        },
+        {
+          "name": "Across the Bridge",
+          "description": "The chase. The Buick goes down Kearny, east on Market, south on First, and up the ramp onto the upper deck of the Bay Bridge, with a Larrabee truck behind it to block. The party follows in whatever they have: Benny's cab, a borrowed coupe, a police cruiser if Dolan is with them. Run it as a chase of three legs, each a Driving check (or a creative alternative), with a complication each leg. The chase ends where it ends: on the bridge, in the Yerba Buena tunnel, or on the causeway down to Treasure Island.",
+          "readAloud": "The Buick takes First Street on two wheels and goes up the ramp onto the bridge with its horn blaring, and then you are on it too, and the city falls away behind you and there is nothing on either side but the black Bay two hundred feet down and the sodium lamps going past overhead, one, two, three, like the frames of a film, and the cables going up out of the light into the dark. Ahead, the Buick's taillights. Between you and them, swinging out across both lanes, a Larrabee Hauling truck with its tailgate down and two men standing in the back.",
+          "skillChecks": [
+            {
+              "skill": "Driving",
+              "dc": 13,
+              "success": "Leg one, Market to the bridge: you stay with the Buick through the downtown traffic and up the ramp. Complication: a Key System train on the lower deck, shaking the whole span.",
+              "failure": "You lose a hundred yards and the Buick gets onto the bridge with a lead. The next check is at disadvantage unless someone thinks of something."
+            },
+            {
+              "skill": "Driving",
+              "dc": 15,
+              "success": "Leg two, the truck: you get round it at sixty with a foot to spare, while the men in the back throw timber and the Buick vanishes into the Yerba Buena tunnel. (Advantage for Benny Dacanay or any character with Behind the Wheel.)",
+              "failure": "The truck clips you. The car spins once, stops against the curb with steam coming out of it, and you limp after the Buick at twenty miles an hour, 2d6 bludgeoning to everyone without a seat to hold onto."
+            },
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "Leg three, the tunnel: coming out of it you see the Buick's lights going down the ramp toward the causeway and Treasure Island, not on to Oakland. They are going to Larrabee's yard.",
+              "failure": "Out of the tunnel there is no Buick. A watchman at the Treasure Island ramp, if asked, says one went down there a minute ago 'like the devil was driving'."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Larrabee's robbery crew at Gilchrist & Lowe: a Tommy-Gun Hood, two Dockside Goons with flashlights and .38s, and a Getaway Driver in the Buick; they want the crane and will fire into the ceiling, not the crowd, unless someone fires at them",
+        "On the bridge: a Larrabee truck with two Dockside Goons in the back, throwing timber",
+        "Sergeant Kerrigan, if still free, who 'loses' the Buick's plate number in his notebook"
+      ]
+    },
+    {
+      "title": "Act 3: The Empty Bird",
+      "description": "Thursday night on Treasure Island, and Friday morning downtown. The party catches Larrabee's men among the Exposition's half-built courts and finds the crane's base cracked and empty (F5). Then the morning: Corinne's housekeeper (F2), the bond dealer (F4) and the Matson Line (F3). This act completes the conclusion 'Corinne took the bonds herself on Wednesday night, arranged the robbery, and is sailing on Saturday', and ends with Pellingham's invitation.",
+      "objectives": [
+        "Recover the crane from Larrabee's men on Treasure Island",
+        "Learn that the base was empty when Larrabee's men opened it, and who tipped Larrabee",
+        "Find the traces of Wednesday night at the Marsh house",
+        "Learn where the bonds are going and when",
+        "Accept or refuse Mr. Pellingham's invitation"
+      ],
+      "scenes": [
+        {
+          "name": "The Court of the Moon",
+          "description": "Treasure Island at a quarter to ten on Thursday night. Larrabee's men have taken the crane into the half-built Exposition grounds to meet Larrabee at his yard, and have already cracked its base on the hood of a truck. The fight runs through floodlit plaster courts, scaffolds, crated statues and open fountain trenches. The watchmen and their dog are on nobody's side.",
+          "readAloud": "Treasure Island at night is a city built by somebody who left in a hurry. The floodlights make white islands of the great courts and leave black water between them: a colonnade forty feet high with no roof on it, a row of statues still in their crates with their names stencilled on the boards, an empty lagoon with a dry fountain in the middle like a wedding cake. Over all of it the Tower of the Sun goes up into the dark with scaffolding on its shoulders. In the middle of the Court of the Moon, under a floodlight, the Buick is parked with its doors open, and three men are standing round its hood looking down at something on it. One of them has a tire iron. One of them says, quite clearly in the silence, 'There's nothing in it. There's nothing in the God-damned thing.'",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "The party comes in through the colonnade shadows and gets surprise. The floodlights, the scaffolds and the crates give plenty of cover: half cover behind statues' crates, three-quarters behind the colonnade's pillars.",
+              "failure": "The guard dog on the watchman's chain starts barking, and the Tommy gun turns toward the noise."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 14,
+              "success": "A character can climb the scaffolding of the colonnade and come down on the robbers from above, or cut the floodlight cable, plunging the court into darkness: the robbers, who have flashlights, become targets.",
+              "failure": "The scaffold sways and a plank goes down into the fountain trench with a crash; the character hangs by their hands for a round."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "With the Tommy-gunner down, the rest surrender, and the one called Fats Delahunt tells you everything: the base was empty (Clue F5), and Larrabee was tipped on Wednesday night by a woman's telephone call: 'Classy voice. Said the Maiden Lane door's never bolted.' Larrabee himself, arriving at ten, can be made to say the same with Persuasion DC 15 and the knowledge that the party has the Buick's plate.",
+              "failure": "They fight on, until the watchmen's whistles bring the Exposition's own guards. Heat +2 if shots were fired. You still have the crane, and the cracked, empty base (Clue F5) speaks for itself."
+            }
+          ]
+        },
+        {
+          "name": "Below Stairs on Vallejo Street",
+          "description": "Friday morning, the Marsh house. Corinne is out (at the hairdresser's, at her lawyer's, at the Matson office checking her cabin). Concepción Ruiz, the housekeeper, has not been paid since September and has decided, overnight, that she is finished being loyal.",
+          "readAloud": "Concepción Ruiz opens the kitchen door to you in her coat and hat with a cardboard suitcase at her feet. She is a small, square woman of sixty with a gold cross at her throat and the expression of someone who has been rehearsing a speech. 'She has not paid me since September,' she says. 'I have stayed because Señor Carlton was good to me. Last night she tells me to go to bed at nine, like a child. At midnight I come down for my pills and she is at the stove, with the big knife, in the gas, and the bird on the table on a newspaper.' She points to the ash bin. 'Look for yourselves. I am going to my sister's in Daly City.'",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "In the ash bin, under the coffee grounds: a sheet of the Wednesday Examiner, scorched, stuck with drips of black shellac, and a kitchen knife with a blackened blade wrapped in it. (Clue F2.) Upstairs, in the bedside drawer of the master bedroom, an empty box of Remington .32 automatic cartridges, with four left of fifty.",
+              "failure": "Concepción finds the newspaper for you, sighing. (Clue F2 is still found.)"
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Concepción will tell Dolan what she saw, and adds one thing more: on the night of the Fairmont ball, Señora Marsh came home at one in the morning and took a bath at once, and sent her grey gloves 'to the cleaner', except that she had come home without any grey gloves at all.",
+              "failure": "Concepción will not go near a policeman. She has a nephew without papers in Daly City. Respect that, and she will talk to Dolan later if the party asks him to come to her."
+            }
+          ]
+        },
+        {
+          "name": "The Violet Ink",
+          "description": "Friday morning downtown: the Matson office (F3) and Harlan Fitch's bond house (F4), in either order. Then, back at the agency, an envelope delivered by a Mark Hopkins bellboy, in violet ink.",
+          "readAloud": "Dot is holding the envelope by one corner when you come in, as if it might be hot. It is heavy cream paper with THE MARK HOPKINS engraved on the flap, and the writing on it is violet and very beautiful. Inside is a card. Mr. Ambrose Pellingham requests the pleasure of the company of the agency of Corrigan and Delaney, and of Miss Ehrlich, at ten o'clock this evening, the nineteenth floor, to settle the matter of the crane among all interested parties. Mrs. Marsh will attend. Mr. Larrabee will attend. Underneath, in the same hand, smaller: Please bring the bird. I shall bring what I hold. A.P.",
+          "skillChecks": [
+            {
+              "skill": "Research",
+              "dc": 10,
+              "success": "The Matson sailing list: Mrs. C. J. Marsh, first class, cabin B-14, one way to Honolulu, sailing Saturday at nine from Pier 35, booked and paid in cash at 9:30 on Thursday morning. (Clue F3.)",
+              "failure": "The clerk will not show you the list without a reason. Kit's press card, Jimmy's badge, or a dollar is a reason."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 13,
+              "success": "Harlan Fitch, shown the cracked crane or a badge, admits Corinne's Wednesday question and Thursday visit and the Honolulu bank's name (Clue F4). He asks, with dignity, to be left out of the newspapers.",
+              "failure": "Fitch threatens to call his lawyer, who is Oliver Strand. Persuasion DC 14 instead, or Dolan, gets the same answer."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Put together: Corinne took the bonds out on Wednesday night, tipped Larrabee to rob her own sale so that everyone would think he had them and so that the auction house's insurance would pay her the reserve, and is sailing in the morning. Pellingham 'holds' something of Carlton's that frightens her. Lonnie 'only picked it up'. The gun is in the penthouse.",
+              "failure": "Dot, with the case board, lays it out for you (see the campaign's Case Board rule)."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "On Treasure Island: Tiny Mulcahy (Mob Lieutenant), a Tommy-Gun Hood, a Getaway Driver and two Dockside Goons, with two Exposition watchmen (Night Watchman) and a Guard Dog who are on nobody's side; Mick Larrabee (Waterfront Boss) arrives at ten with two more Dockside Goons",
+        "Optional, Friday morning: Larrabee's men waiting outside the agency, if Larrabee believes the party has his diamonds (Heat 6 or more)"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Kenji Okada, 61",
+      "role": "Lacquer restorer, Post Street, Japantown",
+      "description": "Small, upright, in a cardigan and a carpenter's apron, with lacquer-stained fingertips and a quiet, exact English. Thirty years repairing lacquer for Gump's and every serious collector in California. A respected man in his own neighbourhood, a deacon at his church, a widower with a clever daughter.",
+      "motivation": "That a three-hundred-year-old piece be treated properly. That the truth about it be told by someone who knows."
+    },
+    {
+      "name": "Lionel Gilchrist, 64",
+      "role": "Auctioneer, Gilchrist & Lowe",
+      "description": "Silver hair, a carnation, a voice like warm honey on the rostrum and like a frightened clerk off it. Has never had a robbery in forty years and is chiefly afraid of the newspapers.",
+      "motivation": "His house's reputation. His insurer's goodwill."
+    },
+    {
+      "name": "Annie Rourke, 22",
+      "role": "Cloakroom attendant, the Fairmont",
+      "description": "Freckled, quick, a Mission District girl with a library book under the counter and $140 saved toward a wedding. Not greedy; careful. Will not lose her job for anybody.",
+      "motivation": "Keep her job, marry her Tommy in June, and do right if doing right does not cost her the first two."
+    },
+    {
+      "name": "Concepción Ruiz, 60",
+      "role": "The Marsh housekeeper",
+      "description": "Square, devout, unpaid since September, loyal to Carlton's memory and finished with his widow.",
+      "motivation": "Her wages, her dignity, and to be well away from Vallejo Street by tonight."
+    },
+    {
+      "name": "Harlan Fitch, 60",
+      "role": "Bond dealer, Montgomery Street",
+      "description": "Grey suit, grey moustache, grey conscience. Respectable by the method of never asking a question he did not want answered.",
+      "motivation": "To stay out of this, and out of the papers."
+    },
+    {
+      "name": "Mick Larrabee, 50",
+      "role": "Waterfront Boss",
+      "description": "Robbed a sale for diamonds and got an empty bird. In this scenario he goes from confident to humiliated to dangerous, and believes the party has what he was promised.",
+      "motivation": "His $6,000 and his face, which matters more to him now than the money."
+    },
+    {
+      "name": "Ambrose Pellingham, 58",
+      "role": "Collector; holder of the pistol",
+      "description": "Paid $9,000 for a crane he held for eleven seconds. Watching it go out of the door in a robber's arms is the worst moment of his life, and he will not forgive Corinne for it.",
+      "motivation": "The crane. And now, a little, revenge, which he will take in his own courteous way."
+    },
+    {
+      "name": "Lonnie Pruitt, 21",
+      "role": "The gunsel; the witness",
+      "description": "Breaks, very slightly, in the dark at the auction, and is called back to heel by Pellingham's voice.",
+      "motivation": "To tell someone. To be believed. To go home."
+    },
+    {
+      "name": "Corinne Marsh, 42",
+      "role": "The widow; the killer",
+      "description": "In this scenario she is at her most brilliant and most reckless: a rigged sale, a shill, a robbery she arranged herself, a cabin booked on Saturday's boat. She has the bonds in a vanity case that never leaves her side.",
+      "motivation": "Twenty-four more hours."
+    },
+    {
+      "name": "Lieutenant Frank Dolan, 47",
+      "role": "Homicide",
+      "description": "Arrives at Gilchrist & Lowe twenty minutes after the robbery and at Treasure Island an hour after that. If the party has trusted him, he is on their side tonight; if not, he is still fair.",
+      "motivation": "The gun. A case a Nob Hill lawyer cannot break."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "Larrabee's robbery crew carry about $120 between them. Pellingham, if the party returns the crane to him, will honour the sale price he paid Gilchrist & Lowe as a reward to the agency ($1,000) whether or not he keeps the bird. Magda's $5,000 finder's fee still depends on the bonds.",
+    "items": [
+      "Clues F1–F5 (F7 if pressed), G4–G6 and P1–P3",
+      "The Black Crane, with its base cracked open and empty, if recovered from Treasure Island",
+      "The dove-grey evening gloves, from Annie Rourke",
+      "The scorched Examiner and the blackened kitchen knife from the Marsh ash bin, and the box of Remington .32 cartridges with four left",
+      "Mr. Okada's 1912 catalogue, Sammlung Ehrlich, with the crane on page 41",
+      "A Tommy gun with a 20-round magazine and .45 rounds (30), two .38 revolvers and .38 rounds (14), and a black Buick sedan with Larrabee Hauling's registration, from the robbery crew",
+      "Mr. Pellingham's invitation, in violet ink"
+    ]
+  },
+  "twists": [
+    "The robbery was arranged by the woman who was robbed. Corinne tipped Larrabee anonymously so that the bonds' disappearance would be blamed on him, so that the auction house's insurance would pay her the $10,000 reserve, and so that Pellingham, who has the gun, would be left with nothing to bargain for. It is the cleverest thing she does in the campaign and the thing that will finish her, because it makes an enemy of Pellingham.",
+    "The bird is empty. Everyone who wanted the bird for what was in it has been robbed by the one person who knew exactly what was in it. Pellingham, who only ever wanted the bird, is the only one who could still be satisfied, and he is the one holding the gun.",
+    "Lonnie's confession in the dark ('I only picked it up') is the key to the last scenario. Players who put it together with Rose Fong's young man on the Hall of Justice steps and Pruneau's 'came back without his hat' will understand where the murder weapon is before they reach the penthouse.",
+    "CLUE P1, for players who want one more: Rose Fong's uncle, the printer on Jackson Street, picked up a brown fedora in the mouth of Tallow Alley at a quarter past eleven on the night of the murder and has it on a hook behind his counter. The hatband says Roos Bros. and inside the band, in ink, L.P. It is Lonnie's.",
+    "The evening papers on Thursday carry the first reports of the pogrom in Germany and Austria. Magda learns of it in the back of a cab between the sale and the bridge. She does not stop; she asks the driver to go faster. Do not make a speech of it. Let the players see her read it, fold it, and put it in her pocket."
+  ],
+  "dmTips": [
+    "This scenario has the campaign's biggest set piece. Budget for it: Act 1 is an hour of legwork, Act 2 is the auction and the chase (an hour or more, and it should feel like a film), Act 3 is a fight in a dream city and a quiet, decisive morning.",
+    "Run the auction as theatre. Read out the lots before Seven with their prices. Let the party bid on a Meissen shepherdess if they want to. Give Pellingham's face something new to do every thousand dollars.",
+    "The Tommy gun is fired into the ceiling, not the crowd. Larrabee's men are thieves, not murderers. If the party opens fire in a room full of society bystanders, make them feel it: a bystander is hit on a 1 on a d20 for every shot fired, Heat +3, and the Friday papers say AGENCY GUNMEN IN SUTTER STREET SHOOTING.",
+    "The chase is three legs and three checks with a complication each; do not let it become a single roll. Let the players use the bridge: the lower deck's trains, the tunnel, the toll plaza being built, the Treasure Island ramp. A party without a car can commandeer a cab (Benny Dacanay, if he is with them, has been waiting for this all his life), or ride with Dolan in his cruiser with the siren going.",
+    "If the party does not recover the crane on Treasure Island, Larrabee keeps it and brings it to the penthouse on Friday night to trade, because Pellingham has promised him $6,000 for it. The story does not depend on who holds the bird.",
+    "By the end of this scenario, a careful table can name the killer, describe the method and list the evidence. They still need the gun and Lonnie, and both are in the penthouse. Tell them so through Dolan if they need telling: 'Gloves and a cable car. Her lawyer will eat that for breakfast. Get me the gun.'",
+    "Level-up note: the 7,500 XP in this file is per character and takes each character from 5th to 6th level (14,000 XP). Award it when the invitation arrives.",
+    "Period texture: lilies and furniture polish, numbered paddles, the Meissen, the Buick's whitewall tyres, a Key System train on the bridge's lower deck, the sodium lamps, the Exposition's statues in their crates, the Tower of the Sun in scaffolding, the newsboys on Market Street on Friday morning shouting about Germany, and about a robbery on Sutter Street."
+  ]
+}

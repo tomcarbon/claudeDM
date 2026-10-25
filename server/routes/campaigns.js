@@ -4,6 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
 const { findReadyAsset, resolveAssetFile, contentTypeFor } = require('../asset-manifest');
+const { categoryIdOf, currencyForCampaign } = require('../game-categories');
 
 function readCampaignEntries(campaignDir) {
   if (!fs.existsSync(campaignDir)) return [];
@@ -71,7 +72,26 @@ function summarizeListing(campaign) {
   };
 }
 
-function summarizeCampaign(campaign, requester) {
+// Schematic-map pins (WO-0040). Allowlisted field by field, like `listing`, because the client draws
+// them: only numbers for coordinates, only strings for labels.
+function summarizeMapLocations(campaign) {
+  if (!Array.isArray(campaign.mapLocations)) return null;
+  const pins = campaign.mapLocations
+    .filter(loc => loc && typeof loc === 'object' && typeof loc.name === 'string'
+      && Number.isFinite(loc.x) && Number.isFinite(loc.y))
+    .map(loc => ({
+      id: typeof loc.id === 'string' ? loc.id : loc.name,
+      name: loc.name,
+      subtitle: typeof loc.subtitle === 'string' ? loc.subtitle : '',
+      scenarioId: typeof loc.scenarioId === 'string' ? loc.scenarioId : null,
+      x: Math.max(0, Math.min(100, loc.x)),
+      y: Math.max(0, Math.min(100, loc.y)),
+      color: typeof loc.color === 'string' && /^#[0-9a-fA-F]{3,8}$/.test(loc.color) ? loc.color : null,
+    }));
+  return pins.length > 0 ? pins : null;
+}
+
+function summarizeCampaign(campaign, requester, dataDir) {
   const ownerEmail = getOwnerEmail(campaign);
   const ownerName = campaign.ownerName || campaign.playerName || null;
   const canWrite = canWriteCampaign(campaign, requester);
@@ -80,6 +100,11 @@ function summarizeCampaign(campaign, requester) {
     title: campaign.title,
     subtitle: campaign.subtitle,
     type: campaign.type,
+    category: categoryIdOf(campaign),
+    era: typeof campaign.era === 'string' ? campaign.era : null,
+    currency: currencyForCampaign(dataDir, campaign.id, campaign),
+    mapLocations: summarizeMapLocations(campaign),
+    linkedScenarios: Array.isArray(campaign.linkedScenarios) ? campaign.linkedScenarios.filter(id => typeof id === 'string') : [],
     levelRange: campaign.levelRange,
     estimatedSessions: campaign.estimatedSessions,
     synopsis: campaign.synopsis,
@@ -111,7 +136,7 @@ module.exports = function (dataDir) {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
       const campaigns = readCampaignEntries(campaignDir)
-        .map(entry => summarizeCampaign(entry.data, requester));
+        .map(entry => summarizeCampaign(entry.data, requester, dataDir));
       res.json(campaigns);
     } catch (err) {
       res.status(500).json({ error: err.message });

@@ -1,0 +1,118 @@
+{
+  "id": "e25447a1-31ef-408b-9e34-a2d3fecfe05a",
+  "name": "Ken Hirano",
+  "status": "alive",
+  "race": "Ex-Service",
+  "subrace": "",
+  "class": "Heavy",
+  "level": 2,
+  "background": "Prizefighter",
+  "alignment": "Lawful Neutral",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 25,
+    "current": 25
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "Acrobatics"
+  ],
+  "languages": [
+    "English",
+    "Japanese"
+  ],
+  "equipment": [
+    "Steel vest, under a double-breasted jacket that does not hide it; he does not care",
+    ".45 automatic, 7 rounds loaded, in a shoulder holster",
+    ".45 rounds (21)",
+    "Brass knuckles, in his right jacket pocket, which he has used twice since the war",
+    "Studio security badge: CASTELLANE PICTURES - SPECIAL DETAIL - HIRANO",
+    "Hand wraps and a mouthguard in a paper bag, from habit",
+    "His Combat Infantryman Badge and a Bronze Star, in a cigar box, not on him; on him, a photograph of his unit in the Vosges, October 1944",
+    "A letter from his cousin Amy Okada, three weeks old, unanswered",
+    "Wallet containing $30"
+  ],
+  "weapons": [
+    {
+      "name": "Brass knuckles",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": ".45 automatic",
+      "attackBonus": 4,
+      "damage": "1d10+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Steel vest",
+    "type": "medium"
+  },
+  "features": [
+    "Seen Worse (Ex-Service origin: +2 Constitution, +1 Strength. Advantage on saves against being frightened or Shaken; the first time each combat he is hit by a firearm, he keeps his reaction and any readied action)",
+    "Hard Knocks (his unarmed strikes deal 1d6+3 bludgeoning; once per turn, a hit with an unarmed strike or a bludgeoning Melee weapon such as his brass knuckles deals an extra 1d4, not counted in the weapon line; a creature he drops with one is knocked out unless he chooses otherwise, and he can deliver a knockout blow with his fists)",
+    "Thick Skull (advantage on CON saves against knockout blows and being stunned; once per long rest, when reduced to 0 hit points but not killed outright, he drops to 1 instead)",
+    "The Look (action: one creature within 30 ft that can see him makes a WIS save, DC 13, or is frightened of him until the end of his next turn; outside combat he can use it instead of an Intimidation check, and on a failed save the person answers one question truthfully or does one reasonable thing he says)",
+    "Fight Crowd (Prizefighter background: managers, trainers, promoters and gamblers know him; he can get a seat at any fight in town, find out who is fixing what, and name the bookmaker who takes the big bets)"
+  ],
+  "traits": [
+    "Hard Knocks",
+    "Thick Skull (1/long rest)",
+    "The Look (DC 13)"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say about ten words a day and four of them are jokes nobody catches. I'm very polite. I stand between my client and the door without thinking about it.",
+    "ideals": "You do the job in front of you, all the way, and you let the job speak for you. It's worked so far. Mostly.",
+    "bonds": "My uncle Shigeru and my cousin Amy, who planted forty acres of Valencias on Reseda Road in 1921 and lost them in 1942 for sixteen hundred dollars while we were all behind wire at Manzanar. I enlisted from the camp. They work the trees for wages now.",
+    "flaws": "I'll take a punch for anybody I'm paid to protect, and I've stopped asking whether they deserve it."
+  },
+  "appearance": "Twenty-seven, five foot eight, built like a fire hydrant, with a flattened nose, a scar through his left eyebrow, close-cropped black hair and a very gentle smile he uses rarely. Good suit, steel vest bulging under it, a fighter's light way of standing on the balls of his feet.",
+  "backstory": "Kenji 'Ken' Hirano grew up in Boyle Heights, the son of a produce wholesaler, boxed at the Olympic Auditorium as a teenager and was a ranked welterweight in 1941. In 1942 his whole family was sent to Manzanar. He enlisted from behind the wire in 1943 and fought in Italy and France with the 442nd Regimental Combat Team. He came home to a city that had sold his uncle's grove and his father's business, and took the job Harlan Shay offered him in 1946: studio security, 'special detail', which means standing next to stars. He likes Shay, who has always paid him on time and called him Mr. Hirano. He knows one thing he does not know he knows. On 29 August Shay asked him to meet 'a man from Chicago' at the Burbank air terminal and drive him to the Casa Ventura Motor Court on Ventura Boulevard in a studio car, and on the 30th to drive the same man up to the Mulholland lookout at sunset 'to see the view'. The man never took his hat off. That was the night Councilman Mabry's brakes failed on Mulholland."
+}

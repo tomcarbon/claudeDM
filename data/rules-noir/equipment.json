@@ -1,0 +1,668 @@
+{
+  "_meta": {
+    "category": "noir",
+    "source": "Written for claudeDM (Noir category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Noir weapons and armor, 1930s-1950s. 'weapons' is a flat array in the Sci-Fi shape; every weapon lists its 'eras' (1930s, 1940s, 1950s). Every firearm also carries 'ammo_name', the counted equipment line its ammunition is recorded under on a sheet (e.g. \".38 rounds (18)\"); melee weapons and explosives have none (an explosive is itself the counted item, e.g. \"Dynamite (3)\"). Costs are 1940s dollars. Only the Tommy gun and the grease gun fire burst or auto. Armor keeps the Sci-Fi 'armor' object shape; Noir has two light armors and one medium, and the heavy, powered and shields lists are deliberately empty. Most characters wear no armor: AC 10 + DEX. Gunplay and brawling rules are in combat.json; general gear and ammunition boxes are in gear.json.",
+    "weapon_count": 25,
+    "armor_count": 3
+  },
+  "weapons": [
+    {
+      "name": "Blackjack",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "concealable",
+        "nonlethal-option"
+      ],
+      "cost": 2,
+      "notes": "Leather-wrapped lead weight on a spring handle; fits a back pocket. Can deliver a knockout blow (combat.json brawling.knockout_blow)."
+    },
+    {
+      "name": "Brass knuckles",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "concealable"
+      ],
+      "cost": 1,
+      "notes": "Counts as an unarmed strike for features that improve unarmed strikes (Hard Knocks), and uses the better of its own damage die or your unarmed die, +1. Illegal to carry in most cities."
+    },
+    {
+      "name": "Switchblade",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d4",
+      "damageType": "piercing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": 3,
+      "notes": "Opens with a button and a click everyone in the room hears. Drawing and opening it is part of the same free object interaction."
+    },
+    {
+      "name": "Straight razor",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d4",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": 2,
+      "notes": "A barber's razor. On a critical hit the target is also Bleeding (combat.json conditions)."
+    },
+    {
+      "name": "Scalpel",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d4",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": 3,
+      "notes": "Surgical steel, scarily sharp and nearly weightless. A Doctor can use it with no penalty while also holding a doctor's bag in the other hand."
+    },
+    {
+      "name": "Ice pick",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d4",
+      "damageType": "piercing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": 0.25,
+      "notes": "From any icebox in town; a wound from one is small and easy to miss (Forensics DC 15 to find it on a body without the coroner)."
+    },
+    {
+      "name": "Nightstick",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "nonlethal-option"
+      ],
+      "cost": 3,
+      "notes": "A policeman's turned-hardwood club, 22 inches with a leather thong. Can deliver a knockout blow (combat.json brawling.knockout_blow)."
+    },
+    {
+      "name": "Tire iron",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": 2,
+      "notes": "Lives in every trunk and explains itself to any cop who opens one. Also a crowbar: advantage on STR checks to force a door, window or crate."
+    },
+    {
+      "name": "Baseball bat",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "two-handed"
+      ],
+      "cost": 2,
+      "notes": "Ash, regulation weight. Nobody asks why it's in the car."
+    },
+    {
+      "name": "Sword cane",
+      "group": "Melee",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse"
+      ],
+      "cost": 25,
+      "notes": "A gentleman's walking stick with a blade inside. Spotting that it is a weapon takes a Perception check against the carrier's Sleight of Hand; until then it is a cane."
+    },
+    {
+      "name": "Derringer",
+      "group": "Sidearms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "10/30",
+      "magazine": 2,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 15,
+      "notes": "Two-shot over-and-under that hides in a vest pocket, a garter or a sleeve: advantage on Sleight of Hand checks to conceal it. Reloading both barrels is an action.",
+      "ammo_name": ".41 rounds"
+    },
+    {
+      "name": ".22 target pistol",
+      "group": "Sidearms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d4",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 10,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "quiet"
+      ],
+      "cost": 25,
+      "notes": "Long-barreled target automatic. The crack of a .22 is easily mistaken for a car backfiring (see the quiet property). A favorite of people who want to be close and careful.",
+      "ammo_name": ".22 rounds"
+    },
+    {
+      "name": ".32 pocket pistol",
+      "group": "Sidearms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "20/60",
+      "magazine": 8,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 20,
+      "notes": "Flat little automatic that fits a handbag or a jacket pocket without a bulge.",
+      "ammo_name": ".32 rounds"
+    },
+    {
+      "name": "Snub-nose .38",
+      "group": "Sidearms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "20/60",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 28,
+      "notes": "Two-inch-barrel five-shot revolver; advantage on Sleight of Hand checks to conceal it. A revolver never jams: a natural 1 is just a miss.",
+      "ammo_name": ".38 rounds"
+    },
+    {
+      "name": ".38 revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 30,
+      "notes": "The six-shot police and detective revolver, four-inch barrel. Never jams: a natural 1 is just a miss.",
+      "ammo_name": ".38 rounds"
+    },
+    {
+      "name": ".45 automatic",
+      "group": "Sidearms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "30/120",
+      "magazine": 7,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 40,
+      "notes": "The heavy service automatic: seven in the magazine, more stopping power than anything else that fits under a coat. Jams on a natural 1 like any automatic.",
+      "ammo_name": ".45 rounds"
+    },
+    {
+      "name": ".44 revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "40/120",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud",
+        "heavy"
+      ],
+      "cost": 45,
+      "notes": "Long-barreled big-frame revolver; too much gun for a shoulder holster. Never jams. A creature with STR 8 or lower hit by it must succeed on a DC 10 STR save or fall prone.",
+      "ammo_name": ".44 rounds"
+    },
+    {
+      "name": "Pump shotgun",
+      "group": "Longarms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "two-handed",
+        "loud"
+      ],
+      "cost": 40,
+      "notes": "Tube-fed 12-gauge riot or bird gun, five shells. Reloading is an action that loads up to 5 shells.",
+      "ammo_name": "Shotgun shells"
+    },
+    {
+      "name": "Sawed-off shotgun",
+      "group": "Longarms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "15/45",
+      "magazine": 2,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "concealable",
+        "loud"
+      ],
+      "cost": 30,
+      "notes": "Double-barrel with both ends cut down; hides under an overcoat. Both barrels at once: one attack spending 2 shells, +1d8 damage on a hit. A felony to own in any city after 1934.",
+      "ammo_name": "Shotgun shells"
+    },
+    {
+      "name": "Lever-action rifle",
+      "group": "Longarms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "150/450",
+      "magazine": 7,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 35,
+      "notes": "Ranch and deer rifle with a tube magazine. Reloading is an action that loads up to 7 rounds.",
+      "ammo_name": "Rifle rounds"
+    },
+    {
+      "name": "Hunting rifle",
+      "group": "Longarms",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "2d10",
+      "damageType": "piercing",
+      "range": "300/1200",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 60,
+      "notes": "Bolt-action sporting rifle; with a telescopic sight (gear.json) it is the only gun in this book that can reach across a city block and pick a window.",
+      "ammo_name": "Rifle rounds"
+    },
+    {
+      "name": "Tommy gun",
+      "group": "Automatics",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "50/150",
+      "magazine": 20,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 200,
+      "notes": "The submachine gun that made the headlines. Ships with a 20-round stick magazine; fitted with a Tommy-gun drum (50) it holds 50 rounds, but changing to or reloading a drum is an action, not a bonus action. Hard to get: sold through hardware stores in the early 1930s, a federally registered weapon after 1934, and after that the price on the street is $200 or more and a question about who you are.",
+      "ammo_name": ".45 rounds"
+    },
+    {
+      "name": "Grease gun",
+      "group": "Automatics",
+      "eras": [
+        "1940s",
+        "1950s"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "50/150",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 150,
+      "notes": "Stamped-steel wartime submachine gun with a wire stock, 30-round box magazine. Its slow rate of fire lets a trained hand tap off single shots. Military property: anyone carrying one bought it from someone who stole it.",
+      "ammo_name": ".45 rounds"
+    },
+    {
+      "name": "Dynamite",
+      "group": "Explosives",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "3d6",
+      "damageType": "bludgeoning",
+      "range": "20/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "loud"
+      ],
+      "cost": 1,
+      "notes": "One stick. Lighting the fuse is a bonus action; it detonates at the start of your next turn, or when thrown if the fuse was cut short. 10-ft radius: each creature makes a DC 12 DEX save, taking 3d6 bludgeoning on a failure or half on a success. A bundle of four: 20-ft radius, 6d6. Sold to farmers, quarries and mines; asked about by everyone else."
+    },
+    {
+      "name": "Molotov cocktail",
+      "group": "Explosives",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "damage": "2d6",
+      "damageType": "fire",
+      "range": "20/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown"
+      ],
+      "cost": 0.25,
+      "notes": "A bottle of gasoline with a burning rag. Shatters at a point: creatures within a 5-ft radius make a DC 12 DEX save, taking 2d6 fire on a failure or half on a success. The area burns for 1 minute; a creature that failed the save or ends its turn in it burns for 1d4 fire at the start of each of its turns until it uses an action to put the flames out. Buildings in this city are old and dry."
+    }
+  ],
+  "weapon_groups": {
+    "Melee": "Fists, saps, knives, razors, clubs, bats and anything else you hit someone with. Everyone is proficient.",
+    "Sidearms": "Pistols and revolvers, from the derringer to the .44. Exempt from the point-blank penalty.",
+    "Longarms": "Shotguns and rifles, including the sawed-off.",
+    "Automatics": "Submachine guns: the Tommy gun and the grease gun. The only weapons that fire burst or full auto.",
+    "Explosives": "Dynamite and the Molotov cocktail. Throwing one needs no proficiency (it is a DEX save, not an attack roll); setting and wiring a charge needs Mechanics (combat.json explosives). No class starts proficient."
+  },
+  "weapon_properties": {
+    "concealable": "Small enough to hide under a jacket, in a handbag or in a coat pocket. Spotting it requires a pat-down or a Perception check against the carrier's Sleight of Hand.",
+    "finesse": "Use STR or DEX for attack and damage rolls (the same for both).",
+    "heavy": "Bulky or hard-kicking. A wielder with STR below 13 has disadvantage on attack rolls with it.",
+    "loud": "Unmuffled gunfire or a blast: heard outdoors for several blocks and throughout any building it is fired in. Advances the noise count and usually Heat (combat.json noise, investigation.json heat).",
+    "nonlethal-option": "Built to put people down without killing them. Any melee attack can knock a creature out at 0 HP (combat.json nonlethal); a weapon with this property can also deliver a knockout blow from surprise (combat.json brawling.knockout_blow).",
+    "quiet": "A small-caliber crack, not a bang. Heard within about 100 ft; beyond 30 ft a listener must succeed on a DC 12 Perception check to recognize it as a gunshot rather than a backfire or a slammed door. Doesn't advance the noise count outdoors or in a noisy place (a club, a street with traffic); indoors in a quiet building it counts as loud.",
+    "scatter": "Fires a spread of shot. +2 to hit targets within 30 ft. At long range you have disadvantage and lose the +2.",
+    "thrown": "Thrown at a point rather than at a creature, using the listed range; creatures in the area make a DEX save (combat.json explosives).",
+    "two-handed": "Requires two hands to fire or swing. Firing a two-handed firearm one-handed imposes disadvantage."
+  },
+  "armor": {
+    "light": [
+      {
+        "name": "Heavy overcoat",
+        "type": "Light",
+        "cost": 25,
+        "ac": "11 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "6 lb.",
+        "eras": [
+          "1930s",
+          "1940s",
+          "1950s"
+        ],
+        "notes": "Thick wool or a lined gabardine with the collar up. Turns a knife and slows a fist; it does nothing much against a bullet but take the edge off. Its pockets hold a concealable sidearm and a fifth at the same time, and it gives advantage on Sleight of Hand checks to conceal a weapon with the concealable property under it."
+      },
+      {
+        "name": "Leather jacket",
+        "type": "Light",
+        "cost": 15,
+        "ac": "11 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "4 lb.",
+        "eras": [
+          "1930s",
+          "1940s",
+          "1950s"
+        ],
+        "notes": "Horsehide flight jacket or a dockworker's coat. Doesn't get in the way of a fight: no penalty to Athletics or Acrobatics. In a hotel lobby or a society party it marks you as the help or as trouble."
+      }
+    ],
+    "medium": [
+      {
+        "name": "Steel vest",
+        "type": "Medium",
+        "cost": 75,
+        "ac": "13 + Dex modifier (max 2)",
+        "strength_requirement": null,
+        "stealth_disadvantage": true,
+        "weight": "18 lb.",
+        "eras": [
+          "1930s",
+          "1940s",
+          "1950s"
+        ],
+        "notes": "Steel plates sewn into a padded canvas vest, the kind gangsters and the cops who chase them both bought. Obvious under a coat: anyone who looks at you closely (passive Perception 10 or better) knows you are wearing one, and in polite company that is a Society problem. Disadvantage on Stealth checks."
+      }
+    ],
+    "heavy": [],
+    "powered": [],
+    "shields": [],
+    "donning_and_doffing": {
+      "light_armor": {
+        "don": "1 action (it's a coat)",
+        "doff": "1 action"
+      },
+      "medium_armor": {
+        "don": "5 minutes",
+        "doff": "1 minute"
+      }
+    }
+  },
+  "currency": {
+    "note": "Noir campaigns use dollars and cents. Money on a character sheet is a single equipment line written exactly as shown in 'sheet_format'. Prices throughout the Noir ruleset are 1940s dollars (a diner meal 50 cents, a hotel room $2-$5 a night, a .38 revolver $30, a detective's day rate $25 plus expenses); use them as they stand in 1930s and 1950s campaigns too.",
+    "dollars": {
+      "name": "dollars",
+      "symbol": "$",
+      "abbrev": "USD",
+      "sheet_format": "Wallet containing $25"
+    }
+  }
+}

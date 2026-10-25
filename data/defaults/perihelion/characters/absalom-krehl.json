@@ -1,0 +1,119 @@
+{
+  "id": "c4f6cfea-9427-4879-a1a7-97b317a5c853",
+  "name": "Absalom Krehl",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Medic",
+  "level": 4,
+  "background": "Medical Professional",
+  "alignment": "Neutral",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 31,
+    "current": 31
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Science",
+    "Insight",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Mercurian Creole"
+  ],
+  "equipment": [
+    "Ballistic weave waistcoat",
+    "Frangible 9mm pistol (ship-safe)",
+    "Frangible 9mm rounds (45)",
+    "Monofilament scalpel in a pen case",
+    "Medkit (field surgery grade)",
+    "Med-stims (3)",
+    "Trauma kit with pressure dressings and a portable cauteriser",
+    "A gel-cast face printer, for disguises and, at a pinch, signet lifts",
+    "A guest's cabin booking on the Aubade under the name Dr. Anselm Kray",
+    "Credit chit: 480 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Frangible 9mm pistol",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Monofilament scalpel",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave waistcoat under a good suit (Light)",
+    "type": "light"
+  },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Field Medicine (action: with a medkit, heal 1d6+3+4, or stabilise a creature at 0 HP as a bonus action; 4 uses per long rest)",
+    "Triage (bonus action: a Medicine check vs DC 10 reveals exact HP and conditions of one creature)",
+    "Steady Hands (the first time each short rest he heals someone, they also gain 2 temporary HP)",
+    "Bedside Authority (Medical Professional feature: in any emergency people do what he says, and hospital and ship's infirmary staff extend professional courtesy)"
+  ],
+  "traits": [
+    "Field Medicine",
+    "Triage",
+    "Steady Hands"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am urbane, unhurried and dreadfully funny at the worst possible times. I call everyone 'my dear' and I wash my hands before and after everything, including fights.",
+    "ideals": "The body is a contract between a person and the universe. I help people renegotiate it. I don't care who they are.",
+    "bonds": "I owe Oriel Mabb eleven thousand credits and a favour, and she has never once asked for either. That frightens me more than a debt collector would.",
+    "flaws": "I'm a coward who's very good under pressure, and I've never been able to work out which of those is the real me."
+  },
+  "appearance": "A tall, thin, elegant man of fifty-five with silver hair worn slightly too long, a beautifully cut charcoal suit and the long white hands of a surgeon. His face is handsome and faintly asymmetrical, because he did some of the work on it himself. He smells of antiseptic and expensive cologne.",
+  "backstory": "Dr. Absalom Krehl was the most fashionable cosmetic surgeon on Caloris High until the medical board learned that one in ten of his patients had used their new faces to walk out of somewhere they shouldn't have. He lost his licence. He kept his clinic, his tools and his client list, and he now does faces, fingerprints, retinas and gunshot wounds for anyone who can pay and some people who can't. He is boarding the Aubade as a guest under a name he gave himself, with a face he altered slightly for the occasion. His job is to keep the crew alive and to make a copy of a seventy-four-year-old woman's signet ring from whatever she touches at dinner."
+}

@@ -1,0 +1,833 @@
+{
+  "_meta": {
+    "category": "noir",
+    "source": "Written for claudeDM (Noir category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Eight Noir classes on the shared d20 chassis (levels 1-20, proficiency bonus and XP thresholds from data/rules/leveling.json). There is no magic: no class has any casting feature, and no class entry has a casting key. 'default_weapons' lists the weapons a generated character of the class carries; every name is in equipment.json weapons, and 'damage' is the weapon dice without the ability modifier. Weapon proficiencies name the equipment.json weapon groups; everyone is proficient with Melee. Features at levels 3-10 in 'progression' are summaries the GM can apply directly; Ability Score Improvements come at 4th and 8th (and later at 12th, 16th and 19th as on the chassis). Counted ammunition in starting equipment is written with the weapon's ammo_name, e.g. \".38 rounds (18)\"."
+  },
+  "classes": [
+    {
+      "name": "Private Eye",
+      "role": "Licensed investigator: the one who takes the case",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom or Intelligence",
+      "saving_throws": [
+        "Dexterity",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Lock picks",
+        "Camera with flashbulbs"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Investigation",
+          "Insight",
+          "Perception",
+          "Streetwise",
+          "Stealth",
+          "Deception",
+          "Forensics",
+          "Research",
+          "Driving"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            ".38 revolver and .38 rounds (18)"
+          ],
+          "choice_2": [
+            "Snub-nose .38 and .38 rounds (15)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Heavy overcoat"
+          ],
+          "choice_2": [
+            "Trench coat and Camera with flashbulbs"
+          ]
+        },
+        {
+          "default": [
+            "Blackjack",
+            "Lock picks",
+            "Private investigator's license",
+            "Notebook and pencil",
+            "Flashlight",
+            "Fedora",
+            "Business cards (100)",
+            "Nickel for the payphone (4)"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per private eye level after 1st",
+      "level_1_features": [
+        {
+          "name": "Hunch",
+          "description": "Once per short or long rest, you can ask the GM one yes-or-no question about a lead: a clue, a suspect, a statement or a place you have personally encountered in this case. The GM answers truthfully, \"yes\" or \"no\". If the question rests on a false premise or the answer wouldn't move the case either way, the GM says \"wrong question\" instead and the use isn't spent. You can't use Hunch in combat. A Hunch is the truth, not proof: it tells you where to look, not what a jury will believe."
+        },
+        {
+          "name": "Gumshoe",
+          "description": "Choose two of your skill proficiencies from Insight, Investigation, Forensics, Perception, Research and Streetwise. Your proficiency bonus is doubled for any ability check you make with either of them."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Size Them Up",
+          "description": "As a bonus action, study one creature you can see within 60 ft. Until the end of your turn, your next attack roll against it has advantage, and if that attack hits it deals an extra 1d6 damage. You can use this a number of times equal to your WIS or INT modifier (your choice when you take the class, minimum 1), regaining all uses on a short or long rest. The extra damage becomes 2d6 at 5th level and 3d6 at 10th."
+        }
+      ],
+      "progression": {
+        "3": "Specialty: choose Shamus (Hunch can be used twice per short rest, and once per long rest you can ask \"who?\" instead of a yes-or-no question about a single event, getting a name or \"nobody you've met\"), Shadow (advantage on Stealth checks to tail; a tail you run needs only 2 successes, see investigation.json tailing_and_stakeouts) or Tough Guy (you gain 1 extra hit point per private eye level, and you have resistance to bludgeoning damage from unarmed strikes and Melee weapons while you aren't wearing medium armor).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Size Them Up deals 2d6. Proficiency bonus becomes +3.",
+        "6": "Seen It All: you have advantage on saving throws against being frightened and against the Shaken condition, and on Insight checks to tell whether a scene was staged.",
+        "7": "Little Black Book: once per game session, you know someone useful in the current city (a former client, an informant, a cop who owes you), and the GM introduces them. They will give you one fact, one introduction or one hour of help.",
+        "8": "Ability Score Improvement.",
+        "9": "Gut Feeling: once per long rest, instead of a yes-or-no Hunch, you can ask one open question about a lead and get a true answer of one sentence. Proficiency bonus becomes +4.",
+        "10": "Size Them Up deals 3d6, and its uses become your WIS or INT modifier + 1. Nobody's Patsy: you can't be surprised while you are conscious, and when a creature lies to you, you always know that something it said was false (not which part) without a check."
+      },
+      "default_weapons": [
+        {
+          "name": ".38 revolver",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Blackjack",
+          "attackAbility": "STR",
+          "damage": "1d4",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "Cop",
+      "role": "Police officer, detective or patrolman; the law, for what it's worth",
+      "hit_die": "d10",
+      "primary_ability": "Strength or Dexterity",
+      "saving_throws": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor",
+        "Medium armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [
+        "Handcuffs",
+        "Vehicles (land)"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Athletics",
+          "Intimidation",
+          "Insight",
+          "Perception",
+          "Streetwise",
+          "Driving",
+          "Investigation"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            ".38 revolver and .38 rounds (24)"
+          ],
+          "choice_2": [
+            ".38 revolver, .38 rounds (12), Pump shotgun and Shotgun shells (10) (from the car)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Heavy overcoat"
+          ],
+          "choice_2": [
+            "Steel vest"
+          ]
+        },
+        {
+          "default": [
+            "Nightstick",
+            "Badge and warrant card",
+            "Handcuffs",
+            "Police whistle",
+            "Notebook and pencil",
+            "Flashlight",
+            "Nickel for the payphone (2)"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per cop level after 1st",
+      "level_1_features": [
+        {
+          "name": "The Badge",
+          "description": "While you carry your badge and the department hasn't pulled it, you have lawful authority. You can enter a crime scene, demand identification, commandeer a telephone or a car in an emergency, and detain a person for questioning; ordinary citizens comply unless they have a strong reason not to, and you have advantage on Intimidation and Persuasion checks against anyone who respects the law. The badge also has a chain of command. Your sergeant, lieutenant and captain can give you orders; using the Badge for something your superiors haven't sanctioned (leaning on a connected man, searching without cause, sitting on evidence) raises Heat by 1 (investigation.json heat), and the GM decides who downtown hears about it. People who won't talk to cops won't talk to you: you have disadvantage on Streetwise checks with them unless they don't know you are one."
+        },
+        {
+          "name": "Academy Training",
+          "description": "Choose one style. Marksman: +2 bonus to ranged attack rolls with Sidearms and Longarms. Stick Man: your Nightstick and Blackjack attacks deal +1 damage, and the DC of your knockout blows increases by 2. Riot Squad: while wearing medium armor you gain +1 AC, and you can shove a creature as a bonus action when you take the Attack action."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Collar",
+          "description": "When you hit a creature with a melee attack, you can use a bonus action to try to grapple it. You can handcuff a creature you are grappling as an action with no check (see gear.json Handcuffs). A creature you have cuffed has disadvantage on checks to escape your grapple."
+        }
+      ],
+      "progression": {
+        "3": "Assignment: choose Detective (you gain proficiency in Forensics or Investigation; once per long rest, when you examine a scene, the GM tells you which of the people you know had the best opportunity, though not necessarily the motive), Patrolman (advantage on Driving checks in a police vehicle; once per long rest, in a city, you can call \"officer needs assistance\" by radio, call box or whistle and 1d4 Beat Cops arrive at the start of the third round after) or Vice (you know the vice squad's informants: The Badge never imposes disadvantage on your Streetwise checks, and you know where the city's gambling, bootleg and numbers money changes hands).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Proficiency bonus becomes +3.",
+        "6": "Officer Down: once per short rest, when an ally you can see within 30 ft is reduced to 0 hit points, you can use your reaction to move up to your speed toward them without provoking opportunity attacks.",
+        "7": "Hard to Rattle: advantage on saves against being frightened. The Badge's advantage on Intimidation now applies to criminals too, as long as they know you are a cop.",
+        "8": "Ability Score Improvement.",
+        "9": "Twenty Years on the Force: once per long rest, reroll a saving throw you failed and use the new roll. Proficiency bonus becomes +4.",
+        "10": "Downtown Pull: once per case, call in a favor from the department: a search warrant, a records pull from another city, a car and two uniforms for a night, or a prisoner held overnight without charges. It always works, and your captain will want something back before the case is over."
+      },
+      "default_weapons": [
+        {
+          "name": ".38 revolver",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Nightstick",
+          "attackAbility": "STR",
+          "damage": "1d6",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "Heavy",
+      "role": "Muscle: enforcer, bodyguard or bruiser for hire",
+      "hit_die": "d12",
+      "primary_ability": "Strength",
+      "saving_throws": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor",
+        "Medium armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms",
+        "Automatics"
+      ],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Athletics",
+          "Intimidation",
+          "Perception",
+          "Streetwise",
+          "Driving",
+          "Acrobatics"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            ".45 automatic and .45 rounds (21)"
+          ],
+          "choice_2": [
+            "Sawed-off shotgun and Shotgun shells (10)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Leather jacket"
+          ],
+          "choice_2": [
+            "Steel vest"
+          ]
+        },
+        {
+          "default": [
+            "Brass knuckles",
+            "Baseball bat",
+            "Good suit, a size too small in the shoulders",
+            "Pack of cigarettes",
+            "Cigarette case with a dent in it"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "12 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d12 (or 7) + Constitution modifier per heavy level after 1st",
+      "level_1_features": [
+        {
+          "name": "Hard Knocks",
+          "description": "Your unarmed strikes deal 1d6 + your STR modifier bludgeoning damage. Once on each of your turns, when you hit a creature with an unarmed strike or a bludgeoning Melee weapon (brass knuckles, blackjack, nightstick, tire iron, baseball bat, a chair), you deal an extra 1d4 bludgeoning damage; this becomes 1d6 at 5th level and 1d8 at 9th. A creature you reduce to 0 hit points with one of these attacks is knocked out rather than killed unless you choose otherwise, and you can deliver a knockout blow (combat.json brawling.knockout_blow) with fists or any of these weapons, not just a blackjack or nightstick."
+        },
+        {
+          "name": "Thick Skull",
+          "description": "You have advantage on CON saving throws against knockout blows and against being stunned. In addition, when you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. Once you use this, you can't use it again until you finish a long rest."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "The Look",
+          "description": "As an action, choose one creature within 30 ft that can see you. It must succeed on a WIS save (DC 8 + your proficiency bonus + your STR modifier) or be frightened of you until the end of your next turn. Outside combat, you can use The Look instead of making an Intimidation check against one person; they make the save, and on a failure they answer one question truthfully or do one reasonable thing you tell them."
+        }
+      ],
+      "progression": {
+        "3": "Style: choose Enforcer (when you hit a creature with a melee attack, you can push it 10 ft or knock it prone if it fails a STR save, DC 8 + proficiency + STR), Gunman (you take no penalty to hit on burst fire, and you can reload any Automatic as a bonus action, including fitting a Tommy-gun drum) or Bruiser (your unarmed strikes deal 1d8, and when you take the Attack action you can make one unarmed strike or grapple as a bonus action).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Hard Knocks extra damage becomes 1d6. Proficiency bonus becomes +3.",
+        "6": "Shrug It Off: once per short rest, as a reaction when you take damage, reduce it by 1d10 + your CON modifier.",
+        "7": "Bodyguard: when a creature within 5 ft of you is hit by an attack, you can use your reaction to become the target of that attack instead (you are hit; roll damage against you).",
+        "8": "Ability Score Improvement.",
+        "9": "Hard Knocks extra damage becomes 1d8. Thick Skull's drop to 1 hit point recharges on a short or long rest. Proficiency bonus becomes +4.",
+        "10": "Unstoppable: your unarmed strikes deal at least 1d8, and The Look affects every creature of your choice within 30 ft that can see you."
+      },
+      "default_weapons": [
+        {
+          "name": "Brass knuckles",
+          "attackAbility": "STR",
+          "damage": "1d4",
+          "damageType": "bludgeoning"
+        },
+        {
+          "name": ".45 automatic",
+          "attackAbility": "DEX",
+          "damage": "1d10",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Grifter",
+      "role": "Con artist, cardsharp and smooth talker",
+      "hit_die": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": [
+        "Dexterity",
+        "Charisma"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Disguise kit",
+        "Forgery kit",
+        "Playing cards"
+      ],
+      "skill_choices": {
+        "choose": 4,
+        "from": [
+          "Deception",
+          "Persuasion",
+          "Sleight of Hand",
+          "Insight",
+          "Performance",
+          "Society",
+          "Stealth",
+          "Streetwise"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Derringer and .41 rounds (8)"
+          ],
+          "choice_2": [
+            ".32 pocket pistol and .32 rounds (16)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Good suit and Evening clothes"
+          ],
+          "choice_2": [
+            "Disguise kit and Forgery kit"
+          ]
+        },
+        {
+          "default": [
+            "Switchblade",
+            "Marked deck",
+            "Business cards (100) for three different names",
+            "Cigarette case (silver plate)",
+            "A fifth of rye"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per grifter level after 1st",
+      "level_1_features": [
+        {
+          "name": "The Long Con",
+          "description": "During downtime you can build a cover identity: a name, a history, papers, a wardrobe and one contact who will vouch for it on the telephone. It takes one day and $20 (plus any forged documents). You can keep a number of covers equal to your proficiency bonus. While you are in a prepared cover, you have advantage on Deception, Performance and Persuasion checks to keep it up, and casual checks against it (a glance at your papers, a call to your contact, a question about your hometown) succeed without a roll. A cover is blown when someone who knows the real you sees through it, or when you fail a check to keep it up by 5 or more. A blown cover can't be used again in that city."
+        },
+        {
+          "name": "Cheap Shot",
+          "description": "Once per turn, you deal an extra 1d6 damage to one creature you hit with a finesse Melee weapon or a Sidearm, if you have advantage on the attack roll, if another enemy of the target is within 5 ft of it and you don't have disadvantage, or if the target believed a lie you told it within the last minute. The extra damage increases by 1d6 at every odd level after 1st (2d6 at 3rd, 3d6 at 5th, 4d6 at 7th, 5d6 at 9th)."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Quick Hands",
+          "description": "On each of your turns, you can take a bonus action to Dash, Disengage or Hide, or to make one Sleight of Hand check (lift, plant or palm something)."
+        }
+      ],
+      "progression": {
+        "3": "Cheap Shot 2d6. Racket: choose Short Con (Fast Talk: as an action, a creature that can hear and understand you makes a WIS save, DC 8 + proficiency + CHA, or loses its next reaction and has disadvantage on its next attack roll), Roper (a person you have talked to for 10 minutes treats you as a friend until you give them a reason not to, and can be persuaded to do a favor that costs them nothing without a check) or Dip (you can use Sleight of Hand as a bonus action in combat to take an object a creature is holding, contested by its Perception, and you have advantage on Sleight of Hand to conceal a weapon or plant evidence).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Cheap Shot 3d6. Uncanny Dodge: as a reaction when an attacker you can see hits you, halve the attack's damage. Proficiency bonus becomes +3.",
+        "6": "Silver Tongue: choose two more of your skill proficiencies; your proficiency bonus is doubled for checks with them.",
+        "7": "Cheap Shot 4d6. Evasion: when a DEX save would halve damage (dynamite, a burst of full auto), you take none on a success and half on a failure.",
+        "8": "Ability Score Improvement.",
+        "9": "Cheap Shot 5d6. Never Was Here: when you leave a scene, witnesses remember you wrong; a description of you that anyone gives to the police or another investigator is useless unless they succeed on a DC 20 Insight or Investigation check. Proficiency bonus becomes +4.",
+        "10": "The Big Store: you can keep as many covers as your proficiency bonus + 2, and treat any d20 roll of 9 or lower as a 10 on Deception and Sleight of Hand checks."
+      },
+      "default_weapons": [
+        {
+          "name": "Switchblade",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Derringer",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Reporter",
+      "role": "Newspaperman or -woman: crime beat, city desk or society page",
+      "hit_die": "d8",
+      "primary_ability": "Intelligence or Charisma",
+      "saving_throws": [
+        "Intelligence",
+        "Charisma"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Camera with flashbulbs",
+        "Portable typewriter"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Research",
+          "Investigation",
+          "Persuasion",
+          "Insight",
+          "Deception",
+          "Perception",
+          "Society",
+          "Streetwise"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            ".32 pocket pistol and .32 rounds (16)"
+          ],
+          "choice_2": [
+            "Camera with flashbulbs and Flashbulbs (12)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Trench coat"
+          ],
+          "choice_2": [
+            "Leather jacket"
+          ]
+        },
+        {
+          "default": [
+            "Press card",
+            "Notebook and pencil",
+            "Portable typewriter",
+            "Fedora",
+            "Pack of cigarettes",
+            "Nickel for the payphone (6)"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per reporter level after 1st",
+      "level_1_features": [
+        {
+          "name": "Press Pass",
+          "description": "With your press card in your hatband, you get in. Crime scenes (as far as the tape, and past it with a DC 10 Persuasion check to the officer in charge), press boxes, press conferences, courtrooms, the corridors of City Hall, hospital lobbies and the coroner's office waiting room are open to you, and police tolerate your presence even when they don't like it. A source never gets burned: anyone who gives you information on the promise that you won't name them is never identified through you. No threat, bribe, beating or subpoena gets a source's name out of you, and the GM never has a source suffer because of a story you wrote. People know it, so you have advantage on Persuasion checks to get someone to talk off the record."
+        },
+        {
+          "name": "The Morgue",
+          "description": "You know the newspaper's clipping files and how to use them. Research checks you make take half the usual time, and once per long rest you can call the city desk or spend an hour in the morgue to learn one fact the paper has printed about a named person, business or address, with no roll."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Ink by the Barrel",
+          "description": "When you threaten to print what you know about someone who has a reputation to protect, you can use your INT modifier instead of CHA for the Intimidation check, and you have advantage on it. The threat is remembered: if the person is the wrong man (connected, powerful or both), Heat rises by 1 whether or not the check succeeds."
+        }
+      ],
+      "progression": {
+        "3": "Beat: choose Crime Desk (you gain proficiency in Forensics, and you know which cop in each precinct will talk to the papers), Society Page (your proficiency bonus is doubled for Society checks, and you can get yourself invited to any party, opening or charity function in the city) or Photographer (as an action, fire a flashbulb at a creature within 15 ft: CON save, DC 8 + proficiency + INT, or blinded until the end of its next turn; and your photographs are evidence that police, editors and juries accept).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Knows When to Duck: a number of times per long rest equal to your proficiency bonus, when you are hit by an attack, you can use your reaction to gain +3 AC against that attack, possibly turning it into a miss. Proficiency bonus becomes +3.",
+        "6": "Stop the Presses: once per short rest, reroll an INT or CHA check you failed and use the new roll.",
+        "7": "Sources: once per game session, a source with something to say about the case finds you (a phone call, a note under the door, a man at the end of the bar). They know one true thing. What they want for it is up to the GM.",
+        "8": "Ability Score Improvement.",
+        "9": "Byline: once per case, you can run a story. Choose a named person or organization: its Heat in the city rises by 2 (the police and the public are watching it), or your own Heat falls by 2 (the city is watching someone else). Press Pass now also gets you into police headquarters and the council chamber. Proficiency bonus becomes +4.",
+        "10": "Nothing Gets Past Me: your passive Insight and passive Investigation each gain +5."
+      },
+      "default_weapons": [
+        {
+          "name": ".32 pocket pistol",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Doctor",
+      "role": "Physician, surgeon or coroner's man; patches up what the city breaks",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence or Wisdom",
+      "saving_throws": [
+        "Intelligence",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Doctor's bag"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Medicine",
+          "Forensics",
+          "Insight",
+          "Research",
+          "Persuasion",
+          "Perception"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            ".32 pocket pistol and .32 rounds (16)"
+          ],
+          "choice_2": [
+            "Morphine syrette (2) (1940s and 1950s) or Smelling salts (1930s)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Good suit"
+          ],
+          "choice_2": [
+            "Heavy overcoat"
+          ]
+        },
+        {
+          "default": [
+            "Doctor's bag",
+            "Scalpel",
+            "First-aid kit",
+            "Bottle of aspirin",
+            "Medical license in a frame (left at the office)",
+            "Wristwatch with a second hand"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per doctor level after 1st",
+      "level_1_features": [
+        {
+          "name": "Patch Job",
+          "description": "As an action, using a doctor's bag, treat a creature you touch that has at least 1 hit point, or that is at 0 hit points and stable or dying. The creature immediately gets a short rest's worth of healing in one action: it can spend up to a number of its unspent Hit Dice equal to your proficiency bonus, rolling each and adding its CON modifier as on a short rest, and it regains extra hit points equal to your INT or WIS modifier (your choice when you take the class) once. A creature with no Hit Dice left regains only the extra hit points. Patch Job also stabilizes a dying creature and ends Bleeding. You can use it a number of times equal to your INT or WIS modifier + 1 (minimum 2), regaining all uses on a long rest. Each use spends one use of the doctor's bag."
+        },
+        {
+          "name": "Diagnosis",
+          "description": "As a bonus action, you can look at a creature you can see within 30 ft and learn its current and maximum hit points and every condition affecting it, including Bleeding, poisons, drugs and drink. Examining a body for 10 minutes, you learn the cause and approximate time of death without a check (core Forensics clues), and one extra detail if you succeed on a DC 12 Forensics check."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Steady Hands",
+          "description": "You have advantage on Medicine checks. When you stabilize a creature, it regains 1 hit point and can act on its next turn."
+        }
+      ],
+      "progression": {
+        "3": "Practice: choose Surgeon (creatures you Patch Job regain the maximum on each Hit Die they spend), Coroner (your proficiency bonus is doubled for Forensics checks, and when you examine a body you also learn one fact the killer would rather you didn't, such as a detail of their size, handedness or knowledge) or Society Doctor (the rich call you at midnight: once per case, a patient of yours owes you a favor, as one Fixer favor; see investigation.json bribes_and_favors).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Bedside Manner: Patch Job uses increase by 1, and you can move to a creature at 0 hit points without provoking opportunity attacks. Proficiency bonus becomes +3.",
+        "6": "Pharmacology: as an action, administer a sedative from your bag to a willing, grappled or incapacitated creature: it makes a CON save (DC 8 + proficiency + INT or WIS) or falls unconscious for 1d4 hours (a knockout that isn't a blow). You identify any drug or poison by its symptoms with no check.",
+        "7": "Calm Under Fire: you can't be frightened while you are tending a wounded creature, and you can use Patch Job as a bonus action once per turn on a creature at 0 hit points.",
+        "8": "Ability Score Improvement.",
+        "9": "Golden Hour: once per long rest, as an action, treat a dying creature: it becomes stable, its death save failures are cleared, and it regains hit points as from Patch Job. Death is still permanent; this works only while the creature is dying, not dead. Proficiency bonus becomes +4.",
+        "10": "Patch Job can be used as a bonus action, and its uses become your INT or WIS modifier + 3."
+      },
+      "default_weapons": [
+        {
+          "name": "Scalpel",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "slashing"
+        },
+        {
+          "name": ".32 pocket pistol",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Wheelman",
+      "role": "Driver: getaway man, rumrunner, chauffeur, cabbie",
+      "hit_die": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": [
+        "Dexterity",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms",
+        "Automatics"
+      ],
+      "tool_proficiencies": [
+        "Mechanic's tools",
+        "Vehicles (land)"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Driving",
+          "Mechanics",
+          "Acrobatics",
+          "Perception",
+          "Stealth",
+          "Streetwise",
+          "Sleight of Hand"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Snub-nose .38 and .38 rounds (15)"
+          ],
+          "choice_2": [
+            "Sawed-off shotgun and Shotgun shells (10) (under the seat)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Leather jacket"
+          ],
+          "choice_2": [
+            "Coupe or sedan of your own (see Behind the Wheel)"
+          ]
+        },
+        {
+          "default": [
+            "Tire iron",
+            "Mechanic's tools",
+            "City street guide",
+            "Driving gloves",
+            "Tank of gasoline",
+            "Road map with the county lines marked"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per wheelman level after 1st",
+      "level_1_features": [
+        {
+          "name": "Behind the Wheel",
+          "description": "You have advantage on Driving checks in chases and to avoid crashing. Your car is part of you: you own one coupe or sedan (gear.json; name it and write it on your sheet as \"Car: <make and name>\"). In your own car, add 5 x your wheelman level to its hit points, add your proficiency bonus to its AC while you are driving it, and once per long rest when it would drop to 0 hit points, it drops to 1 instead and keeps running. You can repair your own car during a short rest with no check, restoring hit points equal to half its maximum. In any other car, you still have advantage on Driving checks in chases."
+        },
+        {
+          "name": "Smooth Ride",
+          "description": "Passengers in a car you are driving don't have disadvantage on ranged attacks for firing from a moving vehicle, and they have advantage on saves to avoid being thrown about or injured in a crash or ram you are part of."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Lead Foot",
+          "description": "On each of your turns, you can take a bonus action to Dash, Disengage or Hide on foot, or, while driving, to make one extra maneuver: a sharp turn, a sudden stop, putting the car between your passengers and the shooting (they gain half cover, or three-quarters if they were already behind the engine block)."
+        }
+      ],
+      "progression": {
+        "3": "Style: choose Getaway Man (as the quarry in a chase you escape with a lead of 2 rounds instead of 3, and you always know two ways out of any neighborhood), Rumrunner (your car has a hidden compartment big enough for a person or a crate, found only with a DC 20 Investigation check, and you have advantage on Deception at roadblocks) or Stunt Driver (you take no damage when you ram, and once per chase you can automatically clear a complication with a stunt: two wheels, the wrong way down a one-way street, the jump off the loading dock).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Proficiency bonus becomes +3.",
+        "6": "Evasion: when a DEX save would halve damage (dynamite, full auto, a car), you take none on a success and half on a failure.",
+        "7": "Under the Hood: your car's damage threshold increases by 5, and any Mechanics check you make on a car takes a tenth of the usual time (hot-wiring is an action).",
+        "8": "Ability Score Improvement.",
+        "9": "Nobody Catches Me: once per long rest, you automatically win one round of a chase, by 5 or more. Proficiency bonus becomes +4.",
+        "10": "Uncanny Dodge: as a reaction when an attacker you can see hits you, halve the attack's damage. While driving, you can make one Sidearm attack as a bonus action without disadvantage."
+      },
+      "default_weapons": [
+        {
+          "name": "Snub-nose .38",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Tire iron",
+          "attackAbility": "STR",
+          "damage": "1d6",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "Fixer",
+      "role": "Go-between: the one who knows who to call",
+      "hit_die": "d6",
+      "primary_ability": "Charisma",
+      "saving_throws": [
+        "Wisdom",
+        "Charisma"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Forgery kit",
+        "Playing cards"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Persuasion",
+          "Society",
+          "Insight",
+          "Deception",
+          "Intimidation",
+          "Streetwise",
+          "Performance"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            ".32 pocket pistol and .32 rounds (16)"
+          ],
+          "choice_2": [
+            "Derringer and .41 rounds (8)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Good suit and Evening clothes"
+          ],
+          "choice_2": [
+            "Good suit and Card file of contacts"
+          ]
+        },
+        {
+          "default": [
+            "Straight razor",
+            "Business cards (100)",
+            "Notebook and pencil (with a list of names in it)",
+            "Cigarette case (gold)",
+            "Nickel for the payphone (10)"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per fixer level after 1st",
+      "level_1_features": [
+        {
+          "name": "Favors Owed",
+          "description": "People who matter owe you. You have a pool of favors equal to 1 + your CHA modifier (minimum 2), refilled at the start of each new case or after a week of downtime. Spend one favor (a phone call and an hour) to get one of: a name (who owns the building, who pays the cop, who holds the note); a minor charge dropped or a friend released from a precinct house; a car, a room or a doctor who doesn't ask; a meeting with someone who wouldn't take your call; a file pulled from a city office for an hour; a warning an hour before a raid. Spend two favors for something big: a judge's continuance, a story kept out of the paper, a contract on a man postponed for a week, a gun permit, a license restored. A favor can't make someone act against their own life or freedom. Every favor you spend is one you will owe: the GM notes whose it was, and when you spend your last favor, someone calls one in."
+        },
+        {
+          "name": "Know Everybody",
+          "description": "Choose two of your skill proficiencies from Persuasion, Society, Insight, Deception and Streetwise. Your proficiency bonus is doubled for any ability check you make with either of them."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Read the Room",
+          "description": "After at least 1 minute of conversation with a person, make an Insight check contested by their Deception. On a success you learn one of their goals, one of their fears, or whether one thing they said was a lie (your choice), and who in the room they are most afraid of."
+        }
+      ],
+      "progression": {
+        "3": "Circle: choose City Hall (once per case, a city-level favor such as a permit, an inspection, a zoning ruling or a council vote costs one favor less, to a minimum of one), Underworld (meeting with criminals never raises your Heat, and you can arrange a fence, an untraceable gun or a man who can open a safe for one favor) or Studio (you are the cleaner: once per case, spend two favors to make a scandal go away; Heat falls by 2, and the papers print something else).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Your favor pool increases by 1. Fast Talk: as an action, a creature that can hear and understand you makes a WIS save (DC 8 + proficiency + CHA) or hesitates, losing its next reaction and having disadvantage on its next attack roll. Proficiency bonus becomes +3.",
+        "6": "Insurance: once per case, name a person you know of. The GM tells you one secret of theirs you already hold (a debt, an affair, an old arrest, a payment). Using it counts as leverage (investigation.json interrogation).",
+        "7": "Calming Influence: allies within 30 ft who can hear you have advantage on saves against being frightened and Shaken, and you have advantage on checks to stop a fight before it starts.",
+        "8": "Ability Score Improvement.",
+        "9": "Your favor pool increases by 1 more, and favors refill after three days of downtime instead of a week. Proficiency bonus becomes +4.",
+        "10": "Not Me, Pal: when a creature that knows who you are targets you with an attack, you can use your reaction to force it to make a WIS save (DC 8 + proficiency + CHA). On a failure it must choose a different target or lose the attack, because hitting you would cost it more than it could pay."
+      },
+      "default_weapons": [
+        {
+          "name": ".32 pocket pistol",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Straight razor",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "slashing"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "7e1f3113-2f23-44b8-8926-2e251470e972",
+  "name": "Fanny Ruddock",
+  "status": "alive",
+  "race": "Survivor",
+  "subrace": "",
+  "class": "Skeptic",
+  "level": 2,
+  "background": "Drifter",
+  "alignment": "Chaotic Neutral",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 12,
+    "current": 12
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Survival",
+    "Stealth",
+    "Investigation",
+    "Perception",
+    "Insight"
+  ],
+  "languages": [
+    "English",
+    "Yiddish (from the Bowery tenement where she grew up)"
+  ],
+  "equipment": [
+    "A black stuff parlourmaid's dress, white apron and starched cap, and a grey shawl",
+    "Kitchen knife from Mrs. Jansen's drawer, which she has started keeping in her apron pocket",
+    "Fire iron: the poker from the drawing-room grate, which she polishes every morning and now carries at night",
+    "A ring of household keys: the linen press, the china closet and the silver pantry",
+    "A candle, a box of matches and a tin of blacking",
+    "A pawn ticket from a shop in Poughkeepsie for a silver cream jug",
+    "A letter from her sister Rose in Hoboken thanking her for the money",
+    "Wallet containing $6"
+  ],
+  "weapons": [
+    {
+      "name": "Kitchen knife",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Fire iron",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "There's an Explanation (Skeptic: once per short rest, when you fail a fear check, name a rational cause aloud, in character, and the failure becomes a success with no Dread; the explanation need not be true. Advantage on Investigation to find the mechanism behind anything that is not supernatural, and after 10 minutes searching a room the GM says whether any part of what is happening in it is a person's doing)",
+    "Careful Notes (Skeptic: once per short rest, after 10 minutes examining a scene, ask what here has been moved, who was here most recently, or what here does not fit, and get a true answer; it never names a creature's rule outright)",
+    "Calm Explanation (Skeptic, 2nd level: once per long rest, as an action, explain a frightening phenomenon to allies who can hear you; until the end of the scene they have advantage on fear checks against that one horror)",
+    "Been Here Before (Survivor origin: advantage on initiative; when a fight or fright begins you know the nearest way out; once per long rest reroll a failed saving throw, including a fear check; the first time each scenario you meet a horror like the one you survived, the GM tells you one way it is the same)",
+    "Nobody's Business (Drifter background: she knows how to travel on nothing, where the freights stop, which towns feed strangers and which run them out; other drifters share news with her; when a stranger goes missing nobody asks after her, which is how she likes it)"
+  ],
+  "traits": [
+    "There's an Explanation",
+    "Careful Notes",
+    "Calm Explanation",
+    "Nobody's Business"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I notice everything and say half of it. I talk fast and cheeky to people below stairs and not at all to people above. I am not frightened of ghosts. I am frightened of being sacked.",
+    "ideals": "Look after your own, because nobody else will. A thing that goes bump has a reason, usually a person.",
+    "bonds": "My sister Rose and her two in Hoboken. Mr. Jasper, who was kind to me. Mrs. Jansen, who feeds me.",
+    "flaws": "I steal small things and let the ghost take the blame. Mrs. Greywick caught me in August and has held it over me since. I would rather be thought a thief than a coward, and I am a little of both."
+  },
+  "appearance": "A small, quick, sharp-faced young woman of twenty-three with dark eyes, a pointed chin, freckles, red chapped hands and a starched cap that never sits straight. Moves silently, from long practice.",
+  "backstory": "Fanny Ruddock grew up on the Bowery, went into service at fourteen, and has worked in three country houses on the river, leaving each without a character for reasons she does not discuss. She came to Greywick in 1891 as parlourmaid. She does not believe in the Juffrouw; she has used her. For two years small things have gone missing from the house, a silver spoon, a cream jug, a garnet brooch, and the servants blame the north wing. Fanny pawns them in Poughkeepsie and sends the money to her sister. In August Leonora caught her with the brooch and said nothing to anyone, except to Fanny, which was worse. On Sunday 24 September at about eleven at night Fanny was on the back stair with a hot-water bottle and saw Mrs. Greywick come out of Mr. Jasper's room with a candle and turn the key in his door from outside and put it in her pocket, and smile at her, and say, 'He walks in his sleep, Fanny. We must keep him safe.' Fanny has said nothing since. On Sunday morning, 15 October, she found Mr. Linus's wet umbrella and valise in the hall closet.",
+  "dmNotes": {
+    "roleplaying": "Fanny gives CLUE C1 (the umbrella and valise) in gw-scenario-001 to whoever is decent to the servants, and CLUE G4 (she saw Leonora lock Jasper's door) in gw-scenario-002 once someone has earned her trust and promised her protection from what Leonora knows. She is the party's eyes below stairs and on the back stairs, and the best sneak in the house. As a Skeptic she will explain everything away right up to the Kept Rooms, and There's an Explanation keeps her going when braver people break.",
+    "voice": "Quick, cheeky Bowery English, dropped aitches she corrects in front of the family; 'Begging your pardon', 'I oughtn't', 'Gawd'. Goes very quiet and precise when she is frightened.",
+    "motivations": "Primary: keep her place and her liberty. Secondary: send money to Rose. Tertiary, and growing: tell someone the truth about the twenty-fourth.",
+    "secrets": "The pawn ticket and the brooch, which Leonora holds over her. She also knows that Jem the footman took Conrad's key back to him on Monday, and that Leonora told Jem to collect the iron wedges on Friday.",
+    "attitude": "Toward the party: suspicious of the gentry among them, warm to anyone who dries a plate in the scullery. Toward Leonora: terror. Toward Mrs. Quell: respect and resentment. Toward the Juffrouw: scorn, until she sees her, and then pity."
+  }
+}

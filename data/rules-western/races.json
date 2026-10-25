@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Western Origins (the UI labels races.json entries as 'Origin'). Everyone is human; an origin is where you came up, not what you are. All five are available in every era (1860s, 1870s, 1880s). A campaign's characterOptions.races decides which are offered. Each origin's ability_score_increase is fixed (no choice). No origin trait changes attack rolls, damage or Armor Class."
+  },
+  "races": [
+    {
+      "name": "Frontier-Born",
+      "ability_score_increase": {
+        "constitution": 2,
+        "wisdom": 1
+      },
+      "age": "Adult at sixteen, or whenever the work needed you to be. People out here live into their sixties if the winters, the fevers and the horses spare them.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice (often Spanish, German or the language of a neighbor)"
+      ],
+      "traits": [
+        {
+          "name": "Hard Country",
+          "description": "You were raised where the nearest doctor was a day's ride and the nearest neighbor not much closer. You have advantage on saving throws against exhaustion from heat, cold, thirst and hard travel (frontier.json weather_and_water), and you need only half the usual water to avoid thirst for one day in three. Once per long rest, when you would gain a level of exhaustion on the trail, you can shrug it off instead. You also know how to stretch supplies: rations you pack last one day longer than anyone else's."
+        }
+      ],
+      "subraces": [],
+      "description": "Ranch, homestead, trading post or army post: you grew up past the end of the railroad, where the weather is the main enemy and the second is anyone who wants your water. You learned to ride before you could read, and you can tell the difference between a dry wash and a wash that is about to be full.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Back East",
+      "ability_score_increase": {
+        "intelligence": 2,
+        "charisma": 1
+      },
+      "age": "As Frontier-Born. Back East people often come west in their twenties with a letter of introduction and the wrong boots.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "French, German or Latin (the school insisted)"
+      ],
+      "traits": [
+        {
+          "name": "Book Learning",
+          "description": "You can read and write well, cipher, and have an education most people out here never had the chance at: law, letters, a little science, the way banks and railroads and land offices really work. You have advantage on Investigation checks to read documents (deeds, contracts, ledgers, telegrams, a forged bill of sale), and once per long rest you can recall one useful fact about a law, a process, a science or a piece of history without a check. Lawyers, bankers, editors and officers treat you as one of their own. Working people often take you for a greenhorn until you prove otherwise: you have disadvantage on your first Riding or Survival check in front of strangers each day."
+        }
+      ],
+      "subraces": [],
+      "description": "Philadelphia, Boston, Baltimore, a college in Ohio, a counting-house in New York. You came west for money, for health, for a story, to escape something or to build something. You know how the people who own the railroads think, because you used to sit at their tables.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Ex-Soldier",
+      "ability_score_increase": {
+        "strength": 2,
+        "constitution": 1
+      },
+      "age": "As Frontier-Born. In the 1860s you served in the war, on either side; in the 1870s and 1880s, in the war or in the frontier army, cavalry or infantry, perhaps with one of the Black regiments.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice (often picked up in the service)"
+      ],
+      "traits": [
+        {
+          "name": "Under Fire",
+          "description": "You have been shot at by men who meant it, and you learned to keep working. You have advantage on saving throws against being frightened and against the Shaken condition. The first time in each combat that you are hit by a firearm, you keep your readied action and your reaction. And you know soldiering: you can read rank, unit and bearing at a glance, and on any army post you can find a meal and a man who will talk."
+        }
+      ],
+      "subraces": [],
+      "description": "You served, and you came out the far side of it. Nobody's cause is glorified here: what you carry is the drill, the long marches, the men who did not come back and a habit of checking where the cover is when you walk into a room.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Immigrant",
+      "ability_score_increase": {
+        "wisdom": 2,
+        "intelligence": 1
+      },
+      "age": "As Frontier-Born. You came to this country as a child or as an adult; from Ireland, Germany, Norway, Cornwall, Bohemia, China or anywhere else. How long ago is yours to decide.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "your first language (any)",
+        "one extra language of your choice"
+      ],
+      "traits": [
+        {
+          "name": "Two Tongues",
+          "description": "You speak, read and write your first language and English fluently, and one more language well. People who think you understand less than you do say more than they should: you have advantage on Insight and Perception checks to follow a conversation held in a language the speakers assume you don't know. In any camp, crew, neighborhood or church of people who share one of your languages, you can find a meal, a bed, work and the local news without a check, and you are trusted one step sooner than an outsider."
+        }
+      ],
+      "subraces": [],
+      "description": "You came by ship and train, with a trade, a little money sewn into a coat and an address. You have laid track, worked a claim, run a laundry, kept a store or farmed a quarter section, and you have watched the people born here take for granted things you had to fight for. You notice what they have stopped seeing.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Borderlands",
+      "ability_score_increase": {
+        "dexterity": 2,
+        "charisma": 1
+      },
+      "age": "As Frontier-Born. Your family may have been in the borderlands since long before the border moved.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "Spanish",
+        "one extra language of your choice"
+      ],
+      "traits": [
+        {
+          "name": "Both Sides of the River",
+          "description": "You grew up where the line on the map is a river people cross to visit their cousins. You speak English and Spanish natively, you know the fords, the trails and the towns on both sides of the border, and in any borderland town you can find someone who knows your family, or knows of it. You have advantage on Persuasion and Insight checks with people of either side who live along the border, and you can always find a guide, a ford or a place to sleep there without a check. People who see only one side of the river sometimes treat you as belonging to neither; the GM decides who."
+        }
+      ],
+      "subraces": [],
+      "description": "Texas, New Mexico, Arizona, the river towns. Tejano, Mexican, Anglo or all of it at once: your family has worked cattle, run freight, kept stores and fought for their land under more than one flag. You learned to ride from vaqueros who invented half of what cowboys do, and you have no patience for people who think the West started in 1849.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    }
+  ]
+}

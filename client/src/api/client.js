@@ -53,6 +53,11 @@ async function fetchJson(url, options = {}) {
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: res.statusText }));
     const error = new Error(err.error || res.statusText);
+    // WO-0036 J6: the HTTP status, so a caller can tell "this feature is not mounted" (404)
+    // from "this request was wrong" (400) from "the server broke" (500). Without it the only
+    // signal was `err.message`, which for an unmounted router is the string "Not Found" — and
+    // a panel that cannot tell those apart is how the chair got a dead Add button twice.
+    error.status = res.status;
     if (err.errors) error.errors = err.errors;
     throw error;
   }
@@ -71,6 +76,11 @@ async function fetchJsonNoSession(url, options = {}) {
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: res.statusText }));
     const error = new Error(err.error || res.statusText);
+    // WO-0036 J6: the HTTP status, so a caller can tell "this feature is not mounted" (404)
+    // from "this request was wrong" (400) from "the server broke" (500). Without it the only
+    // signal was `err.message`, which for an unmounted router is the string "Not Found" — and
+    // a panel that cannot tell those apart is how the chair got a dead Add button twice.
+    error.status = res.status;
     if (err.errors) error.errors = err.errors;
     throw error;
   }
@@ -101,8 +111,9 @@ export const api = {
   getNpc: (id) => fetchJson(`/npcs/${id}`),
 
   // Rules
-  getRuleCategories: () => fetchJson('/rules'),
-  getRule: (category) => fetchJson(`/rules/${category}`),
+  // `set` is a ruleset (game category) id; omitted means Fantasy (WO-0040).
+  getRuleCategories: (set) => fetchJson(set ? `/rules?set=${encodeURIComponent(set)}` : '/rules'),
+  getRule: (category, set) => fetchJson(`/rules/${encodeURIComponent(category)}${set ? `?set=${encodeURIComponent(set)}` : ''}`),
 
   // Scenarios
   getScenarios: () => fetchJson('/scenarios'),
@@ -151,6 +162,14 @@ export const api = {
   unjoinSession: (id, npcId) => fetchJson(`/sessions/${id}/unjoin`, { method: 'POST', body: JSON.stringify({ npcId }) }),
   addPlayerToSession: (id, data) => fetchJson(`/sessions/${id}/players`, { method: 'POST', body: JSON.stringify(data) }),
   getSessionParty: (id) => fetchJson(`/sessions/${id}/party`),
+  // WO-0016. `confirm: true` is not a formality the client should add for convenience: the server
+  // refuses without it, because this is the one call a player can make from inside a session that
+  // throws away hours of their own play. Send it only from the confirmation dialogue, never from a
+  // retry, a keyboard shortcut or an effect.
+  restoreCharacter: (id, characterId) => fetchJson(`/sessions/${id}/restore-character`, {
+    method: 'POST',
+    body: JSON.stringify({ characterId, confirm: true }),
+  }),
 
   // Bot farm (admin only)
   getBotStatus: () => fetchJson('/bots/status'),

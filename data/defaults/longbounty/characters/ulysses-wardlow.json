@@ -1,0 +1,131 @@
+{
+  "id": "a363cf58-5e05-4b35-8d54-dd51aa8e4d96",
+  "name": "Ulysses Wardlow",
+  "status": "alive",
+  "race": "Ex-Soldier",
+  "subrace": "",
+  "class": "Lawman",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Wisdom"
+  ],
+  "skills": [
+    "Insight",
+    "Intimidation",
+    "Athletics",
+    "Survival"
+  ],
+  "languages": [
+    "English",
+    "Spanish (learned on the Rio Grande in '65, spoken slowly and correctly)"
+  ],
+  "equipment": [
+    "Iron vest, a boiler-plate breastplate made by a Galveston smith, worn under his coat when he expects trouble and hated every minute",
+    "Army revolver (Colt Single Action), 6 rounds loaded, in a flap holster from his army days",
+    ".45 cartridges (18)",
+    "Double-barrel shotgun, 10-gauge, in a saddle boot",
+    "Shotgun shells (12)",
+    "Cavalry saber, a trooper's light saber with a worn grip, which he carries because it was given him",
+    "Deputy United States Marshal's badge, Western District of Texas, and his commission, in an oilskin wallet",
+    "Two federal warrants for other men, unserved, for whiskey-selling and mail robbery, which pay $2 each",
+    "Handcuffs, two pairs",
+    "Saddle and tack, bedroll, slicker, canteen (2), coffee pot, a tin of Arbuckle's",
+    "Riding horse: a deep-chested grey gelding called Judge",
+    "A copy of the United States Revised Statutes of 1874, title 24, Civil Rights, with pages marked",
+    "Wallet containing $27"
+  ],
+  "weapons": [
+    {
+      "name": "Army revolver",
+      "attackBonus": 3,
+      "damage": "1d10+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 3,
+      "damage": "2d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Cavalry saber",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Iron vest",
+    "type": "medium"
+  },
+  "features": [
+    "Under Fire (Ex-Soldier origin: advantage on saving throws against being frightened and against the Shaken condition; the first time in each combat he is hit by a firearm, he keeps his readied action and his reaction; he reads rank, unit and bearing at a glance)",
+    "The Star (Lawman: he is a Deputy United States Marshal for the Western District of Texas. He can arrest on a federal warrant or for a federal crime he witnesses, hold a prisoner for the federal court, and raise a posse of willing citizens equal to his proficiency bonus for one pursuit or one day; law-abiding people comply, and he has advantage on Intimidation and Persuasion checks against anyone who respects the law. The star has a marshal and a federal judge behind it, and both can call him to account; in a Texas county seat in 1874 there are men who hate it on sight)",
+    "Keep the Peace: Peace Officer (Lawman: as a bonus action he orders a creature that can hear him to drop its weapon; it makes a WIS save, DC 12, and on a failure drops one held weapon at its feet; a creature that has already attacked anyone in this fight has advantage on the save)",
+    "Take Him Alive (Lawman, 2nd level: when he hits with a melee attack he can use a bonus action to grapple; he can manacle a grappled creature as an action without a check; when he reduces a creature to 0 hit points with any attack, he can leave it alive, stable and unconscious: he shot to wound)",
+    "Office: Deputy U.S. Marshal (Lawman, 3rd level: his jurisdiction is the whole district and every federal crime in it, including the mails, the railroads and conspiracies against the rights of citizens under the Enforcement Acts; once per case he can telegraph for a federal warrant and have it within a day)",
+    "Old Regiment (Veteran background: on any army post he can get a meal, news of the territory and a quiet word with the sergeants, and in any town he can find someone who served and get a straight answer about a man who wore a uniform; he served in the 1st U.S. Colored Cavalry)"
+  ],
+  "traits": [
+    "Under Fire",
+    "The Star (Deputy U.S. Marshal)",
+    "Peace Officer",
+    "Take Him Alive",
+    "Office: Deputy U.S. Marshal"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I speak slowly and correctly, because I learned to read at thirty by a campfire and I do not waste what I paid for. I say 'sir' to everybody and mean it differently every time. I do not raise my voice. I have never once had to.",
+    "ideals": "The law is a promise. Most of the time it is broken. I am a man who keeps his end of it, so that somebody does.",
+    "bonds": "My wife Celia and our five children in a rented house on East Avenue in Austin, which we would like very much to own. And the men of Company C, 1st U.S. Colored Cavalry, alive and dead.",
+    "flaws": "Deputy marshals are paid by the warrant and the mile, and not well. I have taken rewards before; it is legal. I have never taken one on a man I believed was innocent, and I have never asked too hard whether I believed it."
+  },
+  "appearance": "A tall, broad, deliberate Black man of forty-four with close-cropped grey hair, a grey beard trimmed square, a deep voice, and the upright carriage of a sergeant who has never stopped being one. A black frock coat over a grey vest, the iron vest under it when he expects trouble, a flat-brimmed black hat, the badge always on the coat and never in a pocket.",
+  "backstory": "Ulysses Wardlow was born enslaved in Kentucky in 1830, ran to the Union lines in 1864 and enlisted in the 1st U.S. Colored Cavalry, which ended the war on the Rio Grande at Brownsville in 1865 and 1866. He stayed in Texas, worked as a teamster, a freight boss and a court bailiff in Austin, learned to read at night, and in 1872 was appointed a Deputy United States Marshal for the Western District, one of a handful of Black federal officers in the state. He serves warrants for whiskey-selling, mail robbery, counterfeiting and, when anyone dares to bring the case, conspiracy against the rights of citizens, and he is paid two dollars a warrant and ten cents a mile, and his family eats. A federal deputy may legally collect a state reward. That is what he tells the marshal when he asks for leave to ride to Lockett County. What he does not tell the marshal is that Judge Nathaniel Brisco had written to the U.S. Attorney about 'a matter under the Enforcement Acts' a month before he was shot, and the U.S. Attorney never answered, and Ulysses read the letter in the office files, and would like to know why a judge who was building a federal case is dead and his bailiff is on a poster."
+}

@@ -1,0 +1,133 @@
+{
+  "id": "15865bab-27e1-4160-a8a2-83e25681878b",
+  "name": "Benny Dacanay",
+  "status": "alive",
+  "race": "City-Born",
+  "subrace": "",
+  "class": "Wheelman",
+  "level": 4,
+  "background": "Cab Driver",
+  "alignment": "Chaotic Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 18,
+      "modifier": 4
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 31,
+    "current": 31
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Driving",
+    "Streetwise",
+    "Mechanics",
+    "Perception",
+    "Acrobatics"
+  ],
+  "languages": [
+    "English",
+    "Ilocano"
+  ],
+  "equipment": [
+    "Leather jacket, a brown horsehide one with a cab company patch picked off the shoulder",
+    "Snub-nose .38 (Colt Detective Special), 5 rounds loaded, under the driver's seat or in his jacket",
+    ".38 rounds (15)",
+    "Tire iron, under the front seat",
+    "Car: 1936 DeSoto Airflow taxicab, cream and maroon, independent medallion, called \"Mabuhay\"",
+    "Hack license with his picture on it",
+    "City street guide, thumbed soft, which he does not need",
+    "Change maker on his belt",
+    "Cap and jacket",
+    "Mechanic's tools in the trunk, a spare tire and two cans of gasoline",
+    "A photograph of his mother in Laoag, and one of himself in boxing trunks at the Dreamland Auditorium, 1931",
+    "Wallet containing $15"
+  ],
+  "weapons": [
+    {
+      "name": "Snub-nose .38",
+      "attackBonus": 6,
+      "damage": "1d6+4",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Tire iron",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Knows the Block (City-Born origin, San Francisco: advantage on Streetwise checks to find a person, place or service in the city; in a foot chase he can have the GM complicate the pursuer's route once)",
+    "Behind the Wheel (advantage on Driving checks in chases and to avoid crashing; in his own car, Mabuhay, +20 hit points to the car, his proficiency bonus to its AC, and once per long rest it drops to 1 hit point instead of 0)",
+    "Smooth Ride (his passengers have no disadvantage firing from the moving car, and advantage on saves in a crash or ram)",
+    "Lead Foot (bonus action: Dash, Disengage or Hide on foot, or an extra maneuver while driving)",
+    "Style: Stunt Driver (no damage to himself when he rams; once per chase, automatically clear a complication with a stunt)",
+    "Ability Score Improvement (4th level: +1 Dexterity, +1 Wisdom)",
+    "Nobody Looks at the Cabbie (Cab Driver background: people talk in front of him as if he were the upholstery, and every cab rank in the city tells him who took whom where)"
+  ],
+  "traits": [
+    "Knows the Block",
+    "Behind the Wheel",
+    "Smooth Ride",
+    "Lead Foot",
+    "Stunt Driver"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I drive like the hills are flat and talk like the meter is not running. I sing along to the radio in three languages. I can tell you who you are from where you ask to be dropped off.",
+    "ideals": "Everybody gets where they are going in my cab, fast and safe, and nobody gets a word out of me about who they were. Except Ned. Ned got everything.",
+    "bonds": "My mother in Laoag, who gets twenty dollars every month by money order; the boys at the Manila Pool Hall on Kearny who came over with me in 1928; and Mabuhay, my cab, who is the only thing in this country that is entirely mine.",
+    "flaws": "I cannot let anyone pass me on a hill. I cannot let an insult go. I lost my last fight because of that and I have been losing arguments with traffic cops ever since."
+  },
+  "appearance": "Thirty, compact and quick, with slicked black hair, a lopsided grin, a scar through his left eyebrow from the ring, a horsehide jacket and driving gloves with the fingertips cut off.",
+  "backstory": "Benigno Dacanay came from Laoag in the Ilocos to California in 1928 at the age of twenty, cut asparagus in the Delta for two summers, fought as a lightweight at the Dreamland and the Coliseum for three years under the name Kid Laoag, and quit after a fight he should have won and a manager who kept his purse. He has driven a cab in San Francisco since 1933, first for the Yellow company and since 1936 on his own medallion, bought with every cent he had, out of a garage on Kearny Street in the blocks people call Manilatown. Ned Corrigan used him on every tail and every fast getaway for four years and paid double for the waiting time. Benny drove Ned to the Mark Hopkins at four o'clock on Thursday, and back. Ned was in a good mood. He said he was going to do somebody a decent turn.",
+  "dmNotes": {
+    "roleplaying": "Benny is the party's wheels and their ears at every cab rank in the city. He comes into play in bc-scenario-001 (he drove Ned on Thursday afternoon and can tell the party about the Mark Hopkins visit) and is the star of the chase across the Bay Bridge in bc-scenario-003. He is brave, funny, proud and quick-tempered, and should never be played as a servant: he is a small businessman with his own cab and his own opinions, who works with the agency because Ned treated him as a partner. In a fight he stays with the car if he can, because the car is his.",
+    "voice": "Quick, slangy San Francisco English with an Ilocano lilt, a boxer's vocabulary (\"he telegraphed it\", \"that guy's got a glass jaw\"), and a running commentary on other drivers. Calls the cab \"she\". Calls Dolan \"Lieutenant Sunshine\" behind his back.",
+    "motivations": "Primary: see the person who killed Ned caught; Ned was the first man in this country who shook his hand and meant it. Secondary: keep Mabuhay in one piece and his medallion clean. Tertiary: one day, a garage of his own, with his name on it.",
+    "secrets": "He drove Ned to the Mark Hopkins at four on Thursday and heard, through the open partition, Ned say to himself on the way up the hill: \"Five thousand for the doctor's girl if the widow plays fair, and if she doesn't, Frank can have her.\" He has told nobody because nobody has asked, and because he does not like Frank Dolan. He also knows that the cab rank outside the Fairmont was empty from a quarter to eleven to half past on Thursday night, because every driver had gone down to a fire on Pine Street, so nobody leaving the ball in that window could have taken a cab.",
+    "attitude": "Toward the party: loyal from the first minute, as Ned's people. Teasing with Augie (they spar at the gym), protective of Kit and Rose, wary of Jimmy Moran's uniform until Jimmy proves himself. Toward Dolan: dislike, which Dolan returns, until the chase in bc-scenario-003 when Dolan rides with him and comes out white-faced and grinning. Toward Larrabee: personal; Larrabee's men turned over his cab on the waterfront in 1934."
+  }
+}

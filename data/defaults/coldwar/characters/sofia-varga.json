@@ -1,0 +1,133 @@
+{
+  "id": "c21f9089-d5cd-4978-9780-c4e69e1831a4",
+  "name": "Sofia Varga",
+  "status": "alive",
+  "race": "Human (Specialist)",
+  "subrace": "",
+  "class": "Operative",
+  "level": 3,
+  "background": "Intelligence Agent",
+  "alignment": "Chaotic Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Stealth",
+    "Deception",
+    "Sleight of Hand",
+    "Perception",
+    "Acrobatics",
+    "Insight",
+    "Streetwise"
+  ],
+  "languages": [
+    "English",
+    "Hungarian",
+    "German",
+    "Russian"
+  ],
+  "equipment": [
+    "Leather jacket, black, Italian, bought for the pockets",
+    "Silenced .22 pistol (High Standard HDM), suppressed, 10-round magazine, loaded",
+    ".22 LR rounds (30)",
+    "Folding knife, Solingen steel",
+    "Lockpicks and tension wrenches in a lipstick case",
+    "Cover passport: Sophie Lambert, Belgian national, conference interpreter (good legend, two years of backstopping in Brussels)",
+    "A box of white chalk and a stub of red chalk, for signal sites",
+    "One-time pad, 50 sheets, sewn into the lining of a make-up bag",
+    "Pocket mirror, compact, with a scratched-off corner for watching behind her",
+    "Sony Walkman WM-2 and three cassettes (Bartók, Kraftwerk, and a blank she records voices on)",
+    "A reversible raincoat (fawn one side, navy the other) and a folded headscarf",
+    "Tram and U-Bahn tickets for Vienna, a week's worth",
+    "Wallet containing $220"
+  ],
+  "weapons": [
+    {
+      "name": "Silenced .22 pistol (High Standard HDM)",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Knife (folding, Solingen)",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Knife, thrown (20/60)",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Specialist (Human (Specialist) origin: +2 Dexterity, +1 Intelligence, one extra skill proficiency: Streetwise)",
+    "Expertise (double proficiency bonus on Stealth and Deception checks)",
+    "Precision Strike (once per turn, +2d6 damage with a finesse melee or sidearm/longarm attack when she has advantage or an ally is within 5 ft of the target)",
+    "Cunning Action (bonus action to Dash, Disengage or Hide)",
+    "Station Contacts (Intelligence Agent background: she can find the local safe-house network, an emigre cafe or a friendly cut-out in any Western European city within a day)"
+  ],
+  "traits": [
+    "Expertise: Stealth, Deception",
+    "Precision Strike 2d6",
+    "Cunning Action"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I count exits, faces and parked cars without meaning to, and I hum when I am frightened, so I have learned to hum all the time. I would rather be forgotten than admired; it is the same skill used the other way round.",
+    "ideals": "Nobody should have to leave their own country in the boot of a car. Until that is true, I will drive the car.",
+    "bonds": "My mother carried me across the Austrian border at Andau in November 1956 with the Russians a field behind us. I have never been back. Every defector I bring out is a field I am still crossing.",
+    "flaws": "I trust defectors more than I trust my own side, because I was one, and a clever enemy who knows that can walk straight up to me with a sad story."
+  },
+  "appearance": "A slight, dark-haired woman of thirty-four with an interpreter's neutral face and a habit of standing half a step behind whoever she is with. She dresses to vanish: navy, grey, fawn, sensible flat shoes, hair that can be up or down or under a scarf in ten seconds. The Walkman headphones are usually round her neck and usually not playing anything, which gives her an excuse to have her head down and her ears open.",
+  "backstory": "Zsofia Varga was seven when her mother walked her across a frozen beet field into Austria in the last week of the Hungarian uprising. She grew up in Vienna and then Brussels, interpreting by twenty-two (Hungarian, German, Russian, French on a good day), and was recruited by a pleasant man at a NATO reception who asked her what she thought of the Russian delegation's interpreters and listened very carefully to the answer. Ten years on she is the Annex's best street officer in Vienna: she has serviced dead drops in the Zentralfriedhof, run three agents out of the Hungarian trade mission, and once spent eleven hours in a cupboard at the Hotel Imperial. She was the one who found KESTREL's note in the DOVECOTE drop, and she noticed, though she has told no one yet, that the matchstick wedged in the vault door was on the wrong side. Somebody had been there first."
+}

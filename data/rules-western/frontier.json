@@ -1,0 +1,426 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Running the frontier in a Western campaign. New to the Western category (it takes the place of Noir's investigation.json). It is written for the GM first and the players second, and it is authoritative: where a scenario is silent, these rules decide. Reputation is one number per town or territory, -5 to +5, kept in world state and told to the players whenever it changes. Wanted is one level per character (none, local, territorial, dead or alive). Prices are 1870s dollars. Horse statistics here are the ones combat.json mounted_combat and vehicles refer to."
+  },
+  "showdowns": {
+    "what_it_is": "A showdown is the duel: two people, or two sides, face each other in the open and one of them calls it. It is the genre's signature moment and it is never resolved without the players' say. It has three parts: the calling out, the stare-down and the draw. After the draw it is an ordinary gunfight (combat.json).",
+    "calling_out": "Somebody names somebody, in front of witnesses: \"Step outside.\" The one called can answer, refuse or walk away. Refusing in front of the town is backing down (below). A showdown needs both parties to agree to face each other; if one just starts shooting, it is a gunfight with surprise, and the town will call it murder (an_unfair_fight).",
+    "the_stare_down": {
+      "rule": "Before anyone draws, the two parties stand and look at each other. Each makes a contested check: Intimidation (CHA) to make the other man flinch, or Insight (WIS) to read whether he will. Each picks which skill to use. Allies watching can't help. The GM describes it: the wind, the silence, the hand near the holster.",
+      "the_loser": "The loser of the stare-down chooses: draw anyway, with disadvantage on the draw, or back down.",
+      "ties": "A tie: neither flinches. Both draw normally.",
+      "more_than_two": "When sides face each other, the two leaders make the stare-down for their sides; the losing side all draw at disadvantage.",
+      "features": "A Lawman's Hard Stare and a Gunslinger's Name That Travels give advantage on the stare-down. A Gunslinger at 10th level who loses it doesn't take disadvantage on the draw."
+    },
+    "backing_down": "A creature that backs down lowers its hands, says what it has to say and walks away alive. The other side lets it go: shooting a man who has backed down is shooting an unarmed man (an_unfair_fight). Backing down costs 1 Reputation in that town (reputation), and the character is Shaken until their next long rest. There is no shame in it at the table: the player decides, and a character who backs down from a fight they would lose has done the sensible thing. Adversaries back down too, especially Hired Guns, who aren't paid enough.",
+    "the_draw": {
+      "rule": "Everyone in the showdown rolls the draw at the same moment: d20 + DEX modifier + proficiency bonus if proficient with Sidearms. The draw is made with a holstered Sidearm (a derringer from a sleeve counts; a Longarm can't be drawn, it can only already be pointed, which isn't a showdown). Quick Draw (Gunslinger) and adversaries with Quick Draw roll with advantage; the loser of the stare-down rolls with disadvantage.",
+      "the_draw_round": "The draw is followed by a special round. In order from the highest draw to the lowest, each participant makes one shot with the Sidearm it drew, and no other action. The highest draw has advantage on that one shot. A creature reduced to 0 hit points or incapacitated before its turn in the draw round doesn't shoot.",
+      "beaten_to_the_draw": "A creature whose draw total is 10 or more below the highest hasn't cleared leather: it doesn't shoot in the draw round.",
+      "ties": "Tied draws fire at the same instant: both shots happen, even if one of them is fatal. If the tie is for highest, neither has advantage. A Gunslinger Duelist wins ties.",
+      "fanning": "Nobody fans in the draw round; it is one aimed shot.",
+      "after_the_draw": "After the draw round, the fight continues as ordinary combat, with the draw totals as the initiative order. Most showdowns are over after one round."
+    },
+    "bystanders": "The street clears. Anyone who doesn't want to be in it gets off the street during the stare-down; the GM says who stays (a boy on the boardwalk, a drunk who didn't notice). A shot that misses by 5 or more in the street goes somewhere: through a window, into a horse, toward a bystander (combat.json gunplay.shooting_into_melee).",
+    "a_fair_fight": "A fair fight, in the eyes of a frontier town: the challenge was spoken and answered, both men were armed and facing each other, nobody drew before the other was ready, nobody was drunk past standing, and nobody else joined in. A man who wins a fair fight usually goes free if the town's witnesses say so at the inquest (the_law), and his Reputation rises by 1 if the dead man was feared or hated, or doesn't change if he was liked. Whether the law agrees depends on the town: many towns have ordinances against carrying guns at all, and a marshal may arrest the winner anyway.",
+    "an_unfair_fight": "An unfair fight: shooting a man who wasn't armed, who had backed down, who wasn't facing you, who was too drunk to stand, or drawing before the call. Bringing friends to a fight that was called for two. Shooting from an alley during a showdown. The town knows, and the town remembers: Reputation falls by 2 there (by 3 for shooting an unarmed man), Wanted becomes at least local, and the winner may face a lynch mob (adversaries.json) or a jury. In law it is murder.",
+    "gm_guidance": [
+      "Never force a showdown on a player character. A showdown is offered, not imposed; a player who is called out decides whether to answer.",
+      "Slow it down. Describe the stare-down; let the players speak. The roll is a few seconds, and the scene should take longer than the dice.",
+      "Most adversaries don't want a fair fight. The ones who call players out are proud, desperate or paid; say which.",
+      "Use showdowns rarely. One per scenario is plenty; one per campaign that people remember is better."
+    ]
+  },
+  "reputation": {
+    "what_it_is": "Reputation is a score from -5 to +5 for each town (or, once the character is known that widely, each territory), measuring what the people there think of the characters: whether they are trusted and respected, or feared and hated. The GM tracks it openly in world state, one score per party per town unless one character has done something the others haven't, and tells the players whenever it changes (\"Reputation in Bitter Creek is now +2: the storekeeper will give you credit\").",
+    "starting_reputation": "Reputation starts at 0 in a town the characters have never been to, unless their name has gone ahead of them (a poster, a newspaper story, a Gunslinger's Name That Travels) or the campaign's rules say otherwise.",
+    "the_scale": [
+      {
+        "reputation": 5,
+        "standing": "A town's own. People name children after you. Any door opens, anyone will hide you from the law or ride with you, and the newspaper prints your side. A jury of this town won't convict you of anything short of murder."
+      },
+      {
+        "reputation": 4,
+        "standing": "Trusted and respected. Credit at the bank. The marshal deputizes you without being asked; the rancher's wife sends pie. Persuasion checks with townspeople have advantage."
+      },
+      {
+        "reputation": 3,
+        "standing": "Respected. Credit at the store and the livery up to $50. Ordinary folk will speak up for you in front of the sheriff or a mob, and a mob's Mob Mind check is at advantage for you (adversaries.json Lynch Mob)."
+      },
+      {
+        "reputation": 2,
+        "standing": "Well liked. Credit at the store up to $10, the hotel holds your room, the deputy gives you a nod and a warning when trouble is coming."
+      },
+      {
+        "reputation": 1,
+        "standing": "Known and decent. People say good morning, tell you the news and give you the benefit of the doubt."
+      },
+      {
+        "reputation": 0,
+        "standing": "Strangers. Nobody knows you; they will judge you by what you do next."
+      },
+      {
+        "reputation": -1,
+        "standing": "Watched. People cross the street. Prices go up a little, and the marshal asks how long you are staying."
+      },
+      {
+        "reputation": -2,
+        "standing": "Disliked. No credit, a hotel that is suddenly full, a doctor who makes you wait. Persuasion checks with townspeople have disadvantage."
+      },
+      {
+        "reputation": -3,
+        "standing": "Feared. People do what you say and tell the sheriff as soon as you leave. Someone sends a telegram about you. A Gunslinger or Outlaw has advantage on Intimidation here."
+      },
+      {
+        "reputation": -4,
+        "standing": "Hated. No one will sell to you, and someone is talking about a rope. Any arrest you suffer here has a mob outside the jail by nightfall."
+      },
+      {
+        "reputation": -5,
+        "standing": "An enemy of the town. You are shot at on sight by someone, the church bell rings when you ride in, and a lynch mob forms the first night you stay."
+      }
+    ],
+    "earned_by": {
+      "saving a life in front of witnesses, or a child or a family anywhere": 1,
+      "facing down a bully, an outlaw or a company man on the town's behalf": 1,
+      "winning a fair fight against someone the town feared or hated": 1,
+      "paying debts and damages, keeping your word to the letter": 1,
+      "breaking a lynch mob, or saving a prisoner from one": 2,
+      "ending a threat to the whole town (a gang, a range war, a crooked sheriff proven crooked)": 2
+    },
+    "lost_by": {
+      "backing down from a showdown or a fight in public": -1,
+      "bullying townspeople, leaning on the weak, threatening a woman or a child": -1,
+      "starting gunfire in town against someone who wasn't shooting": -1,
+      "using a lawman's star for something the law doesn't sanction, when it comes out": -1,
+      "shooting a man's horse out from under him in a fair fight (with cattlemen)": -1,
+      "being caught cheating at cards": -2,
+      "an unfair fight (shooting a man not facing you, after he backed down, or too drunk to stand)": -2,
+      "shooting an unarmed man": -3,
+      "killing a townsperson who was not a threat, or firing into a crowd (per person killed)": -1
+    },
+    "drift": "Reputation drifts one step toward 0 for each month the characters are away from a town, but never past +1 or -1: a town forgets what you did, not who you are.",
+    "towns_and_territories": "A town hears about what you did in the next town in a week (sooner by telegraph or newspaper). When a character's Reputation reaches +4 or -4 in two or more towns of a territory, the GM can give the territory a Reputation of +1 or -1 that every new town in it starts at.",
+    "reputation_and_wanted": "Reputation and Wanted are different things. A man can be wanted by the law and loved by a town (the homesteaders hide him), or free and clear and hated. A town with a positive Reputation for you will hide you from a local Wanted, and lie for you to a territorial one at +3 or better."
+  },
+  "wanted_and_bounties": {
+    "what_it_is": "Wanted is a level for each character with the law: whether there is a warrant, a poster, or a price on their head, and who comes looking. The GM tracks it openly in world state and tells the player when it changes. A Wanted level doesn't mean the character did it; posters are written by people with reasons.",
+    "levels": {
+      "none": {
+        "meaning": "No warrant. The character can ride into any town and talk to any lawman.",
+        "bounty": "$0",
+        "who_comes": "Nobody."
+      },
+      "local": {
+        "meaning": "A warrant in one town or county: for a shooting, a robbery, a jailbreak, assaulting a deputy, a horse theft. The local sheriff or marshal will arrest the character on sight inside his jurisdiction.",
+        "bounty": "$25-$100, if anyone posts one",
+        "who_comes": "The local law and its deputies, inside the county. A posse for a day if the crime was bad. Outside the county, nobody, unless a telegram goes out."
+      },
+      "territorial": {
+        "meaning": "A territorial or federal warrant and printed posters in every county seat and depot: for murder, robbery of the mails or an express company, killing a lawman, train robbery, or a local warrant that the character kept running from.",
+        "bounty": "$200-$500, posted by the territory, the express company or the railroad",
+        "who_comes": "Every sheriff in the territory, a deputy U.S. marshal (adversaries.json Federal Marshal), an Agency Detective if a company is paying, and a Bounty Hunter or two who read the poster."
+      },
+      "dead_or_alive": {
+        "meaning": "A reward offered for the character dead or alive: the law, a company or a cattlemen's association has decided it doesn't need a trial. In practice it is a license to kill, and many such posters are bought rather than sworn.",
+        "bounty": "$500-$5,000",
+        "who_comes": "Everyone with a gun who can read. Bounty Hunters in pairs, a Gunfighter or a Fast Gun hired for the job, posses of men who want the money, and former friends. Lawmen who would rather take the character alive are outnumbered by men who wouldn't."
+      }
+    },
+    "raising_it": "A crime the law knows about raises Wanted to the level the crime deserves. Being seen at it, being named by a witness or leaving a survivor who can talk is what makes the law know. A level never falls by itself while the people who posted it are alive and angry.",
+    "clearing_it": "Wanted comes down by: a trial and an acquittal; a pardon (the territorial governor; a Lawman's The Judge's Ear); proving the poster false to a judge (a confession, a witness, the real culprit); the people who posted it withdrawing it (paid, persuaded, ruined or dead); or time, for a local warrant: a year away and most sheriffs have forgotten. A dead-or-alive poster put up by a company comes down when the company says so, or when the newspapers make it too embarrassing to keep.",
+    "collecting_bounties": "Characters who bring in a wanted man deliver him to the sheriff of the county that wants him, alive (or dead, if the poster says dead or alive), with a witness who can swear to who he is. Rewards are paid by the people who posted them, by draft, in a week or a month; some never pay. Bringing in a man who turns out to be innocent costs 1 Reputation wherever it becomes known, and his family will remember. A character with the Bounty Hunter background knows which posters pay.",
+    "posters": "A poster names a crime, a reward and a description: height, hair, a scar, a horse, a woodcut that might be anyone. Being recognized from one is a Perception check by the person who has seen the poster (DC 15, or 10 if the character is riding the horse described, or 20 if they have changed their appearance with a Deception check). A poster is evidence that someone wants a man, not that he did anything."
+  },
+  "horses_and_mounts": {
+    "overview": "A horse is how a person lives on the frontier: transport, work, freedom and often the most valuable thing they own. Horse theft is a hanging crime in much of the West, and a man afoot in open country is in danger. Each horse or mule is a creature with the statistics below; a horse in combat follows combat.json mounted_combat.",
+    "stats": [
+      {
+        "name": "Riding horse",
+        "size": "Large",
+        "ac": 10,
+        "hp": 19,
+        "hit_dice": "3d10+3",
+        "speed": "60 ft.",
+        "abilities": {
+          "STR": 16,
+          "DEX": 10,
+          "CON": 12,
+          "INT": 2,
+          "WIS": 11,
+          "CHA": 7
+        },
+        "carrying": "480 lb. (a rider, a saddle and gear)",
+        "travel_miles_per_day": 30,
+        "attack": "Hooves: +5 to hit, reach 5 ft., 2d4 + 3 bludgeoning (only if trained to fight, or when cornered).",
+        "cost": "$50-$150",
+        "notes": "The ordinary saddle horse. Can gallop (Dash) for 5 + CON modifier rounds before tiring (combat.json chases)."
+      },
+      {
+        "name": "Cow pony",
+        "size": "Large",
+        "ac": 11,
+        "hp": 15,
+        "hit_dice": "2d10+4",
+        "speed": "60 ft.",
+        "abilities": {
+          "STR": 14,
+          "DEX": 13,
+          "CON": 14,
+          "INT": 2,
+          "WIS": 12,
+          "CHA": 7
+        },
+        "carrying": "400 lb.",
+        "travel_miles_per_day": 35,
+        "attack": "Hooves: +4 to hit, reach 5 ft., 2d4 + 2 bludgeoning.",
+        "cost": "$30-$60",
+        "notes": "Small, quick, cow-smart and tough. Advantage on Riding checks to cut, turn and rope cattle, and to clear chase complications in brush. Turns on a dime: can Disengage as a bonus action."
+      },
+      {
+        "name": "Draft horse",
+        "size": "Large",
+        "ac": 10,
+        "hp": 25,
+        "hit_dice": "3d10+9",
+        "speed": "40 ft.",
+        "abilities": {
+          "STR": 19,
+          "DEX": 10,
+          "CON": 16,
+          "INT": 2,
+          "WIS": 11,
+          "CHA": 7
+        },
+        "carrying": "540 lb. on its back; pulls 2,700 lb. in a wagon",
+        "travel_miles_per_day": 20,
+        "attack": "Hooves: +6 to hit, reach 5 ft., 2d4 + 4 bludgeoning.",
+        "cost": "$80-$150",
+        "notes": "Big and strong, slow and calm: it spooks only on a natural 1. Riding one is disadvantage on Riding checks in a chase."
+      },
+      {
+        "name": "Mule",
+        "size": "Large",
+        "ac": 10,
+        "hp": 17,
+        "hit_dice": "2d8+8",
+        "speed": "40 ft.",
+        "abilities": {
+          "STR": 14,
+          "DEX": 10,
+          "CON": 18,
+          "INT": 3,
+          "WIS": 12,
+          "CHA": 5
+        },
+        "carrying": "420 lb. (a pack of 250 lb. for a day's travel)",
+        "travel_miles_per_day": 25,
+        "attack": "Kick: +4 to hit, reach 5 ft., 1d6 + 2 bludgeoning, and it means it.",
+        "cost": "$40-$90",
+        "notes": "Sure-footed: ignores difficult terrain from rocks and steep trails, and has advantage on saves against heat, thirst and exhaustion. Stubborn: a mule that doesn't want to go needs a DC 12 Animal Handling check. Doesn't spook at gunfire once it has heard it."
+      }
+    ],
+    "care": {
+      "daily": "A horse needs about 10 gallons of water a day (more in heat) and either good grass with an hour or two to graze, or grain (gear.json Grain (1 week)). A mule needs a little less. Unsaddle and rub down at night.",
+      "neglect": "A horse that goes a day without water, or three days without grass or grain, gains a level of exhaustion (combat.json conditions); at 3 levels it can't carry a rider, and at 6 it dies. A long rest with water and forage removes one level.",
+      "shoes_and_lameness": "On rocky ground a horse throws a shoe or goes lame on a d20 roll of 1 each day; a blacksmith (or anyone with a tool roll and a DC 12 Animal Handling check) fixes a shoe. A lame horse travels at half speed and can't gallop for a week.",
+      "a_good_rider": "A character proficient in Animal Handling keeps their horse in condition on the trail without a check. A Cowhand's own horse and a Scout's get the best of what grass there is."
+    },
+    "buying_and_selling": {
+      "where": "Livery stables, horse traders, ranches and army remount sales. A town with a livery has 1d6 horses for sale on any day; a ranch has more, and better.",
+      "judging_a_horse": "A horse trader always says the horse is sound. A DC 12 Animal Handling check (or Insight against the trader's Deception) tells whether it is lame, old, hard-mouthed, spooky or stolen. A horse that fails gets one of those flaws, rolled or chosen by the GM.",
+      "papers": "Buy with a bill of sale; a horse with a brand needs a bill of sale signed by the brand's owner. A man riding a branded horse without one is a horse thief until he proves otherwise, and in some places he doesn't get the chance (the_law).",
+      "selling": "A horse sells for half to two-thirds of what it would cost to buy, and a tired or lame one for less. Selling a horse in a hurry, without papers, gets a quarter, and a question.",
+      "boarding": "A livery stable keeps a horse for 50 cents a night with hay, $1 with grain."
+    },
+    "losing_a_horse": {
+      "shot_from_under_you": "combat.json mounted_combat.horse_shot_from_under_you has the fall. Afterward, the character is afoot.",
+      "afoot": "A character on foot travels at a third of a rider's pace, carries only what they can carry, and can't outrun a rider. In open country with no horse and no water, a character is in danger of their life (weather_and_water).",
+      "the_horse_that_mattered": "When a character's own named horse dies, the player should be given a moment. A Cowhand's Saddle-Born is reduced until they have worked a new horse for a week; any character whose horse dies under them is Shaken until their next long rest. Replacing a good horse costs money, and finding one as good costs time.",
+      "stolen": "A stolen horse can be tracked (Survival; trail_travel) and is usually sold within three days in the nearest town with no questions asked. Getting it back takes a bill of sale, a brand and a sheriff, or a gun."
+    }
+  },
+  "trail_travel": {
+    "overview": "Distance is the enemy. The land between towns is wide, dry and indifferent, and getting across it is a story. Track travel in days, water in gallons and horses in exhaustion. The GM describes the land and rolls a trail event each day.",
+    "pace": {
+      "slow": "Two-thirds of the normal distance. The party can travel stealthily (Stealth checks at no penalty), forage as it goes, and a Scout tracks without slowing.",
+      "normal": "The distances in the table. Disadvantage on Stealth checks while moving.",
+      "hard": "One and a third times the normal distance. Disadvantage on passive Perception. Each horse and rider makes a DC 10 CON save at the end of the day or gains a level of exhaustion. Riding through the night (12+ hours) is a forced march: DC 10 + 1 per hour past 10."
+    },
+    "miles_per_day": {
+      "note": "Normal pace, about 8-10 hours on the move. Use the slowest member of the party. A cattle drive makes 10-15 miles a day whatever the terrain; a wagon train 12-15 on good road.",
+      "table": {
+        "road or good trail": {
+          "riding_horse": 35,
+          "cow_pony": 35,
+          "mule": 30,
+          "draft_horse_or_wagon": 20,
+          "on_foot": 15
+        },
+        "open prairie or plains": {
+          "riding_horse": 30,
+          "cow_pony": 35,
+          "mule": 25,
+          "draft_horse_or_wagon": 15,
+          "on_foot": 12
+        },
+        "broken country, badlands, brush": {
+          "riding_horse": 20,
+          "cow_pony": 25,
+          "mule": 20,
+          "draft_horse_or_wagon": 8,
+          "on_foot": 10
+        },
+        "desert": {
+          "riding_horse": 20,
+          "cow_pony": 20,
+          "mule": 20,
+          "draft_horse_or_wagon": 10,
+          "on_foot": 8
+        },
+        "mountains, timber, snow": {
+          "riding_horse": 12,
+          "cow_pony": 12,
+          "mule": 15,
+          "draft_horse_or_wagon": 5,
+          "on_foot": 8
+        }
+      },
+      "by_rail_and_coach": "A train covers 200-500 miles a day; a stagecoach 60-100. A day by rail is a week on horseback."
+    },
+    "water_and_forage": {
+      "water": "A person needs a gallon of water a day in heat (half a gallon in cool weather), a horse ten. The GM names where water is on the route: rivers, springs, stage stations, ranches, tanks in the rocks. Between them, water is what you carry: a canteen holds half a gallon; a horse can carry two water bags of five gallons each instead of a rider's gear. A Scout's Trailcraft finds water each day where there is any.",
+      "finding_water": "Searching for water takes 2 hours and a DC 15 Survival check (DC 10 in good country, 20 in true desert). Success finds enough for the party for a day; failure by 5 or more finds bad water (alkali or fouled: DC 12 CON save or poisoned for a day).",
+      "forage": "On grassland, horses graze at night. In desert, badlands, deep snow or country the cattle have eaten down, horses need grain (gear.json) or lose condition (horses_and_mounts.care).",
+      "rations": "A person needs a day's rations or a successful DC 12 Survival check to hunt or forage (2 hours, slow pace) for one day's food for two people. A character who goes without food for three days gains a level of exhaustion each day after."
+    },
+    "getting_lost": {
+      "rule": "Following a road, a river, a railroad or a known trail, the party can't get lost. Off trail, whoever is navigating makes a Survival check each day: DC 10 on open prairie with landmarks, 15 in broken country, badlands or timber, 20 in desert without landmarks, in fog, a dust storm or snow. A Scout on terrain they have crossed before doesn't roll. A compass or a good map gives advantage.",
+      "lost": "On a failure the party is lost: it travels the day's distance in the wrong direction (the GM rolls a d6: 1-2 veers left, 3-4 veers right, 5-6 circles back), doesn't realize it until a Survival check the next morning (same DC), and uses a day's water and food for nothing. In desert, being lost is how people die."
+    },
+    "river_crossings": {
+      "rule": "A ford at low water is no check. A river running high, a quicksand bottom or a swim crossing calls for each rider to make a DC 12 Riding or Animal Handling check (DC 15 in flood, 18 with a herd or a wagon), with advantage if someone scouted the crossing first (DC 12 Nature or Survival).",
+      "failure": "The horse loses its footing: the rider is swept 1d4 x 50 ft downstream and must make a DC 12 STR (Athletics) check each round to reach the bank or take 1d6 bludgeoning. A failure by 5 or more loses something: a pack, a rifle, cartridges gone wet (combat.json ammunition.wet_powder), or a horse. Wagons that fail tip and lose half their load.",
+      "a_herd": "Crossing a herd takes the whole day; on a failed check by the trail crew (Riding or Animal Handling DC 15) the herd mills in the water and 1d10 x 5 head drown or are lost."
+    },
+    "random_trail_events": {
+      "when": "Roll a d20 once a day on the trail (twice a day in dangerous country), or choose. Events are complications and color, not always fights. Many have a skill that turns them.",
+      "table": {
+        "1": "Ambush: a Bushwhacker or a gang of Outlaws or Road Agents waiting at a pass, a ford or a narrow canyon (Perception DC 15 to spot them first).",
+        "2": "A rattlesnake under a rock where someone makes camp or steps down (adversaries.json Rattlesnake). A horse that hears it must be checked for Spooked.",
+        "3": "Weather turns: a thunderstorm, a dust storm or a blue norther comes in by afternoon (weather_and_water). Nature DC 12 sees it coming in time to find shelter.",
+        "4": "A horse throws a shoe or goes lame (horses_and_mounts.care).",
+        "5": "The water you were counting on is dry, fouled or fenced. The next water is half a day further.",
+        "6": "Riders on the horizon, keeping pace and keeping their distance. Who they are is the GM's to decide: a posse, rustlers, cowhands, someone following the party.",
+        "7": "A homestead or a line shack: a family who will trade water, food and news, and who have their own trouble.",
+        "8": "Tracks crossing the trail: a dozen shod horses, a day old, heading where the party is going (Survival DC 12 to read more).",
+        "9": "A wagon broken down by the road with an emigrant family or a freighter; helping costs half a day (Mechanics DC 12 or a tool roll).",
+        "10": "Nothing but the land. Describe it. The party makes good time: add 5 miles.",
+        "11": "A herd of cattle on the move, a trail crew, and a trail boss who wants to know who you are and whether you have seen any rustlers.",
+        "12": "A dead horse and a dead rider by the trail, and a story in what is left (Investigation or Survival DC 12).",
+        "13": "Wolves, a cougar or a grizzly near camp; it wants the horses or the food (adversaries.json).",
+        "14": "A stage station, a road ranch or a trading post: a meal, a fresh horse for sale, a newspaper a week old and a station keeper who talks.",
+        "15": "A prairie fire, a rockslide or a washout across the road. Going around costs half a day; going through is dangerous (DC 13 DEX saves, 2d6 damage).",
+        "16": "A traveler going the other way: a peddler, a preacher, a deputy, a cavalry patrol, a prospector. They have news of the road ahead, true or not.",
+        "17": "Someone is following the party (Perception DC 15 to notice; Survival DC 15 to double back and see who).",
+        "18": "A horse breaks loose or wanders in the night; finding it takes the morning (Survival DC 12) or it is gone.",
+        "19": "Good grass and a spring that isn't on any map. Horses and riders recover: a long rest here removes an extra level of exhaustion.",
+        "20": "A stroke of luck the GM chooses: a shortcut, a friendly ranch, a dropped wanted poster with a face the party recognizes."
+      }
+    },
+    "the_night_watch": {
+      "rule": "A party camped on the trail sets a watch. With three or more people, divide the night into watches; each watcher uses passive Perception to notice anything approaching. A single person standing watch all night gets no long rest. Sleeping without a watch in dangerous country, the GM rolls for anything that comes against the highest passive Perception at disadvantage (asleep: -5).",
+      "fires": "A campfire is seen for miles at night on open ground (a cold camp, in a hollow, is not). Coffee and a hot meal end the Shaken condition at the end of a short rest; a cold camp doesn't.",
+      "horses": "Picketed or hobbled horses stay put; loose horses wander (event 18). Horses are a camp's best watch: an alert horse gives the watcher advantage on Perception checks against anything approaching from downwind."
+    }
+  },
+  "weather_and_water": {
+    "overview": "Weather on the frontier kills more people than guns do. These rules use the exhaustion condition (combat.json conditions): heat, cold and thirst add levels; a long rest with food, water and shelter removes one.",
+    "thirst": {
+      "rule": "A character who drinks less than their water for the day (a gallon in heat, half a gallon otherwise) makes a DC 15 CON save at the end of the day (DC 10 if they drank at least half) or gains a level of exhaustion. Going a whole day with no water at all gives a level of exhaustion automatically, and a save as above besides. Horses use the same rule with their own water (ten gallons).",
+      "in_the_desert": "In desert heat, a person with no water at all gains a level of exhaustion every 6 hours. Traveling by night and resting in the shade by day halves the water needed.",
+      "recovering": "Exhaustion from thirst can't be removed until the character has had a full day's water."
+    },
+    "heat": {
+      "rule": "In extreme heat (100 degrees F and up, the desert in summer, the plains in a drought) a creature traveling or working in the open makes a CON save at the end of each hour: DC 5, +1 for each hour after the first. On a failure it gains a level of exhaustion. Creatures wearing an iron vest or a heavy coat have disadvantage; creatures with plenty of water have advantage. Resting in shade during the heat of the day avoids it.",
+      "sunstroke": "A character who reaches 3 levels of exhaustion from heat is confused and must be carried, shaded and watered for the rest of the day."
+    },
+    "cold": {
+      "rule": "In extreme cold (below 0 degrees F, a blizzard, a blue norther), a creature exposed without a slicker and warm clothing and a fire at night makes a DC 10 CON save at the end of each hour or gains a level of exhaustion. A bedroll, a buffalo coat or a fire gives advantage; being wet gives disadvantage.",
+      "blue_norther": "On the southern plains, a norther drops the temperature 40 degrees in an hour and blows for a day or three. Riders caught in the open need shelter within 2 hours or start making cold saves. Cattle drift before it.",
+      "blizzard": "Snow and wind: heavily obscured beyond 30 ft, travel at a quarter pace, getting lost DC 20, and cold saves every hour without shelter. People freeze to death between the barn and the house."
+    },
+    "flash_floods": {
+      "rule": "A thunderstorm in the hills can fill a dry wash miles away with a wall of water in minutes. Camping or traveling in a wash or an arroyo during storm season, the GM can call a flash flood. A DC 13 Nature or Survival check spots the signs (distant thunder, rising wind, a roar upstream) a minute before it hits; a Scout's Weather Eye can't be surprised by one.",
+      "the_flood": "Each creature in the wash makes a DC 15 STR (Athletics) or DEX save to reach high ground. On a failure it is swept away: 3d6 bludgeoning, carried 1d6 x 100 ft, and it must succeed on a DC 12 STR save at the end of each of its turns to get clear or take the damage again. Gear, horses and wagons in the wash are lost unless someone saves them."
+    },
+    "dust_storms": {
+      "rule": "A wall of brown dust a mile high: heavily obscured beyond 10 ft for 1d4 hours, getting lost DC 20, horses must be checked for Spooked, and every creature without its face covered (a bandanna counts) makes a DC 10 CON save each hour or gains a level of exhaustion. Firearms foul: cap-and-ball guns misfire on 1-3 until cleaned (a short rest)."
+    },
+    "lightning": "On the open plains a man on a horse is the tallest thing for miles. In a thunderstorm in open country, each rider makes a DC 10 DEX save once per storm; on a natural 1, they are struck (4d10 damage, DC 15 CON save or unconscious). Herds stampede in lightning (combat.json stampedes).",
+    "shelter": "A house, a cave, a cut bank out of the wind, a wagon box with a canvas: shelter ends the hourly saves for heat or cold, and lets a long rest remove exhaustion."
+  },
+  "gambling": {
+    "overview": "Cards are the frontier's pastime and a good part of its economy: poker in saloons and bunkhouses, faro in every town with a bank, monte on a blanket and chuck-a-luck at the fair. A game of cards is a scene, not a die roll, but these rules decide who wins.",
+    "stakes": {
+      "penny_ante": "$1-$5 a night: a bunkhouse game, cowhands on payday.",
+      "saloon_game": "$10-$50 a night: drummers, merchants, gamblers working the room.",
+      "high_stakes": "$100-$1,000 or more: cattle buyers, mine owners, professional gamblers, a back room with a guard on the door. Deeds, horses and herds are put on the table.",
+      "buying_in": "A player sets the stake they bring to the table. They can't lose more than they brought unless they put up something else (a horse, a saddle, a marker, a deed)."
+    },
+    "poker": {
+      "structure": "A poker game is played in three hands (or one big hand for a single showdown pot). Each hand, every player at the table makes a Gambling (WIS) check; the highest total wins the hand and takes a third of the stakes from each other player (or the whole pot, for one big hand). Ties split.",
+      "reading_a_tell": "Before the Gambling check, a player can spend the hand watching one opponent instead of pressing: Insight contested by that opponent's Deception. On a win, the player has advantage on their Gambling check this hand. A Gambler's Read the Table can learn the card they need.",
+      "bluffing": "A player can bluff instead of playing the cards: Deception contested by the best Insight at the table. On a win, the player wins the hand regardless of the Gambling checks; on a loss, they lose it automatically and the table knows their bluff.",
+      "folding": "Folding before the check loses only the ante: a tenth of the stakes.",
+      "the_big_hand": "When the pot is big enough that someone might draw a gun over it, the GM plays it as one hand, describes the betting, and lets the players talk."
+    },
+    "cheating": {
+      "how": "Cheating is Sleight of Hand (DEX): dealing seconds or from the bottom, palming a card, cold-decking a game with a stacked deck, a holdout up the sleeve, a marked deck (gear.json). A successful cheat gives advantage on that hand's Gambling check, or, with a stacked deck or a holdout, wins the hand outright.",
+      "getting_caught": "Every other player at the table, and anyone watching, uses passive Perception (or Insight, if they are watching for it) against the cheater's Sleight of Hand check. A Gambler or a Card Sharp background who is watching makes an active check with advantage.",
+      "consequences": "A cheat caught at the table loses the pot and Reputation (-2 in that town), and the man who caught him has the right, by the custom of the table, to call him out or shoot him on the spot, and a jury in most towns will agree. At best the cheat is thrown out of the saloon and run out of town; at worst it is a gunfight (showdowns) with the town on the other side. A cheat caught by a house dealer is barred from every saloon that dealer's owner owns.",
+      "the_house": "Many games are crooked from the start. A Gambler's Read the Table always knows; anyone else can tell whether a game is honest with a DC 15 Insight or Gambling check after an hour of play."
+    },
+    "faro": {
+      "how": "Faro is played against the house: a dealer draws two cards at a time from a dealing box, and players bet on which ranks will win or lose. The odds are close to even in an honest game. Play it as a contest of a night: each player makes a Gambling check against DC 12; win by 5 or more and double the stake for the night, win and gain half, lose and lose half, lose by 5 or more and lose it all.",
+      "crooked_boxes": "A crooked faro box (a \"gaff\" or two-card box) lets the dealer choose the cards. Against a crooked box the DC is 18, and spotting it is Investigation DC 15 or Mechanics DC 12, if anyone is allowed close enough to look.",
+      "dealing": "A character with the Gambler's Faro Dealer game can run a faro bank and earn from the house's edge."
+    },
+    "other_games": {
+      "three-card monte": "A street hustle: the dealer's Sleight of Hand against the mark's Perception, and the dealer always has a friend in the crowd who wins first. Honest monte doesn't exist.",
+      "chuck-a-luck": "Three dice in a cage, bets on the numbers: a Gambling check against DC 13 for the night, as faro.",
+      "horse races": "A match race on the edge of town is a chase (combat.json chases) with money on it; the crowd bets, and someone always tries to fix it."
+    }
+  },
+  "the_law": {
+    "overview": "Law on the frontier is thin, slow and political, but it is real: towns have marshals and ordinances, counties have sheriffs and courts, territories have federal marshals and judges, and the circuit judge comes. These rules tell the GM how the law works when the players run into it, or become it. A Lawman's The Star works inside them.",
+    "the_officers": {
+      "town_marshal": "Hired or appointed by the town council to keep order inside town limits: drunks, fights, gun ordinances, the saloon district. His jurisdiction ends at the town line. Paid a salary and often a cut of fines.",
+      "county_sheriff": "Elected by the county, with a jail and deputies. Enforces the law in the whole county, serves papers, collects taxes in some territories, and answers to the voters, which means to whoever controls the votes. The sheriff is the man the cattle companies, the railroad and the homesteaders all want to own.",
+      "deputy_us_marshal": "Federal officers appointed by the territorial U.S. marshal, enforcing federal law in the territories: crimes on federal land, robbing the mails, counterfeiting and interfering with interstate railroads. Paid by fees and mileage, which makes some of them hard and some of them crooked.",
+      "justice_of_the_peace": "A local magistrate who holds inquests, hears small cases and fines, and sets bail. Often the storekeeper.",
+      "the_circuit_judge": "A territorial or district judge who rides a circuit of county seats, holding court a few times a year. Serious crimes (murder, robbery, horse theft) wait in jail for him. When he comes, a jury is drawn from the county, and the trial takes a day or two.",
+      "company_police": "Railroads, mines and stock growers' associations hire their own detectives and enforcers (adversaries.json Railroad Enforcer, Agency Detective). They have no lawful authority except what a friendly sheriff deputizes them with, and they act as if they had a great deal."
+    },
+    "ordinances": "Many cattle and mining towns forbid carrying guns inside town limits: you check them at the marshal's office, the hotel or the livery and collect them when you leave. Breaking it is a fine ($5-$25) and a night in jail, or a pistol barrel over the head. Other ordinances: no riding on the boardwalk, no shooting in the air, saloons closed on Sunday mornings.",
+    "arrest_and_jail": {
+      "arrest": "An officer arrests on a warrant, or for a crime committed in front of him. Resisting arrest is a crime of its own, and shooting at an officer raises Wanted at once (wanted_and_bounties).",
+      "jail": "A county jail is a stone or log building with iron cells and a deputy asleep in a chair. Escaping is Mechanics or Sleight of Hand against the lock (DC 15 with lockpicks; manacles too), STR DC 20 to tear out a window bar with help from outside, or Deception on the deputy. Jailbreak is a crime that raises Wanted.",
+      "bail": "A justice of the peace can set bail for anything short of murder: $50-$500, paid in cash or by a sponsor with property."
+    },
+    "courts_and_juries": {
+      "inquest": "After a death by violence, the justice of the peace holds a coroner's inquest, usually the next day, in the saloon or the hotel dining room: witnesses say what they saw, and six men decide whether it was self-defense, accident or murder. A fair fight with honest witnesses is usually found self-defense (showdowns.a_fair_fight).",
+      "trial": "A trial waits for the circuit judge. The prosecutor is the county attorney; the defendant hires a lawyer if he can ($25-$100 for a trial). The jury is twelve men of the county (in the Wyoming Territory, from 1870, women served on juries for a time), and juries follow local sympathy as much as evidence. Persuasion, Deception and Insight checks by witnesses and counsel; a character's Reputation in the county gives advantage or disadvantage.",
+      "verdicts": "Acquittal clears the charge. A conviction for a lesser crime means a fine or months in the territorial prison. Murder, and in some territories horse theft and train robbery, can mean hanging."
+    },
+    "hanging": {
+      "legal": "A legal execution follows a trial, a sentence and an appeal or a refusal of clemency by the territorial governor: weeks or months later, a scaffold, a sheriff, a preacher and a crowd. It is the law's gravest act, and the GM should treat it with that weight.",
+      "lynching": "Lynching is murder. A lynch mob (adversaries.json) takes a prisoner from the law, or a man from his home, and kills him without trial, often on a lie and always to someone's profit. In this book it is never justice, never deserved and never played for spectacle. A lynching is a crime the characters can prevent, investigate or answer for; those who take part in one are murderers, and their town knows it in the morning.",
+      "vigilance_committees": "Self-appointed committees that call themselves law (adversaries.json Vigilante) are criminal conspiracies in law, whatever they call themselves and whoever pays them. The cattlemen's association \"dead list\", the committee's \"warning\", the company's \"regulators\" are threats of murder."
+    },
+    "posses": "A sheriff or marshal can call any able-bodied man to ride in a posse, and refusing is a misdemeanor in some places. A posse is 4-12 riders (Deputy statistics), most of whom want to be home by supper; it rides hard for a day, and after that half of it goes home each day unless a reward keeps it out. A Lawman's The Star raises a posse.",
+    "when_the_players_are_the_law": "Characters who wear stars have the authority the_officers gives them and the duties that come with it: they must bring prisoners to the judge, protect them from mobs, and answer to the county or the court. A Lawman who bends the law costs Reputation when it comes out; one who keeps it under pressure earns it."
+  }
+}

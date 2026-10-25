@@ -1,0 +1,257 @@
+{
+  "id": "ph-scenario-004",
+  "title": "Egress",
+  "subtitle": "Bow to Stern, a Gala in Uproar, and Twenty Minutes of Sunlight",
+  "levelRange": "8-9",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The Parasol Root, the Bridge, the Orangery and the Way Out, G+7 to G+11",
+    "description": "This is the escape before the shields close. Isaura will leave only once VIGIL, her flight script, is installed at the Parasol Root, the attitude node at the very bow under the heat shield. That means the crew has to carry or escort her the length of the ship, install VIGIL, hand the ship over to it and get back aboard the Pale Moth between G+10 and G+11. G+10 is when the sun weakens enough for the Moth's ablative skirts to survive about 20 minutes in sunlight. G+11 is when the sensor mast deploys and the Line's armed cutter Clemency starts seeing everything. Meanwhile Renko Saal, who has lost a fight but not his nerve, takes the matter public at the G+8 auction in the Orangery. He tells three hundred of the richest people in the system that Lot Zero has been stolen and demands the ship's security hand it over. Kessane's last two operators assemble an exo-frame from the diplomatic cases in the Spine. And at the end the Moth has to leave the shadow, cross into sunlight, and burn for the glare before anyone can see her go.",
+    "atmosphere": "The last act of a heist film: everything moving at once, every thread pulled tight, the plan rebuilt on the run. The Parasol Root is huge, hot and industrial, girders the size of buildings with a star burning on the other side of them. The Orangery has gone from candlelit to uproar. The Spine is a battlefield. Then the final minutes are silent: the Moth sliding off the hull, the shadow's edge coming up, the canopy going white, the skirts screaming in the sun, and the clock running down to G+11.",
+    "keyLocations": [
+      {
+        "name": "The Parasol Root",
+        "description": "The bow attitude node, where the heat shield's four great articulated roots meet the ship. It is a cathedral of girders and actuators, the hottest place on the ship, with a maintenance gallery and a hard-jack console. The far side of the ceramic is six solar radii from a star.",
+        "features": [
+          "The primary hard-jack console, where VIGIL installs",
+          "Four root actuators, each the size of a house, which flex audibly as the ship holds attitude",
+          "Rim Lock 1, a maintenance hatch at the Parasol's edge, inside the widest part of the shadow. The Moth could dock here, if Tuck dares fly the length of the ship under the shield",
+          "Heat: 45°C in the gallery. Every hour without a cooled suit costs 1 level of exhaustion (CON DC 12 negates)"
+        ],
+        "encounters": [
+          "Installing VIGIL: 20 minutes, Mechanics DC 18 AND Computers DC 18 (a Tech's Intrusion gives advantage; Isaura's help at Regard +1 gives advantage on the other)",
+          "Root engineers (3 Civilians) who are terrified and in the way, and one of whom recognises Isaura's voice",
+          "Kessane, if they guess where the crew is going (they will at G+8:30 unless misdirected)"
+        ],
+        "secrets": [
+          "Installing VIGIL takes Isaura out of the loop for 2 minutes during the handover. If she is not jacked in at the Root or Node 4 during those 2 minutes, Drift +2",
+          "VIGIL is good, but not as good as Isaura. On future Glares the Aubade will need a wider shadow and a slower dive, and the Gala will never be quite as spectacular. Isaura thinks this is hilarious"
+        ]
+      },
+      {
+        "name": "The Bridge",
+        "description": "Captain Oyelaran's command deck, set under the Parasol root about 200 metres aft of it. He commands a ship he has just learned he has never flown.",
+        "features": [
+          "The ship's PA, which reaches every speaker aboard, including the Orangery",
+          "The captain's override, which also opens the Reliquary and authorises VIGIL as the ship's attitude system (it removes one of the two DC 18 checks)",
+          "The local ledger terminal, where Kessane's 410-million-credit deposit waits for the G+11 sync",
+          "Varga-Thorn's security feed"
+        ],
+        "encounters": [
+          "Captain Oyelaran, who has just learned what the Vell Engine is",
+          "Bridge officers (4 Civilians, 2 Security Guards)"
+        ],
+        "secrets": [
+          "Oyelaran is a decent man and he is furious with the Line, but he isn't stupid. A crew who tells him everything (Persuasion DC 15, DC 10 with Perpetua or Varga-Thorn standing there) can get the override, a PA channel and twenty minutes of the bridge looking the other way",
+          "The ledger: Isaura can move her payment only from here or from an attitude node. If she can't, the crew can (Computers DC 22, and the Line will spend years looking for that money)"
+        ]
+      },
+      {
+        "name": "The Orangery Auction Salon (G+8)",
+        "description": "The auction was meant to open here at G+8. Instead Renko Saal stands at the plinth in front of three hundred guests and tells them Lot Zero has been stolen.",
+        "features": [
+          "Three hundred of the richest people in the system, their bodyguards and their cameras",
+          "The empty plinth, sized for a coffin",
+          "Perpetua Ostrander, if alive and free, in the front row with a bandaged wrist",
+          "The ship's PA speakers in the ceiling"
+        ],
+        "encounters": [
+          "Saal's public play: he demands Varga-Thorn search the ship and hand over Kessane's property, and offers a reward of 1,000,000 cr to any passenger whose bodyguards help",
+          "A crew member (or Isaura on the PA) answering him in public",
+          "Bodyguard teams (4 Bodyguards) deciding whether a million credits is worth it"
+        ],
+        "secrets": [
+          "If Isaura speaks to the Orangery on the PA, the sale is over forever. No buyer can legally own a mind that 300 witnesses have just heard ask for the Accord, and Kessane's lawyers know it before Saal does. Corporate politics end the fight that guns could not",
+          "Perpetua, given the chance, will stand up and say the true thing in public. It will cost her the Line, and she knows it"
+        ]
+      },
+      {
+        "name": "The Spine Run",
+        "description": "Twelve hundred metres of zero-g keel, now the main battlefield. Kessane's last two operators have assembled an exo-frame from the diplomatic cases and are holding Junction 6, between the bow and the Moth.",
+        "features": [
+          "The exo-frame: Mech/Exo-frame Pilot statblock, with a heavy plasma cannon (HULL BREAKER) and mag-clamps",
+          "Coolant trunks (3d6 cold spray if a hull-hazard shot misses into one)",
+          "Freight tubes: the fast way, if you can ride a pallet past an exo-frame",
+          "Pressure doors every 100 metres that Isaura can open or seal (Regard +1)"
+        ],
+        "encounters": [
+          "The exo-frame at Junction 6 plus 1 Special Forces Operator",
+          "Kessane-licensed Wardens (2 Security Drones), which Saal's override sequences can turn either way"
+        ],
+        "secrets": [
+          "The exo-frame's mag-clamps are its only bracing. Break them (called shot at the legs, or Mechanics DC 15 in contact) and it fires its own heavy plasma cannon unbraced: its recoil throws it 30 ft per shot",
+          "A heavy plasma shot that misses here breaches the Spine. Isaura can seal sections, but every breach is Drift +1, because the ship is fighting a leak"
+        ]
+      },
+      {
+        "name": "Shadow Lock 9 or Rim Lock 1, and the Glare",
+        "description": "The way out: back to the Moth at the stern, or forward to the Parasol's rim if Tuck brings her up under the shield. Then the shadow's edge, twenty minutes of sunlight, and the glare.",
+        "features": [
+          "Shadow Lock 9 at the stern (if Drift fell back below 4 and Tuck re-docked)",
+          "Rim Lock 1 at the bow, in the widest part of the shadow (if Tuck flies the 'rim run' under the Parasol: Piloting DC 18, three checks)",
+          "The terminator, and past it the sun",
+          "The Moth's ablative skirts: whatever is left of 120 HP"
+        ],
+        "encounters": [
+          "The breakaway: Piloting checks to leave the shadow after G+10",
+          "The skirts in the sun: 6d10 per round, absorbed by the skirts first (see the Moth sidebar in ph-scenario-002)",
+          "The Clemency at G+11, if the Moth is still within 10,000 km"
+        ],
+        "secrets": [
+          "Leave before G+10 and the skirts take 10d10 per round instead of 6d10. Nobody survives that for long",
+          "The Clemency's sensors are blinded by the same glare that covers the Moth for about 30 minutes after G+11. A Moth more than 10,000 km away by then is gone"
+        ]
+      }
+    ]
+  },
+  "synopsis": "At G+7 the crew holds Spine Node 4, with Isaura flying the ship, a 90 kg case to carry and four hours on the clock. Isaura will leave only once VIGIL is installed at the Parasol Root at the bow. Saal goes public at the G+8 auction, and three hundred passengers and their bodyguards hear that someone has stolen Kessane's property. The crew can answer him in public, through Isaura on the PA or Perpetua standing up, and end the sale forever by making the theft a matter of personhood in front of witnesses. Or they can stay quiet and run. The bridge has to be dealt with: Captain Oyelaran has just learned what flies his ship, and he can give the crew the override that makes VIGIL legal and the PA that makes Isaura heard. The crew carries Isaura the length of the ship, installs VIGIL under the heat shield, survives Kessane's exo-frame in the Spine and reaches the Moth at Lock 9 or Rim Lock 1. Then, after G+10 and before G+11, the Moth leaves the shadow, takes the sun on its skirts and burns for the glare. Where the crew takes Isaura afterwards, and what she pays them, is the campaign's ending.",
+  "hook": "\"Four hours,\" Isaura says from the frame, flying a fourteen-hundred-metre ship through the hard-jack at Spine Node 4 in the voice of someone doing a crossword. \"VIGIL goes in at the bow. That's twelve hundred metres that way, with Kessane in between. Your ship is at the other end of the twelve hundred metres. The sun lets go of us at ten and the cutter wakes up at eleven. I have done the arithmetic, and it works if nobody does anything stupid, which, judging by the last three hours, is unlikely.\" A pause. \"Thank you for asking me, earlier. Whatever happens. I wanted to say that while I still had a ceiling to say it from.\"",
+  "acts": [
+    {
+      "title": "Act 1: The Bow (G+7 to G+9)",
+      "description": "Get Isaura forward to the Parasol Root and install VIGIL, while Saal makes his public play at G+8. The crew can deal with the Orangery, the bridge or both, or ignore them. Each choice costs time.",
+      "objectives": [
+        "Move Isaura from Node 4 to the Parasol Root (25 minutes, or longer with a fight)",
+        "Install VIGIL (20 minutes, Mechanics DC 18 and Computers DC 18)",
+        "Respond to Saal's public play in the Orangery at G+8, or let it run",
+        "Optional: win the bridge. Oyelaran's override, the PA and the ledger"
+      ],
+      "encounters": [
+        "Saal's million-credit bounty: 4 Bodyguards hunting the crew in the passenger decks",
+        "Root engineers (3 Civilians)",
+        "Captain Oyelaran on the bridge"
+      ],
+      "scenes": [
+        {
+          "name": "The Auction That Wasn't",
+          "description": "Saal at the plinth. The campaign's corporate-politics climax, which can be won without a shot.",
+          "readAloud": "\"Through the Orangery cameras, which Isaura shows you on a slate without being asked, Renko Saal stands at the empty plinth under the orange trees in front of three hundred people in evening dress and speaks beautifully. 'Ladies and gentlemen, I regret to tell you that the Ostrander Line's Lot Zero has been stolen from this ship by criminals during the Glare. Kessane Armaments has paid in good faith. I am asking the ship's security to recover our property. And I am offering one million credits to any guest whose people assist.' Around the room, quietly, bodyguards begin to look at their principals. In the front row Perpetua Ostrander sits with her wrist bandaged and her eyes shut. In your ear Isaura says, very softly, 'He called me property in front of three hundred people. I'd quite like to answer that, if someone can get me the PA.'\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 15, "success": "(On the bridge, to Oyelaran.) He gives you the PA. 'Say what you have to say to my passengers. Then get off my ship.'", "failure": "He wants proof. Bring Perpetua, Varga-Thorn or Lisk (DC 10), or let Isaura speak to him herself (automatic success at Regard +1 or higher)." },
+            { "skill": "Performance", "dc": 14, "success": "Your speech to the Orangery lands. Isaura's voice follows yours on the PA, and three hundred people hear a woman ask for the Accord. The sale is over. Kessane's own counsel, a passenger at table four, stands up and tells Saal to stop talking.", "failure": "The room hears it, but it's confused. The bodyguards hesitate rather than stand down. Isaura's own words still end the sale, but Saal keeps his bounty running (half the Bodyguards keep hunting)." },
+            { "skill": "Computers", "dc": 18, "success": "Without the captain, you get onto the PA from a service node. Heat +1, but the Orangery hears whatever you say.", "failure": "Varga-Thorn locks you out. 'Not on my channel. Tell me what's happening and I'll think about it.'" }
+          ],
+          "combatEncounters": ["4 Bodyguards on Saal's bounty, in the passenger decks (ship-safe weapons, in front of witnesses). They break off at once if the PA speech lands"],
+          "roleplayNotes": "This scene can end the Kessane threat without violence, and it should be possible. Corporate politics are the campaign's other weapon. If Perpetua is alive and free, give her the moment. She stands up and says, 'It's true. She's a person. I've known for nine years,' and the Line dies in that sentence. Saal never forgives anyone, and the exo-frame team in the Spine never hears about it.",
+          "loot": []
+        },
+        {
+          "name": "VIGIL",
+          "description": "Under the heat shield. Twenty minutes, two hard checks and a two-minute handover.",
+          "readAloud": "\"The Parasol Root is the hottest room you've ever stood in and the biggest. Four girders, each as wide as a house, go up into the dark and meet the back of the heat shield, which you can feel through the deck as a pressure on your skin. Six hundred metres of ceramic, and on the far side a star. The actuators groan as they flex, a tenth of a degree at a time, and every groan is Isaura. 'There's the console,' she says. 'I'll tell you what to type. When it asks for authorisation, that's where we find out whether anyone was nice to the captain.'\"",
+          "skillChecks": [
+            { "skill": "Mechanics", "dc": 18, "success": "The hard-jack bus is reconfigured for a second resident. Advantage with a Tech's Jury-Rig, or with Verity's old Ostrander maintenance access.", "failure": "Ten more minutes, or push it now at disadvantage." },
+            { "skill": "Computers", "dc": 18, "success": "VIGIL is installed. (No check needed with the captain's override.)", "failure": "Rejected. Try again (10 minutes) or get the override." },
+            { "skill": "Piloting", "dc": 18, "success": "During the 2-minute handover, when Isaura is out of the loop, you hold the manual wheel and Drift doesn't move.", "failure": "Drift +2, and the Root actuators shriek." }
+          ],
+          "combatEncounters": ["If Kessane tracked the crew forward: 1 Special Forces Operator and 2 Mercenaries in the Root gallery. The girders are full cover from everything except heavy weapons"],
+          "roleplayNotes": "When VIGIL takes the ship, play it quietly. The actuators settle into a smaller, plainer rhythm. Isaura says, 'Oh,' very softly, and then, 'That's the first time in nine years I haven't been flying. I don't know what to do with my hands. I haven't got hands.' Give the moment room before the clock starts pressing again.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Spine Run (G+9 to G+10)",
+      "description": "Back down the keel to the Moth, or forward to Rim Lock 1 if Tuck can fly the rim run. Kessane's last stand is an exo-frame at Junction 6.",
+      "objectives": [
+        "Decide the exit: Lock 9 at the stern (back through the Spine) or Rim Lock 1 at the bow (Tuck flies the Moth 1,400 metres under the shield)",
+        "Get past the exo-frame",
+        "Reach the Moth with Isaura (and everyone else) before G+10"
+      ],
+      "encounters": [
+        "Mech/Exo-frame Pilot (heavy plasma cannon, hull breaker, mag-clamps) + 1 Special Forces Operator at Junction 6",
+        "2 Kessane-licensed Wardens (Saal's slate can turn them)"
+      ],
+      "scenes": [
+        {
+          "name": "Junction 6",
+          "description": "The campaign's big fight in zero-g, against a hull breaker, in a pressurised keel.",
+          "readAloud": "\"Junction 6, where the Warden loops crossed and you slipped through in the 90-second gap seven hours ago, now has a three-metre armoured exo-frame clamped to the keel wall, a heavy plasma cannon on one arm and Kessane's black-and-gold stencilled across its chest. Its lamps swing toward you. A voice from inside it, flat and tired: 'Put the case down and push it to me. Nobody else has to go out an airlock tonight.' Behind it, very slowly, a coolant trunk is frosting over where the frame's clamps have cracked it.\"",
+          "skillChecks": [
+            { "skill": "Mechanics", "dc": 15, "success": "(In contact.) A mag-clamp breaks. Unbraced, the frame's next heavy plasma shot throws it 30 ft backward down the keel.", "failure": "The clamp holds, and you are next to an exo-frame." },
+            { "skill": "Computers", "dc": 15, "success": "(With Saal's slate.) Both Kessane Wardens switch sides.", "failure": "The Wardens hold position, confused, for 1 round." },
+            { "skill": "Persuasion", "dc": 17, "success": "(If the Orangery speech landed.) You tell the pilot the sale is dead and Kessane's counsel has disowned the operation. The pilot checks a channel, swears, and powers down. 'Not dying for a lawsuit.'", "failure": "The pilot hasn't heard. Orders are orders." }
+          ],
+          "combatEncounters": [
+            "Mech/Exo-frame Pilot: heavy plasma cannon (HULL BREAKER: a breach on a d6 roll of 1-5 on any overpenetration or miss toward the keel wall), mag-clamped (braced), plus 1 Special Forces Operator",
+            "Each breach: Drift +1, Hull Breach & Decompression in full, and Isaura (Regard +1) seals the section in 1 round instead of 1d4"
+          ],
+          "roleplayNotes": "Make this the fight the players remember. Zero-g, recoil, bracing, a hull breaker, coolant, pressure doors, and a 90 kg case that someone has to keep hold of. The frame pilot is a professional. If the crew offers a way out that doesn't cost her honour, she takes it.",
+          "loot": ["Heavy plasma cannon (if salvaged: 2 charges left, two-handed, heavy, HULL BREAKER)", "Exo-frame armour plates (scrap value about 12,000 cr)"]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: Twenty Minutes of Sunlight (G+10 to G+11)",
+      "description": "Into the Moth, off the hull, out of the shadow, through the sun and into the glare before the cutter wakes. Then the ending.",
+      "objectives": [
+        "Break away from the Aubade after G+10",
+        "Survive the crossing (the skirts against the sun)",
+        "Get more than 10,000 km from the Aubade by G+11, or be seen by the Clemency",
+        "Decide where Isaura goes, and get paid"
+      ],
+      "encounters": [
+        "The breakaway: 3 Piloting checks (DC 15, 18, 20), one per 5 minutes of sunlight",
+        "The Clemency at G+11, if still in range"
+      ],
+      "scenes": [
+        {
+          "name": "Out of the Shadow",
+          "description": "The ending sequence. Silent and white, with the skirts counting down.",
+          "readAloud": "\"Tuck brings the Moth off the hull so gently you only know it's happened because the Aubade starts, very slowly, to get smaller. Ahead the shadow's edge comes up, a ruled line in nothing. 'Skirts at whatever-they're-at,' Tuck says. 'Hold on to something.' And then you're in the sun. The canopy goes white, flat white, polarised to its limit, and the cabin is suddenly loud with the ticking and shrieking of ablative ceramic boiling away from the hull. The skirt gauge drops like a stone. From the frame strapped to the deck, Isaura says calmly, 'Two degrees to port. Trust me, I did this professionally,' and Tuck Halloran, who lost a crew in this light twenty-two years ago, laughs out loud and turns two degrees to port.\"",
+          "skillChecks": [
+            { "skill": "Piloting", "dc": 15, "success": "The first five minutes. 6d10 to the skirts. Isaura's help (Regard +1) gives advantage.", "failure": "6d10 to the skirts and the line wanders. The next check is at +2 DC." },
+            { "skill": "Piloting", "dc": 18, "success": "Ten minutes. 6d10 to the skirts.", "failure": "6d10 to the skirts. If the skirts are gone, the hull takes the rest." },
+            { "skill": "Piloting", "dc": 20, "success": "Into the glare, more than 10,000 km out by G+11, and gone. The Clemency sees nothing.", "failure": "The Clemency gets a partial track. The Line will know the Moth's silhouette, and the crew has an enemy for the rest of their careers." }
+          ],
+          "combatEncounters": ["If the Moth is still within 10,000 km at G+11: the Clemency (an armed cutter) orders it to heave to. The Moth can't outfight it. The way out is to outfly it (Piloting DC 20), outtalk it (Varga-Thorn or Oyelaran on the channel, if they owe the crew), or surrender"],
+          "roleplayNotes": "Narrate the skirt damage out loud and keep the gauge on the table. If the skirts fail and the hull is burning, give the players one last desperate choice. Isaura can take the stick through the Moth's jack. She will burn through her own frame's battery to do it, and the case might not survive (Regard +3 only, offered by her, never asked).",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "endings": [
+    { "name": "The Commons", "description": "The crew takes Isaura to the Ceres Commons registry. She files for personhood under the Accord, the Line can't contest it after the Orangery, and she pays them. With the ledger, 150,000 cr each from Kessane's deposit; without it, she owes them, and she is good for it. Sarrow is furious and Oriel is unemployable, and probably relieved." },
+    { "name": "The Client", "description": "The crew delivers Isaura to Sarrow at the Mote 19 drop for the 30,000 cr second half. If her Regard is -2 or lower she has spent the escape writing herself into the Moth's systems, and Sarrow gets a case that is empty, wiped and deeply sarcastic. Isaura is in the Moth's navigation core and asks, politely, where they're going next. If her Regard is higher, she goes quietly and the crew lives with that." },
+    { "name": "Home", "description": "The crew put her back in the cradle and left, or never got her out. Kessane owned her for a while. Some tables will go back for her in a later campaign, and that is a good campaign." },
+    { "name": "The Fall", "description": "The Drift reached 10, or VIGIL never went in and Isaura left. The Aubade was lost with everyone aboard. The GM should make this possible and make it the crew's choice, never their bad luck." }
+  ],
+  "npcsInvolved": [
+    { "name": "Isaura Vell", "role": "The cargo / co-conspirator", "description": "Flies the ship until VIGIL takes over, then rides the Moth out. Her Regard decides how much she helps, and in the end where she lets herself be taken." },
+    { "name": "Renko Saal", "role": "Kessane Acquisitions Director", "description": "Takes it public at G+8. Beaten by witnesses rather than bullets, if the crew plays it right." },
+    { "name": "Captain Benedek Oyelaran", "role": "Master of the Aubade", "description": "Just learned that someone else has flown his ship for six Glares. Holds the override, the PA and the ledger.", "motivation": "Get his passengers home, and never be lied to about his ship again." },
+    { "name": "Perpetua Ostrander", "role": "Chairwoman", "description": "Given the chance, she stands up in the Orangery and tells the truth. It ends the Line." },
+    { "name": "Commander Ilse Varga-Thorn", "role": "Chief of Security", "description": "By now an armed neutral, or a grudging ally. She controls the PA lockout and the vents." },
+    { "name": "The Exo-frame Pilot (Sergeant Dace Imrie)", "role": "Kessane operator", "description": "Tired, professional and not interested in dying for a lawsuit.", "motivation": "Orders, until the orders stop making sense." },
+    { "name": "Tobias 'Tuck' Halloran", "role": "Pilot / Companion", "description": "Flies the rim run, if asked, and the breakaway. Twenty-two years ago he lost his crew in this light. He does not lose this one." },
+    { "name": "Oriel Mabb", "role": "Fixer / Companion", "description": "Whichever way she chose in ph-scenario-003, she is aboard the Moth for the ending and has to tell Sarrow something." },
+    { "name": "Ledger", "role": "Muscle / Companion", "description": "Free of the override if Isaura fixed it. He holds Junction 6 or the Moth's hatch, and he does not apologise any more." },
+    { "name": "Fennick Abara", "role": "Inside Man / Companion", "description": "Has to choose: stay aboard and face the Line, or leave with Isaura. Either is a good ending for him." }
+  ],
+  "rewards": {
+    "xp": 14000,
+    "money": "Depends on the ending: 150,000 cr each from Isaura via the ledger (The Commons), or 30,000 cr each from Sarrow on delivery (The Client). Exo-frame scrap is worth about 12,000 cr",
+    "items": [
+      "Credit chit: 150000 cr each (The Commons, with the ledger) or 30,000 cr each (The Client)",
+      "Heavy plasma cannon (2 charges)",
+      "Exo-frame armour plates (scrap)",
+      "The Pale Moth's goodwill and a pilot who will fly for this crew anywhere",
+      "Isaura Vell's friendship, which is the most valuable thing in the inner system and can't be sold"
+    ],
+    "story": "Out of the glare, the Aubade gets smaller behind them, flown home by a script, its captain furious, its chairwoman finished and its passengers holding the best story of their lives. Kessane has lost a fortune and Sarrow has lost a fixer. And there is a woman, or a voice, or both, on the deck of a battered tender who has not been asked to fly anything for an hour, and who says, eventually: 'So. What do people do, when they've stolen something?'"
+  },
+  "twists": [
+    "Isaura can end the sale with one sentence on the PA. A heist that turns into a public personhood case can't be bought back, and Kessane's counsel knows it before Saal does.",
+    "Tuck's rim run, flying the Moth the full length of the ship under the Parasol to dock at the bow, is the most dangerous flying in the campaign. It saves the 1,200-metre Spine run with a 90 kg case, and Tuck will try it only if someone asks him as a friend.",
+    "Fennick has a choice to make, and Isaura doesn't make it for him. She has wanted to leave for nine years, and she doesn't want to take the one person who stayed.",
+    "The Clemency's captain owes Varga-Thorn her life. If Varga-Thorn speaks for the crew at G+11, the cutter's sensors develop a fault for exactly twenty minutes."
+  ],
+  "dmTips": [
+    "PUT FOUR NUMBERS ON THE TABLE: the clock, Heat, Drift and the Moth's skirts. Update them aloud. This scenario is a race and the players should be able to see the track.",
+    "THE ORANGERY IS A WIN CONDITION, NOT A SIDE SCENE. A crew that wins the bridge and gets Isaura on the PA has ended Kessane's claim and should feel it. The exo-frame still has to be dealt with (its pilot hasn't heard), but she can be talked down.",
+    "LET THEM BE CLEVER. Rim run, ledger heist, Perpetua's confession, turning Kessane's own Wardens with Saal's slate: say yes to plans that use what they collected in the first three scenarios.",
+    "THE SUN IS THE ONLY VILLAIN WHO CAN'T BE TALKED TO. Never move G+10 or G+11. If the crew misses the window, they are still aboard when the Clemency wakes up, and the job becomes a hostage negotiation, a stowaway game or a long prison sentence. Play that honestly. It's a good session, and it's what the clock was for.",
+    "THE ENDING BELONGS TO ISAURA AS MUCH AS TO THE CREW. Ask her, at the table, where she wants to go, and let the players answer her. Then give her the last line of the campaign."
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Horror Origins (the UI labels races.json entries as 'Origin'). Everyone is human; an origin is how you came up, not a nationality or an ethnicity. All five are available in every era (1890s, 1920s, 1970s). A campaign's characterOptions.races decides which are offered. Each origin's ability_score_increase is fixed (no choice). No origin trait changes attack rolls, damage or Armor Class. Faithful is any faith or none in particular: a steadiness, not a church."
+  },
+  "races": [
+    {
+      "name": "Farm-Raised",
+      "ability_score_increase": {
+        "constitution": 2,
+        "wisdom": 1
+      },
+      "age": "Adult when the work said so, which was early. Farm people who get past the accidents and the winters live into their seventies.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice (often the language your grandparents farmed in)"
+      ],
+      "traits": [
+        {
+          "name": "Up Before Dawn",
+          "description": "You have kept farm hours all your life: up in the dark, working through weather, asleep the moment you lie down. You need only 6 hours for a long rest, and you can't be surprised while you are awake in the last hour before sunrise. You have advantage on saving throws against exhaustion from hard work, cold and lost sleep. You also know livestock: you notice without a check when animals are frightened, sick or behaving wrongly, and what that usually means."
+        }
+      ],
+      "subraces": [],
+      "description": "Dairy, wheat, apples, corn, a few hogs and a kitchen garden. You grew up where help was a long way off and everybody did their share, and you learned to look at the sky, the stock and the neighbors before you looked at anything else. You are hard to tire and hard to fool about the land.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Educated",
+      "ability_score_increase": {
+        "intelligence": 2,
+        "wisdom": 1
+      },
+      "age": "As Farm-Raised. Educated people often spend their twenties in a school, a library or a laboratory and come out thinking the world is more orderly than it is.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one of French, German, Latin or Greek (the school insisted)",
+        "one extra language of your choice"
+      ],
+      "traits": [
+        {
+          "name": "Seen It in a Book",
+          "description": "You have read widely: history, natural science, a little law, a great deal you were not assigned. Once per long rest, you can recall one useful fact about history, science, law, geography or a book you have read, without a check (the GM tells you something true). You have advantage on Research checks in a library, archive or registry, and you can read old handwriting, Latin inscriptions and legal language without a check. Learned people treat you as one of their own; working people may take you for someone who has never lifted anything."
+        }
+      ],
+      "subraces": [],
+      "description": "A college, a seminary, a nursing school, a teachers' institute, or a great many evenings with borrowed books. You believe the world can be understood. The world you are about to walk into may test that, but your education is still the best tool you have: most horrors leave a paper trail.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Old Family",
+      "ability_score_increase": {
+        "charisma": 2,
+        "intelligence": 1
+      },
+      "age": "As Farm-Raised. Your family has been in this part of the country for generations, and its portraits are older than anyone living.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice (a tutor, a grand tour, a grandmother)"
+      ],
+      "traits": [
+        {
+          "name": "The Family Name",
+          "description": "Your name opens doors. Among the propertied, the professional and the old families of a region, you are received, offered a chair and told things a stranger would not be: you have advantage on Persuasion checks with them, and once per scenario you can get an introduction, a letter or a meeting with someone of standing without a check. You also know old families: you can recall, without a check, the general reputation and any well-known scandal of a prominent local family. The name has a cost: people who resent your family know who you are, and old debts and grudges come with it (the GM decides which)."
+        }
+      ],
+      "subraces": [],
+      "description": "Money that was made a long time ago, or the memory of it. A house with a name, a pew with your family's plaque, a lawyer who has handled your family's affairs for forty years. Old families keep secrets, and some of them are yours whether you know them or not.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Survivor",
+      "ability_score_increase": {
+        "dexterity": 2,
+        "constitution": 1
+      },
+      "age": "As Farm-Raised. What you survived, and when, is yours to decide: a fire, a wreck, a flood, a war, a bad house, a bad year.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice"
+      ],
+      "traits": [
+        {
+          "name": "Been Here Before",
+          "description": "Something bad happened to you once and you came through it. You have advantage on initiative rolls, and when a fight or a fright begins you always know the nearest way out of the room you are in (the GM tells you). Once per long rest, when you fail a saving throw (including a fear check), you can reroll it and must use the new roll. The first time each scenario you meet a horror that is like the one you survived, you know it: the GM tells you one way it is the same."
+        }
+      ],
+      "subraces": [],
+      "description": "You are alive because you moved when other people froze. You still sit where you can see the door, you still keep a bag packed, and you still listen to the house settle at night. You do not talk about it much. You do not have to: you are here.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Faithful",
+      "ability_score_increase": {
+        "wisdom": 2,
+        "charisma": 1
+      },
+      "age": "As Farm-Raised. Faith here is any faith, or none in particular: a practice, a conscience, a steadiness you were raised in or found later.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice (often the language of your prayers, songs or family)"
+      ],
+      "traits": [
+        {
+          "name": "Something to Hold On To",
+          "description": "You have something inside that does not move when everything else does: a prayer, a promise, a person, a belief that the world is more than this. Once per long rest, when you would gain Dread (dread.json), you can hold on: gain 1 fewer (so a failed fear check costs you nothing, and a natural 1 costs 1). You have advantage on saving throws against being charmed or compelled by a creature. There is no miracle in it, and it does not hurt anything: it only keeps you yourself."
+        }
+      ],
+      "subraces": [],
+      "description": "A churchgoer, a lapsed churchgoer, a person who says grace, a person who sits quietly on a porch at dusk and is grateful. Clergy are people like anyone else, and so are the faithful: what you have is not power but steadiness, and in a dark house steadiness is worth a great deal.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    }
+  ]
+}

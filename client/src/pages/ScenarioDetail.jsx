@@ -174,6 +174,7 @@ function ScenarioDetail() {
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', fontSize: '0.9em' }}>
             {scenario.rewards.xp > 0 && <div><strong>XP:</strong> {scenario.rewards.xp}</div>}
             {scenario.rewards.gold && <div><strong>Gold:</strong> {scenario.rewards.gold}</div>}
+            {scenario.rewards.money && <div><strong>Money:</strong> {scenario.rewards.money}</div>}
           </div>
           {scenario.rewards.items?.length > 0 && (
             <div style={{ marginTop: '0.3rem' }}>{scenario.rewards.items.map((it, i) => <span key={i} className="tag">{it}</span>)}</div>
@@ -185,7 +186,7 @@ function ScenarioDetail() {
       {/* Twists */}
       {scenario.twists?.length > 0 && (
         <div className="detail-section">
-          <h3>Plot Twists (DM Eyes Only)</h3>
+          <h3>Plot Twists (GM Eyes Only)</h3>
           {scenario.twists.map((t, i) => (
             <div key={i} style={{ fontSize: '0.9em', marginBottom: '0.3rem', paddingLeft: '0.5rem', borderLeft: '2px solid var(--accent)' }}>{t}</div>
           ))}
@@ -195,7 +196,7 @@ function ScenarioDetail() {
       {/* DM Tips */}
       {scenario.dmTips?.length > 0 && (
         <div className="detail-section">
-          <h3>DM Tips</h3>
+          <h3>GM Tips</h3>
           <ul style={{ marginLeft: '1.2rem', fontSize: '0.9em' }}>
             {scenario.dmTips.map((tip, i) => <li key={i} style={{ marginBottom: '0.3rem' }}>{tip}</li>)}
           </ul>

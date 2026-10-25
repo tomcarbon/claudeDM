@@ -1,0 +1,723 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Gear for Horror campaigns in the 1890s, 1920s and 1970s, era-tagged; each item has one 'cost' string giving the period price, by era where it differs. Ammunition is recorded on character sheets as a counted equipment line named by the weapon's ammo_name in equipment.json, such as \".38 rounds (18)\", \".30 cartridges (20)\", \"Shotgun shells (10)\" or \"Arrows (20)\", and deducted shot by shot (combat.json ammunition); each ammo_name has a box here named \"<ammo_name> (N)\". Items with 'uses' are consumables, recorded with a count, e.g. \"Salt (1 lb) (2)\", \"Candle (6)\". The wards and rites items are ordinary objects: they matter only where a creature's rules say they do (dread.json rites_and_wards). Vehicle statistics are in combat.json vehicles. Medical items implement the no-magic healing rules in combat.json healing.",
+    "total_items": 60
+  },
+  "gear": [
+    {
+      "name": "Candle",
+      "category": "light",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.02 (1890s) / $0.05 (1920s) / $0.25 (1970s)",
+      "weight": "-",
+      "description": "A tallow or wax candle. Dim light in a 10-ft radius for 1 hour (dread.json light_and_dark). A draught, a fall or a breath puts it out. Record as \"Candle (6)\".",
+      "uses": 1
+    },
+    {
+      "name": "Lantern",
+      "category": "light",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $2.50 (1920s) / $10 (1970s)",
+      "weight": "3 lb.",
+      "description": "A tin kerosene lantern with a glass chimney. Bright light in a 30-ft radius and dim light 30 ft beyond for 6 hours on a pint of kerosene. Dropped or struck (AC 12), it breaks and spills burning oil in a 5-ft square (combat.json fire). Can be shuttered to a single beam, or to dark, as a free interaction."
+    },
+    {
+      "name": "Kerosene (pint)",
+      "category": "light",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.05 (1890s) / $0.10 (1920s) / $0.50 (1970s)",
+      "weight": "1 lb.",
+      "description": "A pint of lamp oil in a tin: one filling for a lantern (6 hours). Poured out and lit, it burns a 5-ft square for 1 minute; bottled with a rag, it is a Kerosene bottle (equipment.json). Record as \"Kerosene (pint) (2)\".",
+      "uses": 1
+    },
+    {
+      "name": "Flashlight",
+      "category": "light",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1.50 (1920s) / $5 (1970s)",
+      "weight": "1 lb.",
+      "description": "An electric hand light. In the 1970s: bright light in a 60-ft cone and dim light 60 ft beyond for 4 hours on a set of batteries. In the 1920s: dim light only in a 30-ft cone for 2 hours, and it flickers. Dropped, it rolls; it does not break on a 1-15 on a d20."
+    },
+    {
+      "name": "Batteries",
+      "category": "light",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.30 (1920s) / $1.50 (1970s)",
+      "weight": "-",
+      "description": "One set of dry cells for a flashlight (4 hours in the 1970s, 2 in the 1920s) or a portable radio or tape recorder (8 hours). Record as \"Batteries (2)\". Cold halves their life.",
+      "uses": 1
+    },
+    {
+      "name": "Matches (box)",
+      "category": "light",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.01 (1890s) / $0.05 (1920s) / $0.25 (1970s)",
+      "weight": "-",
+      "description": "Fifty strike-anywhere matches, or a book of paper matches in the 1970s. A struck match gives dim light in a 5-ft radius for one round. Striking one in wind, rain or with shaking hands (Dread 3 or higher) takes a DC 10 DEX check."
+    },
+    {
+      "name": "Salt (1 lb)",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.02 (1890s) / $0.05 (1920s) / $0.30 (1970s)",
+      "weight": "1 lb.",
+      "description": "Coarse kitchen or rock salt. A pound lays an unbroken line across one doorway or window, or a ring 10 ft across around one or two people. A line works only against a creature whose rules say salt bars it (dread.json rites_and_wards), and only while it is unbroken: a draught, a dog, a careless foot or a mop ends it. Record as \"Salt (1 lb) (2)\".",
+      "uses": 1
+    },
+    {
+      "name": "Iron nails (box)",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.05 (1890s) / $0.15 (1920s) / $1 (1970s)",
+      "weight": "2 lb.",
+      "description": "Fifty cut or forged iron nails. Driven into a door frame, a windowsill, a coffin lid or a grave, they are a ward against a creature whose rules say iron bars or binds it. A handful thrown at a spirit vulnerable to iron is an improvised ranged attack (1d4 piercing, iron)."
+    },
+    {
+      "name": "Chalk",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.01 (1890s) / $0.05 (1920s) / $0.25 (1970s)",
+      "weight": "-",
+      "description": "A stick of white chalk. Marks walls, floors and doors: a way out, a warning, a sign a creature's rules say it must respect, or a line to show whether something crossed it in the night."
+    },
+    {
+      "name": "Holy water (vial)",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.10 or a donation",
+      "weight": "-",
+      "description": "A vial of water blessed by a clergyman of some faith, or taken from a font. It is water. What it does depends entirely on the creature: if a creature's rules say blessed water harms or bars it, it does (a thrown vial is an improvised ranged attack, 2d6 damage to such a creature and nothing to anything else); otherwise it makes things wet. Record as \"Holy water (vial) (2)\".",
+      "uses": 1
+    },
+    {
+      "name": "Family Bible",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$2 (1890s) / $4 (1920s) / $15 (1970s)",
+      "weight": "3 lb.",
+      "description": "A heavy family Bible, or the holy book of another faith, with births, marriages and deaths written in the front by several generations. As a book it is a comfort (dread.json recovery). As a record it is often the best evidence of who was born, who married whom and who died when, sometimes better than the county's (Research)."
+    },
+    {
+      "name": "Rosary or prayer beads",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.25 (1890s) / $1 (1920s) / $5 (1970s)",
+      "weight": "-",
+      "description": "A string of beads for counting prayers, of whatever tradition the carrier keeps. Holding it and praying is a fitting way to recover Dread once per day (dread.json recovery). Against a creature it is only beads, unless that creature's own rules say otherwise."
+    },
+    {
+      "name": "Hand mirror",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.25 (1890s) / $1 (1920s) / $3 (1970s)",
+      "weight": "-",
+      "description": "A small glass mirror. Lets you look around a corner or behind you. Some things do not show in a mirror, some show as they really are, and some cannot bear to see themselves; a creature's rules say which."
+    },
+    {
+      "name": "Silver coin",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1",
+      "weight": "-",
+      "description": "A silver dollar or an old silver piece. Pressed against a creature vulnerable to silver it is an improvised melee attack (1d4 bludgeoning, silver); laid on a threshold or under a tongue it may matter, if a creature's rules say so. A jeweller or a smith can make it into silver tips or rounds in a day."
+    },
+    {
+      "name": "Silver tips (6)",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$5 (1890s) / $12 (1920s) / $40 (1970s)",
+      "weight": "-",
+      "description": "Six silver arrowheads or bolt points, made to order. Fitting them takes a short rest; record the tipped shafts separately, e.g. \"Arrows (14)\" and \"Silver-tipped arrows (6)\". A silver-tipped shaft counts as silver (combat.json fighting_the_supernatural). Recovered on a 1-3 on a d6 after a fight."
+    },
+    {
+      "name": "Silver rounds (6)",
+      "category": "wards and rites",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$6 (1890s) / $15 (1920s) / $50 (1970s)",
+      "weight": "-",
+      "description": "Six cartridges cast with silver bullets for one calibre, by a gunsmith who did not ask why. They fire as that calibre but count as silver; they are a little less accurate (no change on the sheet; the GM may call a miss on a natural 2). Record them separately from ordinary ammunition with the calibre named, e.g. \"Silver .38 rounds (6)\", and say which you load when you reload."
+    },
+    {
+      "name": "Rope (50 ft)",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.50 (1890s) / $1.50 (1920s) / $6 (1970s)",
+      "weight": "10 lb.",
+      "description": "Hemp rope (nylon in the 1970s). Holds 500 lb. Tie off before going down a well, a cliff or a cellar ladder; a party roped together in fog or a burning building can't be separated without someone choosing to cut it."
+    },
+    {
+      "name": "Crowbar",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.60 (1890s) / $6 (1970s)",
+      "weight": "5 lb.",
+      "description": "An iron pry bar. Advantage on STR checks to force a door, a shutter, a crate, a grave slab or a coffin lid. It is also a weapon (equipment.json Crowbar); write it in the weapons list if it is carried to fight with."
+    },
+    {
+      "name": "Shovel",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.75 (1890s) / $2 (1920s) / $8 (1970s)",
+      "weight": "5 lb.",
+      "description": "A spade. Digging a grave down to the coffin takes two people about two hours (one person four), less in sandy soil, more in clay or frozen ground. A swung shovel is an improvised weapon (1d4 bludgeoning; the blade is steel, not iron)."
+    },
+    {
+      "name": "Lock picks",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$3 (1890s) / $5 (1920s) / $15 (1970s)",
+      "weight": "-",
+      "description": "Picks and tension wrenches. Proficiency adds your proficiency bonus to Mechanics checks to pick locks. A house door lock is DC 12, a good safe-deposit or vault lock DC 18, an old crypt padlock DC 10 (and loud). Carrying them is a crime in most towns."
+    },
+    {
+      "name": "Tool kit",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$3 (1890s) / $8 (1920s) / $25 (1970s)",
+      "weight": "10 lb.",
+      "description": "Screwdrivers, wrenches, pliers, a hammer, wire, tape and fuses in a canvas roll or a metal box. Needed for most Mechanics checks to repair an engine, a generator, a radio, a telephone line or a lighthouse clockwork; proficiency adds your proficiency bonus to them."
+    },
+    {
+      "name": "Magnifying glass",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $2 (1920s) / $5 (1970s)",
+      "weight": "-",
+      "description": "A good lens. Advantage on Investigation checks to examine small things closely: handwriting, a stain, a scratch, a hair, an engraving worn nearly smooth. It can also light a fire in strong sun."
+    },
+    {
+      "name": "Field glasses",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$8 (1890s) / $15 (1920s) / $40 (1970s)",
+      "weight": "2 lb.",
+      "description": "Binoculars. Things far off are seen as if ten times nearer. Useless in the dark; a light in a far window or a figure on a dark field can still be picked out."
+    },
+    {
+      "name": "Notebook and pencil",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.10 (1890s) / $0.25 (1920s) / $1 (1970s)",
+      "weight": "-",
+      "description": "For dates, names, rubbings of gravestones and the rules you think the thing follows. Players whose characters write things down may ask the GM to repeat what they recorded."
+    },
+    {
+      "name": "Playing cards",
+      "category": "tools",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.10 (1890s) / $0.25 (1920s) / $1 (1970s)",
+      "weight": "-",
+      "description": "A deck of cards: solitaire on a long night, a game to keep the household calm, a fortune-teller's spread, or a stage medium's props. Proficiency adds your proficiency bonus to Sleight of Hand checks with them."
+    },
+    {
+      "name": "Box camera",
+      "category": "recording",
+      "eras": [
+        "1890s"
+      ],
+      "cost": "$5 (1890s)",
+      "weight": "3 lb.",
+      "description": "A wooden box camera with a roll of film for a dozen exposures, developed by mail or at a studio in a week, or in a day in a city. It needs daylight or flash powder (an action, a blinding flash in a 20-ft radius, and smoke). Some things show on a photograph that did not show to the eye; some things never show at all (a creature's rules say which)."
+    },
+    {
+      "name": "Folding camera",
+      "category": "recording",
+      "eras": [
+        "1920s"
+      ],
+      "cost": "$15 (1920s)",
+      "weight": "2 lb.",
+      "description": "A compact bellows camera with film for eight exposures; flashbulbs ($0.10 each) light a room for an instant. Developed at a drugstore in two or three days. As the box camera, photographs may show what the eye missed."
+    },
+    {
+      "name": "Instant camera",
+      "category": "recording",
+      "eras": [
+        "1970s"
+      ],
+      "cost": "$30 (1970s)",
+      "weight": "2 lb.",
+      "description": "A camera that develops its own prints in about a minute; a pack of film makes ten pictures ($5), and the flash cube lights four. A picture of an empty room that comes up with someone in it is the first fear check of a long night."
+    },
+    {
+      "name": "Tape recorder",
+      "category": "recording",
+      "eras": [
+        "1970s"
+      ],
+      "cost": "$40 (1970s)",
+      "weight": "3 lb.",
+      "description": "A battery cassette recorder with a built-in microphone, eight hours on a set of batteries and an hour on each cassette ($2). Records interviews, and sometimes voices in empty rooms that were not heard at the time (a creature's rules say which)."
+    },
+    {
+      "name": "CB radio",
+      "category": "communications",
+      "eras": [
+        "1970s"
+      ],
+      "cost": "$90 (1970s), plus a car or a truck to put it in",
+      "weight": "5 lb.",
+      "description": "A citizens-band transceiver in a car or truck, with a range of a few miles (more at night, less in hills). Anyone with a CB on the same channel hears you, including truckers, the sheriff's office, and people in town you would rather did not. A storm, a cut antenna, or the thing itself can fill the channel with static."
+    },
+    {
+      "name": "Telephone call",
+      "category": "communications",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.10 local, $1-$3 long distance (1890s, from the exchange or a hotel) / $0.05 local, $1 long distance (1920s) / $0.10 local, $0.50 a minute long distance (1970s)",
+      "weight": "-",
+      "description": "In the 1890s, telephones are in town: the exchange, the doctor, the hotel, a few rich houses. By the 1920s most towns and many farms have a party line, which means the neighbors listen. By the 1970s nearly every house has a phone. Lines can be cut, and a small exchange operator hears everything (dread.json isolation)."
+    },
+    {
+      "name": "Telegram (per word)",
+      "category": "communications",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.03 (1890s) / $0.05 (1920s) / $0.25 (1970s)",
+      "weight": "-",
+      "description": "Sent from the telegraph office at the railroad depot or the post office; ten words is the minimum charge. Arrives the same day. The telegraph operator reads every word, and in a small town so does everyone the operator talks to."
+    },
+    {
+      "name": "Newspaper",
+      "category": "communications",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.01 (1890s) / $0.03 (1920s) / $0.15 (1970s)",
+      "weight": "-",
+      "description": "Today's local paper: obituaries, the shipping news, who visited whom, a short paragraph about a stranger who has not been seen since Tuesday. Back issues are in the newspaper's morgue or the library (dread.json investigation)."
+    },
+    {
+      "name": "Library card",
+      "category": "documents",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "Free, or $1 a year for a subscription library",
+      "weight": "-",
+      "description": "Lets you borrow books and use the reading room of a town or college library, and ask the librarian, who knows more about the town than anyone suspects. Rare books and local history collections may need a letter as well."
+    },
+    {
+      "name": "Doctor's bag",
+      "category": "medical",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$15 (1890s) / $30 (1920s) / $120 (1970s)",
+      "weight": "10 lb.",
+      "description": "Scalpels, forceps, needle and suture, bandages, antiseptic (carbolic in the 1890s), a stethoscope, a few drugs of the period. Required for the Physician's Steady Hands. Gives advantage on Medicine checks to stabilize; proficiency adds your proficiency bonus to Medicine checks to treat wounds. 10 uses; refilled at a pharmacy or a hospital.",
+      "uses": 10
+    },
+    {
+      "name": "Bandage roll",
+      "category": "medical",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.10 (1890s) / $0.25 (1920s) / $1 (1970s)",
+      "weight": "-",
+      "description": "Clean gauze or linen strips. One use ends Bleeding on a creature without a check. Record as \"Bandage roll (4)\".",
+      "uses": 1
+    },
+    {
+      "name": "First-aid kit",
+      "category": "medical",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$2 (1920s) / $8 (1970s)",
+      "weight": "2 lb.",
+      "description": "A tin box of bandages, iodine or antiseptic, tape, aspirin and burn salve. Advantage on a Medicine check to stabilize a creature or treat a burn, 5 uses.",
+      "uses": 5
+    },
+    {
+      "name": "Smelling salts",
+      "category": "medical",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.15 (1890s) / $0.25 (1920s) / $1 (1970s)",
+      "weight": "-",
+      "description": "A vial of ammonia salts. As an action, wake a creature that has fainted or been knocked out (not one at 0 HP and dying), or give a creature at Breaking point a moment's clarity: it can choose its route out of the scene (dread.json dread). 5 uses.",
+      "uses": 5
+    },
+    {
+      "name": "Laudanum (bottle)",
+      "category": "medical",
+      "eras": [
+        "1890s"
+      ],
+      "cost": "$0.25 (1890s)",
+      "weight": "-",
+      "description": "Tincture of opium, sold over the counter by any druggist in the 1890s as a period fact: for pain, coughs and sleep. A dose gives 1d6 + 2 temporary hit points for 1 hour, but the creature is poisoned for that hour and can't take a reaction; a second dose within 8 hours risks unconsciousness (DC 13 CON save). It does not lower Dread; it only dulls everything else. 6 doses.",
+      "uses": 6
+    },
+    {
+      "name": "Whiskey (bottle)",
+      "category": "comfort",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.50 (1890s) / $3 (1920s, from someone who knows someone) / $5 (1970s)",
+      "weight": "2 lb.",
+      "description": "A bottle of rye or bourbon (or something worse during Prohibition, 1920-1933). A drink with company is a fitting way to recover 1 Dread once per day (dread.json recovery); more than one is disadvantage on DEX and WIS checks for an hour. Ten drinks.",
+      "uses": 10
+    },
+    {
+      "name": "Coffee (1 lb)",
+      "category": "comfort",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.25 (1890s) / $0.45 (1920s) / $1.50 (1970s)",
+      "weight": "1 lb.",
+      "description": "Ground coffee, or a thermos of it already made in the 1920s and 1970s. A night watch with coffee has advantage on its first CON save against falling asleep. A pound makes about forty cups."
+    },
+    {
+      "name": "Cigarettes",
+      "category": "comfort",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.05 a packet (1890s) / $0.15 (1920s) / $0.50 (1970s)",
+      "weight": "-",
+      "description": "A packet of twenty (hand-rolled in the 1890s, with a pouch of tobacco). Sharing one in the dark is a fitting way to recover 1 Dread once per day (dread.json recovery). A lit cigarette gives no useful light but can be seen across a field."
+    },
+    {
+      "name": "A few good books",
+      "category": "comfort",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $2 (1920s) / $5 (1970s)",
+      "weight": "3 lb.",
+      "description": "Two or three volumes chosen by the owner: a novel, a book of poems, a field guide or a history of the county. Reading by a lamp on a long night is a comfort; the history may be useful (Research)."
+    },
+    {
+      "name": "Good suit or dress",
+      "category": "clothing",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$10 (1890s) / $25 (1920s) / $80 (1970s)",
+      "weight": "5 lb.",
+      "description": "Clothes fit for a reading of a will, a funeral, a dinner with the old families, or an interview at the bank. Without them, persuading the propertied is at disadvantage."
+    },
+    {
+      "name": "Work clothes",
+      "category": "clothing",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $3 (1920s) / $12 (1970s)",
+      "weight": "3 lb.",
+      "description": "Overalls, denim, flannel, sturdy boots. Right for a barn, a dig, an engine or a field at night. Wrong for a parlor."
+    },
+    {
+      "name": "Oilskins",
+      "category": "clothing",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$2 (1890s) / $5 (1920s) / $20 (1970s)",
+      "weight": "4 lb.",
+      "description": "A waterproof slicker and hat. Advantage on CON saves against cold when wet, at sea or in a storm; a lantern carried under it stays lit in the rain."
+    },
+    {
+      "name": "Bedroll",
+      "category": "clothing",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $3 (1920s) / $15 (1970s, a sleeping bag)",
+      "weight": "5 lb.",
+      "description": "Blankets and a ground sheet. Sleeping out in cold without one gives no long rest."
+    },
+    {
+      "name": "Train ticket (per 100 miles)",
+      "category": "services",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$2 (1890s) / $3.50 (1920s) / $8 (1970s, a bus ticket)",
+      "weight": "-",
+      "description": "Coach fare. The 1890s and 1920s are the age of rail: almost every town has a depot and two trains a day. By the 1970s many branch lines are closed and the bus takes the passengers; the last bus out may be tomorrow (dread.json isolation)."
+    },
+    {
+      "name": "Boat passage",
+      "category": "services",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.25-$1 for a ferry or mail boat (1890s) / $1-$2 (1920s) / $5 (1970s)",
+      "weight": "-",
+      "description": "A seat on a ferry, a mail boat or a fishing boat going your way. Island and river boats run on a schedule, and on the weather; the last boat of the day leaves before dark (dread.json isolation)."
+    },
+    {
+      "name": "Hotel room (night)",
+      "category": "services",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $3 (1920s) / $15 (1970s, a motel)",
+      "weight": "-",
+      "description": "A room at the hotel, the boarding house or a roadside motel. A long rest in a locked, lit room in town is the safest rest there is (dread.json recovery), unless the thing is in the town."
+    },
+    {
+      "name": "Meal",
+      "category": "services",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.25 (1890s) / $0.50 (1920s) / $2 (1970s)",
+      "weight": "-",
+      "description": "A hot plate at a diner, a boarding-house table or a church supper. The cook and the waitress know everyone in town."
+    },
+    {
+      "name": ".32 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.75 (1890s) / $1.50 (1920s) / $6 (1970s)",
+      "weight": "1 lb.",
+      "description": "Cartridges for the Pocket revolver. Record as \".32 rounds (N)\"."
+    },
+    {
+      "name": ".38 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $2 (1920s) / $8 (1970s)",
+      "weight": "1 lb.",
+      "description": "Cartridges for the Service revolver. Record as \".38 rounds (N)\"."
+    },
+    {
+      "name": ".45 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$2.50 (1920s) / $12 (1970s)",
+      "weight": "2 lb.",
+      "description": "Cartridges for the .45 automatic. A spare magazine (holds 7) is $2 / $10; filling one takes a minute. Record as \".45 rounds (N)\"."
+    },
+    {
+      "name": "Flares (6)",
+      "category": "ammunition",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$2 (1920s) / $8 (1970s)",
+      "weight": "2 lb.",
+      "description": "Signal flare cartridges for the Flare pistol, in a waterproof tin. Record as \"Flares (N)\"."
+    },
+    {
+      "name": ".30 cartridges (20)",
+      "category": "ammunition",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.75 (1890s) / $1.50 (1920s) / $6 (1970s)",
+      "weight": "1 lb.",
+      "description": "Rifle cartridges for the Lever-action rifle. Record as \".30 cartridges (N)\"."
+    },
+    {
+      "name": "Rifle cartridges (20)",
+      "category": "ammunition",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$2 (1920s) / $9 (1970s)",
+      "weight": "1 lb.",
+      "description": "Full-power cartridges for the Hunting rifle. They do not fit the Lever-action rifle. Record as \"Rifle cartridges (N)\"."
+    },
+    {
+      "name": "Shotgun shells (25)",
+      "category": "ammunition",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$0.60 (1890s) / $1.25 (1920s) / $6 (1970s)",
+      "weight": "2 lb.",
+      "description": "Twelve-gauge buckshot for both shotguns. Record as \"Shotgun shells (N)\". Birdshot (same price) deals 1d8 less but still scatters."
+    },
+    {
+      "name": "Crossbow bolts (20)",
+      "category": "ammunition",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $2 (1920s) / $10 (1970s)",
+      "weight": "2 lb.",
+      "description": "Bolts for the Crossbow. Recovered on a 1-3 on a d6 after a fight if you can search for them. Record as \"Crossbow bolts (N)\"."
+    },
+    {
+      "name": "Arrows (20)",
+      "category": "ammunition",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "cost": "$1 (1890s) / $2 (1920s) / $10 (1970s)",
+      "weight": "1 lb.",
+      "description": "Hunting arrows for the Hunting bow. Recovered on a 1-3 on a d6 after a fight. Record as \"Arrows (N)\"."
+    }
+  ]
+}

@@ -134,7 +134,7 @@ function CharacterCreator() {
       {/* Form */}
       <div className="form-row" style={{ marginTop: '1rem' }}>
         <div className="form-group">
-          <label>Race</label>
+          <label>{options?.terms?.race || 'Race'}</label>
           <select value={race} onChange={e => handleRaceChange(e.target.value)}>
             <option value="">— Random —</option>
             {options?.races?.map(r => (

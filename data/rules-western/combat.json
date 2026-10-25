@@ -1,0 +1,493 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Combat rules for the Western category: the shared d20 chassis (initiative, actions, conditions, cover, death saves, resting) restated in plain language for the 1860s-1880s frontier, plus gunplay, brawling, mounted combat and stampedes. There are no automatic weapons and no burst or full-auto fire; the single-action revolvers can be fanned (fire_modes.fan), and revolvers reload two rounds per action, not a whole cylinder (ammunition.reload). The Noir car-based chases and vehicles are replaced by horses, wagons, stagecoaches and trains. The showdown, the duel at the draw, is in frontier.json showdowns. 'spec_rule_index' maps the WO-0043 combat requirements to the sections that implement them. The death_saving_throws and healing.long_rest wording deliberately matches the Fantasy, Sci-Fi and Noir combat.json numbers (DC 10, three successes, three failures, natural 1 = two failures, natural 20 = regain 1 hit point, damage at 0 HP = one failure, critical = two failures, half your total hit dice on a long rest) because the server reads them from the prose."
+  },
+  "spec_rule_index": {
+    "1_ranged_attack": "attack_rolls.ranged, damage.ability_modifier_on_damage",
+    "2_range_and_point_blank": "gunplay.range, gunplay.point_blank",
+    "3_ammunition_and_revolver_reloading": "ammunition (reload: two rounds per action for a cartridge revolver)",
+    "4_fire_modes_and_fanning": "fire_modes (single, fan, both barrels; no burst or auto)",
+    "5_aim_and_called_shots": "gunplay.aim, gunplay.called_shots, actions_in_combat.aim",
+    "6_cover": "cover (water troughs, wagons, adobe walls, horses)",
+    "7_critical_hits_and_misfires": "attack_rolls.critical_hit, gunplay.misfires",
+    "8_explosives": "explosives (dynamite and black powder)",
+    "9_noise_and_reputation": "noise (and frontier.json reputation, the_law)",
+    "10_nonlethal": "nonlethal",
+    "11_brawling_and_the_saloon_fight": "brawling",
+    "12_conditions": "conditions (Bleeding, Shaken and Spooked added to the standard list; exhaustion ties to frontier.json weather_and_water)",
+    "13_healing_without_magic": "healing",
+    "14_chases": "chases (on horseback, by wagon and coach, on foot, along a train)",
+    "15_vehicles": "vehicles (wagons, stagecoaches and trains)",
+    "16_mounted_combat": "mounted_combat (shooting from the saddle, spooked horses, attacking the horse)",
+    "17_stampedes": "stampedes"
+  },
+  "initiative": {
+    "description": "When a fight starts, every participant rolls a Dexterity check. The GM rolls once for each group of identical adversaries. Turns go from highest to lowest and the order repeats each round (a round is about 6 seconds: long enough to empty a revolver, not long enough to reload one).",
+    "formula": "d20 + Dexterity modifier",
+    "tie_breaking": "The GM decides the order among tied participants; a player character wins ties against adversaries with the same modifier. A Gunslinger's Quick Draw gives advantage on the roll.",
+    "surprise": "A side that didn't see it coming is surprised: surprised creatures can't move, act or take reactions on their first turn. The bushwhacker on the ridge, the rider who comes out of the arroyo, the man who shoots through a window and the pick handle from behind a door usually surprise their targets. A character on night watch or riding expecting trouble is not surprised by what they were watching for.",
+    "showdowns": "A showdown, two parties facing off in the street, doesn't start with initiative. It starts with a stare-down and a draw, and the draw results become the initiative order (frontier.json showdowns)."
+  },
+  "turn_structure": {
+    "movement": "Move up to your speed, splitting it before and after your action as you like. Climbing, crawling, swimming and difficult terrain (deep mud, a crowded saloon floor, a rocky slope, loose sand, a moving boxcar roof) cost 2 feet per foot. A mounted creature moves at its horse's speed (mounted_combat).",
+    "action": "One action per turn: Attack, Fan, Reload, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object, or something improvised.",
+    "bonus_action": "One bonus action per turn, only when a feature, weapon or item says something takes a bonus action (Aim, reloading the buffalo rifle, Sleeve Gun, an off-hand attack, lighting a fuse).",
+    "reaction": "One reaction per round, regaining it at the start of your turn. Opportunity attacks, readied actions and features like Uncanny Dodge use reactions.",
+    "free_interaction": "One simple object interaction per turn for free: draw or holster a weapon, open a door, drop prone, kick a chair across the room, grab the reins, shout a short warning, blow out a lamp. A Gunslinger draws and holsters without using it."
+  },
+  "actions_in_combat": {
+    "attack": "Make one melee or ranged attack (more with Extra Attack). A single shot is one attack. A punch is one attack. Both barrels of a shotgun or a derringer at once is one attack that takes your whole action (fire_modes.both_barrels).",
+    "aim": "Bonus action, only if you haven't moved this turn: your next ranged attack this turn has advantage, and your speed becomes 0 until the end of the turn. You can't Aim from a moving horse, wagon or train, and Aim doesn't apply to fanning.",
+    "fan": "Action, a single-action revolver only (its fireModes list \"fan\"), and only if you are proficient with Sidearms. Slap the hammer back with your off hand and empty the gun fast and wild (fire_modes.fan).",
+    "reload": "Put rounds into a weapon from spare ammunition: an action, or a bonus action for the buffalo rifle. A cartridge revolver takes two rounds per action, not a whole cylinder (ammunition.reload). You need the spare rounds on your sheet.",
+    "dash": "Gain extra movement equal to your speed this turn. A mounted creature can have its horse Dash instead (mounted_combat).",
+    "disengage": "Your movement doesn't provoke opportunity attacks for the rest of the turn.",
+    "dodge": "Until the start of your next turn, attacks against you have disadvantage if you can see the attacker, and you have advantage on DEX saves (including against dynamite and a stampede). You lose this if incapacitated or your speed drops to 0.",
+    "help": "Give an ally advantage on their next check for a task you could help with, or on their next attack against a creature within 5 ft of you (holding a man's arms while your partner swings counts).",
+    "hide": "Make a DEX (Stealth) check while out of sight or heavily obscured (darkness, dust, black-powder smoke). Until discovered, you have advantage on your first attack, and attacks against you have disadvantage. Firing a gun reveals your position: the flash and the smoke show exactly where you are.",
+    "ready": "Choose a trigger and an action (usually a shot). When the trigger happens before your next turn, you can use your reaction to take the action. \"I shoot the first man who comes through the batwing doors\" is a readied attack.",
+    "search": "Make a WIS (Perception) or INT (Investigation) check to find something hidden: the rifle on the ridge, the man in the hayloft, the shotgun under the bar.",
+    "use_an_object": "Use an item that takes an action: tie off a bandage, throw a lit stick of dynamite, manacle a grappled prisoner, swap a spare cylinder, throw a lariat, uncouple a rail car, cut a horse loose from a team.",
+    "improvise": "Anything not listed: shoot the rope holding the chandelier, kick over the table for cover, swing onto a passing horse, throw a lamp. The GM sets an ability check and DC. An improvised weapon (a chair, a bottle, a spittoon, a branding iron, an empty revolver used as a club) deals 1d4 bludgeoning (or slashing, for a broken bottle) and uses STR."
+  },
+  "attack_rolls": {
+    "melee": "d20 + STR modifier + proficiency bonus (everyone is proficient with Melee). Finesse weapons can use DEX instead.",
+    "ranged": "d20 + DEX modifier + proficiency bonus if you are proficient with the weapon's group (Sidearms, Longarms). Untrained use of a firearm adds no proficiency bonus. A thrown hatchet uses STR. Dynamite and black-powder charges don't make attack rolls (explosives).",
+    "finesse_weapons": "Use either STR or DEX for attack and damage, the same for both.",
+    "unarmed": "d20 + STR modifier + proficiency bonus; damage is 1d4 + STR modifier bludgeoning (see brawling).",
+    "critical_hit": "A natural 20 always hits and is a critical hit: roll all of the attack's damage dice twice and add the modifier once. A hit with a called shot to the head is also a critical hit.",
+    "critical_miss": "A natural 1 always misses. With a cap-and-ball revolver it is also a misfire (gunplay.misfires); cartridge guns just miss.",
+    "advantage": "Roll 2d20 and take the higher.",
+    "disadvantage": "Roll 2d20 and take the lower. Advantage and disadvantage on the same roll cancel out, however many sources of each there are.",
+    "versus_ac": "The attack hits if the total equals or beats the target's Armor Class. Most people on the frontier wear no armor: AC 10 + DEX.",
+    "on_the_sheet": "A character sheet's attackBonus is the ability modifier + proficiency bonus, and its damage is the weapon dice + the ability modifier (e.g. \"1d10+3\"). Situational bonuses (scatter's +2 within 30 ft, extra damage dice from Ace in the Hole or Dirty Fighting, cover, advantage) are applied at the table and never written into those numbers."
+  },
+  "damage": {
+    "formula": "Weapon damage dice + ability modifier for melee attacks, unarmed strikes and single shots. Fanned shots, both barrels at once and explosives add no ability modifier.",
+    "ability_modifier_on_damage": {
+      "melee": "STR modifier (or DEX with finesse).",
+      "unarmed": "STR modifier.",
+      "single_shot": "DEX modifier (Sidearms and Longarms fired single).",
+      "thrown_hatchet": "STR modifier.",
+      "fanned_shots": "No ability modifier; each hit deals one weapon damage die.",
+      "both_barrels": "No ability modifier; one extra weapon die instead (2d8 becomes 3d8; the derringer 1d6 becomes 2d6 + DEX, as its notes say).",
+      "explosives": "No ability modifier."
+    },
+    "damage_types": [
+      "Bludgeoning",
+      "Cold",
+      "Fire",
+      "Piercing",
+      "Poison",
+      "Slashing"
+    ],
+    "western_mapping": {
+      "bullets, buckshot, knives that stab, horns, snakebite punctures": "Piercing",
+      "fists, pick handles, falls, hooves, a stampede, a blast, a runaway wagon": "Bludgeoning",
+      "Bowie knives, sabers, broken bottles, a bullwhip, claws": "Slashing",
+      "a burning barn, a lamp thrown in a saloon, a prairie fire": "Fire",
+      "snake venom, bad water, strychnine in the coffee, too much laudanum": "Poison",
+      "a blizzard, a blue norther, a night in a river": "Cold"
+    },
+    "resistance": "Take half damage (rounded down) from that type.",
+    "vulnerability": "Take double damage from that type.",
+    "immunity": "Take no damage from that type."
+  },
+  "gunplay": {
+    "overview": "Guns are fast, loud and final, and on the frontier everyone has one. A ranged attack is d20 + DEX + proficiency (if trained in the weapon's group) against AC. Single shots add DEX to damage; fanned shots, both barrels and dynamite don't. Every shot spends a counted round, revolvers reload slowly, and black powder leaves a cloud of smoke. A gunfight is short and has consequences: bodies, the marshal, the judge and what the town thinks of you (frontier.json reputation).",
+    "range": "Every firearm has a normal and a long range ('30/90'). Shooting at a target beyond normal range but within long range has disadvantage. A target beyond long range can't be hit. On the open range, distances are long: a man on a horse at a quarter mile is out of pistol range and well inside a buffalo rifle's.",
+    "point_blank": "Firing a Longarm while a conscious hostile creature that can see you is within 5 ft of you has disadvantage (it is grabbing the barrel or shoving it aside). Sidearms are exempt: a revolver in the ribs fires normally.",
+    "aim": "As a bonus action, if you haven't moved yet this turn and aren't on a moving horse, wagon or train, you can Aim: your next ranged attack this turn has advantage, and your speed becomes 0 until the end of the turn. Aim doesn't apply to fanning or to both barrels.",
+    "called_shots": {
+      "rule": "Declare the target location before rolling and take -5 to the attack roll. Not possible against a crowd, a stampede or a target you can't see.",
+      "weapon_hand": "On a hit the target takes normal damage and drops what it is holding in that hand (it lands at its feet). No extra damage.",
+      "legs": "On a hit the target takes normal damage and its speed is halved until it receives any healing or finishes a long rest. A Doc's Dig Out a Bullet heals it at the end of a short rest.",
+      "head": "On a hit, the hit is a critical hit (roll damage dice twice).",
+      "objects": "A rope (AC 15, cut by any hit), a lamp (AC 12), a hat (AC 14), a padlock (AC 15, 5 HP), a coupling pin (AC 16). A hit does what you would expect.",
+      "the_horse": "Shooting the horse rather than the rider needs no called shot: a horse is a Large target (mounted_combat.attacking_the_horse)."
+    },
+    "misfires": "Cap-and-ball guns (the Navy and pocket revolvers in the 1860s, and any not converted to cartridges after) misfire on a natural 1: the attack misses, that chamber is spent, and the gun fires normally on the next pull. If the powder or caps are wet (a river crossing, a rainstorm without a slicker), a cap-and-ball gun misfires on a natural 1-5 until it is dried and recapped (a short rest). Cartridge guns don't misfire: a natural 1 is just a miss. Rounds spent on a misfire are still spent.",
+    "untrained_use": "You can fire any gun you can lift. Without proficiency in its group you don't add your proficiency bonus to the attack roll, and you can't fan.",
+    "two_weapons": "When you Attack with a one-handed melee weapon or a Sidearm in one hand, you can use a bonus action to make one attack with a different one-handed melee weapon or Sidearm in the other hand. You don't add your ability modifier to the damage of the off-hand attack (unless it's negative, or a feature such as the Gunslinger's Two-Gun says so). Both attacks spend their own rounds. You can't fan while holding a second gun in your fanning hand.",
+    "shooting_into_melee": "When you fire at a target that is within 5 ft of one of your allies (or an innocent bystander), a miss by 5 or more hits that creature instead if its AC is equal to or lower than your attack total. Aiming first prevents this; fanning makes it worse (every fanned miss checks).",
+    "firing_from_horseback": "Shooting from a moving horse has disadvantage unless you are proficient in Riding (mounted_combat.shooting_from_the_saddle). Shooting from a moving wagon, coach or train has disadvantage unless it is moving slowly in a straight line; the driver of a wagon or coach can't fire anything but a Sidearm, and that at disadvantage.",
+    "darkness_and_smoke": "Firing at a target you can't see (a moonless night, a dark barn, a dust storm) has disadvantage, and you must guess its location. Black powder makes smoke: after three or more loud shots have been fired in an enclosed room (a saloon, a cabin, a rail car), the room is lightly obscured until the smoke clears (1 minute, or at once if the windows are broken), and after six it is heavily obscured. A muzzle flash in darkness reveals the shooter's location to everyone who can see it."
+  },
+  "fire_modes": {
+    "single": {
+      "rounds": 1,
+      "rule": "A normal attack roll against one target. Damage = weapon dice + DEX modifier. Every firearm fires single."
+    },
+    "fan": {
+      "rounds": 3,
+      "rule": "Single-action revolvers only (the pocket, Navy and Army revolvers list \"fan\"), and only with Sidearms proficiency. Fanning takes your action (Extra Attack doesn't add to it). Hold the trigger down and slap the hammer back with the heel of the off hand: spend 2 or 3 rounds from the cylinder (no more than it holds), and make one attack roll per round spent, each at disadvantage, against one target or split between targets within 10 ft of each other, all within the weapon's normal range. Each hit deals one weapon damage die with no ability modifier (1d10 for the Army revolver); a critical hit doubles that die. Aim can't be used, and every miss checks shooting_into_melee. You need your off hand free. A Gunslinger with Fan the Hammer fans up to 4 rounds (the whole cylinder from 6th level), with the first attack (the first two from 6th level) made without disadvantage. A fanned revolver is empty fast, and it reloads two rounds per action."
+    },
+    "both_barrels": {
+      "rounds": 2,
+      "rule": "Double-barrel shotgun, coach gun and derringer. Fire both barrels at once as an action: one attack roll; on a hit, roll one extra weapon die (2d8 becomes 3d8) with no ability modifier (the derringer: 2d6 + DEX). A critical hit doubles all the dice. Both rounds are spent whether it hits or not, and the gun is empty."
+    },
+    "mode_availability": "A weapon can only use the modes in its fireModes list. In the Western weapon table every firearm fires single; the pocket, Navy and Army revolvers can also fan; the double guns and the derringer can fire both barrels as described. There is no burst, full-auto or suppressive fire in the Western."
+  },
+  "ammunition": {
+    "spending": "Every attack spends rounds: a single shot 1, a fanned shot 1 per attack roll, both barrels 2. Dynamite and black-powder charges spend themselves (one per throw).",
+    "magazine": "A weapon holds at most its 'magazine' value (a revolver's cylinder counts as its magazine; the carbine and repeating rifle hold theirs in a tube). When it is empty, the weapon can't fire until it is reloaded. Some men carry a revolver with only five, the hammer down on an empty chamber; that is their choice.",
+    "reload": {
+      "rule": "Reloading puts rounds into the weapon from your spare ammunition. A loaded weapon can be topped up the same way.",
+      "cartridge_revolver": "Pocket, Navy (converted) and Army revolvers: an action loads two rounds through the loading gate. Refilling an empty six-gun takes three actions. Nobody reloads a revolver in a gunfight if they can help it; they draw the second gun.",
+      "cap_and_ball_revolver": "A Navy or pocket revolver that hasn't been converted (all of them in the 1860s): an action loads one chamber (powder, ball, cap). Swapping in a pre-loaded spare cylinder (gear.json) is an action and refills it completely.",
+      "derringer_and_double_guns": "Derringer, double-barrel shotgun and coach gun: an action loads both barrels.",
+      "carbine": "An action loads three rounds into the butt tube, or all seven from a pre-filled loading tube (gear.json).",
+      "repeating_rifle": "An action pushes four rounds through the loading gate. Refilling an empty twelve-round magazine takes three actions.",
+      "buffalo_rifle": "A bonus action drops the breech and loads its one round.",
+      "features": "The Gunslinger's Fast Hands reloads a revolver (two rounds) or swaps a spare cylinder as a bonus action."
+    },
+    "tracking_on_the_sheet": "Spare ammunition is a counted equipment item on the character sheet, named by the weapon's ammo_name in equipment.json with the count in parentheses, for example \".45 cartridges (18)\", \".36 rounds (18)\", \"Shotgun shells (10)\", \".44 cartridges (36)\" or \"Dynamite (2)\". Rounds currently in the weapon, in a spare cylinder or loading tube, or in the loops of a gun belt count as part of that total.",
+    "gm_procedure": "The GM deducts rounds with TrackResources \"use\" as they are fired, once per exchange of fire (each attack or each turn's shooting), never in bulk after the fight is over. Announce what remains when a gun runs low, and remember what is in the cylinder: six shots goes fast, and the seventh takes a reload.",
+    "out_of_ammo": "Out of ammo means out. There is no free reload and no bottomless cylinder. Characters can take rounds from the fallen if their guns are compatible, buy them at a general store, a gunsmith or a sutler, or turn the empty gun around and use it as a club (1d4 bludgeoning, improvised; a lawman calls it buffaloing).",
+    "compatibility": "Ammunition must match the weapon's ammo_name: .41 rounds (Derringer), .32 rounds (Pocket revolver), .36 rounds (Navy revolver), .45 cartridges (Army revolver), .56 rounds (Carbine), .44 cartridges (Repeating rifle), .50 rounds (Buffalo rifle) and Shotgun shells (both double guns). No two guns share cartridges except the two shotguns. See gear.json ammunition.",
+    "wet_powder": "Swimming a river or riding through a storm without a slicker wets paper cartridges and caps: cap-and-ball guns misfire on 1-5 (gunplay.misfires) and black-powder charges won't light until dried in the sun or by a fire (a short rest). Metallic cartridges are unaffected."
+  },
+  "cover": {
+    "half_cover": "+2 to AC and DEX saving throws. At least half the body is behind an obstacle: a hitching rail and a horse, a porch post, a barrel, a bar, another person, a low rock.",
+    "three_quarters_cover": "+5 to AC and DEX saving throws. Only a small part of the target is exposed: shooting around a corner, over a window sill, over a wagon box or between the rocks of a ridge.",
+    "total_cover": "Can't be targeted directly by an attack or area effect. The target is completely concealed behind something that stops the incoming fire.",
+    "material": {
+      "rule": "Cover is material. What it is made of decides what it stops. Look up the material, then the weapon firing at it; the value given replaces the normal half/three-quarters/full judgement whenever it is lower.",
+      "soft_cover": "Plank walls and false fronts, doors, shutters, a wagon's sideboards, a plain wooden bar, fences, crates, a canvas wagon top, a rail car's wooden side: half cover against Sidearms and shotguns; NO cover against rifles and carbines, which punch straight through. It still blocks line of sight, so the shooter may need to guess the location (disadvantage).",
+      "hard_cover": "Adobe walls, stone, brick, a log cabin's walls, an iron stove, a boulder, a big cottonwood, a locomotive's boiler, an express car's iron-lined safe, an earth bank: full cover against every weapon in this book. Dynamite against hard cover is treated as three-quarters cover, and a bundle blows a 5-ft hole in adobe or a log wall.",
+      "water_trough": "A full water trough is better cover than it looks: water stops a bullet in a foot. Crouched behind one you have three-quarters cover against every firearm; it counts as hard cover against Sidearms and shotguns and as soft cover against rifles fired from above. Each hit from a rifle on the trough drains it; after three it is just a plank box.",
+      "wagons": "A wagon's wooden box is soft cover. Behind the wheels and running gear, or a wagon loaded with sacks of grain, barrels or freight, is half cover against rifles and three-quarters against everything else. A wagon tipped on its side is a fort.",
+      "adobe": "Adobe walls are a foot or two of sun-dried earth and stop anything short of a cannon: full cover. An adobe house with its shutters closed is the best place in the territory to be under siege, and the worst to besiege.",
+      "partial_hard_cover": "When only part of the target is behind hard cover (crouched behind a boulder, leaning out of an adobe doorway), use half or three-quarters cover as normal; the material rule decides whether the cover counts at all.",
+      "glass": "Windows and the mirror behind the bar give no cover against any firearm; they only block line of sight if dirty or painted. Shooting the mirror behind the bar is a saloon tradition and costs the shooter $50 and 1 Reputation with the owner.",
+      "creatures": "Another creature (friend, foe or bystander) gives half cover. Shooting past it risks hitting it (see gunplay.shooting_into_melee).",
+      "horses": "A horse standing broadside gives half cover, and a downed horse three-quarters (riders in a running fight have done it since there were horses). Shots that miss you by the cover bonus hit the horse instead (mounted_combat.attacking_the_horse)."
+    },
+    "explosives_and_cover": "Against dynamite and black powder, cover adds its bonus to the DEX save. Total cover from hard material between you and the blast point means the blast doesn't reach you.",
+    "destroying_cover": "Soft cover takes hits: the GM can give it AC and HP (a plank wall section AC 12, HP 15; a wagon AC 12, HP 40; an adobe wall section AC 15, HP 60). Fire burns soft cover in a few rounds."
+  },
+  "explosives": {
+    "general": "Dynamite and black-powder charges affect an area rather than making an attack roll. Choose a point within range; each creature in the area makes a DEX saving throw against DC 12, or DC 8 + the thrower's proficiency bonus + DEX modifier if the thrower is proficient with Explosives (use the higher), taking the listed damage on a failure or half on a success. No ability modifier is added to damage.",
+    "throwing": "Lighting the fuse is a bonus action (an Outlaw's Powder Man makes it part of the throw), and throwing at a point is an action. If the point is within normal range it lands where you choose. At long range, or if you can't see the point, it lands 1d10 x 5 ft away in a random direction (roll a d8 for direction) unless you succeed on a DEX check against DC 10. Throwing from a galloping horse is at long range whatever the distance.",
+    "cover_adds_to_save": "Cover between a creature and the blast point adds its bonus (+2 or +5) to that creature's DEX save. Total cover from hard material shields it completely.",
+    "proficiency": "Only the Outlaw starts with Explosives proficiency, and none is needed to throw a lit stick. Setting a charge (under a trestle, against an express-car safe, in a mine drift) takes 10 minutes, fuse and blasting caps (gear.json) and a Mechanics check (DC 15); without Explosives proficiency the check is at disadvantage, and failing it by 5 or more sets the charge off. Safety fuse burns about a foot a minute.",
+    "old_dynamite": "Dynamite that has been stored hot or too long sweats nitroglycerin. Old dynamite goes off if it is dropped, shot (AC 10) or jolted hard (a DEX save, DC 12, when a horse carrying it falls). Spotting that dynamite is old is a DC 10 Mechanics check; it looks wet and smells of headache.",
+    "improvised_devices": "A keg of black powder with a fuse, a powder bomb in a tin or a can of coal oil with a rag can be built with a Mechanics check: DC 12 for 2d6 in a 10-ft radius; DC 18 for 4d6 in a 15-ft radius. Coal oil deals fire damage and sets the place alight.",
+    "throwing_it_back": "A creature within 5 ft of a lit stick of dynamite that the thrower didn't hold for a second before throwing (which imposes disadvantage on the throw) can use its reaction to throw it up to 20 ft by succeeding on a DC 15 DEX save.",
+    "structures": "Explosives deal double damage to objects and structures. Four sticks drop a trestle span or open an express-car door; a black-powder charge sets a barn or a wooden false front alight, and the fire spreads one building per few minutes in a dry wind unless the bucket line gets there first.",
+    "aftermath": "A blast is heard for miles. In or near a town it brings everyone with a gun and a bucket, raises the Wanted level of whoever is known to have done it (frontier.json wanted_and_bounties), and the railroad or the mine owner will pay someone to find out who."
+  },
+  "noise": {
+    "rule": "A black-powder gunshot is heard for a mile on the open range, all over a town and through every wall of a building. Dynamite carries for miles. Every shot leaves a puff of white smoke where it was fired. There are no silencers in this book; a knife, a pick handle and a lariat are the quiet ways.",
+    "consequences": "Noise always has consequences, and the GM tracks them. In town, gunfire brings the marshal or the sheriff and his deputies within a few minutes, and the whole town to its windows; the first question is who started it (frontier.json the_law). On the range, shots draw anyone within a mile who is curious, hostile or hungry, and spook every horse and cow within earshot (mounted_combat.spooked_horse, stampedes).",
+    "tracking": "Keep a simple count of loud exchanges in a scene. 1: someone heard it. 3: the law is coming, or every rider on the range is. 6+: everyone knows exactly where you are. Gunfire in town that you started, against someone who wasn't shooting at you, costs Reputation whether or not anyone is hurt (frontier.json reputation).",
+    "stealth": "A character who has fired a gun can't be hidden from creatures that heard or saw it until they move out of sight and spend a turn taking the Hide action; the smoke marks the spot.",
+    "melee_and_quiet": "Fistfights, knives, the pick handle and the lariat don't advance the noise count unless something else is loud (a man through a window, a piano going over, a woman on the stairs who saw it). A saloon fight is noisy, but nobody comes running for one."
+  },
+  "nonlethal": {
+    "rule": "When an attacker reduces a creature to 0 hit points with a melee attack (including an unarmed strike), the attacker can declare the blow knocks the target out rather than killing it. The target drops to 0 HP, stable and unconscious, instead of dying; it doesn't make death saving throws.",
+    "waking": "A stable unconscious creature regains 1 HP and wakes after 1d4 hours (in the jail, in the back room, in a horse trough), or sooner if someone uses an action to revive it with a Medicine check (DC 10), a bucket of water, smelling salts or healing.",
+    "firearms": "Guns aren't nonlethal. A deliberate wounding shot (called shot to the legs) can leave the target alive at 0 HP but Bleeding if the GM allows it; a Lawman's Take Him Alive does this with any attack.",
+    "nonlethal_option_weapons": "The pick handle carries the nonlethal-option property: as well as knocking a creature out at 0 HP like any melee weapon, it can deliver a knockout blow from surprise (brawling.knockout_blow). A lawman buffaloing a drunk with a revolver barrel uses the same rule (Keep the Peace).",
+    "knockout_drops": "Laudanum or chloral in a whiskey: a creature that drinks it makes a DC 13 CON save or falls unconscious for 1d4 hours 1d4 x 5 minutes later. Spotting it in the glass is a DC 15 Perception check (it tastes bitter, if you know to notice). It doesn't deal damage and the creature doesn't drop to 0 HP."
+  },
+  "opportunity_attacks": {
+    "description": "When a hostile creature you can see moves out of your reach, you can use your reaction to make one melee attack against it, or to fire a Sidearm at it as it goes.",
+    "exceptions": "Doesn't trigger if the creature takes the Disengage action, is moved by something other than its own movement, or is carried by its horse, a wagon or a train. A rider whose horse moves away provokes from creatures it passes only if the rider directed the horse past them.",
+    "readied_shots": "Anyone can Ready an attack to cover a door, a window or a gap in the rocks for a similar effect."
+  },
+  "grappling": {
+    "initiate": "Use one attack of the Attack action to grab a creature no more than one size larger than you, with a free hand. Make a STR (Athletics) check contested by its STR (Athletics) or DEX (Acrobatics).",
+    "escape": "The grappled creature can use its action to repeat the contest to break free.",
+    "effect": "The target is grappled (speed 0). You can drag it at half speed. A grappled creature firing a Longarm has disadvantage (point blank). Disarming: instead of grappling, contest to knock a weapon from a creature's hands. Manacling a grappled creature is an action (gear.json Manacles). Pulling a rider from the saddle is a grapple against the rider's STR (Athletics) or DEX (Riding); on a win the rider falls prone next to the horse.",
+    "lariat": "Throwing a lariat (gear.json) is an action against a creature within 20 ft: a DEX check, adding your proficiency bonus if you are proficient with the lariat, contested by the target's STR (Athletics) or DEX (Acrobatics). It isn't an attack roll and the lariat isn't a weapon. On a win the target is grappled, and the roper holds the other end. A roper on foot keeps the grapple as a normal grappler would. A mounted roper who dallies the rope round the saddle horn (part of the throw for anyone proficient) can, on later turns, have the horse drag a grappled Medium or smaller creature at its speed (1d6 bludgeoning per 20 ft dragged over rough ground) or throw it prone; a Large creature (a steer, a horse) is stopped and held. A rider roped from the saddle must succeed on a DC 13 DEX (Riding) check or be pulled off, prone. Escaping is the grapple contest, or cutting the rope (an action with a knife, AC 13 for anyone shooting at it). A Cowhand throws a loop from the saddle as a bonus action."
+  },
+  "shoving": {
+    "description": "Use one attack of the Attack action to shove a creature within reach: STR (Athletics) contested by its STR (Athletics) or DEX (Acrobatics).",
+    "effects": "On a win, knock it prone or push it 5 ft away (off the boardwalk, through the batwing doors, into the horse trough, off the train)."
+  },
+  "brawling": {
+    "overview": "The saloon fight is the genre's signature fight: a card game that went wrong, a drunk cowboy, a railroad man and a homesteader, a chair, a bottle and a piano player who keeps playing. Most fights in a Western town are fought with fists and furniture, because a gun brings the law, a body brings the judge, and shooting an unarmed man costs a Reputation you won't get back (frontier.json reputation). A fistfight is fought with the ordinary rules (initiative, the Attack action, grappling, shoving) plus the rules below.",
+    "unarmed_strike": "A punch, kick, head-butt or elbow is a melee attack: d20 + STR modifier + proficiency bonus (everyone is proficient). On a hit it deals 1d4 + STR modifier bludgeoning damage. Brass knuckles deal their own 1d4 and count as an unarmed strike.",
+    "knocking_out": "A creature reduced to 0 hit points by a melee attack can be knocked out instead of dying, at the attacker's choice (see nonlethal). Declare it when the blow lands. A knocked-out creature is stable and unconscious for 1d4 hours unless revived.",
+    "knockout_blow": "When you hit a creature that is surprised, or that can't see you (from behind, in the dark, as it comes through the door), with a pick handle, you can make it a knockout blow: in addition to the damage, the target must succeed on a CON saving throw (DC 8 + your proficiency bonus + your STR modifier) or fall unconscious, as if knocked out at 0 HP, for 1d4 x 10 minutes. A creature with more than 30 hit points remaining after the damage has advantage on the save. A creature that saves is still hit, and knows exactly where you are. You can make a knockout blow only once per creature per scene; after that, it is watching.",
+    "improvised_weapons": "Chairs, bottles, spittoons, a pool cue, a branding iron, a stove lid, a whiskey barrel stave: 1d4 bludgeoning (a broken bottle 1d4 slashing), using STR, with proficiency. A chair breaks after one hit. Throwing a man over the bar is a shove.",
+    "dirty_fighting": "Anyone can fight dirty: as an action, throw a drink or a handful of sand in a face, stamp on an instep, pull a hat down over a man's eyes or a coat down over his arms. Make a STR (Athletics) or DEX (Sleight of Hand) check contested by the target's DEX (Acrobatics). On a win the target is blinded or grappled (your choice) until the end of its next turn. (The Outlaw's Dirty Fighting feature is separate: extra damage against a target that isn't ready.)",
+    "the_saloon_fight": "When a brawl breaks out in a crowded saloon, every non-combatant either joins, ducks or leaves. Each round, the GM can have something happen: a table goes over (half cover for anyone behind it), the lamp swings, a bystander swings at whoever is nearest, the bartender comes over the bar with a pick handle, the piano player stops. Damage to the room is billed to whoever the owner decides started it (frontier.json the_law).",
+    "taking_a_beating": "Damage from fists and furniture is real damage, but a character who loses a saloon fight usually wakes up in the jail or the horse trough rather than dead: adversaries who are only brawling knock out the characters they drop rather than killing them, unless the GM has established that they mean murder.",
+    "pulling_a_gun": "Drawing a gun in a fistfight changes it. Everyone in the fight who sees it may act on it on their next turn, the brawlers who were only fighting may now shoot back, and the town remembers who drew first. Shooting an unarmed man in a fistfight is murder in law and in the town's opinion: Reputation falls by 2 (frontier.json reputation), and Wanted at least local."
+  },
+  "death_saving_throws": {
+    "zero_hp": "When a creature drops to 0 hit points it falls unconscious and is dying (unless the damage kills it outright, or the attacker knocked it out instead; see nonlethal). Adversaries the GM doesn't care about simply die or are out of the fight at 0 HP.",
+    "trigger": "When you start your turn with 0 hit points, you must make a death saving throw: roll a d20 with no modifiers.",
+    "success": "10 or higher is a success. Three successes: you become stable (unconscious, but no longer rolling).",
+    "failure": "9 or lower. Three failures: you die.",
+    "natural_1": "A natural 1 counts as two failures.",
+    "natural_20": "A natural 20 means you regain 1 hit point and wake up.",
+    "damage_at_0hp": "Taking any damage while at 0 HP causes one death save failure. A critical hit causes two failures. A melee hit from within 5 ft on an unconscious creature is a critical hit.",
+    "instant_death": "If damage reduces you to 0 HP and the damage left over equals or exceeds your hit point maximum, you die instantly. A shotgun at close range, a fall from a moving train or a stampede does this to ordinary people.",
+    "resetting": "Successes and failures reset when you regain any hit points or become stable.",
+    "no_resurrection": "Death is permanent. There is no magic and no medicine in the 1860s, 1870s or 1880s that brings someone back once they are dead."
+  },
+  "conditions": [
+    {
+      "name": "Blinded",
+      "effects": [
+        "Can't see; automatically fails any check that requires sight",
+        "Attack rolls against the creature have advantage",
+        "The creature's attack rolls have disadvantage",
+        "In the Western: sand in the face, a hat pulled down, a dust storm, a moonless night, the sun in your eyes at midday"
+      ]
+    },
+    {
+      "name": "Charmed",
+      "effects": [
+        "Can't attack or target the charmer with harmful effects",
+        "The charmer has advantage on social checks against the creature",
+        "In the Western: caused only by drink, laudanum or a story it can't afford not to believe, never by magic; rare"
+      ]
+    },
+    {
+      "name": "Deafened",
+      "effects": [
+        "Can't hear; automatically fails any check that requires hearing",
+        "In the Western: a gunshot in a small room (the GM may require a DC 10 CON save), a blast, a stampede going by"
+      ]
+    },
+    {
+      "name": "Frightened",
+      "effects": [
+        "Disadvantage on ability checks and attack rolls while the source of fear is in line of sight",
+        "Can't willingly move closer to the source of fear"
+      ]
+    },
+    {
+      "name": "Grappled",
+      "effects": [
+        "Speed becomes 0",
+        "Ends if the grappler is incapacitated or the creature is moved out of reach",
+        "Firing a Longarm has disadvantage",
+        "A creature roped with a lariat is grappled by the roper (grappling.lariat)"
+      ]
+    },
+    {
+      "name": "Incapacitated",
+      "effects": [
+        "Can't take actions or reactions"
+      ]
+    },
+    {
+      "name": "Invisible",
+      "effects": [
+        "Can't be seen; counts as heavily obscured for hiding",
+        "Attack rolls against the creature have disadvantage",
+        "The creature's attack rolls have advantage",
+        "In the Western: only total darkness, thick smoke or a dust storm against a creature that can't see through it"
+      ]
+    },
+    {
+      "name": "Paralyzed",
+      "effects": [
+        "Incapacitated; can't move or speak",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "Any hit from within 5 ft is a critical hit",
+        "In the Western: snake venom, a spinal wound, strychnine; rare"
+      ]
+    },
+    {
+      "name": "Poisoned",
+      "effects": [
+        "Disadvantage on attack rolls and ability checks",
+        "In the Western: snakebite, bad water, laudanum, rotgut whiskey, alkali dust"
+      ]
+    },
+    {
+      "name": "Prone",
+      "effects": [
+        "Can only crawl (each foot costs 2) until it stands, which costs half its speed",
+        "Disadvantage on attack rolls, except that a prone shooter with a rifle resting on something does not have disadvantage",
+        "Melee attacks from within 5 ft have advantage against it; ranged attacks from more than 5 ft have disadvantage against it",
+        "Going prone behind a low wall, a wagon tongue or a dead horse turns half cover into three-quarters cover"
+      ]
+    },
+    {
+      "name": "Restrained",
+      "effects": [
+        "Speed 0",
+        "Attack rolls against it have advantage; its attack rolls have disadvantage",
+        "Disadvantage on DEX saves",
+        "Rope, a man on each arm, a lariat dallied tight. Manacles alone restrain the hands, not the legs (gear.json)"
+      ]
+    },
+    {
+      "name": "Stunned",
+      "effects": [
+        "Incapacitated; can't move; can speak only falteringly",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "In the Western: a kick from a horse, a blast at close range, a fall from a moving train"
+      ]
+    },
+    {
+      "name": "Unconscious",
+      "effects": [
+        "Incapacitated; can't move or speak; unaware of surroundings",
+        "Drops what it is holding and falls prone",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "Any hit from within 5 ft is a critical hit"
+      ]
+    },
+    {
+      "name": "Bleeding",
+      "effects": [
+        "Loses 1d4 hit points at the start of each of its turns",
+        "Ends when someone uses an action and succeeds on a Medicine check (DC 10), when a bandage roll or a doctor's bag is used, or when the creature receives any healing",
+        "A creature at 0 HP that is Bleeding still makes death saves normally and the bleeding damage causes a death save failure each turn"
+      ]
+    },
+    {
+      "name": "Shaken",
+      "effects": [
+        "Disadvantage on WIS and CHA ability checks and saving throws",
+        "Lasts until the creature finishes a short or long rest (a stiff drink or a cup of coffee at the end of a short rest, laudanum, or a Preacher's Fire and Brimstone can also end it)",
+        "Caused by finding a body, a hanging, being worked over, a near miss at close range, backing down in a showdown or seeing someone you know die"
+      ]
+    },
+    {
+      "name": "Spooked",
+      "effects": [
+        "Horses, mules and cattle only",
+        "The animal bolts, bucks or rears on its turn instead of doing what its rider wants; a rider must succeed on a DC 12 DEX (Riding) check at the start of the animal's turn or be thrown (mounted_combat.falling_from_a_horse)",
+        "Ends when a rider or handler uses an action and succeeds on a DC 12 WIS (Animal Handling) check, or after 1d4 rounds away from the cause",
+        "Caused by gunfire close by, a blast, fire, a rattlesnake, the smell of a bear or a stampede (mounted_combat.spooked_horse)"
+      ]
+    },
+    {
+      "name": "Exhaustion",
+      "effects": [
+        "Measured in levels 1-6. 1: disadvantage on ability checks. 2: speed halved. 3: disadvantage on attacks and saves. 4: hit point maximum halved. 5: speed 0. 6: death",
+        "A long rest with food and water removes one level",
+        "Caused by thirst, heat, cold, forced marches and riding through the night (frontier.json weather_and_water, trail_travel), and going without sleep for more than 24 hours (one level per further 12 hours: DC 10 CON save to avoid)"
+      ]
+    }
+  ],
+  "healing": {
+    "principle": "There is no magic healing. Hit points come back through first aid, a doctor, a bed, laudanum and rest, and the nearest doctor may be two days' ride away. Nobody comes back from death.",
+    "first_aid": "As an action, make a WIS (Medicine) check (DC 10) to stabilize a creature at 0 HP. A doctor's bag gives advantage on the check. A stable creature stops making death saves, stays unconscious and regains 1 HP after 1d4 hours. First aid also ends Bleeding.",
+    "stabilizing": "You can use an action to administer first aid (DC 10 Wisdom (Medicine) check) to stabilize a creature at 0 HP. A stable creature doesn't make death saving throws but remains unconscious.",
+    "doctor_features": "A Doc's Sawbones, with a doctor's bag, gives a creature a short rest's worth of healing in one action (it spends up to the Doc's proficiency bonus in Hit Dice, plus the Doc's INT or WIS modifier), a number of times per long rest equal to the Doc's INT or WIS modifier + 1 (minimum 2). It also stabilizes and ends Bleeding, and the Doc can dig out a bullet during a short rest. A Preacher's Fire and Brimstone gives temporary hit points, which aren't healing.",
+    "drugs": "Laudanum: 1d6 + 2 temporary hit points for 1 hour and ends Shaken, but poisoned for that hour; a second dose within 8 hours risks unconsciousness (DC 13 CON). Whiskey poured on a wound does nothing for hit points but makes the patient feel better (ends Shaken at the end of a short rest). Snakebite kit: advantage on the save against venom. See gear.json medical.",
+    "hit_dice": "During a short rest, you can spend Hit Dice to recover HP. Roll each Hit Die and add your Constitution modifier. Your Hit Dice total equals your level.",
+    "short_rest": "At least 1 hour of downtime: a cup of coffee, a bandage, a smoke, cleaning and reloading a gun, resting the horses. Spend Hit Dice to heal. Features that recharge on a short rest come back. Ends the Shaken condition.",
+    "long_rest": "At least 8 hours, mostly sleep, in a reasonably safe place. Regain all lost HP and up to half your total Hit Dice (minimum 1). Remove one level of exhaustion if you have food and water. Can't benefit from more than one long rest in 24 hours, and a long rest interrupted by an hour or more of fighting gives no benefit.",
+    "doctoring_in_town": "A week in a bed under a doctor's care heals all hit points and lingering injuries (leg hits, Shaken). A town doctor charges $1-$2 a visit and $5 to dig out a bullet; an army post surgeon treats soldiers, and civilians if the commanding officer allows. A doctor who treats a gunshot wound in a town where the sheriff is looking for a wounded man will usually tell him; one who doesn't costs money or a favor.",
+    "death_is_final": "Nobody comes back from death. A character who dies is gone; the player creates a new one. The town buries them, and the preacher, if there is one, says a few words."
+  },
+  "chases": {
+    "structure": "A chase runs for 3 to 5 rounds. Each round, the pursuer and the quarry make opposed checks: DEX (Riding) on horseback, WIS (Animal Handling) driving a wagon or coach, STR (Athletics) or DEX (Acrobatics) on foot (the runner picks). A faster mount gives advantage: a horse against a mule or a wagon, a fresh horse against a blown one (chases.horses_and_endurance). Track the result each round.",
+    "winning": "The quarry escapes if it wins the majority of rounds (or gains a lead of 3 rounds). The pursuer catches up if it wins the majority (or gains a lead of 2). Catching up allows a grapple, a lariat throw, a melee attack, a leap from one horse to another (DEX (Acrobatics) DC 15) or a shot at close range without the long-range penalty.",
+    "complications": "Each round the GM introduces one complication for whoever is behind (or both): a dry wash to jump, a prairie-dog town, a barbed-wire fence, a herd of cattle in the way, a river, a rockslide, a cut bank, a low branch, a creek-bottom bog, a canyon that narrows to a slot, a train crossing the road. Clearing it is a check (DC 10-15) with the relevant skill (Riding for most, Animal Handling for a wagon, Survival to pick the line); failure costs the round automatically, failure by 5 or more also deals damage (1d6 bludgeoning to the rider, or the horse is lamed and drops out of the chase; a wagon loses a wheel).",
+    "actions_during_a_chase": "Riders and passengers who aren't making the check can act: shoot (disadvantage from horseback unless proficient in Riding; target the rider, the horse or the team), throw a lariat or dynamite, shout directions (the Help action with Survival or Perception), or cut a pack horse loose to slow the pursuit.",
+    "breaking_line_of_sight": "If the quarry wins a round by 5 or more it may try to hide (Stealth against the pursuer's Perception, or Survival in broken country) to end the chase immediately: into a side canyon, through a herd, down a creek bed to hide the tracks, into the timber at dusk. A pursuer with a Scout can try to pick up the trail afterward (frontier.json trail_travel).",
+    "horses_and_endurance": "A horse can gallop (Dash) for a number of rounds equal to 5 + its CON modifier, then must succeed on a DC 10 CON save each further round or be blown: its speed is halved until it rests for an hour, and its rider has disadvantage on Riding checks in the chase. A long pursuit across country is not a chase but a pursuit over days (frontier.json trail_travel).",
+    "on_foot": "On foot, each participant can Dash a number of times equal to 3 + CON modifier before needing a DC 10 CON check each additional Dash or gaining a level of exhaustion. A man on foot doesn't outrun a man on a horse unless the ground does it for him (rocks, timber, a town's alleys).",
+    "along_a_train": "Chasing a moving train on horseback is a chase against the train's speed (vehicles.trains): a rider who wins two rounds draws alongside and can board (vehicles.trains.boarding). Running along the car roofs is an on-foot chase with complications every round (a gap between cars, a water spout, a tunnel coming)."
+  },
+  "vehicles": {
+    "statistics": "Wagons, coaches and trains have AC and HP. At 0 HP a wagon or coach is wrecked: a wheel or axle goes, it stops or overturns if moving (crashing). A train is too big to wreck with guns; it is stopped by its crew, by dynamite on the track or by a missing rail. Speeds are good speeds on a road; teams and trains go slower uphill and in mud.",
+    "examples": [
+      {
+        "name": "Buckboard",
+        "ac": 11,
+        "hp": 30,
+        "speed_mph": 12,
+        "notes": "Light open wagon, one or two horses, two seats and a cargo bed. Quick for a wagon: no disadvantage in a chase against riders on a road. The bed is soft cover."
+      },
+      {
+        "name": "Covered wagon",
+        "ac": 10,
+        "hp": 50,
+        "speed_mph": 3,
+        "notes": "Farm or emigrant wagon with a canvas top, four to six oxen, mules or horses. Two or three miles an hour; fifteen miles is a good day. Loaded with household goods and grain sacks, it is half cover against rifles and three-quarters against everything else (cover.material.wagons). The canvas is no cover at all."
+      },
+      {
+        "name": "Freight wagon",
+        "ac": 11,
+        "hp": 70,
+        "speed_mph": 3,
+        "notes": "Heavy ore or freight wagon, often hitched in tandem behind a second, pulled by a string of mules or oxen. Carries three tons or more. Loaded, it is hard cover."
+      },
+      {
+        "name": "Stagecoach",
+        "ac": 12,
+        "hp": 60,
+        "speed_mph": 10,
+        "notes": "A mail and passenger coach on leather thoroughbraces, six horses, a driver and a guard riding shotgun on the box, nine passengers inside and luggage and the express box on top. Changes teams every 10-15 miles at swing stations. Its sides are soft cover; the express box (AC 15, HP 20, locked: Mechanics DC 15) is under the driver's seat."
+      },
+      {
+        "name": "Locomotive and tender",
+        "ac": 15,
+        "hp": 200,
+        "speed_mph": 25,
+        "notes": "A wood- or coal-burning steam engine with its tender of water and fuel, crewed by an engineer and a fireman. 20-30 mph on the flat including stops, 10 on a grade, up to 40 on a good stretch. The boiler is hard cover against everything. Stopping it: the engineer, a red flag or lantern on the track, a log or a pulled rail (it stops in 1d4 + 2 rounds, or derails if it doesn't see it in time)."
+      },
+      {
+        "name": "Passenger car",
+        "ac": 11,
+        "hp": 80,
+        "speed_mph": 25,
+        "notes": "A wooden coach with two rows of seats, a stove at one end and doors to the platforms at each end. The walls are soft cover; the stove is hard cover. Sixty passengers, a conductor and a brakeman."
+      },
+      {
+        "name": "Express car",
+        "ac": 14,
+        "hp": 100,
+        "speed_mph": 25,
+        "notes": "A boxcar lined with sheet iron, with a heavy sliding door and an express messenger inside guarding an iron safe (AC 18, HP 40, locked: Mechanics DC 20 and 10 minutes, or two sticks of dynamite, which may also destroy what is inside). The walls are hard cover against Sidearms and shotguns, soft against rifles."
+      },
+      {
+        "name": "Handcar",
+        "ac": 10,
+        "hp": 20,
+        "speed_mph": 10,
+        "notes": "A four-wheeled pump car worked by two people on a lever. Gets you down the line where there is no horse road, and onto a train's tail if the train is going slow up a grade."
+      }
+    ],
+    "damage_threshold": "Wagons and coaches ignore damage from a single attack that deals less than 5 damage (a pistol ball in a wheel spoke). Locomotives and express cars ignore less than 10. Shooting the team is usually how a wagon is stopped (teams).",
+    "attacking_occupants": "Occupants of a wagon or coach have half cover from its soft sides (which, per cover.material, is no cover against rifles). A driver on the box has no cover. Passengers on a train have soft cover in a car and none on the platforms or roofs.",
+    "teams": "Each horse or mule in a team is a creature (frontier.json horses_and_mounts). A team horse that is shot and killed or that becomes Spooked forces the driver to make a DC 15 WIS (Animal Handling) check or the team runs away (crashing) or stops dead. Cutting a dead horse out of the traces takes an action and a knife.",
+    "runaway_team": "A runaway team goes where it likes at full speed for 1d4 + 1 rounds and then overturns the wagon on the first complication. Stopping it is a DC 15 Animal Handling check from the box, or a rider drawing level (a chase round won) and grabbing the leaders' bridles (DC 15 Athletics or Riding).",
+    "crashing": "A wagon or coach that overturns at speed deals 1d10 bludgeoning per 5 mph to every occupant (DEX save DC 15 for half, or jump clear first with a DC 15 DEX (Acrobatics) check and take 2d6). A derailed train deals 4d10 to everyone aboard (DEX save DC 15 for half) and wrecks the cars.",
+    "trains": {
+      "boarding": "Getting onto a moving train from horseback or from the ground is a DC 12 STR (Athletics) or DEX (Acrobatics) check at 10 mph or less, DC 15 at 20 mph, DC 20 at full speed. Failure by 5 or more is a fall (falling_from_a_train).",
+      "moving_on_a_train": "The roofs and the gaps between cars are difficult terrain. A creature that takes damage while on a roof, or is shoved, must succeed on a DC 12 DEX (Acrobatics) check or fall. Jumping the gap between cars is part of normal movement, or a DC 10 Acrobatics check while fighting.",
+      "falling_from_a_train": "A creature that falls from a moving train takes 1d6 bludgeoning per 5 mph (DEX save DC 15 for half) and is left behind.",
+      "uncoupling": "Pulling the coupling pin between cars takes an action and a DC 12 STR (Athletics) check on a moving train (or with a tool roll, Mechanics). The uncoupled cars roll to a stop over the next minute; on a downgrade they keep going.",
+      "tunnels_and_bridges": "A creature standing on a roof as the train enters a tunnel or passes under a water spout must succeed on a DC 15 DEX save or take 2d10 bludgeoning and fall."
+    }
+  },
+  "mounted_combat": {
+    "overview": "Out here fights happen on horseback: a posse running down an outlaw, a road agent stopping a coach, cowhands fighting off rustlers in the dark. A mounted creature uses these rules on top of the usual ones. Horse statistics are in frontier.json horses_and_mounts.",
+    "mounting_and_dismounting": "Mounting or dismounting a horse costs half your speed (5 ft for a Cowhand or an Outlaw). Vaulting into the saddle at a run, or dropping off a galloping horse onto your feet, is a DC 15 DEX (Acrobatics or Riding) check; failure means you land prone.",
+    "controlling_a_mount": "A trained horse moves on your turn at its own speed, as you direct, and can take the Dash, Disengage or Dodge action. It doesn't attack unless it is a war-trained or fighting horse. An untrained or panicked horse acts on its own initiative.",
+    "shooting_from_the_saddle": "Ranged attacks from a horse that moved this turn have disadvantage unless you are proficient in Riding (a Cowhand never has disadvantage). From a standing horse there is no penalty. A two-handed Longarm fired from a moving horse with the reins dropped also needs a DC 10 DEX (Riding) check at the start of the turn or the horse wanders off line (no attack this turn). You can't Aim from a moving horse.",
+    "melee_from_the_saddle": "A rider has advantage on melee attacks against creatures on foot that are Medium or smaller, and creatures on foot have no advantage against the rider. A rider who moves at least 20 ft straight toward a target before a cavalry saber attack deals an extra 1d8 on a hit (the charge).",
+    "attacking_the_horse": "A horse is a Large target with its own AC and HP. Shooting the horse rather than the rider needs no called shot, and many men would rather not: shooting a man's horse out from under him in a fair fight costs 1 Reputation with any cattleman who hears of it, though not in a chase or a robbery (frontier.json reputation). A horse reduced to 0 HP falls (horse_shot_from_under_you).",
+    "spooked_horse": "Gunfire within 30 ft, a blast, fire, a rattlesnake, the smell of a bear or a stampede can spook a horse that isn't trained to it. At the start of the horse's turn after such a thing, its rider makes a DC 12 WIS (Animal Handling) check; on a failure the horse is Spooked (conditions). A spooked horse bolts, bucks or rears: the rider must succeed on a DC 12 DEX (Riding) check or be thrown. Cavalry horses, a Cowhand's own horse and horses that have been under fire before don't spook at gunfire.",
+    "falling_from_a_horse": "A rider who is thrown, knocked out of the saddle or pulled off falls prone in a space next to the horse and takes 1d6 bludgeoning (2d6 at a gallop). A rider who drops to 0 HP falls. A rider with a foot caught in the stirrup is dragged (1d6 bludgeoning per round at a gallop) until they pass a DC 12 STR or DEX check, the stirrup is cut, or the horse stops.",
+    "horse_shot_from_under_you": "When your horse drops to 0 HP, it falls. Make a DC 12 DEX (Riding) or DEX save: on a success you land on your feet beside it; on a failure you fall prone and take 1d6 bludgeoning, and on a failure by 5 or more you are pinned under it (restrained; a DC 15 STR check or someone's help to get out). The dead horse is three-quarters cover. You are now afoot, and on the frontier that is a serious matter (frontier.json horses_and_mounts.losing_a_horse).",
+    "using_the_horse_as_cover": "Dismounted, a rider can use a standing horse as half cover; the horse takes any attack that misses you by 2 or less."
+  },
+  "stampedes": {
+    "overview": "A herd of cattle that panics runs blind in one direction, a mile wide and loud as a train, and anything in front of it is trampled. Stampedes start on dark nights, in thunderstorms, at a gunshot, at the smell of a wolf, or because someone wanted one. They are a hazard, not a creature: nobody fights a stampede, they get out of its way or turn it.",
+    "triggers": "Thunder and lightning (on a night with a storm, roll a d6 each hour; on a 1 the herd runs unless a Cowhand with Cow Sense is on watch), a gunshot near a bedded herd (DC 12 Animal Handling by the night herders to hold it), a deliberate stampede by rustlers or rivals (a few shots and a slicker waved in the dark: no check, it runs), a blast or a prairie fire.",
+    "the_stampede_as_a_hazard": "Treat the running herd as a moving area as wide as the herd (usually hundreds of feet) that moves 60 ft a round. A creature in its path at the start of its turn, or that the herd moves into, makes a DEX saving throw (DC 15): on a failure it takes 4d10 bludgeoning (6d10 for a big herd) and is knocked prone, and on a success half damage. A creature knocked prone in the herd repeats the save each round until it gets out. A mounted rider can use DEX (Riding) instead of the save. The noise is deafening (deafened while within it), and everyone's horse must check for Spooked.",
+    "getting_clear": "Getting out of the path takes movement to the herd's edge (the GM says how far), a Dash, or a horse that can outrun it for a round. Cover helps only if it is hard and big: a boulder, a cut bank, a stone wall, a tree too thick for a steer to knock down. A wagon in the path is overturned (vehicles.crashing).",
+    "turning_a_stampede": "Riders who get to the front of the herd and ride along its leaders, shouting and firing in the air, can turn it into a mill. It takes three successful DC 15 Riding or Animal Handling checks by any riders at the leaders in consecutive rounds (a Cowhand with Cow Sense needs only one, with advantage). Each failed round, a rider at the front makes the hazard save.",
+    "aftermath": "A stampede scatters a herd over miles. Gathering it takes a day of riding and a Survival check per hundred head; cattle are lost, injured or run off the cliff, and the drive loses days. A stampede caused on purpose is a crime that people hang for in cattle country (frontier.json the_law)."
+  }
+}

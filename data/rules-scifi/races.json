@@ -1,0 +1,155 @@
+{
+  "_meta": {
+    "category": "scifi",
+    "source": "Written for claudeDM (Sci-Fi category). Mostly original; a few general-mechanics sentences (e.g. opportunity attacks, passive checks, stat-block phrasing) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Sci-Fi Origins (the UI labels races.json entries as 'Origins'). Each origin has an 'eras' tag. Human and Human (Specialist) are baseline humans for any era; Spacer, Synthetic and Enhanced exist only in future-era campaigns. A campaign's characterOptions.races decides which are offered."
+  },
+  "races": [
+    {
+      "name": "Human",
+      "ability_score_increase": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 1,
+        "intelligence": 1,
+        "wisdom": 1,
+        "charisma": 1
+      },
+      "age": "Humans reach adulthood around 18 and, with modern medicine, live into their eighties; future-era humans may live well past a century.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "Common (the setting's main language, usually English)",
+        "one extra language of your choice"
+      ],
+      "traits": [],
+      "subraces": [],
+      "description": "Ordinary people from ordinary places: cops, soldiers, clerks, mechanics and drifters who find themselves in extraordinary trouble. Humans are the default origin and the only one available in 1980s and modern campaigns.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Human (Specialist)",
+      "ability_score_increase": {
+        "one_ability_of_choice": 2,
+        "another_ability_of_choice": 1
+      },
+      "age": "As Human.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "Common (the setting's main language, usually English)",
+        "one extra language of your choice"
+      ],
+      "traits": [
+        {
+          "name": "Specialized",
+          "description": "Increase one ability score of your choice by 2 and a different ability score by 1."
+        },
+        {
+          "name": "Extra Training",
+          "description": "You gain proficiency in one skill of your choice."
+        }
+      ],
+      "subraces": [],
+      "description": "A human who has focused hard on one thing: the marathon runner, the chess prodigy, the career marksman. Mechanically a variant of Human that trades breadth for a sharper edge; it is still a baseline human and fits any era.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Spacer",
+      "ability_score_increase": {
+        "dexterity": 2,
+        "wisdom": 1
+      },
+      "age": "Spacers mature like other humans but tend to be tall and slight; long-term low gravity shortens their lives slightly unless they keep up their medical regimen.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "Common (the setting's main language, usually English)",
+        "one extra language of your choice",
+        "Spacer cant (a hand-sign and slang dialect used in vacuum work)"
+      ],
+      "traits": [
+        {
+          "name": "Zero-G Adapted",
+          "description": "You suffer no penalties to attacks, checks or movement in microgravity or zero gravity, and you can move through it at your normal speed by pushing off surfaces."
+        },
+        {
+          "name": "Thin Bones",
+          "description": "In full (Earth-normal or higher) gravity, you have disadvantage on saving throws and checks to avoid being knocked prone."
+        }
+      ],
+      "subraces": [],
+      "description": "Born on stations, ships and low-gravity moons, Spacers move through cramped corridors with uncanny grace and never forget to check their air. Planetside, they find gravity tiring and crowds unsettling.",
+      "eras": [
+        "future"
+      ]
+    },
+    {
+      "name": "Synthetic",
+      "ability_score_increase": {
+        "intelligence": 2,
+        "constitution": 1
+      },
+      "age": "Synthetics are activated as adults. Their bodies do not age, though their components need replacing over decades of service.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "Common (the setting's main language, usually English)",
+        "one extra language of your choice",
+        "machine code (can interface with compatible systems directly)"
+      ],
+      "traits": [
+        {
+          "name": "Constructed",
+          "description": "You are immune to poison damage, the poisoned condition and disease. You do not need to breathe, eat or drink. Medicine checks and Medic features do not restore your hit points; you are repaired with a Mechanics check (as a Medicine check would heal a human) or the Tech's Patch gadget. You still spend hit dice on short rests and regain hit points on long rests as normal (self-repair routines)."
+        },
+        {
+          "name": "Data Link",
+          "description": "You have advantage on Computers checks when you are physically jacked into the system with a cable or contact port."
+        }
+      ],
+      "subraces": [],
+      "description": "An artificial person built to serve, explore or fight. Some synthetics are indistinguishable from humans; others make no attempt to hide the seams. Many people distrust them, and many synthetics have learned to keep their nature quiet.",
+      "eras": [
+        "future"
+      ]
+    },
+    {
+      "name": "Enhanced",
+      "ability_score_increase": {
+        "strength_or_constitution": 2,
+        "one_other_ability": 1
+      },
+      "age": "As Human. Enhancement procedures are typically done in adulthood.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "Common (the setting's main language, usually English)",
+        "one extra language of your choice"
+      ],
+      "traits": [
+        {
+          "name": "Engineered Physique",
+          "description": "Increase Strength or Constitution by 2 and one other ability score by 1."
+        },
+        {
+          "name": "Augmented",
+          "description": "Choose one augmentation. Dermal Plating: +1 bonus to AC. Reflex Boost: +2 bonus to initiative. Optic Suite: darkvision 60 ft (see in dim light within 60 ft as if bright, and darkness as if dim, in shades of gray)."
+        }
+      ],
+      "subraces": [],
+      "description": "A human rebuilt by gene editing, cybernetics or both: military super-soldiers, corporate security assets, or people who simply paid for an upgrade. The work is expensive, often owned by someone else, and occasionally comes with a kill switch.",
+      "eras": [
+        "future"
+      ]
+    }
+  ]
+}

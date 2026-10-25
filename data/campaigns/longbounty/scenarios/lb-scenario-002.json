@@ -1,0 +1,486 @@
+{
+  "id": "lb-scenario-002",
+  "title": "High Water and Longhorns",
+  "subtitle": "The Colorado in Flood, Eighteen Hundred Head Bound South, and a Hundred Miles Without Water",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The trail from the Colorado to the edge of the Rio Grande country, Wednesday 22 April to Wednesday 13 May 1874",
+    "description": "The long middle of the road. Four days out of Bascom's Ferry the party reach the Colorado at Bauer's Ferry and find it rising after three days of rain, with the Thale brothers already at the landing and a German ferryman who will not risk his flatboat or his cable. Across the river, the trail runs south through the German farms and the San Antonio country to the brush, where the party fall in with Doña Refugio Ancira's herd on the Atascosa: eighteen hundred head of Central Texas cattle, a remuda of a hundred horses, a chuck wagon and seven vaqueros where there should be eleven, bound for Rancho San Lázaro on the Rio Grande. Riding with the drive is slow, hard work at ten miles a day, and it is the best cover in Texas. The drive crosses the Frio and the Nueces and then the Wild Horse Desert, a hundred miles of sand and grass and salt lakes where the water holes are a long day apart, and it brings the party within a day's ride of Crow's Ford. Along the way the party learn from people who met him what kind of man Isom Haywood is, and learn who is riding behind them.",
+    "atmosphere": "Water, then no water. At the Colorado: rain, a brown river full of whole trees, a cable humming like a fiddle string, the smell of mud and wet pecan bark, German voices and a beer garden with the benches stacked under a roof. In the brush: dust, heat, mesquite thorns, prickly pear in yellow flower, cattle lowing all night, the chuck wagon's coffee at four in the morning, vaqueros singing to the herd on night guard, lightning on the horizon that nobody likes. On the Nueces: green water, sandbars, quicksand, a herd swimming with only horns and noses above the water. In the desert: white sky, sand that reflects the heat back up into your face, salt lakes like sheets of tin, wild horses on the skyline, the bones of cattle that did not make it, and the moment a horse lifts its head and smells water before anyone else can. Long days, short tempers, good company. This is the part of the campaign the players should remember as the trail.",
+    "keyLocations": [
+      {
+        "name": "Bauer's Ferry on the Colorado",
+        "description": "A German family's ferry below Austin: a flatboat forty feet long running on a wire cable strung between two big pecans, a stone house and store on the north bank, a stable, a smokehouse and a beer garden under the trees. Gottfried Bauer, 68, has run it since 1851. The Colorado is normally two hundred feet wide here. By Wednesday 22 April it is five hundred and rising.",
+        "features": [
+          "The cable, two inches of twisted wire, singing in the current; Bauer checks it every hour",
+          "The flatboat, hauled up on the north bank with its sweeps lashed",
+          "The landing, half under water, and a line of wagons waiting: a German freighter, a family in a buggy, a circuit judge's clerk, the Thale brothers",
+          "Bauer's store: coffee, cartridges, whiskey, oats at two bits a bushel, and a register of everyone who crossed"
+        ],
+        "encounters": [
+          "Gottfried Bauer, his daughter-in-law Liesl and his grandson Anton, 9",
+          "The Thale brothers: Jubal (Bounty Hunter), Amos and Nate (Hired Gun), who want to cross today",
+          "A rider of the Lockett County Rifles (Outlaw), if the GAP is 1 or less, who arrives asking questions"
+        ],
+        "secrets": [
+          "CLUE A5 (core, from Gottfried Bauer, Liesl or Anton, once anyone asks about the man on the poster and is not unkind about it): Isom crossed on Thursday 9 April, the first day of the rise, alone, at dawn, on a bay with a white hind sock, holding his left side. On the far bank Anton fell from the landing into the current and Isom went in after him, wounded, on his horse, and brought him out. 'He was bleeding through his shirt,' Liesl says. 'My husband's boy would be dead. You tell me again what that paper says he is.' Reputation at Bauer's Ferry starts at -1 for anyone carrying the poster openly and +2 for anyone who listens to this.",
+          "CLUE D4: Bauer's register shows 'I. H., 1 horse, 9 Apr' in Bauer's own hand, and Bauer says Isom asked the road to San Antonio 'and then the Rio Grande'.",
+          "CLUE E2 (if the GAP is 1 or less): a Rifle rides in on the second day, a young man with a Lockett County drawl, and asks Bauer which way 'the party of hunters with the preacher' (or the marshal, or the doctor) went, not which way Isom went. Bauer tells the party afterward, if they have earned it.",
+          "The Thales mean to force a crossing on Wednesday afternoon by taking the flatboat themselves. Jubal knows it is mad and his brothers have talked him into it. If no one stops them, the flatboat goes out with the three Thales and their horses at four o'clock, the cable parts, and the boat is swept a mile downstream; Nate drowns unless someone goes in after him."
+        ]
+      },
+      {
+        "name": "The Herd on the Atascosa",
+        "description": "Doña Refugio Ancira's camp, a day south of San Antonio on Monday 27 April: eighteen hundred head bedded on the river flats, a remuda of a hundred horses in a rope corral, a chuck wagon with a canvas fly, a bed wagon, a fire, and seven vaqueros where there should be eleven. Rancho San Lázaro is two hundred miles south, near the Rio Grande; two years of raiding from both banks emptied it, and Doña Refugio has spent her husband's last money buying Central Texas cattle to restock it.",
+        "features": [
+          "The chuck wagon, run by old Tío Chencho Leal, who has fed vaqueros since before the Texas Revolution and says so",
+          "The remuda, guarded at night by the wrangler, Wiley Dunmore, hired at the Cibolo",
+          "Doña Refugio's own tent and her own horse, a dun she rides astride in a divided skirt",
+          "The point, the swing, the flank and the drag: where a new hand rides is a statement of trust, and the party start in the drag, eating dust"
+        ],
+        "encounters": [
+          "Doña Refugio Ancira, 56, owner of Rancho San Lázaro and the herd",
+          "Saturnino Ybarra, 48, her segundo (the companion)",
+          "Wiley Dunmore, 51, the wrangler (the companion)",
+          "The vaqueros: Epifanio Ybarra (Saturnino's nephew), Lalo Treviño, Pancho Salinas, Toney Rawls (a freedman cowhand hired in Seguin), Cruz Benavides and two others"
+        ],
+        "secrets": [
+          "Doña Refugio is Inés Haywood's aunt, her mother's sister. Isom came to the herd on the Cibolo on Monday 13 April, wounded; she gave him a fresh horse (a grulla gelding with a San Lázaro brand) and sent him ahead. She will lie about it to bounty hunters with a perfectly straight face (Insight DC 16 to see it). She will not tell the party the truth until they have earned it (see Act 2).",
+          "She is short four hands because three of her vaqueros, including Saturnino's son Rafael, were jailed in San Antonio for 'vagrancy' on the way north, on a deputy's whim, and the fourth went home to his wife. She needs hands and pays thirty dollars a month and a horse each at the end of the drive. Joining her outfit is the best cover in Texas: GAP +2, once (campaignRules).",
+          "CLUE D5: the vaqueros know the tall Black rider who came to the herd on the Cibolo was 'family'. Toney Rawls, who is a freedman from the Guadalupe, talked with him at the fire: 'He said he was going home to his wife and to see a man in Rio Grande City. He said if anybody came asking, I should tell them the truth, because it wouldn't help them.' Toney tells this to anyone who asks him straight, once Doña Refugio has said the party may be trusted, or to Reverend Burris or Ulysses Wardlow at once.",
+          "Wiley Dunmore, the wrangler, is a white ex-horse-thief who did four years in Huntsville. He does not know who the party are hunting until he sees the Riders (Act 3), and then he recognizes Gattis."
+        ]
+      },
+      {
+        "name": "The Frio and the Brush",
+        "description": "Four days south of the Atascosa: mesquite, huisache and prickly pear thick enough to tear a man's chaps off, live oak mottes, the shallow Frio with its gravel bars, and the San Caja hills on the skyline. The herd moves ten or twelve miles a day; the brush is full of wild cattle, cow hunters, rattlesnakes and lightning.",
+        "features": [
+          "The bed ground on the Frio, a flat between two mottes where the herd bedded the night of the storm",
+          "A cow hunters' camp in the brush: four Anglo cowmen with a running iron, who make a living branding other people's strays",
+          "The trail of a herd that went through ahead of them, and the carcasses of the ones that died"
+        ],
+        "encounters": [
+          "Rustlers (4): Anglo cow hunters who try to cut forty head from the drag at dusk",
+          "A stampede on the night of the storm (combat.json stampedes)",
+          "A Longhorn Bull, the herd's lead steer gone wild in the storm",
+          "Rattlesnakes, at the bed ground and in the brush"
+        ],
+        "secrets": [
+          "The cow hunters are not raiders from across the river and the party should know it; they are four Anglo Texans from the Frio with a running iron and an excuse. If caught, their leader says, outraged, that everyone does it, and that the Mexicans steal Texas cattle across the river; Saturnino says, quietly, that he has had cattle stolen by men from both banks and has never yet seen a running iron that cared which way it was going.",
+          "The storm comes on the night of Saturday 2 May. Saturnino smells it at sundown and doubles the guard. Whoever is on watch when the lightning hits the motte has the stampede."
+        ]
+      },
+      {
+        "name": "The Nueces and Oakville",
+        "description": "The Nueces at the Oakville crossing on Wednesday 6 May: a deep green river between high clay banks with sandbars and quicksand at the edges, and Oakville on the south bank, a county seat of a few hundred with a courthouse, a store and the San Antonio stage station.",
+        "features": [
+          "The crossing: a cattle swim of a hundred yards, with a sandbar halfway",
+          "The quicksand on the south bank below the crossing, marked by a dead steer up to its shoulders",
+          "Oakville stage station: mail, whiskey, a telegram held for a gentleman expected"
+        ],
+        "encounters": [
+          "The cattle swim: a mill of panicked steers in the river, a horse that panics, a hand in the quicksand",
+          "At the stage station: the stationmaster, Mr. Gorce, who likes to talk"
+        ],
+        "secrets": [
+          "CLUE E3: at the Oakville stage station, a telegram brought down by the San Antonio stage and held 'for G. Vandiver, to be called for': 'KEEP BEHIND THEM. THEY WILL FIND HIM. NO ONE TO READ IT. FENNER.' The stationmaster will mention it to anyone who says they are with the Lockett County party (Deception DC 12), will let it be read for a dollar (Persuasion DC 12) or can be distracted while someone reads it (Sleight of Hand DC 13). If the party take it, the Riders do not get it, and lose a day finding out where they are: GAP +1.",
+          "If the GAP is 0 or 1, the Riders reach Oakville the day after the herd and pick up the telegram, and from here on they know the party are with a herd."
+        ]
+      },
+      {
+        "name": "The Wild Horse Desert",
+        "description": "From the Nueces to the river country: a hundred miles of sand, grass and salt lakes, mesquite in the low places, mustangs on the skyline, and water holes a hard day apart. Doña Refugio's route uses four: Charco Escondido, the San Pedro well, Laguna Salada (salt, undrinkable, a landmark) and the Ojo de la Coyota, a spring in a sandstone draw a day from San Lázaro.",
+        "features": [
+          "Charco Escondido: a rain tank in a clay pan, full in a wet spring",
+          "The San Pedro well: a hand-dug well with a sweep and a trough, forty feet to water",
+          "Laguna Salada: a white salt lake two miles across, where a thirsty horse will try to drink and should not",
+          "The Ojo de la Coyota: a spring in a sandstone draw, the last water before San Lázaro"
+        ],
+        "encounters": [
+          "Thirst and heat: frontier.json weather_and_water, every day",
+          "A dust storm on the third day, out of the west",
+          "Wolves at the drag on the second night, and a Cougar at the remuda",
+          "The Riders, at the Ojo de la Coyota, if the GAP has reached 0"
+        ],
+        "secrets": [
+          "The San Pedro well has been fouled: a dead steer down it, a week old. Someone in a hurry did it, or nobody did and the steer fell. The herd cannot water there. The next sweet water is the Ojo de la Coyota, a day and a half on, and the herd will not make it without finding water in between. A Scout's Trailcraft finds it (a seep in a mesquite flat that the mustangs use, two hours off the route); so does Nature DC 15 (reading the mustang trails and the green of the mesquite), or Saturnino, if asked, who remembers it from 1859 but not exactly where.",
+          "The dust storm is a test of the night watch: a herd drifts with the wind, and the hands must hold it or lose two days rounding it up (GAP -1)."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Four days out of Bascom's Ferry the party reach the Colorado at Bauer's Ferry to find it in flood, the ferryman refusing to cross, and the Thale brothers about to try it themselves. The flood is a set piece: wait and lose the gap, cross by the ferry when Bauer judges it safe, or swim it upstream at a ford, and perhaps pull a drowning bounty hunter out of the river. The Bauers tell the party that Isom Haywood crossed here on the first day of the rise, wounded, and went into the river after their boy. South of San Antonio the party find Doña Refugio Ancira's herd on the Atascosa, short four hands, and can join it for cover at thirty dollars a month. The drive is the heart of the scenario: the drag and the point, night guard, cow hunters cutting the herd, a stampede in a thunderstorm on the Frio, a cattle swim at the Nueces, a telegram at Oakville that tells the party who is following them and why, and the Wild Horse Desert, where a fouled well and a dust storm make water the enemy. Doña Refugio lies about Isom until the party have earned the truth, and then tells them he is family and he has gone home. When the Riders catch up, if they do, they come into the herd's firelight asking about a party of hunters, and the wrangler, Wiley Dunmore, sees the man on the grey horse and goes white. The scenario ends at the Ojo de la Coyota, a day's ride from Rancho San Lázaro and Crow's Ford, with the herd watered and the Rio Grande on the horizon.",
+  "hook": "Wednesday 22 April, noon. The Colorado has come up eight feet since Sunday and it is still coming. From the bluff above Bauer's Ferry you can see it: a brown sheet of water a quarter of a mile wide, moving fast and full of trees, a dead cow, half a corncrib, a rooster riding on a raft of driftwood. The ferry's cable hums. At the landing, the old ferryman has his flatboat hauled up and lashed and is telling a big grey man in a sheepskin coat, in English and then in German and then in English again, that no, not for fifty dollars, not for a hundred, not today. The big grey man is Jubal Thale. His brothers are already leading their horses toward the boat.",
+  "cluesAvailable": [
+    "A5",
+    "C3",
+    "D4",
+    "D5",
+    "E1",
+    "E2",
+    "E3",
+    "F1",
+    "F3"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "Isom Haywood is not what the poster says",
+      "clues": [
+        "A5: the Bauers: wounded, he went into the flood after a drowning child (Bauer's Ferry)",
+        "Doña Refugio, once she trusts the party: he is family, a sergeant, a lawman, a good husband, and he is carrying 'the judge's paper' (the drive)",
+        "Toney Rawls: 'tell them the truth, because it won't help them' (the drive)",
+        "Saturnino Ybarra: he and Isom hunted horse thieves together when Isom was a sergeant at Fort Ringgold, and Isom never once shot a man in the back (the drive)"
+      ]
+    },
+    {
+      "conclusion": "D. Isom is going home, near the Rio Grande, and to a man in Rio Grande City",
+      "clues": [
+        "D4: Bauer's register and the road he asked for (Bauer's Ferry)",
+        "D5: the vaqueros and Toney Rawls (the drive)",
+        "Doña Refugio: 'He has gone home.' She will not say where home is, but she is going to the same country (the drive)"
+      ]
+    },
+    {
+      "conclusion": "E. The Riders are following the party, not Isom",
+      "clues": [
+        "E1: dust behind the party, and riders asking after them a day later at each stop (the road)",
+        "E2: the Rifle at Bauer's Ferry asks which way the party went (Bauer's Ferry)",
+        "E3: Fenner's telegram at Oakville: KEEP BEHIND THEM. THEY WILL FIND HIM. NO ONE TO READ IT (Oakville)",
+        "The Riders come to the herd asking for 'a party of hunters', not for Isom (the desert or the Nueces)"
+      ]
+    },
+    {
+      "conclusion": "F. Lyman Gattis is a killer, and the Riders' real weapon",
+      "clues": [
+        "F1: the grey with the bar shoe among the Riders' horses (the herd, when the Riders come)",
+        "F3: Wiley Dunmore knows Gattis from the Red River: he shot a man across a card table in Denison for winning and set a store afire in Sherman with a thrown lamp (the herd)",
+        "C3: Wiley's lamp story matches Mother Lytle's account of election night (lb-scenario-001)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: High Water",
+      "description": "Bauer's Ferry, Wednesday 22 to Friday 24 April. The Colorado in flood is the first time the trail itself is the enemy. The party can wait for the river (Bauer says two days), which costs the GAP, or cross in the flood, which can cost horses and lives. The Thales force the question by trying to take the ferry. The Bauers tell the party about Isom.",
+      "objectives": [
+        "Get across the Colorado",
+        "Deal with the Thale brothers' crossing",
+        "Learn what the Bauers know about Isom Haywood"
+      ],
+      "scenes": [
+        {
+          "name": "The Thales Take the Boat",
+          "description": "Wednesday at four in the afternoon, the Thales cut the flatboat's lashings and lead their horses aboard. Bauer begs them; Liesl calls for help. If the party stop them, by talk, a stare-down or a gun, the Thales are humiliated and furious and alive. If not, the boat goes out, the cable parts at mid-river and the boat is swept downstream with three men and four horses aboard, and Nate Thale goes over the side.",
+          "readAloud": "The boat swings out into the current and the cable comes up out of the water dripping, tight as a bowstring, and for twenty yards it is going to work. Then a whole cottonwood comes down the river roots first, turning slowly, and the current lays it against the boat's upstream side, and the boat heels, and the cable sings a note you feel in your teeth. Bauer, beside you, says something in German that is a prayer. With a sound like a pistol shot the cable parts. The boat spins once and goes downstream like a leaf, with the horses screaming and the three Thales clinging to the rail, and then there are only two Thales clinging to the rail.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "Before they board: Jubal Thale hears sense and stops his brothers. He owes the party for it and says so. In lb-scenario-003 he will tell them what the Riders asked him in Crow's Ford.",
+              "failure": "The Thales board. The party can still stop them with Intimidation DC 14 (a gun on the boat's lashings and a promise) or let it happen."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 15,
+              "success": "Someone goes into the river after Nate Thale, on a rope or a swimming horse, and brings him out on a sandbar a quarter mile down. The swimmer takes one level of exhaustion and is the hero of the landing: Reputation at Bauer's Ferry +2, and Jubal Thale's debt for the rest of the campaign.",
+              "failure": "The swimmer is swept downstream and fetches up on a drift pile, half-drowned (one level of exhaustion and 2d6 bludgeoning). Nate Thale is pulled out by a German freighter's boy with a rope, alive, barely."
+            },
+            {
+              "skill": "Animal Handling",
+              "dc": 13,
+              "success": "A horse swimming in the flood with a rider on its back is kept calm and pointed at the bank. Use advantage on the Athletics check above.",
+              "failure": "The horse panics; the rider has to let go and swim. Disadvantage on the Athletics check."
+            }
+          ]
+        },
+        {
+          "name": "Crossing the Colorado",
+          "description": "Thursday or Friday. Bauer says the river will crest on Thursday night and he will cross on Friday at noon with a new cable spliced, if someone will help him string it (Athletics and Mechanics). Or the party can cross upstream at the Mormon ford, six miles up, swimming the horses: a set piece of the trail rules. Either way, the Bauers tell them about Isom if they have been decent.",
+          "readAloud": "Liesl Bauer pours the coffee and sits down across from you at the long table under the pecans, and pushes a plate of rye bread and sausage toward you. Her boy, Anton, nine years old, white-blond and solemn, is sitting on the step with a puppy, pretending not to listen. 'You are hunting the man on the paper,' she says. 'I have read it. My husband's father has read it. Anton cannot read yet but he knows what is on it.' She looks at the boy. 'Anton. Tell them who pulled you out of the river.'",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 13,
+              "success": "The new cable is spliced and strung by Thursday evening and the party cross on Friday morning at first light, half a day earlier than Bauer promised. Bauer charges them nothing. GAP unchanged.",
+              "failure": "The splice slips and has to be redone. The party cross on Friday at noon. GAP -1."
+            },
+            {
+              "skill": "Riding",
+              "dc": 14,
+              "success": "At the Mormon ford, six miles up, every rider swims their horse across in the flood on Thursday morning (one check each; advantage for anyone a Cowhand or Scout helps). GAP +1, because the Riders will wait for the ferry.",
+              "failure": "A horse is swept off the ford; the rider makes an Athletics DC 13 check or takes 2d6 bludgeoning and a level of exhaustion, and the horse is lost unless someone spends an action and an Animal Handling DC 14 to bring it in. A party that loses a horse here has to buy one at the Bauers' for $90."
+            },
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "Liesl and Anton are telling the truth (A5). Bauer adds that Isom paid his fare in silver and asked the road to San Antonio and 'then the Rio Grande' (D4).",
+              "failure": "A grateful family. Their story is the same."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The Thale brothers (Jubal, Bounty Hunter; Amos and Nate, Hired Gun) at the landing: a stare-down, a fistfight, or nothing, depending on how the party stop them",
+        "The flood itself: a hazard, not a monster. Swimming a horse in flood water is a Riding or Athletics check per frontier.json trail_travel; failure is bludgeoning damage, exhaustion and a lost horse",
+        "A rider of the Lockett County Rifles (Outlaw) asking questions, if the GAP is 1 or less: he does not fight, and rides back to Garrett with what he learns unless stopped"
+      ]
+    },
+    {
+      "title": "Act 2: The Drag",
+      "description": "The Atascosa to the Nueces, Monday 27 April to Wednesday 6 May. The party meet Doña Refugio's herd, and can join it as hands. Riding with a herd is slow and hard and the best cover in Texas. The act is a run of trail scenes: the first day in the drag, a night guard, the cow hunters, the storm and the stampede, the Nueces swim, and the Oakville telegram. Doña Refugio watches the party, and decides at the end whether to tell them the truth.",
+      "objectives": [
+        "Win a place in Doña Refugio's outfit",
+        "Hold the herd through the stampede",
+        "Get the herd across the Nueces",
+        "Earn Doña Refugio's trust, and find out what she knows"
+      ],
+      "scenes": [
+        {
+          "name": "Thirty Dollars and a Horse",
+          "description": "Monday on the Atascosa. Doña Refugio looks the party over at her fire and decides whether to hire them. She asks what they are doing so far south with so many guns. If they tell her the truth about the poster, she says she has never heard of Isom Haywood, and hires them anyway, to keep an eye on them. If they lie, she hires them because she needs hands, and watches them harder.",
+          "readAloud": "She rides out to meet you herself, on a dun gelding, astride, in a grey divided skirt and a man's flat-crowned hat, with a quirt hanging from her wrist and a carbine under her knee: a small, upright, grey-haired woman of fifty-five with a face the sun has carved and black eyes that miss nothing. Behind her the herd is spread over a mile of river flat, eighteen hundred head of every color a cow can be, and the dust of them hangs gold in the afternoon. 'Buenas tardes,' she says, and then, in an English with no accent at all, 'I am Refugio Ancira. That is my herd and this is my camp and I am four hands short. You have a lot of rifles for travelers. Where are you going, and can any of you ride drag without crying?'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Doña Refugio hires the party at thirty dollars a month and a horse each at San Lázaro. GAP +2 (once, campaignRules). She puts them in the drag, as she would any new hand.",
+              "failure": "She hires them anyway, because she needs them, but at twenty dollars, and Saturnino is told to watch them. GAP +2 all the same."
+            },
+            {
+              "skill": "Insight",
+              "dc": 16,
+              "success": "When the party say the name Isom Haywood, she does not blink, and that is the tell: everyone else on the road has reacted to the name, and she has not. She knows him.",
+              "failure": "She has never heard of him, and she is so convincing that the party believe her."
+            },
+            {
+              "skill": "Riding",
+              "dc": 12,
+              "success": "The first day in the drag: the party keep the stragglers moving, turn back a cow that breaks for the brush, and eat a great deal of dust. Saturnino moves one of them up to the swing on the second day.",
+              "failure": "A calf gets into the brush and a rider goes in after it and comes out with half a pound of mesquite thorns in one leg (1d4 piercing). The vaqueros laugh, kindly. It happens to everyone."
+            }
+          ]
+        },
+        {
+          "name": "Lightning on the Frio",
+          "description": "Saturday 2 May, the bed ground on the Frio. Saturnino doubles the guard at sundown. At midnight a dry thunderstorm rolls in from the west; at one, lightning hits the live oak motte at the edge of the bed ground and the herd is up and running. Use combat.json stampedes. The hands on guard must turn the herd into a mill before it runs into the river breaks; anyone afoot in its path is in mortal danger. The lead steer, a big brindle called El Capitán, goes wild and has to be roped or shot.",
+          "readAloud": "The night is hot and black and still, and the cattle are restless, on their feet and down again, and the vaqueros on guard are singing low and steady, a song about a girl in Camargo with a verse for every hour. Then the hair on your arms stands up. Blue fire runs along the cattle's horns from tip to tip, a flickering light on two thousand horns at once, and every steer on the bed ground lifts its head. The lightning hits the motte a hundred yards away with a crack like the end of the world, and in the white light you see eighteen hundred head of cattle come up off the ground all together, and then it is black, and the ground is shaking, and they are coming.",
+          "skillChecks": [
+            {
+              "skill": "Riding",
+              "dc": 15,
+              "success": "The rider gets to the point of the run and turns the leaders, and the herd bends into a mill and slows. Three successes among the party (with Saturnino and the vaqueros making their own) hold the herd with only a dozen head lost.",
+              "failure": "The rider is carried along with the run in the dark, a DEX save DC 13 each round or 2d6 bludgeoning from a horse's fall or a steer's horns. Three failures among the party and the herd scatters over ten miles of brush: two days rounding it up, GAP -1, and forty head lost."
+            },
+            {
+              "skill": "Animal Handling",
+              "dc": 14,
+              "success": "El Capitán, the brindle lead steer, is roped (a Cowhand's lariat or anyone's rope) and dragged around, and the herd follows him into the mill. Advantage on the next Riding check for everyone.",
+              "failure": "El Capitán turns on the rider (Longhorn Bull). He can be shot, which Doña Refugio will forgive, or dodged."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "In the lightning flashes, someone sees a hand down and afoot in the path of the run: Epifanio Ybarra, whose horse fell. Getting to him and pulling him up behind the saddle is an Athletics DC 13 check and the act of the night.",
+              "failure": "Epifanio is found in the morning with a broken arm, alive because Toney Rawls got to him. A party Doc can set it."
+            }
+          ]
+        },
+        {
+          "name": "The Nueces Swim and the Oakville Telegram",
+          "description": "Wednesday 6 May. The herd swims the Nueces at Oakville: a hundred yards of deep green water, a sandbar, quicksand on the far bank. Then, while the cattle graze on the south bank, someone goes into Oakville for flour and finds a telegram waiting at the stage station for G. Vandiver (E3).",
+          "readAloud": "The leaders go into the river behind Saturnino's horse, El Capitán first with his great horns laid back, and then the whole herd follows, and for twenty minutes the Nueces is a river of horns and noses and white-rimmed eyes and the vaqueros' voices, and the water is brown with them. On the far bank, below the crossing, a dead steer stands up to its shoulders in what looks like a sandbar, with its head stretched out flat, and the buzzards are waiting on a snag above it.",
+          "skillChecks": [
+            {
+              "skill": "Nature",
+              "dc": 13,
+              "success": "The quicksand below the crossing is spotted and the herd is turned upstream of it. No losses.",
+              "failure": "A dozen steers and one rider's horse go into the quicksand. Pulling them out is an hour's work with ropes (Athletics DC 12 each), and three steers are lost."
+            },
+            {
+              "skill": "Deception",
+              "dc": 12,
+              "success": "At the stage station, the stationmaster believes the party are 'with the Lockett County gentlemen' and hands over Fenner's telegram (E3). If the party keep it, GAP +1.",
+              "failure": "The stationmaster is suspicious. Reading the telegram now needs a dollar and Persuasion DC 12, or Sleight of Hand DC 13 while someone else buys whiskey."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rustlers (4): Anglo cow hunters from the Frio who try to cut forty head from the drag at dusk on the Atascosa side of the Frio; they run if they lose two men or if Saturnino gets a rope on their leader",
+        "The stampede (combat.json stampedes) and El Capitán (Longhorn Bull)",
+        "Rattlesnakes at the bed grounds (a hand in a bedroll, a horse struck in the brush)",
+        "The Nueces swim and the quicksand: hazards"
+      ]
+    },
+    {
+      "title": "Act 3: A Day Between Waters",
+      "description": "The Wild Horse Desert, Thursday 7 to Wednesday 13 May. Water is the enemy. The San Pedro well is fouled, a dust storm comes out of the west, and the herd needs water it cannot find. If the GAP reaches 0, the Riders come into the herd's firelight one night asking about a party of hunters. Doña Refugio tells the party the truth about Isom at the end of the act, if they have earned it.",
+      "objectives": [
+        "Find water for eighteen hundred cattle, a hundred horses and fourteen people",
+        "Hold the herd through the dust storm",
+        "Face the Riders at the fire, if they come, without giving yourselves away",
+        "Learn what Doña Refugio knows"
+      ],
+      "scenes": [
+        {
+          "name": "The Fouled Well",
+          "description": "Saturday 9 May, the San Pedro well. A dead steer is down it, a week old; the water stinks and will sicken anything that drinks it. The next sweet water, the Ojo de la Coyota, is a day and a half on, and the herd has already gone a day without. The cattle are bawling and the horses are getting hard to hold. Somebody has to find water. Use frontier.json weather_and_water for thirst: each person and horse that goes a second day without water takes a level of exhaustion, and a herd that goes two days dry begins to die.",
+          "readAloud": "The well is a ring of stones in the sand with a sweep and a trough, forty feet deep, and you can smell it from fifty yards. Saturnino lowers the bucket and brings it up and pours it out on the ground without a word, and it is grey and thick and smells like death, and the nearest horse throws up its head and backs away from it. Behind you the herd has smelled the water and the death in it at the same time and is milling and bawling, and the dust of it hangs in the white air, and there is not a cloud in the sky from one edge of the world to the other.",
+          "skillChecks": [
+            {
+              "skill": "Survival",
+              "dc": 15,
+              "success": "The mustang trails converge on a mesquite flat two hours west, where a seep comes up in a gravel wash under a cutbank. It will water the herd in relays through the night. A Scout's Trailcraft finds it without a roll.",
+              "failure": "The trails are confused by the herd's own dust. The party and Saturnino search until dark, and find the seep the next morning; the herd has gone two days dry and fifty head are lost, and every person who has not been rationing water takes a level of exhaustion."
+            },
+            {
+              "skill": "Nature",
+              "dc": 15,
+              "success": "The darker green of the mesquite in a low place to the west means water near the surface. Same result as the Survival success.",
+              "failure": "The land all looks the same under this sky."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 13,
+              "success": "Anyone who drank from the fouled well, or let a horse drink, is dosed and watched, and is only sick for a day (poisoned until the next long rest) instead of three.",
+              "failure": "The sick are sick for three days, and a horse dies."
+            }
+          ]
+        },
+        {
+          "name": "Visitors at the Fire",
+          "description": "If the GAP has reached 0, on the night of Monday 11 May at the seep camp or the Ojo de la Coyota, ten riders come into the herd's firelight: Garrett Vandiver, eight Rifles and Lyman Gattis on his grey. Garrett asks Doña Refugio, politely, if she has seen a party of hunters, and describes the party. Doña Refugio lies, superbly. The party, among the vaqueros at the fire, must keep their faces and their hands still (Deception or Stealth), or not. Wiley Dunmore, at the remuda, sees Gattis and comes to find the party afterward. If the GAP is above 0, the Riders do not come to the herd; instead, Wiley sees them at a distance, two days later, crossing the herd's back trail at a lope, and knows the grey through his field glasses.",
+          "readAloud": "They come in slowly, at a walk, ten of them, out of the dark past the remuda, and stop at the edge of the firelight with the light on their faces and their horses' chests. The young man in front is tall and fair and sits a fine sorrel like a cavalry officer. He takes off his hat to Doña Refugio. 'Ma'am. Garrett Vandiver, of Lockett County. I'm sorry to come on your camp at night. We're looking for some people who may have joined up with a herd.' He describes you, quite accurately, while you sit six feet away from him with tin plates on your knees. Behind him, a little to one side, a pale-eyed man on a grey horse is looking slowly around the fire at every face in turn.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "The party pass as hands: a hat pulled down, a plate, a word of Spanish, a back turned to the fire. Doña Refugio says they have seen no one but cow hunters and mustangers in a week. The Riders water their horses and ride on south. GAP +1, because they are now ahead of the party and guessing.",
+              "failure": "Gattis's eyes stop on one face. He says nothing, and smiles, and touches his hat, and the Riders ride on. The party have been seen and the Riders know it, and from now on they know exactly where the party are. GAP stays at 0."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Garrett Vandiver does not want to be here. He talks to Doña Refugio like a well-raised boy at a neighbor's door, and when Saturnino says, 'Lockett County, where they burned the schoolhouse,' Garrett's face goes stiff and he turns his horse (C4).",
+              "failure": "A polite young man and a quiet one. The quiet one is the one to watch."
+            },
+            {
+              "skill": "Perception",
+              "dc": 11,
+              "success": "In the firelight, the grey's near fore has a bar shoe (F1). And the pale man's rifle in the fringed scabbard is a .44 rimfire Henry-pattern (F2 in lb-scenario-003).",
+              "failure": "Ten riders. Good horses. Too many guns for honest men."
+            }
+          ]
+        },
+        {
+          "name": "The Ojo de la Coyota",
+          "description": "Wednesday 13 May, the last water before San Lázaro, a day's ride from Crow's Ford. The herd is watered and bedded in the sandstone draw; the Rio Grande country is on the horizon, green. Doña Refugio sits at the fire with the party and decides what to tell them. Wiley Dunmore tells them who Gattis is. Saturnino tells them who Isom is. The scenario ends with the party knowing, if they have earned it, that the man they are hunting is family to the people they have ridden with for three weeks.",
+          "readAloud": "That night Doña Refugio brings her own coffee to the hands' fire, which she has not done before, and sits on an upturned bucket with the cup in both hands, and looks at you across the flames for a long while. 'I told you I did not know Isom Haywood,' she says at last. 'I lied. He is my niece's husband. He came to my herd on the Cibolo with a hole in his side and I gave him my best horse.' She drinks. 'You have ridden with me for three weeks. You turned my herd in the storm and you found the water. So I will ask you once, the way I would ask a man who wanted to marry one of my nieces. What are you going to do when you find him?'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "The party's answer satisfies her, or is at least honest. She tells them what she knows: Isom was going home, to his own house and his wife and children; and he meant to take 'the judge's paper' to a man in Rio Grande City, 'a federal man'. She will not tell them where home is: 'Ask at Crow's Ford. If they tell you, they have decided to. I have not.' Reputation with the drive +2.",
+              "failure": "She does not like the answer. 'Then I will pay you at San Lázaro and you will go your own way.' She tells them nothing more, and sends a rider ahead to warn Inés."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Wiley Dunmore, when he tells the party about Gattis, is telling the whole truth and is afraid: 'He set a store afire in Sherman with a lamp thrown through the window, with the storekeeper's family upstairs. He shot a man across a card table in Denison for winning. I rode with him one summer on the Red River, God forgive me. He don't leave witnesses.' (F3, C3)",
+              "failure": "An old horse thief's story. It sounds true."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Thirst, heat and the dust storm (frontier.json weather_and_water)",
+        "Wolves (3) at the drag on the second night; a Cougar at the remuda",
+        "Garrett Vandiver (Gang Leader), eight Rifles (Outlaws x5, Hired Guns x3) and Lyman Gattis (Fast Gun) at the fire, if the GAP is 0. A fight here would be a massacre of vaqueros; the party should feel the weight of that, and Doña Refugio will not forgive anyone who starts one at her fire"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Gottfried Bauer, 68",
+      "role": "The ferryman at Bauer's Ferry on the Colorado",
+      "description": "A tall, stooped Hessian with white side-whiskers and a pipe, in Texas since 1847, a Unionist who kept his head down through the war and lost a nephew to a vigilance committee in 1862. Careful, stubborn, kind.",
+      "motivation": "His cable, his boat, his family, and nobody drowning at his landing."
+    },
+    {
+      "name": "Liesl Bauer, 34, and Anton Bauer, 9",
+      "role": "The ferryman's widowed daughter-in-law and grandson; Isom pulled Anton out of the river",
+      "description": "Liesl is brisk, fair, and runs the store; Anton is solemn and has a puppy.",
+      "motivation": "To tell someone what the man on the poster did for them."
+    },
+    {
+      "name": "Doña Refugio Ancira, 56",
+      "role": "Owner of Rancho San Lázaro and the herd; Inés Haywood's aunt",
+      "description": "Small, upright, sun-carved, rides astride, speaks perfect English and better Spanish, a widow since 1871 whose family has held San Lázaro under a Spanish grant since 1767. Two years of raiding from both banks emptied her ranch; a Brownsville lawyer is suing for half of it on a defect in a survey.",
+      "motivation": "Her herd home, her ranch restocked, her grant kept, and her niece's husband alive."
+    },
+    {
+      "name": "Saturnino Ybarra, 48",
+      "role": "Doña Refugio's segundo (companion)",
+      "description": "See the companion sheet.",
+      "motivation": "The herd home, his son Rafael out of the San Antonio jail, and Isom alive."
+    },
+    {
+      "name": "Wiley Dunmore, 51",
+      "role": "The drive's wrangler (companion)",
+      "description": "See the companion sheet.",
+      "motivation": "To do one thing right before he dies."
+    },
+    {
+      "name": "Toney Rawls, 30",
+      "role": "A freedman cowhand on the drive, hired at Seguin",
+      "description": "Lean, quiet, a fine roper, born on the Guadalupe; he talked with Isom at the Cibolo fire.",
+      "motivation": "His wages, a horse of his own at the end, and to see the man who told him the truth come through."
+    },
+    {
+      "name": "Tío Chencho Leal, about 75",
+      "role": "The drive's cook",
+      "description": "Toothless, tireless, profane, claims to have cooked for both armies at San Jacinto and possibly did. Coffee at four, beans at noon, a lecture on the youth of today at supper.",
+      "motivation": "To feed everyone and be thanked."
+    },
+    {
+      "name": "Garrett Vandiver, 29, and Lyman Gattis",
+      "role": "The Riders, at the fire",
+      "description": "As before.",
+      "motivation": "Garrett wants the party found and this over. Gattis wants faces."
+    },
+    {
+      "name": "Jubal Thale and his brothers",
+      "role": "The rivals, at the flood",
+      "description": "As before; humbled or grateful or furious by the end of Act 1.",
+      "motivation": "To get across and be first. If the party saved Nate, Jubal's loyalty is real."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "Drover's wages from Doña Refugio, paid at San Lázaro: $30 a month for each hand (about $20 each for the three weeks), or $20 a month if she hired them grudgingly, plus a horse each from the San Lázaro remuda (a good cow pony, worth $60). Anything the party take from the cow hunters (about $14 and a running iron). Nothing from the Thales, but a debt, if Nate was saved.",
+    "items": [
+      "Fenner's telegram from the Oakville stage station (CLUE E3)",
+      "A San Lázaro cow pony each, promised at the end of the drive",
+      "El Capitán's horns, if he was shot (Tío Chencho will want the rest of him)",
+      "Doña Refugio's trust, or not",
+      "Award 3,800 XP at the Ojo de la Coyota. A party that reached 4th level in lb-scenario-001 reaches 5th (6,500)."
+    ]
+  },
+  "twists": [
+    "Doña Refugio knows Isom and is protecting him. The party have been riding for three weeks with the family of the man they are hunting, and should realise it either when she tells them or a moment before.",
+    "The Riders are not following Isom; they are following the party. Fenner's telegram says so. A party that read it understands for the first time that finding Isom may be the most dangerous thing they could do for him.",
+    "The cow hunters on the Frio are Anglo Texans, and the vaqueros the party are riding with are the ones whose cattle were stolen. A party that came south expecting Mexican bandits should feel the floor shift a little.",
+    "If the party saved Nate Thale from the Colorado, Jubal Thale owes them a life. In lb-scenario-003 he is in Crow's Ford, and he will choose a side.",
+    "Wiley Dunmore rode with Gattis once and did nothing while Gattis did something terrible. He is the campaign's witness to what Gattis is, and he wants, more than anything, to be on the right side of it this time."
+  ],
+  "dmTips": [
+    "This scenario is the trail. Run it as a sequence of days, not a sequence of fights: say the date, the miles, the weather, the water and the GAP at the start of each day, and use frontier.json trail_travel's random events between the set pieces. Three sessions: one for the flood and the road to the herd, one for the drive to the Nueces, one for the desert.",
+    "The flood is a test of judgement. Waiting costs the GAP; crossing costs risk. Let the players choose, and let the river be indifferent to their choice.",
+    "The drive needs work to feel real: give each player a position (drag, flank, swing, point) and a job (the remuda, the night guard, the chuck wagon, scouting water), and ask them every day what their character did. The vaqueros' respect is earned in small things.",
+    "Play Doña Refugio as the most formidable person the party have met. She runs an outfit of men in a hard country and has done for three years; nobody at her fire calls her anything but Doña Refugio. She is not a damsel and not a dragon: she is a rancher.",
+    "Water is a resource. Track canteens and the herd's days dry openly. Let the players feel the relief of the seep.",
+    "If the Riders come to the fire, make the scene as tense as a gunfight and do not let it become one unless the players insist. Gattis should see someone; Garrett should flinch at the word Jubilee; Doña Refugio should lie better than anyone in the campaign.",
+    "Tejano and Mexican characters here are ranchers, cowhands, cooks and family, with their own stakes; nobody speaks in broken English for comedy, and the Spanish the vaqueros speak among themselves is just language. Toney Rawls is a cowhand among cowhands."
+  ]
+}

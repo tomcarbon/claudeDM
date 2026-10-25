@@ -1,0 +1,839 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Eight Horror classes on the shared d20 chassis (levels 1-20, proficiency bonus and XP thresholds from data/rules/leveling.json). The characters have no magic: no class has any casting feature, no class entry has a casting key, and no feature is magic under another name (the Sensitive's The Thin Place is perception, never control). 'default_weapons' lists the weapons a generated character of the class carries; every name is in equipment.json weapons and is available in all three eras, and 'damage' is the weapon dice without the ability modifier. Weapon proficiencies name the equipment.json weapon groups; everyone is proficient with Melee. Every class has at least one feature that works with Dread (dread.json): Skeptic There's an Explanation, Occultist Steeped in It, Chaplain Steady Now and Hold On to Me, Physician Steady Hands (Treat Shock), Hunter Cold Focus, Veteran Held the Line, Sensitive The Thin Place and Closer to the Edge, Roughneck Bull-Headed. Features at levels 3-10 in 'progression' are summaries the GM can apply directly; Ability Score Improvements come at 4th and 8th (and later at 12th, 16th and 19th as on the chassis). No class feature adds a flat bonus to the attack bonus, the damage string or the Armor Class written on a sheet: extra damage dice (Know Your Quarry), the Veteran's Drill, the crowbar's versatile die and the shotgun's scatter bonus are applied at the table. Counted ammunition in starting equipment is written with the weapon's ammo_name, e.g. \".38 rounds (18)\"."
+  },
+  "classes": [
+    {
+      "name": "Skeptic",
+      "role": "Scientist, detective, debunker or insurance investigator: the one who insists there is a reason, and is often right",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence",
+      "saving_throws": [
+        "Intelligence",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Magnifying glass",
+        "Tool kit"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Investigation",
+          "Mechanics",
+          "Medicine",
+          "Research",
+          "Insight",
+          "Perception",
+          "Nature"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Pocket revolver and .32 rounds (15)"
+          ],
+          "choice_2": [
+            "Camera of your era (Box camera, Folding camera or Instant camera) and Flashlight (1920s and 1970s) or Lantern (1890s)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Heavy coat"
+          ],
+          "choice_2": [
+            "Good suit or dress"
+          ]
+        },
+        {
+          "default": [
+            "Walking stick",
+            "Magnifying glass",
+            "Notebook and pencil",
+            "Tool kit",
+            "Matches (box)",
+            "Chalk",
+            "A pocket watch that you trust more than your own eyes"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per skeptic level after 1st",
+      "level_1_features": [
+        {
+          "name": "There's an Explanation",
+          "description": "Once per short rest, when you fail a fear check (dread.json fear_checks), you can name a rational cause for what you saw, aloud and in character: a draught, a gas leak, a prankster, settling timbers, a trick of the light. The failure becomes a success and you gain no Dread. Your explanation does not have to be true, and it does not change what is really there; it only keeps you steady. If it happens to be true, the GM tells you so. You also have advantage on Investigation checks to find the mechanism behind a thing that is not supernatural (a hidden passage, a wire, a speaking tube, a stage medium's rapping device), and when you search a room for 10 minutes, the GM tells you without a check whether any part of what is happening in it is a person's doing."
+        },
+        {
+          "name": "Careful Notes",
+          "description": "Once per short rest, after spending 10 minutes examining a scene, ask the GM one of these questions and get a true answer: \"What here has been moved?\", \"Who was here most recently: a person, an animal or something else?\" or \"What here does not fit?\" The answer is a clue, not a solution: it never names a creature's rule outright (dread.json the_unknown)."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Calm Explanation",
+          "description": "As an action, explain a frightening phenomenon to allies who can hear you: what it might be and why it cannot hurt them (whether or not that is true). Until the end of the scene, each of those allies has advantage on fear checks against that one phenomenon (one horror, as dread.json counts them). Once per long rest; twice from 6th level."
+        }
+      ],
+      "progression": {
+        "3": "Discipline: choose Scientist (you can build or rig an apparatus during a long rest, such as a thermometer array, a tripwire bell, a camera on a timer or a wire across a stair, and the GM tells you honestly what it records; you have advantage on Mechanics checks with instruments), Detective (you have advantage on Insight checks to tell whether a person is lying, and once per scenario a witness you have interviewed remembers one more true thing when you return to them) or Debunker (you have advantage on checks to see through Deception and stage trickery, and when a creature or person tries to frighten you with something that is not supernatural, you automatically succeed on the fear check).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Pattern Recognition: when the party has found three clues pointing to one of a creature's rules (dread.json the_unknown), you can spend 10 minutes going over them and make an INT (Investigation) check, DC 12; on a success the GM confirms the rule. Proficiency bonus becomes +3.",
+        "6": "There's an Explanation can be used twice per short rest. Calm Explanation can be used twice per long rest.",
+        "7": "Cold Read: you can't be surprised by a creature whose sign you have examined (tracks, marks, a cold spot, a smell), and once per scene you can ask the GM where the nearest such sign is.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Unshakable Method: once per long rest, when you would reach Dread 5 or 6 (dread.json dread), you can stop at 4 instead, sitting down with your notes until the worst passes (you lose your next action). Proficiency bonus becomes +4.",
+        "10": "The Rational Mind: you are immune to the frightened condition caused by a creature whose rules you know at least one of, and fear checks against signs of a horror (DC 10) never cost you Dread."
+      },
+      "default_weapons": [
+        {
+          "name": "Pocket revolver",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Walking stick",
+          "attackAbility": "STR",
+          "damage": "1d4",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "Occultist",
+      "role": "Folklorist, antiquarian or collector of old rites: knows which stories are true, and what to do about them",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence or Wisdom",
+      "saving_throws": [
+        "Intelligence",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Magnifying glass"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Occult",
+          "Research",
+          "Insight",
+          "Investigation",
+          "Perception",
+          "Persuasion",
+          "Sleight of Hand"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Pocket revolver and .32 rounds (15)"
+          ],
+          "choice_2": [
+            "Silver coin (3) and Hand mirror"
+          ]
+        },
+        {
+          "choice_1": [
+            "Heavy coat"
+          ],
+          "choice_2": [
+            "Good suit or dress"
+          ]
+        },
+        {
+          "default": [
+            "Silver knife",
+            "Salt (1 lb) (2)",
+            "Iron nails (box)",
+            "Chalk",
+            "Candle (6)",
+            "Matches (box)",
+            "Notebook and pencil",
+            "A battered commonplace book of folklore, copied out by hand"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per occultist level after 1st",
+      "level_1_features": [
+        {
+          "name": "Old Lore",
+          "description": "Once the party has seen a creature, or clear sign of it, you can spend an action thinking it through and make an INT (Occult) check, DC 10 + the creature's CR (round fractions down; DC 10 for a CR 0 echo). On a success the GM tells you one of the creature's rules (dread.json the_unknown) that the party has not yet learned: what calls it, what bars it, what hurts it, what lays it to rest or what it wants. The GM chooses which, and it is always true. Once per creature per long rest. You also have advantage on Occult checks to perform a rite or set a ward (dread.json rites_and_wards), and you perform them in half the usual time."
+        },
+        {
+          "name": "The Right Things in the Bag",
+          "description": "You carry the oddments a rite might need. Once per scenario, when a rite or ward needs a common object you could plausibly have packed (a candle, a nail, a sprig of a herb, a length of red thread, a bell, chalk, a pinch of grave earth you had the sense to bring), you have it. It cannot be a weapon, silver worth more than a coin, or something unique."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Steeped in It",
+          "description": "You have read worse than this. You have advantage on fear checks against the sign of a horror (DC 10), and whenever you or the party learn one of a creature's rules, you lose 1 Dread: understanding is a comfort."
+        }
+      ],
+      "progression": {
+        "3": "Tradition: choose Folklorist (you have advantage on Persuasion checks with the old, and an interview with the oldest person in a place, dread.json investigation, always yields one true clue toward a creature's rule), Antiquarian (you have advantage on Research checks in old papers and records, and you can read any old document, inscription or ledger, however faded, given an hour) or Collector (you own one curio of real use, chosen with the GM when you take this: an old iron key, a bell from a burned church, a silver bullet mold, a lead-sealed letter; once per scenario its history gives you a clue the GM chooses).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Wardwright: a ward you set (a salt line, nails in a frame, a chalk sign) can't be broken by accident (a draught, a foot, a dog) and lasts until it is deliberately broken. Old Lore can be used twice per creature per long rest. Proficiency bonus becomes +3.",
+        "6": "Speak to It: once per scene, you can address a creature whose rules you know at least one of, by the terms of those rules. It hears you and must answer one question honestly or take one action less on its next turn (it chooses). It is not compelled to do anything else, and nothing is ever controlled.",
+        "7": "Practiced Rites: a rite you perform as an action (rather than a minute or more) no longer has disadvantage, and if a rite you perform is the wrong one, the creature does not learn that you tried (dread.json rites_and_wards).",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Name of the Thing: once per long rest, when you know a creature's true name or its full set of rules, you can confront it with them as an action: it must succeed on a CHA save (DC 8 + your proficiency bonus + your INT or WIS modifier) or be unable to approach within 10 ft of you, or harm you, until the end of your next turn. Proficiency bonus becomes +4.",
+        "10": "Lore Master: Old Lore needs only a description of the creature from a reliable witness, not a sighting, and when you learn a creature's rules you also learn whether the party already has what it needs to lay it to rest."
+      },
+      "default_weapons": [
+        {
+          "name": "Silver knife",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Pocket revolver",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Chaplain",
+      "role": "Minister, priest, rabbi, army or hospital chaplain, lay preacher: steadiness, words and presence, and no miracles",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom or Charisma",
+      "saving_throws": [
+        "Wisdom",
+        "Charisma"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Insight",
+          "Medicine",
+          "Occult",
+          "Performance",
+          "Persuasion",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Service revolver and .38 rounds (18)"
+          ],
+          "choice_2": [
+            "Double-barrel shotgun and Shotgun shells (10)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Heavy coat"
+          ],
+          "choice_2": [
+            "Good suit or dress"
+          ]
+        },
+        {
+          "default": [
+            "Fire iron",
+            "Family Bible (or the holy book of your faith)",
+            "Rosary or prayer beads (or what your tradition uses)",
+            "Holy water (vial) (2)",
+            "Bandage roll (4)",
+            "Candle (6)",
+            "Matches (box)",
+            "A list of the sick and the bereaved of your congregation"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per chaplain level after 1st",
+      "level_1_features": [
+        {
+          "name": "Steady Now",
+          "description": "As an action, speak to one ally who can hear you within 30 ft, in whatever words fit you both: a prayer, a firm hand on the shoulder, \"Look at me. Breathe.\" The ally loses 1 Dread (dread.json dread) and the frightened condition ends on it. You can do this a number of times equal to your WIS or CHA modifier + 1 (your choice of ability when you take the class; minimum 2), regaining all uses on a long rest. It works because the ally trusts you: it does nothing to a creature, and an ally who can't hear you, or doesn't trust you, is unaffected. There is no miracle in it."
+        },
+        {
+          "name": "Graveside",
+          "description": "You know how to sit with the dying and bury the dead. You can stabilize a dying creature as a bonus action with a Medicine check (DC 10). You have advantage on Occult checks for rites of burial, blessing and laying to rest when a creature's rules call for one (dread.json rites_and_wards), and on Persuasion checks with the bereaved."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Hold On to Me",
+          "description": "When an ally within 30 ft who can hear you would reach Dread 6 (breaking point), you can use your reaction to call them back: they stay at Dread 5 instead. Once per short rest."
+        }
+      ],
+      "progression": {
+        "3": "Calling: choose Army Chaplain (Steady Now can be used as a bonus action once per short rest, and allies within 10 ft of you who are Panicked choose their reaction after seeing yours; dread.json dread), Parish (in any community you serve for a week, people bring you their troubles: once per scenario a parishioner tells you one true thing they have kept from everyone else) or Hospital Chaplain (you have proficiency in Medicine if you didn't already, and you can use Steady Now on a creature that is unconscious or at 0 HP to stabilize it as well).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Words for Everyone: Steady Now uses increase by 1, and once per long rest you can use it on every ally within 30 ft who can hear you as a single action. Proficiency bonus becomes +3.",
+        "6": "Stand Firm: allies within 10 ft of you have advantage on fear checks while you are conscious and not Panicked yourself.",
+        "7": "The Last Rites: when you perform a rite that a creature's rules say lays it to rest, you have advantage, and the rite can't be interrupted by the creature's first attempt (it must try twice).",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Unbowed: once per long rest, reroll a WIS or CHA saving throw you failed and use the new roll. Hold On to Me can be used twice per short rest. Proficiency bonus becomes +4.",
+        "10": "Light in a Dark House: once per long rest, during a short rest, you lead the people with you in prayer, song or quiet: every ally present loses 1 additional Dread, even those at Dread 4 or more (Frayed), and Steady Now uses become your modifier + 3."
+      },
+      "default_weapons": [
+        {
+          "name": "Service revolver",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Fire iron",
+          "attackAbility": "STR",
+          "damage": "1d6",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "Physician",
+      "role": "Doctor, surgeon, coroner or country practitioner: keeps people alive long enough to find out what is killing them",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence or Wisdom",
+      "saving_throws": [
+        "Intelligence",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Doctor's bag"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Medicine",
+          "Insight",
+          "Investigation",
+          "Nature",
+          "Persuasion",
+          "Research"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Pocket revolver and .32 rounds (15)"
+          ],
+          "choice_2": [
+            "Smelling salts and First-aid kit (1920s and 1970s) or Laudanum (bottle) (1890s)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Good suit or dress"
+          ],
+          "choice_2": [
+            "Heavy coat"
+          ]
+        },
+        {
+          "default": [
+            "Doctor's bag",
+            "Scalpel",
+            "Bandage roll (6)",
+            "Smelling salts",
+            "Whiskey (bottle)",
+            "Notebook and pencil",
+            "Diploma (framed, back in the office)"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per physician level after 1st",
+      "level_1_features": [
+        {
+          "name": "Steady Hands",
+          "description": "As an action, using a doctor's bag, patch the wounds of a creature you touch that has at least 1 hit point, or that is at 0 hit points and stable or dying. It can spend up to a number of its unspent Hit Dice equal to your proficiency bonus, rolling each and adding its CON modifier as on a short rest, and it regains extra hit points equal to your INT or WIS modifier (your choice when you take the class) once. A creature with no Hit Dice left regains only the extra hit points. It also stabilizes a dying creature and ends Bleeding. You can use it a number of times equal to that modifier + 1 (minimum 2), regaining all uses on a long rest; each use spends one use of the doctor's bag. Treat Shock: during a short rest, you can tend the frightened: each creature you choose that rests with you loses 1 Dread in addition to the rest's own recovery (dread.json recovery), and this works even on a creature at Dread 4 or more (Frayed), which otherwise recovers nothing on a short rest."
+        },
+        {
+          "name": "Diagnosis",
+          "description": "As a bonus action, look at a creature you can see within 30 ft and learn its current and maximum hit points and every condition affecting it, including Bleeding, poison and drink, and (if it is a person) roughly what its Dread is. Examining a body for 10 minutes, you learn the cause and approximate time of death without a check, and whether anything about the body is wrong in a way medicine can't account for (no blood left, too cold too soon, dead longer than it has been missing). One extra detail on a DC 12 Medicine check."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Clinical Detachment",
+          "description": "You have seen the inside of people. You have advantage on fear checks against wounds, bodies, blood and the ordinary dead (not against a dead thing that moves, or the truth of a horror), and you can examine anything a fear check would cost you Dread to see, in a professional frame of mind, with no fear check at all if you do nothing else for that minute."
+        }
+      ],
+      "progression": {
+        "3": "Practice: choose Surgeon (creatures you treat with Steady Hands regain the maximum on each Hit Die they spend, and you can use it on a creature at 0 HP without provoking opportunity attacks), Country Doctor (every farm and household for a day's travel knows you: you can find shelter, a car or a buggy and the local news without a check, and once per scenario a patient owes you a favor) or Coroner (you can request any death record, autopsy report or inquest file in the county, and examining a creature's victim gives one clue toward one of its rules, dread.json the_unknown).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Bedside Manner: Steady Hands uses increase by 1, and you can move to a creature at 0 hit points without provoking opportunity attacks. Proficiency bonus becomes +3.",
+        "6": "Field Hospital: during a short rest you can tend up to six creatures; each regains extra hit points equal to your physician level when it spends Hit Dice, and Treat Shock applies to all of them.",
+        "7": "Calm Under Fire: you can't be frightened while you are tending a wounded creature, and you can use Steady Hands as a bonus action once per turn on a creature at 0 hit points.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Not on My Table: once per long rest, as an action, treat a dying creature: it becomes stable, its death save failures are cleared, and it regains hit points as from Steady Hands. Death is still permanent; this works only while the creature is dying, not dead. Proficiency bonus becomes +4.",
+        "10": "Steady Hands can be used as a bonus action, and its uses become your INT or WIS modifier + 3. Treat Shock lowers Dread by 2 instead of 1."
+      },
+      "default_weapons": [
+        {
+          "name": "Pocket revolver",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Scalpel",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Hunter",
+      "role": "Woodsman, trapper, guide or someone who has hunted a thing like this before: patient, quiet and hard to scare off a trail",
+      "hit_die": "d10",
+      "primary_ability": "Wisdom or Dexterity",
+      "saving_throws": [
+        "Strength",
+        "Dexterity"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms",
+        "Bows"
+      ],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Athletics",
+          "Nature",
+          "Occult",
+          "Perception",
+          "Stealth",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Lever-action rifle and .30 cartridges (30)"
+          ],
+          "choice_2": [
+            "Hunting bow, Arrows (20) and Silver tips (6)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Heavy coat"
+          ],
+          "choice_2": [
+            "Leather jacket"
+          ]
+        },
+        {
+          "default": [
+            "Hatchet",
+            "Rope (50 ft)",
+            "Field glasses",
+            "Bedroll",
+            "Lantern",
+            "Kerosene (pint) (2)",
+            "Matches (box)",
+            "Coffee (1 lb)",
+            "A tin of jerky and a story about the one that got away"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per hunter level after 1st",
+      "level_1_features": [
+        {
+          "name": "Know Your Quarry",
+          "description": "After at least an hour studying a creature's sign (tracks, kills, spoor, a den, a cold trail through a house), you can declare it your quarry. You can have one quarry at a time, and change it after a long rest. You have advantage on Survival checks to track your quarry and on Perception checks to find it, you always know which way it went from a place where you found its sign, and once on each of your turns when you hit your quarry with a weapon attack it takes an extra 1d6 damage of the weapon's type (applied at the table; it is not written on the sheet). The extra damage becomes 1d8 at 6th level and 2d6 at 10th."
+        },
+        {
+          "name": "Fieldcraft",
+          "description": "You can't become lost in woods, fields, marsh or hill country except by something that is not natural, and you can move at a normal pace while moving stealthily outdoors. In a short rest you can set a snare, a tripwire bell or a pit that gives you warning of anything that comes within 30 ft of your camp; the GM tells you when something does."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Cold Focus",
+          "description": "When you fail a fear check against your quarry, you can turn the fear into focus: you still gain the Dread, but you have advantage on your next attack roll against the quarry before the end of your next turn. When you succeed on one, you can immediately move up to half your speed without provoking opportunity attacks."
+        }
+      ],
+      "progression": {
+        "3": "Way of the Hunt: choose Trapper (in 10 minutes you can set a trap that a creature walking into it must make a DEX save against, DC 8 + proficiency + WIS, or be restrained until it uses an action to break free; one at a time), Marksman (your called shots with Longarms and Bows take -2 instead of -5, combat.json gunplay.called_shots, and you ignore half cover with them) or Hunter of the Uncanny (once you have declared a supernatural creature your quarry, the GM tells you one of its rules about what hurts it or bars it, dread.json the_unknown).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Proficiency bonus becomes +3.",
+        "6": "Know Your Quarry deals 1d8. Patient Watcher: you can stay motionless and hidden for hours, and while you are hidden and have not moved this turn, your first attack against your quarry has advantage.",
+        "7": "Hard to Shake: you have advantage on fear checks against your quarry, and you can't be frightened by it.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "One Shot: once per short rest, when you hit your quarry with a Longarm or Bow attack after Aiming, you can make the hit a critical hit. Proficiency bonus becomes +4.",
+        "10": "Know Your Quarry deals 2d6. Relentless: your quarry can't hide from you while you are within 120 ft of it, and you can declare a new quarry after only 10 minutes with its sign."
+      },
+      "default_weapons": [
+        {
+          "name": "Lever-action rifle",
+          "attackAbility": "DEX",
+          "damage": "2d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Hatchet",
+          "attackAbility": "STR",
+          "damage": "1d6",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Veteran",
+      "role": "Soldier, sailor, marine or policeman who has seen the worst people can do, and now has to find out it was not the worst",
+      "hit_die": "d10",
+      "primary_ability": "Strength or Dexterity",
+      "saving_throws": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor",
+        "Medium armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Athletics",
+          "Intimidation",
+          "Medicine",
+          "Perception",
+          "Survival",
+          "Mechanics"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Service revolver and .38 rounds (18)"
+          ],
+          "choice_2": [
+            ".45 automatic and .45 rounds (21) (1920s and 1970s only)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Double-barrel shotgun and Shotgun shells (10)"
+          ],
+          "choice_2": [
+            "Lever-action rifle and .30 cartridges (20)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Heavy coat"
+          ],
+          "choice_2": [
+            "Padded vest"
+          ]
+        },
+        {
+          "default": [
+            "Bandage roll (4)",
+            "Bedroll",
+            "Flashlight and Batteries (2) (1920s and 1970s) or Lantern (1890s)",
+            "Matches (box)",
+            "Cigarettes",
+            "Discharge papers",
+            "A photograph of the people you served with"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per veteran level after 1st",
+      "level_1_features": [
+        {
+          "name": "Held the Line",
+          "description": "You learned to keep your post with someone beside you. You have advantage on fear checks while a conscious ally is within 10 ft of you. Once per short rest, when Panic would take you (dread.json dread: at Dread 5 a failed fear check makes you flee, freeze or lash out for a round), you act normally instead."
+        },
+        {
+          "name": "Drill",
+          "description": "Choose one. Rifleman: once on each of your turns, when you roll a 1 on a damage die for a Longarm, you can reroll it and must use the new roll. Close Quarters: you don't have disadvantage on ranged attacks with a Sidearm or a shotgun against a creature within 5 ft of you. Cover Man: when a creature you can see attacks an ally within 5 ft of you, you can use your reaction to impose disadvantage on the attack roll. None of these changes the attack bonus or damage written on your sheet."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Second Wind",
+          "description": "Once per short rest, as a bonus action, you regain hit points equal to 1d10 + your veteran level, and you lose 1 Dread if you are at Dread 3 or higher."
+        }
+      ],
+      "progression": {
+        "3": "Service: choose Sergeant (as a bonus action, give an ally who can hear you an order: it can use its reaction to move half its speed without provoking opportunity attacks or make one weapon attack; once per short rest, twice from 7th level), Corpsman (you can stabilize a dying creature as a bonus action, and when you do it regains 1d4 hit points) or Sapper (you are proficient with dynamite: thrown dynamite you light uses DC 8 + proficiency + DEX, and you can set, fuse and disarm charges safely; combat.json explosives).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Proficiency bonus becomes +3.",
+        "6": "Steady Under Fire: Held the Line's advantage applies whenever any ally can see you, not only within 10 ft, and your allies within 10 ft have advantage on the WIS save to approach a source of fear at Dread 4 (Frayed).",
+        "7": "Seen Worse: you have advantage on fear checks against the sight of bodies, wounds and violence, and on saves against being frightened.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Indomitable: once per long rest, reroll a saving throw you failed and use the new roll. Proficiency bonus becomes +4.",
+        "10": "Last One Standing: Held the Line can be used twice per short rest, and once per long rest, when you would reach Dread 6 (breaking point), you instead stay in the scene at Dread 5 until the end of the scene, fighting, holding a door or carrying someone out."
+      },
+      "default_weapons": [
+        {
+          "name": "Service revolver",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Double-barrel shotgun",
+          "attackAbility": "DEX",
+          "damage": "2d8",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Sensitive",
+      "role": "The one who feels things: cold spots, the grief in a room, the presence on the stairs. A gift no one would choose, and never a power",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom or Charisma",
+      "saving_throws": [
+        "Wisdom",
+        "Charisma"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Insight",
+          "Occult",
+          "Perception",
+          "Performance",
+          "Persuasion",
+          "Deception",
+          "Stealth"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Pocket revolver and .32 rounds (15)"
+          ],
+          "choice_2": [
+            "Hand mirror and Candle (6)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Heavy coat"
+          ],
+          "choice_2": [
+            "Good suit or dress"
+          ]
+        },
+        {
+          "default": [
+            "Kitchen knife",
+            "Salt (1 lb)",
+            "Matches (box)",
+            "Notebook and pencil (a diary of the things you have felt)",
+            "Whiskey (bottle) or Cigarettes",
+            "Something that belonged to someone you lost"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per sensitive level after 1st",
+      "level_1_features": [
+        {
+          "name": "The Thin Place",
+          "description": "You sense what others don't. Without trying, you know when a presence (a spirit, an undead thing or anything else not natural) is within 60 ft of you, though not where it is or what it is; you feel cold spots and wrongness in a place before anyone else does; and when you enter a room, the GM tells you the strongest emotion that has soaked into it (grief, terror, rage, longing, guilt). Once per scene, you can open yourself to the place: the GM gives you one true impression, a glimpse, a voice, a smell, a feeling, about a presence here, an event that happened here, or what the thing here wants. The impression is true but may not be clear. The cost is a point of Dread, gained with no save. It never lets you control anything, it is never magic, and nothing you do with it harms a creature."
+        },
+        {
+          "name": "Read the Room",
+          "description": "You have advantage on Insight checks to tell what a person is feeling, and you know without a check when someone you are speaking with is frightened, grieving or hiding something (not what)."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Closer to the Edge",
+          "description": "Dread gained from The Thin Place can't take you past Dread 5. While you are at Dread 3 or higher, The Thin Place gives you two impressions instead of one, and you can sense where a presence within 60 ft is, to within 10 ft. Your fear sharpens you; it is also a warning to the rest of the party."
+        }
+      ],
+      "progression": {
+        "3": "Gift: choose Listener (your impressions often come as voices: once per scene you can hear the last words spoken in a place where someone died, as the GM chooses to give them), Dreamer (once per long rest, you can dream on a question; on waking the GM gives you a true impression about it, without costing Dread, but you gain no Dread recovery from that rest) or Empath (once per scene, without a check, you learn a person's strongest emotion and who or what it is about).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Familiar Cold: you have advantage on fear checks against spirits, and a spirit can't surprise you. Proficiency bonus becomes +3.",
+        "6": "Echoes: when you use The Thin Place in a place you have used it before, the impression is about whatever the GM judges most important there, and you can ask one yes-or-no question about it, answered truly.",
+        "7": "Not Yours to Take: you have advantage on saving throws against being charmed, compelled or possessed, and when a creature tries to possess or compel you and fails, you get an impression of what it wants, at no cost.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Sharing the Burden: once per short rest, when an ally within 30 ft would gain Dread, you can take it instead (it still can't push you past Dread 5 if it comes from a sight you also saw). Proficiency bonus becomes +4.",
+        "10": "The Open Door: once per long rest, you can use The Thin Place without gaining Dread, and once per scenario the GM tells you one of a creature's rules (dread.json the_unknown) as an impression, the next time you are in a place where it has been."
+      },
+      "default_weapons": [
+        {
+          "name": "Pocket revolver",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Kitchen knife",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Roughneck",
+      "role": "Lumberjack, oilfield hand, longshoreman, teamster or farm laborer: big, tired, stubborn and much harder to kill than anyone expected",
+      "hit_die": "d10",
+      "primary_ability": "Strength or Constitution",
+      "saving_throws": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [
+        "Tool kit"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Athletics",
+          "Driving",
+          "Intimidation",
+          "Mechanics",
+          "Survival",
+          "Perception"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Double-barrel shotgun and Shotgun shells (10)"
+          ],
+          "choice_2": [
+            "Wood axe"
+          ]
+        },
+        {
+          "choice_1": [
+            "Leather jacket"
+          ],
+          "choice_2": [
+            "Heavy coat"
+          ]
+        },
+        {
+          "default": [
+            "Crowbar",
+            "Tool kit",
+            "Work clothes",
+            "Rope (50 ft)",
+            "Lantern or Flashlight (1920s and 1970s)",
+            "Matches (box)",
+            "Whiskey (bottle)",
+            "A union card, a pay stub or a debt"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per roughneck level after 1st",
+      "level_1_features": [
+        {
+          "name": "Hard to Kill",
+          "description": "Once per long rest, when you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You also push through exhaustion: you ignore the effects of your first level of exhaustion (combat.json conditions), and you have advantage on CON saving throws against exhaustion, cold and hard labor."
+        },
+        {
+          "name": "Heavy Work",
+          "description": "You have advantage on STR checks to lift, push, pull, break or force something: a door, a barred window, a car off someone, a coffin lid, a fallen beam. You count as one size larger for what you can carry, drag or lift, and you can carry an unconscious adult at your full speed."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Bull-Headed",
+          "description": "Once per short rest, when you fail a fear check, you can turn the fear into anger: you gain no Dread, but on your next turn you must move toward the source and attack it, or break whatever stands between you and it, if you can. If you can't reach it, you smash something nearby instead."
+        }
+      ],
+      "progression": {
+        "3": "Trade: choose Lumberjack (with an axe or a hatchet you can cut through a door, a wall or a fallen tree in a third the time; combat.json cover.destroying_cover), Teamster (you have proficiency in Driving if you didn't already, and advantage on Driving checks to keep a vehicle on the road or get a stalled one started under pressure; combat.json vehicles) or Longshoreman (you have advantage on Athletics checks to grapple, shove or hold a door, and a creature you grapple has disadvantage on checks to escape).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Proficiency bonus becomes +3.",
+        "6": "Thick Skin: when you take damage from a melee attack, you can use your reaction to reduce it by 1d10 + your CON modifier.",
+        "7": "Can't Scare Me Off: you have advantage on the WIS save to approach a source of fear at Dread 4 (Frayed), and when you are Panicked you can always choose to lash out (dread.json dread) even if the source is out of reach, by striking whatever is nearest that isn't a person.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Still Standing: Hard to Kill can be used once per short rest instead of once per long rest. Proficiency bonus becomes +4.",
+        "10": "Unbreakable: you ignore the effects of your first two levels of exhaustion, and when you use Hard to Kill you also lose 1 Dread."
+      },
+      "default_weapons": [
+        {
+          "name": "Crowbar",
+          "attackAbility": "STR",
+          "damage": "1d6",
+          "damageType": "bludgeoning"
+        },
+        {
+          "name": "Double-barrel shotgun",
+          "attackAbility": "DEX",
+          "damage": "2d8",
+          "damageType": "piercing"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,554 @@
+{
+  "id": "sl-scenario-001",
+  "title": "The Boom Camp",
+  "subtitle": "Monday and Tuesday: A Silver Yard, a Dead Assayer, a Faro Table and a Powder House",
+  "levelRange": "3-4",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Argent, Colorado, Monday 22 and Tuesday 23 September 1879",
+    "description": "The first two days of the clock. The party is hired on Monday morning in the ore yard of the Argent Reduction Works and spends two days learning the camp, the train, the railroads and the dead. Argent is a quarter mile of Front Street along Argent Creek, with Assay Street and Cornish Row climbing the hill behind it, the new DA&P depot and Hester Ruane's smelter at the lower end, and the Lodestar's mill and Aurelius Stannard's white house on the hill above. The DA&P's work trains whistle down the valley from the railhead two miles out; the last spike is set for Friday. Everyone in town is talking about Saturday, and the brass band has learned two tunes.",
+    "atmosphere": "Thin, bright, cold air and a sky like blue enamel. Mud frozen into ruts at dawn and thawed to soup by noon. The stamp mills pounding day and night, the smelter whistle at six, ore wagons with eight-mule teams, men sleeping in shifts in the same beds. Fresh lumber, coal smoke, sulphur, wet wool, frying bacon, whisky. A funeral on Tuesday morning with a Cornish choir. Bunting going up on the depot. The Silver Dollar at night: kerosene light, a piano, a faro layout with an enamelled tiger on the dealing box, and a hundred miners and railroad men spending money they have not been paid yet.",
+    "keyLocations": [
+      {
+        "name": "The Argent Reduction Works and the Depot",
+        "description": "Hester Ruane's smelter at the lower end of town: two brick stacks, a roasting shed, a refinery with a padlocked bullion vault, and an ore yard where sixty bars of silver from her furnaces are stacked under guard waiting for Saturday. Next door, the new DA&P depot, its paint still tacky, with a freight platform, a telegraph office that will open on Friday, and the Continental Express Company's iron-bound strongroom where the Lodestar's seventy bars will be delivered on Friday night.",
+        "features": [
+          "The bullion vault: sixty Ruane bars, each about ninety-five pounds, stamped ARGENT REDUCTION WORKS with a serial, weight and fineness and the assay stamp of E. ASHWORTH, ASSAYER",
+          "Hester's office over the refinery, with a window on the yard and a ledger of every bar Erasmus Ashworth weighed",
+          "The depot platform, where Coburn has chalked the train's consist on a board for the newspapermen (Clue C4)",
+          "The Continental Express strongroom, which will hold the bullion overnight on Friday under Strickland's guard"
+        ],
+        "encounters": [
+          "Hester Ruane, Monday 11 a.m., the employer (no combat)",
+          "Winfield Coburn, Monday noon, riding in on the work train covered in cinders",
+          "Merritt Strickland, the Continental Express messenger, inspecting the strongroom and asking too many questions"
+        ],
+        "secrets": [
+          "Hester's ledger shows that Erasmus weighed, drilled and stamped every one of her sixty bars. The Lodestar's seventy bars were cast and stamped at Stannard's own mill and certified by the Lodestar's mill assayer, not by Erasmus. Hester noticed and thought nothing of it: Stannard is the Association president. An Investigation check (DC 12) on the ledger, or asking Hester directly, brings it out. It is the first thread of B.",
+          "CLUE C4 (core, automatic for anyone who reads Coburn's chalked consist or his order book): locomotive No. 11, the Lady Argent; tender; combination mail and baggage car; two coaches; the directors' car Columbine; stock car; EXPRESS CAR; caboose. A note in Coburn's order book: express at rear, at the Association's request, A.S. Strickland thinks it is a terrible idea and says so.",
+          "The Continental guarantee: Strickland carries the company's copy of the declared values. Ruane bars, 60, $84,000. Lodestar bars, 70, $96,000. The Lodestar bars are declared at a higher value per bar than Hester's, which Strickland put down to richer ore (an Insight check, DC 13, notices that Hester is surprised when she hears it)."
+        ]
+      },
+      {
+        "name": "Front Street",
+        "description": "The camp's spine: the Grand Central Hotel with its dining room where the Mining Association meets, the Clarion office with Augusta Achterberg's press in the window, Wertheimer's dry goods, the Continental Express office, the barber and bath house, the livery, Llew Treharne's log calaboose, three churches and eleven saloons. Bunting, mud, mule trains, a brass band rehearsing outside the hotel. Everyone is out on Front Street sooner or later.",
+        "features": [
+          "The Grand Central dining room: linen, oysters in tins from Baltimore, and a long table where Aurelius Stannard gives the party a welcome lunch on Monday",
+          "The Clarion office: back numbers, the Denver and New York exchange papers, and the editor, who sleeps in a cot under her press",
+          "The calaboose: three cells, a stove, Llew Treharne and his pick handle",
+          "The Continental Express office: a counter, a safe, wanted circulars on the wall (one of them Rafe Gorham, $1,500, and his associates)"
+        ],
+        "encounters": [
+          "Aurelius Stannard, Monday 1 p.m., the welcome lunch (no combat)",
+          "Roy Brannock and six GP&P men riding in on Tuesday at noon to address the Mining Association (a showdown is possible; see Act 3)",
+          "Drunk Cowboy or Saloon Brawler, any evening, for colour or a test"
+        ],
+        "secrets": [
+          "CLUE B4 (core, automatic for anyone who asks Augusta Achterberg about the Lodestar or reads the New York exchange papers at the Clarion): a prospectus for LODESTAR CONSOLIDATED SILVER MINING COMPANY, capital $2,000,000, 50,000 shares offered to the public at $10, subscriptions closing 1 October, promising reserves of $4,000,000 on the assay reports of A. Stannard. Augusta has been meaning to ask who made those assays.",
+          "The Continental wanted circular names Rafe Gorham and lists his known associates: Asa Varley (a scar through the left eyebrow, a gold tooth, plays faro), the Haney brothers (Cole and Dub, red-haired, from Kansas), and a switchman called Sully. Anyone who has seen Varley at the Silver Dollar recognises him at once (CLUE C1, second source)."
+        ]
+      },
+      {
+        "name": "Assay Street: the Ashworth Assay Office",
+        "description": "A narrow frame building halfway up Assay Street, between Gertrud Haas's boarding house and a harness maker. A front room with a counter and scales; a back room with the cupel furnace, crucibles, a fume hood, a stovepipe flue through the roof, and the cot where Erasmus Ashworth slept. The door is padlocked by Llew Treharne. Erasmus was found on Sunday morning lying by the furnace with the flue damper shut and the room full of charcoal fumes, and the coroner called it an accident: a tired man, a cold night, a damper shut by mistake.",
+        "features": [
+          "The furnace and the flue: the damper handle inside is in the shut position",
+          "The roof, reached by a ladder from the harness maker's yard: the stovepipe and the outside of the damper",
+          "The assay ledger on the counter, a thick bound book of every sample and bar weighed since 1877",
+          "The chess board by the cot, its pieces set up for a game in progress; the chess box itself is gone (the undertaker has it with the effects)"
+        ],
+        "encounters": [
+          "Marshal Llew Treharne, who has the key and will open it for anyone with a good reason (Phoebe Lanyon, Isaac Merriweather's star, Hester Ruane's name)",
+          "Obed Becket, if the party is here on Monday afternoon: he comes to ask the marshal for 'the Lodestar's sample books, which belong to the company' and is refused"
+        ],
+        "secrets": [
+          "CLUE A2 (core, automatic for anyone who climbs to the roof and looks at the flue): the damper's outer spindle has been wired in the shut position with fresh bright copper wire, twisted tight with pliers, and the wire cut off neat. From inside, the handle could not have been opened. Mechanics or Investigation (DC 12) adds that whoever did it knew how a furnace damper works and brought the wire. On the tarpaper around the stovepipe, scuffs from boot nails in a pattern of three-and-two (CLUE I2, to be matched later).",
+          "CLUE A3 (core, automatic for anyone who opens the ledger): the pages for 13 to 20 September have been cut out close to the spine with a razor. Every other week is intact. The last surviving entry is the Ruane bars, drilled and stamped, 12 September.",
+          "Investigation DC 14: in the ash pan of the furnace, a scrap of charred ledger paper with part of a line legible: '...destar bar 41, drilled, core pb ...'. Pb is the chemist's symbol for lead; Phoebe Lanyon or anyone with Back East's Book Learning knows it."
+        ]
+      },
+      {
+        "name": "The Silver Dollar",
+        "description": "The biggest saloon and gambling hall in Argent: a long bar of real mahogany hauled over the pass in pieces, a piano, a stage for travelling players, and an owner, a Black woman from St. Louis named Mrs. Lucinda Fontaine, who has never lost an argument in her own house, faro, poker, chuck-a-luck, a roulette wheel, and upstairs rooms for private games. Lydia Marchmont deals faro here. Everyone comes: miners, railroad men from both lines, Association members, and strangers.",
+        "features": [
+          "The faro table, with its tiger-painted dealing box and the case-keeper's abacus",
+          "The back room where the Silver Dollar keeps its markers: who owes what",
+          "A balcony over the bar where you can watch the whole room",
+          "A sign behind the bar: CHECK YOUR GUNS. MRS. FONTAINE MEANS IT."
+        ],
+        "encounters": [
+          "Asa Varley, Gorham's lieutenant, playing faro on Monday night (Outlaw stats with Hired Gun's hit points; he will not start a fight in town)",
+          "Tobe Kersey paying his debt, Monday night",
+          "Virgil Tench buying drinks for DA&P tracklayers, both nights",
+          "Saloon Brawler (two or three), if a fight starts"
+        ],
+        "secrets": [
+          "CLUE C1 (core, automatic for Paddy Rooney, who knows him from Carson City; for anyone else, automatic once they have seen the Continental circular): the man with the scarred eyebrow and the gold tooth losing steadily at faro is Asa Varley, Rafe Gorham's right hand. He is staying at the Grand Central under the name J. Vail, cattle buyer.",
+          "CLUE C3 (core, automatic for Lydia Marchmont, who keeps the case and knows the markers; for anyone else, Persuasion DC 12 with Mrs. Fontaine or the bartender, Henry): on Monday night at nine, Tobe Kersey, a DA&P brakeman who makes $60 a month, paid off a $340 marker at the Silver Dollar in new twenty-dollar gold eagles, and then did not play.",
+          "Gambling or Insight DC 13 at Varley's table: he is losing on purpose, small and steady, which is what a man does when he wants a reason to sit in a room for hours watching the door. He watches every DA&P man who comes in."
+        ]
+      },
+      {
+        "name": "Lodestar Hill",
+        "description": "Above town, reached by a switchback road and a bucket tramway: the Lodestar mine's shaft house and hoist, its twenty-stamp mill, the mill office and bunkhouse where Obed Becket lives, and at the top, Aurelius Stannard's white clapboard house with a porch, a piano, a lawn of sod carried up from Denver and a view of the whole basin. The mill runs, loudly, night and day.",
+        "features": [
+          "The mill: twenty stamps, amalgamation tables, a small bullion furnace and moulds where the Lodestar bars were cast",
+          "The ore bins, fed by the tramway from the shaft and, every evening, by wagons from the small claims down the gulch",
+          "Stannard's study, with a map of the basin, a telegraph key on a private line to the depot, and a portrait of himself",
+          "The shaft house and the cage down to the 400-foot level"
+        ],
+        "encounters": [
+          "Aurelius Stannard, at home, on Tuesday evening: gracious, open, and very glad of the party's interest",
+          "Obed Becket and two Lodestar men (Railroad Enforcer stats used as mine guards), if the party snoops in the mill"
+        ],
+        "secrets": [
+          "CLUE B6 (core, automatic for anyone who watches the mill for an evening or asks the teamsters): wagons from four small claims down the gulch deliver ore to the Lodestar mill every evening. The claim owners (the Pascoe brothers, Widow Ryan, a German named Ulrich Spaeth) are being paid twice the market price by Becket, in cash. Mine owners do not buy other men's ore unless their own has stopped.",
+          "Mechanics or Nature DC 14 in the mill: the bullion moulds are a hair shallower than the Ruane Works moulds, and there is a cold pig of lead under a tarpaulin behind the bullion furnace. It is the most dangerous thing on the hill to be caught looking at.",
+          "Stannard keeps the Lodestar Consolidated subscription letters from his New York brokers in his study desk; he does not let the party into the study."
+        ]
+      },
+      {
+        "name": "Cornish Row and the Chapel",
+        "description": "A steep lane of miners' cabins above Assay Street, with washing lines, saffron buns, goats, and the little Bible Christian chapel at the top where Mercy Pengelly preaches on Sunday nights. Erasmus Ashworth's funeral is here on Tuesday at ten, with a Cornish choir, because Erasmus, who was English and a Methodist, asked for one.",
+        "features": [
+          "The chapel: whitewashed boards, a harmonium, a pulpit made from a powder box",
+          "Mercy Pengelly's cabin, where half the tracklayers eat on Sundays",
+          "The graveyard on the hillside, with too many new graves"
+        ],
+        "encounters": [
+          "Mercy Pengelly, at the funeral and afterward",
+          "Cap'n Hender Rosevear, the Lodestar's mine captain, drunk at the back of the funeral"
+        ],
+        "secrets": [
+          "CLUE B5 (Mercy will not give it until a player gives her a reason that outweighs her promise: Erasmus's murder is enough if the party has A1 or A2): Rosevear told her in August that the Lodestar's main vein pinched out in January. She takes the party to him. Rosevear, ashamed and afraid, says: there's nowt left in her, my lover. Not since January. We are hoisting rock and calling it ore, and Mr. Stannard says keep shut, and I have kept shut, God forgive me. Intimidation does not work on him; Persuasion or Insight (DC 12) with Mercy present does."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Monday morning, Hester Ruane hires the party to guard Saturday's silver train: $200 each, $1,000 among them on delivery. In two days the party meets the camp and everyone with a stake in the train: Winfield Coburn of the DA&P, racing to lay his last mile; Aurelius Stannard, the camp's beloved founder, who gives them lunch and suggests improvements to their plans; Merritt Strickland, the nervous express messenger; Roy Brannock of the GP&P, who rides into town on Tuesday to make the Association an offer in gold. Underneath it, two cases. The assayer Erasmus Ashworth, who weighed Hester's silver, was murdered on Saturday night and made to look like an accident (A), and he died because he had found out that the Lodestar is played out and its bars are not what they say (B). And someone means to rob the train from inside: a known robber's lieutenant is at the faro table, a brakeman has paid a debt in gold, the express car will run at the rear, and on Tuesday night the DA&P's powder house is robbed (C). The players should end the scenario knowing the train will be hit, suspecting Brannock, and holding the first proof that the Lodestar is hollow, without yet seeing how those two things fit.",
+  "hook": "Monday 22 September 1879, eleven in the morning, the ore yard of the Argent Reduction Works. The silver is stacked like firewood in an iron cage, and it does not shine: it is dull grey-white, frosted, each bar the size of a loaf and as heavy as a boy. Hester Ruane walks you along it with her hands in the pockets of her late husband's coat. Saturday, she says. A hundred and thirty bars, sixty of mine and seventy of the Lodestar's, over the pass to Hollowell Junction on the first through train, and if it gets there whole the Compact is won and this camp has a railroad and my furnaces stay lit. If it does not, the Great Plains and Pacific gets the Association's freight, and Roy Brannock gets to set my rates, and I am done by Christmas. The Continental Express Company has had a tip. Sheriff Riggs does not answer letters. Two hundred dollars a head, she says, and a thousand among you at the Junction. Then she stops by the last bar and puts her hand flat on the stamp, E. ASHWORTH, ASSAYER, and says, in a different voice: the man who stamped this was found dead on Sunday morning, and the coroner says he shut his own flue. He did not. He had been shutting that flue for two years.",
+  "cluesAvailable": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "H3",
+    "I2"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "A. Erasmus Ashworth was murdered",
+      "clues": [
+        "A1: the bruise behind his left ear (the undertaker's; Phoebe Lanyon's notebook)",
+        "A2: copper wire on the outside of the flue damper (the assay office roof)",
+        "A3: the ledger pages for 13 to 20 September cut out (the assay office)",
+        "A5: Gertrud Haas heard 'Obed, it is late' after eleven on Saturday (the boarding house)",
+        "A4: Llew Treharne saw Obed Becket on Assay Street at 11:30 (the marshal, once trusted)"
+      ]
+    },
+    {
+      "conclusion": "B. The Lodestar is played out and its bars are not what they say",
+      "clues": [
+        "B1: Erasmus's duplicate assay book in the chess box (the undertaker, then Phoebe)",
+        "B2: the drill core from Lodestar bar 41, silver over lead (the chess box)",
+        "B3: Lydia Marchmont's cash dividends and the books refused (her ledger; the Lodestar office)",
+        "B4: the Lodestar Consolidated prospectus (the Clarion office)",
+        "B5: Cap'n Rosevear's confession (Cornish Row, through Mercy Pengelly)",
+        "B6: the Lodestar mill buying small-claim ore at double price (Lodestar Hill)"
+      ]
+    },
+    {
+      "conclusion": "C. Someone means to rob the Saturday train from inside",
+      "clues": [
+        "C1: Asa Varley at the faro table (the Silver Dollar; the Continental circular)",
+        "C2: the Continental tip, and Strickland's real job (the express office)",
+        "C3: Tobe Kersey's debt paid in gold (the Silver Dollar)",
+        "C4: the express car at the rear, at the Association's request (the depot)",
+        "C5: the powder house opened with a key on Tuesday night (Hollowell Cut, the end of the scenario)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: The Hiring",
+      "description": "Monday, eleven in the morning to the middle of the afternoon. Hester Ruane's offer in the ore yard; Coburn on the work train; Stannard's welcome lunch at the Grand Central. This act introduces the train, the race and the three people who most want the silver to move, one of whom is lying. It is conversation and should take about an hour. Let the players ask about the train, the route and the guards, and give them the consist (C4) and the route (Argent, the Blind Tom spur, the Cut, the Needle Creek trestle, the summit, the canyon, the Narrows, the Junction).",
+      "objectives": [
+        "Take the job and agree terms with Hester Ruane",
+        "Learn the train, the route and the Compact deadline",
+        "Meet Coburn, Stannard and Strickland",
+        "Notice that the express car will run at the rear, and whose idea that was"
+      ],
+      "scenes": [
+        {
+          "name": "The Ore Yard",
+          "description": "Hester's offer, as in the hook. She answers questions plainly. The bars: hers are ninety-five pounds each, fine silver, drilled and stamped by Erasmus; the Lodestar's will be delivered on Friday night from Stannard's mill. The guard: she wants two of the party in the express car with the messenger and the rest spread through the train as they like. The route and the Compact deadline. Her suspicion about Erasmus, and that she wants it looked into, quietly, because the Association will not like a murder the week of the first train. If Pepa Archuleta is played, Hester introduces her as the best shotgun rider in the state; if Phoebe Lanyon is played, as the doctor who has already been making a nuisance of herself about Erasmus; if Paddy Rooney is played, she says she hired him because it takes one, and watches him to see how he takes it.",
+          "readAloud": "She is not much over five feet, square and weathered as a gatepost, with grey hair cut short as a man's, and she has a way of looking at you as if she were weighing ore. Behind her the smelter roars and the yellow smoke goes straight up into a sky so blue it looks painted. She walks you down the cage of silver bars, touching each one with two fingers like a woman counting children. 'Sixty of mine,' she says. 'Seventy of Aurelius Stannard's on Friday. That is a hundred and eighty thousand dollars, declared, which is more money than this county has seen in one place since God made it. On Saturday it goes over Hollowell Pass on the first through train, and I want people on that train who will still be standing when it gets to the Junction.' She stops. 'I am told you are such people. I hope I was told right.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "She is honest, frightened for her business, and grieving for Erasmus Ashworth more than she lets on; they were friends, the only two people on the Association who read books. She is holding back one thing: she does not trust Stannard's mill to have assayed his bars as carefully as Erasmus did hers, and she is ashamed of thinking it of a friend.",
+              "failure": "A hard woman, an honest one, and very worried. Nothing hidden that you can see."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "She raises the fee to $250 a head and pays half in advance, in gold, now.",
+              "failure": "Two hundred is the offer. She pays a quarter in advance."
+            }
+          ]
+        },
+        {
+          "name": "The Work Train",
+          "description": "At noon the DA&P work train comes down to the railhead and Winfield Coburn walks the last two miles into town, because he cannot stand to wait for a wagon. He is thirty-nine, thin, cinder-black, coughing, delighted to meet anyone who will guard his train and impatient to get back to the railhead. He chalks the consist on the depot board for the newspapermen (C4) and explains the route with a stick in the mud. He tells the truth about the DA&P's money if asked straight (the line is broke, the Boston bondholders want the Compact or his head, the crews are paid in scrip and three weeks behind) and admits he is afraid of a strike before Friday. He mentions, with gratitude, that Mr. Stannard suggested the express car run at the rear so robbers would have to come through the passengers; Coburn thinks it a sensible precaution (CLUE H3, first appearance, which should mean nothing yet).",
+          "readAloud": "He comes down the track at a half-run, a tall, thin, black-bearded man in a sack coat gone grey with ash, with a roll of profiles under one arm and a transit tripod over his shoulder, and he is talking before he reaches you. 'Two miles and four hundred feet of track,' he says, 'and a hundred and ninety rails at the Junction waiting for the work train, and a trestle I would put my mother on, and three days, and if the Irish walk off I will lay the rest myself.' He coughs into his fist for a while. 'You are the guards. Good. Thank God. Come and see the train.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 11,
+              "success": "He is exhausted, sincere, and obsessed: he would sell his soul for the Compact and has already sold most of his health. He is not hiding a robbery; he is hiding how close the DA&P is to bankruptcy.",
+              "failure": "A brilliant, nervous man who has not slept. Whether he is honest is hard to say: he talks too fast to read."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 13,
+              "success": "Looking at the consist on the board: an express car at the rear of a train on a four-percent grade is coupled behind the stock car with an ordinary link and pin. If anybody pulled that pin on the climb, the car and the caboose would roll straight back down the mountain. Coburn says the rear brakeman rides the caboose and would set the brakes. That is true, if the brakeman is honest.",
+              "failure": "The consist looks ordinary to you, if odd: express cars usually ride up front."
+            }
+          ]
+        },
+        {
+          "name": "Lunch with the Founder",
+          "description": "Aurelius Stannard gives the party a welcome lunch in the Grand Central dining room at one: oysters from tins, champagne carried over the pass, and stories. He is the most charming man in Colorado. He founded Argent in 1877 with a mule and a pick, struck the Lodestar, built the first cabin and the first church, and pays for the town marshal and the brass band. He is delighted to meet the guards and full of helpful suggestions: two of his best shift bosses, the Haney brothers, will ride in the caboose as extra guards, and he will sign their passes himself (the Haneys are Gorham's men; this is H2 waiting to happen). He asks every guard where they mean to ride on Saturday and remembers the answers. He speaks warmly of Erasmus Ashworth ('a careful man; too careful, perhaps, with that furnace'). He tells Lydia Marchmont, if she is there, that she must come up to the house and see the books any time, and fixes no date.",
+          "readAloud": "He rises to meet you with both hands out: a big, handsome, white-haired man of fifty-eight with a prospector's sunburned face, a good black suit worn as if he still found it funny, and a laugh you can hear in the street. 'The guardians of the silver!' He seats you himself. There are oysters, which came over the pass in tins, and champagne, which came over the pass in straw, and the window looks up at the Lodestar's mill on the hill, pounding away. 'Two years ago,' he says, 'there was nothing in this basin but me, a mule called Absalom and a great deal of snow. Now look at it.' He raises his glass. 'To the Silver Line. And to the people who will see her safe.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 16,
+              "success": "Behind the charm, he is listening very hard to where each of you means to ride on Saturday. And when Erasmus Ashworth's name comes up, his eyes go for a moment to the window and the Lodestar mill, and then back, smiling.",
+              "failure": "You like him. Everyone likes him. That is the trouble with him, and you do not see it yet."
+            },
+            {
+              "skill": "Gambling",
+              "dc": 14,
+              "success": "(Lydia Marchmont, or anyone who has played against him.) He plays like a man who is behind and hiding it: big, cheerful, confident bets to keep everyone else from looking at his stack. He is doing it now.",
+              "failure": "A generous man with money to burn."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "No combat expected. Stannard's welcome is the campaign's most important conversation; play him as genuinely likeable."
+      ]
+    },
+    {
+      "title": "Act 2: Assay Street",
+      "description": "Monday afternoon to Tuesday afternoon. The murder of Erasmus Ashworth. The body is at Philo Teale's undertaking parlour on Front Street until the funeral at ten on Tuesday; the office is padlocked; Gertrud Haas next door heard something; the marshal saw something he does not want to have seen. The chess box with Erasmus's private book is among his effects at Teale's, and Erasmus's will, read after the funeral, leaves it to Phoebe Lanyon (if Phoebe is not played, to Hester Ruane). Becket wants the effects too, and will try to get them first. This act can be played in any order and should take about ninety minutes.",
+      "objectives": [
+        "Examine the body before the funeral",
+        "Search the assay office and its roof",
+        "Talk to Gertrud Haas and to Llew Treharne",
+        "Get the chess box before Obed Becket does",
+        "Ask why the Lodestar's bars were not assayed by Erasmus"
+      ],
+      "scenes": [
+        {
+          "name": "The Undertaker's",
+          "description": "Philo Teale, coroner and undertaker, a pale, careful man in a black frock coat, is also paid a retainer by the Lodestar to bury its dead, and he has called Erasmus's death an accident. He will let a doctor see the body (or anyone else for $5) and does not want a fuss. CLUE A1 is core: anyone who examines the head finds a swollen bruise behind the left ear, under the hair, the size of a silver dollar. Erasmus's effects are in a crate in the back: clothes, books, a watch, a few dollars, and a walnut chess box with a drawer in the bottom. Becket has asked Teale to send 'the Lodestar's papers' up to the mill; Teale has not yet decided whether the chess box counts as papers.",
+          "readAloud": "Erasmus Ashworth lies on a trestle table in the back room under a sheet, in the cold that comes through the plank walls, and the room smells of carbolic and pine boards. He was a small, bald, neat man of sixty, and he looks smaller now. His face is a strange bright pink, as though he had been out in the sun. Behind the counter Philo Teale folds and unfolds his hands. 'Charcoal gas,' he says. 'They go pink, you know. Very peaceful. He would have felt nothing at all.' On a shelf behind him, in a crate with Erasmus's name chalked on it, there is a walnut chess box with brass corners.",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 10,
+              "success": "The pink is carbon monoxide; he died of the fumes. But the bruise behind the ear was made before death by something heavy and soft, a sap or a sandbag, and he would have been unconscious when he was laid by the furnace. His knuckles and nails are clean: he did not struggle. Time of death about midnight on Saturday. This is murder.",
+              "failure": "Charcoal gas, and a bruise: he could have hit his head when he fell. You would want a second look by someone with more practice."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 13,
+              "success": "You have the chess box under your coat before Teale turns round. (It is not legally yours, and Teale will notice by evening; Reputation does not change unless he tells Stannard, which he will if asked.)",
+              "failure": "Teale sees, and puts the box back on the shelf. 'Effects go by the will, sir.' The will is read after the funeral on Tuesday; get there before Becket's man does."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Teale agrees to hold the effects for the will and not send anything up to the mill, and admits Becket asked for them. He is frightened of the Lodestar and more frightened of a lady doctor with a notebook.",
+              "failure": "Teale will not discuss the Lodestar's business. He will, however, keep the box until the will is read, because that is the law and he is a lawful man."
+            }
+          ]
+        },
+        {
+          "name": "The Assay Office",
+          "description": "Llew Treharne has the key. Inside, the furnace, the ledger and the chess board. CLUE A3 is core (the cut pages); CLUE A2 is core for anyone who climbs to the roof (the copper wire; the boot scuffs, I2). The charred scrap in the ash pan is a detail (Investigation DC 14). If the party comes on Monday afternoon, Obed Becket arrives while they are inside, with a letter from Stannard asking for the Lodestar's sample books; Llew refuses him. Becket is a big, quiet, pale-eyed man with a miner's forearms and new boots with a pattern of hobnails, three and two. He is polite, takes in every face, and leaves.",
+          "readAloud": "The back room still smells of charcoal and acid, and a fine grey ash has settled on everything. The furnace is a squat brick box with an iron door, and the stovepipe runs up through the roof. The damper handle points to SHUT. On the counter in the front room the great ledger lies open to the last page anyone wrote on, and by the cot a chessboard waits in the middle of a game, white to move, as though Erasmus had only stepped out. Up on the roof, when you get there, the wind tears at your hat and the whole basin is spread out below, the Lodestar mill pounding on its hill. The damper spindle sticks out of the stovepipe, and somebody has wired it.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "The charred scrap in the ash pan: '...destar bar 41, drilled, core pb ...'. Somebody burned the cut pages here and missed a corner.",
+              "failure": "The ash pan is ash."
+            },
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "The boot scuffs on the roof are hobnails in a three-and-two pattern. You will know them if you see them again (Clue I2). Becket's boots, if he comes by, are exactly that pattern: anyone looking at his feet sees it.",
+              "failure": "Scuffs on the tarpaper. Somebody was up here."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "(On Llew Treharne, while he watches you.) He is not surprised by the wire. He is frightened by it, and it is not the wire he is afraid of; he looked at Becket's boots when Becket left. He knows something.",
+              "failure": "The marshal is unhappy. So is everyone."
+            }
+          ]
+        },
+        {
+          "name": "Next Door",
+          "description": "Gertrud Haas, sixty, a widow from Bremen, keeps a boarding house for German and Swiss miners next to the assay office and has a bedroom on the shared wall. She has told no one because no one asked and because she does not want trouble with the Lodestar, where four of her boarders work. Gently asked, in German or with patience (Persuasion or Insight DC 10, or automatic with a kind word and a cup of coffee), she gives CLUE A5: after eleven on Saturday night she heard a knock on Erasmus's back door, and Erasmus's voice, cross and sleepy, say 'Obed, it is late', and then the door, and then nothing. She went to sleep. She cries about it.",
+          "readAloud": "Frau Haas has the cleanest kitchen in Colorado and a coffee pot the size of a bucket, and she makes you sit before she will say anything at all. She is tiny and white-haired, with red hands and a black dress, and she keeps looking at the wall she shares with the assay office as if it might speak. 'He was a good neighbour,' she says. 'He fixed my stove. He taught my boarders chess so they would not drink.' She folds her hands. 'I heard him. On Saturday. I did not want to say.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "She is telling the truth and she is afraid for her boarders' jobs at the Lodestar. If you promise to keep her name out of it until a judge needs it, she will swear to it before a judge.",
+              "failure": "She is frightened. You get the words; she will not say them again to anyone official."
+            }
+          ]
+        },
+        {
+          "name": "The Marshal's Doubt",
+          "description": "Llew Treharne saw Obed Becket on Assay Street at half past eleven on Saturday night, walking down from the direction of the office with something in his hand. He has told no one, because Becket is a Lodestar man and Llew owes Stannard everything (see his dmNotes). He gives CLUE A4 when the party shows him A1 or A2 and asks him straight, or when Isaac Merriweather asks him as one lawman to another (Persuasion DC 12, automatic with both A1 and A2). It costs him visibly. He says he will not arrest Becket on that alone, and he is right.",
+          "readAloud": "Llew Treharne sits on his own cell bunk with his big hands hanging between his knees and looks at the floor for a long time. 'Half eleven,' he says at last. 'Saturday. I was walking my round. Obed Becket coming down Assay Street from the top end, quick, with a bag in his hand, and he says good night, Marshal, and I say good night, Mr. Becket.' He rubs his face. 'I have not said it to a soul. I have been telling myself it was nothing. Look you, there is a thing a man does not want to know.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Llew gives A4 and agrees to work with the party, quietly, on Erasmus's death. He will not move on Becket until there is more, and he asks you not to tell Mr. Stannard yet. That is a request that should make the players think.",
+              "failure": "Llew says he saw nothing he would swear to. Come back with more and he will tell you."
+            }
+          ]
+        },
+        {
+          "name": "The Chess Box",
+          "description": "After the funeral on Tuesday, Teale reads Erasmus's will: the chess set and its box to Dr. Phoebe Lanyon, 'who nearly beat me' (to Hester Ruane if Phoebe is not played). Becket's man, a Lodestar clerk, arrives at Teale's twenty minutes after the reading to collect 'the company's papers'; the party should be there first. The box has a drawer in its base with a spring catch (Investigation DC 10 to find, automatic for Phoebe, who has seen Erasmus open it). Inside: CLUE B1, a small leather book in Erasmus's hand recording every Lodestar ore sample he assayed since 1877 (310 ounces of silver a ton in 1878; 40 in January; under 6 since March; then nothing, because Stannard stopped sending samples), and CLUE B2, an envelope marked 'L. bar 41, plug', containing a drill core the size of a pencil stub: a thin skin of bright silver over a grey, soft, heavy centre that marks paper. Anyone with Phoebe Lanyon's childhood, or a Mechanics or Nature check (DC 10), knows it for lead.",
+          "readAloud": "The drawer slides out with a click, and there is nothing in it but a small black book and a brown envelope. The book is Erasmus's handwriting, tiny and perfect: dates, sample numbers, ounces per ton, a column for every mine in the basin, and one column that falls like a stone down the page, three hundred and ten, two hundred and eighty, forty, eleven, six, four, and then a line ruled across and the word STOPPED. The envelope says L. BAR 41, PLUG. When you tip it out, a stub of metal no bigger than a pencil end rolls into your palm, bright as a new dime at one end and grey and dull all through the middle, and when you rub it on the envelope it leaves a mark like a pencil.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The book's last page has a note: 'Bar 41 drilled 19th without leave. Must tell H.R. Monday. God help him.' Erasmus meant to tell Hester Ruane on Monday. He was killed on Saturday night.",
+              "failure": "The book and the plug are enough. You miss the note on the last page until someone reads it again."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "No combat expected. Becket will not fight in town; if the party confronts him he is polite, denies everything, and goes straight to Stannard.",
+        "Optional: a Lodestar clerk and two mine guards (Railroad Enforcer) try to take the chess box from whoever has it on Tuesday evening in the dark of Assay Street, if the party let it be known they have it. They do not use guns; they use pick handles and a story about company property."
+      ]
+    },
+    {
+      "title": "Act 3: The Silver Dollar",
+      "description": "Monday night, Tuesday noon and Tuesday night. The train robbers are already in Argent and so is the Great Plains and Pacific. Monday night at the Silver Dollar the party can spot Asa Varley (C1) and Tobe Kersey's gold (C3), and meet Virgil Tench buying drinks for the tracklayers. Tuesday at noon Roy Brannock rides in to make the Association an offer, with a possible stare-down in the street. Tuesday evening Strickland reveals himself (C2). Tuesday at midnight, the alarm comes down from the Cut: the DA&P powder house has been robbed (C5), and the scenario ends with the party riding out into the dark toward Wednesday.",
+      "objectives": [
+        "Identify Asa Varley and learn who he works for",
+        "Notice Tobe Kersey's gold",
+        "Take the measure of Roy Brannock and his methods",
+        "Learn what the Continental Express Company knows",
+        "Answer the alarm from the powder house"
+      ],
+      "scenes": [
+        {
+          "name": "Faro",
+          "description": "Monday night. The Silver Dollar is full. Varley is at the faro table under the name Vail (C1). Tobe Kersey comes in at nine, pays his $340 marker in gold eagles and leaves without playing (C3). Virgil Tench, a soft-handed, smiling man in a checked suit, is buying drinks for DA&P tracklayers at the bar and telling them the GP&P pays three dollars a day in gold. If Paddy Rooney is played, Varley recognises him across the room, comes over, and says, very quietly, that Rafe sends his regards and that there is a seat at the table for an old friend if he wants one, and that if he does not, Rafe would take it kindly if he kept his mouth shut. Mrs. Lucinda Fontaine runs her house with a shotgun under the bar and an absolute rule against gunplay indoors.",
+          "readAloud": "The Silver Dollar is a long, hot, roaring room lit by forty kerosene lamps, and every one of them is smoking. There is a piano player in a derby, a roulette wheel that never stops, a sign that says CHECK YOUR GUNS and a rack behind the bar with sixty of them in it. At the faro table, under a painted tiger, a man with a scar through his left eyebrow and a gold tooth is losing two dollars at a time with great patience. He looks up when the door opens. He looks up every time the door opens.",
+          "skillChecks": [
+            {
+              "skill": "Gambling",
+              "dc": 13,
+              "success": "Varley is losing on purpose, small and steady. He is here to watch, not to play: he watches every DA&P man who comes in, and he watched Tobe Kersey pay his marker like a man watching a horse he has bought.",
+              "failure": "A bad faro player. There are hundreds."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 14,
+              "success": "You follow Varley back to the Grand Central at two in the morning without his knowing, and see him knock on room 12, which is registered to O. Becket, Lodestar Mining Co., who keeps a room in town. The door opens and closes. (An early H4 for a lucky party; Becket says, if asked, that Vail is a cattle buyer selling beef to the mill.)",
+              "failure": "He turns at the hotel steps and looks straight at you, and smiles, and goes in."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "Varley stays calm but says more than he means to: 'Mister, I am a cattle buyer. Ask anybody. Ask the Lodestar.' Then he cashes out and goes to bed.",
+              "failure": "Varley laughs at you, pleasantly, and Mrs. Fontaine asks you to take it outside or take it home."
+            }
+          ]
+        },
+        {
+          "name": "The Other Railroad",
+          "description": "Tuesday at noon Roy Brannock of the GP&P rides into Argent with six hired guns (Hired Gun) and Virgil Tench, ties his horse in front of the Grand Central and makes the Mining Association an offer in its dining room, loudly, so the street can hear: if the DA&P fails, the GP&P will carry Argent ore at half the DA&P's rate, guaranteed in gold, and has $50,000 in a Denver bank to prove it. He tells Hester Ruane she is backing a bankrupt with a slide rule. He tells the guards, cheerfully, that the pass is a dangerous place in bad weather. He does not threaten anyone in words he could be held to. On the way out, one of his men (Bart Kinnear, a Gunfighter) picks a fight with whichever guard looks easiest, and the street clears for a showdown: use frontier.json's stare-down and draw. Brannock watches with interest and calls his man off if he is losing; if the guard backs down, Reputation falls by 1. Brannock is a big, red-bearded, shirt-sleeved Kansan who built his first railroad with his own hands; he is not subtle and does not pretend to be.",
+          "readAloud": "He fills the doorway of the Grand Central dining room and he knows it: a huge, red-bearded man in shirtsleeves and a leather vest, with a gold watch chain across his belly and a laugh like a steam whistle. Behind him Front Street is suddenly very quiet, and six men with rifles across their saddles sit their horses at the hitching rail and look at nothing in particular. 'Gentlemen,' he says, 'and Mrs. Ruane.' He sweeps off his hat. 'I am Roy Brannock of the Great Plains and Pacific, and I have come to tell you what you will be getting when Mr. Coburn's little railroad falls down the mountain.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Brannock is completely confident that the DA&P will miss its deadline. Not hopeful: confident, like a man who has arranged it. (He has: the sabotage in sl-scenario-002.) He has no interest at all in the silver itself; when someone mentions the robbery tip, he looks genuinely surprised and then amused.",
+              "failure": "A bully with money. You cannot tell how much of it is bluff."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "In the stare-down, his man Kinnear blinks first and backs off; the street saw it. Reputation +1.",
+              "failure": "Kinnear holds your eye. If you want him to back down now you will have to draw, or walk away."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "As Brannock leaves, Stannard walks him to his horse and they speak for a moment, too low to hear, and Brannock laughs and slaps the founder on the shoulder. (Stannard has sold Brannock his vote; see sl-scenario-004.)",
+              "failure": "Stannard sees Brannock out, as a host should."
+            }
+          ]
+        },
+        {
+          "name": "The Messenger",
+          "description": "Tuesday evening. Merritt Strickland, the Continental Express messenger, a thin, sallow, bespectacled man who looks like a clerk and has been asking everyone about the consist, the brakemen and the route, asks the party (or Isaac Merriweather, if played) to meet him in the express office after closing. He is a Continental Express Company detective, not a messenger, sent because Continental received a letter in Denver two weeks ago, unsigned, saying the Argent train would be robbed from inside, with Gorham's name in it (CLUE C2). He has the letter: block capitals on Grand Central Hotel paper. (It was written by Tobe Kersey's sister, Effie Kersey, a chambermaid at the Grand Central, who knows her brother is in trouble and does not know with whom; she can be found in sl-scenario-002 or later and will tell the party that Tobe has been seeing 'a big man from the Lodestar'.) Strickland wants the express car moved to the front; Coburn says the Association asked for it at the rear, and Stannard, when asked, says warmly that he will defer to the experts, and then does nothing.",
+          "readAloud": "The express office is dark except for one lamp, and Strickland has drawn the blind. He takes off his spectacles, and without them his face is sharper, older and a great deal less nervous. 'I am not a messenger,' he says. 'I have not been a messenger since 1874. I work for the Continental Express Company's Special Department, and two weeks ago the company received this.' He lays a sheet of hotel paper on the counter. It says, in big careful capitals: THEY ARE GOING TO ROB THE ARGENT TRAIN FROM INSIDE. R. GORHAM. PLEASE DO NOT LET THEM HURT MY BROTHER.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The paper has the Grand Central Hotel's printed heading torn off, but the watermark is there. The writer is a woman, by the hand, schooled, but not for long (the shape of the capitals), and she wrote it in a hurry on a hotel tray: there is a ring from a coffee cup. Someone in the Grand Central staff.",
+              "failure": "Hotel paper and capitals. Someone in Argent."
+            }
+          ]
+        },
+        {
+          "name": "Midnight at the Powder House",
+          "description": "Tuesday night, a quarter to midnight. A rider from the Cut gallops down Front Street to the marshal's office: the DA&P powder house above Hollowell Cut has been robbed. The scenario ends with the party riding four miles up the grade in the dark to see it, and sl-scenario-002 opens there. What is known at once (CLUE C5): the padlock was opened with a key, not forced, and forty sticks of dynamite and fifty caps are missing. The thieves came and went before the night watchman's ten o'clock round. Most of the camp, by morning, will be saying the Chinese crew did it, because their camp is closest. Virgil Tench will be saying it loudest.",
+          "readAloud": "The rider's horse is lathered to the shoulders, and he shouts it before he is out of the saddle: the powder house at the Cut, robbed, broke open, the whole camp out with lanterns. Up and down Front Street doors bang open and men come out with their boots in their hands. Somebody is already shouting about the Chinese. Llew Treharne comes out of his office pulling on his coat and looks at you, and you look at the road up the valley, black under a sky packed with stars, and the cold comes down off the peaks like water.",
+          "skillChecks": [
+            {
+              "skill": "Riding",
+              "dc": 12,
+              "success": "You reach the Cut in forty minutes in the dark, ahead of the crowd from Argent, and see the powder house before a hundred boots trample the ground around it (advantage on the first tracking check in sl-scenario-002).",
+              "failure": "You arrive with the crowd, and the ground is a mess of boot prints and lantern light. The tracks will have to wait for daylight."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Bart Kinnear, Brannock's man (Gunfighter), in a showdown on Front Street on Tuesday at noon: only if a guard accepts. Brannock calls him off at half his hit points.",
+        "Saloon Brawler (three) at the Silver Dollar, if the party provokes Tench's tracklayers; Mrs. Fontaine stops it with a shotgun before anyone draws.",
+        "Asa Varley (Outlaw stats with Hired Gun's hit points) will not fight in Argent before Saturday under any provocation. If pushed into a corner, he leaves town for the Blind Tom platform and the party has lost track of him."
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Hester Ruane, 50",
+      "role": "Owner of the Argent Reduction Works; the party's employer",
+      "description": "A short, square, grey widow in her late husband's coat, who ran a stamp mill in Nevada before she built the only smelter in the basin. Blunt, fair, never wastes a word, reads Dickens at night. The only woman on the Mining Association and the only member who reads the contracts.",
+      "motivation": "Get the train to the Junction and the Compact won, because her smelter dies without a railroad; find out who killed her friend Erasmus."
+    },
+    {
+      "name": "Aurelius Stannard, 58",
+      "role": "Founder of Argent, president of the Mining Association, owner of the Lodestar; the secret plotter",
+      "description": "Big, white-haired, sunburned, magnificently genial, the man who struck the Lodestar and built the town. Gives lunches, pays for the band, remembers everyone's name. Underneath, a ruined man running a fraud and arranging the robbery of his own silver. Never raises his voice; never lies about anything checkable; never fights. Use Cattle Baron stats if it ever comes to that.",
+      "motivation": "Get the Lodestar bars stolen before anyone assays them, collect Continental's $96,000 guarantee, and close the New York offering on 1 October. Stay the most beloved man in Argent while doing it."
+    },
+    {
+      "name": "Winfield Coburn, 39",
+      "role": "Chief engineer and field boss of the Denver, Argent and Pacific",
+      "description": "Thin, black-bearded, coughing, sleepless, brilliant; lays track by day and draws profiles by lamplight. Honest, obsessed, out of money, paying in scrip. Trusts Stannard because Stannard has always been kind to him.",
+      "motivation": "The Compact, at any cost except his conscience, which he has not yet been asked to sell."
+    },
+    {
+      "name": "Merritt Strickland, 44",
+      "role": "Continental Express messenger; secretly a Continental Special Department detective",
+      "description": "Looks like a nervous clerk in spectacles; is a cool, experienced investigator who has worked express robberies from Omaha to Sacramento. Asks too many questions and is suspected for it. Use Agency Detective stats.",
+      "motivation": "Stop the robbery, catch Gorham, and find the inside man."
+    },
+    {
+      "name": "Obed Becket, 35",
+      "role": "Lodestar mill foreman; Stannard's go-between with Gorham; Erasmus Ashworth's killer",
+      "description": "Big, pale-eyed, quiet, polite, a former Comstock mill man with a miner's forearms and new hobnailed boots (three-and-two). Never threatens; just remembers faces. Use Hired Gun stats.",
+      "motivation": "Do what Mr. Stannard wants, be paid $5,000 for it, and leave no one alive who can hang him."
+    },
+    {
+      "name": "Asa Varley, 33",
+      "role": "Rafe Gorham's lieutenant, in Argent as J. Vail, cattle buyer",
+      "description": "Scar through the left eyebrow, gold tooth, patient, polite, a deliberate bad faro player. Watches doors. Use Outlaw stats with Hired Gun's hit points.",
+      "motivation": "Watch the train, the guards and the brakeman until Saturday, then lead the riders at the Horseshoe."
+    },
+    {
+      "name": "Tobe Kersey, 24",
+      "role": "DA&P rear brakeman, bought by Gorham",
+      "description": "A gangly, freckled Missouri boy who gambles because he is lonely. Paid his debt in gold and is sick about it. His sister Ada is a chambermaid at the Grand Central and wrote the Continental letter.",
+      "motivation": "Do the one job and be clear of his debts; he has been promised nobody will be hurt. He believes it less every day."
+    },
+    {
+      "name": "Roy Brannock, 46",
+      "role": "Construction boss of the Great Plains and Pacific",
+      "description": "Huge, red-bearded, laughing, shirt-sleeved; built his first railroad with his hands and his second with other men's blood. Pays well and on time in gold, builds stone forts on disputed grades, owns the county sheriff. Use Range Boss stats.",
+      "motivation": "Make the DA&P miss the Compact, take the Narrows, and carry the basin's ore. Robbery is beneath him; sabotage is not."
+    },
+    {
+      "name": "Virgil Tench, 40",
+      "role": "Brannock's agent in Argent",
+      "description": "Soft hands, a checked suit, a kind smile, and a gift for telling angry men what they want to hear. Recruits tracklayers for the GP&P, and blames the Chinese for everything. Use Cardsharp stats; he does not fight.",
+      "motivation": "Turn the DA&P strike into a riot and the riot into a missed deadline."
+    },
+    {
+      "name": "Llew Treharne",
+      "role": "Town marshal of Argent; companion",
+      "description": "See his sheet. Honest, slow, stubborn, and in Stannard's debt.",
+      "motivation": "Keep the peace; find out what happened to Erasmus without having to know it."
+    },
+    {
+      "name": "Augusta Achterberg, 45",
+      "role": "Editor of the Argent Clarion",
+      "description": "A tall, ink-stained Dutch-American from Michigan who prints a four-page weekly on a press she carried over the pass on mules, and sleeps under it. Knows everything printed in Denver and New York.",
+      "motivation": "A story, the truth, and the Clarion's survival, in that order on Mondays and the reverse on Fridays."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "money": "Hester Ruane's advance: $50 each in gold (or $125 each with the Persuasion success), the rest on delivery. Strickland offers $100 from Continental to anyone who brings him proof of the inside man. Mrs. Fontaine stands the party a room at the Silver Dollar for the week if they keep the peace in her house.",
+    "items": [
+      "Erasmus Ashworth's duplicate assay book (Clue B1) and the drill core from Lodestar bar 41 (Clue B2)",
+      "The Continental wanted circular for Rafe Gorham and his associates",
+      "The anonymous letter on Grand Central paper (Clue C2), lent by Strickland",
+      "A copy of the Lodestar Consolidated prospectus, torn from the New York exchange paper at the Clarion (Clue B4)",
+      "Notes on the bruise, the wire and the boot scuffs (Clues A1, A2, I2)",
+      "A pass for any DA&P train, signed by Coburn"
+    ]
+  },
+  "twists": [
+    "The man who is kindest to the party is the man who planned the robbery. Stannard gives them lunch, signs passes for two extra guards (the Haneys, Gorham's men), and asks where each of them will ride. Everything he learns goes to Becket and through Becket to Varley. Make it visible in hindsight: on Saturday, Gorham's men will know exactly where the guards are.",
+    "Erasmus Ashworth's murder and the robbery are the same case, but nothing in this scenario says so. The players should leave it with two mysteries, a murder and a robbery, and the dawning sense that the Lodestar is in the middle of both.",
+    "Brannock is the obvious villain, and he is a villain: his confidence that the DA&P will fail is real, and his sabotage starts tomorrow. Let the players pin the robbery on him if they like. They are half right, which is the most dangerous way to be right.",
+    "The anonymous letter was written by Tobe Kersey's sister. Finding her (sl-scenario-002) is the fastest way to Tobe, and turning Tobe before Saturday is possible: he is terrified, and if the party can promise him safety and a lawyer he will confess and agree to ride the train as their inside man, which changes sl-scenario-003 completely."
+  ],
+  "dmTips": [
+    "Budget about an hour for Act 1, ninety minutes for Act 2 and an hour for Act 3. There is one likely fight, the optional showdown with Kinnear, and the party can avoid it with a stare-down or a walk away.",
+    "Core clues are automatic: anyone who examines the head finds the bruise (A1), anyone on the roof sees the wire (A2), anyone who opens the ledger sees the cut pages (A3), anyone who opens the drawer finds the book and the plug (B1, B2), anyone who reads the consist sees the express car at the rear (C4). Rolls add detail, save a scene or protect Reputation.",
+    "Play Stannard warm. He should be the person the players most enjoy meeting in the first session. He tells no checkable lies: the Lodestar was the richest mine in the basin, he did found the town, he does love it. He simply omits that it is over.",
+    "If Lydia Marchmont is played, her share is a key: as a part-owner she has a legal right to inspect the Lodestar's books, and Stannard cannot refuse forever. Every time he puts her off, it should be more charming and less convincing.",
+    "If Paddy Rooney is played, Varley's quiet offer at the faro table is a real temptation and a real threat. Give him time to decide what to tell the others. If he says nothing, Varley assumes he has an ally and will try to use him on Saturday; that can be a double game in the party's favour.",
+    "If Phoebe Lanyon is not played, Llew Treharne or Hester Ruane mentions that the camp's new lady doctor thinks the death was not an accident; she can be an NPC with Phoebe's notebook.",
+    "Workers are people. In the Silver Dollar on Monday night, give the tracklayers names and grievances (scrip, cold tents, wages three weeks late), not just a crowd for Tench to work; Bridget Cahill comes in at ten to drag her men home and tells Tench to his face what she thinks of him. Seed the strike now.",
+    "Keep track of what the party tells Stannard. He will pass on every word.",
+    "End on the powder house alarm. The players should ride out into the cold with the feeling that the week has started without them."
+  ]
+}

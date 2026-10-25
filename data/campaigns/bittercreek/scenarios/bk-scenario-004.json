@@ -1,0 +1,514 @@
+{
+  "id": "bk-scenario-004",
+  "title": "The Reckoning",
+  "subtitle": "Saturday 5 to Saturday 12 June 1886: A Judge, a Land Agent, a Town Meeting, a Mob at the Jail and a Grey Horse in the Street",
+  "levelRange": "5-6",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Gilead, court week, June 1886",
+    "description": "Everything comes to Gilead. Judge Amasa Kittle of the territorial district court arrives on Saturday 5 June to open the court's term on Monday the 7th, with a grand jury to be empanelled. On the same coach comes Prosper Gault, land agent of the Sweetwater & Big Horn Railway, with a $6,000 draft on an Omaha bank and a right-of-way petition to put before the county commissioners at a public meeting in the courthouse on Monday evening. The Company's lawyers come up from Laramie to defend Ballantine and the raiders against charges of riot. The grange comes to town in wagons for the meeting, armed. Jubal Stroud is at the Ransom House. And Gideon Sayre, U.S. Commissioner, is in his office with the blinds down, holding a homestead entry on the Narrows in a hangman's name, and a ticket for Tuesday's stage. The scenario is a week in one town: courtroom, saloon, hotel, street, jail, and the long ride to the Narrows and back. The party has the evidence, or most of it. The question is whether it reaches the judge, the town and the railroad before Sayre gets away, before the mob gets Sayre, and before Stroud does.",
+    "atmosphere": "June: hot sun, dust on the street instead of mud, wild roses along the creek, cottonwood fluff blowing like snow, the stage horn, mosquitoes at dusk. Gilead is fuller than it has ever been: wagons in every lot, horses at every rail, grangers' families camped by the creek, Company riders at the Antelope, lawyers in black coats at the Ransom House, and a railroad man in a linen suit buying cigars for everyone. Flags out for court week. Everyone armed. Everyone watching everyone. The air feels like it does before a thunderstorm. When it breaks, it should break in the street, in daylight, in front of the whole town: the West's oldest stage.",
+    "keyLocations": [
+      {
+        "name": "The Ransom County courthouse",
+        "description": "The town's pride: two storeys of new frame with a cupola. Upstairs, the courtroom, forty feet long, with a railed bench, a jury box, benches for a hundred, and tall windows onto Main Street. Downstairs, the sheriff's office, the clerk, the commissioners' room, and the jail of two iron cells, where Henley (and perhaps Pettit) are held.",
+        "features": [
+          "The courtroom upstairs, where the grand jury sits from Monday, and where the commissioners hold the public meeting on Monday evening",
+          "The two iron cells and the jail's back door to the alley, oak, barred on the inside",
+          "The clerk's office, with the county's copy of every land filing Sayre has forwarded",
+          "The tall front windows: whatever happens in the courtroom, the street hears"
+        ],
+        "encounters": [
+          "Judge Amasa Kittle, grand jury, the Company's two Laramie lawyers",
+          "The public meeting: everybody",
+          "On Monday night, the mob"
+        ],
+        "secrets": [
+          "Judge Kittle is honest, old, dyspeptic and no friend of the big outfits or of mobs. He will not issue a warrant for a federal officer on gossip. He will for: the forged relinquishment plus the survey time book (CLUE C2) plus one witness to its signing (Pettit or Henley, CLUE B6), or the annotated dead list (C3) plus Owen's page (C4) plus any witness. Laid before him on Saturday or Sunday, the evidence gets a warrant for Sayre on Monday morning; laid before the grand jury, an indictment by Wednesday.",
+          "The county clerk's copy of Henley's entry on the Narrows and four other entries by Sayre's dummy entrymen (from bk-scenario-003) can be compared with the originals Sayre holds; the clerk will swear to them.",
+          "The jail's back door is the weak point. A mob that cannot get through the front will come round to the alley."
+        ]
+      },
+      {
+        "name": "Gideon Sayre's office",
+        "description": "Beside the courthouse. The blinds have been down since the siege. Sayre is inside most of the day, writing letters, receiving no one but the railroad's land agent and, after dark, whoever comes to the back door. He sleeps in the back room with a shotgun. His saddle horse is at the livery, saddled at dawn every day.",
+        "features": [
+          "The plat map, now with five quarter-sections circled in red ink: the Narrows and four others",
+          "The safe: his letter book, the Association's letters and receipts, the original forged relinquishment, Henley's entry papers, a quitclaim from Henley to Sayre already signed, and $1,140 plus whatever Gault has paid him",
+          "The back door to the alley, and a path behind the courthouse to the livery"
+        ],
+        "encounters": [
+          "Gideon Sayre, charming to the end",
+          "Elam Henley, if he escaped the siege, hiding in the back room"
+        ],
+        "secrets": [
+          "Sayre's plan: sell the Narrows to Gault on Monday afternoon, before the meeting, using Henley's entry and Henley's signed quitclaim; take the $6,000 draft; leave on Tuesday's stage for Rawlins and the train; never come back. If the party is too close, he will try to leave sooner, by horse, by night.",
+          "If Sayre learns the party has Pettit or Henley alive and talking, he tries, in this order: to buy the party ($1,000 each, then $2,000); to persuade Ballantine's lawyers that the party is the grange's hired gunmen and should be charged for the siege; to send Henley (if free) to kill the witness in the jail; to run.",
+          "His letter book, if the party gets it lawfully (with the judge's warrant), contains copies of all his letters to the Association since 1884 and his letter to the railroad of 20 March: the whole case in his own neat copperplate."
+        ]
+      },
+      {
+        "name": "The Ransom House hotel",
+        "description": "Gilead's two-storey hotel: a lobby with a stuffed antelope head, a dining room, twelve rooms, all full for court week. Judge Kittle has the front room. Prosper Gault has the next. The Laramie lawyers share one. Jubal Stroud has a room at the back with a window onto the street.",
+        "features": [
+          "The lobby, where everyone meets everyone",
+          "The dining room, where Gault holds court with cigars and a map",
+          "Stroud's window, from which a man with a rifle could cover the whole of Main Street"
+        ],
+        "encounters": [
+          "Prosper Gault, the railroad's land agent",
+          "Jubal Stroud, waiting",
+          "The Company's lawyers, Messrs. Faraday and Coe of Laramie"
+        ],
+        "secrets": [
+          "CLUE C5 and E4: Gault carries Sayre's letter of 20 March to the railroad's land department, offering 'the Narrows quarter, title to be clear by June', and a $6,000 draft to pay for it. He does not care who owns the Narrows, only that title is clear. Shown that the relinquishment is forged and that the widow is contesting it, he will not pay Sayre a cent: a disputed title is worthless to a railroad. Shown that Thea Lasker's claim is good, he will deal with her.",
+          "Stroud has told no one what he will do. If Sayre is arrested by Monday noon, Stroud will sit in court and give evidence about the dead list, and leave on Tuesday's stage, satisfied. If Sayre is not arrested, or is released, or is about to get away, Stroud will kill him in the street. And if the party has crossed him, shamed him, or stopped him on the bridge, he wants one thing more before he leaves Wyoming: a fair fight with whoever did it."
+        ]
+      },
+      {
+        "name": "The Antelope Saloon",
+        "description": "Full from morning to morning in court week: Company riders at the bar, grangers (for once) at the tables, lawyers in the back room, the railroad man buying. Beau Fairchild's one-third share has never paid better.",
+        "features": [
+          "The back room's poker table, where Gault plays for high stakes on Sunday night",
+          "The bar, where the mob forms on Monday night",
+          "The front window, across from Sayre's office"
+        ],
+        "encounters": [
+          "Rufus Kemble behind the bar",
+          "Company riders and grangers drinking in the same room for the first time",
+          "On Monday night, Nils Solberg and Lars Engstrom, buying rope"
+        ],
+        "secrets": [
+          "Prosper Gault plays poker badly and talks when he loses. A party member who sits in on Sunday night (Gambling DC 14) learns that he means to close with 'whoever has clear title' on Monday afternoon, and that Sayre has been to see him twice.",
+          "The mob forms here after the public meeting if Sayre has been exposed and not yet safely jailed, or if Henley is in the jail and the grange has heard what he did. It needs a spark: Nils, or Lars, or a Company rider who liked Owen (there are some)."
+        ]
+      },
+      {
+        "name": "The Narrows",
+        "description": "Eleven miles up the creek. The cottonwood at the ford, still with the scar on its limb. Owen's grave on the bluff. The cabin, where Thea Lasker has gone back to live, because a widow continuing a claim must reside on it.",
+        "features": [
+          "The cottonwood, which the mob means to use",
+          "The cabin, with Thea and Pete, a rifle over the door and Calvin Booker's dog",
+          "The survey stakes, painted red, marching up to the ford"
+        ],
+        "encounters": [
+          "Thea Lasker, holding her claim",
+          "The mob, if it gets Sayre or Henley out of the jail: it will bring them here, to the same tree"
+        ],
+        "secrets": [
+          "Thea has decided what she wants: to sell the Narrows to the railroad herself, on Owen's terms, a dam that leaves a fair head of water for the ditches below, and a lot in the new town for Pete. If the party brings Gault to her with the forgery voided, she will make that deal, and the creek will have its town and its water.",
+          "If Sayre is taken by the mob, they will bring him here, to the cottonwood, because it is fitting. Thea will stand in front of the tree and say no. Whether that is enough depends on the party."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Court week in Gilead. Judge Amasa Kittle arrives to open the district court; the railroad's land agent arrives with $6,000 for the Narrows; the Company's lawyers arrive to defend the raiders; the grange comes to town armed for the public meeting on the railroad's right-of-way; Jubal Stroud waits at the Ransom House; and Gideon Sayre, in his shuttered office, means to sell the Narrows on Monday afternoon and leave on Tuesday's stage. The party has the evidence, or most of it, and a week to make it count. If they lay it before Judge Kittle, Sayre is arrested on Monday morning; if they show it to Prosper Gault, the railroad will not buy a forged title; if they bring it to the public meeting on Monday evening, the whole town hears Thea Lasker contest the relinquishment, and Sayre is unmasked in front of everyone he has ever helped, and runs. Then the reckoning: a lynch mob at the jail on Monday night, grangers and Company riders together for once, wanting Sayre or Henley or both hanged from the Narrows cottonwood, and the party standing in the jail door; and Jubal Stroud, who wants Sayre dead if the law lets him go, and wants a fair fight with whoever stood in his way, in the street, in daylight, before he leaves the territory. The campaign ends on Saturday 12 June, with the grand jury's indictments, the deal for the Narrows and its water, the Plainsman's headlines, and the first long look toward a winter that the valley will remember for fifty years.",
+  "hook": "Saturday 5 June, four in the afternoon. The stage comes in with flags on it for court week, and a crowd round it as thick as the one on the day of the hanging. Down from it climbs a small, sour old man in a black coat with a carpet bag, Judge Amasa Kittle; after him, a plump man in a cream linen suit and a panama hat, with a leather portfolio under his arm, who hands the driver a dollar and asks loudly which is the office of Mr. Gideon Sayre. Across the street, the blinds in Sayre's window twitch. And at an upstairs window of the Ransom House, Jubal Stroud lowers his field glasses and goes back to cleaning his rifle.",
+  "cluesAvailable": [
+    "B5",
+    "B6",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "E4",
+    "F3"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "C. Gideon Sayre paid for the hanging (proved to a court)",
+      "clues": [
+        "C2: the survey time book against the forged relinquishment (Wendt, or the party)",
+        "C3: the annotated dead list (the party, or Stroud)",
+        "C5: Sayre's letter to the railroad of 20 March (Gault)",
+        "B6 and C6: Pettit's or Henley's sworn testimony (the jail)",
+        "Sayre's own letter book, taken under warrant (his safe)"
+      ]
+    },
+    {
+      "conclusion": "E. The Narrows is the prize, and Thea Lasker holds it",
+      "clues": [
+        "E4: Gault's $6,000 draft and right-of-way petition (the Ransom House)",
+        "F3: a widow residing on and continuing the claim defeats a forged relinquishment (Judge Kittle)",
+        "E1: the survey profile's division point (Wendt, Henry Lau)",
+        "E2: Owen's terms, water for the ditches below (Thea, Wendt)"
+      ]
+    },
+    {
+      "conclusion": "The raid was unlawful and the Company can be held to account",
+      "clues": [
+        "D5: the void warrants (the courthouse)",
+        "D3: Ballantine's telegram (bk-scenario-002)",
+        "D4: Tolliver's evidence, if he gives it (the Ransom House or the Forks)",
+        "Witnesses from the Bend, and the bullet holes in the grange hall"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "The Judge and the Land Agent",
+      "description": "Saturday 5 to Monday 7 June, morning. The weekend before court. Everything the party has learned has to be turned into something a judge, a railroad and a town will act on, and Sayre is working against them in the same streets with the same people. This act is legal and social: an old judge who wants proof, a land agent who wants clear title, a villain who wants to buy them, and a gunman upstairs at the hotel who is giving the law until Monday noon.",
+      "objectives": [
+        "Lay the evidence before Judge Kittle in a form he will act on",
+        "Stop Prosper Gault paying Sayre for the Narrows",
+        "Survive Sayre's last kindness: a bribe, a threat, or a knife in the dark for a witness",
+        "Know what Jubal Stroud means to do"
+      ],
+      "scenes": [
+        {
+          "name": "Judge Kittle",
+          "description": "Judge Amasa Kittle receives the party in his room at the Ransom House on Saturday evening or Sunday afternoon, with his boots off, a glass of buttermilk for his stomach and his spectacles on his forehead. He is seventy, has sat on the territorial bench since 1879, despises the big outfits' habit of buying justices of the peace and despises mobs more. He will listen to everything and believe nothing he cannot see. Run this as a court scene in miniature: the party lays out their case, item by item, and Kittle asks the questions a defence lawyer would. What he needs for a warrant against a federal officer is in the scenario's secrets: the forgery proved false plus a witness, or the dead list plus Owen's page plus a witness. If the party has it, he signs a warrant for Sayre's arrest on Monday at nine, and a warrant to open his safe. If they do not, he tells them exactly what is missing, and they have until Monday to find it.",
+          "readAloud": "The judge's room at the Ransom House is the best one, which means it has two chairs and a washstand. Judge Amasa Kittle is sitting in one chair with his stocking feet on the other, a glass of buttermilk in his hand, and his spectacles pushed up on his forehead, and he does not get up. He is small, bald, brown and wrinkled as a walnut, with a voice like a rusty gate. 'Sit on the bed,' he says. 'I've been on a coach for two days and my stomach is a Presbyterian. I'm told you people know who hanged that homesteader at the Narrows in April and it wasn't the cattle company. I'm told it was a United States Commissioner. That's a serious thing to say about a federal officer.' He drinks his buttermilk. 'Show me.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "You lay it out clearly, in order, the way a court likes it. Kittle grunts at the survey time book, reads the relinquishment against it twice, asks two sharp questions about the witnesses, and reaches for his pen. 'Warrant for Gideon Sayre, Monday nine o'clock, for conspiracy to murder and forgery of a public land record. And one to open his safe. Sheriff serves it. You don't. If anyone hangs anybody in this county before I'm done, I'll try them myself.'",
+              "failure": "You tell it out of order, with too much feeling and too little paper. Kittle stops you. 'I believe you believe it. A court won't. Bring me the witness, or the paper, or both, by Monday morning.'"
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "You have done the work: dates, names, the time book's page, the county clerk's copies of the filings, the four other dummy entries. Kittle reads it all, and says, 'You'd have made a lawyer. God help you.' He adds the four other entries to the warrant: Sayre's whole scheme is now before the court.",
+              "failure": "There is a gap in your chain of evidence that a Laramie lawyer would drive a wagon through, and Kittle points to it. You have a day to close it."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Kittle is on your side and will not show it, and he is afraid of exactly one thing: that the town will hang Sayre before he can try him, and make the whole thing the grange's crime instead of Sayre's. 'Keep that boy Solberg sober,' he says.",
+              "failure": "A sour old man with buttermilk on his lip. You cannot tell what he thinks."
+            }
+          ]
+        },
+        {
+          "name": "Six Thousand Dollars",
+          "description": "Prosper Gault, the railroad's land agent, is a cheerful, practical, slightly crooked man who wants a deal closed by Monday afternoon and does not care much with whom. He has Sayre's March letter in his portfolio and a $6,000 draft in his wallet. Sayre has been to see him twice and is coming back on Monday at two with Henley's entry and quitclaim. The party can stop the deal by showing Gault that the title is disputed (a railroad will never pay for a lawsuit), and redirect it by bringing him to Thea Lasker. Gault also has Owen's terms in Wendt's report, and does not much like them: a dam that leaves water for the ditches costs the railroad money. Thea will hold out for them. The party can broker it, and should.",
+          "readAloud": "Prosper Gault has taken over the corner table of the Ransom House dining room with a map of the valley weighted at the corners with a cruet, a sugar bowl and two cigars, and he waves you over with a third cigar as if you were old friends. He is round, pink, sweating gently in a cream linen suit, with a gold watch chain and a laugh you can hear from the street. 'Sit, sit. You'll be the famous ones. The defenders of the Bend.' He taps the map, at the Narrows. 'Here's what I care about, friends, and it's all I care about: a hundred and sixty acres, a dam site and a clear title, by Monday. The Sweetwater and Big Horn doesn't take sides in local quarrels. It takes deeds.' He opens his portfolio, and the first thing in it is a letter in a neat, beautiful copperplate hand.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "You show him the forgery and the time book, and he goes pale under the pink: a railroad that pays $6,000 for a forged title and builds a roundhouse on it will be in court for ten years. He closes his portfolio. 'Mr. Sayre will find me unavailable on Monday.' He gives you Sayre's March letter for the judge (CLUE C5), and asks, 'Now, who does own it?'",
+              "failure": "He listens politely, and says that disputes about title are for the courts and the railroad will deal with whoever the courts say. Sayre's appointment on Monday at two stands, unless the judge acts first."
+            },
+            {
+              "skill": "Gambling",
+              "dc": 14,
+              "success": "At the Antelope poker table on Sunday night, Gault loses $300 to you and talks: he has authority to go to $8,000 for the Narrows, and his instructions say to 'avoid any purchase that may be litigated'. Thea should ask for $8,000, and get it.",
+              "failure": "Gault wins, cheerfully, and talks only about Omaha."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "At the Narrows, you broker the deal between Gault and Thea: $7,500 for the quarter and the dam site, a written covenant that the dam pass a fair head of water to the ditches below in every month from April to September, and a lot in the new townsite for Pete. Wendt, consulted, says the engines can live with it. Owen's terms, in writing. The valley will have its town and its water.",
+              "failure": "Gault and Thea cannot agree about the water: he will not sign a covenant, and she will not sell without one. It can wait for the court, but Gault leaves on Tuesday's stage, and the railroad may survey a second site."
+            }
+          ]
+        },
+        {
+          "name": "The Notary's Last Kindness",
+          "description": "On Saturday night or Sunday, Gideon Sayre asks to see the party. He receives them in his shuttered office, by lamplight, with coffee, as kind and grave as ever. He knows roughly what they have. He offers, in this order: regret ('Owen was my friend, and I failed him'); an explanation that blames Henley entirely ('a brute I was foolish enough to employ as an entryman'); money, $1,000 each, then $2,000, 'for the trouble you have been put to'; and finally, gently, a threat: the Company's lawyers have been asking him, as U.S. Commissioner, whether the party could be charged for the deaths at the Bend. This is the villain's scene, played quiet. If the party takes the money, they are rich and the campaign has a different ending; if they refuse, Sayre's next move is to try to silence the witness in the jail on Sunday night, through Henley if Henley is free, or through a bribed townsman if not.",
+          "readAloud": "The office is dark except for one lamp on the roll-top desk, and the plat map on the wall is a pale square with five red circles on it. Gideon Sayre has made coffee, and pours it into good china cups, and his hands are perfectly steady. He looks tired and grey and as kind as he ever did. 'I wanted to see you,' he says, 'before the lawyers start. I think you've been told some things about me. Some of them are even true.' He sits down across the desk, folds his inky fingers, and looks at you over his gold spectacles with what seems like real sorrow. 'Owen Lasker was my friend. I want you to understand how it happened. And then I want to see if there is any way we can all come out of this a little better than we went in.' On the desk between you, under his hand, is a thick envelope.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Nothing he says is true except the part about Henley being a brute. He is not sorry; he is frightened, and frightened men run. He will try to leave before Tuesday, and he will try to have the witness silenced tonight. And he is looking, every few seconds, at the safe.",
+              "failure": "He is very convincing. For a moment you wonder whether Henley acted on his own."
+            },
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "You let him think you are tempted, and take a day to 'consider his offer'. He believes it, and does not run on Sunday night. He also tells you, to sweeten it, that 'Henley has been dealt with' or that 'the boy in the jail is not a reliable witness', which tells you exactly where he means to strike.",
+              "failure": "He sees through it, and smiles, and stands up. 'Then I'm sorry for you,' he says. By midnight his saddle horse is gone from the livery."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 13,
+              "success": "You tell him what Judge Kittle will do on Monday, and what Jubal Stroud will do if Kittle does not, and that the only safe place in Ransom County for Gideon Sayre is a cell. He goes grey. He does not confess, but he does not run, either: he is more afraid of Stroud on the open road than of the judge.",
+              "failure": "He is a federal officer and he reminds you of it, coldly, and of what happens to people who threaten one."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Sunday night at the jail: an attempt to silence the witness (Henley, if free, as Outlaw; or two townsmen bribed with Sayre's money, as Saloon Brawlers with knives); someone has to be there",
+        "If Sayre runs on Sunday night: a moonlit chase on the Rawlins road (horses and trail rules), and a desperate man with a shotgun at Seven Mile Station"
+      ]
+    },
+    {
+      "title": "The Town Meeting",
+      "description": "Monday 7 June. Court opens at nine; the commissioners' public meeting on the railroad's right-of-way is at seven in the evening in the courtroom. If the judge's warrant has been served by then, the meeting becomes the place where the town learns the truth; if not, it is the place where Sayre presents Henley's title and the party must expose him in front of everyone. Either way, everyone is in the room: the Company, the grange, the railroad, the press, the law, Stroud at the back, Thea in front. This is the campaign's big talking scene, and the GM should let it run: a frontier town arguing about water, land, money and murder in one room, with a hundred armed people in it.",
+      "objectives": [
+        "Get Sayre arrested, or unmasked, in front of the town",
+        "Let Thea Lasker contest the relinquishment in public",
+        "Broker an agreement over the Narrows and the creek's water",
+        "Keep a hundred armed people in one room from shooting each other"
+      ],
+      "scenes": [
+        {
+          "name": "Nine O'Clock",
+          "description": "Monday morning. If the party got Kittle his evidence, Sheriff Quinlan (with a party lawman, if there is one) serves the warrant on Sayre at nine, and opens the safe under the judge's order: the letter book, the Association's receipts, the forged relinquishment's original, Henley's quitclaim, the money. Sayre comes quietly and is put in the cell next to Henley's, and the town knows by ten. If not, Sayre spends the morning at the Ransom House with Gault (unless the party has turned Gault) and the Company's lawyers, preparing to present Henley's title at the meeting, and the party spends it chasing the last piece of evidence. Either way, the morning should feel like a held breath: grangers' wagons rolling in, Company riders at the Antelope, Stroud on the hotel veranda.",
+          "readAloud": "At nine o'clock the courthouse bell rings for the opening of the district court of the Territory of Wyoming for the County of Ransom, and the whole town comes out to hear it. Wagons along the creek, horses at every rail, flags on the courthouse and the Ransom House, children on the fences. The sheriff comes out of the courthouse door with his badge on straight for once, a paper in his hand, and walks the thirty yards to the office with the gilt-lettered window and the blinds down, and knocks. The whole street holds its breath. On the veranda of the Ransom House, Jubal Stroud stands up.",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 12,
+              "success": "Standing beside the sheriff at Sayre's door with your hand on your gun, you make it plain that the warrant will be served. Sayre opens the door, white, and holds out his wrists. On the hotel veranda, Stroud sits back down.",
+              "failure": "Sayre will not open. 'I am a federal officer and that warrant is irregular.' It is not; it takes an hour of shouting and the judge in person to get him out, and the town sees every minute of it."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "In the safe, under the judge's order: the letter book with every letter to the Association since 1884 and to the railroad on 20 March (CLUES C3, C5 in his own hand), the original relinquishment, Henley's signed quitclaim, and $1,140. It is the whole case. Kittle reads it at the courthouse window and says, 'Well. That's that.'",
+              "failure": "The safe is open, and full, and the papers are many. You find the letter book but miss the quitclaim tucked in it, which a Laramie lawyer will make a fuss over."
+            },
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "You see what nobody else does: Stroud, on the hotel veranda, is not looking at Sayre's door. He is looking at the alley behind it, where the livery path runs. A horse is saddled there that should not be.",
+              "failure": "Everyone is watching the door. So are you."
+            }
+          ]
+        },
+        {
+          "name": "The Question of the Creek",
+          "description": "Seven in the evening, the courtroom: the commissioners' public meeting on the Sweetwater & Big Horn's petition for a right-of-way up the valley, a station and water rights at the Narrows. Three commissioners: a Company man, a granger and Rufus Kemble of the Antelope, who has the deciding vote and wants a railroad town more than anything. Everyone speaks: Gault, Wendt, Ballantine (if free on bond), his lawyers, Margit, Lavinia Thorpe, the town. The question is the water: who controls the Narrows, and how much passes the dam. If Sayre is not yet exposed, he rises to present Henley's title, and Thea rises to contest it, and the party must make the case in front of the whole town. If Sayre is already in a cell, the meeting is about the future, and the party can broker the deal of the campaign: the railroad gets its dam on Thea's terms, the ditches keep their water, the Company keeps its upper range and its access to the ford, and the grange keeps the creek. Nobody gets everything.",
+          "readAloud": "The courtroom is full past full: every bench, the jury box, the aisles, the stairs, the windows open and men standing outside them on wagon beds to hear. Company riders along one wall with their hats in their hands; grangers along the other; women in the front benches with children on their laps; Gault in his cream suit at a table with a map; old Wendt beside him with his moustache drooping; Lavinia Thorpe with her notebook; the three commissioners behind the judge's bench looking as if they wish they had never stood for office. At the back, by the door, a lean man in a grey coat leans against the wall with his arms folded. Rufus Kemble, as chairman, bangs a gavel he has borrowed from the grange. 'The question before the commissioners,' he says, 'is the railroad, and the water. God help us. Who wants to speak first?'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "You speak for a settlement and the room listens: Owen's terms, the dam with a fair head of water passed down from April to September; the Company's right to water its herds at the ford; the grange's ditches; the railroad's town. Ballantine, after a long silence, says the Company can live with it, if the Company's cattle can cross. Margit says the grange can. The commissioners vote it, two to one. Reputation +2. It is the best day Bitter Creek will ever have.",
+              "failure": "The room fractures: the Company wants the dam to take everything, the grange wants no dam, and the railroad wants to go home. The commissioners table the petition. Gault will try another site."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "When the shouting starts and hands go to guns, you are on your feet in the aisle, and the room remembers who stopped the raid at the Bend (or rode the burning wagon into the creek). It goes quiet. Nobody draws.",
+              "failure": "Someone draws. Nobody fires, yet, but the meeting is over, and the mob will form at the Antelope within the hour."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Ballantine is beaten and knows it: the raid has cost him his Edinburgh investors' confidence, his lawyers have told him he may be convicted of riot, and he wants an honourable way out. Offer him one (the ford, the upper range, no prosecution of Tolliver's men who did not fire) and he will take it.",
+              "failure": "Everybody is posturing. You cannot tell who will bend."
+            }
+          ]
+        },
+        {
+          "name": "The Notary Runs",
+          "description": "If Sayre is not yet in a cell when the truth comes out at the meeting, whether because the party exposes him or because Thea contests the relinquishment with the time book in her hand, he goes white, stands up, says 'Excuse me', and walks out of the courtroom's side door, down the back stairs, along the alley to the livery path, where a horse is saddled. A chase: through the crowd, down the stairs, along the alley, onto Main Street at dusk, the whole town pouring out of the courthouse behind. And Jubal Stroud, at the back of the room, is already gone. If the party is not fast, the chase ends in the street with a single shot from the Ransom House veranda. If they are fast, they catch Sayre at the livery, and then have to keep him alive in front of Stroud and a town that has just heard what he did.",
+          "readAloud": "For a moment nobody understands. Gideon Sayre is standing at the side of the courtroom with his hat in his hand and his face the colour of paper, and he says, quite politely, 'Excuse me,' to the man next to him, and goes through the side door, and it closes behind him. Then Thea Lasker says, very clearly, into the silence, 'He's running,' and the room explodes. Benches go over. Somebody shouts. From the back of the room, where the lean man in the grey coat was leaning against the wall, there is only an open door, and the sound of boots going fast down the front stairs.",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 13,
+              "success": "You are through the side door and down the back stairs three at a time, and you catch Sayre in the alley with his foot in the stirrup. He fights like a clerk, which is to say badly, and is on the ground in a moment.",
+              "failure": "You are caught in the crowd at the side door; by the time you reach the alley Sayre is mounted and going. Ride after him, or get to the street before Stroud does."
+            },
+            {
+              "skill": "Riding",
+              "dc": 14,
+              "success": "On a horse snatched from the rail, you ride Sayre down before the creek bridge, and take him at the ford. Behind you, at the bridge, a grey horse stands in the road, and its rider watches you take Sayre, and turns away.",
+              "failure": "Sayre's horse is faster and he is across the bridge, and on the far bank, waiting, sitting a grey horse with a rifle across the saddle, is Jubal Stroud."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 17,
+              "success": "With Sayre down in the street and Stroud's rifle on him from the veranda, you stand between them and tell Stroud the judge has the letter book, the warrant is signed, and the papers will say Jubal Stroud gave the evidence that hanged the man who used his name. A long moment. Then Stroud lowers the rifle. 'Tomorrow,' he says, 'I'll want a word with you.'",
+              "failure": "Stroud does not lower the rifle. He will fire if you move aside, and he will not fire through you. You will have to stay where you are, or face him."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "A hundred armed people in one room: a fight here would be a massacre; the GM should make the threat felt and let the party prevent it",
+        "Sayre's flight: a chase on foot and horseback (combat.json horses and chases); Sayre is a clerk (use Cardsharp stats with a pocket revolver), not a fighter",
+        "Jubal Stroud (Fast Gun) with a rifle from the Ransom House veranda, or on the bridge"
+      ]
+    },
+    {
+      "title": "The Reckoning",
+      "description": "Monday night to Saturday 12 June. Sayre and Henley are in the jail; the town knows what they did; the grange and some of the Company's own riders want them hanged from the Narrows cottonwood tonight; and Jubal Stroud wants one more thing before he leaves Wyoming. Then the grand jury sits, the deals are signed, and the campaign ends. This is the act of moral weight: the party, who were hired by one side or another in April, now stand between the whole valley and a second hanging, and then, perhaps, face the West's oldest test in the street.",
+      "objectives": [
+        "Hold the jail against the mob, without a massacre",
+        "Face, outwit or outlast Jubal Stroud",
+        "See Sayre and Henley indicted, and the forgery voided",
+        "Settle what can be settled, and ride on, or stay"
+      ],
+      "scenes": [
+        {
+          "name": "The Rope",
+          "description": "Monday night, eleven o'clock. The mob forms at the Antelope and comes down Main Street with lanterns and a new rope: forty men, grangers and, for the first time, some Company riders too, who liked Owen Lasker or hate a man who sold out his own neighbours. Nils Solberg is at the front, or Lars Engstrom if Nils has been reached. They want Sayre and Henley, and they mean to take them to the Narrows cottonwood. Sheriff Quinlan has two deputies (and the party, if it stands with him). Judge Kittle is asleep at the hotel. This is the scene the whole campaign has been building: the people the party has fought for, in the right, doing the wrong thing, and the party in the jail door. Use the Lynch Mob stat block for the crowd. A mob is not defeated by damage; it is broken by a voice it respects, a face it cannot look at, a shot over its head, or a widow standing in the doorway. Thea Lasker, if she is in town, will come and stand beside the party, and say no. Margit Solberg will come if sent for. Lavinia Thorpe will be writing every name. Shooting into the mob is murder, and the GM should say so before anyone does it.",
+          "readAloud": "You hear it before you see it: a sound like a river coming down Main Street, voices, boots, a dog barking, and then the lanterns come round the corner of the Antelope, thirty, forty of them, swinging, and the faces under them. You know most of them. Lars Engstrom, who argued for his calves at the branding fire. The Kettleson brothers. Two Company riders you worked the circle with. And at the front, with a coil of new yellow rope over his shoulder that he bought at Greaves's an hour ago, Nils Solberg, dry-eyed and calm and terrible. They stop in front of the jail. 'We don't want you,' Nils says. 'We want the notary, and we want Henley, and we are taking them to the Narrows and hanging them from Owen's tree. Stand aside.' Behind you, in the dark cell, Gideon Sayre has begun, very quietly, to pray.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 17,
+              "success": "You talk to them by name, one at a time, starting with the ones at the back. You tell them what Owen's last hours were like and ask them if they want to be the men who did that. You tell them the judge has the letter book and the rope will be legal by autumn. You say that Thea is coming. One by one the lanterns turn away. Nils is the last to go; he hands you the rope. Reputation +2, and the valley will tell the story for forty years.",
+              "failure": "They hear you, and they are not listening. The front ranks start forward. You have one more chance: someone they cannot face, or a shot in the air, or giving way."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "A shot into the air, a drawn gun held steady, and your name, which the valley knows now: 'Anyone who comes through that door comes through me, and I will not miss.' The mob stops. It does not go home, but it does not come on, and in twenty minutes Thea Lasker arrives in her nightgown and a coat and stands beside you, and that ends it.",
+              "failure": "Someone in the crowd fires back, into the air, and then a stone breaks the jail window, and the mob surges for the back door in the alley. Someone has to hold it."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "The mob's courage is Nils. Reach him, and the rest go home. He is not angry; he is grieving, and he thinks he owes it to Owen. Tell him what Owen would want, and mean it.",
+              "failure": "Forty faces in lantern light, and all of them look the same."
+            }
+          ]
+        },
+        {
+          "name": "The Grey Horse",
+          "description": "Tuesday or Wednesday, in daylight, on Main Street. Jubal Stroud is leaving the territory: the Association has recalled him, the papers have printed the dead list, and his name is in Judge Kittle's courtroom. But before he goes, if anyone in the party shamed him, crossed him on the bridge, stood between him and Sayre, or simply proved to the town that he was beaten, he wants a fair fight. He sends word by Rufus Kemble: noon, Main Street, in front of the courthouse, one of them, the one he names. This is the showdown, run by frontier.json's rules: the stare-down, the draw, the town watching. Stroud is a Fast Gun (CR 5); a level 6 Gunslinger or Lawman has a chance; nobody else should face him alone, and the GM should say so. The party may refuse (Reputation -1, and Stroud rides away contemptuous but alive), may face him, may outwit him (persuade him that the fight is beneath him; arrange for the judge to arrest him on the Booker's Draw ambush evidence; get Tolliver to stand with them, which shames him), or may cheat, which costs Reputation 2 and makes them what he is. There is no right answer. There is a town watching.",
+          "readAloud": "Noon, and the street is empty in a way you have never seen it, a hundred yards of white dust between the courthouse steps and the Ransom House veranda with nothing in it but the heat shimmer and a dog that has the sense to get under a wagon. Every window has faces in it. Every doorway has people in it, very quiet. On the Ransom House steps, Jubal Stroud is pulling on a pair of thin black gloves, one finger at a time. He has put on a clean collar. He walks out to the middle of the street, unhurried, and stops, and the ivory handle of his revolver catches the sun. 'I'm leaving Wyoming tomorrow,' he says, not loud, but every word carries. 'I'd like to leave it square. I think you know why.' He waits. 'Whenever you're ready. Or not. Up to you.'",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 17,
+              "success": "The stare-down is yours: in the long silence, it is Stroud who looks away first, by a fraction, and you draw with advantage and he draws with disadvantage. (Use frontier.json's showdown rules; Insight may be used for the stare-down instead.) Whatever happens next, the town saw him blink.",
+              "failure": "You blink. You may now back down with your life, which costs a point of Reputation and is no shame in front of a man like this; or draw at disadvantage."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 18,
+              "success": "You walk out into the street with your gun hand empty and talk to him: that he has nothing left to prove, that the Plainsman will say he gave the evidence that hanged the man who used his name, that the only thing a fight can add is a dead man and a trial for whichever of you lives. He listens for a long time. Then he takes off his gloves, and says, 'You'd have made a range detective.' He rides out on the Rawlins road at one o'clock. Reputation +1.",
+              "failure": "He hears you out with real courtesy and says, 'That's well said. Draw when you're ready.'"
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "You see what he is: a man whose trade has ended, who would rather die in the street than ride for some other association in some other valley. He does not want to win; he wants to be finished. That knowledge can be used, for mercy or for advantage.",
+              "failure": "His face tells you nothing. It never has."
+            }
+          ]
+        },
+        {
+          "name": "Saturday",
+          "description": "Saturday 12 June, the end of the campaign: a quiet scene of consequences, run as an epilogue the players can steer. The grand jury has returned its indictments: Gideon Sayre for conspiracy to murder, forgery and fraud on the public lands; Elam Henley for murder; Ira Pettit (if alive) for murder, with the court's knowledge of his confession; Cyrus Ballantine and the raiders for riot, if the party pressed it. The Narrows is Thea's, and sold to the railroad on Owen's terms, or in dispute, or Henley's. The Plainsman's headlines. Who stays, who goes. And then the GM's last word: the summer of 1886 will be dry, the winter will be the worst the northern range has ever seen, and in the spring of 1887 the Company's overstocked range will be white with bones. Which ranches had hay put up? Whether the Company's stacks on the Sage Flats burned in May matters now.",
+          "readAloud": "On Saturday the stage goes out with flags still on it, and the town comes to see it go: lawyers, a railroad man in a cream suit with a signed deed in his portfolio, a judge with a sour stomach and a docket finished, and, under guard, a grey-haired man in irons who keeps his eyes on his shoes. On the Plainsman's bulletin board Lavinia Thorpe has chalked the week's headlines in her big round hand, and the crowd reads them as it read the first ones, in April. Up the valley, at the Narrows, a small boy is throwing stones into the creek under a cottonwood tree, but not hard any more, and his mother is standing on the cabin step with a paper in her hand, watching the survey crew drive the first red stake for the new town. The wind is out of the west and smells of sage and wild roses. It is going to be a long, dry summer.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Your last word to whichever faction hired you lands: the Company keeps the grange's peace, or the grange keeps the Company's, and both shake hands at the stage. The party's Reputation in Gilead is fixed where it stands, and they will always be welcome here, or not.",
+              "failure": "Old wounds stay open. The peace will hold until the first dry August."
+            },
+            {
+              "skill": "Nature",
+              "dc": 14,
+              "success": "Looking at the sky, the grass and the cattle, you see what the old hands see: too many cattle on too little grass, a dry year coming, and a hard winter after. Tell the valley to put up hay. The ones who listen will survive the winter of 1886 to 1887. The epilogue says so.",
+              "failure": "It looks like a fine summer coming. It is not."
+            },
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "Thea Lasker, at the stage, thanks the party and offers them back the coffee can with $112 in it. Whether they take it says everything about them, and she knows it.",
+              "failure": "Thea thanks you and says goodbye and you never quite know what she thought of you."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The mob at the jail (use Lynch Mob, two of them if forty men come): broken by voice, face or nerve, not by damage; shooting into it is murder",
+        "The showdown with Jubal Stroud (Fast Gun) on Main Street at noon, by frontier.json's showdown rules",
+        "If Henley escapes in the chaos of the mob: a last chase to the Narrows cottonwood, where he means to dig up the money Sayre paid him, buried under the tree"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Judge Amasa Kittle, 70",
+      "role": "Judge of the territorial district court",
+      "description": "Small, bald, brown, wrinkled as a walnut, a rusty-gate voice, a bad stomach, buttermilk. On the bench since 1879; hates bought justices of the peace and mobs equally.",
+      "motivation": "The law, done properly, in Ransom County, before anyone hangs anyone without him."
+    },
+    {
+      "name": "Prosper Gault, 45",
+      "role": "Land agent of the Sweetwater & Big Horn Railway",
+      "description": "Round, pink, cream linen suit, panama, cigars, a laugh you can hear from the street; cheerful and slightly crooked.",
+      "motivation": "A clear title to the Narrows by Monday, as cheaply as possible, from anyone at all."
+    },
+    {
+      "name": "Gideon Sayre, 49",
+      "role": "The man who had Owen Lasker hanged",
+      "description": "Grey, gold spectacles, inky fingers, perfectly steady hands, the gentlest voice in Wyoming, until he runs.",
+      "motivation": "Sell, and leave; failing that, buy; failing that, silence; failing that, run."
+    },
+    {
+      "name": "Jubal Stroud, 40",
+      "role": "The Association's range detective, recalled",
+      "description": "Grey coat, clean collar, thin black gloves, ivory-handled revolver. A man whose trade is ending.",
+      "motivation": "Sayre dead or condemned; and then, if anyone has bested him, one fair fight before he leaves Wyoming."
+    },
+    {
+      "name": "Thea Lasker, 27",
+      "role": "The widow, holding the Narrows",
+      "description": "Thin, steady, a paper in her hand, her boy at her side.",
+      "motivation": "The claim proved, the truth said, Owen's terms for the water, and no second hanging at Owen's tree."
+    },
+    {
+      "name": "Nils Solberg, 24",
+      "role": "Leader of the mob",
+      "description": "Tall, fair, calm, terrible, with a new rope.",
+      "motivation": "To do for Owen what was done to Owen. He can be reached."
+    },
+    {
+      "name": "Cyrus Ballantine, 51",
+      "role": "The Company's manager, out on bond",
+      "description": "Grey, straight, older this week.",
+      "motivation": "An honourable way out that he can explain to Edinburgh."
+    },
+    {
+      "name": "Rufus Kemble, 50",
+      "role": "Owner of the Antelope (two-thirds) and chairman of the county commissioners",
+      "description": "Fat, cheerful, a former freighter with a borrowed gavel and the deciding vote.",
+      "motivation": "A railroad town, with a saloon in it."
+    },
+    {
+      "name": "Lavinia Thorpe, 40",
+      "role": "Editor of the Plainsman",
+      "description": "Small, quick, inky, writing down every name.",
+      "motivation": "The truth in print, and a paper that survives printing it."
+    },
+    {
+      "name": "Messrs. Faraday and Coe",
+      "role": "The Company's lawyers from Laramie",
+      "description": "Two black coats, one fat and one thin, who agree with each other about everything.",
+      "motivation": "Get Ballantine off, and get the party charged for the Bend if they can."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "Whatever each employer owes, paid in full: the grange takes up a collection of $400 for the party; the sheriff pays his deputies from the county's account; Ballantine, if the party brokered his honourable exit, pays them $500 'for services in the matter of the Narrows'; Thea Lasker, if she sells to the railroad, insists on paying the party $300 and offering them back the coffee can. Sayre's $1,140 is evidence and goes to the court; his bribe, if taken, is $1,000 or $2,000 each, and every NPC in the valley will know.",
+    "items": [
+      "A copy of the Plainsman of 12 June with the party's names in it",
+      "Margit Solberg's grange banner, if not given in bk-scenario-003",
+      "A lot in the new railroad townsite at the Narrows, deeded by Thea Lasker, if the party brokered the deal",
+      "Jubal Stroud's ivory-handled Army revolver, if he died in the street, or his gloves, left at the Ransom House desk for the party, if he rode away",
+      "Tolliver's handshake, and an open invitation to ride for any outfit he ever runs"
+    ]
+  },
+  "twists": [
+    "The mob at the jail is the people the party fought for, in the right, doing the wrong thing. Some of the Company's own riders join it: men who liked Owen, or who hate a man who sold his neighbours. The war is over; the valley has found a common enemy; and that is exactly when it is most dangerous.",
+    "Stroud does not want to win the showdown. He wants to be finished, one way or the other, because his trade is over and he knows it. A party that sees this can save his life by refusing to take it, which he will hate, or end it, which he will thank them for with his last breath.",
+    "Prosper Gault will pay $8,000 for the Narrows if pushed, and the railroad will build a town there whatever happens. The only question the party can decide is whose town it is and whether the creek below it keeps its water.",
+    "If the party took Sayre's bribe in act 1, Sayre escapes on Sunday night, Henley hangs alone (by mob or by law), the forgery stands until a court voids it a year later, and Thea loses the Narrows. The party is rich. The valley knows. Reputation never rises above -1 again in Ransom County.",
+    "The epilogue's winter is real history: the winter of 1886 to 1887 killed much of the cattle on the northern range and ended the open-range boom. The Company's fate, and the homesteaders', depends on hay put up in the summer, and whether the Sage Flats stacks burned in May."
+  ],
+  "dmTips": [
+    "This is the payoff scenario. Everything the party learned should get used: the sign, the time book, the dead list, Pettit or Henley, Owen's page, Tolliver, Stroud's code. If they are missing a piece, let the judge tell them exactly which one, and give them a day to fetch it.",
+    "The town meeting is a talking scene with a hundred armed people in it. Let it run long. Give each faction one strong speaker and one hothead, and let the players broker.",
+    "The mob is the campaign's moral climax. Do not let it be solved with a single roll; let the party talk, threaten, bargain, bring Thea or Margit, and let the mob argue back. A mob is broken by people, not dice. Shooting into it is murder, and it costs everything.",
+    "Stroud's showdown is optional, and the party's to accept or refuse. Run the stare-down and the draw by frontier.json's showdown rules, slowly, with the town watching. If a player character dies here, it is the death the West remembers; give it its due.",
+    "The best ending is a hard-won compromise over the water: Owen's terms, the Company's ford, the grange's ditches, the railroad's town. Reward a party that gets there with Reputation, a lot in the town, and the valley's lasting gratitude.",
+    "End with the winter. Lavinia's last headline, the stage going out, the boy at the creek, and then one paragraph from the GM: the dry summer, the first snow in October, and which ranches had hay put up. The players should leave knowing that what they did mattered, and that the land does not care."
+  ]
+}

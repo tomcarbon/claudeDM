@@ -8,13 +8,40 @@ import CrimsonThroneMap from '../components/CrimsonThroneMap';
 import AstralMap from '../components/AstralMap';
 import NihonMap from '../components/NihonMap';
 import PlaneOfFireMap from '../components/PlaneOfFireMap';
+import SchematicMap from '../components/SchematicMap';
+import { categoryOf } from '../utils/gameCategories';
 
 function WorldMapPage() {
   const navigate = useNavigate();
-  const { campaignId } = useCampaign();
+  const { campaignId, campaign } = useCampaign();
 
   function handleLocationClick(scenarioId) {
     navigate(`/scenarios/${scenarioId}`);
+  }
+
+  // Data-drawn map for any campaign that lists its places (WO-0040). Checked first so a campaign
+  // never falls through to another campaign's painted map below.
+  if (campaign && Array.isArray(campaign.mapLocations) && campaign.mapLocations.length > 0) {
+    return (
+      <div>
+        <h2>{campaign.title}</h2>
+        <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          {campaign.subtitle ? `${campaign.subtitle}. ` : ''}Click a location to view its scenario.
+        </p>
+        <SchematicMap locations={campaign.mapLocations} linkedScenarios={campaign.linkedScenarios || []} onLocationClick={handleLocationClick} />
+      </div>
+    );
+  }
+
+  if (campaign && categoryOf(campaign) !== 'fantasy') {
+    return (
+      <div>
+        <h2>{campaign.title}</h2>
+        <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
+          This campaign has no map yet. Browse its adventures on the Scenarios page.
+        </p>
+      </div>
+    );
   }
 
   if (campaignId === 'campaign1') {

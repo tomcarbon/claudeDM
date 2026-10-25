@@ -1,0 +1,523 @@
+{
+  "id": "lb-scenario-001",
+  "title": "The Poster",
+  "subtitle": "Bascom's Ferry, Wednesday to Saturday: a Reward, a Dead Judge, a Burned Schoolhouse and the Road South",
+  "levelRange": "3-4",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Bascom's Ferry and Jubilee, Lockett County, Wednesday 15 to Saturday 18 April 1874",
+    "description": "The start of the hunt. Bascom's Ferry is a county seat of nine hundred people on a bluff over the Brazos, ten days after the murder of its county judge and the flight of his bailiff. The town has two stories about that night and tells only one of them aloud. The party arrive on Wednesday at sundown with the poster in their pockets, meet the men who wrote it, and have two days to learn what they can before the trail goes cold. Everything they need to know about the case is here, in a dead man's house, a county clerk's ledgers, an undertaker's drawer, a blacksmith's memory and a freedmen's settlement a mile out of town that has buried two of its own since December and does not talk to bounty hunters. The scenario ends at dawn on Saturday when the party crosses the Brazos and rides southwest, with dust on the road behind them.",
+    "atmosphere": "Spring on the Brazos: rain at night and red mud by day, cotton bottoms being chopped by freedmen working on shares, chinaberry trees in bloom on the courthouse square and the sweet rank smell of them everywhere. The ferry's bell. The Brazos high and fast and the color of coffee with milk. The Clarion's press thumping on Thursday, which is paper day. A town that is polite to strangers and stops talking when they come into a room. Men on the Brazos House gallery reading the poster aloud to each other and laughing at the wrong places. At Jubilee, a burned schoolhouse with its chimney still standing, two new graves with wooden markers, children who watch the party from behind a rail fence, and a church service held in a cotton gin. The tone is wary and sad, not grim: people here are going on with their lives, and some of them are going to help.",
+    "keyLocations": [
+      {
+        "name": "The Courthouse Square",
+        "description": "A two-storey limestone courthouse of 1859 in a square of chinaberry trees and hitching rails, with the county offices on the ground floor (clerk, treasurer, sheriff) and the district courtroom and the county judge's chambers upstairs. The poster is on the main door. The Stock Association has its office in a brick building on the north side of the square, over the Lockett County Bank.",
+        "features": [
+          "The courthouse door: the poster, a sheriff's sale notice, a lost-mule card, and a pencil noose half rubbed out",
+          "The county clerk's office: Orrin Spratt's high desk, the tax rolls for 1872 and 1873, the deed books, and a smell of ink and lamp oil",
+          "The county judge's chambers upstairs, locked by order of Sheriff Ruckert since the murder: the judge's law books, his letterbook of press copies, his chair",
+          "The sheriff's office and the county jail behind it: two cells, one empty, one with a drunk",
+          "The treasurer's safe, a Hall's patent safe in the treasurer's office, with a new lock"
+        ],
+        "encounters": [
+          "Sheriff Dade Ruckert, grieving his nephew and polite to bounty hunters, who would like them gone by Saturday",
+          "Orrin Spratt, the county clerk, who becomes very helpful and very frightened when anyone asks about the Jubilee tax sales",
+          "Quincy Treadwell, the judge's law clerk, who has been sitting on the courthouse steps every evening since the murder"
+        ],
+        "secrets": [
+          "CLUE B2 (core): the 1872 and 1873 tax rolls. Every Jubilee entry is marked 'delinq.' in a fresh black ink; under each, scraped with a penknife, the ghost of 'pd.' in the old brown ink of the rest of the page. Automatic for anyone who compares the roll with the Jubilee receipts (B1); Investigation DC 13 to see it without them; Book Learning gives advantage. Spratt will let anyone look at public records; he will not let them take the book away, and he will tell Vandiver within the hour.",
+          "CLUE B3 (core, automatic for anyone who reads the deed book for Jubilee or Mill Creek): thirty-one tax-sale deeds on 3 November 1873, every Jubilee homestead, to L. Vandiver for a total of $1,240; and on 2 March 1874 one deed for all thirty-one, L. Vandiver to the Brazos & Gulf Land Company, $41,000, witnessed by J. Fenner.",
+          "CLUE D1 (core): the judge's letterbook in his chambers holds the press copy of his letter of 21 March to 'Abner Ruthven, Esq., U.S. Commissioner, Rio Grande City': '...I will send you the whole of it, by a man I trust with my life, in time for the June grand jury. Our friends here have read my letters before, I think. Burn this.' Getting in: Quincy Treadwell has a key; or Sleight of Hand or Mechanics DC 13 on the lock; or a Lawman's The Star and a good reason (Sheriff Ruckert will refuse a bounty hunter and cannot easily refuse a deputy United States marshal). Spratt read this page on 22 March; there is a fresh thumbprint in ink on its margin that matches the ink on his fingers.",
+          "The treasurer's safe (CLUE for the red herring): it was opened with a key on the night of 5 April, not forced, and its lock has been replaced since. The treasurer, a timid man named Ephraim Doak, will say quietly, if he trusts the party (Insight to see he wants to talk, then Persuasion DC 14), that the $6,000 was 'mostly gone before Christmas, on the clerk's warrants, for the colonel's road work', and that he was told to say otherwise."
+        ]
+      },
+      {
+        "name": "The Stock Association Office",
+        "description": "Two rooms over the bank: a front room with a stove, brass spittoons and framed photographs of prize bulls, and an inner office where Colonel Lucius Vandiver receives bounty hunters one party at a time on Wednesday night and Thursday morning. His son Garrett stands by the window. A clerk writes letters of authority.",
+        "features": [
+          "The colonel's desk, with a stack of posters, a box of cigars and a cashbox",
+          "A map of Texas on the wall with pins in it: Waco, Austin, San Antonio, Laredo, Brownsville",
+          "Garrett Vandiver at the window, watching the square, saying almost nothing"
+        ],
+        "encounters": [
+          "Colonel Lucius Vandiver (Cattle Baron), courteous and expansive",
+          "Garrett Vandiver (Gang Leader), silent",
+          "Lyman Gattis (Fast Gun), in the front room, cleaning his nails with a penknife, introduced as 'Mr. Gattis, who handles stock for me'"
+        ],
+        "secrets": [
+          "Vandiver's offer: a letter of authority on Stock Association paper ('the bearer is engaged in the apprehension of the fugitive Isom Haywood and is entitled to the assistance of all friends of law and order'), $50 cash against the reward, and the description. He asks the party which way they mean to go and how many they are. He wants the party to succeed: he is choosing which hunters his son will follow, and he chooses the best.",
+          "CLUE B5: as the party leaves, Vandiver walks them to the stair and says, quietly: 'Haywood took papers from the judge's desk. County business, confidential. There's another thousand for them, in addition, if they come to me unread. I'd take it kindly if they did.' Insight DC 12: the papers matter more to him than the man. Insight DC 16: he is afraid.",
+          "Gattis in the front room. Anyone who notices him (passive Perception 13) sees a pale-eyed man with a repeating rifle in a fringed scabbard by the door and a grey horse at the rail outside. CLUE A4 links: the grey has a bar shoe on the near fore (Animal Handling or Perception DC 12 to notice the odd print, automatic if the party has already seen the flowerbed at the judge's house).",
+          "Garrett Vandiver flinches when anyone says 'Jubilee'. Insight DC 14 sees it. He does not speak of it (CLUE C4, early)."
+        ]
+      },
+      {
+        "name": "The Brazos House",
+        "description": "The town's hotel and its better saloon: a two-storey frame building on the river side of the square with a long gallery, a bar of Louisiana cypress, a faro table, a piano nobody can play and twelve rooms at a dollar a night, fifty cents more for a bath. This week it is full of bounty hunters.",
+        "features": [
+          "The gallery, where men read the poster aloud and bet on who will bring Haywood in",
+          "The faro table, dealt by the owner's wife, Mrs. Cora Bellweather, who sees everything",
+          "The back stair to the rooms, and room 8, where the Thale brothers are staying"
+        ],
+        "encounters": [
+          "The Thale brothers: Jubal Thale (Bounty Hunter), the eldest, and his brothers Amos and Nate (Hired Gun), professionals from Fort Worth with nine men brought in, seven alive",
+          "Drunk Cowboys (2) and Saloon Brawlers (3), local men who think the poster is a joke and the bounty hunters a show",
+          "Mrs. Cora Bellweather, faro dealer, a source"
+        ],
+        "secrets": [
+          "The Thales intend to be first. Jubal Thale is a hard, fair, unhurried man of forty-five who has never shot a man who was not shooting at him and does not care what Haywood did. He will offer the party a partnership (a third of the bounty) if they look capable, and if they refuse he will try to beat them south. He knows nothing about the truth and does not want to.",
+          "Mrs. Bellweather, if the party plays faro (Gambling) and tips her a dollar, says: Clell Ruckert lost $40 at her table on the Saturday night before the murder and said he'd 'have it back Monday and plenty more, the colonel's paying for a night's work'. She did not tell the inquest. Nobody asked her.",
+          "A saloon brawl is a genre staple and should happen if the players want one: a drunk Rifle tenant's son says something about Reverend Burris, Ulysses Wardlow or Ramona Zertuche, and the gallery takes sides. Use combat.json brawling. A brawl is loud (GAP -1 if it happens on Friday night) and changes Reputation in Bascom's Ferry by +1 or -1 depending on who started it and how it ended."
+        ]
+      },
+      {
+        "name": "The Brisco House",
+        "description": "A white frame house with a deep gallery on Pecan Street, two blocks from the square: parlor and hall in front, the judge's study to the left with a window onto a flowerbed, the kitchen behind. The judge's widowed housekeeper of twenty years, Mrs. Lovisa Dunagan, still keeps it, because no one has told her to stop.",
+        "features": [
+          "The study window: a new pane, puttied in on 6 April, the broken glass swept into a bucket in the woodshed",
+          "The judge's desk, with its drawers pulled out and their bottoms pried, and a dark stain on the floor that Mrs. Dunagan has scrubbed until the boards are pale",
+          "The hall, where Clell Ruckert died: two bullet holes in the wainscot and a third in the front door frame",
+          "The flowerbed under the study window: irises, trampled, and the hoofprints of a horse that stood there a long time",
+          "The kitchen door, which was unlocked that night and is locked now"
+        ],
+        "encounters": [
+          "Mrs. Lovisa Dunagan, 60, Irish, a widow, who saw everything she heard and is not going to tell bounty hunters a word of it until she is sure of them"
+        ],
+        "secrets": [
+          "CLUE A2 (core, automatic for anyone who looks at the bucket in the woodshed or asks about the window): the glass from the study window fell inward, onto the desk and the floor; the judge was shot from outside. Mrs. Dunagan says the window broke first, then the shot, 'all at once'.",
+          "CLUE A3 (core, from Mrs. Dunagan once she trusts the party: Persuasion DC 13, or automatic for Reverend Burris, Quincy Treadwell, or anyone who tells her the truth about why they are here): 'I was in the kitchen. The window went, and the shot, and then I heard Isom at the front door calling for the Judge. Then two pistols in the hall, together, like one. When I came through, Clell Ruckert was dead by the door with a pistol in his hand and the Judge's packet under him, and Isom was on his knees by the Judge with his own side all blood. The Judge said, Go, Isom. Take it to Abner. Don't let them have it. And Isom took the packet out from under Clell and went. I told the inquest. They wrote down that I was confused.'",
+          "The flowerbed: a horse stood under the window long enough to trample the irises flat, and its near fore wore a bar shoe (Survival or Animal Handling DC 10, automatic for a Scout's Trailcraft or anyone who has handled horses). Boot prints by it: a man who stood in the stirrups to shoot over the sill. CLUE A4 leads to the blacksmith.",
+          "The pried drawers: someone searched the desk after Isom left and the house was quiet, between midnight and dawn. Mrs. Dunagan heard them and hid in the pantry. She thinks it was the sheriff's men. It was Gattis and Spratt."
+        ]
+      },
+      {
+        "name": "Main Street Trades",
+        "description": "Tisdale's furniture store and undertaking parlor, Gus Ekholm's smithy, the Brazos & Gulf Railway land office and the Clarion print shop, along the street from the square to the ferry landing.",
+        "features": [
+          "Tisdale's: coffins stacked by size, a back room, and a cigar box in a desk drawer labeled 'Brisco'",
+          "Ekholm's smithy: a Swede's forge, horseshoes on nails by size, a ledger kept in chalk on the door",
+          "The railway land office: a new frame building, a survey map in the window, a clerk named Pettigrew and the smell of fresh paint",
+          "The Clarion: a hand press, the editor, Leland Moss, and a back room of back numbers"
+        ],
+        "encounters": [
+          "Hiram Tisdale, undertaker, a thin careful man who kept the ball 'for the next judge'",
+          "Gus Ekholm, blacksmith, who talks about horses and nothing else until he likes you",
+          "Leland Moss, editor of the Clarion, a Democrat who printed the poster and has a conscience he is trying to ignore"
+        ],
+        "secrets": [
+          "CLUE A1 (core, automatic for anyone who asks Tisdale what killed the judge): in the cigar box, a deformed .44 rimfire rifle ball he dug out of the judge's chest. 'The inquest never asked for it. I'm a careful man.' The poster says Haywood carries an Army revolver and a Spencer carbine: a .45 and a .56. Tisdale will also say, if asked, that Clell Ruckert died of a .45 pistol ball in the chest, fired from the front, at a range of a few feet.",
+          "CLUE A4 (core, from Ekholm once the party talks horses, or shows him the print): 'A bar shoe on the near fore, for a quarter crack, I put it on myself in March. A good grey, fifteen-two. The colonel's new man brought him in. Gattis.'",
+          "CLUE B4 (core, automatic for anyone who looks at the map in the land office window): the Brazos & Gulf line comes down Mill Creek, and the depot, the yards and the town lots are drawn in red ink exactly over Jubilee. Pettigrew, the clerk, will say the land was 'acquired very reasonably'.",
+          "CLUE C2 (Investigation DC 12 in the Clarion's back numbers, or automatic if Leland Moss is asked about the election): the Clarion of 4 December 1873: 'PRECINCT FOUR RETURNS LOST IN REGRETTABLE FIRE. County Goes Democratic by Forty Votes.' Moss, pressed (Persuasion or Intimidation DC 14), admits he was told not to print the names of the dead."
+        ]
+      },
+      {
+        "name": "Jubilee",
+        "description": "A mile out of town on Mill Creek: thirty-one homesteads of log and frame houses on forty-acre lots, cotton and corn, hogs, a cotton gin owned in common, a graveyard under a big pecan, and the burned schoolhouse, which was also the Jubilee Missionary Baptist Church and the Precinct 4 polling place. Its people bought this land with their own wages between 1867 and 1870. Since February they have been told it is not theirs.",
+        "features": [
+          "The burned schoolhouse: a stone chimney, charred sills, a bell cracked by the heat lying in the ashes",
+          "Two new graves under the pecan: CAESAR LYTLE, DEACON, 1812-1873, and HENRY LYTLE, 1860-1873, cut into wooden boards",
+          "The cotton gin, where the church now meets on Sundays and the children have their lessons on weekdays",
+          "Mother Hagar Lytle's house, the deacon's widow's, with a Bible on the table and a shotgun behind the door"
+        ],
+        "encounters": [
+          "Mother Hagar Lytle, 64, the deacon's widow, Henry's grandmother, the settlement's memory",
+          "Jubilee's men and women, who are polite and wary and armed; nobody will tell a bounty hunter where Isom went",
+          "At night on Friday: masked Rifles (Outlaws x4 and a Hired Gun) come to burn Mother Lytle's house and take the receipts"
+        ],
+        "secrets": [
+          "CLUE B1 (core, from Mother Lytle once she trusts the party: automatic if Reverend Burris is with them, otherwise Persuasion DC 14 or a truthful account of what they have found in town): in her Bible, folded in Exodus, the Jubilee families' tax receipts for 1872 and 1873, every one, signed by the old collector. 'We paid. We paid every year. We know what paper is for.'",
+          "CLUE C1 (core, from Mother Lytle or any Jubilee adult who trusts the party): election night. Riders with flour sacks over their hat crowns came at dark; one threw a lit lamp through the schoolhouse window; Caesar went in for the ballot box and Henry after him; one rider sat his horse at the edge of the light and did not come in, a young man on a fine sorrel; Isom Haywood, who had been keeping the polls, ran in and brought out Henry, who died on the grass. 'Isom saw them. Isom knew them. He told the judge.'",
+          "CLUE D3 (from Mother Lytle or Isom's former landlady, Sister Mercy Pugh): Isom's wife, Inés, and their two children went home to 'her people on the Rio Grande, up the river from Rio Grande City' the week after the fire. 'He said he'd follow when the judge's business was done.'",
+          "Nobody in Jubilee will say which way Isom rode, and they do not know: he did not come here that night, so that no one here would have to lie.",
+          "THE NIGHT RIDE: if Spratt has seen the party at the tax rolls, on Friday night four masked Rifles and one hired man ride to Mother Lytle's house to burn it and the receipts. They expect old people and children. They are not expecting the party, and if met by armed resistance they ride for it. A Rifle captured or wounded and unmasked is Ned Purdom, a tenant's son on Oakmere, nineteen, who will say the colonel's foreman sent them and that 'Mr. Gattis said to make sure of the Bible'."
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party arrive in Bascom's Ferry on Wednesday at sundown, read the poster on the courthouse door, and are received by Colonel Lucius Vandiver at the Stock Association office: a letter of authority, fifty dollars against the reward, the description, and, at the top of the stair, a quiet offer of another thousand for 'any papers he carries, unread'. At the Brazos House they meet their rivals, the Thale brothers from Fort Worth, who mean to be first. That night the judge's law clerk, Quincy Treadwell, finds them and tells them Isom Haywood did not kill the judge. Thursday and Friday are for the case, if the party wants it: the dead judge's house and his housekeeper, the undertaker's rifle ball, the blacksmith's bar shoe, the county clerk's scraped ledgers and the railway's map, the judge's letter to a federal commissioner on the Rio Grande, and Jubilee, the freedmen's settlement whose schoolhouse burned on election night and whose land was sold out from under it on the courthouse steps. On Friday night masked riders come to Jubilee for the tax receipts and find the party there, or don't. At dawn on Saturday the party crosses the Brazos and rides southwest after a man with thirteen days' start, knowing much more than the poster says or nothing more than it says, depending on what they chose to look at. Behind them, a few hours later, nine riders and a pale-eyed man on a grey horse cross the same ferry.",
+  "hook": "Wednesday 15 April 1874, an hour before sundown, Bascom's Ferry. The ferry grounds on the town landing with a bump and the ferryman holds out his hand for the fare, a dime a rider and a dime a horse. Up the bluff, past the smithy and the undertaker's and a new railway office with a map in the window, the courthouse square smells of chinaberry blossom and wet horses. The poster is on the door. Two thousand dollars, dead or alive. On the gallery of the Brazos House across the square, a man is reading it aloud to a crowd for the fourth time today, and at the line 'a colored man, about 38, six feet one' somebody laughs and somebody else tells him to shut up. The colonel, the man at the livery says, is seeing hunters tonight. Over the bank. Bring your own guns and leave your manners.",
+  "cluesAvailable": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "C1",
+    "C2",
+    "C4",
+    "D1",
+    "D2",
+    "D3",
+    "E1"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "A. Isom Haywood did not murder Judge Brisco",
+      "clues": [
+        "A1: the .44 rimfire rifle ball in Tisdale's cigar box (the poster gives Isom a .45 and a .56)",
+        "A2: the study window's glass fell inward; the judge was shot from outside (the Brisco house)",
+        "A3: Mrs. Dunagan's account and the judge's last words (the Brisco house)",
+        "A4: the bar-shoe print under the window and Ekholm's memory of Gattis's grey (the Brisco house, the smithy, the Stock Association rail)",
+        "Mrs. Bellweather: Clell Ruckert expected to be paid for 'a night's work' by the colonel (the Brazos House)"
+      ]
+    },
+    {
+      "conclusion": "B. The men who wrote the poster are hiding a land fraud at Jubilee",
+      "clues": [
+        "B1: the Jubilee tax receipts in Mother Lytle's Bible (Jubilee)",
+        "B2: the scraped tax rolls (the clerk's office)",
+        "B3: the deed book: $1,240 to Vandiver, $41,000 to the railway (the clerk's office)",
+        "B4: the railway's survey map, depot over Jubilee (the land office window)",
+        "B5: Vandiver's thousand dollars for the papers, unread (the Stock Association)",
+        "The treasurer, Ephraim Doak: the $6,000 went on the clerk's warrants before Christmas (the courthouse)",
+        "The night riders sent for Mother Lytle's Bible (Jubilee, Friday night)"
+      ]
+    },
+    {
+      "conclusion": "D. Isom is going to the Rio Grande: home, and to the federal commissioner",
+      "clues": [
+        "D1: the judge's press-copy letter to Abner Ruthven, U.S. Commissioner, Rio Grande City (the judge's chambers)",
+        "D2: Quincy Treadwell: the packet was meant for Ruthven, before the June grand jury at Brownsville (anywhere)",
+        "D3: Mother Lytle or Sister Mercy Pugh: Inés and the children went home to the Rio Grande above Rio Grande City (Jubilee)",
+        "The livery's night man, Josephus: a tall rider on a bay with a white hind sock went by on the Bastrop road southwest at about one in the morning on the 6th, holding his side (the livery, for a dollar)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Two Thousand Dollars",
+      "description": "Wednesday evening. The party read the poster, meet the man who wrote it and the men who want the same money, and are found by someone who says the poster is a lie. The act is about who the party are, why they want the money, and what kind of town this is. Let each player say, at the courthouse door, what two thousand dollars would buy them.",
+      "objectives": [
+        "Read the poster and get the description",
+        "Meet Colonel Vandiver and decide whether to take his letter and his fifty dollars",
+        "Size up the competition at the Brazos House",
+        "Hear Quincy Treadwell out"
+      ],
+      "scenes": [
+        {
+          "name": "The Colonel Receives",
+          "description": "The Stock Association office over the bank at eight in the evening. Two other parties of hunters have been and gone. Vandiver is courteous, generous and in no hurry: he wants to know who the party are, how many, how well mounted, which way they'll go and what they've done before. He is choosing which hunters his son will follow. He gives them the letter of authority and fifty dollars, and, at the stair, offers another thousand for the papers.",
+          "readAloud": "The inner office is warm and smells of cigars and saddle soap. The man behind the desk rises when you come in, which surprises you: a big, handsome, white-haired man of sixty in a black frock coat, with a planter's courtesy and a cattleman's hands. 'Colonel Lucius Vandiver. Sit, please. You'll take something? My son, Garrett.' The young man at the window nods without turning around. 'I won't keep you. You've read the paper. Isom Haywood murdered our county judge, a fine old man, and my nephew Clell, who was twenty-two, and robbed this county of six thousand dollars, and the law in this state being what it has been these last years, it falls to private citizens to see it put right.' He pushes a paper across the desk. 'A letter of authority. Fifty dollars against the reward. And a description, though you'll have read it.' He sits back and looks at each of you in turn, pleasantly, like a man looking over horses. 'Now. Tell me which way you'd go.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "His grief for Clell is real; his grief for the judge is not. He is not much interested in where Haywood is. He is very interested in how capable the party are, and in which way they'll ride, and he asks twice.",
+              "failure": "A rich man who wants a murderer caught and can pay for it. Nothing more."
+            },
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "The party give Vandiver a false route (east to the Galveston boat, north to the Nations). He believes it, and Garrett's Riders start a day late and in the wrong direction: the GAP starts at 2 instead of 1 when the party leaves on Saturday.",
+              "failure": "He smiles and says, 'Of course,' and Garrett, at the window, glances at the map on the wall where the pins are: San Antonio, Laredo, Brownsville."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "In the front room as the party leaves, the pale-eyed man with the penknife ('Mr. Gattis, who handles stock for me') looks at each of them the way a man memorizes a face. His rifle in the fringed scabbard by the door is a Henry-pattern lever repeater, a .44 rimfire.",
+              "failure": "A hired man cleaning his nails in the front room."
+            }
+          ]
+        },
+        {
+          "name": "The Brazos House",
+          "description": "Every bounty hunter in Lockett County drinks here. The Thale brothers hold the corner table. Jubal Thale invites the party to sit, offers a partnership, and if refused says, without heat, that he'll see them on the road and he'd as soon not see them over a gun. A brawl may happen. Mrs. Bellweather deals faro and listens.",
+          "readAloud": "The bar is loud and smoky and smells of spilled whiskey and wet wool. Somebody is playing the same four bars of 'Lorena' on the piano over and over. At the corner table, under a mounted longhorn skull, three men who are obviously brothers sit with their backs to the wall: the eldest broad and grey and still, the other two younger, quicker, watching the room. The eldest lifts a finger and the bartender brings over a bottle and enough glasses. 'Jubal Thale,' he says. 'My brothers Amos and Nate. Fort Worth. We've brought in nine men in four years, seven of them breathing. Sit down, if you're in the trade. I'd like to know who I'm racing.'",
+          "skillChecks": [
+            {
+              "skill": "Gambling",
+              "dc": 13,
+              "success": "At Mrs. Bellweather's faro table: the party win a little, and she likes them. For a dollar's tip she tells them about Clell Ruckert's $40 loss on the Saturday night and his 'night's work' for the colonel.",
+              "failure": "The bank wins, as it does. Mrs. Bellweather is pleasant and says nothing worth hearing."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "Jubal Thale agrees not to race them to the Colorado, and to tell them if he cuts the trail first, for a quarter of the bounty. He keeps his word, mostly. He is a useful rival in lb-scenario-002.",
+              "failure": "Thale shrugs. 'Then it's a race.' The Thales leave before dawn on Thursday and are a day ahead of the party all the way to the Colorado."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "The younger Thales back down from the party in front of the room, and the gallery talks about it. Reputation in Bascom's Ferry +1. Jubal Thale is amused.",
+              "failure": "Nate Thale stands up. Use frontier.json showdowns if anyone wants to make it a stare-down; Jubal will stop it before anyone draws unless someone insults his brothers' mother."
+            }
+          ]
+        },
+        {
+          "name": "The Law Clerk",
+          "description": "Late on Wednesday, on the courthouse steps or at the door of the party's room, a thin young man in a borrowed black coat asks for five minutes. Quincy Treadwell, the judge's clerk, has watched every party of hunters go into the Stock Association office and come out. He says Isom did not kill the judge, that the judge was killed for a packet of papers, and that if the party want to know what really happened, they should look at the window, the ball, and the deed book. He will not say where the packet was going until he trusts them.",
+          "readAloud": "He is perhaps twenty-four, tall and stooped, with ink on his fingers and a cowlick he has given up on, and he talks fast, as if he has been rehearsing. 'My name is Quincy Treadwell. I clerked for Judge Brisco. I read law with him. I was with him the evening he died, until nine.' He looks over his shoulder at the dark square. 'You're going to hunt Isom Haywood, and you probably will find him, because you look like people who find things, and then you'll do what the poster says. Before you do, would you look at three things? The judge's window. The ball Mr. Tisdale took out of him. And the Jubilee pages in the county deed book.' He swallows. 'That's all. If you look and you still want to bring him in, I'll hold your horses.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "He is telling the truth as he knows it, and he is terrified of being seen talking to them. He knows more: where the packet was going (D2), and that Spratt reads the judge's letters.",
+              "failure": "An earnest young man with a dead mentor. He may be right."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Quincy tells them about Abner Ruthven, the U.S. Commissioner at Rio Grande City, the June grand jury at Brownsville, and the letterbook (D1, D2), and offers his key to the judge's chambers. If the party ask, he will ride with them (he becomes the companion Quincy Treadwell).",
+              "failure": "Quincy says he has told them what he can and goes home. He will come back on Thursday night if they have looked at the three things."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Colonel Vandiver (Cattle Baron), Garrett Vandiver (Gang Leader) and Lyman Gattis (Fast Gun) at the Stock Association: no combat unless the party start it, which would be suicide and a lynching",
+        "The Thale brothers: Jubal (Bounty Hunter), Amos and Nate (Hired Gun)",
+        "A saloon brawl at the Brazos House: Saloon Brawlers (3) and Drunk Cowboys (2), fists and chairs (combat.json brawling)"
+      ]
+    },
+    {
+      "title": "Act 2: The Judge's Window",
+      "description": "Thursday and Friday, the investigation. The party can do all of it or none of it; every hour they spend in town is an hour Isom gets further south, and the GM should say so. The core clues are automatic for anyone who looks in the right place. Spratt reports every question to Vandiver, so the more the party learns, the more the town changes around them: by Friday afternoon the sheriff wants to know why bounty hunters are reading the deed book.",
+      "objectives": [
+        "Examine the judge's house and talk to Mrs. Dunagan",
+        "Find out what killed the judge (Tisdale, Ekholm)",
+        "Read the county records (the tax rolls, the deed book) and the judge's letterbook",
+        "Decide what the party believes about Isom Haywood"
+      ],
+      "scenes": [
+        {
+          "name": "Mrs. Dunagan's Kitchen",
+          "description": "The Brisco house on Thursday morning. Mrs. Dunagan answers the door with a dish towel and a face like a shut gate. The study, the hall and the flowerbed are there to be looked at; Mrs. Dunagan will let the party in only if they say why. Her account (A3) is the most important testimony in the scenario.",
+          "readAloud": "The housekeeper is a small square woman of sixty with grey hair scraped back and forearms like a washerwoman's. She looks at your guns, and at the poster folded in somebody's pocket, and does not move out of the doorway. 'If you've come to ask me which way Isom Haywood went,' she says, in a Cork accent twenty years in Texas, 'I don't know and I'd not tell you. If you've come to see where the Judge died, it's there, and I've scrubbed it twice. And if you've come to find out what happened, you're the first that has, and you can wipe your feet.'",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "The window's broken glass fell inward onto the desk (A2); the hall's bullet holes show two pistols fired at the same moment from a few feet apart; the drawers were pried open after the fact by someone looking for something flat.",
+              "failure": "A study, a hall, a scrubbed floor. The glass in the woodshed bucket is found anyway, if the party ask where it went."
+            },
+            {
+              "skill": "Survival",
+              "dc": 10,
+              "success": "The flowerbed: a horse stood here a long time, its rider standing in the stirrups; its near fore wore a bar shoe. A Scout's Trailcraft reads it without a roll and can say the horse was a big one, about fifteen hands.",
+              "failure": "Trampled irises. Something big stood here."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Mrs. Dunagan tells the whole of it (A3), including the judge's last words and the men who searched the desk after midnight. She gives the party the judge's own spare key to his chambers, which the sheriff did not know about.",
+              "failure": "She tells them what she told the inquest, in six sentences, and shuts the door. She will tell the rest to anyone who comes back with Quincy, Reverend Burris, or the truth."
+            }
+          ]
+        },
+        {
+          "name": "Ink and Iron",
+          "description": "The town, on Thursday and Friday. Tisdale's cigar box (A1). Ekholm's bar shoe (A4). The tax rolls and the deed book (B2, B3). The railway map (B4). The Clarion's back numbers (C2). The judge's letterbook (D1). The livery's night man (the road southwest). Each is a short scene with a person; let the players choose the order. Spratt is the scene that changes the town: as soon as the party read the Jubilee pages, he sends a boy running to the Stock Association.",
+          "readAloud": "Orrin Spratt is a narrow, balding man in sleeve garters and a green eyeshade who stands up when you come in and keeps standing. 'Public records, certainly, certainly, the county is proud of its records,' he says, and brings the books himself, the 1873 tax roll and Deed Record Book F, and opens them on the counter, and keeps one hand flat on each page as if it might blow away. When you ask for the Jubilee entries, Mill Creek, the thirty-one lots, his hand comes off the page and you notice, for the first time, that his fingers are stained to the second knuckle with black ink, fresh, the kind that doesn't wash.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "The tax roll's Jubilee entries: 'delinq.' in fresh black ink over scraped-out 'pd.' in the old brown (B2). Automatic with the receipts in hand. The deed book (B3) needs no roll.",
+              "failure": "The roll says the Jubilee lands were delinquent and were sold. The deed book says the rest. The party see the numbers ($1,240, $41,000) without a roll."
+            },
+            {
+              "skill": "Animal Handling",
+              "dc": 10,
+              "success": "Gus Ekholm warms to anyone who knows horses, and tells them about the bar shoe and Gattis's grey (A4) without being asked.",
+              "failure": "Ekholm talks about horses for twenty minutes. The party can still ask him straight out, and he answers."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 13,
+              "success": "The judge's chambers are opened without a key or a fuss, and the letterbook (D1) is read and put back. Spratt's inky thumbprint is on the margin of the Ruthven page.",
+              "failure": "The lock holds and a deputy sees the attempt. Sheriff Ruckert asks the party, politely, to be gone by Saturday noon. Reputation in Bascom's Ferry -1."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "Spratt, leaned on in private, goes white and says 'the colonel told me to', and then that he will deny it to his grave. He will. But he is now terrified of both sides, and in lb-scenario-004 or after, he is the first of the poster-writers to turn.",
+              "failure": "Spratt calls for the sheriff. The party leave with what they have seen."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Sheriff Dade Ruckert (Crooked Sheriff) and two Deputies, if the party break into the judge's chambers or lean on Spratt in public: an arrest attempt, or a warning, depending on Reputation",
+        "No combat is expected in this act. A party that looks hard at the truth should feel the town close a little around them."
+      ]
+    },
+    {
+      "title": "Act 3: Jubilee",
+      "description": "Thursday or Friday, and Friday night. The freedmen's settlement on Mill Creek: the burned schoolhouse, the graves, Mother Hagar Lytle and the receipts in her Bible, and what happened on election night. If Spratt has reported the party, the Rifles ride to Jubilee on Friday night to burn Mother Lytle's house and take the Bible. On Saturday at dawn, the party cross the Brazos and ride.",
+      "objectives": [
+        "Win the trust of Jubilee, or fail to",
+        "Learn what happened on election night and what Jubilee lost in November",
+        "Stand between the night riders and Mother Lytle's house, or not",
+        "Leave Bascom's Ferry on Saturday, by the ferry or the ford, and choose a road south"
+      ],
+      "scenes": [
+        {
+          "name": "Mother Lytle's Bible",
+          "description": "Jubilee on a weekday afternoon: hoeing in the cotton, children at lessons in the gin, men who straighten up from their work to watch armed strangers ride in. Mother Lytle receives the party on her gallery with a shotgun across her knees, and will talk to them only if they talk straight. If Reverend Burris is with them, the whole settlement comes out to shake his hand, and the scene is a homecoming.",
+          "readAloud": "The chimney of the schoolhouse stands up out of a black square of ash like a gravestone, and the bell lies cracked in the cinders where it fell. Under the big pecan beyond it are two new graves with wooden boards, and an old woman in a black dress is sitting on the gallery of the nearest house with a shotgun across her knees, watching you come. She does not get up. 'I know what you are,' she says, when you are close enough. 'You've got his picture in your pocket. You can come up on my gallery and drink my water, because the Lord says I have to give it to you. Then you tell me why you're in Jubilee, and you tell me true, because I buried my husband and my grandson in December and I don't have the patience I used to.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Mother Lytle believes the party mean to find the truth and not just the man. She shows them the receipts (B1) and tells them about election night (C1) and where Inés went (D3). Reputation in Jubilee +2.",
+              "failure": "She gives them water and nothing else. Automatic success instead if the party tell her truthfully what they found in town (the window, the ball, the deed book), or if Reverend Burris speaks for them."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "She does not know where Isom is; she would not tell if she did; and she is afraid of something specific, not general. Asked, she says: 'They'll come for the receipts. They know I've got them. Everybody does.'",
+              "failure": "A grieving, angry woman. She has reason."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "Jubilee's sick (a child with a fever, an old man with a cut gone bad) are treated. Nobody asked; everyone notices. Reputation in Jubilee +1, and an invitation to Sunday service in the gin, if the party are still here.",
+              "failure": "The doctoring goes no worse than nothing. The gesture is noticed anyway."
+            }
+          ]
+        },
+        {
+          "name": "Riders on Mill Creek",
+          "description": "Friday night, if Spratt has reported the party (he has, if they read the Jubilee pages). Four masked Rifles and one hired man ride down Mill Creek at midnight with coal-oil and a torch, to burn Mother Lytle's house and take the Bible. If the party are in Jubilee, or have warned it, there is a fight in the dark among the cotton and the rail fences, and the riders do not expect resistance. If the party are not there, Jubilee's men drive them off with shotguns and the house burns anyway, with the Bible in it, unless Mother Lytle gave the receipts to the party.",
+          "readAloud": "The dogs hear them first, all over Jubilee at once. Then you hear them yourselves: horses on the creek road, five or six, not hurrying, and a man laughing. Then the light: a torch, held high, and in its light the riders, with flour sacks pulled over their hats and eye-holes cut in them, and coal-oil cans hanging from two saddle horns. They turn in at Mother Lytle's gate as if they had been here before. They have.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "The party are in position before the riders see them: surprise in the first round, and the riders' horses are bunched at the gate.",
+              "failure": "A rider sees a gun barrel in the torchlight and shouts. No surprise; the riders scatter into the cotton and fire from the saddle."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 13,
+              "success": "A shout from the dark (and a shot over their heads) is enough: the riders turn and gallop for the creek road, dropping a coal-oil can. One is unhorsed and caught: Ned Purdom, nineteen.",
+              "failure": "They are frightened but they have been told what will happen to them if they come back without the Bible. They fight."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Ned Purdom, caught, unmasked and crying, is telling the truth: the colonel's foreman sent them, Mr. Gattis said to 'make sure of the Bible', and they were told nobody would get hurt. He was at the schoolhouse in December and he has not slept right since.",
+              "failure": "A frightened boy saying whatever will keep him from a rope."
+            }
+          ]
+        },
+        {
+          "name": "The Ferry at Dawn",
+          "description": "Saturday morning. The party leave Bascom's Ferry, by the town ferry (where everyone will see them) or by a cattle ford two miles down that Jubilee's people know. On the bluff behind them, as the sun comes up, there is dust on the road from Oakmere. Set the GAP (campaignRules, The Riders Behind) at 1, or 2 if the party lied well to Vandiver (Act 1) or left by the ford unseen.",
+          "readAloud": "The Brazos is brown and quick under the ferry's bow and the cable sings. On the far bank the road runs southwest through post oaks dripping with last night's rain, toward the Colorado and everything past it. Behind you the town is a smudge of chimney smoke on the bluff. And north of the town, on the Oakmere road, where nobody should be riding this early on a Saturday, there is a long low smear of dust in the sunrise, as if a dozen horses were moving at a walk, and not coming any closer.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "Through field glasses or sharp eyes: ten riders, one on a grey, sitting their horses on a rise above the town, watching the ferry. When the party reach the far bank, the riders start down toward the landing (CLUE E1).",
+              "failure": "Dust on a road. Cattle, maybe."
+            },
+            {
+              "skill": "Survival",
+              "dc": 12,
+              "success": "The party leave by the cattle ford and the post-oak trails instead of the ferry and the road, and nobody in town sees which way they go. GAP +1.",
+              "failure": "The party take the road. Everyone at the ferry landing knows which way they went by noon."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Night riders at Jubilee: Outlaws (4) and a Hired Gun, masked Rifles with torches and coal-oil; they flee if two are down or if the party clearly outnumber them",
+        "Jubilee's own defenders: four men with shotguns and squirrel rifles, who fight for their homes and will not be told to stand back",
+        "The ferry or the ford: no combat; the Riders watch and follow"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Colonel Lucius Vandiver, 63",
+      "role": "Chairman of the Lockett County Stock Association; author of the poster; the man behind the fraud, the fire and the murder",
+      "description": "Big, white-haired, handsome, in a black frock coat; a planter's courtesy and a cattleman's hands. He calls the war 'the late unpleasantness' and the new government 'the restoration of order'. Generous with whiskey, cigars and other men's lives.",
+      "motivation": "The packet, back and burned, and everyone who has read it silenced. He chooses the most capable hunters for his son to follow."
+    },
+    {
+      "name": "Garrett Vandiver, 29",
+      "role": "The colonel's son, captain of the Lockett County Rifles; leader of the Riders",
+      "description": "Tall, fair, sunburned, a good horseman with a fine sorrel and a cavalry officer's posture he copied from his father. Silent in his father's presence. Flinches at the word Jubilee.",
+      "motivation": "Avenge his cousin Clell, whom Isom did kill. Do what his father tells him. Not think about the fire."
+    },
+    {
+      "name": "Lyman Gattis, about 40",
+      "role": "Vandiver's 'stock man'; the judge's killer; the Riders' tracker",
+      "description": "Pale eyes, a soft voice, clean hands, a Henry-pattern .44 repeating rifle in a fringed scabbard, a grey horse with a bar shoe on the near fore.",
+      "motivation": "His fee, and no witnesses."
+    },
+    {
+      "name": "Quincy Treadwell, 24",
+      "role": "The judge's law clerk",
+      "description": "Thin, stooped, ink-stained, from Ohio by way of Oberlin College; taught at the Jubilee school before he read law. Talks fast. See the companion sheet.",
+      "motivation": "The truth about the judge's death, the packet in Ruthven's hands, and Isom alive."
+    },
+    {
+      "name": "Mrs. Lovisa Dunagan, 60",
+      "role": "The judge's housekeeper and the only witness who was in the house",
+      "description": "Small, square, Cork-born, twenty years in Texas, a widow with a dish towel and no patience for fools.",
+      "motivation": "Someone to believe what she heard, and the judge's last wish kept."
+    },
+    {
+      "name": "Mother Hagar Lytle, 64",
+      "role": "The deacon's widow; Jubilee's memory; keeper of the receipts",
+      "description": "Born enslaved in Virginia, sold to Texas in 1849; free since June 1865; a landowner since 1868. A black dress, a shotgun across her knees, a Bible with eighteen tax receipts in Exodus.",
+      "motivation": "Jubilee's land back, the men who burned the schoolhouse named, and her grandson remembered."
+    },
+    {
+      "name": "Orrin Spratt, 47",
+      "role": "County clerk; the forger",
+      "description": "Narrow, balding, sleeve garters, green eyeshade, black ink to the second knuckle.",
+      "motivation": "Not to hang. He will tell Vandiver everything the party do, and will tell the party everything if he becomes more afraid of them than of Vandiver."
+    },
+    {
+      "name": "Jubal Thale, 45",
+      "role": "The rival: eldest of the Thale brothers, bounty hunters from Fort Worth",
+      "description": "Broad, grey, still, with a sheepskin coat and a buffalo rifle; his brothers Amos and Nate are quicker and louder.",
+      "motivation": "The $2,000, and his brothers alive. He has no opinion of Isom Haywood and does not want one."
+    },
+    {
+      "name": "Sheriff Dade Ruckert, 50",
+      "role": "Sheriff of Lockett County; former captain of the Rifles; Clell's uncle",
+      "description": "Heavy, slow, sad, with a new star and an old shotgun.",
+      "motivation": "Justice for his nephew as he understands it, and no trouble in his town before the bounty is paid."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "money": "Colonel Vandiver's $50 advance against the reward, if the party take it (taking it obliges them to nothing, but Vandiver will remember they did). Faro winnings, if any. Jubilee pays no one, but feeds anyone who stood at Mother Lytle's gate on Friday night, and gives them a sack of cornmeal, a side of bacon and a ham for the road (two weeks' food for the party).",
+    "items": [
+      "Colonel Vandiver's letter of authority, on Stock Association paper",
+      "The poster and its description of Isom Haywood",
+      "The .44 rimfire ball from Tisdale's cigar box, if he gives it to them (CLUE A1)",
+      "The Jubilee tax receipts, if Mother Lytle entrusts them to the party (CLUE B1): she will, if they defended her house or if Reverend Burris asks",
+      "A tracing or a copy of the judge's letter to Abner Ruthven (CLUE D1), if they copied it",
+      "Ned Purdom's flour-sack mask, if he was caught",
+      "Award the 1,800 XP when the party cross the Brazos on Saturday morning. A party starting at 3rd level reaches 4th (2,700)."
+    ]
+  },
+  "twists": [
+    "Vandiver wants the party to succeed. The best hunters are the ones his son will follow. The more capable the party look on Wednesday night, the more certainly the Riders will be behind them; the more they learn in town, the more certainly the Riders mean to kill them when they find Isom.",
+    "The $6,000 Isom 'robbed' was gone before Christmas; the poster's robbery covers the clerk's and the colonel's own embezzlement. The treasurer, Ephraim Doak, knows and is afraid to say so.",
+    "Isom did kill Clell Ruckert. Tisdale's evidence says so: a .45 in the chest at a few feet, from the front. The poster is a lie about the judge, the money and what kind of man Isom is; it is not a lie about the deputy. The players should learn this here, so that it weighs on them at Palomas Bend.",
+    "Garrett Vandiver was at the schoolhouse fire and did not ride in. Mother Lytle saw a young man on a fine sorrel at the edge of the light; the party will see Garrett's sorrel at the Stock Association rail. They should not put it together yet, and may.",
+    "If Reverend Solomon Burris is played, this is his home: he was Jubilee's pastor and its schoolteacher, he buried Caesar and Henry Lytle, and the burned schoolhouse was his church. His congregation's land is what was stolen, and the $2,000 would buy it back at the railway's price. Give him the scene at Mother Lytle's gallery; it is his before it is anyone else's."
+  ],
+  "dmTips": [
+    "Budget about an hour for Act 1, ninety minutes for Act 2 and an hour for Act 3. The only expected fight is the night ride at Jubilee, and it can be avoided or won by a shout. A brawl at the Brazos House is optional and fun.",
+    "At the courthouse door, ask every player what two thousand dollars would buy their character. Write the answers down. Read them back at Palomas Bend.",
+    "The party may decide on Wednesday night that they don't care what happened and ride at dawn on Thursday. Let them: give them Quincy's three things in a sentence as they leave, the livery man's road, and the dust behind them. The clues are seeded again on the trail (Bauer, Doña Refugio, Wiley Dunmore, Crow's Ford), and the packet waits at the end.",
+    "Keep the town's prejudice in the villains' mouths and the townspeople's silences, not in the narration. The poster says 'a colored man'; Vandiver says 'the late unpleasantness'; a drunk on the gallery says something ugly and gets told to shut up. Never put a slur in anyone's mouth. Jubilee is not a place of victims: it is a settlement of landowners who paid their taxes and know it.",
+    "Spratt is the town's nervous system. Every question the party ask him reaches Vandiver within the hour, and Vandiver's response is measured: a word from the sheriff, the night riders, a friendly drink with Garrett. Make the party feel watched without anyone being rude.",
+    "Gattis should be seen and not noticed: in the Stock Association's front room, on the Brazos House gallery, at the livery rail on Friday. When the party finally learn what he is, they should remember every time he was in the room.",
+    "Set the GAP on Saturday morning and put the card on the table. Tell the players only that it is 'the gap'. Let them work out what it measures.",
+    "Pregens: Temperance Quarles knows Jubal Thale by reputation and he knows her; Ulysses Wardlow's federal star opens the judge's chambers and makes Sheriff Ruckert careful; Ramona Zertuche will hear Inés Cantú's name at Jubilee and know the family by reputation; Valentine Shreve is the one who should play faro with Mrs. Bellweather; Dr. Ursula Schaller is the one who should ask Tisdale what the wound looked like; Reverend Burris is the key to Jubilee."
+  ]
+}

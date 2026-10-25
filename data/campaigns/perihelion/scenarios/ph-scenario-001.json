@@ -1,0 +1,263 @@
+{
+  "id": "ph-scenario-001",
+  "title": "Thirty Hours Out",
+  "subtitle": "A Noodle Bar, a Boarding Gate, and a Ship That Hums to Itself",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Caloris High and the Aubade's Gala Decks, T-36 to T-0",
+    "description": "This scenario covers the planning and reconnaissance. It opens at T-36 in Caloris High, Mercury's orbital port, where Oriel Mabb assembles the crew, the Pale Moth sits in a cheap berth with its ablative skirts half-fitted, and Kessane Armaments' port security is already asking who the Sarrow fixer has been buying drinks for. At T-30 the Aubade departs, carrying the inside team under cover. The next thirty hours aboard are the recon: mapping the Gala decks, Commander Varga-Thorn's rotations and the Warden drone patterns, and working out what the Reliquary needs to open. The scenario ends at G+0, when the Parasol locks, the shutters come down over every sunward window and the ship goes deaf.",
+    "atmosphere": "Anticipation. The first two sessions should feel like the first act of a heist film: assembling a crew, buying kit, rehearsing covers and the pleasure of watching competent people get ready. Caloris High is grubby and practical, and it smells of coolant. The Aubade is a white-and-gold palace where the stewards remember your name, and somewhere under the champagne there is a low, sweet tone in the Spine that maintenance crews say is the ship humming to itself. The sun gets bigger in every window, hour by hour. Let the players see the deadline grow.",
+    "keyLocations": [
+      {
+        "name": "The Fin Bar and Berth 41, Caloris High",
+        "description": "A noodle bar wedged under the base of a radiator fin, three hundred metres of black heat-sink overhead, and a cheap tender berth two corridors away where the Pale Moth is being fitted for a shadow run by a pilot who says he has done one before.",
+        "features": [
+          "Oriel Mabb's booth at the back, with a white-noise puck on the table and her tea going cold",
+          "Berth 41: the Pale Moth, a 40-metre sun-skimmer tender with new ablative skirts, grapples and a docking collar cut to fit an Ostrander maintenance lock",
+          "A chandler's on the next ring that will sell anything to anyone with a credit chit and no questions, including frangible rounds, sealant foam and suits rated for the shadow",
+          "Customs inspectors, who are lazy, and Kessane port security, who are not"
+        ],
+        "encounters": [
+          "The pitch: Oriel Mabb's offer, the terms, the deadline, and the client's name, Sarrow Cognitive, which she gives honestly when asked",
+          "Meeting the companions: Tuck Halloran on the Moth's hull, Ledger standing very still in the berth, and a coded message from Fennick Abara aboard the Aubade",
+          "A Kessane tail (2 Mercenaries and a Field Agent) shadowing the crew from the bar to the chandler's",
+          "The ambush at Berth 41 at T-32 (see Act 1)"
+        ],
+        "secrets": [
+          "Kessane knows Sarrow has hired someone. It does not yet know who, or what for",
+          "Tuck Halloran has done one shadow run before, twenty-two years ago, and he came back alone. The Aubade's dive profile was redesigned after that accident, by Isaura Vell",
+          "Oriel Mabb has a sealed case in the Moth's locker that she does not open in front of the crew. It holds the kill-key (see ph-scenario-003)"
+        ]
+      },
+      {
+        "name": "The Aubade Boarding Concourse",
+        "description": "A gold-lit gate lounge at Caloris High's premium ring, where 2,200 passengers and their luggage pass through Ostrander scanners onto the Aubade. The scanner team is good and has seen every trick the rich use to smuggle things.",
+        "features": [
+          "Three scanner arches tuned to energy cells, propellant and explosive residue",
+          "A staff gate for contractors and performers, with an identity check against the Line's crew registry",
+          "Commander Ilse Varga-Thorn, watching the passengers board in person, as she does every year",
+          "The Kessane delegation boarding through a private gate with diplomatic cases that nobody scans"
+        ],
+        "encounters": [
+          "Getting each inside-team member aboard under a cover: steward (Fennick can arrange two), Gala guest, hired performer or maintenance contractor",
+          "Smuggling weapons under the Ship-Safe Arms rule, or deciding to let the Moth bring the heavy kit later",
+          "A personal word from Varga-Thorn to whichever crew member looks most like trouble"
+        ],
+        "secrets": [
+          "Kessane's diplomatic cases hold plasma carbines and powered-armour components. If the crew sees this, they know Kessane is not here only to buy",
+          "Varga-Thorn's scanner team uses the crew registry Verity was deleted from three years ago. Verity's old maintenance credentials still work on one service gate, because nobody ever closed them"
+        ]
+      },
+      {
+        "name": "The Promenade and the Orangery",
+        "description": "The Aubade's gala decks: a gold-glass arcade the length of a city block with the sun growing in the overhead panes, opening into the Orangery, a two-storey ballroom planted with real orange trees, and the auction salon where Lot Zero will be sold at G+8.",
+        "features": [
+          "Real orange trees, real string quartets and more security cameras than the Reliquary",
+          "The Lantern Bar, where the Kessane delegation drinks at a corner table and Renko Saal tips extravagantly",
+          "The auction salon, closed and guarded, with a sealed display plinth sized for something about as big as a coffin",
+          "Perpetua Ostrander, seventy-four, receiving passengers on the Orangery stair with a smile that costs her visibly"
+        ],
+        "encounters": [
+          "Working the Gala: covers, conversations and the passengers who matter (Perpetua, Saal, Captain Oyelaran)",
+          "Lucan-style social recon: who carries the Reliquary codes, and what Perpetua's family seal looks like",
+          "A drunk Kessane auditor who recognises a former Kessane marine (Ilya Castellane, if present) and wants to talk about old times, loudly"
+        ],
+        "secrets": [
+          "The Gala programme credits the Aubade's perihelion flight to 'the Vell Engine, our proprietary navigation lattice, named in memory of its designer'",
+          "The auction catalogue lists Lot Zero's reserve at 4.1 billion credits. That is far too much for a navigation computer and exactly right for a mind",
+          "Perpetua Ostrander wears the family seal, a biometric signet, on her right hand. The Reliquary's inner door needs it"
+        ]
+      },
+      {
+        "name": "The Spine Galleries and the Reliquary Face",
+        "description": "Recon below the passenger decks: the service lifts, the edge of the zero-g Spine and the outside of the Reliquary in the stern keel, which the inside team can look at but not touch before the Glare.",
+        "features": [
+          "Warden security drones on fixed patrol loops, timed and predictable before G+0",
+          "A Lamplighter sentry turret at the Spine-Reliquary junction",
+          "The Reliquary's outer door, with a duty-officer code panel and a second biometric plate",
+          "A sweet, low hum in the Spine coolant trunks that the maintenance crews call 'the ship singing'"
+        ],
+        "encounters": [
+          "Timing the Warden loops (Perception or Computers)",
+          "A maintenance crew chief who finds a crew member somewhere they shouldn't be, and who can be bribed, conned or knocked out (Heat)",
+          "Fennick Abara's off-the-books tour, during which he stops and listens to the hum, and doesn't explain why"
+        ],
+        "secrets": [
+          "The Reliquary draws 2.2 megawatts continuously and has its own coolant loop. That is cradle-grade power, enough to keep a mind running",
+          "The hum is Isaura Vell. She has been humming the same tune in the coolant trunks for nine years because it is the only output channel nobody ever thought to monitor",
+          "Fennick talks back to the hum when he thinks he is alone"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Oriel Mabb sells the job at Caloris High: steal Lot Zero from the Aubade's Reliquary during the Glare, deliver it to Sarrow Cognitive, 60,000 credits each. The crew meets its companions and kits out. Kessane, which knows Sarrow has hired someone, tries to find out who with an ambush at Berth 41 that teaches the table early how gunfire behaves next to an airlock. The crew splits. The inside team boards the Aubade under cover at T-30, and the Pale Moth follows at a distance to wait for the shadow. Over thirty hours aboard, the inside team maps the security, works out that the Reliquary's inner door needs Perpetua Ostrander's biometric seal, and picks up the clues that Lot Zero is far more than a computer: the reserve price, the power draw, the Vell Engine's namesake and the hum in the Spine. The scenario ends at G+0. The Parasol locks, comms die, and the crew has eleven hours.",
+  "hook": "\"The Aubade leaves in thirty hours,\" Oriel Mabb says, \"and you'll want twenty-nine of them.\" She sets three things on the table: a deck plan of the liner, half of it marked 'unconfirmed'; a schedule printed on real paper, because paper does not leak; and a credit chit for 30,000 credits each, the first half, payable the moment you are aboard. \"The Moth takes the heavy kit and the outside team into the shadow at G+0. Some of you go aboard as passengers or staff before that. You have until the Parasol locks to learn how to open that vault. After that it's eleven hours and the sun.\" Behind her, two men in Kessane grey have been nursing the same drink for forty minutes.",
+  "acts": [
+    {
+      "title": "Act 1: The Crew and the Kit (T-36 to T-30)",
+      "description": "Caloris High. Assemble the crew, meet the companions, buy and fit the kit, and find out that Kessane is already looking for you. This act ends when the inside team walks onto the Aubade.",
+      "objectives": [
+        "Accept Mabb's job and agree the split between inside team and outside team",
+        "Meet Tuck Halloran, Ledger and (by coded message) Fennick Abara",
+        "Buy or build what the plan needs: suits rated for the shadow, sealant foam, frangible ammunition, a Reliquary-grade intrusion rig",
+        "Survive or avoid Kessane's ambush at Berth 41",
+        "Get the inside team aboard the Aubade at T-30"
+      ],
+      "encounters": [
+        "The Kessane ambush at Berth 41: 3 Mercenaries, 1 Field Agent and 1 Security Drone, at T-32",
+        "Optional: a chandler who sells the same suits to Kessane and will sell the crew's shopping list to the other side for 2,000 cr"
+      ],
+      "scenes": [
+        {
+          "name": "The Pitch",
+          "description": "Mabb's booth in the Fin Bar. Everything the crew needs to know, and a few things it shouldn't.",
+          "readAloud": "\"Oriel Mabb lays out the job the way an accountant lays out a tax return, briskly and without adjectives. The Aubade, fourteen hundred metres, two thousand two hundred passengers, Ostrander Line. The Glare, eleven hours at six solar radii with no signals in or out. The Reliquary, a vault in the stern keel. Lot Zero, a prototype navigation lattice, she says, roughly the size of a coffin, ninety kilos, its own battery good for six hours once it's off the mains. The client is Sarrow Cognitive. 'I'll tell you that because you'll find out anyway, and I'd rather you heard it from me.' Kessane Armaments is the buyer at the Gala, on the eighth hour. 'Sarrow does not want Kessane owning it. That is all I know about why.' She pauses. 'That is nearly all I know about why.'\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 14, "success": "Mabb is telling the truth about everything she has said. She is not telling you what is in the sealed case she keeps beside her chair, and 'nearly' was a real word.", "failure": "A professional fixer, being professional." },
+            { "skill": "Computers", "dc": 15, "success": "Sarrow Cognitive's public filings show three failed attempts at a navigation intelligence that can handle sun-grazing manoeuvres. The Aubade's Vell Engine is the only one in the system that can. Sarrow doesn't want to stop Kessane owning it. Sarrow wants to own it.", "failure": "Sarrow is a mid-sized cognition firm with good lawyers." },
+            { "skill": "Streetwise", "dc": 12, "success": "The two men in Kessane grey at the bar are port security on Kessane's payroll. They have been in here every night this week and they are looking for Mabb's crew, not for Mabb.", "failure": "Two men having a drink." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Let the players negotiate. Mabb has authority to go to 75,000 cr each and will give it up to a good Persuasion check (DC 16) or for a reason she respects. She answers every question about the job honestly except two: the sealed case ('client equipment, it stays sealed') and whether Sarrow has said what Lot Zero is ('a lattice'). Do not let her lie outright. She evades, and a perceptive table should notice the evasions.",
+          "loot": ["Credit chit: 30000 cr per crew member, payable when the inside team boards (paid at the end of the act)", "A paper Gala schedule and a half-confirmed deck plan of the Aubade"]
+        },
+        {
+          "name": "Berth 41",
+          "description": "Kessane decides to find out who Mabb hired by taking one of them. An ambush in a docking bay, with an open airlock and a pressurised tender behind it.",
+          "readAloud": "\"Berth 41 is a cylinder of grey steel with the Pale Moth's docking collar at one end and the ring corridor at the other. Tuck Halloran is somewhere up in the Moth's skirts with a torch going. The lights in the corridor go out one section at a time, coming toward you, and something small and humming drifts in at head height with a red eye. Behind it, three figures in dock-worker orange who are not dock workers, and a fourth who stays back by the pressure door with a hand on the panel.\"",
+          "skillChecks": [
+            { "skill": "Perception", "dc": 13, "success": "The one at the pressure door is not covering the exit. She is about to cycle Berth 41's outer lock with the Moth's collar half-sealed. If she does, everything in the berth that isn't held down goes into space.", "failure": "Four attackers and a drone. You count the guns." },
+            { "skill": "Mechanics", "dc": 12, "success": "The collar seal can be locked manually from the panel by the Moth's hatch in one action. Do that and an outer-lock cycle is only a very loud noise.", "failure": "The collar panel blinks amber at you." }
+          ],
+          "combatEncounters": [
+            "3 Mercenaries (frangible-round SMGs, ship-safe, and one has a standard-round pistol: hull hazard), 1 Field Agent at the lock panel, 1 Security Drone",
+            "If the Field Agent cycles the lock (she needs her action on round 2), use the Hull Breach & Decompression rule: DC 15 saves, pulled 20 ft toward the collar. The collar seal holds unless it was already damaged"
+          ],
+          "roleplayNotes": "This fight teaches the campaign's gunplay. Name the weapons each attacker carries, point out the open collar and the panel, and let the players work out that a standard round is dangerous here. Kessane wants a prisoner, not a corpse, and will break off at half strength. A captured Mercenary knows only that Kessane is paying a bonus for the name of 'whoever the Sarrow woman hired', and that Kessane is 'putting a team aboard the Gala, not just buyers'. Ledger fights here and is frighteningly good at it. Tuck stays on the Moth and swears.",
+          "loot": ["3 frangible-round SMGs with 30 rounds each", "A Kessane port-security ident, good for one bluff at Caloris High", "A Field Agent's data slate: the Kessane delegation's manifest, with six 'auditors' whose service records are all military"]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Boarding (T-30)",
+      "description": "The inside team goes aboard the Aubade under cover. The outside team stays on the Moth, which leaves Caloris High an hour later on a filed flight plan to a skimmer refinery and quietly doesn't go there.",
+      "objectives": [
+        "Get each inside-team member aboard under a cover that will survive thirty hours",
+        "Get the minimum kit aboard (comms, intrusion tools, holdout weapons) without raising Heat",
+        "Note the Kessane diplomatic cases nobody scans"
+      ],
+      "encounters": [
+        "The scanner arches (contested checks under Ship-Safe Arms & Boarding)",
+        "Commander Varga-Thorn's personal word with the most suspicious-looking boarder",
+        "Verity's old credentials at Service Gate C"
+      ],
+      "scenes": [
+        {
+          "name": "The Gate",
+          "description": "Gold light, string music and three scanner arches. Run each crew member's boarding as a quick individual beat.",
+          "readAloud": "\"The boarding concourse is built to make the rich feel welcomed and to make everyone else feel watched, and it manages both. A string quartet plays in a gallery overhead. Through the far glass the Aubade's flank goes on and on, white plating and gold windows, until it curves out of sight. At each scanner arch a steward in Ostrander blue smiles at you, and behind each steward a technician with a slate does not. Standing at the end of the line in a grey uniform with no decorations at all is a tall woman with a shaved head and a cane, watching every face that goes past, and she does not look bored.\"",
+          "skillChecks": [
+            { "skill": "Deception", "dc": 14, "success": "Your cover holds. The steward finds you on the manifest, the technician waves you through, and you are aboard.", "failure": "You are aboard, but the technician has flagged you for a follow-up interview at T-20. Heat +1 if you can't talk your way out of that interview too." },
+            { "skill": "Sleight of Hand", "dc": 15, "success": "The holdout goes through in the lining, the battery pack, or in someone else's luggage.", "failure": "Confiscated, politely, with a receipt. Heat +1." },
+            { "skill": "Insight", "dc": 13, "success": "Varga-Thorn is not looking for smugglers. She is counting Kessane's auditors as they board through the private gate, and she does not like the number.", "failure": "The woman with the cane looks at you for exactly one second too long." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Varga-Thorn is not a villain. She runs a good ship's security and she knows Kessane is bringing armed men aboard her liner under diplomatic seal, which she resents. Have her stop the crew member who looks most like trouble and say, pleasantly, 'Whatever you're here for, don't do it near my passengers.' Plant her now as someone the players may later want on their side.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 3: Thirty Hours of Recon (T-30 to T-0)",
+      "description": "Aboard the Aubade on approach, with the sun growing in every window. The inside team learns the ship. Run it as a montage with three or four spotlight scenes. Each recon objective the crew completes is a concrete advantage later, which the GM should name aloud when it is earned.",
+      "objectives": [
+        "Time the Warden drone loops and the Lamplighter turret's arc in the Spine (advantage on Stealth in ph-scenario-002)",
+        "Learn that the Reliquary's inner door needs the duty-officer code AND Perpetua Ostrander's biometric signet",
+        "Plan how to get the signet (or its print) during the Glare: the Gala's opening dinner at G+1 is the obvious window",
+        "Confirm that Shadow Lock 9, on the stern hull, is inside the shadow and accessible from the Spine",
+        "Notice, if they will, that Lot Zero is not a computer"
+      ],
+      "encounters": [
+        "The drunk Kessane auditor in the Lantern Bar",
+        "A maintenance chief in the Spine galleries",
+        "Fennick's tour, and the hum"
+      ],
+      "scenes": [
+        {
+          "name": "The Lantern Bar",
+          "description": "The Kessane delegation drinks every night at the same corner table. Renko Saal tips extravagantly and watches everything.",
+          "readAloud": "\"The Lantern Bar hangs off the Orangery like a glass seed pod, and at this hour of the approach the sun has grown large enough that the bar staff have dimmed the panes to amber. Renko Saal holds court at the corner table: soft-spoken, silver-haired, in a suit worth more than the Pale Moth, buying drinks for anyone who will tell him about the ship. Around him six large, quiet people in identical good suits drink mineral water. One of them is not drinking mineral water. He has been looking at one of you since you came in.\"",
+          "skillChecks": [
+            { "skill": "Persuasion", "dc": 15, "success": "Saal enjoys a clever conversation and, two drinks in, admits Kessane is 'bringing its own people to verify the lot at the seventh hour, before money changes hands. Perpetua Ostrander has sold us degraded goods before.' Kessane will be inside the Reliquary at G+7. Write that down.", "failure": "Saal is charming, generous and tells you absolutely nothing." },
+            { "skill": "Insight", "dc": 16, "success": "Saal says 'lattice' the way some people say 'staff'. He knows exactly what Lot Zero is and is enjoying being the only person in the room who does.", "failure": "A wealthy buyer, pleased with a purchase." }
+          ],
+          "combatEncounters": ["If the drunk auditor's recognition becomes a brawl: 1 Bodyguard (drunk, disadvantage on attacks for 2 rounds). Heat +1, +2 if a passenger is hurt"],
+          "roleplayNotes": "The drunk auditor, Pell Strake, served with Ilya Castellane's old Kessane marine company, if Ilya is in the party, and otherwise just knows a soldier when he sees one. He is friendly at first, then suspicious, then loud. The other five auditors remove him with professional speed. Saal apologises to the crew personally and memorises their faces.",
+          "loot": ["The G+7 verification time, if learned"]
+        },
+        {
+          "name": "The Ship Singing",
+          "description": "Fennick Abara's off-the-books tour of the service decks and the edge of the Spine. The crew's best chance to put the clues together before G+0.",
+          "readAloud": "\"Fennick takes you down a service lift, through a laundry the size of a cathedral and out onto a catwalk at the edge of the Spine, where gravity gives up. The keel goes away from you in both directions, a long tube of coolant trunks and cable runs lit blue, and Warden drones drift along it on patient loops. And under the noise of the ship there is a sound, low and sweet and almost a tune, coming out of the coolant trunks. Fennick stops talking. He stands there with one hand on a trunk and his eyes closed. Then he catches you looking and says, much too brightly, 'The ship sings. Old ships do. Shall we?'\"",
+          "skillChecks": [
+            { "skill": "Perception", "dc": 12, "success": "The Warden loops repeat every 14 minutes, with a 90-second gap at Junction 6 when two loops cross. Advantage on Stealth in the Spine during ph-scenario-002, as long as nothing has changed the loops.", "failure": "The drones drift in no pattern you can see." },
+            { "skill": "Science", "dc": 15, "success": "That isn't resonance. Resonance doesn't change key. This is a melody played on coolant pump pressure, and the source is the stern keel, where the Reliquary is.", "failure": "Pumps and pipes. Big ships make noises." },
+            { "skill": "Insight", "dc": 14, "success": "Fennick isn't embarrassed. He's grieving, or guilty, or both, and when he put his hand on the trunk he whispered something.", "failure": "A steward who likes his ship." },
+            { "skill": "Investigation", "dc": 16, "success": "Combine any two of these: the 2.2 MW cradle-grade power draw; the 4.1 billion reserve; the Vell Engine 'named in memory of its designer'; Isaura Vell's obituary (died nine years ago in a refit accident aboard the Aubade, estate settled under the Continuity Statutes, which govern uploaded minds). Lot Zero is an uploaded person, and she is flying this ship.", "failure": "Lot of money for a computer. Rich people." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the scenario's fair-play moment. A careful table can work out what Lot Zero is before G+0. Reward them if they do, but nothing in ph-scenario-002 changes if they don't. If confronted, Fennick denies it once, badly, and then begs the crew to keep going: 'If you know, then you know why someone has to get her out.' He has never told anyone. See his dmNotes.",
+          "loot": ["Warden loop timings (if learned)", "Isaura Vell's public obituary and the Continuity Statute filing (if researched)"]
+        },
+        {
+          "name": "G+0: The Parasol Locks",
+          "description": "The end of the scenario, played as a set piece for the whole ship.",
+          "readAloud": "\"It happens during the Gala's welcome speech. Perpetua Ostrander is halfway through a sentence about her grandfather when the whole ship shivers, once, from bow to stern. In every sunward window the sun, which has filled a third of the sky for an hour, goes white, then gold, and then the shutters slide down one after another along the Promenade like eyelids closing, and the light inside the ship turns amber. A chime. A calm voice: 'Ladies and gentlemen, the Aubade has entered the Glare. Please enjoy the next eleven hours.' Your earpiece goes to static. Somewhere behind you, at the stern, a forty-metre tender is sliding into the shadow of a fourteen-hundred-metre ship. G plus zero. The clock is running.\"",
+          "skillChecks": [],
+          "combatEncounters": [],
+          "roleplayNotes": "Stop the session here if you can. Announce the clock: G+0, eleven hours, auction at G+8, Kessane in the Reliquary at G+7 if they learned it, the window at G+10 to G+11.",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    { "name": "Oriel Mabb", "role": "Fixer / Companion", "description": "Sarrow's fixer. Small, neat, polite and honest about everything except the sealed case. See her NPC file." },
+    { "name": "Tobias 'Tuck' Halloran", "role": "Pilot of the Pale Moth / Companion", "description": "Spacer, sixty, superb in a cockpit and terrified of the shadow, which he does not admit. See his NPC file." },
+    { "name": "Ledger", "role": "Muscle / Companion", "description": "A Synthetic ex-Kessane security unit, now Mabb's bodyguard. Precise, literal, kind to animals and children. See his NPC file." },
+    { "name": "Fennick Abara", "role": "Inside Man / Companion", "description": "Chief steward of the Orangery deck. He arranges two staff covers and the tour. He leaked the sale to Sarrow. See his NPC file." },
+    { "name": "Commander Ilse Varga-Thorn", "role": "Aubade Chief of Security", "description": "Tall, shaved head, a cane from an old decompression injury. Incorruptible, dryly funny, and furious that Kessane is bringing armed men aboard under seal. She protects passengers first, the ship second and the Line a distant third.", "motivation": "Get 2,200 passengers through the Glare and home. She does not know what Lot Zero is." },
+    { "name": "Renko Saal", "role": "Kessane Armaments Acquisitions Director", "description": "Silver-haired, soft-spoken, generous and entirely without scruple. He knows Lot Zero is a mind and wants it as the navigator of a sun-diving warship class. His six 'auditors' are special forces.", "motivation": "Verify the lot at G+7, buy it at G+8, and make sure no one else ever owns another one." },
+    { "name": "Perpetua Ostrander", "role": "Chairwoman of the Ostrander Line", "description": "Seventy-four, gracious in public and exhausted in private. She is selling the thing that keeps her flagship alive to save the company that owns it, and she has told herself for nine years that Lot Zero is a lattice.", "motivation": "The sale. Without it the Line is bankrupt within a year." },
+    { "name": "Captain Benedek Oyelaran", "role": "Master of the Aubade", "description": "Courteous, proud and good at his job, and he believes the Vell Engine is a navigation computer. He has commanded the Aubade through six Glares and has never once flown one.", "motivation": "His ship and his passengers. Finding out what flies his ship will hit him hard." },
+    { "name": "Pell Strake", "role": "Kessane auditor, drunk", "description": "A big, friendly ex-marine who recognises a soldier and won't let it go.", "motivation": "One more drink and an old war story." }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "30,000 cr per crew member (Mabb's first half, paid at boarding) plus about 2,400 cr in kit and idents taken from the Berth 41 ambush",
+    "items": [
+      "Credit chit: 30000 cr (per crew member)",
+      "A half-confirmed Aubade deck plan, and the corrections the crew makes to it",
+      "Warden loop timings for the Spine (advantage on Stealth in the Spine, if learned)",
+      "The G+7 Kessane verification time (if learned)",
+      "Knowledge of the Reliquary's two-key inner door: duty-officer code plus Perpetua Ostrander's signet",
+      "3 frangible-round SMGs and a Kessane port-security ident"
+    ],
+    "story": "The crew is aboard, or in the shadow, with the clock running. They know how the vault opens and who carries the key. They know Kessane has a team aboard. They may already know that the cargo is a woman."
+  },
+  "twists": [
+    "Kessane is not just a buyer. Its six auditors are a special-forces team with plasma and powered-armour parts in unscanned cases. They plan to verify the lot at G+7, and if Perpetua tries to back out at G+8, take it anyway.",
+    "Fennick Abara leaked the sale to Sarrow. He wanted someone to come and get Isaura out, and he didn't tell anyone she was a person because he didn't believe anyone would take the job if they knew.",
+    "Verity's old Ostrander maintenance credentials still open Service Gate C, three years after the Line sold Verity at auction. Nobody closed them, because nobody thought of a Synthetic as a former employee.",
+    "Tuck Halloran's crew died on a shadow run twenty-two years ago. The accident report led to the Aubade's redesigned dive profile, and the engineer who redesigned it was Isaura Vell."
+  ],
+  "dmTips": [
+    "LET THE PLAN WORK. The players will spend real time in this scenario planning, and that is the point of a heist. When they make a good plan, tell them which parts are good and name the advantages they have earned. The trouble in this campaign is already written in (a person in the vault, Kessane early, the kill-key, the drift). You never need to invent bad luck to punish a good plan.",
+    "SPLIT THE PARTY ON PURPOSE. Inside team (two to four characters) boards at T-30. Outside team rides the Moth with Tuck and the heavy kit. If the table hates splitting, Fennick can get everyone aboard as staff, and the Moth comes in with just Tuck and Ledger. Cut between the halves often and end every cut on a decision.",
+    "STATE THE CLOCK. At the start of every scene: 'T-22.' At the end of the scenario, write G+0 on the table and leave it there.",
+    "THE BERTH 41 FIGHT IS A TUTORIAL. Before the first shot, say which weapons are ship-safe and which are hull hazards, point at the airlock, and make the decompression rule visible. Players who learn it here will make good, tense choices in the Spine.",
+    "FAIR PLAY ABOUT LOT ZERO. The clues are the reserve price, the power draw, the obituary, the hum and Fennick. A table that puts them together before G+0 has earned it. Let them, and let it change how they approach ph-scenario-003. Never confirm it outright before the vault opens. The most anyone can get is a strong suspicion and a steward in tears.",
+    "Varga-Thorn and Captain Oyelaran are both decent people. Establish that now, so that when the players need allies in ph-scenario-004 they already know who is worth talking to."
+  ]
+}

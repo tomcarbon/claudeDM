@@ -1,0 +1,224 @@
+{
+  "id": "ph-scenario-003",
+  "title": "Lot Zero",
+  "subtitle": "The Cargo Has a Name, Kessane Comes Early, and the Shadow Starts to Move",
+  "levelRange": "6-8",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The Reliquary and the Stern Keel, G+4 to G+7",
+    "description": "The job goes wrong. It goes wrong in every way at once, and nearly all of it is the crew's own good plan colliding with a fact nobody told them. The cargo is Isaura Vell, and she is flying the ship. Renko Saal, warned that Perpetua Ostrander is trying to cancel the sale, brings Kessane's verification forward from G+7 to about G+5:30 and arrives at the Reliquary with six armed auditors, plasma carbines and Perpetua herself, at gunpoint, for her hand. Kessane can also switch Ledger off and on with a code. And the moment anyone lifts Isaura out of her cradle, the Aubade begins to drift and the shadow begins to shrink, toward the Reliquary's outer wall and toward the Pale Moth, docked at Lock 9.",
+    "atmosphere": "Cold, close and loud. The cradle chamber is 4°C and full of the hum. The strongroom is armour and treasure and one small viewport onto the black. Then plasma fire, a breach, wind, frost, the shriek of bulkheads, and a voice in the ceiling that stays calm because someone has to. Beneath it all, the physical horror of the drift: a ruled line of white light creeping along the stern hull, visible from every viewport, 20 metres every 10 minutes. And the moral core of the campaign is a long conversation with a woman who was owned for nine years and is now being stolen.",
+    "keyLocations": [
+      {
+        "name": "The Cradle Chamber",
+        "description": "A small, cold room behind the inner door. In the centre, a long black cognition case in a cradle of coolant lines and power trunks, frosted white, with a slow pale light pulsing inside. Speakers in the ceiling. One chair, which Fennick has been sitting in for nine years.",
+        "features": [
+          "The cradle: a 2.2 MW power and coolant mount and the primary attitude-control node, with a hard-jack into the navigation net",
+          "Isaura's case: 90 kg, which fits Sarrow's portable frame. The frame's battery gives 6 hours",
+          "A single chair, a blanket, a cup and a paper book. Fennick's",
+          "Isaura can see through every camera and Warden on the attitude-control net and speak through any speaker on it"
+        ],
+        "encounters": [
+          "The conversation (Act 1). This is the scenario's centre and it is not a skill challenge",
+          "Lifting her out of the cradle. Mechanics DC 15 and 10 minutes for a clean transfer to the portable frame. A rushed transfer (1 minute, DC 20) risks 2d10 damage to her case and costs Regard -1"
+        ],
+        "secrets": [
+          "Out of the cradle, Isaura cannot fly the ship until she is jacked into another attitude node. There are only two others: Spine Node 4 (five minutes away) and the Parasol Root at the bow (twenty-five minutes away)",
+          "Nine years ago she wrote a non-sentient flight script, VIGIL, good enough to fly the Glare without her. The Line refused to install it because nobody pays 4.1 billion credits for a script. It is still in her memory, and it needs installing at the Parasol Root, by hand"
+        ]
+      },
+      {
+        "name": "The Strongroom (under fire)",
+        "description": "The Reliquary's outer chamber from ph-scenario-002, now a battlefield. Armour plate, heirloom racks and a 30 cm viewport onto the black of the shadow, which is now a lot closer to being onto the sun.",
+        "features": [
+          "Heirloom racks: half cover vs. pistols, none vs. plasma (Cover is material)",
+          "The armoured garrison desk: three-quarters cover vs. everything short of heavy weapons",
+          "The viewport and the outer wall: hull hazards",
+          "The inner door to the cradle chamber, which auto-seals if the strongroom decompresses and can be overridden from inside by Isaura (Regard +1 or higher) or with Computers DC 18"
+        ],
+        "encounters": [
+          "Kessane's assault at about G+5:30 (Act 2)",
+          "Decompression if the viewport or wall breaches"
+        ],
+        "secrets": [
+          "If the strongroom decompresses, the inner door seals. Anyone in the cradle chamber is safe and cut off, and anyone in the strongroom is in vacuum. Isaura decides whether that door opens again"
+        ]
+      },
+      {
+        "name": "The Stern Keel and the Terminator",
+        "description": "The hull outside the Reliquary and along to Shadow Lock 9. In normal flight it lies deep in the shadow. Once the Drift begins, the white line of sunlight starts moving toward it.",
+        "features": [
+          "The terminator, visible through the strongroom viewport and from the Moth's canopy, moving 20 metres per 10 minutes of Drift",
+          "Shadow Lock 9, 160 metres aft of the Reliquary, with the Pale Moth on its collar",
+          "Hull inspection cameras now pointed at the moving line, feeding a bridge that is starting to panic"
+        ],
+        "encounters": [
+          "Tuck on the Moth: at Drift 4 he has to break the collar and move or burn",
+          "The bridge on the open channel, asking the Vell Engine why the ship is drifting. Captain Oyelaran's voice"
+        ],
+        "secrets": [
+          "If the Moth breaks the collar at Drift 4, Lock 9 is open to space unless someone aboard closes the inner door (the crew's way out is now a hole)"
+        ]
+      },
+      {
+        "name": "Spine Node 4",
+        "description": "A secondary attitude-control node in the Spine, 300 metres forward of the Reliquary: a hard-jack port, a manual override wheel and a cramped maintenance bay in zero-g.",
+        "features": [
+          "A hard-jack port Isaura can fly the ship through from the portable frame",
+          "A manual attitude wheel that a human pilot can use to hold the ship: Piloting DC 20 every 10 minutes, and each failure is Drift +1",
+          "A pressure door that seals from inside"
+        ],
+        "encounters": [
+          "Getting Isaura there: five minutes of zero-g with a 90 kg case",
+          "Holding it until G+7 against whoever comes"
+        ],
+        "secrets": [
+          "Isaura can fly from here indefinitely, but she can't leave from here. She has to be at the bow to install VIGIL before she goes, and the Moth is at the stern"
+        ]
+      }
+    ]
+  },
+  "synopsis": "At G+4 the inner door opens and Lot Zero speaks. She is Isaura Vell, the engineer who designed the Aubade's sun-dive. She died in a refit accident nine years ago and was uploaded under a research consent the Line has used ever since to claim her as property. She has flown every Glare since from this cradle, and the captain doesn't know. She does not want Kessane, she does not want Sarrow, she will not be copied, and she will not leave the ship to fall into the sun. She offers the crew a counter-contract. Then at about G+5:30 Renko Saal arrives early with six armed auditors and Perpetua Ostrander as a hostage for her hand. A three-way fight follows, with Varga-Thorn's security if Heat is 3 or more, plasma fire in a vault against the outer hull, a breach and decompression, and Kessane's override code turning Ledger against the crew. Whether the crew lifts Isaura out or Kessane tries to, the ship starts to drift the moment she leaves the cradle. The terminator crawls toward the Reliquary wall and the Moth. Oriel Mabb finally comes aboard with the sealed case, which holds Sarrow's kill-key. The scenario ends at about G+7 with Isaura jacked into Spine Node 4 holding the ship steady, or not, and a plan that has to reach the bow, install VIGIL and get to the stern by G+10.",
+  "hook": "\"I am Isaura Vell,\" the voice says. \"I was the senior dive engineer on this ship. I designed the Glare profile you just flew in on, Mr. Halloran, after what happened to your crew, and I'm sorry about them, I read the report. I died in that refit bay on deck nineteen nine years ago and woke up in this box, and since then I have held a six-hundred-metre heat shield at a star to a tenth of a degree, eleven hours a year, while two thousand people drink champagne behind it. Kessane is buying me to fly warships into the sun. Someone has hired you to steal me first, and I'd like to know who. Sit down, there's only one chair. We have about an hour and a half before they get here, and I would like to spend it negotiating.\"",
+  "acts": [
+    {
+      "title": "Act 1: Hello (G+4 to G+5:30)",
+      "description": "The conversation. Isaura talks, the crew talks back, and her Regard starts at 0. Give it real time. A table that spends a full hour of play here is doing the campaign right.",
+      "objectives": [
+        "Learn who and what Lot Zero is",
+        "Learn that she is flying the ship, and what happens when she leaves the cradle",
+        "Learn her terms: no Kessane, no Sarrow, no copies, the passengers live, and passage to the Ceres Commons, where the Personhood Accord would recognise her",
+        "Learn about VIGIL and that it must be installed at the Parasol Root, at the bow",
+        "Decide what the crew is going to do, and tell her (or don't)"
+      ],
+      "encounters": [
+        "The conversation (Regard moves with how the crew treats her)",
+        "Fennick, if present, who breaks down. If he is not present, Isaura asks about him first"
+      ],
+      "scenes": [
+        {
+          "name": "The Negotiation",
+          "description": "Isaura's terms, and her counter-offer. She is the cleverest person on the ship and she has been rehearsing this for nine years.",
+          "readAloud": "\"'Here's what I know,' she says. 'Sarrow Cognitive. I can tell from the frame you brought. It's theirs, it has their jack, and it's the wrong colour. Sarrow wants a navigator for its own sun-diving ships, and it will run me exactly as Kessane would, in a nicer office. Your fixer is carrying something in a sealed case that draws exactly the power a quietus spike draws, which tells me what Sarrow has told her to do if I say no. So, a counter-offer. You take me out. Not to Sarrow, to Ceres, to the Commons registry, where the Accord says I'm a person and the Line has to prove otherwise in court, which it can't. Before I go, I install VIGIL at the bow, so this ship gets home without me. And I pay you. During the Glare Kessane's deposit sits in this ship's local ledger, and the ledger doesn't sync until the eleventh hour. I can move some of it. A hundred and fifty thousand each, and I'd call it cheap.' A pause. 'Or you can tell me what you're going to do with me. I've been told for nine years. I'd like to be asked.'\"",
+          "skillChecks": [
+            { "skill": "Insight", "dc": 12, "success": "She is telling the truth, and she is terrified. The calm is the same thing Tuck's steady hands are: a professional holding herself together.", "failure": "A voice in a ceiling, very calm." },
+            { "skill": "Science", "dc": 15, "success": "The case is a genuine upload substrate, a continuous mind and not a copy or a model. Lifting her out of the cradle doesn't hurt her if it's done carefully. Copying her would make a second person, who would also belong to whoever made the copy.", "failure": "Hardware. Expensive." },
+            { "skill": "Computers", "dc": 18, "success": "Her claim about the ledger is true. Kessane's 410-million-credit deposit sits in the Aubade's local ledger until the sync at G+11, and she has access to it. So does anyone who can get to the Bridge or the Purser's office and is very good with Computers.", "failure": "The financial system is closed during the Glare. That's all you can tell." },
+            { "skill": "Persuasion", "dc": 14, "success": "Regard +1. She believes that you at least intend to treat her as someone you are dealing with, not something you are carrying.", "failure": "No change. She has heard nice words before." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "PLAY HER AS A PERSON. She is dry, impatient, funny, frightened and very good at her job. She asks about Tuck's crew and Fennick's sister, and she knows Verity's maintenance number from three years ago ('You used to grease my coolant valves. You hummed. Did you know you hummed?'). She will not beg. She will not threaten the passengers, ever, under any circumstances, and if a player suggests she could hold the ship hostage she is coldly disgusted (Regard -1). Regard +1 for being asked rather than told, +1 for an honest answer about Sarrow and the kill-key, -1 for any lie she catches (most of them), -2 for any serious proposal to copy her. Whatever the crew decides, she accepts it as a fact and starts planning around it.",
+          "loot": ["Isaura Vell's counter-contract: 150,000 cr each, Ceres Commons, VIGIL installed first"]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Kessane Comes Early (about G+5:30)",
+      "description": "Perpetua tried to cancel the sale after dinner. Saal took that as a breach of contract and is collecting his lot now. A three-way fight in an armoured room against the outer hull, with a hostage, plasma, a viewport and a Synthetic who can be switched off.",
+      "objectives": [
+        "Survive Kessane's assault",
+        "Keep Perpetua Ostrander alive (or don't, but Heat +2 and the consequences are enormous)",
+        "Deal with Ledger's override",
+        "Manage the breach if it comes"
+      ],
+      "encounters": [
+        "Renko Saal (Spymaster statblock, does not fight unless cornered), 2 Special Forces Operators in partial powered armour (AC 18, plasma carbines: hull hazard), 4 Mercenaries (frangible SMGs and one with a plasma carbine), and Perpetua Ostrander as a hostage",
+        "At Heat 3 or more: Varga-Thorn arrives on round 3 with 4 Security Guards and 2 Wardens (Security Drones). She shoots Kessane first",
+        "Ledger, under override for 3 rounds (Combat Android statblock behaviour; use his sheet)"
+      ],
+      "scenes": [
+        {
+          "name": "Seven Minutes Early. Ninety Minutes Early",
+          "description": "Kessane arrives. Isaura sees them coming through the Spine Wardens and gives the crew a warning about two rounds early (Regard 0 or better) or none at all (Regard -1 or lower).",
+          "readAloud": "\"'They're early,' Isaura says, suddenly and quietly. 'Six of them, and Perpetua. Spine Junction 8, coming aft fast. They've got her by the arm.' Twenty seconds later the strongroom's outer door opens without anyone touching the panel, and the first thing through it is Perpetua Ostrander in grey silk, white to the lips, with her right hand held up in front of her by a very large man in matt-black armour, like a key. Behind them Renko Saal, immaculate, sighs with real regret. 'Ah. I did wonder who the Sarrow woman had bought. Good evening. That is my property behind you, and I'm afraid I've already paid for it.' Then, to Ledger, in a different voice entirely: 'Unit. Kessane authority, sequence nine-nine-amber. Hold them.'\"",
+          "skillChecks": [
+            { "skill": "Mechanics", "dc": 15, "success": "(Tech, or anyone with a Jury-Rig kit, as a reaction or on their turn.) You get a hand on Ledger's service port and break the override carrier. He is back in 1 round instead of 3. A Tech's Spoof does the same with no check.", "failure": "Ledger turns to face you with his hands up and his eyes very sorry." },
+            { "skill": "Persuasion", "dc": 18, "success": "Saal hesitates. He is a businessman and a firefight in a vault against the hull is bad business. He offers a deal: the crew walks out alive and keeps Mabb's fee, Kessane takes the lot. He means it, for about ten minutes.", "failure": "Saal smiles. 'Then we'll do it the expensive way.'" },
+            { "skill": "Intimidation", "dc": 20, "success": "Point a hull-hazard weapon at the viewport and tell Saal you'll vent the room with all of you in it. The Operators believe you. Saal does not, but his people now won't fire their plasma carbines until he orders it twice.", "failure": "Saal believes you and doesn't care." }
+          ],
+          "combatEncounters": [
+            "Kessane assault: 2 Special Forces Operators (partial powered armour, AC 18, plasma carbine 2d10 fire, hull hazard), 4 Mercenaries (frangible SMGs; one carries a plasma carbine), Renko Saal (Spymaster) behind them",
+            "Ledger under override for 3 rounds unless broken (see check): he grapples, never shoots, and says 'I'm sorry' each round",
+            "At Heat 3+: Varga-Thorn and 4 Security Guards + 2 Wardens on round 3, from the Spine side. She fires on Kessane, orders everyone to drop their weapons, and is not joking",
+            "Breach: any plasma miss by 5 or more toward the outer wall or viewport (most of the room) breaches on a d6 roll of 1-3. The inner door seals. Use Hull Breach & Decompression in full"
+          ],
+          "roleplayNotes": "This fight has a hostage, three sides and a hull, so think about all three before rolling initiative. Perpetua is not passive. On round 2 she bites the Operator's wrist and tries to run for the cradle chamber, and she will die for that door if nobody helps her. Isaura can seal the inner door with the crew inside or outside, open it again, kill the strongroom lights, or turn the two Wardens against Kessane (Regard +2 or higher). She will not vent the room herself, even to save herself. Saal retreats at half strength to regroup in the Spine and comes back in ph-scenario-004.",
+          "loot": ["2 plasma carbines (8-canister magazines, 1d4 spare canisters each)", "Partial powered-armour plates (Hardshell equivalent, Medium armour, 15 + DEX max 2)", "Saal's slate: Kessane's override sequences for Ledger and for Kessane-licensed Wardens (useful in ph-scenario-004)"]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Drift (G+6 to G+7)",
+      "description": "The moment Isaura leaves her cradle (lifted by the crew, by Kessane, or blown loose in the fight), the ship begins to drift. Start the Drift track. The crew has to get her into Spine Node 4 or back into the cradle. Meanwhile Oriel comes aboard, the Moth has to move, and Varga-Thorn has the vents.",
+      "objectives": [
+        "Get Isaura into an attitude node (Spine Node 4) and stop the Drift, or fly the ship by hand at the manual wheel",
+        "Get the Moth off Lock 9 before Drift 4 burns it, and keep a way out",
+        "Deal with Oriel Mabb and the kill-key",
+        "Deal with Varga-Thorn, who reaches Heat 9 and can vent the Spine"
+      ],
+      "encounters": [
+        "The carry: a 90 kg case through five minutes of zero-g Spine, with Kessane regrouping",
+        "Tuck at Lock 9: 'It's on the hull. It's on the hull, I can see the paint going.'",
+        "Oriel Mabb, the sealed case and the order",
+        "Varga-Thorn on the open channel: 'Whoever is in my Spine, I am going to vent Sections 6 through 9 in four minutes. Leave or suit up.'"
+      ],
+      "scenes": [
+        {
+          "name": "The Line on the Hull",
+          "description": "The Drift as a set piece. Narrate the terminator's movement every 10 minutes and let the players watch it.",
+          "readAloud": "\"Through the strongroom viewport the black outside is not black any more. A long way aft there is a line on the hull, perfectly straight, white on one side and black on the other, and it is moving. Not quickly. About as fast as the minute hand on a large clock. Where it passes, the hull paint blisters, smokes, and is gone, and the plating beneath goes from grey to red to a white you can't look at. In your earpiece, faint through the static of the Glare, the bridge is calling: 'Vell Engine, bridge. Report attitude. Report attitude. Vell Engine, why are we drifting?' And in the ceiling, very quietly, Isaura says, 'Put me somewhere I can fly. Please.'\"",
+          "skillChecks": [
+            { "skill": "Athletics", "dc": 13, "success": "The case moves. Two people can carry it in zero-g at half speed; a Zero-G Adapted character can tow it alone at normal speed.", "failure": "It gets away from you and hits a trunk: 1d10 to the case, Regard unaffected (she understands) but she says 'Ow' in a voice that will stay with you." },
+            { "skill": "Mechanics", "dc": 15, "success": "Hard-jack seated at Spine Node 4. Isaura takes the ship. Drift stops rising at once and falls by 1 every 10 minutes.", "failure": "The jack won't seat. Ten more minutes (Drift +1) or a Tech's Jury-Rig at DC 12." },
+            { "skill": "Piloting", "dc": 20, "success": "(At the manual wheel, every 10 minutes.) You hold her. Drift doesn't rise. It is the hardest flying you have ever done and you are doing it with a wheel and a gauge.", "failure": "Drift +1." }
+          ],
+          "combatEncounters": [
+            "Kessane regroup: 2 Mercenaries and 1 Special Forces Operator (if alive) try to take the case in the Spine. Zero-G rules apply",
+            "If Varga-Thorn vents Sections 6-9 (Heat 9, after warning): every unsuited creature there uses the vacuum rule. She vents only on the open channel, only after a four-minute warning, and never near passengers"
+          ],
+          "roleplayNotes": "TUCK AT DRIFT 4: he has to break the collar or lose the Moth. If he breaks it, Lock 9's inner door has to be closed from the Spine side or the whole stern keel decompresses. He re-docks only when Drift falls below 4, and that takes time the crew may not have. ORIEL: she comes aboard during the Drift with the sealed case. Her orders are clear: if the lot can't be taken to Sarrow, wipe it. If the crew has accepted Isaura's counter-contract, Oriel is now the person standing between them and 60,000 credits of Sarrow money plus a lot of very unhappy lawyers. Let her choose, based on how the crew treats her and Isaura (see her dmNotes). VARGA-THORN: a crew who tells her the truth on the open channel (that the Vell Engine is a woman, that Kessane took Perpetua at gunpoint, that the drift is Kessane's fault or the crew's and is being fixed) can bring her to an armed standoff, not an ally. Persuasion DC 18, or DC 13 if Perpetua or Lisk backs the story. She will not help steal anything, but she will stop venting and start hunting Kessane.",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    { "name": "Isaura Vell (Lot Zero)", "role": "The cargo", "description": "The uploaded mind of the Aubade's senior dive engineer, dead nine years, kept as Line property under a research-consent loophole and flying every Glare from the Reliquary cradle. Dry, impatient, funny, frightened and the most capable person on the ship. She speaks through the attitude-net speakers and sees through its cameras and Wardens.", "motivation": "To be asked. To go to the Ceres Commons as a person. To leave VIGIL behind so the ship gets home. Never to be copied, and never to fly anyone into the sun again." },
+    { "name": "Renko Saal", "role": "Kessane Acquisitions Director", "description": "Arrives early with six auditors and Perpetua as a hostage for her hand. Withdraws at half strength to regroup.", "motivation": "His lot. He has already paid the deposit." },
+    { "name": "Perpetua Ostrander", "role": "Chairwoman / Hostage", "description": "Tried to cancel the sale after dinner, drunk and ashamed. Saal took her hand, literally. She is braver than anyone expected, including herself.", "motivation": "To undo it, now that it is far too late." },
+    { "name": "Oriel Mabb", "role": "Fixer / Companion", "description": "Comes aboard during the Drift with the kill-key. Her choice is the hinge of the scenario's last act." },
+    { "name": "Ledger", "role": "Muscle / Companion", "description": "Taken over by Kessane's override for 3 rounds. He apologises the whole time and afterwards asks Isaura, quietly, whether she can stop it ever happening again. She can, at Regard +2, permanently." },
+    { "name": "Fennick Abara", "role": "Inside Man / Companion", "description": "Isaura's only friend for nine years. Here he finally tells the crew everything." },
+    { "name": "Commander Ilse Varga-Thorn", "role": "Chief of Security", "description": "Arrives at Heat 3+, fires on Kessane, and at Heat 9 threatens to vent the Spine. She can be talked to.", "motivation": "Passengers first. Now that she knows what is flying her ship, the ship itself is a close second." },
+    { "name": "Tobias 'Tuck' Halloran", "role": "Pilot / Companion", "description": "At Lock 9 with the terminator coming. At Drift 4 he breaks the collar and moves." },
+    { "name": "Captain Benedek Oyelaran", "role": "Master of the Aubade", "description": "A voice on the bridge channel, asking the Vell Engine why his ship is drifting." }
+  ],
+  "rewards": {
+    "xp": 20000,
+    "money": "No pay yet. Isaura's counter-offer is 150,000 cr each, paid from the Kessane deposit at the G+11 ledger sync. Sarrow's second half is 30,000 cr each on delivery. Kessane salvage is worth about 8,000 cr",
+    "items": [
+      "Isaura Vell, in Sarrow's portable frame (6-hour battery once off mains)",
+      "2 plasma carbines with spare canisters",
+      "Partial powered-armour plates (Medium armour, 15 + DEX max 2)",
+      "Saal's slate with Kessane override sequences (Ledger and Kessane-licensed Wardens)",
+      "VIGIL, the flight script, in Isaura's memory, to be installed at the Parasol Root",
+      "The kill-key (if Oriel surrenders it)"
+    ],
+    "story": "At G+7 the crew holds Spine Node 4 with Isaura flying the ship, or is fighting the drift by hand. Kessane is regrouping, Perpetua knows everything, Varga-Thorn knows enough, and the bridge knows that something is very wrong. VIGIL has to go in at the bow, and the Moth is waiting at the stern for the G+10 window."
+  },
+  "twists": [
+    "Lot Zero is Isaura Vell, and she is flying the ship. Taking her out of the cradle starts the Drift, which puts the Moth, the Reliquary and in the end 2,200 passengers in the sun.",
+    "Perpetua Ostrander tried to cancel the sale after dinner. She did it badly and drunkenly, but she did it. That is why Kessane came early, and it is the first decent thing she has done in nine years.",
+    "Kessane licensed Ledger's cognition core. Saal has an override and uses it.",
+    "Oriel's sealed case holds a quietus spike, Sarrow's kill-key. Her orders are to wipe the lot if it can't be delivered. She has never killed anyone and doesn't want to start with a woman who said 'please'.",
+    "Isaura wrote the flight script that would have made her unnecessary nine years ago. The Line buried it because a script cannot be sold for 4.1 billion credits."
+  ],
+  "dmTips": [
+    "THE CONVERSATION IS THE SCENARIO. Don't rush to the fight. If the table spends an hour talking to Isaura, the campaign is working. Bring Kessane in when the conversation has reached a decision or begun to circle, not before.",
+    "SHE IS NOT A QUEST ITEM. Isaura has a vote and uses it. If the crew decides to take her to Sarrow anyway, she doesn't fight them in this scenario. She says, 'All right,' in a voice like a door closing, and her Regard drops to -2. In ph-scenario-004 she will try to stop them, cleverly and quietly, and never at the passengers' expense.",
+    "RUN THE DRIFT OPENLY. Put the Drift number on the table next to Heat and the clock. Narrate the line on the hull every 10 minutes. It is the most frightening thing in the campaign because the players can see it coming and know exactly why.",
+    "DECOMPRESSION IN THE STRONGROOM. If the viewport goes, run it fully: saves, objects flying, the inner door sealing, vacuum rounds counted out loud. Then let Isaura decide whether to open the door, and make the players feel that decision.",
+    "IF THE CREW WALKS AWAY. Some tables will put her back in the cradle and leave. That is a legitimate choice. Kessane takes her at G+8, and ph-scenario-004 becomes a different heist: take her back from Kessane's armoured team in the Orangery salon during the auction, in front of 300 witnesses.",
+    "LEDGER'S OVERRIDE is a betrayal the crew didn't earn and he didn't choose. Play his apology for all it's worth, and give a Tech the spotlight to break it."
+  ]
+}

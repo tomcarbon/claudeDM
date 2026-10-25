@@ -1,0 +1,358 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Twelve Western backgrounds, all available in every era. Skills come only from the 18 Western skills. Money: 'equipment' ends with the money line in the exact sheet format ('Wallet containing $20'); 'money.dollars' repeats it for generators. Amounts are 1870s dollars ($5-$60). Tool proficiencies name gear.json items where one exists; 'Wagons and teams' is driving a wagon or a coach."
+  },
+  "backgrounds": [
+    {
+      "name": "Cattle Drover",
+      "skill_proficiencies": [
+        "Animal Handling",
+        "Riding"
+      ],
+      "tool_proficiencies": [
+        "Lariat",
+        "Saddle and tack"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Lariat",
+        "Bedroll",
+        "Slicker",
+        "Tin cup and plate",
+        "A letter of reference from a trail boss",
+        "Wallet containing $15"
+      ],
+      "money": {
+        "dollars": "Wallet containing $15"
+      },
+      "feature": "The Trail Outfit",
+      "feature_description": "You have pushed cattle up the long trails to the railheads, eating dust at the drag and riding night herd in the rain. Any trail crew, ranch bunkhouse or cow-town saloon will take you in for a night, and a trail boss short of hands will hire you on sight at $30 a month and found. You know the trails, the river crossings and the cattle towns along them, and who in those towns cheats drovers.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Railroad Man",
+      "skill_proficiencies": [
+        "Mechanics",
+        "Perception"
+      ],
+      "tool_proficiencies": [
+        "Tool roll",
+        "Wagons and teams"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Tool roll",
+        "Railroad watch",
+        "Work clothes and cap",
+        "A pass for the line you worked on (it may have expired)",
+        "Wallet containing $20"
+      ],
+      "money": {
+        "dollars": "Wallet containing $20"
+      },
+      "feature": "Riding the Rails",
+      "feature_description": "You laid track, fired engines, braked freight or worked a depot. You know how trains run: timetables, sidings, water stops, where an express car is coupled and how fast a train is going by the sound of it. Railroad crews, telegraphers and depot agents talk to you as one of their own, and on any line you once worked you can ride a freight for nothing if the crew likes you. The company that employed you also remembers you, for good or ill.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Prospector",
+      "skill_proficiencies": [
+        "Nature",
+        "Survival"
+      ],
+      "tool_proficiencies": [
+        "Pick and pan"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Pick and pan",
+        "Pack mule",
+        "A claim paper for a claim that may or may not pay",
+        "A small poke of gold dust",
+        "Bedroll",
+        "Wallet containing $10"
+      ],
+      "money": {
+        "dollars": "Wallet containing $10"
+      },
+      "feature": "Color in the Creek",
+      "feature_description": "You have spent years in the hills looking for silver or gold, and you know rock, water and claim law. You can tell good ore from bad without a check, find a camp's assay office, claims clerk and claim jumpers within an hour of arriving, and a mining camp's men will share a fire and a rumor with you. You also know which strikes are salted and which promoters are lying.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Veteran",
+      "skill_proficiencies": [
+        "Athletics",
+        "Survival"
+      ],
+      "tool_proficiencies": [
+        "Wagons and teams"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Discharge papers",
+        "An old campaign medal or a button from a uniform",
+        "Army blanket",
+        "Canteen",
+        "Mess kit",
+        "Wallet containing $15"
+      ],
+      "money": {
+        "dollars": "Wallet containing $15"
+      },
+      "feature": "Old Regiment",
+      "feature_description": "Soldiers look after soldiers. On any army post you can get a meal, news of the territory and a quiet word with the sergeants, and in any town you can find someone who served, on your side or the other, and get a straight answer from them about a man who wore a uniform. You read rank, drill and military bearing at a glance, and you know how the army moves, supplies and fights. What you saw in the service, and which side you saw it from, is yours to decide; nobody's cause is glorified.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Homesteader",
+      "skill_proficiencies": [
+        "Animal Handling",
+        "Nature"
+      ],
+      "tool_proficiencies": [
+        "Wagons and teams",
+        "Tool roll"
+      ],
+      "languages": 0,
+      "equipment": [
+        "A quarter-section claim paper from the land office",
+        "Shovel and axe",
+        "Seed corn (a sack)",
+        "Work clothes",
+        "A family Bible with names written in the front",
+        "Wallet containing $8"
+      ],
+      "money": {
+        "dollars": "Wallet containing $8"
+      },
+      "feature": "Proving Up",
+      "feature_description": "You filed on a quarter section and tried to prove it up: five years of sod, drought, grasshoppers and neighbors who wanted your water. Farm and ranch families anywhere will give you a meal and a place in the barn, help you with a wagon or a well, and tell you who has been threatening whom. You know the land office, claim law and water rights better than most lawyers, and you know what it means when a cattle company fences a creek.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Saloon Keeper",
+      "skill_proficiencies": [
+        "Insight",
+        "Persuasion"
+      ],
+      "tool_proficiencies": [
+        "Playing cards"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Bar apron",
+        "A good suit for Sundays",
+        "A ledger of who owes the house",
+        "A bottle of the good whiskey",
+        "Key to a back room",
+        "Wallet containing $45"
+      ],
+      "money": {
+        "dollars": "Wallet containing $45"
+      },
+      "feature": "Behind the Bar",
+      "feature_description": "You have run or tended a saloon, and you know that the bar is where a town tells the truth. In any saloon you can get the gossip of the last week from the bartender in one drink, and you know who is drinking on credit, who is winning at faro, who has been asking about whom and who is about to start a fight. Saloon keepers, faro dealers and dance-hall musicians anywhere treat you as part of the trade.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Stage Driver",
+      "skill_proficiencies": [
+        "Animal Handling",
+        "Perception"
+      ],
+      "tool_proficiencies": [
+        "Wagons and teams"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Driving gloves",
+        "Long coach whip",
+        "A stage line's schedule",
+        "Slicker",
+        "Hat with a stampede string",
+        "Wallet containing $20"
+      ],
+      "money": {
+        "dollars": "Wallet containing $20"
+      },
+      "feature": "The Mail Road",
+      "feature_description": "You have driven a six-horse coach on a mail road, or ridden the box beside the driver. You know every swing station, every bad grade and every place on your old routes where road agents wait. Station keepers, hostlers and other drivers will feed you, change your horses and tell you who rode through. You can drive any team of horses or mules without a check in ordinary conditions.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Card Sharp",
+      "skill_proficiencies": [
+        "Gambling",
+        "Sleight of Hand"
+      ],
+      "tool_proficiencies": [
+        "Playing cards",
+        "Marked deck"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Playing cards",
+        "Marked deck",
+        "A good suit, frayed at the cuffs",
+        "Sleeve holdout (a spring clip that holds one card)",
+        "A pocket watch you won",
+        "Wallet containing $35"
+      ],
+      "money": {
+        "dollars": "Wallet containing $35"
+      },
+      "feature": "Know the Games",
+      "feature_description": "You have made your living at cards, honest or not, from riverboats to mining camps. In any town you can find the best game, the crooked one and the man who runs both within an hour, and a gambler who sees you play knows you are one of the trade. You know the house rules and the house cheats of poker, faro, monte and chuck-a-luck (frontier.json gambling), and you know when to leave town.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Bounty Hunter",
+      "skill_proficiencies": [
+        "Intimidation",
+        "Survival"
+      ],
+      "tool_proficiencies": [
+        "Manacles"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Manacles",
+        "A sheaf of wanted posters",
+        "Field glasses",
+        "Rope (50 ft)",
+        "A bill of sale for the last man you brought in, signed by a sheriff",
+        "Wallet containing $25"
+      ],
+      "money": {
+        "dollars": "Wallet containing $25"
+      },
+      "feature": "Paper on Him",
+      "feature_description": "You have hunted men for money. Sheriffs, marshals and express agents know you as someone who brings them in, and will tell you who is wanted, for what and for how much, and where they were last seen. You know how rewards are paid and who pays them honestly (frontier.json wanted_and_bounties). Outlaws, and people who are related to outlaws, know your face too.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Schoolteacher",
+      "skill_proficiencies": [
+        "Investigation",
+        "Performance"
+      ],
+      "tool_proficiencies": [],
+      "languages": 1,
+      "equipment": [
+        "Primer and slate",
+        "A few good books",
+        "Spectacles",
+        "A good dress or suit",
+        "A letter from the school board",
+        "Wallet containing $12"
+      ],
+      "money": {
+        "dollars": "Wallet containing $12"
+      },
+      "feature": "The Schoolhouse",
+      "feature_description": "You taught in a one-room schoolhouse, where you were paid in cash, firewood and dinner at a different family's table each week. The families of a community where you have taught trust you and will tell you what they wouldn't tell the sheriff, and children, who see everything, will tell you what their parents won't. You can read and write any document in English or one other language, and in any town you can find someone who wants their letters read or written.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Blacksmith",
+      "skill_proficiencies": [
+        "Athletics",
+        "Animal Handling"
+      ],
+      "tool_proficiencies": [
+        "Tool roll",
+        "Gunsmith's tools"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Smith's hammer and tongs",
+        "Leather apron",
+        "Horseshoes and nails (a set)",
+        "Work clothes",
+        "Wallet containing $20"
+      ],
+      "money": {
+        "dollars": "Wallet containing $20"
+      },
+      "feature": "Every Horse Comes Through",
+      "feature_description": "You have kept a forge and shod horses, mended wagon tires and fixed guns. Every horse in a town comes through a smithy, and you can tell a horse's owner, how far it has come and how hard it was ridden from its shoes, and read a horseshoe track as easily as a signature. You can shoe a horse, repair a wagon or forge a simple tool in a day anywhere there is a forge, and the town smith will lend you his.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    },
+    {
+      "name": "Range Detective",
+      "skill_proficiencies": [
+        "Investigation",
+        "Riding"
+      ],
+      "tool_proficiencies": [
+        "Manacles"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Notebook and pencil",
+        "A brand book of the registered brands in the territory",
+        "Field glasses",
+        "Manacles",
+        "A letter of commission from a stock growers' association",
+        "Wallet containing $30"
+      ],
+      "money": {
+        "dollars": "Wallet containing $30"
+      },
+      "feature": "Brand Book",
+      "feature_description": "You have worked for a stock growers' association or a detective agency hunting rustlers and horse thieves. You can read any registered brand in your territory and know whose it is, spot an altered brand without a check if you have seen the original, and get a hearing from any ranch foreman or stock inspector. Small ranchers and homesteaders may see you as the cattle companies' man; the GM decides who.",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ]
+    }
+  ]
+}

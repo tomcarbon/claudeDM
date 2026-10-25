@@ -1,0 +1,488 @@
+{
+  "id": "pa-scenario-001",
+  "title": "Paid in Advance",
+  "subtitle": "Monday Night and Tuesday: Five Hundred Dollars, a Clipping, a Pawnshop on Water Street",
+  "levelRange": "3-4",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Port Calloway, Monday 27 (night) and Tuesday 28 October 1952",
+    "description": "The first day of the clock. The detectives work out of Embry Confidential Investigations on the fourth floor of the Kittredge Building on Marrow Street, downtown. Tuesday is a day of paper: the Ledger's newspaper morgue, the third floor of the Hall of Justice, the county archive in the basement of the County-City Building, and Miriam Holloway's campaign office over a ship chandler's on Front Street. Then, after dark, the Tin Mile: the burned Halvorsen Cannery on Pier 9, Elmer Dahl's pawnshop on Water Street, and the viaduct construction yard where, at two in the morning, somebody is going to steal a case of dynamite. The party does not know yet what the threat is about. By the end of the day they should know that it is about a fire six years ago and a man executed five years ago this Friday, that their client is lying to them, and that the person who sent the threat is a young woman on the Ledger switchboard who has just bought a gun.",
+    "atmosphere": "Rain on the windows and a radiator that knocks. Newspaper ink, carbon paper, the dust of the morgue's brown envelopes. The Hall of Justice smells of floor polish and cigars, and its elevators are run by old men who hear everything. The Tin Mile at night is fog, fish-scale on the cobbles, a jukebox through a tavern door, the pile drivers silent and the viaduct's concrete legs going up into the dark like something out of a dream. Keep Tuesday talkative and tense rather than violent: one fight at most, at the very end, in the construction yard, and the players should be able to avoid it.",
+    "keyLocations": [
+      {
+        "name": "Embry Confidential Investigations, Kittredge Building",
+        "description": "Two rooms on the fourth floor of an eight-storey 1910 office block on Marrow Street: an outer office with a typewriter, a water cooler and a bench for clients, an inner office with a desk, a safe, a blackboard and a window onto the Rexall sign. The elevator stops at six and is unreliable below. The agency is behind on its rent.",
+        "features": [
+          "The blackboard: the GM should encourage the players to use it as the case board, and can have Walt Embry or Pip Ashdown summarize it aloud when the table is stuck",
+          "A Royal typewriter in the outer office whose capital R prints true, for comparison with the threat",
+          "The window: the Hudson in the street below, two men in hats, engine running",
+          "The payphone in the lobby, a nickel a call, and the building switchboard, which listens"
+        ],
+        "encounters": [
+          "District Attorney Wendell Sloane, Monday 9:45 p.m., the client",
+          "Lt. Ray Dunleavy, ten minutes after Sloane leaves, coming up the stairs to 'introduce himself', friendly as a wet dog and as welcome"
+        ],
+        "secrets": [
+          "CLUE B1 (core, automatic for anyone who examines the money): the five $100 bills are new, sequential, and still held by a torn Pacific Mercantile Bank paper band with a rubber-stamped account name on it: NORTHGATE LAND CO. Research or Society DC 12 (or asking Pip Ashdown or Ambrose Pell) identifies Northgate as a Vantreight holding company buying land on the viaduct route. The DA paid them with someone else's money.",
+          "CLUE A1 (core, automatic): the threat is a clipping of a newspaper story, column and a half, headed KESSLING DIES PROTESTING INNOCENCE, with FRIDAY typed in capitals beneath it on a strip of the same newsprint. Forensics or Investigation DC 12 identifies the paper and typeface as the Port Calloway Ledger, early 1947 or late 1947 by the advertisements on the back (a Studebaker, a Bon-Ton coat sale). The envelope is postmarked Terminal Annex, Saturday 25 October, 6 p.m.",
+          "CLUE C1 (detail, needs a comparison later): the capital R in FRIDAY prints a hair high. A Forensics or Investigation check is not needed to see it once pointed out; the GM should describe it if anyone looks closely. The Ledger switchboard's Underwood does exactly this.",
+          "Sloane says the envelope came to his office. It did not: it came to his house on Alder Terrace, where his wife opened it first. He does not want them talking to his wife."
+        ]
+      },
+      {
+        "name": "The Ledger Building and its Morgue",
+        "description": "The morning Ledger occupies a sooty six-storey building on Commerce Street, facing the Evening Courier across the road. Ground floor: the counter, the classified desk and the telephone switchboard, where Nora Kessling works the day shift. Fourth floor: the city room, all smoke and shirtsleeves. Fifth floor: the morgue, the paper's library of clippings in brown envelopes, kept by Mrs. Ida Brenner, who has been there since 1919.",
+        "features": [
+          "The morgue's brown envelopes, filed by subject and name, each with a checkout card in a pocket on the front",
+          "Bound volumes of every issue since 1889, on tall shelves with a rolling ladder",
+          "The switchboard: four operators, a supervisor, and an old Underwood on a side table for message slips",
+          "Hollis Gage, the publisher, in a corner office with a view of the Courier he loathes"
+        ],
+        "encounters": [
+          "Mrs. Ida Brenner, morgue librarian: helpful to anyone who is polite and asks properly, impossible to anyone who is not",
+          "Nora Kessling at the switchboard, who notices strangers asking for the Halvorsen envelope and listens to the party's outgoing calls",
+          "Iris Nakamura, Ledger staff photographer, who wants to know why private detectives are reading about the Halvorsen fire"
+        ],
+        "secrets": [
+          "CLUE A2 (core, automatic with Research in the morgue): the Kessling envelope and the bound volume give the story. Daniel Kessling, 38, organizer of Local 9, convicted in May 1947 of setting the Halvorsen Cannery fire of 9 March 1946, in which eleven people died. Prosecuted by Assistant District Attorney Wendell Sloane, in his first big trial. Executed at the state penitentiary on Friday 31 October 1947. This Friday is the fifth anniversary to the day.",
+          "CLUE C2 (core, automatic if the party looks at the checkout card): the Halvorsen envelope has been signed out five times since July by N. Kessling, staff, and once in September by W. Sloane's office (an investigator's initials).",
+          "CLUE C1 confirmation: the switchboard's side-table Underwood has a capital R that prints high. Anyone who types on it, or compares a message slip, sees it. No roll.",
+          "Iris Nakamura photographed the Kessling execution vigil outside the penitentiary in 1947 for the Ledger, and in one of her prints a much younger Nora Kessling is standing beside a woman in a good coat who is not from the Tin Mile: Constance Muir, now Mrs. Sloane. Iris has the negative (pays off in pa-scenario-003)."
+        ]
+      },
+      {
+        "name": "The Hall of Justice, Third Floor, and the County Archive",
+        "description": "The DA's office occupies the third floor of the granite Hall of Justice on Commerce Street, with police headquarters through a connecting corridor. Sloane's secretary, Agnes Ruud, guards his door. The county archive, where closed case files go, is in the basement of the County-City Building next door, run by a bored clerk named Royce Pettibone.",
+        "features": [
+          "Campaign posters in the DA's waiting room: SLOANE KEEPS CALLOWAY SAFE",
+          "The grand jury room down the hall, guarded, where the waterfront rackets report is being finished for Friday",
+          "The archive: cage, counter, sign-out ledger, a clerk who will look up anything for two dollars",
+          "Ambrose Pell's shoeshine stand on the Hall of Justice steps, where everything said on the steps is heard"
+        ],
+        "encounters": [
+          "Agnes Ruud, 58, Sloane's secretary for four years, frightened and loyal and not stupid",
+          "Detective Sergeant Luis Becerra, Homicide, who stops the party in the corridor to ask why Dunleavy has been told to watch them",
+          "Royce Pettibone, archive clerk"
+        ],
+        "secrets": [
+          "CLUE A3 (core, automatic if the party asks at the archive and pays or uses Research): Sloane signed out the Halvorsen case file in person on Saturday 25 October at 9:30 in the morning. He has not returned it. The archive card lists the file's contents, including 'Exhibit list, 14 items' and, crossed through in 1947, 'Statement, O. Lindqvist, watchman, 12/3/46 (withdrawn)'.",
+          "CLUE B2 (core, given if Agnes is approached kindly or sees the party is trying to keep Sloane alive; Persuasion or Insight DC 13 for the full version): on Monday morning Sloane told Agnes to draw up a list of everyone who had asked the office for the Halvorsen file, or for the address of a man named Oskar Lindqvist, since 1946. He told her that if the detectives he was hiring brought in any papers she was to put them in his safe unread. The list has two names: an investigator of Miriam Holloway's in 1948, and, in September, a young woman who telephoned and gave no name.",
+          "Agnes believes Sloane is a hard man but a fair one. She has started to doubt it this week and is close to tears about it."
+        ]
+      },
+      {
+        "name": "Miriam Holloway's Campaign Office",
+        "description": "Two rooms over Lund Brothers Ship Chandlers on Front Street, at the edge of the Tin Mile, full of volunteers, coffee urns, leaflets and a borrowed mimeograph. Miriam Holloway, 46, former public defender and Sloane's challenger, works at a kitchen table in the back.",
+        "features": [
+          "HOLLOWAY FOR DISTRICT ATTORNEY: A CLEAN SWEEP posters, a broom painted on each",
+          "A window with a view of the viaduct legs marching up Front Street",
+          "Volunteers from Local 9, the Ledger and the Jackson Street merchants' association, who all know the neighbourhood"
+        ],
+        "encounters": [
+          "Miriam Holloway, who will not help Sloane's hired men and will help anyone who tells her the truth about who hired them"
+        ],
+        "secrets": [
+          "CLUE A4 (core, automatic once the party is honest with her): Miriam was Daniel Kessling's public defender in 1947. 'Wendell won a case he should never have been able to win. The night watchman, Lindqvist, was off his post the night of the fire, and nobody could find him for the trial. He'd gone to the DA's office three days after the fire. I know because the elevator man told me. The office said he never came. And Frank Lusk, who hated Danny, suddenly remembered Danny talking about burning the place.' She has always believed Kessling innocent and has never been able to prove it.",
+          "She does not know where Lindqvist is. Persuasion DC 15: she admits she had an investigator look for him in 1948, and Sloane's office found out within a week; she has suspected someone at the Hall of Justice ever since.",
+          "If the party tells her about the FRIDAY letter, she guesses at once that it is about Kessling and that Nora sent it. She is afraid for Nora, not for Sloane."
+        ]
+      },
+      {
+        "name": "Pier 9 and Elmer Dahl's Pawnshop",
+        "description": "The Halvorsen ruin is a black brick shell on Pier 9 behind wire, with the viaduct's newest leg rising beside it; it is scheduled for demolition in December under the right-of-way. Two blocks inland, on Water Street, is Elmer Dahl's pawnshop: three brass balls, a window of watches, wedding rings and trumpets, guns in a locked case behind the counter.",
+        "features": [
+          "On the Halvorsen fence, wreaths: eleven small ones every March, and one fresh one now, with a card: For Danny, five years. N.",
+          "Dahl's counter, his bound pawn and sales ledger (the law requires him to record every firearm sale with name, address and serial), and the back room with a telephone",
+          "The rooming house on Mercer Lane where Nora Kessling lives, a block from the pier"
+        ],
+        "encounters": [
+          "Elmer Dahl, 60, pawnbroker and police informant, oily and afraid",
+          "An old cannery worker, Mrs. Hedda Sorvik, who lost a son in the fire and lights a candle at the fence on Tuesdays"
+        ],
+        "secrets": [
+          "CLUE C4 (core, automatic if the party sees the ledger): Tuesday, 11:05 a.m., Colt .32 pocket pistol, blued, serial number recorded, sold to N. Kessling, 14 Mercer Lane, with a box of fifty .32 rounds, $22.",
+          "CLUE G1 (core, automatic for anyone who reads the ledger line closely; Investigation DC 10 just speeds it): beside the serial number, in pencil, in Dahl's hand: 'phoned Lt. D. 11:20'. Getting the ledger in hand needs a bribe ($20), Intimidation DC 14, Sleight of Hand DC 15 while someone distracts him, or a burglary (+2 Heat).",
+          "Dahl will say, under pressure (Intimidation DC 13 or leverage), that a cop told him last week that a young lady from Mercer Lane would be in for a gun and he should sell her a .32 Colt, the blued one, and call in the number. He will not say which cop unless frightened worse than he is of Dunleavy (Intimidation DC 17).",
+          "Mrs. Sorvik will tell anyone who stands with her that Danny Kessling 'carried my boy's coffin' and that the watchman, 'the Swede, Oskar', went away after the fire 'with money in his pocket and shame on his face'. She heard he was in a sanatorium on Gannet Island (a lead to pa-scenario-002)."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Monday night, District Attorney Wendell Sloane hires the detectives to find out who is going to kill him on Friday, paying $500 in advance, with a threat that is nothing but a newspaper clipping of the 1947 execution of a union organizer named Daniel Kessling and the word FRIDAY. Sloane says it means nothing to him. On Tuesday, the paper trail says otherwise. The Ledger morgue shows that this Friday is the fifth anniversary of Kessling's execution for the Halvorsen Cannery fire, which Sloane prosecuted; the county archive shows that Sloane pulled the case file himself on Saturday, and that a watchman's statement was withdrawn from it in 1947; Sloane's secretary reveals that he is looking for anyone who has asked about that watchman; Miriam Holloway, Kessling's old defender and Sloane's opponent, says Sloane won a case he should have lost. The money Sloane paid with came from a Vantreight holding company. And the threat was typed on the Ledger switchboard's typewriter, where Daniel Kessling's daughter Nora works, and Nora has been reading the Halvorsen file all summer. By evening the party learns that Nora bought a gun that morning at a pawnshop on Water Street, and that the pawnbroker telephoned its serial number to a police lieutenant. At two in the morning, in the viaduct construction yard, men from the Harbor Social Club steal a case of dynamite. The party ends Tuesday with too many leads and four days left, three days now, and the first real question of the campaign: what do they tell their client?",
+  "hook": "Monday 27 October 1952, 9:45 p.m., the fourth floor of the Kittredge Building. Rain on the window, the Rexall sign through the blinds, the radiator knocking, the agency's rent three weeks overdue. The elevator stops at six, and somebody is climbing the last two flights slowly, like a man who does not climb stairs. It is District Attorney Wendell Sloane, whose face is on every lamppost in the city, and he sits down without being asked and puts five hundred dollars on the desk.",
+  "cluesAvailable": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "B1",
+    "B2",
+    "C1",
+    "C2",
+    "C4",
+    "G1",
+    "D1"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "A. The threat is about the 1946 Halvorsen fire and Daniel Kessling's execution",
+      "clues": [
+        "A1: the clipping itself (the office)",
+        "A2: the anniversary, from the Ledger morgue",
+        "A3: Sloane signed out the Halvorsen file on Saturday (the county archive)",
+        "A4: Miriam Holloway's account (her campaign office)"
+      ]
+    },
+    {
+      "conclusion": "B. Sloane is lying to the party",
+      "clues": [
+        "B1: the Northgate Land money band (the office)",
+        "B2: Agnes Ruud and the list (the Hall of Justice)",
+        "A3 again: he already pulled the file before he hired them",
+        "Insight against Sloane himself, DC 13 (the office)"
+      ]
+    },
+    {
+      "conclusion": "C. Nora Kessling sent the threat",
+      "clues": [
+        "C1: the high R on the switchboard Underwood (the office and the Ledger)",
+        "C2: the morgue checkout card (the Ledger)",
+        "C4: the gun sold to N. Kessling (Dahl's)",
+        "The wreath on the Halvorsen fence signed N. (Pier 9)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Five Hundred Dollars",
+      "description": "Monday night in the office. Sloane's interview, the threat, the money, and the first visitor after him. This act is a conversation and should take about forty minutes of play. Let the players ask everything. Sloane answers smoothly and lies about three things: he says he does not know why Friday; he says the letter came to his office; and he says he has no idea what the clipping means beyond 'some crank who remembers an old case'.",
+      "objectives": [
+        "Hear Sloane out and decide whether to take the job",
+        "Examine the threat and the money",
+        "Notice that Sloane is lying, and decide whether to say so",
+        "Deal with Lt. Ray Dunleavy without making an enemy too early"
+      ],
+      "scenes": [
+        {
+          "name": "The Client",
+          "description": "Sloane's pitch. He has received a threat; he believes it; he will not go to the police because 'the department is a sieve and half of it is on the waterfront payroll'; he wants a name by Friday and will pay the same again on Saturday. He is running for re-election on Tuesday, his grand jury is reporting on waterfront rackets on Friday morning, he is dedicating the Shoreline Viaduct at noon on Friday with the mayor, and he has his election-eve rally at the Regent on Friday night. 'Take your pick of the people who'd like to see me dead,' he says. 'I'm a district attorney. It's the job.'",
+          "readAloud": "He is taller than he looks in the photographs and older, a handsome tired man of fifty-two in a navy overcoat with the rain still on its shoulders, and he looks round your office once, at the water cooler and the blackboard and the bench, the way a man looks at a rented room he does not intend to stay in. Then he sits, puts his hat on his knee, takes out a wallet, and counts five new hundred-dollar bills onto the blotter in a neat fan, like a hand of cards. 'Somebody is going to kill me on Friday,' says the District Attorney of Port Calloway. 'I'd like to know who. I'm told you're discreet, and I'm told you're cheap, and I'm paying in advance because in my experience it concentrates a man's mind.' He smiles. It is a good smile, the one on the posters. It does not go anywhere near his eyes.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "He knows exactly what the clipping means and he is frightened of it, not of a crank. He is also lying about where the letter came, and he flinches very slightly when anyone mentions his wife. He wants something from you he has not asked for yet.",
+              "failure": "A politician, a frightened one, and a good liar. You cannot tell which of his answers are true."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "He admits, with a show of reluctance, that 'the Kessling business' was his first big case and 'there were people on the Tin Mile who never forgave me'. He gives no other names. He asks the party to report to him, and only to him, by telephone at his home on Alder Terrace, every evening at ten.",
+              "failure": "He says the clipping is a crank and the case was open and shut, and looks at his watch."
+            },
+            {
+              "skill": "Society",
+              "dc": 12,
+              "success": "You know the political shape of the week: Sloane is behind in the Ledger's poll and ahead in the Courier's; his patron is Cornelius Vantreight of Larch Hill; his grand jury is about to indict somebody on the waterfront to make him look tough; and he and his wife have not been photographed together since the summer.",
+              "failure": "You know he is the DA and that there is an election."
+            }
+          ]
+        },
+        {
+          "name": "Paper and Money",
+          "description": "After Sloane leaves, the party examines what he left behind: the envelope and clipping (Clue A1, C1), and the five bills (Clue B1). Both core clues are automatic for anyone who looks. Rolls add detail.",
+          "readAloud": "The clipping is soft with handling, a column and a half from the inside of a newspaper, folded twice. The headline is KESSLING DIES PROTESTING INNOCENCE. Below the last paragraph somebody has pasted a strip of blank newsprint, and on it, in typewriter capitals, one word: FRIDAY. The bills are new and crisp and in sequence, and when you lift them off the blotter a torn paper band comes with them, the kind a bank teller wraps round a stack, with a rubber-stamped name half smudged across it.",
+          "skillChecks": [
+            {
+              "skill": "Forensics",
+              "dc": 12,
+              "success": "The clipping is from the Port Calloway Ledger, November 1947 by the advertisements on the back. The typed word was done on an old Underwood with a capital R that prints high; you would know it again. The paste is library paste, the kind newspapers use. The envelope was posted at Terminal Annex on Saturday at six.",
+              "failure": "A newspaper clipping, a typewriter, an envelope. You will need to find where they came from the slow way."
+            },
+            {
+              "skill": "Research",
+              "dc": 12,
+              "success": "Northgate Land Co. is one of the outfits buying lots on the viaduct right-of-way along Front Street, and its lawyers are Vantreight's lawyers. The District Attorney has just paid you with money from his patron's land company.",
+              "failure": "The name means nothing to you yet. Pip Ashdown, Ambrose Pell, or any Ledger reporter will know it tomorrow."
+            }
+          ]
+        },
+        {
+          "name": "The Hudson in the Rain",
+          "description": "Ten minutes after Sloane leaves, Lt. Ray Dunleavy of Homicide comes up the stairs. He is assigned to the DA's security this week by the chief, and he wants the party to know he knows they have been hired, that he will be 'right alongside them', and that he expects to be told everything they find. He is jovial, enormous, and plainly measuring them. He leaves a card. His man in the Hudson will follow whoever leaves the building first.",
+          "readAloud": "He fills the doorway and has to duck his hat under it, a big soft-looking man going to fat in a brown suit, with a red face and little bright eyes and a toothpick he moves from one side of his mouth to the other while he looks at you. 'Ray Dunleavy, Homicide. Don't get up.' He sits on the client's bench, which complains. 'The DA's a nervous man this week. The chief's asked me to hold his hand till Tuesday. So you and me, we're going to be friends. Anything you find out, you find it out for me first. Anything you don't find out, I'll find out you didn't.' He grins, and stands, and puts a card on the five hundred dollars. 'Lovely weather.'",
+          "skillChecks": [
+            {
+              "skill": "Streetwise",
+              "dc": 12,
+              "success": "Everybody in the Tin Mile knows Big Ray Dunleavy. He was the detective on the Halvorsen fire in 1946. He is said to be the chief's heir apparent, to drink at the Calloway Club, which no cop can afford, and to have broken a witness's hand in an interview room once with a telephone directory.",
+              "failure": "He is a homicide lieutenant with a bad smile. You will hear more."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "He is not here for Sloane. He is here to see who Sloane hired, and he is relieved by what he sees, which is not a compliment.",
+              "failure": "A cop marking his territory."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Wendell Sloane, the client (no combat)",
+        "Lt. Ray Dunleavy (use Bent Detective) and his driver in the Hudson (use Crooked Cop); no combat unless the players start one, in which case they lose their licences on Wednesday and Heat goes to 5"
+      ]
+    },
+    {
+      "title": "Act 2: The Paper Trail",
+      "description": "Tuesday 28 October, from breakfast to dusk. Four places, each with a core clue: the Ledger morgue (A2, C2, C1), the Hall of Justice (B2) and county archive (A3), and Miriam Holloway's office (A4). The party can go in any order; the clock moves one scene per visit. At 11 a.m., Nora Kessling takes an early lunch and walks to Water Street to buy a gun, so a party at the Ledger in mid-morning may see her leave.",
+      "objectives": [
+        "Find out what the clipping refers to and why Friday",
+        "Find out whether Sloane is telling the truth about the case",
+        "Identify who sent the threat",
+        "Decide what to say to Sloane at ten o'clock tonight"
+      ],
+      "scenes": [
+        {
+          "name": "Mrs. Brenner's Morgue",
+          "description": "The Ledger's fifth floor. Mrs. Ida Brenner, sixty-five, cardigan, pencil in her bun, keeps the paper's memory and treats it like a church. Polite requests are answered; rude ones are not. The Kessling and Halvorsen envelopes give the whole public story (A2). The Halvorsen checkout card gives Nora's name (C2). On the way out, the switchboard's Underwood is on a side table in the lobby (C1).",
+          "readAloud": "The morgue is a long room under the roof with a skylight the rain drums on, and it smells of paste and dust and old paper. Steel cabinets run the length of it, and bound volumes of the Ledger stand on shelves as tall as a church organ, and at a desk under a green lamp a small woman in a grey cardigan looks at you over half-moon glasses as if you were a late library book. 'Halvorsen,' she says, when you ask. 'That's popular this year.' She goes to a cabinet without looking at the labels and comes back with a fat brown envelope and a thinner one, and lays them down. 'You'll sign the card.' The card on the front of the Halvorsen envelope already has a column of signatures.",
+          "skillChecks": [
+            {
+              "skill": "Research",
+              "dc": 10,
+              "success": "Core clue A2 is automatic; this check speeds it to half a scene and adds the detail: eleven dead, nine of them strike-breakers asleep in the loft, a foreman, and a boy of fourteen, Per Sorvik. Kessling's conviction rested on Frank Lusk's testimony that Kessling had talked of 'burning the place down', and on the absence of the night watchman, who could not be found. Kessling was executed on Friday 31 October 1947. This Friday is five years to the day.",
+              "failure": "Core clue A2 is still found, but it takes a full scene and you miss the watchman detail until someone reads it aloud tonight."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Mrs. Brenner, warmed up, says the young woman who signs N. Kessling is 'one of ours, on the switchboard, a sweet serious girl', and that she has been in every week since July, and that once she cried. 'I didn't ask. One doesn't.'",
+              "failure": "Mrs. Brenner says she does not discuss who reads what. The card still says N. Kessling."
+            },
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "Leaving through the lobby, you notice the operator on the end position of the switchboard, a dark-haired young woman with a pencil behind her ear, has unplugged her headset and is watching you go. When you look back she looks away. (This is Nora.)",
+              "failure": "The lobby is busy; you do not notice anyone watching you."
+            }
+          ]
+        },
+        {
+          "name": "Third Floor",
+          "description": "The Hall of Justice. Agnes Ruud in Sloane's outer office (B2); Detective Sergeant Becerra in the corridor; the county archive next door (A3). If the party comes on Sloane's authority Agnes is formal; if they come as people trying to keep him alive, she gives them the list. Becerra, who dislikes Dunleavy, is the party's best potential ally in the police and should be introduced here.",
+          "readAloud": "The third-floor corridor has a marble floor that makes every footstep a public announcement, and posters of Wendell Sloane's face every twenty feet. In the outer office a grey-haired woman with a cameo at her throat is typing so fast that she does not hear you come in, and when she does she stops, and puts both hands flat on the desk, and you see she has been crying and has powdered over it. 'Mr. Sloane is in conference,' she says. 'Mr. Sloane is always in conference this week.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Agnes is not frightened for herself; she is frightened of what she typed yesterday. Ask her gently and she gives you the list (B2) and the instruction about papers 'unread', and then says, very quietly: 'I've worked for four district attorneys. None of them ever asked me to find out who'd been asking about a witness.'",
+              "failure": "She gives you the list of names (B2, the two entries) but not the instruction about papers, and asks you to leave."
+            },
+            {
+              "skill": "Research",
+              "dc": 10,
+              "success": "At the archive, for two dollars, Royce Pettibone shows you the sign-out card (A3, automatic) and the contents list, with its crossed-through line: Statement, O. Lindqvist, watchman, 12/3/46 (withdrawn). The withdrawal is initialled W.S.",
+              "failure": "Pettibone wants five dollars and takes a full scene about it; you still get the card."
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 12,
+              "success": "Detective Sergeant Becerra, smoking by the stairs, tells you off the record that Dunleavy asked the chief for the DA's security detail personally, which he has never done for anything, and that the chief agreed after a phone call from Larch Hill. 'If you're trying to keep the man alive, come and see me. If you're doing something else, don't.'",
+              "failure": "A homicide sergeant watches you leave. He will come to you later."
+            }
+          ]
+        },
+        {
+          "name": "A Clean Sweep",
+          "description": "Miriam Holloway's campaign office on Front Street. She refuses to talk to Sloane's hirelings and throws them out unless they are honest about who hired them and why; then she talks (A4). This is also where the party first hears the name Oskar Lindqvist from someone who believes it matters.",
+          "readAloud": "The office is two rooms of noise over a ship chandler's, volunteers folding leaflets, a mimeograph thumping, coffee in paper cups, and through the window the grey concrete legs of the viaduct marching up Front Street in the rain. Miriam Holloway is at a kitchen table at the back with her shoes off and her stockinged feet on a crate, reading a brief, a solid woman in her forties with grey in her hair and reading glasses on a chain. She looks at you, and at the card you hand her, and says, 'Wendell sent you. How remarkable. Did he say why he thinks he needs detectives the week before an election?' She takes her glasses off. 'Or shall I guess?'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Told the truth, Miriam tells it back (A4): the Kessling trial, the missing watchman, the elevator man, Lusk's convenient memory. She adds that she has always believed Danny Kessling innocent and has never been able to prove it, and that if Nora Kessling is the one who sent Wendell that letter, 'then for God's sake find her before Wendell does'.",
+              "failure": "She tells you the public version and her opinion of Sloane, and shows you the door politely. A second visit, with something true to offer, gets the rest."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "She is a decent woman and a shrewd politician, and she knows that if the Kessling case were reopened in the next seven days it would win her the election. She is ashamed of how much she wants that, and it does not change what she believes.",
+              "failure": "A politician. An honest one, maybe."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Dunleavy's man in the Hudson (use Crooked Cop), tailing the party all morning; spotting him is Perception DC 12, losing him is a tail run in reverse (three successes on Driving or Stealth before three failures). If he is not lost he reports every stop to Dunleavy, and Dunleavy reports to Vantreight.",
+        "No combat expected in this act."
+      ]
+    },
+    {
+      "title": "Act 3: The Tin Mile After Dark",
+      "description": "Tuesday evening and night. Pier 9 and its wreath, Elmer Dahl's pawnshop on Water Street (C4, G1), Mrs. Sorvik and the name of the island, Nora's rooming house, and at 2 a.m. the viaduct construction yard, where the party can catch Gil Maddox's men stealing dynamite or learn of it in the morning from the watchman (D1). Then ten o'clock: the phone call to Sloane, and the first real choice.",
+      "objectives": [
+        "Find out what Nora Kessling bought this morning, and who knows",
+        "Learn the name of the watchman and where he went",
+        "Decide whether to approach Nora tonight, and how",
+        "Decide what to tell Sloane at ten",
+        "Witness or learn of the dynamite theft"
+      ],
+      "scenes": [
+        {
+          "name": "Brass Balls on Water Street",
+          "description": "Dahl's pawnshop, open till nine. The gun sale is in the ledger (C4) with Dunleavy's pencil note (G1). Dahl is greasy, terrified of Dunleavy and somewhat less of the party. A Heavy leaning on the counter is a fine way in; so is a Grifter pawning a ring, or a Reporter asking about a story on gun sales to women.",
+          "readAloud": "A bell on a spring jangles when you push the door. The shop is long and narrow and smells of mothballs and gun oil, and every inch of wall is hung with somebody's bad luck: trumpets, a saxophone, a wedding dress under cellophane, a row of wristwatches ticking slightly out of step. Behind the counter, under a green-shaded bulb, a soft white-haired man with a jeweller's loupe pushed up on his forehead is eating a sardine sandwich, and he puts it down when he sees you, and wipes his fingers very carefully on a handkerchief, one at a time.",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "Dahl turns the ledger round. C4 and G1 are there for anyone to read. Pushed further (DC 17), he says a cop told him to expect the girl and sell her the blued Colt and call in the number, and that the cop was Lt. Dunleavy, 'and if he finds out I said so I'll be in the sound by Sunday'. +1 Heat.",
+              "failure": "Dahl calls the beat cop through the back-room phone before you can stop him; you have two minutes. You can still snatch a look at the ledger (C4 automatic, G1 needs a moment: Investigation DC 10 in the time you have)."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 15,
+              "success": "While someone else keeps Dahl busy, you turn the ledger and read the last page: C4, G1. Dahl never knows.",
+              "failure": "Dahl sees you, slams the ledger shut and orders you out. The party must come back with money ($20) or menace."
+            },
+            {
+              "skill": "Deception",
+              "dc": 13,
+              "success": "You are a detective from the gun-permit office checking sales records, or a girl who wants a gun just like her friend Nora's; Dahl turns the ledger to show you. C4 and G1.",
+              "failure": "Dahl does not believe you, but he does want twenty dollars."
+            }
+          ]
+        },
+        {
+          "name": "Eleven Wreaths and One",
+          "description": "Pier 9. The burned cannery, the wreath signed N., Mrs. Hedda Sorvik with her candle, and, a block away, the rooming house on Mercer Lane where Nora lives. Mrs. Sorvik gives the name Oskar and the island. Nora comes home at seven and goes out again at eight to the Ledger's night switchboard (she has swapped shifts for the week). The party may approach her; she will lie, badly at first, then well.",
+          "readAloud": "The fog has come in off the sound and the Halvorsen ruin is only a darker darkness behind the wire, a black brick wall with the sky showing through its windows, and above it, very close, the newest concrete leg of the viaduct, with a work lamp on top like a star. There are wreaths wired to the fence, old ones brown and shapeless, and one fresh one of white chrysanthemums with a card in a little cellophane envelope. An old woman in a headscarf is kneeling on a newspaper on the wet planks, lighting a candle in a jam jar, and she does not look up. 'He carried my boy's coffin,' she says. 'Did you know that? The man they killed for it.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Mrs. Sorvik trusts you if you stand with her a while. She tells you about the watchman: 'Oskar. The Swede. He drank. He was off the pier that night, everybody knew, and afterwards he had money and couldn't look at nobody. He went away. My sister heard he was with the nuns on Gannet Island, coughing his life out. Good.' The lead to pa-scenario-002.",
+              "failure": "She tells you about her son and nothing else. The Ledger morgue or Ambrose Pell can give you the island tomorrow."
+            },
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "If the party approaches Nora: she denies everything charmingly, then, if the party shows her the clipping and is kind, she says only, 'I wanted him to know someone remembers. That's all. I'm not going to hurt anybody.' Insight DC 15: the second half is not quite true; she does not know herself. She refuses to say what she plans for Friday.",
+              "failure": "Nora sees through whatever story you use, realises you are working for Sloane, and goes straight to the Ledger night switchboard and stays there, among people. She will be far harder to find on Wednesday."
+            }
+          ]
+        },
+        {
+          "name": "The Yard at Two",
+          "description": "The Shoreline Viaduct construction yard under the half-built span at Front and Pike: cranes, rebar, a shed of DuPont dynamite under padlock, a night watchman, Ole Brekke, with a lantern and a dog. At 2 a.m. three of Maddox's men in a Harbor Social Club stake truck cut the padlock and take a case of forty sticks. A party watching Nora's rooming house or crossing the Tin Mile late hears the truck. Otherwise, Ole Brekke tells the story at seven next morning to anyone who asks, and Ambrose Pell has it by nine (D1).",
+          "readAloud": "The yard is a forest of steel in the fog: rebar standing up in bundles, a crane with its hook swinging a little, the dark underbelly of the finished span overhead dripping water onto the gravel, and a single bulb over a corrugated shed with DANGER EXPLOSIVES stencilled on the door. Somewhere a dog is barking and then it isn't. A truck without its lights on is backed up to the shed, and three men are moving very quietly with something heavy between them, and the fourth, the one at the wheel, has just seen you.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You watch the whole thing unseen: three men, a stake truck with HARBOR SOCIAL CLUB painted out but showing through the grey, a case marked DUPONT 40%, and one man you will know again, a thin one with a pencil moustache who gives the orders (Vic Dorrance). D1 in full, and the truck's plate.",
+              "failure": "The driver sees you and leans on the horn; the three men drop the case's lid and come for you with a tire iron and a sap. Fight or run."
+            },
+            {
+              "skill": "Driving",
+              "dc": 14,
+              "success": "If the truck runs: you follow it without lights through the Tin Mile to the boardwalk on the Flats, where it stops at a boathouse a hundred yards past the Harbor Social Club. Lead to D3 in pa-scenario-002.",
+              "failure": "You lose the truck in the fog on Front Street. Ole Brekke saw its paint in the morning anyway."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Three Dockside Goons and a Getaway Driver at the construction yard (Maddox's men, with Vic Dorrance watching from the cab; use Mob Lieutenant for Dorrance if he joins in, but he will not). They run rather than kill: they want the dynamite, not a murder charge. +2 Heat if shots are fired, +3 if somebody dies.",
+        "Ole Brekke, the yard night watchman (use Night Watchman), and his Guard Dog, which the goons have fed a drugged pork chop",
+        "A beat cop on Water Street (use Beat Cop) if Dahl calls him; he is Dahl's cousin's boy and easily talked round"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Wendell Sloane, 52",
+      "role": "District Attorney of Port Calloway; the client and the intended victim",
+      "description": "Tall, handsome, silver at the temples, a navy overcoat and a smile from a poster. A former high-school debater from a lumber town who has never once been the smartest man in a room and always made sure he was the best prepared. Charming, impatient, sentimental about his own career and ruthless about everyone else's. Frightened this week, and hiding it badly from people who look.",
+      "motivation": "To survive Friday, win Tuesday, and find and destroy every copy of the Lindqvist statement. In that order, though he would say the reverse."
+    },
+    {
+      "name": "Lt. Ray Dunleavy, 48",
+      "role": "Homicide lieutenant on the DA's security detail; Vantreight's man in the police",
+      "description": "Huge, red-faced, soft-spoken, a toothpick always moving. Was the detective on the Halvorsen fire. Jovial menace. Use Bent Detective. He follows the party and reports what they do to Larch Hill.",
+      "motivation": "The chief's job, which Vantreight has promised him, and never being asked about 1946."
+    },
+    {
+      "name": "Nora Kessling, 26",
+      "role": "Ledger switchboard operator; Daniel Kessling's daughter; the sender of the threat",
+      "description": "Dark-haired, quick, serious, with her father's jaw and a habit of listening with her head on one side. Full sheet in the companion files. In this scenario she should be glimpsed more than met: at the switchboard, leaving the pawnshop, in a lit window on Mercer Lane.",
+      "motivation": "To make the city say out loud that her father did not do it, on the day they killed him."
+    },
+    {
+      "name": "Agnes Ruud, 58",
+      "role": "Sloane's secretary",
+      "description": "Grey, upright, a cameo brooch, the fastest typist in the Hall of Justice. A widow from a Lutheran fishing family. Loyal by habit and honest by nature, and this week the two are at war.",
+      "motivation": "To go on believing her employer is a good man, which is becoming impossible."
+    },
+    {
+      "name": "Mrs. Ida Brenner, 65",
+      "role": "Ledger morgue librarian",
+      "description": "Cardigan, half-moon glasses, a pencil in her bun. Knows where everything in the city's last forty years is filed, including several things nobody else remembers.",
+      "motivation": "Order, accuracy, and the Ledger outliving the Courier."
+    },
+    {
+      "name": "Miriam Holloway, 46",
+      "role": "Sloane's challenger for district attorney; Daniel Kessling's public defender in 1947",
+      "description": "Solid, warm, sharp, tired; a fisherman's daughter who went to law school at night. The best person in this campaign and an ambitious one.",
+      "motivation": "To win, and to be right about Danny Kessling, and to be able to tell which of those she wants more."
+    },
+    {
+      "name": "Elmer Dahl, 60",
+      "role": "Pawnbroker on Water Street; Dunleavy's informant",
+      "description": "White hair, soft hands, a jeweller's loupe, a sardine sandwich. Has fenced for half the Tin Mile and informed on the other half. Use Pickpocket for stats if it matters; it should not.",
+      "motivation": "Not to end up in the sound."
+    },
+    {
+      "name": "Detective Sergeant Luis Becerra, 39",
+      "role": "Homicide, the honest one; potential ally",
+      "description": "Full sheet in the companion files. Introduced here in the Hall of Justice corridor, warning the party off and offering help in the same breath.",
+      "motivation": "To keep the DA alive because it is his job, and to find out what Dunleavy is up to because it is his conscience."
+    },
+    {
+      "name": "Mrs. Hedda Sorvik, 70",
+      "role": "Mother of Per Sorvik, the fourteen-year-old who died in the fire",
+      "description": "Headscarf, rubber boots, a candle in a jam jar every Tuesday. Sharp as a gutting knife.",
+      "motivation": "That someone, before she dies, says who killed her boy."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "money": "$500 retainer from Sloane (paid Monday night, already on the desk; split as the party likes and add each share to the wallet line), with $500 more promised on Saturday if he is alive. Anything the party extorts from Elmer Dahl or finds on the dynamite thieves (about $40 between them) is extra.",
+    "items": [
+      "The threat: the clipping, the strip with FRIDAY, and the Terminal Annex envelope (Clue A1)",
+      "The Northgate Land Co. bank band (Clue B1); keep it, it matters on Thursday",
+      "A copy of Agnes Ruud's list (Clue B2), if she gave it",
+      "A note of the Colt .32's serial number from Dahl's ledger, and the pencilled phoned Lt. D. 11:20 (Clues C4, G1)",
+      "A tire iron and a sap from the dynamite thieves, and possibly the stake truck's plate number (Clue D1)",
+      "Lt. Dunleavy's card, and Sergeant Becerra's home telephone number if he offered it"
+    ]
+  },
+  "twists": [
+    "Sloane did not hire the party to find a killer. He hired them to find whoever has a copy of the Lindqvist statement, so that he can have it taken. The party's ten o'clock phone call to him every night is the most dangerous thing in the campaign: whatever they tell him, he passes to Dunleavy, and whatever Dunleavy hears, Vantreight hears. Make the cost visible: if they give Sloane Nora's name tonight, Dunleavy's men lift her on a vagrancy pretext on Wednesday morning and the party has to get her out of a holding cell at the Hall of Justice.",
+    "The $500 was paid in Northgate Land Co. money. Sloane is being paid by Vantreight. The party will not know why until Thursday, but a sharp table will ask why the DA's patron's land company is paying for his detectives.",
+    "Nora Kessling listens. She works the Ledger switchboard and has swapped onto nights for the week; if the party telephones from the Ledger or rings the Ledger, she may be the operator, and she will know what they are doing before they do.",
+    "The pawnbroker's pencil note is the first sign of the frame, and it is planted early on purpose. Most tables will read it as 'the cops are watching Nora because Sloane told them to'. That is half right.",
+    "The dynamite theft has nothing to do with the threat letter. It is Gil Maddox's own plan, and it is the campaign's best red herring. Let the party chase it."
+  ],
+  "dmTips": [
+    "This scenario is about establishing the city, the client and the clock. Budget about an hour for Act 1, ninety minutes for Act 2, and an hour for Act 3. The only expected fight is the construction yard, and the party can avoid it.",
+    "Run Sloane's interview as the campaign's first and most important conversation. He should be likeable for ten minutes. Give him one good line about the city ('This town eats its young and then runs for office') and one moment of real fear, when he looks out of the window at the Hudson.",
+    "Core clues are automatic. Anyone who examines the bills sees the band (B1); anyone who reads the morgue envelope gets the anniversary (A2); anyone who looks at the checkout card sees Nora's name (C2); anyone who sees Dahl's ledger sees the sale (C4) and the pencil note (G1). Rolls only add detail, save a scene or avoid Heat.",
+    "Start the clock visibly. Put the five days on the table, Monday to Friday, and cross off scenes. Say the time when the party arrives anywhere.",
+    "The ten o'clock phone call to Sloane: make it a real scene. Sloane asks sharp questions. If the party mentions Nora, the sanatorium, or the watchman, he goes quiet, thanks them, and hangs up, and the clock changes (see campaignRules, The Client Lies). If they lie to him, Insight DC 12 to notice he does not believe them either.",
+    "If the party has not found Nora by the end of the day, that is fine: she is the start of pa-scenario-002. If they have not learned the watchman's name, have Miriam Holloway or Mrs. Sorvik give it.",
+    "Period texture: the Ledger's front page has Ike's whistle-stop train somewhere down the coast and the Courier's has SLOANE: WATERFRONT INDICTMENTS FRIDAY; the radio plays Jo Stafford; a cup of coffee is a dime, a cab across downtown fifty cents, a phone call a nickel. Port Calloway's streetcars are being replaced by buses next year and everyone complains.",
+    "End the day with two headlines. Ledger, Wednesday morning: VIADUCT YARD ROBBED; DYNAMITE TAKEN. Courier, Tuesday evening: SLOANE VOWS WATERFRONT 'WILL BE CLEAN BY CHRISTMAS'. If the party made noise, add a line about 'private operatives' and +1 Heat.",
+    "Level-up note: the 1800 XP in this file is per character and takes each detective from 3rd to 4th level (2,700 XP). Award it at the end of the ten o'clock phone call, whatever was said."
+  ]
+}

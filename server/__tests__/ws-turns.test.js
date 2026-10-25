@@ -9,11 +9,19 @@ import { v4 as uuidv4 } from 'uuid';
 
 const { attachWebSocket } = require('../ws-handler');
 const { ensurePlayerDataExists, getSessionDir, getPlayerCharactersDir } = require('../player-data');
+const { createFakeEngineFactory, createFakeSummarize } = require('./helpers/fake-dm-engine');
 
 let tmpDir;
 let server;
 let wss;
 let wsUrl;
+// The DM engine and the arc summarizer are injected. A real DmEngine calls the Claude Agent
+// SDK with cwd = the project root and Edit auto-allowed, so every test below that reaches the
+// user_message path would otherwise start a billable agent able to rewrite the live data/
+// directory (WO-0001.5). `createEngine` is the same injection shape compaction.test.js already
+// uses for `summarize`.
+let engineFactory;
+let fakeSummarize;
 
 const HOST = { email: 'host@test.com', name: 'Host Player' };
 const COMPANION = { email: 'alice@test.com', name: 'Alice' };
@@ -94,10 +102,27 @@ function connectClient(url) {
   return new Promise((resolve, reject) => {
     const ws = new WebSocket(url);
     const received = [];
+
+    // WO-0015.5. A passive, always-on record of every session_status the server sends.
+    //
+    // The `waitFor` below only listens while one of its promises is pending, so a message that
+    // arrives between two awaits is dropped. Several tests in this file depend on that — they
+    // wait for a broadcast type that is also sent earlier, and would match the stale one if
+    // nothing had discarded it — so the behaviour is left exactly as it was. This listener does
+    // not consume: it only appends, which makes 'idle' observable without changing what any
+    // existing wait sees.
+    const statusLog = [];
+    ws.on('message', (data) => {
+      let msg;
+      try { msg = JSON.parse(data.toString()); } catch { return; }
+      if (msg.type === 'session_status') statusLog.push(msg.status);
+    });
+
     ws.on('open', () => {
       resolve({
         ws,
         received,
+        statusLog,
         send(msg) { ws.send(JSON.stringify(msg)); },
         // Wait for a message of a specific type, with timeout
         waitFor(type, timeoutMs = 2000) {
@@ -122,6 +147,26 @@ function connectClient(url) {
             ws.on('message', handler);
           });
         },
+        // Wait for a specific session_status, from the passive log above.
+        //
+        // 'idle' is the one message that means "this turn's writes have landed": the handler
+        // awaits updateSessionFile inside the DM stream loop and emits 'idle' from the `finally`
+        // afterwards. Ending a test on 'thinking' left that write racing afterEach's rmSync,
+        // which is the writeJsonAtomic ENOENT reported by WO-0015.1.
+        async waitForStatus(status, timeoutMs = 5000) {
+          const deadline = Date.now() + timeoutMs;
+          for (;;) {
+            const idx = statusLog.indexOf(status);
+            if (idx !== -1) {
+              statusLog.splice(0, idx + 1);
+              return status;
+            }
+            if (Date.now() >= deadline) {
+              throw new Error(`Timeout waiting for session_status=${status} (saw: ${statusLog.join(', ') || 'nothing'})`);
+            }
+            await new Promise(r => setTimeout(r, 10));
+          }
+        },
         // Collect all messages for a duration
         async collectFor(ms) {
           await new Promise(r => setTimeout(r, ms));
@@ -141,7 +186,9 @@ beforeEach(async () => {
 
   const app = express();
   server = http.createServer(app);
-  wss = attachWebSocket(server, tmpDir);
+  engineFactory = createFakeEngineFactory();
+  fakeSummarize = createFakeSummarize();
+  wss = attachWebSocket(server, tmpDir, { createEngine: engineFactory, summarize: fakeSummarize });
 
   await new Promise((resolve) => {
     server.listen(0, () => {
@@ -151,6 +198,37 @@ beforeEach(async () => {
   });
 });
 
+// Bounded teardown barrier: wait until no atomic-write temp file is left under `dir`.
+//
+// WO-0015.5. Waiting for 'idle' fixes the turn's own write, but ws-handler.js calls
+// runSessionIntegrityCheck WITHOUT awaiting it at two sites (`:1222` on session_resume and
+// `:1344` on session_watch), so an updateSessionFile can still be in flight when a test that
+// never fired a turn ends. Deleting tmpDir underneath it produced the writeJsonAtomic ENOENT.
+// This drains it in the test rather than in production: the floating promises are a real
+// finding and are reported to the developer, not patched from here.
+async function waitForQuiescence(dir, timeoutMs = 1000) {
+  const deadline = Date.now() + timeoutMs;
+  const hasTemp = (d) => {
+    let entries;
+    try { entries = fs.readdirSync(d, { withFileTypes: true }); } catch { return false; }
+    for (const e of entries) {
+      if (e.isDirectory()) { if (hasTemp(path.join(d, e.name))) return true; }
+      else if (e.name.includes('.tmp-')) return true;
+    }
+    return false;
+  };
+  // A settle first: a floating updateSessionFile may not have reached its writeFileSync yet,
+  // and "no temp file present" cannot distinguish "finished" from "not started". This is a
+  // drain, not a fix — the fix is to await the two calls, and that is the developer's change.
+  for (let i = 0; i < 5; i++) await new Promise(r => setImmediate(r));
+  await new Promise(r => setTimeout(r, 25));
+  while (Date.now() < deadline) {
+    if (!hasTemp(dir)) return true;
+    await new Promise(r => setTimeout(r, 10));
+  }
+  return false;
+}
+
 afterEach(async () => {
   // Close all WebSocket connections
   if (wss) {
@@ -159,7 +237,15 @@ afterEach(async () => {
     }
   }
   await new Promise((resolve) => server.close(resolve));
+  await waitForQuiescence(tmpDir);
   fs.rmSync(tmpDir, { recursive: true, force: true });
+
+  // Containment check, run after every test in this file: every engine the handler used came
+  // from the fake factory. If ws-handler ever constructs its own again, this fails here rather
+  // than surfacing as a surprise API bill.
+  for (const engine of engineFactory.created) {
+    expect(engine.constructor.name).toBe('FakeDmEngine');
+  }
 });
 
 describe('session_watch — room management', () => {
@@ -224,6 +310,10 @@ describe('single player — no queueing', () => {
     host.send({ type: 'user_message', text: 'Hello' });
     const status = await host.waitFor('session_status');
     expect(status.status).toBe('thinking');
+
+    // The turn must also finish. Asserting only 'thinking' left the handler's
+    // updateSessionFile racing afterEach's rmSync (WO-0015.1 finding, fixed in WO-0015.5).
+    await host.waitForStatus('idle');
 
     host.close();
   });
@@ -400,6 +490,7 @@ describe('session_start — state isolation', () => {
     client.send({ type: 'user_message', text: 'Hello world' });
     const status = await client.waitFor('session_status');
     expect(status.status).toBe('thinking');
+    await client.waitForStatus('idle');
 
     client.close();
   });
@@ -441,6 +532,7 @@ describe('multiplayer detection', () => {
 
     // Should get 'thinking' — not turn_status
     expect(status.status).toBe('thinking');
+    await host.waitForStatus('idle');
 
     host.close();
   });

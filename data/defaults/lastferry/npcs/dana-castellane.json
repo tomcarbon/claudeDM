@@ -1,0 +1,142 @@
+{
+  "id": "93185cb0-efc7-48f3-a827-2ad57b53692c",
+  "name": "Dana Castellane",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Soldier",
+  "level": 2,
+  "background": "Police Officer",
+  "alignment": "Lawful Neutral",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 17,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Investigation",
+    "Intimidation",
+    "Athletics",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Italian (grandmother's)"
+  ],
+  "equipment": [
+    "Tactical vest with MPD ESU patches",
+    "Glock 17 9mm pistol (15 loaded)",
+    "9mm rounds (30)",
+    "AR-15 patrol carbine, semi-automatic, with a light and a sling (30 loaded)",
+    "5.56 rounds (60)",
+    "Two flashbangs",
+    "Satellite phone (battery 40%, two spare batteries) — her only link to the federal Joint Task Force on the mainland",
+    "Breaching charge kit: 4 blocks of plastic explosive with detonators and a firing device, signed out of the ESU truck on Day 1",
+    "Tourniquet, chest seal and an IFAK",
+    "Handheld police radio (the city network is down; it reaches her own team on channel 4)",
+    "Zip-tie cuffs (8)",
+    "Wallet containing $40"
+  ],
+  "weapons": [
+    {
+      "name": "Glock 17 9mm Pistol",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "AR-15 Patrol Carbine",
+      "attackBonus": 4,
+      "damage": "2d6+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Tactical Knife",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Flashbang (thrown 30/60; CON save DC 13 or blinded and deafened until end of next turn)",
+      "attackBonus": 4,
+      "damage": "1d4",
+      "damageType": "thunder"
+    }
+  ],
+  "armor": {
+    "name": "Tactical vest (Medium, 14 + DEX max 2, +1 Close Quarters)",
+    "type": "medium"
+  },
+  "features": [
+    "Human (+1 to all six ability scores)",
+    "Combat Training: Close Quarters (no disadvantage firing a Longarm or Automatic with a hostile within 5 ft, and +1 AC when not wearing heavy armor; included in her AC)",
+    "Adrenaline (bonus action: regain 1d10+2 hit points, once per short rest)",
+    "Tactical Surge (one extra action, once per short rest)",
+    "Weapon proficiencies: Melee, Sidearms, Longarms, Automatics, Explosives, Energy Weapons",
+    "Cop Contacts (Police Officer feature: any MPD officer still on the island will recognise her rank and follow reasonable orders)"
+  ],
+  "traits": [
+    "Combat Training: Close Quarters",
+    "Adrenaline",
+    "Tactical Surge",
+    "Cop Contacts"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I make decisions. Somebody has to, and the people who are supposed to are on the other side of the water talking about it. I am polite, I am precise, and I do not raise my voice, because I have a rifle.",
+    "ideals": "Command is a duty, not a privilege. There are four hundred people on the West Side who need a plan, and a bad plan executed now beats a perfect plan on Day 8.",
+    "bonds": "My team — what is left of it: Officers Bianchi, Oyelaran and Dutra, ESU Truck 3, who stayed when I told them to. The sat phone, and the voice on the other end of it who calls himself 'Harbor Actual' and has never once given me a straight answer.",
+    "flaws": "I believe in force because force has always worked, and I am about to find out what happens when it does not. And I am keeping a secret from the people I am protecting, because I was ordered to, and I am a person who follows orders."
+  },
+  "appearance": "A tall, rangy woman of forty-one with a dark brown ponytail pulled hard, a long jaw and a face that has decided not to show anything, in an MPD Emergency Service Unit tactical vest over a navy uniform shirt, a patrol carbine slung across her chest and a satellite phone clipped to her vest like a second heart. She stands at parade rest without thinking about it. She has not slept more than three hours a night since Thursday and it shows only in her eyes.",
+  "backstory": "Lieutenant Dana Castellane has commanded ESU Truck 3 of the Merriwick Police Department for four years — hostage rescue, building collapses, suicidal jumpers on the Kingsgate Bridge, the occasional armed standoff. At 4:12 on the Thursday she was on the West Side Highway at a vehicle fire near the Holloway Tunnel plaza. She has been there ever since, with three officers and a truck, running a perimeter, an aid station and a shelter for about four hundred people out of the Holloway Tunnel ventilation building. On Day 2 a federal helicopter that tried to cross the Westwater was set down gently on the West Side Highway with its crew Set; on Day 3 a satellite phone arrived the same way, on a weighted float, and with it a voice calling himself 'Harbor Actual' of a Joint Task Force on the mainland. Since then she has been receiving orders, and the orders have not included the words 'evacuation' or 'rescue'. She has decided to make her own: the tunnel is jammed with Day 1 traffic, and she has four blocks of plastic explosive.",
+  "dmNotes": {
+    "roleplaying": "Castellane is the campaign's argument for force, made by a competent, decent, exhausted professional — not a villain and not a fool. She is the most dangerous person on the island because she has a rifle, explosives and a plan, and her plan (blow the tunnel jam, drive four hundred people out) is the single most novel act anyone could commit. Play her as the person the players would want in charge of any other disaster. She listens. She changes her mind on evidence — real evidence, demonstrated, not argued. She will not change it for a speech. When she does change it, she is ferociously effective in the new direction, and she is the best person on the island to have at the gangway of the Last Ferry.",
+    "voice": "Clipped, quiet, procedural. Gives orders as information ('We move at oh-six-hundred. Bianchi has point.'). Calls civilians 'sir' and 'ma'am' and the party by their surnames. Says 'copy' and 'understood' and means them. When something gets past her guard — a child, the Set officer she finds in lf-scenario-003 — she says nothing at all for a moment, then 'Okay,' very quietly, and moves on.",
+    "motivations": "Primary: get the four hundred people in her shelter off the island, by any route that works. Secondary: keep her three officers alive. Tertiary: do her duty to the chain of command — which is fraying fast, and which snaps in lf-scenario-004.",
+    "secrets": "THE STRIKE. Harbor Actual has told her, and ordered her to tell no one, that the Joint Task Force will strike the Harbor Lantern with a precision missile at 15:30 on Day 8, the final Thursday — eighteen minutes before the Last Ferry sails — to 'test the Hem's response to kinetic force'. She knows the timing. She does not know about the ferry plan until the party tells her. THE GM TRUTH: the missile is returned, as everything is — it is caught, slowed and set down unexploded on the Pier Point lawn, which is the single most novel event of the week, and the Attention in the harbor goes to 6 eighteen minutes before boarding. The party can stop it (convince Castellane to call it off: Persuasion DC 18, or DC 13 with a demonstrated proof of the pattern rule; or steal and use the phone — Harbor Actual will not take orders from a civilian, but will take a precise eyewitness report from Castellane), delay it, or use it (the strike holds the Lantern's attention for its duration: everyone aboard the ferry gets advantage on Keep Calm checks for 3 rounds — a terrible, valid choice). SECONDARY: one of the Set in the Greensward is her brother, Officer Paul Castellane, 19th Precinct, and she has not gone to look.",
+    "attitude": "Toward the party: professional, wary, quickly respectful of competence and of nothing else. Toward Lo Pruitt: immediate kinship — two cops — and therefore the person whose disagreement hurts her most. Toward Haddad: impatient; she thinks he is a man who wants to study a fire. Toward the Visitors: she is the only person on the island who looks at them and thinks about how to kill one, and in lf-scenario-003 she will try. Let her succeed at a Stilt if the dice allow, and let the consequence (Attention 6 across a district, two Lanterns turning, the Ushers coming in a wave) teach the whole table why nobody else does it."
+  }
+}

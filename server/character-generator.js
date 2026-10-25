@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const { categoryIdOf, isModernCategory, loadCampaignRecord } = require('./game-categories');
+const { generateSciFiCharacter, getSciFiCharacterOptions } = require('./scifi-character-generator');
 
 // --- Name tables by race ---
 const FIRST_NAMES = {
@@ -158,10 +160,10 @@ function hitDieMax(hitDie) {
 
 function hitDieAvg(hitDie) {
   const max = hitDieMax(hitDie);
-  return Math.floor(max / 2) + 1; // Standard D&D average: d6→4, d8→5, d10→6, d12→7
+  return Math.floor(max / 2) + 1; // Standard 5e average: d6→4, d8→5, d10→6, d12→7
 }
 
-// D&D 5e proficiency bonus by level
+// 5e proficiency bonus by level
 function profBonusForLevel(level) {
   if (level <= 4) return 2;
   if (level <= 8) return 3;
@@ -170,7 +172,7 @@ function profBonusForLevel(level) {
   return 6;
 }
 
-// D&D 5e full-caster spell slot table (Bard, Cleric, Druid, Sorcerer, Wizard)
+// 5e full-caster spell slot table (Bard, Cleric, Druid, Sorcerer, Wizard)
 const FULL_CASTER_SLOTS = {
   1:  { '1st': 2 },
   2:  { '1st': 3 },
@@ -295,6 +297,11 @@ function getStartingLevel(dataDir, campaignId) {
 
 // --- Main generator ---
 function generateRandomCharacter(dataDir, options = {}) {
+  // A Sci-Fi or Noir campaign rolls from its own no-magic ruleset (WO-0040, WO-0042). Everything
+  // below is Fantasy.
+  const campaign = options.campaignId ? loadCampaignRecord(dataDir, options.campaignId) : null;
+  if (isModernCategory(categoryIdOf(campaign))) return generateSciFiCharacter(dataDir, options, campaign);
+
   const rulesDir = path.join(dataDir, 'rules');
   const races = JSON.parse(fs.readFileSync(path.join(rulesDir, 'races.json'), 'utf-8')).races;
   const classes = JSON.parse(fs.readFileSync(path.join(rulesDir, 'classes.json'), 'utf-8')).classes;
@@ -399,9 +406,10 @@ function generateRandomCharacter(dataDir, options = {}) {
   }
 
   // Determine starting level from campaign
-  const startingLevel = options.level || getStartingLevel(dataDir, options.campaignId);
+  // Clamped: the level arrives in the request body, and the HP loop below runs once per level.
+  const startingLevel = Math.min(20, Math.max(1, Math.floor(Number(options.level)) || getStartingLevel(dataDir, options.campaignId)));
 
-  // Calculate HP: max at L1, average for subsequent levels (standard D&D rule)
+  // Calculate HP: max at L1, average for subsequent levels (standard 5e rule)
   const conMod = abilities.constitution.modifier;
   const hdMax = hitDieMax(charClass.hit_die);
   const hdAvg = hitDieAvg(charClass.hit_die);
@@ -722,13 +730,18 @@ function generateRandomCharacter(dataDir, options = {}) {
   return character;
 }
 
-function getCharacterOptions(dataDir) {
+function getCharacterOptions(dataDir, campaignId) {
+  const campaign = campaignId ? loadCampaignRecord(dataDir, campaignId) : null;
+  if (isModernCategory(categoryIdOf(campaign))) return getSciFiCharacterOptions(dataDir, campaign);
+
   const rulesDir = path.join(dataDir, 'rules');
   const races = JSON.parse(fs.readFileSync(path.join(rulesDir, 'races.json'), 'utf-8')).races;
   const classes = JSON.parse(fs.readFileSync(path.join(rulesDir, 'classes.json'), 'utf-8')).classes;
   const backgrounds = JSON.parse(fs.readFileSync(path.join(rulesDir, 'backgrounds.json'), 'utf-8')).backgrounds;
 
   return {
+    category: 'fantasy',
+    terms: { race: 'Race', class: 'Class' },
     races: races.map(r => ({
       name: r.name,
       subraces: (r.subraces || []).map(s => s.name),

@@ -1,0 +1,133 @@
+{
+  "id": "64887215-dab7-4523-893b-0cd7a0728efd",
+  "name": "Eli Sandoval",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Soldier",
+  "level": 2,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 17,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "Stealth"
+  ],
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "equipment": [
+    "Tactical vest (Army plate carrier) and helmet",
+    "M4 carbine (30-round magazine; single, burst or auto)",
+    "Combat knife",
+    "5.56mm rounds (47)",
+    "Frag grenade (1)",
+    "Individual first aid kit (counts as a medkit, 2 uses)",
+    "Canteen and two MREs (2 person-days)",
+    "A photograph of his mother and sisters in El Paso, in a plastic sleeve",
+    "Wallet containing $18"
+  ],
+  "weapons": [
+    {
+      "name": "M4 carbine (single shot)",
+      "attackBonus": 4,
+      "damage": "2d6+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "M4 carbine (burst, 3 rounds, -2 to hit, no ability modifier)",
+      "attackBonus": 2,
+      "damage": "3d6",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Combat knife",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Tactical vest",
+    "type": "medium"
+  },
+  "features": [
+    "Human Versatility (Human: +1 to all ability scores)",
+    "Combat Training: Close Quarters (no disadvantage firing a longarm or automatic with a hostile within 5 ft; +1 AC when not wearing heavy armor, included)",
+    "Adrenaline (bonus action: regain 1d10 + 2 hit points, once per short or long rest)",
+    "Tactical Surge (one additional action on his turn, once per short or long rest)",
+    "Proficiencies (Melee, Sidearms, Longarms, Automatics, Explosives; Light, Medium and Heavy armor)",
+    "Frag grenade (Explosives: 4d6 piercing in a 20-ft radius, DEX save DC 13 for half, thrown 30/60)",
+    "Chain of Command (Veteran feature: soldiers and veterans recognise him as one of theirs; Guard deserters, of whom there are now many, trust him on sight)"
+  ],
+  "traits": [
+    "Combat Training: Close Quarters",
+    "Adrenaline",
+    "Tactical Surge"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say 'sir' and 'ma'am' to everyone, including the nine-year-old. I clean my rifle every night. I volunteer for the worst job before anyone else can.",
+    "ideals": "Orders are not an excuse. I used to think they were.",
+    "bonds": "My mother and my sisters in El Paso, whom I will probably never see again. And whoever I am standing next to.",
+    "flaws": "I do not believe I deserve to make it, and I take risks that only make sense if you believe that."
+  },
+  "appearance": "Twenty, five foot ten, lean and very fit, with a high-and-tight haircut growing out, a thin moustache he is trying to grow, and dark, steady eyes that do not quite settle on anyone. Wears full Army combat uniform with the unit patch cut off, a plate carrier and a helmet he carries more often than he wears.",
+  "backstory": "Private First Class Elijah Sandoval joined the Army National Guard out of El Paso to pay for college, transferred to a Missouri unit when his mother moved to Columbia for work, and had been in uniform for fourteen months when his company was sent to hold the Route 9 bridge on Day 2. That afternoon, an hour before most civilians reached the checkpoint, a sedan came across from Harmon Siding at sixty miles an hour and would not stop, and the lieutenant ordered the squad to fire. Eli fired. That night he put his rifle in the bait shop, then went back for it, and walked away from his unit before the withdrawal. He has not told anyone why.",
+  "dmNotes": {
+    "roleplaying": "Eli is the party's Soldier companion and the campaign's quiet mirror for Colleen Marsh: a decent young man who did something terrible because it was the arithmetic he was given. Introduce him at the bridge on the morning of Day 3 (ob-scenario-001), coming out of the bait shop to cover the crowd's retreat without being asked. He is enormously competent, polite, and a little frightening in how readily he volunteers to die. He holds himself together with routine: rifle cleaning, watch rotations, push-ups at dawn. Do not let him become a gun with a name. Give him small, human moments with Maddie and Tiny.",
+    "voice": "Soft, formal, El Paso Spanish-inflected English; 'sir', 'ma'am', 'copy that'. Speaks in short, complete sentences. Never raises his voice. When he talks about home his whole face changes and he becomes twenty again.",
+    "motivations": "To protect the people he is with, at any cost to himself. To never again fire on people because someone told him to. Underneath: to be forgiven, though he does not believe he can be and would never ask.",
+    "secrets": "THE CAR. On the afternoon of Day 2, on his lieutenant's order, Eli's squad fired on a sedan running the checkpoint from the south. It was a family fleeing Haskett: a man, a woman and a girl of about eight. The girl died. The adults were bitten anyway; they were running because they knew it. Eli walked away that night. He tells the party this only in ob-scenario-004, after Operation Low Water is revealed, and only if they have earned his trust: 'She's doing the same thing. The numbers. I know what that is.' He then volunteers for the worst job on the night. The GM should let him survive it if the dice allow; the point of his story is that he does not have to die to be forgiven.",
+    "attitude": "To the party: respectful, loyal, deferential to Dana Kowalczyk as a senior NCO. To Maddie: protective and very gentle — she is about the age the girl in the car was, which no one else knows. To the Co-op: carefully neutral until he sees the Bell, then cold. To Colleen Marsh: he recognises her immediately — she is every officer who ever gave an order and slept fine — and he will not take his eyes off her. To the Guard: he does not talk about them."
+  }
+}

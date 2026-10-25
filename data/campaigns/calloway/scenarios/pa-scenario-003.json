@@ -1,0 +1,499 @@
+{
+  "id": "pa-scenario-003",
+  "title": "Larch Hill",
+  "subtitle": "Thursday: Room 914, a Woman with a Safe-Deposit Key, a Party at Greyholme, a Car in the County Garage",
+  "levelRange": "5-6",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Port Calloway, Thursday 30 October 1952",
+    "description": "The third day of the clock, and the day the party can find out everything, if it moves fast enough. In the morning, either a dead man on Gannet Island or a living witness the whole city's powerful now want silenced. Downtown, the Hotel Meridian, where room 914 belongs to an insurance adjuster from Portland who is out all afternoon at the Regent Theatre with a stopwatch; the Hall of Records in the basement of the County-City Building, where a six-year-old insurance payment sits in a ledger; the Courier's composing room, where tomorrow's late edition is already being set. On Alder Terrace, halfway up Larch Hill, Constance Sloane is deciding whether to run. At the top of the hill, Greyholme, where Cornelius Vantreight gives a Halloween-eve dinner for two hundred to raise money for the district attorney he intends to have shot tomorrow night. And at two in the morning, in the county motor pool under the Hall of Justice, a thin man with a pencil moustache slides under the DA's Packard with a satchel.",
+    "atmosphere": "Thursday is Larch Hill's day and it should feel richer and colder than the waterfront: laurel hedges dripping, gravel drives, the cable car's bell, butlers, candlelit jack-o'-lanterns carved by somebody's staff, a string quartet, women in furs, men who own the newspapers and the judges and the ground under the viaduct. Downtown, the Meridian's tired marble and its elevator operator, the Hall of Records' green-shaded lamps, the Courier's composing room, all hot lead, Linotype clatter and men in paper hats. The county garage at night: concrete, oil, a single bulb, the drip of water from the Packards' fenders. The tone sharpens. Everyone the party meets today knows something they have decided not to say, and the party should feel the noose of the clock: by midnight they should know who, where and when, and have one night left to decide what to do about it.",
+    "keyLocations": [
+      {
+        "name": "The Hotel Meridian, Room 914",
+        "description": "Twelve storeys of 1912 marble on Commerce Street, a lobby of potted palms and brass spittoons, salesmen and conventioneers. The house detective is a retired cop named Walsh who was Ambrose Pell's deputy when Pell held the job. Room 914 faces the Regent Theatre's roof across the street.",
+        "features": [
+          "The front desk: register, key rack, a night clerk named Desmond who reads the racing pages",
+          "The elevators, run by operators who know which floor everyone goes to",
+          "Room 914: neat, impersonal, a suitcase, a gun case, a paperback Trollope on the night table",
+          "The window: from 914, with binoculars, the Regent's roof, its fire escape, and the alley stage door"
+        ],
+        "encounters": [
+          "Desmond the desk clerk ($5, Society or Deception)",
+          "Walsh the house detective (Ambrose Pell gets his passkey for a bottle and old times)",
+          "Ansel Teague himself, if the party is in 914 after 4:30 p.m. (he is at the Regent from 2 to 4:15 and back at 4:30)"
+        ],
+        "secrets": [
+          "CLUE F1 (core, automatic once the register or the cashier's records are seen; $5 to the clerk or Research DC 10 at the cashier's window): A. Teague, Northwest Casualty Mutual, Portland, arrived Tuesday 28 October, room 914, paid one week in advance by Pacific Mercantile cashier's check drawn on the account of NORTHGATE LAND CO. The same name as the band on Sloane's money.",
+          "CLUE G3 (core, automatic for anyone who opens the gun case): two Colt .32 pocket pistols, blued, the same model and finish, one loaded, one empty and freshly oiled, and a box of .32 rounds. One is his. The other is meant to be found in Nora Kessling's hand. Forensics DC 13: the empty one has never been fired, and its serial has been ground off and re-stamped by a skilled hand to read the same as the one Dahl recorded on Tuesday. It is Teague's twin of Nora's gun.",
+          "CLUE H1 (core, automatic, in the suitcase lid): a Regent Theatre seating plan, the kind the box office gives out, with the stage-left box (Box A) ringed in pencil, a dotted line from the box through a pass door to the fly-gallery stair and the alley door, and 8:40 written in the margin, and, in the balcony, seat C-14 marked with an X.",
+          "Also in the room: a second-class ticket on Friday night's 11:15 to Portland, a Trollope novel (The Way We Live Now), Northwest Casualty Mutual business cards (the company exists; it has never heard of him), and no photographs, letters or personal papers of any kind."
+        ]
+      },
+      {
+        "name": "The Regent Theatre",
+        "description": "Two thousand seats of gilt and red plush on Commerce Street, opposite the Meridian, built in 1926 for vaudeville and used now for films, touring shows and political rallies. A proscenium stage, an orchestra pit, two tiers of boxes either side, a deep balcony. Backstage: dressing rooms, a fly gallery over stage left reached by an iron stair, an alley stage door kept by an old man named Pop Kinsella.",
+        "features": [
+          "Box A, stage left, lower tier: the closest seat in the house to the lectern, reached by a pass door from backstage",
+          "The fly gallery: ropes, sandbags, a narrow iron walkway twenty feet above the stage-left wings",
+          "The balcony: seat C-14, front row, centre left, where the DA's office has sent a complimentary ticket to 'Miss N. Kessling, Ledger switchboard' (Sloane's office sent it at Dunleavy's suggestion)",
+          "The alley stage door onto Pike Alley, and a cab rank at its end"
+        ],
+        "encounters": [
+          "Pop Kinsella, 74, stage-door keeper, a vaudeville tumbler in his day",
+          "Teague, 2 to 4:15 p.m., inspecting the house with a stopwatch, a clipboard and an insurance company's card"
+        ],
+        "secrets": [
+          "CLUE H2 (core, automatic once Pop Kinsella is asked about visitors; he'll say it for a drink): on Thursday afternoon 'an insurance fella' gave him $20 to see the fly gallery, Box A and the pass door, 'for the fire-safety survey for the rally', and walked it three times with a stopwatch.",
+          "CLUE H4 (core, automatic for anyone staking out the Regent from 2 to 4:15): Teague, unmistakable now, walks from Box A through the pass door, up the fly-gallery stair, along the walkway, down to the alley door, and out, three times, timing it; then sits in Box A for ten minutes looking at the lectern and the balcony. Tailing him afterwards (three successes before three failures, Stealth or Driving vs passive Perception 16) leads to the Meridian.",
+          "The complimentary balcony ticket to Nora, C-14, is a clue to the frame: it puts her in a known seat at a known time, in the line of sight from Box A. The box office keeps a carbon of the list; it was added on Wednesday by a call from the DA's office."
+        ]
+      },
+      {
+        "name": "Alder Terrace and Pacific Mercantile Bank",
+        "description": "The Sloanes live in a white colonial house on Alder Terrace, a curving street on the lower slope of Larch Hill: lawn, laurel, a Packard in the drive on weekdays (it goes to the county garage at night under the security detail), a television aerial. The safe is in the study behind a framed map of the state. Pacific Mercantile Bank is downtown on Commerce Street, a temple of marble with safe-deposit vaults in the basement.",
+        "features": [
+          "The study: law books, a framed photograph of Sloane with the governor, a bar cart, the wall safe behind the map",
+          "Constance's sewing room, the only room in the house that is hers",
+          "Pacific Mercantile: the safe-deposit vault, box 1146, Constance Muir Sloane, rented since November 1947"
+        ],
+        "encounters": [
+          "Constance Sloane, 44, alone in the house in the morning, at the bank at 3, at the Greyholme party at 7 (on her husband's arm, for the last time)",
+          "A plainclothes cop in a car outside (Crooked Cop), one of Dunleavy's, watching the house, who leaves with Sloane at 6:30"
+        ],
+        "secrets": [
+          "CLUE B4 (core, automatic once Constance decides to talk; Insight DC 14 to see that she wants to, Persuasion DC 14 to get her there, or tell her about Lindqvist): the safe, the carbon, and the monthly envelopes. 'Every first of the month since 1947, a messenger from Larch Hill. A thousand dollars. He calls it his pension.'",
+          "CLUE E5 (core, automatic for anyone who opens the safe; Constance knows the combination, his mother's birthday, 4-11-92; Mechanics DC 17 otherwise, and +2 Heat for breaking into the DA's house): the carbon of the 1946 Lindqvist statement in a manila envelope, with a pencilled list of Northgate Land payments, and $6,200 in cash in Northgate bands.",
+          "The original: at 3 p.m. Constance withdraws the original signed 1946 statement from box 1146 and carries it in her handbag. She has a ticket on Friday's 10:40 train south. If she trusts the party, she gives it to them, or to Nora, or to Miriam Holloway, with them as witnesses. If she does not, she leaves on the 10:40 Friday and mails it from the first stop to Miriam Holloway, and it arrives on Monday, after the election, too late for anything but a footnote.",
+          "She was at the Kessling execution vigil in 1947, standing next to fifteen-year-old Nora in the rain, and has never told anyone. Iris Nakamura's 1947 negative shows it."
+        ]
+      },
+      {
+        "name": "Greyholme",
+        "description": "The Vantreight house at the top of Larch Hill: 1890s shingle and stone, thirty rooms, a gravel forecourt, terraced gardens down to a laurel hedge and the long view over the whole city to the sound. Tonight, from seven to eleven, a dinner for two hundred, 'Friends of Wendell Sloane', with a string quartet in the hall and jack-o'-lanterns lining the drive.",
+        "features": [
+          "The forecourt and the garage block, where the chauffeurs wait with their cars and a thermos",
+          "The library, Vantreight's room, with a view of the viaduct and a model of it on a table",
+          "The terrace, where guests smoke and the city is laid out below like a map",
+          "Two Guard Dogs in the grounds after eleven; a Bodyguard always near Vantreight"
+        ],
+        "encounters": [
+          "Cornelius Vantreight, host",
+          "Wendell Sloane, guest of honour, and Constance on his arm",
+          "Lt. Dunleavy, as Sloane's security, and enjoying the canapés",
+          "Hollis Gage of the Ledger, who was invited as a courtesy and came to annoy everyone",
+          "Bertil Moe, Vantreight's chauffeur, in the garage block"
+        ],
+        "secrets": [
+          "CLUE F3 (core, automatic once anyone talks to the chauffeurs in the garage block and mentions Portland, or offers Moe a drink; Streetwise or Society DC 12 just speeds it): Moe drove 'the gentleman from Portland' up from the station to Greyholme on Monday afternoon, waited forty minutes, and drove him to the Meridian, and the gentleman read a book the whole way and tipped exactly a dollar.",
+          "In the library, if the party gets a private word with Vantreight (he will invite them; he has been told who they are): he offers $10,000, in cash, tonight, for 'whatever paper the Kessling girl has, and your agency's discretion until after Tuesday'. Insight DC 14: he is not afraid of the party; he is afraid of the original statement, and he does not know where it is. He also says one true thing, which should chill them: 'Wendell will not be a problem after Friday, one way or another. Elections are clarifying.'",
+          "The model of the viaduct in the library has little brass plates on the blocks it passes over. Eleven of them say NORTHGATE. One, at Pier 9, says HALVORSEN PACKING."
+        ]
+      },
+      {
+        "name": "The Hall of Records and the Courier Composing Room",
+        "description": "The Hall of Records is the basement of the County-City Building: corporation filings, deeds, liens, bank-reporting returns, under green lamps, open to the public until five. The Courier composing room is the third floor of the Courier Building: Linotype machines, the stone where pages are locked into steel forms, men in paper hats, and the compositors' union chapel, whose members drink with the Ledger's printers at the Type Lice Tavern on Pike Alley.",
+        "features": [
+          "Halvorsen Packing Co. filings: incorporated 1931, owned through Calloway Holdings, dissolved 1947",
+          "Northgate Land Co.: incorporated January 1951, directors three Vantreight lawyers",
+          "The Courier's composing room stone, where the late edition's front page is made up in advance for big stories",
+          "The Type Lice Tavern, where Courier and Ledger printers drink together and trust each other more than either paper"
+        ],
+        "encounters": [
+          "A Hall of Records clerk, Miss Pruitt, who is very fast and likes to be thanked",
+          "The Courier's night foreman, Al Strand, ITU member, who despises the paper he works for and loves the trade",
+          "Ledger printer Mel Okamoto, who drinks with Strand and owes Iris Nakamura a favour"
+        ],
+        "secrets": [
+          "CLUE E3 (core, automatic for Research at the Hall of Records; DC 12 speeds it to half a scene): Halvorsen Packing Co. received $310,000 from Pacific Coast Fire & Marine on 22 April 1946 in settlement of the fire. The same month, Earl Haskin, plant manager, deposited $5,000 at Pacific Mercantile (a bank-reporting return Miss Pruitt can find). Haskin died in a car wreck on the coast road in 1949. Halvorsen Packing's sole shareholder was Calloway Holdings, which is Cornelius Vantreight.",
+          "CLUE G4 (core, automatic for anyone who gets into the composing room or talks to Al Strand with Mel Okamoto vouching; otherwise Deception DC 15 posing as a union man): on the stone, under a sheet of brown paper marked HOLD, FRI LATE, BY ORDER MR. V., a front page already set and locked in its form: DA SLAIN AT RALLY; RED ORGANIZER'S DAUGHTER HELD, with a two-column photograph space and a story with blanks for the time and the number of shots. Strand will let one person look for one minute and will lose his job if anyone knows. A proof pulled from it is the most damning piece of paper in the campaign after the Lindqvist statement.",
+          "Northgate Land's condemnation awards on the viaduct right-of-way, filed and pending, total $2.3 million; a fraud complaint against Northgate by the state highway department was 'referred to the District Attorney' in June and has not been heard of since (the complaint's docket number is in the filing)."
+        ]
+      },
+      {
+        "name": "The County Garage",
+        "description": "The county motor pool under the Hall of Justice, entered by a ramp from Pike Alley: concrete, oil, a single bulb per bay, police cruisers, the coroner's wagon, and in bay 3, nights this week, the DA's black 1951 Packard under the security detail. The attendant is a boy named Danny Ruiz who does homework in the booth.",
+        "features": [
+          "The ramp from Pike Alley and a steel roller door that is never fully shut",
+          "Bay 3: the Packard, washed every night at ten",
+          "The attendant's booth with a telephone and a radio"
+        ],
+        "encounters": [
+          "Danny Ruiz, 19, the night attendant",
+          "At 2 a.m., Vic Dorrance (Mob Lieutenant) and two Dockside Goons, with a satchel"
+        ],
+        "secrets": [
+          "CLUE D2 (core, automatic once anyone asks Danny Ruiz about visitors): on Tuesday a thin man with a moustache, who said he was from the dealer, asked when the DA's car was washed, when it went out in the morning, and who had the keys, and gave Danny a dollar.",
+          "At 2 a.m. Dorrance and two goons come down the ramp, send Danny for coffee with a five-dollar bill, and wire eight sticks of dynamite to the Packard's starter, to go off when the car is started after the noon dedication on Friday. Dorrance does it neatly. He does not know that Dunleavy plans to 'find' it at seven.",
+          "If the party catches them, Dorrance fights only long enough to run. Captured, he says, contemptuously, 'Ask Dunleavy. Ray knows all about it. Ray's going to find it in the morning and get his picture in the paper.' That is the first explicit sign that the bomb was meant to be found, and that someone wants Sloane alive till Friday night."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Thursday the party can assemble the whole case. In the morning, the result of Wednesday night: either Oskar Lindqvist is dead, and a launch skipper on the Flats says he took a man in a grey Chesterfield across at two, or he is alive and every powerful man in Port Calloway wants him moved, silenced or bought. At the Hotel Meridian, room 914 belongs to 'A. Teague, Northwest Casualty Mutual', paid for by Northgate Land, and holds a pair of identical Colt .32s, a Regent seating plan with the stage-left box ringed and 8:40 in the margin, and a train ticket for after the rally. At the Regent, the stage-door man took $20 from 'an insurance fella' who timed the walk from Box A to the alley door. At the Hall of Records, the insurance money and Haskin's $5,000 tie the fire to Vantreight. In the Courier's composing room, Friday's late front page is already set: DA SLAIN AT RALLY; RED ORGANIZER'S DAUGHTER HELD. On Alder Terrace, Constance Sloane, who has the original 1946 statement in her handbag and a train ticket for Friday night, decides whether to trust anyone. In the evening Vantreight hosts a dinner at Greyholme for the man he means to have killed, and offers the party $10,000 to go away. At 2 a.m. Maddox's man wires a bomb under the DA's Packard, and if the party stops him, he laughs and tells them a police lieutenant was going to find it anyway. By midnight the party should know who, where and when. Friday is what they do about it.",
+  "hook": "Thursday, 6:20 a.m. The telephone in the agency office is ringing, and it has been ringing for some time. It is Sister Bernadette Kerrigan from St. Agnes, calling from the island's only payphone, and depending on what the party did on Wednesday night, she is either telling them, in a very level voice, that Mr. Lindqvist died in the night and that his pillow was on the floor and the veranda door was open, or telling them that a man came up the laundry stair at three, and that Mr. Lindqvist is asking for Nora, and that someone from the district attorney's office has telephoned to say he is to be moved to County Hospital under police guard today.",
+  "cluesAvailable": [
+    "F1",
+    "F3",
+    "F4",
+    "F5",
+    "G3",
+    "G4",
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "E3",
+    "E5",
+    "B4",
+    "D2",
+    "D3",
+    "E4"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "F. Vantreight has hired a professional, and Dunleavy is in it",
+      "clues": [
+        "F1: the Meridian register and the Northgate cashier's check (the Meridian)",
+        "F3: the chauffeur Bertil Moe (Greyholme)",
+        "F4: Lindqvist's murder and the launch skipper (Gannet Island or the Flats)",
+        "F2 from Wednesday: the Crow's Nest meeting (the Pelican)",
+        "F5: Dunleavy's rota (Becerra, the Hall of Justice)"
+      ]
+    },
+    {
+      "conclusion": "G. Nora is being set up as the patsy",
+      "clues": [
+        "G3: the twin Colt in 914 (the Meridian)",
+        "G4: the pre-set Courier front page (the composing room)",
+        "The complimentary balcony ticket C-14 (the Regent box office)",
+        "G1 and G2 from Tuesday and Wednesday"
+      ]
+    },
+    {
+      "conclusion": "H. The attempt is at the Regent at 8:40, from Box A",
+      "clues": [
+        "H1: the marked seating plan (the Meridian)",
+        "H2: Pop Kinsella and the $20 (the Regent stage door)",
+        "H3: the security rota (Becerra)",
+        "H4: the stopwatch rehearsal (a stakeout of the Regent)"
+      ]
+    },
+    {
+      "conclusion": "E. Vantreight set the fire and Sloane buried it",
+      "clues": [
+        "E3: the insurance payment and Haskin's deposit (the Hall of Records)",
+        "E5: Sloane's carbon (the Alder Terrace safe)",
+        "The original statement (Constance's handbag)",
+        "E2 and E4 from Wednesday"
+      ]
+    },
+    {
+      "conclusion": "D. Maddox's bomb, and that it was meant to be found",
+      "clues": [
+        "D2: Danny Ruiz at the county garage",
+        "D3: the boathouse loft, if not found on Wednesday",
+        "Dorrance caught in the act: 'Ask Dunleavy' (the county garage, 2 a.m.)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: The Morning After",
+      "description": "Thursday from six to noon. The consequences of Wednesday night, and the paper trail to Larch Hill. If Lindqvist is dead: St. Agnes or the Flats (F4), the coroner, and Sergeant Becerra, who has been told by Dunleavy to write it up as natural causes. If he is alive: the fight to keep him out of Dunleavy's hands. Either way: the Hall of Records (E3), and the first approach to Constance Sloane on Alder Terrace while her husband is at the Hall of Justice.",
+      "objectives": [
+        "Deal with what happened on Gannet Island",
+        "Prove the money trail from the fire to Vantreight",
+        "Find out who Teague is and who is paying him",
+        "Approach Constance Sloane"
+      ],
+      "scenes": [
+        {
+          "name": "Natural Causes",
+          "description": "If Lindqvist died: the fuel dock on the Flats, where Hal Ostby, launch skipper, took a grey-coated man to Gannet Island at 2 a.m. and back at 4 for $40 (F4, automatic for $5 or any honest question), and St. Agnes, where Sister Bernadette has kept the pillow, and the coroner's office, where Becerra, ashamed, shows them the file. Forensics on the body or the coroner's notes: petechiae in the eyes, a torn fingernail, fibres of grey wool under it. If Lindqvist lived: a police ambulance and two of Dunleavy's men arrive at St. Agnes at noon to move him 'to County Hospital for his protection'. The party must stop it, beat it, or follow it.",
+          "readAloud": "The fuel dock on the Flats at seven in the morning is diesel and gulls and a man in oilskins pumping out a launch with a hand pump, and he does not stop pumping while he talks. 'Two o'clock, sure. Forty bucks. Said his auntie was dying on the island and he'd missed the last boat. Grey coat, grey hat, gloves. Never said a word the whole way over. Read a book with a flashlight. Came back down to the landing at four, quarter past, and never said a word the whole way back, neither. Tipped me a dollar on top. Exactly a dollar.' He spits over the side. 'Funny thing. His auntie must've been bad, but he wasn't upset at all.'",
+          "skillChecks": [
+            {
+              "skill": "Forensics",
+              "dc": 13,
+              "success": "The coroner's notes, or the body if the party gets to it before the undertaker: petechial haemorrhage in the eyes, a fresh bruise on the inside of the lip, a broken fingernail with grey wool fibres under it. Smothered. Becerra, shown this, says, 'Dunleavy told me to write it natural,' and stops pretending he does not know what his lieutenant is.",
+              "failure": "The coroner's report says heart failure, as instructed. Sister Bernadette's pillow on the floor, the open veranda door and Ostby's story are still there (F4 is still found)."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "If Lindqvist is alive and the ambulance comes: Sister Bernadette, with your help, refuses to release a dying patient without a doctor's order, and Dr. Mirela Constantin (or any Doctor) writes one saying he cannot be moved. Dunleavy's men leave and Dunleavy is furious. +1 Heat.",
+              "failure": "The ambulance takes him. He goes to County Hospital, to a room on the fourth floor with one of Dunleavy's men at the door. He is alive until Saturday unless someone moves him again; on Friday, Becerra can get the party in."
+            }
+          ]
+        },
+        {
+          "name": "Ledgers",
+          "description": "The Hall of Records, the basement of the County-City Building, open nine to five. E3 is automatic with Research; Miss Pruitt makes it fast. The Northgate fraud complaint referred to the DA is in the same drawer. A Reporter or Bookkeeper background makes this an easy scene; anyone else takes longer.",
+          "readAloud": "The Hall of Records is a low, long basement of green-shaded lamps and steel drawers and the smell of carbon paper, and the clerk is a young woman with harlequin glasses and a pencil in each hand who looks up and says, 'Corporations, deeds or liens?' as if she were a waitress offering soup. When you say Halvorsen, she says, 'Dissolved 1947, Calloway Holdings, that's three drawers, you'll want the fire settlement too, everyone forgets the fire settlement,' and is already walking.",
+          "skillChecks": [
+            {
+              "skill": "Research",
+              "dc": 12,
+              "success": "Half a scene: E3 in full (the $310,000, Haskin's $5,000 in April 1946, Calloway Holdings is Vantreight), plus the Northgate fraud complaint referred to the DA's office in June and never heard of again, and the $2.3 million in pending awards. Sloane has been protecting Vantreight's land deal as well as his fire.",
+              "failure": "A full scene, and you miss the fraud complaint unless you ask Miss Pruitt about Northgate specifically. E3 is found."
+            }
+          ]
+        },
+        {
+          "name": "Mrs. Sloane",
+          "description": "Alder Terrace, mid-morning; Sloane is at the Hall of Justice until six, and Dunleavy's watcher is outside. Constance opens the door herself. She is composed, beautifully dressed, smoking, and has been awake all night. She is the hardest person in the campaign to read, and the most important. She will not say anything useful to anyone who treats her as a suspect. She will say everything to someone who mentions Lindqvist by name and treats her as a witness (B4), and she may open the safe (E5).",
+          "readAloud": "She opens the door herself, a slim fair woman in a grey wool dress and pearls, with a cigarette in a holder she is not smoking, and she looks past you at the car parked under the dripping laurels across the road, and then back at you, and says, 'You're Wendell's detectives. He's at the office. He's always at the office.' She does not step aside. Behind her the hall is very tidy, with a grandfather clock and a bowl of bronze chrysanthemums, and a suitcase, packed, standing at the foot of the stairs. She sees you see it. 'I'm visiting my sister,' she says. 'In Sacramento. I haven't got a sister in Sacramento.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "She is not afraid of her husband. She is afraid of herself, and of what she did in 1946, and she has been waiting five years for someone to ask her about it. Say Lindqvist's name and she sits down on the stairs beside the suitcase and tells you B4, and then: 'I typed it. I typed every word, and gave him a glass of water, and he signed it, and Wendell took it up the hill.'",
+              "failure": "She is polished, bitter and lying about Sacramento. You do not see further."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "She opens the safe (E5) and gives the party the carbon, and says she has 'something better' that she will bring to whoever she decides to trust, after the bank at three. She asks one thing: that Nora Kessling is not hurt. 'I sent her the photostat. I've killed her father once already. I'd rather not do it twice.'",
+              "failure": "She asks the party to leave. She will go to the bank at 3 anyway. A party that follows her there and speaks to her in the vault, quietly and honestly, gets another chance (DC 12)."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "If Lindqvist lived: two of Dunleavy's men (Crooked Cop) and a police ambulance at St. Agnes at noon; a confrontation in a sanatorium corridor in front of nuns, best won with paper, a doctor's order or a badge, not fists",
+        "Dunleavy's watcher outside Alder Terrace (Crooked Cop), who telephones in every visitor"
+      ]
+    },
+    {
+      "title": "Act 2: The Insurance Man",
+      "description": "Thursday afternoon, noon to six. Teague is at the Regent from two to a quarter past four, timing his route (H4). His room at the Meridian is empty (F1, G3, H1). Pop Kinsella at the stage door has his $20 (H2). Constance goes to the bank at three. Becerra, if he is an ally, can show the party the security rota Dunleavy rewrote this morning (F5, H3). The party cannot do all of it at once: someone watches the theatre while someone searches the room, and the clock decides whether Teague walks in on them.",
+      "objectives": [
+        "Search room 914 without Teague knowing",
+        "Watch Teague rehearse, or learn that he did",
+        "Get the security rota from Becerra",
+        "Meet Constance at the bank, if she has not yet decided"
+      ],
+      "scenes": [
+        {
+          "name": "Room 914",
+          "description": "The Meridian. The register (F1) for $5 at the desk. The room itself with Walsh's passkey via Ambrose Pell, or Sleight of Hand with a hairpin (DC 15, a lock pick set gives advantage), or Deception at the desk (DC 14, 'I'm his colleague from the Portland office'). Inside: G3, H1, the train ticket, the Trollope. Teague is back at 4:30. If he walks in on a searcher, he does not fight in a hotel; he steps back into the corridor, closes the door, and is never at the Meridian again, which loses the party the chance to take him there and tells Vantreight they know.",
+          "readAloud": "Room 914 is so neat it is like a room no one is staying in. The bed is made with hospital corners that the maid did not make. One suitcase on the rack, closed. One overcoat brush on the bureau, one hairbrush, one comb laid parallel to it. A paperback on the night table, The Way We Live Now, with a bus ticket as a bookmark at page 412. Through the window, across Commerce Street, the Regent Theatre's roof and its iron fire escape in the rain. On the floor of the wardrobe, a long flat leather case of the kind salesmen carry samples in, with a brass lock.",
+          "skillChecks": [
+            {
+              "skill": "Sleight of Hand",
+              "dc": 14,
+              "success": "The gun case's lock in thirty seconds, and the suitcase's in ten more, and both left exactly as they were, with the hair you find across the suitcase clasp put back. G3 and H1. Teague will never know.",
+              "failure": "You get the case open (G3 and H1 are still found), but you cannot be sure you put the hair back. Roll a d6 at 4:30: on a 1–3 Teague knows his room was searched, changes his plan to the backup (see pa-scenario-004, The Second Route), and moves out."
+            },
+            {
+              "skill": "Forensics",
+              "dc": 13,
+              "success": "One Colt has been fired and cleaned; the other has never been fired, and its serial number has been ground off and re-stamped, skilfully, by hand. The party has Dahl's serial from Tuesday (C4). They match. This gun was made to be found in Nora Kessling's hand, and Nora's own gun to vanish into Dunleavy's pocket.",
+              "failure": "Two identical guns. You will need someone with a loupe to tell you more."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "The seating plan (H1) in the suitcase lid, with Box A ringed, the dotted route, 8:40, and C-14 crossed in the balcony. And in the lining, a Pacific Mercantile envelope with $5,000 in Northgate-banded hundreds: the first half.",
+              "failure": "H1 is still found. You miss the money in the lining."
+            }
+          ]
+        },
+        {
+          "name": "The Stopwatch",
+          "description": "The Regent, 2 to 4:15 p.m. A stakeout from the Meridian lobby window, from a seat in the dark house (the matinee is a western, 25 cents), from the alley, or from the fly gallery itself if someone gets in early. H4 for anyone who watches. Pop Kinsella gives H2 for a drink. The box office has the carbon of the complimentary list with C-14 'Miss N. Kessling, by request of DA's office, Weds'.",
+          "readAloud": "The matinee is a western and the house is a quarter full: schoolboys playing hooky, old men asleep, a couple in the back row. On the screen a stagecoach is crossing a desert nobody in Port Calloway has ever been warm enough to imagine. In Box A, stage left, the curtain moves. A man in grey sits down in the box, takes off his hat, and looks, not at the screen, but at the lectern standing ready at the edge of the stage under a dust sheet, and then up, at the front row of the balcony, and then down at something in his hand. A stopwatch. He clicks it, stands, and is gone through the pass door behind the box. A moment later something moves in the dark of the fly gallery, high over the stage-left wings.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You watch all three runs and he never sees you: Box A, the pass door, the iron stair, the walkway, the alley door, two minutes and ten seconds each time. Then ten minutes sitting in the box, looking at the balcony. H4 in full.",
+              "failure": "On the third run he pauses on the walkway and looks straight down into the wings where you are. He does not change his expression. He knows he has been seen and may move to his second route on Friday (see pa-scenario-004). H4 is still found."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 10,
+              "success": "Pop Kinsella, over a pint of rye in his cubbyhole, tells it (H2) and adds that 'the insurance fella' asked which door the DA would come in by, which no fire inspector ever asked him in thirty years.",
+              "failure": "Pop wants a second pint, and to tell you about his tumbling act at the Orpheum in 1909. You get H2 after that."
+            }
+          ]
+        },
+        {
+          "name": "The Rota",
+          "description": "Sergeant Becerra, if the party has made him an ally (pa-scenario-001 or 002), meets them in the Type Lice Tavern or a parked car with the security rota for Friday that Dunleavy rewrote this morning (F5, H3): every officer Becerra trusts is on the front doors and the lobby; Dunleavy and two of his own men 'float backstage'; nobody is assigned to Box A or the fly-gallery stair. Becerra has been moved to the front doors himself. If Becerra is not an ally, Agnes Ruud saw the rota on Sloane's desk and can describe it (Persuasion DC 13).",
+          "readAloud": "Becerra is sitting in a dark Ford on Pike Alley with the engine off and the windows fogged, and he does not look at you when you get in. He hands back a carbon copy of a typed sheet without turning round. 'Friday. Dunleavy rewrote it this morning. Every man I'd trust with my own kids is on the front doors. Him and his two boys are backstage. Nobody's on the boxes. Nobody's on the fly stair.' He lights a cigarette and the match shakes. 'I'm a cop. I've been a cop sixteen years. I am sitting in a car in an alley giving a private eye a police document because I think a lieutenant of police is going to let the district attorney get shot.' He looks at you in the mirror. 'Tell me I'm wrong.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Becerra will help on Friday, and will go as far as arresting Dunleavy if the party gives him evidence he can take to the chief or, better, to the FBI agent on the freeway-fraud detail at the Federal Building (see pa-scenario-004).",
+              "failure": "Becerra will help, but he will not move against Dunleavy without something in writing. He wants paper."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Teague (The Professional), only if the party confronts him; in the hotel he will not fight, he will leave. In the theatre, if cornered, he fights to get out and is lethal.",
+        "Walsh the house detective (Night Watchman stats) if the party is careless at the Meridian; Pell can square him",
+        "Dunleavy's tail, if still on the party (Crooked Cop)"
+      ]
+    },
+    {
+      "title": "Act 3: Friends of Wendell Sloane",
+      "description": "Thursday night. Greyholme from seven to eleven: Vantreight's dinner for the man he intends to have killed. The chauffeurs in the garage block (F3). Vantreight's offer in the library. Sloane, drunk and charming, on the terrace. Constance, deciding. Then the Courier composing room at eleven (G4), and the county garage at two (D2 and the bomb). Meanwhile at nine, if Nora is at home on Mercer Lane, Lusk's men break in for her photostat.",
+      "objectives": [
+        "Get into Greyholme, and get out again",
+        "Find out from the chauffeurs who brought the man from Portland",
+        "Hear Vantreight's offer, and decide whether to take it",
+        "See the Courier's Friday front page",
+        "Stop, or let happen, the bomb in the county garage",
+        "Decide, by morning, what the plan for Friday is"
+      ],
+      "scenes": [
+        {
+          "name": "Greyholme",
+          "description": "The dinner. Getting in: a Society Heir's family name (Pip Ashdown's), Hollis Gage bringing them as 'Ledger staff', a waiter's jacket and a tray (Deception DC 13), or the garage block and the kitchen door. Inside: string quartet, jack-o'-lanterns, two hundred guests, Sloane holding court, Constance at his side, Dunleavy by the canapés. Vantreight, told who the party are, invites them into the library. The chauffeurs in the garage block (F3).",
+          "readAloud": "The drive is lined with jack-o'-lanterns, two hundred of them, carved by somebody's staff with grinning faces all exactly alike, and the rain hisses on their candles. Greyholme is lit in every window. A string quartet is playing in a hall big enough for a cannery, under a staircase as wide as Front Street, and the people of Larch Hill are standing about in it in furs and black ties with glasses of champagne, talking about the election as if it were weather. At the foot of the stairs Wendell Sloane is laughing with his head back, his hand on the shoulder of a man who owns three banks. Beside him, Constance Sloane in black, very still. And at the top of the stairs, looking down at all of it with no expression whatever, a thin old man in evening dress with a white moustache and a walking stick, who meets your eyes, and smiles, and inclines his head, and sends a footman down to you.",
+          "skillChecks": [
+            {
+              "skill": "Society",
+              "dc": 13,
+              "success": "You move through the party like you were born to it and hear the hilltop's gossip: that Sloane is finished and does not know it; that 'Cornelius has a new horse in the race', meaning Miriam Holloway's opponent in four years' time, Dunleavy's brother-in-law; that the Courier will 'have a very special edition on Friday'.",
+              "failure": "Someone asks whose guest you are, loudly, and Dunleavy looks over. +1 Heat. The footman arrives anyway: Mr. Vantreight would like a word."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "In the library, Vantreight's offer ($10,000 for the paper and silence until Tuesday). He is not afraid of you; he is afraid of the original statement, and he does not know where it is; and when he says 'Wendell will not be a problem after Friday, one way or another,' he means it literally.",
+              "failure": "He is a gracious old man making a generous offer. You cannot read him at all."
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 10,
+              "success": "In the garage block, among the chauffeurs and their thermoses, Bertil Moe tells you about the man from Portland (F3) for a nip from someone's flask, and adds that Mr. Vantreight 'had me drive past the Regent twice on Monday night, slow'.",
+              "failure": "The chauffeurs think you are a cop. F3 still comes out, but only after you have stood in the rain long enough to be believed."
+            }
+          ]
+        },
+        {
+          "name": "Hot Lead",
+          "description": "The Courier composing room, eleven to midnight. Mel Okamoto of the Ledger and Iris Nakamura can get the party to Al Strand at the Type Lice Tavern; Strand will take one of them up for one minute. On the stone under brown paper: G4. A proof pulled from the locked form (Sleight of Hand DC 14 with an inked roller and a sheet of newsprint, in the minute) is evidence; a description is a clue.",
+          "readAloud": "The composing room is a long hot room of clattering Linotype machines, each one like a church organ crossed with a loom, spitting out lines of bright new lead, and the air smells of hot metal and ink and cigars. Men in paper hats folded from newsprint are carrying trays of type to the stone, a long steel table where the pages are locked into iron frames. At the far end of it, alone, a form is covered with a sheet of brown paper with HOLD, FRI LATE, BY ORDER MR. V. written on it in grease pencil. Al Strand lifts the corner of the paper with one finger and does not look at it himself. You read the headline backwards, because type is always backwards, and then you read it again.",
+          "skillChecks": [
+            {
+              "skill": "Sleight of Hand",
+              "dc": 14,
+              "success": "You ink the form with the hand roller and lay newsprint on it and rub it with the heel of your hand, and in fifty seconds you have a proof: DA SLAIN AT RALLY; RED ORGANIZER'S DAUGHTER HELD, with the story set and blanks for the time. Printed in advance. Evidence that the killing was planned by the paper's owner.",
+              "failure": "No proof; just what you saw. G4 is still found. Strand hustles you out before the night editor comes back."
+            }
+          ]
+        },
+        {
+          "name": "Bay 3",
+          "description": "The county garage, 2 a.m. D2 from Danny Ruiz earlier in the evening. At two, Dorrance and two goons wire the Packard. A party that is waiting can stop them; this should feel like the climax and the solution, and it is not. Dorrance, captured, says 'Ask Dunleavy.' If the party lets it happen and tells no one, Dunleavy finds the bomb at seven as planned; if the party tells Becerra, Becerra finds it at six and Dunleavy is out-manoeuvred.",
+          "readAloud": "The garage is a concrete cave under the Hall of Justice, a single bulb over each bay and water dripping from the cruisers' fenders, and the DA's Packard in bay 3, black and washed and shining like a hearse. At five past two the roller door rattles and three men come down the ramp out of the rain, one of them thin with a pencil moustache and a satchel, and the boy in the booth takes a five-dollar bill and goes for coffee without being asked twice. The thin man lies down on a creeper and slides under the car as calmly as a mechanic doing an oil change, and the other two stand by the ramp with their hands in their pockets.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You are on them before they know you are there. Dorrance comes out from under the car with his hands empty and up. 'All right. All right. Ask Dunleavy. Ray knows all about it. Ray was going to find it at seven and get his picture in the Courier.'",
+              "failure": "The goons see you; Dorrance rolls out with a .45 automatic. Fight, short and loud (+2 Heat, and the Hall of Justice night desk is upstairs)."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "You disarm the bomb: eight sticks, a cap, a lead to the starter solenoid. Neat work. Neater than a waterfront thug should be capable of; this is an army engineer's wiring.",
+              "failure": "You do not trust yourself to touch it. Leave it for the police bomb squad, or for Dunleavy at seven."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Greyholme: Vantreight's Bodyguard and two Guard Dogs (after eleven); Dunleavy (Bent Detective) at the party; no fight is expected and a fight at Greyholme is +3 Heat and a night in a cell",
+        "Mercer Lane, 9 p.m.: if Nora is home, Brannan and Ekberg (Union Muscle) with a crowbar for her photostat; if Brannan learned the truth on Wednesday, only Ekberg comes, and he stops when Nora tells him what the paper is",
+        "The county garage, 2 a.m.: Vic Dorrance (Mob Lieutenant) and 2 Dockside Goons. Dorrance has a .45 automatic and would rather surrender than die."
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Cornelius Vantreight, 67",
+      "role": "Owner of the Courier, Calloway Holdings and Northgate Land; the man who paid for the fire; the man behind Friday",
+      "description": "Thin, white-moustached, beautifully mannered, a walking stick with a plain silver knob, which he does not need. Third generation of a lumber fortune. Collects first editions and city councils. Has never in his life raised his voice or his hand; other people do that. Use Mob Boss stats if it ever comes to it, which it should not: his reaction is to ring for a footman.",
+      "motivation": "The viaduct money, his name, and never having to think about eleven people in a loft."
+    },
+    {
+      "name": "Constance Sloane, 44",
+      "role": "The DA's wife; formerly his secretary; the keeper of the original statement",
+      "description": "Slim, fair, pearls, a cigarette holder, a packed suitcase at the foot of the stairs. Grew up poor on the east side, typed her way up the Hall of Justice, married her employer, and has been paying for it in a white house on Alder Terrace for four years. Clever, brittle, brave when it counts, and convinced she is a coward.",
+      "motivation": "To undo the one thing she did, and to get out alive. She would give up the second for the first if she believed it would work."
+    },
+    {
+      "name": "Wendell Sloane, 52",
+      "role": "The client, at his own fundraiser",
+      "description": "Drunk on champagne and relief tonight, because the party has been reporting to him (or not) and he has decided he is safe. Charming to the party in front of the hilltop; cold in private. If he has the carbon still, he does not know it is gone.",
+      "motivation": "To win on Tuesday and never think about Pier 9 again."
+    },
+    {
+      "name": "Ansel Teague, about 45",
+      "role": "The professional",
+      "description": "As in pa-scenario-002. Today he is at the Regent with a stopwatch, and in the evening he eats alone at the Meridian grill and reads Trollope.",
+      "motivation": "The job, and the 11:15 to Portland."
+    },
+    {
+      "name": "Detective Sergeant Luis Becerra, 39",
+      "role": "Honest cop and ally",
+      "description": "Full sheet in the companion files. Today is the day he chooses sides, in a parked car in Pike Alley.",
+      "motivation": "His badge, his conscience, and his kids, in an order that changes during this scenario."
+    },
+    {
+      "name": "Pop Kinsella, 74",
+      "role": "Regent stage-door keeper",
+      "description": "Tiny, bow-legged, a vaudeville tumbler in 1909, still does a handstand for a dollar. Has kept the Regent's stage door for thirty years and knows every way in and out.",
+      "motivation": "A pint of rye and someone to listen."
+    },
+    {
+      "name": "Al Strand, 55, and Mel Okamoto, 41",
+      "role": "Printers on opposite sides of Commerce Street",
+      "description": "Strand, the Courier's night foreman, and Okamoto, a Ledger compositor, drink together at the Type Lice Tavern; their union is older than either paper. Okamoto worked for the Ledger before the war, spent the war years in a camp in Idaho, and came back to find the Ledger had kept his job for him, which is why he would walk into fire for Hollis Gage.",
+      "motivation": "The trade, and each other's respect."
+    },
+    {
+      "name": "Vic Dorrance, 38",
+      "role": "Maddox's bomb man; Dunleavy's informant",
+      "description": "As in pa-scenario-002. Under the Packard at 2 a.m. Use Mob Lieutenant.",
+      "motivation": "Do the job for Maddox, report it to Dunleavy, survive both."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "Vantreight's $10,000 for the paper, if the party takes it (it comes in Northgate bands). The $5,000 in the lining of Teague's suitcase, if the party takes it (Teague will know, and Vantreight will). $6,200 in Northgate bands in Sloane's safe, if the party takes that too (Constance will not stop them). Every one of these has a cost in Heat or trust; none is clean.",
+    "items": [
+      "Sloane's carbon of the 1946 Lindqvist statement (Clue E5), and his pencilled list of Northgate payments",
+      "The original 1946 statement, if Constance gives it: signed O. Lindqvist, taken by W. Sloane, typed by C. Muir",
+      "Teague's marked Regent seating plan (Clue H1), if taken (Teague will know)",
+      "A proof of the Courier's pre-set front page (Clue G4), if pulled",
+      "Becerra's carbon of the Friday security rota (Clues F5, H3)",
+      "The Hall of Records notes: the $310,000, Haskin's $5,000, and the Northgate fraud complaint's docket number (Clue E3)",
+      "Vic Dorrance, in handcuffs or in Becerra's custody, and a satchel of DuPont 40%, if the party stopped the bomb"
+    ]
+  },
+  "twists": [
+    "Vantreight is giving a fundraiser for the man he plans to kill, and enjoying it. He tells the party almost exactly what he means to do, in a sentence about elections, and dares them to understand it.",
+    "Constance Sloane is the person who started the truth moving. She sent Nora the photostat in July. She has the original in her handbag. A party that has been treating her as a black widow because of the insurance policy has had it exactly backwards.",
+    "The bomb in the county garage is a false climax. A party that stops it should be allowed a moment of triumph, and then Dorrance says 'Ask Dunleavy,' and the floor drops out: someone wanted the bomb found, which means someone wanted Sloane alive until Friday night.",
+    "If Lindqvist survived Wednesday night, Vantreight's response is not panic but money: he raises his offer to the party to $25,000 and tells Dunleavy to get the old man moved to County Hospital, where on Saturday he will quietly die. The party has bought Lindqvist two days, enough for him to see the Ledger, if it prints.",
+    "The complimentary balcony ticket for Nora was requested by Sloane's own office, at Dunleavy's suggestion, because Sloane wants her where Dunleavy can grab her after the rally. Sloane is helping to arrange the frame that will cover his own murder."
+  ],
+  "dmTips": [
+    "This is the busiest day of the campaign: five locations that matter and only so many scenes. Let the party split up and cut between them. A sensible split is: one pair on the Meridian and the Regent in the afternoon, one on Constance and the Hall of Records, everyone together at Greyholme.",
+    "By midnight, the party should hold the full solution: who (Teague, for Vantreight, with Dunleavy), where (Box A at the Regent), when (8:40), how (the twin Colt and Nora in C-14), and why (the fire, the blackmail, the viaduct money). If they are missing a piece, Becerra, Pell or Constance can supply it. The point of Friday is the choice, not the deduction.",
+    "Vantreight's library scene is the campaign's moral temptation. Make the $10,000 real: stacks of hundreds on a leather desk, the kind of money that would pay the agency's rent for six years. Give the players time to want it.",
+    "Teague's search: if the party is careless in 914 or at the Regent, he switches to his second route on Friday (pa-scenario-004). Tell them nothing; let them find out on the night.",
+    "Do not let the bomb in the county garage go off, ever. If the party ignores it, Dunleavy finds it at seven. If they stop it, Dorrance talks. Either way the noon dedication happens safely, and Maddox is arrested by lunchtime on Friday.",
+    "Period texture: Larch Hill's guests talk about Ike's 'I shall go to Korea' speech last week; the champagne is French and pre-war; the string quartet plays Haydn badly. The Courier's composing room Linotypes are older than Strand's apprentices. A Packard 1951 costs $3,600, more than most Tin Mile families earn in a year.",
+    "End the day with two headlines. Courier, Thursday evening: SLOANE FRIENDS RALLY AT GREYHOLME; 'CALLOWAY'S STRONGEST VOICE'. Ledger, Friday morning: whatever the party has given Hollis Gage, he holds for Saturday; Friday's Ledger leads with VIADUCT OPENS TODAY, and on page 3, if Lindqvist died, a paragraph from Gage himself: 'This newspaper has questions about a death on Gannet Island.'",
+    "Level-up note: 7,500 XP per character, taking each detective from 5th to 6th level (14,000 XP), the campaign's top. Award it at dawn on Friday, before the plan is made, so the players plan at full strength."
+  ]
+}

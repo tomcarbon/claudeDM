@@ -1,0 +1,416 @@
+{
+  "id": "cw-scenario-003",
+  "title": "Election Week",
+  "subtitle": "A Bulgarian Trucker, a Jar of Rose Jam, and the Bosphorus at Night",
+  "levelRange": "5-6",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Istanbul, Friday 4 to Sunday 6 November 1983",
+    "description": "Istanbul three years after the September 1980 coup, under martial law, on the weekend of the first general election since. Soldiers with G3 rifles stand at the ends of the Galata Bridge; jeeps idle in Taksim; posters for the three parties the generals have permitted cover every wall. The city is enormous, poor, loud, generous and watchful. Somewhere in it is Dimitar Kolev, a Bulgarian truck driver who smuggles cigarettes and whisky on the TIR route from Sofia, carrying a microfilm KESTREL gave him in Sofia two weeks ago, and he is two days late and very frightened. Looking for him are the team; Major Rybak and two of his men, flown in from Sofia; a pair of officers from the Bulgarian DS who have followed the truck across the border; and Turkish national intelligence, MIT, who are watching all of them because the Annex's own fixer has been telling them who is in town.",
+    "atmosphere": "Diesel and sea salt, grilled fish on the Eminonu quay, tea in tulip glasses on every table, a muezzin's call layered over a ferry's horn, gulls, cats, coal smoke, lokum and cigarettes. The city is full of soldiers and nobody looks at them. Strangers are fed. Everything can be arranged, and everyone who arranges something tells someone about it. The danger here is a crowd: in the Bazaar, on the bridge, in the hamam's steam, an enemy can be a metre away and invisible. Gunfire brings soldiers, not policemen, and soldiers under martial law do not ask questions first. Nights end at the curfew in some districts; election day brings an alcohol ban, extra troops, and a strange Sunday quiet.",
+    "keyLocations": [
+      {
+        "name": "Laleli TIR Park and the Hotel Ipek",
+        "description": "A dusty, sprawling lot near Aksaray where trucks from Bulgaria, Yugoslavia, Hungary and Iran park in rows, drivers sleeping in their cabs or in the cheap hotels on the surrounding streets. The Hotel Ipek is one of them: four floors, a lobby with a television showing election coverage, a manager who sells everything, and a Bulgarian clientele. Next to the lot, behind a chain-link fence, the customs pound, where impounded trucks wait for duty to be paid.",
+        "features": [
+          "Rows of trucks with Cyrillic and Latin lettering, drivers playing backgammon on upturned crates",
+          "The Ipek's lobby, with a clear view of the lot and the pound gate",
+          "The customs pound: chain-link and razor wire, a gatehouse with two conscript guards and a clerk, floodlights, a dog that is mostly asleep",
+          "A teahouse on the corner where the drivers trade news, the TIR grapevine"
+        ],
+        "encounters": [
+          "Rybak's two men (Field Agents) watching the Ipek from a rented room across the street",
+          "Bulgarian DS officers (2 KGB/Stasi Officers, use the statblock) asking the drivers about Kolev",
+          "The pound's guards (2 Soldiers (Infantry), conscripts) and a customs clerk who can be bribed"
+        ],
+        "secrets": [
+          "Dimitar Kolev's truck, a blue Bulgarian SOMAT Volvo, is in the customs pound: impounded Saturday afternoon for 40 cartons of undeclared Marlboro. The film is in his cab, in a jar of Bulgarian rose-petal jam (sladko) in a food crate under the bunk.",
+          "Kolev never checked into the Ipek. He saw Rybak's man in the window across the street and went to ground in Kumkapi, the fishermen's quarter, with a cousin of a cousin."
+        ]
+      },
+      {
+        "name": "The Pudding Shop and Sirkeci",
+        "description": "The Lale restaurant in Sultanahmet, known to every traveller on the overland trail as the Pudding Shop, with its noticeboard of lifts offered, rooms wanted and messages for friends. Ten minutes' walk downhill, Sirkeci station, the old Orient Express terminus, its stained-glass windows grimy, its platforms full of Anatolian families and Yugoslav guest workers.",
+        "features": [
+          "The noticeboard, three layers deep in handwritten notes in a dozen languages",
+          "Rice pudding, tea, and a view of the Blue Mosque",
+          "Sirkeci's left-luggage office and its station restaurant",
+          "Tram and ferry connections at Eminonu below"
+        ],
+        "encounters": [
+          "Dimitar's message on the noticeboard, in Bulgarian, addressed to 'the friend of the lady from Plovdiv'",
+          "An MIT watcher (Field Agent) in a brown suit drinking tea who has seen the team come in and writes it down"
+        ],
+        "secrets": [
+          "Dimitar's note: CUMA AKSAMI - KUMKAPI HAMAM - 23:00 - ALONE OR TWO. ROAD FROM PLOVDIV. (Saturday, not Friday; the Turkish word is wrong; he means Saturday night.) Perception DC 12 to find it among the others if the team is looking for Cyrillic; Streetwise DC 14 if not.",
+          "Rybak's men have checked the board, but they are looking for Russian, not Bulgarian, and missed it. The DS men have not checked it at all. MIT has photographed every note on it since 1981."
+        ]
+      },
+      {
+        "name": "The Kumkapi Hamam",
+        "description": "A small, old, unfashionable Turkish bath in Kumkapi, the fishermen's quarter on the Marmara shore below the old city walls: a cold room for changing, a warm room, and a domed hot room with a heated marble slab under a dome pierced with star-shaped skylights, steam so thick you cannot see the wall. Dimitar chose it because nobody can carry a gun in a towel.",
+        "features": [
+          "The hot room: steam (lightly obscured beyond 10 feet), wet marble (Acrobatics DC 12 to move faster than half speed without falling prone), a central heated slab, basins with brass taps",
+          "The camekan (cold room): wooden cubicles, towels, a sleepy attendant with a ledger",
+          "A back door to the stokehold and the alley behind, used by the furnace man",
+          "Outside: fish restaurants, gypsy musicians, and the sea"
+        ],
+        "encounters": [
+          "Dimitar Kolev, terrified, wrapped in a pestemal, sitting on the hot slab",
+          "Rybak's two men, who followed the DS, who followed a driver who knew Kolev's cousin: knives and a garrotte, no guns",
+          "The two DS officers, who arrive five minutes after Rybak's men and are not on the same side"
+        ],
+        "secrets": [
+          "The fight in the hamam is the best place in the campaign for a Brawler, and the worst for a gun. Anyone who brings a pistol into the hot room in a towel finds it wet (a firearm soaked in steam and condensation jams on a roll of 1-3 rather than only a natural 1).",
+          "Dimitar has a ferry ticket to Bandirma and an aunt in Izmir, and $300 in his sock. He wants $5,000 and a passport to Australia. The team can give him one of those."
+        ]
+      },
+      {
+        "name": "The Grand Bazaar and the Sandal Bedesten",
+        "description": "The covered labyrinth of four thousand shops under painted vaults, with gold dealers, carpet merchants and leather sellers shouting in six languages, and at its old heart the Sandal Bedesten, a domed hall that holds auctions. Selim's cousin Nuri has a carpet shop in a side passage with a back room, a telephone, and a stair to the roof.",
+        "features": [
+          "Twenty-two gates and sixty-odd streets; tails are lost and found here",
+          "The roofs of the Bazaar: a second city of domes and chimneys and sleeping cats",
+          "Nuri's back room: tea, a telephone, a microfilm reader if the team brought Gus's folding one",
+          "The gates close at 19:00"
+        ],
+        "encounters": [
+          "A chase through the Bazaar if a tail is spotted and pressed (opposed Athletics/Acrobatics over 3 rounds, complications: a porter with a wardrobe on his back, a tray of tea glasses, a dead end)",
+          "Reading the film in Nuri's back room"
+        ],
+        "secrets": [
+          "Nuri is MIT's informant too. Everyone in Selim's family is a little bit MIT. It is how the family survives."
+        ]
+      },
+      {
+        "name": "The Bosphorus and the Deniz Kizi",
+        "description": "The strait that splits Europe from Asia, a mile wide, running fast and full of ferries, freighters, fishing boats and Soviet warships in transit from the Black Sea. Selim's cousin's launch, the Deniz Kizi, a thirty-foot wooden motor boat with a smoky diesel and a canvas awning, is moored below Kuruçeşme by the old wooden yalis of the European shore.",
+        "features": [
+          "Night ferries lit like Christmas trees crossing every few minutes",
+          "The current: three to five knots southbound on the surface, stronger at the narrows by Rumeli Hisari",
+          "A Soviet freighter at anchor off Besiktas, which is where Rybak would like to take the film",
+          "The Kuruçeşme yali where MIT will be waiting, if Selim has told them"
+        ],
+        "encounters": [
+          "A night chase on the water: the Deniz Kizi (AC 11, HP 60) against Rybak's hired speedboat (AC 13, HP 30), Piloting checks over 4 rounds",
+          "A ferry wake, a freighter's bow, a fishing net, a Turkish coastguard searchlight: one complication per round"
+        ],
+        "secrets": [
+          "Rybak's aim is not the team; it is the jar. If the film goes in the water, he will let the team go. Telling him so (Deception DC 15 with a decoy jar) is a valid way to end the chase."
+        ]
+      }
+    ]
+  },
+  "synopsis": "KESTREL's insurance copy of her microfilm is in Istanbul, with a Bulgarian truck driver who was supposed to arrive on Saturday morning and did not. The team flies in to a city under martial law on the eve of its first election since the coup, meets their fixer, Selim Arslan, and finds the hotel where the trucker should be already watched by Major Rybak's men. They find Dimitar Kolev through a note on the Pudding Shop's noticeboard and meet him at midnight in the steam of a fishermen's hamam, where nobody can carry a gun and Rybak's men try to kill him with knives. The film, it turns out, is in a jar of rose jam in the cab of his truck, and the truck is in a customs pound. On election Sunday, with soldiers on every corner, the team gets into the pound, gets the jar, reads the film in the back room of a carpet shop in the Grand Bazaar, and learns the mole's name and the hour of his next report. Then they have to get out of Istanbul with it, across the Bosphorus at night, with Rybak behind them and Turkish intelligence watching everybody.",
+  "hook": "The Turkish Airlines 727 comes down over the Sea of Marmara in the late afternoon with the old city laid out on its hills, domes and minarets in the haze, and a huge Soviet freighter sliding down the Bosphorus toward the Dardanelles. At Yesilkoy there are soldiers at the foot of the aircraft steps. In the arrivals hall a huge man with a shaved head, a magnificent moustache and a gold tooth is holding a piece of cardboard on which is written, in careful capitals, WELCOME DANUBIA INSURANCE GROUP, and he is already laughing. 'Brothers! Sisters! Welcome to Istanbul! You are hungry. I know you are hungry. First we eat fish. Then you tell me who wants to kill you.'",
+  "cluesAvailable": [
+    "M5"
+  ],
+  "acts": [
+    {
+      "title": "Act 1: The Road from Plovdiv",
+      "description": "Friday 4 and Saturday 5 November. Arrival, Selim, and the hunt for Dimitar Kolev. The Hotel Ipek is watched; the trucker has not come; the TIR grapevine says his truck was held at Kapikule and came through on Saturday afternoon only to be impounded in Laleli for undeclared cigarettes. The team must find him before Rybak or the Bulgarians do.",
+      "objectives": [
+        "Make contact with Selim Arslan and establish a base (Nuri's carpet shop or a hotel)",
+        "Find out why Kolev is late and where his truck is",
+        "Spot Rybak's watchers at the Ipek without being spotted",
+        "Find Kolev's message on the Pudding Shop noticeboard",
+        "Decide what to do about KESTREL: bring her (dangerous, but Kolev trusts only her or someone with the recognition phrase) or leave her safe with Callum or Hanne in West Germany"
+      ],
+      "scenes": [
+        {
+          "name": "Fish at Eminonu",
+          "description": "Selim feeds the team grilled mackerel in bread on the quay and tells them about the city: the curfew, the election, the soldiers, the TIR drivers, the Russians he has seen at the Ipek. He offers his taxi, his cousin's launch and his cousin's carpet shop. He clicks his prayer beads throughout.",
+          "readAloud": "The boats bob at the quay with charcoal grills on board, and the fishermen pull mackerel off the fire, split them into half a loaf with a handful of onion, and hand them up to you over the gunwale for a few lira. Behind you the New Mosque rises grey against the evening, gulls wheeling over its domes; in front, the Galata Bridge, its underside lined with fish restaurants and teahouses, and a soldier at its end with a rifle and a cigarette. Selim has eaten three fish to your one and is talking with his hands. 'Two Russians at the Ipek since Thursday,' he says. 'Very bad suits. Also two Bulgarians, yesterday. Also,' he clicks his beads, 'many other people. Istanbul is a busy city. Eat, eat.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 16,
+              "success": "Selim's beads click faster when he says 'many other people'. He is not lying, exactly, but he is not telling you everything. (He has already reported the team's arrival to his MIT handler.)",
+              "failure": "Selim is warm, funny, generous and entirely trustworthy, as far as you can tell."
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 13,
+              "success": "Selim takes you to the teahouse by the TIR park and the drivers tell you about Kolev: held at Kapikule on Thursday by the Bulgarians, who searched his truck down to the tyres and found nothing; through on Friday night; caught by Turkish customs at the Laleli lot on Saturday with forty cartons of Marlboro; truck impounded; driver gone.",
+              "failure": "The drivers are polite and tell you nothing. It costs another half-day, and Selim's cousin, to get the same story."
+            }
+          ]
+        },
+        {
+          "name": "The Window Across the Street",
+          "description": "The Hotel Ipek, and Rybak's watchers in the rented room opposite. The team must see them without being seen, and decide whether to do anything about them.",
+          "readAloud": "The Ipek's lobby smells of cigarettes and floor wax, and on the television above the reception desk a general in a business suit is explaining the election, with the sound off. Across the street, on the second floor of a building of offices and a dentist, a net curtain moves in a window where the light is off. The manager of the Ipek, who sells everything, says that two Russians have rented that room by the week, and asks if you would like a room with a view of it.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "Two men behind the net curtain, a camera with a long lens, and a third who comes and goes: Rybak himself, once, at dusk, crossing the street to buy cigarettes. You have them; they do not have you.",
+              "failure": "One of the men behind the curtain photographs you in the Ipek's doorway. Rybak now knows the team is in Istanbul. +1 Heat."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 15,
+              "success": "Dee or Hanne plants a bug in the watchers' room (or taps their phone line from the dentist's junction box) while they are out to eat. Rybak's men talk; the team learns they have not found Kolev either, and that 'the Bulgarians are idiots'.",
+              "failure": "The bug is found that night. Rybak knows the team is good, and adjusts."
+            }
+          ]
+        },
+        {
+          "name": "The Noticeboard",
+          "description": "The Pudding Shop, rice pudding, and three layers of notes. Kolev's message is in Bulgarian Cyrillic, addressed to 'the friend of the lady from Plovdiv'.",
+          "readAloud": "The noticeboard at the Pudding Shop is a geological record of the overland trail: lifts to Kabul crossed out, rooms in Goreme, a girl from Utrecht looking for her boyfriend, a Volkswagen van for sale, Jesus loves you, a phone number in Tehran from 1978. A brown-suited man at a corner table is drinking tea very slowly and reading a newspaper with very great care. Pinned under a postcard of the Hagia Sophia, half-hidden, is a sheet torn from a notebook, in a heavy, uneducated Cyrillic hand.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "You find it if you know to look for Cyrillic; otherwise DC 14 with Streetwise. KUMKAPI HAMAM, 23:00, ALONE OR TWO, ROAD FROM PLOVDIV. The Turkish day-word is Friday, but the context (and the late truck) make it Saturday.",
+              "failure": "You do not find it. Selim's cousin's friend who works in the kitchen finds it for you on Saturday afternoon, for a carton of Marlboro, and you have lost half a day."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "The man in the brown suit is a watcher, but not Russian and not Bulgarian: Turkish, official, bored, writing you down. MIT.",
+              "failure": "He is a man drinking tea."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rybak's watchers at the Ipek (2 Field Agents with a camera) and Rybak himself, glimpsed",
+        "Bulgarian DS officers asking questions in the TIR park (2, use KGB/Stasi Officer)",
+        "An MIT watcher at the Pudding Shop (Field Agent); MIT is watching everyone",
+        "Optional Bazaar chase if a tail is pressed (opposed checks, 3 rounds)"
+      ]
+    },
+    {
+      "title": "Act 2: Steam",
+      "description": "Saturday night 5 November. The Kumkapi hamam at 23:00. Dimitar Kolev is on the hot slab in a towel, terrified. He tells the team where the film is and what he wants. Then Rybak's men come through the steam with knives, followed five minutes later by the Bulgarians. A close-quarters fight in steam on wet marble where guns are a bad idea.",
+      "objectives": [
+        "Meet Kolev with the recognition phrase",
+        "Learn where the film is: a jar of rose jam in the cab of his impounded truck",
+        "Keep Kolev alive through the attack in the hot room",
+        "Get out of Kumkapi before the soldiers or the DS arrive",
+        "Make a deal with Kolev: money, a passport, a way out"
+      ],
+      "scenes": [
+        {
+          "name": "The Hot Room",
+          "description": "Kolev, the recognition phrase, the bargain. He is a big, soft, frightened man who has been carrying this film for two weeks and wants to be rid of it and alive.",
+          "readAloud": "The hot room is a dome of steam with stars in it, little star-shaped skylights in the stone through which the night shows dark blue, and under the dome a great octagonal slab of grey marble, heated from below, too hot to lie on for long. Brass taps drip into marble basins. You cannot see the walls. Somewhere in the steam a man coughs and says, in Bulgarian-accented Russian, 'Is the road from Plovdiv still closed?' and before you can answer, he says, 'Please say it. Please say the words.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Kolev agrees to $3,000 and help getting to Australia (Gus Moser can make the papers). He tells you everything: the jar, the cab, the pound, and the fact that the colonel gave him the film in Sofia on 20 October and told him that if anyone but she or a person with the phrase asked, he should eat it.",
+              "failure": "Kolev wants $5,000, now, and will tell you only where the truck is. He will tell you about the jar once he has the money in his hand."
+            },
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "Through the steam, the door of the warm room opens and closes, and the attendant does not call out the way he has for every other customer. Someone has paid him not to.",
+              "failure": "You do not hear them come in."
+            }
+          ]
+        },
+        {
+          "name": "Knives in the Steam",
+          "description": "Rybak's two men come through the steam with a knife and a garrotte, for Kolev. Five minutes later, the two DS officers arrive, for Kolev and for Rybak's men, whom they do not trust. Run the fight in the steam with the hamam's rules (lightly obscured beyond 10 feet, wet marble, wet guns jam on 1-3).",
+          "readAloud": "A shape comes through the steam fast and low, and there is a man's arm round Kolev's neck with a wire in it, and Kolev's eyes bulge, and then there are two shapes, and the hot room is suddenly very small. Somewhere a basin goes over with a crash of brass on marble. The steam swirls round the bodies like something alive.",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 14,
+              "success": "Break the garrotte hold (or the Brawler simply hits the man, which is better). Kolev falls onto the slab gasping.",
+              "failure": "Kolev takes 2d6 and begins to strangle: he is unconscious at the end of his next turn unless the hold is broken."
+            },
+            {
+              "skill": "Acrobatics",
+              "dc": 12,
+              "success": "Move at full speed on wet marble without falling.",
+              "failure": "You go down hard, prone, and slide."
+            }
+          ]
+        },
+        {
+          "name": "Out by the Stokehold",
+          "description": "After the fight: the DS men, the attendant, and soon the police or soldiers. Out the back through the stokehold, where the furnace man sits by the fire and shrugs, into the alley and the fish restaurants and the sea.",
+          "readAloud": "The stokehold is a furnace room as hot as the hot room and black with soot, where an old man in a vest is shovelling wood shavings into a fire under a great copper boiler. He looks at you, dripping, half dressed, bleeding, carrying a Bulgarian in a towel, and he looks at the door behind you, and he goes back to shovelling. Beyond his back door is an alley, then a street of fish restaurants where gypsy musicians are playing a clarinet tune for a table of drunk fishermen, and beyond that, the dark Marmara, with ships' lights on it like a city.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "Out unseen into the Kumkapi night. The DS find an empty hamam and two of Rybak's men, unconscious or worse.",
+              "failure": "The DS men see you leave and follow. Another chase, or another fight, in the streets."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "Patch Kolev's neck and anyone cut in the fight in Nuri's back room, without a hospital.",
+              "failure": "A wound needs a real doctor. Selim knows one in Tarlabasi who asks no questions, for $200."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rybak's knife team (2 Field Agents; one with a garrotte, one with a knife, 1d4 slashing finesse)",
+        "Bulgarian DS officers, five minutes later (2, use KGB/Stasi Officer; one has a pistol and will use it, which is a disaster)",
+        "The hamam attendant, bribed by Rybak's men, who will happily be bribed again"
+      ]
+    },
+    {
+      "title": "Act 3: Election Sunday",
+      "description": "Sunday 6 November. Election day: polling stations, soldiers, an alcohol ban, a quiet city. The team must get into the customs pound at Laleli, get the jar from the truck's cab, read the film, and get out of Istanbul. Rybak, short of men and out of patience, makes his last play: he takes someone, or he waits on the water.",
+      "objectives": [
+        "Get into the customs pound and retrieve the jar of rose jam (bribery, burglary or paperwork)",
+        "Read the film: the RYAN file, the Nicosia report, and GARDENER's instructions (Clue M5)",
+        "Get KESTREL (if present) to confirm the name",
+        "Escape Rybak across the Bosphorus at night, or trade him to MIT through Selim",
+        "Leave Istanbul with the film"
+      ],
+      "scenes": [
+        {
+          "name": "The Pound",
+          "description": "The customs pound at Laleli on election day: two conscripts at the gate, a clerk with a ledger, floodlights, a sleepy dog, and Kolev's blue truck in the third row. Approaches: bribe the clerk ($300 and a story; Persuasion DC 15), forge a release order (Gus's skills, or Julian's nerve; Deception DC 16), climb the fence at night (Stealth DC 15, Athletics DC 12), or ask Selim to ask MIT (which works, and costs the team its secrecy).",
+          "readAloud": "The pound is a dusty square of chain-link with razor wire coiled along the top and floodlights on poles at the corners, and inside it twenty trucks sleep in rows with their tarpaulins drawn. Kolev's is in the third row, blue, with a Bulgarian flag sticker on the bumper and a pair of fluffy dice hanging in the cab. At the gate, two boy soldiers in greatcoats are listening to election results on a transistor radio and arguing about football.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 15,
+              "success": "Over the fence, into the cab, under the bunk, the food crate, a jar of dark red jam with a hand-written label, and out. The dog does not wake.",
+              "failure": "The dog wakes. The soldiers come with torches. A Deception check (DC 13) as a drunk driver who has come back for his cigarettes, or a run for it (+2 Heat, and soldiers under martial law shoot at runners)."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "The clerk takes $300 and the story that you are Kolev's employer come to collect his personal effects, and walks you to the cab himself.",
+              "failure": "The clerk takes the money and then wants more, and then wants to see a document, and then telephones someone. Selim has to intervene, which means MIT knows."
+            }
+          ]
+        },
+        {
+          "name": "The Rose Jam",
+          "description": "In Nuri's back room in the Bazaar, or a hotel bathroom, with Gus's folding microfilm reader. Spoon out the jam, wash the film canister, and read. Sixty frames of RYAN reports; a 1971 Nicosia recruitment report; three of GARDENER's reports from October 1983; and the Centre's instruction for 9/10 November. If KESTREL is present, she reads the Nicosia report over the team's shoulders, and puts her hand to her mouth.",
+          "readAloud": "The jam is very sweet and smells of roses, and at the bottom of the jar, in a little screw-top canister wrapped in a condom, there is a roll of 16mm film the length of your finger. Gus's reader unfolds out of its cigar box like a strange flower, a lamp and a lens and a ground-glass screen, and you thread the film, and the first frame comes up grey and then sharp: Cyrillic typescript, a stamp, a signature, SOVERSHENNO SEKRETNO. Top secret. Frame after frame. Then a frame headed NICOSIA, 1971. Then a frame headed GARDENER.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "The Nicosia report names a recruit: a British signals clerk at the RAF station, aged 32, initials L. P., left-handed, a heavy gambler with a sick mother in Croydon; recruited on 14 June 1971 by Major V. I. Tarasova. Everyone at the table who has met Lionel Pryce knows. (Clue M5.)",
+              "failure": "The frames are in Russian and the photographs are tiny. Sofia, Tomasz or KESTREL can read them; anyone else needs time and a dictionary."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 15,
+              "success": "GARDENER's October reports, in translation: increasingly alarmed accounts of NATO preparations for the exercise, partly invented ('station chief has been told to expect a real alert'). And the Centre's instruction: GARDENER is to report by emergency channel at 02:00 on 10 November whether the adversary regards the exercise's release procedures as genuine. Below it, a handwritten note in a senior officer's hand: Decision point.",
+              "failure": "You see the instruction but miss the handwritten note. You understand GARDENER is to report; you do not yet understand how much rides on it."
+            }
+          ]
+        },
+        {
+          "name": "The Narrows",
+          "description": "Rybak's last play in Istanbul. He has lost his men and has one hired speedboat and a Soviet freighter at anchor off Besiktas. He waits on the water. When the team takes the Deniz Kizi from Kuruçeşme (or a ferry, or Selim's taxi to the airport), he moves. On the water: a four-round Piloting chase with one complication per round (a ferry's wake, a freighter's bow, a fishing net, a coastguard searchlight). On land: a run to Yesilkoy where MIT is waiting for whoever Selim tells them to wait for.",
+          "readAloud": "The Bosphorus at night is black water and moving lights: ferries lit from bow to stern, crossing and recrossing; a freighter's red and green running lights sliding past enormous and close; the fortress at Rumeli Hisari floodlit on its hill; the wooden yalis along the shore with their lamps lit and their boathouses dark. The Deniz Kizi's diesel thuds and stinks. Selim is at the wheel, singing. Then a searchlight comes on behind you, very white, low on the water, and an outboard engine screams up out of the dark, and Selim stops singing.",
+          "skillChecks": [
+            {
+              "skill": "Piloting",
+              "dc": 15,
+              "success": "Each round of the chase (Selim or a PC at the wheel): a success puts distance between the boats; three successes before three failures and the speedboat loses you among the ferries.",
+              "failure": "Each failure: the speedboat closes, and its passengers open fire (one Field Agent with an SMG, burst; every exchange is +3 Heat and brings the coastguard)."
+            },
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "Hold up a jar of jam in the searchlight and throw it into the Bosphorus. Rybak, who wants the film and not the team, believes it and lets you go. (It was a jar of Nuri's apricot jam. Keep the real one in your coat.)",
+              "failure": "Rybak does not believe it. The chase continues."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "If the team has learned Selim's secret and asks him to call Bay Orhan: MIT intercepts Rybak's speedboat with a coastguard cutter, or at Yesilkoy, and his men vanish into a Turkish military prison. Rybak himself escapes on the Soviet freighter. Turkey has done the Annex a favour; Turkey will remember it.",
+              "failure": "Selim will not call MIT unless the team knows his secret and asks him directly. He is ashamed of it."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Customs pound guards (2 Soldiers (Infantry), conscripts) and a dog (Guard Dog)",
+        "Rybak's speedboat: Rybak (Assassin) and one remaining Field Agent with an SMG; the boat has AC 13, HP 30",
+        "Turkish coastguard or soldiers if anything goes loud",
+        "MIT, if called: a coastguard cutter, or plain-clothes officers at Yesilkoy airport"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Selim Arslan, 38",
+      "role": "Annex fixer in Istanbul, ex-champion wrestler; companion; MIT informant",
+      "description": "Enormous, bald, moustached, gold-toothed, booming, generous. Full sheet in the companion files.",
+      "motivation": "Family, the city, money, being liked. He reports to MIT, and is ashamed of it."
+    },
+    {
+      "name": "Dimitar Kolev, 44",
+      "role": "Bulgarian TIR driver and smuggler; KESTREL's courier",
+      "description": "Big, soft, unshaven, sweating, frightened, with a cigarette always going and a photograph of his daughters in his wallet. He has done KESTREL small favours for eight years for Western cigarettes and has no idea what is on the film. He knows only that the colonel said: if anyone else asks, eat it.",
+      "motivation": "Get rid of the film, get paid, get to his aunt in Izmir and then, if possible, to Australia. He has not been home to Plovdiv for two weeks and suspects he never will."
+    },
+    {
+      "name": "Major Stanislav Rybak, 'the Fisherman'",
+      "role": "KGB clean-up officer; antagonist",
+      "description": "In Istanbul with two men and a hired speedboat. More dangerous in this scenario than anywhere else because he is out of his territory, short of men and running out of time. Escapes at the end, onto a Soviet freighter, to reappear in Vienna.",
+      "motivation": "The film, now, more than KESTREL. He has been told by Moscow that GARDENER is to be protected at all costs."
+    },
+    {
+      "name": "Bay Orhan, 55",
+      "role": "MIT officer, Selim's handler",
+      "description": "A small, polite, grey man in a good suit who drinks tea at a garden in Emirgan, owns a beautiful pair of cufflinks and a terrible memory for faces, which is a lie. He wants the Russians out of his city more than he wants anything from the Annex.",
+      "motivation": "Turkey first. He will help the team against Rybak if asked, and he will keep a copy of anything he can."
+    },
+    {
+      "name": "Nuri Arslan, 30",
+      "role": "Selim's cousin, carpet dealer in the Grand Bazaar",
+      "description": "Thin, nervous, very well dressed, speaks five languages badly and sells carpets in all of them. His back room is the team's base in Istanbul.",
+      "motivation": "Profit, quiet, and not getting arrested. Also a little bit MIT, like everyone in the family."
+    },
+    {
+      "name": "Captain Lyuben Dobrev and Lieutenant Ivo Stoyanov",
+      "role": "Bulgarian DS officers",
+      "description": "Two officers of the Bulgarian State Security who were tipped off to Kolev by a request from Moscow they were not told the reason for, and have followed him into Turkey with more enthusiasm than sense. They distrust Rybak almost as much as they distrust the team.",
+      "motivation": "Bring back Kolev and whatever he carries, to impress Sofia."
+    },
+    {
+      "name": "Vera Tarasova (KESTREL)",
+      "role": "Defector; companion, if she comes",
+      "description": "If she comes, she should be in disguise (Gus can make her a Finnish tourist with dyed hair). She reads the Nicosia frame and is silent for a full minute. Then she says: 'Lionel Pryce. Yes. I made him. Now you know.'",
+      "motivation": "Get the film. Then, at last, give the name, and ask for one mercy."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "$2,000 per agent in hazard pay, drawn on a Frankfurt account the Controller opens for the team, bypassing the station. Kolev's fee ($3,000 to $5,000) and the pound bribe come out of the float. Rybak's men carry about $1,200 in mixed currency.",
+    "items": [
+      "The film: 60 frames of RYAN reports and indicator lists, the 1971 Nicosia recruitment report naming L. P., three of GARDENER's October reports, and the Centre's instruction for 02:00 on 10 November (Clue M5)",
+      "A jar of Bulgarian rose-petal jam, mostly eaten",
+      "A garrotte and a Bulgarian Makarov, if taken in the hamam",
+      "Rybak's camera film from the watchers' room, if taken: photographs of the team, and of Rybak's own men, and one of a thin man with a cigarette in his left hand at a Vienna tram stop in July",
+      "MIT's goodwill, if Selim was asked to call it: an exit through Yesilkoy without passport control, and a debt",
+      "Selim Arslan as a companion, if he wants to come to Vienna (he has never seen snow)"
+    ]
+  },
+  "twists": [
+    "The film is not in the hotel, not on the driver, and not anywhere the opposition is looking: it is in a jar of jam in a truck in a Turkish customs pound, impounded for forty cartons of Marlboro. Everyone has missed it because it is too stupid to look for. KESTREL chose a smuggler as a courier precisely because smugglers' trucks are searched for cigarettes, not film.",
+    "Selim reports to MIT. It is a threat and a gift. A team that learns it can use it: MIT hates the KGB, does not want a Soviet hit team in its city during an election, and will arrest Rybak's men if asked. The price is that Turkey now knows what the Annex is doing.",
+    "The Nicosia report names Lionel Pryce as clearly as a document can without his surname. Every player who has drunk Lionel's tea should feel it. Play the moment straight and let it land.",
+    "The Centre's instruction turns the mole into a ticking clock. GARDENER is to report at 02:00 on 10 November on whether the West believes the exercise's release is real, and a senior hand has written 'Decision point' underneath. Arresting Pryce is not enough: silence at 02:00 would itself be read as alarming. The team now needs him to send a calm report.",
+    "Rybak escapes onto a Soviet freighter, out of reach. He will be in Vienna before the team is. He has worked out that the only way to protect GARDENER now is to kill KESTREL and recover every copy of the film, and he knows which city the team is going home to."
+  ],
+  "dmTips": [
+    "Istanbul in November 1983 is under martial law and holding an election. Use it: soldiers at bridges, posters, election broadcasts on every teahouse television, an alcohol ban on Sunday, a quiet, tense polling day. It should feel nothing like Vienna or Berlin.",
+    "The hamam fight is the campaign's best brawl and its best argument against guns. Make the steam, the wet marble and the jam rule (wet guns jam on 1-3) clear before initiative so the players choose fists and knives. Selim the Brawler should be magnificent here.",
+    "Gunfire in Istanbul brings soldiers in 1d6 minutes and +3 Heat per exchange. Soldiers under martial law do not ask questions, and a team arrested in Istanbul in election week may be held for days, which loses the clock.",
+    "The chase on the Bosphorus uses the core chase rule: 4 rounds of opposed Piloting with one complication per round. Good complications: a ferry crossing (Piloting DC 13 or take its wake, 2d6 bludgeoning to the boat and everyone makes a DEX save DC 12 or falls prone), a freighter's bow (DC 15 or collision), a fishing net (the slower boat fouls its propeller), and a coastguard searchlight (everyone stops pretending).",
+    "Decide early whether KESTREL comes. If she comes, Kolev trusts the team at once and she reads the film, but Rybak has two targets and she is not built for chases. If she stays in West Germany with Callum or Hanne, the team must carry the recognition phrase and the film back to her. Both work.",
+    "Level-up note: 7500 XP per character takes the team from 5th to 6th level (14,000 XP). Award it when the team lands in Vienna, or wherever they take the film.",
+    "Track the date. This scenario should end on the night of Sunday 6 November, leaving three days to the decision point. The team will need all of them."
+  ]
+}

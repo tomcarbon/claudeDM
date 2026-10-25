@@ -1,0 +1,140 @@
+{
+  "id": "501e5de4-7015-4f17-a796-c4bc1bfceb3d",
+  "name": "Marshal Llewellyn 'Llew' Treharne",
+  "status": "alive",
+  "race": "Immigrant",
+  "subrace": "",
+  "class": "Lawman",
+  "level": 5,
+  "background": "Prospector",
+  "alignment": "Lawful Neutral",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 44,
+    "current": 44
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Strength",
+    "Wisdom"
+  ],
+  "skills": [
+    "Nature",
+    "Survival",
+    "Insight",
+    "Intimidation"
+  ],
+  "languages": [
+    "Welsh",
+    "English",
+    "Cornish miners' English, which he insists is a separate language"
+  ],
+  "equipment": [
+    "Leather duster, brown, over a miner's red flannel shirt and braces",
+    "Navy revolver (Colt 1851, converted), 6 loaded",
+    ".36 rounds (18)",
+    "Double-barrel shotgun, kept behind the door of the marshal's office",
+    "Shotgun shells (12)",
+    "Pick handle, worn smooth, his preferred tool for closing saloons",
+    "A tin star stamped TOWN MARSHAL, ARGENT, and the town ordinance book",
+    "Keys to the Argent calaboose, a log jail with three cells and a stove",
+    "A Welsh hymnal and a pipe",
+    "A miner's candlestick, out of habit",
+    "Wallet containing $31"
+  ],
+  "weapons": [
+    {
+      "name": "Navy revolver",
+      "attackBonus": 4,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 4,
+      "damage": "2d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Pick handle",
+      "attackBonus": 6,
+      "damage": "1d6+3",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Two Tongues (Immigrant origin: he speaks Welsh and English; he has advantage on Insight and Perception to follow a conversation the speakers think he cannot understand, and among Welsh and Cornish miners he finds a meal, a bed and the news without a check)",
+    "The Star (Lawman: his office is Town Marshal of Argent, elected; inside town limits he can arrest, close a saloon, collect guns under the ordinance and deputize a posse equal to his proficiency bonus; outside the limits the star is tin, and the county belongs to Sheriff Riggs)",
+    "Keep the Peace: Buffaloing (Lawman: when he hits with a Melee weapon or a pistol used as a club, he can make it a knockout blow even if the target is not surprised, once per creature per scene; his pick handle has closed every saloon in Argent)",
+    "Take Him Alive (Lawman, 2nd level: when he hits with a melee attack he can grapple as a bonus action, and he manacles a grappled creature as an action without a check)",
+    "Office: Town Marshal (Lawman, 3rd level: he knows every business and family in Argent; once per long rest he learns from the town's gossip who has been in or out of it in the last day, and Reputation lost for using the star is halved there)",
+    "Ability Score Improvement (Lawman, 4th level: +1 Strength, +1 Wisdom)",
+    "Extra Attack (Lawman, 5th level: he attacks twice when he takes the Attack action)",
+    "Color in the Creek (Prospector background: he can read rock, ore and water, and every prospector, mucker and assayer in the basin will talk shop with him)"
+  ],
+  "traits": [
+    "Two Tongues",
+    "The Star",
+    "Buffaloing",
+    "Take Him Alive",
+    "Town Marshal",
+    "Extra Attack"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am slow, stubborn and fair. I sing hymns under my breath when I walk my rounds. I do not drink, but I will stand you one.",
+    "ideals": "A camp is a town when it has a jail that holds and a law that is the same for the mine owner and the mucker. I mean to make Argent a town.",
+    "bonds": "The miners who elected me. My wife Gwen and our two girls, who come up from Denver in the spring if the camp is still here.",
+    "flaws": "Aurelius Stannard paid for my election posters and my first year's salary out of his own pocket, and I have never once arrested a Lodestar man. I tell myself it is a coincidence."
+  },
+  "appearance": "A short, very broad Welshman of forty-four with a grey spade beard, a nose broken by a falling timber, enormous scarred hands and pale blue eyes under heavy brows. He wears his hat square and walks slowly everywhere, as if the ground might give way.",
+  "backstory": "Llew Treharne dug coal in the Rhondda at nine, slate in Pennsylvania at twenty, gold in California, silver in Nevada and lead in Leadville, and came over the range to Argent in 1878 with a partner and a claim that turned out to be worthless. When the miners got tired of being shot on Saturday nights, they elected him marshal because he was the strongest sober man in the basin and had once carried two men out of a burning shaft. He has made Argent quieter, and he is proud of it. He is less proud of how it happened: Aurelius Stannard, who wanted a town with a law in it for his Eastern investors to read about, paid for everything.",
+  "dmNotes": {
+    "roleplaying": "Llew is the party's honest, limited law inside Argent. Introduce him in sl-scenario-001 at the assay office, standing over Erasmus Ashworth's body and plainly unhappy with the coroner's verdict. He can open doors in town (the Silver Dollar's back room, the boarding houses, the calaboose for a prisoner), and he can raise a posse of miners in an hour. Outside town limits he has no authority, and Sheriff Riggs makes sure everyone knows it. His arc is his debt to Stannard: as the clues against Stannard accumulate (sl-scenario-001 and 002), Llew is the last man who wants to see them. When he sees them, in sl-scenario-004, he arrests Stannard himself, and it costs him.",
+    "voice": "Slow, deep, musical, with Welsh turns: look you, there is a thing, isn't it. He calls everyone bach (little one) when he is fond of them, including men twice his size. Long silences.",
+    "motivations": "Primary: keep the peace in Argent and stop the camp from becoming a battlefield between two railroads. Secondary: find out how Erasmus Ashworth really died, whom he liked. Tertiary: keep his job, because Gwen and the girls are coming in the spring.",
+    "secrets": "Stannard pays him $50 a month on top of the town salary, in cash, which Llew thinks of as a gift. He has also seen Obed Becket, Stannard's mill foreman, coming down Assay Street at half past eleven on Saturday night, the night Ashworth died, and has told no one, because Becket is a Lodestar man and Llew did not want to believe it. This is Clue A4 if the party earns his trust or confronts him with the bruise.",
+    "attitude": "Toward the party: courteous and wary; strangers with guns are his job. Toward Isaac Merriweather: respect, and relief that someone has authority outside town. Toward Phoebe Lanyon: a gruff fondness; she has sewn up his prisoners. Toward Stannard: gratitude curdling into doubt. Toward Sheriff Riggs: open contempt. Toward the Chinese crew at the Cut: he voted against the Miners' Union resolution barring them from the basin, alone, and was shouted down; he will stand in front of a mob for them."
+  }
+}

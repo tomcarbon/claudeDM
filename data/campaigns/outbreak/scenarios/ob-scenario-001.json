@@ -1,0 +1,536 @@
+{
+  "id": "ob-scenario-001",
+  "title": "Ferry Days",
+  "subtitle": "Day One to Day Four: the festival, the hardware store, and the bridge the Guard leaves behind",
+  "levelRange": "1-2",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Corbin's Ferry, Days 1–4",
+    "description": "The north-bank river town in the first four days. Front Street is a festival on Saturday afternoon and a ruin by Saturday night: overturned funnel-cake trailer, bunting, abandoned strollers, a flatbed stage with the band's amplifiers still humming. By Sunday the town is quiet in the way a town never is — no traffic, a few car alarms running their batteries down, dogs, and the occasional shot from a house where somebody is making a stand. The Guard arrives at the Route 9 bridge on Sunday and leaves before dawn on Monday. On Tuesday the Haskett Farmers Co-op parks grain trucks across the south end of the bridge. The scenario's job is to teach the rules — the bite, the noise, the ammunition, the safehouse — while the players still have a town to lose.",
+    "atmosphere": "The first hours are loud, bright and confused: festival music cutting out, a PA announcement that stops mid-sentence, people who do not yet know what is happening and are filming it on their phones. Then the first night: candlelight in the hardware store, the radio, Arlo Kettering's old dog under the counter, the sound of the dead brushing against the plate glass on Front Street. Then the hope of the bridge — the Guard, the buses, the clipboards — and the loss of it. Play the dead as ordinary people the players could have met at the festival. Keep the camera on faces and hands, not wounds.",
+    "keyLocations": [
+      {
+        "name": "Front Street and the Ferry Days Grounds",
+        "description": "Four blocks of two-storey brick downtown between the levee and the courthouse annex, closed to traffic for the festival: vendor tents, the Lions Club booth and first-aid tent, the fire-department dunk tank, a flatbed stage, and a beer garden fenced with snow fence behind the Landing Bar.",
+        "features": [
+          "Roofs: the north side of Front Street is a continuous run of flat tar roofs, connected by fire escapes and a few planks; a party on the roofs can cross three blocks without touching the street",
+          "The festival PA system on the flatbed stage still has power from the stage generator — +5 Attention per round if anyone keys the microphone, and a superb lure if someone wants the dead somewhere else",
+          "Cars parked bumper to bumper on the side streets; perhaps a third have keys in them, and every one of them has a car alarm"
+        ],
+        "encounters": [
+          "The first-aid tent: Denny Rourke rises behind the curtain (Zombie Runner, freshly turned)",
+          "Front Street in the first hour: 2d4 Zombie Shamblers and panicking Civilians in the street, growing to a Horde by 7 p.m.",
+          "The Landing Bar: Tiny Bell's bar, with three Civilians barricaded in the walk-in cooler and a Shambler that used to be the cook"
+        ],
+        "secrets": [
+          "The Lions Club cash box under the booth table holds $640, and the beer-garden till behind the Landing Bar another $380 — real money for four days, and then not",
+          "A sheriff's cruiser sits empty at the Front Street barricade with the door open and the keys in it; the gun lock in the front holds a Remington 870 shotgun and the trunk holds a box of 12-gauge shells (25)"
+        ]
+      },
+      {
+        "name": "The Public Landing and the Ruth Ellen",
+        "description": "A concrete boat ramp and fishing pier at the foot of Front Street, where the towboat Ruth Ellen — a small harbour tug, two-deck, out of a fleeting yard upriver — ran aground on the ramp at 4:20 on Saturday with nobody at the wheel.",
+        "features": [
+          "The Ruth Ellen sits half up the ramp, listing, her engines idling until they run dry on Monday; you can hear them from anywhere on Front Street",
+          "The wheelhouse logbook's last entry, Friday night: 'Took a man off the water at mile 212. Hutch says he bit him. Making for Corbin's Ferry for a doctor.'",
+          "The crew quarters below are dark, narrow, and full of steel corners"
+        ],
+        "encounters": [
+          "Two Zombie Shamblers below decks (the captain and the cook) who come up the companionway at any noise",
+          "The deckhand who did the first bite is in the river, snagged on the pier pilings, still moving — a Zombie Shambler that can only grab, and never lets go"
+        ],
+        "secrets": [
+          "The galley holds 18 person-days of canned food and a 5-gallon jug of fresh water; the engine room has a first-aid kit (a medkit, 5 uses) and a 12-gauge flare pistol with 4 signal flares",
+          "The logbook tells the GM and the players something useful: this did not start here. Whatever is happening has been happening upriver since at least Friday."
+        ]
+      },
+      {
+        "name": "Kettering Hardware & Feed",
+        "description": "The party's safehouse for the rest of the campaign. A two-storey brick store built in 1911: hardware and paint at the front, feed and seed at the back with a loading dock onto the alley, Arlo Kettering's apartment upstairs, and a roof hatch onto the flat tar roof. The front is plate glass. The back is a steel door and a rolling dock door.",
+        "features": [
+          "Starts at Security 1 (the steel door). The front windows are the weak point; the plywood rack, the screw guns and the shelving units make Security 2 achievable on the first night",
+          "Stock that matters: hand tools, crowbars, machetes and hatchets in the garden aisle, a 5,500-watt generator still in the box, 3 propane tanks, rope, chain, padlocks, 40 bags of feed (useless to people, priceless to the Mennonites later), a shelf of LED lanterns, batteries, and a reloading bench Arlo uses for deer season (no powder or primers yet — see ob-scenario-003)",
+          "Arlo's gun cabinet upstairs: a .22 rifle and a Ruger .357 revolver, with .22 LR rounds (200) and .357 rounds (24)"
+        ],
+        "encounters": [
+          "The first night: the dead gather against the front glass in the dark, drawn by any light or noise. The glass holds for 10 rounds against a Horde unless it is boarded",
+          "Townspeople knocking on the back door all night Saturday: who do you let in?"
+        ],
+        "secrets": [
+          "Arlo Kettering was bitten on the left shoulder in the crowd on Front Street, through his flannel shirt, and has told no one. He is at Stage 1 when the party meets him",
+          "Arlo's granddaughter Maddie, 9, is a Type 1 diabetic. There are five days of insulin in the apartment fridge, and Arlo was going to refill her prescription at St. Agnes on Monday"
+        ]
+      },
+      {
+        "name": "Corbin's Ferry Police Department",
+        "description": "A single-storey brick building on Second Street with a front office, a dispatch room, a two-cell jail at the back, and a locked gun room. The department had five officers. On Saturday night it has one living one.",
+        "features": [
+          "The front doors are glass and already broken; the dispatch room has a steel door with a wired-glass window and a working base radio",
+          "The gun room is locked with a keypad and a key; Officer Tully has the key; the keypad can be bypassed (Mechanics DC 15, or Jury-Rig) or the hinges cut (30 minutes and +2 Attention)",
+          "Gun room contents: 2 Remington 870 shotguns, 1 AR-15 patrol rifle, 12-gauge shells (40), 5.56mm rounds (90), 9mm rounds (50), 2 concealable Aramid vests, 4 handheld radios with chargers"
+        ],
+        "encounters": [
+          "Officer Ben Tully, barricaded in dispatch with a shotgun and two shells left, terrified, likely to shoot at the first person through the door (Beat Cop, Shaken)",
+          "Chief Hal Brandt in cell 2, bitten on the forearm at 5 p.m., who asked Tully to lock him in. He is at Stage 2 when the party arrives and dies sometime in the night",
+          "Three Zombie Shamblers in the front office in police uniforms or bar clothes, drawn by Tully's shooting earlier"
+        ],
+        "secrets": [
+          "The chief's bite is on the forearm. It is 6 hours too late to amputate, which a Medic can tell the players plainly",
+          "The dispatch radio picks up Guard traffic from the Route 9 bridge on Sunday morning: 'Hold the north end. Nobody crosses south without screening.' And on Sunday night, the order that the party never hears unless someone is listening at 2 a.m.: 'All Haskett elements, withdraw to Highway 54 rally point, out by 0400. Do not inform civilians.'"
+        ]
+      },
+      {
+        "name": "The Route 9 Bridge",
+        "description": "A two-lane 1950s steel truss bridge, a quarter mile long, over the Tamarack between Corbin's Ferry and Harmon Siding. On Sunday the Guard sets up at the north end: sandbags, two Humvees, a deuce-and-a-half, concertina wire and a folding table with clipboards. On Monday morning there is wire, sandbags, a single overturned table, and no Guard.",
+        "features": [
+          "The bridge deck is open steel grating at the centre span — you can see the water forty feet down through it; footing is fine but anything dropped is gone",
+          "The truss gives three-quarters cover against small arms and is full cover against nothing else",
+          "From the north end you can see the Co-op elevator at Harmon Siding, white against the sky, with people moving on top of it"
+        ],
+        "encounters": [
+          "Sunday: the Guard checkpoint — Captain Ostrowski, a dozen Soldier (Infantry), and a crowd of 60 townspeople waiting for 'tomorrow's buses'",
+          "Monday dawn: the crowd discovers the Guard is gone; gunfire from the withdrawing convoy south of the river brings a Horde up from Harmon Siding across the bridge"
+        ],
+        "secrets": [
+          "The Guard left behind one Humvee with a dead battery, a medkit, a case of MREs (24 person-days), and in the cab, a Beretta M9 and 9mm rounds (30)",
+          "PFC Eli Sandoval walked away from the checkpoint on Sunday night and is hiding in the bait shop at the bridgehead. He will not say why until much later"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Saturday, Day One. The towboat Ruth Ellen runs aground at the Ferry Days festival with a dead crew, a volunteer fireman is bitten, and within the hour the dead are on Front Street. The player characters — strangers, neighbours, a nurse, a bartender, a radio host — fight their way to Kettering Hardware & Feed, where 68-year-old Arlo Kettering lets them in and his granddaughter Maddie hands out flashlights. That first night they learn the town's new rules: the dead follow noise, the glass will not hold, a bite is a death sentence that takes its time, and the police department has the only guns in town and one officer left alive. On Sunday the Guard arrives at the Route 9 bridge and promises buses; the party helps get townspeople there and meets the soldiers. Sometime that night Arlo's hidden bite catches up with him, and he asks the party to look after Maddie. On Monday morning the Guard is gone, the crowd at the bridge turns on itself, and a Horde comes across from Harmon Siding. The party gets who they can back to town. On Tuesday, Day Four, grain trucks roll across the south end of the bridge, and a voice on a loudspeaker announces that the Haskett Farmers Co-op is now responsible for the crossing, and that there will be a census.",
+  "hook": "Saturday, a warm one, the last of the summer: Ferry Days on Front Street. At 4:20 the towboat Ruth Ellen runs up onto the public landing without signalling, and two volunteer firemen go aboard to see why. Denny Rourke comes back holding his arm and laughing about a deckhand who bit him. By a quarter to six he is in the first-aid tent beside the Lions Club booth, grey and sweating, and the nurse is drawing the curtain, and Denny sits up. Start the scenario in the tent or within sight of it, with each player character somewhere natural — working, shopping, eating a funnel cake, filling in at the first-aid tent — and let the first thing they see be something they cannot explain.",
+  "acts": [
+    {
+      "title": "Act 1: Saturday, 5:45 p.m.",
+      "description": "The festival breaks. Teach the first two rules — the bite and the noise — in a fight the party should win, then make them run. Ends when the party is inside Kettering Hardware & Feed with the door shut.",
+      "objectives": [
+        "Survive the first-aid tent",
+        "Get off Front Street before the street becomes a Horde",
+        "Decide who to bring with you",
+        "Reach Kettering Hardware & Feed"
+      ],
+      "encounters": [
+        "The first-aid tent: Denny Rourke (Zombie Runner) and the two people he reaches first (Zombie Shamblers on round 3)",
+        "Front Street: 2d4 Zombie Shamblers among fleeing Civilians; Attention starts at 2 from the festival chaos and the GM should announce it",
+        "Optional: the Landing Bar walk-in cooler rescue (three Civilians, one Shambler cook)"
+      ],
+      "scenes": [
+        {
+          "name": "The First-Aid Tent",
+          "description": "The opening image. Denny sits up. The nurse — Luis Arredondo if he is a player character, otherwise Lynn Pace, a school nurse volunteering for the afternoon — is the closest person to him.",
+          "readAloud": "\"The first-aid tent is a white pop-up canopy with the sides let down, two folding cots and a cooler of bottled water, and it smells of sunscreen and kettle corn. Denny Rourke is on the left-hand cot under a foil blanket. Twenty minutes ago he was joking about it. Ten minutes ago he stopped answering questions. Now the nurse has two fingers on his neck and is looking at her watch, and then she looks up and says, quietly, to nobody in particular, 'Somebody call it in. He's gone.' Outside, the bluegrass band is playing 'Wabash Cannonball' and a man on the PA is reminding everyone the dunk tank closes at six. The foil blanket moves. Denny's hand closes on the nurse's wrist.\"",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 10,
+              "success": "He had no pulse and no breath for four full minutes before he moved. Whatever this is, it is not a man waking up.",
+              "failure": "It looks for one second like he has come round — and the character is the one who leans in."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 12,
+              "success": "You break Denny's grip on the nurse before his head comes up off the cot. Nobody is bitten in this tent.",
+              "failure": "You pull, and the cot goes over, and everybody is on the ground — Denny included. Prone creatures next to a zombie are exactly what the infection rule is about; play the next round as a real threat."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "Down by the landing, two more people are walking up the ramp from the towboat in the wrong way — heads down, too steady, wet to the waist.",
+              "failure": "The first you know about the towboat crew is when somebody by the beer garden starts screaming."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Denny Rourke (Zombie Runner)",
+                "From round 3: 2 Zombie Shamblers (a festival-goer and a Lions Club volunteer Denny bit on his way out of the tent)"
+              ],
+              "difficulty": "Medium",
+              "tactics": "Denny goes for whoever is nearest and grabs. Run it so the players see a grab become a bite attempt, so they understand the rule before it costs them anything permanent. If a character is bitten anyway, read them the Infection rule immediately and in full, and note the amputation window: 10 rounds.",
+              "terrain": "A 15-by-15-foot tent with two cots (difficult terrain), a cooler, guy-lines that trip (DEX save DC 10 when running out of the tent or fall prone), and a crowd outside that blocks lines of fire: any shot out of the tent that misses hits a Civilian on a d6 roll of 1–2. Make that clear before anyone draws a gun."
+            }
+          ],
+          "roleplayNotes": "This is where the player characters meet. Give each a reason to be here and a reason to stick together: the nurse needs help, Tiny Bell runs the bar next door, Cory Vance is emceeing on the stage, June Harrow is off-duty and armed. Nobody says the word zombie yet. Someone will say 'rabies' or 'bath salts'. Let them.",
+          "loot": [
+            "The first-aid tent's trauma kit (counts as a medkit, 6 uses)",
+            "Bottled water (12 person-days)"
+          ]
+        },
+        {
+          "name": "Front Street",
+          "description": "Getting from the tent to Kettering Hardware & Feed, two and a half blocks up Front Street. Teach Attention: say the number out loud, raise it for every gunshot, and let them see what arrives.",
+          "readAloud": "\"Front Street has come apart in about ninety seconds. The band has stopped and somebody's guitar is still feeding back through the amplifier. People are running in every direction at once, dragging kids by the wrists, holding phones up. A man in a Cardinals cap is sitting on the kerb with his hands over his ears. Thirty yards up the street a woman in a Ferry Days volunteer T-shirt is walking toward you, not running, with her head tipped slightly to one side, and the people around her are getting out of her way without understanding why. Up at the courthouse end, where the street was empty, it is not empty any more. The only lit sign on the block that isn't a food trailer says KETTERING HARDWARE & FEED — EST. 1911, and the old man in the doorway is waving at you with a flashlight.\"",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "You can tell the dead from the living at thirty yards now: the living run and look back; the dead walk and never look away.",
+              "failure": "One of the 'people' you push past is not one. The nearest Shambler gets a grab attempt as you go by."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "You get a knot of eight panicking festival-goers moving the same way you are — toward the hardware store — and they stay together.",
+              "failure": "They scatter. Some of them make it. The GM decides how many and the players see it."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 12,
+              "success": "Over the snow fence of the beer garden and down the alley: it cuts half a block and keeps you out of sight.",
+              "failure": "The snow fence comes down with you on it. Prone, tangled, +1 Attention."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "2d4 Zombie Shamblers, arriving in ones and twos",
+                "At Attention 6: a Horde forms from the courthouse end of Front Street"
+              ],
+              "difficulty": "Medium (Deadly if the party stands and shoots)",
+              "tactics": "The dead come at the noise and the movement. This fight is meant to be run through, not won. If the party starts shooting, increase Attention by the rule and let the arithmetic speak: at 6, a Horde turns into Front Street from the courthouse end and arrives in 2d4 rounds. Arlo holds the hardware store door open as long as he can.",
+              "terrain": "Vendor tents (half cover vs. nothing, they are canvas), the overturned funnel-cake trailer (full cover), cars on the side streets (car doors are half cover vs. pistols and no cover vs. rifles; engine blocks are full cover), and a crowd that is in the way of every shot."
+            }
+          ],
+          "roleplayNotes": "The players will want to save everyone. Let them try, let it cost them time and Attention, and do not punish them for it — let them save some. The people they bring to Kettering's become the safehouse's first moral question.",
+          "loot": [
+            "The Lions Club cash box ($640)",
+            "The sheriff's cruiser at the barricade: Remington 870 shotgun, 12-gauge shells (25)"
+          ]
+        },
+        {
+          "name": "Kettering's Door",
+          "description": "Arlo Kettering lets them in, bolts the steel back door and pulls the front grille down halfway before it jams. His granddaughter Maddie is behind the counter with the dog.",
+          "readAloud": "\"Arlo Kettering is sixty-eight, tall and stooped in a flannel shirt with the sleeves rolled, and he locks the door behind you with a big ring of keys, the way he has locked it every night for forty-four years. 'Grille's stuck,' he says. 'It's always stuck. Maddie, get these folks some water.' A girl of about nine in a Ferry Days T-shirt comes out from behind the counter with an armful of bottles and a flashlight she points at each of your faces in turn, very seriously, as if checking. Under the counter an old yellow Lab thumps its tail once. Outside the plate glass, Front Street is getting dark, and someone is walking slowly along the window, touching it.\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "Arlo keeps his left arm still and his collar buttoned in eighty-degree heat. He is hiding something, and he is in pain.",
+              "failure": "Arlo seems fine. He is a tough old man and he is very good at seeming fine."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "You free the jammed grille and drop it the rest of the way. It is not much, but the front glass now holds twice as long (20 rounds against a Horde).",
+              "failure": "The grille stays jammed at half height, and the noise of trying adds +1 Attention."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Arlo is the first adult who seems to know what he is doing, and the players will defer to him. Let them. Maddie is not a burden; she is sharp, practical and keeps a notebook of everyone's names, which becomes the safehouse's occupant list. Do not make her a damsel. Make her a reason. Also in the store, sitting on the feed sacks at the back with her arms folded: Shay Pruitt, 24, whom Arlo caught pocketing a box of .22 shells at four o'clock and then, when the screaming started, simply told to stay put. She is the party's Operative companion if they want her (see her NPC file); she is also very obviously deciding whether to steal the store's truck keys.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The First Night",
+      "description": "Saturday night into Sunday. Fortify the safehouse, take people in or turn them away, and go to the police department for the only guns in town. Teach the Safehouse rule and the Ammunition rule, and give the players their first infected person to deal with who is not one of them.",
+      "objectives": [
+        "Raise Kettering's to Security 2 before dawn",
+        "Decide who to let in, and track Supplies",
+        "Reach the police department and open the gun room",
+        "Decide what to do about Chief Brandt"
+      ],
+      "encounters": [
+        "Night at the glass: the dead gather at the front window if there is light or noise (a Horde at Attention 6)",
+        "The police department: 3 Zombie Shamblers in the front office; Officer Ben Tully (Beat Cop, Shaken) in dispatch",
+        "Chief Hal Brandt in cell 2, Stage 2, rising as a Zombie Runner in the early hours if no one ends it"
+      ],
+      "scenes": [
+        {
+          "name": "Boarding Up",
+          "description": "A working scene. The party, Arlo and whoever they brought in turn the hardware store into a safehouse with plywood, screw guns, shelving units and a lot of whispering.",
+          "readAloud": "\"By ten o'clock the store is lit by four LED lanterns turned down as low as they go and set on the floor where they cannot be seen from the street. Arlo has cut plywood to size on the panel saw by hand, because the saw is too loud, and the screw guns go in short, muffled bursts with a folded towel over the chuck. Every few minutes everyone stops and listens. Maddie is writing names in a spiral notebook by flashlight: yours, the people you brought in, and a column she has headed WATER in careful capitals.\"",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 10,
+              "success": "The front windows are boarded and braced with shelving. Security 2: the party can long rest here.",
+              "failure": "The bracing is weak; Security stays at 1 until somebody fixes it tomorrow, and tonight is a short rest at best."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "You work quietly enough that the dead on Front Street drift away by midnight.",
+              "failure": "+2 Attention. By midnight there are a dozen of them pressed against the plywood, and the plywood creaks."
+            },
+            {
+              "skill": "Survival",
+              "dc": 10,
+              "success": "You do the count properly: with the Ruth Ellen's galley, the store's vending machine and Arlo's pantry, the safehouse has Supplies for about 10 days at its current headcount.",
+              "failure": "You guess, and guess high. The GM halves the Supplies everyone thinks they have."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "At about 11 p.m. there is knocking at the back door: a family of four, the Haynes, one of whom (the father, Curt) has a bandaged hand he says he cut on a fence. He was bitten. Let the players work it out and decide. This is the campaign's first real choice and there is no right answer the GM endorses — the GM's job is to make the rule plain and the people real.",
+          "loot": [
+            "Kettering's stock (see Key Locations)",
+            "Arlo's gun cabinet: .22 rifle, Ruger .357 revolver, .22 LR rounds (200), .357 rounds (24) — Arlo hands these out himself, and only to people he trusts"
+          ]
+        },
+        {
+          "name": "The Police Department",
+          "description": "Two blocks away, by the alleys or the roofs. One living officer, a locked gun room, three dead in the lobby and a chief in a cell who knows what is happening to him.",
+          "readAloud": "\"The Corbin's Ferry Police Department has a glass front that is now mostly on the floor, and the fluorescent light in the lobby is flickering. There are three people in the lobby who are not moving like people. Down the corridor, behind a steel door with a wired-glass window, a young man in uniform is pointing a shotgun at you through the glass, and his hands are shaking so badly that you can hear the shells rattle in the tube. Behind him, through the open door to the cells, an older man in a white uniform shirt is sitting on a bunk with his arm wrapped in a towel, very upright, and he raises his good hand to you in a small, tired wave.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Ben Tully lowers the shotgun, unlocks the door and starts crying. He gives you the gun-room key.",
+              "failure": "Tully fires one shell through the door glass. +2 Attention, and the shot goes wide — this time. He still has one left."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "He does what he is told. He will never trust you, but he does what he is told.",
+              "failure": "He panics and fires, and he does not miss: roll his attack against the nearest character."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 10,
+              "success": "Chief Brandt is at Stage 2: fevered, poisoned, lucid. The bite is six hours old and on the forearm. Too late to amputate. A Medic can say how long he has: hours, not a day.",
+              "failure": "You can see he is sick. You cannot say how sick."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "3 Zombie Shamblers in the lobby (a dispatcher, a festival-goer, an officer in uniform with a holstered Glock 9mm and 9mm rounds (15))"
+              ],
+              "difficulty": "Easy (if done quietly) to Hard (if it brings the street)",
+              "tactics": "These three are slow and clumsy among the broken glass and overturned chairs (difficult terrain in the lobby). It is a perfect fight for the party to try with melee weapons from the hardware store, and the GM should point out, once, that it is a building: one gunshot and everything within a few blocks hears it.",
+              "terrain": "Broken glass (difficult terrain, and Stealth checks across it have disadvantage), a long front counter (half cover vs. pistols, none vs. rifles), and a corridor 5 feet wide in which only one Shambler can come at a time."
+            }
+          ],
+          "roleplayNotes": "Chief Hal Brandt, 61, has run this department for 22 years. He asked Tully to lock him in, and now he asks the party for a favour: when it is time, do it properly, and do not let Ben be the one. He tells them, in a level voice, what he saw at the landing. Play him as a decent man doing the last brave thing available to him. If the party leaves him, he rises at about 3 a.m. as a Zombie Runner, in a locked cell, and Tully is alone in the building with him.",
+          "loot": [
+            "The gun room: 2 Remington 870 shotguns, 1 AR-15 patrol rifle, 12-gauge shells (40), 5.56mm rounds (90), 9mm rounds (50), 2 concealable Aramid vests, 4 handheld radios with chargers",
+            "The lobby officer: Glock 9mm pistol, 9mm rounds (15)",
+            "The chief's desk: a county road atlas and the keys to the department's Ford Explorer (in the lot, half a tank)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Bridge",
+      "description": "Sunday and Monday, Days 2 and 3. The Guard arrives, promises buses, and leaves. Arlo dies. The crowd at the bridge breaks and a Horde comes across. Ends on Tuesday, Day 4, with the Co-op's grain trucks on the south end of the bridge.",
+      "objectives": [
+        "Reach the Guard checkpoint and learn what the Guard knows",
+        "Help townspeople get to the bridge — or decide not to",
+        "Be with Arlo at the end, and take responsibility for Maddie",
+        "Get as many people as possible off the bridge on Monday morning",
+        "Hear the Co-op's announcement on Day 4"
+      ],
+      "encounters": [
+        "Sunday: the checkpoint; Captain Dan Ostrowski and a dozen Soldier (Infantry) who are frightened, polite and on orders",
+        "Sunday night: Arlo Kettering reaches Stage 4",
+        "Monday dawn: the crowd of 60 at the empty checkpoint; a Horde crossing from Harmon Siding, drawn by the convoy's gunfire",
+        "PFC Eli Sandoval in the bait shop"
+      ],
+      "scenes": [
+        {
+          "name": "The Checkpoint",
+          "description": "Hope, with clipboards. The Guard screens people by stripping them to the waist behind a tarp screen and checking for bites, and says the buses come at 0800 tomorrow.",
+          "readAloud": "\"The north end of the Route 9 bridge has become a place: sandbags, wire, two tan Humvees with their engines ticking, a generator, a folding table with a laminated sign that says CIVILIAN PROCESSING, and sixty people sitting on their luggage in the shoulder of the road. A blue tarp screen has been strung between the Humvee and a light pole. A captain with a sunburnt neck is walking the line with a clipboard and a voice he has been using all day. 'Buses at oh-eight-hundred,' he says, to everyone, again. 'Everyone gets screened. Nobody crosses before the buses. If you have water, keep it. If you have a weapon, keep it unloaded.' Across the river, the white tower of the grain elevator catches the evening light, and you can see small figures moving on top of it.\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Captain Ostrowski does not believe in the buses. He is telling people what he has been told to tell them.",
+              "failure": "He sounds sure. You want him to be."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "Away from the line, Ostrowski tells you the truth: Haskett has fallen, St. Agnes is overrun, and he has had no contact with battalion for six hours. He gives you his spare medkit and tells you to keep your people in town.",
+              "failure": "He tells you to get in line."
+            },
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "One young private on the wire — SANDOVAL on his name tape — has been staring at the far end of the bridge for an hour without blinking. Something happened there.",
+              "failure": "Soldiers. Tired ones."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "There is no fight here, and the players should feel the relief of being near people with guns and a plan. Ostrowski is not a villain. He is a high-school history teacher in his civilian life and he is about to be ordered to abandon these people, and he will obey. Seed Eli Sandoval: on Sunday afternoon, an hour before the party arrives, a carload of people tried to run the checkpoint from the south, and the Guard fired on it. Eli fired too. Nobody tells the party this now.",
+          "loot": [
+            "If the party gets the truth: Ostrowski's spare medkit (10 uses) and a case of MREs (24 person-days)"
+          ]
+        },
+        {
+          "name": "Arlo",
+          "description": "Sunday night at Kettering's. Arlo's bite has caught up with him. He knew it would. He tells them where everything in the store is and asks them to look after Maddie.",
+          "readAloud": "\"Arlo has been sitting in the paint aisle on an upturned bucket since supper, with the dog's head on his knee. When you come to him he unbuttons his collar and shows you, without saying anything, the marks on his shoulder, gone dark and angry at the edges. 'Front Street,' he says. 'Yesterday. I figured I had today.' He gives you the big ring of store keys, one at a time, and tells you what each one opens. Then he says: 'Maddie's insulin's in the fridge. Five days, if you're careful. After that you'll have to go to St. Agnes.' And then: 'Don't let her see. And don't let me get up.'\"",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 10,
+              "success": "Stage 3. A few hours. There is nothing to do but make him comfortable, and you do.",
+              "failure": "You try everything in the store's first-aid aisle anyway, because you have to. Nothing changes."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "You keep Maddie upstairs, asleep, and she does not see. She will ask in the morning and the party must decide what to tell her.",
+              "failure": "Maddie comes down. Every character present makes the Shaken save."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the emotional anchor of the scenario and of the campaign's infection rule: a good man, a fixed outcome, and the people he leaves behind. Let the players play it at their own pace. If they do not end it before Stage 4, Arlo rises as a Zombie Runner in his own store at about 2 a.m., in the dark, with the dog barking — run it, but run it short. Every character who sees it makes the Shaken save.",
+          "loot": [
+            "Arlo's store keys",
+            "Arlo's ledger: a list of every regular customer and where they live, which is a scavenging map of Corbin's Ferry"
+          ]
+        },
+        {
+          "name": "Monday Morning",
+          "description": "Dawn at the bridge. The Guard is gone. Sixty people, the far end of the bridge, and gunfire from a convoy out of sight beyond Harmon Siding — which has turned the dead of Harmon Siding north, onto the bridge.",
+          "readAloud": "\"The checkpoint is still there at dawn — the wire, the sandbags, the laminated sign — and nothing else. The Humvees are gone. The generator is gone. The tarp screen flaps on its light pole. Sixty people stand up off their luggage one by one and look at each other. Then, from the far side of the river, from somewhere south of the elevator, there is gunfire — not a few shots, a lot of it, the long hammering of a heavy machine gun — and it goes on for a full minute. In the quiet afterwards, on the far end of the bridge, the first of them come up out of Harmon Siding onto the deck. Then more. Then the whole width of the bridge is moving toward you.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "You turn the crowd around and get them walking — walking, not running — back up Route 9 toward town. Most of them make it.",
+              "failure": "The crowd runs, splits, and some of them run onto the bridge to find the Guard. The GM decides how many and the party sees it."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 13,
+              "success": "A man is trying to take a family's car at gunpoint. You stop him without a shot fired.",
+              "failure": "He fires. +2 Attention, and somebody is hurt."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "The abandoned Humvee has a dead battery, not a dead engine. Thirty seconds with the right cable and it starts — loud, +1 Attention, and it carries eight.",
+              "failure": "It will not start, and the noise of trying is +1 Attention."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "A Horde on the bridge (arriving in 3 rounds)",
+                "1d4 Zombie Runners out ahead of it (freshly turned people from Harmon Siding)",
+                "If Attention reaches 9: a second Horde from the Corbin's Ferry side, cutting off Route 9"
+              ],
+              "difficulty": "Deadly if fought; Medium if run",
+              "tactics": "This is a retreat with a rearguard. The Runners hit the crowd first; the Horde follows. A Soldier with suppressive fire can hold the bridge mouth for a round or two — and that is 10 rounds per round, and +3 Attention — which is exactly the kind of trade this campaign is about. The concertina wire at the checkpoint slows the Horde for one round. Eli Sandoval comes out of the bait shop with his M4 and helps, without being asked, and then follows the party.",
+              "terrain": "The bridge approach: sandbags (three-quarters cover), concertina wire (difficult terrain; a creature moving through it takes 1d4 slashing), abandoned cars on Route 9 (car doors half cover vs. pistols, engine blocks full cover), and the bait shop at the bridgehead (a wooden building, no cover vs. rifles)."
+            }
+          ],
+          "roleplayNotes": "The players cannot save everyone and should not be made to feel that they could have. Count who gets back to town and add them to the safehouse or the Methodist church, as the players choose. Eli joins the party here; he is polite, competent and says almost nothing about the Guard.",
+          "loot": [
+            "The abandoned Humvee: medkit (10 uses), MREs (24 person-days), Beretta M9 pistol and 9mm rounds (30)",
+            "Eli Sandoval, who is not loot, but who brings an M4 carbine and 5.56mm rounds (47)"
+          ]
+        },
+        {
+          "name": "Tuesday: The Census",
+          "description": "Day 4, the coda. The party hears it from the roof of Kettering's or the bluff by the radio tower.",
+          "readAloud": "\"At nine on Tuesday morning there is an engine on the bridge: not one, a lot of them, big diesels in low gear. From the roof you watch four grain trucks drive out onto the south span in a line and stop, nose to tail, blocking it from rail to rail. Men with deer rifles climb up onto the cabs. A pickup with a loudspeaker on the roof idles out to the centre of the bridge, and a woman's voice comes across the water, calm and clear and very well organised. 'This is Colleen Marsh, general manager of the Haskett Farmers Co-op. The Co-op is now responsible for the Route 9 crossing. We have food, fuel and water for the people who help us keep it. There will be a census at this checkpoint at nine a.m. tomorrow. Bring your names, your skills, and an inventory of what you have. Nobody crosses without registering. That's all for now. Look after each other.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "She sounds like someone who has done this before, and who has already decided most of what happens next.",
+              "failure": "She sounds like help."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "End the scenario here. The players should come away believing the Co-op might be the best thing in the county, because for a while it is. Do not tip the Bell. Award XP, note how many people are at the safehouse, and remind the players: Maddie has five days of insulin left, which runs out around Day 6. The nearest more is at St. Agnes, across the river.",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Arlo Kettering, 68",
+      "role": "Hardware store owner / the first good man",
+      "description": "Tall, stooped, flannel shirts in all weathers, forty-four years behind the same counter. Knows every customer by name and what they last bought. Calm in the way of a man who has survived floods. Bitten on Front Street in the first hour and hides it for a day and a half.",
+      "motivation": "Keep Maddie alive past himself. Hand the store to people who will use it right."
+    },
+    {
+      "name": "Maddie Kettering, 9",
+      "role": "Arlo's granddaughter / the safehouse's heart",
+      "description": "Serious, practical, freckled, a Type 1 diabetic who checks her own blood sugar and corrects adults who get it wrong. Keeps the spiral notebook of names and supplies. Her parents were in Haskett on Saturday.",
+      "motivation": "Be useful, so that people keep her. She is nine and she has already worked that out."
+    },
+    {
+      "name": "Denny Rourke, 34",
+      "role": "Volunteer fireman / the first to turn",
+      "description": "A big, friendly man in a Corbin's Ferry VFD T-shirt who went aboard the Ruth Ellen to help and came back bitten. The players meet him for two minutes alive.",
+      "motivation": "None, now. He is the rule, demonstrated."
+    },
+    {
+      "name": "Chief Hal Brandt, 61",
+      "role": "Police chief / a decent end",
+      "description": "Grey crew cut, reading glasses, 22 years running a five-officer department. Bitten at the landing and locked himself in his own cell. Lucid, dignified, frightened for his remaining officer.",
+      "motivation": "That Ben Tully survives, and does not have to be the one."
+    },
+    {
+      "name": "Officer Ben Tully, 24",
+      "role": "The last cop in Corbin's Ferry",
+      "description": "Two years on the job, local boy, terrified, holding a shotgun with two shells left in a dispatch room. Hands over the gun-room key to anyone who talks to him kindly. Could become a solid safehouse member or a liability.",
+      "motivation": "Somebody to tell him what to do."
+    },
+    {
+      "name": "Captain Dan Ostrowski, 41",
+      "role": "Missouri National Guard company commander",
+      "description": "Sunburnt, hoarse, careful, a history teacher from Sedalia in civilian life. Runs the checkpoint by the book and withdraws on orders in the night without telling the civilians.",
+      "motivation": "Get his soldiers home. He will carry Monday morning for the rest of his life, and the players will never see him again."
+    },
+    {
+      "name": "PFC Eli Sandoval, 20",
+      "role": "Guard deserter / companion",
+      "description": "See his NPC file. Walks away from the checkpoint on Sunday night and helps the party on Monday morning.",
+      "motivation": "Never do again what he did on Sunday afternoon."
+    },
+    {
+      "name": "Shay Pruitt, 24",
+      "role": "Small-time thief / companion",
+      "description": "See her NPC file. Caught shoplifting in Kettering's an hour before the dead came, and still there when the party arrives. Quick, funny, light-fingered, and evasive about her family.",
+      "motivation": "Stay alive and stay away from her brother Wade, at least at first."
+    },
+    {
+      "name": "Colleen Marsh, 54",
+      "role": "Co-op general manager / the voice on the bridge",
+      "description": "Heard but not seen in this scenario. Calm, clear, organised.",
+      "motivation": "Revealed in ob-scenario-003."
+    }
+  ],
+  "rewards": {
+    "xp": 600,
+    "money": "About $1,940 in loose cash if the party collects it: $640 from the Lions Club cash box, $380 from the Landing Bar beer-garden till, $520 in Arlo's store safe (Arlo gives them the combination), and about $400 from wallets and registers. Cash still works on Days 1–4, at five times normal prices. Tell the players that.",
+    "items": [
+      "Police gun room: 2 Remington 870 shotguns, 1 AR-15 patrol rifle, 12-gauge shells (40), 5.56mm rounds (90), 9mm rounds (50), 2 concealable Aramid vests, 4 handheld radios",
+      "Sheriff's cruiser: Remington 870 shotgun, 12-gauge shells (25)",
+      "Arlo's gun cabinet: .22 rifle, Ruger .357 revolver, .22 LR rounds (200), .357 rounds (24)",
+      "Abandoned Humvee: Beretta M9, 9mm rounds (30), medkit (10 uses), MREs (24 person-days)",
+      "The Ruth Ellen: canned food (18 person-days), fresh water (5 gallons), medkit (5 uses), flare pistol with signal flares (4)",
+      "Kettering Hardware & Feed itself: the safehouse, its stock, a boxed 5,500-watt generator, and 3 propane tanks",
+      "Arlo's ledger (a scavenging map of every regular customer's house)"
+    ],
+    "story": "The party has a safehouse, a nine-year-old, a handful of townspeople, a few dozen rounds of ammunition each, and a deadline: Maddie's insulin runs out around Day 6. They know the bite is fixed, they know the dead follow noise, and they know the Guard is not coming back. They do not yet know that anyone who dies of anything gets up. Across the river, the Co-op is offering food, fuel and water in exchange for a census."
+  },
+  "twists": [
+    "Arlo Kettering was bitten in the first hour and hides it until Sunday night. It is the campaign's infection rule played on someone the players love, and it is the reason the party inherits Maddie and the store.",
+    "Curt Haynes, knocking at the back door on Saturday night, was bitten and says it was a fence. The players can turn the family away, take them in and watch Curt, or take the father aside. Every choice is survivable and every choice costs something.",
+    "The Guard did not abandon Corbin's Ferry out of cowardice: Haskett fell on Saturday night and St. Agnes with it, and the battalion was ordered to consolidate on Highway 54. Ostrowski followed orders. The dispatch radio at the police department heard the order at 2 a.m. on Monday, if anyone was listening.",
+    "Eli Sandoval fired on a carload of civilians trying to run the checkpoint from the south on Sunday afternoon, on orders, and one of them was a child. That is why he walked away. He does not say this until ob-scenario-004, and only if the party has earned it.",
+    "The Co-op's arrival looks like rescue, and for a few days it really is one."
+  ],
+  "dmTips": [
+    "Say the Attention number out loud every time it changes, from the very first scene. The players should learn to hear it the way they hear their hit points.",
+    "Read the Infection rule to the table, in full, the first time anyone is bitten — PC or NPC. The rule is only fair if everybody knows it. Do not keep any part of it secret.",
+    "Do NOT reveal 'Everyone Rises' in this scenario. Nobody dies of anything except bites in Act 1 and 2 if you can help it; if a non-bitten NPC dies and rises, let it be a horrible surprise the players do not yet understand. ob-scenario-002 explains it.",
+    "Deduct ammunition with TrackResources 'use' every exchange. The first time a character's 9mm count drops from 15 to 11 in one round, the campaign has started.",
+    "The gun room is the scenario's big reward and it should feel like one. It is also nearly all the ammunition the party will see for a week. Let them count it.",
+    "Townspeople knocking at the back door is the safehouse's whole moral economy in miniature. Track Supplies honestly; let taking people in cost something and be worth something.",
+    "Keep the gore at network-television level. The dead are frightening because of who they were. Describe a hand on the glass, a festival wristband on a wrist, a Lions Club apron — not wounds.",
+    "If a player character is bitten in this scenario, they are not out of the game. They have up to 48 hours and a story to finish. Give them a scene, a choice and an ending, and have their player roll up a new character from the townspeople at the safehouse.",
+    "Monday morning on the bridge should be a run, not a fight. If the players stand and shoot, the arithmetic of Attention will teach them; let it, but give them a way out (the Humvee, the roofs, the bait shop).",
+    "End with the Co-op's announcement. Play Colleen Marsh's voice as competent and kind. The players should want to trust her."
+  ]
+}

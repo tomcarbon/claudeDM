@@ -1,0 +1,500 @@
+{
+  "id": "sl-scenario-003",
+  "title": "The Silver Train",
+  "subtitle": "Saturday Morning: Nine Cars, a Trestle, a Felled Pine, a Pulled Pin and Two Miles of Four-Percent Grade",
+  "levelRange": "5-6",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The first through train, Argent to Hollowell Pass, Saturday 27 September 1879, 8:45 to about 10:30 a.m.",
+    "description": "A scenario-length set piece on and around a moving train. The DA&P's first through train leaves the Argent depot at nine with a hundred and thirty bars of silver in the express car at the rear, United States mail, the governor's secretary, a Boston director, the Mining Association, Roy Brannock as Coburn's invited guest, a brass band, a photographer, the strike spokesmen, three hundred cheering people along the first four miles and twelve horses. It climbs east on a grade of up to four percent: past the Blind Tom switch at mile three, slowly through the camps at Hollowell Cut at mile four, across the Needle Creek trestle at mile five, and into the Horseshoe, a curve blasted into the cliff beyond it, where a pine has been felled across the track. There Gorham's men stop it, pin it down with rifle fire from the cliff, and cut the express car and caboose loose to roll back down the mountain into the Blind Tom spur. The scenario is the train: its cars, its roofs, its couplings, its brakes, the gap opening between the stock car and the express car, the trestle with a charge on it, the runaway through the camps, the switch, and the ore platform at the end of the spur where Rafe Gorham is waiting with three wagons.",
+    "atmosphere": "Bunting and brass at the depot, the band playing both its tunes, the photographer's flash. Coal smoke and cinders in your eyes, the engine's exhaust beating like a heart on the climb, the cars swaying and groaning on the curves, the clank of link-and-pin couplers taking up slack. The wind on the roofs: cold, thin, enormous, and the drop beside the track. The trestle's planks booming underfoot, white water ninety feet below. Then rifle fire from the cliff, glass breaking in the coaches, the band's tuba with a hole in it, the screech of brakes, a woman screaming, and from the rear of the train a sound nobody aboard has heard before: a coupling pin dropping onto the ties, and the express car beginning, very slowly, to roll away backward down the mountain.",
+    "keyLocations": [
+      {
+        "name": "The Train (front to back)",
+        "description": "Locomotive No. 11, the Lady Argent, a narrow-gauge Consolidation, with engineer Hugh Dempsey and fireman Jesse Odom. Her tender. The combination mail and baggage car, where the U.S. mail and a railway mail clerk ride. Coach No. 1: miners going down, a hardware drummer, Augusta Achterberg, a newspaperman from Denver, and the Argent brass band, twelve strong. Coach No. 2: families, the photographer, and, if the last spike went well, Bridget Cahill, Teodoro Gallegos and Ong Pak-wai as the railroad's guests. The directors' car Columbine: Coburn, Stannard, Hester Ruane, the governor's secretary Mr. Rollin Vosburgh, the Boston director Mr. Prentiss Fiske, and Roy Brannock, smoking. The stock car: twelve horses and Odell Purdy. The EXPRESS CAR, with Strickland and the bullion. The caboose: conductor Barnaby Wolcott, rear brakeman Tobe Kersey, and two Lodestar shift bosses on Stannard's passes. Nine cars, about three hundred feet. Coaches have platforms at each end and curved, slick roofs; the stock car, express car and caboose have flat roof walks and brake wheels on top. Couplers are link and pin: a steel link dropped into a pocket on each car and pinned.",
+        "features": [
+          "Platforms between cars: three feet of iron grating over the couplers, open to the drop",
+          "Roof walks: a plank down the middle of the stock car, express car and caboose roofs, with a hand brake wheel at one end; the coach roofs are curved and icy",
+          "Hand brakes: each car has its own; the engine has a steam brake; on the climb, the rear brakeman rides the caboose",
+          "The express car: side doors barred from inside, end doors front and rear onto the platforms, a roof hatch for ventilation, bullion racks along both walls, the Continental safe bolted to the floor, a stove, and two rifle loopholes in each end door"
+        ],
+        "encounters": [
+          "The Haney brothers, Cole and Dub (Outlaw; Dub uses Hired Gun stats), in the caboose on Stannard's passes",
+          "Tobe Kersey, the rear brakeman (no combat; he will not shoot anyone)",
+          "Panic in the coaches: forty passengers, a band, a Boston director under a seat"
+        ],
+        "secrets": [
+          "CLUE H2 (core, automatic for anyone who checks the caboose passengers' passes, or asks Wolcott): the two 'shift bosses' ride on DA&P passes requested and signed by A. Stannard, President, Argent Mining Association, as 'Lodestar security'. They are red-haired brothers from Kansas, and they match the Continental circular for Cole and Dub Haney.",
+          "The coupling between the stock car and the express car is the one that matters. Lifting the pin takes one action with the pin bar from either platform, and can only be done while the train is stopped or the slack is in (coupler under no tension). Putting it back once the cars have separated more than a foot is impossible until they touch again.",
+          "If the party has turned Tobe Kersey (sl-scenario-002), he can leave the pin in, or pull it on the party's signal, or ride the brake to a stop wherever they ask. The Haneys will kill him if they see him betray them."
+        ]
+      },
+      {
+        "name": "The Climb: the Blind Tom Switch, the Cut and the Trestle",
+        "description": "From the depot the line climbs through aspens and spruce along the north side of the valley, the wagon road running beside it most of the way and sometimes a quarter mile below. At mile three, the Blind Tom switch, where the old spur goes off up its gulch to the left. At mile four, Hollowell Cut: the train slows to walking pace through the cheering camps, the Irish tents, the Hispano camp in the aspens, Ong's camp under the new scar of the rockslide, everybody on the grade or the bank. At mile five, the Needle Creek trestle: three hundred and eighty feet of pine curving over the creek ninety feet down, crossed at six miles an hour with the planks booming. Bents four and five are new, pale timber.",
+        "features": [
+          "The Blind Tom switch, set for the main line as the train passes at 9:10; Sully Mapes (or his replacement) is hidden in the willows to throw and padlock it behind the train",
+          "The Cut: crowds on the grade, children on the ties, Bridget's tent, Ong's camp",
+          "The trestle: no walkway, only the ties and the rails; a man on foot on the trestle when a car comes has nowhere to go but down",
+          "The ford below the trestle, where two of Varley's men wait with a fuse"
+        ],
+        "encounters": [
+          "Sully Mapes at the Blind Tom switch, hidden (Outlaw; he runs)",
+          "Two Outlaws at the ford with the trestle fuse, if the charge was not found on Friday night"
+        ],
+        "secrets": [
+          "CLUE G5, second chance (Perception DC 15 from the train as it crosses, automatic for Paddy Rooney if he looks down): two bundles of dynamite wired to bents three and eight, with a fuse running down to the ford. Unless removed on Friday night, it is there. If the party sees it from the train, they have about five minutes before the Horseshoe to decide what to do: stop the train, send someone back across, or warn the engineer.",
+          "Perception DC 13 as the train passes the Blind Tom switch: a man in the willows by the switch stand, lying flat. If anyone shouts, Sully runs; he does not throw the switch, and the runaway car will not take the spur (see Act 3)."
+        ]
+      },
+      {
+        "name": "The Horseshoe",
+        "description": "Three hundred yards beyond the trestle the line swings into a tight curve blasted into the face of a cliff, with a wall of rock on the right, a sheer drop to Needle Creek on the left, and the summit grade climbing beyond. Round the blind curve, a big spruce has been felled across the track and a red flag tied to it. Dempsey stops the train in two hundred feet, with the engine almost at the tree and the express car and caboose still out of sight back round the curve, on the four-percent grade just above the trestle.",
+        "features": [
+          "The felled spruce: eighteen inches through; forty men or the engine's pilot and a chain can clear it in fifteen minutes",
+          "The cliff above the right-hand side of the curve: ledges and boulders, forty to eighty feet up, where Varley's riders are",
+          "The drop on the left: two hundred feet to the creek; the coaches' left-hand windows look straight down",
+          "The curve itself: from the engine you cannot see the rear of the train, and from the caboose you cannot see the engine"
+        ],
+        "encounters": [
+          "Asa Varley (Outlaw with Hired Gun hit points) and six riders: two Bandit Sharpshooters on the high ledges and four Outlaws among the boulders, firing at the engine, the coaches and anyone on a roof",
+          "Roy Brannock, who to everyone's astonishment takes a revolver from his coat and shoots back from the directors' car platform (use Range Boss stats); robbery is not his game and he is offended"
+        ],
+        "secrets": [
+          "Varley's orders: pin the front of the train for ten minutes after the car rolls, shoot anyone who goes back along the roofs, do not kill the passengers if it can be helped, then ride back down the wagon road to the ford, light the trestle fuse, and on to Blind Tom. He knows where each guard said they would ride: Stannard asked them on Monday.",
+          "If the party has found the trestle charge and the Blind Tom cache, Varley does not know it; he will light a dead fuse and be very surprised."
+        ]
+      },
+      {
+        "name": "The Runaway",
+        "description": "What happens to the express car and caboose once the pin is pulled. They roll back down the grade, slowly at first: a walking pace in the first round, a gap of five feet to the stock car, then ten, then twenty. In a minute they are across the trestle at fifteen miles an hour. In three they are through the Cut at thirty, which is as fast as they can take the curve there without leaving the rails, and only Tobe Kersey riding the caboose brake keeps them on. At the Blind Tom switch, if it is thrown, they swing into the spur, climb its gentle grade and coast to a stop beside the ore platform at the end. If it is not thrown, they run on down the main line two more miles to the end of the line at the Argent depot, where the crowd from the morning is still dispersing and the band's wagon is waiting, and arrive at thirty-five miles an hour unless someone stops them.",
+        "features": [
+          "The caboose brake wheel, on the caboose roof at the rear end; the express car's, on its roof at the front end",
+          "The express car's rear door onto the platform between it and the caboose",
+          "The wagon road beside the track, sometimes level, sometimes a quarter mile below",
+          "The people on the track at the Cut, walking home after cheering the train"
+        ],
+        "encounters": [
+          "The Haney brothers on the caboose and the express car's rear platform, trying to force the express car door",
+          "Anyone who got aboard the rolling cars from the stock car or the roof"
+        ],
+        "secrets": [
+          "The time: about one minute from the pin to the trestle, two more to the Cut, two more to the Blind Tom switch, one more up the spur to the platform. Six minutes in all, roughly sixty rounds. Run it as beats, not rounds, except when someone is fighting or jumping.",
+          "CLUE H1 can happen here (see Act 2): in a firefight inside the express car, any missed shot has a chance to strike a Lodestar bar in its rack."
+        ]
+      },
+      {
+        "name": "The Blind Tom Ore Platform",
+        "description": "At the end of the spur, half a mile up Blind Tom Gulch: the timber ore platform, chest-high, forty feet long, with three heavy wagons backed up to it and their teams tied in the shaft house ruin. Rafe Gorham waits here with four men and Obed Becket. The gulch walls are steep scree, and the only ways out are the spur back down to the main line and the old tie road south over a saddle toward the Burnt Mule country.",
+        "features": [
+          "The platform and the wagons: room to unload a car in forty minutes with eight men",
+          "The shaft house ruin: cover, the horses, the rest of the cache (unless the party took it)",
+          "The scree slopes above: a rifleman up there commands the whole platform",
+          "The tie road: the escape route, rough and slow for loaded wagons"
+        ],
+        "encounters": [
+          "Rafe Gorham (Gang Leader) and four Outlaws",
+          "Obed Becket (Hired Gun), who is here to see the Lodestar bars go and to kill Tobe Kersey"
+        ],
+        "secrets": [
+          "CLUE H4 (core, automatic for anyone who sees the platform): Obed Becket, the Lodestar's mill foreman, is standing on it with Rafe Gorham.",
+          "Gorham means to open the express car by asking Strickland nicely, then by threatening to blow the door with a stick of dynamite, then by doing it. He does not want to kill the messenger. He wants the silver and to be gone over the saddle in an hour.",
+          "Becket means to shoot Tobe Kersey as soon as the car stops, because Tobe has seen him with Gorham and is weak. He will say, as he does it, 'same as the assayer, boy' (CLUE I3, if anyone hears it and Tobe lives, or if a party member is close)."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Saturday, nine in the morning. The first through train leaves Argent with the silver, the mail, the dignitaries and the party spread through its nine cars. It climbs past the Blind Tom switch, through the cheering camps at the Cut, across the Needle Creek trestle and into the Horseshoe, where a felled spruce stops it and Asa Varley's riders open fire from the cliff. In the caboose, the Haney brothers, riding as Lodestar guards on Stannard's passes (H2), take the conductor, and Tobe Kersey pulls the pin ahead of the express car. The express car and caboose roll back down the mountain. What follows is up to the party: holding the express car from inside, running back along the roofs and jumping the gap, fighting the riders on the cliff, unloading the horses from the stock car and riding down the wagon road, reversing the engine down the grade after the runaway, defusing or failing to defuse the trestle charge, clearing the track at the Cut, throwing or not throwing the Blind Tom switch, and finally the ore platform where Rafe Gorham and Obed Becket are waiting (H4). Somewhere in all that gunfire a Lodestar bar will be hit, and show grey lead under its silver skin (H1). The scenario ends with the express car saved, retaken or emptied, Kersey alive or dead, and the party knowing that the robbery was arranged by the man whose silver was not silver.",
+  "hook": "Saturday 27 September 1879, a quarter to nine in the morning, the Argent depot. The whole camp is here: four thousand people in their best, bunting on every false front, the brass band in red coats playing the only two tunes it knows, a photographer under a black cloth, children on their fathers' shoulders, dogs, mules, a man selling hot potatoes. The Lady Argent stands at the head of her train with steam feathering from her safety valve and her brass polished like a wedding ring, and back at the tail, behind the stock car where twelve horses are stamping, the express car stands with its doors open and Strickland on the step, counting bars as Becket's men carry them in. Coburn, in a new suit already black with soot, comes down the platform shaking every hand. Aurelius Stannard finds each of you in turn, shakes your hand, and asks warmly where you will be riding. Then the conductor looks at his watch, and lifts his arm, and shouts it, and four thousand people shout it with him: All aboard!",
+  "cluesAvailable": [
+    "C4",
+    "G5",
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "I3"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "H. Stannard is behind the robbery",
+      "clues": [
+        "H1: a Lodestar bar shot or cut open shows lead (the express car, or the platform)",
+        "H2: the Haneys ride on passes Stannard signed (the caboose; the conductor)",
+        "H3: the express car at the rear was Stannard's suggestion (Coburn, in the directors' car, when it happens: 'He asked for it. Aurelius asked for it.')",
+        "H4: Becket on the ore platform with Gorham (Blind Tom)",
+        "I3: Becket to Kersey: 'same as the assayer, boy' (the platform, if anyone is near)"
+      ]
+    },
+    {
+      "conclusion": "The plan: stop the train beyond the trestle, cut the car loose, blow the trestle behind it, switch it into the Blind Tom spur",
+      "clues": [
+        "C4: the consist, express car at the rear (sl-scenario-001)",
+        "G4: the cache, wagons and greased switch at Blind Tom (sl-scenario-002)",
+        "G5: the charge on the trestle (sl-scenario-002 or from the train)",
+        "The felled spruce at the Horseshoe, beyond the trestle and out of sight of the rear of the train (the Horseshoe)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: All Aboard",
+      "description": "Eight forty-five to nine thirty-five. Boarding, positions, and the climb. This act is short, about forty-five minutes of play, and it is the party's chance to set up the set piece: who rides where, what they watch, what they carry, and what they have prepared from what they learned in sl-scenario-002. Ask each player where their character is, and keep a sketch of the train in front of the table. Hester wants two guards in the express car with Strickland; the rest is up to them. Then run the climb in three beats (the Blind Tom switch, the Cut, the trestle), each with something to notice, and stop dead at the Horseshoe.",
+      "objectives": [
+        "Choose positions on the train",
+        "Check the caboose passengers",
+        "Watch the Blind Tom switch as the train passes it",
+        "Look down from the trestle"
+      ],
+      "scenes": [
+        {
+          "name": "Positions",
+          "description": "At the depot. Every guard decides where to ride: in the express car (Strickland welcomes two, with the doors barred), in the caboose (the Haneys will be polite and watchful, and their plan changes if a guard is there: they will try to take the guard first when the shooting starts), on the stock car with Odell and the horses, in the directors' car (with Stannard, Brannock, Hester and the governor's man), in the coaches, on a roof (Coburn forbids it, which will not stop anyone), in the cab with Dempsey, or not on the train at all: on horseback on the wagon road, at the Blind Tom switch, or at the trestle. Remind players of anything they told Stannard on Monday; if they ride where they said, Varley knows. Strickland, once the bars are in (sixty Ruane, seventy Lodestar, counted), bars the side doors and gives each guard in the car a Continental shotgun. Stannard rides in the Columbine, asks once, casually, whether the express car doors are barred, and then talks about the scenery for an hour.",
+          "readAloud": "The express car is a long, dim, iron-lined box that smells of new varnish and gun oil, with the silver racked along both walls like books in a library and a squat green Continental safe bolted to the floor at one end, and when Strickland slides the big side door shut and drops the bar across it the noise of the crowd goes away at once, as if a hand had been laid over it. There is a stove, unlit, a stool, two rifle loopholes in each end door, a lamp, and the silence of a hundred and eighty thousand dollars. 'Well,' says Strickland, taking off his spectacles. 'Here we are.' Outside, faintly, the band strikes up for the third time, and the car jerks, and the couplings clank one after another down the length of the train like a chain being drawn tight, and you are moving.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "(On the Haneys in the caboose.) They are not shift bosses. Shift bosses have miners' hands, and these men have riders' hands, rope-burned and soft-palmed, and they keep looking at the coupling at the front of the express car. And on Tobe Kersey, who is green.",
+              "failure": "Two big red-haired men in new Lodestar coats, quiet. The brakeman looks seasick."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "Their passes: requested and signed by A. Stannard as Lodestar security (H2). And the Continental circular on the express office wall named two red-haired Kansas brothers called Haney.",
+              "failure": "Their passes are in order. Signed by Mr. Stannard himself."
+            }
+          ]
+        },
+        {
+          "name": "The Blind Tom Switch",
+          "description": "Nine ten, mile three. The switch stand flashes past on the left, set for the main line, its new padlock bright. Perception DC 13 from any car (advantage from a roof or the caboose cupola): a man lying in the willows by the switch, who lifts his head as the caboose goes by. If anyone shouts or shoots, Sully Mapes runs up the gulch, and the switch stays set for the main line: the runaway in Act 3 will go on down to Argent. If nobody notices, Sully throws and padlocks the switch for the spur thirty seconds after the caboose passes. If the party watched Blind Tom in sl-scenario-002 and took Sully, Gorham has sent another man, and the same is true.",
+          "readAloud": "The line runs along a shelf above the creek with the aspens blazing yellow on both sides and the wagon road below, full of people waving hats, and then on the left a gulch opens up between grey scree slopes and an old spur line runs off up it, rusty, to nowhere, and the switch stand flicks past with its red target turned to show the main line clear. In the willows beside it something moves. A bird, or a dog. Or not.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "A man in the willows, flat on his face, with a rifle beside him and a switch key on a string round his neck. He lifts his head after the caboose passes and starts to get up.",
+              "failure": "Aspens, scree, an old spur. You are past."
+            }
+          ]
+        },
+        {
+          "name": "The Cut",
+          "description": "Nine twenty, mile four. The train slows to walking pace through Hollowell Cut, and the camps are on the grade and the banks: Bridget's tracklayers cheering and throwing hats, the Hispano graders with a fiddle and a guitar, Ong's company in a silent, neat row at the top of the cut under the scar of the slide, bowing as the train passes, because the dead are not yet sent home. Children run beside the coaches. When the train has passed, they will all walk down onto the track behind it to go home. Remember that for Act 3. If the party has made friends here, someone shouts a warning or a blessing; Ong, if he is not aboard, watches the express car pass and looks thoughtfully down the line toward Blind Tom.",
+          "readAloud": "The Cut is a roar of voices from both banks. Men are standing on the ties ahead of the engine and stepping off at the last moment, laughing; boys run alongside the coaches slapping the windows; a woman throws a whole loaf of bread through an open window into the brass band. The Hispano camp has a fiddle going. Then at the top of the cut, where the rockslide came down, Ong Pak-wai's company stands in a long row in blue jackets with their hats in their hands, absolutely silent, and as the directors' car passes they bow, all together, once.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 10,
+              "success": "You lean out and shout to Bridget Cahill (or Ong, or Teodoro) to keep the people off the track for an hour after the train has gone. They wave that they heard. If the runaway comes through the Cut, nobody is standing on the rails.",
+              "failure": "Nobody hears you over the noise. Or they hear you and laugh."
+            }
+          ]
+        },
+        {
+          "name": "The Trestle",
+          "description": "Nine thirty, mile five. The train crawls across the Needle Creek trestle at six miles an hour, the planks booming and the whole structure trembling, ninety feet over white water. Bents four and five are the new ones. G5, second chance: Perception DC 15 from the train, automatic for Paddy Rooney if he looks down, or for anyone who knows to look: two bundles on bents three and eight, a fuse running down to the ford, and two men by the ford with horses who duck out of sight. The party has about five minutes before the Horseshoe to act on it: pull the bell cord to stop the train on the far side (which ruins Varley's ambush timing, see the twists), climb down a bent from a moving car (Athletics DC 15, insane), send a rider from the stock car back (Odell Purdy can get Deacon off a crawling car with a Riding check, DC 13, using Saddle-Born and Cow Sense), or warn Dempsey and Coburn.",
+          "readAloud": "The noise changes: from the clatter of rails on ballast to a deep hollow booming as the wheels go out onto the trestle, and the car sways, and through the window there is suddenly nothing under you at all, only air and, far below, a white rope of water among boulders. The new timbers of bents four and five go past, pale as bone. If you look straight down from the car's rear platform, you can see the crossbracing go by, and the stone footings, and the creek, and the ford a little way downstream, where two horses are tied in the willows.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 15,
+              "success": "Bents three and eight: bundles of dynamite wired to the crossbracing, a black fuse snaking down a timber to the rocks by the ford, and two men by the horses pulling back into the willows.",
+              "failure": "A long way down. A very long way down."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "None, unless the party starts something early (Sully at the switch; the Haneys if challenged before the Horseshoe, who will fight at once and pull the pin early if they can, which happens on the trestle approach at walking pace and is its own kind of disaster)."
+      ]
+    },
+    {
+      "title": "Act 2: The Horseshoe",
+      "description": "Nine thirty-five to nine forty. The train rounds the Horseshoe curve and stops for the felled spruce. Varley's riders open fire from the cliff on the engine and the coaches. In the caboose, the Haneys draw on Wolcott and any guard there; Tobe Kersey climbs across the express car roof to its front platform, lifts the pin between the stock car and the express car, and climbs back to the caboose brake; the Haneys release the express car's brake from its roof. The express car and caboose start to roll. Run this as a fight in three places at once: the front of the train under fire, the gap opening at the rear, and the inside of the express car. Each round, ask what everyone does; the gap grows by five feet a round for the first four rounds and then the car is gone round the curve.",
+      "objectives": [
+        "Survive the fire from the cliff",
+        "Stop the pin being pulled, or get across the gap before it is too wide",
+        "Hold the express car",
+        "Get word to the engine about what has happened at the rear"
+      ],
+      "scenes": [
+        {
+          "name": "Rifles on the Cliff",
+          "description": "The ambush. Two Bandit Sharpshooters on high ledges sixty and eighty feet up, four Outlaws among boulders at thirty to forty, and Varley, firing at the cab, the coach windows and anyone on a roof or a platform. Coach glass shatters; the band goes flat on the floor in a heap of brass; the Boston director, Fiske, is under a seat; the governor's secretary, Vosburgh, is under Fiske. Passengers get cover from the car walls (half cover) unless at a window; anyone on a roof has none. Roy Brannock stands on the Columbine's rear platform and returns fire with a revolver, bellowing that he did not come up a mountain to be robbed by amateurs. Hester Ruane pulls a Navy revolver from her coat. Stannard stays inside, very calm, and asks Coburn, three times, whether the express car is all right; Coburn, who cannot see it round the curve, says: 'You asked for it at the rear, Aurelius, you said it was safer' (CLUE H3, said aloud in front of witnesses). Varley's men do not try to board the front of the train; they keep everyone's head down for ten minutes and then withdraw.",
+          "readAloud": "The engine's whistle screams twice and the brakes bite, and everyone in the car slides forward, and the train groans to a stop with the cliff a yard from the right-hand windows and nothing at all outside the left. Ahead, round the curve, a spruce lies across the track with a red flag tied to its branches. For a moment it is very quiet. Then the first rifle shot comes off the cliff above like a door slamming, and the window beside you bursts inward, and the band's tuba says something terrible, and a dozen more shots come down from the rocks like hail on a tin roof.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "You count them: two on the high ledges, the best shots, four in the boulders lower down, and one man moving between them giving orders, who has a scar through his eyebrow (Varley). Nobody is coming down to board. They are holding you here.",
+              "failure": "Rifles, everywhere, from the rocks."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 12,
+              "success": "You climb from the platform onto the stock car roof under fire (taking cover from the brake wheel) and can see the whole rear of the train round the curve: the Haneys on the express car roof, Tobe Kersey dropping onto the platform between the stock car and the express car, and the pin bar in his hands.",
+              "failure": "Rifle fire drives you back down to the platform. Try again next round."
+            }
+          ]
+        },
+        {
+          "name": "The Pin",
+          "description": "Round one of the ambush: the Haneys draw in the caboose (on Wolcott, and on any guard there, whom they try to take by surprise: Dirty Fighting works both ways). Round two: Tobe Kersey crosses the express car roof and drops to its front platform. Round three: he lifts the pin. Round four: the Haneys on the express car roof release its brake and Tobe, back on the caboose, eases its brake; the cars begin to roll, a gap of five feet. Each round after, the gap grows by five feet (Acrobatics or Athletics to jump it: DC 10 at five feet, DC 13 at ten, DC 16 at fifteen, impossible after that without a horse, a rope or a miracle). A guard on the stock car or in the express car can stop the pin being pulled by shooting, grappling or talking to Tobe (Persuasion DC 13; automatic if Effie's name is used, or if Tobe was turned in sl-scenario-002). If Tobe does not pull it, Cole Haney does, a round later. Odell Purdy can rope a man on the platform from the stock car (Saddle-Born lariat). Anyone in the express car who opens the front end door can see Tobe at the pin and shoot or grab him through the door.",
+          "readAloud": "Between the stock car and the express car there is a yard of iron grating over the couplers and a long drop to the ties, and Tobe Kersey drops onto it from the express car roof with a pin bar in his hands and his face the colour of paper. He hooks the bar into the coupling. He looks up, once, toward the front of the train, and he looks as if he is going to cry. Then he heaves, and the pin comes up out of the link with a clank you can hear over the gunfire, and he throws the bar away, and he is scrambling back up the ladder onto the roof, and under your feet the express car gives a small, gentle lurch, backward, like a boat leaving a dock.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Tobe freezes with the bar in the link. 'They said nobody would be hurt,' he says. 'They said.' He drops the bar. Cole Haney, on the roof, curses and starts down the ladder to do it himself: you have one round.",
+              "failure": "He does not hear you, or will not. The pin comes out."
+            },
+            {
+              "skill": "Acrobatics",
+              "dc": 13,
+              "success": "You jump the gap as it opens (adjust the DC by the gap) and land on the express car's front platform, catching the brake staff. You are aboard the runaway.",
+              "failure": "You fall short, or you land and go over the side. A Dexterity save, DC 12, to catch the rail and hang on; on a failure, you fall to the ballast beside the track, taking 1d6 bludgeoning damage (the cars are still at walking pace), and the car rolls away from you."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 15,
+              "success": "You grab the express car's grab iron as it pulls away and hold on while it drags you, and haul yourself up: you are aboard, and you have the brake wheel at the front of the roof above you.",
+              "failure": "The car tears free of your hands. You are left standing on the stock car platform watching it go."
+            }
+          ]
+        },
+        {
+          "name": "Inside the Express Car",
+          "description": "Strickland and the guards in the express car have the doors barred and loopholes in both ends. The Haneys, once the car is rolling, want the rear door open before the platform: Cole on the rear platform hammering the door and shooting through the loophole, Dub on the roof at the hatch, which is held by a single bolt (it gives in two rounds of hammering). The fight inside is close, dark and violent: a lamp, the racks, the stove, the safe, the car swaying and accelerating. CLUE H1: any missed shot fired inside the car has a one-in-four chance (roll a d4; on a 1) of striking a bullion bar; the GM should make the first such hit a Lodestar bar. The bullet does not ricochet as it would from silver; it sinks in, and the bright skin splits open around it to show dull grey metal beneath, and anyone who looks knows what it is. If no shot goes astray, a Lodestar bar falls from its rack on the first curve and splits along its edge with the same result. Strickland, seeing it, says very quietly: 'Well. That is not silver.'",
+          "readAloud": "The roof hatch is jumping on its bolt as somebody beats on it with a rifle butt, and at the rear door a pistol barrel pokes through the loophole and fires blind, and the shot goes past your ear and into the rack of bars along the left-hand wall with a sound like a fist hitting dough. Not a clang. A thud. When the smoke clears, the bar it hit, stamped LODESTAR, has a hole in it as big as your thumb, and around the hole the bright silver skin has split and curled back like the peel of an orange, and underneath it the metal is grey, dull, soft and wrong.",
+          "skillChecks": [
+            {
+              "skill": "Nature",
+              "dc": 10,
+              "success": "Lead. A skin of silver no thicker than a dime, poured over a core of lead. Every Lodestar bar in this car is probably the same. (Phoebe Lanyon knows it without rolling.)",
+              "failure": "Some baser metal under the silver. Strickland knows what it is, and tells you."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 13,
+              "success": "You hold the roof hatch shut with your back against it while the car sways, and the Haney on the roof cannot get in until someone else takes over or the car stops.",
+              "failure": "The bolt tears out and Dub Haney drops through the hatch into the car with a revolver in each hand."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Asa Varley (Outlaw with Hired Gun hit points), two Bandit Sharpshooters and four Outlaws on the cliff at the Horseshoe; they withdraw after ten rounds of fire, or sooner if three of them are down",
+        "Cole Haney (Outlaw) and Dub Haney (Hired Gun) on the caboose and the express car",
+        "Allies at the front: Roy Brannock (Range Boss), Hester Ruane (Deputy stats with a Navy revolver), Hugh Dempsey (Saloon Brawler with a coal shovel)"
+      ]
+    },
+    {
+      "title": "Act 3: Runaway",
+      "description": "Nine forty to about ten thirty. The express car and caboose roll back down the mountain: across the trestle, through the Cut, past or into the Blind Tom spur, and either to Gorham's ore platform or on down toward the Argent depot. Everything the party set up pays off here. Run it as five beats (the trestle, the grade, the Cut, the switch, the platform), with the chase on the outside (horses on the wagon road; the engine in reverse; the party on foot) running in parallel to the fight on the inside. Then the ore platform, which is the scenario's last fight, and possibly its first conversation with Rafe Gorham.",
+      "objectives": [
+        "Stop, brake or steer the runaway car",
+        "Keep the trestle standing, or get across it before it goes",
+        "Clear the track at the Cut",
+        "Reach the Blind Tom platform before the silver is gone",
+        "Keep Tobe Kersey alive"
+      ],
+      "scenes": [
+        {
+          "name": "The Chase",
+          "description": "The pursuit options, at the front of the train, once the car has gone. (1) THE ENGINE: Dempsey can uncouple the Lady Argent and her tender from the rest of the train (one action at the tender coupling, under fire) and reverse her down the grade after the runaway. She is faster than the rolling car under power and gravity, and catches it just above the Cut if the trestle is still standing. Jumping from the tender to the caboose platform at twenty miles an hour: Acrobatics DC 15 (combat.json vehicles.trains.boarding); coupling up at speed: Mechanics DC 15 with Dempsey nudging the engine in. (2) THE HORSES: the stock car's side door opens onto ballast and a steep bank. Getting a horse out of a stopped stock car on a mountainside under fire: Animal Handling DC 13 per horse (Odell Purdy has advantage from Cow Sense, and Deacon needs no check at all). Then a gallop down the wagon road, which reaches Blind Tom Gulch in about twelve minutes by the ford and the switchbacks: in time for the unloading. (3) ON FOOT: across the trestle and down the track; too slow to catch the car, fast enough to reach the ford and the men with the fuse. (4) BRANNOCK: if anyone asks him, he rides; he has a horse in the stock car (one of the twelve is his), and he is genuinely furious at thieves.",
+          "readAloud": "Back round the curve the express car and caboose are going away from you down the grade, slowly, almost gracefully, getting smaller, with a man on the caboose roof leaning on the brake wheel and another on the express car roof hammering at something, and then they reach the end of the trestle and go out onto it, and the planks begin to boom, and they are picking up speed. Beside you Hugh Dempsey takes his cap off and throws it on the cab floor. 'Cut her loose,' he roars at his fireman. 'Cut the engine loose, Jesse, we are going after her backward!'",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "You pull the pin between the tender and the mail car while Jesse Odom covers you with a shovel and a prayer; the Lady Argent backs away from her train with a scream of steam and goes down the grade tender-first after the runaway.",
+              "failure": "The pin is jammed under tension. It takes two more rounds, under fire, before the engine is free."
+            },
+            {
+              "skill": "Animal Handling",
+              "dc": 13,
+              "success": "The horse goes out of the stock car door onto the bank in one jump and you are in the saddle; the wagon road is below you, and Blind Tom is two and a half miles down it.",
+              "failure": "The horse rears and will not go out. It needs a moment, or Odell."
+            },
+            {
+              "skill": "Riding",
+              "dc": 13,
+              "success": "Down the wagon road at a dead run: across the ford, round the switchbacks, and into the mouth of Blind Tom Gulch in eleven minutes. You come up the tie road behind the platform.",
+              "failure": "The switchbacks are icy. You get there, but it takes fifteen minutes, and the unloading is half done."
+            }
+          ]
+        },
+        {
+          "name": "The Trestle Goes",
+          "description": "About a minute after the pin, the express car and caboose cross back over the trestle at fifteen miles an hour, and as the caboose clears the far end, the two men at the ford light the fuse (unless the party removed the charge on Friday night, cut the fuse, or got to the ford first). The fuse burns for ninety seconds. If the Lady Argent is coming down after the car in reverse, she reaches the trestle about a minute later: Dempsey has a choice of stopping short or running for it, and anyone on the engine can see the fuse burning on the rocks below. Paddy Rooney can tell from the engine exactly how long it has (Powder Man). If the charge fires, bents three and eight go out together, the trestle folds in the middle and falls into Needle Creek in a long rumbling collapse, and anyone on it goes with it (Dexterity save DC 15 to jump clear onto the abutment; on a failure, a ninety-foot fall into Needle Creek, 9d6 bludgeoning, halved by the deep pool under the footings). If it does not, the engine runs on.",
+          "readAloud": "From the rocks at the ford a little wisp of white smoke rises and begins to run up the timber of bent three, spitting, quick as a squirrel. The runaway car is already off the far end of the trestle and going away down the grade. The engine is coming. You can see the fuse eating up toward the bundle of sticks on the crossbracing, and you can hear Dempsey shouting, and you have, at a guess, about a minute.",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 13,
+              "success": "From the engine's step as it rolls onto the trestle, you lean out and shoot the fuse in two below the bundle (Dexterity attack, AC 15, then this check), or climb down a bent and pull the cap: the charge does not fire. The trestle stands.",
+              "failure": "You cannot get at it in time. Dempsey slams on the brake and the engine stops ten yards short, shuddering, and the trestle goes up in front of her in a roar of timber and spray."
+            }
+          ]
+        },
+        {
+          "name": "Through the Cut",
+          "description": "Three minutes after the pin, the runaway comes through Hollowell Cut at thirty miles an hour, which is as fast as it can take the curve at the Cut without leaving the rails. Tobe Kersey is on the caboose brake keeping it there, because the Haneys have told him to, and because he is terrified. The track is full of people walking home after the train (unless the party asked Bridget, Ong or Teodoro to keep them off it in Act 1). Anyone on the runaway can scream, ring the caboose bell, fire into the air; Ong's foremen, Bridget's men and the graders clear the children off the rails with seconds to spare, if warned. If no warning was given and no one on the car does anything, the car strikes the crowd: a terrible moment that the GM should not linger on, but that will be in the Clarion on Monday. If Tobe lets go of the brake, or is shot off it, the car takes the curve at forty and leaves the rails: express car and caboose roll down the bank into the aspens, and anyone aboard takes 4d10 bludgeoning damage (Dexterity save DC 15 for half; combat.json vehicles.crashing), or 2d6 for anyone who jumped clear first with a DC 15 Acrobatics check. The silver is spilled in the trees, Gorham's plan is ruined, and so is everyone in the car.",
+          "readAloud": "You come round the shoulder of the hill and the Cut is in front of you, and there are people on the track. Dozens. Men with their hats pushed back, women with baskets, children running between the rails, walking home from the morning, and they turn and look up at the sound of the car, and do not understand it, because the train went the other way. Somebody screams. On the caboose roof Tobe Kersey hauls on the brake wheel with both hands and the wheels shriek and throw sparks, and the car goes into the curve at the head of the Cut leaning out over the bank like a drunk on a doorstep.",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 10,
+              "success": "Your bellow carries over the screech of the brakes and the people on the track scatter up the banks, children hauled off the rails by their collars. The car goes through the Cut between two walls of faces.",
+              "failure": "Not everyone hears. A Dexterity save, DC 12, for one of the party at the front of the car to reach the brake beside Tobe and drag the car down to twenty for the last hundred yards; on a failure, someone on the track is hurt."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 14,
+              "success": "You throw your weight on the express car's brake wheel alongside Tobe's on the caboose and the car slows to twenty. It stays on the rails, and it is slow enough at the Blind Tom switch for someone to jump off and run ahead.",
+              "failure": "The brake shoes are smoking and the car will not slow below thirty. It stays on the rails, just."
+            }
+          ]
+        },
+        {
+          "name": "The Switch",
+          "description": "Five minutes after the pin, mile three. If Sully threw the switch, the runaway swings left into the Blind Tom spur, climbs its gentle grade, and coasts to a stop beside the ore platform, where Gorham is waiting. If the switch was not thrown (Sully was scared off in Act 1, or taken in sl-scenario-002 and his replacement stopped), the car runs on down the main line toward the railhead and the Argent depot two miles below, where the crowd is still dispersing, and the band's wagon is on the crossing. Someone must stop it: by brake (two people on the brake wheels from the Cut onward bring it to a stop just above the depot: Athletics DC 13 each), by the Lady Argent catching it and coupling on, or by derailing it on purpose at the old water tank curve a mile above town (anyone with Mechanics can see the place; the car rolls into the creek and everyone aboard takes 4d10 bludgeoning, DEX save DC 15 for half, as any derailment (combat.json vehicles.crashing); jumping clear first is a DC 15 Acrobatics check and 2d6). In that case Gorham, waiting at the platform, has missed his car entirely, and rides; see the twists.",
+          "readAloud": "The switch stand comes up on the right, and the target has been turned, and the points are over: the rails curve away to the left up the gulch, and the car takes them with a long iron shriek and a lurch that throws you against the wall, and then you are running up the rusty old spur into Blind Tom Gulch between the grey scree slopes, and the car is slowing, and slowing, and ahead of you at the end of the track there is a long timber platform and three wagons and a line of men with rifles, and one man in a long coat stepping out to meet you as if he were meeting a stagecoach.",
+          "skillChecks": [
+            {
+              "skill": "Acrobatics",
+              "dc": 12,
+              "success": "You jump off the caboose as it slows into the spur, roll on the ballast, and are on your feet in the willows below the platform before the car stops. Gorham's men are watching the car, not the willows.",
+              "failure": "You jump, and land badly (1d6 bludgeoning), and the men on the platform see you."
+            }
+          ]
+        },
+        {
+          "name": "The Ore Platform",
+          "description": "Ten o'clock, or a little before. The car coasts to a stop beside the platform. Rafe Gorham, Obed Becket and four Outlaws. Gorham walks to the express car door and asks Strickland, politely, to open up: nobody need be hurt, the silver is insured, and he would hate to use a stick of dynamite on such a pretty car. Becket goes to the caboose for Tobe Kersey with his revolver out (I3: 'same as the assayer, boy'). What happens next depends on everything: who is in the express car, who is on the roof, who came down the wagon road and is in the willows, whether the engine is coming up the spur behind the car (it can, if it caught up), and whether anyone has realised what the bars are. If a Lodestar bar has already been shot open (H1), and someone shows it to Gorham through the loophole, Gorham stops dead. He is a thief, not a fool; he understands in about two seconds that he was meant to steal lead, be hunted for it, and die with it. He turns and looks at Becket. That is the moment the fight can change sides: Gorham may let the party take Becket, take Becket himself, or shoot him. If nobody shows Gorham the lead, he unloads (forty minutes, eight men, three wagons) and escapes up the tie road with all one hundred and thirty bars, and finds out at his camp on Sunday (see sl-scenario-004). Becket, if the fight goes badly, takes a horse and rides for Lodestar Hill to warn Stannard.",
+          "readAloud": "He is a slim, fair, unhurried man of forty with a short beard and very pale eyes, in a long dust-coloured coat and a good hat, and he walks up to the express car door and taps on it with the barrel of his revolver as if it were a front door on a Sunday. 'Mr. Strickland,' he says, pleasantly. 'My name is Gorham. I believe you have been expecting me. I would be obliged if you would open this door. The silver is insured and you are not, and I have here a stick of the railroad's own dynamite which I would very much prefer to put back in my pocket.' Behind him on the platform a big pale-eyed man in hobnailed boots walks toward the caboose with his gun out, and the man on the caboose roof, the brakeman, sees him coming and goes white.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "Through the loophole, you tell Gorham that the car is full of soldiers and the engine is coming up the spur behind you with forty men. He does not believe all of it, but he believes enough to hesitate a full minute, which is all the riders on the wagon road need.",
+              "failure": "Gorham smiles. 'Mr. Strickland, I counted the guards at the depot. Stannard's man here told me where every one of you would ride.' He looks at Becket, who looks away."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "(With a Lodestar bar's lead core held up to the loophole or thrown onto the platform.) Gorham looks at the grey metal for a long time. Then he says, without turning round: 'Obed. Come here a moment.' The fight is now three-sided, and Gorham will bargain: the party's safe passage, and Becket, for a head start and the real silver. Whether to take the bargain is the players' choice; see sl-scenario-004.",
+              "failure": "Gorham does not look at the bar. 'Open the door,' he says, 'or I open it.'"
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "(At Becket, as he goes for Tobe.) He stops, with the gun half-raised, and looks at you, and you can see him decide that you will kill him if he does it. He backs away from the caboose. Tobe lives.",
+              "failure": "Becket does not stop. Roll initiative, now, or Tobe Kersey dies on the caboose roof."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rafe Gorham (Gang Leader), four Outlaws and Obed Becket (Hired Gun) at the Blind Tom platform",
+        "The Haney brothers, if still on the car",
+        "Varley and any survivors of the Horseshoe arrive at the platform by the wagon road about twelve minutes after the car: Outlaws and the Bandit Sharpshooters, who take the scree slopes above the platform",
+        "The Lady Argent, if she followed the car up the spur, with Dempsey, Odom and anyone aboard her"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Rafe Gorham, 41",
+      "role": "Gang leader; the robber, not the plotter",
+      "description": "Slim, fair-bearded, pale-eyed, soft-voiced, from Clay County, Missouri; a horse thief and train robber who did six years in the Nevada State Prison at Carson City, where he knew Paddy Rooney. Polite, careful, unhurried; kills when it is useful and not otherwise. Gang Leader stats.",
+      "motivation": "One great score and out to Mexico. When he learns the Lodestar bars are lead, revenge on Stannard and his own skin."
+    },
+    {
+      "name": "Asa Varley, 33",
+      "role": "Gorham's lieutenant; leads the riders at the Horseshoe",
+      "description": "As in sl-scenario-001. Outlaw stats with Hired Gun hit points.",
+      "motivation": "Hold the train ten minutes, blow the trestle, get to Blind Tom."
+    },
+    {
+      "name": "Cole and Dub Haney, 29 and 26",
+      "role": "Gorham's men in the caboose, riding on Stannard's passes",
+      "description": "Big, red-haired, from Kansas. Cole talks; Dub does not. Outlaw and Hired Gun stats.",
+      "motivation": "Take the express car on the roll and keep the messenger alive if they can."
+    },
+    {
+      "name": "Tobe Kersey, 24",
+      "role": "Rear brakeman; the man who pulls the pin",
+      "description": "Frightened, decent, in over his head; he is the only one keeping the runaway on the rails. Becket means to kill him at the platform.",
+      "motivation": "Survive, and somehow make it right."
+    },
+    {
+      "name": "Obed Becket, 35",
+      "role": "Stannard's man at the platform",
+      "description": "Hired Gun stats. Hobnailed boots, three-and-two.",
+      "motivation": "See the Lodestar bars gone, kill Kersey, and get back to Lodestar Hill."
+    },
+    {
+      "name": "Merritt Strickland",
+      "role": "Continental Express detective, in the express car",
+      "description": "Calm under fire; a good shot with a shotgun; Agency Detective stats. Will not open the door.",
+      "motivation": "Hold the car. Arrest everyone."
+    },
+    {
+      "name": "Hugh Dempsey, 52, and Jesse Odom, 30",
+      "role": "Engineer and fireman of the Lady Argent",
+      "description": "Dempsey: a short, bald, furious Ulsterman who has driven engines since 1851 and loves the Lady Argent like a daughter. Odom: a tall, quiet, powerful Black fireman from Kansas City who is going to be an engineer, and is the best man on the DA&P with a coal shovel and a scoop of sand. Saloon Brawler stats; they fight with shovels.",
+      "motivation": "Get their train back."
+    },
+    {
+      "name": "Roy Brannock",
+      "role": "Coburn's guest; an unexpected ally",
+      "description": "Range Boss stats. Hates thieves more than he hates the DA&P. Will ride after the car if asked, and will be the first to say, afterward, that the DA&P has failed.",
+      "motivation": "The Compact, honestly won by sabotage, not robbery."
+    },
+    {
+      "name": "Aurelius Stannard",
+      "role": "In the directors' car",
+      "description": "Calm, concerned, asks three times whether the express car is all right. When it rolls away he closes his eyes for a moment, and anyone watching him (Insight DC 14) sees relief, not shock.",
+      "motivation": "That the car gets to Blind Tom."
+    },
+    {
+      "name": "Hester Ruane, Winfield Coburn, Rollin Vosburgh, Prentiss Fiske, Augusta Achterberg",
+      "role": "Passengers",
+      "description": "Hester shoots back with a Navy revolver. Coburn tries to go back along the roofs and has to be stopped. Vosburgh, the governor's secretary, and Fiske, the Boston director, are under the seats. Augusta is writing it all down.",
+      "motivation": "Survival; for Augusta, the story of her life."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "Continental Express pays a reward of $1,500 for Rafe Gorham, dead or alive, and $250 each for the Haneys and Varley; Strickland can pay half on the spot and wires for the rest. If the express car is saved with its silver aboard, Hester Ruane pays the $1,000 delivery bonus as soon as it reaches the Junction (sl-scenario-004). Gorham, if bargained with at the platform, offers the party $5,000 in Ruane bars to let him go; taking it is Reputation −3 when it comes out, and it will.",
+    "items": [
+      "A Lodestar bar shot open, lead showing (Clue H1): the single most important piece of evidence in the campaign",
+      "The Haneys' passes, signed A. Stannard (Clue H2)",
+      "Witnesses to Coburn's 'you asked for it at the rear, Aurelius' (Clue H3)",
+      "Obed Becket, prisoner, or his horse's tracks toward Lodestar Hill (Clue H4)",
+      "Tobe Kersey, alive, and what he heard (Clue I3)",
+      "The trestle charge's fuse and caps, if recovered",
+      "Twelve horses from the stock car, now loose on the mountain, if Odell does not round them up"
+    ]
+  },
+  "twists": [
+    "Stannard told Gorham where every guard would ride, because the party told Stannard on Monday. If the party changed positions on Saturday morning, Gorham's plan is built on wrong information, and the GM should show it: a Haney who expected an empty caboose, a sharpshooter aiming at an empty coach window.",
+    "Brannock fights for the train. The man the players have spent a week suspecting stands on the directors' car platform shooting back at the robbers and bellowing about amateurs. It should confuse them, and it should be fun.",
+    "The lead bar changes everything. Once Gorham sees it, he is no longer the villain of the piece but its second victim, and a dangerous, intelligent man who wants the same thing the party wants: Stannard. A party that can see that can make an alliance with a train robber, which is a very western thing to do and has consequences in sl-scenario-004.",
+    "If the switch is not thrown, Gorham never gets the car. The runaway becomes a different problem (stopping it before Argent), and Gorham, who has lost his prize and knows he was meant to hang for it, rides straight for Argent and Stannard: sl-scenario-004's showdown comes a day early.",
+    "If the trestle is blown, the front of the train is stranded on the far side of Needle Creek: the Lady Argent (if she did not go back), the coaches, the Columbine, the mail and the stock car. They can go on over the summit to the Junction, but without the silver. The silver is on the near side, in Blind Tom Gulch or rolling down to Argent. Getting it to the Junction by Tuesday midnight, around a broken trestle and through Brannock's Narrows, is sl-scenario-004."
+  ],
+  "dmTips": [
+    "This is a set piece; prepare it like one. Draw the train on a long strip of paper, car by car, with the platforms, roofs and brake wheels, and put a token for every player and NPC on it. Ask everyone where they are at the start of each beat. A sketch of the climb (switch, Cut, trestle, Horseshoe) helps the players plan.",
+    "Use beats, not rounds, for the runaway, except when someone is fighting, jumping or braking. The car takes about six minutes from the pin to the platform; a fight inside the express car might last five rounds; a horse ride down the wagon road takes twelve minutes. Cut between them like a film: the express car, the engine, the horses, the ford, back to the express car.",
+    "Moving-train rules are in combat.json vehicles.trains: roofs and gaps are difficult terrain; a creature that takes damage or is shoved on a roof makes a DC 12 Acrobatics check or falls (on the Horseshoe and the Cut curves, with disadvantage); boarding a moving car is DC 12 at 10 mph or less, DC 15 at 20, DC 20 at full speed; pulling a pin on a moving train is an action and a DC 12 Athletics check (no check while the train is stopped with the slack in). Jumping the ordinary gap between coupled cars is part of movement; a gap that is opening because the cars have parted uses the DCs in The Pin. Shooting from a moving car is at disadvantage unless the shooter is proficient in Riding (Pepa Archuleta and Odell Purdy are) or has a feature that says otherwise (Saddle-Born). Anyone who falls from a moving car takes 1d6 bludgeoning per 5 mph (DEX save DC 15 for half) and is left behind (combat.json vehicles.trains.falling_from_a_train).",
+    "Nobody aboard should die by accident of the rules. The drops are deadly; give falling characters a save to catch a grab iron, a brake staff or a rope, and let companions catch each other. Deaths in this scenario should be choices.",
+    "Let every player have a moment: the gunslinger on the cliff, the outlaw at the trestle fuse, the cowhand getting twelve horses out of a stopped car on a mountainside, the doc in the express car knowing lead when she sees it, the gambler bluffing Gorham through a loophole, the lawman with his star on the ore platform. Build the beats so that each of them happens.",
+    "The lead must be found. If no shot hits a bar and no bar falls, then at the platform Gorham, impatient with the door, has a man take a hatchet to a Lodestar bar in the open car through the roof hatch to see if they are worth the trouble, and the hatchet sinks in.",
+    "If the party is very good and stops everything (the pin stays in, the switch is not thrown, the trestle charge is defused), Varley still pins the train at the Horseshoe and Gorham, at the platform, waits, hears nothing, and rides. The silver goes on to the summit with the train, and sl-scenario-004 begins with the Narrows, Brannock's forts, and a Lodestar bar that someone should shoot open at the Junction to see what is inside. Do not punish a good plan.",
+    "End the scenario when the silver is either safe, stolen or spilled, and the party knows that the Lodestar bars are lead. Then ask the players what they want to do about Aurelius Stannard."
+  ]
+}

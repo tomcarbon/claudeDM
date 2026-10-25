@@ -1,0 +1,869 @@
+{
+  "_meta": {
+    "category": "scifi",
+    "source": "Written for claudeDM (Sci-Fi category). Mostly original; a few general-mechanics sentences (e.g. opportunity attacks, passive checks, stat-block phrasing) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Eight Sci-Fi classes on the shared d20 chassis (levels 1-20, proficiency bonus and XP thresholds from data/rules/leveling.json). There is no magic: no class has a spellcasting key, and every character sheet carries the empty spells block. 'default_weapons' lists era-neutral weapons a generated character of the class carries; 'damage' is the weapon dice without the ability modifier. Weapon proficiencies name the equipment.json weapon groups; everyone is proficient with Melee. Features at levels 3-11 in 'progression' are summaries the GM can apply directly."
+  },
+  "classes": [
+    {
+      "name": "Soldier",
+      "role": "Trained shooter and frontline fighter",
+      "hit_die": "d10",
+      "primary_ability": "Dexterity or Strength",
+      "saving_throws": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor",
+        "Medium armor",
+        "Heavy armor",
+        "Powered armor (future campaigns)",
+        "Shields"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms",
+        "Automatics",
+        "Explosives",
+        "Energy Weapons (future campaigns)"
+      ],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Acrobatics",
+          "Athletics",
+          "Intimidation",
+          "Mechanics",
+          "Medicine",
+          "Perception",
+          "Piloting",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Assault rifle and 60 rounds of rifle ammunition"
+          ],
+          "choice_2": [
+            "Pump shotgun and 24 shells"
+          ]
+        },
+        {
+          "choice_1": [
+            "Tactical vest"
+          ],
+          "choice_2": [
+            "Aramid vest (concealable) and a riot shield"
+          ]
+        },
+        {
+          "default": [
+            "9mm pistol",
+            "9mm rounds (45)",
+            "Combat knife",
+            "Frag grenade (2)",
+            "Field dressing (2)",
+            "Backpack",
+            "Flashlight"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per soldier level after 1st",
+      "level_1_features": [
+        {
+          "name": "Combat Training",
+          "description": "Choose one style. Marksman: +2 bonus to ranged attack rolls. Close Quarters: you don't have disadvantage for firing a Longarm, Automatic or Heavy Weapon with a hostile within 5 ft, and you gain +1 AC while you aren't wearing heavy armor. Heavy Gunner: you gain proficiency with Heavy Weapons, and the save DC of your full-auto and suppressive fire increases by 1."
+        },
+        {
+          "name": "Adrenaline",
+          "description": "As a bonus action, you regain 1d10 + your soldier level hit points. Once you use this feature, you can't use it again until you finish a short or long rest."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Tactical Surge",
+          "description": "On your turn, you can take one additional action. Once you use this feature, you can't use it again until you finish a short or long rest."
+        }
+      ],
+      "progression": {
+        "3": "Specialization: choose Rifleman (crits on a natural 19-20 with ranged weapons), Breacher (advantage on checks to force entry; explosives you place deal +1 die) or Squad Leader (allies within 30 ft gain +1 to initiative; once per short rest, when an ally you can see is targeted by an attack, you can use your reaction to shout a warning and impose disadvantage on that attack).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action (each single-shot or burst attack spends its own rounds). Proficiency bonus becomes +3.",
+        "7": "Battle Hardened: advantage on saves against being Suppressed or Shaken.",
+        "9": "Indomitable: reroll a failed saving throw once per long rest.",
+        "11": "Extra Attack improves to three attacks; Tactical Surge usable twice per short rest at 17th."
+      },
+      "default_weapons": [
+        {
+          "name": "Assault rifle (AK pattern)",
+          "attackAbility": "DEX",
+          "damage": "2d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "9mm pistol",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Combat knife",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Operative",
+      "role": "Spy, infiltrator and thief",
+      "hit_die": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": [
+        "Dexterity",
+        "Intelligence"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms",
+        "Energy Weapons (future campaigns)"
+      ],
+      "tool_proficiencies": [
+        "Lockpicks",
+        "Disguise kit"
+      ],
+      "skill_choices": {
+        "choose": 4,
+        "from": [
+          "Acrobatics",
+          "Athletics",
+          "Computers",
+          "Deception",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Perception",
+          "Persuasion",
+          "Sleight of Hand",
+          "Stealth",
+          "Streetwise"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Silenced .22 pistol and 30 rounds of .22 ammunition"
+          ],
+          "choice_2": [
+            "9mm pistol and 45 rounds of 9mm ammunition"
+          ]
+        },
+        {
+          "choice_1": [
+            "Aramid vest (concealable)"
+          ],
+          "choice_2": [
+            "Leather jacket and a disguise kit"
+          ]
+        },
+        {
+          "default": [
+            "Combat knife",
+            "Lockpicks",
+            "Dark clothing",
+            "Grappling hook and 50 ft of rope",
+            "Flashlight (penlight)",
+            "Burner phone or radio"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per operative level after 1st",
+      "level_1_features": [
+        {
+          "name": "Expertise",
+          "description": "Choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make with either of them."
+        },
+        {
+          "name": "Precision Strike",
+          "description": "Once per turn, you deal an extra 1d6 damage to one creature you hit with a finesse melee weapon, a Sidearm or a Longarm, if you have advantage on the attack roll, or if another enemy of the target is within 5 ft of it and you don't have disadvantage. The extra damage increases by 1d6 at every odd level after 1st (2d6 at 3rd, 3d6 at 5th, and so on). It does not apply to burst, full-auto or explosive damage."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Cunning Action",
+          "description": "On each of your turns, you can take a bonus action to Dash, Disengage or Hide."
+        }
+      ],
+      "progression": {
+        "3": "Precision Strike 2d6. Specialty: choose Infiltrator (climb speed equal to walking speed; advantage on Stealth in dim light), Thief (Sleight of Hand and Mechanics to bypass locks as a bonus action) or Assassin (advantage on attacks against creatures that haven't acted yet in the first round; hits against surprised creatures are critical hits).",
+        "4": "Ability Score Improvement.",
+        "5": "Precision Strike 3d6. Uncanny Dodge: as a reaction, halve the damage of one attack that hits you. Proficiency bonus becomes +3.",
+        "7": "Precision Strike 4d6. Evasion: when a DEX save would halve damage (grenades, full auto), you take none on a success and half on a failure.",
+        "9": "Precision Strike 5d6. Ghost: you can Hide while only lightly obscured.",
+        "11": "Precision Strike 6d6. Reliable Talent: treat any d20 roll of 9 or lower as a 10 on checks with proficient skills."
+      },
+      "default_weapons": [
+        {
+          "name": "Silenced .22 pistol",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Combat knife",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Tech",
+      "role": "Engineer and hacker",
+      "hit_die": "d8",
+      "primary_ability": "Intelligence",
+      "saving_throws": [
+        "Intelligence",
+        "Dexterity"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Energy Weapons (future campaigns)"
+      ],
+      "tool_proficiencies": [
+        "Electronics toolkit",
+        "Mechanic's tools",
+        "Hacking rig"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Computers",
+          "Investigation",
+          "Mechanics",
+          "Perception",
+          "Piloting",
+          "Science",
+          "Sleight of Hand"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "9mm pistol and 45 rounds of 9mm ammunition"
+          ],
+          "choice_2": [
+            "Stun gun and 4 cartridges"
+          ]
+        },
+        {
+          "choice_1": [
+            "Laptop or portable terminal suited to the era"
+          ],
+          "choice_2": [
+            "Hacking rig suited to the era"
+          ]
+        },
+        {
+          "default": [
+            "Electronics toolkit",
+            "Mechanic's tools",
+            "Leather jacket",
+            "Multitool",
+            "Duct tape",
+            "Flashlight",
+            "Backpack"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per tech level after 1st",
+      "level_1_features": [
+        {
+          "name": "Jury-Rig",
+          "description": "Spend 10 minutes and make a Mechanics check to build, repair or bypass a device from available parts: DC 10 simple (patch a radio, rig a tripwire alarm), 15 moderate (hot-wire a car, bypass a keypad, fix a jammed rifle permanently), 20 complex (repair a drone, build a signal jammer), 25 extraordinary. A failure wastes the time; failure by 5 or more breaks the parts."
+        },
+        {
+          "name": "Gadgets",
+          "description": "You have a number of gadget uses equal to your proficiency bonus, regaining all on a long rest. Spoof (action): disable one camera, electronic lock or drone within 60 ft for 1 minute. Overclock (bonus action): one ally's weapon or device within 30 ft gains +1d4 to its next attack roll or check. Patch (action): restore 1d8 + your INT modifier hit points to a robot, vehicle or synthetic you touch."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Intrusion",
+          "description": "You have advantage on Computers checks against a network or system when you have physical access to it (a port, terminal, junction box or the device itself)."
+        }
+      ],
+      "progression": {
+        "3": "Specialty: choose Hacker (Spoof can affect any networked device and lasts 10 minutes), Engineer (Jury-Rig takes 1 minute; Patch heals 2d8 + INT) or Drone Jockey (you build a combat or recon drone that acts on your initiative; see Security Drone statblock, minus weapons for recon).",
+        "4": "Ability Score Improvement.",
+        "5": "Gadget uses equal proficiency bonus + 1. Proficiency bonus becomes +3. Field Fix: clear a jam or reload an ally's weapon as a bonus action.",
+        "7": "Countermeasures: advantage on saves against traps, explosives and electrical damage; resistance to lightning damage.",
+        "9": "Master Override: once per long rest, take control of a drone, turret or vehicle autopilot for 1 minute (Computers vs the system's DC).",
+        "11": "Gadget uses double on long rest; Overclock grants +1d8."
+      },
+      "default_weapons": [
+        {
+          "name": "9mm pistol",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Stun gun",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "lightning"
+        },
+        {
+          "name": "Knife",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Medic",
+      "role": "Field medic and doctor",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom",
+      "saving_throws": [
+        "Intelligence",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor",
+        "Medium armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Medkit",
+        "Trauma kit",
+        "Pharmacology kit"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Insight",
+          "Investigation",
+          "Medicine",
+          "Perception",
+          "Persuasion",
+          "Science",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "9mm pistol and 45 rounds of 9mm ammunition"
+          ],
+          "choice_2": [
+            ".38 revolver and 24 rounds of .38 ammunition"
+          ]
+        },
+        {
+          "choice_1": [
+            "Aramid vest (concealable)"
+          ],
+          "choice_2": [
+            "Tactical vest"
+          ]
+        },
+        {
+          "default": [
+            "Medkit",
+            "Trauma kit",
+            "Painkillers (5 doses)",
+            "Field dressing (5)",
+            "Knife",
+            "Backpack",
+            "Penlight"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per medic level after 1st",
+      "level_1_features": [
+        {
+          "name": "Field Medicine",
+          "description": "As an action while holding a medkit, restore 1d6 + your WIS modifier + your medic level hit points to a creature you touch, or as a bonus action stabilize a creature at 0 hit points. You can use this feature a number of times equal to your WIS modifier + 1 (minimum 1), regaining all uses on a long rest. Stabilizing with it doesn't require a check."
+        },
+        {
+          "name": "Triage",
+          "description": "As a bonus action, make a Medicine check (DC 10) while you can see a creature within 30 ft. On a success, you learn its exact current and maximum hit points and every condition affecting it, including Bleeding, poisons and diseases."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Steady Hands",
+          "description": "The first time each short rest that you restore hit points to a creature, it also gains temporary hit points equal to your proficiency bonus."
+        }
+      ],
+      "progression": {
+        "3": "Specialty: choose Combat Medic (Field Medicine as a bonus action once per turn; move to a downed ally without provoking opportunity attacks), Surgeon (during a short rest, patients you treat regain the maximum on each hit die they spend) or Chemist (brew 1d4 doses of stims or toxins per long rest; toxins deal 2d6 poison and poison on a failed DC 8 + prof + INT CON save).",
+        "4": "Ability Score Improvement.",
+        "5": "Field Medicine heals 2d6 + WIS + level. Proficiency bonus becomes +3. Stop the Bleeding: any healing you provide also ends Bleeding and Shaken.",
+        "7": "Calm Under Fire: you are immune to being Suppressed while tending a wounded ally.",
+        "9": "Miracle Worker: once per long rest, a creature that died within the last minute (but was not killed outright by massive damage) is returned to 0 HP and stable. This is emergency resuscitation, not resurrection.",
+        "11": "Field Medicine heals 3d6 + WIS + level and its uses equal WIS modifier + 3."
+      },
+      "default_weapons": [
+        {
+          "name": "9mm pistol",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Knife",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Face",
+      "role": "Negotiator, con artist and leader",
+      "hit_die": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": [
+        "Charisma",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Disguise kit",
+        "Forgery kit"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Deception",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Performance",
+          "Persuasion",
+          "Sleight of Hand",
+          "Streetwise"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            ".38 revolver and 24 rounds of .38 ammunition"
+          ],
+          "choice_2": [
+            "Holdout pistol and 20 rounds of ammunition"
+          ]
+        },
+        {
+          "choice_1": [
+            "Expensive suit or fashionable clothes"
+          ],
+          "choice_2": [
+            "Disguise kit and forged ID"
+          ]
+        },
+        {
+          "default": [
+            "Leather jacket",
+            "Phone, pager or comm suited to the era",
+            "Business cards for three different identities",
+            "Knife",
+            "Breath mints"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per face level after 1st",
+      "level_1_features": [
+        {
+          "name": "Silver Tongue",
+          "description": "Choose two of Deception, Insight, Persuasion and Intimidation. You gain proficiency in them if you lack it, and your proficiency bonus is doubled for checks with them."
+        },
+        {
+          "name": "Rally",
+          "description": "As a bonus action, choose an ally who can hear you. They gain 1d6 + your CHA modifier temporary hit points and may end the frightened condition on themselves. Uses equal your CHA modifier (minimum 1), regaining all on a long rest."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Read the Room",
+          "description": "After at least 1 minute of conversation with a person, make an Insight check contested by their Deception. On a success you learn one of their goals, one of their fears, or whether one thing they said was a lie (your choice)."
+        }
+      ],
+      "progression": {
+        "3": "Specialty: choose Con Artist (a cover identity holds up to casual checks; advantage on Deception while in it), Negotiator (once per day, turn a hostile non-combat encounter into a parley if they can hear you) or Leader (Rally also grants the ally +1d4 to their next attack or save).",
+        "4": "Ability Score Improvement.",
+        "5": "Rally grants 2d6 + CHA temp HP. Proficiency bonus becomes +3. Fast Talk: as an action, a creature that can hear and understand you makes a WIS save (DC 8 + prof + CHA) or hesitates, losing its next reaction and having disadvantage on its next attack.",
+        "7": "Network: once per session, you know someone useful in the current city or station.",
+        "9": "Silver Tongue applies to two more skills (any CHA or WIS skills).",
+        "11": "Commanding Presence: allies within 30 ft have advantage on saves against Suppressed, Shaken and frightened."
+      },
+      "default_weapons": [
+        {
+          "name": ".38 revolver",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Knife",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Scout",
+      "role": "Tracker, sniper and survivalist",
+      "hit_die": "d8",
+      "primary_ability": "Dexterity and Wisdom",
+      "saving_throws": [
+        "Dexterity",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor",
+        "Medium armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms",
+        "Energy Weapons (future campaigns)"
+      ],
+      "tool_proficiencies": [
+        "Navigation kit",
+        "Binoculars"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Acrobatics",
+          "Athletics",
+          "Insight",
+          "Investigation",
+          "Perception",
+          "Piloting",
+          "Stealth",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Hunting rifle (bolt-action) with scope and 20 rounds of rifle ammunition"
+          ],
+          "choice_2": [
+            "Pump shotgun and 24 shells"
+          ]
+        },
+        {
+          "choice_1": [
+            "Leather jacket"
+          ],
+          "choice_2": [
+            "Tactical vest"
+          ]
+        },
+        {
+          "default": [
+            "9mm pistol",
+            "9mm rounds (30)",
+            "Combat knife",
+            "Binoculars",
+            "Camouflage clothing",
+            "Backpack",
+            "Bedroll",
+            "Canteen",
+            "Compass",
+            "50 ft of rope"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per scout level after 1st",
+      "level_1_features": [
+        {
+          "name": "Overwatch",
+          "description": "When an enemy you can see moves within your weapon's normal range, you can use your reaction to make one ranged attack against it, interrupting its movement. You can do this once per short rest at 1st level and twice per short rest from 5th level."
+        },
+        {
+          "name": "Trailwise",
+          "description": "You have advantage on Survival checks to track and navigate. While you are on watch and conscious, your party can't be surprised."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Steady Aim",
+          "description": "As a bonus action, if you haven't moved this turn, you gain advantage on your next ranged attack roll this turn. Your speed becomes 0 until the end of the turn. (This is the general Aim action, which the Scout can take even with weapons it would normally need two hands to brace.)"
+        }
+      ],
+      "progression": {
+        "3": "Specialty: choose Sniper (no disadvantage at long range with Longarms; called shots cost -3 instead of -5), Tracker (learn the number, size and how long ago a group passed from its trail) or Ranger (difficult terrain doesn't slow your group; advantage on initiative in wilderness).",
+        "4": "Ability Score Improvement.",
+        "5": "Extra Attack. Overwatch twice per short rest. Proficiency bonus becomes +3.",
+        "7": "Vanish: Hide as a bonus action; you can't be tracked by non-technological means unless you choose.",
+        "9": "Kill Zone: Overwatch attacks have advantage.",
+        "11": "One Shot: once per short rest, a ranged hit from a Longarm that you aimed with is a critical hit."
+      },
+      "default_weapons": [
+        {
+          "name": "Hunting rifle (bolt-action)",
+          "attackAbility": "DEX",
+          "damage": "2d10",
+          "damageType": "piercing"
+        },
+        {
+          "name": "9mm pistol",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Combat knife",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Brawler",
+      "role": "Enforcer, bouncer and street fighter",
+      "hit_die": "d10",
+      "primary_ability": "Strength",
+      "saving_throws": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor",
+        "Medium armor",
+        "Shields"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Acrobatics",
+          "Athletics",
+          "Insight",
+          "Intimidation",
+          "Perception",
+          "Streetwise",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Baseball bat"
+          ],
+          "choice_2": [
+            "Fire axe"
+          ]
+        },
+        {
+          "choice_1": [
+            ".38 revolver and 24 rounds of .38 ammunition"
+          ],
+          "choice_2": [
+            "Sawed-off shotgun and 12 shells"
+          ]
+        },
+        {
+          "default": [
+            "Brass knuckles",
+            "Leather jacket",
+            "Hand wraps",
+            "Work boots",
+            "Duffel bag"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per brawler level after 1st",
+      "level_1_features": [
+        {
+          "name": "Hard Hitter",
+          "description": "Your unarmed strikes deal 1d6 + your STR modifier bludgeoning damage, and you may use DEX instead of STR for their attack and damage rolls. When you take the Attack action on your turn, you can make one unarmed strike as a bonus action."
+        },
+        {
+          "name": "Hard to Kill",
+          "description": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. Once you use this feature, you can't use it again until you finish a long rest."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Intimidating Presence",
+          "description": "As an action, choose one creature within 30 ft that can see or hear you. It must succeed on a WIS save (DC 8 + your proficiency bonus + your STR modifier) or be frightened of you until the end of your next turn."
+        }
+      ],
+      "progression": {
+        "3": "Style: choose Boxer (+1 AC while unarmored or in light armor and not holding a weapon; unarmed strikes 1d8), Enforcer (when you hit with a melee attack, push the target 10 ft or knock it prone if it fails a STR save) or Bruiser (resistance to bludgeoning damage from unarmed strikes and improvised weapons; regain 1d6 HP when you drop an enemy to 0).",
+        "4": "Ability Score Improvement.",
+        "5": "Extra Attack. Unarmed strikes deal 1d8. Proficiency bonus becomes +3.",
+        "7": "Shrug It Off: as a reaction when you take damage, reduce it by 1d10 + CON modifier once per short rest.",
+        "9": "Hard to Kill recharges on a short rest.",
+        "11": "Unarmed strikes deal 1d10; Intimidating Presence affects every creature of your choice within 30 ft."
+      },
+      "default_weapons": [
+        {
+          "name": "Unarmed strike",
+          "attackAbility": "STR",
+          "damage": "1d6",
+          "damageType": "bludgeoning"
+        },
+        {
+          "name": "Baseball bat",
+          "attackAbility": "STR",
+          "damage": "1d6",
+          "damageType": "bludgeoning"
+        },
+        {
+          "name": ".38 revolver",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Scientist",
+      "role": "Researcher, investigator and expert",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence",
+      "saving_throws": [
+        "Intelligence",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Laboratory kit",
+        "Electronics toolkit"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Computers",
+          "Insight",
+          "Investigation",
+          "Mechanics",
+          "Medicine",
+          "Perception",
+          "Science",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "9mm pistol and 30 rounds of 9mm ammunition"
+          ],
+          "choice_2": [
+            "Stun gun and 4 cartridges"
+          ]
+        },
+        {
+          "choice_1": [
+            "Laboratory kit"
+          ],
+          "choice_2": [
+            "Field sample kit and specimen containers"
+          ]
+        },
+        {
+          "default": [
+            "Lab coat or field jacket",
+            "Notebook, recorder or data slate suited to the era",
+            "Magnifying loupe",
+            "Flashlight",
+            "Knife",
+            "Backpack"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per scientist level after 1st",
+      "level_1_features": [
+        {
+          "name": "Analyze",
+          "description": "As a bonus action, study a creature, device or situation you can see. The next attack roll or ability check one ally makes against it before the start of your next turn has advantage. Uses equal your INT modifier (minimum 1), regaining all on a short or long rest."
+        },
+        {
+          "name": "Polymath",
+          "description": "You gain proficiency in Science and in two other Intelligence skills of your choice (Computers, Investigation or Mechanics). You add half your proficiency bonus (rounded down) to any Intelligence check that doesn't already include your proficiency bonus."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Eureka",
+          "description": "Once per long rest, after you fail an Intelligence check, you can reroll it with a +5 bonus and must use the new result."
+        }
+      ],
+      "progression": {
+        "3": "Discipline: choose Biologist (identify a creature's resistances, vulnerabilities and special abilities with a successful Analyze; advantage on Medicine), Physicist (Analyze also reveals cover materials and structural weaknesses; your improvised explosives deal +2 dice) or Xenologist (advantage on all checks to understand alien technology, languages and behavior; resistance to alien psychic or fear effects).",
+        "4": "Ability Score Improvement.",
+        "5": "Analyze grants the advantage to every ally's first roll against the target. Proficiency bonus becomes +3.",
+        "7": "Expert Witness: your passive Investigation is 10 + INT modifier + double proficiency.",
+        "9": "Eureka can be used twice per long rest.",
+        "11": "Breakthrough: once per adventure, invent a device, compound or countermeasure that solves one problem the GM agrees is solvable by science."
+      },
+      "default_weapons": [
+        {
+          "name": "9mm pistol",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Knife",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "slashing"
+        }
+      ]
+    }
+  ]
+}

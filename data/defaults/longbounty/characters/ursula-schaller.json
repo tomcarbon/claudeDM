@@ -1,0 +1,125 @@
+{
+  "id": "e9ef4b5e-3358-4c89-81e9-01372378c575",
+  "name": "Dr. Ursula Schaller",
+  "status": "alive",
+  "race": "Immigrant",
+  "subrace": "",
+  "class": "Doc",
+  "level": 3,
+  "background": "Homesteader",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 17,
+    "current": 17
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Investigation",
+    "Animal Handling",
+    "Nature"
+  ],
+  "languages": [
+    "German",
+    "English",
+    "French (from Zürich, for reading the medical journals)"
+  ],
+  "equipment": [
+    "A brown wool riding habit with a divided skirt she had made in Zürich and has mended in four countries",
+    "Pocket revolver (Smith & Wesson No. 1½), 5 rounds loaded, in her medical bag",
+    ".32 rounds (15)",
+    "Boot knife, which she calls a scalpel and uses as one",
+    "Surgeon's case: bullet forceps, probes, bone saw, scalpels, needles, silk and catgut, tourniquet, a Lister carbolic spray she is very proud of",
+    "Medicine chest: carbolic acid, quinine, laudanum (6 doses), calomel, chloroform (2 doses), lint and bandages",
+    "A stethoscope, a clinical thermometer in a brass case, a magnifying glass",
+    "Her diploma, Doctor of Medicine, University of Zürich, 1869, in a tin tube, and a letter from the Bexar County medical board declining to examine her for a license",
+    "Saddle and tack, bedroll, canteen (2), a straw hat with a veil against the flies",
+    "Riding horse: a solid Hill Country farm horse called Fritz, who has seen worse",
+    "Wallet containing $34"
+  ],
+  "weapons": [
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Boot knife",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Two Tongues (Immigrant origin: German and English fluently, French well; advantage on Insight and Perception checks to follow a conversation held in a language the speakers assume she does not know; in any German settlement or congregation she finds a meal, a bed and the local news without a check)",
+    "Sawbones (Doc, using INT: 4 times per long rest, as an action, she patches a creature she touches: it can spend up to 2 unspent Hit Dice as on a short rest and regains 3 extra hit points; it also stabilizes the dying and ends Bleeding. Dig Out a Bullet: during a short rest she cuts out a lodged bullet or buckshot; the patient regains 6 extra hit points and any lingering wound heals)",
+    "Diagnosis (Doc: as a bonus action she learns a creature's current and maximum hit points and every condition affecting it; examining a body for 10 minutes she learns the cause and time of death, what kind of gun or blade did it and from how far, and one more detail on a DC 12 Medicine check)",
+    "Steady Hands (Doc, 2nd level: advantage on Medicine checks; a creature she stabilizes regains 1 hit point and can act on its next turn; she identifies any drug, poison, disease or bad water by its symptoms, and can treat snakebite, fever or poisoning during a short rest)",
+    "Practice: Army Surgeon (Doc, 3rd level, learned in a Union hospital in New Orleans: creatures she Sawbones regain the maximum on each Hit Die they spend, and she can use Sawbones on a creature at 0 HP without provoking opportunity attacks)",
+    "Proving Up (Homesteader background: her mother's farm on the Guadalupe; farm and ranch families anywhere give her a meal and a place in the barn and tell her who has been threatening whom; she knows land offices, claim law and water rights better than most lawyers)"
+  ],
+  "traits": [
+    "Two Tongues",
+    "Sawbones (4/long rest)",
+    "Dig Out a Bullet",
+    "Diagnosis",
+    "Steady Hands",
+    "Army Surgeon"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say exactly what I think, in whichever language is nearest, and I swear in German when I want to be understood and in Latin when I don't. I wash my hands more than anyone in Texas. I laugh at funerals, quietly. I am very good, and I know it, and so will you.",
+    "ideals": "A wound does not care who made it or who has it. Neither do I. I treat whoever is bleeding, and I want to know why they are bleeding.",
+    "bonds": "My mother's farm on the Guadalupe near Comfort, my mother, and the memory of my father, Ludwig Schaller, a Unionist schoolteacher who was hanged by a vigilance committee in 1862 for refusing to swear an oath. I have no patience whatsoever for committees.",
+    "flaws": "No county board in Texas will license a woman. With two thousand dollars I can buy the practice of old Dr. Heintze in San Antonio, who will sell to me and sign my patients over, and the board can say what it likes. I want that more than I have wanted anything, and I would like not to find out what I would do for it."
+  },
+  "appearance": "A tall, angular, fair woman of thirty-four with a strong nose, pale blue eyes behind steel spectacles, and blonde hair pinned up hard under a straw hat with a veil. A brown riding habit, a black medical bag that never leaves her hand, and a habit of looking at people's hands and eyes and skin before their faces.",
+  "backstory": "Ursula Schaller was born in Hesse in 1840 and came to Texas at eight with her parents, Freethinkers who settled near Comfort in the Hill Country. Her father, the schoolteacher, was hanged in the summer of 1862 by a Confederate vigilance committee with three other Unionist neighbors; her mother kept the farm. Ursula nursed in a Union hospital in New Orleans after the city fell, went to Switzerland in 1865 on her mother's savings, and in 1869 became a Doctor of Medicine of the University of Zürich, one of the first women in the world to do so. She came home to find that no county medical board in Texas would examine her for a license. She has practiced anyway, among the German farms and the freedmen's settlements and the ranches where nobody asks for papers, and she has dug more bullets out of more men than most army surgeons. Old Dr. Heintze of San Antonio, who is going blind, will sell her his practice and his patients for two thousand dollars, and the board will not dare refuse his successor. She saw the poster at Bauer's store on the Colorado on her way home from a confinement, and the man next to her said, 'Dead or alive, Fräulein Doktor. Which would you charge more for?' She has been thinking about that ever since."
+}

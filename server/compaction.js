@@ -14,7 +14,7 @@
 const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
-const { getSessionFilePath } = require('./player-data');
+const { getSessionFilePath, updateSessionFile } = require('./player-data');
 
 const DEFAULT_THRESHOLD = 500;        // live messages before a cycle is considered
 const HARD_CEILING_MULTIPLIER = 2;    // force a cut even without a boundary past this
@@ -23,6 +23,21 @@ const MIN_KEEP_TAIL = 20;             // a boundary must leave at least this muc
 const CHAPTER_SUMMARY_PATTERN = /## 📜 Chapter Summary:/;
 
 // Serialize compaction per session within this process.
+//
+// ── What this set means now, which is less than it used to look like (WO-0017) ────────────────
+// It has never excluded anything except a second compaction, and it never excluded the writers
+// that share session.json — the DM turn's persistence, the world-state tool, a companion claim,
+// an override audit record. Sitting at the top of the file next to the word "serialize", it read
+// as though it did. It did not, and that was the bug.
+//
+// Since the commit moved inside updateSessionFile it is no longer what makes compaction safe. Two
+// concurrent compactions are now safe without it: each takes the session queue in turn, and the
+// second finds the archived span is no longer a prefix of the live array and aborts before it
+// appends anything. What the set still buys is that the second one never pays for an LLM summary
+// it was always going to throw away. It is an optimisation now, not a guarantee.
+//
+// It is per-process, as it always was. Nothing here — including updateSessionFile — is safe
+// against a second Node process writing the same session directory.
 const inFlight = new Set();
 
 function archivePathFor(sessionFilePath) {
@@ -77,13 +92,13 @@ function formatForSummary(m) {
 function buildSummaryInput(span) {
   const summaries = span.filter(isChapterSummary).map(m => m.text);
   if (summaries.length > 0) {
-    return `Condense the following ${summaries.length} chapter summaries from a single D&D campaign arc into one flowing recap. Preserve names, locations, decisions, rewards, and unresolved threads.\n\n${summaries.join('\n\n---\n\n')}`;
+    return `Condense the following ${summaries.length} chapter summaries from a single tabletop RPG campaign arc into one flowing recap. Preserve names, locations, decisions, rewards, and unresolved threads.\n\n${summaries.join('\n\n---\n\n')}`;
   }
   // Forced cut with no summaries — fall back to the raw transcript.
   const lines = span
     .filter(m => m.type === 'player' || m.type === 'dm' || m.type === 'companion')
     .map(formatForSummary);
-  return `Condense the following D&D session transcript into one flowing arc recap. Preserve names, locations, decisions, rewards, and unresolved threads.\n\n${lines.join('\n\n')}`;
+  return `Condense the following tabletop RPG session transcript into one flowing arc recap. Preserve names, locations, decisions, rewards, and unresolved threads.\n\n${lines.join('\n\n')}`;
 }
 
 function deriveTitle(span, seq) {
@@ -102,6 +117,35 @@ function deriveDaysRange(span) {
     if (match) return match[1].trim();
   }
   return '';
+}
+
+/**
+ * Is `fresh` still the array whose prefix we archived?
+ *
+ * True only when the first `span.length` entries of `fresh` are identical to `span`. Messages are
+ * appended during play, so the expected shape after an LLM call has run is "the same span, plus
+ * whatever arrived since" — and the tail is then everything after the prefix, taken from `fresh`.
+ *
+ * ── Why this is compared rather than assumed (WO-0017) ────────────────────────────────────────
+ * The live array is not append-only. `persistCanonicalTurn` truncates it back to the current
+ * turn's player message and rewrites the tail when it reconciles a partial client save, and
+ * `PUT /sessions/:id` replaces `messages` wholesale from the client's in-memory copy. Either can
+ * land during the summarize window. If one has, the prefix will not match, and the only safe
+ * answer is to abort: a compaction committed against an array it does not recognise trims
+ * messages it never archived. `CHANGELOG.md` records this subsystem blanking a 554-message
+ * session once already, which is the entire reason this function refuses rather than guesses.
+ *
+ * Compared by serialisation, not by identity or by length: these are plain JSON records read from
+ * two different reads of the same file, so there is no object identity to use, and a length check
+ * alone would accept a rewritten prefix of the same size.
+ */
+function prefixMatches(fresh, span) {
+  if (!Array.isArray(fresh) || !Array.isArray(span)) return false;
+  if (fresh.length < span.length) return false;
+  for (let i = 0; i < span.length; i++) {
+    if (JSON.stringify(fresh[i]) !== JSON.stringify(span[i])) return false;
+  }
+  return true;
 }
 
 /**
@@ -156,17 +200,19 @@ async function maybeCompact(dataDir, sessionDbId, { summarize, thresholdOverride
     if (!cut) return { compacted: false };
 
     const span = messages.slice(0, cut.cutIdx + 1);
-    const liveTail = messages.slice(cut.cutIdx + 1);
     if (span.length === 0) return { compacted: false };
     // Backstop: never trim the live window to nothing. Archiving is a display/context
     // optimization, and a session whose transcript renders empty is worse than one that
-    // is merely large, so refuse the cut rather than commit it.
-    if (liveTail.length === 0) {
+    // is merely large, so refuse the cut rather than commit it. Re-checked against the fresh
+    // array inside the lock below, because this read is about to become stale.
+    if (messages.length - span.length === 0) {
       console.warn(`[Compaction] refusing empty-tail cut for ${sessionDbId}; leaving history intact.`);
       return { compacted: false };
     }
 
-    // 1) Generate the blurb FIRST — the only external/fallible step — before any mutation.
+    // 1) Generate the blurb FIRST — the only external/fallible step — before any mutation, and
+    //    deliberately OUTSIDE the session lock. It is an LLM call: seconds, not milliseconds, and
+    //    holding the per-session queue across it would stall every turn the player takes.
     let blurb = '';
     try {
       blurb = await summarize(buildSummaryInput(span));
@@ -179,39 +225,95 @@ async function maybeCompact(dataDir, sessionDbId, { summarize, thresholdOverride
       return { compacted: false };
     }
 
-    // 2) Durably archive the raw span before trimming anything.
+    // ── 2) Commit, inside the session queue, against a FRESH read (WO-0017) ────────────────────
+    //
+    // Everything above ran against `session`, read before an LLM call that takes seconds. That
+    // object is now stale, and the previous version of this function wrote it back whole:
+    // `session.messages = liveTail; await fsp.writeFile(fp, ...)`. Every server-side write that
+    // landed during the window went with it — the DM turn's messages and world state, a companion
+    // claim, and `mechanicalOverrides`, which is the only durable record that a player was asked
+    // to approve a change to their own hit points and said yes. Compaction runs periodically
+    // through long sessions, which is exactly when there is most to lose.
+    //
+    // **The obvious fix is worse than the bug.** Wrapping this write in updateSessionFile and
+    // applying the same mutations to the fresh object does not fix it, it moves it: `liveTail` was
+    // computed from the pre-call array, so assigning it discards any message appended since. That
+    // trades losing hit points for losing the transcript.
+    //
+    // So the tail is recomputed here by dropping the archived prefix from the FRESH array, and the
+    // assumption that makes that valid — that the fresh array still begins with the span we
+    // archived — is checked rather than trusted. If it does not hold, nothing is written and
+    // nothing is appended. A skipped compaction costs a slightly longer context on the next turn.
+    // A wrong one blanks the adventure, which CHANGELOG.md records this subsystem having done.
     const archiveFp = archivePathFor(fp);
-    const committed = Number(session?.archiveMeta?.totalArchived || 0);
-    await reconcileAndAppend(archiveFp, span, committed);
+    let abort = null;
+    let outcome = null;
 
-    // 3) Commit: append the arc summary, trim the live array, bump the watermark.
-    const seq = Number(session.archiveSeq || 0) + 1;
-    const arc = {
-      seq,
-      title: deriveTitle(span, seq),
-      daysRange: deriveDaysRange(span),
-      blurb: blurb.trim(),
-      archivedMessageCount: span.length,
-      archiveLineRange: [committed, committed + span.length - 1],
-      forced: !!cut.forced,
-      createdAt: new Date().toISOString(),
-    };
-    session.arcSummaries = Array.isArray(session.arcSummaries) ? session.arcSummaries : [];
-    session.arcSummaries.push(arc);
-    session.messages = liveTail;
-    session.archiveSeq = seq;
-    session.archiveMeta = { file: 'archive.jsonl', totalArchived: committed + span.length };
-    session.updatedAt = new Date().toISOString();
-    await fsp.writeFile(fp, JSON.stringify(session, null, 2));
+    try {
+      await updateSessionFile(dataDir, sessionDbId, async (live) => {
+        const fresh = Array.isArray(live.messages) ? live.messages : [];
+        if (!prefixMatches(fresh, span)) {
+          abort = `the live transcript changed under the summary (expected it to still start with the ${span.length} archived messages, found ${fresh.length} messages that do not match)`;
+          return false;
+        }
+        const liveTail = fresh.slice(span.length);
+        if (liveTail.length === 0) {
+          abort = 'the cut would leave the session with an empty transcript';
+          return false;
+        }
 
-    console.log(`[Compaction] session=${sessionDbId} seq=${seq} archived=${span.length} live=${liveTail.length} forced=${!!cut.forced}`);
-    return {
-      compacted: true,
-      liveMessages: liveTail,
-      arcSummaries: session.arcSummaries,
-      archiveSeq: seq,
-      archivedCount: span.length,
-    };
+        // The archive append is inside the lock, and after the check. Outside it, an abort would
+        // leave archive.jsonl holding messages the session never committed — and GET /:id/archive
+        // reads that file directly, so an export would show them twice, archived and still live,
+        // until the next compaction reconciled it away. `committed` is read from the fresh object
+        // for the same reason everything else here is: it is the watermark this write is about to
+        // move, so it must be the one on disk now, not the one from before the LLM call.
+        const committed = Number(live?.archiveMeta?.totalArchived || 0);
+        await reconcileAndAppend(archiveFp, span, committed);
+
+        const seq = Number(live.archiveSeq || 0) + 1;
+        const arc = {
+          seq,
+          title: deriveTitle(span, seq),
+          daysRange: deriveDaysRange(span),
+          blurb: blurb.trim(),
+          archivedMessageCount: span.length,
+          archiveLineRange: [committed, committed + span.length - 1],
+          forced: !!cut.forced,
+          createdAt: new Date().toISOString(),
+        };
+        live.arcSummaries = Array.isArray(live.arcSummaries) ? live.arcSummaries : [];
+        live.arcSummaries.push(arc);
+        live.messages = liveTail;
+        live.archiveSeq = seq;
+        live.archiveMeta = { file: 'archive.jsonl', totalArchived: committed + span.length };
+        // `updatedAt` is stamped by updateSessionFile itself; setting it here as well would be
+        // two writers owning one field.
+
+        outcome = {
+          compacted: true,
+          liveMessages: liveTail,
+          arcSummaries: live.arcSummaries,
+          archiveSeq: seq,
+          archivedCount: span.length,
+        };
+      });
+    } catch (e) {
+      // reconcileAndAppend throws on an archive line-count mismatch, and the queue rejects if the
+      // session file has gone. Either way nothing was written to session.json: updateSessionFile
+      // writes only after the mutator resolves. This runs on the resume path, so it must not
+      // become the reason a player cannot get back into their game.
+      console.error(`[Compaction] commit failed for ${sessionDbId}, session left untouched: ${e.message}`);
+      return { compacted: false };
+    }
+
+    if (abort || !outcome) {
+      console.warn(`[Compaction] aborted for ${sessionDbId}: ${abort || 'no outcome recorded'}. Nothing archived, nothing trimmed.`);
+      return { compacted: false };
+    }
+
+    console.log(`[Compaction] session=${sessionDbId} seq=${outcome.archiveSeq} archived=${span.length} live=${outcome.liveMessages.length} forced=${!!cut.forced}`);
+    return outcome;
   } finally {
     inFlight.delete(sessionDbId);
   }
@@ -221,5 +323,8 @@ module.exports = {
   maybeCompact,
   DEFAULT_THRESHOLD,
   // exported for unit tests
-  _internal: { decideCut, buildSummaryInput, reconcileAndAppend, archivePathFor, deriveTitle, deriveDaysRange },
+  // Exported for unit tests. `inFlight` is here so a test can force the two-compactions-at-once
+  // interleaving the set normally short-circuits — without it the claim that the set is now only
+  // an optimisation would be an assertion in a comment rather than something a test demonstrates.
+  _internal: { decideCut, buildSummaryInput, reconcileAndAppend, archivePathFor, deriveTitle, deriveDaysRange, prefixMatches, inFlight },
 };

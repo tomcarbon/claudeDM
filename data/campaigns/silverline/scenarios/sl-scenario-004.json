@@ -1,0 +1,519 @@
+{
+  "id": "sl-scenario-004",
+  "title": "The Grade",
+  "subtitle": "Saturday Afternoon to Tuesday Midnight: Lead, a Robber's Bargain, Sundown on Front Street and the Narrows",
+  "levelRange": "6-7",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "Argent, Blind Tom Gulch, Haypress Springs, Hollowell Canyon and the Narrows, Saturday 27 to Tuesday 30 September 1879",
+    "description": "The aftermath and the reckoning, on a clock that ends at midnight on Tuesday. Whatever happened on the grade on Saturday morning, by Saturday afternoon three things are true. The silver is somewhere: in the express car, in Gorham's wagons, or spilled in the aspens. Somebody knows the Lodestar's bars are lead. And Roy Brannock, while every eye in the county was on the train, marched a hundred and twenty armed men into Hollowell Canyon at dawn, tore up two hundred yards of DA&P track in the Narrows, cut the telegraph wire, and built two stone forts on the rim above it, on the strength of a Kansas court order that is not worth the paper in Colorado and is backed by Sheriff Riggs anyway. The Compact needs at least $75,000 of Argent bullion carried by rail from the Argent depot to the Denver main line at Hollowell Junction before midnight on Tuesday. Hester Ruane's sixty bars, $84,000 of real silver, are enough on their own. Between them and the Junction: Rafe Gorham, Aurelius Stannard, perhaps a blown trestle, and the Narrows.",
+    "atmosphere": "Saturday's cold, bright afternoon and a long freezing night on the trail; snow showers on Sunday. The camp in an uproar: newspapermen, rumours, a reward poster for Gorham with the ink still wet, men cleaning rifles on the hotel porch. Monday's sundown on Front Street, long blue shadows, the stamp mills suddenly stopped because the Lodestar's men have walked out, and in the silence you can hear spurs on the boardwalk. Tuesday: the canyon, grey rock and black river, smoke from Brannock's forts on the rim, and a long night run down the grade with a headlamp, a whole week of tension compressed into twenty-four miles of track and the clock on the cab wall.",
+    "keyLocations": [
+      {
+        "name": "Blind Tom and the Tie Road",
+        "description": "The ore platform at the end of the spur, as the party left it: an express car with a blown door or an intact one, a caboose, scattered bars, wagon tracks heading south up the old tie road over the saddle. If Gorham got away with the silver, he is on that road with three heavy wagons, six tons of bullion and a dozen men, going about two miles an hour.",
+        "features": [
+          "The tie road: eleven miles south over a saddle to Haypress Springs, an abandoned stage station, then on toward Burnt Mule Pass",
+          "Wagon tracks deep enough for a child to follow",
+          "Whatever was left on the platform: a Lodestar bar dropped in the scramble, Becket's horse, Tobe Kersey"
+        ],
+        "encounters": [
+          "A rearguard of two Outlaws on the saddle, if the party pursues on Saturday afternoon"
+        ],
+        "secrets": [
+          "Following the wagons is automatic. Catching them before dark needs horses (Odell's twelve, if rounded up) and a chase (combat.json chases): loaded freight wagons cannot outrun riders, and Gorham knows it, so he will stand at Haypress Springs rather than be caught on the road."
+        ]
+      },
+      {
+        "name": "Haypress Springs",
+        "description": "An abandoned stage station in a meadow below the saddle: a stone station house with gun slits, a collapsed barn, a corral and a spring. Gorham's planned first night. Here, on Saturday night, his men cut a Lodestar bar in half with a cold chisel to share it out, and find lead.",
+        "features": [
+          "The stone station house: hard cover, two doors, a loft",
+          "The corral with the wagon teams; the wagons drawn up in a square",
+          "The spring, the only water for six miles"
+        ],
+        "encounters": [
+          "Rafe Gorham (Gang Leader), Asa Varley (Outlaw with Hired Gun hit points), the Haneys if alive, and four to six Outlaws, depending on Saturday",
+          "A parley, more likely than a fight, once Gorham has seen the lead"
+        ],
+        "secrets": [
+          "CLUE H5 (core, once Gorham has seen the lead and is talking to the party, or is taken alive): 'Stannard. Through Becket. He said the Lodestar bars were the best of it, the high-grade, and Ruane's were the chaff. He said the express car would be at the back and the guards would be where he said. He gave my boys their passes himself. And he sold me seventy bars of lead, so that I would be hunted across Colorado for his insurance.' Gorham will repeat it to a federal marshal, in exchange for not being hanged; he would rather testify than shoot Stannard, but not by much.",
+          "Gorham's offer to the party, if he has the silver: he will give back all sixty Ruane bars, the real silver, and testify against Stannard before a federal commissioner, if the party gives him twenty-four hours' start for himself and his men, or lets him have Stannard. He means it. Whether to take it is the players' choice; see dmTips."
+        ]
+      },
+      {
+        "name": "Argent, Saturday to Monday",
+        "description": "The camp in uproar. The dignitaries come back down the wagon road on Saturday afternoon in Hester's buckboards, if the trestle was blown, or ride back on the Lady Argent if it was not. The Clarion prints an extra. Llew Treharne's calaboose holds whoever the party took. Stannard is at home on Lodestar Hill, gracious, shaken, generous with rewards, and busy.",
+        "features": [
+          "The calaboose: Obed Becket, Tobe Kersey, a Haney or two, whoever the party brought in",
+          "The Continental strongroom at the depot: any recovered silver, Lodestar bars included",
+          "Becket's room at the Lodestar mill",
+          "The Grand Central, where the Association meets on Sunday afternoon"
+        ],
+        "encounters": [
+          "Aurelius Stannard, everywhere, being helpful",
+          "Lodestar mine guards (Railroad Enforcer, four) on Sunday night",
+          "A crowd that would like to hang Tobe Kersey, or Becket (Vigilante, a dozen), on Sunday evening"
+        ],
+        "secrets": [
+          "CLUE H7 (core, automatic for anyone at the Sunday Association meeting or reading the poster): Stannard posts $5,000 of his own money for Rafe Gorham, dead, and only dead, and asks Sheriff Riggs to have the posse shoot on sight. A man who wanted his silver back would want the robber alive to say where it is.",
+          "CLUE I1 (Investigation DC 12 in Becket's room at the mill, with Llew Treharne's authority or by stealth): a spool of bright copper wire, a pair of side-cutting pliers, a leather sap loaded with shot, and $5,000 in new Denver banknotes in a tobacco tin, Lodestar dividend notes, the same series Lydia Marchmont was paid in. His second pair of boots has the three-and-two hobnails (I2).",
+          "CLUE I4: Becket, in the calaboose, with I1 and I2 put in front of him and the word 'hang' said by a federal marshal, makes a deal: he killed Erasmus Ashworth on Mr. Stannard's instruction to see that Erasmus kept quiet until the train had gone, and Mr. Stannard knew exactly what he meant. Insight DC 13 tells the party the second half is true. Persuasion or Intimidation DC 15 without I1 and I2; automatic with both.",
+          "On Sunday night four Lodestar men come for the Lodestar bars in the Continental strongroom with a wagon and a story ('Mr. Stannard's orders: back to the mill for safekeeping'). If they get them, the bars go down the Lodestar shaft and the evidence is gone, except for any bar the party has kept apart. Strickland will not release them without the party."
+        ]
+      },
+      {
+        "name": "Burnt Mule Flats Telegraph",
+        "description": "With the DA&P wire cut in the Narrows, the only telegraph out of the basin is the GP&P's own, at its Burnt Mule railhead. On Saturday evening Stannard's rider takes a telegram there, and the GP&P operator, who is paid by the word, sends it.",
+        "features": [
+          "The telegraph shack beside the commissary, with the operator's carbons on a spike",
+          "Brannock is at the Narrows, not here; his clerk and a dozen guards are"
+        ],
+        "encounters": [
+          "The GP&P telegraph operator, Sven Ekdahl, a young Swede, honest and frightened",
+          "Railroad Enforcer (four) at the commissary"
+        ],
+        "secrets": [
+          "CLUE H6 (core, automatic for anyone who reads the carbons; Ekdahl shows them for $10, or freely to Isaac's star): to Gaskell and Leggett, brokers, Broad Street, New York, Saturday 27th, 6:10 p.m.: SILVER TRAIN ROBBED STOP LODESTAR SHIPMENT INSURED FULL VALUE STOP CLOSE SUBSCRIPTION MONDAY NOT WEDNESDAY STOP WIRE ALL FUNDS DENVER FIRST NATIONAL STOP STANNARD. A man whose fortune was just stolen does not hurry to close a stock sale.",
+          "If the party also has Stannard's letter selling his casting vote to Brannock for GP&P stock (from the Wichita's desk in sl-scenario-002, or from Brannock himself, who will hand it over when he realises Stannard has made a fool of him), the operator's carbons include Brannock's Saturday wire to his Kansas directors: NARROWS HELD STOP DAP FAILS STOP ASSOCIATION VOTE ARRANGED."
+        ]
+      },
+      {
+        "name": "Front Street at Sundown",
+        "description": "Monday, a quarter past six. The street that has watched the whole week. The Lodestar's stamp mills are silent because the mill crew walked out at noon when the word went round about the lead. Stannard is in the Grand Central with his last four guards and a buckboard behind the livery, packed. Gorham, who sent word at noon that he was coming at sundown, walks in from the lower end of town.",
+        "features": [
+          "The length of Front Street, a quarter mile of boardwalk, hitching rails and water troughs",
+          "The Grand Central porch and its upstairs windows",
+          "The Silver Dollar's doors, where Mrs. Fontaine stands with her shotgun and declares her house neutral",
+          "The calaboose, halfway down, and Llew Treharne in its door"
+        ],
+        "encounters": [
+          "Rafe Gorham (Gang Leader), alone, or with Varley",
+          "Stannard's four guards (Hired Gun) on the Grand Central porch and in its windows",
+          "Sheriff Burl Riggs (Crooked Sheriff) and three Deputies, arriving to take Gorham dead for Stannard's $5,000"
+        ],
+        "secrets": [
+          "Gorham means to call Stannard out, in public, and tell the street what he did before he shoots him. He will not shoot an unarmed man in the street; he expects Stannard's guards to start it. A showdown (frontier.json showdowns) between Gorham and anyone who steps into the street to stop him is the scenario's great set-piece duel. Gorham is a Gang Leader, not a Fast Gun; a party gunslinger can win the draw.",
+          "Stannard's plan: let Gorham and the party kill each other, or let Riggs do it, then leave in the buckboard by the Fairplay road during the confusion, with the Lodestar's last $9,000 in cash and the New York money waiting in Denver."
+        ]
+      },
+      {
+        "name": "The Narrows",
+        "description": "Fourteen miles down Hollowell Canyon from the summit, the gorge closes to a slot two hundred feet deep and fifty wide, with the river on one side and the DA&P track blasted into the cliff on the other. Brannock has torn up two hundred yards of track at its upper end and piled the rails across the grade as a barricade. On the rim above, on either side, two stone forts of dry-laid granite, each with forty riflemen. In the canyon itself, behind the barricade, Brannock's camp: tents, a commissary wagon, and the GP&P graders under Hannibal Stokes, a hundred men with rifles they were handed on Saturday and do not want.",
+        "features": [
+          "The barricade: two hundred yards of torn-up track, rails stacked across the grade; a crew of a hundred can relay it in four hours",
+          "Fort North and Fort South on the rims: hard cover, overlooking the whole slot",
+          "Brannock's tent at the barricade, with a flag and a field telegraph to Burnt Mule Flats",
+          "A goat trail Ong Pak-wai knows, and a pack trail Pablo Quintana knows, that climb around the Narrows on the north rim and come down behind Fort North"
+        ],
+        "encounters": [
+          "Roy Brannock (Range Boss) and his gun guards: Hired Gun (six), Railroad Enforcer (twelve), Bandit Sharpshooter (two) in the forts",
+          "Hannibal Stokes and a hundred GP&P graders, armed, unwilling",
+          "Virgil Tench (Cardsharp stats) with a case of Vulcan powder and two Dynamiters, on Tuesday night, if Brannock lets the canyon go"
+        ],
+        "secrets": [
+          "The federal lever: the DA&P train carries the United States mail (Isaac Merriweather rode with it). Obstructing the mail is a federal crime, and the DA&P's right-of-way through the canyon was granted under the federal railroad right-of-way law. Isaac's Office: Deputy U.S. Marshal lets him telegraph for a federal warrant and have it within a day, but the DA&P wire is cut and the GP&P's is Brannock's: someone has to get round the Narrows to the Junction telegraph (Ong's goat trail or Pablo's pack trail, about six hours) or talk Ekdahl at Burnt Mule into sending it. A federal warrant naming Brannock, served in front of his own men, ends the occupation: Brannock is a bully, not a rebel against the United States.",
+          "The workers' lever: Hannibal Stokes and his graders will not fight for the men who killed Leung Ah-sing and Chan Yiu. Show Stokes the evidence (D and E clues, Tench's commissary entry, Lem Hadley's statement), and when Brannock orders the forts manned on Tuesday, a hundred men lay their rifles down on the grade and walk up the canyon to help the DA&P crews relay the track. Brannock is left with twenty gun guards.",
+          "The directors' lever: Brannock's Kansas directors do not want a federal case or a massacre in the newspapers. A wire to them (from the Junction or Burnt Mule) with Stannard's vote letter and the deaths at the Cut, signed by the governor's secretary Rollin Vosburgh, gets back a reply on Tuesday afternoon: WITHDRAW. Brannock shows it to the party himself, laughing, and asks what they want for Tench.",
+          "Brannock's bargain, once he knows he has lost: he will open the Narrows and give the party Tench, if the DA&P agrees to let the GP&P run its trains through the canyon on DA&P track for a fee when its own line arrives, a deal Coburn hates and Hester thinks sensible. (Historically, the real railroad war of 1879 ended in a similar compromise in 1880.) Whether Tench alone pays for the deaths at the Cut is the players' question."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Saturday afternoon to Tuesday midnight. The scenario begins wherever sl-scenario-003 ended and runs on three tracks at once. THE SILVER: if Gorham escaped with it, the party follows his wagons up the tie road to Haypress Springs, where on Saturday night his men find the Lodestar bars are lead; Gorham, a clever man who now knows he was meant to hang for another man's fraud, offers the party a bargain: the real silver back and his testimony against Stannard (H5), for his freedom or for Stannard. STANNARD: back in Argent, generous and shaken, he posts a reward for Gorham dead only (H7), wires New York from the GP&P telegraph to close his stock sale early (H6), and sends Lodestar men to take back the lead bars from the strongroom on Sunday night. Becket, in the calaboose, faced with the wire, the sap and the boots (I1, I2), confesses to the murder of Erasmus Ashworth on Stannard's instruction (I4). On Monday at sundown Gorham walks down Front Street to call Stannard out, Stannard's guards and Sheriff Riggs are waiting, and the party must decide who walks out of it and whether Stannard lives to be tried. THE NARROWS: Brannock holds the canyon with forts and a hundred and twenty rifles. The party can open it by the federal mail and a warrant, by turning Hannibal Stokes's GP&P graders, by wiring Brannock's directors, by Brannock's own bargain, or by force. On Tuesday night the silver train runs: across the Needle Creek trestle (rebuilt, if it was blown), over the summit in the snow, down the canyon and through the Narrows, with Tench and his last case of powder waiting in the dark, to Hollowell Junction before the clock strikes midnight.",
+  "hook": "Saturday 27 September 1879, half past eleven in the morning. However it ended at Blind Tom, the canyon is quiet now except for the creek, and you are standing in the cold with powder smoke still in your clothes, looking at a bar of silver with lead coming out of it like the grey flesh of a split fruit. Somebody says, quietly, the name of the man who shook every one of your hands at the depot this morning and asked where you would ride. Down the valley a horseman is coming up the grade at a gallop: a DA&P section hand, hatless, shouting before he is in earshot that the Great Plains and Pacific has taken the Narrows, a hundred men and more, forts on the rim, the track torn up, the wire cut, and Mr. Coburn says the Compact is lost unless God or somebody gets the silver to the Junction by midnight Tuesday. You look at the bar. You look at the road back to Argent. It is three days, and twenty-four miles of canyon, and one man.",
+  "cluesAvailable": [
+    "H4",
+    "H5",
+    "H6",
+    "H7",
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "B1",
+    "B2",
+    "D3",
+    "E1",
+    "E2"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "H. Stannard arranged the robbery of his own lead bars (proof for a court)",
+      "clues": [
+        "H1 (from sl-scenario-003) and any recovered Lodestar bar, assayed by Hester Ruane's refinery: a silver skin over lead, every one",
+        "H5: Gorham's testimony (Haypress Springs or Front Street)",
+        "H6: Stannard's telegram to his New York brokers (Burnt Mule Flats telegraph carbons)",
+        "H7: the reward for Gorham dead only (the Association meeting; the poster)",
+        "H2 and H3 from Saturday: the Haneys' passes; Coburn's 'you asked for it at the rear'"
+      ]
+    },
+    {
+      "conclusion": "I. Obed Becket murdered Erasmus Ashworth on Stannard's instruction",
+      "clues": [
+        "I1: copper wire, pliers, sap and $5,000 in Lodestar dividend notes in Becket's room (the Lodestar mill)",
+        "I2: the three-and-two hobnails on the assay office roof and on Becket's boots (sl-scenario-001, matched here)",
+        "I3: 'same as the assayer, boy' at the Blind Tom platform (Tobe Kersey)",
+        "I4: Becket's confession (the calaboose)",
+        "A4 and A5 from sl-scenario-001: Llew Treharne and Gertrud Haas"
+      ]
+    },
+    {
+      "conclusion": "The Narrows can be opened without a massacre",
+      "clues": [
+        "The federal mail and Isaac Merriweather's warrant (the Junction telegraph, around the Narrows)",
+        "Hannibal Stokes and the GP&P graders, who will not fight for Tench (the canyon camp)",
+        "Brannock's Kansas directors, and Stannard's vote letter (Burnt Mule Flats; the Wichita)",
+        "Brannock's own bargain: trackage rights for Tench (the barricade)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Lead",
+      "description": "Saturday noon to Sunday night. Recovering the silver, or bargaining for it; bringing in the prisoners; the first moves of a cornered Stannard. If Gorham has the silver, this act is the pursuit to Haypress Springs and the parley there. If the party saved the car, it is the long afternoon of getting the silver back to the Argent depot (if the trestle stands, the Lady Argent tows the express car back; if not, by wagon from Blind Tom) and the first questions. Either way, the act ends on Sunday night with the Lodestar men's attempt on the strongroom, and with the players holding enough to hang Becket and accuse Stannard, if they can keep it.",
+      "objectives": [
+        "Recover the silver, all of it or the real part of it",
+        "Bring in Becket, Tobe Kersey and any of Gorham's men alive",
+        "Have a Lodestar bar assayed in front of witnesses",
+        "Keep the Lodestar bars from vanishing on Sunday night"
+      ],
+      "scenes": [
+        {
+          "name": "Haypress Springs",
+          "description": "Only if Gorham escaped with the silver. Saturday, around dusk, eleven miles up the tie road: the abandoned stage station, the wagons in a square, smoke from the chimney. If the party arrives after nine at night, Gorham's men have already cut a Lodestar bar to share it out and found lead, and the camp is in uproar: Varley wants to ride to Argent and kill Stannard tonight, the Haneys want to take Ruane's real bars and run, Gorham wants to think. Gorham will parley under a white flag. He offers the bargain (see secrets): the sixty Ruane bars back, the seventy lead bars as evidence, and his testimony against Stannard before a federal commissioner, in exchange for twenty-four hours for his men, or for being allowed to settle with Stannard himself. If the party attacks instead, it is a siege of a stone house at night (Gorham's men have hard cover and the spring), and Gorham fights well and dies hard. If the party arrives before nine, Gorham does not yet know about the lead, and showing him (with any Lodestar bar or the plug from sl-scenario-001) produces the same bargain.",
+          "readAloud": "The stage station is a low black box of stone against the snow, with a thread of smoke going straight up into the stars and the three wagons drawn up in a square beside it, and somebody inside is shouting. Then the door opens and lamplight falls across the snow, and a slim man in a long coat comes out with his hands well away from his sides and a white handkerchief tied to a rifle barrel. He walks halfway to you and stops. 'I would like to talk,' Rafe Gorham calls, in his soft Missouri voice. 'I have just found out I have been robbed, gentlemen, and I find I am in the unusual position of wanting a lawyer.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Gorham means the bargain. He is furious, frightened for his men, and he wants Stannard more than he wants the silver; he would rather see Stannard hanged in Denver with half the West reading about it than shoot him in the dark. He will keep his word if the party keeps theirs.",
+              "failure": "A clever, dangerous man who has just lost everything. You cannot tell how much of the bargain is a bluff to buy time for the Haneys to slip out the back with the real silver. (They are trying.)"
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "Gorham agrees to surrender himself to Isaac Merriweather (or to Strickland for Continental) and to testify (H5), in exchange for the party's word that his men get twenty-four hours and that he is tried in federal court in Denver, not hanged by Sheriff Riggs. He hands over his revolver butt first.",
+              "failure": "Gorham will give back the silver and talk, but he will not surrender. He wants twenty-four hours for himself too, and he will spend them riding to Argent."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 17,
+              "success": "With the station surrounded and a star in front of him, Gorham does the arithmetic and surrenders unconditionally, which he will never forgive.",
+              "failure": "Gorham smiles and walks back to the station. 'Then we will have to do this the old way.' A siege."
+            }
+          ]
+        },
+        {
+          "name": "The Assay",
+          "description": "Whenever the party gets a Lodestar bar to the Argent Reduction Works. Hester Ruane, white-faced, drills three Lodestar bars at random in her refinery in front of witnesses (Strickland, Augusta Achterberg, the governor's secretary Vosburgh if he is in town, Llew Treharne). All three are a skin of silver a sixteenth of an inch thick over lead, and between them, she works out, the seventy Lodestar bars contain about $4,000 of silver. Augusta Achterberg prints it in Monday's Clarion. Hester also points out something that matters for the Compact: the Compact requires $75,000 of Association bullion, and her sixty bars, $84,000 of real silver, satisfy it alone. If the party recovered them, the Compact can still be won. She is vice president of the Association: if Stannard is removed from the chair, she presides, and the Association will certify the shipment.",
+          "readAloud": "The drill bites into the first Lodestar bar and the curl that comes up out of the hole is bright for a moment and then grey, and Hester Ruane stops the drill and looks at it for a long time without saying anything. She does the second bar, and the third. Then she puts the drill down on the bench very carefully, as if it might break, and takes off her apron. 'Seventy bars,' she says. 'Three hundred and fifty pounds of silver, perhaps, in six tons of lead. Aurelius stood in my yard on Friday and watched them load it.' She looks up at you. 'I have known him nine years. He gave the eulogy at my husband's funeral.'",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The Lodestar bars' moulds marks match the shallow moulds in the Lodestar mill (if the party saw them in sl-scenario-001), and the lead is soft pig lead of the kind sold in Denver by the ton, not smelter lead: bought, not mined.",
+              "failure": "Lead. That is the whole of it, and it is enough."
+            }
+          ]
+        },
+        {
+          "name": "The Calaboose",
+          "description": "Saturday night and Sunday. Llew Treharne's three cells hold whoever the party brought in: Becket, Tobe Kersey, a Haney, Sully. Tobe, if alive, is the easiest witness: he tells everything he knows, cries, and asks for Effie. Becket says nothing at all until the party has I1 (from his room at the mill, which Llew will search with them now: he has seen the lead too) and I2 (his boots), and then, faced with Isaac Merriweather or Llew saying the word hang, he deals: he killed Erasmus Ashworth on Stannard's instruction, and he will say so to a judge (I4). This is the moment Llew Treharne has been dreading all week: he goes up Lodestar Hill alone to arrest Stannard, or asks the party to come with him. On Sunday evening a dozen men from the Silver Dollar (Vigilante) come to the calaboose to hang Tobe Kersey for the robbery; Llew, Mercy Pengelly and the party can stop it, and should: Tobe is the best witness in the case and a frightened boy. (If Becket is the target instead, the same: a confessed murderer is worth more to justice on a gallows after a trial than on a beam tonight.)",
+          "readAloud": "Obed Becket sits on the plank bunk in the end cell with his back against the logs and his big hands on his knees, and he has not said a word since Saturday. When you put the spool of copper wire on the floor of the corridor, in the lamplight, where he can see it, and the sap beside it, and his own boots beside that, with the hobnails turned up, he looks at them for a long time. Then he looks at Llew Treharne. 'Marshal,' he says, and his voice is quite calm. 'I want to talk about what Mr. Stannard told me to do. And I want to talk about it to a federal man, not to Burl Riggs. Riggs would hang me Tuesday to keep me quiet.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Becket is telling the truth about Stannard's instruction: 'see that Erasmus keeps quiet till the train has gone', and Stannard's face when he said it. He is lying about one thing: he says he only meant to frighten Erasmus. He did not.",
+              "failure": "A cold man, making a deal. True or not, it will play in court."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "(At the lynch crowd on Sunday evening.) You name each man in the front rank and ask him whether he wants his children to know he hanged the only witness against the man who robbed them all, and they go home. Reputation +1.",
+              "failure": "They want blood. It takes Llew's pick handle, Mercy's voice, or a shotgun fired into the air."
+            }
+          ]
+        },
+        {
+          "name": "Sunday Night at the Strongroom",
+          "description": "If the silver (or any part of it) is back in the Continental strongroom, Stannard sends four Lodestar men with a wagon at two in the morning to take the Lodestar bars back to the mill 'for safekeeping', with a note in his hand; if Strickland or the party refuses, they try force (Railroad Enforcer, four). Stannard wants the lead down his shaft before a federal commissioner sees it. If the party has kept one bar apart and drilled, the evidence survives even if the rest goes. A good party will be waiting.",
+          "readAloud": "The wagon comes down the hill road from the Lodestar with no lamp, which is how you know it is coming for you. Four men, big, in mine coats, and one of them gets down and walks up to the strongroom door with a paper in his hand and knocks like a man with every right to be there. 'Mr. Stannard's orders,' he says through the door. 'Lodestar bars go back to the mill tonight. Company property.' Behind him, in the dark, the other three have spread out, and you hear the small cold click of a hammer coming back.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 13,
+              "success": "You tell them through the door that the bars went up to the Reduction Works at midnight under the marshal's guard. They go to the Works, where Hester and Pepa Archuleta (or the party) are waiting, and give up without a shot.",
+              "failure": "They do not believe you. They have a crowbar."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rafe Gorham (Gang Leader), Asa Varley, the Haneys and four to six Outlaws at Haypress Springs, if it comes to a siege",
+        "Vigilante (a dozen) at the calaboose on Sunday evening",
+        "Railroad Enforcer (four), the Lodestar men at the strongroom, Sunday 2 a.m."
+      ]
+    },
+    {
+      "title": "Act 2: Sundown on Front Street",
+      "description": "Monday. Stannard is cornered and knows it: the Clarion's extra is in every hand by nine, the Lodestar's mill crew walks out at noon, Lodestar Consolidated's New York agents have his wire but not yet his money, and Becket is talking. He does three things. He tries to buy the party: $20,000 in Lodestar notes and GP&P stock to go away, made in his study, with great charm and real tears. He tries to get his money: the telegram (H6) and a rider to Denver. And he packs a buckboard. At noon Gorham, free one way or another (escaped, released by bargain, or sent word by Varley), sends a boy to the Grand Central with a note: Stannard, sundown, Front Street. Sheriff Riggs rides in at five with three deputies to collect the $5,000 for Gorham dead. The act ends at sundown with a showdown, an arrest, a flight, or all three.",
+      "objectives": [
+        "Refuse, or accept, Stannard's offer",
+        "Get Stannard into custody alive, or decide not to",
+        "Settle with Rafe Gorham",
+        "Keep Sheriff Riggs from turning Front Street into a slaughter"
+      ],
+      "scenes": [
+        {
+          "name": "The Founder's Study",
+          "description": "Monday morning, Lodestar Hill, if the party goes up (with Llew, to arrest him, or alone). Stannard receives them in his study under his own portrait. He does not deny anything checkable. He tells the truth about the Lodestar with great feeling: the vein pinched out in January, he could not tell four thousand people their town was built on nothing, the stock was to keep the camp alive until he found the vein again, nobody was meant to be hurt. He says Erasmus's death was Becket's idea and he never meant it, which is half true. He offers the party $20,000 to let him go, or to forget the telegram, or to lose Gorham. He offers Llew his debts forgiven. If refused, he asks for an hour to say goodbye to his house, and uses it to send his last four guards to the Grand Central and the buckboard to the livery. If arrested now, he comes quietly, and the danger moves: Gorham and Riggs both want him dead before he can be tried, for opposite reasons.",
+          "readAloud": "He has not slept. He is sitting at his desk in his shirt sleeves under the big portrait of himself with a pick on his shoulder, and the whole basin is spread out in the window behind him: the camp, the smelter smoke, the bright new depot, the railroad climbing away up the valley. He does not get up. 'I found it,' he says. 'Do you understand? There was nothing in this valley, and I found it, and four thousand people came. And then it was gone.' He spreads his hands on the blotter. 'What would you have done? Told them? Watched it all blow away like a tent in the wind?' He looks up at you, and his eyes are wet. 'I can make you rich. All of you. It need not end badly for anyone in this room.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Every word about the town is true, and he believes it. Every word about Erasmus is self-serving: he knew what Becket would do, and he let him. And the offer is real, and the moment you refuse it he will try to have you killed.",
+              "failure": "A broken old man, or a superb actor. Both."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "He signs a statement: the fraud, the bars, the robbery, the instruction to Becket. He asks only to be taken to Denver by Isaac Merriweather, not left to Riggs or Gorham. It is the cleanest ending available, and he will still try to slip away on the road if he can.",
+              "failure": "He smiles, very tired. 'No. I think I will take my chances with Rafe Gorham. He at least has a sense of humour.'"
+            }
+          ]
+        },
+        {
+          "name": "The Long Walk",
+          "description": "Monday, a quarter past six. Gorham walks up Front Street from the depot end alone (Varley on a roof somewhere, if alive and free). The street empties. Stannard's four guards are on the Grand Central's porch and in its windows. Riggs and his deputies ride in from the Fairplay road end to take Gorham for the reward. Llew Treharne stands in the door of the calaboose. Mrs. Fontaine stands in the door of the Silver Dollar with her shotgun. If Stannard is already in custody, Gorham comes to the calaboose instead, and asks for him to be handed over, and the party must say no to a calm, armed, intelligent man who has every right to be angry. Run it with frontier.json's showdowns: the stare-down, the town watching, the draw. Gorham will back down from a stare-down only to a lawman with a federal warrant who promises him Stannard will be tried; he will draw on anyone else who stands between him and Stannard, but he does not want to. Riggs, for his part, will shoot Gorham in the back if he can, which the whole street will see, and which costs Riggs his star at the next election and possibly his life tonight. If the party lets Gorham call Stannard out and Stannard's guards start shooting, it becomes a street fight: water troughs, wagons, the boardwalk, upstairs windows.",
+          "readAloud": "The sun goes behind the peaks at a quarter past six and the whole of Front Street goes blue at once, as if a lamp had been turned down. The mills are silent for the first time in two years, and in the silence you can hear him coming before you see him: boot heels on the boardwalk, steady, unhurried, from the depot end. Rafe Gorham walks up the middle of Front Street in his long pale coat with his hat brim low and his hands loose at his sides, and the people on the boardwalks melt back into the doorways as he passes. He stops thirty yards short of the Grand Central and looks up at the windows. 'Aurelius,' he calls, quite pleasantly. 'Come out. I have brought you your silver.'",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "In the stare-down, Gorham holds your eye for a long moment, and then something goes out of his shoulders. 'Federal court,' he says. 'Denver. In front of the newspapers. Your word.' He unbuckles his gun belt and lets it drop in the street. Reputation +2: Argent saw a gunfight not happen.",
+              "failure": "Gorham does not back down. You draw, or you step aside. (Backing down from a stare-down costs Reputation; frontier.json reputation.)"
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "You see Riggs's deputy on the hotel roof across the street with a carbine, laying it on Gorham's back, a moment before he fires. A shout, a shot, or a lariat from the boardwalk (Odell or Pablo) spoils it.",
+              "failure": "A shot from somewhere behind Gorham, and the street explodes."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Gorham is not here to win. He is here to make Stannard come out in front of the town, and he expects to die doing it. Offer him something better.",
+              "failure": "A gunman come to kill a man. That is all you can see."
+            }
+          ]
+        },
+        {
+          "name": "The Fairplay Road",
+          "description": "If Stannard gets out of the Grand Central's back door in the confusion and into the buckboard behind the livery, he drives for the Fairplay road with $9,000 in a carpet bag and one guard. A chase (combat.json chases) on the wagon road in the dusk: a buckboard is quick on a road, but riders are quicker. Stannard does not shoot; his guard does. At the end of it, a broken wheel in a creek crossing and an old man sitting in the water with a carpet bag in his lap, laughing and crying. Whoever brings him back alive brings the camp its justice; whoever leaves him in the creek for Gorham or Riggs brings it something else.",
+          "readAloud": "The buckboard's wheel goes into the ford at a gallop and hits a boulder and comes off, and the whole thing slews round and tips, and the horse goes on alone into the dark dragging the shafts, and Aurelius Stannard sits up in the shallow creek in the starlight with his good black coat streaming water and a carpet bag clutched to his chest. He looks at you on your horses on the bank. Then he begins to laugh, a big, warm, helpless laugh, the laugh from the dining room on Monday. 'Two years,' he says. 'I had two years. Do you know there was nothing here at all?'",
+          "skillChecks": [
+            {
+              "skill": "Riding",
+              "dc": 13,
+              "success": "You run the buckboard down before the ford and grab the horse's bridle; Stannard is in custody, dry, and his guard throws down his rifle.",
+              "failure": "The buckboard reaches the ford ahead of you, with the ending above."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rafe Gorham (Gang Leader) in a showdown; Asa Varley on a roof (Outlaw with Hired Gun hit points)",
+        "Stannard's four guards (Hired Gun) on the Grand Central",
+        "Sheriff Burl Riggs (Crooked Sheriff) and three Deputies",
+        "Stannard's last guard on the Fairplay road (Hired Gun)"
+      ]
+    },
+    {
+      "title": "Act 3: The Narrows",
+      "description": "Monday night to Tuesday midnight. The silver train. Everything the party has done this week comes due in the canyon. They need the silver (the sixty Ruane bars at least) at the Argent depot; a passable Needle Creek trestle (rebuilt in thirty hours by the crews if it was blown on Saturday: start it on Saturday and it is done by Monday morning; start it later and it is very close); the Association's certificate (Hester presides if Stannard is in custody; if he is not, he can rule the shipment 'not whole' from the chair and hand the Compact to Brannock, with whom he has a deal); and a way through the Narrows. Run the approach to the Narrows as a small sandbox on Monday night and Tuesday: who rides around to the Junction telegraph, who goes to Stokes's camp, who parleys with Brannock, who guards the trestle and the depot. Then the run: the train leaves Argent at six on Tuesday evening with the silver, the mail, Coburn, Hester, the party, and whatever crews have earned a place, and twenty-four miles of canyon and six hours to midnight.",
+      "objectives": [
+        "Make the trestle passable, if it was blown",
+        "Get the Association to certify the shipment",
+        "Open the Narrows: by the warrant, the workers, the directors, the bargain or force",
+        "Stop Tench's last charge",
+        "Reach Hollowell Junction before midnight"
+      ],
+      "scenes": [
+        {
+          "name": "Around the Narrows",
+          "description": "Monday night or Tuesday morning. Ong Pak-wai's goat trail or Pablo Quintana's pack trail climbs the north rim, goes round Fort North a quarter mile back, and comes down to the Junction by dawn: six hours of climbing in the dark and snow (frontier.json trail_travel and weather; a Scout's Trailcraft or Pablo's mules make it certain, otherwise Survival DC 14 or lose two hours). At the Junction telegraph, Isaac Merriweather wires the U.S. Marshal in Denver for a federal warrant for Roy Brannock (obstructing the mail; trespass on a federal right-of-way), and the governor's secretary Vosburgh (if he came) wires the governor and Brannock's directors in Topeka. Replies come back by Tuesday afternoon: the warrant, by wire, which the operator writes out and Isaac signs; and, from Topeka, WITHDRAW. Whoever carries them back has to come down into the canyon in daylight under the guns of Fort North, or go back round the rim.",
+          "readAloud": "The trail is a crack in the canyon wall that Ong found in July with a surveyor's chain, and it goes up through snow and loose rock and black spruce for two thousand feet in the dark, so steep in places that the mules go up on their knees. Below you, far below, the forts' fires flicker on the rims like two eyes, and between them the canyon is a black slot with the river shining at the bottom of it. Pablo is singing under his breath to the bell mare. Ong, ahead, stops every hundred yards and listens, and once he holds up his hand and you all freeze, and a sentry from Fort North walks along the rim not thirty yards away, coughing, and goes back.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You pass Fort North's sentries without being seen, both ways. Brannock does not know you have been to the Junction until the warrant is in his hand.",
+              "failure": "A sentry sees a light and fires. The fort is roused; you get through, but Brannock knows, and doubles the guard on the barricade."
+            }
+          ]
+        },
+        {
+          "name": "Stokes's Camp",
+          "description": "Behind the barricade in the canyon, the GP&P graders' tents. Hannibal Stokes receives the party at his fire (they can walk in openly under a white flag, or come down from the rim). He wants to see the evidence about the Cut: D and E clues, the commissary entry, Lem Hadley's statement, the photograph of the dead if the Denver photographer took one at the funeral. He has a hundred men who were handed rifles on Saturday and told the DA&P meant to drive them out of the canyon. If the party shows him the truth, Stokes calls his men together that night, and on Tuesday, when Brannock orders the forts manned for the train, a hundred GP&P graders lay their rifles on the grade in a long row and walk up the canyon to help Bridget Cahill's, Teodoro Gallegos's and Ong's crews relay the torn-up track in four hours. That is the scene the campaign has been building toward: the men who were set against each other all week laying the same rails.",
+          "readAloud": "Hannibal Stokes reads Lem Hadley's statement twice by the light of the fire, holding it at arm's length, and then folds it and gives it back. The men around the fire have gone quiet. 'Two boys,' Stokes says. 'Asleep in their blankets. For a railroad.' He looks into the fire for a long time. 'I came out of Kentucky in seventy-seven with my wife and my mother and a mule, and we walked to Kansas because we were told there was land there for us. There was not much. There was this.' He nods at the canyon, the forts, the rifles stacked by the tents. 'I will not be the man who fires the first shot for Virgil Tench.' He stands up. 'Let me talk to my men.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Stokes's men agree. On Tuesday, the GP&P graders lay down their rifles. Brannock is left with twenty gun guards in two forts and no one to hold the barricade.",
+              "failure": "Stokes believes you; half his men do not, yet. They will stay out of the fight, but not help relay the track. Bring Bridget Cahill or Ong Pak-wai to talk to them, and they will."
+            }
+          ]
+        },
+        {
+          "name": "Brannock's Hand",
+          "description": "Tuesday afternoon, the barricade, under a flag of truce. Roy Brannock, in his shirtsleeves in the snow, with the telegram from Topeka in his pocket (if it came) and Isaac Merriweather's federal warrant in front of him (if it came), and the GP&P graders' rifles lying on the grade (if Stokes turned them). He has lost and he knows it, and he is magnificent about it. He offers his bargain: the Narrows opened, the forts abandoned, Virgil Tench handed over to Isaac, and his own warrant 'mislaid', in exchange for a promise of GP&P trackage rights through the canyon on DA&P rails when the GP&P line arrives. Coburn hates it. Hester thinks it sensible. Isaac can refuse to mislay the warrant, in which case Brannock surrenders to him personally, laughing, and is out on bail in Denver by Friday with the best lawyers in Kansas: Brannock will never hang. Tench might. That is the bargain the West offers, and the players decide whether to take it. If the party has none of the levers, Brannock simply refuses, and the train has to be fought through: an assault on the barricade under fire from two forts, which costs lives on both sides and should feel like it.",
+          "readAloud": "He meets you at the barricade with his hat in his hand and snow in his red beard and a grin like a man who has just lost a great deal of money at cards and enjoyed the game. 'Well,' says Roy Brannock. 'It seems I am a criminal against the United States of America, according to a telegraph boy in Hollowell Junction, and an embarrassment to the Great Plains and Pacific Railroad, according to my directors in Topeka, who have never been west of Abilene. And my own graders have gone over to the Irish.' He looks up at his forts, and back at you. 'I built those with my own hands, you know. Good walls.' He puts his hat on. 'Let us talk about what you will give me for Virgil Tench.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Brannock agrees to open the Narrows and give up Tench without the trackage deal, if the party lets him walk out of the canyon with his gun guards and his dignity. He keeps his word; he always does, when the deal is done.",
+              "failure": "Brannock wants the trackage rights in writing, from Coburn, before a rail goes down. Coburn signs, with a face like a funeral."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "He will keep his bargain. Tench will not: Tench knows Brannock is selling him, and he has gone down the canyon with a case of Vulcan powder and two men.",
+              "failure": "A defeated bully. You think it is over."
+            }
+          ]
+        },
+        {
+          "name": "The Run",
+          "description": "Tuesday, six in the evening, the Argent depot. The Lady Argent (or, if she was lost, the DA&P's work engine No. 6) with the express car (or a borrowed boxcar) holding the silver, the mail car, a coach full of crew spokesmen, Coburn, Hester, Strickland and the party. The trestle (rebuilt) at a crawl, the summit in falling snow at eight, the long descent of Hollowell Canyon with the headlamp boring a tunnel of white flakes, the Narrows at ten, where the relaid track gleams new and the forts are dark and three hundred men of four railroads' crews line the grade with lanterns. Then, a mile below the Narrows, Tench: he and two Dynamiters have set a case of Vulcan powder under the track at a culvert and are waiting in the rocks to fire it as the engine passes. Perception DC 14 from the cab or a roof (Ong's or Pepa's eyes, or a Scout's Long Shot, at advantage) sees the glint of a fuse in the headlamp; Dempsey can stop in time (an Athletics check on the brake from anyone who helps, DC 12) or run it at speed and hope (the charge fires under the tender: 3d6 to everyone on the engine, DEX save DC 15 half, and a derailment if the engine fails a d20 roll of 11+). Or the party can go out ahead on foot or horseback and take Tench in the rocks. Then the last miles, the Junction lights, and the clock in the Continental transfer shed.",
+          "readAloud": "At eleven forty-one by the station clock the Lady Argent comes out of the mouth of Hollowell Canyon with her headlamp blazing and her whistle tied down, and the whole of Hollowell Junction is on the platform in the snow: section hands, the telegraph boy, a Continental agent from Denver in a fur coat, a Denver reporter who rode up on the evening freight, and a brass band from the Junction saloon that knows one tune. The express car doors slide open. Strickland stands in them with the manifest. 'Sixty bars,' he says, in a voice that carries. 'Argent Reduction Works. Eighty-four thousand dollars. Received at Hollowell Junction, from the Argent depot, by rail, at eleven forty-three.' Hester Ruane signs. Winfield Coburn sits down on the platform in the snow and puts his face in his hands, and when he takes them away he is laughing.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "In the headlamp, a mile below the Narrows, a thin black line across the snow from the culvert to a boulder, and the glow of a cigar where a man should not be standing. You shout, and Dempsey throws everything into reverse, and the train stops thirty yards short with sparks pouring off the wheels.",
+              "failure": "You see the fuse spark too late. The charge goes off under the tender."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "(Paddy Rooney needs no roll.) You get down in the snow, follow the fuse to the case under the culvert, and pull the caps with your fingers while Tench's men shoot at you from the rocks and the party shoots back.",
+              "failure": "You cannot get the caps out under fire. Take the fuse instead: cut it with a knife or a bullet (Pepa Archuleta's Trick Shooter)."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Brannock's forts (Hired Gun, six; Railroad Enforcer, twelve; Bandit Sharpshooter, two), only if the Narrows must be fought through",
+        "Virgil Tench and two Dynamiters at the culvert, Tuesday night",
+        "Sheriff Riggs, if still free and still paid, at the Narrows with Brannock; he folds the moment Brannock does"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Aurelius Stannard",
+      "role": "The plotter, cornered",
+      "description": "Charming to the end; truthful about the town and lying about Erasmus. Tries to buy the party, then to flee. Never fights. Cattle Baron stats if it comes to it.",
+      "motivation": "Escape with enough to start again, and not to hang."
+    },
+    {
+      "name": "Rafe Gorham",
+      "role": "The robber who was robbed",
+      "description": "Gang Leader stats. Wants Stannard and his men's lives; will trade the silver and his testimony for them. Keeps his word.",
+      "motivation": "Stannard, publicly; then Mexico."
+    },
+    {
+      "name": "Obed Becket",
+      "role": "Ashworth's killer; Stannard's instrument",
+      "description": "In the calaboose; deals for his life with a confession.",
+      "motivation": "Not to hang; or to hang Stannard beside him."
+    },
+    {
+      "name": "Roy Brannock",
+      "role": "Holding the Narrows",
+      "description": "Range Boss stats. Loses magnificently. Will sell Tench and buy trackage rights.",
+      "motivation": "Lose as little as possible, and never in a court."
+    },
+    {
+      "name": "Hannibal Stokes",
+      "role": "GP&P grading foreman",
+      "description": "The man whose hundred graders decide whether the Narrows is a battle.",
+      "motivation": "No part of murder."
+    },
+    {
+      "name": "Virgil Tench",
+      "role": "Brannock's saboteur, abandoned",
+      "description": "Cardsharp stats, with two Dynamiters. His last charge is under a culvert below the Narrows.",
+      "motivation": "Revenge on everyone, and a way out."
+    },
+    {
+      "name": "Sheriff Burl Riggs",
+      "role": "The county's crooked law",
+      "description": "Crooked Sheriff stats. Wants Gorham dead for Stannard's reward and Brannock's goodwill.",
+      "motivation": "Money, and not to be the last man holding the bag."
+    },
+    {
+      "name": "Hester Ruane",
+      "role": "Vice president of the Mining Association; the employer",
+      "description": "Drills the Lodestar bars and presides if Stannard falls. Rides the last train.",
+      "motivation": "Her sixty bars to the Junction by midnight."
+    },
+    {
+      "name": "Llew Treharne",
+      "role": "Town marshal; companion",
+      "description": "Arrests the man who paid for his star, or cannot.",
+      "motivation": "To be the law in Argent, finally."
+    },
+    {
+      "name": "Ong Pak-wai, Pablo Quintana, Mercy Pengelly",
+      "role": "Companions",
+      "description": "Ong and Pablo know the trails round the Narrows; Mercy stands between the calaboose and the rope.",
+      "motivation": "As on their sheets."
+    },
+    {
+      "name": "Rollin Vosburgh",
+      "role": "The governor's secretary",
+      "description": "A plump, frightened Denver lawyer who discovers on Saturday that he has a spine. His signature on a wire to Topeka is worth a regiment.",
+      "motivation": "To have been on the right side when the newspapers write it up."
+    },
+    {
+      "name": "Sven Ekdahl",
+      "role": "GP&P telegraph operator at Burnt Mule Flats",
+      "description": "Nineteen, Swedish, honest and frightened; keeps every carbon.",
+      "motivation": "Not to be fired, or shot."
+    }
+  ],
+  "rewards": {
+    "xp": 9000,
+    "money": "Hester Ruane's $1,000 delivery bonus, split among the party, if the sixty bars reach the Junction by midnight. Continental Express pays its rewards for Gorham ($1,500) and his men ($250 each) only if they are delivered to a federal commissioner alive or proved dead; and a further $2,000 to the party for saving the company from paying $96,000 on lead. The DA&P gives each party member a lifetime pass. Stannard's $20,000 bribe, if taken, is worth nothing within a month: Lodestar notes and GP&P stock, both soon wallpaper. Lydia Marchmont's one-twentieth of the Lodestar is worth exactly one-twentieth of a hole.",
+    "items": [
+      "Becket's confession, signed (Clue I4), and Stannard's statement if he gave one",
+      "The Burnt Mule telegraph carbons (Clue H6)",
+      "A drilled Lodestar bar, tagged as evidence (Clue H1)",
+      "Isaac Merriweather's federal warrant for Roy Brannock, served or mislaid",
+      "Brannock's trackage-rights agreement, if signed",
+      "The Continental receipt for sixty bars at Hollowell Junction, 11:43 p.m., 30 September 1879",
+      "A photograph of the Junction platform at midnight, with everyone in it"
+    ]
+  },
+  "twists": [
+    "Gorham is the campaign's best witness and its most dangerous ally. A party that bargains with him gets the silver, the truth and a fine showdown; a party that fights him gets the silver, a body, and a weaker case against Stannard. A party that hands Stannard to him gets a dead villain and a camp that knows the party stood aside for a lynching by a gunman, which is still a lynching. Make each road honest.",
+    "If Stannard is not removed from the Association chair before Tuesday, he can rule the shipment 'not whole' (the Lodestar bars missing) and hand the Compact to Brannock, as he sold his vote to do. Hester can fight it, but only if Stannard is in custody or exposed. The case and the race are the same problem.",
+    "Brannock never hangs. He loses a canyon, sells a man, buys trackage rights, and goes home to Kansas to build another railroad. Tench, if taken, goes to trial for the deaths at the Cut. Ong Pak-wai will be at that trial; whether the party is too, and what the verdict is, is a coda the GM can play or narrate.",
+    "Argent is finished, and does not know it yet. Without the Lodestar the basin's output is a fifth of what everyone believed. The railroad will carry Hester's ore and the small mines' for ten years, and the camp will shrink to a town and then a village. The party saved the Compact for a railroad that will lose money on Argent for a decade. Hester knows this, and is glad anyway: a smaller true thing is better than a large false one."
+  ],
+  "dmTips": [
+    "This scenario runs on three tracks at once (the silver and Gorham, Stannard and the camp, Brannock and the Narrows) on a clock that ends at midnight Tuesday. Keep a calendar in front of the table: Saturday afternoon, Saturday night, Sunday, Sunday night, Monday, Monday sundown, Monday night, Tuesday, Tuesday night. Two or three scenes per block. Tell the players what is happening on the tracks they are not on.",
+    "The trestle: if it was blown on Saturday, the crews will rebuild it if the party has their trust (sl-scenario-002): thirty hours, done Monday morning if started Saturday afternoon. If the crews do not trust the party, Coburn cannot do it by Tuesday, and the silver must reach the train beyond the trestle by wagon around the ford and be loaded on the far side, which the Compact (by rail from the Argent depot) arguably forbids. Let Hester and Vosburgh argue it; let the players find a way (a temporary crib of ties, a mule-hauled car over the ford on a spur laid in a night). Do not let the Compact be lost on a technicality nobody at the table enjoys.",
+    "Showdowns: use frontier.json. Give the duel on Front Street room: the long walk, the stare-down, the silence, the town in the doorways. It is the campaign's great duel, and it should be possible to end it without a shot.",
+    "Lynching appears twice in this campaign (the mob at the Cut, the crowd at the calaboose) and both times it is a crime the party can stop. Play the Sunday crowd at the calaboose as smaller, sadder and drunker than Thursday's mob: men who were robbed and want someone to pay. Stopping it should cost the party something (Reputation with the Silver Dollar crowd, a punch, a night's sleep) and be worth it.",
+    "Hannibal Stokes and the GP&P graders laying down their rifles is the best ending for the Narrows, and it is earned in sl-scenario-002 (the evidence, the mob stopped, Stokes met at Burnt Mule). If the party never met Stokes, Bridget Cahill or Ong can go to his camp under a white flag on Monday night and find him; it is never too late to talk to the people on the other side.",
+    "The last run should be fast: a few beats, the trestle, the snow on the summit, the canyon, the lanterns at the Narrows, Tench at the culvert, the Junction clock. Then let the players have the platform at midnight: who they stand next to, what they say to Coburn, Hester, Ong, Bridget, Gorham in handcuffs or not.",
+    "Epilogue suggestions, for a last scene a month later: Stannard's trial in Denver (the Clarion's report); Lodestar Consolidated's collapse before it took the public's money; Leung Ah-sing and Chan Yiu on their way home to Toisan at the DA&P's expense, if the party got it written into the strike settlement; Tobe and Effie Kersey on the stage to Joplin; Pepa Archuleta's land-grant case, paid for; Odell Purdy's twelve horses rounded up, all of them; Paddy Rooney still straight, nearly; Erasmus Ashworth's chess set on Phoebe Lanyon's mantel with the game still set up, white to move."
+  ]
+}

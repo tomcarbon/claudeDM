@@ -1,0 +1,117 @@
+{
+  "id": "2c4d0af8-ce08-477c-bc1b-b1cfab473709",
+  "name": "Nadine Coyle",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Medic",
+  "level": 1,
+  "background": "Medical Professional",
+  "alignment": "Lawful Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 10,
+    "current": 10
+  },
+  "armorClass": 10,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Insight",
+    "Survival",
+    "Persuasion"
+  ],
+  "languages": [
+    "English",
+    "Pennsylvania Dutch"
+  ],
+  "equipment": [
+    "Plain dark dress, apron, black head-covering and a wool shawl",
+    "Midwife's bag (counts as a medkit, 8 uses)",
+    "Hickory walking stick",
+    "Single-shot 20-gauge shotgun 'for snakes', which she has never pointed at a person and will not",
+    "20-gauge shells (5)",
+    "A wagon and two Belgian draft horses, Dot and Duke",
+    "Jars of honey and a sack of dried apples for trading",
+    "Wallet containing $15"
+  ],
+  "weapons": [
+    {
+      "name": "Hickory walking stick",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Human Versatility (Human: +1 to all ability scores)",
+    "Field Medicine (action, with a medkit: heal 1d6 + 4 (WIS + level), or stabilize a creature at 0 HP as a bonus action; 4 uses per long rest)",
+    "Triage (bonus action: Medicine check vs DC 10 reveals the exact hit points and conditions of one creature)",
+    "Proficiencies (Melee, Sidearms; Light armor)",
+    "Plain People (Medical Professional feature: she has delivered half the babies on Prairie Hill and in the river bottoms, and every Plain family in three counties will open its door to her)"
+  ],
+  "traits": [
+    "Field Medicine",
+    "Triage"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am unhurried in a crisis; I have spent my life at bedsides at three in the morning. I pray before I eat and before I work, briefly, and I do not mind if you do not.",
+    "ideals": "Every life is given, and not mine to take. The dead are not alive. I can tell the difference, and I will put them to rest with my own hands.",
+    "bonds": "Prairie Hill, its thirty families, and every child I have brought into it. And my cousin's boy, who was at Dutch Hollow.",
+    "flaws": "On the worst night of my life I went behind the bishop's back and signed a paper I should not have signed. I have told nobody. It is eating me alive."
+  },
+  "appearance": "Thirty-eight, sturdy and freckled, with strong red hands, auburn hair pinned up under a black head-covering, and pale, steady blue eyes. Wears a plain dark dress, a work apron with deep pockets and men's boots. Drives a wagon better than most people drive a truck.",
+  "backstory": "Nadine Coyle was born on Prairie Hill, trained as a lay midwife under her aunt, and later — with the bishop's reluctant blessing — took a certified nursing assistant course in Haskett so that she could deal with the hospital on her community's behalf. She has delivered more than three hundred babies and sat with more than a hundred deathbeds. On the night of Day 4, when a Horde passed within a mile of the meetinghouse and the children were crying in the cellars, a Co-op pickup came by offering 'protection', and Nadine — frightened, alone at the gate, with the bishop at a sickbed on the far side of the Hill — signed their clipboard. She has told no one.",
+  "dmNotes": {
+    "roleplaying": "Nadine is the party's second Medic companion and the voice of Prairie Hill. She arrives at Kettering's in the hook of ob-scenario-003 with a wagon, two horses, coffee and the news of Dutch Hollow. She is calm, kind, practical and immovable on one point: she will not harm the living, and she will not use a gun. She WILL put down the dead — swiftly, with her walking stick or a hay fork, and with a short prayer — because she is certain they are not people any more, and that certainty is a strange comfort to players who are not. She is a superb field medic and better with a frightened patient than anyone in the campaign.",
+    "voice": "Low, measured, with the slight formality and German cadence of a Plain upbringing ('It wonders me', 'Come in once'). Uses people's full names. Says 'Ach' when exasperated. Never hurries a sentence. Sings to patients in Pennsylvania Dutch.",
+    "motivations": "That Prairie Hill survives the winter as itself. That the party, whom she quickly decides are good people, survive too. And above all, to undo the paper she signed — without having to tell the bishop she signed it.",
+    "secrets": "THE CLIPBOARD. On Day 4 Nadine signed a Co-op request for protection on Prairie Hill's behalf, without authority. Colleen Marsh has the signed sheet and holds it as the community's consent to the Assessment; if the bishop refuses the tithe, Colleen will produce it at the worst possible moment (Act 2 of ob-scenario-003, in front of the party) to argue that Prairie Hill broke its word, and it will make the bishop's refusal look like bad faith. Nadine will confess to the party privately if they ask her directly what she is hiding, or if they find the sheet. Her real fear is not the Co-op. It is the bishop's face.",
+    "attitude": "To the party: welcoming, motherly to the younger ones, and quietly assessing whether they are the sort of people her community can trust. To Dr. Brooks and Luis: professional delight; she has not had colleagues in years. To the Co-op: fear, and shame. To Colleen Marsh: she was kind to her once at the Co-op feed counter, and Nadine cannot reconcile that woman with Dutch Hollow. To guns: courteous distaste. To the dead: compassion, and a hay fork."
+  }
+}

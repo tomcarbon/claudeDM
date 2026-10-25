@@ -1,0 +1,128 @@
+{
+  "id": "806199a7-e1ad-4738-a8bc-7f651d1b6bcd",
+  "name": "Walt Kubiak",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Tech",
+  "level": 2,
+  "background": "Blue-Collar Worker",
+  "alignment": "Lawful Neutral",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 14,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 17,
+    "current": 17
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Dexterity"
+  ],
+  "skills": [
+    "Mechanics",
+    "Athletics",
+    "Computers",
+    "Piloting",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Polish (kitchen)"
+  ],
+  "equipment": [
+    "24-inch pipe wrench",
+    "Orange flare pistol from the ferry's emergency locker",
+    "Flare cartridges (3)",
+    "Canvas tool roll: screwdrivers, socket set, feeler gauges, wire, a multimeter and a headlamp",
+    "Ear defenders, the big orange kind, worn round his neck",
+    "Merriwick Harbor Ferries ID and the engine-room keys to the 'Margaret Duane'",
+    "A paper copy of the Pier Point–Calder Point timetable, folded into eighths, coffee-stained",
+    "Thermos, a pack of Pall Malls and a plastic lighter",
+    "Wallet containing $96"
+  ],
+  "weapons": [
+    {
+      "name": "Pipe Wrench",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Flare Pistol",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "None (Carhartt jacket)",
+    "type": "none"
+  },
+  "features": [
+    "Human (+1 to all six ability scores)",
+    "Jury-Rig (10 minutes and a Mechanics check to build, repair or bypass something; DC by complexity)",
+    "Gadgets (2 uses per long rest: Spoof — disable a camera, lock or drone for 1 minute; Overclock — an ally's weapon or device gets +1d4 on its next roll; Patch — restore 1d8+2 to a vehicle or machine)",
+    "Intrusion (Computers checks against a network made with advantage when he has physical access)",
+    "Weapon proficiencies: Melee, Sidearms, Energy Weapons",
+    "Union Card (Blue-Collar Worker feature: harbor, ferry and transit workers will shelter him, help him and tell him what they have seen)"
+  ],
+  "traits": [
+    "Jury-Rig",
+    "Gadgets",
+    "Intrusion",
+    "Union Card"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I fix things and I do not talk about my feelings, and I have been married thirty-one years on the strength of those two qualities. I read the timetable the way other men read scripture.",
+    "ideals": "The boat runs. Fog, ice, a nor'easter, a blackout — the Margaret Duane has run every thirty minutes for forty-four years and she does not stop because something is hard.",
+    "bonds": "The Margaret Duane, which is the ferry I have kept running for twenty-six years. Her crew — Captain Rosalind Akers, mate Danny Ocampo, deckhands Fitz and Little Joe — who are still aboard her, running her, and are not there. My wife Teresa, across the bay in Calder Point, who is waiting for me at the terminal every single time the boat comes in, and the boat never comes in.",
+    "flaws": "I blew the horn. On Day 4, on the 8:15. I am never going to forgive myself for it, and I am going to do something stupid to make it right."
+  },
+  "appearance": "A barrel-shaped Polish-American man of fifty-eight with a white crew cut, a grey moustache stained yellow at the edges, forearms like hams and a Carhartt jacket over a Harbor Ferries polo. Big orange ear defenders round his neck. He moves slowly and exactly, like a man in an engine room, and he looks at machines the way a doctor looks at patients and at people the way he looks at weather.",
+  "backstory": "Walt Kubiak has been an oiler and then the chief engineer aboard the Pier Point–Calder Point ferry Margaret Duane for twenty-six years. At 4:12 on the Thursday the Margaret Duane was in her slip at Pier Point loading for the 4:15, and Walt was below in the engine room with his ear defenders on, which is the only reason he is not Set. When he came up the ladder ten minutes later every person aboard his boat — crew and four hundred passengers — was standing exactly where they had been, doing exactly what they had been doing, and continuing to do it: the captain at the wheel, the mate at the ramp, a woman in the cabin raising a coffee cup to her lips and lowering it and raising it again. He ran. He has been ashamed of running for six days. On Day 2 the Margaret Duane started running her timetable again on her own, with her Set crew aboard, every thirty minutes, as if nothing had happened, and Walt watched from the Pier Point rocks as she went out to the middle of the harbor and came back.",
+  "dmNotes": {
+    "roleplaying": "Walt is the key to the Last Ferry and the party should meet him in lf-scenario-003 at the latest. He knows the Margaret Duane, her timetable, her crew and her engine, and he has spent four days watching her from the rocks working out what she does and does not do. He is a practical man confronting the most impractical thing in history and handling it by making lists. Play him gruff, decent, slow to speak and absolutely reliable — and carrying a guilt so heavy that, if the party gives him the opportunity, he will try to pay it off with his life.",
+    "voice": "Merriwick harbor-blue-collar: flat vowels, short sentences, all the consonants dropped that can be. Calls the ferry 'she' and 'the boat' and never 'it'. Calls everyone 'pal' or 'kid' regardless of age. Swears in Polish when it matters. Reads times out of the timetable with a terrible tenderness: 'Three forty-five. Last boat before the gap. She always ran it light.'",
+    "motivations": "Primary: get people off on the boat, his boat, the right way — the timetable way, which he understands better than anyone alive. Secondary: wake his crew if it can be done, and if it cannot, at least let them make the crossing one more time with living passengers aboard. Tertiary: get home to Teresa, who has met every boat for six days.",
+    "secrets": "THE HORN. On Day 4, at 8:15 in the morning, about three hundred frightened people rushed the Margaret Duane at Pier Point, and the boat went out with them aboard. Walt was on the rocks. As the ferry approached the Hem, he saw the Harbor Lantern begin to turn and, trying to warn them, he fired a flare and blew an air horn — an unscheduled signal. THE GM TRUTH: the panicked crowd aboard was already raising the Attention to 6, and the Lantern would have taken them anyway; his horn changed nothing. But he believes it did, and nobody can convince him otherwise. Out of three hundred, the Lantern took all of them — lifted them off the deck in a long glittering column, Set, back to the Greensward. Their shoes stayed on the deck. They are still there: about three hundred pairs, in rows. In lf-scenario-004 he will try to stay behind to run the boat himself, or to keep the Pier Point slip in pattern, or to do something with the horn at the right moment. Let the players decide whether to let him.",
+    "attitude": "Toward the party: guarded until someone shows him they understand what 'on schedule' means; then he is theirs completely. Toward Lt. Castellane: respectful of the uniform, appalled by her plan. Toward Calla: he figures out she cannot swim within ten minutes and quietly gets her a life jacket from the boat and does not say a word about it. Toward the Set crew of the Margaret Duane: grief. He talks to Captain Akers when he is aboard, every time, as if she can hear. She cannot. Or the GM may decide, once, that something in her face changes."
+  }
+}

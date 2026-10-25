@@ -1,0 +1,426 @@
+{
+  "id": "cw-scenario-001",
+  "title": "Dry Cleaning",
+  "subtitle": "A Chalk Mark, a Graveyard, Twelve Minutes on the Wheel",
+  "levelRange": "3-4",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Vienna, Friday 28 to Monday 31 October 1983",
+    "description": "Four days of autumn rain in the neutral capital. The team works out of the Annex station above Danubia Marine Assurance on the Schwarzenbergplatz, a safe flat on the Gumpendorfer Strasse, and Augustin Moser's stamp shop in the Josefstadt. The KGB residency's officers are reading the same newspapers in the same cafés; Czech StB watcher teams do their legwork on foot and in Skodas. The Austrian State Police know roughly who everyone is and care only that nobody embarrasses the Republic. Everything in this scenario is about getting to a twelve-minute meeting unobserved and getting away from it alive, and about noticing, if the players are sharp, that the Annex's own house has a crack in it.",
+    "atmosphere": "Wet trams, steamed café windows, the smell of roasting chestnuts on the Ring and wet leaves in the Zentralfriedhof. All Saints' Day is coming and the cemetery is full of people buying candles and wreaths, which is useful cover and also means there are a great many eyes. Vienna is courteous, old and watchful. Let the players feel how intimate surveillance is: the same face twice, a newspaper held a little too high, a cough on the tram. No one draws a gun in Act 1 or Act 2 unless the players force it.",
+    "keyLocations": [
+      {
+        "name": "The Zentralfriedhof and the Hofbauer Vault",
+        "description": "Vienna's vast Central Cemetery, two and a half square kilometres of graves and avenues on the Simmeringer Hauptstrasse, reached by tram 71. The DOVECOTE dead drop is inside the iron door of the Hofbauer family vault, a mossy 1880s mausoleum in a quiet group of plots far from the famous composers' graves.",
+        "features": [
+          "The vault door is never locked; a loose stone behind the door's hinge pillar is the drop. The tell is a matchstick wedged in the hinge, broken end outward, on the right side.",
+          "All Saints' week crowds: families, candle sellers, gardeners with barrows; the avenues are long, straight and terrible for losing a tail",
+          "Gate 2 and Gate 3, the tram stop, a flower stall that sells the candles everyone is carrying",
+          "Fog in the mornings, which helps"
+        ],
+        "encounters": [
+          "A Czech StB watcher couple (2 Field Agents) photographing gravestones with a Praktica; they are working an unrelated target, a Czech émigré who visits his mother's grave on Fridays, and will notice the team only if the team is careless",
+          "A gravedigger, Herr Pospischil, who has seen 'the English gentleman' service this vault every three months for four years and will mention it for a cigarette"
+        ],
+        "secrets": [
+          "CLUE M1: the matchstick tell has been replaced on the LEFT side of the hinge. Every Annex officer is taught to set it on the right. Investigation or Perception DC 13 notices. Sofia Varga has already noticed and said nothing.",
+          "Pospischil's 'English gentleman' is Lionel Pryce, who services DOVECOTE on the station's quarterly schedule and was last here on Wednesday, two days before the chalk mark appeared. He describes him as 'the thin one who smokes with his left hand'.",
+          "KESTREL loaded the drop on Thursday night. Pryce had looked inside on Wednesday and found nothing; he came back on Thursday night after seeing the chalk mark on his way home, read her note, photographed it, put it back and reset the tell on the wrong side in the dark."
+        ]
+      },
+      {
+        "name": "Danubia Marine Assurance (the Annex Station)",
+        "description": "The third floor of a Gründerzeit building on the Schwarzenbergplatz, behind the brass plate of a genuine, mildly profitable marine-insurance firm. Front office of real clerks; behind a locked door, the Annex: Martin Vell's office with its decanter, a planning room with a map of Central Europe under perspex, a vault, and Lionel Pryce's telex room with two Siemens T1000 machines, a shredder, and the one-time pad safe.",
+        "features": [
+          "The telex room: everything in and out goes through Pryce, who enciphers and deciphers it by one-time pad",
+          "Outbound telex counter on each machine, and Pryce's handwritten log beside it",
+          "The safe-house list in the vault, which only Vell and Pryce can open",
+          "A window on the Schwarzenbergplatz from which, on a clear day, you can see the Soviet war memorial"
+        ],
+        "encounters": [
+          "Martin Vell's briefing: whisky at eleven in the morning, scepticism, and a long silence when he reads the name of the Budapest agent",
+          "Lionel Pryce: helpful, quick, makes excellent tea, asks what time the team expects to be back"
+        ],
+        "secrets": [
+          "CLUE M3: the outbound counter on machine two reads 211 characters higher than Pryce's log, the length of a short enciphered message, for Thursday night. Mechanics or Investigation DC 15 to notice, and only if someone thinks to compare them; automatic for Dee Coleman if his player asks about the machines.",
+          "Vell's secretary, Frau Lindner, gossips to Hal Brennan of the CIA over lunch on Tuesdays. This is a second, minor leak that will muddy the waters."
+        ]
+      },
+      {
+        "name": "The Riesenrad, the Prater",
+        "description": "The great Ferris wheel of the Prater, built in 1897, sixty-five metres high, with fifteen wooden gondolas like small red railway carriages. One revolution takes about twelve minutes. In late October the amusement park is half-shut and the wheel turns for a handful of tourists and couples. KESTREL chose it because a gondola is a locked room in the sky and every approach to it is visible from the top.",
+        "features": [
+          "Gondolas hold up to a dozen; the attendant will sell a whole gondola to a couple for a large tip",
+          "From the top: the Danube, the city, and every approach path in the Prater, including the ones the watchers are using",
+          "The Hauptallee, a long chestnut avenue, ideal for watchers and terrible for the watched",
+          "The Schweizerhaus beer garden, closed for the season, with a fence that can be climbed"
+        ],
+        "encounters": [
+          "The meet with KESTREL, twelve minutes, one revolution",
+          "KESTREL's own watcher team from the residency (3 Field Agents), who think they are protecting her from the Western services and are in fact being used by her as countersurveillance",
+          "Hal Brennan of the CIA, in a Burberry, who has followed the team here and is about to be very much in the way"
+        ],
+        "secrets": [
+          "KESTREL has arranged for her own residency's watchers to escort her, telling them she is meeting a Western source; this is why she is unafraid. It also means the residency will report the meeting to Karlshorst as a routine source contact, unless the team does something memorable."
+        ]
+      },
+      {
+        "name": "The Gumpendorfer Strasse Safe Flat",
+        "description": "A two-room flat on the fourth floor of a tenement in Mariahilf, above a laundry and two doors from the Café Sperl, rented for six years in the name of a retired Swiss accountant. One way in by the stairs, one way out across a roof and down the fire escape of the building behind. A cot, a hot plate, a radio, a medical kit, and a cupboard of cash and spare clothing.",
+        "features": [
+          "Stairwell with a timed light switch on each landing that clicks off after ninety seconds",
+          "A sash window onto the roof leads, a drop of eight feet to the next building's roof, and a fire escape down to the Esterhazygasse",
+          "The medical kit, restocked last month by Lionel Pryce, two morphine syrettes short",
+          "The Café Sperl downstairs, where a person can watch the street door for hours over one coffee"
+        ],
+        "encounters": [
+          "Two men in Wiener Gaswerke overalls (2 Mercenaries, Rybak's hired East German specialists) inside the flat when the team returns on Sunday night, with suppressed Makarovs, a roll of gaffer tape and a syringe of sodium thiopental: this is a snatch, not a killing",
+          "A third man in a Lada in the street (Field Agent), with a radio"
+        ],
+        "secrets": [
+          "CLUE M2: only Vell, Pryce and the Controller in London had this address. The team telexed London on Friday that it would 'use the Mariahilf property'. The hit comes within 48 hours.",
+          "The men are not from the Vienna residency. They are Rybak's: a clean-up team flown in from Karlshorst. The residency's Line KR officer, Golovkin, does not know they are here, and when he finds out he is furious, because they endanger GARDENER."
+        ]
+      },
+      {
+        "name": "Augustin Moser's Stamp Shop",
+        "description": "A narrow philatelist's shop on the Josefstadter Strasse, with stamp albums in the window and a bell over the door, run by a round little man in tweed. Behind the shop, a kitchen with cake always on the table; below it, through a trapdoor under the rug, a cellar with a darkroom, a letterpress, a microfilm reader, and the finest forgery workshop in Central Europe.",
+        "features": [
+          "A back door to a courtyard and a passage through to the Lange Gasse",
+          "The darkroom, where film is developed in two hours",
+          "A cupboard of blank passports from nine countries",
+          "Sachertorte, Gugelhupf, and very strong coffee"
+        ],
+        "encounters": [
+          "Gus himself, who will develop KESTREL's sample film, forge the team's Berlin papers, and tell Sofia she looks tired"
+        ],
+        "secrets": [
+          "Gus is not on the station's safe-house list; he insisted, years ago, out of an old man's caution. That means Pryce does not know the cellar. It is the one place in Vienna the mole cannot reach, and the party should discover that by the end of the scenario."
+        ]
+      }
+    ]
+  },
+  "synopsis": "A chalk mark on the Linke Wienzeile tells the team that the Annex's oldest dead drop has been loaded, and inside it is a note from a KGB colonel who wants to defect and is offering the RYAN file and the name of a mole in the Annex's own station. Over a long wet weekend the team must authenticate her, signal acceptance, and meet her face to face without the Czech watchers, the KGB, or a meddling CIA officer seeing it: a surveillance-detection run across the city ending in twelve minutes in a Riesenrad gondola. KESTREL tells them she is being recalled to the KGB's Berlin headquarters on Monday and will not come back unless they bring her out from the East; her proof is 'already travelling'. Then the team's safe flat is hit by a snatch squad within two days of the team telling the station it was using it, and the players have their first hard evidence that the Annex is leaking. The scenario ends at Schwechat airport on Monday morning, watching KESTREL board an Interflug flight to East Berlin, with a recognition procedure, a deadline, and a decision about how much to tell their own side.",
+  "hook": "It is raining on the Naschmarkt at seven in the morning when Sofia Varga, on her way to buy paprika for a man who will never know he is cover for her route to work, sees the chalk mark on the third lamppost. DOVECOTE is loaded. DOVECOTE has not been used for four years. By eleven the team is at the Zentralfriedhof among All Saints' crowds with candles in their hands, and by noon they are standing in Martin Vell's office watching him read a one-time-pad sheet with a message on the back in a neat Russian hand. He reads it twice. When he gets to the name at the bottom, the agent who died in Budapest in 1977, he puts the sheet down, pours himself a whisky at noon and does not drink it, and says, 'Well. I suppose we had better find out who she is.'",
+  "cluesAvailable": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "acts": [
+    {
+      "title": "Act 1: DOVECOTE Is Loaded",
+      "description": "Friday 28 October. The signal, the drop, the note, and the station. Establish the Annex, its people and its rhythms, and plant the first two clues. The team must decide how to authenticate KESTREL and how to signal acceptance, and every decision they telex to London is a decision GARDENER reads.",
+      "objectives": [
+        "Service the DOVECOTE drop at the Zentralfriedhof without being seen",
+        "Bring the note to the station and brief Martin Vell",
+        "Authenticate the note (Vera's handwriting, the Soviet pad sheet, the Budapest name)",
+        "Signal acceptance by Monday, by the procedure in the note: a blue thumbtack on the parish noticeboard of the Karlskirche, top left",
+        "Notice (optional) that the drop was opened before them"
+      ],
+      "scenes": [
+        {
+          "name": "Among the Graves",
+          "description": "Tram 71 to the Zentralfriedhof, All Saints' crowds, candles, and a vault door. The first test of the team's street craft, and the first clue.",
+          "readAloud": "The tram is full of old women with wreaths and you get off at the second gate with everyone else, a candle each in a red glass, because that is what people here are carrying this week. The cemetery goes on for ever: avenues of chestnuts, a city of the dead with streets and numbers, and fog sitting between the graves like it has nowhere else to be. The Hofbauer vault is far out in Group 47, a small grey temple gone green, its iron door ajar the way it always is. Somewhere behind you a camera shutter clicks, twice, and a woman's voice says something in Czech and laughs.",
+          "skillChecks": [
+            {
+              "skill": "Streetwise",
+              "dc": 14,
+              "success": "You clock the Czech couple with the Praktica within a minute and realise they are photographing an old man at a grave two rows over, not you. You also have a clear window to the vault.",
+              "failure": "You do not spot the couple until you are already at the vault; one of them has photographed the team in the background of a shot. +1 Heat, and the StB has a picture it will not look at closely until Tuesday."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 13,
+              "success": "The stone comes out, the bread bag comes out, the stone goes back, and anyone watching saw someone lighting a candle.",
+              "failure": "You fumble the stone and it drops with a crack onto the step; heads turn. Nobody comes over, but you have been noticed doing something at a vault. +1 Heat."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "The matchstick tell is there, but on the left of the hinge, not the right where every Annex officer is trained to set it. Someone opened this drop before you and reset it in a hurry, or in the dark. (Clue M1.)",
+              "failure": "The tell is in place. You note it and move on, and only later, if someone asks, does it occur to you to wonder which side it was on."
+            }
+          ]
+        },
+        {
+          "name": "The Note",
+          "description": "Back at the station, in Martin Vell's office. The note, the name, and the first real choice: what to tell London, and how.",
+          "readAloud": "The sheet is from a Soviet one-time pad: five-figure groups printed in blue on cheap paper, columns of them, and on the back, in a precise, upright Russian hand, nine lines. I am a colonel of the First Chief Directorate. I wish to come over. I will bring the RYAN file. I will give you the name of your gardener. Signal acceptance by Monday. Below that, a procedure for the signal, and below that, one more line. A name. Martin Vell reads it, and you watch the colour leave his face, and he says very quietly, 'That's Gabor. That's Gabor's real name. Nobody has that. I burnt that.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Vell is not afraid of the note; he is ashamed. Gabor, codename HEMLOCK, was his agent, and Vell has believed for six years that his own mistake got Gabor shot. That is what you are watching.",
+              "failure": "Vell is hiding something and it shows. He looks like a man with a guilty secret, which he is, just not the one the players will suspect."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The pad sheet is genuine Soviet issue, a residency pad series used in Vienna; the handwriting is educated and Moscow-trained; the paper was folded once and carried in a coat. Gus Moser, if consulted, adds that it smells of Belomorkanal cigarettes.",
+              "failure": "It looks authentic and you cannot say why. Gus can tell you more, for the price of an afternoon in his kitchen."
+            },
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "Lionel Pryce, making tea, asks just one question more than he needs to: whether the note gives a time for the meeting. He asks it lightly. You notice, and file it.",
+              "failure": "Pryce is helpful and quick and makes very good tea."
+            }
+          ]
+        },
+        {
+          "name": "The Thumbtack",
+          "description": "Signal acceptance at the Karlskirche. Simple, unless the team was photographed at the cemetery or leads a tail to the church.",
+          "readAloud": "The Karlskirche sits on its square like a cake someone has dropped a cathedral dome onto, its two great columns spiralling with carved stone. The parish noticeboard is by the side door: a choir rehearsal, a lost cat, a lecture on Baroque organs. Top left is empty. A blue thumbtack weighs nothing in your palm.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "The tack goes in as you read about the lost cat. Done.",
+              "failure": "A sacristan sees you and asks if you are pinning a notice; you need a story (Deception DC 12) or you will be remembered."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Czech StB watcher couple at the cemetery (2 Field Agents), working another target; dangerous only if provoked",
+        "Martin Vell's briefing and the telex question: what to send London, and how much"
+      ]
+    },
+    {
+      "title": "Act 2: The Wheel",
+      "description": "Saturday 29 and Sunday 30 October. KESTREL's reply comes by the procedure: a chalk circle on the same lamppost means the meeting is on, Sunday, three in the afternoon, the Riesenrad. The team must run a surveillance-detection route across Vienna, reach the wheel clean, and use twelve minutes well. This is the scenario's centrepiece. Run it as a long, tense, mostly bloodless sequence.",
+      "objectives": [
+        "Plan and run a surveillance-detection route to the Prater",
+        "Get one or two team members into KESTREL's gondola with nobody else",
+        "In twelve minutes: confirm her identity, hear her terms, and agree an extraction procedure for East Berlin",
+        "Leave the Prater without leading anyone back to the team's base",
+        "Deal with Hal Brennan of the CIA without a scene"
+      ],
+      "scenes": [
+        {
+          "name": "The Route",
+          "description": "A two-hour SDR across the city: tram, U-Bahn, a café with two doors, a department store. The StB has a watcher team on the Annex station's front door because of the cemetery photograph or simply because it is the weekend routine. The team has to find them and lose them.",
+          "readAloud": "You leave by the clerks' door at the back of the building at twenty past twelve and walk, not quickly. Tram D up the Ring. Off at the Opera. The Kärntner Strasse is full of Saturday shoppers and the windows are already full of Christmas. You stop at a bookshop and read the spines and watch the glass. A man in a green loden coat is reading the window of the shop next door. You saw a green loden coat on the tram. Of course, in Vienna, everyone owns a green loden coat.",
+          "skillChecks": [
+            {
+              "skill": "Streetwise",
+              "dc": 14,
+              "success": "Group check. The team identifies the StB team (four on foot, two in a grey Skoda 105 with Vienna plates) and breaks it in a department store on the Kärntner Strasse, using the staff lift and a delivery door onto the Rauhensteingasse. They arrive at the Prater clean.",
+              "failure": "Group check. The team believes it is clean. One watcher, a young woman with a string bag, is still with them at the Prater entrance; the GM decides how close she gets. Failure by 5 or more: the whole StB team is with them and knows the team tried to lose it, +2 Heat."
+            },
+            {
+              "skill": "Perception",
+              "dc": 15,
+              "success": "Tomasz on a rooftop, or anyone running overwatch: you spot a second, unrelated tail, a man in a Burberry with an American haircut who is very bad at this. That is Hal Brennan, CIA. He is following you because Frau Lindner told him something is up.",
+              "failure": "Hal Brennan is not seen until he walks up to the Riesenrad ticket booth behind you."
+            }
+          ]
+        },
+        {
+          "name": "Twelve Minutes",
+          "description": "The meeting in the gondola. KESTREL is waiting at the ticket booth with a paper cone of roasted chestnuts and has already bought the whole gondola. Two of the team may join her. Run the conversation in real time if the table enjoys it: twelve minutes, one revolution.",
+          "readAloud": "The gondola is a little red wooden room with windows on four sides, and it smells of varnish and cold. It lurches, and rises. She is smaller than you expected, silver-haired, in a grey coat too good for a Soviet salary and a fur hat she is plainly suffering, and she offers you a chestnut. 'You are Varga,' she says to Sofia, or to whoever came, in perfect English. 'Andau. November 1956. You were seven. It is in your file, which I have read, which tells you something about your file.' The city falls away beneath the windows. 'We have eleven minutes. I will talk. You will ask questions only when I stop.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "She is telling the truth about wanting out and about the RYAN file. She is holding back something she considers the only card she has: the mole's name. And she is frightened, deeply, of being recalled; she hides it well.",
+              "failure": "She is either the real thing or the best liar you have ever met. Possibly both."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 18,
+              "success": "She gives one thing extra: the mole was recruited 'by an old friend of mine, in a warm country, a long time ago', and the mole 'reads everything you send'. This tells the team to stop using the station telex. Vera never gives the name here, at any DC.",
+              "failure": "She declines to say anything more about the mole: 'Bring me out, and then we will have a long conversation with lawyers present.'"
+            },
+            {
+              "skill": "Deception",
+              "dc": 13,
+              "success": "If Hal Brennan is in the next gondola waving: you persuade the attendant he is a drunk who has been bothering a lady, and he is held at the bottom for ten minutes while you leave.",
+              "failure": "Brennan corners you at the exit, loudly, in American English, and the residency's watchers photograph the whole thing. +1 Heat, and Karlshorst gets a photograph of a CIA officer and an Annex officer arguing near KESTREL."
+            }
+          ]
+        },
+        {
+          "name": "Her Terms",
+          "description": "What KESTREL says, for the GM to deliver across the revolution. The players should leave with all of it, written or memorised.",
+          "readAloud": "'On Monday I fly to Berlin. Karlshorst. They say it is a conference. When a Deputy Resident is invited to a conference in Karlshorst with her own section, it is not a conference. If I go on to Moscow I will not come back. So you will bring me out of Berlin. Wednesday, eleven in the morning, the Pergamon Museum, the Ishtar Gate. I will have a minder. You will look at the lions. I will tell you then how I can come to you. If Wednesday fails, Thursday, seven, the breakfast room of the Hotel Stadt Berlin. If Thursday fails, I am on the Aeroflot flight to Moscow at four and you may forget me.' She looks out at the river. 'The file is already travelling. You will have it when I have America. I do not want your Annex. Your Annex leaks.'"
+        }
+      ],
+      "encounters": [
+        "Czech StB watcher team (4 Field Agents on foot, 2 in a car) on the SDR",
+        "KESTREL's residency escort (3 Field Agents), who must not realise what the meeting is",
+        "Hal Brennan, CIA (use Field Agent), a nuisance who could become a disaster",
+        "No combat is expected in this act. If the players start one at the Prater, the Austrian State Police arrive in three minutes and KESTREL is recalled to Moscow that night."
+      ]
+    },
+    {
+      "title": "Act 3: Gas Board",
+      "description": "Sunday night 30 October and Monday morning 31 October. The team returns to the Gumpendorfer Strasse safe flat and finds Rybak's snatch team inside. Then, on Monday, the team watches KESTREL leave Schwechat for Berlin and must decide how they will get to Berlin and whom they will tell. The scenario's only likely fight, and the first proof of the leak.",
+      "objectives": [
+        "Survive the safe-flat ambush, ideally without firing an unsuppressed shot",
+        "Capture, identify or at least photograph one of the snatch team",
+        "Work out who knew about the flat",
+        "Move the team's base to Gus Moser's cellar",
+        "See KESTREL's departure signal at Schwechat (gloves in her left hand means the plan stands)",
+        "Get papers and flights for West Berlin, and decide what, if anything, to telex London"
+      ],
+      "scenes": [
+        {
+          "name": "The Timed Light",
+          "description": "The stairwell light clicks off every ninety seconds. The flat's door is closed as the team left it, but the hair across the jamb is gone. Inside, two men in gas-board overalls are waiting with suppressed pistols, tape and a syringe; a third is in a Lada in the street with a radio. They want one prisoner, alive, to ask where KESTREL is meeting the Annex.",
+          "readAloud": "The light on the fourth landing goes out with a click and the stairwell is black except for the yellow line under the flat's door, which should not be there, because you left the lamp off. The hair you laid across the jamb at the height of your knee is gone. From inside, very faintly, a radio is playing the Sunday-night concert from the Musikverein. Somebody likes Brahms.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "The missing hair, the light under the door, the Lada with its engine running and a man not reading a newspaper. You know before you touch the handle.",
+              "failure": "You are reaching for the key when the door opens from the inside."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 14,
+              "success": "Two of you go round by the roof of the building behind, down the leads and in through the sash window, and the men in the front room are watching the door. You have surprise.",
+              "failure": "A slate slides off the roof with a crack. The men inside are ready for both entrances now."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 10,
+              "success": "After it is over: the syringe is sodium thiopental, a sedative used for interrogation, not a poison. This was a snatch. Somebody wanted one of you alive and talking.",
+              "failure": "The syringe is labelled in German and you are not sure what it is."
+            }
+          ]
+        },
+        {
+          "name": "Who Knew",
+          "description": "Aftermath and deduction. The team has a prisoner, or a body, or a photograph, or nothing. Either way they now know someone knew the flat. Walk them through who could have.",
+          "readAloud": "There is gaffer tape on the floor and a dent in the plaster where somebody's head hit it, and your hands are shaking in the way they always do afterward. Downstairs the laundry's dog is barking. Somewhere a window has opened and a woman is asking in Viennese dialect whether someone has dropped a wardrobe. In the quiet that follows, someone in the team says what everyone is thinking: who knew we were using this flat?",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "The prisoner (if any), an East German mercenary named Kurt Bastian, talks: he was hired in East Berlin, flown in on Friday, told the address on Saturday morning by a Russian major he calls 'the Fisherman', and told nothing else. ('Rybak' means fisherman in Russian; KESTREL will recognise the name with real fear.)",
+              "failure": "Bastian says nothing useful and asks for a lawyer, in excellent German. If the police take him, +2 Heat and a newspaper story."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "Only three people had this address: Vell, Pryce and the Controller in London. The team telexed on Friday that it would 'use the Mariahilf property'. The hit came less than 48 hours later. (Clue M2.)",
+              "failure": "It could have been anyone. Frau Lindner the secretary, the Austrians, the CIA. The players will argue, which is fine."
+            }
+          ]
+        },
+        {
+          "name": "Schwechat",
+          "description": "Monday morning. The team watches KESTREL check in for the Interflug flight to Berlin-Schonefeld with her minder. If she carries her gloves in her left hand, the plan stands. Then the team must get itself to West Berlin, which means Pan Am through Frankfurt to Tegel, with Gus Moser's fresh papers, and must decide whether to use the station at all.",
+          "readAloud": "Schwechat's departure hall is all brown carpet, orange plastic chairs and the smell of floor polish and cigarette smoke, with a board of white letters that clatter round when a flight is called. INTERFLUG IF 803 BERLIN-SCHONEFELD. She is in the queue with a heavy young man in a bad suit who is carrying both their bags. She does not look your way. She takes off her gloves, one finger at a time, and holds them, for a moment, in her left hand. Then she is through passport control, and gone.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "Through airport security and passport control on the team's own legends without remark. (Each character checks their legend at their own DC; thin legends at disadvantage.)",
+              "failure": "A legend is questioned. On a failure by 5 or more, that legend is blown before the team even leaves Vienna."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Martin Vell, told of the ambush, is genuinely shocked and immediately suspects the Austrians or the Americans. Lionel Pryce is shocked, then very helpful, and offers to book the team's flights to Berlin and telex the Berlin people himself.",
+              "failure": "Both men seem equally shocked."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rybak's snatch team at the safe flat: 2 Mercenaries (suppressed Makarovs, 1d8 piercing, sodium thiopental syringe) and 1 Field Agent in the Lada with a radio. They break contact if the fight goes loud or if one of them goes down.",
+        "Austrian State Police (2 Beat Cops, then a Detective) if anyone fires an unsuppressed weapon: three minutes"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Vera Tarasova (KESTREL), 51",
+      "role": "Defector, KGB colonel, Deputy Resident for Line PR",
+      "description": "Small, silver-haired, beautifully dressed, dry as dust and the most experienced intelligence officer the party will meet. Full sheet in the companion files. In this scenario she appears only on the Riesenrad and at the airport, and she should dominate both scenes.",
+      "motivation": "Get out alive. Get the RYAN warning to someone who will listen. Protect, against all reason, the man she recruited in 1971."
+    },
+    {
+      "name": "Martin Vell, 56",
+      "role": "Annex Vienna station chief; red herring",
+      "description": "Big, rumpled, kind, ruined. A Cambridge man who served in Budapest and has never got over losing an agent there in 1977. Drinks too much, very decently. Has a Hungarian pianist girlfriend, Ilona, and gambling debts at the Casino Baden, either of which a suspicious party will seize on. He is loyal to the bone.",
+      "motivation": "To believe KESTREL is real without having to believe he got Gabor killed. To protect his people, whom he loves and has never said so."
+    },
+    {
+      "name": "Lionel Pryce, 44",
+      "role": "Annex comms officer; secretly GARDENER, the mole",
+      "description": "Thin, pale, quick, kind, left-handed, smokes Silk Cut, makes excellent tea, knows everyone's birthday. Has worked the Vienna telex for four years and is the most helpful man in the building. Play him with complete sympathy. He should be the person the players like best at the station.",
+      "motivation": "Survival, and something like penance. He has been trapped for twelve years and has come to half-believe the war his handlers are afraid of. He reads everything. In this scenario he passes the safe-flat address and the Riesenrad date to Golovkin, and Golovkin's superiors pass it to Rybak."
+    },
+    {
+      "name": "Major Stanislav Rybak, 'the Fisherman'",
+      "role": "KGB clean-up officer, Karlshorst (does not appear in person)",
+      "description": "Unseen in this scenario except as a name. A wet-affairs specialist from Directorate S, sent to retrieve KESTREL alive or silence her. His hired men in Vienna are East German mercenaries.",
+      "motivation": "Retrieve the traitor. Protect GARDENER, whom he does not know by name but has been ordered to keep safe."
+    },
+    {
+      "name": "Yuri Golovkin, 47",
+      "role": "KGB Vienna residency, Line KR (counter-intelligence); GARDENER's handler",
+      "description": "Genial, plump, bald, fond of the opera and the Café Landtmann; a careful professional who has run GARDENER for four years. Seen at the Prater, at a distance, eating a Langos.",
+      "motivation": "Keep GARDENER alive and productive. He is furious about Rybak's clumsy Vienna operation."
+    },
+    {
+      "name": "Hal Brennan, 41",
+      "role": "CIA officer, US embassy Vienna; rival, not traitor",
+      "description": "Tall, crew-cut, Yale, Burberry, overconfident. Wants KESTREL for Langley and thinks the Annex is a club for British amateurs. Bad at surveillance, good at bureaucracy.",
+      "motivation": "Career. He will try to take KESTREL off the Annex in Berlin if he can, and he has a source in the station (Frau Lindner)."
+    },
+    {
+      "name": "Augustin 'Gus' Moser, 62",
+      "role": "Annex forger and microfilm man; companion",
+      "description": "The kindly old forger of the Josefstadt. Full sheet in the companion files.",
+      "motivation": "Paper, cake, and keeping die Kleine, Sofia, alive."
+    },
+    {
+      "name": "Herr Pospischil",
+      "role": "Gravedigger at the Zentralfriedhof",
+      "description": "Seventy, toothless, observant, paid in cigarettes. Has seen 'the thin English one who smokes with his left hand' service the Hofbauer vault every three months for four years.",
+      "motivation": "Cigarettes, and someone to talk to."
+    },
+    {
+      "name": "Kurt Bastian",
+      "role": "East German mercenary in Rybak's snatch team",
+      "description": "Ex-NVA paratrooper, thirty, efficient, unsentimental, speaks good German and bad Russian. A professional who will surrender rather than die for the Fisherman.",
+      "motivation": "Payment in Deutschmarks and a flat in Leipzig. He knows the address came from 'the Fisherman' on Saturday morning."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "money": "$1,200 per agent in hazard pay, paid in schillings by Martin Vell on Monday morning, and a $3,000 operational float for Berlin (carried by Julian Ashcombe; add it to his wallet line). The snatch team carry about $400 in Deutschmarks between them.",
+    "items": [
+      "KESTREL's note on a Soviet one-time pad sheet, with the Berlin recognition procedure",
+      "Two suppressed Makarov pistols (1d8 piercing, 30/90, magazine 8, suppressed, concealable) and 9mm Makarov rounds (24), if the snatch team is beaten",
+      "A syringe of sodium thiopental",
+      "A photograph of Kurt Bastian, and of the Lada's plates, which are East German diplomatic",
+      "Clues M1, M2 and possibly M3",
+      "Gus Moser's Berlin papers for each team member: a West German or Austrian passport in a fresh name (thin legend) and a Pan Am booking via Frankfurt"
+    ]
+  },
+  "twists": [
+    "The drop was read before the team got there. The matchstick tell is on the wrong side, and the gravedigger's 'English gentleman' smokes with his left hand. This is fair and early, and most tables will not put it together until cw-scenario-003. That is fine. Plant it honestly.",
+    "Martin Vell's reaction to the Budapest name looks exactly like guilt. It is shame, for an agent he believes he got killed. A table that decides Vell is the mole should be allowed to believe it for a while; nothing in this scenario confirms or clears him.",
+    "The snatch team is not from the Vienna residency. It is Rybak's, from Karlshorst, and the residency's Line KR officer is furious that it exists. The KGB is not one organism: Rybak wants KESTREL, Golovkin wants GARDENER safe, and the two are getting in each other's way. A clever party will exploit that in cw-scenario-004.",
+    "KESTREL is using her own residency's watchers as her countersurveillance at the Riesenrad, by telling them she is meeting a Western source. It is the boldest piece of tradecraft in the campaign, and she will explain it later with some satisfaction.",
+    "Hal Brennan of the CIA is not a mole, but he does have a source inside the station: Vell's secretary, who gossips at lunch. When the team finds a leak that is not Pryce, it will be her, and it will be a relief and a red herring at once."
+  ],
+  "dmTips": [
+    "This is a tradecraft scenario and it should feel like one. Budget the time: Act 1 is about an hour of play, Act 2 is the main event (one to two hours), Act 3 is a sharp ending. The only expected fight is the safe flat, and it is a snatch, not a massacre.",
+    "Run the SDR as a scene with texture, not a single roll. Describe three or four legs of the route, let the players choose them, and make the group Streetwise check at the end. Reward clever choices (a department store with a staff lift, a café with a back door, a U-Bahn train boarded at the last second) with advantage.",
+    "The Riesenrad meeting is the most important scene in the scenario. Give KESTREL room to talk. She should correct their tradecraft, compliment one thing, and be utterly in control. If the table enjoys it, run the twelve minutes in real time with a kitchen timer.",
+    "Track what GARDENER knows. Whatever the team tells the station or telexes to London reaches the KGB within 6 to 24 hours. The safe-flat hit happens because the team told London it would use the flat. If the team was already suspicious and did not tell the station, move the ambush: Rybak's men try a snatch on the tram or outside Gus's shop instead, using the Riesenrad photograph. Keep it fair: the opposition acts only on what it could know.",
+    "Gunfire at the safe flat is Loud Is Lethal in miniature: +3 Heat for unsuppressed shots, police in three minutes, and the Gumpendorfer Strasse is in Monday's Kronen Zeitung. Two suppressed Makarovs are available to a team that wins without firing its own guns. Reward that.",
+    "Level-up note: the 1800 XP in this file is per character and takes each agent from 3rd to 4th level. Award it when the team boards the plane to Berlin.",
+    "Period texture to drop in: All Saints' candles, Kronen Zeitung headlines about the Pershing deployment, a peace march on the Ring on Saturday, a Walkman playing Falco's 'Der Kommissar', the Sunday-night concert on the radio, schillings and groschen, tram tickets punched in an orange box.",
+    "Do not let the players telephone their way to answers. There are payphones, and every call costs a coin and a minute and can be tapped. Vienna has no answering machines in phone boxes and no one has a pager."
+  ]
+}

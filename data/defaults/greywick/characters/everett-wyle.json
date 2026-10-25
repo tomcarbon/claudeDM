@@ -1,0 +1,119 @@
+{
+  "id": "509a38e1-82d3-489b-8073-2756a6a60aaa",
+  "name": "Dr. Everett Wyle",
+  "status": "alive",
+  "race": "Faithful",
+  "subrace": "",
+  "class": "Physician",
+  "level": 2,
+  "background": "Nurse",
+  "alignment": "Lawful Good",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 14,
+    "current": 14
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Constitution"
+  ],
+  "skills": [
+    "Medicine",
+    "Insight",
+    "Investigation",
+    "Research"
+  ],
+  "languages": [
+    "English",
+    "German (his mother's, and the old doctors' textbooks)"
+  ],
+  "equipment": [
+    "Heavy coat: an old army greatcoat, dyed black thirty years ago and still the warmest thing he owns",
+    "A doctor's bag: stethoscope, thermometer, bandages, lint, carbolic, sutures, splints, a bottle of laudanum and one of chloral (period remedies, and he knows exactly what each does), smelling salts",
+    "Scalpel in a case in the bag",
+    "Pocket revolver (.32), which he has carried on night calls since a farmer's dog took a piece of his leg in 1879",
+    ".32 rounds (10)",
+    "A pocket Testament with his late wife's pressed violets in Ecclesiastes",
+    "A case of cheap cigars and a box of vestas",
+    "His day book for September 1893, with an entry for the 26th: 'Called on J.G. Not admitted. Mrs. G. says resting.'",
+    "Wallet containing $31"
+  ],
+  "weapons": [
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Steady Hands (Physician: as an action with a doctor's bag, a creature you touch spends Hit Dice up to your proficiency bonus as on a short rest and regains extra hit points equal to your WIS modifier once; stabilizes the dying and ends Bleeding; uses equal to WIS modifier + 1 per long rest. Treat Shock: in a short rest, each creature resting with you loses 1 more Dread, even at Dread 4 or more)",
+    "Diagnosis (Physician: as a bonus action, learn a creature's current and maximum hit points, conditions and roughly its Dread; 10 minutes with a body gives the cause and time of death without a check, and whether anything about it is wrong in a way medicine can't account for)",
+    "Clinical Detachment (Physician, 2nd level: advantage on fear checks against wounds, bodies, blood and the ordinary dead; can examine such things for a minute with no fear check at all, in a professional frame of mind)",
+    "Something to Hold On To (Faithful origin: once per long rest, when you would gain Dread, gain 1 fewer; advantage on saves against being charmed or compelled by a creature; no miracle in it)",
+    "On the Ward (Nurse background: hospital staff, country doctors and midwives treat him as one of their own; he can get into a ward, a surgery or a sickroom where a stranger would be turned away and read a chart without a check; people tell nurses things they would not tell a priest)"
+  ],
+  "traits": [
+    "Steady Hands",
+    "Diagnosis",
+    "Clinical Detachment",
+    "On the Ward"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am slow to speak and quick to notice. I make dry jokes at bedsides because laughter is good for the heart. I smoke too much and say so before anyone else can.",
+    "ideals": "First, do no harm; second, tell the truth; and I have been better at the first than the second. A doctor owes the dead an honest certificate.",
+    "bonds": "Haverkill, where I have delivered half the village and buried the other half. Jasper Greywick, my patient for twenty years and my friend for most of them. Honora, whom I brought into the world. My Ruth, nine years gone.",
+    "flaws": "I signed a lie because a grieving widow asked me to, and because I did not want to know. I am a coward about families. I will do almost anything to avoid a scene at a bedside."
+  },
+  "appearance": "A big, stooped, grey man of forty-eight with a beard going white at the chin, heavy eyebrows, kind tired eyes, a slight limp in the left leg, and a black greatcoat that smells of cigars and carbolic. His hands are enormous and very gentle.",
+  "backstory": "Everett Wyle was raised a Quaker in a farm family outside Poughkeepsie and went to the war at seventeen not to fight but to nurse: three years as a hospital steward in the army hospitals at Washington, carrying, washing and sitting with the dying, which taught him more medicine than the college he went to afterwards. He has kept the plain speech for his prayers and lost it everywhere else. He took the Haverkill practice in 1873, married Ruth Haring, the schoolmaster's daughter, buried her in 1884, and has been the Greywicks' doctor for twenty years. He treated Jasper's weak heart, prescribed his chloral drops, and on 26 September called at the house and was turned away at the door by Leonora: Mr. Greywick was resting and would see no one. On 1 October he was called at seven in the morning to the foot of the north wing stair, and found his friend in his nightshirt, thin as a rail, cold and stiff for hours, his fingernails torn to the quick. He wrote apoplexy, because Leonora asked him to spare the family an inquest and because he did not want to think about what else to write. He has not slept properly since. The night before Jasper was found, walking up the hill at midnight because he could not sleep, he saw the lamp in the north window dark for the first time in twenty years. The will leaves him $5,000, 'who will understand'. He does not, yet. (Hooks: CLUE G1 is his own memory; he can examine Jasper in the crypt; Tuttle the undertaker is his friend; he will want to make the certificate honest.)"
+}

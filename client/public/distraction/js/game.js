@@ -1,6 +1,36 @@
 /* ===================================
    DUNGEON DEFENSE - The Game
-   Command the Beholder's Gaze
+   Command the Dungeon's Gaze
+   ===================================
+
+   ART CONSTRAINT — binds any future art, asset or illustration pass on
+   client/public/distraction/. Quoted verbatim from the ruling cited at the foot of this
+   comment (§5), with one clause elided; read that document before adding any image here.
+
+   "The player character of this game must **not** be illustrated, rendered, generated or
+    described as a **floating sphere with eyestalks**, or as any creature with **multiple
+    eyes on stalks firing rays**. That silhouette *is* [the creature this game was renamed
+    away from — its name is elided here, and only here, so that `grep -rni <name> client/`
+    keeps returning zero, which is the check the ruling is audited by; the unelided
+    sentence is in the ruling]; it is Wizards' Product Identity independently of what the
+    game calls it, and renaming the text does not license drawing it. The licensed premise
+    is **the dungeon itself** — a room, a hall, a place — which sees, and whose gaze is a
+    beam from above. A single eye is fine (`👁️` stays). One beam is fine (`drawEyeBeam`
+    stays). A sphere with stalks is not, in any medium, at any fidelity, including a
+    placeholder, an icon, a favicon or a prompt handed to an image provider."
+
+   Why that is a condition of the rename rather than a footnote to it:
+
+   "The text-only fix is sufficient *only because nothing is drawn today*, which is a fact
+    about the build, not a property of the game. The first person to add a sprite, reading a
+    codebase full of eyes and gazes with no monster in it, would reintroduce exactly what
+    this removes — in the medium where the resemblance is strongest, and **where a grep
+    returns zero because a grep cannot find a picture.**"
+
+   Ruling: projects/claudeDM-company/briefs/distraction-renaming.md §5
+   (company repo, the directory above this project). Six text edits made this game's player
+   the dungeon rather than a creature; nothing was drawn then, and that is the whole reason
+   text was enough.
    =================================== */
 
 (function () {
@@ -234,7 +264,7 @@
 
         // Label
         ctx.fillStyle = 'rgba(255, 200, 0, 0.5)';
-        ctx.font = '10px Cinzel, serif';
+        ctx.font = '10px serif';
         ctx.textAlign = 'center';
         ctx.fillText('TREASURE HOARD', targetX, canvas.height - 8);
     }
@@ -281,7 +311,7 @@
 
         // Name tag
         ctx.fillStyle = config.color;
-        ctx.font = '9px Cinzel, serif';
+        ctx.font = '9px serif';
         ctx.globalAlpha = 0.7;
         ctx.fillText(config.name, x, y + size * 0.7 + 10);
         ctx.globalAlpha = 1;
@@ -302,13 +332,27 @@
         floatingTexts.forEach(ft => {
             ctx.globalAlpha = ft.alpha;
             ctx.fillStyle = ft.color;
-            ctx.font = `bold ${ft.fontSize}px Cinzel, serif`;
+            ctx.font = `bold ${ft.fontSize}px serif`;
             ctx.textAlign = 'center';
             ctx.fillText(ft.text, ft.x, ft.y);
         });
         ctx.globalAlpha = 1;
     }
 
+    // ART CONSTRAINT — see the block comment at the top of this file, and read the ruling it
+    // cites before adding any image to this game. This is the only drawing code that renders
+    // the player, and it draws no player: a gradient line from the top edge of the canvas to
+    // the cursor. The gaze belongs to the room. That is what made a text-only rename
+    // sufficient, and it is a fact about this build rather than a property of the game:
+    //
+    //   "The first person to add a sprite, reading a codebase full of eyes and gazes with no
+    //    monster in it, would reintroduce exactly what this removes — in the medium where the
+    //    resemblance is strongest, and **where a grep returns zero because a grep cannot find
+    //    a picture.**"
+    //
+    // Concretely: nothing that gives the player a body or a silhouette — not as a sprite, a
+    // texture, an icon, a favicon or a placeholder. One eye and one beam are fine. The exact
+    // shape that is forbidden, and why, is spelled out at the top of this file.
     function drawEyeBeam(x, y) {
         // Draw a brief beam from top center to the click point
         const grad = ctx.createLinearGradient(canvas.width / 2, 0, x, y);
@@ -411,7 +455,7 @@
         removePausedOverlay();
         pauseBtn.disabled = false;
         pauseIcon.textContent = '❚❚';
-        logMessage('The Beholder opens its eye. The dungeon is watching.');
+        logMessage('The dungeon opens its eye. Nothing enters unseen.');
 
         spawnIntruder();
         startWaveTimer();
@@ -641,7 +685,7 @@
             clearTimeout(waveTimer);
             cancelAnimationFrame(animationId);
             pauseIcon.textContent = '▶';
-            logMessage('The Beholder rests... Game paused.');
+            logMessage('The dungeon closes its eye... Game paused.');
 
             // Show paused overlay on canvas
             const arena = document.getElementById('game-arena');
@@ -655,7 +699,7 @@
             gamePaused = false;
             pauseIcon.textContent = '❚❚';
             removePausedOverlay();
-            logMessage('The Beholder reopens its eye. Resume the hunt!');
+            logMessage('The dungeon opens its eye again. Resume the hunt!');
 
             // Restart timers & loop
             lastTime = performance.now();

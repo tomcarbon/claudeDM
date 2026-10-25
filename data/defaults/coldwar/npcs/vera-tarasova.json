@@ -1,0 +1,124 @@
+{
+  "id": "5acb23e3-a878-4743-bb26-27293ab1edc2",
+  "name": "Vera Tarasova",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Face",
+  "level": 5,
+  "background": "Intelligence Agent",
+  "alignment": "Lawful Neutral",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 33,
+    "current": 33
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Charisma",
+    "Wisdom"
+  ],
+  "skills": [
+    "Deception",
+    "Insight",
+    "Persuasion",
+    "Investigation",
+    "Intimidation"
+  ],
+  "languages": [
+    "Russian",
+    "German",
+    "English",
+    "French",
+    "Czech"
+  ],
+  "equipment": [
+    "A good grey wool overcoat from GUM and a fur hat she hates",
+    "9mm pistol (Makarov PM), 8 rounds loaded, issued, which she has fired only on a range",
+    "9mm rounds (8)",
+    "Soviet diplomatic passport in her own name (Counsellor, Permanent Mission of the USSR to the International Organisations in Vienna)",
+    "A second passport, Finnish, in the name of Liisa Toivonen, which the KGB did not issue and does not know about",
+    "A one-time pad, Soviet issue, with the residency's emergency call signs, inside a hollowed Pushkin",
+    "Her late daughter's wristwatch, a Poljot, stopped at 4:10",
+    "Belomorkanal cigarettes (two packets) and matches from the Hotel Imperial",
+    "A small notebook in a private shorthand nobody else can read, recording 1971: Nicosia, the name and the first payment",
+    "Wallet containing $90"
+  ],
+  "weapons": [
+    {
+      "name": "9mm pistol (Makarov PM)",
+      "attackBonus": 4,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Wool overcoat (no armor)",
+    "type": "none"
+  },
+  "features": [
+    "Versatility (Human origin: +1 to all ability scores)",
+    "Silver Tongue (expertise, double proficiency bonus, on Deception and Insight checks)",
+    "Rally (bonus action: an ally who can hear her gains 1d6+2 temporary hit points and may end being frightened; 2 uses per long rest)",
+    "Read the Room (after 1 minute of conversation, learn one goal, fear or lie of the person she is talking to: her Insight vs their Deception)",
+    "Line PR (Intelligence Agent background: she knows the structure, call signs, safe flats and habits of the KGB's Vienna residency and much of the Karlshorst apparatus, and can predict what a Soviet officer will do next with uncomfortable accuracy)"
+  ],
+  "traits": [
+    "Silver Tongue: Deception, Insight",
+    "Rally",
+    "Read the Room"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am courteous, dry and tired, and I speak to people as if we are both too intelligent for the conversation we are having. I smoke when I am thinking and I am always thinking.",
+    "ideals": "I served the State honestly for twenty-nine years. The State has stopped being honest with itself. Somebody has to say so to someone who will listen.",
+    "bonds": "My daughter Natasha died in a military hospital in 1979 of something that a Viennese clinic would have cured in a week, because the right form had not been signed. I have been leaving ever since.",
+    "flaws": "I have never in my life given anything away for free, and I will hold back the one thing that would save us all time, the name, because it is the only card I have left."
+  },
+  "appearance": "A small, upright, silver-haired woman of fifty-one with a severe bob, a beautifully cut grey suit and an expression of polite, terminal patience. She has a smoker's voice and an academic's way of pausing before the important word. Her hands are steady. Her eyes are the most tired thing in any room she enters.",
+  "backstory": "Vera Ilyinichna Tarasova joined the First Chief Directorate from the Institute of International Relations in 1954, served in Prague, Paris, Nicosia and Bonn, and since 1980 has been Deputy Resident for Line PR in Vienna under diplomatic cover at the Soviet mission to the international organisations. For two years she has been writing, and editing, the residency's reports for Operation RYAN, the Centre's standing order to find the signs of a coming Western nuclear first strike. She knows better than anyone that most of those reports are invented, inflated, or made of blood-donor statistics and lit windows at night, because officers who report nothing are recalled. She also knows Moscow believes them. In late October she was told she was being recalled to Karlshorst for a 'coordination conference', and she understood what that meant. She put a note in a dead drop she was not supposed to know existed, because in 1971 in Nicosia she recruited the young British signals clerk who would one day service it.",
+  "dmNotes": {
+    "roleplaying": "KESTREL is the campaign's centre of gravity and must never be a damsel. She is the most experienced intelligence officer in any room the party enters and she knows it: she corrects their tradecraft, predicts the opposition, and is right more often than is comfortable. Run her as a negotiator to the last breath. Everything she gives, she trades for something, and she lets the party see the bargaining because she respects them enough not to pretend. She is a companion from cw-scenario-002 onward. In a fight she is useless and knows it; she will get behind the engine block and stay there, and she will tell the party exactly which of the men shooting at them is the one in charge. She is not cold. Let her soften twice in the campaign, once about her daughter and once, unexpectedly, about Lionel Pryce.",
+    "voice": "Precise, formal English with a Moscow-educated accent and almost no contractions. She calls everyone by their full surname until they have done something to earn better, and then by their first name once, and it lands. Dry, exact humour: 'You have a very charming way of being followed, Mr Ashcombe.' She pauses before the important word. She never raises her voice. When frightened she becomes more polite.",
+    "motivations": "Primary: get out alive and be resettled in America or Canada under an identity nobody in the Annex controls, because she knows the Annex leaks. Secondary: make someone in the West understand, before the November exercise, that Moscow genuinely believes a first strike may be coming, and that the RYAN machine is feeding on itself. Tertiary and secret: she wants Lionel Pryce to survive. She made him. She thinks of him, against all her training, as a lost and frightened young man she ruined.",
+    "secrets": "THE NAME AND THE SHAME. She recruited the mole, codename GARDENER, in Nicosia in 1971 under her own name: Lionel Pryce, then a 32-year-old signals clerk with gambling debts and a dying mother. She has not seen him since 1974 but knows he is the Annex's Vienna comms officer, because she read his product for three years. She will not give the name until she is on Western soil with a guarantee (a written undertaking from someone above the Vienna station), and even then she will ask, as her one unreasonable request, that he be allowed to defect east rather than be shot. Second secret: she has a Finnish passport the KGB does not know about; she was always going to run, with or without the party. Third: she wrote at least a third of the RYAN indicator reports in her own file, and some of the alarm in Moscow is her work. She carries that guilt and will admit it only to the Medic or the Face, only once, late at night.",
+    "attitude": "Toward the party: courteous, superior, and steadily warming to whichever of them is the best at their job. She respects Sofia Varga immediately and specifically ('You crossed at Andau. In '56. Yes. It is in your file.'), is amused by Julian, trusts Callum's judgement completely by the second firefight, and is wary of Tomasz, who frightens her a little, correctly. Toward Martin Vell: pity. Toward Major Rybak: real fear; she knows his record. Toward the West in general: no illusions at all. She is not defecting to anything. She is defecting from it."
+  }
+}

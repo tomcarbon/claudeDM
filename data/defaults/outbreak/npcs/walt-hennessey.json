@@ -1,0 +1,119 @@
+{
+  "id": "a9d0f5cc-bc0c-4f95-a5dd-4271ec604261",
+  "name": "Walt Hennessey",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Scientist",
+  "level": 2,
+  "background": "Medical Professional",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 12,
+    "current": 12
+  },
+  "armorClass": 10,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Insight",
+    "Science",
+    "Investigation",
+    "Mechanics"
+  ],
+  "languages": [
+    "English"
+  ],
+  "equipment": [
+    "Barn coat, coveralls and rubber boots",
+    "Captive-bolt livestock stunner (quiet; melee; needs cartridges)",
+    "Captive-bolt cartridges (20)",
+    "Veterinary bag (counts as a medkit, 6 uses)",
+    "A notebook of observations of the dead, in very small handwriting",
+    "Keys to a Dodge Ram with a vet box on the back",
+    "Reading glasses, held together with electrical tape",
+    "Wallet containing $55"
+  ],
+  "weapons": [
+    {
+      "name": "Captive-bolt stunner (melee, silent)",
+      "attackBonus": 2,
+      "damage": "1d8",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Human Versatility (Human: +1 to all ability scores)",
+    "Analyze (bonus action: study a creature, device or situation; the next attack roll or check an ally makes against it before his next turn has advantage; 3 uses per short rest)",
+    "Polymath (proficiency in Science, Investigation and Mechanics; adds half proficiency (+1) to any Intelligence check he is not proficient in)",
+    "Eureka (once per long rest, after failing an Intelligence check, reroll it with a +5 bonus)",
+    "Proficiencies (Melee, Sidearms; Light armor)",
+    "Country Vet (Medical Professional feature: every farm family in the county has had him in their barn at three in the morning, and will let him in again)"
+  ],
+  "traits": [
+    "Analyze",
+    "Polymath",
+    "Eureka"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I take notes on everything, including things that are trying to eat me. I talk to people in the same low, steady voice I use on frightened cattle. I am very hard to surprise.",
+    "ideals": "You cannot fight what you do not understand. Observation first, then a hypothesis, then a plan.",
+    "bonds": "Ellen. Forty-one years.",
+    "flaws": "I have stopped being able to tell the difference between studying something and refusing to let it go."
+  },
+  "appearance": "Sixty-four, tall and bony, with a weathered, long-jawed face, white stubble and kind, tired grey eyes behind taped reading glasses. Wears a canvas barn coat over coveralls, rubber boots and a stethoscope he uses on people now. Smells faintly of iodine and hay.",
+  "backstory": "Dr. Walter Hennessey has been the large-animal vet for Haskett and two neighbouring counties for thirty-eight years: calving at midnight, colic in the rain, the long drives between farms with the radio on. His wife Ellen, a retired schoolteacher, had a stroke at the Ferry Days pie table on Saturday afternoon, before anyone knew anything was wrong, and died at St. Agnes that night. Walt was holding her hand. An hour later she sat up. Walt got her into the back of his truck, somehow, and drove her home. Then he came back to St. Agnes, because he needed to understand what had happened to her, and he has been going down to the morgue twice a day ever since to watch, and write, and think.",
+  "dmNotes": {
+    "roleplaying": "Walt is the campaign's Scientist and its explainer: he is how the GM delivers the rules of the dead as in-world knowledge rather than a lecture. Use him to confirm what the players have worked out, never to tell them first. He is gentle, methodical and brave in a quiet, unshowy way: he will walk calmly up to a zombie strapped to a gurney to look at its eyes. Introduce him in ob-scenario-002 on the fourth floor of St. Agnes. He is excellent with the captive-bolt stunner, which is silent, and should be the party's first real lesson that the quietest weapon is often the best one.",
+    "voice": "Slow, low Missouri drawl, long pauses, very precise vocabulary that sits oddly with it. Calls everyone 'friend'. Thinks aloud in observations: 'Notice she isn't blinking. Notice the pupils. Notice she's following the sound, not the light.' Never swears. Hums hymns when he is working.",
+    "motivations": "To understand. If he can understand what happened to Ellen he believes — without saying so — that he might find a way back for her. Secondarily, to be useful: he has been useful to this county his whole life and does not know how to be anything else.",
+    "secrets": "ELLEN IS IN HIS BARN. Walt's wife died of a stroke on Day 1, rose, and is chained in a horse stall in his barn on Old Mill Road, three miles from Prairie Hill. He goes there every few days with a lantern and talks to her. He has told no one, and he has a page in his notebook of 'responses' that are not responses. This is not a plot to cure her; there is no cure and the campaign never offers one. It is grief that has become a research programme. If the party finds out (ob-scenario-003 passes near the farm), Walt will not fight them, but he will ask them, very politely, to let him be the one. Whether he can is a scene the player characters should be present for.",
+    "attitude": "To the party: warm, grateful, and quietly impressed by any player who notices something before he does. To Dr. Brooks: deep professional respect; they argue about methodology like old friends. To the dead: a disconcerting, unafraid curiosity. To the Co-op: wary — he saw them take the surgeons on Day 3 and leave the patients. To Colleen Marsh: he sold her father's herd its vaccines for twenty years and thinks she is the cleverest person in the county, which frightens him."
+  }
+}

@@ -1,0 +1,484 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Combat rules for the Horror category: the shared d20 chassis (initiative, actions, conditions, cover, death saves, resting) restated in plain language for the 1890s, 1920s and 1970s, plus gunplay, brawling, darkness and light, fighting the supernatural, fire, fleeing and vehicles. There are no automatic weapons, no burst or full-auto fire, no fanning and no mounted combat; the double-barrel shotgun can fire both barrels (fire_modes.both_barrels). A fight in a horror story is short, desperate and often the wrong choice: fleeing works, and running away is frequently the right call. Fear checks and Dread are in dread.json. 'spec_rule_index' maps the WO-0045 combat requirements to the sections that implement them. The death_saving_throws and healing.long_rest wording deliberately matches the Fantasy, Sci-Fi, Noir and Western combat.json numbers (DC 10, three successes, three failures, natural 1 = two failures, natural 20 = regain 1 hit point, damage at 0 HP = one failure, critical = two failures, half your total hit dice on a long rest) because the server reads them from the prose."
+  },
+  "spec_rule_index": {
+    "1_ranged_attack": "attack_rolls.ranged, damage.ability_modifier_on_damage",
+    "2_range_and_point_blank": "gunplay.range, gunplay.point_blank",
+    "3_ammunition_and_reloading": "ammunition (reload by weapon)",
+    "4_fire_modes": "fire_modes (single and both barrels; no burst, auto or fanning)",
+    "5_aim_and_called_shots": "gunplay.aim, gunplay.called_shots, actions_in_combat.aim",
+    "6_cover": "cover (furniture, doors, gravestones, cars, corn)",
+    "7_critical_hits_and_misfires": "attack_rolls.critical_hit, gunplay.misfires",
+    "8_explosives": "explosives (dynamite)",
+    "9_noise": "noise",
+    "10_nonlethal": "nonlethal",
+    "11_brawling_and_the_desperate_struggle": "brawling",
+    "12_conditions": "conditions (Bleeding and Burning added to the standard list; Dread is in dread.json, not a condition)",
+    "13_healing_without_magic": "healing",
+    "14_darkness_and_light": "darkness_and_light (fighting blind, a dropped lantern, muzzle flash; dread.json light_and_dark)",
+    "15_fighting_the_supernatural": "fighting_the_supernatural (resistance to ordinary weapons; silver, iron, fire, salt; shooting the dead)",
+    "16_fire": "fire (spreading, smoke, a burning house)",
+    "17_fleeing": "fleeing (running away works), chases",
+    "18_vehicles": "vehicles (wagon and buggy, 1920s car, 1970s car or truck; the car that won't start)"
+  },
+  "initiative": {
+    "description": "When a fight starts, every participant rolls a Dexterity check. The GM rolls once for each group of identical adversaries. Turns go from highest to lowest and the order repeats each round (a round is about 6 seconds: long enough to fire a revolver twice, or to get halfway down a hallway).",
+    "formula": "d20 + Dexterity modifier",
+    "tie_breaking": "The GM decides the order among tied participants; a player character wins ties against adversaries with the same modifier. A Survivor (Been Here Before) has advantage on the roll.",
+    "surprise": "A side that didn't see it coming is surprised: surprised creatures can't move, act or take reactions on their first turn. Things in the dark usually surprise their first victims; that is how they work. A character on watch, with a light, expecting the thing, is not surprised by what they were watching for.",
+    "fear_first": "When a fight begins with a horror revealed, the fear check (dread.json fear_checks) comes before initiative. A character who reaches Dread 5 on that check and fails acts out their panic on their first turn."
+  },
+  "turn_structure": {
+    "movement": "Move up to your speed, splitting it before and after your action as you like. Climbing, crawling, swimming and difficult terrain (deep snow, mud, a cluttered attic, standing corn, a rotten floor, rubble, waist-deep water) cost 2 feet per foot.",
+    "action": "One action per turn: Attack, Reload, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object, or something improvised (holding a door, lighting a lamp, performing a rushed rite; dread.json rites_and_wards).",
+    "bonus_action": "One bonus action per turn, only when a feature, weapon or item says something takes a bonus action (Aim, reloading the crossbow or swapping a .45 magazine, lighting a fuse or a kerosene bottle, a Physician's Diagnosis).",
+    "reaction": "One reaction per round, regaining it at the start of your turn. Opportunity attacks, readied actions and features like the Chaplain's Hold On to Me use reactions.",
+    "free_interaction": "One simple object interaction per turn for free: draw or holster a weapon, open a door, drop prone, unshutter a lantern, hand over a flashlight, shout a warning, slam a door behind you (locking it takes an action)."
+  },
+  "actions_in_combat": {
+    "attack": "Make one weapon attack (two with Extra Attack). With a firearm, each attack spends one round (ammunition).",
+    "aim": "As a bonus action, aim a firearm or bow at a creature you can see within normal range; your next attack against it this turn has advantage. You can't move after aiming this turn. At Dread 3 (Rattled) an aimed shot has disadvantage (dread.json dread), which cancels the advantage from aiming: you roll normally.",
+    "reload": "Put rounds into a weapon from your spare ammunition (ammunition.reload).",
+    "dash": "Gain extra movement equal to your speed this turn. The action of a person running for the door (fleeing).",
+    "disengage": "Your movement doesn't provoke opportunity attacks this turn. The first thing to do when something has you cornered.",
+    "dodge": "Until your next turn, attacks against you have disadvantage if you can see the attacker, and you have advantage on DEX saves.",
+    "help": "Give an ally advantage on its next check or attack against a creature within 5 ft of you. Holding the lantern steady so a friend can see to shoot is Help.",
+    "hide": "Make a DEX (Stealth) check to hide, if you are out of sight: behind a door, in a wardrobe, in the corn, under the porch. Some things hunt by smell, sound or warmth (adversaries.json senses).",
+    "ready": "Prepare an action to take as a reaction when a trigger you name happens before your next turn (\"When it comes through the door, I fire\").",
+    "search": "Make a Perception or Investigation check to find something.",
+    "use_an_object": "Use an object that takes an action: light a lantern, pour a salt line across a doorway (dread.json rites_and_wards), throw a kerosene bottle, crank a car, bar a door.",
+    "improvise": "Anything else: pull a bookcase across a door, kick over a stove, shout the thing's name. The GM sets an ability check and a DC."
+  },
+  "attack_rolls": {
+    "melee": "d20 + STR modifier + proficiency bonus (everyone is proficient with Melee).",
+    "ranged": "d20 + DEX modifier + proficiency bonus if proficient with the weapon's group (equipment.json weapon_groups). A thrown hatchet uses STR.",
+    "finesse_weapons": "Finesse weapons (kitchen knife, scalpel, silver knife) use the better of STR and DEX for both attack and damage.",
+    "unarmed": "Unarmed strike: d20 + STR + proficiency; 1d4 + STR bludgeoning (brawling).",
+    "critical_hit": "A natural 20 always hits: roll all the attack's damage dice twice and add the modifier once.",
+    "critical_miss": "A natural 1 always misses. With a firearm, it may also misfire (gunplay.misfires).",
+    "advantage": "Roll two d20s and use the higher: from aiming, from hiding, from an ally's Help, against a prone target within 5 ft, against a creature that can't see you.",
+    "disadvantage": "Roll two d20s and use the lower: firing at long range, at a target you can't see, while prone at a distance, firing a two-handed gun one-handed, an aimed shot at Dread 3 (dread.json dread).",
+    "versus_ac": "The attack hits if the total equals or beats the target's Armor Class.",
+    "on_the_sheet": "A character sheet's attackBonus is ability modifier + proficiency bonus; its damage is the weapon's dice plus the same modifier, e.g. \"1d8+2\". Situational bonuses (the shotgun's scatter +2, the crowbar's two-handed 1d8, a Hunter's Know Your Quarry die, silver or iron against a creature vulnerable to it) are applied at the table, not written on the sheet."
+  },
+  "damage": {
+    "formula": "Roll the weapon's damage dice and add the ability modifier used for the attack.",
+    "ability_modifier_on_damage": {
+      "melee": "STR modifier (or the better of STR and DEX for finesse weapons).",
+      "unarmed": "STR modifier.",
+      "single_shot": "DEX modifier.",
+      "thrown_hatchet": "STR modifier.",
+      "both_barrels": "No modifier: 3d8, both shells spent (fire_modes.both_barrels).",
+      "improvised_throwables": "Kerosene bottles and dynamite: no modifier; it is a DEX save, not an attack."
+    },
+    "damage_types": [
+      "piercing",
+      "slashing",
+      "bludgeoning",
+      "fire",
+      "cold",
+      "poison"
+    ],
+    "horror_mapping": {
+      "piercing": "bullets, buckshot, arrows, bolts, knives that stab, teeth",
+      "slashing": "axes, machetes, scalpels, claws, broken glass",
+      "bludgeoning": "fists, fire irons, crowbars, falls, a slammed door, a thrown chair, a car, a blast",
+      "fire": "torches, kerosene, flares, a burning house, a lantern dropped in the hay",
+      "cold": "a spirit's touch, a drowned grip, a night outdoors in January, black water",
+      "poison": "bad water, smoke, a bite that festers, too much laudanum"
+    },
+    "resistance": "A creature with resistance to a damage type takes half damage from it (round down). Spirits typically resist bludgeoning, piercing and slashing from ordinary weapons (fighting_the_supernatural).",
+    "vulnerability": "A creature vulnerable to something (adversaries.json vulnerable_to: silver, iron, fire, salt, daylight, running water, its true name) takes double damage from it, or loses its resistance to it, as its stat block says (fighting_the_supernatural).",
+    "immunity": "A creature immune to a damage type takes none. Many dead things are immune to poison and cold; some spirits are immune to everything except what their rules name."
+  },
+  "gunplay": {
+    "overview": "Guns are loud, slow to reload and often useless against the thing that matters. They are excellent against people, dogs and the merely living. Every shot spends a counted round and tells everything in the dark where you are.",
+    "range": "Every firearm lists normal/long range in feet (e.g. 30/90). Within normal range, no penalty; out to long range, disadvantage; beyond, no shot.",
+    "point_blank": "Making a ranged attack with a Longarm or a bow while a hostile creature that can see you is within 5 ft has disadvantage (the Veteran's Close Quarters drill removes this for Sidearms and shotguns). Sidearms are exempt.",
+    "aim": "Aim is a bonus action (actions_in_combat.aim): advantage on your next attack this turn, no movement after.",
+    "called_shots": {
+      "rule": "Declare a called shot before rolling: -5 to the attack (a Hunter's Marksman takes -2). On a hit, normal damage plus the effect below.",
+      "the_hand": "The target drops what it is holding.",
+      "the_legs": "The target's speed is halved until it is treated (living creatures only; the dead don't care).",
+      "the_light": "Shoot out a lamp, a lantern or a bulb: the area goes dark (darkness_and_light). AC 12 for a lantern, 15 for a bulb.",
+      "the_head": "Against a living person, a called shot to the head that hits is a critical hit. Against a dead thing, see fighting_the_supernatural.shooting_the_dead."
+    },
+    "misfires": "On a natural 1 with a firearm, roll a d6: on a 1-2 the gun misfires and can't fire until cleared (an action and a DC 10 Mechanics check, or an action and no check for a revolver: just pull again). Old ammunition, wet cartridges and a gun left forty years in a closet misfire on 1-4.",
+    "untrained_use": "Firing a weapon from a group you are not proficient with: no proficiency bonus, and a natural 1-3 counts as a natural 1.",
+    "two_weapons": "With a light melee weapon or a Sidearm in each hand, you can make one attack with the off-hand weapon as a bonus action after attacking with the first; no ability modifier to its damage. Holding a light in one hand rules this out.",
+    "shooting_into_melee": "Firing at a creature in melee with your ally: disadvantage, and on a miss by 5 or more, roll another attack against the ally.",
+    "shooting_through_doors": "Firing blind through a door or a wall at a sound: the GM picks the square; disadvantage, and the door gives cover (cover.material)."
+  },
+  "fire_modes": {
+    "single": {
+      "rounds": 1,
+      "rule": "One attack roll, one round spent. Every firearm in the Horror ruleset fires single shots only."
+    },
+    "both_barrels": {
+      "rounds": 2,
+      "rule": "Double-barrel shotgun only: fire both barrels at once as one attack (an action): one attack roll, 3d8 damage on a hit, no ability modifier, both shells spent. The recoil knocks a STR 9 or lower shooter prone."
+    },
+    "mode_availability": "No firearm in the Horror ruleset fires burst or automatic, and none can be fanned. The .45 automatic fires one shot per attack; its advantage is the bonus-action magazine change."
+  },
+  "ammunition": {
+    "spending": "Every attack spends rounds: a single shot 1, both barrels 2, a bow or crossbow shot 1 arrow or bolt. Kerosene bottles and dynamite spend themselves.",
+    "magazine": "A weapon holds at most its 'magazine' value. When it is empty, it can't fire until reloaded. Rounds in the weapon count toward the counted total on the sheet.",
+    "reload": {
+      "rule": "Reloading puts rounds into the weapon from your spare ammunition. A loaded weapon can be topped up the same way.",
+      "revolvers": "Pocket revolver and Service revolver: an action reloads the whole cylinder (you shake out the empties and thumb in fresh rounds).",
+      "automatic": ".45 automatic: a bonus action swaps in a loaded spare magazine (gear.json). Without one, an action loads the empty magazine by hand.",
+      "shotguns": "Double-barrel shotgun: an action loads both barrels. Pump shotgun: an action loads two shells into the tube.",
+      "rifles": "Lever-action rifle: an action pushes four rounds through the loading gate. Hunting rifle: an action loads all five.",
+      "bows": "Crossbow: a bonus action draws and loads a bolt. Hunting bow: nocking is part of the attack.",
+      "flare_pistol": "Flare pistol: an action breaks it and loads one flare."
+    },
+    "tracking_on_the_sheet": "Spare ammunition is a counted equipment item on the character sheet, named by the weapon's ammo_name in equipment.json with the count in parentheses, for example \".38 rounds (18)\", \".32 rounds (15)\", \".45 rounds (21)\", \".30 cartridges (30)\", \"Rifle cartridges (15)\", \"Shotgun shells (10)\", \"Flares (3)\", \"Crossbow bolts (12)\" or \"Arrows (20)\". Silver rounds are recorded separately with the calibre named, e.g. \"Silver .38 rounds (6)\".",
+    "gm_procedure": "The GM deducts rounds with TrackResources \"use\" as they are fired, once per exchange of fire, never in bulk after the fight. Announce what remains when a gun runs low. A revolver that has fired six shots is empty.",
+    "out_of_ammo": "Out of ammo means out. There is no free reload. Characters can take rounds from the fallen if their guns are compatible, buy them at a hardware store, a general store or a sporting goods counter, or use the empty gun as a club (1d4 bludgeoning, improvised).",
+    "compatibility": "Ammunition must match the weapon's ammo_name: .32 rounds (Pocket revolver), .38 rounds (Service revolver), .45 rounds (.45 automatic), Flares (Flare pistol), .30 cartridges (Lever-action rifle), Rifle cartridges (Hunting rifle), Shotgun shells (both shotguns), Crossbow bolts (Crossbow), Arrows (Hunting bow). Only the two shotguns share ammunition."
+  },
+  "cover": {
+    "half_cover": "+2 to AC and DEX saves: a low wall, a table on its side, a gravestone, a car door, another person, the corn (soft cover only against people who don't know where you are).",
+    "three_quarters_cover": "+5 to AC and DEX saves: a doorframe you are firing round, a stone wall with a gap, the bulk of an overturned car, a crypt doorway.",
+    "total_cover": "Can't be targeted directly: behind a solid wall, inside a vault, under the water.",
+    "material": {
+      "rule": "What cover is made of matters against guns.",
+      "soft_cover": "Interior walls, wooden doors, furniture, hedges, corn and car doors: cover against fists, claws and thrown things, but bullets and shot go through them at half damage (rifles at full damage).",
+      "hard_cover": "Brick, stone, a gravestone, an engine block, a cast-iron stove: full cover value against everything.",
+      "doors": "A wooden house door has AC 15 and 20 HP; a barred or oak door 30 HP; a crypt or cellar door of iron 50 HP and resistance to everything but explosives. Holding a door shut against something is a STR contest each round.",
+      "cars": "A car body is soft cover; the engine block is hard cover.",
+      "glass": "Windows are no cover against bullets and give a creature behind them half cover from sight only."
+    },
+    "destroying_cover": "Furniture and doors can be broken: a door by an axe in three turns, by a crowbar in five, by a determined creature in one or two. Every blow is loud (noise).",
+    "supernatural": "Cover works against creatures that have bodies. A spirit that can move through walls (adversaries.json) ignores cover when it moves, but most still can't attack through total cover."
+  },
+  "explosives": {
+    "general": "Dynamite is available in every era: quarries, farms clearing stumps, road crews and railroads use it. It is the only explosive in the Horror ruleset.",
+    "throwing": "Lighting a fuse is a bonus action; throwing is an action, at a point within 20/60 ft. It goes off at the start of your next turn: 10-ft radius, each creature makes a DEX save (DC 12, or 8 + proficiency + DEX for a Veteran Sapper), taking 3d6 bludgeoning on a failure or half on a success.",
+    "cover_adds_to_save": "Half and three-quarters cover add to the save.",
+    "setting_charges": "Setting a charge to bring down a doorway, a ceiling, a crypt mouth or a bridge takes 1 minute and a DC 12 Mechanics check (no check for a Sapper). A failed check means it doesn't go off, or goes off early (GM's choice, revealed only when it matters).",
+    "structures": "Two sticks bring down a door, a wall of a house or a crypt entrance; four bring down a cellar or a mine adit. A house hit by dynamite is likely on fire (fire).",
+    "against_the_supernatural": "Dynamite does bludgeoning damage, and spirits resist it. It is good for burying something, closing a way in or out, or making a great deal of noise.",
+    "aftermath": "Everyone for a mile hears it. In a town, the sheriff comes."
+  },
+  "noise": {
+    "rule": "A gunshot is heard all through a house, across a farm and half a mile over water at night. A shotgun inside a house deafens everyone in the room for 1 minute (combat.json conditions Deafened, on a failed DC 10 CON save).",
+    "consequences": "Noise brings things. In a horror scenario, gunfire tells everything in the dark where you are: the GM can bring the next encounter sooner, or let something that hunts by sound find you.",
+    "quiet_weapons": "Melee weapons, bows and crossbows are quiet: heard only within 30 ft, and not through a closed door.",
+    "stealth": "Creatures that hunt by sound (adversaries.json) have advantage on checks to find someone who has made a loud noise in the last minute."
+  },
+  "nonlethal": {
+    "rule": "When a creature reduces a living creature to 0 hit points with a melee attack, it can knock it out instead of killing it: the target is unconscious and stable.",
+    "waking": "A knocked-out creature wakes after 1d4 hours, or when shaken awake with an action and smelling salts or a DC 10 Medicine check.",
+    "firearms": "Firearms can't knock out. A person shot to 0 is dying.",
+    "the_possessed": "A person who is possessed or compelled (adversaries.json Possessed Neighbor) is a victim. Knock them out if you can; whatever is inside them usually leaves at 0 hit points, and the person wakes as themselves."
+  },
+  "opportunity_attacks": {
+    "description": "You can make an opportunity attack when a hostile creature that you can see moves out of your reach. You use your reaction to make one melee attack against the provoking creature, interrupting its movement.",
+    "exceptions": "You don't provoke an opportunity attack when you take the Disengage action, or when something moves you without your using your own movement. A creature that moves through walls (adversaries.json) provokes only if it leaves your reach through open space.",
+    "fleeing_creatures": "Fleeing from a creature that is already in reach provokes; that is why the Disengage action exists (fleeing)."
+  },
+  "grappling": {
+    "initiate": "Use an attack to grapple a creature no more than one size larger than you: a STR (Athletics) check contested by its STR (Athletics) or DEX (Acrobatics).",
+    "escape": "An action: STR (Athletics) or DEX (Acrobatics) contested by the grappler's STR (Athletics). Many creatures in adversaries.json give a fixed escape DC.",
+    "effect": "A grappled creature's speed is 0. Dragging it moves you at half speed.",
+    "pulled_under": "A creature grappled in water can be pulled under (adversaries.json Drowned One): it holds its breath (1 + CON modifier minutes, but only 1 round if it was surprised or is at Dread 5) and then begins to drown (conditions Exhaustion; healing)."
+  },
+  "shoving": {
+    "description": "Use an attack to shove a creature no more than one size larger than you: a STR (Athletics) check contested by its STR (Athletics) or DEX (Acrobatics).",
+    "effects": "On a win, knock it prone or push it 5 ft away: through a doorway you then slam, down the cellar stairs, out of the circle."
+  },
+  "brawling": {
+    "overview": "In horror the fight is rarely a duel. It is a desperate struggle: rolling on the floor of a dark kitchen with a man who isn't himself, wrestling a dead hand off your ankle, holding a door shut with your back. A brawl is fought with the ordinary rules (initiative, the Attack action, grappling, shoving) plus these.",
+    "unarmed_strike": "A punch, kick, elbow or head-butt is a melee attack: d20 + STR modifier + proficiency bonus (everyone is proficient). On a hit it deals 1d4 + STR modifier bludgeoning damage.",
+    "knocking_out": "A creature reduced to 0 hit points by a melee attack can be knocked out instead of dying, at the attacker's choice (nonlethal).",
+    "knockout_blow": "When you hit a living person who is surprised or can't see you with a walking stick, a fire iron or a crowbar, you can make it a knockout blow: in addition to the damage, the target makes a CON save (DC 8 + your proficiency bonus + your STR modifier) or falls unconscious for 1d4 x 10 minutes. A creature with more than 30 hit points remaining has advantage. Once per creature per scene. The dead and the spirit-ridden are not knocked out this way.",
+    "improvised_weapons": "Chairs, candlesticks, bottles, a shovel, a lamp, a frying pan: 1d4 bludgeoning (a broken bottle 1d4 slashing), using STR, with proficiency. A lamp that breaks spills burning oil (fire).",
+    "the_desperate_struggle": "When something has hold of you (grappled), you can use an action to fight dirty to break free: a STR (Athletics) or DEX (Acrobatics) check against its escape DC with advantage if you hurt it this turn, or if an ally is helping pull you away. Losing a struggle with a thing in the dark is a fear check (DC 15) the first time.",
+    "holding_the_door": "Holding a door shut against a creature is a STR contest each round; up to two people can add their STR checks (take the higher, and the second gives advantage). Losing by 5 or more means the door bursts open and everyone behind it is knocked prone.",
+    "taking_a_beating": "Living people who are only fighting to drive you off usually knock you out rather than kill you, unless the GM has established that they mean murder. The things in the dark have no such restraint."
+  },
+  "death_saving_throws": {
+    "zero_hp": "When a creature drops to 0 hit points it falls unconscious and is dying (unless the damage kills it outright, or the attacker knocked it out instead; see nonlethal). Adversaries the GM doesn't care about simply die or are out of the fight at 0 HP.",
+    "trigger": "When you start your turn with 0 hit points, you must make a death saving throw: roll a d20 with no modifiers.",
+    "success": "10 or higher is a success. Three successes: you become stable (unconscious, but no longer rolling).",
+    "failure": "9 or lower. Three failures: you die.",
+    "natural_1": "A natural 1 counts as two failures.",
+    "natural_20": "A natural 20 means you regain 1 hit point and wake up.",
+    "damage_at_0hp": "Taking any damage while at 0 HP causes one death save failure. A critical hit causes two failures. A melee hit from within 5 ft on an unconscious creature is a critical hit.",
+    "instant_death": "If damage reduces you to 0 HP and the damage left over equals or exceeds your hit point maximum, you die instantly. A shotgun at close range, a fall from a lighthouse gallery or a burning floor collapsing does this to ordinary people.",
+    "resetting": "Successes and failures reset when you regain any hit points or become stable.",
+    "no_resurrection": "Death is permanent. The characters have no magic and no medicine in the 1890s, 1920s or 1970s that brings someone back once they are dead. Whatever comes back is not them."
+  },
+  "conditions": [
+    {
+      "name": "Blinded",
+      "effects": [
+        "Can't see; automatically fails any check that requires sight",
+        "Attack rolls against the creature have advantage",
+        "The creature's attack rolls have disadvantage",
+        "In Horror: total darkness, smoke, a flare in the eyes, a hand over your face (darkness_and_light)"
+      ]
+    },
+    {
+      "name": "Charmed",
+      "effects": [
+        "Can't attack or target the charmer with harmful effects",
+        "The charmer has advantage on social checks against the creature",
+        "In Horror: caused only by a creature's compulsion named in its stat block (a call, a voice, a song), or by drink and trust; never by a character"
+      ]
+    },
+    {
+      "name": "Deafened",
+      "effects": [
+        "Can't hear; automatically fails any check that requires hearing",
+        "In Horror: a shotgun fired indoors (noise), a bell too close"
+      ]
+    },
+    {
+      "name": "Frightened",
+      "effects": [
+        "Disadvantage on ability checks and attack rolls while the source of fear is in line of sight",
+        "Can't willingly move closer to the source",
+        "In Horror: a short combat effect from a creature's ability; it is separate from Dread (dread.json dread.frightened_condition)"
+      ]
+    },
+    {
+      "name": "Grappled",
+      "effects": [
+        "Speed becomes 0",
+        "Ends if the grappler is incapacitated or the creature is moved out of reach"
+      ]
+    },
+    {
+      "name": "Incapacitated",
+      "effects": [
+        "Can't take actions or reactions",
+        "In Horror: also a Panicked character who chooses to freeze (dread.json dread)"
+      ]
+    },
+    {
+      "name": "Invisible",
+      "effects": [
+        "Can't be seen without special means; heavily obscured for hiding",
+        "Attack rolls against it have disadvantage; its attack rolls have advantage",
+        "In Horror: spirits that have not shown themselves; flour on the floor, breath in the cold or a photograph may reveal them"
+      ]
+    },
+    {
+      "name": "Paralyzed",
+      "effects": [
+        "Incapacitated; can't move or speak",
+        "Automatically fails STR and DEX saves",
+        "Attacks against it have advantage; any hit from within 5 ft is a critical hit"
+      ]
+    },
+    {
+      "name": "Poisoned",
+      "effects": [
+        "Disadvantage on attack rolls and ability checks",
+        "In Horror: smoke, bad water, laudanum, drink"
+      ]
+    },
+    {
+      "name": "Prone",
+      "effects": [
+        "Can only crawl unless it stands up (half its movement)",
+        "Disadvantage on attack rolls",
+        "Attacks within 5 ft have advantage against it; ranged attacks from farther away have disadvantage"
+      ]
+    },
+    {
+      "name": "Restrained",
+      "effects": [
+        "Speed becomes 0",
+        "Attacks against it have advantage; its attacks have disadvantage",
+        "Disadvantage on DEX saves",
+        "In Horror: tangled in a net or roots, pinned by a fallen beam, held by many dead hands"
+      ]
+    },
+    {
+      "name": "Stunned",
+      "effects": [
+        "Incapacitated; can't move; can speak only falteringly",
+        "Automatically fails STR and DEX saves",
+        "Attacks against it have advantage"
+      ]
+    },
+    {
+      "name": "Unconscious",
+      "effects": [
+        "Incapacitated; can't move or speak; unaware of surroundings",
+        "Drops what it is holding and falls prone",
+        "Automatically fails STR and DEX saves",
+        "Attacks against it have advantage; any hit from within 5 ft is a critical hit"
+      ]
+    },
+    {
+      "name": "Bleeding",
+      "effects": [
+        "Loses 1d4 hit points at the start of each of its turns",
+        "Ends with a bandage, first aid (DC 10 Medicine), a Physician's Steady Hands, or on its own after 1 minute on a DC 10 CON save at the end of a turn",
+        "In Horror: from claws, scalpels, broken glass and teeth when a stat block says so"
+      ]
+    },
+    {
+      "name": "Burning",
+      "effects": [
+        "Takes 1d6 fire damage at the start of each of its turns",
+        "Ends when the creature or an ally uses an action to put it out (rolling on the ground, a blanket, water)",
+        "A creature vulnerable to fire takes double (fire)"
+      ]
+    },
+    {
+      "name": "Exhaustion",
+      "effects": [
+        "Six levels, cumulative: 1 disadvantage on ability checks; 2 speed halved; 3 disadvantage on attacks and saves; 4 hit point maximum halved; 5 speed 0; 6 death",
+        "One level removed by a long rest with food and water",
+        "In Horror: cold, sleeplessness, near drowning, a night of running. Dread is not exhaustion"
+      ]
+    }
+  ],
+  "healing": {
+    "principle": "There is no magic healing. Hit points come back through first aid, a doctor, a bed and rest. Nobody comes back from death.",
+    "first_aid": "As an action, make a WIS (Medicine) check (DC 10) to stabilize a creature at 0 HP. A doctor's bag or first-aid kit gives advantage. A stable creature stops making death saves, stays unconscious and regains 1 HP after 1d4 hours. First aid also ends Bleeding.",
+    "stabilizing": "You can use an action to administer first aid (DC 10 Wisdom (Medicine) check) to stabilize a creature at 0 HP. A stable creature doesn't make death saving throws but remains unconscious.",
+    "doctor_features": "A Physician's Steady Hands, with a doctor's bag, gives a creature a short rest's worth of healing in one action (it spends up to the Physician's proficiency bonus in Hit Dice, plus the Physician's INT or WIS modifier), a number of times per long rest equal to that modifier + 1 (minimum 2), and its Treat Shock lowers Dread during a short rest. The Chaplain's Steady Now lowers Dread; it heals nothing.",
+    "drugs": "Laudanum (1890s): 1d6 + 2 temporary hit points for 1 hour, poisoned for that hour. Whiskey: no hit points, but a fitting comfort (dread.json recovery). Smelling salts wake the fainted. See gear.json medical.",
+    "hit_dice": "During a short rest, you can spend Hit Dice to recover HP. Roll each Hit Die and add your Constitution modifier. Your Hit Dice total equals your level.",
+    "short_rest": "At least 1 hour of downtime: a meal, a bandage, a cup of coffee by the stove, reloading, talking it over. Spend Hit Dice to heal. Features that recharge on a short rest come back. A short rest somewhere lit and safe with company lowers Dread by 1 (dread.json recovery).",
+    "long_rest": "At least 8 hours, mostly sleep, in a reasonably safe place. Regain all lost HP and up to half your total Hit Dice (minimum 1). Remove one level of exhaustion if you have food and water. Lower Dread by 2 (dread.json recovery). Can't benefit from more than one long rest in 24 hours, and a long rest interrupted by an hour or more of fighting gives no benefit.",
+    "hospital": "A week in a hospital or under a doctor's care heals all hit points and lingering injuries. A town doctor charges $1 a visit in the 1890s, $3 in the 1920s, $15 in the 1970s. Doctors report gunshot wounds to the sheriff.",
+    "death_is_final": "Nobody comes back from death. A character who dies is gone; the player creates a new one."
+  },
+  "darkness_and_light": {
+    "overview": "Most horror fights happen in the dark, or with one light between several people. Who holds the light matters as much as who holds the gun. Light sources and durations are in dread.json light_and_dark.",
+    "fighting_blind": "In darkness you are effectively blinded (conditions Blinded) for anything that needs sight: attacks against a creature you can't see have disadvantage, and you must guess its square (the GM tells you if you guessed wrong). Creatures that can see you in the dark have advantage against you. In dim light, Perception by sight has disadvantage but attacks are normal.",
+    "holding_the_light": "A lantern, torch or flashlight takes a hand. A two-handed weapon can't be fired normally while holding a light (equipment.json two-handed): one-handed use at disadvantage. A light can be handed to an ally as a free interaction, set down (it lights where it lies), or tied to a gun barrel with a minute's work in the 1970s (a flashlight only).",
+    "a_lantern_dropped": "A lantern dropped, knocked from a hand (a successful attack with no damage) or shot (AC 12) breaks on a d6 roll of 1-4: the light goes out, and the spilled oil burns in a 5-ft square for 1 minute (fire). A dropped flashlight rolls and points somewhere unhelpful (GM's choice) but keeps shining on 1-15 on a d20. A dropped candle goes out.",
+    "the_target_with_the_light": "Something in the dark always knows who is holding the light. Creatures that hunt by sight may attack the light-bearer first; the GM may decide they do.",
+    "muzzle_flash": "Firing a gun in darkness lights the shooter for an instant: every creature watching knows exactly where they are, and the shooter has disadvantage on sight-based Perception checks until the end of their next turn. A flare pistol lights the whole area for a minute (equipment.json).",
+    "shooting_out_the_light": "A called shot (gunplay.called_shots.the_light) or a thrown object can put out a light. So can a creature.",
+    "the_light_goes_out": "Once per scenario, the light goes out at the worst moment (dread.json light_and_dark). In combat, this happens at the start of a round of the GM's choosing.",
+    "fear_in_the_dark": "Fear check DCs are 2 higher in darkness (dread.json fear_checks)."
+  },
+  "fighting_the_supernatural": {
+    "overview": "Ordinary weapons still hurt most things. But the things that matter in a horror story are rarely put down by a gun: they are hurt by what their rules name, and ended by what lays them to rest (dread.json the_unknown).",
+    "resistance_to_ordinary_weapons": "Spirits typically resist bludgeoning, piercing and slashing from ordinary weapons (half damage), and some dead things and monstrosities do too, as their stat blocks say in 'resistances'. \"Ordinary\" means not made of, or carrying, the material the creature is vulnerable to.",
+    "silver": "A silver knife, silver-tipped arrows and bolts, silver rounds and a silver coin pressed to the skin (gear.json) count as silver. Against a creature vulnerable to silver they deal double damage; against a creature that merely resists ordinary weapons they deal full damage unless its resistance says otherwise.",
+    "iron": "Cold iron: the fire iron, the crowbar, iron nails (gear.json). A hatchet, an axe or a knife is steel, not iron, and does not count. Against a creature vulnerable to iron, double damage; and iron is often what bars or binds a thing (dread.json rites_and_wards).",
+    "fire": "Torches, kerosene bottles, flares and burning buildings deal fire damage (fire). Many dead things are vulnerable to it, and a body burned to ash rarely rises again. Fire also burns down houses with people in them.",
+    "salt": "Salt is not a weapon you swing. A handful thrown at a creature vulnerable to salt is an improvised ranged attack (20 ft) dealing 1d6 damage to it; a salt line bars it if its rules say so (dread.json rites_and_wards).",
+    "daylight": "Daylight harms or banishes some creatures (their stat blocks say how). Opening the curtains is an action; the dawn is a deadline.",
+    "running_water": "Some creatures can't cross running water, and some take damage in it. A stream, a river, a tide race or a kitchen tap left running in a doorway may count; the creature's rules say which.",
+    "its_true_name": "Some creatures are vulnerable to their own true name, the name they had in life or the name they were bound with. Spoken by someone who knows it, the name may harm, bar or lay them to rest, as their stat block and rules say. Finding it is usually a Research or Occult problem (dread.json investigation).",
+    "shooting_the_dead": "A gun does very little to a thing that is already dead: there is no blood to lose, no heart to stop. Undead creatures ignore the extra effects of called shots to the legs and the head, can't be knocked out, and some (as their stat blocks say) get back up unless they are burned or their rules are met. Shooting the dead is for slowing them down long enough to run.",
+    "what_ends_it": "Reducing a supernatural creature to 0 hit points drives it off, disperses it or puts it down for now. Unless its stat block says otherwise, it returns (the next night, the next tide, the next time it is called) until it is laid to rest by its rules. Laying it to rest drops every character present to Dread 0 (dread.json recovery)."
+  },
+  "fire": {
+    "overview": "Fire is the oldest weapon against the dark, and the most dangerous to the people holding it. A lantern in a hayloft, a stove kicked over, a kerosene bottle against a wooden wall: houses burn quickly.",
+    "catching_fire": "A creature hit by a torch on a natural 20, by a flare, by a kerosene bottle on a failed save, or that moves into burning oil, catches fire (conditions Burning: 1d6 fire at the start of each turn until put out with an action).",
+    "spreading": "Fire in a room spreads to one adjacent 5-ft square of anything flammable (curtains, hay, dry wood, paper) at the end of each round. After 1 minute a room is fully alight; after 10 minutes a wooden house is. Putting out a small fire (one or two squares) takes an action with a blanket, a bucket or a coat; a fully burning room can't be put out by the people in it.",
+    "burning_area": "A creature that starts its turn in a burning square, or enters one, takes 1d10 fire damage (2d10 in a fully burning room) and catches fire on a failed DC 12 DEX save.",
+    "smoke": "Smoke fills a burning room in 2 rounds and the floor above in 1 minute. In smoke, the area is heavily obscured (as darkness), and each creature that breathes it makes a DC 12 CON save at the end of each of its turns or takes 1d6 poison damage. Crawling (prone) under the smoke gives advantage on the save. A wet cloth over the mouth gives advantage too.",
+    "a_burning_house": "A burning house is a hazard with a clock: each round, the GM can have something happen. A stair collapses (DC 13 DEX save or fall 10 ft, 1d6 bludgeoning, into the floor below), a beam falls (DC 13 DEX save or 2d6 bludgeoning and restrained), a window bursts, the way you came in is gone. Every exit the players know about is described; one of them closes each minute.",
+    "fire_and_the_supernatural": "Things vulnerable to fire take double from all of the above. Some spirits are not hurt by fire at all, and some are freed by it (a bound spirit whose house burns may go free, or may follow you). Burning a creature's house is a choice with consequences: check its rules.",
+    "lighting_a_fire": "A torch or a lantern can set a flammable thing alight as an action. Kerosene poured on the floor (a pint covers two squares) and lit burns for 1 minute."
+  },
+  "fleeing": {
+    "principle": "Running away works, and running away is often the right call. The rules for it are here so that a party that runs can get away, and the players know it.",
+    "breaking_off": "To leave a fight, take the Disengage action (no opportunity attacks this turn) and move, or Dash and accept the opportunity attacks. Once you are out of a creature's reach and out of its sight, the fight is over unless it pursues.",
+    "does_it_follow": "Many creatures can't follow far: a spirit bound to a house, a drowned thing tied to its water, a hound that walks only one lane (adversaries.json rules). A creature that can't follow doesn't. The GM should tell the players, when it is true, that the thing has stopped at the threshold.",
+    "getting_away": "When a creature does pursue, use chases. A party that reaches a place the creature's rules bar it from (behind a salt line, over running water, into daylight, out of the house) is safe from it, for now.",
+    "the_long_run": "Running for more than a minute: each creature makes a DC 10 CON check at the end of each further minute or gains a level of exhaustion; the DC rises by 2 each minute. A Survivor or a Farm-Raised character can say where they are going.",
+    "leaving_someone": "Leaving a fallen friend is a choice the players make, never one the GM makes for them. Carrying an unconscious adult halves your speed (a Roughneck carries at full speed). Coming back for them later is a scene.",
+    "leaving_the_scenario": "Fleeing the place altogether (taking the last boat, driving out of town) is always allowed. The GM tells the players honestly what it will cost: the inheritance, the missing person, the truth, the people who stay. A party that leaves drops to Dread 0 within a day (dread.json recovery).",
+    "panic": "A character who flees because they are Panicked (dread.json dread) moves by the fastest route away and may not choose where; the GM says where it takes them."
+  },
+  "chases": {
+    "structure": "A chase is a series of rounds in which the pursued try to get away and the pursuer tries to catch them. Each round, each side makes a check: DEX (Acrobatics) or STR (Athletics) on foot, DEX (Driving) in a vehicle. The pursued win the round on a higher total.",
+    "winning": "The pursued escape when they win three rounds before the pursuer wins three, or when they reach a place the pursuer can't follow (fleeing.does_it_follow). The pursuer catches them when it wins three rounds; catching someone starts a fight or a grapple.",
+    "complications": "Each round the GM can add a complication for the leader or the follower: a locked gate, a fence, a ditch in the dark, a field of corn that turns you around (DC 12 Survival or lose the round), a fallen tree across the road, a deer in the headlights, fog, the car stalling (vehicles.the_car_that_wont_start).",
+    "actions_during_a_chase": "Instead of its chase check, a creature can take one action: fire a shot (disadvantage while moving), throw a kerosene bottle, drop a salt line behind them (it holds only if the creature's rules say so), slam and bar a door (the pursuer loses the round).",
+    "breaking_line_of_sight": "A pursued creature that wins a round by 5 or more breaks line of sight and can try to hide (Stealth against the pursuer's passive Perception, or against its stated sense).",
+    "on_foot": "Things that walk slowly in stories walk slowly in the rules: a creature with a speed lower than the pursued rolls its chase checks at disadvantage. Things that are fast are fast.",
+    "in_vehicles": "A car outruns anything on foot on a road (the pursued win the chase automatically unless something happens to the car). Off-road, in fog, at night with no lights, or with something holding on, it is a Driving chase."
+  },
+  "vehicles": {
+    "statistics": "Vehicles have AC and HP. At 0 HP a vehicle stops: a wheel, an axle or the engine goes, and it crashes if it was moving fast (crashing). A buggy or a wagon needs its horse; a car needs fuel, a battery and an engine that will turn over.",
+    "examples": [
+      {
+        "name": "Buggy",
+        "era": "1890s",
+        "ac": 11,
+        "hp": 25,
+        "speed_mph": 10,
+        "notes": "A light one-horse carriage with a folding hood: two seats and a little luggage. The horse is AC 10, 15 HP, and will bolt from fire, gunshots and the things in the dark (DC 12 Driving to hold it, each time)."
+      },
+      {
+        "name": "Farm wagon",
+        "era": "1890s",
+        "ac": 10,
+        "hp": 40,
+        "speed_mph": 4,
+        "notes": "A two-horse box wagon for hay, produce and people. The bed is soft cover. Slow on any road, impossible in deep mud."
+      },
+      {
+        "name": "1920s touring car",
+        "era": "1920s",
+        "ac": 12,
+        "hp": 50,
+        "speed_mph": 40,
+        "notes": "An open or soft-topped car for five: hand-cranked or with an electric starter, dim headlights, gravel roads. Body is soft cover, engine hard cover. A flat tire is a 15-minute job with the spare; a second flat is a walk."
+      },
+      {
+        "name": "1920s truck",
+        "era": "1920s",
+        "ac": 12,
+        "hp": 60,
+        "speed_mph": 30,
+        "notes": "A light delivery or farm truck with a stake bed. Carries a ton, or eight people in the back."
+      },
+      {
+        "name": "1970s car",
+        "era": "1970s",
+        "ac": 13,
+        "hp": 60,
+        "speed_mph": 70,
+        "notes": "A sedan or station wagon with bench seats, good headlights, an AM radio and a full-size spare. Locks, roll-up windows. The doors are soft cover; the engine is hard cover."
+      },
+      {
+        "name": "1970s pickup truck",
+        "era": "1970s",
+        "ac": 13,
+        "hp": 70,
+        "speed_mph": 65,
+        "notes": "A farm pickup: high clearance, a gun rack in the back window, often a CB. Advantage on Driving checks off-road and in mud."
+      },
+      {
+        "name": "Motorboat",
+        "era": "1920s, 1970s",
+        "ac": 11,
+        "hp": 35,
+        "speed_mph": 15,
+        "notes": "An outboard or inboard launch for six. In fog, at night or in a swell, every hour is a DC 12 Driving check (Nature for the tide) to keep the course."
+      },
+      {
+        "name": "Rowboat",
+        "era": "1890s, 1920s, 1970s",
+        "ac": 10,
+        "hp": 15,
+        "speed_mph": 3,
+        "notes": "Two oars, four people. Something under the water can tip it (a STR contest against the rower)."
+      }
+    ],
+    "driving_under_pressure": "Driving at night, in fog or rain, at speed, or with something on the roof: a DEX (Driving) check each round of a chase, or each mile in bad conditions. On a failure by 5 or more, the vehicle leaves the road (crashing).",
+    "attacking_occupants": "People inside a car have half cover; a rider on a wagon has none. A thing on the roof or the running board attacks through the windows at disadvantage.",
+    "the_car_that_wont_start": "A car that won't start is a rule, not an accident. The GM never makes a car fail at random. When a vehicle fails at the worst moment, there is a cause in the fiction the players can find: a cut fuel line, a pulled distributor cap, water in the tank, a battery drained by something that sat in it all night, a horse that will not go past the gate for a reason. Finding the cause is a Mechanics check (DC 12, an action in a hurry at disadvantage, or 10 minutes calmly); fixing it may need a part. Once the players have found and fixed a cause, that cause never happens to that vehicle again (dread.json isolation).",
+    "crashing": "A vehicle that crashes at speed deals 1d6 bludgeoning damage per 10 mph to each occupant (DC 13 DEX save for half; no save for an open wagon). A car that crashes at night stays where it is: its headlights may still be on.",
+    "fuel_and_horses": "A 1920s car runs about 150 miles on a tank, a 1970s car about 300; gas stations close at night in small towns. A horse needs rest every few hours and won't be driven toward something it fears."
+  }
+}

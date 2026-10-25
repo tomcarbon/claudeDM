@@ -140,7 +140,7 @@ function MyGames() {
                 const isRecent = g.updatedAt && (Date.now() - new Date(g.updatedAt).getTime()) < 5 * 60 * 1000;
                 const dotColor = g.dmThinking ? '#f0a030' : g.turnExpectedFromYou ? '#9b59b6' : isRecent ? '#2ecc71' : '#e74c3c';
                 const dotGlow = g.dmThinking ? '0 0 8px #f0a030' : g.turnExpectedFromYou ? '0 0 8px #9b59b6' : isRecent ? '0 0 6px #2ecc71' : 'none';
-                const dotTitle = g.dmThinking ? 'DM is thinking...' : g.turnExpectedFromYou ? 'Your turn!' : isRecent ? 'Active recently' : 'Inactive';
+                const dotTitle = g.dmThinking ? 'GM is thinking...' : g.turnExpectedFromYou ? 'Your turn!' : isRecent ? 'Active recently' : 'Inactive';
                 const rowClass = g.dmThinking ? ' my-games-row-thinking' : g.turnExpectedFromYou ? ' my-games-row-purple' : '';
                 const isOwner = g.canWrite !== false;
 

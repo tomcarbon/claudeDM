@@ -1,0 +1,845 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Eight Western classes on the shared d20 chassis (levels 1-20, proficiency bonus and XP thresholds from data/rules/leveling.json). There is no magic: no class has any casting feature, and no class entry has a casting key. 'default_weapons' lists the weapons a generated character of the class carries; every name is in equipment.json weapons, and 'damage' is the weapon dice without the ability modifier. Weapon proficiencies name the equipment.json weapon groups; everyone is proficient with Melee. Features at levels 3-10 in 'progression' are summaries the GM can apply directly; Ability Score Improvements come at 4th and 8th (and later at 12th, 16th and 19th as on the chassis). No class feature adds a flat bonus to the attack bonus, the damage string or the Armor Class written on a sheet: extra damage dice (Ace in the Hole, Dirty Fighting), fanning and the Gun Hand styles are applied at the table. Counted ammunition in starting equipment is written with the weapon's ammo_name, e.g. \".45 cartridges (18)\". The Army revolver is 1870s and later; 1860s characters take the Navy revolver option."
+  },
+  "classes": [
+    {
+      "name": "Gunslinger",
+      "role": "Pistol fighter: the fastest hand in the room and the reason it goes quiet",
+      "hit_die": "d10",
+      "primary_ability": "Dexterity",
+      "saving_throws": [
+        "Dexterity",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [
+        "Gunsmith's tools",
+        "Playing cards"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Acrobatics",
+          "Gambling",
+          "Insight",
+          "Intimidation",
+          "Perception",
+          "Riding",
+          "Sleight of Hand"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Army revolver and .45 cartridges (18)"
+          ],
+          "choice_2": [
+            "Navy revolver, .36 rounds (18) and Spare cylinder (1860s campaigns: take this)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Leather duster"
+          ],
+          "choice_2": [
+            "Good suit and a second holster on the Gun belt and holster"
+          ]
+        },
+        {
+          "default": [
+            "Bowie knife",
+            "Gun belt and holster",
+            "Hat",
+            "Gunsmith's tools",
+            "Playing cards",
+            "Bedroll",
+            "Canteen"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per gunslinger level after 1st",
+      "level_1_features": [
+        {
+          "name": "Quick Draw",
+          "description": "Your gun is in your hand before most people have decided to reach. You have advantage on initiative rolls, and on the draw in a showdown (frontier.json showdowns). When you roll initiative and aren't surprised, you can draw a Sidearm as part of the roll, without using your free interaction. Drawing and holstering a Sidearm never costs you an interaction, and you can draw two at once if you have two holstered."
+        },
+        {
+          "name": "Gun Hand",
+          "description": "Choose one style. Two-Gun: when you make the extra off-hand Sidearm attack (combat.json gunplay.two_weapons), you add your ability modifier to its damage. Steady Hand: once on each of your turns, when you roll a 1 on a damage die for a Sidearm single shot, you can reroll that die and must use the new roll. Fast Hands: you can reload a revolver as a bonus action instead of an action (two rounds, combat.json ammunition.reload), and swap a spare cylinder as a bonus action. None of these changes the attack bonus or damage written on your sheet."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Fan the Hammer",
+          "description": "When you fan a single-action revolver (combat.json fire_modes.fan), you can fan up to 4 rounds in one action instead of 3, and the first of those attacks is made without disadvantage. At 6th level you can fan the whole cylinder (up to 6 rounds), and the first two attacks are made without disadvantage. Fanned shots still add no ability modifier to damage."
+        }
+      ],
+      "progression": {
+        "3": "Style: choose Duelist (in a showdown you win ties on the draw, and if your one shot in the draw round hits it deals an extra weapon damage die; frontier.json showdowns), Pistoleer (when you take the Attack action with a Sidearm and both shots hit the same creature, it must succeed on a WIS save, DC 8 + proficiency + DEX, or be frightened of you until the end of its next turn) or Trick Shooter (your called shots take -2 instead of -5, and you can shoot a weapon, a rope, a lamp or a hat off a head as a called shot with no chance of hitting the person; combat.json gunplay.called_shots).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Proficiency bonus becomes +3.",
+        "6": "Fan the Hammer improves: fan the whole cylinder, the first two attacks without disadvantage. Cool Head: you have advantage on saving throws against being frightened and against the Shaken condition while you are holding a drawn gun.",
+        "7": "Name That Travels: once you have won a showdown or a gunfight in a town, the town knows your name. You have advantage on Intimidation checks there, including the stare-down (frontier.json showdowns), and a creature that knows your name must succeed on a WIS save (DC 8 + proficiency + DEX) to start a fight with you at all. What else the name brings is up to the GM (frontier.json reputation, wanted_and_bounties).",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Hard to Pin Down: once per short rest, when you fail a DEX or WIS saving throw, you can reroll it and must use the new roll. Proficiency bonus becomes +4.",
+        "10": "Fastest in the Territory: you can't be surprised while you are conscious, and when you roll initiative you can immediately make one Sidearm attack (before anyone takes a turn) as a reaction. In a showdown, a stare-down you lose no longer gives you disadvantage on the draw."
+      },
+      "default_weapons": [
+        {
+          "name": "Army revolver",
+          "attackAbility": "DEX",
+          "damage": "1d10",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Bowie knife",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Lawman",
+      "role": "Sheriff, marshal or deputy: the law, with a county and a judge behind it",
+      "hit_die": "d10",
+      "primary_ability": "Strength or Wisdom",
+      "saving_throws": [
+        "Strength",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor",
+        "Medium armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [
+        "Manacles",
+        "Wagons and teams"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Athletics",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Perception",
+          "Persuasion",
+          "Riding"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Army revolver, .45 cartridges (12), Double-barrel shotgun and Shotgun shells (10)"
+          ],
+          "choice_2": [
+            "Navy revolver, .36 rounds (12), Double-barrel shotgun and Shotgun shells (10) (1860s campaigns: take this)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Leather duster"
+          ],
+          "choice_2": [
+            "Iron vest"
+          ]
+        },
+        {
+          "default": [
+            "Star (badge of office)",
+            "Manacles",
+            "Pick handle",
+            "Gun belt and holster",
+            "Hat",
+            "Notebook and pencil",
+            "Wanted posters (a sheaf)"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per lawman level after 1st",
+      "level_1_features": [
+        {
+          "name": "The Star",
+          "description": "You hold a lawful office (choose with the GM: town marshal, county sheriff or deputy, or deputy U.S. marshal) and wear its star. Within your jurisdiction you can arrest on a warrant or for a crime you witness, enter a business, collect the guns of a man inside town limits where an ordinance says so, hold a prisoner in the jail until the circuit judge comes (frontier.json the_law), and raise a posse: as an action in town, or in 10 minutes of asking, you can deputize a number of willing citizens equal to your proficiency bonus (use Deputy statistics, adversaries.json) for one pursuit or one day. Law-abiding people comply unless they have a strong reason not to, and you have advantage on Intimidation and Persuasion checks against anyone who respects the law. The star has a county and a judge behind it, and both can call you to account: using it for something the law doesn't sanction (a beating, a search without cause, a private quarrel) costs 1 Reputation in that town when it comes out (frontier.json reputation), and the judge can take the star back. Outside your jurisdiction the star is a piece of tin, and people who hate the law hate you on sight."
+        },
+        {
+          "name": "Keep the Peace",
+          "description": "Choose one style. Buffaloing: when you hit a creature with a Sidearm used as a club (1d4 bludgeoning, improvised) or with a Melee weapon, you can choose to make it a knockout blow even if the target isn't surprised, once per creature per scene (combat.json brawling.knockout_blow). Shotgun Rider: when you hit with a scatter weapon at a target within 30 ft, you can push it 10 ft back or knock it prone (STR save, DC 8 + proficiency + DEX). Peace Officer: as a bonus action, order a creature that can hear you to drop its weapon; it makes a WIS save (DC 8 + proficiency + WIS) and on a failure drops one held weapon at its feet. A creature that has already attacked anyone in this fight has advantage on the save."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Take Him Alive",
+          "description": "When you hit a creature with a melee attack, you can use a bonus action to try to grapple it. You can manacle a creature you are grappling as an action without a check (gear.json Manacles), and a creature you have grappled has disadvantage on checks to escape you. When you reduce a creature to 0 hit points with any attack, you can choose to leave it alive at 0 HP, stable and unconscious, even with a firearm: you shot to wound."
+        }
+      ],
+      "progression": {
+        "3": "Office: choose Town Marshal (you know every business and every family in your town; once per long rest you can learn from the town's gossip who has been in or out of it in the last day, and the Reputation you lose for using the star is halved there), County Sheriff (your posse is a number of deputies equal to twice your proficiency bonus, and you can call it out county-wide in an hour; you can serve papers and seize property for the court) or Deputy U.S. Marshal (your jurisdiction is the whole territory and every federal crime in it, including the mails and the railroads; once per case you can telegraph for a federal warrant and have it within a day).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Proficiency bonus becomes +3.",
+        "6": "Stand Your Ground: allies within 30 ft of you who can see you have advantage on saving throws against being frightened, and the Lynch Mob's Mob Mind (adversaries.json) can be broken by you with a Persuasion or Intimidation check as a bonus action.",
+        "7": "Hard Stare: you have advantage on the stare-down in a showdown (frontier.json showdowns). A creature that backs down from you is also out of the fight: it leaves, or it surrenders, and it won't pick up a gun against you for the rest of the day.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Long Arm of the Law: once per long rest, reroll a saving throw you failed and use the new roll. Wanted outlaws you have arrested and delivered to a court don't come back for you while the case is open. Proficiency bonus becomes +4.",
+        "10": "The Judge's Ear: once per case, the circuit judge or the territorial governor's office grants you what you ask that the law can give: a warrant, a stay of execution, a change of venue, a writ against a company, a pardon for one witness. It always works, and powerful people learn your name (frontier.json the_law)."
+      },
+      "default_weapons": [
+        {
+          "name": "Army revolver",
+          "attackAbility": "DEX",
+          "damage": "1d10",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Double-barrel shotgun",
+          "attackAbility": "DEX",
+          "damage": "2d8",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Scout",
+      "role": "Tracker, guide and rifleman: the one who knows where the water is",
+      "hit_die": "d10",
+      "primary_ability": "Wisdom or Dexterity",
+      "saving_throws": [
+        "Dexterity",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [
+        "Field glasses",
+        "Lariat"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Animal Handling",
+          "Athletics",
+          "Nature",
+          "Perception",
+          "Riding",
+          "Stealth",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Repeating rifle and .44 cartridges (36)"
+          ],
+          "choice_2": [
+            "Buffalo rifle and .50 rounds (20) (1870s and later)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Buckskin coat"
+          ],
+          "choice_2": [
+            "Leather duster"
+          ]
+        },
+        {
+          "default": [
+            "Bowie knife",
+            "Saddle scabbard",
+            "Field glasses",
+            "Canteen (2)",
+            "Bedroll",
+            "Trail rations (1 week)",
+            "Matches (box)",
+            "Hat"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per scout level after 1st",
+      "level_1_features": [
+        {
+          "name": "Trailcraft",
+          "description": "You read land the way a clerk reads a ledger. On terrain you have crossed before, you are never lost, by day or night, and you always know the way back. On any terrain, you find water for yourself, your companions and your horses each day without a check wherever there is any within a day's travel (a seep, a tank in the rocks, a dug well in a dry wash), and you can follow a trail at a normal pace with a Survival check (frontier.json trail_travel), learning from the sign how many riders, how long ago, and whether the horses were shod, loaded or lame. Your party can't become lost while you are guiding it unless the GM imposes a storm or a deliberate deception, and then you have advantage on the check to find the way."
+        },
+        {
+          "name": "Long Shot",
+          "description": "Attacking at long range with a Longarm doesn't impose disadvantage on you if you Aimed first this turn (combat.json gunplay.aim). Your proficiency bonus is doubled for Perception checks to spot something at a distance (more than 300 ft away)."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Ghost on the Range",
+          "description": "In natural terrain (brush, rocks, timber, tall grass, a dry wash), you can take the Hide action as a bonus action, and you can hide when only lightly obscured. Moving at a normal travel pace doesn't impose disadvantage on your Stealth checks, and you leave no trail anyone without the Scout's Trailcraft can follow unless you choose to."
+        }
+      ],
+      "progression": {
+        "3": "Path: choose Army Scout (you can ride ahead of a party and return with a report: once per day of travel, the GM tells you the next trail event before it happens, frontier.json trail_travel), Hunter (when you hit a beast with a Longarm, it takes an extra weapon damage die once per turn, and you know its weak points: no beast surprises you) or Guide (your party travels at a hard pace without exhaustion, finds forage and grass for its horses on any terrain that has any, and has advantage on saves against weather; frontier.json weather_and_water).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Proficiency bonus becomes +3.",
+        "6": "Weather Eye: you know the weather for the next 24 hours where you are, and you can't be surprised by a flash flood, a dust storm, a stampede or a rockfall. You have advantage on saving throws against them.",
+        "7": "Sign Reader: from a camp, a trail or a scene of violence on open ground, you learn without a check how many people were there, roughly what they carried, how long ago, which way they went and one distinctive thing about one of them (a limp, a horse that drags a shoe, a man who smokes cigars).",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "One Shot: once per short rest, when you hit with a Longarm after Aiming, you can make the hit a critical hit. Proficiency bonus becomes +4.",
+        "10": "Nobody Finds Me: once per long rest, when you are being pursued or searched for in open country, you simply vanish: the pursuit ends unless the pursuers have a Scout of their own, and you can bring up to five companions with you. Your passive Perception and passive Survival each gain +5."
+      },
+      "default_weapons": [
+        {
+          "name": "Repeating rifle",
+          "attackAbility": "DEX",
+          "damage": "2d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Bowie knife",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Gambler",
+      "role": "Card player, faro dealer and smooth talker: the one who reads the table",
+      "hit_die": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": [
+        "Dexterity",
+        "Charisma"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Playing cards",
+        "Marked deck"
+      ],
+      "skill_choices": {
+        "choose": 4,
+        "from": [
+          "Deception",
+          "Gambling",
+          "Insight",
+          "Performance",
+          "Persuasion",
+          "Sleight of Hand",
+          "Stealth"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Derringer and .41 rounds (8)"
+          ],
+          "choice_2": [
+            "Pocket revolver and .32 rounds (15)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Good suit"
+          ],
+          "choice_2": [
+            "Leather duster and Marked deck"
+          ]
+        },
+        {
+          "default": [
+            "Boot knife",
+            "Playing cards",
+            "Hat",
+            "Whiskey (bottle)",
+            "Pocket watch on a chain",
+            "A letter of credit from a bank that may not exist"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per gambler level after 1st",
+      "level_1_features": [
+        {
+          "name": "Read the Table",
+          "description": "Your proficiency bonus is doubled for Gambling and Insight checks. Once per short or long rest, after at least a minute of watching or talking to a person (across a card table counts), you can learn one thing they are hiding: a lie they told, a weapon they carry, the card they need, who they are afraid of, or what they want from you. The GM tells you the truth of it in a sentence. At the table, you also always know whether a game is honest (frontier.json gambling)."
+        },
+        {
+          "name": "Ace in the Hole",
+          "description": "Once per turn, you deal an extra 1d6 damage to one creature you hit with a finesse Melee weapon or a Sidearm, if you have advantage on the attack roll, if another enemy of the target is within 5 ft of it and you don't have disadvantage, or if the target believed a bluff or a lie you told it within the last minute. The extra damage increases by 1d6 at every odd level after 1st (2d6 at 3rd, 3d6 at 5th, 4d6 at 7th, 5d6 at 9th). It isn't part of the damage written on your sheet."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Lady Luck",
+          "description": "You have a number of luck points equal to your CHA modifier (minimum 1), regained on a long rest. When you make an attack roll, ability check or saving throw, you can spend one to roll an additional d20 and choose which to use; you can do it after the roll but before the GM says whether it succeeds. You can also spend one to make a creature within 30 ft reroll an attack roll against you."
+        },
+        {
+          "name": "Sleeve Gun",
+          "description": "You can draw a concealable weapon as a bonus action without anyone who isn't watching your hands noticing until you use it, and you have advantage on Sleight of Hand checks to carry one past a search or the marshal's gun check. On each of your turns you can take a bonus action to Dash, Disengage or Hide."
+        }
+      ],
+      "progression": {
+        "3": "Ace in the Hole 2d6. Game: choose Cardsharp (you can cheat at cards with advantage on the Sleight of Hand check, and once per game a cheat that is spotted can be passed off as the other man's; frontier.json gambling.cheating), Faro Dealer (you run games: in a town with a saloon you can set up a faro bank and earn 1d6 x 5 dollars a night, and the house always knows who is winning, who is drinking and who is broke) or Riverboat Charmer (a person you have played cards or talked with for an hour treats you as a friend until you give them reason not to, and will do you a favor that costs them nothing without a check).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Ace in the Hole 3d6. Uncanny Dodge: as a reaction when an attacker you can see hits you, halve the attack's damage. Proficiency bonus becomes +3.",
+        "6": "Poker Face: your Deception and Insight can't be read: creatures have disadvantage on Insight checks against you, and Read the Table, Insight and Gambling contests against you never reveal what you hold unless you want them to. Choose two more of your skill proficiencies; your proficiency bonus is doubled for checks with them.",
+        "7": "Ace in the Hole 4d6. Evasion: when a DEX save would halve damage (dynamite, a stampede), you take none on a success and half on a failure.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Ace in the Hole 5d6. Luck Runs Hot: your luck points increase by 2, and you regain one on a short rest. Proficiency bonus becomes +4.",
+        "10": "All In: once per long rest, when a d20 roll you make or one made against you would decide something that matters (a showdown draw, a death saving throw, a final hand), you can declare it a natural 20 or a natural 1 (the GM's roll against you) before it is rolled. Treat any d20 roll of 9 or lower as a 10 on Deception, Gambling and Sleight of Hand checks."
+      },
+      "default_weapons": [
+        {
+          "name": "Derringer",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Boot knife",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Preacher",
+      "role": "Circuit rider, revivalist or town minister: a voice that can hold a crowd or break one",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom or Charisma",
+      "saving_throws": [
+        "Wisdom",
+        "Charisma"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Insight",
+          "Intimidation",
+          "Medicine",
+          "Performance",
+          "Persuasion",
+          "Survival"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Navy revolver and .36 rounds (18)"
+          ],
+          "choice_2": [
+            "Repeating rifle and .44 cartridges (24)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Good suit"
+          ],
+          "choice_2": [
+            "Leather duster"
+          ]
+        },
+        {
+          "default": [
+            "Pick handle",
+            "Bible",
+            "Hat",
+            "Bandage roll (4)",
+            "Bedroll",
+            "Canteen",
+            "A list of the sick and the grieving in the last three towns"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "8 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d8 (or 5) + Constitution modifier per preacher level after 1st",
+      "level_1_features": [
+        {
+          "name": "Fire and Brimstone",
+          "description": "As an action, you preach: a few lines of scripture or plain words in a voice that carries over gunfire. Choose one. Steady: each ally within 30 ft who can hear you gains temporary hit points equal to 1d6 + your WIS or CHA modifier (your choice when you take the class), and the frightened and Shaken conditions end on them. Shake: each enemy within 30 ft who can hear and understand you makes a WIS save (DC 8 + your proficiency bonus + the same modifier) or is frightened of you until the end of your next turn; a frightened creature that was already Shaken drops what it holds. You can preach a number of times equal to that modifier (minimum 1), regaining all uses on a short or long rest. There is no miracle in it. It works because people believe you, and a creature that can't hear you (deaf, a stampede, a man who hates you more than he fears hell) is unaffected."
+        },
+        {
+          "name": "Comfort the Afflicted",
+          "description": "You can stabilize a dying creature as a bonus action with a Medicine check (DC 10), and when you do it also regains 1 hit point. Once per long rest, spending 10 minutes with someone who is grieving, frightened or ashamed, you end the Shaken condition on them and learn what is truly troubling them; they will speak to you more honestly afterward than to anyone else in town."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "The Flock",
+          "description": "Wherever there is a church, a camp meeting or a gathering of decent people, you can find shelter, a meal, news and a few people who will speak up for you, without a check. Once per town, preaching to a crowd for an hour gives you a temporary +1 Reputation there until you leave (frontier.json reputation), or −1 to someone you preach against by name, if the crowd believes you."
+        }
+      ],
+      "progression": {
+        "3": "Calling: choose Circuit Rider (you travel the trail with the advantages of a Scout's Trailcraft on roads and trails you have ridden before, and every town on your circuit treats your Reputation as at least +1), Hellfire (Shake affects enemies within 60 ft, and a creature that fails the save by 5 or more flees from you on its next turn) or Shepherd (Steady also gives each ally advantage on its next attack roll or saving throw before the end of its next turn, and Comfort the Afflicted can be used once per short rest).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Sermon on the Mount: Fire and Brimstone's temporary hit points become 2d6 + your modifier, and you can preach as a bonus action once per short rest. Proficiency bonus becomes +3.",
+        "6": "Stand Between: as an action, you step into a fight and call on it to stop. Each creature within 30 ft that can hear you makes a WIS save (DC 8 + proficiency + modifier); those that fail can't make attacks until the end of your next turn unless they are attacked. A Lynch Mob that fails is broken (adversaries.json). Once per long rest.",
+        "7": "Unshaken: you can't be frightened, and allies within 10 ft of you have advantage on saving throws against being frightened.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "The Word Gets Around: once per long rest, reroll a WIS or CHA check or saving throw you failed and use the new roll. A sermon you preach against a named person or company in a town lowers their standing there: the GM decides who stops trading with them, and their hired men have disadvantage on Intimidation checks in that town for a week. Proficiency bonus becomes +4.",
+        "10": "Witness: once per long rest, when you speak the truth to a crowd, a court or a mob, every creature that can hear you and isn't lying to itself knows that you believe what you say, and any creature that was about to commit violence against a helpless person must succeed on a WIS save (DC 8 + proficiency + modifier) or stop. Fire and Brimstone uses become your modifier + 2."
+      },
+      "default_weapons": [
+        {
+          "name": "Navy revolver",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Pick handle",
+          "attackAbility": "STR",
+          "damage": "1d6",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "Doc",
+      "role": "Physician, army surgeon or apothecary: patches up what the frontier breaks",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence or Wisdom",
+      "saving_throws": [
+        "Intelligence",
+        "Wisdom"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms"
+      ],
+      "tool_proficiencies": [
+        "Doctor's bag"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Medicine",
+          "Nature",
+          "Insight",
+          "Investigation",
+          "Persuasion",
+          "Gambling"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Pocket revolver and .32 rounds (15)"
+          ],
+          "choice_2": [
+            "Laudanum (bottle) and Snakebite kit"
+          ]
+        },
+        {
+          "choice_1": [
+            "Good suit"
+          ],
+          "choice_2": [
+            "Leather duster"
+          ]
+        },
+        {
+          "default": [
+            "Doctor's bag",
+            "Boot knife",
+            "Bandage roll (6)",
+            "Whiskey (bottle)",
+            "Pocket watch on a chain",
+            "Diploma (left in a trunk at the hotel)"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "6 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d6 (or 4) + Constitution modifier per doc level after 1st",
+      "level_1_features": [
+        {
+          "name": "Sawbones",
+          "description": "As an action, using a doctor's bag, patch the wounds of a creature you touch that has at least 1 hit point, or that is at 0 hit points and stable or dying. It can spend up to a number of its unspent Hit Dice equal to your proficiency bonus, rolling each and adding its CON modifier as on a short rest, and it regains extra hit points equal to your INT or WIS modifier (your choice when you take the class) once. A creature with no Hit Dice left regains only the extra hit points. Sawbones also stabilizes a dying creature and ends Bleeding. You can use it a number of times equal to that modifier + 1 (minimum 2), regaining all uses on a long rest; each use spends one use of the doctor's bag. Dig Out a Bullet: during a short rest, with your bag, you can cut a lodged bullet or a load of buckshot out of a creature. It regains extra hit points equal to twice your doc level, and any lingering wound (a leg hit, combat.json gunplay.called_shots) heals at the end of the rest."
+        },
+        {
+          "name": "Diagnosis",
+          "description": "As a bonus action, look at a creature you can see within 30 ft and learn its current and maximum hit points and every condition affecting it, including Bleeding, poisons, snakebite, drink and laudanum. Examining a body for 10 minutes, you learn the cause and approximate time of death without a check, what kind of gun or blade did it and from how far, and one extra detail if you succeed on a DC 12 Medicine check."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Steady Hands",
+          "description": "You have advantage on Medicine checks. When you stabilize a creature, it regains 1 hit point and can act on its next turn. You can identify any drug, poison, disease or bad water by its symptoms without a check, and treat a creature for snakebite, fever or poisoning during a short rest so that it has advantage on its saves against it."
+        }
+      ],
+      "progression": {
+        "3": "Practice: choose Army Surgeon (creatures you Sawbones regain the maximum on each Hit Die they spend, and you can use Sawbones on a creature at 0 HP without provoking opportunity attacks), Country Doctor (every homestead and ranch for a day's ride knows you: you can find shelter, a fresh horse and the local news without a check, and once per case a patient owes you a favor) or Apothecary (as an action, mix a draught from your bag: a creature that drinks it gains advantage on CON saves for 1 hour, or falls asleep for 1d4 hours if it fails a CON save, DC 8 + proficiency + INT or WIS).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Bedside Manner: Sawbones uses increase by 1, and you can move to a creature at 0 hit points without provoking opportunity attacks. Proficiency bonus becomes +3.",
+        "6": "Field Hospital: during a short rest you can tend up to six creatures; each regains extra hit points equal to your doc level when it spends Hit Dice, and each ends the Shaken condition.",
+        "7": "Calm Under Fire: you can't be frightened while you are tending a wounded creature, and you can use Sawbones as a bonus action once per turn on a creature at 0 hit points.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Not on My Table: once per long rest, as an action, treat a dying creature: it becomes stable, its death save failures are cleared, and it regains hit points as from Sawbones. Death is still permanent; this works only while the creature is dying, not dead. Proficiency bonus becomes +4.",
+        "10": "Sawbones can be used as a bonus action, and its uses become your INT or WIS modifier + 3."
+      },
+      "default_weapons": [
+        {
+          "name": "Pocket revolver",
+          "attackAbility": "DEX",
+          "damage": "1d6",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Boot knife",
+          "attackAbility": "DEX",
+          "damage": "1d4",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Outlaw",
+      "role": "Road agent, rustler, train robber or a man on the wrong side of a poster",
+      "hit_die": "d10",
+      "primary_ability": "Dexterity or Strength",
+      "saving_throws": [
+        "Dexterity",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms",
+        "Explosives"
+      ],
+      "tool_proficiencies": [
+        "Lockpicks",
+        "Fuse and blasting caps"
+      ],
+      "skill_choices": {
+        "choose": 3,
+        "from": [
+          "Deception",
+          "Intimidation",
+          "Riding",
+          "Sleight of Hand",
+          "Stealth",
+          "Survival",
+          "Mechanics"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Army revolver, .45 cartridges (12), Coach gun and Shotgun shells (10)"
+          ],
+          "choice_2": [
+            "Navy revolver, .36 rounds (12), Coach gun and Shotgun shells (10) (1860s campaigns: take this)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Leather duster"
+          ],
+          "choice_2": [
+            "Dynamite (2) and Fuse and blasting caps (1870s and later)"
+          ]
+        },
+        {
+          "default": [
+            "Gun belt and holster",
+            "Bandanna for a mask",
+            "Saddlebags",
+            "Lockpicks",
+            "Hat",
+            "A wanted poster with a bad likeness of you"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per outlaw level after 1st",
+      "level_1_features": [
+        {
+          "name": "Dirty Fighting",
+          "description": "You hit a man when he isn't ready. Once per turn, when you hit a creature that isn't ready, you deal an extra 1d6 damage of the weapon's type. A creature isn't ready if it is surprised, if it hasn't yet taken a turn in this combat, if it can't see you, or if it is prone, grappled, restrained or mounted on a spooked horse. The extra damage becomes 2d6 at 5th level and 3d6 at 9th. It isn't part of the damage written on your sheet."
+        },
+        {
+          "name": "Hard Riding",
+          "description": "You know how to leave town in a hurry. You have advantage on Riding checks in a chase you are fleeing (combat.json chases), and you can mount or dismount using only 5 ft of movement. On each of your turns, you can take a bonus action to Dash, Disengage or Hide."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Powder Man",
+          "description": "You know explosives. Lighting a fuse is part of the throw rather than a bonus action, your thrown explosives use DC 8 + proficiency + DEX (combat.json explosives), and you can set and fuse a charge in 1 minute instead of 10 with no chance of it going off early. You can cut a fuse to burn for any time from 1 round to an hour."
+        }
+      ],
+      "progression": {
+        "3": "Trade: choose Road Agent (when you call \"stand and deliver\" with a gun drawn on a coach, a rider or a room, every creature that can see and hear you makes a WIS save, DC 8 + proficiency + CHA, or raises its hands and does nothing hostile until it is attacked or you look away), Rustler (you can move a herd of up to 50 head at a normal pace and leave a trail that needs a DC 20 Survival check to follow, and you can alter a brand with a running iron at advantage; gear.json Running iron) or Train Robber (you can uncouple a car, stop a train or crack an express-car safe in a tenth of the usual time, and you have advantage on Athletics and Acrobatics checks on a moving train).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. Dirty Fighting 2d6. Proficiency bonus becomes +3.",
+        "6": "Hole-in-the-Wall: you know a hideout in every territory you have ridden in: a canyon, a line shack, a friendly ranch. While you are there, you can't be found by ordinary pursuit, and posses that come must make a DC 20 Survival check to find even the trail in.",
+        "7": "Evasion: when a DEX save would halve damage (dynamite, a stampede, a collapsing trestle), you take none on a success and half on a failure.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Dirty Fighting 3d6. Slippery: once per long rest, when you are grappled, restrained, manacled or locked in a cell, you get free by the end of your next turn (or, in a cell, by morning, with a story about how). Proficiency bonus becomes +4.",
+        "10": "Legend: your name is on posters in three territories. Once per long rest, when you reveal who you are, every creature of your choice within 60 ft that knows the name makes a WIS save (DC 8 + proficiency + CHA) or is frightened of you for 1 minute (it can repeat the save at the end of each of its turns). Some people will help you because of the name, and the GM decides who (frontier.json wanted_and_bounties)."
+      },
+      "default_weapons": [
+        {
+          "name": "Army revolver",
+          "attackAbility": "DEX",
+          "damage": "1d10",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Coach gun",
+          "attackAbility": "DEX",
+          "damage": "2d8",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "Cowhand",
+      "role": "Drover, wrangler or vaquero: the one who works cattle and lives on a horse",
+      "hit_die": "d10",
+      "primary_ability": "Strength or Constitution",
+      "saving_throws": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor_proficiencies": [
+        "Light armor"
+      ],
+      "weapon_proficiencies": [
+        "Melee",
+        "Sidearms",
+        "Longarms"
+      ],
+      "tool_proficiencies": [
+        "Lariat",
+        "Saddle and tack"
+      ],
+      "skill_choices": {
+        "choose": 2,
+        "from": [
+          "Animal Handling",
+          "Athletics",
+          "Nature",
+          "Riding",
+          "Survival",
+          "Perception"
+        ]
+      },
+      "starting_equipment_options": [
+        {
+          "choice_1": [
+            "Navy revolver, .36 rounds (12), Carbine and .56 rounds (14)"
+          ],
+          "choice_2": [
+            "Navy revolver, .36 rounds (12), Carbine, .56 rounds (7) and Loading tube (1)"
+          ]
+        },
+        {
+          "choice_1": [
+            "Leather duster and Chaps"
+          ],
+          "choice_2": [
+            "Slicker and Chaps"
+          ]
+        },
+        {
+          "default": [
+            "Saddle and tack",
+            "Lariat",
+            "Spurs",
+            "Saddle scabbard",
+            "Bedroll",
+            "Canteen",
+            "Hat",
+            "Horse: <name your horse> (riding horse or cow pony; see Saddle-Born)"
+          ]
+        }
+      ],
+      "hit_points_at_1st_level": "10 + Constitution modifier",
+      "hit_points_at_higher_levels": "1d10 (or 6) + Constitution modifier per cowhand level after 1st",
+      "level_1_features": [
+        {
+          "name": "Saddle-Born",
+          "description": "You have been on a horse since before you could walk. You have advantage on Riding checks, you never have disadvantage on ranged attacks for firing from the saddle (combat.json mounted_combat), and you can mount or dismount using only 5 ft of movement. Your horse is part of you: you own one riding horse or cow pony (frontier.json horses_and_mounts; name it and write it on your sheet as \"Horse: <name>\"). Your own horse gains extra hit points equal to 5 x your cowhand level, never spooks while you are in the saddle (combat.json mounted_combat.spooked_horse), comes to your whistle from up to half a mile away and acts on your initiative. Lariat: you are proficient with the lariat (gear.json), and from the saddle you can throw a loop as a bonus action once per turn instead of an action (combat.json grappling.lariat). Losing your horse is a real loss: until you have worked a new one for a week, Saddle-Born grants only its advantage on Riding checks."
+        },
+        {
+          "name": "Rawhide",
+          "description": "Long days, short sleep and bad weather are your trade. You have advantage on saving throws against exhaustion, heat and cold (frontier.json weather_and_water), and you can ride for 12 hours a day without the forced-march saves. When you finish a short rest, you can spend one extra Hit Die beyond those you would normally spend."
+        }
+      ],
+      "level_2_features": [
+        {
+          "name": "Cow Sense",
+          "description": "You read cattle and horses as other people read faces. You have advantage on Animal Handling checks with cattle, horses and mules, and you can turn the leaders of a stampede (combat.json stampedes) with a single Riding or Animal Handling check as an action, with advantage. A herd you are working never stampedes on a natural 1 or a lightning strike unless the GM has decided someone started it on purpose."
+        }
+      ],
+      "progression": {
+        "3": "Outfit: choose Trail Hand (you can drive a herd of up to 1,000 head with a crew of ten at 12-15 miles a day, and your crew has advantage on night-watch Perception checks and river crossings; frontier.json trail_travel), Bronc Buster (you can break a wild or green horse in a day, stay mounted on any horse that tries to throw you or that is shot from under you with a DC 10 Riding check, and take no damage when a horse falls with you) or Vaquero (the roping tradition of the Mexican and Tejano cattle country: your lariat reaches 40 ft, a creature you rope from the saddle can be thrown prone and dragged without a further check, and you can rope two targets at once as one action).",
+        "4": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "5": "Extra Attack: you attack twice when you take the Attack action. You can replace one of the attacks with a lariat throw. Proficiency bonus becomes +3.",
+        "6": "Ride Them Down: when you move at least 20 ft on horseback straight toward a creature and then hit it with a melee attack or ride past it, it must succeed on a STR save (DC 8 + proficiency + STR) or be knocked prone. Your horse can Dash as a bonus action.",
+        "7": "Night Herd: you don't need to sleep on the trail to gain the benefits of a long rest if you spend 4 hours awake in the saddle on watch, and you can't be surprised while mounted.",
+        "8": "Ability Score Improvement (+2 to one score or +1 to two).",
+        "9": "Hard to Kill: when you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. Once per long rest. Your horse also gains this benefit once per long rest. Proficiency bonus becomes +4.",
+        "10": "Top Hand: your horse's extra hit points become 10 x your cowhand level and its speed increases by 10 ft. Any herd or remuda you ride with follows you rather than its owner, and you have advantage on every check to start, stop or steer a stampede."
+      },
+      "default_weapons": [
+        {
+          "name": "Navy revolver",
+          "attackAbility": "DEX",
+          "damage": "1d8",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Carbine",
+          "attackAbility": "DEX",
+          "damage": "1d10",
+          "damageType": "piercing"
+        }
+      ]
+    }
+  ]
+}

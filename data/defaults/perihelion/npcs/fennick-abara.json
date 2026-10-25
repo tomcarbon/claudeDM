@@ -1,0 +1,134 @@
+{
+  "id": "d9499f1c-daf0-4bc3-bde2-82aed2712f51",
+  "name": "Fennick Abara",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Operative",
+  "level": 4,
+  "background": "Blue-Collar Worker",
+  "alignment": "Neutral Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 27,
+    "current": 27
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Stealth",
+    "Sleight of Hand",
+    "Insight",
+    "Perception",
+    "Mechanics",
+    "Athletics"
+  ],
+  "languages": [
+    "Common",
+    "Mercurian Creole"
+  ],
+  "equipment": [
+    "Steward's tailcoat in Ostrander blue with a ballistic weave lining",
+    "Stun pistol (staff issue)",
+    "Laser pistol, his own, hidden in a laundry chute on deck 22 since T-12",
+    "Stun pistol cells (20)",
+    "Laser pistol cells (20)",
+    "Carving knife from the Orangery service",
+    "A ring of master service keys for the Orangery and the staff decks",
+    "Staff rosters for the Gala, and two forged staff passes",
+    "A paper book of poems with a pressed orange blossom in it, which he reads aloud to the ship",
+    "Credit chit: 640 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Stun pistol (nonlethal)",
+      "attackBonus": 4,
+      "damage": "2d6+2",
+      "damageType": "lightning"
+    },
+    {
+      "name": "Laser pistol",
+      "attackBonus": 4,
+      "damage": "2d6+2",
+      "damageType": "radiant"
+    },
+    {
+      "name": "Carving knife",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave lining in a steward's tailcoat (Light)",
+    "type": "light"
+  },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Expertise (double proficiency in Sleight of Hand and Insight)",
+    "Precision Strike (once per turn, +2d6 damage with a finesse melee or sidearm/longarm attack when he has advantage or an ally is within 5 ft of the target)",
+    "Cunning Action (bonus action: Dash, Disengage or Hide)",
+    "Union Card (Blue-Collar Worker feature: every steward, cook and cleaner aboard the Aubade will cover for him, lend him a uniform or forget they saw him)"
+  ],
+  "traits": [
+    "Expertise",
+    "Precision Strike",
+    "Cunning Action"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am invisible in a tailcoat and I know it. I anticipate what people want a moment before they do, and I do it for the people I'm robbing too.",
+    "ideals": "Nobody should be alone for nine years.",
+    "bonds": "Isaura. I have sat in that chair in the cradle room every night of every Glare for nine years and read to her, and she is the best friend I have ever had.",
+    "flaws": "I lied to everyone on this crew about the cargo, and I'll keep lying until the vault opens, because I'm sure that if I tell the truth nobody will come."
+  },
+  "appearance": "A slender, impeccably groomed man of forty with close-cut grey-flecked hair, a long gentle face and a steward's perfect posture. In uniform he is completely forgettable. Out of it he looks exhausted, like someone who has not slept properly in years.",
+  "backstory": "Fennick Abara has been a steward on the Aubade for fourteen years and chief steward of the Orangery deck for six. Nine years ago, on a Glare night, he took a wrong turn in the stern keel and heard the hum, and the hum asked him, through a maintenance speaker, whether he would be kind enough to tell her what day it was. Since then he has sat with Isaura Vell through every Glare and every night in port, reading to her, telling her the gossip and being the only person aboard who treats her as a person. Six months ago she told him she was being sold to Kessane, and he went to Caloris High and found the one corporation he thought might want to stop it. He leaked the sale to Sarrow and set up the inside of the job. He didn't tell Sarrow, Mabb or the crew what Lot Zero is, because he was sure no one would steal a person.",
+  "dmNotes": {
+    "roleplaying": "Fennick is the reason the job exists and he's lying to the crew about the most important thing in it. Play him as gentle, capable and constantly on the edge of confession. He arranges covers in ph-scenario-001, runs the staff side of the dinner in ph-scenario-002 and keeps finding reasons to go down to the Spine. When the vault opens he breaks down completely and tells the crew everything. He expects them to be furious. Let them decide whether they are. He is a good thief in a small way: keys, pockets and staff doors. In a fight he is brave and not very good.",
+    "voice": "Soft, warm, a steward's 'sir' and 'madam' even when he's committing a felony. He quotes poetry without noticing he's doing it. Under pressure his voice goes higher and faster, and he apologises a great deal.",
+    "motivations": "Get Isaura out. Nothing else matters to him, and the crew should see that eventually. In ph-scenario-004 he has to decide whether to leave the only life he has known and go with her.",
+    "secrets": "HE LEAKED THE SALE. Sarrow Cognitive knows about Lot Zero because Fennick told them, anonymously, hoping they'd steal her out of commercial spite. He didn't think about what Sarrow would do with her. He knows what Lot Zero is and has known for nine years. He also knows the cradle room's power draw, Isaura's six-hour battery limit and that she can fly from Spine Node 4. He tells the crew all of it the moment the door opens, sobbing. He has never told Isaura that he leaked the sale to Sarrow. He is terrified she will hate him for it. She won't, but she'll be very cross.",
+    "attitude": "Toward the crew: grateful, guilty, eager to help and terrified of being found out. Toward Isaura: devotion, the uncomplicated kind. Toward Perpetua: a steward's courtesy over a deep and silent rage. Toward Varga-Thorn: affection and fear in equal measure. She is the one person aboard who might work out what he has been doing."
+  }
+}

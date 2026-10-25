@@ -1,0 +1,427 @@
+{
+  "id": "cw-scenario-004",
+  "title": "Decision Point",
+  "subtitle": "A Barium Meal, a Grundig Radio, and Two O'Clock on the Night of the Ninth",
+  "levelRange": "6-8",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "Vienna and the Vienna Woods, Monday 7 to Friday 11 November 1983",
+    "description": "Home, and no longer safe. The NATO exercise begins on Monday 7 November and runs to Friday 11: a week of simulated escalation ending in a rehearsal of nuclear release, with new message formats and radio silences that look, from the other side, alarmingly like the real thing. In Vienna, the Annex station is compromised by its own comms officer, who reads every message and has been told by Moscow to report at 02:00 on the night of 9/10 November whether the West thinks the release is real. Major Rybak is in the city with fresh men, hunting KESTREL and every copy of the film. Yuri Golovkin, GARDENER's handler at the residency, wants above all to keep his agent safe, and is beginning to suspect Rybak will get him blown. The team must come home without the station knowing, prove to London who the mole is, decide what to do with him, and get through one long night in two places at once: a flat in Dobling with a radio in it, and a hunting lodge in the woods above Weidling.",
+    "atmosphere": "November Vienna: first snow on the Kahlenberg, fog in the Danube valley, wet leaves on the Ring, chestnut sellers, Heurigen windows lit in Grinzing with pine branches over the doors. Indoors, cigarette smoke and the tick of a clock. The radio news is all Pershing missiles and peace marches. Nobody in the city knows what week it is. The team does. The tension of the whole campaign should tighten here into a slow, quiet, unbearable pressure: the mole is a man they like; the clock is real; the fight, when it comes, is in a dark wood far from anyone who could hear it, which is the only place in this campaign where loud is merely dangerous instead of fatal.",
+    "keyLocations": [
+      {
+        "name": "Gus Moser's Cellar, Josefstadt",
+        "description": "The team's real base now: the one place in Vienna that is not on the station's list. A darkroom, a letterpress, a microfilm reader, a cot, a paraffin heater, and upstairs a kitchen with cake.",
+        "features": [
+          "A forger's bench where the canary-trap documents are made",
+          "Gus's stamp album of microfilm duplicates, including a 1982 roll of a station log sheet",
+          "A back passage to the Lange Gasse, and a trapdoor under the rug",
+          "A telephone Gus swears is not tapped (it is not)"
+        ],
+        "encounters": [
+          "Planning scenes; Vera and Gus discovering they were in Prague in the same week in 1968",
+          "Major Rybak's attempt to buy Gus's silence with his 1979 StB forgery (if the opposition finds the shop)"
+        ],
+        "secrets": [
+          "CLUE M7: Gus's 1982 duplicate of a station log sheet in Lionel Pryce's left-handed writing, in which message number 1182/44 is skipped. Investigation DC 14 to find it in the album (advantage if Gus helps). The skipped number is the one Pryce sent to Golovkin.",
+          "Gus's own secret (the 1979 StB papers) is in the same album. Whoever finds M7 may find it too."
+        ]
+      },
+      {
+        "name": "Danubia Marine Assurance, the Telex Room",
+        "description": "The station, now enemy ground in every way except the people in it. Martin Vell in his office with his decanter; Lionel Pryce at his machines; Frau Lindner at her typewriter; and a station that does not know the team is back in the city unless the team tells it.",
+        "features": [
+          "The two Siemens telex machines, their counters and Pryce's log (Clue M3 if not already found)",
+          "Pryce's desk: a framed photograph of his mother, a packet of Silk Cut, two morphine syrettes in the back of the drawer (Clue M8)",
+          "The one-time pad safe",
+          "Vell's office, where the canary-trap message to Vell is delivered"
+        ],
+        "encounters": [
+          "Delivering the three versions of the canary trap",
+          "Confronting Pryce, or Vell, or both"
+        ],
+        "secrets": [
+          "CLUE M8: the morphine. Pryce took the two missing syrettes for his mother, who died three weeks ago, and has kept them. Anneliese Brandt (or any Medic) who sees them understands at once what a frightened man might do with them, and should be told so by the GM.",
+          "Martin Vell's secret, finally: he believes he got HEMLOCK killed in Budapest in 1977. He did not. Lionel Pryce was a comms clerk at the Budapest embassy in 1976 to 1978, and GARDENER's reports from Budapest are how KESTREL knew HEMLOCK's real name."
+        ]
+      },
+      {
+        "name": "Pryce's Flat, Dobling",
+        "description": "A neat one-bedroom flat on the second floor of a 1900s building on the Grinzinger Strasse, near the end of tram 38. Books, records (Elgar, Vaughan Williams, the Beatles), a cat called Nelson, a photograph of his mother, and on a sideboard a Grundig Satellit short-wave radio with a burst transmitter built into its battery compartment.",
+        "features": [
+          "The Grundig: one-way numbers-station reception for instructions; the burst transmitter sends a 3-second pre-recorded Morse message on a fixed frequency to a listening post in Czechoslovakia",
+          "A cassette recorder that loads the burst; Pryce types the message in five-figure groups from his KGB one-time pad, hidden in a hollowed volume of Wisden",
+          "A street door with a buzzer, a stairwell, a back window onto a courtyard with a vine and a garden wall",
+          "Nelson the cat, who must be fed"
+        ],
+        "encounters": [
+          "The confrontation with Pryce, if the team chooses to do it here",
+          "02:00 on 10 November: the transmission",
+          "Yuri Golovkin's 01:30 visit, a routine check on his agent on the most important night of his career"
+        ],
+        "secrets": [
+          "Only Pryce's hand can key the burst transmitter convincingly: the listening post knows his keying rhythm on the tape (his 'fist'). A forged message sent by someone else has a 50 per cent chance of being flagged as compromised, which is worse than silence.",
+          "Pryce's KGB pad has a duress indicator: a message with the first group ending in 7 means 'I am under control'. He will tell the team this only if he is genuinely turned (Insight DC 18 to know whether he has told the truth)."
+        ]
+      },
+      {
+        "name": "The Steinhof Church Grounds",
+        "description": "Otto Wagner's golden-domed Jugendstil church on the hill above Penzing, in the grounds of the great Steinhof psychiatric hospital: pavilions among trees, long paths, few visitors, and a garden wall of rough stone with one loose block, which is GARDENER's dead drop to the residency.",
+        "features": [
+          "The church on its hill, visible for miles, with a gold dome",
+          "Paths through the hospital grounds and patients walking with nurses",
+          "The loose stone in the wall below the church terrace, the drop",
+          "A signal site: a lamppost by the Baumgartner Höhe tram stop where Pryce leaves a chalk mark when the drop is loaded"
+        ],
+        "encounters": [
+          "Watching Pryce load the drop on Tuesday evening (Tomasz with binoculars, Sofia on foot)",
+          "Watching Golovkin, or a residency driver, empty it"
+        ],
+        "secrets": [
+          "CLUE M6, half of it: Pryce loads the drop within 3 hours of receiving the canary-trap message. Seeing him do it is proof of contact; reading the drop's contents (it must be emptied and replaced unseen; Sleight of Hand DC 17) is proof of content."
+        ]
+      },
+      {
+        "name": "The Weidling Lodge, Vienna Woods",
+        "description": "An old hunting lodge on a forestry track above Weidling, on the wooded north slope of the Kahlenberg, three kilometres from the nearest house. The Annex's deep safe-house and radio relay: two storeys of timber on a stone ground floor, a long-wire antenna in the beeches, a generator, a teleprinter in the cellar, a woodshed, a dry stream bed, and a long view down the track.",
+        "features": [
+          "One track in, gravel, a gate 400 metres below the lodge; a footpath from the Leopoldsberg above",
+          "Stone ground floor (full cover against small arms); timber upper floor (half cover against pistols, none against rifles)",
+          "Beech woods with snow on the ground, and a frozen dry stream bed that is a natural approach trench",
+          "Nobody within three kilometres to hear gunfire, which is the point"
+        ],
+        "encounters": [
+          "Rybak's assault on the night of 9/10 November: Rybak (Assassin), 2 Special Forces Operators flown in from Karlshorst, and 4 Mercenaries, with suppressed SMGs, a sniper rifle and flashbangs",
+          "Optional: Hal Brennan of the CIA, who has heard from Frau Lindner where KESTREL is supposed to be, and arrives at exactly the wrong moment"
+        ],
+        "secrets": [
+          "Rybak comes because the canary-trap version given to Pryce says KESTREL is held at the Weidling lodge until Thursday, lightly guarded. That is the version that only Pryce received, so Rybak's arrival is the second half of Clue M6, and it is confirmation in the most violent possible form.",
+          "The lodge is the one place in the campaign where Loud Is Lethal relaxes: no police for twenty minutes, no witnesses. Heat still rises (+3 for a firefight; the bodies must be dealt with by morning). It is the team's chance to choose the ground and fight on it."
+        ]
+      }
+    ]
+  },
+  "synopsis": "The team comes home to Vienna as strangers, entering by train from Salzburg on Gus Moser's fresh papers without the station knowing, and sets up in Gus's cellar with KESTREL and the film. The film names a British signals clerk, L. P., recruited in Nicosia in 1971, and they know who that is; but London will not act on initials and a defector's word, and the Controller wants proof. So the team builds a canary trap: three versions of a message about where KESTREL is being held, one each to Martin Vell, to Lionel Pryce and to Hal Brennan of the CIA, and watches which one reaches the KGB. Pryce's version goes into a wall at the Steinhof church within three hours, and it says KESTREL is at the Weidling lodge. Then the team must decide what to do with a man they like, on a night when his next message to Moscow could matter more than anything else any of them will ever do. Arresting him is not enough, because silence at 02:00 will be read as alarm. They must turn him and have him send the truth, in his own hand, from his own radio, while Golovkin knocks on his door at half past one, and while Major Rybak and his men come through the snow toward the lodge in the woods where they think KESTREL is waiting.",
+  "hook": "The train from Salzburg comes into the Westbahnhof at dusk on Monday in a thin, wet snow, and the station clock says 17:04, and the first day of the exercise is already nearly over. The team gets off with everyone else, in Gus Moser's coats and Gus Moser's names, and nobody is waiting for them, which is exactly right, because nobody in the Annex knows they are here. Outside, a newspaper seller is shouting about Pershing missiles. Across the city, on the third floor of a building on the Schwarzenbergplatz, a thin, kind, left-handed man is making a pot of tea and writing up the day's telex log, and has been doing so, every evening, for four years.",
+  "cluesAvailable": [
+    "M3",
+    "M6",
+    "M7",
+    "M8"
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Coming Home Quietly",
+      "description": "Monday 7 and Tuesday 8 November. Re-enter Vienna unseen. Establish the base in Gus's cellar. Reach the Controller in London without going through the station. Assemble the case against Pryce and learn what London will need. Plan the canary trap. And let KESTREL, at last, say the name and make her one request.",
+      "objectives": [
+        "Enter Vienna without the station or the opposition knowing",
+        "Reach the Controller, ALDER, through the emergency procedure (a payphone, a London number, a phrase), not the station",
+        "Hear KESTREL's terms in full: a written guarantee of resettlement in North America, and Pryce's life",
+        "Gather the existing clues (M1 to M5; M3 and M7 can be found now)",
+        "Design the canary trap: three versions, three recipients"
+      ],
+      "scenes": [
+        {
+          "name": "The Sunday Number",
+          "description": "The Controller is reached through a procedure every Annex officer memorises and none has used: a call from a payphone to a London number that rings in a flat in Pimlico, the phrase 'I'm calling about my aunt's will', and a callback within ten minutes to a different payphone. ALDER listens to everything, says very little, and asks for proof. She will fly to Vienna on Wednesday under her own name, and she will bring the guarantee if she believes them.",
+          "readAloud": "The payphone by the Votivkirche smells of wet coats and old cigarettes, and the receiver is cold, and the coins drop with a sound like a till. The London number rings eleven times. Then a woman's voice, elderly, English, schoolmistress-precise, says 'Yes?' and nothing else. You say the phrase. There is a pause long enough to hear the line hiss all the way across Europe. 'The kiosk outside the Café Landtmann,' she says. 'Ten minutes.' The line goes dead.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "ALDER believes you enough to come. She says: 'Initials and a defector are not evidence, they are a theory. Give me something I can put in front of a Minister.' She will bring the guarantee for KESTREL, and she will not promise Pryce's life.",
+              "failure": "ALDER is unconvinced and will not come until Thursday, which is too late for the guarantee to matter on the night. The team will have to act on its own authority, and answer for it."
+            }
+          ]
+        },
+        {
+          "name": "The Name and the Mercy",
+          "description": "In Gus's kitchen, with cake and schnapps. KESTREL tells the whole story: Nicosia, 1971; a lonely young man with debts and a dying mother; three years of his product; her own guilt about the RYAN reports. Then she asks her one unreasonable thing: that Lionel Pryce be allowed to go east, alive, rather than be tried or shot.",
+          "readAloud": "She has taken off her shoes and is sitting by Gus's stove with her feet on the fender and a glass of plum schnapps she has not touched. 'He was thirty-two,' she says. 'He had a moustache he could not grow and a mother in a hospital in Croydon and he owed money to a Greek who would have broken his hands. I bought him for four hundred pounds and a promise that his mother would be looked after. She was. I kept that promise. It is the only one I have kept in my life that I am proud of.' She looks at the schnapps. 'I made him. I would like you to let him live. That is all. I know what I am asking.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "She means it entirely. It is the only thing in the campaign she has asked for without bargaining.",
+              "failure": "You cannot tell whether this is a negotiating position. It is not."
+            }
+          ]
+        },
+        {
+          "name": "The Counter and the Album",
+          "description": "Evidence work. Dee can check the telex counters against Pryce's log after hours (M3), if he has not already; Gus's stamp album holds the 1982 log sheet (M7). Neither proves treachery alone. Together with the film, they make a case that a careful person might believe.",
+          "readAloud": "Gus's stamp album is enormous and green and smells of hinges and glue, and every page is a grid of little black squares of microfilm under cellophane, each one labelled in his tiny hand. He turns the pages slowly with his reading glasses on his forehead, muttering. 'Na. 1982. Spring, summer. Station logs, the Controller wanted copies, I made copies, I keep copies, I am an old man, I keep everything.' He stops. He puts a finger on one square. 'This one. Your Lionel's hand. He writes with the left, you see how the nib drags.'",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "Message number 1182/44 is skipped in the 1982 log: Pryce wrote 1182/43 and 1182/45 and the counter shows one message between. (Clue M7.) If Dee also checks the current counters: Thursday 27 October, 211 characters unaccounted for. (Clue M3.)",
+              "failure": "The log looks normal. Gus's Eureka can reroll it, once, with +5."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 15,
+              "success": "Finding M7 also turns up Gus's 1979 StB forgery in the same album. Gus sees you see it.",
+              "failure": "You do not notice the other entry."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Entry through the Westbahnhof (Legends checks on Gus's new, thin papers; DC 12 for casual Austrian police)",
+        "Rybak's men watching the Annex station from a car on the Schwarzenbergplatz (Field Agents); the team should see them and not be seen",
+        "Optional: Rybak finds Gus's shop through Kurt Bastian's memory of the Josefstadt, and visits Gus himself, alone, to offer silence about 1979 in exchange for the cellar's guests. A quiet, terrible conversation over cake."
+      ]
+    },
+    {
+      "title": "Act 2: The Barium Meal",
+      "description": "Tuesday 8 and Wednesday 9 November. The canary trap. Three versions of a message about where KESTREL is held: to Martin Vell, that she is at the British ambassador's residence; to Hal Brennan of the CIA (via Frau Lindner's gossip or directly), that she flies out of Schwechat on Thursday on Austrian Airlines; and to Lionel Pryce, by telex from a team member 'in Salzburg', that she is at the Weidling lodge, lightly guarded, until Thursday. Then watch: the Steinhof drop, the residency, the lodge. When Pryce's version moves, confront him. Award 9,000 XP at the end of this act (6th to 7th level).",
+      "objectives": [
+        "Prepare three convincing, distinct versions with Gus's help",
+        "Deliver each one to its recipient through channels that look normal",
+        "Watch the Steinhof drop and see who loads it and who empties it",
+        "Confirm which version reached the KGB (Clue M6)",
+        "Confront Lionel Pryce, and decide whether to arrest him, turn him, or let him run"
+      ],
+      "scenes": [
+        {
+          "name": "Three Letters",
+          "description": "Gus prepares three telex-form messages that look like routine operational traffic, each with a different location, and the team delivers them so that each recipient has reason to believe only they have it. Clever extras: different misspellings in each, different times, a different safe-house codename.",
+          "readAloud": "Gus has three telex forms laid out on his bench under the lamp, and he is humming Strauss and inking in five-figure groups with a mapping pen. 'Each different,' he says. 'Not too different. One letter here, one number there. The barium meal, the English call it. You feed it, you watch where it comes out.' He blots the last one. 'Who gets which, that is your business. I am only the cook.'",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "The Vell and Brennan versions go out naturally (a call to Vell from a payphone; a word dropped near Frau Lindner at lunch). The Pryce version arrives as a telex from 'the Salzburg office' and is logged by Pryce at 16:20 on Tuesday.",
+              "failure": "One recipient is suspicious of the timing. On a failure by 5 or more, Pryce himself is suspicious, and the trap will take an extra day to spring, eating into Wednesday."
+            }
+          ]
+        },
+        {
+          "name": "The Golden Dome",
+          "description": "Tuesday evening at Steinhof. Pryce, on his usual walk, goes up the hill to the church, and at the terrace wall he stops to tie his shoe. Tomasz watches through binoculars from the next hill; Sofia is on the path. Later, a residency Lada stops at the Baumgartner Höhe and a man walks up the hill.",
+          "readAloud": "The church at Steinhof sits on its hill above the hospital pavilions like a gold-domed reliquary someone has set down among the trees, and in the November dusk its dome holds the last of the light after everything else has gone grey. A thin man in a mackintosh comes up the long path at ten past six, as he does most evenings, smoking with his left hand. He stops at the terrace wall, looks out at the view, and bends to tie his shoe. It takes him about four seconds. Then he goes on up to the church, and stands in front of it for a while with his hands in his pockets, like a man saying goodbye to something.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "Through the binoculars: he does not tie his shoe. His hand goes to the wall. (Clue M6, first half.) At 20:40 a residency driver collects from the same stone.",
+              "failure": "You see a man tie his shoe. The residency driver's visit you do miss; you will need to see what comes out of the trap to be sure."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 17,
+              "success": "Between Pryce's visit and the driver's, someone empties the drop, photographs the contents with the Minox, and replaces them perfectly: a microdot on a postcard, which Gus later reads. It is the Pryce version, word for word.",
+              "failure": "The drop is left alone, or a tell is disturbed and the residency is warned; the team must rely on the lodge."
+            }
+          ]
+        },
+        {
+          "name": "The Conversation",
+          "description": "Confronting Lionel Pryce: in his flat, at the station after hours, on the Steinhof path, or in Gus's kitchen if they bring him there. He does not run and does not fight. He is relieved. What the team does now decides the night. Turning him requires a combination of honesty and leverage: Vera's presence, the film, the truth about RYAN, the morphine in his drawer, his mother, and the plain fact that he is the one man who can tell Moscow the truth on Thursday morning. Arrest leaves Moscow with silence at 02:00. Letting him run east (KESTREL's plea) leaves Moscow with whatever frightened report he sends from a Prague hotel.",
+          "readAloud": "He opens the door in a cardigan with the cat in his arms, and looks at you, all of you, on the landing, and for a moment his face does nothing at all. Then he puts the cat down very carefully and says, 'Oh, thank God. Would you like some tea?' And he goes into the kitchen and fills the kettle, and his hands are shaking so badly that the lid rattles, and he says, with his back to you, 'It was Vera, wasn't it. It was always going to be Vera.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 18,
+              "success": "Pryce agrees to send the truth at 02:00: that the Annex and its American partners regard the release procedures as an exercise and nothing more, that there are no real-world indicators, that he has been exaggerating for weeks out of fear, and that he is sorry. Advantage if Vera is present; advantage if a team member uses Read the Room to find his real fear (not prison, but having been the cause of a war). On a success he also offers the duress indicator honestly.",
+              "failure": "He agrees, but he is lying, out of panic, and he will try to append the duress indicator. The team needs Insight DC 18 to catch it, or must watch the five-figure groups as he types them."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 13,
+              "success": "Anneliese (or any Medic) notices the morphine syrettes (Clue M8) and understands. If Pryce is left alone tonight he may use them. Somebody should stay with him.",
+              "failure": "Nobody thinks about the morphine. If Pryce is left alone for an hour in Act 3, roll a d6: on a 1-2 he takes them, and the 02:00 message is never sent."
+            },
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "Pryce, telling you about Budapest, mentions that he was the comms clerk at the embassy there in 1977. He reported HEMLOCK. He is the reason Gabor died, not Martin Vell. He knows it, and he has had to watch Vell drink for four years.",
+              "failure": "You do not ask about Budapest."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rybak's surveillance of the station (Field Agents), which can spot the team if they get careless around the Schwarzenbergplatz",
+        "Golovkin's counter-surveillance of GARDENER on his Steinhof walk (1 Field Agent, at a distance)",
+        "No combat is expected here. The conversation with Pryce is the climax of the mole hunt."
+      ]
+    },
+    {
+      "title": "Act 3: Two O'Clock",
+      "description": "The night of Wednesday 9 to Thursday 10 November. The team must be in two places. In Dobling, Pryce has to type and key the 02:00 burst in his own fist, with a team member beside him, while Yuri Golovkin rings the bell at 01:30 to check on his agent on the most important night of his career. At the Weidling lodge, Major Rybak's men come up through the snow to kill KESTREL, because the canary-trap version Pryce sent said she would be there; the team chose whether she actually is. Then Friday, the exercise ends, the world does not, and the reckoning begins.",
+      "objectives": [
+        "Keep Pryce steady and alive until 02:00 and through the transmission",
+        "Get Pryce through Golovkin's 01:30 visit without Golovkin realising he is under control",
+        "Ensure the 02:00 message is the truth and carries no duress indicator",
+        "Defend the Weidling lodge (or spring the trap there) against Rybak's assault",
+        "Settle Rybak: dead, captured, or sent home in disgrace",
+        "Secure KESTREL's guarantee from ALDER, and decide Pryce's fate"
+      ],
+      "scenes": [
+        {
+          "name": "The Bell at Half Past One",
+          "description": "Pryce's flat. The Grundig on the sideboard, the cassette recorder, the Wisden with the pad inside, Nelson the cat on the windowsill. At 01:30 the street-door buzzer goes: Golovkin, who has come in person because the residency is in a panic about the exercise and because Rybak's operation tonight frightens him. He wants to see his agent's face. A team member hidden in the bedroom, a stammered excuse through the door, or Pryce letting him in and performing for twenty minutes: the team chooses.",
+          "readAloud": "The flat is very warm and very quiet. The clock on the mantelpiece ticks. Pryce is sitting at the table with the Wisden open in front of him and a pencil in his left hand and a cup of tea he has let go cold, and he is copying five-figure groups onto a pad, slowly, in a beautiful clear script, while Nelson the cat watches from the windowsill. It is twenty-nine minutes past one. At half past exactly, the street-door buzzer goes, two short and one long, and Lionel Pryce stops writing and looks at you, and you can see in his face that he knows exactly who that is.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 17,
+              "success": "Pryce (with a team member's coaching, or Rally's temporary hit points and a squeeze of the shoulder) lets Golovkin in, gives him tea, and tells him that the Annex is in a state, that the exercise looks like an exercise, and that he will send at two. Golovkin, reassured, leaves at 01:50. Use Pryce's Deception +4, or let a hidden PC make the check through coaching beforehand.",
+              "failure": "Golovkin is not reassured. He leaves at 01:50, but he goes downstairs to his car and radios the residency that GARDENER may be under control. Unless the 02:00 message is perfect, Moscow discounts it."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 14,
+              "success": "The team member in the bedroom wardrobe stays absolutely silent while Golovkin uses the bathroom.",
+              "failure": "Nelson the cat walks into the bedroom and miaows at the wardrobe. Golovkin looks at it. Pryce has to say something very quickly."
+            }
+          ]
+        },
+        {
+          "name": "Three Seconds",
+          "description": "02:00. Pryce loads the cassette, sets the frequency, and presses the key. A three-second burst of Morse goes up the long aerial into the sky toward a listening post in Czechoslovakia. The content is whatever the team and Pryce wrote. If there is a duress indicator, or a forged fist, or silence, Moscow reads it accordingly.",
+          "readAloud": "He loads the little cassette into the recorder with his left hand, steady now, steadier than he has been all night, and turns the Grundig's big dial until the needle sits on a number he has known by heart for twelve years. 'There,' he says. 'Two o'clock.' He presses the key. There is a noise like a bird, very fast, high, three seconds long, and then nothing, just the hiss of the band and the clock on the mantelpiece and the cat on the windowsill. Lionel Pryce sits back in his chair and puts both hands over his face.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 18,
+              "success": "If the team did not watch him type the groups: you see in his face, at the very last moment, whether he added the duress indicator. If he did, there is still time to stop the key.",
+              "failure": "The message is sent. Whatever is in it is in it."
+            },
+            {
+              "skill": "Computers",
+              "dc": 15,
+              "success": "Dee or another Tech confirms the burst went out on the right frequency and power, and that the recorder's tape matches the groups Pryce wrote. (Advantage with Intrusion: physical access.)",
+              "failure": "You have to take his word for what was sent."
+            }
+          ]
+        },
+        {
+          "name": "The Lodge in the Snow",
+          "description": "Weidling, the same night. Rybak's team comes up the dry stream bed and down the Leopoldsberg footpath at about 01:15: Rybak, two Special Forces Operators from Karlshorst, four mercenaries; suppressed SMGs, a sniper rifle on the opposite slope, flashbangs, and no intention of leaving witnesses. The team has had a day to prepare the ground. This is the campaign's one set-piece firefight and the only place in it where shooting does not bring the police within minutes. It is still lethal. Tomasz on the ridge, Callum in the stone ground floor, a decoy KESTREL in a lit window, Hanne's car across the track, Dee's tripwires, Selim behind the woodshed: let the team's plan matter.",
+          "readAloud": "Snow on the beeches, and the moon behind cloud, and the lodge dark except for one window on the upper floor where a lamp is lit and a small grey-haired figure sits reading with her back to the glass. The generator thuds in its shed. Down the slope, the dry stream bed is a black line through the white. At sixteen minutes past one, the figure in the window turns a page, and somewhere below in the trees a twig breaks, and then another, and then nothing, and then very softly, on the far slope, the click of a rifle bolt going home.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 16,
+              "success": "Tomasz or a watcher spots the sniper's position on the opposite slope as he settles in. Overwatch is ready before the first shot.",
+              "failure": "The sniper's first shot is the first anyone knows of him; it goes through the lit window."
+            },
+            {
+              "skill": "Survival",
+              "dc": 13,
+              "success": "Trailwise: the team's watch is not surprised; Rybak's approach up the stream bed is seen at 200 metres.",
+              "failure": "Rybak's men are at the woodshed before anyone sees them."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 17,
+              "success": "With Rybak's men down or pinned and the Major himself cornered: tell him that GARDENER has already sent the truth, that Golovkin knows he was under control, that his operation has blown the very agent it was meant to protect, and that Moscow will want to know why. He lowers the pistol. He is a professional. He knows when an operation is over. He asks for a cigarette.",
+              "failure": "Rybak does not believe it, or does not care. He fights until he is down."
+            }
+          ]
+        },
+        {
+          "name": "Friday",
+          "description": "Friday 11 November. The exercise ends. The radio news is about a peace march in Bonn and a football result. ALDER arrives at Gus's cellar with a briefcase. KESTREL gets her guarantee, or does not. Pryce's fate is decided: tried in London, run as a double agent, allowed to go east, or dead by his own hand. Martin Vell is told the truth about Budapest. The team is debriefed, paid, and told it never happened.",
+          "readAloud": "It is a bright, cold morning, the first in a week, and the Kahlenberg is white above the city and the trams are full of people going to work who do not know anything at all. On Gus's kitchen radio a newsreader is talking about a peace march and a football result. A small elderly woman in a tweed coat and a headscarf is sitting at Gus's table eating Sachertorte with every sign of enjoyment, a briefcase at her feet. She has introduced herself as ALDER and nothing else. She wipes her mouth with a napkin, folds it, and says, 'Well. I gather nothing happened this week. That is precisely what I like to hear.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "ALDER signs KESTREL's guarantee (if she has not already) and, if the team argues for it, honours KESTREL's request: Pryce will be allowed to go east in a quiet exchange in the spring, or run as a double, rather than tried. Advantage if the team's Heat is 5 or lower.",
+              "failure": "ALDER signs KESTREL's guarantee but not the other. Pryce will be tried at the Old Bailey in camera and will serve twenty years. KESTREL does not speak to the team for a week."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Yuri Golovkin's 01:30 visit (Spymaster; he is unarmed and will not fight, but his radio report can ruin everything)",
+        "Rybak's assault on the Weidling lodge: Major Rybak (Assassin), 2 Special Forces Operators (suppressed MP5s: SMG 1d8, 50/150, magazine 30, single/burst/auto; flashbangs), 4 Mercenaries (suppressed pistols and one shotgun), 1 Sniper on the opposite slope (hunting/sniper rifle 2d10, 300/1200)",
+        "Hal Brennan (optional), arriving at the lodge with two embassy Marines in a station wagon at the worst possible moment, which can be a disaster or a cavalry charge"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Lionel Pryce (GARDENER), 44",
+      "role": "The mole; Annex comms officer",
+      "description": "Thin, pale, kind, left-handed, Silk Cut, Elgar, a cat called Nelson. Recruited in Nicosia in 1971 by Vera Tarasova; betrayed HEMLOCK in Budapest in 1977; reading the Annex's traffic since 1979. Not a monster: a frightened, lonely, clever man who has half-believed the war his handlers fear. Deception +4, Insight +3; otherwise use Civilian.",
+      "motivation": "To be forgiven, which he knows he will not be; failing that, to be the one who stops it. His mother died three weeks ago. He has nothing left to protect except the idea that he was not, in the end, the cause of something terrible."
+    },
+    {
+      "name": "Vera Tarasova (KESTREL)",
+      "role": "Defector; companion",
+      "description": "Finally on Western soil, finally talking, finally asking for one mercy. She will offer to sit in the lit window at the lodge as bait, because Rybak knows her silhouette and would spot a decoy. The team decides.",
+      "motivation": "The guarantee. Pryce's life. Then sleep."
+    },
+    {
+      "name": "ALDER",
+      "role": "The Controller, from London",
+      "description": "A small, elderly, tweedy Englishwoman with a headmistress's voice and an appetite for cake, who has run the Annex since it was created and answers to two people in two capitals. Fictional; represents no real official.",
+      "motivation": "Nothing happened. Nothing must be seen to have happened. Within that, she is fair, and she can be argued with."
+    },
+    {
+      "name": "Martin Vell",
+      "role": "Station chief; red herring redeemed",
+      "description": "Told at last that Budapest was not his fault. Play his reaction quietly: he goes to the window and stands there for a long time, and then pours the whisky down the sink.",
+      "motivation": "The truth about Gabor. Afterwards, to be a better chief, or to retire with dignity."
+    },
+    {
+      "name": "Major Stanislav Rybak, 'the Fisherman'",
+      "role": "KGB clean-up officer; final antagonist",
+      "description": "Leads the assault on the Weidling lodge personally. Use the Assassin statblock. A professional to the end; if cornered and told the truth about GARDENER's message, he may surrender and ask for a cigarette.",
+      "motivation": "KESTREL dead and the film recovered, to protect GARDENER, which is now impossible, though he does not know it until someone tells him."
+    },
+    {
+      "name": "Yuri Golovkin",
+      "role": "KGB Vienna residency Line KR; GARDENER's handler",
+      "description": "Plump, genial, opera-loving, very frightened tonight. Use the Spymaster statblock. Comes to Pryce's flat at 01:30 because he wants to see his agent's face. If he leaves reassured, he tells the residency GARDENER's report is sound, and that matters.",
+      "motivation": "His agent's safety, his career, and, under it, a real fear of the same war everyone else is afraid of."
+    },
+    {
+      "name": "Augustin Moser",
+      "role": "Forger; companion; the team's base",
+      "description": "Makes the canary-trap documents, reads the Steinhof microdot, hides KESTREL, feeds everyone. His 1979 StB secret may surface if Rybak finds him.",
+      "motivation": "One more good piece of paper. Die Kleine safe."
+    },
+    {
+      "name": "Hal Brennan",
+      "role": "CIA officer; wildcard",
+      "description": "Receives one version of the canary trap (Schwechat on Thursday) and acts on it, harmlessly, at the airport. If he learns of the lodge, he turns up with Marines. He is not the mole and never was.",
+      "motivation": "KESTREL for Langley; failing that, credit."
+    }
+  ],
+  "rewards": {
+    "xp": 20000,
+    "money": "$5,000 per agent from ALDER, in a Swiss bank account each, as a termination-of-contract payment that is also a bonus and also an instruction to forget everything. Rybak's team carries about $2,000 in Deutschmarks and dollars.",
+    "items": [
+      "Award the XP in two parts: 9,000 at the end of Act 2 (each agent reaches 7th level at 23,000 XP) and 11,000 at the end of Act 3 (8th level at 34,000 XP)",
+      "Proof of GARDENER: the canary-trap microdot (Clue M6), the 1982 log sheet (M7), the telex counter (M3), and the film (M5)",
+      "KESTREL's written guarantee of resettlement, signed by ALDER, if the team earned it",
+      "Two suppressed MP5 submachine guns (SMG 1d8, 50/150, magazine 30, single/burst/auto, suppressed) and 9mm rounds (120), a Dragunov-pattern sniper rifle (hunting/sniper rifle 2d10, 300/1200), and 4 flashbangs, from Rybak's team",
+      "Pryce's Grundig radio with its burst transmitter, and his KGB one-time pad, which is worth a great deal to London",
+      "A personal letter from Martin Vell to each team member, handwritten, which says only thank you"
+    ]
+  },
+  "twists": [
+    "Pryce opens the door with relief. He has been waiting to be caught for twelve years. The mole hunt ends not with a chase but with a cup of tea, and the players should feel the weight of having liked him.",
+    "Arresting the mole is the wrong answer, or at least an incomplete one. Moscow has asked for his report at 02:00, and silence on the decision night would itself be read as alarm. The team needs GARDENER to send, in his own fist, the truth. The campaign's climax is a conversation, a radio and a cat.",
+    "Budapest, 1977: Pryce was the embassy comms clerk who reported HEMLOCK. Martin Vell has blamed himself for six years for a death that was GARDENER's work. KESTREL knew HEMLOCK's real name from GARDENER's product. The bona fides on her very first note came from the mole.",
+    "The canary trap's confirmation is not a document. It is Major Rybak and seven armed men walking up through the snow toward a lodge where the only version of the message that named it was the one given to Pryce.",
+    "The duress indicator. A frightened man, even one sincerely turned, may at the last second protect himself with a group ending in 7. Whether the team watches his hands is the last test of their tradecraft.",
+    "History holds. The exercise ends on 11 November and the world goes on. The difference the team made is invisible to everyone but them: a calm report on a decision night, a defector safe, a mole who did, at the end, the right thing."
+  ],
+  "dmTips": [
+    "This is the finale and it is four sessions long for a reason: Act 1 is planning and character, Act 2 is the trap and the conversation, Act 3 is the long night. Do not rush the conversation with Pryce. It is the scene the whole campaign has been building toward, and it is not a fight.",
+    "Split the party on the night and cut between the two locations at the most tense moments: the buzzer at 01:30 and the twig breaking at 01:16 are designed to happen close together. Each side's success should matter to the other: if Rybak learns from his radio that Golovkin suspects GARDENER, he may break off; if the lodge goes badly, the team in Dobling hears it on Hanne's police scanner.",
+    "The Weidling lodge fight is the one place where the team can choose the ground and fight hard. Use the full gunplay rules: cover materials (stone ground floor is full cover against everything Rybak has; timber upstairs is not), suppressive fire, called shots, jams, ammunition. Track rounds with TrackResources once per exchange. Rybak's Special Forces Operators are better than anything the team has faced; the team's advantage is preparation and Tomasz's Overwatch.",
+    "Pryce's survival is not guaranteed and should not be. The morphine (Clue M8) is real. If the team leaves him alone, roll it. A table that loses him to his own hand should feel it, and the 02:00 silence should have its consequences: 36 frightening hours, aircraft fuelled on East German runways, and nothing, in the end, happening.",
+    "Never end the world. History records that the November 1983 exercise ended without war, and the campaign respects that. Failure is personal: the Annex is shut down, KESTREL is dead or bitter, Pryce is tried, and the team knows how close it came.",
+    "ALDER is the campaign's last NPC and its referee. Let the players argue with her about Pryce. She can be persuaded. Her final line about nothing having happened should be the campaign's last laugh.",
+    "Level-up notes: 9,000 XP per character at the end of Act 2 (6th to 7th level, 23,000 XP) and 11,000 at the end of Act 3 (7th to 8th level, 34,000 XP). At 5th level and above, proficiency is +3; update sheets.",
+    "Epilogue suggestions: Hanne gets her brother out in a spy exchange in the spring of 1984, in a deal KESTREL brokered. Selim sees snow. Gus makes Kolev's Australian passport. Sofia goes back to the field at Andau and stands there for a while. Dee installs new telex machines. Tomasz sends his pay to Gdansk. Julian buys a painting. Callum reads Shane again."
+  ]
+}

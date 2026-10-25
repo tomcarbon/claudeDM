@@ -1297,6 +1297,12 @@
 .party-hp-text {
   min-width: 3.5em;
 }
+.party-death-saves {
+  color: #e74c3c;
+  font-weight: 600;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
 .party-gold {
   color: var(--gold);
   font-weight: 500;
@@ -1901,6 +1907,21 @@
   border-radius: 3px;
   font-size: 0.9em;
 }
+/* The mechanical-override question: what changes, from what to what, and why (condition M1). */
+.permission-change {
+  margin-bottom: 0.6rem;
+  font-size: 1em;
+}
+.permission-reason {
+  margin-bottom: 0.6rem;
+  font-size: 0.95em;
+  color: var(--text-muted);
+}
+.permission-safe {
+  margin-bottom: 0.5rem;
+  font-size: 0.88em;
+  color: var(--text-muted);
+}
 .permission-actions {
   display: flex;
   gap: 0.75rem;
@@ -1933,6 +1954,68 @@
 }
 .btn-deny:hover {
   background: #c0392b;
+}
+/* A refusal from the restore route. Shown verbatim: the server writes those sentences for the
+   player rather than for a log, so paraphrasing them here would lose the only explanation. */
+.restore-error {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(231, 76, 60, 0.12);
+  border: 1px solid #e74c3c;
+  color: #f5b7b1;
+  font-size: 0.9em;
+}
+
+/* ===== Restore from library (WO-0016) =====
+   Sits directly above the input box and appears on its own when the player's own character is
+   dead or down. Loud enough to be seen without being looked for — the person who needs it has
+   never seen it before and is reading it in the middle of the worst scene of their campaign. */
+.restore-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  background: #3a1414;
+  border: 1px solid #e74c3c;
+}
+.restore-banner-done {
+  background: #14301c;
+  border-color: #27ae60;
+}
+.restore-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+.restore-banner-text strong {
+  color: #ff9f93;
+  font-size: 0.98em;
+}
+.restore-banner-done .restore-banner-text strong {
+  color: #7fd8a0;
+}
+.restore-banner-text span {
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+.btn-restore {
+  flex-shrink: 0;
+  padding: 0.55rem 1rem;
+  background: var(--gold);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.92em;
+}
+.btn-restore:hover {
+  filter: brightness(1.1);
 }
 
 /* ===== World Map ===== */
@@ -2989,4 +3072,207 @@
   .my-games-table {
     font-size: 0.85em;
   }
+}
+
+/* =====================================================================
+   REDUCED MOTION
+   ---------------------------------------------------------------------
+   WO-0037 PHASE 0. `prefers-reduced-motion` appeared NOWHERE in this
+   client before this block — not once — while EIGHT infinite animations
+   ran, the fastest of them `flash 0.6s` on the permission-request dot,
+   which is a ~1.67 Hz pulse on a red target.
+
+   This is a debt the app owed before campaign palettes were thought of
+   and it would have been worth paying if the rest of WO-0037 had been
+   cancelled. It is listed first in that work order for that reason.
+
+   ALL EIGHT infinite animations, by the selector that declares them:
+     .status-thinking .status-dot            pulse 1s            (:934)
+     .status-permission .status-dot          flash 0.6s          (:938)
+     .typing-cursor                          blink 0.8s          (:1147)
+     .map-party-dot                          party-pulse 2s      (:2189)
+     .chat-typing-dots                       chatTypingBounce    (:2534)
+     .chat-typing-dots::before/::after        chatTypingBounce    (:2546)
+     .my-games-row-thinking .my-games-dot    pulse 1s            (:2958)
+     .my-games-row-purple .my-games-dot      pulse 1.2s          (:2978)
+
+   Every one of them is a STATUS INDICATOR, so `animation: none` alone
+   would silently delete information — a stopped `flash` dot and a
+   stopped `pulse` dot become the same dot. Each is therefore pinned to
+   the MOST VISIBLE state its own keyframes reach: opacity 1 and no
+   translate. For `pulse`, `flash` and `blink` that is their 0%/100%
+   value, so the dot looks exactly as it does at the top of its cycle;
+   for `chatTypingBounce` it is the 30% value, which is deliberate — the
+   0% value is `opacity: 0.3`, and three typing dots at 30% opacity with
+   no motion read as disabled rather than as typing. `party-pulse`
+   animates only `box-shadow`, and `animation: none` already leaves the
+   rule's own (0%) glow in place. The typing cursor is pinned VISIBLE
+   rather than mid-blink for the same reason.
+
+   Not covered here, deliberately: `transition` declarations (a 0.2s
+   colour change on hover is not motion) and the scene-mood crossfade,
+   which is handled in JavaScript because it must become an INSTANT CUT
+   rather than disappear — the colour still changes, only the
+   interpolation goes. See utils/sceneLighting.js `setReducedMotion`.
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .status-thinking .status-dot,
+  .status-permission .status-dot,
+  .map-party-dot,
+  .chat-typing-dots,
+  .chat-typing-dots::before,
+  .chat-typing-dots::after,
+  .my-games-row-thinking .my-games-dot,
+  .my-games-row-purple .my-games-dot,
+  .typing-cursor {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================================================
+   SCENE LIGHTING CONTROLS  (WO-0037 phase 1)
+   The mood switcher and the Freeze button in the adventure header.
+   ---------------------------------------------------------------------
+   Colours here come from the tokens ONLY. These controls sit on the
+   surface they recolour, so a hardcoded hex in this block would be the
+   one patch of the page that does not follow the campaign — the exact
+   bug index.css:1-21 warns about.
+   ===================================================================== */
+.lighting-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.lighting-controls select {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.4rem;
+}
+.lighting-controls select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* Freeze is a toggle, and a toggle must look different when it is on.
+   --accent is semantic (it means "this is active"), which is why it is
+   allowed here and why it does not move with the campaign. */
+.btn-freeze[aria-pressed='true'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---- Game categories (WO-0040) ---- */
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.category-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 1em;
+  cursor: pointer;
+}
+.category-tab:hover {
+  background: rgba(var(--accent-rgb), 0.18);
+  color: var(--text);
+}
+.category-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text);
+  font-weight: 600;
+}
+.category-tab-count {
+  font-size: 0.75em;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+}
+.category-tagline {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.ruleset-tabs {
+  margin-bottom: 0.75rem;
+}
+
+/* Schematic campaign map — drawn from campaign.json mapLocations, no image asset */
+.schematic-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px) 0 0 / 5% 8%,
+    linear-gradient(90deg, rgba(var(--accent-rgb), 0.08) 1px, transparent 1px) 0 0 / 5% 8%,
+    var(--bg-dark);
+}
+.schematic-map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.schematic-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  max-width: 11rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text);
+  text-align: center;
+  font: inherit;
+}
+.schematic-pin.clickable {
+  cursor: pointer;
+}
+.schematic-pin-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--text);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.35);
+}
+.schematic-pin.clickable:hover .schematic-pin-dot,
+.schematic-pin.clickable:focus-visible .schematic-pin-dot {
+  transform: scale(1.3);
+}
+.schematic-pin-name {
+  font-size: 0.8em;
+  font-weight: 600;
+  line-height: 1.15;
+  text-shadow: 0 1px 3px #000;
+}
+.schematic-pin-sub {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  text-shadow: 0 1px 3px #000;
+}
+.schematic-legend {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.5rem;
+}
+@media (max-width: 640px) {
+  .schematic-pin-sub { display: none; }
+  .schematic-pin-name { font-size: 0.7em; }
 }

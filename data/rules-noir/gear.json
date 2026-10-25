@@ -1,0 +1,734 @@
+{
+  "_meta": {
+    "category": "noir",
+    "source": "Written for claudeDM (Noir category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Gear for Noir campaigns, 1930s-1950s, era-tagged; costs are 1940s dollars and may be fractional (0.05 = a nickel). Ammunition is recorded on character sheets as a counted equipment line named by the weapon's ammo_name in equipment.json, such as \".38 rounds (18)\" or \"Shotgun shells (10)\", and deducted shot by shot (combat.json ammunition). Items with 'uses' are consumables. The five vehicles are the car table; their AC, HP and speed are in combat.json vehicles. Medical items implement the no-magic healing rules in combat.json healing.",
+    "total_items": 60
+  },
+  "gear": [
+    {
+      "name": "Nickel for the payphone",
+      "category": "communications",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.05,
+      "weight": "-",
+      "description": "One local call from any drugstore, diner or hotel lobby booth. Long distance needs a pocketful of change and an operator who will remember the number. Carry a few: a sheet can record them as \"Nickel for the payphone (4)\".",
+      "uses": 1
+    },
+    {
+      "name": "Police-band radio",
+      "category": "communications",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 30,
+      "weight": "15 lb.",
+      "description": "A table or car radio that picks up police dispatch. While it is on and you are listening, you hear about any police call in the city as it goes out, and you have advantage on checks to anticipate a police response. Fits under the dash of a car."
+    },
+    {
+      "name": "Walkie-talkie (pair)",
+      "category": "communications",
+      "eras": [
+        "1950s"
+      ],
+      "cost": 150,
+      "weight": "5 lb. each",
+      "description": "Army-surplus or new commercial handheld radios, range about a mile in the city. Anyone with a radio on the frequency can listen in."
+    },
+    {
+      "name": "Portable typewriter",
+      "category": "communications",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 40,
+      "weight": "12 lb.",
+      "description": "In a case with a handle. Needed to write a report a police captain will read, a story an editor will print or a letter that looks like it came from an office. A Forensics check (DC 15) can match a typed page to the machine that typed it."
+    },
+    {
+      "name": "Notebook and pencil",
+      "category": "documents",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "Spiral-bound, fits a breast pocket. Write down names, plates and times; the GM treats a written note as something you remember exactly."
+    },
+    {
+      "name": "Card file of contacts",
+      "category": "documents",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 3,
+      "weight": "2 lb.",
+      "description": "A shoebox or desk file of index cards: names, numbers, favors, who drinks where. With an hour at your desk and the phone, you have advantage on one Research or Streetwise check to find a person in the city."
+    },
+    {
+      "name": "Rolodex",
+      "category": "documents",
+      "eras": [
+        "1950s"
+      ],
+      "cost": 8,
+      "weight": "3 lb.",
+      "description": "The rotary card file that arrived on desks in the late 1950s. Works as a card file of contacts, and impresses clients."
+    },
+    {
+      "name": "Business cards (100)",
+      "category": "documents",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1,
+      "weight": "-",
+      "description": "Your name, a number and maybe a line like \"Discreet Inquiries\". Leave one and people call you back."
+    },
+    {
+      "name": "City street guide",
+      "category": "documents",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "Pocket map and street index. With it, you never get lost in the city and you can find any address without a check."
+    },
+    {
+      "name": "Private investigator's license",
+      "category": "documents",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 10,
+      "weight": "-",
+      "description": "State license and a photostat in a leather folder. Lets you carry a concealed pistol (with a permit), take clients and refuse to answer some questions from the police. It can be suspended by the people you embarrass."
+    },
+    {
+      "name": "Press card",
+      "category": "documents",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0,
+      "weight": "-",
+      "description": "Issued by your paper; worn in the hatband. Needed for the Reporter's Press Pass. A forged one passes a casual look but not a call to the city desk."
+    },
+    {
+      "name": "Forgery kit",
+      "category": "documents",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 20,
+      "weight": "3 lb.",
+      "description": "Inks, papers, stamps, a set of pens and a jeweler's loupe. Proficiency lets you add your proficiency bonus to checks to forge a document (Deception or Sleight of Hand, DC 12 a letter, 15 an ID or a check, 20 a passport or a court order). Forging takes 1 hour per document."
+    },
+    {
+      "name": "Camera with flashbulbs",
+      "category": "surveillance",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 25,
+      "weight": "5 lb.",
+      "description": "Press-style folding camera with a flash gun. A photograph is evidence a cop or an editor will accept. The flash is impossible to miss in a dark room, and a bulb can blind a creature within 10 ft for a moment (DC 10 CON save or blinded until the end of its next turn). Comes with 12 flashbulbs and film for 12 shots.",
+      "uses": 12
+    },
+    {
+      "name": "Flashbulbs (12)",
+      "category": "surveillance",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1,
+      "weight": "1 lb.",
+      "description": "Replacement bulbs and a film pack for the camera. Each photograph uses one.",
+      "uses": 12
+    },
+    {
+      "name": "Miniature camera",
+      "category": "surveillance",
+      "eras": [
+        "1940s",
+        "1950s"
+      ],
+      "cost": 75,
+      "weight": "-",
+      "description": "A spy camera the size of a cigarette lighter, for photographing documents. Hiding it takes no check; using it unseen in a room with other people is a Sleight of Hand check against their passive Perception. Film for 50 exposures."
+    },
+    {
+      "name": "Binoculars",
+      "category": "surveillance",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 15,
+      "weight": "2 lb.",
+      "description": "Field glasses. Advantage on Perception checks to see details at a distance (a face across the street, a license plate down the block). Watching from a window during a stakeout without them is at disadvantage beyond 100 ft."
+    },
+    {
+      "name": "Wire recorder",
+      "category": "surveillance",
+      "eras": [
+        "1940s",
+        "1950s"
+      ],
+      "cost": 150,
+      "weight": "20 lb.",
+      "description": "Records sound onto steel wire, an hour per spool. Put it behind a curtain or in the next room with a microphone through the wall and you have the conversation word for word. A recording is evidence, if you can explain how you got it."
+    },
+    {
+      "name": "Wiretap kit",
+      "category": "surveillance",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 30,
+      "weight": "3 lb.",
+      "description": "Alligator clips, a lineman's handset and a length of wire. Tapping a telephone line at a junction box or a basement terminal takes 10 minutes and a Mechanics check (DC 12). Illegal for anyone without a court order, and often done by people with one."
+    },
+    {
+      "name": "Fingerprint kit",
+      "category": "surveillance",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 10,
+      "weight": "2 lb.",
+      "description": "Powder, brushes, lifting tape and cards. Lifts a print from a smooth surface with no check; matching it to a known print takes a Forensics check (DC 12, 1 hour), or access to the police files and a friend."
+    },
+    {
+      "name": "Magnifying glass",
+      "category": "surveillance",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1,
+      "weight": "-",
+      "description": "For threads, scratches, typewriter faces and the small print. Advantage on Forensics and Investigation checks to examine a small object closely."
+    },
+    {
+      "name": "Flashlight",
+      "category": "light",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1.5,
+      "weight": "2 lb.",
+      "description": "Chrome-barreled two-cell flashlight. Bright light in a 40-ft beam. Batteries last about 4 hours of use. Heavy enough to swing as an improvised weapon (1d4 bludgeoning)."
+    },
+    {
+      "name": "Matchbook",
+      "category": "light",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0,
+      "weight": "-",
+      "description": "Free with a pack of cigarettes. Every bar, club and hotel prints its name on them; a matchbook in a dead man's pocket says where he was."
+    },
+    {
+      "name": "Lock picks",
+      "category": "tools",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 5,
+      "weight": "-",
+      "description": "Picks and tension wrenches in a leather fold. Pick a lock with a DEX (Sleight of Hand) or INT (Mechanics) check: DC 10 a desk drawer or a cheap door, 15 an apartment or office deadbolt, 20 a good safe-deposit box or a bank door. Proficiency adds your proficiency bonus. Without picks, a lock can't be picked, only broken. Possession is a misdemeanor."
+    },
+    {
+      "name": "Handcuffs",
+      "category": "tools",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 5,
+      "weight": "1 lb.",
+      "description": "Steel police cuffs with a key. Cuffing a grappled, incapacitated or willing creature takes an action; a cuffed creature is restrained for hand-to-hand purposes (it can still walk) and can escape only with a key, lock picks (DC 15) or a DC 20 STR check."
+    },
+    {
+      "name": "Rope (50 ft)",
+      "category": "tools",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1,
+      "weight": "10 lb.",
+      "description": "Hemp rope. Tying someone up properly is an action and a DEX check; the knot holds against escape attempts at that DC."
+    },
+    {
+      "name": "Crowbar",
+      "category": "tools",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1,
+      "weight": "5 lb.",
+      "description": "Advantage on STR checks where leverage helps (doors, windows, crates, manhole covers). Leaves marks a detective can read (Investigation)."
+    },
+    {
+      "name": "Mechanic's tools",
+      "category": "tools",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 15,
+      "weight": "12 lb.",
+      "description": "Wrenches, screwdrivers, a jack, a feeler gauge. Needed for Mechanics checks to repair a car or machine, hot-wire a car (DC 12, 1 minute) or crack a mechanical safe by drilling (DC 15, 30 minutes, very loud). Proficiency adds your proficiency bonus."
+    },
+    {
+      "name": "Disguise kit",
+      "category": "tools",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 10,
+      "weight": "3 lb.",
+      "description": "Greasepaint, spirit gum, a few mustaches, glasses with plain lenses and a change of hat. Proficiency adds your proficiency bonus to Deception checks to pass as someone else."
+    },
+    {
+      "name": "Playing cards",
+      "category": "tools",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "An honest deck. Proficiency adds your proficiency bonus to checks to play well."
+    },
+    {
+      "name": "Marked deck",
+      "category": "tools",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 5,
+      "weight": "-",
+      "description": "Readable from the back by anyone who knows the code. Cheating with it is a Sleight of Hand check against the other players' passive Insight; proficiency adds your proficiency bonus. Getting caught ends the game, and maybe the evening."
+    },
+    {
+      "name": "First-aid kit",
+      "category": "medical",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 3,
+      "weight": "3 lb.",
+      "description": "Iodine, gauze, tape, scissors, smelling salts. Gives advantage on Medicine checks to stabilize, and one use ends Bleeding on a creature without a check. 10 uses.",
+      "uses": 10
+    },
+    {
+      "name": "Bandage roll",
+      "category": "medical",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "As an action, end Bleeding on a creature without a check. Single use.",
+      "uses": 1
+    },
+    {
+      "name": "Doctor's bag",
+      "category": "medical",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 40,
+      "weight": "8 lb.",
+      "description": "The black bag: stethoscope, sutures, forceps, syringes, a few ampoules and a bottle of something strong. Required for the Doctor's Patch Job. A doctor's bag counts as a first-aid kit, and proficiency with it adds your proficiency bonus to Medicine checks to treat wounds. 10 uses.",
+      "uses": 10
+    },
+    {
+      "name": "Morphine syrette",
+      "category": "medical",
+      "eras": [
+        "1940s",
+        "1950s"
+      ],
+      "cost": 2,
+      "weight": "-",
+      "description": "Single-dose wartime injector. As an action, inject a creature: it gains 1d6 + 2 temporary hit points for 1 hour and ends Shaken, and a creature at 0 HP that is stable regains 1 HP and wakes. A second dose within 8 hours requires a DC 13 CON save or the creature is poisoned for 1 hour. A controlled drug: anyone but a doctor carrying it has a question to answer.",
+      "uses": 1
+    },
+    {
+      "name": "Bottle of aspirin",
+      "category": "medical",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.15,
+      "weight": "-",
+      "description": "Taken at the start of a short rest, each Hit Die you spend during that rest heals 1 extra hit point. One bottle covers a short rest for one person, 10 times.",
+      "uses": 10
+    },
+    {
+      "name": "Smelling salts",
+      "category": "medical",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.5,
+      "weight": "-",
+      "description": "As an action, wake a creature that is unconscious and stable (but not at 0 HP from a fresh knockout blow in this round): it wakes with 1 HP. Three uses.",
+      "uses": 3
+    },
+    {
+      "name": "A fifth of rye",
+      "category": "vice",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 2,
+      "weight": "2 lb.",
+      "description": "Bottled-in-bond (or bathtub, before Repeal in 1933). Sharing a drink with a witness gives advantage on your next Persuasion check with them in that scene. A drink also counts as a stiff one for a Shaken character: after a short rest with it, they can end Shaken. Drinking more than two in an hour: CON save DC 12 or poisoned (drunk) for 1 hour.",
+      "uses": 5
+    },
+    {
+      "name": "Hip flask",
+      "category": "vice",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 3,
+      "weight": "-",
+      "description": "Silver or nickel, holds two drinks. Refilling it from a fifth uses one of the fifth's uses."
+    },
+    {
+      "name": "Pack of cigarettes",
+      "category": "vice",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.15,
+      "weight": "-",
+      "description": "Twenty smokes and a matchbook. Offering one is the oldest way to open a conversation; it gives no bonus, but a witness who accepts is a witness who has decided to talk to you.",
+      "uses": 20
+    },
+    {
+      "name": "Fedora",
+      "category": "clothing",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 5,
+      "weight": "-",
+      "description": "Felt hat with a brim to pull down. Turns your face into a shadow under a streetlight: disadvantage on Perception checks to recognize you from more than 30 ft at night."
+    },
+    {
+      "name": "Trench coat",
+      "category": "clothing",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 20,
+      "weight": "4 lb.",
+      "description": "Belted gabardine raincoat with storm flaps. Keeps you dry and hides a concealable weapon, but it is clothing, not armor; for AC 11 you want a heavy overcoat (equipment.json)."
+    },
+    {
+      "name": "Good suit",
+      "category": "clothing",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 30,
+      "weight": "4 lb.",
+      "description": "Two pieces, pressed, with a decent tie. Needed to get past a doorman, a bank officer or a district attorney's secretary without a check."
+    },
+    {
+      "name": "Evening clothes",
+      "category": "clothing",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 45,
+      "weight": "4 lb.",
+      "description": "Dinner jacket or evening gown. Without them, you don't get into a charity ball, an opening or the back room of a supper club, whatever your Society check."
+    },
+    {
+      "name": "Shoulder holster",
+      "category": "accessories",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 3,
+      "weight": "1 lb.",
+      "description": "Carries a Sidearm under the left arm. Drawing from it is part of your free object interaction, and a concealable Sidearm in it under a jacket needs an active search or pat-down to find."
+    },
+    {
+      "name": "Telescopic sight",
+      "category": "accessories",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 20,
+      "weight": "1 lb.",
+      "description": "Fitted to a Hunting rifle or Lever-action rifle. When you Aim with the rifle, you also ignore disadvantage from long range."
+    },
+    {
+      "name": ".22 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 0.5,
+      "weight": "-",
+      "description": "Rimfire rounds for the .22 target pistol. Record on a sheet as \".22 rounds (N)\" and count down."
+    },
+    {
+      "name": ".32 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1.5,
+      "weight": "1 lb.",
+      "description": "For the .32 pocket pistol. Record as \".32 rounds (N)\"."
+    },
+    {
+      "name": ".38 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 2,
+      "weight": "1 lb.",
+      "description": "For the .38 revolver and the Snub-nose .38. Record as \".38 rounds (N)\"."
+    },
+    {
+      "name": ".41 rounds (20)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1,
+      "weight": "-",
+      "description": "Short rimfire rounds for the derringer, getting hard to find by the 1950s. Record as \".41 rounds (N)\"."
+    },
+    {
+      "name": ".44 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 3,
+      "weight": "2 lb.",
+      "description": "For the .44 revolver. Record as \".44 rounds (N)\"."
+    },
+    {
+      "name": ".45 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 2.5,
+      "weight": "2 lb.",
+      "description": "For the .45 automatic, the Tommy gun and the grease gun. Record as \".45 rounds (N)\"; rounds loaded in a magazine or drum count as part of the total."
+    },
+    {
+      "name": "Shotgun shells (25)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1.5,
+      "weight": "3 lb.",
+      "description": "12-gauge buckshot for the Pump shotgun and the Sawed-off shotgun. Record as \"Shotgun shells (N)\"."
+    },
+    {
+      "name": "Rifle rounds (20)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1.5,
+      "weight": "2 lb.",
+      "description": "Centerfire rifle cartridges for the Lever-action rifle and the Hunting rifle. Record as \"Rifle rounds (N)\"."
+    },
+    {
+      "name": "Tommy-gun drum (50)",
+      "category": "ammunition",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 25,
+      "weight": "5 lb. loaded",
+      "description": "Fifty-round drum magazine for the Tommy gun. Fitting a drum, or reloading with one, is an action. The rounds in it are \".45 rounds\" and count toward that line on the sheet; the drum itself is listed as \"Tommy-gun drum (50)\". Loading an empty drum by hand takes 10 minutes."
+    },
+    {
+      "name": "Coupe",
+      "category": "vehicles",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 650,
+      "weight": "-",
+      "description": "Two-door, two seats and a rumble seat or a long trunk. Quick and nimble. Statistics in combat.json vehicles."
+    },
+    {
+      "name": "Sedan",
+      "category": "vehicles",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 800,
+      "weight": "-",
+      "description": "Four-door family car or company car; seats five, six in a pinch. The car nobody looks at twice. Statistics in combat.json vehicles."
+    },
+    {
+      "name": "Police cruiser",
+      "category": "vehicles",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 900,
+      "weight": "-",
+      "description": "A sedan with a heavier engine, a siren, a spotlight and (from the late 1930s) a two-way radio. Not for sale; a retired one at auction goes for about this. Statistics in combat.json vehicles."
+    },
+    {
+      "name": "Delivery truck",
+      "category": "vehicles",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 900,
+      "weight": "-",
+      "description": "Panel truck with a box in the back: bakery, laundry, florist. Carries a ton or six people out of sight. Statistics in combat.json vehicles."
+    },
+    {
+      "name": "Taxi",
+      "category": "vehicles",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 1000,
+      "weight": "-",
+      "description": "A sedan in fleet colors with a meter and a roof light. Invisible in traffic. Driving one without a hack license gets noticed by other cabbies first. Statistics in combat.json vehicles."
+    },
+    {
+      "name": "Tank of gasoline",
+      "category": "vehicles",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ],
+      "cost": 3,
+      "weight": "-",
+      "description": "Fifteen gallons at about 20 cents. Most cars go 200 miles on a tank. (During the war, gasoline is rationed: coupons, not cash.)"
+    }
+  ]
+}

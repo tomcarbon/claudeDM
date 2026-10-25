@@ -35,6 +35,11 @@ export default function useWebSocket() {
   const [permissionRequest, setPermissionRequest] = useState(null);
   const [sessionId, setSessionId] = useState(null);
   const [sessionsChanged, setSessionsChanged] = useState(0);
+  // Bumped when something outside the turn loop has changed a character sheet in this session —
+  // today only a restore (WO-0016). The two roster refreshes in Adventure.jsx are both keyed on
+  // the DM's turn finishing, and a restore does not happen inside a turn, so without this every
+  // other player's party board goes on showing the hit points of a character who is alive again.
+  const [partyChanged, setPartyChanged] = useState(0);
   const [arcSummaries, setArcSummaries] = useState([]); // condensed earlier arcs (compaction)
   const [archiveSeq, setArchiveSeq] = useState(0);       // server compaction watermark
   const wsRef = useRef(null);
@@ -149,6 +154,8 @@ export default function useWebSocket() {
             toolName: msg.toolName,
             description: msg.description,
             input: msg.input,
+            // Structured description of the change being asked about, when the server has one.
+            details: msg.details || null,
           });
           break;
 
@@ -158,6 +165,20 @@ export default function useWebSocket() {
 
         case 'sessions_changed':
           setSessionsChanged(prev => prev + 1);
+          break;
+
+        // WO-0016. A restore is not a turn and not something a player said: it is a system event
+        // that changed a character sheet. It goes into the transcript as `system`, which is also
+        // how session.json stores it, so the live view and the view after a reload say the same
+        // thing — unlike the integrity notices, which arrive on the player channel and render in a
+        // player's bubble. The counter tells Adventure.jsx to re-read the party.
+        case 'session_character_restored':
+          setMessages(prev => [...prev, {
+            type: 'system',
+            text: msg.text,
+            sessionId: msg.sessionId || currentSessionIdRef.current || undefined,
+          }]);
+          setPartyChanged(prev => prev + 1);
           break;
 
         case 'player_message_updated':
@@ -399,7 +420,7 @@ export default function useWebSocket() {
         companionConfig: companionConfig || null,
         dmPersonality: dmPersonality || null,
       }));
-      setMessages([{ type: 'system', text: 'Session started. Please wait while the DM prepares the story.' }]);
+      setMessages([{ type: 'system', text: 'Session started. Please wait while the GM prepares the story.' }]);
     }
   }, []);
 
@@ -590,6 +611,7 @@ export default function useWebSocket() {
     sendChatTypingStatus,
     chatTypingPlayers,
     sessionsChanged,
+    partyChanged,
     arcSummaries,
     setArcSummaries,
     archiveSeq,

@@ -178,3 +178,267 @@ describe('reconcileAndAppend (crash recovery)', () => {
     expect(archiveLines('s7').length).toBe(7);
   });
 });
+
+// ── WO-0017: compaction commits inside the session queue ──────────────────────────────────────
+//
+// `maybeCompact` read the session, awaited an LLM call for seconds, then wrote the whole object
+// back with `fsp.writeFile`. It used `updateSessionFile` zero times. Everything persisted during
+// that window was discarded — the DM turn's messages and world state, a companion claim, and
+// `mechanicalOverrides`, which is the only durable record that a player was asked to approve a
+// change to their own hit points and agreed.
+//
+// These tests do not assert that the write is wrapped. Wrapping alone MOVES the bug: `liveTail`
+// was computed before the LLM call, so assigning it to a freshly-read session throws away every
+// message appended since — losing the transcript instead of the hit points. What is asserted here
+// is the interleaving itself. Forced, not sampled: the summarizer is gated so the concurrent write
+// lands in the middle of the window every time. A correct serialisation is correct at every
+// frequency, so forcing is the right instrument.
+
+const { updateSessionFile } = require('../player-data');
+
+/** A summarizer that stops in the middle so a test can write to the session while it is "thinking". */
+function gatedSummarize() {
+  let signalEntered;
+  let openGate;
+  const entered = new Promise(r => { signalEntered = r; });
+  const gate = new Promise(r => { openGate = r; });
+  return {
+    entered,
+    release: () => openGate(),
+    summarize: async (input) => {
+      signalEntered();
+      await gate;
+      return `ARC BLURB :: ${input.slice(0, 30)}`;
+    },
+  };
+}
+
+function sessionFile(id) {
+  return path.join(dataDir, 'sessions', id, 'session.json');
+}
+
+function seed(id, total = 520, summaries = [100, 300]) {
+  writeSession(id, { id, dmPersonality: { archiveThreshold: 500 }, messages: makeMessages(total, summaries) });
+}
+
+describe('a write landing while the summary is being written is not lost', () => {
+  it('keeps a message appended during the window, and still archives the span', async () => {
+    const id = 'race-messages';
+    seed(id);
+    const g = gatedSummarize();
+    const running = maybeCompact(dataDir, id, { summarize: g.summarize });
+
+    await g.entered;
+    await updateSessionFile(dataDir, id, (live) => {
+      live.messages.push({ type: 'player', text: 'DURING THE SUMMARY', sessionId: 's' });
+    });
+    g.release();
+
+    const res = await running;
+    expect(res.compacted).toBe(true);
+    const saved = readSession(id);
+    // 520 - 301 archived = 219 kept, plus the one that arrived mid-window.
+    expect(saved.messages).toHaveLength(220);
+    expect(saved.messages[saved.messages.length - 1].text).toBe('DURING THE SUMMARY');
+    // ...and it is live, not archived: the span is exactly what was cut, no more.
+    expect(archiveLines(id)).toHaveLength(301);
+    expect(res.liveMessages).toHaveLength(220);
+  });
+
+  it('keeps the override audit record — the escape hatch\'s only durable trace', async () => {
+    // ADR 0005 §6: mechanicalOverrides is written to session.json through updateSessionFile by
+    // OverrideMechanicalState (dm-engine.js), and it is the only place on disk that records a
+    // player having been asked to approve a change to their own hit points. Compaction erased it.
+    const id = 'race-override';
+    seed(id);
+    const g = gatedSummarize();
+    const running = maybeCompact(dataDir, id, { summarize: g.summarize });
+
+    await g.entered;
+    await updateSessionFile(dataDir, id, (live) => {
+      live.mechanicalOverrides = [{
+        at: new Date().toISOString(),
+        entity: 'Kaelara Brightflame',
+        pointer: '/hitPoints/current',
+        previousValue: 0,
+        value: 1,
+        reason: 'the player approved it',
+      }];
+      live.worldState = { location: 'The Sunken Chapel', updatedAt: new Date().toISOString() };
+      live.companionPlayers = { 'npc-1': { email: 'friend@test.com', name: 'Sam' } };
+    });
+    g.release();
+
+    const res = await running;
+    expect(res.compacted).toBe(true);
+    const saved = readSession(id);
+    expect(saved.mechanicalOverrides).toHaveLength(1);
+    expect(saved.mechanicalOverrides[0].entity).toBe('Kaelara Brightflame');
+    expect(saved.worldState.location).toBe('The Sunken Chapel');
+    expect(saved.companionPlayers['npc-1'].email).toBe('friend@test.com');
+    // The compaction still happened; nothing was traded away to keep them.
+    expect(saved.arcSummaries).toHaveLength(1);
+    expect(saved.archiveMeta.totalArchived).toBe(301);
+  });
+
+  it('does not lose the concurrent write when the compaction aborts either', async () => {
+    const id = 'race-abort-keeps';
+    seed(id);
+    const g = gatedSummarize();
+    const running = maybeCompact(dataDir, id, { summarize: g.summarize });
+
+    await g.entered;
+    await updateSessionFile(dataDir, id, (live) => {
+      live.messages = makeMessages(60);                       // a client full-array auto-save
+      live.worldState = { location: 'Saltmere' };
+    });
+    g.release();
+
+    expect((await running).compacted).toBe(false);
+    const saved = readSession(id);
+    expect(saved.worldState.location).toBe('Saltmere');
+    expect(saved.messages).toHaveLength(60);
+  });
+});
+
+describe('the guard: when the transcript changed underneath, nothing happens at all', () => {
+  it('aborts on a rewritten prefix and leaves session.json byte-identical', async () => {
+    const id = 'guard-rewritten';
+    seed(id);
+    const g = gatedSummarize();
+    const running = maybeCompact(dataDir, id, { summarize: g.summarize });
+
+    await g.entered;
+    // PUT /sessions/:id replaces `messages` wholesale from the client's in-memory copy, and
+    // persistCanonicalTurn truncates and rewrites the tail when it reconciles a partial save.
+    // Either can land here, and then the array this compaction measured no longer exists.
+    await updateSessionFile(dataDir, id, (live) => {
+      live.messages = makeMessages(520, [100, 300]).map((m, i) =>
+        (i < 5 ? { ...m, text: `${m.text} (edited)` } : m));
+    });
+    const before = fs.readFileSync(sessionFile(id), 'utf-8');
+    g.release();
+
+    const res = await running;
+    expect(res.compacted).toBe(false);
+    expect(fs.readFileSync(sessionFile(id), 'utf-8')).toBe(before);
+    // And nothing was appended: the archive write is inside the lock, after the check, so an
+    // abort cannot leave archive.jsonl holding messages the session never committed.
+    expect(archiveLines(id)).toEqual([]);
+  });
+
+  it('aborts when the transcript got shorter than the span it was about to archive', async () => {
+    const id = 'guard-truncated';
+    seed(id);
+    const g = gatedSummarize();
+    const running = maybeCompact(dataDir, id, { summarize: g.summarize });
+
+    await g.entered;
+    await updateSessionFile(dataDir, id, (live) => { live.messages = live.messages.slice(0, 50); });
+    const before = fs.readFileSync(sessionFile(id), 'utf-8');
+    g.release();
+
+    expect((await running).compacted).toBe(false);
+    expect(fs.readFileSync(sessionFile(id), 'utf-8')).toBe(before);
+    expect(archiveLines(id)).toEqual([]);
+  });
+
+  it('two compactions racing produce one archive — and it is the guard doing it, not inFlight', async () => {
+    // The inFlight set short-circuits the second call, so it is removed here on purpose: what is
+    // under test is what protects the data once two compactions really are in flight, which is
+    // the claim made in the comment at the top of compaction.js.
+    const id = 'race-two-compactions';
+    seed(id);
+    const a = gatedSummarize();
+    const b = gatedSummarize();
+
+    const first = maybeCompact(dataDir, id, { summarize: a.summarize });
+    await a.entered;
+    _internal.inFlight.delete(id);
+    const second = maybeCompact(dataDir, id, { summarize: b.summarize });
+    await b.entered;
+
+    a.release();
+    const r1 = await first;
+    b.release();
+    const r2 = await second;
+
+    expect(r1.compacted).toBe(true);
+    expect(r2.compacted).toBe(false);          // its span is no longer a prefix of the live array
+    expect(archiveLines(id)).toHaveLength(301); // archived once, not twice
+    expect(readSession(id).arcSummaries).toHaveLength(1);
+    expect(readSession(id).archiveMeta.totalArchived).toBe(301);
+  });
+});
+
+describe('prefixMatches — the assumption the commit is allowed to make', () => {
+  const { prefixMatches } = _internal;
+  const span = [{ type: 'player', text: 'a' }, { type: 'dm', text: 'b' }];
+
+  it('accepts the same span with new messages appended after it', () => {
+    expect(prefixMatches([...span, { type: 'player', text: 'c' }], span)).toBe(true);
+  });
+
+  it('accepts the array unchanged', () => {
+    expect(prefixMatches([...span], span)).toBe(true);
+  });
+
+  it('rejects a prefix whose content was rewritten, even at the same length', () => {
+    expect(prefixMatches([{ type: 'player', text: 'a' }, { type: 'dm', text: 'B!' }], span)).toBe(false);
+  });
+
+  it('rejects an array shorter than the span', () => {
+    expect(prefixMatches([span[0]], span)).toBe(false);
+  });
+
+  it('rejects a reordered prefix', () => {
+    expect(prefixMatches([span[1], span[0]], span)).toBe(false);
+  });
+
+  it('rejects anything that is not an array', () => {
+    expect(prefixMatches(null, span)).toBe(false);
+    expect(prefixMatches(undefined, span)).toBe(false);
+    expect(prefixMatches({ 0: span[0] }, span)).toBe(false);
+  });
+});
+
+describe('compaction is wired to the queue, not around it', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'compaction.js'), 'utf-8');
+  // Comments stripped before any "the code does not contain X" assertion. The file quotes the
+  // line that shipped, in order to explain why it is gone — and the first version of the check
+  // below flagged that quotation. A detector that cannot tell code from the comment describing it
+  // is the same failure mode QC found in the sanctioned-writer scan, in miniature.
+  const code = src.split('\n')
+    .filter(l => {
+      const t = l.trim();
+      return !t.startsWith('//') && !t.startsWith('*') && !t.startsWith('/*');
+    })
+    .join('\n');
+
+  it('commits through updateSessionFile', () => {
+    expect(code).toContain("require('./player-data')");
+    expect(code).toMatch(/await updateSessionFile\(dataDir, sessionDbId, async \(live\)/);
+  });
+
+  it('no longer writes the session file directly', () => {
+    // The line that shipped, verbatim from d02cadd. It is the defect, not a stand-in for it.
+    expect(code).not.toContain('await fsp.writeFile(fp, JSON.stringify(session, null, 2));');
+    // ...and nothing else writes to the session path either. The archive is a different file.
+    const sessionPathWrites = [...code.matchAll(/(?:fsp\.writeFile|fs\.writeFileSync|writeJsonAtomic)\s*\(\s*fp\b/g)];
+    expect(sessionPathWrites).toHaveLength(0);
+  });
+
+  it('does the expensive call outside the lock and the commit inside it', () => {
+    const summarizeAt = code.indexOf('await summarize(buildSummaryInput(span))');
+    const lockAt = code.indexOf('await updateSessionFile(dataDir, sessionDbId');
+    expect(summarizeAt).toBeGreaterThan(-1);
+    expect(lockAt).toBeGreaterThan(summarizeAt);
+  });
+
+  it('recomputes the tail from the fresh array rather than assigning the stale one', () => {
+    // The whole trap of this work order in one assertion: `liveTail` must be derived from the
+    // object the queue just read, never from the array captured before the LLM call.
+    expect(code).toContain('const liveTail = fresh.slice(span.length);');
+    expect(code).not.toMatch(/const liveTail = messages\.slice/);
+  });
+});

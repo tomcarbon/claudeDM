@@ -4,7 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
 const { emailToSlug, getSessionDir, getSessionFilePath, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, provisionPlayerDefaults, snapshotToSession, updateSessionFile } = require('../player-data');
-const { broadcastToAll } = require('../ws-handler');
+const { broadcastToAll, broadcastToSessionRoom } = require('../ws-handler');
 const { loadDmSettings } = require('../dm-engine');
 const { safeReadJsonFile, tryRecover, writeJsonAtomic } = require('../json-recovery');
 const { verifySessionIntegrity } = require('../entity-resolver');
@@ -169,6 +169,89 @@ function countPlayerSessions(dataDir, email) {
   return count;
 }
 
+// ── Restoring a character from the player's library (WO-0016) ─────────────────────────────────
+// Small, side-effect-free helpers, kept at module scope so the seat rule and the "is this
+// character down" rule can be asserted without standing up an HTTP server. The route below is
+// their only caller.
+
+/**
+ * The one sheet in `dir` whose id is exactly `characterId`, or null.
+ *
+ * Exact id only, deliberately. entity-resolver.js matches loosely on name and slug so the DM can
+ * say "Kaelara" and be understood; this route OVERWRITES a character sheet, and a near-miss here
+ * would overwrite one character with a different character's saved copy. The client always has a
+ * real id — it came from GET /:id/party — so there is nothing to be lenient about.
+ */
+function readSheetByExactId(dir, characterId) {
+  if (!dir || !characterId || !fs.existsSync(dir)) return null;
+  for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
+    const filePath = path.join(dir, file);
+    const result = safeReadJsonFile(filePath);
+    if (result.ok && result.data && result.data.id === characterId) {
+      return { file, filePath, data: result.data };
+    }
+  }
+  return null;
+}
+
+/** Every character id this session has a seat for, for a refusal that can say what it did find. */
+function listSessionCharacterIds(session) {
+  const ids = [];
+  if (session.characterId) ids.push(session.characterId);
+  for (const claim of Object.values(session.companionPlayers || {})) {
+    if (claim && claim.characterId) ids.push(claim.characterId);
+  }
+  return ids;
+}
+
+/**
+ * Which seat in the session plays this character, and whose seat it is.
+ * The host plays `session.characterId`; a companion player's character is recorded on their
+ * claim. Returns { email, name, seat, npcId } or null when the character has no seat here.
+ *
+ * This is the ownership rule for the restore, and it is the reason the route does not accept the
+ * host as a stand-in for a companion player: the host owns the session, but the character belongs
+ * to whoever is playing it, and undoing three hours of somebody else's evening is not the host's
+ * call to make.
+ */
+function findCharacterSeat(session, characterId) {
+  if (!characterId) return null;
+  if (session.characterId && session.characterId === characterId) {
+    const email = getOwnerEmail(session);
+    if (!email) return null;
+    return { email, name: getOwnerName(session) || email, seat: 'host', npcId: null };
+  }
+  for (const [npcId, claim] of Object.entries(session.companionPlayers || {})) {
+    if (!claim || claim.characterId !== characterId) continue;
+    const email = claim.email ? String(claim.email).trim().toLowerCase() : null;
+    if (!email) return null;
+    return { email, name: claim.name || claim.characterName || email, seat: 'companion', npcId };
+  }
+  return null;
+}
+
+/**
+ * Is this character dead, or down at 0 hit points?
+ *
+ * ADR 0005 §7.3 keeps `status` to exactly two values and derives "down"/"dying"/"unconscious"
+ * from `current === 0 && status !== "dead"`, so this function is that derivation and not a new
+ * state. Restore is available for both: a character at 0 with two failed death saves has not
+ * technically died, and telling them to wait until they have is not a kindness.
+ */
+function isDownOrDead(sheet) {
+  if (!sheet) return false;
+  if (String(sheet.status || 'alive').toLowerCase() === 'dead') return true;
+  const current = Number(sheet.hitPoints && sheet.hitPoints.current);
+  return Number.isFinite(current) && current <= 0;
+}
+
+/** "dead", or "down at 0/12 hit points" — for a message a distressed player has to read once. */
+function describeCondition(sheet) {
+  if (String(sheet.status || 'alive').toLowerCase() === 'dead') return 'dead';
+  const hp = sheet.hitPoints || {};
+  return `down at ${hp.current ?? '?'}/${hp.max ?? '?'} hit points`;
+}
+
 module.exports = function (dataDir) {
   const router = express.Router();
 
@@ -181,7 +264,9 @@ module.exports = function (dataDir) {
 
   // Find a session file by ID — simple direct lookup
   function findSessionFile(sessionId) {
-    const fp = getSessionFilePath(dataDir, sessionId);
+    // A non-id is refused by the path helper (WO-0041); to a caller that is simply no such session.
+    let fp;
+    try { fp = getSessionFilePath(dataDir, sessionId); } catch { return null; }
     return fs.existsSync(fp) ? fp : null;
   }
 
@@ -400,6 +485,13 @@ module.exports = function (dataDir) {
         if (m && typeof m === 'object' && !m.sessionId) m.sessionId = session.id;
       }
       // Write session to neutral shared location: data/sessions/<id>/session.json
+      //
+      // Direct write rather than updateSessionFile, and that is safe here for a reason worth
+      // stating: the id was generated in this handler and the file does not exist yet, so
+      // there is nothing to read-modify-write and no other writer can hold this id. Every
+      // route that touches a session a client already knows about goes through the queue —
+      // see the join route below and PUT /:id above. If this write is ever moved to a path
+      // where the session can already be open, it has to move to the queue with it.
       const sessionDir = getSessionDir(dataDir, session.id);
       fs.mkdirSync(sessionDir, { recursive: true });
       writeJsonAtomic(path.join(sessionDir, 'session.json'), session);
@@ -446,6 +538,8 @@ module.exports = function (dataDir) {
       // A dangling characterId is exactly how sheets stopped updating in production.
       const integrity = verifySessionIntegrity(dataDir, session);
       if (integrity.changed) {
+        // Still inside POST /sessions, still an id no client has been given — see the note on
+        // the first write above.
         writeJsonAtomic(path.join(sessionDir, 'session.json'), session);
       }
       if (integrity.warnings.length > 0) {
@@ -503,6 +597,7 @@ module.exports = function (dataDir) {
         delete payload.players;
         delete payload.settings; // settings updated via dedicated endpoint
         delete payload.dmPersonality; // locked at session creation
+        delete payload.campaignId;    // fixed at creation; a body field must not re-route the session's files (WO-0041)
         // Server-owned state — never let a client auto-save overwrite it.
         const incomingArchiveSeq = Number(req.body.archiveSeq || 0);
         const existingArchiveSeq = prior.archiveSeq;
@@ -577,7 +672,7 @@ module.exports = function (dataDir) {
   });
 
   // PUT update session settings
-  router.put('/:id/settings', (req, res) => {
+  router.put('/:id/settings', async (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
       if (!requester) {
@@ -610,9 +705,12 @@ module.exports = function (dataDir) {
         currentSettings.maxBots = Math.max(1, Math.min(5, Number(incoming.maxBots) || 2));
       }
 
-      existing.settings = currentSettings;
-      existing.updatedAt = new Date().toISOString();
-      writeJsonAtomic(filePath, existing);
+      // Through the queue: a host changing visibility mid-turn was otherwise written and then
+      // overwritten by the turn's own persistence. Validation stays outside — it only reads the
+      // request body and the settings shape — and only the mutation is sequenced.
+      await updateSessionFile(dataDir, req.params.id, (live) => {
+        live.settings = currentSettings;
+      });
       res.json({ settings: currentSettings });
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -620,7 +718,7 @@ module.exports = function (dataDir) {
   });
 
   // PUT rename session (set label)
-  router.put('/:id/label', (req, res) => {
+  router.put('/:id/label', async (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
       if (!requester) {
@@ -635,17 +733,18 @@ module.exports = function (dataDir) {
         return res.status(403).json({ error: 'Only the session creator can rename this session.' });
       }
       const label = req.body.label != null ? String(req.body.label).trim().substring(0, 60) || null : null;
-      existing.label = label;
-      existing.updatedAt = new Date().toISOString();
-      writeJsonAtomic(filePath, existing);
-      res.json({ label: existing.label });
+      // Through the queue, same reason as the settings route above.
+      await updateSessionFile(dataDir, req.params.id, (live) => {
+        live.label = label;
+      });
+      res.json({ label });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
   });
 
   // POST join a companion slot
-  router.post('/:id/join', (req, res) => {
+  router.post('/:id/join', async (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
       if (!requester) {
@@ -685,40 +784,52 @@ module.exports = function (dataDir) {
         }
       }
 
-      // Check if already claimed
-      if (!session.companionPlayers) session.companionPlayers = {};
-      if (session.companionPlayers[npcId]) {
-        return res.status(409).json({ error: 'This slot has already been claimed.' });
-      }
-
       // Prevent host from joining their own session as a companion
       const ownerEmail = getOwnerEmail(session);
       if (ownerEmail && requester.email.toLowerCase() === ownerEmail.toLowerCase()) {
         return res.status(400).json({ error: 'The host cannot join a companion slot in their own session.' });
       }
 
-      // Prevent a player from claiming more than one slot
-      const alreadyJoined = Object.values(session.companionPlayers).some(
-        cp => cp.email && cp.email.toLowerCase() === requester.email.toLowerCase()
-      );
-      if (alreadyJoined) {
-        return res.status(409).json({ error: 'You have already joined a slot in this session.' });
+      // Claiming a slot is a check-then-act on a file the DM turn also writes, so it happens
+      // inside the queue — the same reason and the same shape as PUT /:id above, whose comment
+      // says it: a value read outside the lock may already be stale. The checks that decide
+      // whether the claim is legal are re-run in here against the file as it is now, not as it
+      // was when this request arrived. Two friends clicking Join in the same instant were
+      // already safe (an Express handler with no await between its read and its write runs to
+      // completion), but a claim landing while a DM turn persisted was not: it was written and
+      // then overwritten, and the player got a 200 saying they had joined. WO-0015.4.
+      let conflict = null;
+      let claim = null;
+      const claimed = await updateSessionFile(dataDir, req.params.id, (live) => {
+        if (!live.companionPlayers) live.companionPlayers = {};
+        if (live.companionPlayers[npcId]) {
+          conflict = { status: 409, error: 'This slot has already been claimed.' };
+          return false;
+        }
+        const alreadyJoined = Object.values(live.companionPlayers).some(
+          cp => cp.email && cp.email.toLowerCase() === requester.email.toLowerCase()
+        );
+        if (alreadyJoined) {
+          conflict = { status: 409, error: 'You have already joined a slot in this session.' };
+          return false;
+        }
+        claim = {
+          email: requester.email,
+          name: requester.name,
+          joinedAt: new Date().toISOString(),
+        };
+        live.companionPlayers[npcId] = claim;
+      });
+      if (conflict) {
+        return res.status(conflict.status).json({ error: conflict.error });
       }
 
-      // Claim the slot
-      session.companionPlayers[npcId] = {
-        email: requester.email,
-        name: requester.name,
-        joinedAt: new Date().toISOString(),
-      };
-      session.updatedAt = new Date().toISOString();
-      writeJsonAtomic(filePath, session);
       broadcastToAll('sessions_changed');
       res.json({
         npcId,
-        campaignId: session.campaignId || 'demo',
-        claimedBy: session.companionPlayers[npcId],
-        companionSlots: getCompanionSlots(session),
+        campaignId: claimed.campaignId || 'demo',
+        claimedBy: claim,
+        companionSlots: getCompanionSlots(claimed),
       });
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -726,7 +837,7 @@ module.exports = function (dataDir) {
   });
 
   // POST unjoin — release a claimed companion slot
-  router.post('/:id/unjoin', (req, res) => {
+  router.post('/:id/unjoin', async (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
       if (!requester) {
@@ -744,26 +855,235 @@ module.exports = function (dataDir) {
 
       const session = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
       const isOwner = canWriteSession(session, requester);
-
-      if (!session.companionPlayers || !session.companionPlayers[npcId]) {
-        return res.status(400).json({ error: 'This slot is not claimed.' });
-      }
-
-      // Only the player who claimed it, the session owner, or an admin can unjoin
-      const claimEmail = session.companionPlayers[npcId].email;
       const isAdmin = requester.role === 'admin';
-      if (claimEmail !== requester.email && !isOwner && !isAdmin) {
-        return res.status(403).json({ error: 'You can only unjoin your own slot.' });
+
+      // Releasing a slot is a check-then-act, like the join above, and goes through the queue
+      // for the same reason. Who is allowed to release it depends on who currently holds it,
+      // so that check belongs inside the lock too.
+      let refusal = null;
+      const released = await updateSessionFile(dataDir, req.params.id, (live) => {
+        if (!live.companionPlayers || !live.companionPlayers[npcId]) {
+          refusal = { status: 400, error: 'This slot is not claimed.' };
+          return false;
+        }
+        const claimEmail = live.companionPlayers[npcId].email;
+        if (claimEmail !== requester.email && !isOwner && !isAdmin) {
+          refusal = { status: 403, error: 'You can only unjoin your own slot.' };
+          return false;
+        }
+        delete live.companionPlayers[npcId];
+      });
+      if (refusal) {
+        return res.status(refusal.status).json({ error: refusal.error });
       }
 
-      delete session.companionPlayers[npcId];
-      session.updatedAt = new Date().toISOString();
-      writeJsonAtomic(filePath, session);
       broadcastToAll('sessions_changed');
       res.json({
         npcId,
-        companionSlots: getCompanionSlots(session),
+        companionSlots: getCompanionSlots(released),
       });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // ── POST /:id/restore-character ──────────────────────────────────────────────────────────────
+  // The undo this product has never had (WO-0016, recommended by the Ethics & Safety Officer).
+  //
+  // Until now the only recovery from a death was POST /settings/reset-my-data, which copies
+  // data/defaults/<campaign>/characters over the player's library — so a character thirty hours
+  // old came back as the level-1 template they started from. This route copies the player's OWN
+  // library sheet into the session directory instead. It is cheap because there is no
+  // session -> library write-back anywhere in this server: the library copy has sat untouched
+  // since snapshotToSession ran when the session was created, so the pre-death character is
+  // already on disk and nothing needs capturing. It needs copying back.
+  //
+  // ── This is a sanctioned governed-field writer ───────────────────────────────────────────────
+  // The write below sets hitPoints, status and deathSaves: Ring 1 of ADR 0005 §3, the exact
+  // fields server/state-guard.js refuses unconditionally. The guard is not weakened for it and
+  // does not see it — ADR 0005 §5.6 says in terms that the guard binds the model and not the
+  // server. What makes this legitimate is not that it sits outside the guard; it is that every
+  // property the guard exists to enforce holds here anyway:
+  //   * no agent is involved. The DM cannot call this route and cannot cause a player to;
+  //   * no number is invented. Every value is copied verbatim out of a file the server wrote at
+  //     session creation and has not touched since, so nothing is being decided by anybody;
+  //   * it is not silent. The player confirms it first and the whole party is told afterwards in
+  //     the transcript — more visibility than any tool write gets.
+  // It is listed by file and by call-site count in the whole-server sanctioned-sheet-writer scan
+  // in server/__tests__/mechanical-tools.test.js. A second sheet write in this file, or a first
+  // one in any unlisted file under server/, fails that scan until somebody writes down why it
+  // exists. That is the point of listing it: the scan built two days ago was found by QC to be
+  // blind to the very defect it existed to catch, and a new sanctioned writer waved through
+  // without care is how that happens again.
+  //
+  // ── Why the whole operation runs inside updateSessionFile ────────────────────────────────────
+  // WO-0015 established that a live-session write racing the DM's turn is silently overwritten,
+  // and a restore is exactly that shape: the player clicks Restore while the server is persisting
+  // the turn that killed them. So the transcript line goes on the same per-session queue as every
+  // other server-side session write, and the checks that decide whether the restore is legal are
+  // re-run inside the lock against the file as it is now — not as it was when the request
+  // arrived. Same reason and same shape as /:id/join above.
+  //
+  // The sheet write is inside the lock too, and that does NOT make it race-free. Saying it did
+  // would be worse than saying nothing, so: character files are not on this queue at all —
+  // vitals-utils, xp-utils, resource-utils and routes/characters all write them directly — so an
+  // ApplyVitals call in a turn already in flight can still land after this write, from a sheet it
+  // read before it, and re-apply the damage. What the lock does buy is that the restore cannot be
+  // reordered against the turn's own session.json persistence: the notice cannot be lost, and the
+  // party cannot be told about a restore whose session record was then overwritten. Putting
+  // character files on a queue of their own is a larger change than this work order.
+  router.post('/:id/restore-character', async (req, res) => {
+    try {
+      const requester = getAuthenticatedPlayer(dataDir, req);
+      if (!requester) {
+        return res.status(403).json({ error: 'Login required to restore a character.' });
+      }
+      const characterId = req.body && req.body.characterId;
+      if (!characterId) {
+        return res.status(400).json({ error: 'characterId is required.' });
+      }
+      // The only destructive thing a player can do to their own game from inside a session, so it
+      // does not happen on a bare POST. The client sends this once the player has read what the
+      // restore discards; a caller that has not asked is refused rather than obeyed.
+      if (req.body.confirm !== true) {
+        return res.status(400).json({
+          error: 'Restoring a character discards everything that has happened to them during this session. Send confirm: true once the player has been told that and has agreed.',
+        });
+      }
+
+      const filePath = findSessionFile(req.params.id);
+      if (!filePath) {
+        return res.status(404).json({ error: 'Session not found' });
+      }
+
+      const requesterEmail = String(requester.email).trim().toLowerCase();
+      let refusal = null;
+      let outcome = null;
+
+      await updateSessionFile(dataDir, req.params.id, (live) => {
+        const seat = findCharacterSeat(live, characterId);
+        if (!seat) {
+          const known = listSessionCharacterIds(live);
+          refusal = {
+            status: 404,
+            error: known.length > 0
+              ? `No character with id "${characterId}" is being played in this session. The characters here are: ${known.join(', ')}.`
+              : `No character with id "${characterId}" is being played in this session.`,
+          };
+          return false;
+        }
+        if (seat.email !== requesterEmail) {
+          refusal = {
+            status: 403,
+            error: `That character is being played by ${seat.name}. Only the player of a character can bring them back${seat.seat === 'companion' ? ', so this is not the host’s to do on their behalf' : ''} — ask ${seat.name} to do it from their own screen.`,
+          };
+          return false;
+        }
+
+        const campaign = live.campaignId || 'demo';
+        const sessionSheet = readSheetByExactId(getSessionCharactersDir(dataDir, req.params.id), characterId);
+        if (!sessionSheet) {
+          refusal = {
+            status: 404,
+            error: `This session has no character file for "${characterId}", so there is nothing to restore over. Nothing has been changed.`,
+          };
+          return false;
+        }
+        const name = sessionSheet.data.name || characterId;
+
+        if (!isDownOrDead(sessionSheet.data)) {
+          const currentHp = sessionSheet.data.hitPoints || {};
+          refusal = {
+            status: 409,
+            error: `${name} is alive at ${currentHp.current ?? '?'}/${currentHp.max ?? '?'} hit points. Restore exists to undo a death, so it stays out of the way while your character is on their feet.`,
+          };
+          return false;
+        }
+
+        const librarySheet = readSheetByExactId(getPlayerCharactersDir(dataDir, seat.email, campaign), characterId);
+        if (!librarySheet) {
+          refusal = {
+            status: 409,
+            error: `There is no saved copy of ${name} in your character library for this campaign, so a restore would have nothing to bring back. Nothing has been changed. This is what it looks like when a character was made inside the session and never saved to the library.`,
+          };
+          return false;
+        }
+        // A library copy that is itself dead or down would cost the player their whole session and
+        // leave them exactly where they are. Refusing is the only answer that does not take
+        // something for nothing.
+        if (isDownOrDead(librarySheet.data)) {
+          refusal = {
+            status: 409,
+            error: `The saved copy of ${name} is itself ${describeCondition(librarySheet.data)}, so restoring it would discard this session and leave ${name} no better off. Nothing has been changed.`,
+          };
+          return false;
+        }
+
+        // Copied verbatim from the library file, with three deliberate edits and no fourth.
+        const restoredSheet = { ...librarySheet.data };
+        // 1. Death-save state is cleared rather than copied. The library copy predates the death
+        //    and normally has none at all — but `delete` is the version that is still right on the
+        //    day one appears, and "the copy happened not to have any" is not a guarantee.
+        delete restoredSheet.deathSaves;
+        // 2. status is filled in only when absent, exactly as copyDefaultsToDir's addStatusAlive
+        //    does. It is never overwritten: a library copy reading "dead" was refused above, so
+        //    the only thing this line can do is supply the default for a sheet that lacks the
+        //    field. ADR 0005 §7.3 — the field has two values and "down" is derived from the HP.
+        if (!restoredSheet.status) restoredSheet.status = 'alive';
+        // 3. The session's own filename is kept. Minting one from the name is how a character
+        //    ended up on disk twice, as daichi-mus.json and daichi-muso.json (see ws-handler.js's
+        //    companion copy), and two files with one id means the DM's next read may find either.
+        restoredSheet._filename = sessionSheet.data._filename || sessionSheet.file;
+
+        const targetPath = sessionSheet.filePath;
+        writeJsonAtomic(targetPath, restoredSheet);
+
+        const restoredHp = restoredSheet.hitPoints || {};
+        // Visible to the party, and phrased for someone reading it in the middle of a scene: who
+        // did it, what state the character is in now, and what it cost. A character returning from
+        // the dead is not a private event, and the transcript is where this game records what
+        // happened.
+        const notice = `${name} was restored by ${requester.name || seat.name} from their saved character, as ${name} was when this session began — ${restoredHp.current ?? '?'}/${restoredHp.max ?? '?'} hit points and no death saves. Everything that happened to ${name} during this session has been replaced by that saved copy.`;
+        if (!Array.isArray(live.messages)) live.messages = [];
+        live.messages.push({
+          type: 'system',
+          text: notice,
+          timestamp: new Date().toISOString(),
+          sessionId: live.id || req.params.id,
+        });
+
+        outcome = {
+          name,
+          notice,
+          seat: seat.seat,
+          hitPoints: { current: restoredHp.current ?? null, max: restoredHp.max ?? null },
+          restoredFrom: librarySheet.file,
+          file: path.basename(targetPath),
+        };
+      });
+
+      if (refusal) {
+        return res.status(refusal.status).json({ error: refusal.error });
+      }
+
+      // One message, doing two jobs: it carries the transcript line and it tells every client
+      // that a character sheet changed outside the turn cycle, so the party boards stop showing
+      // hit points that stopped being true a moment ago.
+      //
+      // It is NOT sent on the 'session_player_message' channel the integrity notices use. That
+      // channel renders on the client as a message from the player — the integrity warnings live
+      // with that and paper over it with a leading "⚠️", but it also means the live view and the
+      // view after a page reload disagree about what kind of message it was. This one is stored
+      // in session.json as `system` and arrives as `system`, so the two agree. The name is pinned
+      // against the client's handler by a test in server/__tests__/restore-character.test.js.
+      broadcastToSessionRoom(req.params.id, 'session_character_restored', {
+        text: outcome.notice,
+        characterId,
+        timestamp: new Date().toISOString(),
+        sessionId: req.params.id,
+      });
+
+      res.json({ restored: true, characterId, ...outcome });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -795,7 +1115,7 @@ module.exports = function (dataDir) {
   });
 
   // POST add player to session (multiplayer prep)
-  router.post('/:id/players', (req, res) => {
+  router.post('/:id/players', async (req, res) => {
     try {
       const requester = getAuthenticatedPlayer(dataDir, req);
       if (!requester) {
@@ -810,21 +1130,26 @@ module.exports = function (dataDir) {
         return res.status(403).json({ error: 'Only the session creator can modify this session.' });
       }
       const { characterId } = req.body;
-      if (!Array.isArray(session.players)) {
-        session.players = [];
-      }
-      if (session.players.length >= 8) {
-        return res.status(400).json({ error: 'Party is full (max 8)' });
-      }
       const player = {
         id: uuidv4(),
         characterId,
         role: 'player',
         joinedAt: new Date().toISOString(),
       };
-      session.players.push(player);
-      session.updatedAt = new Date().toISOString();
-      writeJsonAtomic(filePath, session);
+      // The party-size check is a check-then-act on a list two requests could append to, so it
+      // is re-run inside the queue against the live file rather than the pre-check snapshot.
+      let full = false;
+      await updateSessionFile(dataDir, req.params.id, (live) => {
+        if (!Array.isArray(live.players)) live.players = [];
+        if (live.players.length >= 8) {
+          full = true;
+          return false;
+        }
+        live.players.push(player);
+      });
+      if (full) {
+        return res.status(400).json({ error: 'Party is full (max 8)' });
+      }
       res.status(201).json(player);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -952,3 +1277,7 @@ module.exports = function (dataDir) {
 
   return router;
 };
+
+// Exported for tests: the two rules the restore route turns on, assertable without a server.
+module.exports._testing = { findCharacterSeat, isDownOrDead, listSessionCharacterIds, readSheetByExactId };
+

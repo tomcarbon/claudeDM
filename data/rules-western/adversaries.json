@@ -1,0 +1,2651 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Western adversaries in the same schema as data/rules/monsters.json and the Noir adversaries.json, so LookupMonster can read them. Weapon actions follow the gunplay rules in combat.json: ranged attacks list range and magazine; revolvers reload two rounds per action and can be fanned (Fan the Hammer: several attacks at disadvantage, one weapon die each, no modifier); shotguns can fire both barrels for an extra die. Explosives are DEX save actions. Knockout blows give their CON save DC. Humans are type 'humanoid', subtype 'human'; animals are 'beast'. There are no Native American, Mexican or Chinese adversary entries, generic or otherwise, by design (WO-0043 spec 13). Bosses fight through other people: their reactions (Get Him!, Deputies!, Cover Me) and actions direct allies rather than deal damage, and their CR assumes the escort named in their special abilities is present. Star, Wanted and Reputation abilities refer to frontier.json. Each entry carries an 'eras' tag; stat blocks that carry an Army revolver note the Navy revolver they use in the 1860s instead. The Lynch Mob is a crime and a horror, never justice. XP follows the standard XP-by-CR table.",
+    "total_monsters": 33,
+    "organized_by": "challenge_rating"
+  },
+  "monsters_by_cr": {
+    "0": [
+      {
+        "name": "Drunk Cowboy",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 10,
+        "ac_type": "dex",
+        "hp": 13,
+        "hit_dice": "2d8+4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 10,
+          "CON": 14,
+          "INT": 9,
+          "WIS": 8,
+          "CHA": 11
+        },
+        "cr": "0",
+        "xp": 10,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 9
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Fist",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d4+1",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +2 to hit, range 30/90 ft., one target. Hit: 4 (1d8) piercing damage. Cylinder 6. The cowboy fires at disadvantage while Liquored Up; a miss by 5 or more hits the nearest bystander, mirror or lamp.",
+            "attack_bonus": 2,
+            "damage": [
+              {
+                "dice": "1d8",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Riding": 2,
+          "Animal Handling": 1
+        },
+        "special_abilities": [
+          {
+            "name": "Liquored Up",
+            "desc": "The cowboy has disadvantage on DEX checks and on ranged attacks, and advantage on saves against being frightened. A DC 10 Persuasion check, a pot of coffee or a bucket of water calms him down; a DC 10 Intimidation check sends him back to the bar."
+          },
+          {
+            "name": "Payday",
+            "desc": "He has a month's wages ($1d20 + 10) in his pocket and no intention of keeping any of it. In the morning he is a decent hand who doesn't remember what he said."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Coyote",
+        "size": "Small",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 12,
+        "ac_type": "dex",
+        "hp": 7,
+        "hit_dice": "2d6",
+        "speed": {
+          "walk": "40 ft."
+        },
+        "abilities": {
+          "STR": 8,
+          "DEX": 14,
+          "CON": 11,
+          "INT": 3,
+          "WIS": 12,
+          "CHA": 6
+        },
+        "cr": "0",
+        "xp": 10,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d4+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3,
+          "Stealth": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Keen Hearing and Smell",
+            "desc": "The coyote has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+          },
+          {
+            "name": "Camp Thief",
+            "desc": "Coyotes don't attack people unless cornered. At night they come for unguarded food, saddle leather and lariats, and their howling can spook horses (combat.json mounted_combat.spooked_horse) on a night watch."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      }
+    ],
+    "1": [
+      {
+        "name": "Hired Gun",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 39,
+        "hit_dice": "6d8+12",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 15,
+          "CON": 14,
+          "INT": 10,
+          "WIS": 12,
+          "CHA": 10
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The hired gun makes two Army Revolver attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Army Revolver",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 7 (1d10 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d10+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Fan the Hammer",
+            "desc": "The hired gun fans its revolver: it makes 3 ranged attacks with its revolver at disadvantage against one target or targets within 10 ft of each other, each dealing 1d10 piercing damage on a hit (no modifier), and spends 3 rounds."
+          },
+          {
+            "name": "Pistol-Whip",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d4+1",
+                "type": "Bludgeoning"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Perception": 3,
+          "Intimidation": 2,
+          "Riding": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Paid by the Week",
+            "desc": "The hired gun leaves the fight when the man paying it is down, or when it is clearly losing. It doesn't take a bullet for anyone, and it can be bought: double its wages ($100 a month) and it changes sides, though it will tell the next man who pays more."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Railroad Enforcer",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 45,
+        "hit_dice": "7d8+14",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 16,
+          "DEX": 10,
+          "CON": 14,
+          "INT": 9,
+          "WIS": 11,
+          "CHA": 10
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 10
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The enforcer makes two Pick Handle attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Pick Handle",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Pick Handle",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage. Knockout blow from surprise: DC 13 CON save or unconscious for 1d4 x 10 minutes (combat.json brawling).",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d6+3",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Coach Gun",
+            "desc": "Ranged Weapon Attack: +2 to hit, range 15/45 ft., one target. Hit: 9 (2d8) piercing damage. Two barrels, reload action. Scatter: +2 to hit within 30 ft. Both barrels as an action: one attack, 3d8 on a hit.",
+            "attack_bonus": 2,
+            "damage": [
+              {
+                "dice": "2d8",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Athletics": 5,
+          "Intimidation": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Company Business",
+            "desc": "The enforcer works for a railroad company: it breaks strikes, clears squatters off a right-of-way and throws tramps off trains. Its company badge isn't the law, but the company pays the sheriff. Killing one brings more and a company lawyer."
+          },
+          {
+            "name": "Iron Vest",
+            "desc": "Disadvantage on Stealth checks. It is hard to knock down: advantage on saves against being knocked prone or shoved."
+          }
+        ],
+        "ac_armor": "Iron vest",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Longhorn Bull",
+        "size": "Large",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 42,
+        "hit_dice": "5d10+15",
+        "speed": {
+          "walk": "40 ft."
+        },
+        "abilities": {
+          "STR": 19,
+          "DEX": 10,
+          "CON": 16,
+          "INT": 2,
+          "WIS": 10,
+          "CHA": 5
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 10
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Gore",
+            "desc": "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage.",
+            "attack_bonus": 6,
+            "damage": [
+              {
+                "dice": "2d6+4",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Charge",
+            "desc": "If the bull moves at least 20 ft straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 2d6 piercing damage and must succeed on a DC 14 STR saving throw or be knocked prone. A horse that is charged must be checked for Spooked."
+          },
+          {
+            "name": "Trampling Charge",
+            "desc": "If the bull charges a prone creature, it can trample it as a bonus action: 2d6 + 4 bludgeoning."
+          },
+          {
+            "name": "Leads the Herd",
+            "desc": "A herd follows its lead bull: if he runs, the herd runs (combat.json stampedes)."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Bushwhacker",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 14,
+        "ac_type": "armor",
+        "hp": 27,
+        "hit_dice": "5d8+5",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 11,
+          "DEX": 16,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 13,
+          "CHA": 8
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Repeating Rifle",
+            "desc": "Ranged Weapon Attack: +5 to hit, range 150/450 ft., one target. Hit: 12 (2d8 + 3) piercing damage. Magazine 12.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "2d8+3",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Boot Knife",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d4+3",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Stealth": 7,
+          "Perception": 3,
+          "Survival": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Ambush",
+            "desc": "The bushwhacker shoots from hiding, from a ridge, a draw or a window. Its first attack in a fight is made with advantage and, if the target was surprised, deals an extra 2d8 piercing damage."
+          },
+          {
+            "name": "Shoot and Move",
+            "desc": "After it fires from hiding, the bushwhacker can move up to half its speed and take the Hide action as a bonus action. It never fights where it can be rushed."
+          }
+        ],
+        "ac_armor": "Buckskin coat",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Dynamiter",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 33,
+        "hit_dice": "6d8+6",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 14,
+          "CON": 12,
+          "INT": 13,
+          "WIS": 11,
+          "CHA": 10
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 10
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Dynamite",
+            "desc": "The dynamiter lights and throws a stick (its fuse is part of the throw) at a point within 60 ft (normal range 20 ft): each creature within 10 ft of it makes a DC 12 DEX saving throw, taking 10 (3d6) bludgeoning damage on a failure or half as much on a success. It carries 1d4 + 2 sticks."
+          },
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 6 (1d8 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d8+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Mechanics": 5,
+          "Stealth": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Powder Man",
+            "desc": "The dynamiter sets a charge under a trestle, against an express-car door or in a mine drift in 1 minute with no check, and it knows how long a fuse to cut. It is proficient with Explosives."
+          },
+          {
+            "name": "Sweating Sticks",
+            "desc": "Its dynamite is old. If the dynamiter takes a critical hit, or is hit by a firearm while carrying 3 or more sticks and fails a DC 10 DEX save, its pack goes off: 6d6 bludgeoning in a 20-ft radius (DC 12 DEX save for half), including to itself."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1870s",
+          "1880s"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "name": "Bandit Sharpshooter",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 14,
+        "ac_type": "armor",
+        "hp": 49,
+        "hit_dice": "9d8+9",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 11,
+          "DEX": 17,
+          "CON": 12,
+          "INT": 11,
+          "WIS": 14,
+          "CHA": 9
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 16
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The sharpshooter makes two Repeating Rifle attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Repeating Rifle",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Repeating Rifle",
+            "desc": "Ranged Weapon Attack: +5 to hit, range 150/450 ft., one target. Hit: 12 (2d8 + 3) piercing damage. Magazine 12. Sharpshooter applies.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "2d8+3",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +5 to hit, range 30/90 ft., one target. Hit: 7 (1d8 + 3) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d8+3",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Perception": 6,
+          "Stealth": 7
+        },
+        "special_abilities": [
+          {
+            "name": "Sharpshooter",
+            "desc": "Long range doesn't impose disadvantage on the sharpshooter's rifle attacks, and its rifle attacks ignore half cover."
+          },
+          {
+            "name": "On the Rimrock",
+            "desc": "The sharpshooter covers the gang from high ground with three-quarters cover. It doesn't come down while the gang is winning, and it is the first to leave when it isn't."
+          }
+        ],
+        "ac_armor": "Buckskin coat",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Bounty Hunter",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 52,
+        "hit_dice": "8d8+16",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 15,
+          "CON": 14,
+          "INT": 11,
+          "WIS": 14,
+          "CHA": 11
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 12
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The bounty hunter makes two attacks: two with its Army Revolver or two with its Repeating Rifle, or one with either and a Lariat throw.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Army Revolver",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 7 (1d10 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d10+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Repeating Rifle",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 150/450 ft., one target. Hit: 11 (2d8 + 2) piercing damage. Magazine 12.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d8+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Lariat",
+            "desc": "The bounty hunter throws a loop at a creature within 20 ft: DEX check +4 contested by the target's STR (Athletics) or DEX (Acrobatics); on a win the target is grappled (combat.json grappling.lariat)."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Survival": 6,
+          "Investigation": 4,
+          "Intimidation": 4,
+          "Riding": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Dead or Alive",
+            "desc": "The bounty hunter knows the poster on its quarry to the dollar (frontier.json wanted_and_bounties) and prefers it alive when the poster pays the same; when it says dead or alive, it doesn't care. It carries manacles."
+          },
+          {
+            "name": "Tracker",
+            "desc": "The bounty hunter follows a trail at a normal pace with Survival +6 and can't be thrown off it by ordinary means. It has advantage on Insight checks against a quarry pretending to be someone else."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Crooked Sheriff",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 14,
+        "ac_type": "armor",
+        "hp": 45,
+        "hit_dice": "7d8+14",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 12,
+          "CON": 14,
+          "INT": 11,
+          "WIS": 13,
+          "CHA": 14
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 11
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The sheriff makes two Army Revolver attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Army Revolver",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 6 (1d10 + 1) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d10+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Double-Barrel Shotgun",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 10 (2d8 + 1) piercing damage. Two barrels, reload action. Scatter: +2 to hit within 30 ft.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "2d8+1",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Deception": 4,
+          "Insight": 3,
+          "Intimidation": 6,
+          "Persuasion": 4
+        },
+        "special_abilities": [
+          {
+            "name": "The Star",
+            "desc": "He is still the law. Attacking him where the town can see raises the attacker's Wanted level to at least local and costs 1 Reputation; killing him makes it territorial unless his crimes are proven first (frontier.json the_law). He can arrest, jail and raise a posse of 1d4 + 2 Deputies."
+          },
+          {
+            "name": "Bought and Paid For",
+            "desc": "He owes everyone: the company, the saloon, the gang that leaves his town alone. A DC 14 Insight check while he talks shows who he is most afraid of. He will sell out whoever is weakest at the moment."
+          }
+        ],
+        "ac_armor": "Iron vest",
+        "reactions": [
+          {
+            "name": "Deputies!",
+            "desc": "When a creature the sheriff can see attacks him, one Deputy within 60 ft uses its reaction to move up to half its speed and make one weapon attack against that creature."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Cattle Baron",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 58,
+        "hit_dice": "9d8+18",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 12,
+          "CON": 14,
+          "INT": 14,
+          "WIS": 15,
+          "CHA": 17
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 12
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 5 (1d8 + 1) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d8+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Run Them Off",
+            "desc": "Up to three allies within 60 ft that can hear the baron each use their reaction to move up to their speed and make one weapon attack, with advantage, against a creature the baron names."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Insight": 4,
+          "Intimidation": 5,
+          "Persuasion": 5,
+          "Animal Handling": 4,
+          "Riding": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Never Rides Alone",
+            "desc": "The baron is always with his range boss or 1d4 + 2 Hired Guns, and his cowhands are within a whistle. He does not fight; people fight for him. His CR assumes the escort."
+          },
+          {
+            "name": "The Association",
+            "desc": "He sits on the stock growers' association, and the association has the territorial legislature, the brand inspectors and a detective agency. Killing him raises the killer's Wanted level to dead or alive and brings range detectives for a year. Ruining him in the courts or the newspaper does more damage and costs less."
+          }
+        ],
+        "reactions": [
+          {
+            "name": "Get Him!",
+            "desc": "When a creature the baron can see attacks him or moves within 10 ft of him, the baron points: one ally within 60 ft that can hear him uses its reaction to move up to half its speed and make one weapon attack against that creature."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Grizzly Bear",
+        "size": "Large",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 42,
+        "hit_dice": "5d10+15",
+        "speed": {
+          "walk": "40 ft.",
+          "climb": "30 ft."
+        },
+        "abilities": {
+          "STR": 19,
+          "DEX": 10,
+          "CON": 16,
+          "INT": 2,
+          "WIS": 13,
+          "CHA": 7
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The bear makes two attacks: one with its bite and one with its claws.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Bite",
+                "count": 1
+              },
+              {
+                "name": "Claws",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 8 (1d8 + 4) piercing damage.",
+            "attack_bonus": 6,
+            "damage": [
+              {
+                "dice": "1d8+4",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Claws",
+            "desc": "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage.",
+            "attack_bonus": 6,
+            "damage": [
+              {
+                "dice": "2d6+4",
+                "type": "Slashing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Keen Smell",
+            "desc": "The bear has advantage on Wisdom (Perception) checks that rely on smell."
+          },
+          {
+            "name": "Hard to Stop",
+            "desc": "A grizzly keeps coming after it should be dead: the first time it drops to 0 hit points, it drops to 1 instead unless the damage was a critical hit. Every horse within 120 ft that smells it must be checked for Spooked."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Lynch Mob",
+        "size": "Large",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 10,
+        "ac_type": "dex",
+        "hp": 60,
+        "hit_dice": "11d8+11",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 14,
+          "DEX": 10,
+          "CON": 12,
+          "INT": 8,
+          "WIS": 8,
+          "CHA": 12
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 9
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The mob makes two attacks: two with Many Hands, or one with Many Hands and one with Rifles in the Crowd.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Many Hands",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Many Hands",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) bludgeoning damage. Or 1d6 + 2 if the mob has half its hit points or fewer. A creature hit must succeed on a DC 12 STR save or be grappled by the mob (escape DC 12).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d6+2",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Rifles in the Crowd",
+            "desc": "Ranged Weapon Attack: +2 to hit, range 150/450 ft., one target. Hit: 9 (2d8) piercing damage. Only a few in the mob are armed; they fire wild. A miss by 5 or more hits a bystander or a member of the mob.",
+            "attack_bonus": 2,
+            "damage": [
+              {
+                "dice": "2d8",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Drag Him Out",
+            "desc": "The mob moves up to its speed carrying every creature it has grappled with it, toward the nearest tree, telegraph pole or loading beam."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Intimidation": 5
+        },
+        "condition_immunities": [
+          "charmed",
+          "frightened"
+        ],
+        "special_abilities": [
+          {
+            "name": "A Crime and a Horror",
+            "desc": "A lynch mob is twenty to forty townspeople, drunk on whiskey and fear and urged on by someone who benefits, come to drag a prisoner from the jail and murder him. Nothing about it is justice, and the GM never presents it as justice. In daylight, the next morning, every one of them is ashamed or pretending not to be."
+          },
+          {
+            "name": "Swarm of People",
+            "desc": "The mob occupies a 20-ft square and can move through openings large enough for one person. It can't be shoved or grappled. Area damage (dynamite, a shotgun's both barrels) deals double damage to it. It has resistance to damage from single shots: each bullet only hurts one person."
+          },
+          {
+            "name": "Mob Mind",
+            "desc": "The mob is immune to being frightened while its ringleader is with it. A creature can use an action to address it: a DC 15 Persuasion or Intimidation check (advantage for anyone with Reputation +3 or better in the town, or the town's preacher, or a lawman who has been fair to it; frontier.json reputation). On a success the mob loses 2d10 hit points as people slink away; naming members out loud adds 1d10. At half hit points or fewer, a successful check breaks it, and it scatters. Unmasking or arresting the ringleader breaks it at once. A Lawman's Stand Your Ground and a Preacher's Stand Between can break it as their features say."
+          },
+          {
+            "name": "Firing on the Town",
+            "desc": "Shooting into a mob kills townspeople, most of whom have families. Each member killed costs the shooter 1 Reputation in that town, even when it saves the prisoner."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Agency Detective",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 44,
+        "hit_dice": "8d8+8",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 11,
+          "DEX": 14,
+          "CON": 12,
+          "INT": 14,
+          "WIS": 15,
+          "CHA": 13
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 14
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The detective makes two Navy Revolver attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Navy Revolver",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 6 (1d8 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d8+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Derringer",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 10/30 ft., one target. Hit: 5 (1d6 + 2) piercing damage. Concealed. Two barrels.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Deception": 5,
+          "Insight": 6,
+          "Investigation": 6,
+          "Perception": 4,
+          "Riding": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Operative",
+            "desc": "A detective of a private agency (fictional; the campaign names it), hired by a railroad, an express company or a cattle association. It works under a false name as a cowhand, a drummer or a miner (Deception +5 to keep its cover) and reports by telegram in code. It knows more than the sheriff and tells less."
+          },
+          {
+            "name": "Wires Home",
+            "desc": "If the detective goes missing, two more come within a week, and they know who it was watching."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "name": "Gang Leader",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 14,
+        "ac_type": "armor",
+        "hp": 65,
+        "hit_dice": "10d8+20",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 16,
+          "CON": 14,
+          "INT": 12,
+          "WIS": 12,
+          "CHA": 15
+        },
+        "cr": "3",
+        "xp": 700,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 11
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The gang leader makes two attacks with its Army Revolver or its Coach Gun.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Army Revolver",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +5 to hit, range 30/90 ft., one target. Hit: 8 (1d10 + 3) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d10+3",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Coach Gun",
+            "desc": "Ranged Weapon Attack: +5 to hit, range 15/45 ft., one target. Hit: 12 (2d8 + 3) piercing damage. Two barrels, reload action. Scatter: +2 to hit within 30 ft.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "2d8+3",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Fan the Hammer",
+            "desc": "The gang leader fans its revolver: it makes 3 ranged attacks with its revolver at disadvantage against one target or targets within 10 ft of each other, each dealing 1d10 piercing damage on a hit (no modifier), and spends 3 rounds."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Intimidation": 6,
+          "Deception": 4,
+          "Riding": 5,
+          "Survival": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Wanted Dead or Alive",
+            "desc": "The gang leader is worth $500-$2,000 dead or alive (frontier.json wanted_and_bounties). He has 4-8 Outlaws, a Bandit Sharpshooter and sometimes a Dynamiter; his CR assumes he isn't alone."
+          },
+          {
+            "name": "Hold Together",
+            "desc": "While the leader is up, his outlaws don't use Ride Off. When he goes down, they all do."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "reactions": [
+          {
+            "name": "Cover Me",
+            "desc": "When the gang leader is hit by an attack, one outlaw within 30 ft of it that can see the attacker uses its reaction to make one ranged attack against the attacker."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Gunfighter",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 15,
+        "ac_type": "armor",
+        "hp": 58,
+        "hit_dice": "9d8+18",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 11,
+          "DEX": 18,
+          "CON": 14,
+          "INT": 11,
+          "WIS": 14,
+          "CHA": 13
+        },
+        "cr": "3",
+        "xp": 700,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 14
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The gunfighter makes two Army Revolver attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Army Revolver",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +6 to hit, range 30/90 ft., one target. Hit: 9 (1d10 + 4) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 6,
+            "damage": [
+              {
+                "dice": "1d10+4",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Fan the Hammer",
+            "desc": "The gunfighter fans its revolver: it makes 4 ranged attacks with its revolver at disadvantage against one target or targets within 10 ft of each other, each dealing 1d10 piercing damage on a hit (no modifier), and spends 4 rounds. The first attack is made without disadvantage."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Intimidation": 5,
+          "Insight": 4,
+          "Perception": 4,
+          "Acrobatics": 6
+        },
+        "special_abilities": [
+          {
+            "name": "Quick Draw",
+            "desc": "The gunfighter has advantage on initiative and on the draw in a showdown (frontier.json showdowns, draw +6), and draws as part of rolling initiative."
+          },
+          {
+            "name": "A Name",
+            "desc": "People in the territory know the gunfighter's name. It calls men out in the street (a stare-down at Intimidation +5) and shoots only men who have drawn, unless it has been paid not to care."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "reactions": [
+          {
+            "name": "Return Fire",
+            "desc": "When a creature the gunfighter can see misses it with a ranged attack, the gunfighter makes one Army Revolver attack against that creature."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Range Boss",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 75,
+        "hit_dice": "10d8+30",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 16,
+          "DEX": 14,
+          "CON": 16,
+          "INT": 11,
+          "WIS": 14,
+          "CHA": 13
+        },
+        "cr": "3",
+        "xp": 700,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 12
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The range boss makes two attacks with its Navy Revolver or its Carbine, or one attack and one Lariat throw.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Navy Revolver",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 6 (1d8 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d8+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Carbine",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 100/300 ft., one target. Hit: 7 (1d10 + 2) piercing damage. Tube magazine 7.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d10+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Lariat",
+            "desc": "From the saddle, as a bonus action, the range boss throws a loop at a creature within 30 ft: DEX check +4 contested by its STR (Athletics) or DEX (Acrobatics); on a win the target is grappled and can be dragged (combat.json grappling.lariat)."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Riding": 6,
+          "Animal Handling": 6,
+          "Intimidation": 5,
+          "Survival": 4
+        },
+        "special_abilities": [
+          {
+            "name": "The Outfit",
+            "desc": "The range boss runs the company's cowhands and hired guns on the range. It is always with 2-6 cowhands (use Rustler statistics without the running iron) or Hired Guns, and they follow its orders, not the baron's."
+          },
+          {
+            "name": "Saddle-Born",
+            "desc": "The range boss fights mounted with no disadvantage, its horse never spooks, and it can turn a stampede by itself with one check."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "reactions": [
+          {
+            "name": "Ride Him Down",
+            "desc": "When a creature on foot within 30 ft of the mounted range boss moves, the range boss rides at it: the creature must succeed on a DC 14 STR save or be knocked prone and take 1d6 bludgeoning."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Federal Marshal",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 15,
+        "ac_type": "armor",
+        "hp": 65,
+        "hit_dice": "10d8+20",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 14,
+          "DEX": 14,
+          "CON": 14,
+          "INT": 12,
+          "WIS": 15,
+          "CHA": 14
+        },
+        "cr": "3",
+        "xp": 700,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 12
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The marshal makes two attacks with its Army Revolver or its Repeating Rifle.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Army Revolver",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 7 (1d10 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d10+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Repeating Rifle",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 150/450 ft., one target. Hit: 11 (2d8 + 2) piercing damage. Magazine 12.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d8+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Insight": 6,
+          "Intimidation": 6,
+          "Investigation": 5,
+          "Riding": 4,
+          "Survival": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Federal Warrant",
+            "desc": "The marshal carries warrants from a federal court and can deputize a posse anywhere in the territory (1d6 + 2 Deputies). It isn't a villain by default: it is honest, crooked or tired as the campaign decides, and it answers to a judge it may not like."
+          },
+          {
+            "name": "Hard to Rattle",
+            "desc": "The marshal has advantage on saves against being frightened and on the stare-down, and it can't be bribed by anyone it doesn't already trust."
+          }
+        ],
+        "ac_armor": "Iron vest",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      }
+    ],
+    "4": [
+      {
+        "name": "Company Superintendent",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 78,
+        "hit_dice": "12d8+24",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 10,
+          "DEX": 12,
+          "CON": 14,
+          "INT": 16,
+          "WIS": 15,
+          "CHA": 17
+        },
+        "cr": "4",
+        "xp": 1100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 12
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Pocket Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage. Cylinder 5. Concealed in a coat pocket.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d6+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Make an Example",
+            "desc": "Up to three allies within 60 ft that can hear the superintendent each use their reaction to make one weapon attack with advantage against a creature it names."
+          },
+          {
+            "name": "Not Here (Bonus Action)",
+            "desc": "One ally within 30 ft moves up to its speed into a space between the superintendent and a creature it names, without provoking opportunity attacks."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Deception": 6,
+          "Insight": 5,
+          "Intimidation": 6,
+          "Persuasion": 6,
+          "Investigation": 5
+        },
+        "special_abilities": [
+          {
+            "name": "Never Alone",
+            "desc": "The superintendent of a railroad, a mine or a land and cattle company is always with two Railroad Enforcers and either a Range Boss or 1d4 + 2 Hired Guns. He does not fight; people fight for him, and his CR assumes they are there."
+          },
+          {
+            "name": "A Reasonable Man",
+            "desc": "He always talks first, and he keeps his word to the letter of it. A DC 15 Persuasion check, or something the company wants, opens a parley. He offers money before anything else."
+          },
+          {
+            "name": "The Company Remembers",
+            "desc": "Killing or humiliating him raises the killer's Wanted level to territorial, puts an Agency Detective on the trail and turns every company employee in the territory hostile. Proving his crimes to a judge or a newspaper does him more harm."
+          }
+        ],
+        "reactions": [
+          {
+            "name": "Get Him!",
+            "desc": "When a creature the superintendent can see attacks him or moves within 10 ft of him, one ally within 60 ft that can hear him uses its reaction to move up to half its speed and make one weapon attack against that creature."
+          },
+          {
+            "name": "Human Shield",
+            "desc": "When the superintendent is hit by a ranged attack while an ally is within 5 ft of him, he pulls the ally into the way and the ally becomes the target of the attack instead."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      }
+    ],
+    "5": [
+      {
+        "name": "Fast Gun",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 16,
+        "ac_type": "armor",
+        "hp": 84,
+        "hit_dice": "13d8+26",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 11,
+          "DEX": 20,
+          "CON": 14,
+          "INT": 12,
+          "WIS": 15,
+          "CHA": 14
+        },
+        "cr": "5",
+        "xp": 1800,
+        "proficiency_bonus": 3,
+        "senses": {
+          "passive_perception": 15
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The fast gun makes three Army Revolver attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Army Revolver",
+                "count": 3
+              }
+            ]
+          },
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +8 to hit, range 30/90 ft., one target. Hit: 10 (1d10 + 5) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 8,
+            "damage": [
+              {
+                "dice": "1d10+5",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Fan the Hammer",
+            "desc": "The fast gun fans its revolver: it makes 6 ranged attacks with its revolver at disadvantage against one target or targets within 10 ft of each other, each dealing 1d10 piercing damage on a hit (no modifier), and spends 6 rounds. The first two attacks are made without disadvantage. It carries two revolvers and swaps to the second as a free interaction."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Acrobatics": 8,
+          "Insight": 5,
+          "Intimidation": 8,
+          "Perception": 5
+        },
+        "special_abilities": [
+          {
+            "name": "Fastest in the Territory",
+            "desc": "The fast gun has advantage on initiative and on the draw in a showdown (frontier.json showdowns, draw +8), can't be surprised while conscious, and when initiative is rolled it makes one Army Revolver attack before anyone takes a turn."
+          },
+          {
+            "name": "Reputation",
+            "desc": "Everybody has heard of it. A creature that knows its name must succeed on a DC 15 WIS save to start a fight with it; failing, it backs down, with the Reputation cost that brings (frontier.json reputation)."
+          },
+          {
+            "name": "Fast Hands",
+            "desc": "The fast gun reloads two rounds as a bonus action."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "reactions": [
+          {
+            "name": "Return Fire",
+            "desc": "When a creature the fast gun can see misses it with a ranged attack, the fast gun makes one Army Revolver attack against that creature."
+          },
+          {
+            "name": "Too Slow",
+            "desc": "When a creature within 60 ft draws a weapon, the fast gun makes one Army Revolver attack against it before it can use the weapon."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      }
+    ],
+    "1/8": [
+      {
+        "name": "Rattlesnake",
+        "size": "Tiny",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 13,
+        "ac_type": "dex",
+        "hp": 5,
+        "hit_dice": "2d4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 2,
+          "DEX": 16,
+          "CON": 11,
+          "INT": 1,
+          "WIS": 10,
+          "CHA": 3
+        },
+        "cr": "1/8",
+        "xp": 25,
+        "proficiency_bonus": 2,
+        "senses": {
+          "blindsight": "10 ft.",
+          "passive_perception": 10
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 1 piercing damage, and the target must make a DC 11 CON saving throw, taking 3d6 poison damage on a failure, or half as much on a success. A creature that fails is also poisoned for 1 hour (a snakebite kit gives advantage on the save; gear.json).",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1",
+                "type": "Piercing"
+              },
+              {
+                "dice": "3d6",
+                "type": "Poison"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Stealth": 5
+        },
+        "special_abilities": [
+          {
+            "name": "Rattle",
+            "desc": "Unless surprised, the snake rattles before it strikes: a creature that hears it gets a DC 10 Perception check to stop before stepping within reach. A horse that hears it must be checked for Spooked (combat.json conditions)."
+          },
+          {
+            "name": "Under a Rock",
+            "desc": "The snake is found in rock piles, woodpiles, boots left by the bedroll and the shade under a porch. A DC 12 Survival or Nature check before turning over rocks or bedding finds it first."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Saloon Brawler",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 13,
+        "hit_dice": "2d8+4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 15,
+          "DEX": 12,
+          "CON": 14,
+          "INT": 9,
+          "WIS": 10,
+          "CHA": 10
+        },
+        "cr": "1/8",
+        "xp": 25,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 10
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Fist",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d4+2",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Bottle",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage. Broken bottle. The first hit with an unbroken bottle is bludgeoning.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d4+2",
+                "type": "Slashing"
+              }
+            ]
+          },
+          {
+            "name": "Throw Him Over the Bar",
+            "desc": "The brawler shoves a creature within 5 ft (STR (Athletics) +4, contested): on a win it lands prone 10 ft away, over a table or the bar, and takes 1d4 bludgeoning."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Athletics": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Saloon Fighter",
+            "desc": "The brawler fights with fists and furniture and doesn't draw a gun unless someone else does first. Anyone he knocks to 0 hit points is knocked out, not killed."
+          },
+          {
+            "name": "Just Getting Started",
+            "desc": "The first time he is hit in a fight, he grins and has advantage on his next attack."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Cardsharp",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "dex",
+        "hp": 9,
+        "hit_dice": "2d8",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 9,
+          "DEX": 14,
+          "CON": 10,
+          "INT": 12,
+          "WIS": 13,
+          "CHA": 14
+        },
+        "cr": "1/8",
+        "xp": 25,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 11
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Derringer",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 10/30 ft., one target. Hit: 5 (1d6 + 2) piercing damage. Two barrels, reload action. Can fire both at once as an action: one attack, 2d6 + 2 on a hit.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Boot Knife",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d4+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Gambling": 5,
+          "Sleight of Hand": 6,
+          "Deception": 4,
+          "Insight": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Card up the Sleeve",
+            "desc": "The cardsharp cheats at every game it plays (frontier.json gambling.cheating), with Sleight of Hand +6. Catching it needs Insight or Perception against that roll. It always has a derringer within reach of its hand at the table, concealed (Sleight of Hand +6 to spot)."
+          },
+          {
+            "name": "Sore Loser",
+            "desc": "Caught, the cardsharp tries first to talk its way out (Deception +4), then to leave, then to shoot the man who caught it. It has a horse saddled out back."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      }
+    ],
+    "1/4": [
+      {
+        "name": "Rustler",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "armor",
+        "hp": 16,
+        "hit_dice": "3d8+3",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 13,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 12,
+          "CHA": 9
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 11
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 5 (1d8 + 1) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d8+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Carbine",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 100/300 ft., one target. Hit: 6 (1d10 + 1) piercing damage. Tube magazine 7.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d10+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Lariat",
+            "desc": "From the saddle, the rustler throws a loop at a creature within 20 ft: DEX check +3 contested by the target's STR (Athletics) or DEX (Acrobatics); on a win the target is grappled and can be dragged (combat.json grappling.lariat)."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Riding": 5,
+          "Animal Handling": 3,
+          "Survival": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Mounted",
+            "desc": "The rustler rides a cow pony (frontier.json horses_and_mounts) and is proficient in Riding: no disadvantage shooting from the saddle."
+          },
+          {
+            "name": "Running Iron",
+            "desc": "Rustlers work at night and run from a fair fight. A rustler caught with a running iron and somebody else's cattle is a hanging matter in most cattle country (frontier.json the_law), which makes him dangerous to corner."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Deputy",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "armor",
+        "hp": 19,
+        "hit_dice": "3d8+6",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 12,
+          "CON": 14,
+          "INT": 10,
+          "WIS": 12,
+          "CHA": 10
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 5 (1d8 + 1) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d8+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Double-Barrel Shotgun",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 10 (2d8 + 1) piercing damage. Two barrels, reload action. Scatter: +2 to hit within 30 ft. Both barrels as an action: one attack, 3d8 on a hit.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "2d8+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Pick Handle",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage. Knockout blow from surprise: DC 11 CON save or unconscious for 1d4 x 10 minutes (combat.json brawling).",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d6+1",
+                "type": "Bludgeoning"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Perception": 3,
+          "Riding": 3,
+          "Intimidation": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Sworn",
+            "desc": "The deputy acts for a sheriff or marshal. Shooting at him raises the shooter's Wanted level to at least local; killing him makes it territorial (frontier.json wanted_and_bounties) and costs 2 Reputation in his town unless the town knows he was crooked."
+          },
+          {
+            "name": "Posse",
+            "desc": "A Lawman's The Star deputizes citizens with these statistics."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Stagecoach Guard",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "armor",
+        "hp": 16,
+        "hit_dice": "3d8+3",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 13,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 13,
+          "CHA": 10
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Coach Gun",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 15/45 ft., one target. Hit: 10 (2d8 + 1) piercing damage. Two barrels, reload action. Scatter: +2 to hit within 30 ft. Both barrels as an action: one attack, 3d8 on a hit.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "2d8+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 5 (1d8 + 1) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d8+1",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Perception": 3,
+          "Animal Handling": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Riding Shotgun",
+            "desc": "The guard sits on the box beside the driver and fires from the moving coach without disadvantage. He is paid by the express company to protect the box, not the passengers, and will say so."
+          },
+          {
+            "name": "Alert",
+            "desc": "The guard can't be surprised on the road during daylight; he is watching the rocks."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Wolf",
+        "size": "Medium",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 13,
+        "ac_type": "dex",
+        "hp": 11,
+        "hit_dice": "2d8+2",
+        "speed": {
+          "walk": "40 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 15,
+          "CON": 12,
+          "INT": 3,
+          "WIS": 12,
+          "CHA": 6
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage. If the target is a creature, it must succeed on a DC 11 STR saving throw or be knocked prone.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d4+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3,
+          "Stealth": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Keen Hearing and Smell",
+            "desc": "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+          },
+          {
+            "name": "Pack Tactics",
+            "desc": "The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 ft of the creature and the ally isn't incapacitated."
+          },
+          {
+            "name": "Winter Hunger",
+            "desc": "Wolves go for stock, not people, and only a starving pack in deep winter comes for a camp. Gunfire scatters a pack (each wolf flees on a failed DC 10 WIS save after the first shot)."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Claim Jumper",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 19,
+        "hit_dice": "3d8+6",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 14,
+          "DEX": 12,
+          "CON": 14,
+          "INT": 10,
+          "WIS": 11,
+          "CHA": 9
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 10
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Hatchet",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage. Or thrown, range 20/60 ft.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Slashing"
+              }
+            ]
+          },
+          {
+            "name": "Carbine",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 100/300 ft., one target. Hit: 6 (1d10 + 1) piercing damage. Tube magazine 7.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d10+1",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Athletics": 4,
+          "Nature": 2,
+          "Survival": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Possession",
+            "desc": "The claim jumper has moved onto someone else's claim with a forged paper or none, and he fights from behind the rocks of the diggings (three-quarters cover). He has a story for the claims clerk and a partner who will swear to it."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      }
+    ],
+    "1/2": [
+      {
+        "name": "Outlaw",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 22,
+        "hit_dice": "4d8+4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 15,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 11,
+          "CHA": 10
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 10
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 7 (1d10 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d10+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Bowie Knife",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Slashing"
+              }
+            ]
+          },
+          {
+            "name": "Fan the Hammer",
+            "desc": "The outlaw fans its revolver: it makes 2 ranged attacks with its revolver at disadvantage against one target or targets within 10 ft of each other, each dealing 1d10 piercing damage on a hit (no modifier), and spends 2 rounds."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Riding": 4,
+          "Stealth": 4,
+          "Intimidation": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Wanted",
+            "desc": "The outlaw has a local or territorial poster on him (frontier.json wanted_and_bounties): $50-$200. He knows it, and he won't be taken alive for less than a sure hanging."
+          },
+          {
+            "name": "Ride Off",
+            "desc": "When the fight turns, the outlaw takes the Disengage action and runs for his horse. A gang of outlaws scatters in different directions so the posse has to choose."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Cavalry Trooper",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 22,
+        "hit_dice": "4d8+4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 14,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 11,
+          "CHA": 10
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 12
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Carbine",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 100/300 ft., one target. Hit: 7 (1d10 + 2) piercing damage. Tube magazine 7.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d10+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Cavalry Saber",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d8 + 1) slashing damage. Mounted charge of 20 ft or more: +1d8 on a hit.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d8+1",
+                "type": "Slashing"
+              }
+            ]
+          },
+          {
+            "name": "Army Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 7 (1d10 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan). In the 1860s it carries a Navy revolver instead (1d8, .36 rounds).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d10+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Riding": 4,
+          "Athletics": 3,
+          "Perception": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Under Orders",
+            "desc": "A trooper is a soldier under orders, not a villain by default: he serves where he is sent, with a sergeant, an officer and a regiment behind him (often one of the Black regiments of the frontier army). Attacking a detail of troopers makes the attacker's Wanted level territorial at once, and the army comes looking (frontier.json wanted_and_bounties)."
+          },
+          {
+            "name": "Column of Twos",
+            "desc": "Troopers fight as a unit: a trooper has advantage on attacks against a creature that another trooper hit since the end of the trooper's last turn. Their horses don't spook at gunfire."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Cougar",
+        "size": "Large",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 12,
+        "ac_type": "dex",
+        "hp": 26,
+        "hit_dice": "4d10+4",
+        "speed": {
+          "walk": "40 ft.",
+          "climb": "30 ft."
+        },
+        "abilities": {
+          "STR": 16,
+          "DEX": 15,
+          "CON": 12,
+          "INT": 3,
+          "WIS": 12,
+          "CHA": 8
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d6+3",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Claws",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) slashing damage.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d4+3",
+                "type": "Slashing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3,
+          "Stealth": 6
+        },
+        "special_abilities": [
+          {
+            "name": "Pounce",
+            "desc": "If the cougar moves at least 20 ft straight toward a creature and then hits it with a claw attack on the same turn, the target must succeed on a DC 13 STR saving throw or be knocked prone. If the target is prone, the cougar can make one bite attack against it as a bonus action."
+          },
+          {
+            "name": "From Above",
+            "desc": "The cougar waits on a ledge or a limb over a trail and drops on the last rider or a straggling horse. It has advantage on Stealth checks in rocks and timber, and it breaks off once it is hurt."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Road Agent",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 22,
+        "hit_dice": "4d8+4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 11,
+          "DEX": 14,
+          "CON": 12,
+          "INT": 11,
+          "WIS": 12,
+          "CHA": 12
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 11
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Coach Gun",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 15/45 ft., one target. Hit: 11 (2d8 + 2) piercing damage. Two barrels, reload action. Scatter: +2 to hit within 30 ft. Both barrels as an action: one attack, 3d8 on a hit.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d8+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Navy Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/90 ft., one target. Hit: 6 (1d8 + 2) piercing damage. Cylinder 6, reloads two rounds per action. Can fan (combat.json fire_modes.fan).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d8+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Stand and Deliver",
+            "desc": "The road agent calls on a coach, a rider or a room to throw down their guns. Each creature that can see and hear it and isn't already fighting makes a DC 11 WIS save or raises its hands and does nothing hostile until it is attacked or someone else starts shooting."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Intimidation": 3,
+          "Riding": 4,
+          "Stealth": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Masked",
+            "desc": "A bandanna, a flour sack or a duster pulled up: witnesses can't describe the road agent's face, though they remember the horse, the boots and the voice (a DC 13 Investigation or Insight check by someone who later meets him)."
+          },
+          {
+            "name": "The Box, Not the Passengers",
+            "desc": "A road agent wants the express box and the mail. Most leave the passengers their watches. Most."
+          }
+        ],
+        "ac_armor": "Leather duster",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      },
+      {
+        "name": "Vigilante",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 22,
+        "hit_dice": "4d8+4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 12,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 10,
+          "CHA": 11
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 10
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Repeating Rifle",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 150/450 ft., one target. Hit: 10 (2d8 + 1) piercing damage. Magazine 12.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "2d8+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Pick Handle",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d6+1",
+                "type": "Bludgeoning"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Intimidation": 2,
+          "Riding": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Committee Man",
+            "desc": "A member of a self-appointed \"committee\" that rides at night and calls murder justice: a storekeeper, a foreman, a company clerk with a sack over his head. Alone and unmasked in daylight he is a coward who will deny everything; a DC 13 Insight check knows he is afraid of being named. Naming him in front of his town costs him everything, and he knows it."
+          },
+          {
+            "name": "Night Riders",
+            "desc": "Vigilantes ride in groups of 4-8. If half of them are down or the leader is unmasked, the rest scatter. Lynching is a crime in this book, never justice (frontier.json the_law)."
+          }
+        ],
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ]
+      }
+    ]
+  }
+}

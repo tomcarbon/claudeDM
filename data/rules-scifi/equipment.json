@@ -1,0 +1,1863 @@
+{
+  "_meta": {
+    "category": "scifi",
+    "source": "Written for claudeDM (Sci-Fi category). Mostly original; a few general-mechanics sentences (e.g. opportunity attacks, passive checks, stat-block phrasing) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Sci-Fi weapons and armor. 'weapons' is a flat array; each weapon has a proficiency 'group', era tags, dice, damage type, range (normal/long in feet, or 'melee'), magazine size (null when not applicable), reload cost, fire modes, properties, cost and notes. Costs are in dollars for 1980s/modern weapons and in credits for future-only items; a credits campaign may price multi-era weapons at 1 cr = $1. Select-fire weapons in the Automatics group carry 'singleShotGroup': firing them in single mode uses that group's proficiency, burst or auto needs Automatics. 'extraDamage' is a second damage component added on a hit. Gunplay rules are in combat.json; general gear is in gear.json.",
+    "weapon_count": 70,
+    "armor_count": 15
+  },
+  "weapons": [
+    {
+      "name": "Knife",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d4",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable",
+        "thrown (20/60)"
+      ],
+      "cost": 15,
+      "notes": "Kitchen, folding, hunting or switchblade. Can be thrown 20/60 ft."
+    },
+    {
+      "name": "Combat knife",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": 60,
+      "notes": "Fixed-blade military knife, often worn on a vest."
+    },
+    {
+      "name": "Brass knuckles",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "concealable"
+      ],
+      "cost": 20,
+      "notes": "Replaces your unarmed strike damage if better; a Brawler adds +1 to unarmed damage instead."
+    },
+    {
+      "name": "Baseball bat",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": 30,
+      "notes": "Wood or aluminum. Two hands for a full swing."
+    },
+    {
+      "name": "Nightstick",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": 25,
+      "notes": "Police side-handle or straight baton."
+    },
+    {
+      "name": "Collapsible baton",
+      "group": "Melee",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": 40,
+      "notes": "Extends with a flick; collapses to 8 inches."
+    },
+    {
+      "name": "Crowbar",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": 15,
+      "notes": "Also gives advantage on STR checks to force doors and crates."
+    },
+    {
+      "name": "Machete",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": 25,
+      "notes": "Brush blade; common in jungles, farms and zombie-infested suburbs."
+    },
+    {
+      "name": "Fire axe",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d10",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "two-handed",
+        "heavy"
+      ],
+      "cost": 40,
+      "notes": "Also chops through a wooden door in 1 round."
+    },
+    {
+      "name": "Sledgehammer",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 35,
+      "notes": "Breaching tool; deals double damage to doors, locks and walls."
+    },
+    {
+      "name": "Chainsaw",
+      "group": "Melee",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 250,
+      "notes": "Takes an action to start (DC 10 Mechanics in a hurry). Noise carries like gunfire. Runs 1 hour per tank."
+    },
+    {
+      "name": "Stun baton",
+      "group": "Melee",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "damage": "1d4",
+      "damageType": "lightning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "nonlethal"
+      ],
+      "cost": 120,
+      "notes": "On a hit the target makes a DC 12 CON save or is stunned until the end of its next turn. 20 charges per battery."
+    },
+    {
+      "name": "Arc baton",
+      "group": "Melee",
+      "eras": [
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": 300,
+      "notes": "Hit deals 1d6 bludgeoning plus 1d6 lightning. Battery lasts 50 hits; recharge on a long rest.",
+      "extraDamage": {
+        "dice": "1d6",
+        "type": "lightning"
+      }
+    },
+    {
+      "name": "Vibro-blade",
+      "group": "Melee",
+      "eras": [
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "armor-piercing"
+      ],
+      "cost": 650,
+      "notes": "Ultrasonically vibrating edge; cuts through ballistic weave and hardshell plates."
+    },
+    {
+      "name": "9mm pistol",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "30/120",
+      "magazine": 15,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 450,
+      "notes": "Standard semi-automatic service pistol (Beretta 92, Glock 17 and similar)."
+    },
+    {
+      "name": ".38 revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 300,
+      "notes": "Six-shot police and civilian revolver. A revolver never jams on a natural 1; it just misses."
+    },
+    {
+      "name": "Snub-nose revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "20/60",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 280,
+      "notes": "Two-inch barrel .38; advantage on Sleight of Hand to hide it. Never jams."
+    },
+    {
+      "name": "Holdout pistol",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "20/60",
+      "magazine": 5,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 250,
+      "notes": "Tiny .380 or .25 pocket pistol; advantage on Sleight of Hand checks to conceal it from a pat-down."
+    },
+    {
+      "name": "Silenced .22 pistol",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 10,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "suppressed"
+      ],
+      "cost": 600,
+      "notes": "Integrally suppressed .22; heard only within about 60 ft."
+    },
+    {
+      "name": ".45 pistol",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "30/120",
+      "magazine": 7,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 550,
+      "notes": "Heavy-frame single-stack pistol (M1911 pattern)."
+    },
+    {
+      "name": ".357 magnum revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "40/120",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": 500,
+      "notes": "Full-size magnum revolver. Never jams."
+    },
+    {
+      "name": ".44 magnum revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "40/120",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud",
+        "heavy"
+      ],
+      "cost": 650,
+      "notes": "Long-barreled hunting revolver. Never jams. A creature hit with STR 8 or lower or Small size must succeed on a DC 10 STR save or fall prone."
+    },
+    {
+      "name": "Heavy pistol (.50)",
+      "group": "Sidearms",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "40/120",
+      "magazine": 7,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud",
+        "heavy"
+      ],
+      "cost": 1200,
+      "notes": "Oversized semi-auto (Desert Eagle class)."
+    },
+    {
+      "name": "Stun gun",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d4",
+      "damageType": "lightning",
+      "range": "15/30",
+      "magazine": 1,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "nonlethal"
+      ],
+      "cost": 400,
+      "notes": "Fires barbed darts. On a hit the target makes a DC 13 CON save or is stunned until the end of its next turn. Robots and synthetics are immune to the stun."
+    },
+    {
+      "name": "Flare gun",
+      "group": "Sidearms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "fire",
+      "range": "30/90",
+      "magazine": 1,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": 60,
+      "notes": "A hit sets flammable material alight. Fired upward it lights a 200-ft radius as bright light for 1 minute."
+    },
+    {
+      "name": "Caseless 10mm pistol",
+      "group": "Sidearms",
+      "eras": [
+        "future"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "40/120",
+      "magazine": 20,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 500,
+      "notes": "Future service pistol firing caseless rounds; jams only on a natural 1 rolled twice in a row."
+    },
+    {
+      "name": "Flechette pistol",
+      "group": "Sidearms",
+      "eras": [
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "20/60",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst"
+      ],
+      "properties": [
+        "concealable"
+      ],
+      "cost": 700,
+      "notes": "Fires bundles of steel needles; quiet (heard within 120 ft). Needles are poor against hard armor: wearers of Medium, Heavy or Powered armor take half damage."
+    },
+    {
+      "name": "Pump shotgun",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "two-handed",
+        "loud"
+      ],
+      "cost": 400,
+      "notes": "12-gauge buckshot. Scatter: +2 to hit within 30 ft, disadvantage at long range. Slugs instead: 2d6, range 50/150, no scatter."
+    },
+    {
+      "name": "Sawed-off shotgun",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "15/45",
+      "magazine": 2,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "concealable",
+        "loud"
+      ],
+      "cost": 250,
+      "notes": "Double-barrel, cut down. Both barrels at once: one attack spending 2 shells, +1d8 damage. Illegal in most places."
+    },
+    {
+      "name": "Combat shotgun (semi-auto)",
+      "group": "Longarms",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 8,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "two-handed",
+        "loud"
+      ],
+      "cost": 900,
+      "notes": "Tube-fed tactical shotgun."
+    },
+    {
+      "name": ".22 rifle",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "100/300",
+      "magazine": 10,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed"
+      ],
+      "cost": 200,
+      "notes": "Small-game rifle; heard within about 300 ft rather than for blocks."
+    },
+    {
+      "name": "Lever-action rifle",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "150/450",
+      "magazine": 7,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 450,
+      "notes": ".30-30 ranch and hunting rifle; reloading is one round at a time (an action loads all 7)."
+    },
+    {
+      "name": "Semi-auto carbine",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "100/300",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 800,
+      "notes": "Civilian semi-automatic rifle in an assault-rifle chassis; single shot only."
+    },
+    {
+      "name": "Battle rifle",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "150/600",
+      "magazine": 20,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 1400,
+      "notes": "Full-power 7.62mm rifle (FAL / M14 pattern), semi-automatic."
+    },
+    {
+      "name": "Hunting rifle (bolt-action)",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d10",
+      "damageType": "piercing",
+      "range": "300/1200",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 700,
+      "notes": "Scoped bolt-action deer rifle."
+    },
+    {
+      "name": "Sniper rifle",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d10",
+      "damageType": "piercing",
+      "range": "400/1600",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 3500,
+      "notes": "Military precision rifle with high-power optics; firing beyond 120 ft without Aiming first imposes disadvantage."
+    },
+    {
+      "name": "Anti-materiel rifle",
+      "group": "Longarms",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "damage": "2d12",
+      "damageType": "piercing",
+      "range": "500/2000",
+      "magazine": 10,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud",
+        "armor-piercing"
+      ],
+      "cost": 9000,
+      "notes": ".50-caliber rifle; must be fired prone or braced (otherwise disadvantage). Deals double damage to vehicles and constructs' cover."
+    },
+    {
+      "name": "Crossbow",
+      "group": "Longarms",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "80/320",
+      "magazine": 1,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "suppressed"
+      ],
+      "cost": 300,
+      "notes": "Silent hunting crossbow; bolts are recoverable on a 50% chance. Cannot jam."
+    },
+    {
+      "name": "Machine pistol",
+      "group": "Automatics",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 700,
+      "notes": "Compact automatic pistol (MAC-10, Skorpion pattern); can be fired one-handed.",
+      "singleShotGroup": "Sidearms"
+    },
+    {
+      "name": "SMG (Uzi pattern)",
+      "group": "Automatics",
+      "eras": [
+        "1980s",
+        "modern"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "50/150",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": 1000,
+      "notes": "Open-bolt 9mm submachine gun (Uzi pattern).",
+      "singleShotGroup": "Sidearms"
+    },
+    {
+      "name": "SMG (MP5 pattern)",
+      "group": "Automatics",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "50/150",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": 1400,
+      "notes": "Roller-locked 9mm submachine gun used by police tactical teams (MP5 pattern).",
+      "singleShotGroup": "Sidearms"
+    },
+    {
+      "name": "Suppressed SMG",
+      "group": "Automatics",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "40/120",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "suppressed"
+      ],
+      "cost": 2200,
+      "notes": "Integrally suppressed 9mm SMG (MP5SD pattern); heard within about 60 ft.",
+      "singleShotGroup": "Sidearms"
+    },
+    {
+      "name": "Personal defense weapon",
+      "group": "Automatics",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "60/180",
+      "magazine": 40,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "armor-piercing",
+        "loud"
+      ],
+      "cost": 2000,
+      "notes": "Compact bullpup firing small high-velocity rounds designed to defeat soft armor (P90 class).",
+      "singleShotGroup": "Sidearms"
+    },
+    {
+      "name": "Assault rifle (AK pattern)",
+      "group": "Automatics",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "120/360",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 900,
+      "notes": "7.62mm Kalashnikov-pattern rifle; rugged, cheap and everywhere. Its rugged action means a jam is cleared as a bonus action instead of an action.",
+      "singleShotGroup": "Longarms"
+    },
+    {
+      "name": "Assault rifle (M16 pattern)",
+      "group": "Automatics",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "120/360",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 1200,
+      "notes": "5.56mm rifle (M16 / M4 family); lighter and more accurate than the AK pattern.",
+      "singleShotGroup": "Longarms"
+    },
+    {
+      "name": "Automatic shotgun",
+      "group": "Automatics",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 20,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "scatter",
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 3500,
+      "notes": "Drum-fed automatic 12-gauge. Scatter applies to single and burst shots.",
+      "singleShotGroup": "Longarms"
+    },
+    {
+      "name": "Caseless pulse rifle",
+      "group": "Automatics",
+      "eras": [
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "120/360",
+      "magazine": 60,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 2500,
+      "notes": "Future infantry rifle with a digital round counter (you always know exactly how many rounds remain). Some models carry an underslung 40mm launcher (4 grenades).",
+      "singleShotGroup": "Longarms"
+    },
+    {
+      "name": "Light machine gun",
+      "group": "Heavy Weapons",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "150/600",
+      "magazine": 100,
+      "reload": "action",
+      "fireModes": [
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 6000,
+      "notes": "Belt- or box-fed squad automatic weapon (M60, M249 pattern). Fired standing without a bipod or mount: disadvantage on burst attacks."
+    },
+    {
+      "name": "Grenade launcher",
+      "group": "Heavy Weapons",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "3d6",
+      "damageType": "piercing",
+      "range": "150/450",
+      "magazine": 1,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud",
+        "heavy"
+      ],
+      "cost": 2000,
+      "notes": "40mm break-action launcher (M79 pattern). Instead of an attack roll, choose a point in range: each creature within 10 ft of it makes a DC 13 DEX save, taking 3d6 piercing on a failure or half on a success. Can also fire smoke, gas or buckshot rounds."
+    },
+    {
+      "name": "Rocket launcher",
+      "group": "Heavy Weapons",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "6d6",
+      "damageType": "fire",
+      "range": "150/600",
+      "magazine": 1,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud",
+        "armor-piercing"
+      ],
+      "cost": 4000,
+      "notes": "Shoulder-fired rocket (RPG / LAW pattern). Attack roll against a vehicle or structure; on a hit, double damage. Against creatures, choose a point: 10-ft radius, DC 15 DEX save, 6d6 fire, half on success. Backblast: anyone within 10 ft behind the shooter takes 2d6 fire. Disposable models cannot be reloaded."
+    },
+    {
+      "name": "Flamethrower",
+      "group": "Heavy Weapons",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "4d6",
+      "damageType": "fire",
+      "range": "30/30",
+      "magazine": 10,
+      "reload": "action",
+      "fireModes": [
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 3000,
+      "notes": "Each use spends 10 seconds of fuel (1 'round' from a 10-round tank) and fills a 30-ft line 5 ft wide: each creature in it makes a DC 13 DEX save, taking 4d6 fire on a failure or half on a success, and catches fire on a failure (1d4 fire at the start of each turn until it uses an action to put it out). A hit on the tank (called shot, -5) detonates it: 6d6 fire in a 10-ft radius."
+    },
+    {
+      "name": "Plasma cannon",
+      "group": "Heavy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "4d10",
+      "damageType": "fire",
+      "range": "100/300",
+      "magazine": 4,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud",
+        "armor-piercing"
+      ],
+      "cost": 15000,
+      "notes": "Man-portable plasma projector. On a hit, every other creature within 5 ft of the target takes half the damage."
+    },
+    {
+      "name": "Minigun",
+      "group": "Heavy Weapons",
+      "eras": [
+        "modern",
+        "future"
+      ],
+      "damage": "2d10",
+      "damageType": "piercing",
+      "range": "150/600",
+      "magazine": 300,
+      "reload": "action",
+      "fireModes": [
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 25000,
+      "notes": "Rotary machine gun; normally vehicle-mounted. Carried requires STR 18 or powered armor. Takes a bonus action to spin up before firing. Full auto with it affects a 20-ft cube."
+    },
+    {
+      "name": "Laser pistol",
+      "group": "Energy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "radiant",
+      "range": "60/180",
+      "magazine": 20,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable"
+      ],
+      "cost": 900,
+      "notes": "Magazine counts shots from a power cell. Silent apart from a crackle (heard within 60 ft). Smoke, gas or heavy rain imposes disadvantage."
+    },
+    {
+      "name": "Laser rifle",
+      "group": "Energy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "radiant",
+      "range": "150/450",
+      "magazine": 30,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst"
+      ],
+      "properties": [
+        "two-handed"
+      ],
+      "cost": 2500,
+      "notes": "Military laser; magazine is a 30-shot cell. Same smoke/rain penalty as the laser pistol. Never jams; on a natural 1 the cell overheats and the weapon can't fire until the end of your next turn."
+    },
+    {
+      "name": "Plasma pistol",
+      "group": "Energy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "fire",
+      "range": "30/90",
+      "magazine": 6,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": 1800,
+      "notes": "Short-ranged plasma sidearm; sets flammable material alight."
+    },
+    {
+      "name": "Plasma carbine",
+      "group": "Energy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "2d10",
+      "damageType": "fire",
+      "range": "60/180",
+      "magazine": 8,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 4000,
+      "notes": "Fires bolts of superheated plasma. On a natural 1 it vents heat, dealing 1d6 fire to the wielder instead of jamming."
+    },
+    {
+      "name": "Stun pistol",
+      "group": "Energy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "lightning",
+      "range": "30/90",
+      "magazine": 12,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "nonlethal",
+        "concealable"
+      ],
+      "cost": 700,
+      "notes": "Nonlethal: a creature reduced to 0 HP by it is stable and unconscious for 1 minute. Robots and synthetics take the damage as lethal."
+    },
+    {
+      "name": "Sonic disruptor",
+      "group": "Energy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "thunder",
+      "range": "30/90",
+      "magazine": 10,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud",
+        "nonlethal"
+      ],
+      "cost": 2000,
+      "notes": "Focused sound pulse. On a hit the target makes a DC 13 CON save or is deafened until the end of its next turn. Ignores half cover."
+    },
+    {
+      "name": "Rail rifle",
+      "group": "Energy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "3d10",
+      "damageType": "piercing",
+      "range": "400/1600",
+      "magazine": 4,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "armor-piercing",
+        "loud"
+      ],
+      "cost": 12000,
+      "notes": "Electromagnetic slug thrower. Penetrates walls: treat full cover from any material short of an armored bulkhead as three-quarters cover."
+    },
+    {
+      "name": "Gauss carbine",
+      "group": "Energy Weapons",
+      "eras": [
+        "future"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "120/360",
+      "magazine": 25,
+      "reload": "bonus action",
+      "fireModes": [
+        "single",
+        "burst",
+        "auto"
+      ],
+      "properties": [
+        "two-handed",
+        "armor-piercing"
+      ],
+      "cost": 7000,
+      "notes": "Coil-gun carbine firing ferrous needles; heard within 120 ft."
+    },
+    {
+      "name": "Frag grenade",
+      "group": "Explosives",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "4d6",
+      "damageType": "piercing",
+      "range": "30/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "loud"
+      ],
+      "cost": 50,
+      "notes": "Choose a point in range: each creature within a 20-ft radius makes a DC 13 DEX save, taking 4d6 piercing on a failure or half on a success. Cover between the target and the blast adds to the save."
+    },
+    {
+      "name": "Flashbang",
+      "group": "Explosives",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d4",
+      "damageType": "thunder",
+      "range": "30/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "loud",
+        "nonlethal"
+      ],
+      "cost": 40,
+      "notes": "Each creature within 15 ft of the point makes a DC 13 CON save or is blinded and deafened until the end of its next turn; on a failure it also takes 1d4 thunder. No damage on a success."
+    },
+    {
+      "name": "Molotov cocktail",
+      "group": "Explosives",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "2d6",
+      "damageType": "fire",
+      "range": "20/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown"
+      ],
+      "cost": 5,
+      "notes": "Shatters at a point: creatures within a 5-ft radius make a DC 12 DEX save, taking 2d6 fire on a failure or half on a success. The area burns for 1 minute; a creature that ends its turn in it or failed the save burns for 1d4 fire at the start of each of its turns until it uses an action to put the flames out."
+    },
+    {
+      "name": "Tear gas grenade",
+      "group": "Explosives",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "1d4",
+      "damageType": "poison",
+      "range": "30/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "nonlethal"
+      ],
+      "cost": 40,
+      "notes": "Creates a 20-ft-radius cloud for 1 minute (heavily obscured). A creature that starts its turn in it makes a DC 13 CON save or takes 1d4 poison and is poisoned until it leaves the cloud plus 1 round. Gas masks grant immunity."
+    },
+    {
+      "name": "Dynamite",
+      "group": "Explosives",
+      "eras": [
+        "1980s",
+        "modern"
+      ],
+      "damage": "3d6",
+      "damageType": "bludgeoning",
+      "range": "20/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "loud"
+      ],
+      "cost": 20,
+      "notes": "Lit fuse (bonus action to light). Detonates at the start of your next turn or when thrown: 10-ft radius, DC 12 DEX save, 3d6 bludgeoning, half on success. Bundle of 4: 20-ft radius, 6d6."
+    },
+    {
+      "name": "Plastic explosive charge",
+      "group": "Explosives",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ],
+      "damage": "6d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud",
+        "heavy"
+      ],
+      "cost": 500,
+      "notes": "C4-type charge placed by hand (action, Mechanics DC 10 to set the detonator; failure by 5 sets it off early). Detonated by timer or remote: 20-ft radius, DC 15 DEX save, 6d6 bludgeoning, half on success. Breaches any door or wall short of a vault."
+    },
+    {
+      "name": "Directional mine",
+      "group": "Explosives",
+      "eras": [
+        "1980s",
+        "modern"
+      ],
+      "damage": "6d6",
+      "damageType": "piercing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud",
+        "heavy"
+      ],
+      "cost": 300,
+      "notes": "Claymore-type mine placed by hand and triggered by tripwire or remote. Fires a 60-ft cone: DC 15 DEX save, 6d6 piercing, half on success. Spotting the tripwire: Perception DC 15."
+    },
+    {
+      "name": "Plasma grenade",
+      "group": "Explosives",
+      "eras": [
+        "future"
+      ],
+      "damage": "5d6",
+      "damageType": "fire",
+      "range": "30/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "loud"
+      ],
+      "cost": 300,
+      "notes": "Sticks to whatever it hits. 15-ft radius, DC 14 DEX save, 5d6 fire, half on success. A creature it is thrown at directly (ranged attack) takes the full damage with no save if hit."
+    },
+    {
+      "name": "EMP grenade",
+      "group": "Explosives",
+      "eras": [
+        "future"
+      ],
+      "damage": "4d6",
+      "damageType": "lightning",
+      "range": "30/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "nonlethal"
+      ],
+      "cost": 250,
+      "notes": "20-ft radius. Robots, drones, turrets and synthetics make a DC 14 CON save, taking 4d6 lightning and being stunned until the end of their next turn on a failure (half and no stun on a success). Unshielded electronics in the area (radios, cameras, energy weapon cells) stop working for 1 minute. Living creatures are unaffected."
+    }
+  ],
+  "weapon_groups": {
+    "Melee": "Knives, bats, batons, machetes, axes and other hand weapons. Everyone is proficient.",
+    "Sidearms": "Pistols, revolvers, stun guns and flare guns. Exempt from the point-blank penalty.",
+    "Longarms": "Rifles, shotguns, carbines and crossbows, plus select-fire rifles fired single-shot.",
+    "Automatics": "Submachine guns, machine pistols and assault rifles fired on burst or full auto.",
+    "Heavy Weapons": "Machine guns, grenade and rocket launchers, flamethrowers, plasma cannons.",
+    "Energy Weapons": "Lasers, plasma, stun, sonic and electromagnetic weapons. Future era only.",
+    "Explosives": "Grenades, Molotovs, dynamite, charges and mines."
+  },
+  "weapon_properties": {
+    "armor-piercing": "Against a target wearing Medium, Heavy or Powered armor, the armor's AC above 14 doesn't count (e.g. riot gear AC 17 counts as 14; powered armor AC 19 counts as 14). DEX, shield, cover and other bonuses still apply.",
+    "concealable": "Small enough to hide under a jacket or in a bag. Spotting it requires an active search or a Perception check against the carrier's Sleight of Hand.",
+    "finesse": "Use STR or DEX for attack and damage rolls (the same for both).",
+    "heavy": "Bulky or hard-kicking. Small creatures have disadvantage on attacks with it, and so does a wielder with STR below 13 if the weapon is a firearm.",
+    "loud": "Unsuppressed gunfire or blast: heard outdoors for about half a mile and throughout any building it is fired in. See combat.json noise.",
+    "nonlethal": "A creature reduced to 0 HP by this weapon is unconscious and stable rather than dying, unless the attacker chooses otherwise. Some nonlethal weapons impose a condition instead of or as well as damage (see notes).",
+    "scatter": "Fires a spread of shot. +2 to hit targets within 30 ft. At long range you have disadvantage and lose the +2.",
+    "suppressed": "Built-in or fitted suppressor. Heard only within about 60 ft and does not reveal the shooter's position to anyone farther away.",
+    "thrown": "Can be thrown to make a ranged attack (or to target a point, for grenades) using the listed range and STR or DEX.",
+    "two-handed": "Requires two hands to fire or swing. Firing a two-handed firearm one-handed imposes disadvantage."
+  },
+  "armor": {
+    "light": [
+      {
+        "name": "Leather jacket",
+        "type": "Light",
+        "cost": 150,
+        "ac": "11 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "4 lb.",
+        "eras": [
+          "1980s",
+          "modern",
+          "future"
+        ],
+        "notes": "Motorcycle or bomber jacket. Looks like ordinary clothing."
+      },
+      {
+        "name": "Aramid vest (concealable)",
+        "type": "Light",
+        "cost": 500,
+        "ac": "12 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "4 lb.",
+        "eras": [
+          "1980s",
+          "modern",
+          "future"
+        ],
+        "notes": "Soft body armor worn under a shirt. Noticing it requires Perception DC 15."
+      },
+      {
+        "name": "Armored coat",
+        "type": "Light",
+        "cost": 900,
+        "ac": "12 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "6 lb.",
+        "eras": [
+          "modern",
+          "future"
+        ],
+        "notes": "Long coat with aramid panels; also gives advantage on Sleight of Hand checks to conceal a Longarm with the concealable property."
+      },
+      {
+        "name": "Ballistic weave",
+        "type": "Light",
+        "cost": 1500,
+        "ac": "13 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "3 lb.",
+        "eras": [
+          "future"
+        ],
+        "notes": "Smart-fiber bodysuit or clothing liner; indistinguishable from normal clothes."
+      }
+    ],
+    "medium": [
+      {
+        "name": "Flak jacket",
+        "type": "Medium",
+        "cost": 400,
+        "ac": "13 + Dex modifier (max 2)",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "12 lb.",
+        "eras": [
+          "1980s",
+          "modern"
+        ],
+        "notes": "Military fragmentation vest; also grants +1 to DEX saves against explosives."
+      },
+      {
+        "name": "Tactical vest",
+        "type": "Medium",
+        "cost": 900,
+        "ac": "14 + Dex modifier (max 2)",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "15 lb.",
+        "eras": [
+          "1980s",
+          "modern",
+          "future"
+        ],
+        "notes": "Ballistic vest with trauma plates and magazine pouches."
+      },
+      {
+        "name": "Plate carrier",
+        "type": "Medium",
+        "cost": 1500,
+        "ac": "15 + Dex modifier (max 2)",
+        "strength_requirement": null,
+        "stealth_disadvantage": true,
+        "weight": "22 lb.",
+        "eras": [
+          "modern",
+          "future"
+        ],
+        "notes": "Ceramic rifle plates front and back with a ballistic helmet."
+      },
+      {
+        "name": "Hardshell",
+        "type": "Medium",
+        "cost": 3000,
+        "ac": "15 + Dex modifier (max 2)",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "14 lb.",
+        "eras": [
+          "future"
+        ],
+        "notes": "Molded composite armor shell over a pressure-capable undersuit; with a helmet it is a 1-hour emergency vacuum suit."
+      }
+    ],
+    "heavy": [
+      {
+        "name": "Riot gear",
+        "type": "Heavy",
+        "cost": 1800,
+        "ac": "17",
+        "strength_requirement": 13,
+        "stealth_disadvantage": true,
+        "weight": "35 lb.",
+        "eras": [
+          "1980s",
+          "modern",
+          "future"
+        ],
+        "notes": "Full-body police riot armor with helmet and visor. Grants advantage on saves against tear gas when the visor is sealed with a gas mask."
+      },
+      {
+        "name": "Bomb suit",
+        "type": "Heavy",
+        "cost": 15000,
+        "ac": "18",
+        "strength_requirement": 15,
+        "stealth_disadvantage": true,
+        "weight": "80 lb.",
+        "eras": [
+          "modern",
+          "future"
+        ],
+        "notes": "Explosive ordnance disposal suit. Speed reduced by 10 ft; disadvantage on DEX checks; resistance to damage from Explosives."
+      },
+      {
+        "name": "Assault armor",
+        "type": "Heavy",
+        "cost": 8000,
+        "ac": "18",
+        "strength_requirement": 15,
+        "stealth_disadvantage": true,
+        "weight": "45 lb.",
+        "eras": [
+          "future"
+        ],
+        "notes": "Full infantry combat armor with sealed helmet, rebreather and HUD."
+      }
+    ],
+    "powered": [
+      {
+        "name": "Powered armor",
+        "type": "Powered",
+        "cost": 60000,
+        "ac": "19",
+        "strength_requirement": null,
+        "stealth_disadvantage": true,
+        "weight": "300 lb. (self-supporting)",
+        "eras": [
+          "future"
+        ],
+        "notes": "Strength counts as 18 while worn (if yours is lower). Sealed environment (vacuum, gas, radiation) for 8 hours. Requires Powered armor proficiency; without it, speed 10 ft and disadvantage on all attacks and DEX checks. Power cell lasts 24 hours of activity.",
+        "strength_score_while_worn": 18
+      },
+      {
+        "name": "Industrial exo-frame",
+        "type": "Powered",
+        "cost": 25000,
+        "ac": "16",
+        "strength_requirement": null,
+        "stealth_disadvantage": true,
+        "weight": "400 lb. (self-supporting)",
+        "eras": [
+          "future"
+        ],
+        "notes": "Open-frame cargo loader. Strength counts as 20 for lifting and grappling and its fists deal 2d6 bludgeoning, but it gives no protection from vacuum and the pilot can be targeted with a called shot (-2 instead of -5).",
+        "strength_score_while_worn": 20
+      }
+    ],
+    "shields": [
+      {
+        "name": "Riot shield",
+        "type": "Shield",
+        "cost": 200,
+        "ac": "+2",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "8 lb.",
+        "eras": [
+          "1980s",
+          "modern",
+          "future"
+        ],
+        "notes": "Transparent polycarbonate shield. You can fire a Sidearm while using it; other firearms need two hands."
+      },
+      {
+        "name": "Ballistic shield",
+        "type": "Shield",
+        "cost": 2500,
+        "ac": "+3",
+        "strength_requirement": 13,
+        "stealth_disadvantage": true,
+        "weight": "25 lb.",
+        "eras": [
+          "modern",
+          "future"
+        ],
+        "notes": "Rifle-rated shield with a viewport. Only Sidearms can be fired while holding it. As an action you can plant it to give yourself and one adjacent ally half cover."
+      }
+    ],
+    "donning_and_doffing": {
+      "light_armor": {
+        "don": "1 minute",
+        "doff": "1 minute"
+      },
+      "medium_armor": {
+        "don": "5 minutes",
+        "doff": "1 minute"
+      },
+      "heavy_armor": {
+        "don": "10 minutes",
+        "doff": "5 minutes"
+      },
+      "powered_armor": {
+        "don": "1 minute (the suit opens and seals itself)",
+        "doff": "1 minute"
+      },
+      "shield": {
+        "don": "1 action",
+        "doff": "1 action"
+      }
+    }
+  },
+  "currency": {
+    "note": "There are no gold pieces. Each campaign declares its currency in campaign.json. Money on a character sheet is a single equipment line written exactly as shown in 'sheet_format'.",
+    "dollars": {
+      "name": "dollars",
+      "symbol": "$",
+      "abbrev": "USD",
+      "sheet_format": "Wallet containing $40"
+    },
+    "credits": {
+      "name": "credits",
+      "symbol": "₡",
+      "abbrev": "cr",
+      "sheet_format": "Credit chit: 250 cr"
+    }
+  }
+}

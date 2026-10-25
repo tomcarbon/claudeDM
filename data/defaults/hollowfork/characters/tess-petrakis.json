@@ -1,0 +1,127 @@
+{
+  "id": "b27b5032-2533-456b-9571-ea9630c7c709",
+  "name": "Tess Petrakis",
+  "status": "alive",
+  "race": "Faithful",
+  "subrace": "",
+  "class": "Physician",
+  "level": 3,
+  "background": "Nurse",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Constitution"
+  ],
+  "skills": [
+    "Medicine",
+    "Insight",
+    "Investigation",
+    "Persuasion"
+  ],
+  "languages": [
+    "English",
+    "Greek (her yiayia's kitchen, and swearing)"
+  ],
+  "equipment": [
+    "Heavy coat: a navy wool car coat with a nurse's watch pinned inside the lapel",
+    "Doctor's bag (Steady Hands uses come out of it): sutures, gauze, tape, a stethoscope, a blood-pressure cuff, ammonia ampules, aspirin, a bottle of Mercurochrome",
+    "Scalpel, in a steel case in the bag",
+    "Pocket revolver: her late father's .32, five in the cylinder, wrapped in a dish towel in the glove compartment until this week",
+    ".32 rounds (10)",
+    "Bandage roll (6)",
+    "Smelling salts",
+    "Her nursing pin from the Winnebago County School of Nursing, Rockford, class of 1970",
+    "A letter from Dr. Bertrand, the ER chief, granting her two weeks' leave 'for a family emergency'",
+    "Dawn's postcard, postmarked HOLLOW FORK WIS SEP 16 1974",
+    "A wallet photograph of the two of them at the Rock River in 1966, Dawn on her shoulders",
+    "Flashlight and spare batteries",
+    "Car: a 1968 Ford station wagon with Illinois plates, a cracked dashboard and a St. Christopher medal on the mirror that came with it",
+    "Wallet containing $15"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Something to Hold On To (Faithful origin: once per long rest, when she would gain Dread, she gains 1 fewer, so a failed fear check costs her nothing and a natural 1 costs 1; advantage on saving throws against being charmed or compelled by a creature; there is no miracle in it, only her father's voice saying you finish what you start)",
+    "Steady Hands (Physician: as an action, using her doctor's bag, she patches the wounds of a creature she touches: it spends up to 2 of its unspent Hit Dice, rolling each and adding its CON modifier, and regains 3 extra hit points once; it also stabilizes a dying creature and ends Bleeding; 4 uses per long rest, each a use of the bag. Treat Shock: during a short rest, each creature she chooses that rests with her loses 1 Dread beyond the rest's own recovery, even at Dread 4 or more)",
+    "Diagnosis (Physician: as a bonus action, she learns the current and maximum hit points and every condition of a creature she can see within 30 ft, and roughly what a person's Dread is; examining a body for 10 minutes, she learns the cause and time of death without a check, and whether anything about it is wrong in a way medicine can't account for)",
+    "Clinical Detachment (Physician, 2nd level: advantage on fear checks against wounds, bodies, blood and the ordinary dead; she can examine anything a fear check would cost her Dread to see, with no fear check, if she does nothing else for that minute)",
+    "Practice: Surgeon (Physician, 3rd level: creatures she treats with Steady Hands regain the maximum on each Hit Die they spend, and she can use it on a creature at 0 hit points without provoking opportunity attacks)",
+    "On the Ward (Nurse background: hospital staff, country doctors and midwives treat her as one of their own; she can get into a ward, a surgery or a sickroom where a stranger would be turned away, and read a patient's chart without a check)"
+  ],
+  "traits": [
+    "Steady Hands (4/long rest)",
+    "Treat Shock",
+    "Diagnosis",
+    "Clinical Detachment",
+    "Practice: Surgeon",
+    "On the Ward"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am calm in an emergency and a mess afterwards. I make lists. I talk to frightened people the way I talk to patients, and it works on almost everyone, including me.",
+    "ideals": "You finish what you start. You do not leave anyone in the hall.",
+    "bonds": "My sister Dawn, who is twenty-two and impossible and the only family I have left. I refused her collect call on the eighth of September because I was angry about sixty dollars. I am going to bring her home.",
+    "flaws": "I take everything on myself. I do not ask for help until I am already on the floor, and then I am angry that nobody noticed."
+  },
+  "appearance": "Twenty-six, small and quick, with black hair cut short for work, dark circles under dark eyes, a nurse's sensible shoes and a nurse's watch, and a habit of checking everyone's colour when they come into a room.",
+  "backstory": "Tess Petrakis grew up over her father's diner on Seventh Street in Rockford, Illinois, the older of two girls, and when their mother left in 1960 she became, at twelve, the one who packed lunches and signed permission slips. Their father died of a stroke at the counter in 1969, the year Tess finished nursing school. She has worked nights in the emergency room at Winnebago County General ever since. Dawn, four years younger, quit junior college, waitressed, borrowed money, painted, hitchhiked, came back, left again; in August 1974 she borrowed sixty dollars for bus fare to a job in Minneapolis and hitchhiked instead. On Sunday 8 September at 7:12 p.m. an operator asked Tess if she would accept a collect call from Dawn in Hollow Fork, Wisconsin, and Tess, tired and angry, said no. On 19 September a postcard came, postmarked Hollow Fork three days after the town now says Dawn left on the bus: 'Mrs. F needs help with the harvest cooking... the people here are SO nice... P.S. Tell Polecat thanks for the ride.' Tess found Polecat by asking at the truck stop on I-90 where Dawn always caught rides, took two weeks' leave and drove north on Saturday 21 September. (Hook: the sister. She knows Dawn's brand, Kools; Dawn's handwriting; and the one thing only the two of them know, the song their father sang at closing time, which is the key to waking Dawn in hs-scenario-002.)"
+}

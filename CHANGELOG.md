@@ -2,6 +2,143 @@
 
 All notable changes to this project are documented here.
 
+## [1.0.26] - 2026-10-23
+Changes since `1.0.25` (starting after commit `5132420`, "v1.0.25"), reconciled against `git log 5132420..e30e584 -- projects/claudeDM` (six commits: `a51711c`, `88bb53c`, `a01ce00`, `79f3c67`, `628b9a7`, `5f013fc`) plus the uncommitted rebrand of WO-0047. Work orders: WO-0026, WO-0032–WO-0038, WO-0040–WO-0045, WO-0047. Referenced as still open: WO-0030, WO-0039.
+
+**Branch status:** `v1.0.26` is a **code freeze** (decision `0027`), to be cut by the human chair as `v1.0.26` from the freeze commit (it does not exist at the time of writing). No feature work on that branch; a fix lands there only at the chair's direction. No tag named `v1.0.26` — a branch and a tag of the same name make the refname ambiguous.
+
+**The app is `adventurefrog`** (decision `0027` §4, WO-0047)
+- `client/src/utils/brand.js` `APP_NAME = 'adventurefrog'` — always lowercase, including at sentence start; no CSS `text-transform` touches it. `client/index.html` `<title>`, the `server/index.js` startup log line, `package.json` `description`, `README.md` and `CLAUDE.md` titles follow. `package.json` `name` (`dnd-companion`) is an internal identifier and is unchanged.
+- Where "AI Game Master" described the **role** it is now "Game Master" (`GM_TITLE`): `Home.jsx`, `NpcList.jsx`, `Eli5.jsx`, the demo's `campaign.json` blurb. This supersedes the "AI Game Master" name in the Branding line further down this same section.
+- **Not changed:** the GM's own instructions (`server/dm-engine.js`, "You are an AI Game Master for …") — model behaviour, not branding. Historical changelog entries are not rewritten.
+- The name is for the chair's own install. Publishing under it is a `docs/legal-guidelines.md` trip-wire and goes to the board first.
+
+**A new session starts from the player's character** (WO-0026, `a51711c`)
+- `snapshotToSession` (`server/player-data.js`) copied campaign defaults *before* the player library with a filename-keyed skip; the library is seeded from those defaults under the same slugified names, so the pristine template always won. A level-5 character with a Bag of Holding entered a new session as the level-1 template it grew from.
+- Now: library first, defaults fill gaps only, and the skip is keyed on the sheet's `id` (`copySheetsIfIdNotPresent`), so a renamed character cannot mint a second file.
+- An unreadable library sheet is skipped and logged (`safeReadJsonFile`), not thrown: the first revision of the fix let one corrupt sheet empty the whole party (Security Reviewer, medium; fixed in revision 2).
+- NPCs still come from campaign defaults only.
+
+**Transfer audit no longer satisfied by one side of a transfer** (WO-0032)
+- `server/dm-audit.js`: transfer categories now check which sheets were actually written against which entities the turn implicated (`writtenTargets`, `implicatedSheets`, `transferSatisfied`); a one-sided transfer reaches `needsReconcile`. A gold piece had been destroyed in live play this way. `ws-handler.js` threads the roster (`sessionRosterSheets`) into both audit call sites. Tests: `server/__tests__/transfer-audit.test.js`, `transfer-reconcile.test.js`.
+
+**Server binds loopback; CORS is a closed list** (WO-0034)
+- `server/index.js`: the server listened on `*:3001` and answered `Access-Control-Allow-Origin: *`. It now binds `CLAUDEDM_HOST`, default `127.0.0.1`, and answers only `CLAUDEDM_ALLOWED_ORIGINS` (default: the loopback origins on the client and server ports; the variable *replaces* the list; `*` restores allow-any explicitly). A refused origin is a visible `403` with a log line, not the `cors` package's silent `204`. Requests with no `Origin` header (curl, bots, tests) pass untouched.
+- `client/vite.config.js` reads the same `CLAUDEDM_HOST` (was the literal `'0.0.0.0'`); `bind-and-cors.test.js` fails if it becomes a literal again.
+- `README.md` "Playing with someone else on your network" documents both variables.
+- **Known gap, not fixed:** the WebSocket at `/ws` performs no `Origin` check (`server/index.js` header comment). The loopback bind applies to it; the origin policy does not.
+- **Halt in force** (VP Cyber Security, 2026-10-03, SEC-2026-10-03-1): no `CLAUDEDM_HOST` other than loopback and no widening of `CLAUDEDM_ALLOWED_ORIGINS` until WO-0039 (close the DM toolset) lands or the chair re-accepts the finding. `_buildOptions` still passes no `tools` key. This release does **not** lift it.
+
+**Campaign and session ids are ids, never paths** (WO-0041, in review)
+- `server/campaign-context.js`: `X-Campaign-Id` must match `SAFE_CAMPAIGN_ID` (`/^[a-z0-9][a-z0-9-]{0,63}$/`) and `X-Session-Id` `SAFE_SESSION_ID` (`server/player-data.js:12-13`); anything else is a `400`.
+- `PUT /api/sessions/:id` now does `delete payload.campaignId` (`server/routes/sessions.js:600`): a session's campaign is fixed at creation and a body field cannot re-route its files.
+- This is *believed* to fix the chair's 2026-10-23 report (host browses another campaign; the next multiplayer turn runs in it) — **by code reading only**. Not reproduced, no regression test, and the client still sends the browsed campaign on autosave. Not claimed as fixed.
+
+**GM model list; the model is admin-only** (WO-0044)
+- `client/src/pages/Settings.jsx`: Haiku 4.5 / Sonnet 5.5 / Opus 5.5, and a Default label that says what it is ("Claude Code's default model" — install-dependent, not this app's). A model saved before the list changed still displays rather than reading as Default.
+- `server/routes/dm-settings.js` `withoutModel`: the GM model is set through `PUT /global` (admin) and read from the global file alone; a per-player settings file never sets or overrides it.
+
+**Campaign palettes and scene moods** (WO-0037; revision round WO-0038 open)
+- `client/src/data/campaignPalettes.js` gives three campaigns their own colours (`campaign5`, `wonderland`, `reckoning`); `utils/palette.js`, `utils/sceneLighting.js`, `hooks/useSceneLighting.js` (mounted once in `App.jsx`). A mood switcher appears in the Adventure header only for a campaign with a palette.
+- Settings → Appearance: `campaign` (default: the campaign's colours, held still), `campaign+moods` (opt-in), `classic`. Freeze lighting is per device. All of it is `localStorage` only — no route, no per-player file, no path to the GM's prompt. Semantic colours (damage, healing, spell schools) never move.
+- The Art Director failed the authored palettes on 2026-09-23 (several within-campaign mood pairs too close to see); WO-0038 is the revision and is open.
+
+**Simulation rails — still dormant** (WO-0033, WO-0036)
+- A model-driven player brain (`server/bot/bot-brain-model.js`, `bot-brain-registry.js`), `server/query-semaphore.js` extracted from `dm-engine.js`, and a party-of-six Haiku shape with a bot-farm panel in Settings. Still mounted only under `CLAUDEDM_BOTS=1` and never under `NODE_ENV=production` (`botsAllowed`, `server/index.js:180`); unset on the chair's machine, so nothing mounts. Both work orders are open.
+
+**Tests: 464 → 1129, both module systems guarded** (WO-0035)
+- The no-live-agent guard was CommonJS-only; an ESM import of the SDK bypassed it. `vitest.config.js` now aliases the SDK's ESM specifiers to `helpers/sdk-esm-guard.mjs` (patterns from `helpers/no-live-agent-esm.mjs`), alongside the CommonJS guard. WO-0035 is in review.
+- First client tests: `client/src/utils/__tests__/` (palette, scene lighting, money, the ESM guard from inside the client tree) and `client/src/pages/__tests__/bot-farm-panel.test.js`.
+- `npm test` at this release: **40 files, 1129 passed**, zero agent spawns.
+
+**First scene images in play:** the demo's *Sunken Temple of Tidecaller* ships Corwin's bronze medallion (`tidecaller-medallion.png`), and *Lost Mine of Whisperhollow* ships the missing villagers' hand-drawn tunnel map (`data/campaigns/demo/assets/whisperhollow-villagers-map.png`, made by the chair in ChatGPT, with a provenance note). The GM shows it in the adventure transcript with `ShowSceneImage` when the party finds it inside the mine doors, and again whenever a player asks. The first use of the scene-imagery pipeline outside Wonderland. A test now holds every shipped manifest to its files and provenance notes. The GM's image rules now say to show a picture in the turn its moment arrives, and that the GM cannot see pictures, so it describes only what the scenario says is in them (both from the chair's playtest).
+
+**A fifth category: Horror** (decision `0026`, WO-0045)
+- **Horror ruleset** in `data/rules-horror/`: 8 classes (Skeptic, Occultist, Chaplain, Physician, Hunter, Veteran, Sensitive, Roughneck), 5 origins, 18 skills (Occult, Research, Driving…), 12 backgrounds, weapons for the 1890s, 1920s and 1970s with counted ammo (silver, iron and fire matter), adversaries whose supernatural entries carry `rules` and `vulnerable_to`, `combat.json` with darkness, fire and fleeing, and a new `dread.json`: fear checks, the Dread track, recovery, creature rules, rites and wards, light, isolation, and GM guidance including table safety.
+- **Three Horror campaigns:** `greywick` (*The Greywick Inheritance*, Hudson Valley, 1893), `drownedbell` (*The Drowned Bell*, a Maine island, 1924), `hollowfork` (*Hollow Season*, a Wisconsin farm town, 1974).
+- The GM prompt has a Horror section (fear checks, Dread, creature rules, "skip that" honoured at once).
+
+**A fourth category: Western** (decision `0025`, WO-0043)
+- **Western ruleset** in `data/rules-western/`: 8 classes (Gunslinger, Lawman, Scout, Gambler, Preacher, Doc, Outlaw, Cowhand), 5 origins, 18 skills (Riding, Gambling, Animal Handling, Nature…), 12 backgrounds, 1860s–80s guns with counted ammo, fanning and revolver reloading, mounted combat, adversaries, and a new `frontier.json`: showdowns, Reputation, Wanted and bounties, horses, trail travel, weather and water, gambling, the law.
+- **Three Western campaigns:** `bittercreek` (*Bitter Creek*, a Wyoming range war, 1886), `silverline` (*The Silver Line*, a Colorado railroad and silver train, 1879), `longbounty` (*The Long Bounty*, a manhunt from the Brazos to the Rio Grande, 1874).
+- Period armor is a registry field (`periodArmor`); the GM prompt has a Western section.
+- **Every campaign except the demo is badged Premium** (a label only; all campaigns stay enabled for everyone).
+
+**A third category: Noir** (decision `0024`, WO-0042)
+- **Noir ruleset** in `data/rules-noir/` (original content, same d20 chassis and the same code path as Sci-Fi): 8 classes (Private Eye, Cop, Heavy, Grifter, Reporter, Doctor, Wheelman, Fixer), 5 origins, 18 skills (Forensics, Research, Society, Driving…), 12 backgrounds, 1930s–50s weapons with counted ammo, gear, adversaries, `combat.json` with brawling, and a new `investigation.json`: the three-clue rule, interrogation, tailing, Heat, bribes and favors.
+- **Three Noir campaigns:** `blackcrane` (*The Black Crane*, San Francisco 1938), `klieglight` (*Klieg Light*, Los Angeles 1947), `calloway` (*Paid in Advance*, Port Calloway 1952).
+- The no-magic code path is now category-driven (`engine: 'modern'` in the registry): the generator reads the campaign's own skills, weapons and ammo names; the GM prompt carries a Noir section with the case rules. Fantasy and Sci-Fi prompts unchanged.
+
+**Two categories of game: Fantasy and Sci-Fi** (decision `0023`)
+- Every campaign declares `"category"` in its `campaign.json`; one without is Fantasy. Registry: `server/game-categories.js` (client mirror `client/src/utils/gameCategories.js`). Home shows a Fantasy / Sci-Fi switch; the Rules page has a ruleset switch.
+- **Sci-Fi ruleset** in `data/rules-scifi/` (original content, same d20 chassis): 8 classes, 5 origins, 18 skills, backgrounds, weapons and armor across the 1980s / modern / future eras, gear, adversaries in the monster schema, and `combat.json` with the gunplay rules — ammunition and magazines, single / burst / full-auto / suppressive fire, aim, material cover, called shots, jams, explosives, noise, nonlethal, hacking, chases, vehicles.
+- **Four Sci-Fi campaigns:** `coldwar` (1980s spy thriller), `lastferry` (ordinary people, an alien visitation, an island city), `outbreak` (zombies), `perihelion` (a far-future heist on a sun-grazing liner).
+- The DM prompt is category-aware: Sci-Fi campaigns get the gunplay summary, their currency and their campaign-rule names; `LookupMonster` reads the campaign's own ruleset. Fantasy prompt length unchanged within its guard.
+- Character creation, hit dice and money (`$` / credits) work per category; campaigns may restrict origins and classes (`characterOptions`). Sci-Fi maps are drawn from `mapLocations`.
+- **Branding:** user-visible "D&D", "Dungeons & Dragons" and "Dungeon Master" removed; the app is "AI Game Master" and the DM is the GM. The SRD 5.1 notice stays, scoped to Fantasy (see NOTICE).
+
+**Security**
+- `GET /api/rules/:category` joined the parameter into a file path unchecked, so `GET /api/rules/..%2Fplayers` returned `data/players.json` — every account record — to an unauthenticated caller. Rule names are now a closed `[a-z0-9-]` vocabulary; pinned by `server/__tests__/game-categories.test.js`.
+- Header ids validated (WO-0041) and the server bound to loopback (WO-0034) — see their sections above.
+
+**Saved games**
+- v1.0.24-era saves (the 2026-09-07 backup: two sessions, ten campaign libraries) were loaded into the current code in a scratch copy under the no-live-agent guard: they loaded, autosaved, built the GM's prompts and took computed damage and healing (decision `0027`). **No live GM turn was run against them.** Recorded from decision `0027`; not re-run for this release.
+
+**Not observed, and open**
+- The four new categories and their thirteen campaigns are covered by content tests (`scifi-content`, `noir-content`, `western-content`, `horror-content`); this release does not record a full session of each in play.
+- The wrong-campaign multiplayer bug is **not claimed fixed** (WO-0041 section above).
+- WO-0030 is open: `copyDefaultsToDir` (provisioning, reset) and `copyFilesIfNotExist` (the NPC snapshot) in `server/player-data.js` still `JSON.parse` unguarded, so one corrupt file under `data/defaults/` can still break provisioning, a reset or a new session's NPCs.
+- WO-0039 is open: the GM agent's built-in toolset is not restricted (SEC-2026-10-03-1); the loopback halt depends on it.
+- My Games: two suspected defects from a code read ("Show all players" lists others' private sessions; a companion may see a private game it cannot open) are unverified and not addressed.
+- Tags (`RELEASING.md` F16): one tag exists, `v1.0.25` (annotated, human chair, 2026-09-07). It points at `e61e6b6`, the parent of `5132420`, which is from before `projects/claudeDM/` was tracked in this repo (`git ls-tree e61e6b6 projects/` lists only `_TEMPLATE` and `claudeDM-company`), so **the tag does not contain the app**. v1.0.25's code is `5132420`. F16 is effectively still open; tags are the chair's (decision `0001`).
+- `package-lock.json` still reads `1.0.24` at its root; the first `npm install` on the branch will rewrite those lines.
+
+## [1.0.25] - 2026-09-07
+Changes since `1.0.24` (starting after commit `8db019c`, "v1.0.24"):
+
+**Branch status:** `demo_1.0.25` is **frozen for play**. This is the version the chair and one other player will be using; no further work is scheduled against this branch, and new development moves elsewhere. These notes are the last word on it.
+
+**Mechanical state is computed, not narrated (ADR 0005)**
+- The incident this release exists for: a character with 5 hit points took 2 damage and died. The arithmetic behind a governed field was the agent's to perform and therefore the agent's to get wrong.
+- New `server/state-guard.js`. `GOVERNED_POINTERS` (`:29`) enumerates the ten JSON pointers the agent may no longer write by hand — `/status`, `/hitPoints/{current,max,temp}`, `/deathSaves`, `/hitDice`, `/spellSlotsUsed`, `/experience`, `/level`, `/proficiencyBonus`. `evaluateWrite` (`:238`) refuses any agent write that would change one, and names the tool to call instead.
+- Registered as a **PreToolUse** hook, not PostToolUse (`server/dm-engine.js:18`, `:29`, `:1372`): a post-write check can only report a bad write that already happened.
+- **The guard speaks only to refuse.** Six of the seven steps in `evaluateWrite` end in silence and it never returns a permissive decision. This is load-bearing and the reason is in the file header: the SDK's permission dispatcher assigns a hook result *instead of* awaiting `canUseTool`, and `canUseTool` is the only path to `onPermissionRequest` — so a hook that waved a tool through would silently switch off the player's consent modal. Nothing would error; a question would just stop being asked. Read that header before changing anything in the file.
+- `/currency` is deliberately **not** governed: gold is prose inside `equipment[]` and schematising it is a data migration, sequenced separately.
+
+**Death is computed from the rules**
+- New `server/vitals-utils.js`: death saving throws, instant death on damage overflow, stabilisation, temporary hit points. `applyVitals` (`:698`) is the single writer; `isDead` (`:89`), `readVitals` (`:112`) and `describeCondition` (`:135`) are the readers. Rules are derived from `data/rules/combat.json` at load with a coded fallback (`deriveDeathRules`, `:54`), so the ruleset stays the source of truth.
+- **A second, independent path to a wrong death, now gone.** `server/combat-utils.js` tested `hp <= 0` for death — the *monster* rule — and applied it to player characters, contradicting both `CLAUDE.md` and `data/rules/combat.json`. A player character at 0 hit points is unconscious and dying, not dead. `combatantVitals` (`:40`) now follows the sheet's `status` for file-backed combatants and keeps the `hp <= 0` rule only for sheetless creatures, where it is correct.
+- Related: `combatStates` no longer holds hit points for anything with a sheet. File-backed combatants are read from the sheet at call time — one number, one writer, nothing to reconcile. Initiative order and round number are still in-memory and still lost on restart, deliberately.
+
+**Restore a character from the library**
+- New `POST /:id/restore-character` (`server/routes/sessions.js:932`, block comment at `:887`). A dead character can be restored from the player's library copy as they were at session start.
+- This replaces a recovery path that returned a *level-1 template* in place of a character who had been played for hours. The failure mode it removes is losing a long-lived character to a data-shaped accident.
+- It refuses rather than guesses when there is nothing to restore from: a character created inside a session and never saved to the library produces an explicit error (`:1004`) and changes nothing.
+
+**Compaction no longer discards server-side writes**
+- `server/compaction.js` — the previous implementation assigned `session.messages = liveTail` and wrote the whole stale object back, so **every server-side write that landed during the summarisation window was lost**: the turn's messages and world state, a companion claim, and `session.mechanicalOverrides` — the only durable record that a player was asked to approve a change to their own hit points and agreed. Compaction runs periodically through long sessions, which is when there is most to lose.
+- The comment in `maybeCompact` (`:182`) explains why the obvious fix is worse than the bug: re-applying the same mutations inside `updateSessionFile` moves the race rather than removing it, because `liveTail` was computed from the pre-call array.
+
+**Tests: 160 → 464, and the suite is now safe to run**
+- 10 test files at 1.0.24, 20 now. Statically counted `it`/`test` cases: **160 at `d02cadd`, 464 in this tree** — matching the 464 reported by both runners.
+- `vitest.config.js` now loads `server/__tests__/helpers/vitest-setup.js`, which **blocks the Agent SDK's `query()` for the whole suite**. This closes the WO-0001.5 hazard: previously a test that forgot to inject a fake engine started a real, billable agent with `Edit` access to `data/`. `npm test` was documented as unsafe to run; that is no longer true.
+- New `server/__tests__/_harness/` — a dependency-free runner (`run-all.mjs`, `run-file.mjs`, `vitest-shim.mjs`) so the suite can be executed without vitest. Both runners agree at 464.
+
+**Simulation rails — present, dormant**
+- The bot subsystem does not load, and the reason changed late in this release. It used to be gated on `data/bot-config.json` having `enabled: true` — a file that has never existed here. Extracting `createApp()` replaced that with `NODE_ENV !== 'production'`, and the security review (SR-1) was right to call that a regression rather than a fix: `NODE_ENV` is set nowhere in this project, so the gate would have read `undefined !== 'production'` and mounted the bot admin router on the real server. The gate now requires the deployment to say yes on purpose — **`CLAUDEDM_BOTS=1`, and never under `NODE_ENV=production`** (`server/index.js:49`). The variable is unset on the chair's machine, so `botsAllowed(process.env)` is `false` and nothing mounts. It ships off and stays off, now for a reason that is checked rather than incidental.
+- `data/bot-config.json` still decides whether any bots actually *run* once mounted (`BotOrchestrator.start()` returns early unless `enabled`), which is the narrower question it is good at.
+- It carries two real fixes: a stopped bot used to leave its claim on the NPC it was controlling, wedging the companion slot for the whole table — it now unjoins and releases the claim before stopping (`server/bot/bot-orchestrator.js`); and every bot HTTP call now carries an `AbortSignal.timeout` (15s, 3s during shutdown; SR-5), where before a hung server could pin a bot process forever.
+- One honest caveat on the three new access-model tests: they pass against `d02cadd` as well, because the change they cover in `server/routes/bots.js` is comment-only. They are characterisation tests, not regression tests, and are not counted as the latter.
+
+**Not observed in play**
+- Stated because it matters more than a test count: **the death machinery has never fired in a real game.** The chair played for hours after it landed and no character came close to dying. The restore flow and the consent modal **have never been rendered to a human** — they compile and are covered by unit tests, and that is the whole of the evidence.
+
+**Open, for the maintainer**
+- **All 464 tests are server-side.** `vitest.config.js` includes only `server/__tests__/**`, and there are **zero** client tests — `find client/src -name '*.test.*'` returns nothing. So the restore banner, the consent modal and the death-save display in the party panel are untested as well as unrendered: the endpoints beneath them are covered, the components are not.
+- Still no git tags (`RELEASING.md` F16). `v1.0.24` exists as a commit subject and a branch name only, and this release adds a second.
+- 22 of the paths in this release are **untracked**, including `server/state-guard.js` and `server/vitals-utils.js`. `git commit -a` would ship the release with its two headline modules missing and `dm-engine.js:18` requiring a file that does not exist — the server would not start. Use `git add -A` and read `git diff --cached --stat` before committing (`RELEASING.md` F17).
+- The `1.0.x` / `1.1.x` minor-digit split is still unreconciled. `[1.1.22]` and `[1.1.23]` are the same release train as `demo_1.0.22` and `demo_1.0.23`; the patch number is the reliable counter and 1.0.25 continues the branch convention.
+
 ## [1.0.24] - 2026-09-01
 Changes since `1.1.23` (starting after commit `90889ec`, "v1.0.23"):
 
@@ -16,7 +153,7 @@ Changes since `1.1.23` (starting after commit `90889ec`, "v1.0.23"):
 - Retitled to **The Shattered Vaunt**, subtitle "When the Vaunting Breaks, the World Trembles", with `listing.blurb` updated to match. `setting.name` is now "The Cormorant Coast and the Far Frontier".
 - Scenario titles: **3 of 4 changed** ("The Hill Giant Gluttony" is unchanged). **Filenames were deliberately not changed** — `data/campaigns/campaign3/scenarios/` still contains `the-frozen-throne.json`, `the-maelstrom.json` and `the-vonindod-rises.json` while the `title` inside each now reads differently. `linkedScenarios` resolves by id (`sg-scenario-001`…`004`), so nothing is broken; but path and title now disagree, and that will confuse the next person to open the directory. Worth a follow-up that renames the files and the ids together, as one change, rather than drifting further.
 - All five NPC files under `data/defaults/campaign3/npcs/` are replaced: `adela-renwick`, `nimbrel`, `ondrek`, `orla-mabrey`, `solvane`. **In git this is five deletions plus five untracked additions, not renames** — see the staging note under Repository hygiene.
-- All eight files under `data/defaults/campaign3/characters/` are edited, and all eight character **names are unchanged**; the edits are to prose inside them.
+- All eight files under `data/defaults/campaign3/characters/` are edited, and all eight character **names are unchanged**; the edits are to prose inside them. Specifically: **zero** changes across `name`, `level`, `class`, `race`, `hitPoints`, `armorClass`, `abilityScores`, `abilities`, `skills`, `spells`, `proficiencyBonus` and `id` in 8 of 8 files, and equipment holds at **113 items before and after** with no list changing length — the diff is **seven single lines** of description (a deity, a mountain range, a well, a college, a town, a mine and a person's name). One consequence worth knowing before you resume a saved game: `loadScenario` (`server/dm-engine.js:122-131`) reads the campaign directory **live on every call**, while character files were copied into the session at creation. So a resumed campaign picks up the new scenario titles immediately, but its already-copied character sheets keep whatever prose they were created with. Nothing is broken by that; it just explains why a resumed game can show a new title beside an old sheet.
 - `client/src/components/GiantsMap.jsx`: one region name and two map labels changed; `alt` text now reads "The Shattered Vaunt — The Cormorant Coast & Far Frontier".
 - `client/src/data/changelog.js`: the two historical What's New entries that named this campaign and its map now use the current names, each carrying a bracketed "[Entry updated in v1.0.24…]" note. The entries' version, date and `compareRef` are untouched — only the prose inside them changed, and the change is declared in the entry rather than made silently. Rationale is in the WO-0010 deliverable.
 

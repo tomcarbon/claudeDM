@@ -1,0 +1,484 @@
+{
+  "_meta": {
+    "category": "scifi",
+    "source": "Written for claudeDM (Sci-Fi category). Mostly original; a few general-mechanics sentences (e.g. opportunity attacks, passive checks, stat-block phrasing) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Combat rules for the Sci-Fi category: the shared d20 chassis (initiative, actions, conditions, cover, death saves, resting) restated in plain language, plus the full gunplay rules. 'spec_rule_index' maps the 18 numbered gunplay rules of WO-0040 to the sections that implement them. The death_saving_throws and healing.long_rest wording deliberately matches the fantasy combat.json numbers (DC 10, three successes, three failures, natural 1 = two failures, natural 20 = regain 1 hit point, damage at 0 HP = one failure, critical = two failures, half your total hit dice on a long rest) because the server reads them from the prose."
+  },
+  "spec_rule_index": {
+    "1_ranged_attack": "attack_rolls.ranged, damage.ability_modifier_on_damage",
+    "2_range": "gunplay.range",
+    "3_point_blank": "gunplay.point_blank",
+    "4_ammunition": "ammunition",
+    "5_fire_modes": "fire_modes",
+    "6_aim": "gunplay.aim, actions_in_combat.aim",
+    "7_cover": "cover",
+    "8_called_shots": "gunplay.called_shots",
+    "9_critical_hits_and_jams": "attack_rolls.critical_hit, gunplay.jams",
+    "10_armor_piercing": "gunplay.armor_piercing",
+    "11_explosives": "explosives",
+    "12_noise": "noise",
+    "13_nonlethal": "nonlethal",
+    "14_new_conditions": "conditions (Suppressed, Bleeding, Shaken)",
+    "15_healing_without_magic": "healing",
+    "16_hacking": "hacking",
+    "17_chases": "chases",
+    "18_vehicles": "vehicles"
+  },
+  "initiative": {
+    "description": "When a fight starts, every participant rolls a Dexterity check. The GM rolls once for each group of identical adversaries. Turns go from highest to lowest and the order repeats each round (a round is about 6 seconds).",
+    "formula": "d20 + Dexterity modifier",
+    "tie_breaking": "The GM decides the order among tied participants; a player character wins ties against adversaries with the same modifier.",
+    "surprise": "A side that didn't notice the threat is surprised: surprised creatures can't move, act or take reactions on their first turn. Ambushes with suppressed weapons, snipers and stealthy predators usually surprise their targets."
+  },
+  "turn_structure": {
+    "movement": "Move up to your speed, splitting it before and after your action as you like. Climbing, crawling, swimming and difficult terrain (rubble, crowds, wreckage) cost 2 feet per foot.",
+    "action": "One action per turn: Attack, Aim and fire, Reload, Full Auto, Suppressive Fire, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Clear a Jam, Use an Object, or something improvised.",
+    "bonus_action": "One bonus action per turn, only when a feature, weapon or item says something takes a bonus action (Aim, fast reload, a stim, Cunning Action).",
+    "reaction": "One reaction per round, regaining it at the start of your turn. Opportunity attacks, Overwatch and readied actions use reactions.",
+    "free_interaction": "One simple object interaction per turn for free: draw or holster a weapon, open a door, drop prone, grab a magazine from your vest, shout a short warning."
+  },
+  "actions_in_combat": {
+    "attack": "Make one melee or ranged attack (more with Extra Attack). A single shot or a burst is one attack.",
+    "aim": "Bonus action, only if you haven't moved this turn: your next ranged attack this turn has advantage, and your speed becomes 0 until the end of the turn.",
+    "full_auto": "Action. Spend 10 rounds to sweep a 10-ft cube within normal range (see fire_modes.auto).",
+    "suppressive_fire": "Action. Spend 10 rounds to cover a 20-ft-wide lane (see fire_modes.suppressive).",
+    "reload": "Refill a weapon's magazine from spare ammunition: an action, or a bonus action for weapons whose reload is listed as 'bonus action'. You need the spare rounds on your sheet.",
+    "clear_jam": "Action, no check: a jammed weapon can fire again. Anyone holding the weapon can do it.",
+    "dash": "Gain extra movement equal to your speed this turn.",
+    "disengage": "Your movement doesn't provoke opportunity attacks for the rest of the turn.",
+    "dodge": "Until the start of your next turn, attacks against you have disadvantage if you can see the attacker, and you have advantage on DEX saves (including against full auto and grenades). You lose this if incapacitated or your speed drops to 0.",
+    "help": "Give an ally advantage on their next check for a task you could help with, or on their next attack against a creature within 5 ft of you. Spotting for a sniper (you can see the target and communicate with the shooter) also counts.",
+    "hide": "Make a DEX (Stealth) check while out of sight or heavily obscured. Until discovered, you have advantage on your first attack, and attacks against you have disadvantage. Firing a loud weapon reveals your position; a suppressed shot reveals it only to creatures within about 60 ft.",
+    "ready": "Choose a trigger and an action (usually a shot). When the trigger happens before your next turn, you can use your reaction to take the action. 'I shoot the first person through the door' is a readied attack.",
+    "search": "Make a WIS (Perception) or INT (Investigation) check to find something hidden.",
+    "use_an_object": "Use an item that takes an action: apply a field dressing, throw a grenade, plant a charge, hack a keypad (one Computers check), hot-wire a car, inject a stim that isn't a bonus action.",
+    "improvise": "Anything not listed: kick over a table for cover, shoot out the lights, ram a car. The GM sets an ability check and DC."
+  },
+  "attack_rolls": {
+    "melee": "d20 + STR modifier + proficiency bonus (everyone is proficient with Melee). Finesse weapons can use DEX instead.",
+    "ranged": "d20 + DEX modifier + proficiency bonus if you are proficient with the weapon's group (Sidearms, Longarms, Automatics, Heavy Weapons, Energy Weapons, Explosives). Untrained use of a firearm or energy weapon adds no proficiency bonus. Select-fire weapons fired single-shot use their 'singleShotGroup'; burst and auto need Automatics (or Heavy Weapons for machine guns).",
+    "finesse_weapons": "Use either STR or DEX for attack and damage, the same for both.",
+    "unarmed": "d20 + STR modifier + proficiency bonus; damage is 1 + STR modifier bludgeoning (Brawlers use Hard Hitter instead).",
+    "critical_hit": "A natural 20 always hits and is a critical hit: roll all of the attack's damage dice twice and add the modifier once. A hit with a called shot to the head is also a critical hit.",
+    "critical_miss": "A natural 1 always misses. With a firearm it is also a fumble: the weapon jams (see gunplay.jams).",
+    "advantage": "Roll 2d20 and take the higher.",
+    "disadvantage": "Roll 2d20 and take the lower. Advantage and disadvantage on the same roll cancel out, however many sources of each there are.",
+    "versus_ac": "The attack hits if the total equals or beats the target's Armor Class."
+  },
+  "damage": {
+    "formula": "Weapon damage dice + ability modifier for melee attacks and for single shots with Sidearms, Longarms and Automatics. Bursts, full auto, suppressive fire, Heavy Weapons area effects and Explosives add no ability modifier.",
+    "ability_modifier_on_damage": {
+      "melee": "STR modifier (or DEX with finesse).",
+      "single_shot": "DEX modifier (Sidearms, Longarms, Automatics, Energy Weapons, single-target Heavy Weapons).",
+      "burst": "No ability modifier; add one extra weapon damage die instead.",
+      "full_auto_and_suppressive": "No ability modifier.",
+      "explosives_and_area_effects": "No ability modifier."
+    },
+    "damage_types": [
+      "Acid",
+      "Bludgeoning",
+      "Cold",
+      "Fire",
+      "Force",
+      "Lightning",
+      "Necrotic",
+      "Piercing",
+      "Poison",
+      "Psychic",
+      "Radiant",
+      "Slashing",
+      "Thunder"
+    ],
+    "sci_fi_mapping": {
+      "ballistic rounds, flechettes, shrapnel, rail slugs": "Piercing",
+      "clubs, fists, falls, blast pressure, vehicle impacts": "Bludgeoning",
+      "knives, machetes, axes, claws": "Slashing",
+      "lasers": "Radiant",
+      "plasma, incendiaries, flamethrowers": "Fire",
+      "stun weapons, stun guns, arc and EMP": "Lightning",
+      "sonic weapons, flashbangs": "Thunder",
+      "toxins, gas, venom": "Poison",
+      "corrosive alien fluids": "Acid",
+      "cryogenics, vacuum exposure": "Cold",
+      "radiation, decay, alien bio-weapons": "Necrotic",
+      "alien mind attacks": "Psychic"
+    },
+    "resistance": "Take half damage (rounded down) from that type.",
+    "vulnerability": "Take double damage from that type.",
+    "immunity": "Take no damage from that type."
+  },
+  "gunplay": {
+    "overview": "Guns are fast, loud and lethal. A ranged attack is d20 + DEX + proficiency (if trained in the weapon's group) against AC. Single shots add DEX to damage; bursts, full auto and explosives don't. Every shot spends ammunition that is tracked on the sheet. Read the target's cover and the noise the fight is making as carefully as the dice.",
+    "range": "Every firearm has a normal and a long range ('30/120'). Shooting at a target beyond normal range but within long range has disadvantage. A target beyond long range can't be hit; you can still fire for noise or suppression only if the GM allows.",
+    "point_blank": "Firing a Longarm, an Automatic or a Heavy Weapon while a conscious hostile creature that can see you is within 5 ft of you has disadvantage (it is grabbing the barrel, crowding you, shoving the weapon aside). Sidearms are exempt: pistols and revolvers fire normally at contact distance. Soldiers with the Close Quarters style ignore this rule.",
+    "aim": "As a bonus action, if you haven't moved yet this turn, you can Aim: your next ranged attack this turn has advantage, and your speed becomes 0 until the end of the turn. You can't Aim and then fire full auto or suppressive fire (those are already area effects).",
+    "called_shots": {
+      "rule": "Declare the target location before rolling and take -5 to the attack roll. Not possible against creatures without anatomy for that location (swarms, oozes, most robots' 'heads', hordes).",
+      "weapon_hand": "On a hit the target takes normal damage and drops what it is holding in that hand (it lands at its feet). No extra damage.",
+      "legs": "On a hit the target takes normal damage and its speed is halved until it receives any healing or finishes a long rest.",
+      "head": "On a hit, the hit is a critical hit (roll damage dice twice). Helmets don't prevent this; the GM may rule that a sealed powered-armor helmet turns it into a normal hit."
+    },
+    "jams": "When you roll a natural 1 on an attack with a firearm (any weapon that fires cartridges: Sidearms, Longarms, Automatics, Heavy Weapons except launchers), the attack misses and the weapon jams. A jammed weapon can't fire until someone holding it uses an action to clear it (no check needed). Revolvers, crossbows and energy weapons follow the notes on their equipment entries instead (revolvers don't jam; lasers overheat for a turn). Rounds spent on the jammed attack are still spent.",
+    "armor_piercing": "Weapons with the armor-piercing property ignore any part of a Medium, Heavy or Powered armor's AC above 14. Work out the target's AC as if the armor's AC were 14 (plus the DEX it would normally allow), then add shields, cover and other bonuses as normal. Example: a target in riot gear (AC 17) with a riot shield has AC 16 against an armor-piercing rifle. Light armor and natural armor are unaffected unless a weapon's notes say otherwise.",
+    "untrained_use": "You can fire any weapon you can lift. Without proficiency in its group you don't add your proficiency bonus to the attack roll, and you can't use burst, full auto or suppressive fire with a weapon you aren't proficient with unless the GM allows it at disadvantage.",
+    "two_weapons": "When you Attack with a one-handed melee weapon or a Sidearm in one hand, you can use a bonus action to make one attack with a different one-handed melee weapon or Sidearm in the other hand. You don't add your ability modifier to the damage of the off-hand attack (unless it's negative). Both attacks spend their own rounds.",
+    "shooting_into_melee": "When you fire at a target that is within 5 ft of one of your allies, a miss by 5 or more hits the ally instead if their AC is equal to or lower than your attack total. Aiming first prevents this.",
+    "firing_from_vehicles": "Shooting from a moving vehicle has disadvantage unless the vehicle is moving slowly in a straight line. The driver can't fire Longarms or heavier while driving.",
+    "darkness_and_smoke": "Firing at a target you can't see (darkness without night vision, thick smoke) has disadvantage, and you must guess its location. A muzzle flash in darkness reveals the shooter's location to everyone who can see it."
+  },
+  "fire_modes": {
+    "single": {
+      "rounds": 1,
+      "rule": "A normal attack roll against one target. Damage = weapon dice + DEX modifier (for Sidearms, Longarms, Automatics and Energy Weapons)."
+    },
+    "burst": {
+      "rounds": 3,
+      "rule": "One attack roll against one target at -2 to hit. On a hit, roll one extra weapon damage die (2d6 becomes 3d6). No ability modifier on burst damage. A critical hit doubles all the dice including the extra one. Requires Automatics proficiency (or Heavy Weapons for machine guns)."
+    },
+    "auto": {
+      "rounds": 10,
+      "rule": "Full auto takes your action. Choose a 10-ft cube whose nearest edge is within the weapon's normal range. Every creature in the cube, friend or foe, makes a DEX saving throw against DC 8 + the shooter's proficiency bonus + the shooter's DEX modifier. On a failure it takes the weapon's damage dice (no modifier); on a success, half as much. Cover adds its bonus to the save; full cover blocks it unless the material is defeated (see cover.material). Weapons that can't hold 10 rounds can't fire full auto. A Soldier with the Heavy Gunner style adds +1 to the DC."
+    },
+    "suppressive": {
+      "rounds": 10,
+      "rule": "Suppressive fire takes your action. Choose a lane 20 ft wide extending from you up to the weapon's normal range. Until the start of your next turn, any creature that enters the lane or starts its turn in it makes a WIS saving throw (DC 8 + your proficiency bonus + your DEX modifier). On a failure it is Suppressed. Suppressive fire deals no damage by itself, but a creature that fails the save by 5 or more also takes one weapon damage die. Creatures behind full cover are unaffected; creatures immune to being frightened (mindless undead, robots) are immune to Suppressed. Ammunition is spent even if nobody enters the lane."
+    },
+    "mode_availability": "A weapon can only use the modes in its fireModes list. Bursts and full auto must be listed; suppressive fire is available to any weapon that can fire auto."
+  },
+  "ammunition": {
+    "spending": "Every attack spends rounds: single shot 1, burst 3, full auto 10, suppressive fire 10. Thrown grenades and explosives spend themselves (one grenade per throw). Energy weapons spend shots from their power cell the same way.",
+    "magazine": "A weapon holds at most its 'magazine' value. When the magazine is empty, the weapon can't fire until it is reloaded. You can't fire a mode that needs more rounds than are left in the magazine (8 rounds left means no full auto).",
+    "reload": "Reloading refills the magazine from your spare ammunition. It takes an action, or a bonus action for weapons whose reload is listed as 'bonus action' (detachable box magazines). Revolvers, tube-fed shotguns and bolt-action rifles reload as an action. Partial magazines: the GM may simply track spare rounds as a pool rather than individual magazines.",
+    "tracking_on_the_sheet": "Spare ammunition is a counted equipment item on the character sheet, written with the count in parentheses, for example \"9mm rounds (45)\", \"Shotgun shells (12)\", \"Frag grenade (2)\" or \"Power cell (3)\". Rounds currently in the weapon count as part of that total.",
+    "gm_procedure": "The GM deducts rounds with TrackResources \"use\" as they are fired, once per exchange of fire (each attack or each turn's shooting), never in bulk after the fight is over. Announce what remains when a magazine runs low.",
+    "out_of_ammo": "Out of ammo means out. There is no free reload and no bottomless magazine. Characters can scavenge rounds from fallen enemies who carried compatible weapons, buy them, or improvise; otherwise they are swinging the empty rifle as a club (1d4 bludgeoning, improvised).",
+    "compatibility": "Ammunition must match the weapon: 9mm, .38, .45, magnum, .22, shotgun shells, intermediate rifle rounds, full-power rifle rounds, machine-gun belts, power cells, caseless magazines. See gear.json ammunition entries."
+  },
+  "cover": {
+    "half_cover": "+2 to AC and DEX saving throws. At least half the body is behind an obstacle: a low wall, a car hood, a doorframe, another creature.",
+    "three_quarters_cover": "+5 to AC and DEX saving throws. Only a small part of the target is exposed: shooting from behind a corner, through a firing slit or over a barricade.",
+    "total_cover": "Can't be targeted directly by an attack or area effect. The target is completely concealed behind an obstacle that stops the incoming fire.",
+    "material": {
+      "rule": "Cover is material. What it is made of decides what it stops. Look up the material, then the weapon class firing at it. The entries below give the cover value a material provides against each class of weapon; that value replaces the normal half/three-quarters/full judgement whenever it is lower.",
+      "soft_cover": "Drywall, interior doors, car doors and body panels, wooden furniture, fences, foliage, crates of clothes: half cover against pistols (Sidearms) and SMGs; NO cover against rifles (Longarms, assault rifles), machine guns, shotgun slugs and energy weapons, which punch straight through. It still blocks line of sight, so the shooter may need to guess the location (disadvantage).",
+      "hard_cover": "Engine blocks, concrete, brick, stone, earth berms, sandbags, steel plate, armored bulkheads: full cover against everything short of Heavy Weapons. Against Heavy Weapons (machine guns, rockets, anti-materiel rifles, plasma cannons, rail rifles) treat it as three-quarters cover, and a rocket or plasma cannon hit destroys a 5-ft section.",
+      "partial_hard_cover": "When only part of the target is behind hard cover (crouched behind a car's wheel and engine, leaning out of a concrete window), use half or three-quarters cover as normal; the material rule decides whether the cover counts at all.",
+      "glass": "Windows and glass doors give no cover against any firearm; they only block line of sight if frosted or tinted. Bulletproof glass counts as hard cover against Sidearms and as soft cover against rifles.",
+      "creatures": "Another creature (friend or foe) gives half cover. Shooting past it risks hitting it (see gunplay.shooting_into_melee)."
+    },
+    "explosives_and_cover": "Against explosives and full auto, cover adds its bonus to the DEX save. Total cover from hard material between you and the blast point means the blast doesn't reach you.",
+    "destroying_cover": "Soft cover takes hits: after a full-auto or suppressive burst passes through it, it is gone. The GM can give hard cover objects AC and HP (concrete barrier AC 17, HP 50; car as in vehicles)."
+  },
+  "explosives": {
+    "general": "Grenades, launchers, rockets, charges and mines affect an area rather than making an attack roll against one creature (unless the weapon's notes say otherwise). Choose a point within range; each creature in the area makes a DEX saving throw against the weapon's DC, taking the listed damage on a failure or half on a success. No ability modifier is added to damage.",
+    "throwing": "Throwing a grenade at a point uses an action. If the point is within normal range it lands where you choose. At long range, or if you can't see the point, it lands 1d10 x 5 ft away in a random direction (roll a d8 for direction) unless you succeed on a DEX check against DC 10.",
+    "cover_adds_to_save": "Cover between a creature and the blast point adds its bonus (+2 or +5) to that creature's DEX save. Total cover from hard material shields it completely.",
+    "proficiency": "Without Explosives proficiency you can still throw a grenade, but placing and wiring charges, setting mines or improvising devices requires a Mechanics check at disadvantage, and failing it by 5 or more sets the device off.",
+    "improvised_devices": "Pipe bombs, gas-can bombs and booby traps can be built with Jury-Rig or Mechanics: DC 15, deals 3d6 in a 10-ft radius (DC 12 DEX save); DC 20 for 6d6 in a 20-ft radius.",
+    "throwing_it_back": "A creature within 5 ft of a lit stick of dynamite or a grenade that the thrower didn't cook (hold for a second before throwing, which imposes disadvantage on the throw) can use its reaction to throw it up to 20 ft by succeeding on a DC 15 DEX save.",
+    "structures": "Explosives deal double damage to objects and structures."
+  },
+  "noise": {
+    "rule": "Unsuppressed gunfire is heard for blocks: outdoors about half a mile, indoors throughout the whole building and anyone just outside it. Explosions carry twice as far. Suppressed weapons are heard within about 60 ft and are often mistaken for something else (DC 12 Perception to recognize as gunfire beyond 30 ft).",
+    "consequences": "Noise always has consequences, and the GM tracks them. Each loud exchange should advance a clock appropriate to the setting: neighbors calling the police (1980s/modern cities: first patrol car in 2d4 + 4 minutes, more units and SWAT after that), a security team responding, guards converging from elsewhere in the compound, a horde of zombies turning toward the sound, an alien hive waking, a patrol coming to investigate. The consequence should arrive even if the players won the fight.",
+    "tracking": "Keep a simple count of loud exchanges in a scene. 1: someone heard it. 3: a response is definitely coming. 6+: everything nearby knows exactly where you are.",
+    "stealth": "A character who has fired a loud weapon can't be hidden from creatures that heard it until they move out of sight and spend a turn taking the Hide action.",
+    "melee_and_suppressed": "Melee fights, crossbows and suppressed shots don't advance the noise count unless something else is loud (screams, breaking glass, alarms)."
+  },
+  "nonlethal": {
+    "rule": "When an attacker reduces a creature to 0 hit points with a melee attack or a weapon with the nonlethal property, the attacker can declare the blow knocks the target out rather than killing it. The target drops to 0 HP, stable and unconscious, instead of dying; it doesn't make death saving throws.",
+    "waking": "A stable unconscious creature regains 1 HP and wakes after 1d4 hours, or sooner if someone uses an action to revive it with a Medicine check (DC 10) or healing.",
+    "firearms": "Ordinary firearms can't be nonlethal. A GM may allow a deliberate wounding shot (called shot to the legs) that leaves the target alive at 0 HP but Bleeding.",
+    "nonlethal_weapons": "Stun guns, stun batons, stun pistols, sonic disruptors, flashbangs and tear gas are nonlethal by default; their notes list any conditions they impose. Robots and synthetics take stun damage as normal lethal damage."
+  },
+  "opportunity_attacks": {
+    "description": "When a hostile creature you can see moves out of your reach, you can use your reaction to make one melee attack against it, or to fire a Sidearm at it as it goes.",
+    "exceptions": "Doesn't trigger if the creature takes the Disengage action, is moved by something other than its own movement, or is carried by a vehicle.",
+    "overwatch": "Scouts' Overwatch is a separate reaction trigger (an enemy moving within normal range). Anyone else can Ready an attack for a similar effect."
+  },
+  "grappling": {
+    "initiate": "Use one attack of the Attack action to grab a creature no more than one size larger than you, with a free hand. Make a STR (Athletics) check contested by its STR (Athletics) or DEX (Acrobatics).",
+    "escape": "The grappled creature can use its action to repeat the contest to break free.",
+    "effect": "The target is grappled (speed 0). You can drag it at half speed. A grappled creature firing a Longarm or Automatic has disadvantage (point blank). Disarming: instead of grappling, contest to knock a weapon from a creature's hands."
+  },
+  "shoving": {
+    "description": "Use one attack of the Attack action to shove a creature within reach: STR (Athletics) contested by its STR (Athletics) or DEX (Acrobatics).",
+    "effects": "On a win, knock it prone or push it 5 ft away (out of a window, off a ledge, into the line of fire)."
+  },
+  "death_saving_throws": {
+    "zero_hp": "When a creature drops to 0 hit points it falls unconscious and is dying (unless the damage kills it outright). Adversaries the GM doesn't care about simply die or are out of the fight at 0 HP.",
+    "trigger": "When you start your turn with 0 hit points, you must make a death saving throw: roll a d20 with no modifiers.",
+    "success": "10 or higher is a success. Three successes: you become stable (unconscious, but no longer rolling).",
+    "failure": "9 or lower. Three failures: you die.",
+    "natural_1": "A natural 1 counts as two failures.",
+    "natural_20": "A natural 20 means you regain 1 hit point and wake up.",
+    "damage_at_0hp": "Taking any damage while at 0 HP causes one death save failure. A critical hit causes two failures. A melee hit from within 5 ft on an unconscious creature is a critical hit.",
+    "instant_death": "If damage reduces you to 0 HP and the damage left over equals or exceeds your hit point maximum, you die instantly. Close-range shotgun blasts, rockets and falls from great heights do this to ordinary people.",
+    "resetting": "Successes and failures reset when you regain any hit points or become stable.",
+    "no_resurrection": "Death is permanent. There is no magic and no technology in any era that brings someone back once they are dead."
+  },
+  "conditions": [
+    {
+      "name": "Blinded",
+      "effects": [
+        "Can't see; automatically fails any check that requires sight",
+        "Attack rolls against the creature have advantage",
+        "The creature's attack rolls have disadvantage"
+      ]
+    },
+    {
+      "name": "Charmed",
+      "effects": [
+        "Can't attack or target the charmer with harmful effects",
+        "The charmer has advantage on social checks against the creature",
+        "In Sci-Fi campaigns: caused by drugs, alien pheromones or psychic influence, never by spells"
+      ]
+    },
+    {
+      "name": "Deafened",
+      "effects": [
+        "Can't hear; automatically fails any check that requires hearing",
+        "Can't hear radio traffic or spoken orders"
+      ]
+    },
+    {
+      "name": "Frightened",
+      "effects": [
+        "Disadvantage on ability checks and attack rolls while the source of fear is in line of sight",
+        "Can't willingly move closer to the source of fear"
+      ]
+    },
+    {
+      "name": "Grappled",
+      "effects": [
+        "Speed becomes 0",
+        "Ends if the grappler is incapacitated or the creature is moved out of reach",
+        "Firing a Longarm, Automatic or Heavy Weapon has disadvantage"
+      ]
+    },
+    {
+      "name": "Incapacitated",
+      "effects": [
+        "Can't take actions or reactions"
+      ]
+    },
+    {
+      "name": "Invisible",
+      "effects": [
+        "Can't be seen without special senses (thermal, motion trackers); counts as heavily obscured for hiding",
+        "Attack rolls against the creature have disadvantage",
+        "The creature's attack rolls have advantage",
+        "In Sci-Fi campaigns: active camouflage, total darkness against creatures without night vision, or alien cloaking"
+      ]
+    },
+    {
+      "name": "Paralyzed",
+      "effects": [
+        "Incapacitated; can't move or speak",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "Any hit from within 5 ft is a critical hit"
+      ]
+    },
+    {
+      "name": "Petrified",
+      "effects": [
+        "Rare in Sci-Fi: flash-freezing, stasis fields or alien resin",
+        "Incapacitated, can't move or speak, unaware of surroundings",
+        "Attack rolls against it have advantage; automatically fails STR and DEX saves",
+        "Resistance to all damage; immune to poison and disease"
+      ]
+    },
+    {
+      "name": "Poisoned",
+      "effects": [
+        "Disadvantage on attack rolls and ability checks"
+      ]
+    },
+    {
+      "name": "Prone",
+      "effects": [
+        "Can only crawl (each foot costs 2) until it stands, which costs half its speed",
+        "Disadvantage on attack rolls, except that a prone shooter with a Longarm, Automatic or Heavy Weapon using a bipod or rest does not have disadvantage",
+        "Melee attacks from within 5 ft have advantage against it; ranged attacks from more than 5 ft have disadvantage against it",
+        "Going prone behind a low wall turns half cover into three-quarters cover"
+      ]
+    },
+    {
+      "name": "Restrained",
+      "effects": [
+        "Speed 0",
+        "Attack rolls against it have advantage; its attack rolls have disadvantage",
+        "Disadvantage on DEX saves",
+        "Handcuffs, zip ties, nets and alien resin cause this"
+      ]
+    },
+    {
+      "name": "Stunned",
+      "effects": [
+        "Incapacitated; can't move; can speak only falteringly",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "Stun guns, stun batons and EMP (for machines) cause this"
+      ]
+    },
+    {
+      "name": "Unconscious",
+      "effects": [
+        "Incapacitated; can't move or speak; unaware of surroundings",
+        "Drops what it is holding and falls prone",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "Any hit from within 5 ft is a critical hit"
+      ]
+    },
+    {
+      "name": "Suppressed",
+      "effects": [
+        "Disadvantage on attack rolls",
+        "Can't willingly move closer to the source of the suppressive fire",
+        "Lasts until the end of the creature's next turn",
+        "Caused by failing the WIS save against suppressive fire; mindless creatures and creatures immune to being frightened are immune"
+      ]
+    },
+    {
+      "name": "Bleeding",
+      "effects": [
+        "Loses 1d4 hit points at the start of each of its turns",
+        "Ends when someone uses an action and succeeds on a Medicine check (DC 10), when a field dressing is applied, or when the creature receives any healing",
+        "A creature at 0 HP that is Bleeding still makes death saves normally and the bleeding damage causes a death save failure each turn"
+      ]
+    },
+    {
+      "name": "Shaken",
+      "effects": [
+        "Disadvantage on WIS and CHA ability checks and saving throws",
+        "Lasts until the creature finishes a short or long rest (painkillers and a Face's Rally can also end it at the GM's discretion)",
+        "Caused by horrific sights, near-death experiences, torture or alien terror"
+      ]
+    },
+    {
+      "name": "Exhaustion",
+      "effects": [
+        "Measured in levels 1-6. 1: disadvantage on ability checks. 2: speed halved. 3: disadvantage on attacks and saves. 4: hit point maximum halved. 5: speed 0. 6: death",
+        "A long rest with food and water removes one level",
+        "Caused by forced marches, starvation, vacuum exposure and too many stims"
+      ]
+    }
+  ],
+  "healing": {
+    "principle": "There is no magic healing. Hit points come back through first aid, medical care, class features, drugs and rest. Nobody comes back from death.",
+    "first_aid": "As an action, make a WIS (Medicine) check (DC 10) to stabilize a creature at 0 HP. A medkit gives advantage on the check. A stable creature stops making death saves, stays unconscious and regains 1 HP after 1d4 hours. First aid also ends Bleeding.",
+    "stabilizing": "You can use an action to administer first aid (DC 10 Wisdom (Medicine) check) to stabilize a creature at 0 HP. A stable creature doesn't make death saving throws but remains unconscious.",
+    "medic_features": "A Medic's Field Medicine heals 1d6 + WIS + medic level with a medkit as an action, or stabilizes as a bonus action, a number of times per long rest equal to WIS modifier + 1 (min 1). Triage and Steady Hands add diagnosis and temporary hit points.",
+    "painkillers_and_stims": "Painkillers (any era): 1d4 + 1 temporary HP for 1 hour and end Shaken; a second dose within 8 hours risks being poisoned (DC 12 CON). Adrenaline auto-injector (modern/future): stabilizes and restores 1 HP. Med-stim (future): bonus action, regain 2d4 + 2 HP; a creature can take 3 per long rest, and each beyond that requires a DC 12 CON save or it gains 1 level of exhaustion.",
+    "hit_dice": "During a short rest, you can spend Hit Dice to recover HP. Roll each Hit Die and add your Constitution modifier. Your Hit Dice total equals your level.",
+    "short_rest": "At least 1 hour of downtime: eating, bandaging wounds, cleaning weapons, reloading magazines. Spend Hit Dice to heal. Features that recharge on a short rest come back. Ends the Shaken condition.",
+    "long_rest": "At least 8 hours, mostly sleep, in a reasonably safe place. Regain all lost HP and up to half your total Hit Dice (minimum 1). Remove one level of exhaustion if you have food and water. Can't benefit from more than one long rest in 24 hours, and a long rest interrupted by an hour or more of fighting gives no benefit.",
+    "hospital_care": "A week of hospital or medbay care heals all hit points and lingering injuries (leg hits, Shaken), but hospitals file gunshot reports with the police in 1980s and modern campaigns.",
+    "synthetics_and_machines": "Synthetics, robots and vehicles regain hit points through Mechanics checks (DC 10 restores 1d8 + INT with 10 minutes of work; tools required) and the Tech's Patch gadget, not through Medicine. Synthetics still spend hit dice on short rests and heal fully on long rests through self-repair.",
+    "death_is_final": "Nobody comes back from death. A character who dies is gone; the player creates a new one."
+  },
+  "hacking": {
+    "skill": "Hacking uses INT (Computers). A hacking rig suited to the era is needed against secured systems; without one, checks have disadvantage. Physical access to a terminal, port or device grants advantage for a Tech with Intrusion and for a Synthetic with Data Link.",
+    "dcs": {
+      "consumer_device": 10,
+      "corporate_or_police_system": 15,
+      "military_system": 20,
+      "state_of_the_art_or_alien": 25
+    },
+    "time": "A simple task on a device in hand (unlock a phone, kill a camera feed) is one action. Breaking into a network takes 1 minute per attempt; deep tasks (finding a specific file, rewriting records, taking control of a building system) need 2-3 successes before 3 failures, at 1 minute each.",
+    "failure": "Failure by 4 or less: no progress, try again. Failure by 5 or more trips an alarm: security is alerted, the system locks the intruder out for an hour, and (modern/future) a trace begins that will lead back to the access point within 1d6 minutes unless a second Computers check against the same DC breaks the connection.",
+    "era_1980s": "No internet. Systems are reached through phone lines with a modem (you need the dial-in number), through dedicated terminals on site, or by stealing magnetic tapes and floppy disks. Wiretapping a phone line requires physical access to the line or a junction box (Mechanics DC 12). Records are often on paper as well as on computers, and the paper copies are what people trust.",
+    "era_modern": "Everything is networked: phones, cameras, door locks, cars, medical devices. Remote hacking is possible against anything connected to the internet, but serious systems are air-gapped and require physical access or a planted device.",
+    "era_future": "Neural decks, AI security and quantum encryption. Corporate and military systems often have active intrusion countermeasures: failing by 5 or more against a DC 20+ system also deals 2d6 psychic damage to a hacker using a direct neural interface. Alien systems (DC 25) can't be hacked at all until someone has studied them with a Science check (DC 20).",
+    "other_tech_tasks": "Mechanics covers hardware: bypassing an alarm wire (DC 12), cracking a mechanical safe (DC 15-20, 10 minutes), hot-wiring a car (DC 12 for a 1980s car, DC 18 for a modern one with an immobilizer), disarming a bomb (DC set by its maker's check; failure by 5 sets it off)."
+  },
+  "chases": {
+    "structure": "A chase runs for 3 to 5 rounds. Each round, the pursuer and the quarry make opposed checks: DEX (Piloting) in vehicles, STR (Athletics) or DEX (Acrobatics) on foot (the runner picks). Track the result each round.",
+    "winning": "The quarry escapes if it wins the majority of rounds (or gains a lead of 3 rounds). The pursuer catches up if it wins the majority (or gains a lead of 2). Catching up on foot allows a grapple or melee attack; in vehicles, a ram or a box-in.",
+    "complications": "Each round the GM introduces one complication for whoever is behind (or both): a crowd, a red light, a dead-end, a delivery truck reversing, a fence, a closing bulkhead, a zombie in the road. Clearing it is a check (DC 10-15) with the relevant skill; failure costs the round automatically, failure by 5 or more also deals damage (on foot 1d6 bludgeoning; vehicles take 2d10 damage to the vehicle).",
+    "actions_during_a_chase": "Passengers and runners who aren't checking can act: shoot (disadvantage from a moving vehicle; target the driver, a tire (AC 15, a hit gives the driver disadvantage on the next Piloting check) or the vehicle), throw a grenade into the road, give directions (Help action with Survival or Streetwise), or hack the traffic lights.",
+    "breaking_line_of_sight": "If the quarry wins a round by 5 or more it may try to hide (Stealth or Piloting vs the pursuer's Perception) to end the chase immediately.",
+    "dashing": "On foot, each participant can Dash a number of times equal to 3 + CON modifier before needing a DC 10 CON check each additional Dash or gaining a level of exhaustion."
+  },
+  "vehicles": {
+    "statistics": "Vehicles have AC and HP. At 0 HP a vehicle is disabled: it stops (or crashes, if moving) and may catch fire (roll a d6; on a 1 it explodes 1d4 rounds later for 4d6 fire in a 15-ft radius).",
+    "examples": [
+      {
+        "name": "Sedan",
+        "ac": 12,
+        "hp": 50,
+        "speed_mph": 110,
+        "notes": "Doors are soft cover; the engine block is hard cover."
+      },
+      {
+        "name": "Van",
+        "ac": 11,
+        "hp": 70,
+        "speed_mph": 90,
+        "notes": "Carries 8 people or a full equipment load."
+      },
+      {
+        "name": "Motorcycle",
+        "ac": 13,
+        "hp": 25,
+        "speed_mph": 130,
+        "notes": "Rider has no cover; the rider can be targeted directly."
+      },
+      {
+        "name": "Pickup truck",
+        "ac": 12,
+        "hp": 60,
+        "speed_mph": 100,
+        "notes": "Bed passengers have half cover."
+      },
+      {
+        "name": "Police cruiser",
+        "ac": 12,
+        "hp": 55,
+        "speed_mph": 120,
+        "notes": "Radio, shotgun rack, cage in the back."
+      },
+      {
+        "name": "Armored SUV",
+        "ac": 15,
+        "hp": 90,
+        "speed_mph": 100,
+        "notes": "Bulletproof glass and panels: hard cover against Sidearms, soft cover against rifles."
+      },
+      {
+        "name": "Armored personnel carrier",
+        "ac": 18,
+        "hp": 200,
+        "speed_mph": 60,
+        "notes": "Hard cover against everything short of Heavy Weapons. Often mounts a machine gun."
+      },
+      {
+        "name": "Helicopter",
+        "ac": 13,
+        "hp": 100,
+        "speed_mph": 160,
+        "notes": "Piloting DC 15 to land in a tight space under fire."
+      },
+      {
+        "name": "Shuttle (future)",
+        "ac": 15,
+        "hp": 150,
+        "speed_mph": "orbital",
+        "notes": "Pressurized; a hull breach is a called shot that vents the cabin."
+      },
+      {
+        "name": "Hover bike (future)",
+        "ac": 14,
+        "hp": 30,
+        "speed_mph": 150,
+        "notes": "Ignores difficult terrain and water."
+      }
+    ],
+    "damage_threshold": "Ordinary vehicles ignore damage from a single attack that deals less than 5 damage (pistol rounds rattling off the body panels); armored vehicles ignore less than 10.",
+    "attacking_occupants": "Occupants of a car have half cover from soft body panels (which, per cover.material, is no cover against rifles) and full cover behind the engine block.",
+    "ramming": "The driver makes a Piloting check against the target's AC (or contested by the other driver). On a hit, both vehicles take damage: 2d10 per 20 mph of speed for the target, half that for the rammer. A rammed pedestrian takes the same damage unless it succeeds on a DC 15 DEX save for half.",
+    "crashing": "A crash at speed deals 1d10 bludgeoning per 10 mph to every occupant (DEX save DC 15 for half; seatbelts give advantage)."
+  }
+}

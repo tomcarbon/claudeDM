@@ -1,0 +1,486 @@
+{
+  "id": "bc-scenario-001",
+  "title": "Tallow Alley",
+  "subtitle": "A Dead Partner, a Client with Three Names, and a Lieutenant with a Week",
+  "levelRange": "3-4",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "San Francisco, the small hours of Friday 4 to Sunday 6 November 1938",
+    "description": "Three days in the fog. The case starts in Tallow Alley, a cobbled dead end off Jackson Street between Chinatown and the warehouses of Jackson Square, and spreads out from there: to the agency's office in the Monadnock Building, to the Hall of Justice on Kearny Street where Homicide and the morgue share a building with the city jail, to the Chinatown Telephone Exchange on Washington Street, to the Sir Francis Drake on Union Square, and up the cable-car hill to Nob Hill and Russian Hill, where the money lives. The party starts with a body, a lieutenant who suspects them, and a client who has vanished. By Sunday night they should know that Ned went to meet someone about the crane, that their client is not who she said, that a freighter is due on Monday, and that at least two other people in town want what is on it.",
+    "atmosphere": "Foghorns, wet stone, the yellow cones of streetlamps. The first act is grief played as procedure: cops, flashbulbs, a coat over a face, a lieutenant who keeps calling Cass 'Delaney' because he cannot bear to call her anything else. Friday is daylight and legwork, cold coffee and colder leads. By the weekend the city has noticed the party, and the party should feel watched: a young man in a too-new hat on a cable car, a parked Ford with two longshoremen in it, a doorman who is suddenly busy. Nobody fires a gun in Act 1. Somebody does in Act 3.",
+    "keyLocations": [
+      {
+        "name": "Tallow Alley",
+        "description": "A dead-end lane off the north side of Jackson Street, a block east of Kearny, cobbled, eight feet wide, lined with the loading doors of brick warehouses built after the fire. A single lamp on a bracket at the mouth. At the far end, a green-painted double door with MARSH PACIFIC TRADING CO. in flaking gilt, shuttered since Carlton Marsh sailed for Lisbon in June.",
+        "features": [
+          "Ned lies six feet from the Marsh Pacific door, on his back, hat against the wall, his Colt .38 still holstered under his left arm, his right hand in his coat pocket around a brass Ronson lighter",
+          "Two .32 automatic cartridge casings on the cobbles, one in a puddle, one against the wall; Dolan's men have chalked both",
+          "A row of galvanised ash cans at the mouth of the alley, emptied by the city at six on Friday morning (whatever was in them is gone by daylight)",
+          "The Marsh Pacific door is locked with a new padlock; the old one, cut, lies in the gutter"
+        ],
+        "encounters": [
+          "Lieutenant Frank Dolan, Sergeant Wally Kerrigan and four uniformed officers (Beat Cop) working the scene",
+          "A small crowd behind the rope at the corner of Jackson: two cooks from a noodle house still in their aprons, a Western Union boy, a woman from the family association across the street in a dressing gown and her husband's overcoat"
+        ],
+        "secrets": [
+          "CLUE A1: the holstered gun and the lighter. Ned was lighting someone's cigarette, or about to, when he was shot from about four feet. No roll needed: anyone who looks at the body sees it. Forensics DC 12 adds that the first shot came from slightly below, as from someone shorter than Ned's six feet.",
+          "CLUE A4: the Marsh Pacific door. The cut padlock was cut weeks ago (rusted) by the city when Carlton's rent fell due; the new one was put on by Corinne Marsh in September. Research in the city directory, or simply reading the door, ties the alley to the Marsh family.",
+          "The ash can at the mouth held the murder weapon for about an hour. Lonnie Pruitt took it out at about 11:15. Nothing remains, except, for a sharp eye in the first hour only (Perception DC 18 before dawn), a smear of gun oil on the rim of the third can from the corner."
+        ]
+      },
+      {
+        "name": "Corrigan & Delaney, Room 611, the Monadnock Building",
+        "description": "Two rooms on the sixth floor of 681 Market Street. An outer office with Dot Farrell's desk, a typewriter, a switchboard of four lines, a coat tree and a bench for clients; an inner office with Ned's desk, Cass's desk, two filing cabinets, a safe and a window that looks over the Palace Hotel. The elevator man is called Hector and has worked the building since 1912.",
+        "features": [
+          "Ned's desk: the blotter, an ashtray full of Old Golds, the client card for 'Mrs. Helen Strand, Sir Francis Drake, Room 714', and a carbon copy she left of a bill of lading",
+          "The safe holds the agency's petty cash ($84), two spare .38 revolvers, and the partnership papers, including the 1935 key-man insurance policies, $5,000 each, payable to the surviving partner",
+          "The client's two hundred dollars, still in its bank wrapper in Ned's top drawer: ten twenties"
+        ],
+        "encounters": [
+          "Dot Farrell, who arrives at seven on Friday morning, has already heard, and has made coffee anyway",
+          "Sergeant Kerrigan, 'just picking up a few things for the lieutenant', at eight, with no warrant"
+        ],
+        "secrets": [
+          "CLUE A2: Dot heard Ned's half of a call at 6:15 pm through the door: 'Then eleven, the back of the warehouse. You'll see it's the decent thing. No, I'll come alone.' She did not hear a name. She will tell anyone who asks what Ned did after the client left.",
+          "CLUE A3: Rubbing a pencil over the top sheet of Ned's blotter raises 'M. 11 Tallow'. No roll needed for anyone who thinks to look; Investigation DC 12 finds it without being prompted.",
+          "CLUE B2: the wrapper on the client's twenties is stamped 'BANK OF AMERICA, FOREIGN EXCHANGE, POWELL ST.' A teller there will say (Persuasion DC 12, or $2) that a young lady changed 4,800 Portuguese escudos on Wednesday.",
+          "CLUE C1: the bill-of-lading carbon: Marsh Pacific Trading, consignee; 'one crate, objet d'art, lacquer, 14 in.'; vessel Serra da Estrela, Lisbon via Panama, loaded 17 August 1938.",
+          "CLUE C3: the Chronicle on Dot's desk, shipping column, 'Due': Serra da Estrela (Port.), Lisbon via Panama and Los Angeles, Monday 7th, Pier 32. The Marine Exchange on the Ferry Building will confirm it by telephone for anyone.",
+          "Sergeant Kerrigan wants the bill-of-lading carbon. If he gets it, Larrabee knows by noon exactly which crate to watch for, and the Act 3 attack happens a day earlier."
+        ]
+      },
+      {
+        "name": "The Hall of Justice",
+        "description": "The grey stone Hall of Justice on Kearny Street, facing Portsmouth Square: police headquarters, the city prison on the top floors, the criminal courts, the coroner's office and morgue in the basement. Homicide is a bullpen on the third floor that smells of cigarettes and floor polish. The pistol register, a cabinet of dealers' carbon slips going back to 1923, is in the Bureau of Identification next door to it.",
+        "features": [
+          "Dolan's office: a glass partition, a photograph of his late wife, and Ned Corrigan's notebook in the top drawer, which he will not share",
+          "The morgue: tiled, cold, a Victrola the night attendant plays very quietly, and Dr. Hattie Lindqvist, autopsy surgeon, who smokes in defiance of the sign",
+          "The press room on the first floor, where Kit Vandermeer and every crime reporter in the city wait for Dolan to say something"
+        ],
+        "encounters": [
+          "Dolan's interview, on Friday afternoon, of each partner separately",
+          "Dr. Lindqvist's autopsy at ten on Friday morning, open to anyone she likes or anyone with $50 for a copy of her report"
+        ],
+        "secrets": [
+          "CLUE G1: on Ned's right sleeve and lapel, three long guard hairs, black with a silver band: silver fox. Dr. Lindqvist finds them and bags them. Forensics DC 15 (or Hattie's microscope) adds that they come from a new, ranch-bred pelt, glossy and unworn.",
+          "The bullets are .32 ACP. Two hits, chest and throat, from about four feet. No powder tattooing on Ned's coat, which means not contact range. Ned died in under a minute.",
+          "Dolan's reasons for suspecting the agency, in the order he gives them: the insurance; the shouting match the elevator man heard at three; the holstered gun; and the .32s carried by Kit Vandermeer and Dr. Weisz (if they are in the party; otherwise 'that reporter friend of yours'). He also has, and does not mention, the notebook."
+        ]
+      },
+      {
+        "name": "The Chinatown Telephone Exchange, Washington Street",
+        "description": "A three-tiered pagoda-roofed building at 743 Washington Street, half a block from Kearny, where twenty operators connect two thousand Chinatown subscribers by name rather than by number, in English and four dialects of Chinese. The shifts change at eleven at night. Rose Fong walks home east along Washington to her family's flat above a printer's shop on Jackson Street.",
+        "features": [
+          "The switchboard room: a long horseshoe of boards, cords, headsets, a supervisor with a pencil behind her ear, a portrait of the exchange's founder",
+          "The operators know everyone's business and say nothing about it, which is why they are trusted",
+          "Rose keeps a small notebook of things she has seen, because she wants to be a reporter"
+        ],
+        "encounters": [
+          "Rose Fong, 24, operator, off at eleven, who heard the shots from the corner of Washington and Kearny and has not been asked by the police because nobody on the scene thought to ask the neighbourhood",
+          "Mrs. Wong, the shift supervisor, who will not have operators bothered on duty but will let the party wait in the lobby"
+        ],
+        "secrets": [
+          "CLUE G3: Rose saw, at 11:08 by the clock over the Hall of Justice, a woman in a pale fur stole and a long grey dress walking fast up Kearny toward California Street, holding something inside her coat with her right hand. She thought the woman had been crying. She did not see her face well, but she is sure the stole was silver fox, because her aunt has saved for one for six years.",
+          "CLUE B4 (alternative route): Rose connected a call on Friday morning from a Chinatown grocer to the Hotel Grant on Bush Street for 'Miss Lind, the foreign lady who buys her oranges here'. If the party mentions the name Lind, Rose remembers.",
+          "Rose also noticed a young man in a brown suit and a brown fedora standing on the Hall of Justice steps at 11:00, smoking, watching Jackson Street. That is Lonnie Pruitt."
+        ]
+      },
+      {
+        "name": "Nob Hill and Russian Hill",
+        "description": "The Fairmont and the Mark Hopkins face each other across California Street at the top of the hill. The California Street cable cars run from Market up past both hotels and on west; their car barn and powerhouse is at California and Hyde. A few steep blocks north, Corinne Marsh's shingled house on Vallejo Street looks over the Bay to Alcatraz.",
+        "features": [
+          "The Mark Hopkins: a doorman called Pruneau who misses nothing, an elevator to the nineteenth floor, and Mr. Pellingham's penthouse, which he has let for the season",
+          "The Fairmont: the Community Chest ball was held in the main ballroom on Thursday night; the Friday Chronicle society page has photographs",
+          "The car barn at California and Hyde, where the gripmen and conductors take their coffee between runs",
+          "The Marsh house: a housekeeper called Concepción Ruiz, a grand piano nobody plays, and furniture already tagged by a Montgomery Street auctioneer"
+        ],
+        "encounters": [
+          "Mr. Ambrose Pellingham, who invites the party up for sherry on Saturday afternoon",
+          "Corinne Marsh, who receives the party on Saturday morning in black, and tells them her first version"
+        ],
+        "secrets": [
+          "CLUE C2: Pruneau the doorman ($1, or Society DC 12): 'Mr. Corrigan went up to Mr. Pellingham at four on Thursday. Mr. Pellingham's young man, the nervous one, went out after him and came back after midnight in a hurry, without his hat.'",
+          "CLUE G2: the Friday Chronicle society page, photographs from the ball. 'Mrs. Carlton Marsh, in mourning grey and silver fox, with Mr. and Mrs. Harold Vandermeer.' Research DC 10 at the newspaper morgue, or Kit Vandermeer, whose parents are in the picture, simply knows.",
+          "CLUE G4 (early route): the cable-car crews at the California and Hyde barn. Conductor Gus Ferrante took a lady in grey and silver fox down from Mason at about 10:45 and let her off at Kearny; conductor Lou Abbott took 'the same lady, I'd swear it' up from Kearny at about 11:25, and she gave him a silver dollar, 'and nobody tips on a cable car'. Persuasion or Streetwise DC 13 to get them talking; failure means they want to know who is asking and why, and Kerrigan hears of it.",
+          "Corinne's alibi: she was at the ball 'all night, from nine until one'. Thirty people saw her there. Two noticed she was 'gone a while' to the powder room. Nobody has asked them yet."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Ned Corrigan is dead in Tallow Alley and Lieutenant Dolan thinks his partners did it. Over three days the party must work their own partner's murder while being suspected of it: read the scene and the body, find what Ned did in the last seven hours of his life, and find a client who lied about her name and then disappeared. The trail leads to a bill of lading for a lacquer crane on a freighter due Monday; to a fat, polite collector in the penthouse of the Mark Hopkins who knew Ned was coming; to a widow on Russian Hill who owns the warehouse where Ned died and says she never met him; and, at last, to a cheap residential hotel on Bush Street where the client, now calling herself Marta Lind, is about to be visited by some men from the waterfront. By the end the party should have the client's second story, the freighter's arrival date, the first clues that a woman in silver fox was in that alley, and a week before Dolan arrests Cass Delaney.",
+  "hook": "Ned took the job at two on Thursday afternoon. The woman sat on the client bench in Dot's outer office with her gloves in her lap for twenty minutes before she would come in. She said she was Mrs. Helen Strand, from Seattle, a widow; that a crane statuette belonging to her family was coming in on a Portuguese freighter consigned to a firm that had no right to it; and that she wanted it 'taken into the agency's keeping' before anyone else could take it. She paid two hundred dollars in new twenties. Cass said she was lying. Ned said everybody lies to a detective on the first day, that is what the retainer is for. They had words; Hector the elevator man heard them through the door. At a quarter past one on Friday morning, the telephone rings.",
+  "cluesAvailable": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "C1",
+    "C2",
+    "C3",
+    "G1",
+    "G2",
+    "G3",
+    "G4"
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Fog on Kearny Street",
+      "description": "The small hours of Friday 4 November. The body, the lieutenant, and the office at dawn. This act establishes Ned, Dolan, Dot, and the suspicion on the party, and plants the conclusion 'Ned went to Tallow Alley to meet someone about the client's job, someone he did not fear' with four clues: the holstered gun and lighter (A1), Dot's half of the call (A2), the blotter (A3), and the Marsh Pacific door (A4).",
+      "objectives": [
+        "See Ned's body and the scene before Dolan's men clear it",
+        "Get through Dolan's questions without giving him a reason to arrest anyone tonight",
+        "Reach the office before Sergeant Kerrigan takes the client's papers",
+        "Learn from Dot what Ned did between two and eleven on Thursday",
+        "Find the blotter impression and the bill of lading"
+      ],
+      "scenes": [
+        {
+          "name": "Under the Coat",
+          "description": "Tallow Alley at half past one in the morning. Dolan lets the party look, because he wants to watch their faces while they do. The scene gives up its core clues to anyone who looks.",
+          "readAloud": "The fog has come down so low on Jackson Street that the prowl cars' spotlights make two white rooms in it and nothing else. Inside the rope, Tallow Alley is a wet black throat of cobbles with a single lamp at the mouth. A uniformed cop lifts the coat for you without being asked. Ned Corrigan is lying on his back with his eyes half open, the way he used to look at a client he did not believe. His hat has rolled against the warehouse wall. His right hand is still in his coat pocket. Somebody has drawn chalk circles round two little brass shells on the stones. Behind you, Frank Dolan says, very quietly, 'Take your time.'",
+          "skillChecks": [
+            {
+              "skill": "Forensics",
+              "dc": 12,
+              "success": "Two shots from about four feet, the first from slightly below: someone shorter than Ned, standing close, facing him. His hand is closed round his lighter, not his gun. He was lighting a cigarette for someone. (Clue A1, with detail.)",
+              "failure": "You can see he never drew. That is all you can bear to see right now. (Clue A1 is still found: the holstered gun is obvious.)"
+            },
+            {
+              "skill": "Perception",
+              "dc": 18,
+              "success": "The third ash can from the corner has a smear of fresh gun oil on its rim, and its lid is on crooked. Something heavy and oiled was dropped in there and taken out again. Nobody else has noticed.",
+              "failure": "Ash cans, cobbles, fog. The city will empty the cans at six."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "The door Ned died in front of says MARSH PACIFIC TRADING CO. in old gilt. The padlock is new. The cut one in the gutter has been rusting for weeks. (Clue A4.)",
+              "failure": "It is a warehouse door like any other on the alley; you will have to look it up in the city directory in the morning. (Clue A4 is still found by Research DC 10 on Friday.)"
+            }
+          ]
+        },
+        {
+          "name": "Delaney, Don't Bring a Gun",
+          "description": "Dolan's questions, in the back of his car with the heater running and the windscreen fogged. He questions Cass first, then each of the others. He is grieving and he is good at his job, and the party should feel both. He mentions the insurance and the argument, and asks every one of them where they were at eleven.",
+          "readAloud": "Dolan's Ford smells of wet wool and Sen-Sen. He sits behind the wheel with his hat pushed back and does not look at you; he looks at the fog on the glass, and draws a line in it with one finger. 'He taught me to do this,' he says. 'Sit a man in a warm car, let him talk. You know who taught Ned? Nobody. He just knew.' Then he turns round, and his eyes are red and perfectly steady. 'Five thousand dollars, Delaney. Each way. You and him. Hector says you were shouting at three o'clock. Where were you at eleven?'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Dolan does not believe Cass did it, not really; he believes she knows who did and is protecting someone, maybe the client, maybe herself. He is holding something back: his hand keeps going to his inside pocket and away again. (He has Ned's notebook.)",
+              "failure": "He looks like a man who has already decided. Heat +1 if anyone tells him so."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Dolan gives the party a week: 'Till Armistice Day. Midnight Friday. Bring me something better than a client who doesn't exist, or I take you in.' He also tells them, grudgingly, that the bullets are .32s.",
+              "failure": "Dolan gives them the week anyway, because he is fair, but he has them tailed from Friday morning (Heat starts at 3, not 2) and he does not tell them the calibre."
+            },
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "If anyone lies about the client (says there wasn't one, or gives a false name), Dolan lets it go for tonight.",
+              "failure": "He catches it. Heat +1, and he writes it in his own notebook while they watch."
+            }
+          ]
+        },
+        {
+          "name": "The Office at Dawn",
+          "description": "The Monadnock Building at seven. Dot Farrell is there already. Kerrigan arrives at eight without a warrant. Between them is everything Ned left on his desk.",
+          "readAloud": "The lights are on in Room 611 when the elevator lets you out, and the frosted glass says CORRIGAN & DELANEY in black and gold the way it said it yesterday. Dot Farrell is at her desk in her coat, with a cup of coffee she has not drunk and her face very carefully made up. 'I didn't know what else to do,' she says. 'So I came to work.' Through the open door, Ned's desk looks like he has gone out for a sandwich: a full ashtray, a crooked blotter, a woman's card propped against the telephone. Mrs. Helen Strand. Sir Francis Drake. Room 714.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "A pencil rubbed lightly over the blotter raises Ned's square capitals: M. 11 TALLOW. (Clue A3; no roll needed if anyone thinks to try it.)",
+              "failure": "The blotter is a mess of doodles. Dot, if asked, says Ned always pressed too hard and suggests a pencil."
+            },
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "Dot is holding together by routine and will fall apart if anyone is kind to her too soon. Let her work and she tells you everything: the client, the two hundred dollars, Ned's visit 'up the hill' at four, the 6:15 call (Clue A2).",
+              "failure": "Dot tells you the same things, just more slowly, between telephone calls from reporters."
+            },
+            {
+              "skill": "Deception",
+              "dc": 13,
+              "success": "Kerrigan, at eight, is sent away with a story (the client's papers went to the lawyer, the bill of lading is with Ned's effects) and does not get the carbon.",
+              "failure": "Kerrigan bullies his way to the desk and pockets the bill-of-lading carbon 'for the lieutenant'. It never reaches Dolan. Larrabee has it by noon. (The party still has Clue C1 if anyone read it first; Dot typed a copy for the file.)"
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Lieutenant Dolan, Sergeant Kerrigan and four uniformed officers (Beat Cop) at the scene: not a fight, unless the party makes one, in which case they lose the campaign",
+        "Sergeant Wally Kerrigan (Bent Detective) at the office at eight, without a warrant"
+      ]
+    },
+    {
+      "title": "Act 2: Three Names",
+      "description": "Friday 4 November, daylight. The morgue, the exchange and the hotel. This act plants the conclusion 'the client is not who she said and is hiding from officials, not from a husband' with four clues (B1 the Drake's register, B2 the foreign exchange wrapper, B3 the Viennese accent and coat label, B4 the Hotel Grant), and the first clues to the killer (G1 the silver fox hairs, G3 Rose Fong's woman in the fur). It also deliberately points at the client: she wore a silver fox collar, and her real name will turn out to begin with M.",
+      "objectives": [
+        "Attend or obtain Dr. Lindqvist's autopsy findings",
+        "Find a witness the police did not ask",
+        "Learn that 'Mrs. Helen Strand' was registered as 'Miss Marta Lind' and has moved",
+        "Find out where Miss Lind has gone"
+      ],
+      "scenes": [
+        {
+          "name": "The Tiled Room",
+          "description": "The morgue in the basement of the Hall of Justice, ten on Friday morning. Dr. Hattie Lindqvist does Ned's autopsy and lets the party watch, if they ask her straight. She has no patience for politeness and a great deal for honesty.",
+          "readAloud": "The morgue is cold enough to see your breath and smells of carbolic and cigarette smoke. Dr. Lindqvist is a big grey-haired woman in a rubber apron, with a Chesterfield in the corner of her mouth directly under a sign that says NO SMOKING. She looks at you over half-moon glasses. 'You're his people,' she says. 'Good. Somebody should be here who liked him.' Then she lifts something very small from Ned's sleeve with a pair of tweezers and holds it to the lamp. It is a hair, long and black, with a band of silver near the tip.",
+          "skillChecks": [
+            {
+              "skill": "Forensics",
+              "dc": 12,
+              "success": "Silver fox guard hairs, three of them, on the right sleeve and lapel, where someone standing close and to his right would brush him. (Clue G1.) Hattie agrees, and adds that silver fox is the most fashionable fur in the city this winter and every woman on Nob Hill owns some.",
+              "failure": "Hattie identifies them anyway (Clue G1 is a core clue), with a look that says she expected better."
+            },
+            {
+              "skill": "Forensics",
+              "dc": 15,
+              "success": "Under her microscope the hairs are glossy, unbroken and evenly coloured: a new, ranch-bred pelt, a stole bought this year or last. This detail clears the client later: her collar is old and worn.",
+              "failure": "Fox is fox. Hattie keeps the hairs in an envelope for later."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Hattie gives the party a carbon of her report, free, and says she will look at anything they bring her, 'quietly, and before Kerrigan does. I don't like that man's shoes.'",
+              "failure": "The report will cost $50 from the coroner's clerk, as usual."
+            }
+          ]
+        },
+        {
+          "name": "Washington Street",
+          "description": "The party canvasses the blocks round Tallow Alley, which the police did not. The noodle-house cooks heard the shots; a newsboy saw nothing; the man who runs the printing shop on Jackson Street says his niece came in white as a sheet at ten past eleven. His niece is Rose Fong, and she works at the telephone exchange.",
+          "readAloud": "In daylight Jackson Street is just a street: a printer's shop with a window full of wedding cards, a grocer stacking crates of bok choy on the sidewalk, children going to school at the Commodore Stockton with their satchels, an old man feeding pigeons on the steps of the family association hall. Nobody here has been asked anything by the police, and several people have opinions about that. The printer wipes his hands on his apron, looks at you for a long moment, and says, 'You should talk to my niece. She saw something. She's been writing it down.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 10,
+              "success": "Rose Fong meets the party in the exchange lobby on her break and tells them exactly what she saw, from her notebook, with times: the woman in the pale fur and long grey dress at 11:08, hurrying up Kearny, hand inside her coat; and the young man in the brown suit on the Hall of Justice steps at 11:00. (Clue G3.)",
+              "failure": "Rose tells you what she saw, but warily, and asks why the police never came. She will help you more next time if you come back with an answer."
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 12,
+              "success": "The noodle-house cooks put the shots at five past eleven ('the late tram had just gone by on Kearny') and say a car with a spotlight was parked on Jackson until midnight. That was Dolan's own car, after the call came in; it is a red herring if players want one.",
+              "failure": "Everybody heard two bangs. Everybody thought they were a truck."
+            }
+          ]
+        },
+        {
+          "name": "Room 714",
+          "description": "The Sir Francis Drake on Powell Street, Friday afternoon. The client has gone. The desk clerk will say nothing; the bell captain, who carried her bags, will say quite a lot for a dollar.",
+          "readAloud": "The Drake's lobby is all marble and a Beefeater doorman and a lot of gilt. The desk clerk looks at the card you put on his blotter, then at you, and his smile shuts like a drawer. 'We have no Mrs. Strand,' he says. 'We have never had a Mrs. Strand.' Over by the elevators, a bell captain with grey hair and very bright eyes is polishing a brass luggage cart that does not need polishing, and listening.",
+          "skillChecks": [
+            {
+              "skill": "Society",
+              "dc": 13,
+              "success": "The desk clerk, persuaded that you are respectable, turns the register round. Room 714: 'Miss Marta Lind, Seattle', checked in Monday 31 October, checked out at seven on Friday morning, paid in cash. (Clue B1.)",
+              "failure": "The clerk calls the house detective. You can still get the name from the bell captain."
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 10,
+              "success": "The bell captain ($1) carried two old cowhide suitcases with Lisbon hotel labels down to a cab at seven and heard the address: the Hotel Grant on Bush Street, by the week. 'She tipped me a quarter, which she couldn't afford. Foreign. Nice girl. Scared of the doorman.' (Clues B1 and B4.)",
+              "failure": "He saw the bags and the labels but missed the address. Rose Fong or the cab rank on Powell can supply it (Clue B4)."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Anyone who met the client on Thursday, or who hears the bell captain's description, places the accent: Viennese, educated. If Dr. Weisz is in the party, he is sure of it. (Clue B3, which Dot can confirm: the label in the client's coat, which she hung up, read 'Lindner, Wien'.)",
+              "failure": "German, maybe. Swiss. Dot remembers the label in her coat, though (Clue B3)."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The Drake's house detective (Night Watchman) if the party pushes the desk clerk too hard; he is more embarrassed than dangerous",
+        "Two of Larrabee's men (Street Tough) watching the Drake's side entrance from a parked Ford, because Kerrigan told Larrabee about the client; they are there for her, not for the party, and leave once they learn she has gone"
+      ]
+    },
+    {
+      "title": "Act 3: People Who Want a Bird",
+      "description": "Saturday 5 and Sunday 6 November. Up the hill to the widow and the collector, and down to the client's hiding place, where the waterfront gets there first. This act plants the conclusion 'there is a crane on a freighter due Monday, and at least two other parties want it' (C1 the bill of lading, C2 the doorman, C3 the shipping column), introduces Corinne's first account and Pellingham's courtesy, and ends with the client's second story.",
+      "objectives": [
+        "Visit Corinne Marsh and hear her account of her husband, the warehouse and the crane",
+        "Accept Mr. Pellingham's invitation and hear his account of the crane",
+        "Confirm the Serra da Estrela's arrival date",
+        "Reach the client at the Hotel Grant before Larrabee's men do, or at least at the same time",
+        "Get the client's second story"
+      ],
+      "scenes": [
+        {
+          "name": "Vallejo Street",
+          "description": "Saturday morning, the Marsh house on Russian Hill. Corinne receives the party in the front room with the Bay behind her. This is her first account, and it is mostly lies, delivered beautifully. Play her as frightened and gracious, not as a villain.",
+          "readAloud": "The house is shingled and tall and too big for one woman, and half the furniture in the front room has little paper tags tied to its legs. Corinne Marsh comes down the stairs in black, with her hair pinned up and no jewellery but a wedding ring, and gives you her hand as if you had come about the flowers. Behind her the whole Bay is grey glass, and Alcatraz sits on it like a ship that has run aground. 'Mr. Corrigan?' she says. 'I read about it in the paper. In my alley. How horrible.' She lights her own cigarette before anyone can offer. 'I never met him. I'm sure I never met him.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "She is lying about never having met Ned, or at least about never having spoken to him: she said 'Mr. Corrigan' before you said his name. She is very frightened and very practised at not showing it. She also lights her own cigarettes, always, with a little gold lighter, and does not let men do it for her.",
+              "failure": "She seems exactly what she is in public: a widow, gracious, a little brittle, with a house she cannot afford."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Her first account of the crane: 'Carlton wrote that he'd bought me a present in Lisbon, a Japanese thing, a bird. It's mine. It's on a ship. I don't know anything else.' Her alibi: the Fairmont, the Community Chest ball, 'all night, from nine until one'. Her husband's pistol: 'He took it to Lisbon. It was lost with his things.' Write all of this down; she will change every part of it.",
+              "failure": "She gives the alibi and the pistol story and then has Concepción show the party out."
+            },
+            {
+              "skill": "Performance",
+              "dc": 14,
+              "success": "Anyone who has worked nightclubs (Del Moreau certainly) recognises the way she holds the cigarette and the way she turns her good side to the window: Corinne Marsh used to be a singer, on the Pantages circuit, under another name. She does not like to be reminded.",
+              "failure": "She has poise. Where she got it, you could not say."
+            }
+          ]
+        },
+        {
+          "name": "Sherry on the Nineteenth Floor",
+          "description": "Saturday afternoon, the penthouse of the Mark Hopkins. Pellingham invites the party by a handwritten note delivered to the agency by Lonnie, who will not wait for an answer. Pellingham is the most courteous person in the campaign and the most honest about what he wants, and almost everything he says about the crane is true.",
+          "readAloud": "The penthouse is nineteen floors up and the fog has come in under it, so that the windows look out over a white sea with the top of the Fairmont and the spire of Grace Cathedral sticking up out of it like rocks. Mr. Ambrose Pellingham rises from a chair built to hold him, which takes some time, and is delighted to see you. He is enormous, beautifully dressed in dove-grey, and has small, clever, kind-looking eyes. He pours sherry with his own hands. 'Mr. Corrigan sat in that chair on Thursday,' he says, 'and asked me what a Japanese crane was worth. I told him. And now he is dead, and I am so very sorry, and I find I should like to know what you are going to do.' In the corner by the door, a thin young man in a brown suit is trying not to look at any of you.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Pellingham is telling the truth about the crane ('Hinoki cypress and three hundred years, sir; the lacquer is the treasure') and about Ned's visit. He is concealing something about Thursday night, and it involves the young man, who flinched when Ned's name was said. Pellingham is not afraid of the party at all. Lonnie is terrified of them.",
+              "failure": "Pellingham is charming, rich and very interested in a statuette. That is all he lets you see."
+            },
+            {
+              "skill": "Society",
+              "dc": 12,
+              "success": "Pellingham names a price, because he respects people who ask: $5,000 to the agency for the crane delivered to this room, no questions. He mentions in passing that he knows it came from 'a Viennese doctor's collection' and that he tried to buy it in Lisbon in July. He does not know about the bonds and nothing in his manner suggests he does.",
+              "failure": "He makes the offer anyway, but you do not learn where he first saw the crane."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "On the way out, the doorman Pruneau, tipped a dollar, says Ned went up at four on Thursday, and 'Mr. Pellingham's young man, the nervous one' went out after him and came back after midnight without his hat. (Clue C2.)",
+              "failure": "Pruneau tips his cap. Come back with a dollar."
+            }
+          ]
+        },
+        {
+          "name": "The Hotel Grant",
+          "description": "Sunday evening, a residential hotel on Bush Street: worn carpet, a desk with a bell, a radio playing in the lobby. The client is in Room 3C under the name Lind. Larrabee's men arrive at the same time as the party, or an hour earlier if Kerrigan got the bill of lading. They want her claim papers. This is the first fight in the campaign, and it should be short, close and ugly.",
+          "readAloud": "The Hotel Grant smells of cabbage and floor wax, and the radio in the lobby is playing Benny Goodman to nobody. The clerk is asleep. On the third floor, the door of 3C is open an inch and there is a man's voice behind it, low and patient, the voice you use on a dog you are about to kick: 'Just the papers, lady. The ship papers. Nobody wants to hurt you.' Then a woman's voice, very clear, in an accent you know from Thursday: 'I do not have them. Please go away.' And a slap.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "The party reaches the door unheard and gets the first round of the fight with surprise.",
+              "failure": "A floorboard. The man in the doorway turns round with a sap in his hand, and the one by the window reaches for his coat."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "After the first exchange of blows, the toughs decide this is not worth what Larrabee is paying and go down the fire escape. One of them, if caught, says 'Mick Larrabee's owed, that's all I know.'",
+              "failure": "They fight until two of them are down. A shot fired here is +2 Heat and the prowl cars are on Bush Street in three minutes."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Afterwards, with a cold cloth on her cheek, the client gives her second story: her name is Marta Lind; she is Swiss; the crane belonged to her late mother and was stolen from her family in Lisbon by an American named Marsh; she wanted it back and was too frightened to go to the police. It is half true. Insight shows she is lying about being Swiss and about Marsh stealing it, and telling the truth about being frightened and about her mother.",
+              "failure": "You get the same second story and believe most of it."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Three of Larrabee's men at the Hotel Grant (two Street Tough and a Dockside Goon); they carry saps and one .32 between them, and want the claim papers, not a murder",
+        "Lonnie Pruitt (Hired Gun stats, but he will not fire first) tailing the party on Saturday, who bolts onto a cable car if spotted",
+        "Optional: Sergeant Kerrigan, off duty, arriving at the Hotel Grant 'to help' ten minutes after the fight, very interested in the papers"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Lieutenant Frank Dolan, 47",
+      "role": "Homicide, SFPD; Ned's protégé; the man who suspects the party",
+      "description": "Lean, grey at the temples, a widower who still wears his wedding ring, in a brown suit that has been slept in. Ned trained him as a young detective and Dolan loved him like an older brother. He is honest, careful, grieving and wrong. He has Ned's notebook and is keeping it back because the last page reads 'C. says drop it'.",
+      "motivation": "Find who killed Ned and see them in San Quentin. He would rather it was not the agency. He will not let that preference stop him."
+    },
+    {
+      "name": "Sergeant Wally Kerrigan, 39",
+      "role": "Dolan's sergeant; Larrabee's man inside Homicide",
+      "description": "Big, red-faced, cheerful, the kind of cop who calls everybody 'pal' and remembers every name. He takes $50 a week from Mick Larrabee and has for three years. He is not a killer; he is a pipe that money runs through.",
+      "motivation": "Keep the money coming, keep Larrabee happy, and keep Dolan from noticing."
+    },
+    {
+      "name": "'Mrs. Helen Strand' / 'Miss Marta Lind', 27",
+      "role": "The client (her real name is Magdalena Ehrlich, which she does not give in this scenario)",
+      "description": "Slim, dark-haired, composed, in a good grey coat with an old silver fox collar that was her mother's, and gloves she has mended herself. Educated English with a Viennese accent she tries to flatten. She lies quickly and badly, because she has had to learn to do it since March. Never decoration: she hired the agency, she chose to lie to it, and she is still making her own choices.",
+      "motivation": "Get the crane out of Marsh Pacific's hands before Friday 18 November. She cannot yet say why."
+    },
+    {
+      "name": "Corinne Marsh, 42",
+      "role": "Widow of Carlton Marsh; owner of Marsh Pacific Trading and the warehouse in Tallow Alley",
+      "description": "Tall, ash-blonde, gracious, beautifully dressed on credit, with a voice that was once paid for. A former singer from Bakersfield who married a charming importer and spent sixteen years being afraid he would lose everything, which he did. In this scenario she gives her first account and her alibi, and the GM should play her so that players dislike her lies without yet seeing a killer.",
+      "motivation": "Keep her house. Keep her name. Get the crane and what is in it, which she knows is not hers. Survive the next week."
+    },
+    {
+      "name": "Ambrose Pellingham, 58",
+      "role": "Collector of Japanese lacquer; the penthouse of the Mark Hopkins",
+      "description": "Vast, courteous, dove-grey, with small bright eyes and beautiful hands. He collects lacquer the way other men collect grudges, and has spent this year in Lisbon buying the treasures of refugees for a tenth of their worth, legally, politely, and without the least shame. He knew Ned was coming, had him followed, and knows more about Thursday night than he says.",
+      "motivation": "The crane, which he has wanted since July. He is patient, and he believes everything has a price."
+    },
+    {
+      "name": "Lonnie Pruitt, 21",
+      "role": "Pellingham's hired boy; the nervous gunsel",
+      "description": "Thin, freckled, in a brown suit and a hat bought on Friday to replace the one he lost. Carries two .32 pocket pistols in shoulder holsters and has never pointed either at a person. He flinches at Ned's name and runs whenever he sees the party.",
+      "motivation": "Not to be hanged for something he saw. To go home to Lodi."
+    },
+    {
+      "name": "Dot Farrell, 44",
+      "role": "The agency's secretary (companion; full sheet in the companion files)",
+      "description": "Small, sharp, red-haired, eleven years at the switchboard of Corrigan & Delaney and before that keeping the books for a North Beach speakeasy. Knows everyone at City Hall by their first name and their weakness.",
+      "motivation": "Hold the agency together. Find out who did this. Not cry where anyone can see."
+    },
+    {
+      "name": "Rose Fong, 24",
+      "role": "Operator at the Chinatown Telephone Exchange; witness (companion; full sheet in the companion files)",
+      "description": "Quick, funny, impatient, in a cardigan and sensible shoes, with a notebook in her bag and a night-school journalism course on Tuesdays. Nobody from the police asked her what she saw. The party can be the first.",
+      "motivation": "Be taken seriously. Get a byline in an English-language paper one day. See that the right person pays for what happened on her street."
+    },
+    {
+      "name": "Dr. Hattie Lindqvist, 52",
+      "role": "Autopsy surgeon, the city morgue (companion; full sheet in the companion files)",
+      "description": "Big, grey, Minnesota-Swedish, a field hospital doctor in France in 1918, blunt to the point of rudeness and kinder than she lets on. Smokes under the sign.",
+      "motivation": "The truth about the dead, told plainly, to anyone who will act on it."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "money": "The client's $200 retainer (in Ned's drawer) belongs to the agency. Larrabee's men at the Hotel Grant carry about $30 between them. Pellingham's standing offer is $5,000 for the crane delivered to his penthouse.",
+    "items": [
+      "Clues A1–A4, B1–B4, C1–C3, and G1–G3 (G4 if the party visits the car barn)",
+      "Dot's typed copy of the bill-of-lading carbon, if Kerrigan took the original",
+      "A carbon of Dr. Lindqvist's autopsy report and an envelope with three silver fox hairs",
+      "Rose Fong's notebook page for Thursday night, in her neat hand, with times",
+      "A blackjack and a .32 pocket pistol with .32 rounds (6) from Larrabee's men, if the party wins the fight at the Hotel Grant",
+      "Pellingham's card, engraved, with 'Any hour' written on the back in violet ink"
+    ]
+  },
+  "twists": [
+    "Everything points at the client in this scenario, deliberately: she lied about her name, she wore a silver fox collar, she has a reason to want Ned silent, and her real name, when the party learns it, begins with M. She did not do it. Plant this fairly and let players suspect her; the scenario's own clues (the new pelt vs her old collar, and in bc-scenario-002 the Western Union time-stamp) will clear her.",
+    "The cable-car clue (G4) is available here, early, to any party that thinks about how a woman at the Fairmont could reach Kearny Street and back. Most will not until later. That is fine; the crews will still remember on Thursday.",
+    "Lieutenant Dolan is not bent. Players will assume he is, because he is hostile and because this is a noir. The bent cop is his sergeant. Do not tip this yet: let Kerrigan be friendly and helpful and let Dolan be cold.",
+    "Corinne Marsh's first lie is a small one: she says 'Mr. Corrigan' before anyone has named him to her. She read the name in the paper, she will say, if challenged, and the Saturday papers did name him. That is true. She is good at this.",
+    "The young man on the Hall of Justice steps at 11:00, the young man in Pellingham's penthouse, and the young man on the cable car on Saturday are the same person. Lonnie is a witness, not a killer, and his terror is the terror of a witness."
+  ],
+  "dmTips": [
+    "Open with the body, and give the players a minute of silence before anyone rolls. Ned should matter. Describe one thing about him each pregen would remember: the way he called Dot 'Dorothy' only on payday, the way he shined his own shoes, the bad joke he told every client about the Monadnock's elevator.",
+    "Core clues are automatic. Anyone who looks at the body sees the holstered gun; anyone who rubs the blotter finds 'M. 11 Tallow'; anyone who asks Dot what Ned did hears about the call. Use rolls for detail and speed.",
+    "Dolan is the scenario's pressure. Every time the party does something visible (breaks into the Marsh warehouse, leans on the Drake's clerk, carries guns into the Hotel Grant), have him or a uniformed man turn up within the day to ask about it. Track Heat openly.",
+    "Do not let the party solve the murder here; let them collect. If a sharp table names Corinne on Saturday because of the fur and the photograph, good: they still cannot prove it, she has thirty witnesses, and Dolan will not touch a Nob Hill widow on a few fox hairs. Tell them so, through Dolan, and let them build the case.",
+    "The fight at the Hotel Grant is a brawl in a narrow room: a bed, a wardrobe, a window onto the fire escape, a radiator. Use the brawling rules. The toughs want papers, not a body. If the party wins without firing a shot, award the same XP as if they had and keep Heat flat.",
+    "Level-up note: the 1800 XP in this file is per character and takes each character from 3rd to 4th level (2,700 XP). Award it when the party has the client's second story.",
+    "Period texture: the late-final newsboys shouting about Munich and the governor's race; a Philco in the Drake's lobby playing the Lone Ranger; a cable car's bell and the slap of the grip; nickel coffee at a counter on Kearny; the Exposition's floodlights on Treasure Island, seen from the top of Nob Hill through a gap in the fog.",
+    "Chinatown is a neighbourhood of people, not a mood. Rose, her uncle the printer, the cooks, the grocer and the children are ordinary San Franciscans who saw something and were not asked. The party being the ones who ask is a small, real kindness, and Rose will remember it."
+  ]
+}

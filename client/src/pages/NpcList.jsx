@@ -32,7 +32,7 @@ function NpcList() {
     <div>
       <h2>{sessionActive ? 'My Companions' : 'NPC Companions'}</h2>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
-        These companions are narrated by your AI Dungeon Master. Click to view their stats.
+        These companions are narrated by your Game Master. Click to view their stats.
       </p>
       <div className="card-grid">
         {npcs.map(n => (

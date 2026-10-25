@@ -1,0 +1,122 @@
+{
+  "id": "c26388d9-3285-4f87-9794-f57daf7dbae6",
+  "name": "Dr. Phoebe Lanyon",
+  "status": "alive",
+  "race": "Frontier-Born",
+  "subrace": "",
+  "class": "Doc",
+  "level": 3,
+  "background": "Schoolteacher",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Investigation",
+    "Performance",
+    "Medicine",
+    "Nature"
+  ],
+  "languages": [
+    "English",
+    "German (from the Wisconsin farm wives who were her first patients)"
+  ],
+  "equipment": [
+    "Leather duster, oxblood, over a sensible brown wool dress with the hem taken up two inches for mud",
+    "Pocket revolver (Smith & Wesson No. 2, .32), 5 loaded, in her bag, beneath the bandages",
+    ".32 rounds (15)",
+    "Boot knife, which she uses mainly to cut sutures",
+    "A doctor's bag: scalpels, bullet forceps, probes, bone saw, suture silk, carbolic acid, laudanum, quinine, chloroform and a stethoscope",
+    "A diploma from the Woman's Medical College of Pennsylvania, class of 1876, rolled in a tin tube",
+    "A notebook with her notes on the death of Erasmus Ashworth, assayer, and a sketch of the bruise behind his ear",
+    "A jeweller's loupe and a small brass balance, which she says are for powders",
+    "An Argent Clarion of last Thursday with an advertisement she placed: DR. P. LANYON, PHYSICIAN AND SURGEON, ABOVE THE BAKERY, NO CASE REFUSED",
+    "Wallet containing $19"
+  ],
+  "weapons": [
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Boot knife",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Hard Country (Frontier-Born origin: advantage on saving throws against exhaustion from heat, cold, thirst and hard travel; once per long rest she shrugs off a level of trail exhaustion; her rations last a day longer than anyone else's)",
+    "Sawbones (Doc, using INT: as an action with her bag she patches a creature she touches, which spends up to her proficiency bonus in Hit Dice and regains her INT modifier extra once; it stabilizes the dying and stops Bleeding; uses equal to INT modifier + 1 per long rest. Dig Out a Bullet: during a short rest she cuts out a lodged bullet, for twice her doc level in extra hit points)",
+    "Diagnosis (Doc: as a bonus action she learns a visible creature's hit points and conditions; examining a body for 10 minutes she learns the cause and time of death and what weapon did it, without a check, and one more detail on a DC 12 Medicine check)",
+    "Steady Hands (Doc, 2nd level: advantage on Medicine checks; a creature she stabilizes regains 1 hit point; she identifies any drug, poison, disease or bad water by its symptoms)",
+    "Practice: Country Doctor (Doc, 3rd level: every household for a day's ride knows her; she can find shelter, a fresh horse and the local news without a check, and once per case a patient owes her a favor)",
+    "The Schoolhouse (Schoolteacher background: she taught five years in Wisconsin; teachers, preachers, editors and mothers trust her, and any child in a camp will tell her what the grown-ups are whispering about)"
+  ],
+  "traits": [
+    "Hard Country",
+    "Sawbones",
+    "Diagnosis",
+    "Steady Hands",
+    "Country Doctor"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am brisk, practical and kind, in that order. I use my mother's Cornish words when I am tired: everyone is my lover or my handsome. I wash my hands far more than anyone thinks reasonable.",
+    "ideals": "The body does not lie. People do, but the body tells you what happened to it, if you will only listen.",
+    "bonds": "My mother and father, lead miners from Redruth, who scrubbed floors in Mineral Point so I could go to college. And Erasmus Ashworth, who was my first friend in Argent and played chess with me on Sunday afternoons, and who did not die by accident.",
+    "flaws": "I am stubborn past all sense when I am sure I am right, and I am usually sure. And I have no patience for men who explain my own profession to me."
+  },
+  "appearance": "A short, sturdy, round-faced woman of twenty-nine with ruddy cheeks, small gold spectacles, brown hair scraped into a bun that is always coming down, and strong square hands with scrubbed red knuckles. She walks fast, carries her bag everywhere, and smells faintly of carbolic.",
+  "backstory": "Phoebe Lanyon was born in the lead-mining town of Mineral Point, Wisconsin, to Cornish parents who had come from Redruth to dig galena, and she grew up knowing the weight, the shine and the sweet poisonous smell of lead better than she knew her catechism. She taught school for five years to pay her way to the Woman's Medical College of Pennsylvania in Philadelphia, graduated in 1876, and found that no town in Wisconsin wanted a lady doctor. A mining camp at ten thousand feet, where men are crushed, blown up and shot every week, wanted any doctor at all. She came to Argent in the spring. On Saturday night her friend Erasmus Ashworth, the camp's assayer, was found dead in his assay office with the furnace flue shut, and the county coroner, who is also the undertaker, called it an accident before she had her coat off. She has a bruise behind his ear in her notebook that says otherwise. Mrs. Ruane has asked her to ride the Saturday train as its doctor, because the governor's man, two railroad directors and a brass band will be aboard. She said yes because, the last Sunday they played chess, Erasmus told her that a Lodestar bar had felt wrong in his hands, too heavy for its size, and then would not say another word about it."
+}

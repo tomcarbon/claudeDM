@@ -1,0 +1,133 @@
+{
+  "id": "378ff7b3-e264-4ff0-94c9-e1160d891715",
+  "name": "Cotton Ridley",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Heavy",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 32,
+    "current": 32
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Driving",
+    "Acrobatics",
+    "Athletics",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "equipment": [
+    "Leather jacket, a sheepskin-lined rancher's coat older than some of the actors",
+    "Lever-action rifle, 7 rounds loaded, in a scabbard on his pickup's gun rack",
+    "Rifle rounds (21)",
+    ".44 revolver, a single-action six-gun he carried in eleven Westerns, and which is not a prop, 6 rounds loaded",
+    ".44 rounds (12)",
+    "Brass knuckles, from a 1931 fight scene he never gave back",
+    "A 1936 Chevrolet pickup with a horse trailer, and two horses at the ranch: Buttermilk and Judge",
+    "Rope, fifty feet, and a lariat",
+    "Keys to every building on the Castellane movie ranch, including the ones that are only fronts",
+    "Wallet containing $18"
+  ],
+  "weapons": [
+    {
+      "name": "Lever-action rifle",
+      "attackBonus": 3,
+      "damage": "2d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": ".44 revolver",
+      "attackBonus": 3,
+      "damage": "2d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Brass knuckles",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: +2 Wisdom, +1 Constitution. Once per long rest, an Insight check to tell whether someone is lying is made with advantage, and on a success he also learns whether the lie protects the liar or someone else. Working people start one step friendlier toward him)",
+    "Hard Knocks (his unarmed strikes deal 1d6+3 bludgeoning; once per turn, a hit with an unarmed strike or a bludgeoning Melee weapon such as his brass knuckles deals an extra 1d4, not counted in the weapon line; a creature he drops with one is knocked out unless he chooses otherwise, and he can deliver a knockout blow with his fists)",
+    "Thick Skull (advantage on CON saves against knockout blows and being stunned; once per long rest, when reduced to 0 hit points but not killed outright, he drops to 1 instead)",
+    "The Look (action: one creature within 30 ft that can see him makes a WIS save, DC 13, or is frightened of him until the end of his next turn; outside combat he can use it instead of an Intimidation check)",
+    "Style: Enforcer (when he hits a creature with a melee attack, he can push it 10 ft or knock it prone if it fails a STR save, DC 13)",
+    "Old Outfit (Veteran background: he rode the Mexican border in 1916 and went to France in 1918; old soldiers, ranchers and wranglers all over Southern California know him)"
+  ],
+  "traits": [
+    "Hard Knocks",
+    "Thick Skull (1/long rest)",
+    "Style: Enforcer"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk slow and I move fast. I call every horse 'partner' and every man 'son'. I've been shot in eleven pictures and once in France, and I'll tell you which hurt more.",
+    "ideals": "A man ought to do what his face says he does. Most of the ones in this town don't.",
+    "bonds": "The Castellane ranch, where I've lived since 1938, and the horses on it. And Mags Fennimore, whom I stunt-doubled for in 1919 in a wig and a skirt and have been half in love with ever since.",
+    "flaws": "I can't stand to see a bully win, and I don't stop to count how many bullies there are."
+  },
+  "appearance": "Fifty-seven, long, lean and bowlegged, with a white moustache, a face like a saddlebag, pale blue eyes in a permanent squint and a Stetson that has been in more Westerns than most stars. Moves like a man thirty years younger until he sits down.",
+  "backstory": "Cotton Ridley rode with the cavalry chasing Pancho Villa's raiders along the border in 1916, went to France in 1918, and came to Hollywood in 1919 because the pictures needed men who could fall off horses. He has fallen off horses, out of windows, off trains and through saloon bars for Castellane since 1921, and since 1938 he has been caretaker of the studio's movie ranch near Chatsworth: a Western street, a Mexican village, a mine, a lake and four hundred acres of rocks. He knows the West Valley and the people in it, the ranchers, the growers and the Okadas, whose grove is four miles east and who he has bought oranges from for twenty years.",
+  "dmNotes": {
+    "roleplaying": "Cotton is the party's man in the Valley and their muscle with a sense of humour. In kl-scenario-003 he confirms that the studio's Western unit shot every frame on his ranch and never on any 'location' (M1b), introduces the party to the Okadas if Ken Hirano is not in the party, and hosts Ambler's last meeting on the ranch's Western street. In kl-scenario-004 he escorts Mags Fennimore to the premiere and can climb anything on the Pantheon's front. He is a companion who wants to be in the fight.",
+    "voice": "Slow West Texas drawl, long pauses, short words, dry jokes delivered without a smile. Calls the party 'son' regardless. Never swears in front of women and never stops swearing at horses.",
+    "motivations": "Primary: find out where the studio's location money went, because he has been sweeping the same street for nine years on a caretaker's wage while somebody billed the studio for 'locations'. Secondary: see the Okadas get their grove back. Tertiary: one more good fall.",
+    "secrets": "He saw a grey-hatted man walking the ranch road at dusk on 29 August, looking up toward Mulholland, and thought nothing of it; when he hears about Thorne, he will remember. He also has, in a coffee can, $2,000 in cash that Harlan Shay gave him in 1946 'for keeping the ranch books simple', which he never spent because he did not understand what it was for until now.",
+    "attitude": "Toward the party: gruff and fond, and protective of the youngest. Toward Mags: courtly, shy, devoted. Toward the Okadas: an old neighbour's respect. Toward Harlan Shay: he liked him, and is disappointed in a way that is worse than anger."
+  }
+}

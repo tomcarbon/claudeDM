@@ -1,0 +1,121 @@
+{
+  "id": "2b5e6081-cffe-4603-9d8b-25ed3c883d62",
+  "name": "Agnes Whitlow",
+  "status": "alive",
+  "race": "New Arrival",
+  "subrace": "",
+  "class": "Private Eye",
+  "level": 3,
+  "background": "Bookkeeper",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 10,
+      "modifier": 0
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 18,
+    "current": 18
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Research",
+    "Investigation",
+    "Perception",
+    "Insight",
+    "Forensics"
+  ],
+  "languages": [
+    "French",
+    "English",
+    "Spanish"
+  ],
+  "equipment": [
+    "Script supervisor's kit: a stopwatch, a clipboard, six sharpened pencils, a continuity binder, a box of index cards",
+    ".22 target pistol, 10 rounds loaded, in a knitting bag with an unfinished cardigan",
+    ".22 rounds (20)",
+    "A studio pass for every stage and building, including the laboratory",
+    "A ring of keys she should not have: the script department, the publicity office, the vault keeper's hut",
+    "Reading glasses on a chain, and a second pair in case",
+    "A thermos of tea, strong, and a tin of shortbread",
+    "Wallet containing $34"
+  ],
+  "weapons": [
+    {
+      "name": ".22 target pistol",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Two Languages (New Arrival origin: +2 Intelligence, +1 Wisdom. French and English fluently, and Spanish well from the studio's Spanish-language versions of 1930; people assume she understands less than she does, so she has advantage on Perception and Insight to follow a conversation in a language they think she doesn't know)",
+    "Hunch (once per short or long rest, outside combat, ask the GM one yes-or-no question about a lead she has personally encountered in this case and get a true answer; a question on a false premise gets 'wrong question' and the use isn't spent)",
+    "Gumshoe (proficiency bonus doubled for Investigation and Research checks)",
+    "Size Them Up (bonus action: study one creature within 60 ft; her next attack against it this turn has advantage and deals an extra 1d6 on a hit; 3 uses (INT), regained on a short or long rest)",
+    "Specialty: Shamus (Hunch twice per short rest; once per long rest she can ask 'who?' about a single event instead of a yes-or-no question, and get a name or 'nobody you've met')",
+    "Follow the Money (Bookkeeper background: given a ledger, a bank statement or a cost report and an hour, she finds any falsified entry, double books or dummy company in front of her without a check; studio accounting clerks treat her as one of their own)"
+  ],
+  "traits": [
+    "Hunch (2/short rest)",
+    "Gumshoe (Investigation, Research)",
+    "Specialty: Shamus"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I notice everything and say a tenth of it. I time everything. I call directors 'dear' when they are wrong, which is often.",
+    "ideals": "Continuity is a kind of truth. If the glass is half full in one shot it had better be half full in the next.",
+    "bonds": "The studio, which has been my home for twenty-five years, and the girls who come to it, who mostly have no one to tell them how it works.",
+    "flaws": "I have been ignored by men in good suits so long that I have stopped expecting to be listened to, and I sometimes don't speak when I should."
+  },
+  "appearance": "Fifty-four, small, upright, grey hair in a neat bun with a pencil through it, half-moon glasses, a cardigan, sensible shoes and a stopwatch round her neck on a ribbon. Nobody on the lot sees her, and she sees everybody.",
+  "backstory": "Agnes Whitlow came to Hollywood from St. Helier, Jersey, in 1922 as a typist for a silent-picture company that went bankrupt the following year, and has been a script girl, as they call it, at Castellane since 1923: she sits beside the camera on every take and writes down which hand held the cigarette, where the glass was, what the actor said. She has worked on a hundred and forty pictures. She was a top-ten pistol shooter at the Pasadena gun club in 1932 and still goes on Sundays. She liked Vivian Lark from the first day, when Vivian asked her, sincerely, how she kept track of everything, and nobody had ever asked before.",
+  "dmNotes": {
+    "roleplaying": "Agnes is the party's way into the studio: keys, passes, files, the vault keeper's hut, the publicity office's run-of-show. She is also the best detective in the campaign, a Private Eye in everything but licence, and the GM can use her to nudge a stuck party ('Dear, you've looked at everything in that bungalow except the wastebasket'). She joins in kl-scenario-001 if treated as a colleague, is essential to the nitrate vault in kl-scenario-002 and to finding the cue sheet in kl-scenario-004.",
+    "voice": "Precise, dry, Channel Islands English with a little French in it ('Bon, then'). Gives times to the minute. Never raises her voice; lowers it, which is worse.",
+    "motivations": "Primary: find out what happened to Vivian, and then keep her alive. Secondary: protect the studio's people, the carpenters and wardrobe women, from whatever is about to happen to the studio. Tertiary: be listened to, once.",
+    "secrets": "She has known for months that the Western unit's location costs were fiction, because she supervised every one of those pictures on the studio's own movie ranch, and she mentioned it once to the studio's comptroller, who told her to mind her pencils. She has kept a private list of every false location payment since March in her continuity binder. It is a bonus M1b clue in kl-scenario-003, and she will produce it only if asked what she knows about the studio's money.",
+    "attitude": "Toward the party: brisk, then quietly devoted to whoever listens to her. Toward Vivian: maternal and fierce. Toward Harlan Shay: wary respect for twenty years; she noticed his bandage at once and has drawn her own conclusions. Toward Bernard Castellane: loyal, as to an old, difficult father, until she learns about the list."
+  }
+}

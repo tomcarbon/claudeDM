@@ -213,3 +213,48 @@ describe('S1 — the manifest is bounded before it reaches the system prompt', (
     expect(buildSceneImagerySection(tmpDir, CID)).toBe('');
   });
 });
+
+// The manifests that ship in data/ (read-only). Every ready entry must be servable, have its file
+// and its provenance note, and keep its prompt guidance inside the S1 bound.
+describe('shipped manifests', () => {
+  const DATA = path.join(__dirname, '..', '..', 'data');
+  const shipped = fs.readdirSync(path.join(DATA, 'campaigns'))
+    .filter(id => fs.existsSync(path.join(DATA, 'campaigns', id, 'assets.json')));
+
+  it('every ready entry resolves to a file with a provenance note beside it', () => {
+    expect(shipped).toEqual(expect.arrayContaining(['demo', 'wonderland']));
+    for (const id of shipped) {
+      for (const entry of listReadyAssets(DATA, id)) {
+        const resolved = resolveAssetFile(DATA, id, entry);
+        expect(resolved, `${id}/${entry.id}`).toBeTruthy();
+        expect(entry.showWhen.length, `${id}/${entry.id} showWhen`).toBeLessThanOrEqual(PROMPT_SHOW_WHEN_MAX);
+        expect(fs.existsSync(path.join(resolved.root, entry.provenance || '')), `${id}/${entry.id} provenance`).toBe(true);
+      }
+    }
+  });
+
+  it('offers the GM the Whisperhollow villagers\' map as an item, scoped to its scene and on request', () => {
+    const entry = findReadyAsset(DATA, 'demo', 'whisperhollow-villagers-map');
+    expect(entry?.kind).toBe('item');
+    expect(entry.showWhen).toMatch(/Whisperhollow/);
+    expect(entry.showWhen).toMatch(/asks/);
+    expect(buildSceneImagerySection(DATA, 'demo')).toContain('`whisperhollow-villagers-map`');
+    // The GM narrated finding the map without showing it (chair, 2026-10-22): the guidance is framed
+    // as data, so the rule to show an image when its moment arrives has to be the code's own text.
+    expect(buildSceneImagerySection(DATA, 'demo')).toMatch(/call ShowSceneImage in that same turn/);
+    // ...and then described labels that were not on it (chair, 2026-10-22): the GM never sees the image.
+    expect(buildSceneImagerySection(DATA, 'demo')).toMatch(/You cannot see these pictures/);
+  });
+
+  it('offers the GM Corwin\'s medallion as an item, scoped to the Sunken Temple, and the scenario says what is on it', () => {
+    const entry = findReadyAsset(DATA, 'demo', 'tidecaller-medallion');
+    expect(entry?.kind).toBe('item');
+    expect(entry.showWhen).toMatch(/Sunken Temple/);
+    expect(entry.showWhen).toMatch(/asks/);
+    for (const root of ['campaigns', 'defaults']) {
+      const text = fs.readFileSync(path.join(DATA, root, 'demo', 'scenarios', 'the-sunken-temple-of-tidecaller.json'), 'utf-8');
+      expect(text, root).toContain('`tidecaller-medallion`');
+      expect(text, root).toContain('Exactly what is on it');
+    }
+  });
+});

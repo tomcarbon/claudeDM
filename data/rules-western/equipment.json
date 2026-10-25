@@ -1,0 +1,505 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Western weapons and armor, 1860s-1880s. 'weapons' is a flat array in the Noir shape; every weapon lists its 'eras' (1860s, 1870s, 1880s). Every firearm also carries 'ammo_name', the counted equipment line its ammunition is recorded under on a sheet (e.g. \".45 cartridges (18)\"); melee weapons and explosives have none (an explosive is itself the counted item, e.g. \"Dynamite (3)\"). Costs are 1870s dollars. There are no automatic weapons: every firearm fires single shots, and the single-action revolvers (pocket, Navy, Army) can also be fanned (combat.json fire_modes.fan). Revolvers reload two rounds per action, not a whole cylinder (combat.json ammunition.reload). The Army revolver, the buffalo rifle and dynamite are 1870s and later. Armor keeps the Noir 'armor' object shape; the Western has two light coats and one medium vest, and the heavy, powered and shields lists are deliberately empty. Most people wear no armor: AC 10 + DEX. Gunplay and brawling rules are in combat.json; general gear and ammunition boxes are in gear.json.",
+    "weapon_count": 18,
+    "armor_count": 3
+  },
+  "weapons": [
+    {
+      "name": "Boot knife",
+      "group": "Melee",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d4",
+      "damageType": "piercing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": 1,
+      "notes": "A short double-edged blade carried in a boot top, a sleeve or the small of the back. The weapon of last resort, and of the man who has already been searched once."
+    },
+    {
+      "name": "Bowie knife",
+      "group": "Melee",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d6",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse"
+      ],
+      "cost": 3,
+      "notes": "The big clip-point camp knife every rider carries: it skins game, cuts rope, digs out a stone from a hoof and, when it has to, settles a fight. Too big to hide under anything but a coat."
+    },
+    {
+      "name": "Hatchet",
+      "group": "Melee",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d6",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "thrown (20/60)"
+      ],
+      "cost": 1,
+      "notes": "A camp or shingling hatchet, carried for kindling, fence posts and worse. Can be thrown as a ranged attack (normal range 20 ft, long range 60 ft) using STR, and picked up again after the fight."
+    },
+    {
+      "name": "Pick handle",
+      "group": "Melee",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "nonlethal-option"
+      ],
+      "cost": 0.25,
+      "notes": "A hickory pick or axe handle with no head on it: the town marshal's persuader, the railroad bull's answer to a strike and the saloon keeper's last word. Can deliver a knockout blow from surprise (combat.json brawling.knockout_blow)."
+    },
+    {
+      "name": "Brass knuckles",
+      "group": "Melee",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "concealable"
+      ],
+      "cost": 1,
+      "notes": "A cast knuckle-duster. Counts as an unarmed strike for features that improve unarmed strikes, but deals its own 1d4 bludgeoning. Marshals take a dim view of them at the town line."
+    },
+    {
+      "name": "Cavalry saber",
+      "group": "Melee",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d8",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": 10,
+      "notes": "A curved army saber, war surplus or still in service. Heavy in the hand and out of fashion by the 1870s except among troopers and men who want to be remembered as one. A mounted rider who charges at least 20 ft in a straight line before attacking with it deals an extra 1d8 on a hit (combat.json mounted_combat)."
+    },
+    {
+      "name": "Bullwhip",
+      "group": "Melee",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d4",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "reach"
+      ],
+      "cost": 2,
+      "notes": "A ten-foot braided whip for driving oxen and mules. Reach 10 ft. Instead of dealing damage, a hit can disarm a creature of a one-handed weapon (it makes a STR save, DC 8 + your proficiency bonus + your DEX modifier, or drops it) or wrap a limb (grappled, escape DC as the disarm)."
+    },
+    {
+      "name": "Derringer",
+      "group": "Sidearms",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "10/30",
+      "magazine": 2,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 8,
+      "notes": "A two-barrel over-under hideout pistol, small enough for a vest pocket, a garter or a sleeve holster. Both barrels can be fired with one attack as an action (one attack roll, 2d6 + DEX on a hit, both rounds spent). Reloading opens the barrels and loads both in one action.",
+      "ammo_name": ".41 rounds"
+    },
+    {
+      "name": "Pocket revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "20/60",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single",
+        "fan"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": 10,
+      "notes": "A small five-shot revolver for a coat pocket or a doctor's bag. Single-action: it can be fanned (combat.json fire_modes.fan). Reloading puts two rounds into the cylinder per action (combat.json ammunition.reload).",
+      "ammo_name": ".32 rounds"
+    },
+    {
+      "name": "Navy revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single",
+        "fan"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": 15,
+      "notes": "The six-shot belt revolver of the war and after: a cap-and-ball pistol in the 1860s, usually converted to cartridges by the 1870s. Single-action; it can be fanned. Reloading a cartridge cylinder loads two rounds per action; a cap-and-ball cylinder loads one per action, or a pre-loaded spare cylinder can be swapped in as an action (gear.json Spare cylinder).",
+      "ammo_name": ".36 rounds"
+    },
+    {
+      "name": "Army revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single",
+        "fan"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": 17,
+      "notes": "The heavy six-shot cartridge revolver issued to the cavalry from the early 1870s and bought by every lawman, outlaw and rancher who could afford it. Single-action; it can be fanned. Reloading opens the loading gate and puts in two rounds per action. Many men carry only five, with the hammer down on an empty chamber; that is their choice. Not available before the 1870s: an 1860s character carries a Navy revolver.",
+      "ammo_name": ".45 cartridges"
+    },
+    {
+      "name": "Carbine",
+      "group": "Longarms",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "100/300",
+      "magazine": 7,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 25,
+      "notes": "A short-barreled seven-shot repeating cavalry carbine fed from a tube in the butt. Short enough to fire from the saddle and to ride in a saddle scabbard. Reloading is an action that loads three rounds, or the full seven from a pre-filled loading tube (gear.json Loading tube).",
+      "ammo_name": ".56 rounds"
+    },
+    {
+      "name": "Repeating rifle",
+      "group": "Longarms",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "150/450",
+      "magazine": 12,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": 40,
+      "notes": "A lever-action rifle with a long under-barrel magazine: twelve rounds and a lever that cycles as fast as a man can work it. The rifle of the cattle trail, the stagecoach and the homestead window. Reloading is an action that pushes four rounds through the loading gate.",
+      "ammo_name": ".44 cartridges"
+    },
+    {
+      "name": "Buffalo rifle",
+      "group": "Longarms",
+      "eras": [
+        "1870s",
+        "1880s"
+      ],
+      "damage": "2d10",
+      "damageType": "piercing",
+      "range": "300/1200",
+      "magazine": 1,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "heavy",
+        "loud"
+      ],
+      "cost": 60,
+      "notes": "A heavy single-shot breech-loader built for the hide trade: it kills at a distance where the target never hears the shot until after. Reloading drops the breech and loads one round as a bonus action. Firing it prone or from a rest (shooting sticks, a rock, a wagon box) removes the heavy disadvantage for a wielder with STR below 13.",
+      "ammo_name": ".50 rounds"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "group": "Longarms",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 2,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "two-handed",
+        "loud"
+      ],
+      "cost": 20,
+      "notes": "A full-length side-by-side 10- or 12-gauge: bird gun, home defense and the lawman's riot gun. Firing both barrels at once is one attack as an action (one attack roll, 3d8 on a hit, no DEX modifier, both shells spent). Reloading breaks the action and loads both shells in one action.",
+      "ammo_name": "Shotgun shells"
+    },
+    {
+      "name": "Coach gun",
+      "group": "Longarms",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "15/45",
+      "magazine": 2,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "two-handed",
+        "loud"
+      ],
+      "cost": 18,
+      "notes": "A short-barreled double gun carried by the man riding shotgun on a stage and by anyone who expects trouble at arm's length. Short enough to fire from the saddle or a coach box. Both barrels at once as an action: one attack roll, 3d8 on a hit, no DEX modifier, both shells spent. Reloading loads both shells in one action.",
+      "ammo_name": "Shotgun shells"
+    },
+    {
+      "name": "Dynamite",
+      "group": "Explosives",
+      "eras": [
+        "1870s",
+        "1880s"
+      ],
+      "damage": "3d6",
+      "damageType": "bludgeoning",
+      "range": "20/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "loud"
+      ],
+      "cost": 1,
+      "notes": "One stick of nitroglycerin dynamite, sold to mines, quarries and railroad crews from about 1870. Lighting the fuse is a bonus action; it detonates at the start of your next turn, or when it lands if the fuse was cut short. 10-ft radius: each creature makes a DEX save (DC 12, or 8 + proficiency + DEX if the thrower is proficient with Explosives), taking 3d6 bludgeoning on a failure or half on a success. A bundle of four: 20-ft radius, 6d6. Old dynamite sweats and is dangerous to carry (combat.json explosives)."
+    },
+    {
+      "name": "Black-powder charge",
+      "group": "Explosives",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "damage": "2d6",
+      "damageType": "bludgeoning",
+      "range": "15/45",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "loud"
+      ],
+      "cost": 0.5,
+      "notes": "A blasting can, a keg of black powder with a fuse, or a powder bomb in a tin. Lighting the fuse is a bonus action; it goes off at the start of your next turn. 10-ft radius: DEX save (DC 12, or 8 + proficiency + DEX if proficient with Explosives), 2d6 bludgeoning on a failure or half on a success, and it makes a great deal of smoke (the area is heavily obscured for 1 minute). Wet powder does not burn."
+    }
+  ],
+  "weapon_groups": {
+    "Melee": "Fists, knives, hatchets, pick handles, sabers, whips and anything else you hit someone with. Everyone is proficient.",
+    "Sidearms": "Revolvers and the derringer. Exempt from the point-blank penalty, and the guns you draw in a showdown (frontier.json showdowns).",
+    "Longarms": "Rifles, carbines and shotguns, from the coach gun to the buffalo rifle.",
+    "Explosives": "Dynamite and black-powder charges. Throwing one needs no proficiency (it is a DEX save, not an attack roll), but proficiency raises the save DC and is needed to set and fuse a charge safely (combat.json explosives). Only the Outlaw starts proficient."
+  },
+  "weapon_properties": {
+    "concealable": "Small enough to hide in a boot, a vest pocket, a sleeve or a coat. Spotting it takes a pat-down or a Perception check against the carrier's Sleight of Hand; it is what gets past the marshal's gun check at the edge of town.",
+    "finesse": "Use STR or DEX for attack and damage rolls (the same for both).",
+    "heavy": "Bulky and hard-kicking. A wielder with STR below 13 has disadvantage on attack rolls with it unless firing prone or from a rest.",
+    "loud": "Black powder: heard for a mile on the open range and all over town. Leaves a cloud of white smoke where it was fired, so the shooter is easy to find (combat.json noise).",
+    "nonlethal-option": "Built to put people down without killing them. Any melee attack can knock a creature out at 0 HP (combat.json nonlethal); a weapon with this property can also deliver a knockout blow from surprise (combat.json brawling.knockout_blow).",
+    "reach": "Adds 5 ft to your reach when you attack with it (the bullwhip reaches 10 ft).",
+    "scatter": "Fires a spread of buckshot. +2 to hit targets within 30 ft. At long range you have disadvantage and lose the +2. Apply the +2 at the table; it is not part of the attack bonus written on a sheet.",
+    "thrown": "An explosive thrown at a point rather than at a creature, using the listed range; creatures in the area make a DEX save (combat.json explosives).",
+    "thrown (20/60)": "A melee weapon that can also be thrown as a ranged attack: normal range 20 ft, long range 60 ft (disadvantage), using the same ability as its melee attack. The hatchet.",
+    "two-handed": "Requires two hands to fire or swing. Firing a two-handed firearm one-handed (from a horse, with the reins in the other hand) has disadvantage."
+  },
+  "armor": {
+    "light": [
+      {
+        "name": "Leather duster",
+        "type": "Light",
+        "cost": 10,
+        "ac": "11 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "7 lb.",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ],
+        "notes": "A long oiled-canvas or leather riding coat split up the back for the saddle. It keeps off dust, rain and brush, turns a knife and takes the sting out of a fist or a fall; against a bullet it is only a coat. A gun belt under it can be reached by sweeping it back, and a Longarm can be carried under it with a Sleight of Hand check. The coat most riders wear."
+      },
+      {
+        "name": "Buckskin coat",
+        "type": "Light",
+        "cost": 8,
+        "ac": "11 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "6 lb.",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ],
+        "notes": "A heavy fringed coat of smoked deerskin, warm, quiet and nearly indestructible. It doesn't rustle like canvas: no penalty to Stealth in brush, and it is the coat of scouts, hunters and mountain travelers. In a city hotel or a bank it marks you as from somewhere else."
+      }
+    ],
+    "medium": [
+      {
+        "name": "Iron vest",
+        "type": "Medium",
+        "cost": 40,
+        "ac": "13 + Dex modifier (max 2)",
+        "strength_requirement": null,
+        "stealth_disadvantage": true,
+        "weight": "20 lb.",
+        "eras": [
+          "1860s",
+          "1870s",
+          "1880s"
+        ],
+        "notes": "Iron plates riveted into a padded canvas or leather vest, a blacksmith's answer to the revolver. It will stop a pistol ball at a distance and bruise you black doing it. Heavy and stiff: disadvantage on Stealth checks and on Riding checks while wearing it. Hard to hide: anyone who sees you move or helps you down from a horse knows you are wearing one, and in some towns wearing one is taken as a sign that you came looking for a fight (frontier.json reputation)."
+      }
+    ],
+    "heavy": [],
+    "powered": [],
+    "shields": [],
+    "donning_and_doffing": {
+      "light_armor": {
+        "don": "1 action (it's a coat)",
+        "doff": "1 action"
+      },
+      "medium_armor": {
+        "don": "5 minutes",
+        "doff": "1 minute"
+      }
+    }
+  },
+  "currency": {
+    "note": "Western campaigns use dollars and cents. Money on a character sheet is a single equipment line written exactly as shown in 'sheet_format'. Prices throughout the Western ruleset are 1870s dollars (a meal 25 cents, a hotel room 50 cents to $2 a night, a cowhand's wages $30 a month and found, a Navy revolver $15, a repeating rifle $40, a horse $50-$150); use them as they stand in 1860s and 1880s campaigns too.",
+    "dollars": {
+      "name": "dollars",
+      "symbol": "$",
+      "abbrev": "USD",
+      "sheet_format": "Wallet containing $20"
+    }
+  }
+}

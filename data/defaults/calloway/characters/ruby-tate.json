@@ -1,0 +1,122 @@
+{
+  "id": "b4a68078-2ce0-415c-8239-295af9359b2b",
+  "name": "Ruby Tate",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Wheelman",
+  "level": 3,
+  "background": "Cab Driver",
+  "alignment": "Chaotic Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Mechanics",
+    "Perception",
+    "Stealth",
+    "Driving",
+    "Streetwise"
+  ],
+  "languages": [
+    "English",
+    "Chinook Jargon (a few dozen words, from the logging camps)"
+  ],
+  "equipment": [
+    "Leather jacket, a man's, black, worn white at the elbows, with a Yellow Cab Company badge still pinned inside",
+    "Snub-nose .38 (Colt Detective Special), 5 rounds loaded, in the jacket or under the Hudson's seat",
+    ".38 rounds (15)",
+    "Tire iron, under the Hudson's seat, where it belongs",
+    "Car: 1949 Hudson Commodore Eight sedan, 'the Duchess', maroon, with a rebuilt engine, a reinforced bumper, a spotlight, a police-band radio she is not supposed to own, and a hidden compartment under the back seat",
+    "A toolbox: wrenches, a jack, spark plugs, a fan belt, a can of oil, baling wire, a roll of tape",
+    "A street map of Port Calloway, annotated in grease pencil with every one-way street, alley and dead end she has ever found",
+    "Binoculars, a pair of driving gloves and a thermos of cocoa",
+    "A road map of the state, a tin of humbugs, and a photograph of a logging truck with her father beside it",
+    "Wallet containing $22"
+  ],
+  "weapons": [
+    {
+      "name": "Snub-nose .38",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Tire iron",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: once per long rest, roll an Insight check against a lie with advantage and, on a success, learn whether they lie to protect themselves or someone else; working people start one step friendlier toward her)",
+    "Behind the Wheel (Wheelman: advantage on Driving checks in chases and to avoid crashing; in the Duchess she adds 15 to the car's hit points and her proficiency bonus to its AC, the car drops to 1 hit point instead of 0 once per long rest, and she can repair it on a short rest)",
+    "Smooth Ride (Wheelman: her passengers have no disadvantage firing from the moving car and have advantage on saves against being thrown about in a crash or ram)",
+    "Lead Foot (Wheelman, 2nd level: on each of her turns a bonus action to Dash, Disengage or Hide on foot, or one extra driving maneuver, such as putting the car between her passengers and the shooting)",
+    "Style: Rumrunner (Wheelman, 3rd level: the Duchess has a hidden compartment under the back seat big enough for a person or a crate, found only with a DC 20 Investigation check, and she has advantage on Deception at roadblocks)",
+    "Nobody Looks at the Cabbie (Cab Driver background: she knows every street, short cut and hotel doorman in Port Calloway; every cabbie in the city will tell her who they picked up and where they dropped them for a dollar or a favour, and nobody remembers the face of the driver)"
+  ],
+  "traits": [
+    "Behind the Wheel",
+    "Smooth Ride",
+    "Lead Foot",
+    "Rumrunner"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say exactly what I think, in as few words as possible, and I do not apologise for it. I eat in the car. I talk to the Duchess when nobody is listening and sometimes when they are. I am happiest at sixty miles an hour on a wet road at night.",
+    "ideals": "A job is a job. You say you will drive somebody somewhere, you drive them there, and you do not ask why, unless the why is going to get somebody hurt. Then you ask, and you drive somewhere else.",
+    "bonds": "My father, Jim Tate, who drove log trucks down from Skookum Pass for thirty years and died in a crash in 1947 when the brakes he had been telling the company about for a year finally went. The company paid my mother three hundred dollars and called it an accident. The Duchess is what's left of the settlement.",
+    "flaws": "I don't trust anybody who has never had grease under their fingernails, and I let them know it. And when somebody tells me I can't do a thing because I'm a woman, I do it, right then, however stupid it is."
+  },
+  "appearance": "A compact, wiry woman of twenty-seven with short-cropped brown hair under a cabbie's cap, a sunburned, freckled, square face, a chipped front tooth and very sharp blue eyes. She wears a man's leather jacket, dungarees and boots, and has a grease smudge somewhere about her at all times. She drives with one hand and smokes with the other.",
+  "backstory": "Ruby Tate grew up in Skookum Falls, a logging town two hours up the river from Port Calloway, the only daughter of a truck driver, and could double-clutch a Mack before she could ride a bicycle. During the war, with the men gone, she drove log trucks down the pass herself at sixteen, and was better at it than most of them. After her father died, she took the settlement money, bought the Duchess, and came to the city to drive a cab, because it was the only driving job that would take a woman. She was the first woman driver at the Yellow Cab Company and the best they had, and they fired her in 1951 for punching a dispatcher who suggested she might earn more in the back seat than the front. Walt Embry, who had been her fare twice and tipped well, offered her a job driving for the agency the same week. She drives, tails, fixes cars, and listens. On Monday night she is the one who notices the Hudson idling in the rain outside the Kittredge Building, and she is the one who decides, without asking anyone, to follow it home."
+}

@@ -1,0 +1,123 @@
+{
+  "id": "b143445d-8f9f-431f-89f4-49ef01d21af9",
+  "name": "Augie Brodzinski",
+  "status": "alive",
+  "race": "Ex-Service",
+  "subrace": "",
+  "class": "Heavy",
+  "level": 3,
+  "background": "Dockworker",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 35,
+    "current": 35
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Streetwise",
+    "Intimidation",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Polish"
+  ],
+  "equipment": [
+    "Steel vest, canvas over plates, worn under a pea coat on any job that might go wrong (obvious to anyone who looks; disadvantage on Stealth)",
+    "Brass knuckles, worn smooth",
+    ".45 automatic (Colt Government, his Army pistol, never turned in), 7 rounds loaded",
+    ".45 rounds (21)",
+    "Cargo hook (tool; an improvised weapon, 1d4 piercing)",
+    "Union card, International Longshoremen's Association, lapsed since 1935",
+    "Wool cap and pea coat",
+    "Work gloves",
+    "Discharge papers and a Purple Heart in a cigar box at his rooming house on Third Street",
+    "A harmonica he plays badly",
+    "Wallet containing $15"
+  ],
+  "weapons": [
+    {
+      "name": "Brass knuckles",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": ".45 automatic",
+      "attackBonus": 3,
+      "damage": "1d10+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Steel vest",
+    "type": "medium"
+  },
+  "features": [
+    "Seen Worse (Ex-Service origin: advantage on saves against being frightened or Shaken; the first time each fight he is hit by a firearm he keeps his reaction and any readied action)",
+    "Hard Knocks (unarmed strikes deal 1d6 + STR; once per turn +1d4 bludgeoning with fists or a bludgeoning weapon; a creature he drops is knocked out unless he chooses otherwise; knockout blows with fists)",
+    "Thick Skull (advantage on CON saves against knockouts and stuns; once per long rest drop to 1 hit point instead of 0)",
+    "The Look (action: a creature within 30 ft makes a WIS save, DC 13, or is frightened of him until the end of his next turn; outside combat, answers one question truthfully on a failure)",
+    "Style: Enforcer (when he hits in melee, he can push the target 10 ft or knock it prone on a failed STR save, DC 13)",
+    "Hiring Hall (Dockworker background: the old hands on every pier from the Ferry Building to China Basin know him, and the ones who were on the line in 1934 will still talk to him)"
+  ],
+  "traits": [
+    "Seen Worse",
+    "Hard Knocks",
+    "Thick Skull",
+    "The Look",
+    "Enforcer"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am slow to talk and slower to get angry, and I hum when I am thinking. I call everybody \"mister\" or \"ma'am\" until they ask me not to. I eat like a horse and tip like a millionaire.",
+    "ideals": "A man who works for his money is owed his money, and a man who takes it from him by force or by fiddle has to answer for it, sooner or later, to somebody my size.",
+    "bonds": "My partner on the Pier 32 gang, Stanley Kowal, had his arm broken by Mick Larrabee's men on Bloody Thursday in 1934 and never worked the docks again. Ned Corrigan got Stan a night watchman's job and got me this one.",
+    "flaws": "Once I have decided a man is a crook, nothing he says gets through, and I have been wrong about that more than once."
+  },
+  "appearance": "A big, slope-shouldered man of forty-two with a flat nose, a shy smile, hands like shovels and a grey wool cap he takes off indoors. He moves carefully in small rooms, like a man who has broken a lot of furniture by accident.",
+  "backstory": "Walter Brodzinski was born in Hamtramck, Michigan, to a Polish family, was drafted in 1917, and went to France with the 91st Division, where he was wounded in the Argonne and decided that if he lived he would go and see the Pacific. He worked the San Francisco waterfront for fifteen years, mostly on Pier 32, and was on the picket line in the summer of 1934 when the strike closed every port on the coast; on Bloody Thursday he carried his partner Stan Kowal two blocks with Stan's arm hanging wrong. Mick Larrabee broke the strike on his own pier with hired men and has never let the old gangs back. Ned Corrigan met Augie in 1935 when Augie was sitting on the Embarcadero with no job, and hired him that afternoon to stand in doorways looking large. He has been the agency's operative, bodyguard, process server and furniture mover ever since. He thinks of Ned as the only boss he ever had who said thank you."
+}

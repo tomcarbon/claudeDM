@@ -1,0 +1,346 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Twelve Horror backgrounds, all available in every era (1890s, 1920s, 1970s). Skills come only from the 18 Horror skills. Money: 'equipment' ends with the money line in the exact sheet format ('Wallet containing $20'); 'money.dollars' repeats it for generators. Amounts are $5-$60 and serve in any era (a dollar went further in 1893 than in 1974; the GM can scale prices, not wallets). Tool proficiencies name gear.json items where one exists. The Medium is a stage medium, a performer and maybe a fraud: the background gives no supernatural ability (the Sensitive class is something else)."
+  },
+  "backgrounds": [
+    {
+      "name": "Antiquarian",
+      "skill_proficiencies": [
+        "Research",
+        "Occult"
+      ],
+      "tool_proficiencies": [
+        "Magnifying glass"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Magnifying glass",
+        "White cotton gloves",
+        "A dealer's catalogue with your notes in the margins",
+        "A letter of introduction to a university library",
+        "Notebook and pencil",
+        "Wallet containing $45"
+      ],
+      "money": {
+        "dollars": "Wallet containing $45"
+      },
+      "feature": "Provenance",
+      "feature_description": "You buy, sell, appraise or catalogue old things: books, furniture, papers, curios, the contents of a dead man's house. Dealers, auctioneers, collectors and librarians know you or know of you, and any of them will tell you who owned a thing before, who bought it and what it was said to be, if you ask in person. Given an hour with an old object, you can date it and say where it was made without a check. Estates call you in when someone dies, which means you are often the first stranger in a house after a death.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Farmhand",
+      "skill_proficiencies": [
+        "Athletics",
+        "Nature"
+      ],
+      "tool_proficiencies": [
+        "Tool kit"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Work clothes",
+        "Leather gloves",
+        "Pocket knife",
+        "A letter of reference from the last farm you worked",
+        "Rope (50 ft)",
+        "Wallet containing $8"
+      ],
+      "money": {
+        "dollars": "Wallet containing $8"
+      },
+      "feature": "Hired On",
+      "feature_description": "You have worked other people's land for wages and board: haying, milking, picking, fixing fence. At any farm in the county you can get a meal and a place in the barn for a day's work, and farm people talk to you as an equal. You know how a working farm runs, when the work is done and when people are where, so you notice without a check when a farm's rhythm is wrong: chores undone, stock unfed, a field nobody will work.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Nurse",
+      "skill_proficiencies": [
+        "Medicine",
+        "Insight"
+      ],
+      "tool_proficiencies": [
+        "Doctor's bag"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Bandage roll (6)",
+        "Smelling salts",
+        "A nurse's cap or pin from your training",
+        "A watch pinned to your dress or pocket",
+        "A letter from your supervising doctor",
+        "Wallet containing $15"
+      ],
+      "money": {
+        "dollars": "Wallet containing $15"
+      },
+      "feature": "On the Ward",
+      "feature_description": "You trained in a hospital and have nursed the sick at home and on the ward. Hospital staff, country doctors and midwives treat you as one of their own: you can get into a hospital ward, a doctor's surgery or a sickroom where a stranger would be turned away, and read a patient's chart without a check. You have sat with the dying and the newly dead, and people tell nurses things they would not tell a priest.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Groundskeeper",
+      "skill_proficiencies": [
+        "Perception",
+        "Nature"
+      ],
+      "tool_proficiencies": [
+        "Tool kit"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Ring of keys (to a place you no longer work)",
+        "Shovel",
+        "Work clothes",
+        "Lantern",
+        "Pocket knife",
+        "Wallet containing $10"
+      ],
+      "money": {
+        "dollars": "Wallet containing $10"
+      },
+      "feature": "Every Path and Gate",
+      "feature_description": "You have kept the grounds of a cemetery, an estate, a churchyard or a college: mowing, digging, mending walls, locking gates at night. Given a day on any grounds, you know every path, outbuilding, gate and wall gap, where the drains run and where the ground has been disturbed (you notice fresh digging without a check). Other caretakers, sextons and gardeners talk to you, and you can usually find out who has keys to what.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Lighthouse Keeper",
+      "skill_proficiencies": [
+        "Perception",
+        "Mechanics"
+      ],
+      "tool_proficiencies": [
+        "Tool kit"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Oilskins",
+        "Keeper's logbook",
+        "Field glasses",
+        "Lantern",
+        "Kerosene (pint)",
+        "Wallet containing $12"
+      ],
+      "money": {
+        "dollars": "Wallet containing $12"
+      },
+      "feature": "Keeper's Log",
+      "feature_description": "You have kept a light: trimmed wicks, wound the clockwork, polished the lens, logged every ship and every storm, and stayed awake through nights when nobody else on earth was awake. You can read the weather and the sea a day ahead without a check, you know how lamps, lenses, foghorns and signal flags work, and keepers, harbormasters and fishermen along any coast treat you as one of their own. You are used to being alone; you have advantage on fear checks made while alone, the first time each night.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Schoolteacher",
+      "skill_proficiencies": [
+        "Persuasion",
+        "Research"
+      ],
+      "tool_proficiencies": [],
+      "languages": 1,
+      "equipment": [
+        "A few good books",
+        "Chalk",
+        "Spectacles",
+        "A good suit or dress",
+        "A letter from the school board",
+        "Wallet containing $14"
+      ],
+      "money": {
+        "dollars": "Wallet containing $14"
+      },
+      "feature": "Every Family's Teacher",
+      "feature_description": "You have taught in a schoolroom, a one-room country school or a town high school. In any small town you can get the school board, the minister and half the parents to talk to you, and the town assumes you are respectable until proven otherwise. You know how to find a town's records (school registers, old class photographs, the minutes of the board), and grown people who were once someone's pupils still answer a teacher's questions.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Reporter",
+      "skill_proficiencies": [
+        "Investigation",
+        "Persuasion"
+      ],
+      "tool_proficiencies": [],
+      "languages": 1,
+      "equipment": [
+        "Notebook and pencil",
+        "A press card from a paper that may have folded",
+        "A list of telephone numbers or addresses of sources",
+        "Newspaper (today's, with your byline in it)",
+        "Wallet containing $20"
+      ],
+      "money": {
+        "dollars": "Wallet containing $20"
+      },
+      "feature": "The Morgue and the Wire",
+      "feature_description": "You write, or wrote, for a newspaper. You can get into any newspaper's back files (the morgue) and its staff will help you search them; you know how to read a court docket, a coroner's report and a police blotter; and in any town with a paper you can find the person who knows the local gossip. People talk to reporters for many reasons, including to be in the paper. A story with your name on it also tells everyone involved exactly who has been asking questions.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Undertaker",
+      "skill_proficiencies": [
+        "Medicine",
+        "Occult"
+      ],
+      "tool_proficiencies": [
+        "Doctor's bag"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Black suit or dress",
+        "Embalmer's kit (counts as a doctor's bag for examining the dead)",
+        "A ledger of the last year's funerals",
+        "Measuring tape",
+        "Wallet containing $30"
+      ],
+      "money": {
+        "dollars": "Wallet containing $30"
+      },
+      "feature": "Last Arrangements",
+      "feature_description": "You prepare the dead and bury them, and you have done it for families of every kind. Every family in a county knows the local undertaker, and the bereaved tell you things: who was really at the bedside, what was put in the coffin, who argued at the graveside. You can examine a body without fear (no fear check for an ordinary corpse), know the burial customs of the region and what each superstition at a wake is meant to prevent, and you can always get into a cemetery, a funeral home or a church vault on professional business.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Mechanic",
+      "skill_proficiencies": [
+        "Mechanics",
+        "Driving"
+      ],
+      "tool_proficiencies": [
+        "Tool kit"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Tool kit",
+        "Work clothes or coveralls",
+        "Leather gloves",
+        "A rag that is never clean",
+        "Wallet containing $18"
+      ],
+      "money": {
+        "dollars": "Wallet containing $18"
+      },
+      "feature": "Grease Under the Nails",
+      "feature_description": "You fix machines: carriage and wagon work in the 1890s (axles, springs, a steam pump, a mill engine), cars, trucks and farm engines in the 1920s and 1970s. In any town you can find work at the garage, the smithy or the mill, and mechanics and drivers talk to you as one of their own. Given a few minutes with a vehicle, generator or engine, you can tell what is wrong with it without a check, including whether someone made it go wrong.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Medium",
+      "skill_proficiencies": [
+        "Performance",
+        "Deception"
+      ],
+      "tool_proficiencies": [
+        "Playing cards"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Black velvet cloth",
+        "A set of spirit-rapping tricks (a hidden clicker, a trumpet, luminous paint)",
+        "Playing cards",
+        "A handbill advertising your séances",
+        "A good suit or dress",
+        "Wallet containing $25"
+      ],
+      "money": {
+        "dollars": "Wallet containing $25"
+      },
+      "feature": "The Séance Trade",
+      "feature_description": "You are a stage medium: you hold séances in parlors and halls, read people for a living and give them messages from the departed. Maybe all of it is technique; maybe not quite all. Spiritualist circles, other performers and grieving families welcome you, and you can arrange a séance in any town with a day's notice. You know every trick of the trade, so you spot another performer's tricks without a check (and the GM tells you when something in a room is not a trick). This background grants no supernatural ability.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Student",
+      "skill_proficiencies": [
+        "Research",
+        "Nature"
+      ],
+      "tool_proficiencies": [],
+      "languages": 1,
+      "equipment": [
+        "A few good books",
+        "Notebook and pencil",
+        "Library card",
+        "A letter of enrollment",
+        "A coat that is not warm enough",
+        "Wallet containing $6"
+      ],
+      "money": {
+        "dollars": "Wallet containing $6"
+      },
+      "feature": "Library Privileges",
+      "feature_description": "You are studying at a college, a seminary, a nursing or medical school, a university. You can get into any academic library and many private ones, a professor will usually see you about their subject, and other students will put you up for a night. Nobody expects a student to know anything, so people explain things to you in more detail than they would to anyone else.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    },
+    {
+      "name": "Drifter",
+      "skill_proficiencies": [
+        "Survival",
+        "Stealth"
+      ],
+      "tool_proficiencies": [],
+      "languages": 0,
+      "equipment": [
+        "A bedroll",
+        "A tin cup",
+        "A change of clothes in a sack",
+        "Pocket knife",
+        "Cigarettes",
+        "Wallet containing $5"
+      ],
+      "money": {
+        "dollars": "Wallet containing $5"
+      },
+      "feature": "Nobody's Business",
+      "feature_description": "You go from town to town by freight car, back road and borrowed ride, working when there is work. You know how to travel for almost nothing: where to catch a freight, which barns are left open, which towns run strangers out and which feed them. Other drifters, hoboes and hitchhikers share news with you and mark safe and unsafe places for you. The flip side: when a stranger goes missing, nobody asks after you, and in some towns that is the whole point.",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ]
+    }
+  ]
+}

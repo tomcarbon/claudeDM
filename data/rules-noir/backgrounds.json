@@ -1,0 +1,351 @@
+{
+  "_meta": {
+    "category": "noir",
+    "source": "Written for claudeDM (Noir category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Twelve Noir backgrounds, all available in every era. Skills come only from the 18 Noir skills. Money: 'equipment' ends with the money line in the exact sheet format ('Wallet containing $25'); 'money.dollars' repeats it for generators. Amounts are 1940s dollars ($5-$60). Tool proficiencies name gear.json items where one exists."
+  },
+  "backgrounds": [
+    {
+      "name": "Ex-Cop",
+      "skill_proficiencies": [
+        "Intimidation",
+        "Streetwise"
+      ],
+      "tool_proficiencies": [
+        "Handcuffs",
+        "Vehicles (land)"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Old badge (kept in a drawer, or turned in and missed)",
+        "Handcuffs",
+        "Notebook and pencil",
+        "Gabardine raincoat, worn shiny at the elbows",
+        "Wallet containing $25"
+      ],
+      "money": {
+        "dollars": "Wallet containing $25"
+      },
+      "feature": "Old Precinct",
+      "feature_description": "You carried a shield once, and some of the men you carried it with are still on the job. A desk sergeant will usually tell you who caught a case, whether a man has a sheet, or when a prisoner is being moved, for the price of a cup of coffee and a story about the old days. Some cops also remember why you left, and the GM decides which ones.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Veteran",
+      "skill_proficiencies": [
+        "Athletics",
+        "Perception"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (land)"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Discharge papers",
+        "Service medal in a box",
+        "Army-issue pocketknife",
+        "Bandage roll (2)",
+        "Duffel bag",
+        "Work clothes",
+        "Wallet containing $20"
+      ],
+      "money": {
+        "dollars": "Wallet containing $20"
+      },
+      "feature": "Old Outfit",
+      "feature_description": "Veterans look after veterans. In any veterans' hall, legion post or bar with a flag over the register, you can get a meal, a bed for a night, a lead on a job or a quiet word about a man who served, and with a few phone calls you can find a former comrade in most cities. You read military bearing, rank and jargon at a glance.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Dockworker",
+      "skill_proficiencies": [
+        "Athletics",
+        "Streetwise"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (water)"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Cargo hook (tool; use as an improvised weapon, 1d4 piercing)",
+        "Union card (current or lapsed)",
+        "Wool cap and pea coat",
+        "Work gloves",
+        "Wallet containing $15"
+      ],
+      "money": {
+        "dollars": "Wallet containing $15"
+      },
+      "feature": "Hiring Hall",
+      "feature_description": "You know the waterfront: which pier unloads what, which shipping line pays off which inspector, which foreman picks men at the morning shape-up and why. Longshoremen, warehousemen and sailors will talk to you, and you can get onto any working pier as if you belonged there. The men who run the waterfront also know your face.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Bootlegger",
+      "skill_proficiencies": [
+        "Driving",
+        "Stealth"
+      ],
+      "tool_proficiencies": [
+        "Mechanic's tools",
+        "Vehicles (land)"
+      ],
+      "languages": 0,
+      "equipment": [
+        "A car key to a car that may not be yours",
+        "Mechanic's tools",
+        "Road map with marks on it",
+        "Hip flask",
+        "Dark work clothes",
+        "Wallet containing $40"
+      ],
+      "money": {
+        "dollars": "Wallet containing $40"
+      },
+      "feature": "Old Routes",
+      "feature_description": "You ran liquor once (before Repeal) or still run untaxed liquor and cigarettes (after). You know the back roads in and out of the city, the farm lanes that cross the county line, the garages that will hide a car for a night and the roadhouses that buy without asking. You can always find a buyer for a case of something, and a seller.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Society Heir",
+      "skill_proficiencies": [
+        "Society",
+        "Persuasion"
+      ],
+      "tool_proficiencies": [
+        "Playing cards"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Evening clothes",
+        "Good suit",
+        "Calling cards (engraved)",
+        "Signet ring or a good watch",
+        "Membership card to a downtown club",
+        "Wallet containing $60"
+      ],
+      "money": {
+        "dollars": "Wallet containing $60"
+      },
+      "feature": "Family Name",
+      "feature_description": "Your family's name is on a bank, a building or a society column. You can get invitations to parties, charity balls and openings, a table at any good restaurant and an audience with most of the city's rich and powerful, who assume you are one of them. What your family thinks of how you make your living is between you and them.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Nightclub Singer",
+      "skill_proficiencies": [
+        "Performance",
+        "Insight"
+      ],
+      "tool_proficiencies": [
+        "Musical instrument (piano or one of your choice)"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Evening clothes",
+        "Makeup case",
+        "Sheet music with the club's stamp",
+        "Matchbook from the club",
+        "Wallet containing $20"
+      ],
+      "money": {
+        "dollars": "Wallet containing $20"
+      },
+      "feature": "Back Door of Every Club",
+      "feature_description": "You have worked the rooms: hotel lounges, supper clubs, after-hours joints. You can walk in the stage door of any club in town, and bartenders, cigarette girls, waiters and musicians tell you who was there last night, who they sat with and who paid. Club owners will give you a booth and an hour of their time; the owners also tend to have partners.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Cab Driver",
+      "skill_proficiencies": [
+        "Driving",
+        "Streetwise"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (land)"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Hack license with your picture on it",
+        "City street guide, thumbed soft",
+        "Change maker on your belt",
+        "Cap and jacket",
+        "Wallet containing $15"
+      ],
+      "money": {
+        "dollars": "Wallet containing $15"
+      },
+      "feature": "Nobody Looks at the Cabbie",
+      "feature_description": "You know every street, every shortcut and every hotel doorman in the city, and doormen and other cabbies tell you who went where last night. Behind the wheel of a cab, you are part of the scenery: you can wait outside a building for hours without anyone thinking about you, and passengers say things in the back seat they wouldn't say to a priest.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Bookkeeper",
+      "skill_proficiencies": [
+        "Research",
+        "Investigation"
+      ],
+      "tool_proficiencies": [
+        "Forgery kit"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Green eyeshade and sleeve garters",
+        "Ledger (yours, or someone else's)",
+        "Fountain pen",
+        "Good suit, carefully pressed",
+        "Wallet containing $30"
+      ],
+      "money": {
+        "dollars": "Wallet containing $30"
+      },
+      "feature": "Follow the Money",
+      "feature_description": "Give you a ledger, a bank statement or a bill of lading and an hour, and you will tell the GM where the money is really going: you find any falsified entry, double set of books or dummy company without a check if the evidence is in front of you. You know how county records, banks and business filings work, and clerks in those places treat you as one of their own.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Prizefighter",
+      "skill_proficiencies": [
+        "Athletics",
+        "Intimidation"
+      ],
+      "tool_proficiencies": [],
+      "languages": 0,
+      "equipment": [
+        "Hand wraps",
+        "Gym bag",
+        "Clipping of your best fight",
+        "Flattened nose (no charge)",
+        "Work clothes",
+        "Wallet containing $20"
+      ],
+      "money": {
+        "dollars": "Wallet containing $20"
+      },
+      "feature": "Fight Crowd",
+      "feature_description": "Fight people know you: managers, trainers, promoters, gamblers and the gym rats who carry the buckets. You can get a seat at any fight in town, find out who is fixing what, and name the bookmaker who takes the big bets. Hoods who follow the fights treat you with a certain respect, at least until you start asking questions.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Hotel Dick",
+      "skill_proficiencies": [
+        "Perception",
+        "Insight"
+      ],
+      "tool_proficiencies": [
+        "Lock picks"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Pass key to a hotel you used to work at (the locks may have been changed)",
+        "Notebook and pencil",
+        "Flashlight",
+        "Good suit, slightly too warm for the weather",
+        "Wallet containing $25"
+      ],
+      "money": {
+        "dollars": "Wallet containing $25"
+      },
+      "feature": "Pass Key",
+      "feature_description": "You spent years watching a hotel lobby for the house. In any hotel, you can get the house detective, the night manager or a bellhop to tell you which room a guest is in, who visited and when they left, and you know how to get into a room without the desk knowing. You can tell a man registered under a false name across a lobby.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Night Nurse",
+      "skill_proficiencies": [
+        "Medicine",
+        "Perception"
+      ],
+      "tool_proficiencies": [
+        "Doctor's bag"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Nurse's uniform and cape",
+        "First-aid kit",
+        "Wristwatch with a second hand",
+        "Bottle of aspirin",
+        "Wallet containing $15"
+      ],
+      "money": {
+        "dollars": "Wallet containing $15"
+      },
+      "feature": "Night Shift",
+      "feature_description": "You worked the night ward at a city hospital. Nurses, orderlies and ambulance men talk to you, so you can learn who was brought into any hospital in town, with what injuries and who came to visit, and you can get onto a ward after visiting hours. You also know which doctors will treat a gunshot wound without calling the police.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Card Sharp",
+      "skill_proficiencies": [
+        "Sleight of Hand",
+        "Deception"
+      ],
+      "tool_proficiencies": [
+        "Playing cards",
+        "Marked deck"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Marked deck",
+        "Loaded dice (pair)",
+        "Good suit with deep pockets",
+        "IOU from a man who hasn't paid",
+        "Wallet containing $35"
+      ],
+      "money": {
+        "dollars": "Wallet containing $35"
+      },
+      "feature": "Back Room Game",
+      "feature_description": "You know where the card games are: the hotel suites, the back rooms of cigar stores, the floating games that move every night. You can always find a game, get into it, and find out who in the room is in debt and to whom. Gamblers pay their debts to you or answer for it, and a man who owes you is a man who answers your questions.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    }
+  ]
+}

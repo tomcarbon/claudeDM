@@ -18,6 +18,30 @@
    NOT part of the family, and deliberately untouched by a palette
    change: --accent, --gold, and the damage / healing / spell-school /
    status colours in App.css. Those carry meaning, not decoration.
+
+   THERE IS NOW A THIRD WAY THESE FOUR VARIABLES GET SET, and you will
+   not find it by reading CSS. utils/sceneLighting.js writes the four
+   *-rgb variables above as INLINE STYLE on <html> at runtime, so a
+   campaign can have its own family and shift it between eight scene
+   moods (WO-0037; design note 2026-09-23-art-director-ceo-campaign-
+   palette-and-dm-lighting.md rev 2). An inline style beats both rules
+   above, so when a campaign palette is active neither Forest nor Amber
+   is what you are looking at. Nothing else is written; the four are
+   still the whole family.
+
+   Two consequences for anyone editing this file:
+     - The `.amber` switch still works exactly as described, but only for
+       campaigns with no palette of their own. To see Amber under a
+       campaign that has one, set Appearance to "Classic" in Settings.
+     - The four values above are still the source of the DEFAULT family
+       and of the LUMINANCE TARGETS every campaign palette is matched to
+       (utils/palette.js LUMINANCE_WINDOWS). Retuning them by hand now
+       moves ten campaigns out from under their windows. The --bg-sidebar
+       ceiling in particular is derived from a contrast limit and not
+       from taste: it is whatever keeps --text-muted above 5.3:1 (rule
+       H-1), which with #aaa is a relative luminance of 0.035. Darken
+       --text-muted, or put it on a HOVERED surface, and that ceiling
+       must be re-derived BEFORE any palette is authored against it.
    ===================================================================== */
 
 :root {
@@ -58,7 +82,18 @@
   --accent-hover: #ff6b81;
   --gold: #f0c040;
   --text: #eee;
-  --text-muted: #999;
+  /* #999 until 2026-09-23. Ruled a DEFECT, not an accepted risk, by VP Marketing & Art
+     Direction: #999 measured 4.52:1 on --bg-sidebar (AA by 1.4%) and 3.78:1 on a HOVERED
+     sidebar, which is a fail. Four live sites use the pair, including .chat-panel-header
+     (App.css:2372-2373) in bold uppercase at 0.05em tracking — all-caps removes the word-shape
+     cues a reader leans on, so tracked-out capitals need MORE contrast, not less.
+     #aaa gives 5.55:1 on --bg-sidebar, 6.65:1 on --bg-card and 7.22:1 (AAA) on --bg-dark, and
+     still drops 24.5 L* from --text, so the hierarchy is intact.
+     Deliberately a three-digit value: #eee / #aaa / #999 reads as a ladder, and a tuned
+     six-digit value announces that somebody matched a number without saying which number. The
+     number lives in the check that can fail a build (utils/palette.js H1_MIN_CONTRAST), not in
+     the hex. AAA on the sidebar pair is not the target and is not reachable; do not chase it. */
+  --text-muted: #aaa;
 
   /* --accent-rgb is the same colour as --accent, written as channels so
      translucent washes can be derived from it. Keep the two in step. */

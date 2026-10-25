@@ -1,0 +1,234 @@
+{
+  "id": "ph-scenario-002",
+  "title": "Into the Shadow",
+  "subtitle": "A Tender in the Umbra, a Keel Without Gravity, and a Dinner Where Someone Needs a Hand",
+  "levelRange": "5-6",
+  "estimatedSessions": 2,
+  "setting": {
+    "name": "The Shadow, the Spine and the Reliquary Strongroom, G+0 to G+4",
+    "description": "This is the infiltration, run in two halves at once. Outside, the Pale Moth slides into the Aubade's shadow cone and has to hold station a few metres off a hull that is diving at the sun, then grapple onto Shadow Lock 9 on the stern. Inside, the Gala's opening dinner begins at G+1 in the Orangery, and somebody has to get Perpetua Ostrander's signet ring, or a usable print of it, without her noticing. The two halves meet in the Spine, the zero-g keel, and move to the Reliquary's outer strongroom. The scenario ends at about G+4, when the inner door opens and something inside says hello.",
+    "atmosphere": "Two moods cut together. Outside and in the Spine: silence, blue light, weightlessness, and the white-hot line of the terminator on the hull a few dozen metres away. Inside the Orangery: amber light behind closed shutters, a hundred candles, a string quartet, real oranges and the most nerve-racking dinner of anyone's life. Cut between them often. A lockpick in vacuum, then a dessert course.",
+    "keyLocations": [
+      {
+        "name": "The Shadow and Shadow Lock 9",
+        "description": "The cone of darkness behind the Parasol, narrowing toward the stern. Shadow Lock 9 is a maintenance airlock in the stern keel, ten metres inside the terminator, used once a year for hull inspection and never during the Glare.",
+        "features": [
+          "The terminator: a ruled line on the white hull between black and incandescent, visible from the Moth's canopy",
+          "Hull-mounted inspection cameras, which are on a closed loop to the bridge but mostly face sunward",
+          "Shadow Lock 9's outer hatch, a manual crank plus a maintenance code (Verity's old credentials work)",
+          "The Moth's grapples and docking collar, cut in Caloris High to fit this exact hatch"
+        ],
+        "encounters": [
+          "The shadow dive: the Moth's approach into the cone at G+0 (Piloting)",
+          "A solar weather spike at G+1, when the shadow's edge flickers and the Moth has to hold position precisely",
+          "Mating the collar to Lock 9 in vacuum (Mechanics, zero-g rules)"
+        ],
+        "secrets": [
+          "The cone is 30 metres narrower than the Ostrander public specifications say. The Line gives false numbers on purpose to discourage exactly this",
+          "Lock 9's inner door logs every cycle to the security office. Unless someone spoofs it (Computers DC 15, or a Tech's Spoof), Heat +1 when it opens"
+        ]
+      },
+      {
+        "name": "The Spine",
+        "description": "The zero-g keel, 1,200 metres of coolant trunks, freight tubes, cable runs and maintenance crawlways, lit blue, cold and loud. Warden drones patrol it on fixed loops, and a Lamplighter turret guards the junction where the keel meets the Reliquary.",
+        "features": [
+          "Freight tubes: fast transit if you can ride a pallet (Piloting or Acrobatics), slow and visible if you can't",
+          "Junction 6, where two Warden loops cross with a 90-second gap",
+          "Coolant Trunk 4, where the hum is loudest, warm to the touch",
+          "The Lamplighter turret at the Reliquary junction: a ship-safe laser sentry with a 120-degree arc"
+        ],
+        "encounters": [
+          "Warden patrols (Security Drones, in pairs at Heat 6+)",
+          "A maintenance crew of three working on a coolant valve, in the way and not in on anything",
+          "The Lamplighter turret (Sentry Turret statblock, laser, ship-safe)"
+        ],
+        "secrets": [
+          "Some of the Wardens and the Lamplighter are on the attitude-control net Isaura can reach. Tonight she watches the crew come down the Spine and decides not to raise the alarm, yet. A Warden that should have spotted them looks away. A player who makes a DC 18 Perception check notices",
+          "Destroying a Warden in the Spine is safe for the hull with lasers but not with standard rounds. Coolant trunks are pressure vessels: a hull-hazard miss into one sprays freezing coolant (3d6 cold, 15-ft cone, DEX DC 13 half)"
+        ]
+      },
+      {
+        "name": "The Orangery: the Opening Dinner (G+1 to G+3)",
+        "description": "Three hundred guests at long tables under orange trees and amber shutters, with Perpetua Ostrander at the head of the top table. Her family signet, the biometric key to the Reliquary's inner door, is on her right hand. It never comes off.",
+        "features": [
+          "The top table: Perpetua, Captain Oyelaran, Renko Saal and two empty places for 'guests of the Line', one of which a good Face can be sitting in",
+          "Waiting staff in Ostrander blue, including Fennick Abara and any crew member he has placed",
+          "The handwashing course: warm towels and a rose-water bowl, served to the top table between the third and fourth courses",
+          "A private corridor behind the top table to Perpetua's day cabin"
+        ],
+        "encounters": [
+          "Getting the signet. The options: lift the ring (Sleight of Hand DC 20; she will notice it is gone within ten minutes), take a print from a glass or the rose-water towel (Sleight of Hand DC 14 to palm it, then Science or Mechanics DC 15 to build a usable lift), or talk her into opening the door herself (Deception or Persuasion DC 22, and see Twists)",
+          "Renko Saal at the top table, who is interested in anyone new",
+          "Varga-Thorn doing a pass of the room at G+2"
+        ],
+        "secrets": [
+          "Perpetua knows what Lot Zero is. She has told herself for nine years that it is a lattice. A Face who reads her (Insight DC 16) sees that the sale is destroying her",
+          "The Reliquary's inner door also accepts the captain's override. Captain Oyelaran doesn't know he has it, because the Line never told him the vault was part of the navigation system"
+        ]
+      },
+      {
+        "name": "The Reliquary Strongroom",
+        "description": "The outer chamber of the Ostrander vault: an armoured room against the stern hull holding two centuries of family treasure, with a garrison post, a duty-officer panel and the inner door to the cradle chamber.",
+        "features": [
+          "Two Ostrander security guards on post, rotating every 4 hours (the next rotation is G+4)",
+          "A duty-officer code panel (Computers DC 20, or the code itself, which the duty officer carries)",
+          "The biometric signet plate on the inner door",
+          "Racks of Ostrander heirlooms: paintings, the founder's sextant, a jewelled orrery and a case of Old Earth wine, all catalogued and traceable",
+          "The outer wall is the ship's hull. There is a viewport, 30 cm across, looking onto the black of the shadow"
+        ],
+        "encounters": [
+          "The garrison: 2 Security Guards (stun pistols, arc batons), and at Heat 6, 2 more and a Warden",
+          "The two-key inner door",
+          "The temptation of the heirlooms, which are worth about 60,000 cr fenced and which Varga-Thorn will chase across the system"
+        ],
+        "secrets": [
+          "The viewport is a hull hazard: a laser natural 1 or any hull-hazard miss in this room cracks it on a d6 roll of 1-3",
+          "Behind the inner door the temperature is 4°C and the air tastes of ozone"
+        ]
+      }
+    ]
+  },
+  "synopsis": "At G+0 the Pale Moth dives into the Aubade's shadow and has to hold station within metres of a hull falling toward the sun. At G+1 a solar spike flickers the terminator and Tuck's nerve nearly goes. The outside team mates the Moth to Shadow Lock 9 in vacuum and comes aboard through a hatch that logs every cycle. Meanwhile the inside team works the Gala's opening dinner to get Perpetua Ostrander's signet, by theft, by print or by persuasion. The two halves meet in the Spine, cross the zero-g keel past Warden drones and a Lamplighter turret (one Warden that should have seen them looks away), and take the Reliquary strongroom. At about G+4, duty-officer code in, signet plate lit, the inner door opens on a cold room with a cradle in it. A woman's voice says, 'Oh. You're early. I thought you'd be Kessane.'",
+  "hook": "\"Moth, Inside. Dinner's on.\" Static. Then, very faint, through the Moth's tight-beam relay to the hull: \"Inside, Moth. We see the line. It's, ah. It's very close.\" Out of the Moth's canopy the Aubade fills everything, a white cliff of hull going past at a few metres per second, and twenty metres to starboard the shadow ends. Past the edge there is a light so bright the canopy polarises it to a flat white plane. Tuck Halloran's hands are steady on the stick and his face is wet.",
+  "acts": [
+    {
+      "title": "Act 1: The Shadow Dive and the Dinner (G+0 to G+2)",
+      "description": "The outside team takes the Moth into the cone and onto the hull. The inside team takes their seats at the dinner. Cut between them at every decision.",
+      "objectives": [
+        "Bring the Pale Moth into the shadow and hold station (outside team)",
+        "Survive the solar spike at G+1 (outside team)",
+        "Mate the collar to Shadow Lock 9 and get aboard without logging the cycle (outside team)",
+        "Get a seat near Perpetua Ostrander and start on the signet (inside team)"
+      ],
+      "encounters": [
+        "The approach into the cone: Piloting checks, Tuck or a PC at the stick",
+        "The solar spike: a 1-round flicker of the terminator across the Moth's position",
+        "The top table: Perpetua, Saal and the captain"
+      ],
+      "scenes": [
+        {
+          "name": "The Dive",
+          "description": "The Moth enters the shadow behind the stern and creeps forward along the keel to Lock 9.",
+          "readAloud": "\"The shadow has edges. Nobody tells you that. From a long way off it looks like the Aubade has a dark tail, but up close the darkness is a solid thing and the light beyond it is a wall, and you are flying a forty-metre tender along the inside of that wall, metres from the hull of a ship that is falling at the sun at two hundred kilometres a second. The Moth's skirts tick as they cool. Tuck says, to nobody, 'Easy. Easy, girl.' On the hull below you a stencil goes past: SHADOW LOCK 9 — INSPECTION ONLY — NOT FOR USE DURING PERIHELION.\"",
+          "skillChecks": [
+            { "skill": "Piloting", "dc": 15, "success": "Station held, a perfect three metres off the hull. The approach takes 20 minutes.", "failure": "The Moth drifts toward the terminator. Another check at DC 15 or the starboard skirt crosses the line for 1 round: 6d10 fire to the Moth's skirts (the Moth has 120 HP of ablative skirt, see the Moth sidebar in dmTips) and a terrifying light in the cabin." },
+            { "skill": "Science", "dc": 14, "success": "The cone is narrower than the published specs, by about 30 metres. Someone has been lying about it on purpose. Bring the Moth 10 metres further in and every remaining Piloting check in the shadow drops to DC 12.", "failure": "Your numbers don't match the window. You trust the window." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Tuck flies unless a PC takes the stick. He is very good, but at the spike (G+1) he freezes for one round unless someone talks to him (Persuasion or Medicine DC 13, or just a player who says something kind and specific). If nobody does, the GM rolls his Piloting at disadvantage. See his dmNotes.",
+          "loot": []
+        },
+        {
+          "name": "The Top Table",
+          "description": "The opening dinner, as a social heist. Perpetua's signet is on her right hand and it never comes off.",
+          "readAloud": "\"The Orangery by candlelight, under closed shutters, is the most beautiful room you have ever been in. Three hundred people in evening dress at long tables under orange trees that smell of orange blossom, and the sound of real silver on real china. At the top table Perpetua Ostrander sits very straight in grey silk, laughing at something the captain has said. On her right hand a heavy ring of dark metal with a white stone catches the candlelight every time she lifts her glass. Renko Saal sits two places down, watching her hand too.\"",
+          "skillChecks": [
+            { "skill": "Sleight of Hand", "dc": 14, "success": "During the handwashing course you palm her rose-water towel, or her water glass. It carries a clean impression of the signet stone.", "failure": "A steward reaches for the same towel at the same moment. You try again in the next course (DC 16), or Heat +1 if you force it." },
+            { "skill": "Science", "dc": 15, "success": "Back in a service pantry, with a gel lift and a med-printer, you build a signet overlay that will fool the plate once, maybe twice. Mechanics works too, with a Tech's tools.", "failure": "The lift smears. You have one more towel's worth of chances." },
+            { "skill": "Insight", "dc": 16, "success": "Perpetua drinks too much and doesn't eat. Every time Saal says 'the lot', she touches the ring. She knows what she is selling.", "failure": "A gracious hostess at the top of her world." },
+            { "skill": "Deception", "dc": 15, "success": "You hold your seat at the top table and Saal accepts your story. For now.", "failure": "Saal decides you are interesting. He will ask Varga-Thorn about you at G+2. Heat +1 unless you're gone by then." }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is a great scene for a Face, and the Medic and Scientist can shine in the pantry building the overlay. Play Perpetua as tired and gracious, Saal as delightful and predatory, and the captain as a proud man who talks about the Vell Engine as if it were a beloved instrument. If a PC raises Isaura Vell's name at this table, Perpetua drops her glass.",
+          "loot": ["Perpetua's signet print (one or two uses), or the ring itself (very bad idea)"]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Lock 9 and the Spine (G+2 to G+3)",
+      "description": "The outside team comes aboard and the halves meet in the zero-g keel. The Spine is the most dangerous place on the ship to be in a firefight and the best place on the ship for a Spacer.",
+      "objectives": [
+        "Open Shadow Lock 9 without logging the cycle",
+        "Move the heavy kit from the Moth into the Spine (suits, sealant, patch plates, the portable cradle frame Sarrow supplied, and the hull-hazard weapons)",
+        "Meet the inside team at Junction 6",
+        "Get past the Lamplighter turret to the Reliquary junction"
+      ],
+      "encounters": [
+        "2 Warden drones (Security Drones) on loop, a pair at Heat 6",
+        "A maintenance crew of three at Coolant Trunk 4",
+        "The Lamplighter turret (Sentry Turret, laser, ship-safe)"
+      ],
+      "scenes": [
+        {
+          "name": "The Keel",
+          "description": "Zero-g movement under the campaign rule. Wardens on patient loops and coolant trunks that bite.",
+          "readAloud": "\"Inside Lock 9 the gravity simply stops, and so does the sound of the Gala. The Spine runs away from you, a blue-lit tube of pipes and cable and freight rails, and at this end it is very cold. Somewhere ahead a Warden drifts across the keel with its lamp sweeping. Under everything, louder than it was on the tour, the hum. Here it is close enough to have a shape. It's a tune, slow, in a minor key, and it changes as you listen, as if whoever is playing has noticed you.\"",
+          "skillChecks": [
+            { "skill": "Stealth", "dc": 14, "success": "Through Junction 6 in the 90-second gap. Advantage if the crew timed the loops in ph-scenario-001.", "failure": "A Warden turns. You have one round before it pings the security office (Heat +1): destroy it, Spoof it, or hide (DC 16)." },
+            { "skill": "Acrobatics", "dc": 12, "success": "A clean push-off down the freight tube. Zero-g Adapted characters succeed automatically and can tow one person.", "failure": "You hit a trunk hard (1d6 bludgeoning) and the clang carries." },
+            { "skill": "Perception", "dc": 18, "success": "A Warden that should have seen you looked straight at you, paused, and drifted on. Its lamp blinked twice. Something on this ship is choosing not to raise the alarm.", "failure": "Lucky." }
+          ],
+          "combatEncounters": [
+            "2 Security Drones (Wardens). Ship-safe lasers. Destroying them is fine for the hull, though a visible wreck adds Heat +1",
+            "The Lamplighter turret at the Reliquary junction (Sentry Turret). Disable with Mechanics or Computers DC 15 or a Tech's Spoof, or destroy it (AC 16)"
+          ],
+          "roleplayNotes": "If a firefight starts in the Spine, run the Zero-G rule carefully: recoil, bracing, push-offs. Anyone who fires a standard-round weapon near a coolant trunk deserves the coolant spray. This is where Ledger's precision and Nadia-style Spacers shine.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Strongroom and the Inner Door (G+3 to G+4)",
+      "description": "Take the Reliquary's outer chamber quietly or loudly, then work the two-key inner door. The scenario ends the moment it opens.",
+      "objectives": [
+        "Neutralise the two-guard garrison without raising the security office (or with a plan for when you do)",
+        "Get the duty-officer code: from the guard, by hacking the panel, or from Fennick, who knows the duty officer",
+        "Apply the signet overlay (or the ring, or Perpetua's own hand)",
+        "Decide what to do about the heirlooms"
+      ],
+      "encounters": [
+        "2 Security Guards on post (stun pistols, arc batons). The rotation arrives at G+4 with 2 more",
+        "Optional: Varga-Thorn on the security channel asking why Post 2 missed its check-in"
+      ],
+      "scenes": [
+        {
+          "name": "The Inner Door",
+          "description": "The last lock, and the end of the scenario.",
+          "readAloud": "\"The duty panel takes the code and goes green. The signet plate warms under the overlay, considers it for a long, long second, and goes green. Somewhere inside the wall something heavy and old moves, the inner door sighs, and cold air rolls out across the strongroom floor in a white sheet. The room beyond is small and dark and full of the hum, louder than anywhere on the ship. In the middle of it, in a cradle of cables and frost, lies a long black case like a coffin with a pale light pulsing slowly inside it. Then the speakers in the ceiling click, and a woman's voice, dry, amused, very tired, says: 'Oh. You're early. I thought you'd be Kessane.'\"",
+          "skillChecks": [
+            { "skill": "Computers", "dc": 20, "success": "The duty panel opens without the code. A Tech with physical access rolls with advantage (Intrusion). Failure by 5 or more trips the alarm.", "failure": "The panel holds. Get the code from the guard (Intimidation or Persuasion DC 14) or from Fennick." },
+            { "skill": "Intimidation", "dc": 14, "success": "Guard Officer Teodora Lisk gives up the code. She is twenty-three and was told the Reliquary was the quietest post on the ship.", "failure": "She won't. She's braver than she looks, and she starts counting the seconds to her check-in out loud." }
+          ],
+          "combatEncounters": ["2 Security Guards (stun pistols, arc batons). They shout before they shoot, they surrender at 1 HP, and their check-in is every 30 minutes"],
+          "roleplayNotes": "End the session on the voice. Do not let her say anything more until ph-scenario-003. If the crew worked out in ph-scenario-001 what Lot Zero is, she adds, 'And you know what I am. That's new. Come in, then. Shut the door, it's cold.'",
+          "loot": ["Ostrander heirlooms, if the crew takes them: about 60,000 cr fenced, all catalogued and traceable, Heat +1 per item carried"]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    { "name": "Tobias 'Tuck' Halloran", "role": "Pilot / Companion", "description": "Flies the shadow dive. Freezes for a round at the G+1 spike unless someone reaches him." },
+    { "name": "Fennick Abara", "role": "Inside Man / Companion", "description": "Places crew among the waiting staff, knows the duty officer, and keeps finding reasons to go down to the Spine." },
+    { "name": "Ledger", "role": "Muscle / Companion", "description": "Rides the Moth in. In the Spine he is braced, silent and precise, and he notices the Warden that looked away." },
+    { "name": "Oriel Mabb", "role": "Fixer / Companion", "description": "Stays on the Moth with her sealed case 'to keep the relay up'. If asked to come aboard she refuses, politely, until ph-scenario-003." },
+    { "name": "Perpetua Ostrander", "role": "Chairwoman / The key", "description": "At the head of the top table, wearing the signet. She drinks too much and touches the ring every time Saal says 'the lot'.", "motivation": "To get through the dinner, and the sale, without letting herself think about what she is selling." },
+    { "name": "Renko Saal", "role": "Kessane Acquisitions Director", "description": "Two seats down from Perpetua, delightful, interested in anyone new, and reporting to Varga-Thorn about them by G+2.", "motivation": "Make sure nothing interferes with G+7 and G+8." },
+    { "name": "Commander Ilse Varga-Thorn", "role": "Chief of Security", "description": "Walks the Orangery at G+2. Answers the Reliquary's missed check-in personally if Heat reaches 3.", "motivation": "Passengers first." },
+    { "name": "Guard Officer Teodora Lisk", "role": "Reliquary garrison", "description": "Twenty-three, on the 'quietest post on the ship'. Brave, frightened, and a good person to have alive and talking later.", "motivation": "Make it to the end of her shift." }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "No pay this scenario. The Ostrander heirlooms in the strongroom are worth about 60,000 cr fenced, but they are catalogued, traceable and a sure way to make Varga-Thorn chase the crew across the system",
+    "items": [
+      "Perpetua Ostrander's signet overlay (one or two uses remaining), or the ring",
+      "The Reliquary duty-officer code",
+      "Shadow Lock 9 cycling unlogged (if spoofed)",
+      "The Sarrow portable cradle frame, now inside the strongroom: 90 kg, a 6-hour battery and a hard-jack port",
+      "Knowledge that the shadow cone is 30 metres narrower than published"
+    ],
+    "story": "The crew is in the Reliquary at G+4. The door is open, the cargo is talking, and Kessane is coming at G+7."
+  },
+  "twists": [
+    "A Warden in the Spine looks straight at the crew and drifts on. Isaura is watching through the attitude-control net and has decided to let them come. She wants to see who they are before Kessane arrives.",
+    "Perpetua can be talked into opening the door herself (Deception or Persuasion DC 22) by a Face who makes her believe they are Kessane's early verification team. If it works, she comes down to the Reliquary in person, which is much simpler and much worse.",
+    "The captain's override also opens the inner door. Oyelaran doesn't know he has it, and a crew who finds this out has a very interesting conversation available in ph-scenario-004.",
+    "The shadow is narrower than the brochures say. The Line falsified it to protect the Reliquary from exactly this run, and Isaura Vell, who designed the dive, told them to."
+  ],
+  "dmTips": [
+    "CUT BETWEEN THE HALVES. One or two minutes of real time per cut. End each cut on a decision or a die roll. The contrast between candlelight and vacuum is the scenario's whole flavour.",
+    "THE MOTH SIDEBAR. The Pale Moth has 120 HP of ablative skirt and 60 HP of hull (AC 13). Skirts absorb sunlight damage first. Once the skirts are gone, sunlight hits the hull at 10d10 per round and the Moth survives one round, maybe two. Track the skirts openly. They matter again in ph-scenario-004, at G+10.",
+    "HEAT IS THE PLAYERS' SCORE. Read the Heat track aloud whenever it changes. Arriving at the inner door with Heat 0 to 2 is a triumph, and the players should feel it.",
+    "THE HEIRLOOMS ARE A TEST OF CHARACTER, NOT A TRAP. Let the crew take them if it wants, and track the Heat honestly. Varga-Thorn will remember, and so will Isaura, who watched them do it (Regard -1 if they loot Perpetua's family treasure while a person lies in the next room).",
+    "Hold Isaura's first line until the door opens, and then end the session. It is the best cliffhanger in the campaign."
+  ]
+}

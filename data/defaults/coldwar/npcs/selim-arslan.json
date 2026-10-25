@@ -1,0 +1,136 @@
+{
+  "id": "a76b48ad-8590-4d0c-b863-c3c6fc0b21c7",
+  "name": "Selim Arslan",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Brawler",
+  "level": 4,
+  "background": "Athlete",
+  "alignment": "Neutral",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 36,
+    "current": 36
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Acrobatics",
+    "Intimidation",
+    "Streetwise",
+    "Piloting"
+  ],
+  "languages": [
+    "Turkish",
+    "English",
+    "German",
+    "Greek"
+  ],
+  "equipment": [
+    "Leather jacket, black, too tight across the shoulders",
+    "9mm pistol (Browning Hi-Power), 13 of 15 rounds loaded, in his waistband, which is how he loses them",
+    "9mm rounds (20)",
+    "Baseball bat behind the bar at the Kervansaray Gece Kulubu, Beyoglu",
+    "Keys to a 1974 Murat 124 taxi (the Turkish-built Fiat), yellow, that he drives for his cousin on slow nights",
+    "Keys to the Deniz Kizi, a 30-foot wooden motor launch moored below Kuruçeşme, owned by another cousin",
+    "A string of amber prayer beads (tespih) he clicks constantly",
+    "A wrestling champion's belt buckle from Edirne, Kirkpinar, 1971",
+    "Martial-law curfew pass for Beyoglu and Eminonu, genuine, obtained in a way he will not discuss",
+    "A carton of Marlboro, which in 1983 Istanbul opens more doors than money",
+    "Wallet containing $70"
+  ],
+  "weapons": [
+    {
+      "name": "Unarmed strike (Hard Hitter)",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "9mm pistol (Browning Hi-Power)",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Baseball bat (kept behind the bar)",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Versatility (Human origin: +1 to all ability scores)",
+    "Hard Hitter (unarmed strikes do 1d6+3 bludgeoning, may use DEX; an unarmed strike as a bonus action after he takes the Attack action)",
+    "Hard to Kill (when reduced to 0 HP but not killed outright, drop to 1 HP instead, once per long rest)",
+    "Intimidating Presence (action: one creature within 30 ft makes a WIS save DC 13 or is frightened of him until the end of his next turn)",
+    "Champion (Athlete background: every wrestling fan in Turkey, which is most men over forty, knows his name and will do him a small favour for a handshake)"
+  ],
+  "traits": [
+    "Hard Hitter",
+    "Hard to Kill",
+    "Intimidating Presence"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am big, loud, warm and hospitable, and I will feed you until you cannot stand. I laugh at everything, including things that are not funny, especially things that are not funny. I click my prayer beads when I am lying.",
+    "ideals": "Family first, the city second, money third, and governments nowhere.",
+    "bonds": "Istanbul. All of it, the bridges and the fish and the dogs and the ferries. And my mother in Balat, who believes I manage a restaurant.",
+    "flaws": "I tell everyone a little of what they want, because that is how a man stays alive in a city full of soldiers and policemen, and one day the little bits will add up to someone getting killed."
+  },
+  "appearance": "An enormous, barrel-chested Turk of thirty-eight with a shaved head, a magnificent black moustache, cauliflower ears, and a gold tooth he shows constantly. He moves with a heavyweight's lightness. In a good suit he looks like a nightclub owner; in a vest on the launch he looks like what he was, a champion oil wrestler from Edirne.",
+  "backstory": "Selim Arslan won at Kirkpinar in 1971, the great oil-wrestling tournament at Edirne, and was a national celebrity for a summer and a broke one for a decade. He came to Istanbul, worked doors in Beyoglu, drove taxis, ran cigarettes on his cousin's launch, and became, because he knew everyone and everyone liked him, the man foreigners asked when they needed something done quietly. The Annex has used him since 1980 as a fixer and driver. He is honest in the way of a man with six cousins and a mother: he will not betray you, exactly, but he will make sure everyone who might hurt his family knows he is a useful friend.",
+  "dmNotes": {
+    "roleplaying": "Selim is the party's guide to 1983 Istanbul and a companion for cw-scenario-003: three years after the military coup, under martial law, on the eve of the first general election since. Soldiers on the Galata Bridge, election posters on every wall, tea glasses everywhere. He should make the city feel generous and dangerous at the same time. He is a fine fighter in a back-alley scrap and useless in a gunfight he cannot end with his hands, which he knows. He drives the taxi in the chase and pilots the launch on the Bosphorus.",
+    "voice": "Booming, cheerful English learned from American sailors and German tourists, with Turkish exclamations ('Allah Allah!', 'Abi', 'Yavas, yavas') and constant food talk. Calls every man 'brother' and every woman 'sister' or, if older, 'aunt'. Clicks the tespih. When he is serious he lowers his voice to an ordinary volume, which from him sounds like a whisper.",
+    "motivations": "Primary: keep his family, especially his mother, safe and fed. Secondary: be paid. Tertiary: be liked, by the party, by the city, by everybody, which is both his charm and his weakness.",
+    "secrets": "HE REPORTS. Selim has been a paid informant of Turkish national intelligence (MIT) since 1981, when a colonel explained that his cousin's launch could be confiscated for smuggling or could be left alone. He reports every foreigner he works for, in general terms, to a handler named Bay Orhan who meets him at a tea garden in Emirgan. He does not report everything, and he has never reported anything that got a client hurt. In cw-scenario-003 his reports mean MIT is watching the party from the first day; this is both a threat (MIT will not tolerate a Soviet hit team or a gunfight in the city, and will arrest everyone involved) and an opportunity (MIT dislikes the KGB more than it dislikes the Annex, and a party that learns Selim's secret can use him to get MIT to block Rybak's men at the airport). He will confess if confronted gently; if confronted with a gun, he will be deeply hurt and confess anyway.",
+    "attitude": "Toward the party: big-hearted hospitality, real affection by day two, protective by day three. Toward Vera Tarasova if she comes: courtly and suspicious; he has met Russians. Toward the Bulgarian trucker Dimitar Kolev: fellow-feeling, as one small smuggler to another. Toward Major Rybak's men: a professional's contempt for foreigners who bring guns into his city."
+  }
+}

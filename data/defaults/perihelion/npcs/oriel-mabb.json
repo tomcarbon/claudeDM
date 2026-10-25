@@ -1,0 +1,129 @@
+{
+  "id": "4bfebcd1-4a3b-485d-b565-13bc4d62ef97",
+  "name": "Oriel Mabb",
+  "status": "alive",
+  "race": "Human (Specialist)",
+  "subrace": "",
+  "class": "Face",
+  "level": 4,
+  "background": "Corporate",
+  "alignment": "Lawful Neutral",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 17,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 27,
+    "current": 27
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Charisma",
+    "Wisdom"
+  ],
+  "skills": [
+    "Persuasion",
+    "Insight",
+    "Deception",
+    "Investigation",
+    "Computers",
+    "Intimidation"
+  ],
+  "languages": [
+    "Common",
+    "Lunar Formal",
+    "Mercurian Creole",
+    "Corporate Legal"
+  ],
+  "equipment": [
+    "Ballistic weave suit jacket, charcoal",
+    "Holdout pistol (frangible rounds)",
+    "Frangible holdout rounds (12)",
+    "Pen knife",
+    "White-noise puck",
+    "A sealed matt-black case, 30 cm long, Sarrow Cognitive asset seal intact (the kill-key: a quietus spike)",
+    "Sarrow payment authority for the crew's second half, on an encrypted chit",
+    "A paper notebook of every job she has ever run, in her own shorthand",
+    "Credit chit: 2400 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Holdout pistol (frangible)",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Pen knife",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave suit jacket (Light)",
+    "type": "light"
+  },
+  "features": [
+    "Specialist (Human (Specialist): +2 Charisma, +1 Intelligence, one extra skill proficiency: Computers)",
+    "Silver Tongue (expertise in Persuasion and Insight)",
+    "Rally (bonus action: an ally who can hear her gains 1d6+3 temporary HP and may end being frightened; 3 uses per long rest)",
+    "Read the Room (after 1 minute of conversation, learn one goal, fear or lie of the person she is talking to)",
+    "Company Credentials (Corporate feature: she can get a meeting with almost any corporate officer in the inner system, and knows how their procurement departments actually work)"
+  ],
+  "traits": [
+    "Silver Tongue",
+    "Rally",
+    "Read the Room"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am polite to everyone, always, including people I am in the process of ruining. I pay on time and I expect the same.",
+    "ideals": "A contract is the only honest thing in the system. I keep mine, and I make sure everyone knows I do.",
+    "bonds": "My reputation, which is all I own. Twenty-two jobs and every crew paid in full.",
+    "flaws": "I have never asked a client what the cargo is for. I've always told myself that was professionalism."
+  },
+  "appearance": "A small, neat woman of about fifty in a charcoal suit, with ink-black hair in a severe bob, reading glasses she doesn't need and the stillest hands anyone has ever seen. She speaks softly and never wastes a word.",
+  "backstory": "Oriel Mabb was a procurement officer at three different corporations before she realised that the most profitable thing she was doing was arranging the deniable parts. She has been a fixer for eleven years, specialising in corporate jobs where everyone must later be able to say they never met. Sarrow Cognitive is her biggest client. Their brief was precise: the lot, intact, or the lot wiped with the case provided. She has carried the case unopened since Caloris High and has worked very hard not to think about why a navigation lattice would need a wipe tool designed for minds.",
+  "dmNotes": {
+    "roleplaying": "Oriel is the campaign's corporate conscience, and the question she has to answer is whether she has one. Play her as the most professional person in the room: prepared, polite, scrupulously fair with money and never raising her voice. In ph-scenario-001 she should be likeable, the fixer the players would want to work for again. She stays on the Moth through ph-scenario-002 and comes aboard during the Drift in ph-scenario-003 with the sealed case. Her choice there is the hinge of the campaign's last act and it belongs to her, not to the GM. If the crew has treated her as a colleague, told her honestly what Lot Zero is and given her a way out that leaves her reputation intact ('Sarrow paid for a lattice; there was no lattice; you report breach of description'), she hands over the case. If the crew has cut her out, lied to her or threatened her, she tries to use it.",
+    "voice": "Quiet, precise, slightly formal, like a very good lawyer reading a contract aloud. She uses people's full names. She never swears. When she is truly shaken, which happens once, her sentences get shorter and stop being polite.",
+    "motivations": "Primary: complete the job and protect her reputation. Secondary: get her crew paid and alive, which she sees as the same thing. Hidden: she has begun to suspect she is not the person she thought she was, and she is afraid of finding out either way.",
+    "secrets": "THE KILL-KEY. Her sealed case holds a quietus spike, a Sarrow device that, jacked into a cognition substrate, wipes it irreversibly in about four seconds. Sarrow's written orders: 'If the lot cannot be extracted, or proves noncompliant, it is to be rendered inert.' She has never opened the case. She has guessed what's inside. SECOND SECRET: Sarrow told her the crew's second half would be paid only on 'satisfactory delivery', and she has already decided to pay it out of her own fee if Sarrow tries to welch. She will never tell anyone this.",
+    "attitude": "Toward the crew: professional warmth, then real loyalty if they earn it. Toward Isaura: at first she won't speak to her, because speaking to her would make the choice real. Once she does, she is wrecked by it. Toward Sarrow: correct, and quietly contemptuous. Toward Ledger: she is the only person who calls him by his name and not his model number, and she hired him because nobody else would."
+  }
+}

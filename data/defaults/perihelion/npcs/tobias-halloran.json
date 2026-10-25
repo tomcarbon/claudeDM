@@ -1,0 +1,137 @@
+{
+  "id": "822b9301-e0ec-4e9a-8140-41a108cafd92",
+  "name": "Tobias Halloran",
+  "status": "alive",
+  "race": "Spacer",
+  "subrace": "",
+  "class": "Scout",
+  "level": 5,
+  "background": "Spacer Crew",
+  "alignment": "Neutral Good",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 33,
+    "current": 33
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Piloting",
+    "Perception",
+    "Survival",
+    "Mechanics",
+    "Stealth"
+  ],
+  "languages": [
+    "Common",
+    "Belter Cant",
+    "Hand-Sign (vacuum crew)"
+  ],
+  "equipment": [
+    "Ballistic weave flight jacket with twenty-two years of patches",
+    "Rail rifle, cased, which he will not take aboard a pressurised ship and will tell you why",
+    "Rail rifle slugs (12)",
+    "Laser pistol",
+    "Laser pistol cells (40)",
+    "Survival knife",
+    "The Pale Moth: 40-metre sun-skimmer tender, ablative skirts (120 HP), hull AC 13 and 60 HP",
+    "A pilot's flight log with one page missing",
+    "Three photographs taped above the Moth's main console",
+    "Credit chit: 90 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Rail rifle (hull breaker)",
+      "attackBonus": 6,
+      "damage": "3d10+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Laser pistol",
+      "attackBonus": 6,
+      "damage": "2d6+3",
+      "damageType": "radiant"
+    },
+    {
+      "name": "Survival knife",
+      "attackBonus": 6,
+      "damage": "1d4+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave flight jacket (Light)",
+    "type": "light"
+  },
+  "features": [
+    "Zero-G Adapted (Spacer: no penalties in microgravity)",
+    "Thin Bones (Spacer: disadvantage on saves against being knocked prone in full gravity)",
+    "Overwatch (reaction: when an enemy he can see moves within his weapon's normal range, make one ranged attack against it; 2 per short rest)",
+    "Trailwise (advantage on Survival to track and navigate; the party cannot be surprised while he is on watch and conscious)",
+    "Steady Aim (bonus action, if he has not moved this turn: advantage on his next ranged attack; speed 0 until end of turn)",
+    "Ship's Hand (Spacer Crew feature: any spacer crew will give him a berth, a meal and the gossip, and he can read a ship's condition from its noises)"
+  ],
+  "traits": [
+    "Zero-G Adapted",
+    "Thin Bones",
+    "Overwatch",
+    "Trailwise",
+    "Steady Aim"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk to the Moth like she's a horse. I'm cheerful in the way people are when they've decided not to think about something.",
+    "ideals": "The pilot brings everybody home. That is the whole of the job.",
+    "bonds": "Three photographs over the console: Marguerite, Osei and little Pim. Twenty-two years ago, a shadow run on the liner Coronation, and I came home alone.",
+    "flaws": "I haven't been inside a shadow since. I said yes to this job because I need to know whether I still can, and I may find out at the worst possible moment."
+  },
+  "appearance": "A lean, leathery, long-limbed Spacer of sixty with a bald head mapped in old radiation freckles, very blue eyes and the long fingers of a born pilot. He wears a flight jacket that is more patch than jacket and whistles through his teeth when he's thinking.",
+  "backstory": "Tobias 'Tuck' Halloran was the best sun-skimmer pilot on Caloris High, and twenty-two years ago he was the man every shadow-running crew wanted. The Coronation job, a liner, a vault and a perihelion pass, went wrong when the liner's shield shifted half a degree. His tender's skirts failed, and the three people in the back of his ship died in the light while he flew the cockpit section out. The inquiry cleared him. The Line rebuilt its dive profile from scratch so that no shield would ever drift again, and the engineer who rebuilt it was Isaura Vell. Tuck has flown freight ever since. He taught Nadia Osei to fly. When Oriel Mabb came to him with a shadow run, he said no three times and yes on the fourth.",
+  "dmNotes": {
+    "roleplaying": "Tuck is the crew's driver and its ghost. Play him warm, funny and completely reliable in the cockpit, and very quietly terrified about the one thing he won't discuss. He freezes once, at the G+1 solar spike in ph-scenario-002, for exactly one round. Any PC who reaches him with something kind and specific brings him back, and from then on he will fly anywhere for that crew. His great moment is the breakaway in ph-scenario-004. When Isaura says 'two degrees to port', he laughs. Make sure the players know why.",
+    "voice": "A slow, warm drawl from the Belt with lots of 'girl' for the Moth and 'kid' for everyone under fifty. Whistles through his teeth. When he's frightened he goes very quiet and very formal: 'Inside, Moth. Understood. Holding.'",
+    "motivations": "Bring everybody home this time. Find out whether he can still fly the shadow. Underneath, though he'd never say it, find out whether the Coronation was his fault.",
+    "secrets": "He has never read the full Coronation inquiry, because he couldn't bear to. Isaura has. It cleared him for a reason: the liner's shield drifted because its navigation computer was overloaded, not because of anything he did, and that is why she redesigned the dive. If she tells him, it's the best thing anyone has said to him in twenty-two years. She will tell him if her Regard is +1 or higher, or if he asks.",
+    "attitude": "Toward Nadia: fiercely, quietly proud, like a father. Toward the crew: easy-going, protective, and he calls everyone 'kid'. Toward Oriel: wary respect. Toward Isaura: first shock, then something like awe, then a friendship that may be the happiest thing in the campaign."
+  }
+}

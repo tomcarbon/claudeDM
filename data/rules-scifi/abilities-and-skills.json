@@ -1,0 +1,246 @@
+{
+  "_meta": {
+    "category": "scifi",
+    "source": "Written for claudeDM (Sci-Fi category). Mostly original; a few general-mechanics sentences (e.g. opportunity attacks, passive checks, stat-block phrasing) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Six abilities and the 18 Sci-Fi skills. Use ONLY these skill names on Sci-Fi character sheets. Same ability modifier, passive check and DC rules as the shared d20 chassis."
+  },
+  "abilities": [
+    {
+      "name": "Strength",
+      "abbreviation": "STR",
+      "description": "Strength is raw physical power: muscle, leverage and the ability to apply force. Use it to force a jammed hatch, haul a wounded teammate out of a firefight, swing a fire axe or keep a grip on a speeding car's roof.",
+      "common_uses": [
+        "Melee attack and damage rolls (most)",
+        "Carrying capacity and dragging bodies or gear",
+        "Forcing doors, breaking restraints",
+        "Grappling and shoving",
+        "Meeting the Strength requirement of heavy armor"
+      ],
+      "skills": [
+        "Athletics"
+      ]
+    },
+    {
+      "name": "Dexterity",
+      "abbreviation": "DEX",
+      "description": "Dexterity covers hand-eye coordination, reflexes and balance. It is the gunfighter's ability: every firearm, energy weapon and thrown grenade is aimed with it, and it governs how fast you react when the shooting starts.",
+      "common_uses": [
+        "Ranged attack rolls with all firearms and energy weapons",
+        "Damage on single shots with Sidearms, Longarms and Automatics",
+        "Finesse melee weapons",
+        "Initiative",
+        "Armor Class in light and medium armor",
+        "Dodging blasts and full-auto fire (DEX saves)"
+      ],
+      "skills": [
+        "Acrobatics",
+        "Piloting",
+        "Sleight of Hand",
+        "Stealth"
+      ]
+    },
+    {
+      "name": "Constitution",
+      "abbreviation": "CON",
+      "description": "Constitution is toughness, stamina and the body's ability to absorb punishment: gunshot trauma, toxins, sleep deprivation, vacuum exposure and the after-effects of combat stims.",
+      "common_uses": [
+        "Hit points per level",
+        "Resisting stun guns, flashbangs, gas and toxins",
+        "Holding your breath, marching without rest",
+        "Resisting exhaustion from stims"
+      ],
+      "skills": []
+    },
+    {
+      "name": "Intelligence",
+      "abbreviation": "INT",
+      "description": "Intelligence is reasoning, memory and technical education. It covers breaking into networks, fixing an engine under fire, analyzing a crime scene and understanding what the alien specimen on the table actually is.",
+      "common_uses": [
+        "Hacking and electronics",
+        "Repairs and improvised devices",
+        "Research and deduction",
+        "Recalling technical or scientific knowledge"
+      ],
+      "skills": [
+        "Computers",
+        "Investigation",
+        "Mechanics",
+        "Science"
+      ]
+    },
+    {
+      "name": "Wisdom",
+      "abbreviation": "WIS",
+      "description": "Wisdom is awareness, intuition and judgment. It lets you spot the sniper on the rooftop, read whether the fixer is lying, keep your nerve under suppressive fire and find your way through a city or a wilderness you don't know.",
+      "common_uses": [
+        "Noticing threats (Perception, passive Perception)",
+        "Reading people",
+        "First aid and field medicine",
+        "Resisting suppression, fear and shock (WIS saves)"
+      ],
+      "skills": [
+        "Insight",
+        "Medicine",
+        "Perception",
+        "Streetwise",
+        "Survival"
+      ]
+    },
+    {
+      "name": "Charisma",
+      "abbreviation": "CHA",
+      "description": "Charisma is force of personality: confidence, charm, presence and the ability to make people believe you. A high-Charisma character talks past checkpoints, bluffs a gang into backing down and keeps a frightened squad together.",
+      "common_uses": [
+        "Negotiating, lying and intimidating",
+        "Leading and rallying allies",
+        "Performing a cover identity",
+        "Resisting being shaken (CHA saves)"
+      ],
+      "skills": [
+        "Deception",
+        "Intimidation",
+        "Performance",
+        "Persuasion"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "ability": "Dexterity",
+      "description": "Keeping your balance and moving with agility: vaulting a fence mid-chase, rolling out of a moving vehicle, crossing a narrow ledge, slipping out of a grapple or keeping your footing on a pitching deck."
+    },
+    {
+      "name": "Athletics",
+      "ability": "Strength",
+      "description": "Climbing, jumping, swimming, sprinting while carrying gear and wrestling. Use it to scale a chain-link fence, kick in a door, grapple a suspect or win a foot chase through a crowded market."
+    },
+    {
+      "name": "Computers",
+      "ability": "Intelligence",
+      "description": "Operating, programming and breaking into computer systems, networks, phones and electronic locks. Covers hacking, data recovery, tracing a signal and erasing your tracks. DC 10 consumer device, 15 corporate or police system, 20 military, 25 state-of-the-art or alien. In the 1980s this means terminals, modems, phone lines and magnetic tape."
+    },
+    {
+      "name": "Deception",
+      "ability": "Charisma",
+      "description": "Convincingly hiding the truth: lying to a guard, keeping a cover story straight under questioning, bluffing about the size of your backup, or passing a forged badge with a straight face."
+    },
+    {
+      "name": "Insight",
+      "ability": "Wisdom",
+      "description": "Reading people: spotting a lie, sensing nervousness, guessing someone's next move from their body language or noticing that the informant is more afraid of someone else than of you."
+    },
+    {
+      "name": "Intimidation",
+      "ability": "Charisma",
+      "description": "Getting what you want through threats, menace or a display of force: making a thug back off, scaring a witness into talking or staring down a checkpoint."
+    },
+    {
+      "name": "Investigation",
+      "ability": "Intelligence",
+      "description": "Searching for clues and drawing conclusions: working a crime scene, following a paper trail, finding the hidden compartment, reconstructing a firefight from shell casings or spotting the weak point in a security plan."
+    },
+    {
+      "name": "Mechanics",
+      "ability": "Intelligence",
+      "description": "Building, repairing, sabotaging and bypassing machines and hardware: engines, weapons, locks, alarms, drones, robots and starship systems. Clearing a stubborn jam out of combat, hot-wiring a car or rigging a booby trap all use Mechanics."
+    },
+    {
+      "name": "Medicine",
+      "ability": "Wisdom",
+      "description": "First aid, trauma care and diagnosis. Stabilize a dying ally (DC 10), stop bleeding, identify a toxin or infection, judge the time of death or tell whether a wound came from a knife or a laser."
+    },
+    {
+      "name": "Perception",
+      "ability": "Wisdom",
+      "description": "Using your senses to notice things: the glint of a scope, the footsteps behind you, the tripwire across the doorway, the tail two cars back. Passive Perception is how alert you are when not actively looking."
+    },
+    {
+      "name": "Performance",
+      "ability": "Charisma",
+      "description": "Entertaining or holding an audience: music, acting, public speaking, a convincing cover identity at a party, or a distraction loud enough to pull the guards away."
+    },
+    {
+      "name": "Persuasion",
+      "ability": "Charisma",
+      "description": "Influencing people honestly through tact, reasoning and goodwill: negotiating a deal, calming a hostage-taker, recruiting an ally or talking a cop into letting you go with a warning."
+    },
+    {
+      "name": "Piloting",
+      "ability": "Dexterity",
+      "description": "Driving and flying vehicles under pressure: cars, motorcycles, boats, helicopters and spacecraft. Used for chases, evasive maneuvers, ramming, landing a damaged craft and docking in zero gravity."
+    },
+    {
+      "name": "Science",
+      "ability": "Intelligence",
+      "description": "Knowledge of physics, chemistry, biology, astronomy and engineering theory. Identify a chemical, understand an experiment, analyze an alien organism, calculate an orbit or recognize what a strange signal means."
+    },
+    {
+      "name": "Sleight of Hand",
+      "ability": "Dexterity",
+      "description": "Manual trickery: picking a pocket, palming a data chip, planting a bug, concealing a holdout pistol from a pat-down or swapping a real document for a forgery."
+    },
+    {
+      "name": "Stealth",
+      "ability": "Dexterity",
+      "description": "Moving unseen and unheard: sneaking past a patrol, tailing a target, slipping through a dark warehouse or lying still while the hunter passes."
+    },
+    {
+      "name": "Streetwise",
+      "ability": "Wisdom",
+      "description": "Knowing how the street works: finding a fence, a doctor who won't ask questions or a black-market arms dealer; reading gang colors and territory; hearing rumors; knowing which neighborhoods to avoid after dark."
+    },
+    {
+      "name": "Survival",
+      "ability": "Wisdom",
+      "description": "Living off the land and finding your way: tracking, hunting, navigating without GPS, predicting weather, finding shelter and clean water, and reading the signs that something dangerous has passed this way."
+    }
+  ],
+  "ability_score_modifiers": {
+    "description": "To find an ability modifier, subtract 10 from the score, divide by 2 and round down.",
+    "table": {
+      "1": -5,
+      "2": -4,
+      "3": -4,
+      "4": -3,
+      "5": -3,
+      "6": -2,
+      "7": -2,
+      "8": -1,
+      "9": -1,
+      "10": 0,
+      "11": 0,
+      "12": 1,
+      "13": 1,
+      "14": 2,
+      "15": 2,
+      "16": 3,
+      "17": 3,
+      "18": 4,
+      "19": 4,
+      "20": 5,
+      "21": 5,
+      "22": 6,
+      "23": 6,
+      "24": 7,
+      "25": 7,
+      "26": 8,
+      "27": 8,
+      "28": 9,
+      "29": 9,
+      "30": 10
+    }
+  },
+  "passive_checks": {
+    "description": "A passive check is a check made without rolling, representing a character's steady, background level of competence (for example, noticing an ambush while walking a patrol route). The GM uses it to decide secretly whether a character notices or achieves something.",
+    "formula": "10 + all modifiers that normally apply to the check. If the character has advantage on the check, add 5. For disadvantage, subtract 5."
+  },
+  "difficulty_classes": {
+    "very_easy": 5,
+    "easy": 10,
+    "medium": 15,
+    "hard": 20,
+    "very_hard": 25,
+    "nearly_impossible": 30
+  }
+}

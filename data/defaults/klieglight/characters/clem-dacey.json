@@ -1,0 +1,122 @@
+{
+  "id": "371df712-6fe1-4107-b419-7d162dfa7cd7",
+  "name": "Clem Dacey",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Private Eye",
+  "level": 2,
+  "background": "Ex-Cop",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 17,
+    "current": 17
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Investigation",
+    "Insight",
+    "Perception",
+    "Intimidation",
+    "Streetwise"
+  ],
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "equipment": [
+    "Heavy overcoat, charcoal, a size too big since the war, with a torn lining he keeps meaning to fix",
+    ".38 revolver, 6 rounds loaded, in a shoulder holster that has worn a shine on his shirt",
+    ".38 rounds (18)",
+    "Blackjack, leather, in the overcoat's inside pocket",
+    "Fedora, grey, rain-stained",
+    "Notebook and two pencils, one always broken",
+    "Flashlight",
+    "Lock picks in a leather fold (a souvenir from a burglary detail)",
+    "A pint of rye, half full, in the glove box of a 1938 Plymouth that needs a clutch",
+    "Business cards: WALTER DACEY - CONFIDENTIAL INQUIRIES - HOllywood 9-4410, an office over a florist on Cahuenga",
+    "A photograph of his kid brother Danny in his Navy whites",
+    "Wallet containing $45"
+  ],
+  "weapons": [
+    {
+      "name": ".38 revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Blackjack",
+      "attackBonus": 2,
+      "damage": "1d4",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Heavy overcoat",
+    "type": "light"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: +2 Wisdom, +1 Constitution. Once per long rest, an Insight check to tell whether someone is lying is made with advantage, and on a success he also learns whether the lie protects the liar or someone else. Working people start one step friendlier toward him)",
+    "Hunch (once per short or long rest, outside combat, ask the GM one yes-or-no question about a lead he has personally encountered in this case and get a true answer; a question on a false premise gets 'wrong question' and the use isn't spent)",
+    "Gumshoe (proficiency bonus doubled for Insight and Investigation checks)",
+    "Size Them Up (bonus action: study one creature within 60 ft; his next attack against it this turn has advantage and deals an extra 1d6 on a hit; 3 uses (WIS), regained on a short or long rest)",
+    "Old Precinct (Ex-Cop background: a desk sergeant will tell him who caught a case, whether a man has a sheet or when a prisoner is moving, for a cup of coffee and a story; some cops remember why he left, Lt. Frank Dolan among them)"
+  ],
+  "traits": [
+    "Hunch (1/short rest)",
+    "Gumshoe (Insight, Investigation)",
+    "Size Them Up (3/short rest)"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say less than I know and I know less than I'd like. I eat at the same counter every morning and tip the same waitress a quarter, and I notice when anything in a room has moved.",
+    "ideals": "A client buys my time, not my conscience. When they're the same thing, the client loses.",
+    "bonds": "My brother Danny. In 1944 he drove drunk into a bus bench on Vine and a man died, and Harlan Shay made it go away, because Danny was a grip at Castellane and I was a cop who could be useful. I have owed Shay ever since. I'd like to stop.",
+    "flaws": "I can't leave a lie alone, even a kind one, even when leaving it alone is the decent thing."
+  },
+  "appearance": "Forty-one, long-boned and stooped, with a farmer's big hands and a face like a road map of the San Joaquin Valley. Grey eyes that don't blink enough. A good suit gone shiny at the elbows, an overcoat in all weathers, and a fedora he takes off for women and nobody else.",
+  "backstory": "Clem Dacey grew up on a raisin farm outside Fresno, came south in 1930 with a dollar and a cardboard suitcase, and joined the LAPD because it was hiring. He made detective in Hollywood Division in 1939 and quit in 1945 when Lieutenant Frank Dolan asked him to find a gun in a suspect's car that wasn't there yet. He has run a one-man agency over a florist on Cahuenga since: divorces, insurance, missing daughters, the occasional studio job. Harlan Shay hired him for this one by name, and Clem knows why: because Clem owes him. He also knows one thing nobody else in the party does. Shay drives a dark green 1941 Packard 180 he is vain about, and Clem has seen its windshield sticker a dozen times in the studio lot: the castle crest and the number seven, because the stickers go by seniority and Shay was there before nearly everyone."
+}

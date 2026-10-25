@@ -1,0 +1,598 @@
+{
+  "id": "sl-scenario-002",
+  "title": "Sabotage in the Pass",
+  "subtitle": "Wednesday to Friday: A Rockslide, a Strike, a Burning Trestle, a Rope and the Last Spike",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Hollowell Cut, Needle Creek, Burnt Mule Flats and Argent, Wednesday 24 to Friday 26 September 1879",
+    "description": "The middle of the clock and the most crowded three days in the campaign. The DA&P has two and a half miles of track to lay and three days to lay it, and everything that can go wrong does, most of it on purpose. Hollowell Cut, four miles above Argent, is the grading camp: the Irish tracklayers' tents and Bridget Cahill's boarding tent at the lower end, the Hispano graders' camp in the aspens, Ong Pak-wai's company in neat rows of tents at the upper end under the cut itself, and the DA&P powder house in a stone hut on the slope above. A mile further up, the Needle Creek trestle. Nine miles south by the wagon road over a saddle, Burnt Mule Flats, the GP&P's railhead, where men are paid in gold and Roy Brannock lives in a private car. On Thursday a storm comes over the pass and puts six inches of snow on the summit.",
+    "atmosphere": "Dawn at the Cut: frost on the canvas, cookfires, the smell of coffee, bacon, rice and tortillas from three camps, a Cantonese work song and an Irish one competing up the grade. Then the noise of the slide, and silence. Funerals. A strike meeting in the snow. Sparks going up into the dark from a burning trestle and a crowd of men on the bank watching their wages burn. Torches coming up the grade on Thursday night with ropes. Friday's frantic, joyful, exhausted race to lay the last rails, three languages shouting the same count, and a silver spike.",
+    "keyLocations": [
+      {
+        "name": "Hollowell Cut",
+        "description": "A raw gash forty feet deep through a spur of granite, blasted and graded by Ong Pak-wai's company over the summer, with the track now laid through it and the camps along the grade below. At four on Wednesday morning, before light, a rockslide came off the ledge above the upper end of the cut and buried three tents of Ong's camp. Two men died: Leung Ah-sing, nineteen, and Chan Yiu, seventeen, both from villages near Ong's. Five were hurt. The track is buried for sixty yards.",
+        "features": [
+          "The slide: three hundred tons of granite and frozen gravel across the track and the upper tents",
+          "The ledge sixty feet above the cut, reached by a goat track or a rope",
+          "Ong's tent, with his daybook, his surveying instruments and the powder chits",
+          "Bridget Cahill's boarding tent at the lower end, where the strike committee meets",
+          "The DA&P powder house, a stone hut with an iron door and a padlock, two hundred yards up the slope"
+        ],
+        "encounters": [
+          "Ong Pak-wai and his foremen, burying their dead and guarding the camp",
+          "Virgil Tench and a crowd from the Miners' Union, Wednesday morning, saying the Chinese did it themselves",
+          "Bridget Cahill and Teodoro Gallegos, the strike committee"
+        ],
+        "secrets": [
+          "CLUE E1 and D1 (core, automatic for anyone who climbs to the ledge with Ong or looks at it with a Survival, Nature or Mechanics eye): six fresh drill holes along the lip of the ledge, the rock between them shattered, and Vulcan Powder Works wrappers, red paper with a black anvil, in the snow behind a boulder. Ong's daybook shows no man of his company worked above the cut since 30 August, and the holes are fresh: the drill dust is still pale.",
+          "CLUE E2 (core, automatic for anyone who compares the chits): Ong's company draws only DA&P powder, by signed chit from the powder house, and the chits balance to the stick against the powder book. Vulcan is a Kansas brand. The DA&P does not buy it. The GP&P does: everyone who has been to Burnt Mule Flats has seen the Vulcan crates.",
+          "CLUE E3 (core for Phoebe Lanyon or anyone who examines the dead; otherwise Ong's camp record): Leung and Chan died asleep in their blankets, crushed, at about four in the morning. No crew blasts at four in the morning. Somebody fired a charge in the dark, above a sleeping camp."
+        ]
+      },
+      {
+        "name": "The DA&P Powder House",
+        "description": "A stone hut with walls three feet thick and an iron door, on the slope above the Cut, where the DA&P keeps its dynamite in sawdust-packed crates of fifty sticks, its caps in a separate locked box, and its powder book. The night watchman, old Feargal Dunne, walks past it at ten and two.",
+        "features": [
+          "The padlock, a heavy Yale, hanging open and unbroken on the hasp",
+          "The powder book: every stick in and out, signed for by gang bosses and Ong's foremen",
+          "The crate shelf: one crate gone, forty sticks; the caps box open, fifty caps gone",
+          "Mule tracks in the frozen mud behind the hut, three animals, shod, small hooves"
+        ],
+        "encounters": [
+          "Feargal Dunne, the night watchman, frightened that he will be blamed"
+        ],
+        "secrets": [
+          "CLUE G1 (core, automatic for anyone who looks at the lock): it was opened with a key. DA&P powder house keys are held by Coburn, the two gang bosses, Ong, and every train crew's rear brakeman, who has to unlock powder for the work trains. Tobe Kersey is a rear brakeman.",
+          "Survival DC 12 (advantage for a Scout, or for anyone who reached the hut before the crowd in sl-scenario-001): the mule tracks lead down to the grade and west, toward Argent, not up toward the Chinese camp. Three shod mules with small, narrow hooves: pack mules, not saddle mules. Pablo Quintana's mules are shod exactly like that.",
+          "CLUE G2 (conclusion, once D1 and E2 are known): the slide was blasted with Vulcan powder, and on Wednesday night the trestle is burned with coal oil. None of the stolen DA&P dynamite was used in either. Forty sticks and fifty caps are still somewhere, waiting for something else."
+        ]
+      },
+      {
+        "name": "The Needle Creek Trestle",
+        "description": "A mile above the Cut: a curved timber trestle three hundred and eighty feet long and ninety feet high over the white water of Needle Creek, twelve bents of Oregon pine on stone footings, the pride of the line. On Wednesday night at about eleven, someone pours coal oil on bents four and five and sets them alight. The DA&P crews put it out with buckets by two in the morning, but two bents are charred through and the deck sags. No work train can cross it, and the rails, ties and spikes for the last two miles are on the other side.",
+        "features": [
+          "Bents four and five, charred and dripping, the deck sagging between them",
+          "The creek below, white water and boulders, and on the bank, coal-oil cans",
+          "The wagon road that crosses Needle Creek by a ford a quarter mile downstream",
+          "Above the far end, the Horseshoe: a curve blasted into the cliff, where the grade climbs out of sight"
+        ],
+        "encounters": [
+          "Three GP&P men with coal oil and a wagon (Railroad Enforcer), if the party is watching the trestle on Wednesday night",
+          "The DA&P bucket brigade: every man from the Cut who is not on strike, and some who are"
+        ],
+        "secrets": [
+          "CLUE D2 (core, automatic for anyone who searches the creek bank on Thursday morning): four five-gallon coal-oil cans stencilled GP&P COMMISSARY, BURNT MULE, thrown into the willows.",
+          "CLUE D3: the wagon belonged to Lem Hadley, a teamster who hauls for anyone. He is drunk in a tent saloon at Burnt Mule Flats on Thursday with $50 in gold, and frightened. Intimidation or Persuasion DC 12 (automatic if the party has the cans): Tench paid him to drive three men and the cans up the wagon road to the trestle and wait. He did not know what for. He swears he did not know.",
+          "CLUE D4 (Survival DC 13, or automatic for a Scout with Trailcraft): a shod horse waited by the ford while the wagon unloaded, and left at a gallop south on the Burnt Mule road. At Burnt Mule Flats, the horse is in the GP&P corral: a tall grey with the GP&P's Circle K brand and a split near-fore shoe. It is Tench's.",
+          "The trestle can be rebuilt. Coburn has spare timbers at the Cut and needs a hundred men and thirty hours: if the strike is settled by Thursday noon, the last spike can be driven on Friday evening. If it is not, the DA&P misses the Compact, and the campaign's train never runs; see dmTips."
+        ]
+      },
+      {
+        "name": "Burnt Mule Flats",
+        "description": "The GP&P's railhead camp on the south fork, nine miles from Argent: a standard-gauge yard and engine house, a long commissary shed full of Vulcan crates and coal oil, rows of tents, a tent saloon, eight hundred men, and on a fenced siding Roy Brannock's private car, the Wichita, varnished green and gold, with two armed guards on its platform day and night. Saturday is payday, in gold coin, and men have walked off the DA&P all summer to be here for it. The grading foreman of the Burnt Mule crews is Hannibal Stokes, a Black Exoduster from Nicodemus, Kansas, who came west for land, found none, and runs two hundred men better than Brannock deserves.",
+        "features": [
+          "The commissary shed: Vulcan Powder Works crates, coal oil in stencilled cans, and the issue book",
+          "The tent saloon where Lem Hadley is drinking his $50",
+          "The corral with Tench's grey",
+          "The Wichita: a parlour, an office, Brannock's maps of the Narrows and his correspondence"
+        ],
+        "encounters": [
+          "Roy Brannock, in his car or at the commissary, willing to talk (he enjoys talking)",
+          "Railroad Enforcers (six) and Hired Guns (two), if the party is caught where they should not be",
+          "Hannibal Stokes, the grading foreman, who will talk to anyone who treats his men like men"
+        ],
+        "secrets": [
+          "The commissary issue book (Investigation DC 12, or $10 to the clerk): on Tuesday, one case of Vulcan powder and twenty gallons of coal oil issued to V. Tench, 'survey work'. This ties D1 and D2 to Tench in ink.",
+          "In the Wichita's desk (only if the party breaks in, a Stealth DC 15 past the guards and a Sleight of Hand DC 13 on the desk): Brannock's orders for Saturday. One hundred and twenty men with rifles to occupy the Narrows at dawn on Saturday 27 September and hold it 'against all trains', citing a Kansas court order. And a letter from A. Stannard, dated 9 September, acknowledging $20,000 in GP&P stock and promising his casting vote for the GP&P 'should the DA&P fail its obligation'. (This is sl-scenario-004 material found early: let it make Brannock look like the robbery's author.)",
+          "Hannibal Stokes, Persuasion or Insight DC 12: his men did not burn anything; Tench used three of Brannock's gun guards and a hired teamster. Stokes is sick of Brannock and will say so to the party, and not to anyone else, yet. In sl-scenario-004 he is the man who decides whether two hundred GP&P workers stand behind Brannock's forts."
+        ]
+      },
+      {
+        "name": "Blind Tom Gulch and the Old Spur",
+        "description": "At mile three, half a mile above the railhead and a mile below the Cut, an old construction spur branches off the DA&P main line at a switch and runs half a mile up Blind Tom Gulch on a gentle climb to the abandoned Blind Tom mine: a fallen-in shaft house, a rusted boiler, and a long timber ore-loading platform beside the end of the spur, built in July when the DA&P used it to load ties cut in the gulch. Nobody has been up there since August. The switch is padlocked to the main line.",
+        "features": [
+          "The switch at the main line: a ground throw with a padlock, set for the main line",
+          "The spur: half a mile of light rail climbing gently into a box gulch with steep sides",
+          "The ore platform: forty feet long, chest-high to a wagon bed, with a ramp",
+          "The ruin of the shaft house, and a tent pitched behind it out of sight"
+        ],
+        "encounters": [
+          "Sully Mapes and one Outlaw, camped in the shaft house ruin from Wednesday, guarding the cache; they run rather than fight unless cornered"
+        ],
+        "secrets": [
+          "CLUE G4 (core, automatic for anyone who walks up the spur): fresh wagon tracks, three wagons, coming in by the old tie road from the south; a tent; and in the shaft house, under a tarpaulin, the DA&P's crate with twenty-eight of the forty sticks still in it and most of the caps. Twelve sticks are gone (they go to the trestle on Friday night: G5).",
+          "Mechanics DC 12 at the switch: the DA&P padlock on the switch has been replaced with a new one of the same make, and the switch points have been freshly greased. Somebody means to throw this switch in a hurry, and does not want it to stick.",
+          "If the party lies in wait at Blind Tom, they can take Sully and his partner. Sully, a weaselly little man, knows the plan in outline ('Rafe says the car comes to us') and that a big man from the Lodestar brings the money. He does not know Stannard's name. Taking Sully alerts Gorham, who changes his switchman, but not his plan."
+        ]
+      },
+      {
+        "name": "Argent, Wednesday to Friday",
+        "description": "The camp in a fever. The Miners' Union meets in the Grand Central's back room on Thursday night with free whisky. The Clarion prints a special edition. The Association meets on Wednesday evening. Gorham's people are quiet. Effie Kersey changes the sheets at the Grand Central and is frightened for her brother.",
+        "features": [
+          "The Grand Central's back room, the Miners' Union meeting, Thursday 8 p.m.",
+          "The Clarion office, printing all night",
+          "The Grand Central's attic, where the chambermaids sleep"
+        ],
+        "encounters": [
+          "Effie Kersey, chambermaid, Tobe's sister, who wrote the letter (Clue C2)",
+          "The Lynch Mob, forming on Front Street on Thursday at ten and marching up the grade"
+        ],
+        "secrets": [
+          "Effie Kersey, Insight or Persuasion DC 11 (automatic if shown her own letter kindly): she wrote it. Tobe told her on Sunday he would be clear of his debt by Saturday and she would never have to worry again, and that a big man from the Lodestar had been good to him. She heard Gorham's name from Tobe in his sleep. She begs the party not to let Tobe be hurt.",
+          "Tobe Kersey can be turned. If the party finds him (he sleeps in the caboose at the railhead) and brings Effie, or confronts him with C3, G1 and G1b together, he breaks: he confesses the plan as he knows it (pull the pin on the climb after the train stops beyond the trestle, ride the car back to the Blind Tom platform, nobody hurt), and that the money came through Becket. He does not know about the trestle charge, or that Becket means to kill him. He will ride the train as the party's inside man if they promise him a lawyer and Effie's safety."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Wednesday to Friday, the DA&P's last three days to lay track before Saturday's train. At four on Wednesday morning a rockslide buries part of Ong Pak-wai's camp at Hollowell Cut and kills two young men; the Miners' Union and Brannock's agent Virgil Tench say the Chinese crew caused it with their own blasting, or stole the dynamite and blew themselves up. The evidence says otherwise (E): it was blasted from a ledge they never worked, with a brand of powder the DA&P does not buy. At noon the DA&P's crews walk off over three weeks of unpaid scrip (F), and Tench is offering them gold to go over to the GP&P. On Wednesday night the Needle Creek trestle is set on fire. The trail of coal-oil cans, a teamster and a horse leads to Burnt Mule Flats and to Brannock (D). On Thursday night Tench's free whisky and lies send a mob up the grade with ropes to burn out the Chinese camp, and the party has to stand in front of it. If the strike is settled and the camps work together, the trestle is rebuilt and the last spike driven on Friday evening. Running underneath all of it, the robbery: the forty sticks of DA&P dynamite stolen on Tuesday night were not used in any of the sabotage, and they are in a cache at the abandoned Blind Tom mine at the end of a forgotten spur, beside a freshly greased switch (G). The players should end the scenario certain that Brannock sabotaged the pass, with the strong suspicion that he is behind the robbery too, and with the means, if they look, to see that the robbery is being prepared by someone else.",
+  "hook": "Wednesday 24 September 1879, a quarter past four in the morning, Hollowell Cut. You have been up all night at the powder house with lanterns, and you are walking back down the grade in the dark, frozen, when the mountain makes a noise like a cannon fired inside a church. Then a roar, going on and on, and the ground shaking under your boots, and then a silence so complete that you can hear Needle Creek a mile away. Up at the head of the cut, lanterns are moving. Somebody is shouting in Cantonese, the same two names over and over. When you get there, in the first grey light, the track is gone under a hill of broken granite, and so are three tents, and a slight man in spectacles with a long queue under his hat is on his knees in the rubble with his bare hands, digging, and he does not look up.",
+  "cluesAvailable": [
+    "C5",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "G1",
+    "G1b",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "B4",
+    "B5",
+    "B6",
+    "H3"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "D. The GP&P, through Virgil Tench, sabotaged the pass",
+      "clues": [
+        "D1: Vulcan wrappers and fresh drill holes on the ledge (the slide)",
+        "D2: GP&P commissary coal-oil cans in Needle Creek (the trestle)",
+        "D3: Lem Hadley, the teamster Tench paid (the tent saloon at Burnt Mule Flats)",
+        "D4: Tench's Circle K grey tracked from the trestle (the ford and the GP&P corral)",
+        "The commissary issue book: Vulcan and coal oil issued to V. Tench (Burnt Mule Flats)"
+      ]
+    },
+    {
+      "conclusion": "E. Ong Pak-wai's company did not cause the slide and is being framed",
+      "clues": [
+        "E1: the slide was fired from a ledge they never worked (the ledge; Ong's daybook)",
+        "E2: Vulcan wrappers; their DA&P chits balance (the powder house book)",
+        "E3: Leung and Chan died asleep at four in the morning (the dead; the camp record)",
+        "E4: Tench bought the Miners' Union's whisky and told them the Chinese burned the trestle (the Grand Central back room)"
+      ]
+    },
+    {
+      "conclusion": "F. The strike is real, and Tench wants it to become a riot",
+      "clues": [
+        "F1: scrip redeemable only at the company store at 20 percent off (any tracklayer; the company store)",
+        "F2: $11,600 owed to the crews (Ong's daybook; Bridget Cahill's committee)",
+        "F3: Tench in Bridget's tent on Tuesday offering GP&P gold (Bridget; Teodoro Gallegos)",
+        "F4: Stannard's strangely generous $12,000 loan on condition the train runs Saturday (Coburn; the Association meeting)"
+      ]
+    },
+    {
+      "conclusion": "G. The stolen DA&P dynamite and the Blind Tom spur are for the train",
+      "clues": [
+        "G1: the powder house opened with a key, which rear brakemen carry (the powder house)",
+        "G1b: Pablo Quintana rented three mules to Tobe Kersey on Tuesday (Pablo; the corral)",
+        "G2: none of the sabotage used DA&P powder (D1, E2 and the trestle together)",
+        "G3: Yee Kam-ling saw riders lead loaded mules up Blind Tom Gulch at nine on Tuesday night (Ong's daybook)",
+        "G4: the cache, the tent, the wagon tracks and the greased switch (Blind Tom)",
+        "G5: twelve sticks wired to the rebuilt trestle on Friday night (the trestle)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: The Slide",
+      "description": "Wednesday, four in the morning to noon. The rockslide, the dead, and the first accusation. The powder house and its open padlock. This act sets the party's relationship with Ong Pak-wai's company and with the Miners' Union, and its clues (D1, E1, E2, E3, G1) are almost all core: the question is not whether the party finds them but what they do with them when a crowd from Argent arrives at nine o'clock wanting someone to blame.",
+      "objectives": [
+        "Help dig out the buried tents",
+        "Examine the slide and the ledge",
+        "Examine the powder house and its lock",
+        "Stand between Ong's camp and the crowd from Argent, or not"
+      ],
+      "scenes": [
+        {
+          "name": "Digging",
+          "description": "The first hour is digging, by lantern and then by grey light: three tents under the granite, five men hurt, two dead. Phoebe Lanyon (or any Doc) has work for both hands: Sawbones for the hurt, and later, E3 from the dead. Every party member who digs earns the camp's respect, which Ong notes in his daybook and which matters on Thursday night. Ong does not speak to the party until the dead are out and laid under blankets with their faces covered. Then he takes off his spectacles, cleans them, puts them back on, and asks the party who they are.",
+          "readAloud": "It takes two hours. You dig with your hands and with shovels and with a crowbar until your palms bleed, beside men whose names you do not know who are shouting names you cannot pronounce, and you get out three men alive, one with a broken leg, and then you find the tent where the two youngest slept. When they are laid out on the frozen ground under grey blankets, a tall foreman with a scarred face kneels and lays a cup of rice and a pair of chopsticks by each of them, and the whole camp is quiet. Ong Pak-wai stands up. His hands are raw. He looks at you for a long moment, and then he says, in careful English: 'Thank you. I am Ong. These were Leung Ah-sing and Chan Yiu. Leung was nineteen. He was going to be married.'",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "Three of the hurt will live; one (a man named Hom Sun) will die by noon without a doctor's full attention, and lives with it. The two dead were crushed asleep, in their blankets, at about four (E3, core in any case for a Doc). Their boots were by the tent flap. Nobody was working.",
+              "failure": "You save who you can. One of the hurt men will need more than you can give him here; send for Phoebe Lanyon or carry him to Argent."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 13,
+              "success": "You shift the slab off the third tent yourself, and the man under it lives. The camp sees it. (Reputation with the Cut camps, tracked privately, rises sharply.)",
+              "failure": "It takes six men and the crowbar. You helped."
+            }
+          ]
+        },
+        {
+          "name": "The Ledge",
+          "description": "Ong has already climbed to the ledge at first light and will take anyone who wants to see. E1 and D1 are core. Ong explains, in a surveyor's language, exactly what happened: someone drilled six holes along the lip of the ledge with a hand steel, two feet deep, loaded them with perhaps twenty sticks, and fired them with a single long fuse at four in the morning. The ledge had a frost crack behind it that anyone who knew rock could see. It was not an accident and it was not careless. It was done by someone who wanted the cut blocked and did not care who was asleep beneath it. Ong does not yet know who; he suspects the GP&P because nobody else would gain; he has the Vulcan wrapper in his pocket.",
+          "readAloud": "The goat track up to the ledge is iced and you climb it on hands and knees. At the top the wind cuts like a blade and the whole valley is laid out below: the camps, the grade, the Needle Creek trestle shining a mile away in the first sun. Ong walks along the lip of the broken rock and points with the toe of his boot, here, here, here: six neat round holes, two inches across, black inside. 'Hand steel,' he says. 'Two men, one hour, perhaps two. A long fuse, from there, behind the boulder, so they had time to go.' He takes a scrap of red paper out of his pocket, printed with a black anvil, and holds it out to you. 'This is not our powder. We have never bought this powder. Who sells it, I would like very much to know.'",
+          "skillChecks": [
+            {
+              "skill": "Survival",
+              "dc": 12,
+              "success": "Two men came up the back of the ridge from the south, not from the camp, with hobnailed boots, and went back the same way: toward the Burnt Mule road.",
+              "failure": "The snow has drifted over most of the tracks. Someone came from somewhere."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 11,
+              "success": "Twenty sticks, at least, and a good long fuse: nine or ten minutes. Whoever did this was a competent powder man and knew there was a camp below.",
+              "failure": "Dynamite, a lot of it. That much anyone could tell you."
+            }
+          ]
+        },
+        {
+          "name": "The Crowd from Argent",
+          "description": "At nine, forty men ride and walk up from Argent: miners, saloon men, a few tracklayers, led by Virgil Tench and a Miners' Union officer named Sweeney who has been drinking since the powder house alarm. Tench's story: the Chinese crew stole the DA&P powder on Tuesday night, botched a blast to hide it, and buried their own men, and they should be run out of the territory before they blow up the train. Ong's men stand in front of their camp with picks and Ong's rifle. This can become a fight in a minute. The party can stop it by showing the evidence (E1, E2: the crowd's ugliness wilts in front of Vulcan wrappers and a balanced powder book), by Isaac Merriweather's star, by Llew Treharne (who arrives at a gallop at a quarter past), by Mercy Pengelly's voice, or by Persuasion or Intimidation (DC 14). If it is stopped, Tench smiles and says there will be another day, and there will: Thursday night.",
+          "readAloud": "They come up the grade in a straggling crowd, some on horses and most on foot, with their breath smoking, and the man at the front is wearing a checked suit and a kind expression. 'Now, boys,' says Virgil Tench, loud enough to reach the back. 'Now, boys, we are not here for trouble. We are here for justice. Forty sticks of railroad powder walked out of that shed last night, and this morning there is a hole in the mountain, and here' (his arm sweeps out at the silent row of blue-jacketed men behind Ong) 'here is the answer to the riddle.' Behind him a big red-faced man shouts something you will not repeat, and the crowd growls. Ong's foremen close up. Ong does not move at all.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "You hold up the Vulcan wrapper and the powder book and the crowd goes quiet. Half of them came for a morning's excitement, and they are miners: they know a drill hole when they see one. They drift away. Sweeney goes with them, ashamed. Reputation +1, and the Cut camps remember.",
+              "failure": "The crowd will not hear it from you. It takes Llew Treharne's arrival, or Mercy Pengelly, or a gun in the air, and Tench will remember your face."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "Nobody here wants to be the first man shot. The crowd backs down the grade. It is not persuaded, only cowed, and Thursday night will be worse.",
+              "failure": "Somebody throws a rock. Roll initiative, or find another way, quickly: this is a Lynch Mob in the making."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "(On Tench.) He does not believe a word he is saying and he does not care. He is watching the trestle, a mile up the valley, as if he were expecting something to happen to it.",
+              "failure": "A rabble-rouser. A good one."
+            }
+          ]
+        },
+        {
+          "name": "The Powder House",
+          "description": "In daylight the powder house gives G1 (core): the padlock was opened with a key, not forced. Feargal Dunne, the night watchman, swears he saw nothing at ten and found the door ajar at two. The mule tracks (Survival DC 12) lead west toward Argent. Ong's foreman Yee Kam-ling, asked, or Ong's daybook, read, gives G3: three riders leading three loaded mules, at about nine on Tuesday night, turning off the grade up Blind Tom Gulch, and coming back down without the loads at midnight. Nobody has worked Blind Tom since August. Pablo Quintana, if asked whose mules have small narrow shod hooves, goes very quiet, and then gives G1b to Pepa Archuleta at once, or to anyone who promises to keep his name out of it: he rented three mules to Tobe Kersey on Tuesday afternoon for $15 in gold.",
+          "readAloud": "The padlock hangs open on its hasp, and there is not a mark on it: no scratch, no hammer dent, nothing. Inside the hut it is dark and cold and smells of sawdust and the faint sweet headache smell of dynamite. A space on the shelf where a crate was. The caps box open and empty. Old Feargal Dunne turns his hat round and round in his hands. 'I walked by at ten,' he says, 'and it was locked, I would swear to God. And at two it was open like that. And I never saw nobody.' He looks at you miserably. 'They will say it was me.'",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The powder book lists who holds keys: Coburn, the two gang bosses, Ong, and the rear brakemen of the two work trains, Tobe Kersey and a man named Heinz Pohl. Pohl was in the Silver Dollar all Tuesday night with fifty witnesses. Kersey was not.",
+              "failure": "A lot of men have keys. The book will say who, if anyone can read the gang bosses' handwriting."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Lynch Mob (one, forty strong; most of them are not killers and will scatter if the first man in front is stopped) on Wednesday at nine, only if the confrontation goes wrong",
+        "Virgil Tench does not fight; he steps back and lets the crowd do it"
+      ]
+    },
+    {
+      "title": "Act 2: The Strike and the Fire",
+      "description": "Wednesday noon to Thursday morning. The DA&P's crews walk off at noon: Irish tracklayers under Bridget Cahill, Hispano graders under Teodoro Gallegos, and, separately and for their own reasons, Ong's company, which will not work again until its dead are answered for and it is paid. Coburn is frantic. The Mining Association meets in Argent at six; Stannard offers a loan. At eleven that night the Needle Creek trestle burns. This act is negotiation, then fire, and the party can be in only one place at a time: at the Association meeting in Argent, in Bridget's tent at the Cut, or watching the trestle.",
+      "objectives": [
+        "Learn what the crews want, and what they are owed",
+        "Find a way to get them paid in coin by Thursday noon",
+        "Notice Stannard's generosity, and its condition",
+        "Save, or failing that, investigate the trestle"
+      ],
+      "scenes": [
+        {
+          "name": "The Committee",
+          "description": "Bridget Cahill's boarding tent at the lower end of the Cut: a long canvas hall with a stove, trestle tables and a picture of Parnell. The strike committee: Bridget for the Irish tracklayers, Teodoro Gallegos for the Hispano and Mexican graders and tie-cutters, and Ong (or his foreman Yee Kam-ling) for his company, sitting slightly apart because the Irish have not been friendly. Their demands: wages paid in coin, not scrip, the three weeks owed ($11,600 across all the crews, F2), and the company store's 20 percent discount on scrip ended (F1). Ong adds his own: the slide answered for, his dead sent home at the company's cost. Bridget tells the party, if asked, that Tench was in this tent on Tuesday offering three dollars a day in gold to any man who walked off to the GP&P (F3), and that she threw him out, and that half her men are thinking about it anyway. They do not want to break the DA&P. They want to be paid for the work they did. Teodoro points out, drily, that if the DA&P misses the Compact it will go bankrupt and pay nobody anything, which everyone in the tent knows and which is why they are striking now, while they still have leverage.",
+          "readAloud": "Bridget Cahill is a big, freckled, black-haired woman of forty with forearms like a tracklayer and a voice like one, and she sits at the head of a trestle table in a tent that smells of stew and wet wool and tobacco, with a mug of tea in front of her and a strike committee on either side. 'We are not your enemies,' she says. 'Tell Mr. Coburn that. We laid his railroad. We laid it through snow in May and through that cut in August and we will lay the last of it on Friday, God willing, for coin. Not for paper you can only spend in his own store at eighty cents on the dollar.' She slaps a fistful of DA&P scrip on the table. 'Look at that. That is three weeks of my men's lives. I would not light my stove with it.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "The committee agrees: if the crews are paid in coin by Thursday noon, back wages and all, and Ong's dead are paid for, they will rebuild the trestle and lay the last rails by Friday night. They want it from Coburn in writing, witnessed by someone they trust: the party will do.",
+              "failure": "The committee wants the money first and the promises after. They do not trust the DA&P, and you are being paid by the smelter. Get the cash, and they will talk."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "The three crews do not trust each other, and Tench has been working on that: he told the Irish the Chinese are paid more (they are paid less) and told Gallegos the Irish would sell out the Mexicans. If the party can get the three spokesmen to see that they are being played against each other, the committee holds together.",
+              "failure": "They are angry, tired and united, for now. You cannot tell how long that lasts."
+            }
+          ]
+        },
+        {
+          "name": "The Association Meets",
+          "description": "Wednesday at six, the Grand Central's back room. The Mining Association (seven mine owners and Hester Ruane, with Stannard in the chair) and Coburn, grey-faced. Coburn has no cash: the Boston bondholders will not send any until the Compact is won. Hester offers $4,000 of her own and has no more. Then Aurelius Stannard, beaming, offers to lend the DA&P $12,000 in gold from the Lodestar's reserve, at no interest, on one condition: that the first train runs on Saturday as scheduled, with the Lodestar bars aboard, and is not postponed for any reason (F4). The room applauds. Coburn nearly weeps. It is the most generous thing anyone has done all week, and it is the act of a man who needs the train to run, robbery or no robbery, on Saturday. (He is paying for his own robbery with the last of his cash, and he expects to have Continental's $96,000 by Monday.) Hester, asked privately afterward, says that she had not known the Lodestar had $12,000 in coin, given that it pays its dividends in banknotes.",
+          "readAloud": "The back room is blue with cigar smoke and full of men in good coats who have not been underground in years, and Winfield Coburn stands at the end of the table like a man in the dock, with his hat in his hands. 'I need eleven thousand six hundred dollars,' he says, 'in coin, by tomorrow noon, or there is no railroad.' Nobody says anything. Then Aurelius Stannard laughs, a big warm laugh, and stands up, and puts a hand on Coburn's shoulder. 'Winfield,' he says, 'you shall have twelve. From the Lodestar, at no interest, God bless you. On one condition.' He looks around the table, smiling. 'That my silver goes out on Saturday as we promised the whole of Colorado, and not one day later. Whatever happens. Agreed?'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "The condition is the point. He did not offer the money until he was sure that without it the train would be postponed. When Coburn hesitates for a second, Stannard's hand tightens on his shoulder.",
+              "failure": "A generous man saving the day. The room thinks so; so do you."
+            },
+            {
+              "skill": "Gambling",
+              "dc": 13,
+              "success": "(Lydia Marchmont or a player who has watched Stannard bet.) He is pushing his whole stack in. A man who pays dividends in paper and lends in gold is a man who knows the paper is worth nothing and needs something more than the gold.",
+              "failure": "A rich man making a show."
+            }
+          ]
+        },
+        {
+          "name": "Fire on Needle Creek",
+          "description": "Wednesday at about eleven at night. If anyone is watching the trestle, they see a wagon come up the wagon road to the ford with three men and a driver, and a rider waiting by the ford. The three men carry coal-oil cans up the bank and onto the trestle, pour it on bents four and five, and light it. Three Railroad Enforcers (Brannock's gun guards) and Lem Hadley the teamster, with Tench on his grey at the ford. If the party fights, the three guards shoot to cover their retreat and then run; Tench is gone at the first shot. If the party is not there, the camp sees the fire at a quarter past eleven and the bucket brigade (every man at the Cut, strike or no strike, Irish, Hispano and Chinese side by side) saves the trestle from falling but not from being impassable. The fire is spectacular: the party can fight on a burning trestle ninety feet over white water, which is a good fight.",
+          "readAloud": "The fire runs up the oiled timbers faster than you would believe, a sheet of orange light that turns the whole canyon gold and throws your shadows a hundred feet up the cliff, and the heat hits your face from a quarter mile away. Sparks go up into the stars in a column. Down on the bank, small black figures are running: some away, toward the ford and the horses, and more, many more, toward the fire, from the Cut, with buckets, shouting in three languages. Somewhere in the light a man on a grey horse turns it on the spot and goes away south at a gallop.",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 14,
+              "success": "You get onto the deck ahead of the flames with a bucket line behind you and stop the fire spreading to bent six. The damage is two bents, not three: Coburn needs twenty hours to rebuild, not thirty.",
+              "failure": "The fire beats you back. Two bents burn through and the deck sags; Coburn needs thirty hours and every man on the line."
+            },
+            {
+              "skill": "Riding",
+              "dc": 14,
+              "success": "You chase the grey across the ford and down the Burnt Mule road in the dark, and close enough to see the rider's face in the starlight: Virgil Tench. He gets away over the saddle, but you saw him (a second source for D4).",
+              "failure": "The grey is faster than your horse in the dark, and you nearly break your neck at the ford."
+            },
+            {
+              "skill": "Acrobatics",
+              "dc": 13,
+              "success": "Fighting on the burning deck, you keep your footing on the oiled planks and drive a GP&P man off the trestle into the creek (he lives, wet, and is a prisoner who will talk: Clue D3 without the trip to Burnt Mule).",
+              "failure": "The deck is slick with oil and you go down hard; fire licks at your coat. Take 1d6 fire damage."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Railroad Enforcer (three), on the trestle with coal oil, Wednesday at eleven",
+        "Lem Hadley, teamster (Drunk Cowboy stats), at the wagon; he surrenders at once"
+      ]
+    },
+    {
+      "title": "Act 3: Rope and Rails",
+      "description": "Thursday to Friday night. The storm comes over the pass on Thursday morning. If the money reaches the crews by noon, the trestle rebuild starts at once and runs all night. The party can follow the sabotage trail to Burnt Mule Flats and confront Brannock (D3, D4), and look into Blind Tom (G4). On Thursday night, Tench's free whisky at the Miners' Union meeting sends a mob up the grade to burn out the Chinese camp (E4), and the party has to stand in front of it. Friday is the race for the last spike. Friday night, someone wires twelve sticks of dynamite to the rebuilt trestle (G5). The scenario ends with the last spike at sunset on Friday, a silver one, driven by Coburn and the three spokesmen together, if the party has made that possible.",
+      "objectives": [
+        "Follow the sabotage to Burnt Mule Flats and Brannock",
+        "Find what is at the end of the Blind Tom spur",
+        "Stop the mob at the Cut on Thursday night",
+        "See the last spike driven on Friday",
+        "Watch the trestle on Friday night"
+      ],
+      "scenes": [
+        {
+          "name": "Burnt Mule Flats",
+          "description": "Thursday, two hours' ride through the first snow. The party can find Lem Hadley in the tent saloon (D3), Tench's grey in the corral (D4), and the commissary issue book (Investigation DC 12 or $10). Roy Brannock receives them, if they ask, in the Wichita, with whisky, cigars and great good humour. He admits nothing that could be proved and denies nothing either: 'Accidents happen in the mountains, friend. Fires, slides. It is a hard country for a little railroad.' He is genuinely surprised to hear of a robbery plan, and says that if anyone robs that train, the DA&P has failed and he has won, so he would be a fool to do it and he is not a fool. (This is true.) He offers the party jobs at twice what Hester pays. Hannibal Stokes, the GP&P grading foreman, catches the party on the way out: he wants them to know that his men had nothing to do with the slide or the fire, and that two men died, and that he is a Christian and does not work for murderers if he can help it. He gives his name and his tent. Remember him for sl-scenario-004.",
+          "readAloud": "The Wichita is the most comfortable room for a hundred miles in any direction: green plush and walnut, a Turkey carpet, a stove, a decanter, a brass spittoon and a big map of Hollowell Canyon pinned to the wall with the Narrows ringed in red. Roy Brannock sits in his shirtsleeves with his boots on the desk and laughs at you. 'Sabotage!' he says. 'I am a builder, friend. I build. Coburn builds a little toy railroad on credit with a slide rule and a prayer, and when God knocks it down he says it was Roy Brannock.' He pours four whiskies without asking. 'Now, I hear you are guarding the silver. I hear the pay is poor. Let us talk about that.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "He ordered the sabotage and he is proud of it; it is how railroads are built, in his experience, and he is not sorry about the two dead Chinese, only irritated that it has caused talk. But he knows nothing about the robbery, and the idea offends him: he wants to beat the DA&P, not steal from it. And when you mention Stannard, he grins like a man holding a good card.",
+              "failure": "He is lying about something. Possibly everything."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 17,
+              "success": "Brannock is not afraid of you, but he is afraid of a federal marshal, Kansas directors and newspapers. If Isaac Merriweather's star is in the room, he stops grinning, and says: 'Tench works for me. What Tench does on his own time is Tench's business.' That is as close as he comes, and it is enough to hang Tench.",
+              "failure": "He laughs, and rings for his guards, and the interview is over."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "(Hannibal Stokes.) He tells you the GP&P's gun guards, not his graders, went out on Tuesday and Wednesday nights, under Tench; and that on Saturday morning Brannock is marching a hundred and twenty men with rifles to the Narrows (the first warning of sl-scenario-004).",
+              "failure": "Stokes wants to know who you are before he says more. Come back with something he can trust."
+            }
+          ]
+        },
+        {
+          "name": "Blind Tom",
+          "description": "Any time from Wednesday afternoon, if the party follows the mule tracks (G1b, G3). Half a mile up the spur, the ore platform, the tent, the wagon tracks and the cache (G4), and the greased switch with its new padlock. Sully Mapes and one other man are camped in the shaft house ruin; they run if they see a party coming, or fight if cornered (Outlaw). If the party watches instead of charging in, they see Obed Becket ride up on Thursday evening, talk to Sully for ten minutes, hand him a bundle, and ride away down the tie road (an early H4). The question of what the gang means to do with a forgotten spur and an ore platform is one the players can answer with the C4 consist and a little thought: a car that came loose on the grade would roll right past this switch. Do not answer it for them.",
+          "readAloud": "The spur runs up into the gulch on a gentle climb between steep slopes of grey scree, and the rails are rusty except for a bright line on the top where nothing has run since August. At the end of it, the Blind Tom mine is a fallen-in shaft house, a boiler rusting on its side and a long timber ore platform standing chest-high beside the end of the track, the kind you back a wagon up to. There are fresh wagon tracks in the snow. There is a tent behind the shaft house with smoke coming out of the stovepipe. And down at the bottom of the gulch, where the spur meets the main line, the switch you walked past has a new padlock, and when you touch the points your fingers come away black with grease.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You get close enough to the tent to hear Sully and his partner arguing about cards and about 'the big man from the hill' who is late with the money, and to see the crate of DA&P dynamite under a tarpaulin, twenty-eight sticks.",
+              "failure": "Sully sees you, yells, and both men run for their horses and up the tie road. They leave the cache. Gorham will know someone has been here, and he will change his switchman, but not his plan."
+            },
+            {
+              "skill": "Survival",
+              "dc": 12,
+              "success": "The wagon tracks come in by the old tie road from the south: three wagons, heavy teams. Somebody means to haul something heavy out of here, and soon.",
+              "failure": "Wagon tracks, several. Recent."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "With the switch thrown, anything rolling down the main line from the Cut would take the spur, run up the gentle climb, and coast to a stop about level with that platform. It is almost elegant.",
+              "failure": "A switch and a spur. They go where switches and spurs go."
+            }
+          ]
+        },
+        {
+          "name": "Rope",
+          "description": "Thursday night. The Miners' Union meets in the Grand Central's back room at eight with free whisky paid for by Tench (E4: the barman, Persuasion DC 10, or anyone who was there), and Tench tells it that the Chinese burned the trestle to keep the work for themselves and that if decent men do not act the DA&P will hire more of them. At ten, sixty men march up the grade with torches and rope to burn the Chinese camp at the Cut and hang Ong. This is a Lynch Mob and a crime, and the GM should play it as a horror: men the party has drunk with, faces they know, carrying rope. Ong's company is behind a barricade of ties with a dozen rifles and will fight; if they fire, men die on both sides and the DA&P has no crews. The party stands between them, with whatever they have: evidence (E1 to E4, D1 to D4), Llew Treharne's star (the Cut is outside town limits: he comes anyway), Isaac Merriweather's, Mercy Pengelly at the head of the column refusing to move, Bridget Cahill and Teodoro Gallegos bringing their crews to stand with Ong's (if the committee was held together in Act 2), Fire and Brimstone, guns. Sheriff Burl Riggs arrives at the back of the mob, watches, and does nothing; remember that.",
+          "readAloud": "You see them before you hear them: a river of torches coming up the grade out of the dark, sixty, eighty, flickering on the new snow. Then the noise, a drunk, ugly, singing roar. At the front, men you know: a hoist man from the Silver Dollar, a blacksmith who shod your horse, a tracklayer who bought you a drink on Monday. One of them has a coil of new rope over his shoulder. Behind you, behind a barricade of railroad ties, Ong Pak-wai's men stand in silence with picks and shovels and a dozen rifles, and Ong stands in front of them with his Winchester across his chest, very small and very straight, and says to you, quietly, without turning his head: 'I would prefer it if they did not come any closer. I would prefer it very much.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "You hold up the Vulcan wrapper and the GP&P coal-oil can and name the man who paid for their whisky tonight, and the man who burned their trestle, and he is the same man. The front of the mob stops. The back of it does not know why and pushes. Then Bridget Cahill's Irish come up the grade behind Ong's barricade, and Gallegos's graders, and stand with the Chinese, and the mob looks at three hundred railroad men who have had enough, and breaks. Reputation +2. The Cut camps will follow the party anywhere.",
+              "failure": "The front ranks hesitate, but the rope man pushes forward. One more thing, now: a star, a sermon, a shot in the air, a punch, or blood."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "You put yourself in front of the rope man and he finds that he does not, after all, want to be first. The mob stops. It does not disperse until Llew Treharne arrives, but nobody hangs.",
+              "failure": "He shoves past. Somebody behind him throws a torch at the barricade."
+            },
+            {
+              "skill": "Insight",
+              "dc": 11,
+              "success": "Most of these men are drunk, ashamed and following. The rope man, a hoist engineer called Dutch Reinholt, and two others are the core; take them and the rest is a crowd.",
+              "failure": "It is a mob. It looks like one animal."
+            }
+          ]
+        },
+        {
+          "name": "The Last Spike",
+          "description": "Friday. If the crews were paid by Thursday noon, the trestle rebuild ran all Thursday night and through the storm, and the last rails go down on Friday afternoon from the railhead into the Argent depot, three crews laying together, with half the camp walking alongside. At sunset, at the depot, Coburn drives a silver spike cast at Hester's smelter, and if the party has made it possible he hands the maul in turn to Bridget Cahill, Teodoro Gallegos and Ong Pak-wai, and the photographer from Denver takes a picture that will be in every paper in Colorado. Stannard makes a speech. The Lodestar's seventy bars come down the hill by wagon at dusk under Becket's guard and are locked into the Continental strongroom with Hester's sixty, and Strickland signs for them (Phoebe Lanyon, Lydia Marchmont or anyone who handles a Lodestar bar beside a Ruane bar: Nature or Investigation DC 13 to notice that the Lodestar bars are a quarter-inch shorter for the same stamped weight). If the crews were not paid, the trestle is not rebuilt, the Compact cannot be met by Saturday, and Stannard, desperate, pays them himself on Friday morning at double; the last spike is driven at midnight under torches and the train leaves on Saturday anyway, as he needs it to.",
+          "readAloud": "The last rail goes down at a quarter to six, with the sun going behind the peaks and the whole sky turning the colour of a forge, and three hundred men are counting the spikes aloud in English and Spanish and Cantonese, and on the last one they are all counting together. The band plays both its tunes. Winfield Coburn lifts the maul with the silver spike set on the tie in front of him, and stops, and holds the handle out to Bridget Cahill, and then to Teodoro Gallegos, and then to Ong Pak-wai, who looks at it for a long moment and then takes it. The photographer's flash goes off like a gunshot. And on the platform, in the crowd, Aurelius Stannard is applauding with his whole heart and wiping his eyes.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "In the crowd on the depot platform, while everyone is watching the spike: Obed Becket shakes hands with Tobe Kersey, and something passes between them. Kersey looks as if he is going to be sick.",
+              "failure": "A great day. Everyone is there."
+            }
+          ]
+        },
+        {
+          "name": "The Trestle at Midnight",
+          "description": "Friday night, if anyone watches the rebuilt trestle (Hester will ask the party to put a guard on it; Coburn has his own watchman, who is bribed). At one in the morning, two of Varley's riders climb the rebuilt bents from the creek bed and wire twelve sticks of the stolen DA&P dynamite, in two bundles, to bents three and eight, with a long fuse run down to a rock by the ford (CLUE G5). They mean to light it after the express car has rolled back across on Saturday. If the party catches them, the charge is found and the robbery loses its insurance against pursuit; Gorham does not learn of it until Saturday at the Horseshoe. If the party does not, the charge is there on Saturday, and someone can find it in sl-scenario-003 with a Perception check from the train (DC 15) or Paddy Rooney's eye (automatic, if he looks down as the train crosses).",
+          "readAloud": "The rebuilt bents are pale new timber in the starlight, and the creek is loud enough to cover anything. It is past one when you see them: two dark shapes climbing the crossbracing from the creek bed like men climbing a ladder, slow and careful, with something slung across their backs. They stop at the third bent, and one of them takes something out of a bag and begins, very gently, to tie it to the timber.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You let them finish and climb down, and take them at the ford with the fuse in their hands. They are Varley's men (Outlaw) and know the plan in outline: 'blow the bridge after the car comes back over'. They do not know who is paying. They know Rafe is meeting the car at Blind Tom.",
+              "failure": "One of them sees you and shouts; both drop into the creek and are gone downstream in the dark. The charge is still on the trestle."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "(Paddy Rooney has advantage; Powder Man needs no roll.) You take the caps out of both bundles and leave the dynamite tied where it is, harmless, so that tomorrow the riders at the ford will light a fuse to nothing.",
+              "failure": "You get the bundles off the bents, but it takes an hour and a great deal of sweat. The fuse is still at the ford."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Lynch Mob (Thursday night, sixty to eighty strong; its leaders are Dutch Reinholt and two hoist men, Saloon Brawler stats; take them and the rest is a crowd)",
+        "Sully Mapes and one Outlaw at Blind Tom (they run first)",
+        "Two Outlaws at the trestle on Friday night",
+        "Brannock's guards at Burnt Mule Flats (Railroad Enforcer, six; Hired Gun, two), only if the party breaks in or starts a fight"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Ong Pak-wai",
+      "role": "Headman of the Chinese grading company at Hollowell Cut; companion",
+      "description": "See his sheet. Precise, proud, grieving, armed, and the best witness in the scenario.",
+      "motivation": "Justice for Leung Ah-sing and Chan Yiu, payment in coin, and his company out of Colorado alive."
+    },
+    {
+      "name": "Bridget Cahill, 40",
+      "role": "Runs the tracklayers' boarding tent; the Irish crews' spokeswoman",
+      "description": "Big, freckled, black-haired, from Clare by way of the Union Pacific. Feeds two hundred men, knows every one by name, and has buried a husband who fell off a trestle in Wyoming. Fond of Paddy Rooney and impatient with him.",
+      "motivation": "Coin wages for her men, and the line built, in that order."
+    },
+    {
+      "name": "Teodoro Gallegos, 45",
+      "role": "Spokesman of the Hispano and Mexican graders and tie-cutters",
+      "description": "A grey, dignified farmer from Mora, New Mexico, who comes north every summer for wages to keep his land; dry, ironic, a deacon of his church. Pablo Quintana's wife's cousin.",
+      "motivation": "Coin wages and getting his men home to their fields before the snow."
+    },
+    {
+      "name": "Virgil Tench, 40",
+      "role": "Brannock's agent; saboteur and rabble-rouser",
+      "description": "Kind smile, soft hands, checked suit, a grey horse with the Circle K brand. Responsible for the slide that killed Leung and Chan, the trestle fire and the mob. Cardsharp stats; a coward if cornered.",
+      "motivation": "A missed deadline and a bonus from Brannock."
+    },
+    {
+      "name": "Roy Brannock, 46",
+      "role": "Construction boss of the GP&P",
+      "description": "As in sl-scenario-001. In his element at Burnt Mule Flats. Range Boss stats; guarded by Hired Guns and Railroad Enforcers.",
+      "motivation": "The Compact and the Narrows."
+    },
+    {
+      "name": "Hannibal Stokes, 38",
+      "role": "GP&P grading foreman at Burnt Mule Flats",
+      "description": "A tall, calm, grey-templed Black Kansan, a former sharecropper from Kentucky who went to Nicodemus in 1877 and came west for railroad wages to buy his own land. A lay preacher. Runs two hundred men and has no use for Brannock's gun guards.",
+      "motivation": "His men paid and alive, and no part of murder."
+    },
+    {
+      "name": "Aurelius Stannard",
+      "role": "Mining Association president; the secret plotter",
+      "description": "Saves the day with a $12,000 loan, on condition the train runs Saturday. Applauds the last spike with tears in his eyes.",
+      "motivation": "The train must run on Saturday."
+    },
+    {
+      "name": "Winfield Coburn",
+      "role": "DA&P chief engineer",
+      "description": "At the end of his strength. Rebuilds a trestle in thirty hours in a snowstorm, if he has men.",
+      "motivation": "The last spike."
+    },
+    {
+      "name": "Effie Kersey, 20",
+      "role": "Chambermaid at the Grand Central; Tobe Kersey's sister; wrote the Continental letter",
+      "description": "Small, freckled, fierce and frightened, from Joplin, Missouri.",
+      "motivation": "Her brother alive and out of it."
+    },
+    {
+      "name": "Tobe Kersey",
+      "role": "DA&P rear brakeman; the gang's man in the caboose",
+      "description": "Can be found, frightened, sleeping in the caboose at the railhead; can be turned (see Argent secrets).",
+      "motivation": "To be clear of it."
+    },
+    {
+      "name": "Sheriff Burl Riggs, 50",
+      "role": "Sheriff of the county, in the GP&P's pay",
+      "description": "Heavy, slow, yellow-moustached, with a silver star and a GP&P pass in the same pocket. Watches the mob and does nothing. Crooked Sheriff stats.",
+      "motivation": "Brannock's money and a quiet life."
+    },
+    {
+      "name": "Mercy Pengelly and Pablo Quintana",
+      "role": "Companions",
+      "description": "See their sheets. Mercy at the head of the column on Thursday night; Pablo's mules and his secret (G1b).",
+      "motivation": "As on their sheets."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "Coburn pays the party $25 each from the DA&P for saving the trestle or stopping the mob, in Stannard's gold (which is ironic). Ong's company gives the party a gift of $100 in silver coin from its own pay when it is paid, and refusing it is an insult. Brannock's job offer stands: $400 each to change sides; taking it is a Reputation −2 and changes the campaign.",
+    "items": [
+      "The Vulcan Powder wrapper and the GP&P commissary coal-oil can (Clues D1, D2)",
+      "Lem Hadley's statement, or a captured GP&P gun guard's (Clue D3)",
+      "A copy of the GP&P commissary issue entry: Vulcan powder and coal oil to V. Tench (Clue D)",
+      "Ong Pak-wai's daybook entries: the ledge, the chits, the riders up Blind Tom Gulch (Clues E1, E2, G3)",
+      "Twenty-eight sticks of DA&P dynamite and caps, recovered from Blind Tom, if found (Clue G4)",
+      "The written agreement between Coburn and the strike committee, witnessed by the party",
+      "A print of the last-spike photograph, if the party is in it"
+    ]
+  },
+  "twists": [
+    "Brannock is guilty, and the party can prove it. That is the trap: everything about the GP&P's sabotage says the robbery is his too, and the letter in the Wichita's desk (Stannard's vote sold for GP&P stock) seems to clinch it. In fact the letter shows that Stannard hedges every bet, and it is the first hard evidence of his dishonesty. Let the players find it here or in sl-scenario-004 and draw the wrong conclusion first.",
+    "Stannard saves the strike. The kindest act of the week is paid for with the last of the Lodestar's cash by a man who needs the train to run so that it can be robbed. If the players later realise why he made the loan, it should land hard.",
+    "The DA&P dynamite was never used in the sabotage. The careful player who notices that the slide was Vulcan and the fire was coal oil, and asks where the forty sticks went, can find the Blind Tom cache and the greased switch two days early, and walk onto the train on Saturday knowing exactly where the car is meant to go. Reward that: it is the best play in the campaign.",
+    "The mob at the Cut is Tench's plan, not Brannock's, and when Brannock hears of it he is angry, not because it is wrong, but because a massacre of railroad workers would bring the federal government and the newspapers into his canyon. Stokes tells the party so, and it is useful in sl-scenario-004."
+  ],
+  "dmTips": [
+    "This scenario has more events than any other: the slide, the crowd, the strike, the Association, the fire, Burnt Mule, Blind Tom, the mob, the spike and the trestle at midnight. The party cannot be everywhere. Let them choose, and report what happened in the places they were not (the fire is seen from the Cut; the Association meeting is in Friday's Clarion).",
+    "If the strike is not settled and nobody pays the crews, Stannard pays them himself on Friday morning at double, because he needs the train to run. This keeps the campaign on track without the players feeling rescued, and it is one more clue that he wants that train moving very badly.",
+    "Play the dead as people. Leung Ah-sing was to be married in Toisan next year; Chan Yiu sent every dollar home and was teaching himself English from a Montgomery Ward catalogue. Ong's company holds a funeral on Thursday morning in the snow, with paper offerings burned and the bodies prepared to be sent home to their villages; the party should be invited if they dug on Wednesday. No invented rites: a funeral, grief, food for the dead, and the promise to send them home are enough, and are true.",
+    "The mob scene is the moral centre of the campaign. Make the mob frightening because it is made of ordinary men, not monsters. Make stopping it possible by several routes, and make the party's choice matter: if they stop it with evidence and courage, the camps stand together for the rest of the campaign; if they stop it with gunfire, people die and the camp splits; if they fail, Ong's company fights and leaves, and the Cut is empty on Saturday when the runaway car comes through.",
+    "Burnt Mule Flats is optional but rewarding. Brannock is a pleasure to play: give him the best lines in the scenario. He is not ashamed of anything.",
+    "Use the Blind Tom cache as a reward for curiosity, not a requirement. If nobody goes, the trestle charge on Friday night (G5) is the second chance, and the train itself is the third.",
+    "If Tobe Kersey is turned, the party has an inside man in the caboose, and sl-scenario-003 changes: the Haneys still come, Varley still stops the train, but Tobe can leave the pin in, or pull it and ride the brake into an ambush the party has set at Blind Tom. Becket will still try to kill him. Do not let a turned Tobe make Saturday easy; let it make it clever.",
+    "Use the storm. Thursday's snow on the summit makes the trail work miserable (frontier.json, weather) and the rebuild heroic."
+  ]
+}

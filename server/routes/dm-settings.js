@@ -65,11 +65,18 @@ module.exports = function (dataDir) {
     return null;
   }
 
+  // The GM model is admin-only (WO-0044): it is set through PUT /global and read from the global
+  // file alone. A player's file never carries one, and one it already carries is ignored.
+  function withoutModel(settings) {
+    const { model, ...rest } = settings || {};
+    return rest;
+  }
+
   function getEffectiveSettings(email) {
     const global = readGlobalSettings();
     const user = readUserSettings(email);
     if (user) {
-      return { ...withDerivedAutonomy({ ...global, ...user }), _isPersonalized: true };
+      return { ...withDerivedAutonomy({ ...global, ...withoutModel(user) }), _isPersonalized: true };
     }
     return { ...withDerivedAutonomy(global), _isPersonalized: false };
   }
@@ -87,7 +94,7 @@ module.exports = function (dataDir) {
       const email = req.player.email;
       const global = readGlobalSettings();
       const existing = readUserSettings(email) || {};
-      const updated = withDerivedAutonomy({ ...global, ...existing, ...req.body });
+      const updated = withoutModel(withDerivedAutonomy({ ...global, ...existing, ...req.body }));
       // Strip metadata before writing
       delete updated._isPersonalized;
       const filePath = path.join(userSettingsDir, emailToFilename(email));

@@ -22,9 +22,14 @@
     --color-shadow: rgba(0, 0, 0, 0.8);
     --color-text: #c8a882;
     --color-text-dim: #8a6a4a;
-    --font-display: 'Cinzel Decorative', serif;
-    --font-heading: 'Cinzel', serif;
-    --font-body: 'MedievalSharp', cursive;
+    /* Local-only font stacks: no webfonts, so this page makes zero third-party requests.
+       Every family named below is a system face and each stack ends in a generic, so the
+       page degrades to something honest on any platform rather than to an invisible or
+       silently-substituted face. Headings are uppercased and letter-spaced, which the
+       classical serifs (Palatino / Book Antiqua) carry well in place of Cinzel. */
+    --font-display: Luminari, 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    --font-heading: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, 'Times New Roman', serif;
+    --font-body: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, 'Times New Roman', serif;
 }
 
 html {
@@ -277,7 +282,7 @@ body {
 .log-entry {
     padding: 0.2rem 0;
     border-bottom: 1px solid rgba(255, 69, 0, 0.05);
-    font-family: 'MedievalSharp', cursive;
+    font-family: var(--font-body);
     animation: logFadeIn 0.3s ease-out;
 }
 

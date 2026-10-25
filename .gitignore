@@ -130,3 +130,21 @@ data/characters/*
 # next to its target and renames it. A crash mid-write leaves these behind,
 # including inside data/campaigns/ and data/defaults/.
 *.tmp-*
+
+# ---- Added 2026-09-07, when this folder became part of the CEO_Army repo (decision 0012) ----
+# Live play data never enters git. It is per-person, it accumulates real email addresses as soon
+# as anyone registers, and the chair directed a blank slate: "I want that data to be excluded from
+# git pushes." The directories themselves are kept alive by their noDelete.txt markers, and
+# server/player-data.js:42 recreates everything else on demand with mkdirSync(recursive).
+data/players/*
+!data/players/noDelete.txt
+data/sessions/*
+!data/sessions/noDelete.txt
+data/players.json
+
+# Working files that are not source. alice.pdf is 22 MB and referenced by no code, config or doc;
+# git would carry it in every clone forever. "3" is a truncated variant of CLAUDE.md, the classic
+# artefact of a shell redirect that landed on a filename instead of a file descriptor.
+alice.pdf
+3
+multiplayer-refactor-conversation.txt

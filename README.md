@@ -1,6 +1,6 @@
-# D&D 5th Edition Companion App
+# adventurefrog (claudeDM)
 
-A Node/Express + React (Vite) application for playing **Dungeons & Dragons 5e with an AI Dungeon Master**. The AI narrates the story, controls NPC companions, and adjudicates rules; the player manages their character(s) through the React UI. All game state lives as flat JSON files in `data/` — no database.
+A Node/Express + React (Vite) application for playing **tabletop RPGs with a Game Master** — Fantasy campaigns on the SRD 5.1 rules, Sci-Fi campaigns on an original gunplay ruleset, Noir detective campaigns on an original 1930s–50s ruleset, Westerns on an original frontier ruleset, and Horror on an original Dread ruleset (see `CLAUDE.md`). The AI narrates the story, controls NPC companions, and adjudicates rules; the player manages their character(s) through the React UI. All game state lives as flat JSON files in `data/` — no database.
 
 The DM runs on the [`@anthropic-ai/claude-agent-sdk`](https://www.npmjs.com/package/@anthropic-ai/claude-agent-sdk) using your Claude **subscription auth** (no `ANTHROPIC_API_KEY`), so DM turns bill against your Claude plan rather than API dollars.
 
@@ -24,6 +24,33 @@ npm test           # vitest
 ```
 
 Then open http://localhost:5173. Game state is written straight to JSON under `data/` — you can inspect or hand-edit those files and the UI will reflect the changes on its next fetch.
+
+### Playing with someone else on your network
+
+**Since 2026-09-23 both listeners bind to `127.0.0.1` (this machine) by default, so a second person
+on your LAN can no longer reach the app until you say they may.** One command turns it back on, and
+you need both halves of it — the bind *and* the origin list:
+
+```bash
+CLAUDEDM_HOST=0.0.0.0 CLAUDEDM_ALLOWED_ORIGINS=http://$(hostname -I | awk '{print $1}'):5173 npm run dev
+```
+
+Your friend then opens `http://<your-lan-ip>:5173`. Setting only `CLAUDEDM_HOST` gives them a page
+that loads and an app where nothing works (every API call is refused as a cross-origin request, with
+a `403` and a `[CORS] refused origin …` line in your server log naming the variable to fix).
+
+What each option costs, honestly:
+
+| How the friend connects | What you do | Cost |
+|---|---|---|
+| **Same LAN, both variables set** (above) | one command, each time you start | Anyone else on that network can also reach it, and identity here is an email address typed into a header with no password — so "anyone on the network" means "anyone on the network can play as you, or as the admin". Same exposure you had before this change; the difference is that now you choose it. |
+| **SSH tunnel from their machine** | they run `ssh -L 5173:localhost:5173 -L 3001:localhost:3001 you@your-host`, you keep the defaults | Most private option, nothing exposed to the LAN. Costs them an SSH account on your machine and a terminal command; the app then works unchanged because the tunnel makes it look like localhost, which is exactly what the default origin list allows. |
+| **A tunnel service** (ngrok, Cloudflare Tunnel) | expose `5173`, list the tunnel origin in `CLAUDEDM_ALLOWED_ORIGINS`, and get `3001` reachable on the same hostname | Works over the internet, no LAN needed, but it is the fiddliest: the client hard-builds its API URL as `http://<the page's hostname>:3001` (`client/src/api/client.js:4`, and `ws://…:3001/ws` in `client/src/hooks/useWebSocket.js:4`). A single **https** tunnel to 5173 therefore will not work — the page would be https and the API call plain http to port 3001, which the browser blocks as mixed content before CORS is even consulted. The SSH tunnel above avoids all of this. |
+| **Nothing** | keep the defaults | You play alone on this machine; your friend cannot connect at all. |
+
+Neither default protects you from a page running in *your own* browser reaching *your own*
+`localhost` — for that, the origin list is what refuses it. See `server/index.js` for exactly what
+each of the two defaults does and does not stop.
 
 ## Architecture
 

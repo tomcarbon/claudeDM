@@ -1,0 +1,135 @@
+{
+  "id": "7242e5e7-923f-4da0-a5d3-1973caf25ea9",
+  "name": "Gilbert Mabie",
+  "status": "alive",
+  "race": "Survivor",
+  "subrace": "",
+  "class": "Veteran",
+  "level": 3,
+  "background": "Lighthouse Keeper",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Perception",
+    "Mechanics",
+    "Intimidation",
+    "Athletics"
+  ],
+  "languages": [
+    "English",
+    "Dutch (river Dutch, enough to swear in)"
+  ],
+  "equipment": [
+    "Heavy coat: a long blue melton overcoat with a constable's badge pinned inside the lapel",
+    "Double-barrel shotgun (12-gauge), the town's, kept in the constable's office",
+    "Shotgun shells (10)",
+    "Service revolver (.38), his own",
+    ".38 rounds (12)",
+    "Walking stick: a locust-wood truncheon, which he calls his walking stick and nobody argues",
+    "A bull's-eye lantern with a brass shutter, filled with good kerosene, from his lighthouse days",
+    "A pair of iron handcuffs and a notebook",
+    "His old keeper's log for the Haverkill Flats light, 1870 to 1885, which he still reads in bed",
+    "Wallet containing $19"
+  ],
+  "weapons": [
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 3,
+      "damage": "2d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Service revolver",
+      "attackBonus": 3,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Walking stick",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Held the Line (Veteran: advantage on fear checks while a conscious ally is within 10 ft; once per short rest, act normally instead of Panicking)",
+    "Drill: Cover Man (Veteran: when a creature you can see attacks an ally within 5 ft of you, use your reaction to impose disadvantage on the attack roll; changes no number on the sheet)",
+    "Second Wind (Veteran, 2nd level: once per short rest, as a bonus action, regain 1d10 + your Veteran level hit points, and lose 1 Dread if you are at Dread 3 or higher)",
+    "Service: Corpsman (Veteran, 3rd level: stabilize a dying creature as a bonus action, and it regains 1d4 hit points)",
+    "Been Here Before (Survivor origin: advantage on initiative; when a fight or fright begins you know the nearest way out; once per long rest reroll a failed saving throw, including a fear check; the first time each scenario you meet a horror like the one you survived, the GM tells you one way it is the same)",
+    "Keeper's Log (Lighthouse Keeper background: he reads the weather and the river a day ahead without a check, knows lamps, lenses, foghorns and signals, and keepers, pilots and river men treat him as one of their own; advantage on fear checks made while alone, the first time each night)"
+  ],
+  "traits": [
+    "Held the Line",
+    "Drill: Cover Man",
+    "Second Wind",
+    "Service: Corpsman",
+    "Keeper's Log"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I take my time and I take notes. I do not raise my voice, because I have never needed to. I trust lamps more than people.",
+    "ideals": "The law is for everybody or it is for nobody. A light kept is a promise kept.",
+    "bonds": "Haverkill, which pays me $300 a year to keep the peace. The Flats light, which I kept fifteen years until the government put in a clockwork one. My wife, Lena, and her bad chest.",
+    "flaws": "I am out of my depth with rich people and their houses, and I know it, and it makes me slow. I fall asleep in chairs. I have never arrested anyone above a drunk sloopman."
+  },
+  "appearance": "A big, slow, comfortable man of forty-eight with a weathered red face, a heavy brown moustache, pale blue eyes creased from staring at the river, a blue overcoat and a bowler hat. Carries a lantern even by day out of habit.",
+  "backstory": "Gilbert Mabie was born in Haverkill in 1845, went to the war at seventeen with a New York regiment and came back with a ball in his shoulder and no wish to talk about it. For fifteen years he kept the Haverkill Flats light in the middle of the river, through ice jams, floods and the winter of 1875, when the ice took the keeper's house off its pier and he lived on the lantern gallery for nine days with a sack of potatoes. When the light was automated in 1885 he became Haverkill's constable. From the Flats light he could see the lamp in Greywick's north window every night, and he always noted it in his log, out of habit, for fifteen years. The only nights it was dark were in October 1873.",
+  "dmNotes": {
+    "roleplaying": "Mabie is the law, and the party's muscle when they need it, and a man who understands lamps. He believes evidence, not ghosts, and he will hold Leonora for Judge Hallock in Poughkeepsie only if the party brings him witnesses (Fanny, Tuttle, Mrs. Quell, Linus, Dr. Wyle). He is in Haverkill until Friday afternoon, when the bridge goes; he comes up the bluff path at dawn on Saturday (gw-scenario-003) and stays through the seventh night, and falls asleep in his chair at half past one (gw-scenario-004). His keeper's log is a fun clue: the north lamp dark only in October 1873, the week Abram died. He lends his bull's-eye lantern for the ladder in gw-scenario-003.",
+    "voice": "Slow, deep, unhurried, Hudson Valley; long pauses; 'Well, now.' Writes in his notebook while you talk and reads it back to you.",
+    "motivations": "Primary: keep everybody alive and do it by the law. Secondary: not be made a fool of by rich people. Tertiary: get home to Lena.",
+    "secrets": "He has no secret worth the name. He once let a sloopman go who should have hanged, and has never regretted it. He knows nobody in Haverkill has a lock-up but a room with a door, and once he understands the rules he will not put Leonora behind one.",
+    "attitude": "Toward the party: polite, sceptical, steady; he warms to anyone who brings him facts. Toward Leonora: deference, then cold correctness. Toward Conrad: dislike. Toward the Juffrouw: he will not say her name, but he will stand at the foot of the stair all night if asked."
+  }
+}

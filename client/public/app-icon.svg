@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- A twenty-sided die: the one thing every tabletop game here shares. -->
+  <polygon points="32,3 57,17.5 57,46.5 32,61 7,46.5 7,17.5" fill="#2a5a8c" stroke="#1a3a5c" stroke-width="2" stroke-linejoin="round"/>
+  <polygon points="32,14 49,42 15,42" fill="#3a7abd" stroke="#c9a84c" stroke-width="1.5" stroke-linejoin="round"/>
+  <g stroke="#c9a84c" stroke-width="1.2" stroke-linejoin="round" fill="none">
+    <polyline points="32,3 32,14"/>
+    <polyline points="7,17.5 32,14 57,17.5"/>
+    <polyline points="7,17.5 15,42 7,46.5"/>
+    <polyline points="57,17.5 49,42 57,46.5"/>
+    <polyline points="15,42 32,61 49,42"/>
+  </g>
+  <text x="32" y="36.5" text-anchor="middle" font-size="12" font-weight="bold" fill="#f3e3b0" font-family="sans-serif">20</text>
+</svg>

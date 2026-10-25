@@ -1,0 +1,433 @@
+{
+  "_meta": {
+    "category": "scifi",
+    "source": "Written for claudeDM (Sci-Fi category). Mostly original; a few general-mechanics sentences (e.g. opportunity attacks, passive checks, stat-block phrasing) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Sci-Fi backgrounds. Each carries an 'eras' tag. Money: 'equipment' holds the money line in the dollar format ('Wallet containing $40') for backgrounds usable in 1980s/modern campaigns; 'money' gives both currency forms so a generator can swap in 'Credit chit: N cr' for a credits campaign. Future-only backgrounds carry only the credits line."
+  },
+  "backgrounds": [
+    {
+      "name": "Veteran",
+      "skill_proficiencies": [
+        "Athletics",
+        "Survival"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (land)"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Old service uniform",
+        "Dog tags",
+        "Combat knife",
+        "Field dressing (3)",
+        "Duffel bag",
+        "Street clothes",
+        "Wallet containing $40"
+      ],
+      "money": {
+        "dollars": "Wallet containing $40",
+        "credits": "Credit chit: 120 cr"
+      },
+      "feature": "Old Unit",
+      "feature_description": "You served, and that still counts for something. Other veterans and active service members will usually share a drink, a meal, a rumor or a spare magazine with you, and you can locate a former comrade in most cities with a few phone calls or messages. You can read military insignia, procedures and jargon at a glance.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Police Officer",
+      "skill_proficiencies": [
+        "Investigation",
+        "Intimidation"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (land)",
+        "Handcuffs and restraints"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Badge (current or revoked)",
+        "Notebook and pen",
+        "Flashlight",
+        "Pair of handcuffs",
+        "Street clothes",
+        "Wallet containing $60"
+      ],
+      "money": {
+        "dollars": "Wallet containing $60",
+        "credits": "Credit chit: 150 cr"
+      },
+      "feature": "Cop Contacts",
+      "feature_description": "You know how a police department works from the inside. You can usually get a look at a non-sensitive report, learn who caught a case or find out whether someone has a record through an old partner or a friendly desk sergeant. Other officers tend to give you the benefit of the doubt, at least at first.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Criminal",
+      "skill_proficiencies": [
+        "Deception",
+        "Stealth"
+      ],
+      "tool_proficiencies": [
+        "Lockpicks",
+        "Gaming set (cards or dice)"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Crowbar",
+        "Dark street clothes with a hood",
+        "Burner phone or pager",
+        "Lockpicks",
+        "Wallet containing $75"
+      ],
+      "money": {
+        "dollars": "Wallet containing $75",
+        "credits": "Credit chit: 150 cr"
+      },
+      "feature": "Criminal Contact",
+      "feature_description": "You have a reliable link to the underworld: a fence, a fixer or a cousin in a crew. Through them you can sell stolen goods, buy illegal guns and ammunition, and pass messages to criminals who would never talk to a stranger.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Academic",
+      "skill_proficiencies": [
+        "Science",
+        "Investigation"
+      ],
+      "tool_proficiencies": [
+        "Laboratory kit"
+      ],
+      "languages": 2,
+      "equipment": [
+        "University ID card",
+        "Briefcase with notes and journals",
+        "Reference books or data drive",
+        "Reading glasses",
+        "Smart clothes",
+        "Wallet containing $50"
+      ],
+      "money": {
+        "dollars": "Wallet containing $50",
+        "credits": "Credit chit: 150 cr"
+      },
+      "feature": "Faculty Access",
+      "feature_description": "You can get into university libraries, archives, laboratories and research databases, and other scholars will take your calls. When you don't know something, you usually know which colleague does, and can reach them within a day.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Journalist",
+      "skill_proficiencies": [
+        "Investigation",
+        "Persuasion"
+      ],
+      "tool_proficiencies": [
+        "Camera kit"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Press pass",
+        "Camera",
+        "Notebook and pens",
+        "Voice recorder",
+        "Street clothes",
+        "Wallet containing $50"
+      ],
+      "money": {
+        "dollars": "Wallet containing $50",
+        "credits": "Credit chit: 120 cr"
+      },
+      "feature": "Press Credentials",
+      "feature_description": "Your press pass and reputation get you into crime scenes behind the tape, press conferences, and the offices of people who want good coverage. Sources trust you to protect their names, and you know how to run a story that makes the powerful nervous.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Corporate",
+      "skill_proficiencies": [
+        "Persuasion",
+        "Insight"
+      ],
+      "tool_proficiencies": [
+        "Forgery kit"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Business suit",
+        "Company ID badge",
+        "Expensive watch",
+        "Laptop, PDA or data slate",
+        "Business cards",
+        "Wallet containing $200"
+      ],
+      "money": {
+        "dollars": "Wallet containing $200",
+        "credits": "Credit chit: 500 cr"
+      },
+      "feature": "Corporate Ladder",
+      "feature_description": "You speak the language of boardrooms and budgets. You can get meetings with mid-level executives, understand how a company is structured and where its money goes, and bluff your way through a corporate lobby by looking like you belong.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Blue-Collar Worker",
+      "skill_proficiencies": [
+        "Mechanics",
+        "Athletics"
+      ],
+      "tool_proficiencies": [
+        "Mechanic's tools",
+        "Vehicles (land)"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Toolbox",
+        "Work boots",
+        "Hard hat or cap",
+        "Work coveralls",
+        "Thermos",
+        "Street clothes",
+        "Wallet containing $40"
+      ],
+      "money": {
+        "dollars": "Wallet containing $40",
+        "credits": "Credit chit: 100 cr"
+      },
+      "feature": "Union Card",
+      "feature_description": "Working people look out for one of their own. Dockworkers, truckers, janitors, line workers and maintenance crews will answer your questions, let you through service entrances and tell you which parts of the building the bosses don't want anyone to see.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Medical Professional",
+      "skill_proficiencies": [
+        "Medicine",
+        "Insight"
+      ],
+      "tool_proficiencies": [
+        "Medkit",
+        "Pharmacology kit"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Medkit",
+        "Stethoscope",
+        "Scrubs or lab coat",
+        "Hospital ID",
+        "Penlight",
+        "Street clothes",
+        "Wallet containing $80"
+      ],
+      "money": {
+        "dollars": "Wallet containing $80",
+        "credits": "Credit chit: 200 cr"
+      },
+      "feature": "Hospital Privileges",
+      "feature_description": "You can get into hospitals and clinics without being questioned, read any medical chart, and obtain prescription drugs and medical supplies through normal channels. Doctors and nurses share information with you as a colleague.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Street Kid",
+      "skill_proficiencies": [
+        "Streetwise",
+        "Sleight of Hand"
+      ],
+      "tool_proficiencies": [
+        "Lockpicks"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Switchblade",
+        "Map of the city drawn from memory",
+        "Hoodie",
+        "Battered sneakers",
+        "Lucky token",
+        "Wallet containing $10"
+      ],
+      "money": {
+        "dollars": "Wallet containing $10",
+        "credits": "Credit chit: 30 cr"
+      },
+      "feature": "City Secrets",
+      "feature_description": "You know the alleys, rooftops, storm drains and shortcuts of your city. Out of combat you and your companions can travel between any two places in a city twice as fast as normal, and you can always find somewhere to sleep that nobody will look for you.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Athlete",
+      "skill_proficiencies": [
+        "Athletics",
+        "Acrobatics"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (land)"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Sports bag",
+        "Running shoes",
+        "Team jacket",
+        "Energy bars (5)",
+        "Trophy or medal",
+        "Wallet containing $60"
+      ],
+      "money": {
+        "dollars": "Wallet containing $60",
+        "credits": "Credit chit: 150 cr"
+      },
+      "feature": "Local Celebrity",
+      "feature_description": "People recognize you. Fans will buy you a drink, let you jump a queue or do you a small favor for an autograph or a selfie, and you can get meetings with sponsors, coaches and the kind of rich people who like to be seen with winners.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Intelligence Agent",
+      "skill_proficiencies": [
+        "Deception",
+        "Insight"
+      ],
+      "tool_proficiencies": [
+        "Disguise kit",
+        "Forgery kit"
+      ],
+      "languages": 2,
+      "equipment": [
+        "Two sets of identity papers",
+        "Concealable shoulder holster",
+        "Dead-drop kit (chalk, magnetic box)",
+        "Miniature camera",
+        "Nondescript clothes",
+        "Wallet containing $100"
+      ],
+      "money": {
+        "dollars": "Wallet containing $100",
+        "credits": "Credit chit: 300 cr"
+      },
+      "feature": "Tradecraft",
+      "feature_description": "You know how spies work: dead drops, brush passes, safe houses and counter-surveillance. You can spot someone tailing you or a room that has been searched, and you know how to reach your old agency or a rival one, though what they want in return is another matter.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Drifter",
+      "skill_proficiencies": [
+        "Survival",
+        "Streetwise"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (land)"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Backpack",
+        "Bedroll",
+        "Canteen",
+        "Pocketknife",
+        "Road map with routes marked",
+        "Worn clothes",
+        "Wallet containing $15"
+      ],
+      "money": {
+        "dollars": "Wallet containing $15",
+        "credits": "Credit chit: 40 cr"
+      },
+      "feature": "Road Wisdom",
+      "feature_description": "You have lived out of a backpack for years. You can always find food and a safe place to sleep for yourself and up to five companions in any town or along any road, and truck stops, shelters and roadside bars are full of people who remember you kindly.",
+      "eras": [
+        "1980s",
+        "modern",
+        "future"
+      ]
+    },
+    {
+      "name": "Spacer Crew",
+      "skill_proficiencies": [
+        "Piloting",
+        "Mechanics"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (space)",
+        "Mechanic's tools"
+      ],
+      "languages": 1,
+      "equipment": [
+        "Vacuum-rated coverall",
+        "Mag boots",
+        "Tool belt",
+        "Ship's patch from your last berth",
+        "Emergency oxygen mask",
+        "Credit chit: 200 cr"
+      ],
+      "money": {
+        "credits": "Credit chit: 200 cr"
+      },
+      "feature": "Berth Rights",
+      "feature_description": "You can work your passage on most commercial vessels and stations, and dockhands, pilots and ship's crew treat you as one of their own. You know which stations have honest harbormasters and which captains pay on time.",
+      "eras": [
+        "future"
+      ]
+    },
+    {
+      "name": "Colonist",
+      "skill_proficiencies": [
+        "Survival",
+        "Science"
+      ],
+      "tool_proficiencies": [
+        "Vehicles (land)",
+        "Mechanic's tools"
+      ],
+      "languages": 0,
+      "equipment": [
+        "Colony ID bracelet",
+        "Rebreather mask",
+        "Multitool",
+        "Seed packet or keepsake from home",
+        "Durable work clothes",
+        "Credit chit: 150 cr"
+      ],
+      "money": {
+        "credits": "Credit chit: 150 cr"
+      },
+      "feature": "Frontier Grit",
+      "feature_description": "You grew up on a raw world where everyone did their share. Colonists everywhere will offer you food, shelter and honest help, and you know how to keep pressure domes sealed, water reclaimers running and crops alive in hostile soil.",
+      "eras": [
+        "future"
+      ]
+    }
+  ]
+}

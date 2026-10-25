@@ -1,0 +1,122 @@
+{
+  "id": "c9f01f86-6e09-4a88-a1b9-5de662fb9c37",
+  "name": "Dr. Nathan Thurlow",
+  "status": "alive",
+  "race": "Old Family",
+  "subrace": "",
+  "class": "Physician",
+  "level": 3,
+  "background": "Farmhand",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Constitution"
+  ],
+  "skills": [
+    "Medicine",
+    "Investigation",
+    "Athletics",
+    "Nature"
+  ],
+  "languages": [
+    "English",
+    "Latin (medical)"
+  ],
+  "equipment": [
+    "Heavy coat: a red-and-black wool mackinaw, a country doctor's coat for winter house calls in a Ford that will not start",
+    "A doctor's bag: stethoscope, thermometer, bandages, sutures, carbolic, ether, a bottle of aspirin tablets, digitalis, morphine sulphate in quarter-grain tablets and a hypodermic, smelling salts",
+    "Scalpel, in a case in the doctor's bag",
+    "Pocket revolver (his father's old .32, carried for the first time in his life), 5 loaded",
+    ".32 rounds (10)",
+    "Esther's last letter, dated 13 September 1924, from Carrow: 'I have found something in Aunt Lizzie's things about Grandfather Tibbetts and the old church. I am going to ask old Mrs. Sprague. Don't laugh at me, Nate.'",
+    "A photograph of Esther in her schoolteacher's shirtwaist, laughing, on the Boston Common",
+    "A letter from Merrymeeting Life & Casualty informing him that the company 'regrets it cannot settle a claim in the absence of a body or a coroner's finding'",
+    "A flashlight with spare batteries, rubber boots, and a thermos of coffee",
+    "Wallet containing $47"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "The Family Name (Old Family origin: received and told things among the old families of a region, with advantage on Persuasion checks with them; once per scenario an introduction or meeting with someone of standing without a check; knows the reputation and scandals of prominent local families; and the old debts and grudges come with the name). His mother was a Tibbetts of Carrow Island: on Carrow the name opens kitchens and the family pew, and, on the big tides, it is a danger he does not yet know about",
+    "Steady Hands (Physician, using Intelligence: as an action with his doctor's bag, a creature he touches spends up to 2 Hit Dice as on a short rest and regains 3 extra hit points once; stabilises the dying and ends Bleeding; 4 uses per long rest. Treat Shock: during a short rest, each creature he tends loses 1 extra Dread)",
+    "Diagnosis (Physician: as a bonus action he learns a creature's current and maximum hit points, its conditions, and roughly its Dread; examining a body for 10 minutes he learns the cause and time of death without a check, and whether anything about it is wrong in a way medicine can't explain)",
+    "Clinical Detachment (Physician, 2nd level: advantage on fear checks against wounds, bodies, blood and the ordinary dead, though not a dead thing that moves or the truth of a horror; he can examine anything a fear check would cost Dread to see, with no fear check, if he does nothing else for that minute)",
+    "Practice: Coroner (Physician, 3rd level: he can request any death record, autopsy report or inquest file in the county, and examining a creature's victim gives one clue toward one of its rules)",
+    "Hired On (Farmhand background: raised on a farm at Hampden; at any farm he gets a meal and a place in the barn for a day's work, farm and fishing people talk to him as an equal, and he notices without a check when a working place's rhythm is wrong)"
+  ],
+  "traits": [
+    "Steady Hands",
+    "Diagnosis",
+    "Clinical Detachment",
+    "Coroner",
+    "Hired On"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am gentle with patients and short with everyone else. I fix things: fences, broken arms, other people's problems. When I am angry I become very quiet and very polite, and people who know me leave the room.",
+    "ideals": "Every death has a cause. Find the cause and you can prevent the next one. That is all medicine is, and I have never seen a reason to believe the world is any different.",
+    "bonds": "My sister Esther, five years younger, a schoolteacher in Boston, the clever one, who walked into the sea on 15 September and whose body nobody has found. Our mother Lizzie, born a Tibbetts on Carrow, who left the island at nineteen and never once went back, and would not say why.",
+    "flaws": "I am furious with the island and I do not know it yet. Somebody there let my sister walk into the water, and somebody knows why, and I will not leave until I am told. I have never been afraid of anything I could not see, and that is about to be a problem."
+  },
+  "appearance": "A broad, solid man of thirty-six with big careful hands, close-cut brown hair already grey at the temples, a square clean-shaven face that does not show much, and tired brown eyes behind steel-rimmed spectacles. Mackinaw, a country suit, rubber boots, a black doctor's bag that has been to every farm between Hampden and Bangor.",
+  "backstory": "Nathan Thurlow's father farmed in Hampden, on the Penobscot below Bangor, and his mother Lizzie, who was born Elizabeth Tibbetts on Carrow Island in 1865, left the island at nineteen to work in a Bangor shoe factory, married a farmer and never went home. She would not talk about Carrow except to say that it was cold, and when she died in 1919 she left instructions that she was not to be buried there. Nathan went to Bowdoin and to the medical school at Brunswick on a scholarship, and has been a country doctor in Bangor and the farms around it for eleven years. His sister Esther became a schoolteacher in Boston. In September 1924 their mother's sister, Aunt Hitty (Mehitable) Tibbetts, died on Carrow at eighty, and Esther, who had always been curious about the island, went out for the funeral and stayed a week to settle Aunt Hitty's things. On 13 September she wrote to Nathan that she had found something about their grandfather and the old church. On the night of 15 September, at low water, she walked out of Aunt Hitty's house in her stocking feet, down to Church Point, and into the sea, in front of two fishermen who could not reach her in time. Merrymeeting Life will not pay on her policy without a body, which Nathan does not care about, and Carrow's First Selectman wrote him a short, kind, closed letter that told him nothing, which he cares about very much. He has come to bring his sister home, or to find out why he cannot. He does not know that his mother's blood is the bell's business."
+}

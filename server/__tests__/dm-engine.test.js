@@ -299,16 +299,25 @@ describe('buildSystemPrompt', () => {
     expect(prompt).toMatch(/AwardXP.*ONLY for rare individual corrections/s);
   });
 
-  it('stays within the prompt token budget (~2.5k tokens for the stable prompt)', () => {
+  it('stays within the prompt token budget (~2.9k tokens for the stable prompt)', () => {
     // Regression guard against prompt re-bloat: the solo stable prompt was ~18k chars
-    // (~4.5k tokens) before the restructure; keep it under ~11k chars (~2.7k tokens).
+    // (~4.5k tokens) before the restructure, and 10,997 chars before WO-0015.4.
+    //
+    // Re-baselined once, deliberately, by WO-0015.4 (ADR 0005 §7.5): the Stat Integrity
+    // section was rewritten to say that hit points, death and resources are computed by
+    // tools and to state the death rules the code now enforces, and two tools were added to
+    // the tool list. That is +707 chars of mechanism, not of waffle, and it is the only
+    // channel through which a DM mid-session learns that editing hit points is refused.
+    // The guard is kept — 11,800 is still under two thirds of what it was written against,
+    // and the margin above the current length (~11.7k) is deliberately thin so the next
+    // addition has to argue for itself here too.
     const prompt = buildStableSystemPrompt(tmpDir, EMAIL, CAMPAIGN, undefined, undefined, false);
-    expect(prompt.length).toBeLessThan(11000);
+    expect(prompt.length).toBeLessThan(11800);
   });
 
   it('handles missing character gracefully', () => {
     const prompt = buildSystemPrompt(tmpDir, 'nonexistent', null, EMAIL, CAMPAIGN);
-    expect(prompt).toContain('Dungeon Master');
+    expect(prompt).toContain('Game Master');
     expect(prompt).not.toContain('Bramble Thornwick');
   });
 

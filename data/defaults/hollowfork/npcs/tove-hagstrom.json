@@ -1,0 +1,131 @@
+{
+  "id": "e2bc1069-5f75-424f-a6b1-06a264203ba6",
+  "name": "Tove Hagstrom",
+  "status": "alive",
+  "race": "Faithful",
+  "subrace": "",
+  "class": "Chaplain",
+  "level": 3,
+  "background": "Schoolteacher",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Persuasion",
+    "Research",
+    "Insight",
+    "Medicine"
+  ],
+  "languages": [
+    "English",
+    "German (her grandparents' hymnbook and her seminary Greek's poor cousin)"
+  ],
+  "equipment": [
+    "Heavy coat: her father's sheepskin-lined barn coat from North Dakota, two sizes too big",
+    "Double-barrel shotgun: her father's, for pheasants and coyotes, in the parsonage closet behind the Christmas decorations",
+    "Shotgun shells (8)",
+    "Fire iron, from the parsonage fireplace, which she has started carrying on night walks without quite deciding to",
+    "A pocket Bible with her ordination date in the front, and a stole folded in her bag",
+    "A few good books: a commentary, a book of Scandinavian hymns, a paperback mystery",
+    "Chalk, and a box of Sunday-school crayons",
+    "A good dress and sensible shoes",
+    "A letter from the church's regional office appointing her pastor of the Hollow Fork Community Church, June 1974",
+    "The parsonage keys, and the church keys, and a key to the bell tower",
+    "Car: a 1964 Rambler, blue, that the congregation gave her",
+    "Wallet containing $14"
+  ],
+  "weapons": [
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 2,
+      "damage": "2d8",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Fire iron",
+      "attackBonus": 1,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Something to Hold On To (Faithful origin: once per long rest, when she would gain Dread, she gains 1 fewer; advantage on saving throws against being charmed or compelled by a creature; there is no miracle in it)",
+    "Steady Now (Chaplain: as an action she speaks to one ally within 30 ft who can hear her, in whatever words fit them both, a prayer, a hand on the shoulder, 'Look at me. Breathe'; the ally loses 1 Dread and the frightened condition ends; 4 uses (WIS modifier + 1) per long rest; it works because the ally trusts her, and does nothing to a creature)",
+    "Graveside (Chaplain: she can stabilize a dying creature as a bonus action with a Medicine check, DC 10; advantage on Occult checks for rites of burial, blessing and laying to rest when a creature's rules call for one, and on Persuasion checks with the bereaved)",
+    "Hold On to Me (Chaplain, 2nd level: when an ally within 30 ft who can hear her would reach Dread 6, she can use her reaction to call them back; they stay at Dread 5; once per short rest)",
+    "Calling: Parish (Chaplain, 3rd level: in any community she serves for a week, people bring her their troubles; once per scenario a parishioner tells her one true thing they have kept from everyone else)",
+    "Every Family's Teacher (Schoolteacher background: in any small town the school board, the minister and half the parents will talk to her, and the town assumes she is respectable; she knows how to find a town's records, and grown people who were once someone's pupils still answer a teacher's questions)"
+  ],
+  "traits": [
+    "Steady Now (4/long rest)",
+    "Graveside",
+    "Hold On to Me (1/short rest)",
+    "Calling: Parish",
+    "Every Family's Teacher"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I laugh easily and at myself first. I visit everyone, including the people who do not want to be visited. I am a good listener and a terrible cook, which in a farm parish is a kind of ministry.",
+    "ideals": "A church is the people, not the building. You serve them even when they are wrong, and you tell them when they are wrong, and you stay.",
+    "bonds": "My first parish, which has been kinder to me than I have ever known people to be. My father, a wheat farmer near Devils Lake, who taught me to shoot and to pray, in that order. Ingeborg Vaage, who sits in the back pew and never sings.",
+    "flaws": "I came here lonely and the town filled it, and I have been eating at their tables since June. I want so badly to believe the best of them that I have not let myself see what I have seen."
+  },
+  "appearance": "Thirty-one, tall and big-boned, with a wide freckled face, fair hair in a sensible bob, a clerical collar on Sundays and her father's barn coat the rest of the week, and a laugh you can hear across a church basement.",
+  "backstory": "Tove Hagstrom grew up on a wheat farm near Devils Lake, North Dakota, taught third grade for four years in Minot, went to seminary in St. Paul when her church began ordaining women, and was among the first women ordained in her region in 1973. The Hollow Fork Community Church, a town congregation with no pastor for two years, called her in June 1974, and she has been astonished by its welcome: casseroles on the step, a car, the whole town at her first sermon, invitations to every table. She has noticed things: that the church's own records begin in 1906 and never mention the old Union Church at the head of the Hollow; that Ingeborg Vaage never sings; that the congregation will not talk about the guests who come for the harvest; that she is never allowed to pay for a meal. She has been eating the town's bread for four months. The board has discussed her more than once.",
+  "dmNotes": {
+    "roleplaying": "Tove is the party's first ally inside Hollow Fork and its moral centre: a pastor who belongs to no part of the bargain and has been loved by the town that keeps it. She meets the party at the Fall Supper in hs-scenario-001 and joins them once she sees the cold on Main Street or hears what they have found. She is the party's Steady Now, its graveside voice for laying Emmett Tilley's Shade in the Old Union Church, and its best reader-helper at the Cold Hole in hs-scenario-004, where she stands beside whichever speaker is most likely to break. She is also a guest by Rule One: if the party is careful and no player character has eaten the town's food, she is the pencilled alternate. Her church is not the evil here and never was; play her faith as steadiness and courage, never as a weapon against the Landlord, which has no church and does not care about hers.",
+    "voice": "A flat, cheerful North Dakota voice, every vowel wide open, jokes at her own expense, 'Oh, for pity's sake' when she is shocked, and a quiet, level, steady tone that comes out when someone is frightened: 'Look at me. Breathe. I'm right here.'",
+    "motivations": "Primary: serve her parish, which now means telling it the truth and staying with it while it hears it. Secondary: keep the strangers alive, Dawn first. Tertiary: understand how good people do this, so she never does.",
+    "secrets": "She has seen the frost on the inside of the parsonage windows every night since September and told herself it was the old glass. She found, in the Community Church's 1906 cornerstone box when the furnace was replaced in July, a note in a 1906 hand: 'This church was built so that we would not have to go to the other one. God forgive the founders.' She has not shown it to anyone. She will show it to the party when she trusts them.",
+    "attitude": "Toward the party: warm at once, trusting by the end of hs-scenario-001 if they are honest with her. Toward the town: love, and then grief, and then a hard, stubborn loyalty that means staying to the end. Toward Harald Haugen: pity. Toward Marit Lunde: she prays for her and does not like her. Toward Ingeborg: she would do anything for her."
+  }
+}

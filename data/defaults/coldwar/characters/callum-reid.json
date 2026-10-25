@@ -1,0 +1,135 @@
+{
+  "id": "0e03df7c-ff2a-4abd-8f95-55671fc9d3e8",
+  "name": "Callum Reid",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Soldier",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 9,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "Stealth"
+  ],
+  "languages": [
+    "English",
+    "Arabic",
+    "German"
+  ],
+  "equipment": [
+    "Aramid vest, concealable, under a Barbour jacket",
+    "9mm pistol (Browning Hi-Power), 15 rounds loaded",
+    "SMG (Uzi, folding stock), 30 rounds loaded, carried in a tennis bag under two rackets",
+    "9mm rounds (60)",
+    "Spare SMG magazines, loaded (included in the 9mm count)",
+    "Fighting knife (Fairbairn-Sykes) in a forearm sheath",
+    "Flashbang (1), Royal Ordnance stun grenade, CON save DC 13 or blinded and deafened until end of next turn",
+    "Field dressing and a tourniquet, always on the left side",
+    "Small Maglite torch",
+    "Cover passport: Colin Reed, British, security consultant for an oil-services firm (good legend: genuinely did the job in Abu Dhabi for a year)",
+    "A paperback Western, always the same one, Shane",
+    "Wallet containing $140"
+  ],
+  "weapons": [
+    {
+      "name": "9mm pistol (Browning Hi-Power)",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "SMG (Uzi, folding stock), single shot",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "SMG (Uzi), burst (3 rds, -2 to hit, extra die, no DEX)",
+      "attackBonus": 3,
+      "damage": "2d8",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Fighting knife (Fairbairn-Sykes)",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Aramid vest, concealable (under clothing)",
+    "type": "light"
+  },
+  "features": [
+    "Versatility (Human origin: +1 to all ability scores)",
+    "Combat Training: Close Quarters (no disadvantage firing within 5 ft of a hostile; +1 AC when not wearing heavy armor, included in his AC 16)",
+    "Adrenaline (bonus action, regain 1d10+3 hit points, once per short rest)",
+    "Tactical Surge (one extra action on his turn, once per short rest)",
+    "Full Auto (Uzi on auto: 10 rounds, 10-ft cube within normal range, DEX save DC 13 or 1d8 piercing, half on success; suppressive fire uses the same DC as a WIS save)",
+    "Regimental Network (Veteran background: ex-servicemen in any NATO city will find him a bed, a car or a quiet word, and serving soldiers recognise one of their own)"
+  ],
+  "traits": [
+    "Close Quarters",
+    "Adrenaline",
+    "Tactical Surge"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I sit with my back to the wall, I eat fast, and I say very little until it matters, and then I say it once. I am fond of the others and show it by checking their kit.",
+    "ideals": "The best firefight is the one you walked away from before it started. If I have drawn, the operation has already failed and I am just cleaning up.",
+    "bonds": "Corporal Davey Lomax, who died beside me in the Dhofar in 1975 because an officer wanted a contact report more than he wanted a live patrol. I will not let a desk get any of this team killed.",
+    "flaws": "I do not trust anyone who has not been shot at, which in this business is most of the people giving orders, and I let them see it."
+  },
+  "appearance": "A compact, sandy-haired Scot of thirty-seven with a weathered face, a broken nose set slightly left, and the stillness of a man who has done a great deal of waiting in hides. He dresses like a country solicitor on holiday: Barbour, cords, good boots. The tennis bag goes everywhere. He does not play tennis.",
+  "backstory": "Callum Reid did ten years in a regiment he will not name, including two tours in Oman and one in Northern Ireland he will not discuss, and left as a staff sergeant with a mention in despatches and a hearing loss in his left ear. He did close protection for an oil company in the Gulf, got bored, and was recommended to the Annex by a man from his old squadron who said only that Reid was the steadiest pair of hands he had ever seen under fire and also the most reluctant to use them. That is exactly why the Annex wanted him. His job on the team is to be the reason nobody else has to pull a gun, and to be the one who does when it cannot be helped. He thinks Martin Vell is a drunk and a decent man in roughly equal parts, and he has never liked the way the station's comms officer always asks, very casually, what time a team expects to be back."
+}

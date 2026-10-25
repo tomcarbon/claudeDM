@@ -1,0 +1,125 @@
+{
+  "id": "6b13a002-99ea-4ca7-ad20-5f45786728b1",
+  "name": "Dr. Anton Weisz",
+  "status": "alive",
+  "race": "New Arrival",
+  "subrace": "",
+  "class": "Doctor",
+  "level": 3,
+  "background": "Night Nurse",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 17,
+    "current": 17
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Perception",
+    "Forensics",
+    "Insight"
+  ],
+  "languages": [
+    "English",
+    "German",
+    "Yiddish"
+  ],
+  "equipment": [
+    "Heavy overcoat, a Viennese loden, patched at the elbows",
+    "Scalpel, in a leather sleeve in his breast pocket",
+    ".32 pocket pistol (a Steyr his brother-in-law pressed on him at the station in Vienna in 1936), 8 rounds loaded",
+    ".32 rounds (8)",
+    "Doctor's bag: sutures, haemostats, morphine, iodine, gauze, splints, a stethoscope (6 uses of Patch Job)",
+    "Nurse's uniform and white coat from the French Hospital, where he works nights as an orderly and nurse",
+    "Wristwatch with a second hand",
+    "First-aid kit",
+    "A bottle of aspirin, half empty",
+    "His Vienna medical diploma, rolled in a tube, and a California State Board examination study guide, heavily annotated",
+    "A letter from his sister Lotte in Vienna, dated October, which he has read every night",
+    "Wallet containing $15"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    },
+    {
+      "name": ".32 pocket pistol",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy overcoat",
+    "type": "light"
+  },
+  "features": [
+    "Two Languages (New Arrival origin: fluent German and English, good Yiddish; advantage on Perception and Insight to follow a conversation held in a language the speakers think he does not know; a meal, a bed and a rumour in any German-speaking community without a check)",
+    "Patch Job (action, with a doctor's bag: the patient spends up to 2 Hit Dice as on a short rest and regains +3 extra hit points once; also stabilizes and ends Bleeding; 4 uses per long rest)",
+    "Diagnosis (bonus action: learn a creature's current and maximum hit points and conditions; 10 minutes with a body gives cause and time of death without a check)",
+    "Steady Hands (advantage on Medicine checks; a creature he stabilizes regains 1 hit point and can act)",
+    "Practice: Surgeon (creatures he patches regain the maximum on each Hit Die spent)",
+    "Night Shift (Night Nurse background: the night staff of every hospital in the city know him, and will tell him who came in with a gunshot wound and who signed them out)"
+  ],
+  "traits": [
+    "Two Languages",
+    "Patch Job",
+    "Diagnosis",
+    "Steady Hands",
+    "Surgeon"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am formal, courteous and precise, and I apologise for my English, which is better than most people's. I make very strong coffee and give it to everyone. I hum Schubert when I stitch.",
+    "ideals": "A doctor treats the wound in front of him. Who made it, and why, is a question for afterwards, and for other people.",
+    "bonds": "My sister Lotte and her husband are still in Vienna. Since March I cannot practise there, and since 1936 I cannot practise here until the State Board says so, and in between I sew up whoever Ned Corrigan brought me at three in the morning and was glad of it.",
+    "flaws": "I trust officials too little and frightened people too much, and I will lie to a policeman for a stranger with a foreign accent before I have heard her story."
+  },
+  "appearance": "A slight, balding man of forty-eight with round steel spectacles, a neat grey moustache, a loden overcoat and beautifully kept hands. He bows very slightly when he is introduced and looks at people the way he would look at an X-ray.",
+  "backstory": "Anton Weisz was a surgeon at the General Hospital in Vienna and a lecturer at the university, where one of his own teachers, many years ago, was a kind and absent-minded internist named Otto Ehrlich who collected Japanese lacquer and used to bring a piece into his lectures to explain the circulation of the blood. Anton left Austria in 1936, when the signs were already clear to a Jewish doctor who read the newspapers, and came to San Francisco because a cousin was here; California would not recognise his diploma, so he works nights at the French Hospital as a nurse and orderly while he studies for the State Board examination in English. Ned Corrigan found him in 1937, when Augie came in with a knife wound nobody wanted to report, and has been sending him people ever since, and paying him well. Since the Anschluss in March his sister Lotte has written every two weeks. Her October letter was the shortest yet. When he hears the client's accent, he will know it from the tram stop outside the hospital where he trained, and when he hears the name Ehrlich, he will sit down."
+}

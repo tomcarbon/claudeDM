@@ -153,7 +153,7 @@ module.exports = function (dataDir) {
   // GET character creation options (races, classes, backgrounds, alignments)
   router.get('/options', (req, res) => {
     try {
-      res.json(getCharacterOptions(dataDir));
+      res.json(getCharacterOptions(dataDir, req.campaignId));
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

@@ -1,12 +1,28 @@
 /**
+ * How long any single bot API call may take before it is aborted.
+ *
+ * SR-5. `fetch` has no default timeout, so a request that connects and then never gets a reply
+ * hangs forever. That became a shutdown hazard when `BotOrchestrator.stop()` started issuing
+ * unjoins over HTTP and `SIGINT` started awaiting `stop()` before `process.exit`: one
+ * unanswered request and Ctrl-C never returns. The bound belongs here rather than at the one
+ * call site, because every method on this class has the same shape and the same exposure.
+ */
+const DEFAULT_API_TIMEOUT_MS = 15_000;
+
+/**
  * REST API client for bot players.
  * Calls the same endpoints as real players using HTTP to localhost.
+ *
+ * @param {object}  opts
+ * @param {string}  opts.email
+ * @param {number} [opts.port=3001]
+ * @param {number} [opts.timeoutMs=15000] per-request abort deadline
  */
-
 class BotApiClient {
-  constructor({ email, port = 3001 }) {
+  constructor({ email, port = 3001, timeoutMs = DEFAULT_API_TIMEOUT_MS }) {
     this.email = email;
     this.baseUrl = `http://localhost:${port}/api`;
+    this.timeoutMs = timeoutMs;
   }
 
   async _fetch(path, opts = {}) {
@@ -17,10 +33,15 @@ class BotApiClient {
       ...opts.headers,
     };
     const url = `${this.baseUrl}${path}`;
+    // The tightest deadline wins. A per-call `timeoutMs` (the shutdown path asks for a short
+    // one) can only shorten the client's own bound, never lengthen it — so a client configured
+    // to be impatient stays impatient, and no call site can opt out of having a deadline.
+    const timeoutMs = Math.min(this.timeoutMs, opts.timeoutMs ?? Infinity);
     const res = await fetch(url, {
       method: opts.method || 'GET',
       headers,
       body: opts.body ? JSON.stringify(opts.body) : undefined,
+      signal: AbortSignal.timeout(timeoutMs),
     });
     if (!res.ok) {
       const text = await res.text().catch(() => '');
@@ -85,13 +106,14 @@ class BotApiClient {
     });
   }
 
-  async unjoinSession(campaignId, sessionId, npcId) {
+  async unjoinSession(campaignId, sessionId, npcId, opts = {}) {
     return this._fetch(`/sessions/${sessionId}/unjoin`, {
       method: 'POST',
       campaignId,
       body: { npcId },
+      timeoutMs: opts.timeoutMs,
     });
   }
 }
 
-module.exports = { BotApiClient };
+module.exports = { BotApiClient, DEFAULT_API_TIMEOUT_MS };

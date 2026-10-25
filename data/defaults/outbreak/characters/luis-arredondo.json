@@ -1,0 +1,118 @@
+{
+  "id": "53bb0512-cdca-4d52-9774-28bf7499ed81",
+  "name": "Luis Arredondo",
+  "status": "alive",
+  "race": "Human (Specialist)",
+  "subrace": "",
+  "class": "Medic",
+  "level": 1,
+  "background": "Medical Professional",
+  "alignment": "Neutral Good",
+  "experience": 0,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 9,
+    "current": 9
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Insight",
+    "Perception",
+    "Science",
+    "Persuasion"
+  ],
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "equipment": [
+    "St. Agnes ER scrubs and a navy hospital hoodie",
+    "Trauma kit (counts as a medkit, 10 uses)",
+    "Stethoscope, penlight and trauma shears",
+    "Smith & Wesson Model 10 .38 revolver (6 rounds), from his truck's glovebox",
+    ".38 Special rounds (18)",
+    "Folding knife",
+    "Nitrile gloves (2 boxes)",
+    "A laminated card of drug dosages he has carried since nursing school",
+    "Wallet containing $62"
+  ],
+  "weapons": [
+    {
+      "name": ".38 revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Folding knife (finesse)",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Specialist (Human (Specialist): +2 Wisdom, +1 Dexterity, extra skill proficiency in Persuasion)",
+    "Field Medicine (action, with a medkit: heal 1d6 + 4 (WIS + level), or stabilize a creature at 0 HP as a bonus action; 4 uses per long rest)",
+    "Triage (bonus action: Medicine check vs DC 10 reveals the exact hit points and conditions of one creature)",
+    "Proficiencies (Melee, Sidearms; Light armor)",
+    "Hospital Privileges (Medical Professional feature: medical staff treat him as one of their own, and he knows the layout, codes and routines of St. Agnes Regional)"
+  ],
+  "traits": [
+    "Field Medicine",
+    "Triage"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk to patients the whole time I am working on them, calmly, about nothing — their dog, the Royals, what they will eat when this is over. I wash my hands every chance I get, even now.",
+    "ideals": "Everyone gets treated. I do not decide who deserves it. I decide what they need.",
+    "bonds": "Dr. Imani Brooks trained me in the ER and covered for me the year my mother was dying. If she is alive at St. Agnes, I am going to get her out.",
+    "flaws": "I cannot leave a patient, even when leaving is the only sane choice, and I will put everyone at risk before I admit somebody is beyond helping."
+  },
+  "appearance": "Thirty-four, slight and wiry, black hair cut short, rimless glasses he keeps pushing up with a knuckle. Still in his scrubs from a double shift, with a hoodie over them and a trauma kit slung across his chest. Moves quickly and quietly, the way ER nurses do.",
+  "backstory": "Luis Arredondo is the son of a meatpacking-plant foreman from Sedalia who wanted him to be a doctor and settled, eventually and proudly, for an ER nurse. He has worked nights at St. Agnes for nine years, and on the Saturday of Ferry Days he was volunteering at the first-aid tent as a favour to the Lions Club, handing out sunscreen and ice packs. He was the one with his fingers on Denny Rourke's neck when Denny stopped breathing, and the one Denny reached for when he sat up. Luis has seen a lot of things in an emergency room. He has not seen anything like that, and he has not slept properly since."
+}

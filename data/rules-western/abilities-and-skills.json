@@ -1,0 +1,249 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Six abilities and the 18 Western skills. Use ONLY these skill names on Western character sheets. Same ability modifier, passive check and DC rules as the shared d20 chassis. Gambling (WIS) reads the table and the odds; cheating is Sleight of Hand. Riding (DEX) is staying on and getting the most out of a horse; Animal Handling (WIS) is handling, driving and caring for animals. Nature (INT) is land, weather, water, plants and ore; Mechanics (INT) is locks, guns, engines and dynamite. There is no magic."
+  },
+  "abilities": [
+    {
+      "name": "Strength",
+      "abbreviation": "STR",
+      "description": "Strength is back and shoulders: the arm that throws a steer, swings a sledge on the grade, hauls a wagon wheel out of the mud or puts a drunk through the batwing doors. Out here most work is heavy, and most arguments that are not settled with a gun are settled with this.",
+      "common_uses": [
+        "Melee attack and damage rolls (most), including unarmed strikes and the pick handle",
+        "Grappling, shoving, wrestling a man off a horse, holding a calf for the iron",
+        "Forcing a jail door, a strongbox lid or a stuck rail-car hatch",
+        "Lifting, hauling and carrying (a saddle weighs forty pounds; a man more)",
+        "Climbing a canyon wall, a water tower or the side of a moving boxcar",
+        "Handling a heavy weapon: a buffalo rifle fired with STR below 13 is at disadvantage"
+      ],
+      "skills": [
+        "Athletics"
+      ]
+    },
+    {
+      "name": "Dexterity",
+      "abbreviation": "DEX",
+      "description": "Dexterity is hand, eye and balance. It clears leather in a showdown, lays a rifle on a man four hundred yards off, stays in the saddle when the horse goes sideways and slips an ace from a cuff without the table seeing. More men have been buried for want of it than for any other reason.",
+      "common_uses": [
+        "Ranged attack rolls with every firearm, and damage on single shots",
+        "Finesse melee weapons (boot knife, Bowie knife, bullwhip)",
+        "Initiative, and the draw in a showdown (frontier.json showdowns)",
+        "Armor Class (10 + DEX with no armor; a duster or buckskin coat adds DEX in full, the iron vest up to +2)",
+        "Staying on a horse (Riding), and dodging dynamite, a stampede or a falling timber (DEX saves)"
+      ],
+      "skills": [
+        "Acrobatics",
+        "Riding",
+        "Sleight of Hand",
+        "Stealth"
+      ]
+    },
+    {
+      "name": "Constitution",
+      "abbreviation": "CON",
+      "description": "Constitution is how long you last: a hundred miles without water, a winter in a line shack, a bullet you carry for a week before anyone can dig it out, a night of bad whiskey and a morning ride. The frontier does not care how clever you are. It cares whether you are still standing.",
+      "common_uses": [
+        "Hit points per level",
+        "Resisting heat, cold, thirst and exhaustion on the trail (frontier.json weather_and_water)",
+        "Staying conscious after a blow to the head; shaking off snakebite and bad water",
+        "Drinking with a witness and keeping your head",
+        "Riding through the night and still being able to shoot straight"
+      ],
+      "skills": []
+    },
+    {
+      "name": "Intelligence",
+      "abbreviation": "INT",
+      "description": "Intelligence is learning and reasoning: reading a land deed for the clause that steals the water, knowing which hills carry silver and which only fool's gold, fixing a jammed rifle action by lantern light, and working out from a set of tracks and a cold fire how many men there were and which way they went.",
+      "common_uses": [
+        "Working out what happened at a scene, reading documents and brands (Investigation)",
+        "Locks, guns, engines, telegraph keys and dynamite (Mechanics)",
+        "Land, weather, water, plants and ore (Nature)",
+        "Remembering a face from a wanted poster, a brand from a bill of sale, a train timetable"
+      ],
+      "skills": [
+        "Investigation",
+        "Mechanics",
+        "Nature"
+      ]
+    },
+    {
+      "name": "Wisdom",
+      "abbreviation": "WIS",
+      "description": "Wisdom is attention and judgment. It notices the glint on the ridge, reads the man across the card table, gentles a spooked horse, finds a seep spring in a dry wash and knows when to fold. It is also the nerve that keeps a hand steady when a man is staring you down in the street.",
+      "common_uses": [
+        "Noticing things (Perception, passive Perception, the night watch)",
+        "Reading people (Insight) and reading the table and the odds (Gambling)",
+        "Horses, mules and cattle (Animal Handling)",
+        "Living off the land, tracking and not getting lost (Survival)",
+        "First aid and doctoring (Medicine)",
+        "Keeping your nerve under fire and in a stare-down (WIS saves)"
+      ],
+      "skills": [
+        "Animal Handling",
+        "Gambling",
+        "Insight",
+        "Medicine",
+        "Perception",
+        "Survival"
+      ]
+    },
+    {
+      "name": "Charisma",
+      "abbreviation": "CHA",
+      "description": "Charisma is presence: the voice that talks a lynch mob back into its houses, the smile that gets credit at the store, the stare that makes a hired gun reconsider his wages. On the frontier a name travels ahead of a man, and Charisma decides whether the name is one people want to stand next to.",
+      "common_uses": [
+        "Lying, persuading and threatening",
+        "Preaching, singing, playing the piano in a saloon, holding a crowd (Performance)",
+        "The stare-down before a showdown (Intimidation)",
+        "Resisting being shaken, bluffed or talked into something (CHA saves)"
+      ],
+      "skills": [
+        "Deception",
+        "Intimidation",
+        "Performance",
+        "Persuasion"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "ability": "Dexterity",
+      "description": "Balance, tumbling and falling well: keeping your feet on a rolling boxcar roof, jumping from a balcony onto a horse, rolling clear when a horse goes down under you, or slipping out of a man's grip."
+    },
+    {
+      "name": "Animal Handling",
+      "ability": "Wisdom",
+      "description": "Horses, mules, oxen, cattle and dogs: gentling a green horse, calming a spooked team, driving a six-horse stagecoach or a wagon, turning the leaders of a stampede, reading whether a horse trader's horse is lame. Riding a horse hard is Riding; handling it, driving it and caring for it is Animal Handling."
+    },
+    {
+      "name": "Athletics",
+      "ability": "Strength",
+      "description": "Climbing, jumping, swimming and wrestling: swimming a horse across a flooded river, climbing onto a moving train, throwing a steer for branding, winning a fistfight on the floor of a saloon."
+    },
+    {
+      "name": "Deception",
+      "ability": "Charisma",
+      "description": "Lying with a straight face: a false name at the hotel desk, a story to the sheriff, a bluff about how many men are waiting in the hills, a bill of sale for a horse that was never sold. Bluffing at cards is Deception against the table's Insight; reading the odds is Gambling."
+    },
+    {
+      "name": "Gambling",
+      "ability": "Wisdom",
+      "description": "Reading the table and the odds: knowing when to raise and when to fold, counting the cards out of a faro box, spotting which player is drunk, which is scared and which is too calm. Gambling wins honest games (frontier.json gambling). Cheating is Sleight of Hand."
+    },
+    {
+      "name": "Insight",
+      "ability": "Wisdom",
+      "description": "Reading people: telling a lie from the truth, seeing the nerve go in a man before he draws, knowing a rehearsed story, catching a tell across a card table. Contested by Deception when someone is lying to you, and used in the stare-down before a showdown."
+    },
+    {
+      "name": "Intimidation",
+      "ability": "Charisma",
+      "description": "Getting your way with menace: staring a man down in the street, leaning on a witness, telling a gang of cowboys to leave their guns at the marshal's office. It works. It is also remembered, and bullying costs Reputation (frontier.json reputation)."
+    },
+    {
+      "name": "Investigation",
+      "ability": "Intelligence",
+      "description": "Searching and reasoning: going through a dead man's saddlebags, reading a deed or a ledger for what is wrong with it, spotting an altered brand, reconstructing a robbery from where the bodies and the empty shells lie."
+    },
+    {
+      "name": "Mechanics",
+      "ability": "Intelligence",
+      "description": "Locks, guns, engines and explosives: picking a lock or a set of manacles, fixing a jammed rifle, cracking an express-car safe, coupling and uncoupling rail cars, running a steam pump, setting, fusing and disarming dynamite (combat.json explosives)."
+    },
+    {
+      "name": "Medicine",
+      "ability": "Wisdom",
+      "description": "First aid and doctoring: stabilizing the dying (DC 10), stopping bleeding, setting a bone, cutting out a bullet, treating snakebite, knowing whether a man will live the night. The Doc's Sawbones does more (classes.json)."
+    },
+    {
+      "name": "Nature",
+      "ability": "Intelligence",
+      "description": "Knowing the land: weather coming, where water lies, which plants are good forage and which poison stock, what rock carries silver, whether a river is safe to ford and whether an arroyo floods. Survival is living in the land; Nature is knowing it."
+    },
+    {
+      "name": "Perception",
+      "ability": "Wisdom",
+      "description": "Using your senses: dust on the horizon, a rifle barrel on the ridge, hoofbeats on the road at night, the smell of smoke on the wind, the man in the hayloft. Passive Perception is how alert you are on a night watch or a long ride."
+    },
+    {
+      "name": "Performance",
+      "ability": "Charisma",
+      "description": "Holding an audience: preaching a sermon, playing a saloon piano or a fiddle at a dance, giving a speech at a grange meeting, telling a story around a fire, playing the drunk well enough that the gang lets you sleep in the corner."
+    },
+    {
+      "name": "Persuasion",
+      "ability": "Charisma",
+      "description": "Honest influence: talking a rancher into hiring you, a homesteader into trusting you, a jury into mercy, a mob into going home. Reputation makes it easier or harder (frontier.json reputation)."
+    },
+    {
+      "name": "Riding",
+      "ability": "Dexterity",
+      "description": "Staying on, and getting the most out of, a horse: riding at a gallop over broken ground, shooting from the saddle without disadvantage (combat.json mounted_combat), staying mounted when the horse is spooked or shot, jumping a fence, cutting a steer out of the herd, winning a horse race or a chase on horseback."
+    },
+    {
+      "name": "Sleight of Hand",
+      "ability": "Dexterity",
+      "description": "Quick fingers: dealing seconds, palming a card, cold-decking a game, lifting a key from a deputy's belt, slipping a derringer past the marshal's gun check, planting a stolen watch in a man's coat."
+    },
+    {
+      "name": "Stealth",
+      "ability": "Dexterity",
+      "description": "Not being noticed: creeping up on a camp, slipping past a night watch, following a man through town without him knowing, lying still in the sage while riders go by. Contested by passive Perception."
+    },
+    {
+      "name": "Survival",
+      "ability": "Wisdom",
+      "description": "Living in the land: following a trail, finding food and water, making a cold camp, not getting lost (frontier.json trail_travel), reading sign (how many riders, how long ago, whether the horses were shod), predicting weather by the sky and the stock."
+    }
+  ],
+  "ability_score_modifiers": {
+    "description": "To find an ability modifier, subtract 10 from the score, divide by 2 and round down.",
+    "table": {
+      "1": -5,
+      "2": -4,
+      "3": -4,
+      "4": -3,
+      "5": -3,
+      "6": -2,
+      "7": -2,
+      "8": -1,
+      "9": -1,
+      "10": 0,
+      "11": 0,
+      "12": 1,
+      "13": 1,
+      "14": 2,
+      "15": 2,
+      "16": 3,
+      "17": 3,
+      "18": 4,
+      "19": 4,
+      "20": 5,
+      "21": 5,
+      "22": 6,
+      "23": 6,
+      "24": 7,
+      "25": 7,
+      "26": 8,
+      "27": 8,
+      "28": 9,
+      "29": 9,
+      "30": 10
+    }
+  },
+  "passive_checks": {
+    "description": "A passive check is a check made without rolling, representing a character's steady, background level of competence (for example, noticing riders while on night watch, or spotting a man on the ridge during a long ride). The GM uses it to decide secretly whether a character notices or achieves something. A creature sneaking up on a camp makes its Stealth checks against the watch's passive Perception.",
+    "formula": "10 + all modifiers that normally apply to the check. If the character has advantage on the check, add 5. For disadvantage, subtract 5."
+  },
+  "difficulty_classes": {
+    "very_easy": 5,
+    "easy": 10,
+    "medium": 15,
+    "hard": 20,
+    "very_hard": 25,
+    "nearly_impossible": 30
+  }
+}

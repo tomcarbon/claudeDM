@@ -1,0 +1,123 @@
+{
+  "id": "7e596ffc-7f4e-4b0d-aa87-29097478c201",
+  "name": "Anneliese Brandt",
+  "status": "alive",
+  "race": "Human (Specialist)",
+  "subrace": "",
+  "class": "Medic",
+  "level": 3,
+  "background": "Medical Professional",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Science",
+    "Insight",
+    "Perception",
+    "Investigation"
+  ],
+  "languages": [
+    "German",
+    "English",
+    "Polish"
+  ],
+  "equipment": [
+    "Leather jacket, a sensible hip-length one with a sheepskin collar",
+    "Holdout pistol (Walther PPK), 5 rounds loaded, in her handbag",
+    ".380 rounds (14)",
+    "Doctor's bag (medkit): sutures, haemostats, morphine syrettes (4), adrenaline ampoules (2), saline (2 litres), splints, burn dressings",
+    "Trauma kit, compact, for gunshot wounds: chest seals, packing gauze, a tourniquet, a scalpel",
+    "Scalpel, in a leather sleeve",
+    "Stethoscope",
+    "A bottle of chloral hydrate and a dosing chart she wrote herself",
+    "Cover passport: Dr. Annelie Brand, West German, locum physician with a medical charity (good legend: the charity is real and owes her favours)",
+    "A visiting card for a vet in Ottakring who asks no questions and has an X-ray machine",
+    "A photograph of her father in front of a Wartburg, East Berlin, 1959",
+    "Wallet containing $310"
+  ],
+  "weapons": [
+    {
+      "name": "Holdout pistol (Walther PPK)",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Specialist (Human (Specialist) origin: +2 Wisdom, +1 Intelligence, one extra skill proficiency: Investigation)",
+    "Field Medicine (action, with a medkit: heal 1d6+3+3 hit points, or stabilize a creature at 0 HP as a bonus action; 4 uses per long rest)",
+    "Triage (bonus action: Medicine check vs DC 10 reveals one creature's exact hit points and conditions)",
+    "Steady Hands (the first time each short rest she heals someone, they also gain 2 temporary hit points)",
+    "Bedside Manner (Medical Professional background: hospitals, clinics and pharmacies will extend her professional courtesy, and she can requisition drugs and supplies with a prescription pad and a straight face)"
+  ],
+  "traits": [
+    "Field Medicine (4/long rest)",
+    "Triage",
+    "Steady Hands"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am calm in proportion to how bad things are; when I start making jokes, you are dying. I keep an exact mental list of everyone's blood type and allergies and I will ask you again anyway.",
+    "ideals": "A hospital reports every gunshot wound to the police. That is a good law and I am here so that we do not have to use it.",
+    "bonds": "My father ran from East Berlin in 1961, eight days before the Wall, and left his brother behind. Uncle Rudi is still in Prenzlauer Berg. I have never met him. Berlin is going to be very hard for me.",
+    "flaws": "I cannot leave a wounded person, any wounded person, theirs or ours, and in this trade that will one day cost us the clock."
+  },
+  "appearance": "A tall, rawboned West German woman of forty-one with short grey-blonde hair, steel-rimmed spectacles, and capable red hands. She looks like a country GP and moves like an emergency-room surgeon: never hurried, never still. Her handbag is enormous and contains, among other things, everything.",
+  "backstory": "Anneliese Brandt did eight years of trauma surgery at the Klinikum in Frankfurt, two summers with a medical charity in Lebanon, and one very bad winter in Beirut in 1982 that taught her how to work by torchlight with gunfire in the street. The Annex found her through the charity, which it occasionally uses as cover, after she treated one of its officers for a bullet wound in a Beirut basement and then refused, politely and completely, to report it to anyone. Her job is to keep the team out of hospitals, because hospitals mean police and police mean a blown legend. She has made a private study of how many hours a person can be kept alive in the back of a car, and she does not like the answer. She knows exactly one thing about the operation that the others do not: the safe-house medical kit in Vienna was restocked last month by the station comms officer, unasked, and the morphine count was short by two."
+}

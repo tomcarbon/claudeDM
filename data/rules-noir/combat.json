@@ -1,0 +1,438 @@
+{
+  "_meta": {
+    "category": "noir",
+    "source": "Written for claudeDM (Noir category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Combat rules for the Noir category: the shared d20 chassis (initiative, actions, conditions, cover, death saves, resting) restated in plain language for the 1930s-1950s city, plus gunplay and brawling. The Sci-Fi hacking section is dropped; brawling is added, because the fistfight is the genre's signature fight. 'spec_rule_index' maps the WO-0042 combat requirements to the sections that implement them. The death_saving_throws and healing.long_rest wording deliberately matches the fantasy and Sci-Fi combat.json numbers (DC 10, three successes, three failures, natural 1 = two failures, natural 20 = regain 1 hit point, damage at 0 HP = one failure, critical = two failures, half your total hit dice on a long rest) because the server reads them from the prose."
+  },
+  "spec_rule_index": {
+    "1_ranged_attack": "attack_rolls.ranged, damage.ability_modifier_on_damage",
+    "2_range_and_point_blank": "gunplay.range, gunplay.point_blank",
+    "3_ammunition": "ammunition",
+    "4_fire_modes": "fire_modes (only the Tommy gun and grease gun fire burst or auto)",
+    "5_aim_and_called_shots": "gunplay.aim, gunplay.called_shots, actions_in_combat.aim",
+    "6_cover": "cover",
+    "7_critical_hits_and_jams": "attack_rolls.critical_hit, gunplay.jams",
+    "8_explosives": "explosives",
+    "9_noise_and_heat": "noise (and investigation.json heat)",
+    "10_nonlethal": "nonlethal",
+    "11_brawling_and_knockouts": "brawling",
+    "12_conditions": "conditions (Suppressed, Bleeding, Shaken added to the standard list)",
+    "13_healing_without_magic": "healing",
+    "14_chases": "chases",
+    "15_vehicles": "vehicles (1930s-1950s cars)"
+  },
+  "initiative": {
+    "description": "When a fight starts, every participant rolls a Dexterity check. The GM rolls once for each group of identical adversaries. Turns go from highest to lowest and the order repeats each round (a round is about 6 seconds, which is long enough to empty a revolver).",
+    "formula": "d20 + Dexterity modifier",
+    "tie_breaking": "The GM decides the order among tied participants; a player character wins ties against adversaries with the same modifier.",
+    "surprise": "A side that didn't see it coming is surprised: surprised creatures can't move, act or take reactions on their first turn. The man waiting in the dark office, the car that pulls up alongside at a red light and the sap from behind a door usually surprise their targets. A character on a stakeout or expecting trouble is not surprised by what they were watching for."
+  },
+  "turn_structure": {
+    "movement": "Move up to your speed, splitting it before and after your action as you like. Climbing a fire escape, crawling, swimming and difficult terrain (a crowded dance floor, a wet pier, wreckage) cost 2 feet per foot.",
+    "action": "One action per turn: Attack, Reload, Full Auto, Suppressive Fire, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Clear a Jam, Use an Object, or something improvised.",
+    "bonus_action": "One bonus action per turn, only when a feature, weapon or item says something takes a bonus action (Aim, a fast reload, Quick Hands, Size Them Up, an off-hand attack).",
+    "reaction": "One reaction per round, regaining it at the start of your turn. Opportunity attacks, readied actions and features like Bodyguard or Uncanny Dodge use reactions.",
+    "free_interaction": "One simple object interaction per turn for free: draw or holster a weapon, open a door, drop prone, kick a chair across the room, shout a short warning, throw a light switch."
+  },
+  "actions_in_combat": {
+    "attack": "Make one melee or ranged attack (more with Extra Attack). A single shot or a burst is one attack. A punch is one attack.",
+    "aim": "Bonus action, only if you haven't moved this turn: your next ranged attack this turn has advantage, and your speed becomes 0 until the end of the turn.",
+    "full_auto": "Action, Tommy gun or grease gun only. Spend 10 rounds to sweep a 10-ft cube within normal range (see fire_modes.auto).",
+    "suppressive_fire": "Action, Tommy gun or grease gun only. Spend 10 rounds to cover a 20-ft-wide lane (see fire_modes.suppressive).",
+    "reload": "Refill a weapon from spare ammunition: an action, or a bonus action for weapons whose reload is listed as 'bonus action' (box magazines). You need the spare rounds on your sheet.",
+    "clear_jam": "Action, no check: a jammed automatic can fire again. Anyone holding the weapon can do it.",
+    "dash": "Gain extra movement equal to your speed this turn.",
+    "disengage": "Your movement doesn't provoke opportunity attacks for the rest of the turn.",
+    "dodge": "Until the start of your next turn, attacks against you have disadvantage if you can see the attacker, and you have advantage on DEX saves (including against full auto and dynamite). You lose this if incapacitated or your speed drops to 0.",
+    "help": "Give an ally advantage on their next check for a task you could help with, or on their next attack against a creature within 5 ft of you (holding a man's arms while your partner swings counts).",
+    "hide": "Make a DEX (Stealth) check while out of sight or heavily obscured (darkness, fog, smoke). Until discovered, you have advantage on your first attack, and attacks against you have disadvantage. Firing a loud weapon reveals your position; a quiet shot reveals it only to creatures within about 30 ft.",
+    "ready": "Choose a trigger and an action (usually a shot or a swing). When the trigger happens before your next turn, you can use your reaction to take the action. 'I hit the first man through the door with the blackjack' is a readied attack.",
+    "search": "Make a WIS (Perception) or INT (Investigation) check to find something hidden. In a fight this is for the gun under the cushion or the man in the closet; working a scene is in investigation.json.",
+    "use_an_object": "Use an item that takes an action: apply a bandage, light dynamite's fuse and throw it, handcuff a grappled suspect, hot-wire a car, inject a morphine syrette, fire a flashbulb.",
+    "improvise": "Anything not listed: kick over a table for cover, shoot out the lights, swing from a chandelier, throw a bottle. The GM sets an ability check and DC. An improvised weapon (a chair, a bottle, an ashtray, a flashlight) deals 1d4 bludgeoning (or slashing, for a broken bottle) and uses STR."
+  },
+  "attack_rolls": {
+    "melee": "d20 + STR modifier + proficiency bonus (everyone is proficient with Melee). Finesse weapons can use DEX instead.",
+    "ranged": "d20 + DEX modifier + proficiency bonus if you are proficient with the weapon's group (Sidearms, Longarms, Automatics). Untrained use of a firearm adds no proficiency bonus. Dynamite and Molotov cocktails don't make attack rolls (explosives).",
+    "finesse_weapons": "Use either STR or DEX for attack and damage, the same for both.",
+    "unarmed": "d20 + STR modifier + proficiency bonus; damage is 1d4 + STR modifier bludgeoning (see brawling). A Heavy's Hard Knocks raises the die to 1d6.",
+    "critical_hit": "A natural 20 always hits and is a critical hit: roll all of the attack's damage dice twice and add the modifier once. A hit with a called shot to the head is also a critical hit.",
+    "critical_miss": "A natural 1 always misses. With an automatic pistol or a submachine gun it is also a jam (see gunplay.jams); revolvers, shotguns and rifles just miss.",
+    "advantage": "Roll 2d20 and take the higher.",
+    "disadvantage": "Roll 2d20 and take the lower. Advantage and disadvantage on the same roll cancel out, however many sources of each there are.",
+    "versus_ac": "The attack hits if the total equals or beats the target's Armor Class. Most people in this city wear no armor: AC 10 + DEX."
+  },
+  "damage": {
+    "formula": "Weapon damage dice + ability modifier for melee attacks, unarmed strikes and single shots. Bursts, full auto, suppressive fire and explosives add no ability modifier.",
+    "ability_modifier_on_damage": {
+      "melee": "STR modifier (or DEX with finesse).",
+      "unarmed": "STR modifier.",
+      "single_shot": "DEX modifier (Sidearms, Longarms, Automatics fired single).",
+      "burst": "No ability modifier; add one extra weapon damage die instead.",
+      "full_auto_and_suppressive": "No ability modifier.",
+      "explosives": "No ability modifier."
+    },
+    "damage_types": [
+      "Bludgeoning",
+      "Fire",
+      "Piercing",
+      "Poison",
+      "Slashing"
+    ],
+    "noir_mapping": {
+      "bullets, buckshot, knives that stab, ice picks": "Piercing",
+      "fists, saps, clubs, bats, falls, cars, blast pressure": "Bludgeoning",
+      "razors, scalpels, broken bottles": "Slashing",
+      "gasoline, burning buildings, Molotov cocktails": "Fire",
+      "knockout drops, arsenic in the sherry, gas from an open jet": "Poison"
+    },
+    "resistance": "Take half damage (rounded down) from that type.",
+    "vulnerability": "Take double damage from that type.",
+    "immunity": "Take no damage from that type."
+  },
+  "gunplay": {
+    "overview": "Guns are fast, loud and final. A ranged attack is d20 + DEX + proficiency (if trained in the weapon's group) against AC. Single shots add DEX to damage; bursts, full auto and dynamite don't. Every shot spends ammunition that is tracked on the sheet, and every loud shot brings the police and Heat closer. In this genre a gunfight is short, ugly and has consequences; most fights are with fists.",
+    "range": "Every firearm has a normal and a long range ('30/90'). Shooting at a target beyond normal range but within long range has disadvantage. A target beyond long range can't be hit.",
+    "point_blank": "Firing a Longarm or an Automatic while a conscious hostile creature that can see you is within 5 ft of you has disadvantage (it is grabbing the barrel, crowding you, shoving the gun aside). Sidearms are exempt: a pistol in the ribs fires normally.",
+    "aim": "As a bonus action, if you haven't moved yet this turn, you can Aim: your next ranged attack this turn has advantage, and your speed becomes 0 until the end of the turn. You can't Aim and then fire full auto or suppressive fire (those are already area effects).",
+    "called_shots": {
+      "rule": "Declare the target location before rolling and take -5 to the attack roll. Not possible against a crowd or a target you can't see.",
+      "weapon_hand": "On a hit the target takes normal damage and drops what it is holding in that hand (it lands at its feet). No extra damage.",
+      "legs": "On a hit the target takes normal damage and its speed is halved until it receives any healing or finishes a long rest.",
+      "head": "On a hit, the hit is a critical hit (roll damage dice twice).",
+      "tires": "A car's tire is AC 15. A hit with any firearm blows it: the driver has disadvantage on Driving checks until the car stops, and must succeed on a DC 12 Driving check at once or the car spins out (see vehicles.crashing at half speed)."
+    },
+    "jams": "When you roll a natural 1 on an attack with an automatic firearm (the .22 target pistol, the .32 pocket pistol, the .45 automatic, the Tommy gun and the grease gun), the attack misses and the weapon jams. A jammed weapon can't fire until someone holding it uses an action to clear it (no check needed). Revolvers, the derringer, shotguns and rifles don't jam: a natural 1 is just a miss. Rounds spent on the jammed attack are still spent.",
+    "untrained_use": "You can fire any gun you can lift. Without proficiency in its group you don't add your proficiency bonus to the attack roll, and you can't fire burst, full auto or suppressive fire with a weapon you aren't proficient with.",
+    "two_weapons": "When you Attack with a one-handed melee weapon or a Sidearm in one hand, you can use a bonus action to make one attack with a different one-handed melee weapon or Sidearm in the other hand. You don't add your ability modifier to the damage of the off-hand attack (unless it's negative). Both attacks spend their own rounds.",
+    "shooting_into_melee": "When you fire at a target that is within 5 ft of one of your allies (or an innocent bystander), a miss by 5 or more hits that creature instead if its AC is equal to or lower than your attack total. Aiming first prevents this.",
+    "firing_from_vehicles": "Shooting from a moving car has disadvantage unless the car is moving slowly in a straight line (or a Wheelman with Smooth Ride is driving). The driver can't fire anything but a Sidearm while driving, and that at disadvantage.",
+    "darkness_and_smoke": "Firing at a target you can't see (an unlit warehouse, fog off the bay, gun smoke in a small room) has disadvantage, and you must guess its location. A muzzle flash in darkness reveals the shooter's location to everyone who can see it. Shooting out the lights is an improvised action against AC 13."
+  },
+  "fire_modes": {
+    "single": {
+      "rounds": 1,
+      "rule": "A normal attack roll against one target. Damage = weapon dice + DEX modifier. Every firearm fires single."
+    },
+    "burst": {
+      "rounds": 3,
+      "rule": "Tommy gun and grease gun only. One attack roll against one target at -2 to hit. On a hit, roll one extra weapon damage die (1d10 becomes 2d10). No ability modifier on burst damage. A critical hit doubles all the dice including the extra one. Requires Automatics proficiency."
+    },
+    "auto": {
+      "rounds": 10,
+      "rule": "Tommy gun and grease gun only. Full auto takes your action. Choose a 10-ft cube whose nearest edge is within the weapon's normal range. Every creature in the cube, friend or foe, makes a DEX saving throw against DC 8 + the shooter's proficiency bonus + the shooter's DEX modifier. On a failure it takes two weapon damage dice (2d10 for a Tommy gun or grease gun, no modifier); on a success, half as much. Cover adds its bonus to the save; full cover blocks it unless the material is defeated (see cover.material). Requires Automatics proficiency."
+    },
+    "suppressive": {
+      "rounds": 10,
+      "rule": "Tommy gun and grease gun only. Suppressive fire takes your action. Choose a lane 20 ft wide extending from you up to the weapon's normal range. Until the start of your next turn, any creature that enters the lane or starts its turn in it makes a WIS saving throw (DC 8 + your proficiency bonus + your DEX modifier). On a failure it is Suppressed. Suppressive fire deals no damage by itself, but a creature that fails the save by 5 or more also takes one weapon damage die. Creatures behind full cover are unaffected; dogs flee instead of being Suppressed. Ammunition is spent even if nobody enters the lane."
+    },
+    "mode_availability": "A weapon can only use the modes in its fireModes list. In the Noir weapon table only the Tommy gun and the grease gun list burst and auto; suppressive fire is available to any weapon that can fire auto. Every other gun fires single shots only."
+  },
+  "ammunition": {
+    "spending": "Every attack spends rounds: single shot 1, burst 3, full auto 10, suppressive fire 10. Both barrels of a sawed-off spend 2. Dynamite and Molotov cocktails spend themselves (one per throw).",
+    "magazine": "A weapon holds at most its 'magazine' value (a revolver's cylinder counts as its magazine). When it is empty, the weapon can't fire until it is reloaded. You can't fire a mode that needs more rounds than are left (8 rounds left in a Tommy gun means no full auto).",
+    "reload": "Reloading refills the weapon from your spare ammunition. It takes an action, or a bonus action for weapons whose reload is listed as 'bonus action' (box magazines: the automatics, the Tommy gun's stick magazine, the grease gun). Revolvers, the derringer, shotguns and rifles reload as an action. Fitting or reloading a Tommy-gun drum is an action.",
+    "tracking_on_the_sheet": "Spare ammunition is a counted equipment item on the character sheet, named by the weapon's ammo_name in equipment.json with the count in parentheses, for example \".38 rounds (18)\", \".45 rounds (40)\", \"Shotgun shells (10)\" or \"Dynamite (2)\". Rounds currently in the weapon count as part of that total.",
+    "gm_procedure": "The GM deducts rounds with TrackResources \"use\" as they are fired, once per exchange of fire (each attack or each turn's shooting), never in bulk after the fight is over. Announce what remains when a gun runs low: six shots goes fast.",
+    "out_of_ammo": "Out of ammo means out. There is no free reload and no bottomless cylinder. Characters can take rounds from fallen enemies who carried compatible guns, buy them at a hardware or sporting-goods store (by day, with questions), or turn the empty gun around and use it as a club (1d4 bludgeoning, improvised).",
+    "compatibility": "Ammunition must match the weapon's ammo_name: .22 rounds, .32 rounds, .38 rounds (both .38 revolvers), .41 rounds (derringer), .44 rounds, .45 rounds (the .45 automatic, the Tommy gun and the grease gun share them), Shotgun shells and Rifle rounds. See gear.json ammunition."
+  },
+  "cover": {
+    "half_cover": "+2 to AC and DEX saving throws. At least half the body is behind an obstacle: a bar, a car hood, a doorframe, a desk, another person.",
+    "three_quarters_cover": "+5 to AC and DEX saving throws. Only a small part of the target is exposed: shooting around a corner, over a windowsill or from behind a stack of crates.",
+    "total_cover": "Can't be targeted directly by an attack or area effect. The target is completely concealed behind something that stops the incoming fire.",
+    "material": {
+      "rule": "Cover is material. What it is made of decides what it stops. Look up the material, then the weapon firing at it; the value given replaces the normal half/three-quarters/full judgement whenever it is lower.",
+      "soft_cover": "Plaster walls, interior doors, car doors and body panels, wooden furniture, a bar's front, fences, crates of produce: half cover against Sidearms, the Tommy gun and the grease gun; NO cover against rifles and shotgun slugs, which punch straight through. It still blocks line of sight, so the shooter may need to guess the location (disadvantage).",
+      "hard_cover": "Engine blocks, brick, concrete, stone, a steel safe, a cast-iron stove, a pier piling, a bank vault door: full cover against every weapon in this book. Dynamite against hard cover is treated as three-quarters cover, and a bundle destroys a 5-ft section of brick.",
+      "partial_hard_cover": "When only part of the target is behind hard cover (crouched behind a car's wheel and engine, leaning out of a brick doorway), use half or three-quarters cover as normal; the material rule decides whether the cover counts at all.",
+      "glass": "Windows, mirrors behind the bar and glass doors give no cover against any firearm; they only block line of sight if frosted or painted. Shooting through one is very loud (it adds 1 to the noise count).",
+      "creatures": "Another creature (friend, foe or bystander) gives half cover. Shooting past it risks hitting it (see gunplay.shooting_into_melee)."
+    },
+    "explosives_and_cover": "Against dynamite, Molotovs and full auto, cover adds its bonus to the DEX save. Total cover from hard material between you and the blast point means the blast doesn't reach you.",
+    "destroying_cover": "Soft cover takes hits: after a full-auto or suppressive burst passes through it, it is gone. The GM can give hard objects AC and HP (brick wall section AC 15, HP 40; car as in vehicles)."
+  },
+  "explosives": {
+    "general": "Dynamite and Molotov cocktails affect an area rather than making an attack roll. Choose a point within range; each creature in the area makes a DEX saving throw against the weapon's DC (DC 12 for both), taking the listed damage on a failure or half on a success. No ability modifier is added to damage.",
+    "throwing": "Throwing at a point uses an action (lighting dynamite's fuse first is a bonus action). If the point is within normal range it lands where you choose. At long range, or if you can't see the point, it lands 1d10 x 5 ft away in a random direction (roll a d8 for direction) unless you succeed on a DEX check against DC 10.",
+    "cover_adds_to_save": "Cover between a creature and the blast point adds its bonus (+2 or +5) to that creature's DEX save. Total cover from hard material shields it completely.",
+    "proficiency": "No class starts with Explosives proficiency, and none is needed to throw a stick or a bottle. Placing and wiring a charge (a bundle under a car, a timer in a basement) takes 10 minutes and a Mechanics check (DC 15); without Explosives proficiency the check is at disadvantage, and failing it by 5 or more sets the charge off.",
+    "improvised_devices": "A gasoline can with a fuse or a homemade bomb can be built with a Mechanics check: DC 15 for 3d6 in a 10-ft radius (DC 12 DEX save); DC 20 for 6d6 in a 20-ft radius.",
+    "throwing_it_back": "A creature within 5 ft of a lit stick of dynamite that the thrower didn't hold for a second before throwing (which imposes disadvantage on the throw) can use its reaction to throw it up to 20 ft by succeeding on a DC 15 DEX save.",
+    "structures": "Explosives deal double damage to objects and structures. A Molotov sets a building alight: the fire spreads one room per minute unless fought.",
+    "aftermath": "An explosion in the city is front-page news. It adds 2 to the noise count and raises Heat by 2 (investigation.json heat), and the police bomb squad and fire department arrive within 10 minutes."
+  },
+  "noise": {
+    "rule": "An unmuffled gunshot is heard for blocks: outdoors several blocks in every direction, indoors throughout the whole building and by anyone on the street outside. Explosions carry twice as far. Quiet weapons (the .22 target pistol) are heard within about 100 ft and are often mistaken for a backfire (DC 12 Perception to recognize beyond 30 ft). There are no silencers in this book.",
+    "consequences": "Noise always has consequences, and the GM tracks them. Each loud exchange advances a clock: a neighbor calls the precinct, a beat cop blows his whistle, the hotel desk sends up the house detective, the mob's lookout runs to tell somebody. In a city, the first patrol car arrives in 2d4 + 4 minutes after the first shot, and more arrive after that. The consequence arrives even if the players won the fight.",
+    "tracking": "Keep a simple count of loud exchanges in a scene. 1: someone heard it. 3: the police are definitely coming. 6+: everyone on the block knows exactly where you are, and Heat rises by 1 (investigation.json heat) whether or not anyone is caught.",
+    "stealth": "A character who has fired a loud weapon can't be hidden from creatures that heard it until they move out of sight and spend a turn taking the Hide action.",
+    "melee_and_quiet": "Fistfights, knives, saps and quiet shots don't advance the noise count unless something else is loud (a scream, breaking glass, a body through a window, a woman at the switchboard who saw it)."
+  },
+  "nonlethal": {
+    "rule": "When an attacker reduces a creature to 0 hit points with a melee attack (including an unarmed strike), the attacker can declare the blow knocks the target out rather than killing it. The target drops to 0 HP, stable and unconscious, instead of dying; it doesn't make death saving throws.",
+    "waking": "A stable unconscious creature regains 1 HP and wakes after 1d4 hours (in a strange room, with a headache), or sooner if someone uses an action to revive it with a Medicine check (DC 10), smelling salts or healing.",
+    "firearms": "Guns can't be nonlethal. A GM may allow a deliberate wounding shot (called shot to the legs) that leaves the target alive at 0 HP but Bleeding.",
+    "nonlethal_option_weapons": "Blackjacks and nightsticks carry the nonlethal-option property: as well as knocking a creature out at 0 HP like any melee weapon, they can deliver a knockout blow from surprise (brawling.knockout_blow).",
+    "knockout_drops": "Chloral hydrate in a drink (a Mickey Finn): a creature that drinks it makes a DC 13 CON save or falls unconscious for 1d4 hours 1d4 x 5 minutes later. Spotting it in the glass is a DC 15 Perception check. It doesn't deal damage and the creature doesn't drop to 0 HP."
+  },
+  "opportunity_attacks": {
+    "description": "When a hostile creature you can see moves out of your reach, you can use your reaction to make one melee attack against it, or to fire a Sidearm at it as it goes.",
+    "exceptions": "Doesn't trigger if the creature takes the Disengage action, is moved by something other than its own movement, or is carried by a car.",
+    "readied_shots": "Anyone can Ready an attack to cover a door or a stairwell for a similar effect."
+  },
+  "grappling": {
+    "initiate": "Use one attack of the Attack action to grab a creature no more than one size larger than you, with a free hand. Make a STR (Athletics) check contested by its STR (Athletics) or DEX (Acrobatics).",
+    "escape": "The grappled creature can use its action to repeat the contest to break free.",
+    "effect": "The target is grappled (speed 0). You can drag it at half speed. A grappled creature firing a Longarm or Automatic has disadvantage (point blank). Disarming: instead of grappling, contest to knock a weapon from a creature's hands. Handcuffing a grappled creature is an action (gear.json Handcuffs)."
+  },
+  "shoving": {
+    "description": "Use one attack of the Attack action to shove a creature within reach: STR (Athletics) contested by its STR (Athletics) or DEX (Acrobatics).",
+    "effects": "On a win, knock it prone or push it 5 ft away (down the stairs, off the pier, through the plate-glass window, into the line of fire)."
+  },
+  "brawling": {
+    "overview": "The fistfight is the genre's signature fight: in an alley, a hotel corridor, a bar after closing. Most fights in a Noir campaign should be fought with fists, saps and furniture, because guns bring the police and leave bodies, and bodies bring Heat. A fistfight is fought with the ordinary rules (initiative, the Attack action, grappling, shoving) plus the rules below.",
+    "unarmed_strike": "A punch, kick, head-butt or elbow is a melee attack: d20 + STR modifier + proficiency bonus (everyone is proficient). On a hit it deals 1d4 + STR modifier bludgeoning damage. Brass knuckles use the better of their die or your unarmed die, +1 (equipment.json). Features can improve the die (the Heavy's Hard Knocks).",
+    "knocking_out": "A creature reduced to 0 hit points by a melee attack can be knocked out instead of dying, at the attacker's choice (see nonlethal). Declare it when the blow lands. A knocked-out creature is stable and unconscious for 1d4 hours unless revived.",
+    "knockout_blow": "When you hit a creature that is surprised, or that can't see you (from behind, in the dark, as it comes through the door), with a blackjack or a nightstick, you can make it a knockout blow: in addition to the damage, the target must succeed on a CON saving throw (DC 8 + your proficiency bonus + your STR modifier) or fall unconscious, as if knocked out at 0 HP, for 1d4 x 10 minutes. A creature with more than 30 hit points remaining after the damage has advantage on the save. A creature that saves is still hit, and knows exactly where you are. You can make a knockout blow only once per creature per scene; after that, it is watching.",
+    "improvised_weapons": "Chairs, bottles, ashtrays, telephones, a coffee pot: 1d4 bludgeoning (a broken bottle 1d4 slashing), using STR, with proficiency. A chair breaks after one hit.",
+    "dirty_fighting": "As an action, throw a drink in a face, stamp on an instep or pull a coat down over a man's arms: make a STR (Athletics) or DEX (Sleight of Hand) check contested by the target's DEX (Acrobatics). On a win the target is blinded or grappled (your choice) until the end of its next turn.",
+    "taking_a_beating": "Damage from fists and improvised weapons in a fistfight is real damage, but a character who loses a fistfight usually wakes up bruised rather than dead: adversaries who are only brawling knock out the characters they drop rather than killing them, unless the GM has established that they mean murder.",
+    "pulling_a_gun": "Drawing a gun in a fistfight changes it. Everyone in the fight who sees it may act on it on their next turn, the police will treat it as a shooting if a shot is fired, and adversaries who were brawling may now shoot back."
+  },
+  "death_saving_throws": {
+    "zero_hp": "When a creature drops to 0 hit points it falls unconscious and is dying (unless the damage kills it outright, or the attacker knocked it out instead; see nonlethal). Adversaries the GM doesn't care about simply die or are out of the fight at 0 HP.",
+    "trigger": "When you start your turn with 0 hit points, you must make a death saving throw: roll a d20 with no modifiers.",
+    "success": "10 or higher is a success. Three successes: you become stable (unconscious, but no longer rolling).",
+    "failure": "9 or lower. Three failures: you die.",
+    "natural_1": "A natural 1 counts as two failures.",
+    "natural_20": "A natural 20 means you regain 1 hit point and wake up.",
+    "damage_at_0hp": "Taking any damage while at 0 HP causes one death save failure. A critical hit causes two failures. A melee hit from within 5 ft on an unconscious creature is a critical hit.",
+    "instant_death": "If damage reduces you to 0 HP and the damage left over equals or exceeds your hit point maximum, you die instantly. A shotgun at close range, a fall from a hotel roof or a speeding car does this to ordinary people.",
+    "resetting": "Successes and failures reset when you regain any hit points or become stable.",
+    "no_resurrection": "Death is permanent. There is no magic and no medicine in the 1930s, 1940s or 1950s that brings someone back once they are dead."
+  },
+  "conditions": [
+    {
+      "name": "Blinded",
+      "effects": [
+        "Can't see; automatically fails any check that requires sight",
+        "Attack rolls against the creature have advantage",
+        "The creature's attack rolls have disadvantage",
+        "In Noir: a flashbulb, a drink in the face, a sack over the head, total darkness"
+      ]
+    },
+    {
+      "name": "Charmed",
+      "effects": [
+        "Can't attack or target the charmer with harmful effects",
+        "The charmer has advantage on social checks against the creature",
+        "In Noir: caused only by drugs or by a story it can't afford not to believe, never by magic; rare"
+      ]
+    },
+    {
+      "name": "Deafened",
+      "effects": [
+        "Can't hear; automatically fails any check that requires hearing",
+        "In Noir: a gunshot in a small room (the GM may require a DC 10 CON save), a blast, a ringing blow to the head"
+      ]
+    },
+    {
+      "name": "Frightened",
+      "effects": [
+        "Disadvantage on ability checks and attack rolls while the source of fear is in line of sight",
+        "Can't willingly move closer to the source of fear"
+      ]
+    },
+    {
+      "name": "Grappled",
+      "effects": [
+        "Speed becomes 0",
+        "Ends if the grappler is incapacitated or the creature is moved out of reach",
+        "Firing a Longarm or Automatic has disadvantage"
+      ]
+    },
+    {
+      "name": "Incapacitated",
+      "effects": [
+        "Can't take actions or reactions"
+      ]
+    },
+    {
+      "name": "Invisible",
+      "effects": [
+        "Can't be seen; counts as heavily obscured for hiding",
+        "Attack rolls against the creature have disadvantage",
+        "The creature's attack rolls have advantage",
+        "In Noir: only total darkness against a creature that can't see in it"
+      ]
+    },
+    {
+      "name": "Paralyzed",
+      "effects": [
+        "Incapacitated; can't move or speak",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "Any hit from within 5 ft is a critical hit",
+        "In Noir: a drug, a nerve injury; rare"
+      ]
+    },
+    {
+      "name": "Poisoned",
+      "effects": [
+        "Disadvantage on attack rolls and ability checks",
+        "In Noir: knockout drops wearing off, gas, bad liquor, too much good liquor"
+      ]
+    },
+    {
+      "name": "Prone",
+      "effects": [
+        "Can only crawl (each foot costs 2) until it stands, which costs half its speed",
+        "Disadvantage on attack rolls, except that a prone shooter with a rifle resting on something does not have disadvantage",
+        "Melee attacks from within 5 ft have advantage against it; ranged attacks from more than 5 ft have disadvantage against it",
+        "Going prone behind a low wall or a car turns half cover into three-quarters cover"
+      ]
+    },
+    {
+      "name": "Restrained",
+      "effects": [
+        "Speed 0",
+        "Attack rolls against it have advantage; its attack rolls have disadvantage",
+        "Disadvantage on DEX saves",
+        "Rope, a man on each arm, a strait-jacket. Handcuffs alone restrain the hands, not the legs (gear.json)"
+      ]
+    },
+    {
+      "name": "Stunned",
+      "effects": [
+        "Incapacitated; can't move; can speak only falteringly",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "In Noir: a blow to the head that didn't quite knock a man out, a blast at close range"
+      ]
+    },
+    {
+      "name": "Unconscious",
+      "effects": [
+        "Incapacitated; can't move or speak; unaware of surroundings",
+        "Drops what it is holding and falls prone",
+        "Automatically fails STR and DEX saves",
+        "Attack rolls against it have advantage",
+        "Any hit from within 5 ft is a critical hit"
+      ]
+    },
+    {
+      "name": "Suppressed",
+      "effects": [
+        "Disadvantage on attack rolls",
+        "Can't willingly move closer to the source of the suppressive fire",
+        "Lasts until the end of the creature's next turn",
+        "Caused by failing the WIS save against a Tommy gun or grease gun's suppressive fire"
+      ]
+    },
+    {
+      "name": "Bleeding",
+      "effects": [
+        "Loses 1d4 hit points at the start of each of its turns",
+        "Ends when someone uses an action and succeeds on a Medicine check (DC 10), when a bandage roll or first-aid kit is used, or when the creature receives any healing",
+        "A creature at 0 HP that is Bleeding still makes death saves normally and the bleeding damage causes a death save failure each turn"
+      ]
+    },
+    {
+      "name": "Shaken",
+      "effects": [
+        "Disadvantage on WIS and CHA ability checks and saving throws",
+        "Lasts until the creature finishes a short or long rest (a morphine syrette, or a stiff drink at the end of a short rest, can also end it)",
+        "Caused by finding a body, being worked over, a near miss at close range or seeing someone you know die"
+      ]
+    },
+    {
+      "name": "Exhaustion",
+      "effects": [
+        "Measured in levels 1-6. 1: disadvantage on ability checks. 2: speed halved. 3: disadvantage on attacks and saves. 4: hit point maximum halved. 5: speed 0. 6: death",
+        "A long rest with food and water removes one level",
+        "Caused by going without sleep for more than 24 hours (one level per further 12 hours: DC 10 CON save to avoid), long chases on foot and nights in the cold bay water"
+      ]
+    }
+  ],
+  "healing": {
+    "principle": "There is no magic healing. Hit points come back through first aid, a doctor, a hospital bed, morphine and rest. Nobody comes back from death.",
+    "first_aid": "As an action, make a WIS (Medicine) check (DC 10) to stabilize a creature at 0 HP. A first-aid kit or doctor's bag gives advantage on the check. A stable creature stops making death saves, stays unconscious and regains 1 HP after 1d4 hours. First aid also ends Bleeding.",
+    "stabilizing": "You can use an action to administer first aid (DC 10 Wisdom (Medicine) check) to stabilize a creature at 0 HP. A stable creature doesn't make death saving throws but remains unconscious.",
+    "doctor_features": "A Doctor's Patch Job, with a doctor's bag, gives a creature a short rest's worth of healing in one action (it spends up to the Doctor's proficiency bonus in Hit Dice, plus the Doctor's INT or WIS modifier), a number of times per long rest equal to the Doctor's INT or WIS modifier + 1 (minimum 2). It also stabilizes and ends Bleeding.",
+    "drugs": "Morphine syrette (1940s and 1950s): 1d6 + 2 temporary hit points for 1 hour, ends Shaken, and wakes a stable creature at 0 HP with 1 HP; a second dose within 8 hours risks being poisoned (DC 13 CON). Aspirin: +1 hit point per Hit Die spent during a short rest. Smelling salts: wake a stable unconscious creature. See gear.json medical.",
+    "hit_dice": "During a short rest, you can spend Hit Dice to recover HP. Roll each Hit Die and add your Constitution modifier. Your Hit Dice total equals your level.",
+    "short_rest": "At least 1 hour of downtime: a cup of coffee, a cold steak on an eye, a bandage, cleaning and reloading a gun. Spend Hit Dice to heal. Features that recharge on a short rest come back. Ends the Shaken condition.",
+    "long_rest": "At least 8 hours, mostly sleep, in a reasonably safe place. Regain all lost HP and up to half your total Hit Dice (minimum 1). Remove one level of exhaustion if you have food and water. Can't benefit from more than one long rest in 24 hours, and a long rest interrupted by an hour or more of fighting gives no benefit.",
+    "hospital_care": "A week in a hospital bed heals all hit points and lingering injuries (leg hits, Shaken). City hospitals report gunshot and knife wounds to the police: walking into an emergency room with a bullet in you raises Heat by 1 and brings a detective to the bedside within the day. A doctor who doesn't report costs money (investigation.json bribes_and_favors) or a favor.",
+    "death_is_final": "Nobody comes back from death. A character who dies is gone; the player creates a new one."
+  },
+  "chases": {
+    "structure": "A chase runs for 3 to 5 rounds. Each round, the pursuer and the quarry make opposed checks: DEX (Driving) in cars, STR (Athletics) or DEX (Acrobatics) on foot (the runner picks). Track the result each round.",
+    "winning": "The quarry escapes if it wins the majority of rounds (or gains a lead of 3 rounds). The pursuer catches up if it wins the majority (or gains a lead of 2). Catching up on foot allows a grapple or melee attack; in cars, a ram or a box-in against the curb.",
+    "complications": "Each round the GM introduces one complication for whoever is behind (or both): a streetcar crossing, a traffic cop with his hand up, a fruit cart, a funeral procession, a drawbridge going up, fog rolling in off the water, laundry lines across an alley, a locked gate. Clearing it is a check (DC 10-15) with the relevant skill; failure costs the round automatically, failure by 5 or more also deals damage (on foot 1d6 bludgeoning; cars take 2d10 damage to the vehicle).",
+    "actions_during_a_chase": "Passengers and runners who aren't making the check can act: shoot (disadvantage from a moving car; target the driver, a tire (gunplay.called_shots.tires) or the car), throw a Molotov into the road, shout directions (Help action with Streetwise or Perception), or lean out and wave a badge.",
+    "breaking_line_of_sight": "If the quarry wins a round by 5 or more it may try to hide (Stealth on foot, Driving in a car, vs the pursuer's Perception) to end the chase immediately: a turn into an alley with the headlights off, a duck through a hotel kitchen.",
+    "dashing": "On foot, each participant can Dash a number of times equal to 3 + CON modifier before needing a DC 10 CON check each additional Dash or gaining a level of exhaustion.",
+    "tails": "Following someone who doesn't know they are being followed isn't a chase; it is a tail (investigation.json tailing_and_stakeouts). A blown tail can turn into a chase."
+  },
+  "vehicles": {
+    "statistics": "Cars have AC and HP. At 0 HP a car is disabled: it stops (or crashes, if moving) and may catch fire (roll a d6; on a 1 the gas tank goes up 1d4 rounds later for 4d6 fire in a 15-ft radius). Speeds are top speeds on a good road; in city traffic everything does 30.",
+    "examples": [
+      {
+        "name": "Coupe",
+        "ac": 12,
+        "hp": 40,
+        "speed_mph": 85,
+        "notes": "Two seats plus a rumble seat or a long trunk. Quick: advantage on Driving checks to corner and to clear complications in a chase in city streets. Doors are soft cover; the engine block is hard cover."
+      },
+      {
+        "name": "Sedan",
+        "ac": 11,
+        "hp": 50,
+        "speed_mph": 80,
+        "notes": "Four doors, five or six seats. The car nobody remembers. Doors are soft cover; the engine block is hard cover."
+      },
+      {
+        "name": "Police cruiser",
+        "ac": 12,
+        "hp": 55,
+        "speed_mph": 90,
+        "notes": "Heavier engine, siren and spotlight; a two-way radio from the late 1930s and a shotgun clip under the dash. Other traffic gets out of its way when the siren is on: it ignores the first complication of a chase."
+      },
+      {
+        "name": "Delivery truck",
+        "ac": 10,
+        "hp": 70,
+        "speed_mph": 55,
+        "notes": "Panel truck; the box in the back holds six people or a ton of cargo and is soft cover. Disadvantage on Driving checks to corner. Ramming with it deals an extra 1d10."
+      },
+      {
+        "name": "Taxi",
+        "ac": 11,
+        "hp": 50,
+        "speed_mph": 80,
+        "notes": "A fleet sedan with a meter and a roof light. In traffic, nobody looks at a cab: a taxi has advantage on Driving checks to break line of sight in a chase in the city."
+      },
+      {
+        "name": "Motorcycle",
+        "ac": 13,
+        "hp": 25,
+        "speed_mph": 90,
+        "notes": "Police or delivery motorcycle. The rider has no cover and can be targeted directly; a crash throws the rider (see crashing)."
+      },
+      {
+        "name": "Armored limousine",
+        "ac": 14,
+        "hp": 90,
+        "speed_mph": 70,
+        "notes": "A rich man's or a mob boss's car with steel in the doors and thick glass: hard cover against Sidearms and the Tommy gun, soft cover against rifles. Damage threshold 10."
+      }
+    ],
+    "damage_threshold": "Ordinary cars ignore damage from a single attack that deals less than 5 damage (pistol rounds rattling off the body panels); armored cars ignore less than 10.",
+    "attacking_occupants": "Occupants of a car have half cover from soft body panels (which, per cover.material, is no cover against rifles) and full cover behind the engine block.",
+    "ramming": "The driver makes a Driving check against the target's AC (or contested by the other driver). On a hit, both vehicles take damage: 2d10 per 20 mph of speed for the target, half that for the rammer. A rammed pedestrian takes the same damage unless it succeeds on a DC 15 DEX save for half.",
+    "crashing": "A crash at speed deals 1d10 bludgeoning per 10 mph to every occupant (DEX save DC 15 for half). There are no seatbelts in these cars.",
+    "hot_wiring": "Starting a car without its key takes 1 minute and a Mechanics check (DC 12) with mechanic's tools or a screwdriver and some wire; a Wheelman with Under the Hood does it as an action."
+  }
+}

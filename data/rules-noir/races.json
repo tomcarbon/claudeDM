@@ -1,0 +1,145 @@
+{
+  "_meta": {
+    "category": "noir",
+    "source": "Written for claudeDM (Noir category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Noir Origins (the UI labels races.json entries as 'Origin'). Everyone is human; an origin is where you came up, not what you are. All five are available in every era (1930s, 1940s, 1950s). A campaign's characterOptions.races decides which are offered. Each origin's ability_score_increase is fixed (no choice)."
+  },
+  "races": [
+    {
+      "name": "City-Born",
+      "ability_score_increase": {
+        "dexterity": 2,
+        "charisma": 1
+      },
+      "age": "Adult at 18, or sooner if the neighborhood needed you to be. City people live into their sixties or seventies if nobody shoots them.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice (often the language spoken at home or on the block)"
+      ],
+      "traits": [
+        {
+          "name": "Knows the Block",
+          "description": "Choose one city you grew up in (usually the campaign city). There, you always know the quickest way across a neighborhood on foot, which alleys go through and which are dead ends, and which bars, diners and pool halls belong to whom. You have advantage on Streetwise checks to find a person, place or service in that city, and in a foot chase there you can choose to have the GM introduce the next complication for your pursuer instead of you (once per chase)."
+        }
+      ],
+      "subraces": [],
+      "description": "You came up in tenements and on stoops, running errands for the candy store and dodging the cop on the beat. You know the city the way a sailor knows weather. Nobody gave you anything; you learned to move fast and talk faster.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Small-Town",
+      "ability_score_increase": {
+        "wisdom": 2,
+        "constitution": 1
+      },
+      "age": "As City-Born. Small-town people often arrive in the city in their twenties with one suitcase.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice"
+      ],
+      "traits": [
+        {
+          "name": "Plain Dealing",
+          "description": "People take you at face value, and you can tell when they don't deserve the same. Once per long rest, when you make an Insight check to tell whether someone is lying, you can roll it with advantage and, on a success, also learn whether they are lying to protect themselves or someone else. Ordinary working people (waitresses, porters, farmhands, clerks) start out one step friendlier toward you than toward a city slicker."
+        }
+      ],
+      "subraces": [],
+      "description": "Feed-store town, county seat, mill town on a river. You grew up where everyone knew your business, and you learned to say what you meant. The city thinks you're a rube. The city is usually wrong, and it usually finds out late.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Old Money",
+      "ability_score_increase": {
+        "charisma": 2,
+        "intelligence": 1
+      },
+      "age": "As City-Born. Old Money tends to look younger than it is and to live longer than it deserves.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "French or one other language of your choice (the school insisted)"
+      ],
+      "traits": [
+        {
+          "name": "Doors Open",
+          "description": "Your name, your accent and the way you wear a suit get you in. Doormen, maître d's, club secretaries and private secretaries let you through unless they have been specifically told not to, and you have advantage on Society checks among the wealthy. The same polish works against you below the tracks: you have disadvantage on Streetwise checks until you have spent a scene showing you can be trusted (or have paid someone to vouch for you)."
+        }
+      ],
+      "subraces": [],
+      "description": "Boarding school, a house on the hill, a family name on a hospital wing. Maybe the money is gone and only the manners are left; maybe you walked away from it. Either way, you know how the people who run the city talk when the help has left the room.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "Ex-Service",
+      "ability_score_increase": {
+        "constitution": 2,
+        "strength": 1
+      },
+      "age": "As City-Born. In the 1930s you served in the Great War; in the 1940s and 1950s, in the Second World War or Korea.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "one extra language of your choice (often picked up overseas)"
+      ],
+      "traits": [
+        {
+          "name": "Seen Worse",
+          "description": "You have advantage on saving throws against being frightened and against the Shaken condition. In addition, the first time each combat that you are hit by a firearm, you don't lose your reaction or concentration on what you were doing: if you are holding a readied action, it stays readied."
+        }
+      ],
+      "subraces": [],
+      "description": "Army, Navy, Marines, Merchant Marine. You came home from a war the city has already stopped talking about, and you brought something with you you don't talk about either. Gunfire doesn't make you jump. Quiet sometimes does.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    },
+    {
+      "name": "New Arrival",
+      "ability_score_increase": {
+        "intelligence": 2,
+        "wisdom": 1
+      },
+      "age": "As City-Born. You came to this country as a child or an adult; how long ago is yours to decide.",
+      "size": "Medium",
+      "speed": 30,
+      "languages": [
+        "English",
+        "your first language (any)",
+        "one extra language of your choice"
+      ],
+      "traits": [
+        {
+          "name": "Two Languages",
+          "description": "You speak, read and write your first language and English fluently, and one more language well. People assume you understand less than you do: you have advantage on Perception and Insight checks to overhear and follow a conversation held in a language the speakers think you don't know. Within any community in the city that speaks one of your languages, you can find a meal, a bed and a rumor without a check."
+        }
+      ],
+      "subraces": [],
+      "description": "You came off a boat or a train with an address on a scrap of paper, and you have been learning the city ever since: its rules, its rackets and the difference between what it promises and what it pays. You notice things the natives stopped seeing years ago.",
+      "eras": [
+        "1930s",
+        "1940s",
+        "1950s"
+      ]
+    }
+  ]
+}

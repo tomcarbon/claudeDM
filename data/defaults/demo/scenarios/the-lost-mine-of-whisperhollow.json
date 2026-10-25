@@ -151,11 +151,11 @@
               "terrain": "Cramped antechamber with overturned crates, rusted equipment, and a collapsed guard post providing half cover."
             }
           ],
-          "roleplayNotes": "This is a transition scene from investigation to dungeon exploration. Build tension as the doors open and stale air rushes out. The missing villagers' abandoned gear should raise questions — they entered but did not return, yet there are no signs of violence at the entrance.",
+          "roleplayNotes": "This is a transition scene from investigation to dungeon exploration. Build tension as the doors open and stale air rushes out. The missing villagers' abandoned gear should raise questions — they entered but did not return, yet there are no signs of violence at the entrance. The villagers' hand-drawn map is a picture: when the party looks at it, show it with ShowSceneImage (`whisperhollow-villagers-map`), and show it again whenever a player asks. It is their own pencil sketch — partly wrong, missing the secret passages. **Exactly what is on it** (the players can see it, so describe nothing else): at the top, the sealed doors in a ring of rune marks, labelled \"DOORS\"; a cart track running straight down the main tunnel, labelled \"cart track\"; on the left, a passage to a small room labelled \"supply room\" and, lower down, a passage to a cluster of blue crystals labelled \"blue rock hums??\"; on the right, an upper passage that ends at a T-shaped timber frame, and a lower passage that runs past a zigzag and fallen rocks labelled \"DANGER!\" and ends at a second T-shaped frame; at the bottom, a second rune-ringed door where the paper is torn, with an arrow pointing to a note that has worn away to nothing readable. There is no other writing, no X, and no route marked. Do not invent labels, notes or marks, and do not explain what DANGER! means or what the blue rock is; let the players find out.",
           "loot": [
             "Salvageable rope (50 ft) from the missing villagers' supplies",
             "3 torches and a tinderbox",
-            "A hand-drawn map of the upper tunnels (partially accurate, missing secret passages)"
+            "A hand-drawn map of the upper tunnels (partially accurate, missing secret passages) — show it with ShowSceneImage `whisperhollow-villagers-map` the moment it is found"
           ]
         }
       ]

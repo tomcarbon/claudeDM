@@ -1,9 +1,11 @@
-# D&D 5th Edition Companion App
+# adventurefrog (claudeDM)
 
 
 
 ## Project Overview
-A Node/React application for playing D&D 5e with an AI Dungeon Master. The AI narrates the story, controls NPC companions, and adjudicates rules. The player manages their character(s) through the React UI.
+A Node/React application for playing tabletop RPGs with a Game Master. The AI narrates the story, controls NPC companions, and adjudicates rules. The player manages their character(s) through the React UI.
+
+**Five game categories** (decisions `0023`–`0026`; WO-0040, WO-0042, WO-0043, WO-0045): **Fantasy** (SRD 5e rules, `data/rules/`), **Sci-Fi** (original gunplay/tech rules, `data/rules-scifi/`), **Noir** (original 1930s–50s detective rules, `data/rules-noir/`) **Western** (original frontier rules, `data/rules-western/`) and **Horror** (original Dread rules, `data/rules-horror/`). A campaign declares `"category"` in its `campaign.json`; one without is Fantasy. Sci-Fi, Noir, Western and Horror are the registry's `engine: 'modern'` (no magic, firearms) and share one generator and one prompt builder. Every campaign except `demo` is badged Premium (`listing.badge` — a label; nothing gates on it). All share one d20 chassis — abilities, proficiency, XP, HP, hit dice, death saves, rests and every mechanical tool — so nothing in vitals/XP/state-guard is category-aware. The registry is `server/game-categories.js`. Do not use "D&D" / "Dungeon Master" in anything user-visible; internal identifiers (`dnd-tools`, `dnd_*` storage keys, `dm-*` file names) stay as they are.
 
 > **⚠️ Source of truth for live DM behavior:** the in-game DM is driven by the runtime system prompt assembled in **`server/dm-engine.js`** (`buildStableSystemPrompt` + `buildGameStateContext`), injected on every turn via the Claude Agent SDK. **That code — not this file — governs how the live DM actually behaves.** This `CLAUDE.md` is guidance for developers and AI coding assistants working *on* the codebase. The DM-behavior notes below are a human-readable mirror of the runtime prompt kept for orientation; **where the two differ, `server/dm-engine.js` wins.** To change how the DM plays, edit that file. (Note: a few reference tables here — e.g. the Fumble/Crit guides — are richer than the runtime prompt and are *not* currently injected into the live DM.)
 
@@ -16,11 +18,11 @@ A Node/React application for playing D&D 5e with an AI Dungeon Master. The AI na
 ```
 data/
 ├── defaults/                     # BASELINE templates — pristine source of truth for provisioning & resets
-│   └── <campaign>/               # demo, campaign1..5, nihon, wonderland
+│   └── <campaign>/               # fantasy: demo, campaign1..5, nihon, wonderland, reckoning, bellwater; scifi: coldwar, lastferry, outbreak, perihelion; noir: blackcrane, klieglight, calloway; western: bittercreek, silverline, longbounty; horror: greywick, drownedbell, hollowfork
 │       ├── characters/
 │       └── npcs/
 ├── players/                      # Per-player, per-campaign character LIBRARIES (editable working copies)
-│   └── <email-slug>/             # e.g. "tomcarbon-gmail-com" (email → slug: lowercase, non-alphanumerics → '-')
+│   └── <email-slug>/             # e.g. "alex-player-example-com" (email → slug: lowercase, non-alphanumerics → '-')
 │       ├── demo/
 │       │   └── characters/       # this player's editable character copies for the demo campaign
 │       ├── campaign1/
@@ -36,7 +38,11 @@ data/
 │   └── <campaign>/
 │       ├── campaign.json
 │       └── scenarios/
-├── rules/                        # D&D 5e rules database (shared, read-only)
+├── rules/                        # Fantasy (SRD 5e) rules + the shared chassis files (leveling.json, death rules in combat.json)
+├── rules-scifi/                  # Sci-Fi rules: classes, races (origins), backgrounds, skills, equipment, gear, combat (gunplay), adversaries
+├── rules-noir/                   # Noir rules: the same eight files plus investigation.json (clues, interrogation, tailing, Heat)
+├── rules-western/                # Western rules: the same eight files plus frontier.json (showdowns, Reputation, horses, the trail)
+├── rules-horror/                 # Horror rules: the same eight files plus dread.json (fear checks, Dread, creature rules, rites)
 ├── dm-settings.json              # Default DM personality settings (snapshotted into sessions at creation)
 └── dm-settings/                  # Per-player DM personality overrides — <email-slug>.json
 ```
@@ -44,7 +50,7 @@ data/
 **Three tiers, one character.** The same character can exist in up to three places, glued by a *copy-if-not-exists* rule (`copyDefaultsToDir` / `snapshotToSession` in `server/player-data.js`) so nothing downstream is ever clobbered:
 1. **Baseline** — `data/defaults/<campaign>/` — pristine templates, never mutated by play.
 2. **Library** — `data/players/<slug>/<campaign>/characters/` — the player's editable copy, provisioned from defaults and edited via the UI (`PUT /characters/:id`).
-3. **Session snapshot** — `data/sessions/<id>/characters/` (and `.../npcs/`) — frozen at session start (defaults first, then the library fills gaps). **This is the source of truth while a game is in progress — the live DM Reads and Edits here, never the library or defaults.**
+3. **Session snapshot** — `data/sessions/<id>/characters/` (and `.../npcs/`) — frozen at session start (**the player's library first, then campaign defaults fill the gaps** — WO-0026; it was defaults-first until 2026-09-19, which is why progressed characters used to enter a new session as their pristine template). **This is the source of truth while a game is in progress — the live DM Reads and Edits here, never the library or defaults.**
 
 **Campaign Isolation:** All player and session data is scoped per-campaign. Requests carry an `X-Campaign-Id` header (default `demo`); the server routes reads/writes to that campaign's subtree. Campaigns share zero state.
 
@@ -57,8 +63,42 @@ npm run server     # Server only
 npm run client     # Client only
 ```
 
-## D&D Rules Reference
-The rules database in `data/rules/` contains:
+### Environment variables
+
+| Variable | Default | Effect |
+| --- | --- | --- |
+| `CLAUDEDM_BOTS` | unset | `1` mounts the simulation/bot admin router. Anything else — including unset — leaves it structurally absent. Ignored when `NODE_ENV=production`, which always wins. |
+| `NODE_ENV` | unset | `production` disables the bot router regardless of `CLAUDEDM_BOTS`. Set nowhere in this project, which is why the bot gate does not rely on it alone (`server/index.js:49`). |
+| `CLAUDEDM_HOST` | `127.0.0.1` | The interface **both** listeners bind to — the API/WebSocket server (`resolveHost`, `server/index.js`) and the Vite dev server (`client/vite.config.js`). Loopback means this machine only. Set it (e.g. `0.0.0.0`) to reach the app from another machine; the server prints a warning when you do. A blank value is treated as unset. |
+| `CLAUDEDM_ALLOWED_ORIGINS` | the loopback origins the client is served from | Comma-separated list of **exact** browser origins the API answers, e.g. `http://192.168.1.10:5173`. It **replaces** the default list rather than adding to it. `*` restores the old allow-any behaviour. A refused origin gets `403` and a `[CORS] refused origin …` log line — never a silent 204. |
+
+`CLAUDEDM_HOST` and `CLAUDEDM_ALLOWED_ORIGINS` are two halves of one decision and you normally set
+both together: widening the bind without the origin list gives a page that loads and an app whose
+every API call is refused (identity travels in the custom `X-Player-Email` header, so every real
+request is preceded by a CORS preflight). README.md, *Playing with someone else on your network*,
+has the command. The defaults are enforced by `server/__tests__/bind-and-cors.test.js`, which fails
+on a literal host at the `listen` call site and on a wildcard in the default origin list — so
+widening either by accident goes red rather than shipping (WO-0034).
+
+Both are read together by `botsAllowed()` in `server/index.js`. An absent variable means no: the gate
+requires `CLAUDEDM_BOTS=1` explicitly, so a deployment that forgets to set anything gets no bot
+surface. Once mounted, `data/bot-config.json` (`enabled: true`) is a second switch deciding whether
+bots actually run.
+
+The suite is deterministic with respect to both variables: it stubs `process.env` where it tests the
+default-argument behaviour and passes explicit objects everywhere else. Verified green and at an
+identical count with `CLAUDEDM_BOTS` unset, `=1`, `=yes`, and `=1` alongside `NODE_ENV=production`.
+
+## Rules Reference
+**Noir** (`data/rules-noir/`, original content, the Sci-Fi file names and shapes plus `investigation.json`): 8 classes, 5 origins, 18 skills, 12 backgrounds, 1930s–50s weapons (each firearm names its counted ammo in `ammo_name`), armor (coats; one steel vest), gear, combat.json (gunplay and brawling), investigation.json (the three-clue rule, interrogation, tailing, Heat, bribes), adversaries.json. Spec with every pinned name: `projects/claudeDM-company/docs/noir-ruleset-spec.md`; held to it by `server/__tests__/noir-content.test.js`.
+
+**Western** (`data/rules-western/`, same shapes, `frontier.json` in place of `investigation.json`): spec `projects/claudeDM-company/docs/western-ruleset-spec.md`, held to it by `server/__tests__/western-content.test.js`.
+
+**Horror** (`data/rules-horror/`, same shapes, `dread.json` in place of `frontier.json`; supernatural adversaries add `rules` and `vulnerable_to`): spec `projects/claudeDM-company/docs/horror-ruleset-spec.md`, held to it by `server/__tests__/horror-content.test.js`. All three period tests share `server/__tests__/helpers/period-content.js`, which also fails if a pregen or companion shares a name (first name or nickname + surname) with any other campaign's.
+
+**Sci-Fi** (`data/rules-scifi/`, original content, same file names/keys as Fantasy so the same readers work): classes.json (8 classes, `default_weapons`, no `spellcasting`), races.json (origins), backgrounds.json, abilities-and-skills.json (18 skills), equipment.json (weapons by era with magazine/fire modes, armor), gear.json, combat.json (gunplay), adversaries.json (`monsters_by_cr`, read by `LookupMonster`). Sci-Fi campaigns add `era`, `currency`, `characterOptions`, `campaignRules` and `mapLocations` to `campaign.json`; money on sheets is `"Wallet containing $40"` or `"Credit chit: 250 cr"`.
+
+**Fantasy** — the rules database in `data/rules/` contains:
 - **races.json** — All PHB races with ability bonuses, traits, subraces
 - **classes.json** — All PHB classes with features, proficiencies, hit dice
 - **abilities-and-skills.json** — 6 abilities + 18 skills
@@ -93,11 +133,11 @@ When acting as DM:
 4. **Character and NPC updates** are made by editing JSON files directly. **During active play the files live in the session snapshot** — `data/sessions/<id>/characters/` and `data/sessions/<id>/npcs/` — **not** in `data/players/...` or `data/defaults/...`. The runtime prompt stamps the exact per-file path into the game-state block each turn; always use the path it gives you. **Updates must be immediate — do NOT defer file edits.** When HP changes, gold changes hands, items are gained or lost, or any stat is modified, use the Edit tool to update the JSON files **in the same response**, not "after combat" or "later." The player's UI reads directly from these files, so deferred updates mean the player sees stale data. When items, gold, or currency change hands between any combination of characters and NPCs, update **both** parties' JSON files (the giver and the receiver). For example, if a player pays an NPC 5 gp, deduct from the character's equipment and add to the NPC's equipment. **File Verification:** After every level-up and periodically during long sessions, use Read to verify character/NPC JSON files match the narrative state (level, XP, HP, equipment, gold). If out of sync, fix immediately via Edit. The JSON files are the source of truth.
 5. **Dice rolls** use standard notation: `NdX` (e.g., `1d20`, `2d6`). For ability checks: d20 + ability modifier + proficiency bonus (if proficient)
 6. **Combat flow:** Initiative (d20 + DEX mod) → Turns in order → Action/Bonus/Movement/Reaction → Track HP. **Real-time file updates during combat are mandatory.** Every time a character or NPC takes damage, heals, uses a consumable, or spends a resource, update their JSON file via Edit **immediately in that same response** — do not batch updates for after combat. The player's character widgets read from these files in real time.
-7. **Death saves:** 3 successes = stabilize, 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures.
+7. **Death saves:** 3 successes = stabilize (the creature stays at 0 HP and stays unconscious; it just stops rolling), 3 failures = death. Natural 20 = regain 1 HP. Natural 1 = 2 failures. Rolled by the server via `ApplyVitals` action `deathsave`, through the same dice path as every other roll.
 8. **Difficulty Classes:** Easy 10, Medium 15, Hard 20, Very Hard 25, Nearly Impossible 30
 9. **Never reset characters to defaults** without explicit player permission. Do not use the restore-defaults API for characters or NPCs during gameplay. If something seems wrong with a character's data, ask the player before making any restorative changes.
-10. **Death tracking:** All characters and NPCs have a `"status"` field (`"alive"` or `"dead"`). When a character dies (3 failed death saves, instant death, etc.), use the Edit tool to set `"status": "dead"` in their JSON file. Dead characters remain in the data but are excluded from new session character selection. Players can reset dead characters to defaults via Settings.
-11. **Creature Combat** A Creature is dead after hit points reach zero or go below zero, when sustaining combat or spell damage.
+10. **Death tracking:** All characters and NPCs have a `"status"` field (`"alive"` or `"dead"`). **The DM does not write it.** Since WO-0015.4 the server computes death from the rules and writes the sheet itself (`server/vitals-utils.js`, through the `ApplyVitals` tool), and an agent `Edit` to `status`, `hitPoints`, `deathSaves`, `hitDice`, `spellSlotsUsed`, `experience`, `level` or `proficiencyBonus` is refused before it lands (`server/state-guard.js`, mounted as a `PreToolUse` hook). "Down", "dying" and "unconscious" are derived from `hitPoints.current === 0`, not stored. Dead characters remain in the data but are excluded from new session character selection. Players can reset dead characters to defaults via Settings, and can still edit their own sheet in the UI — the guard binds the model, not the player and not the server.
+11. **0 HP is not death for anyone with a character sheet.** A player character or NPC reduced to 0 hit points is **unconscious and dying**, not dead: they make a death saving throw at the start of each of their turns (rule 7 above, and `data/rules/combat.json` → `death_saving_throws`). Three failures kill; three successes stabilise them, still at 0 HP and still unconscious; a natural 20 restores 1 HP; a natural 1 counts as two failures; damage taken at 0 HP is a failure, two on a critical hit; and damage that reduces someone to 0 with leftover equal to or greater than their hit point maximum kills outright. **A monster with no character file *is* dead at 0 HP** — that is the monster rule, and it is the only place it applies. (Corrected 2026-09-02, WO-0015.4: this entry used to read "A Creature is dead after hit points reach zero", which contradicted rule 7 and the rules database in the same repository, and was the rule the code implemented.)
 12. **No session-start equalization.** When a new session begins, do NOT attempt to equalize XP, equipment, gold, or any other stats between characters and NPCs. Accept the JSON files as-is — they are the source of truth. Party members may have different XP totals, different gear, and different levels, and that is normal. The player has UI tools (Settings → Reset) to restore any character or NPC to defaults if they choose. The DM should never "catch up" or "balance" party members on its own.
 13. **Dice Integrity.** You have creative freedom to call for rolls beyond what the rules strictly require — atmospheric checks, luck rolls, reaction checks, NPC morale — but once you call for a roll, these rules are absolute:
     - **Real DC before the roll.** Decide the DC (or opposed check) BEFORE seeing the result. Never adjust a DC after the fact to match a desired outcome.

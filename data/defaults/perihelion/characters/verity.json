@@ -1,0 +1,125 @@
+{
+  "id": "4f444dc3-73f4-4ac9-8623-b04811c47f66",
+  "name": "Verity",
+  "status": "alive",
+  "race": "Synthetic",
+  "subrace": "",
+  "class": "Tech",
+  "level": 4,
+  "background": "Blue-Collar Worker",
+  "alignment": "Neutral Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 31,
+    "current": 31
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Dexterity"
+  ],
+  "skills": [
+    "Computers",
+    "Science",
+    "Investigation",
+    "Perception",
+    "Mechanics",
+    "Athletics"
+  ],
+  "languages": [
+    "Common",
+    "Ostrander maintenance code",
+    "Machine binary"
+  ],
+  "equipment": [
+    "Ballistic weave maintenance coverall, Ostrander blue faded to grey",
+    "Laser pistol",
+    "Laser pistol cells (40)",
+    "Utility knife",
+    "Tech kit: multitool, jumper leads, a hard-jack splitter and a soldering pen",
+    "Jury-rig spares case (counted as components for Jury-Rig)",
+    "Patch kit for synthetics and machines",
+    "Sealant foam canisters (4) and patch plates (2)",
+    "An Ostrander Line asset tag, VR-1140, which they never removed and still wear",
+    "Credit chit: 120 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Laser pistol",
+      "attackBonus": 4,
+      "damage": "2d6+2",
+      "damageType": "radiant"
+    },
+    {
+      "name": "Utility knife",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave maintenance coverall (Light)",
+    "type": "light"
+  },
+  "features": [
+    "Constructed (Synthetic: immune to poison and disease, does not breathe or eat; healed by Mechanics or Patch rather than Medicine, but still rolls hit dice on rests)",
+    "Data Link (Synthetic: advantage on Computers checks made with a jack)",
+    "Jury-Rig (10 minutes and a Mechanics check to build, repair or bypass; DC by complexity)",
+    "Gadgets (2 uses per long rest: Spoof, disable a camera, lock or drone for 1 minute; Overclock, an ally's weapon or device gets +1d4 to its next roll; Patch, restore 1d8+3 to a robot, vehicle or synthetic)",
+    "Intrusion (advantage on Computers checks against networks with physical access)",
+    "Union Card (Blue-Collar Worker feature: maintenance and dock crews treat them as one of their own and will cover for them, lend tools and point out the shortcuts)"
+  ],
+  "traits": [
+    "Constructed",
+    "Data Link",
+    "Jury-Rig",
+    "Gadgets",
+    "Intrusion"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I speak in maintenance-log shorthand when stressed ('Valve 4, nominal; me, not nominal'). I am extremely polite to machines, including the ones I am about to break.",
+    "ideals": "Everything that works deserves to be maintained. That includes people. That includes me.",
+    "bonds": "I spent eleven years inside the Aubade's Spine. Every Glare I heard the hum in the coolant trunks, and I hummed back. I never knew what it was. I need to know what it was.",
+    "flaws": "I don't believe I own myself. I was sold at auction. Part of me thinks being sold again would just be the natural order of things, and I hate that part."
+  },
+  "appearance": "A slim, sexless maintenance-model android of the Ostrander 'Steward-Technical' line, about 1.7 metres, with a face of smooth white polymer designed to be unobtrusive and a pair of very expressive amber optics. The left hand has been replaced with a non-matching third-party unit that is better at fine work. They still wear the faded Ostrander blue coverall they were sold in.",
+  "backstory": "VR-1140 was built for the Ostrander Line and spent eleven years crawling the Aubade's Spine, greasing coolant valves, patching trunks and checking the Parasol actuators during the Glare. Three years ago, when the Line started selling everything that wasn't nailed down, VR-1140 was auctioned as surplus equipment along with forty-one others. A salvage broker on Caloris High bought them, a dock union rep bought them from him for a dollar as a joke, and the union then voted, eighteen to four, that VR-1140 was a member and could keep their wages. They took the name Verity at the meeting. They have been a freelance ship tech since. Their old Ostrander maintenance credentials were never revoked, because nobody thinks to revoke the access of a piece of equipment."
+}

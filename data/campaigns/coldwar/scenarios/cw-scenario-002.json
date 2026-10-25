@@ -1,0 +1,419 @@
+{
+  "id": "cw-scenario-002",
+  "title": "The Transit Road",
+  "subtitle": "One Day Over There, One Night at Michendorf, One Car with Room for One",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "West and East Berlin and the Berlin-Helmstedt transit autobahn, Monday 31 October to Thursday 3 November 1983",
+    "description": "A divided city on the edge of winter. The team flies into West Berlin's Tegel airport on Pan Am, because only Allied airlines may, and bases itself in Hanne Vogt's car-repair yard in Kreuzberg, in the shadow of the Wall. KESTREL is inside the KGB compound at Karlshorst, in the East, under a polite house arrest that calls itself a conference, and is due on an Aeroflot flight to Moscow from Schonefeld on Thursday afternoon. The team has a single day visa's worth of time in East Berlin to make contact, and a single night to bring her out through the transit system: Western cars may drive the autobahn from Berlin across the GDR to Helmstedt in West Germany without being searched beyond the checkpoints, provided they stop only at designated rest stops. Escape helpers like Hanne have used those rest stops for years. The GDR has learned from every one of them.",
+    "atmosphere": "Two cities, two smells. West Berlin: coal smoke, doner kebab, punk posters, US Army Jeeps, the Wall as a graffiti canvas one could touch. East Berlin: brown coal smoke, two-stroke Trabant exhaust, grey façades still pocked with 1945, the Palace of the Republic's copper windows, and the specific silence of a city where everyone assumes someone is listening. The transit autobahn at night: concrete slabs that thump under the tyres, sodium lights at the rest stops, Volkspolizei Wartburgs parked on the verge with their lights off, and the long dark of Brandenburg on both sides. Fear here is patient and administrative. A guard does not shout; he takes your passport into a hut and does not come out for forty minutes.",
+    "keyLocations": [
+      {
+        "name": "Hanne Vogt's Yard, Kreuzberg",
+        "description": "A cobbled back courtyard off the Oranienstrasse with a two-bay garage, a ramp, a tyre rack, a kitchen that is also an office, and a view of the Wall from the roof. Hanne lives above it. The cream Mercedes 240D with the hidden compartment is on the ramp.",
+        "features": [
+          "The Mercedes: a cavity behind the rear seat back, above the fuel tank, lined with felt and packed round with sound-deadening, big enough for one small adult lying curled, with air through a tube into the boot. Two hours is bearable; four is dangerous (CON save DC 12 each hour after the second or a level of exhaustion).",
+          "The VW Beetle with a false floor, which holds documents, film or a child",
+          "A roof hatch with a view over the Wall to the East Berlin side, Stasi watchtowers and the death strip",
+          "A police-band scanner Hanne built into the Mercedes radio"
+        ],
+        "encounters": [
+          "Hanne, the car, and the plan",
+          "Uwe Kranz, 19, Hanne's apprentice, cheerful, helpful, and a Stasi informer (IM 'Kolben')"
+        ],
+        "secrets": [
+          "Uwe photographs the Mercedes's plates and the team's faces on Tuesday with a Praktica in his locker, and his Stasi handler has the pictures by Wednesday morning. A team that searches his locker (Investigation DC 13) or watches him (Insight DC 15) can find out.",
+          "The Stasi do not know what KESTREL is; they think Hanne is running an ordinary escape. They know about the car through Uwe; Rybak knows about the car through GARDENER only if the team telexed the plates to Vienna."
+        ]
+      },
+      {
+        "name": "Friedrichstrasse Border Station (the Palace of Tears)",
+        "description": "The East Berlin rail and S-Bahn station that is also the main crossing point for foreigners on foot. Westerners queue in a glass-and-steel departure hall the Berliners call the Tränenpalast, the Palace of Tears, for the goodbyes said there. On the way in: passport control in narrow booths, a mirror above the visitor's head so the guard can see behind them, the compulsory exchange of 25 Deutschmarks for 25 East marks, and a day visa valid until midnight.",
+        "features": [
+          "Narrow passport booths with a buzzer-locked door at each end and a guard who compares face to photograph three times",
+          "The Intershop, selling Western goods for Western currency",
+          "Transport Police on the platforms, and plainclothes Stasi from Main Department VI in the queue",
+          "Midnight: anyone on a day visa still in the East is in serious trouble"
+        ],
+        "encounters": [
+          "Passport control: a Legends check for each team member (DC 15; thin legends at disadvantage)",
+          "A Stasi tail picked up in the queue (2 KGB/Stasi Officers in plain clothes, 4 more on call)"
+        ],
+        "secrets": [
+          "If Uwe's photographs reached the Stasi, the faces of whoever was at the yard on Tuesday are on a sheet in the passport hall by Wednesday morning. Those characters roll their Legends check with disadvantage and are tailed from the start."
+        ]
+      },
+      {
+        "name": "The Pergamon Museum, Museum Island",
+        "description": "East Berlin's great museum of antiquities, its Hellenistic altar and the blue-glazed Ishtar Gate of Babylon with its lions and dragons. Weekday mornings in November it holds a few school groups, a party of Soviet officers' wives, and a handful of Western tourists. KESTREL is here on a 'cultural afternoon' arranged for the conference delegates, with her minder.",
+        "features": [
+          "The Processional Way: a long corridor of blue-tiled lions, ideal for walking side by side without appearing to be together",
+          "Museum attendants who are mostly elderly women and all, in theory, report to someone",
+          "A ladies' washroom on the lower level, the only place KESTREL's minder will not follow",
+          "A cloakroom where coats hang side by side for an hour"
+        ],
+        "encounters": [
+          "KESTREL and her minder, Captain Lev Danilov (Bodyguard), a decent young KGB officer who likes her",
+          "A brush pass, a washroom message, or a cloakroom pocket drop: the team chooses"
+        ],
+        "secrets": [
+          "KESTREL's message, however delivered, is one line: Michendorf, Wednesday, 23:00, westbound, the cream car. She has arranged her own way from Karlshorst to the rest stop: an old friend, a retired schoolteacher with a Wartburg, whom she ran privately in the 1960s and never put on any file.",
+          "Captain Danilov is not a fool. He notices a second contact if the team makes one; Insight DC 14 shows that he has noticed and decided, for now, to say nothing. He has a mother in Leningrad and a lot of respect for Colonel Tarasova."
+        ]
+      },
+      {
+        "name": "Raststätte Michendorf",
+        "description": "A transit-autobahn rest stop on the Berlin ring south-west of Potsdam, the first one after the Drewitz checkpoint for westbound traffic to Helmstedt. A concrete restaurant serving Soljanka and Bockwurst, a fuel station that takes Western currency, a car park lit by sodium lamps, toilets, a Volkspolizei patrol car parked by the exit, and a dark tree line behind the lorry park. Escape helpers have used it for years; the Stasi knows it, and watches it on some nights and not others.",
+        "features": [
+          "The car park, lit in pools with dark between them",
+          "The lorry park behind, where Polish and Czech trucks sleep with their curtains drawn",
+          "The toilet block, whose back window opens onto the trees",
+          "A Volkspolizei Wartburg, two officers, bored, who check transit cars that stop too long (more than about 30 minutes)"
+        ],
+        "encounters": [
+          "KESTREL's arrival in an old blue Wartburg with Frau Elke Rother at the wheel",
+          "Rybak's team, if they know the car (see Act 3)",
+          "The Volkspolizei patrol (2 Beat Cops; reinforcement in 5 minutes by a Stasi car with 3 KGB/Stasi Officers)"
+        ],
+        "secrets": [
+          "The loading has to happen fast and dark: two minutes from Wartburg to compartment is Stealth DC 13; more than five minutes at the car with the back seat out is Stealth DC 17.",
+          "Frau Rother, 74, has driven forty kilometres at night in a car she has not driven in a year, past two Vopo checkpoints, because Vera Tarasova once kept her son out of prison. She is not going home. She expects to be arrested and has packed a toothbrush."
+        ]
+      },
+      {
+        "name": "Checkpoint Marienborn and Helmstedt",
+        "description": "The GDR's biggest border crossing, at the western end of the transit route, 170 kilometres and about two hours from Michendorf. Lanes of concrete booths under floodlights, a conveyor belt that carries passports in a little cart down a covered chute to a hidden office and back, inspection pits, mirrors on poles, dogs, and men with rubber mallets who tap door panels and listen. Beyond it, a few hundred metres of no-man's land, then the West German customs post at Helmstedt and a sign that says, in effect, you are free.",
+        "features": [
+          "The passport conveyor and its fifteen-minute wait while someone you cannot see reads your name",
+          "Inspection lanes: most transit cars wave through; one in ten is pulled over; a car on a list is stripped",
+          "Dogs trained on the scent of people in confined spaces",
+          "The no-man's land: eight hundred metres of floodlit concrete"
+        ],
+        "encounters": [
+          "Passport control (Legends check DC 15 each)",
+          "Lieutenant-Colonel Klaus Henning (KGB/Stasi Officer), Main Department VI, who is waiting for Hanne with a photograph of her brother and a signed release order",
+          "A vehicle search if the car is pulled: Deception and Mechanics checks to keep the compartment unfound"
+        ],
+        "secrets": [
+          "Henning does not know what is in the car and does not care. He wants Hanne Vogt's network, and he is offering her brother Jens's freedom tonight, in exchange for her pulling over into Lane 4 and opening the back seat. It is the Stasi's oldest trick, and it is sincere: Jens really would be released.",
+          "If Rybak is short of options, he asks the Stasi to stop 'a cream Mercedes'. The Stasi, which dislikes the KGB giving it orders, stops every cream Mercedes, very slowly, and the queue backs up eight kilometres. A clever team can use the delay."
+        ]
+      }
+    ]
+  },
+  "synopsis": "The team flies into West Berlin and meets Hanne Vogt, the escape helper whose cream Mercedes has a hiding place no border guard has yet found. KESTREL is inside the KGB compound at Karlshorst, due on an Aeroflot flight to Moscow on Thursday afternoon. On Wednesday, the team crosses into East Berlin on day visas, makes contact with her in front of the Ishtar Gate under the eye of her minder and a Stasi tail, and learns her plan: a rest stop on the transit autobahn, 23:00 that night. They must be back across the Wall by midnight, then drive out through the Drewitz checkpoint as an ordinary transit car, load a KGB colonel into a cavity above the fuel tank in a lit car park patrolled by the Volkspolizei, and get her through two hours of East German autobahn and the floodlit lanes of Marienborn, where a Stasi officer is waiting to offer Hanne the one thing she wants more than anything in the world. Meanwhile Major Rybak, if the leak has reached him, is waiting at Michendorf. KESTREL steps out of the car on West German soil at Helmstedt in the small hours of Thursday, cramped, furious and alive, and tells the team where the film is: on a Bulgarian truck, on its way to Istanbul.",
+  "hook": "The Pan Am 727 comes into Tegel low over the city in the rain, and from the window you can see it: a grey line through the lights, running through parks and between apartment blocks and along a canal, lit like a runway on one side and dark on the other. Hanne Vogt meets you in the arrivals hall in a biker jacket with grease to the elbows, looks you over one by one, and says, in English, 'Which one of you is the colonel's friend? None? Good. I do not like colonels. Get in the car. Not that car. That car is for her.'",
+  "cluesAvailable": [
+    "M4"
+  ],
+  "acts": [
+    {
+      "title": "Act 1: The Island",
+      "description": "Monday 31 October and Tuesday 1 November. West Berlin, the yard, the car, the plan. Hanne tests the team. The team does a dry run of the transit route to Helmstedt and back. And the team must decide how much to tell Vienna: Lionel Pryce helpfully offers to clear the car with the Allied liaison office so that the West German side waves it through at Helmstedt, which requires the plates and colour.",
+      "objectives": [
+        "Win Hanne Vogt's trust (or at least her cooperation)",
+        "Learn the transit system: the Drewitz entry, the rest stops, the time limits, Marienborn",
+        "Drive the route once as a dry run on Tuesday, and memorise Michendorf",
+        "Decide what to telex Vienna (Clue M4 depends on it)",
+        "Spot, or fail to spot, Uwe the apprentice"
+      ],
+      "scenes": [
+        {
+          "name": "The Yard",
+          "description": "Hanne shows the car. She explains the rules of the transit autobahn with enormous contempt for both governments. She wants $4,000 for the run, half now. She tests the team by asking them to find the compartment.",
+          "readAloud": "The Mercedes is on the ramp with its rear seat out, and the garage smells of diesel, coffee and Hanne's Juno cigarettes. 'Find it,' she says. 'You have five minutes. If you find it, a guard at Marienborn finds it, and we do not go.' Behind you, the apprentice is whistling a Nena song and polishing a hubcap that does not need polishing.",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 17,
+              "success": "You find it, at four minutes thirty: the rear bulkhead is three centimetres too far forward. Hanne swears for a full minute, says nobody has ever found it, and spends the evening moving the felt so that nobody will again. She respects you now.",
+              "failure": "You cannot find it. Hanne is delighted. 'Good. Neither can they.'"
+            },
+            {
+              "skill": "Insight",
+              "dc": 15,
+              "success": "Uwe the apprentice is listening too closely and has not finished the hubcap in twenty minutes. Something is off about him.",
+              "failure": "Uwe is a nice kid who likes cars."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Hanne agrees to $3,000 and tells you about her brother in Bautzen. That is the moment she starts to trust you.",
+              "failure": "Hanne's price is $4,000, all of it before the run, and she does not mention her brother."
+            }
+          ]
+        },
+        {
+          "name": "The Dry Run",
+          "description": "Tuesday. Two of the team ride the route with Hanne in the Beetle, Dreilinden to Helmstedt and back: passports, transit visas, the slabs, the rest stops, the Vopo cars. A chance to scout Michendorf in daylight and to feel Marienborn once before it matters.",
+          "readAloud": "At Drewitz a guard in grey takes your passports into a booth and you sit for twenty minutes with the engine off looking at a sign that says, in German, it is forbidden to leave the transit route. Then you are on the autobahn: concrete slabs that go thump, thump under the tyres, pine forest, a flat grey Brandenburg sky, a Trabant coughing blue smoke in the slow lane. Michendorf comes up on the right: a squat concrete building with a sign for Mitropa, a fuel pump, a dozen cars and a police Wartburg parked with its nose toward the exit.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "You memorise Michendorf: the dark corner behind the lorry park, the toilet block's back window, the angle of the police car, the fact that the lamps at the far end of the car park are out.",
+              "failure": "You see a car park. At night it will look different."
+            },
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "Marienborn waves you through after the usual twenty-minute wait. You have seen the dogs, the mirrors on poles and the passport conveyor, and you know how it feels.",
+              "failure": "The Beetle is pulled into an inspection lane and searched for an hour. Nothing is found, because there is nothing to find, but both of you are now in a Stasi file as transit travellers with Hanne Vogt."
+            }
+          ]
+        },
+        {
+          "name": "The Telex",
+          "description": "Lionel Pryce telephones the yard (the team gave Vienna the number, or Hanne's garage is in the station's files) and offers, very helpfully, to clear the car with the Allied liaison at Helmstedt so West German customs wave it through. He needs the plates and colour. What the team sends, and how, determines what Rybak knows.",
+          "readAloud": "The phone in Hanne's kitchen rings, an old grey Bakelite thing on the wall, and it is Lionel, the line hissing all the way from Vienna. 'I'm so sorry about Sunday,' he says, and sounds it. 'Ghastly. Look, I've spoken to the liaison people. If you give me the car's details I can have the Helmstedt end waved through, no questions, saves you an hour on the western side. Plates and colour will do. Martin says it's your call, of course.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 16,
+              "success": "Pryce's warmth is real. So is something under it, a tightness, as if he is listening for something in your answer. You cannot tell what.",
+              "failure": "Lionel is being helpful, which is very like him."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Uwe Kranz, IM 'Kolben', photographing the car and faces (no combat; a discovery)",
+        "Hal Brennan, CIA, arrives in Berlin on Tuesday and makes an offer: he can bring KESTREL out in the boot of a US Army staff car through Checkpoint Charlie under Allied rights of access, which no Soviet or East German guard may search. It would work. KESTREL would then belong to the CIA, not to the team, and she has said very clearly she does not want the Annex but also that she wants a guarantee. The team chooses."
+      ]
+    },
+    {
+      "title": "Act 2: Over There",
+      "description": "Wednesday 2 November. A day visa into East Berlin through Friedrichstrasse, the compulsory 25-mark exchange, and a museum. The team must reach the Pergamon at eleven, make contact with KESTREL under the eyes of her minder and probably a Stasi tail, get her plan, and be back across by midnight. This is a tradecraft act in hostile territory with no safe-house, no backup and no guns, because nobody takes a gun through Friedrichstrasse.",
+      "objectives": [
+        "Cross into East Berlin on day visas with the team's legends intact",
+        "Identify and manage the Stasi tail",
+        "Make contact with KESTREL at the Ishtar Gate, past Captain Danilov",
+        "Receive her plan: Michendorf, 23:00, westbound",
+        "Return to West Berlin before midnight with nothing incriminating on anyone"
+      ],
+      "scenes": [
+        {
+          "name": "The Palace of Tears",
+          "description": "The crossing. Narrow booths, mirrors overhead, a guard who looks from face to photograph three times. Then 25 Deutschmarks become 25 East marks that the team will struggle to spend, and they are out onto the Friedrichstrasse into a different country.",
+          "readAloud": "The booth is barely wider than your shoulders, with a door in front of you that has no handle and a door behind you that has just locked. Above your head is a slanted mirror, so the guard on his high stool can see your hands and the back of your coat. He is twenty-two, perhaps, with a careful moustache. He looks at your passport photograph. He looks at you. He looks at the photograph again, for a long time, and then at a sheet of paper below the counter where you cannot see it, and then at you. The buzzer goes. The door in front of you clicks.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "Each character: through without remark. (Thin legends at disadvantage; any character photographed by Uwe at disadvantage too.)",
+              "failure": "Held for an extra hour in a side room and asked the purpose of the visit thirty times. On a failure by 5 or more, that legend is blown and the character is turned back: they cannot enter East Berlin today."
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 17,
+              "success": "Group check against the Stasi. You spot your tail on the Unter den Linden: a man and a woman, arm in arm, and a third in a Wartburg that keeps finding parking places. You can lose them in the crowds at the TV tower, or keep them and use them to watch someone else.",
+              "failure": "You believe you are clean. You are not. On a failure by 5 or more, the Stasi are close enough to see who at the museum you look at."
+            }
+          ]
+        },
+        {
+          "name": "The Lions of Babylon",
+          "description": "The Pergamon. KESTREL and Captain Danilov are walking the Processional Way with a party of Soviet officers' wives. The team must get a message, a word or an object to and from her without Danilov or the Stasi seeing. Options: a washroom note (only a woman on the team can follow her), a cloakroom pocket drop, a brush pass among the lions, a forged museum guide with a question in the margin.",
+          "readAloud": "The Processional Way is a corridor of blue, glazed brick the colour of a summer evening, with yellow lions walking along it at shoulder height, mouths open, one after another, as they have since Nebuchadnezzar. At the end of it the Ishtar Gate rises toward a skylight, dragons and bulls in gold on blue. In front of the gate a guide is explaining Babylonian kiln temperatures to a dozen women in fur hats, and at the back of the group, very still, a small silver-haired woman in a grey coat is looking at a lion with every appearance of interest. Beside her, a broad young man in a cheap suit is looking at everybody else.",
+          "skillChecks": [
+            {
+              "skill": "Sleight of Hand",
+              "dc": 14,
+              "success": "The pass is made; KESTREL makes hers too (she succeeds automatically; she has done this for twenty-nine years). Her message: MICHENDORF WED 2300 WESTBOUND CREAM CAR. I WILL COME. Also, folded inside: the name of the woman driving her, in case it goes wrong, so somebody will know.",
+              "failure": "The pass is fumbled; Danilov sees something. KESTREL covers it with a sharp remark in Russian about Western tourists with no manners, but now Danilov is watching. The message still gets through, but Act 3 gains a complication: Danilov will check on her in her room at 21:00."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Danilov has seen more than he is letting on, and has decided not to say anything yet. He likes the colonel. He is also afraid of being blamed.",
+              "failure": "Danilov is a bodyguard. Bodyguards watch."
+            }
+          ]
+        },
+        {
+          "name": "Midnight",
+          "description": "The return through Friedrichstrasse before the day visa expires, with nothing on anyone, and the Stasi tail, if still attached, checking which booth they use.",
+          "readAloud": "The S-Bahn platform at Friedrichstrasse is bright and empty and smells of disinfectant. A Transport Police officer with a dog walks the length of it and back, and the dog looks at each of you without much interest. On the clock over the platform it is twenty to eleven. Westbound. Your train comes in from the dark with its windows lit, and the doors open, and you get on, and nobody stops you, and somewhere under your ribs something you did not know was clenched lets go."
+        }
+      ],
+      "encounters": [
+        "Stasi street team (2 to 6 KGB/Stasi Officers in plain clothes); no combat is survivable here, and any arrest is a diplomatic incident",
+        "Captain Lev Danilov (Bodyguard), KESTREL's minder",
+        "East German Transport Police with a dog (Beat Cop, Guard Dog) on the platforms"
+      ]
+    },
+    {
+      "title": "Act 3: Michendorf",
+      "description": "Wednesday night 2 November into Thursday morning. The Mercedes leaves West Berlin through Dreilinden as an ordinary westbound transit car with Hanne and up to three of the team aboard; others may follow in the Beetle or wait in West Berlin. At Michendorf, KESTREL arrives in a blue Wartburg at 23:00. Load her, leave, and survive two hours of autobahn and the lanes of Marienborn. If the team telexed the car's details to Vienna, Rybak is waiting.",
+      "objectives": [
+        "Reach Michendorf at 23:00 as a westbound transit car, without stopping anywhere else",
+        "Load KESTREL into the compartment unseen, in under two minutes if possible",
+        "Deal with Rybak's team (if present) without gunfire",
+        "Get through Marienborn, past the dogs, the mallets and Lieutenant-Colonel Henning's offer to Hanne",
+        "Reach Helmstedt, in the West, with KESTREL alive"
+      ],
+      "scenes": [
+        {
+          "name": "The Car Park",
+          "description": "Michendorf at 23:00. Sodium lamps, a Vopo Wartburg by the exit, lorries asleep in the back lot. The blue Wartburg comes in at 23:04 with its headlights off for the last hundred metres. If Rybak knows the car (Clue M4), his team is already here: a Lada with three men in the dark end of the car park, and Rybak himself in the restaurant, eating Soljanka by the window.",
+          "readAloud": "The car park at Michendorf is islands of orange light with black water between them. The restaurant windows are steamed; inside, a family from Hamburg is arguing over Bockwurst. The police Wartburg is where it was on Tuesday, nose to the exit, two shapes in the front seats and the red ember of a cigarette. Four minutes past eleven, a small blue car comes in off the slip road with its headlights already off, rolls very slowly to the dark end beyond the last working lamp, and stops. Nobody gets out. An old woman's hands are on the wheel at ten to two. Beside her, in a grey coat, someone is looking straight at you.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "Back seat out, colonel in, felt down, seat back, in a hundred seconds, in the dark between two lamps, and the policemen are watching the Hamburg family's son try to buy cigarettes with a Deutschmark.",
+              "failure": "It takes too long. On a failure, the Vopo car's door opens and an officer walks over to ask why you have stopped so long (Deception DC 14, or the car is searched here). On a failure by 5 or more, Rybak's men see the loading."
+            },
+            {
+              "skill": "Perception",
+              "dc": 15,
+              "success": "You spot the Lada in the dark, three men not sleeping, and a man in the restaurant window with a bowl of soup who is not eating it. Rybak.",
+              "failure": "You do not see them until the Lada's headlights come on."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Frau Rother, the old woman in the Wartburg, will not come West ('I am seventy-four, I would not know where to buy bread'), but agrees to drive home rather than wait to be arrested, and to say her car was stolen. She may survive this.",
+              "failure": "Frau Rother stays in her car, waiting calmly for the police. She will be arrested tonight. KESTREL knows, and it costs her."
+            }
+          ]
+        },
+        {
+          "name": "The Fisherman",
+          "description": "If Rybak is here: his men want to box the Mercedes in at the slip road and take KESTREL out, quietly, without the Vopos noticing. A gunfight here is catastrophic: Volkspolizei, then Stasi, then the GDR's whole apparatus, and every Western car on the transit route stopped tonight. The team's tools are speed, misdirection, the police themselves, and Hanne's driving.",
+          "readAloud": "The Lada's headlights come on at the dark end of the car park, and then a second set behind you, by the fuel pumps: a Volga, black, which was not there a minute ago. Both start to move, slowly, in a way that does not look like anything to the policemen by the exit. In the restaurant, the man with the soup puts down his spoon. Hanne says one word, very quietly, which is a word you will not find in a dictionary, and then she says, 'Seat belts,' and starts the engine.",
+          "skillChecks": [
+            {
+              "skill": "Piloting",
+              "dc": 15,
+              "success": "Hanne (or a PC at the wheel) threads the Mercedes between the pumps and the lorry park at a speed that is just too low to interest the police, and is on the autobahn before the Lada can block the slip road. Rybak will not chase on the transit route; he cannot afford to be stopped by the Vopos either.",
+              "failure": "The Lada blocks the slip road. The team needs another way out: through the lorry park and out the lorry exit (Piloting DC 13), or by bringing the police over to complain loudly about a Lada blocking the road (Deception DC 13, which makes the police do the team's work for it)."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "If Rybak walks up to the car himself (he might, to see the face): look him in the eye and tell him, in whatever language, that the Volkspolizei are fifty metres away and the first shot ends both your careers. He weighs it, smiles very slightly, and steps back. He will remember the face.",
+              "failure": "Rybak smiles and lights a cigarette. He does not step back. Somebody has to do something else."
+            }
+          ]
+        },
+        {
+          "name": "Marienborn",
+          "description": "Two hours of autobahn, KESTREL in the compartment, then the floodlit lanes of the GDR's largest checkpoint. Passports go down the conveyor. If the car is on a list (from Uwe, or from Rybak through the Stasi), it is pulled into an inspection lane. Lieutenant-Colonel Henning walks over to Hanne's window with a photograph of her brother and a signed release order for Jens, and says she can have him tonight, if she just opens the back seat in Lane 4. What Hanne does depends on how the team has treated her (see her dmNotes). This is the scenario's emotional climax.",
+          "readAloud": "Marienborn rises out of the dark like a stadium: banks of floodlights, a roof over a dozen lanes, booths, barriers, and men in grey-green with mirrors on long poles. You give your passports to a hand at a hatch and they vanish into a little cart on a conveyor belt, and disappear down a chute into the floor, toward somebody you will never see. The engine is off. The heater is off. Behind the back seat, somewhere above the fuel tank, a fifty-one-year-old woman who has not moved in two hours is trying very hard to breathe quietly. A man in a long leather coat walks across the lanes toward the driver's window with an envelope in his hand, and Hanne's face goes white, and then blank.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "Each character's legend survives the passport conveyor.",
+              "failure": "A legend is questioned; failure by 5 or more blows it, and the car is pulled into an inspection lane."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 16,
+              "success": "If the car is searched: the mallets tap the panels and the compartment sounds solid, because Hanne's felt and sound-deadening are superb (advantage if a PC found the compartment in Act 1 and Hanne reworked it).",
+              "failure": "A mallet tap sounds hollow. The guard frowns and taps again. A Gadget (Spoof) on the guard's torch, a distraction, or a bribe (Persuasion DC 16, $200) is needed now, or it is over."
+            },
+            {
+              "skill": "Survival",
+              "dc": 15,
+              "success": "A team member who knows dogs (Tomasz, Survival) spots the handler's dog beginning to alert at the rear wheel arch and creates a reason for the handler to move it on (spilled diesel, a dropped sandwich).",
+              "failure": "The dog sits down by the rear wheel and looks at its handler. The handler looks at the car."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Rybak's interception team at Michendorf, only if Clue M4 leaked: 3 Field Agents in a Lada and 2 Mercenaries in a black Volga; Major Rybak (Assassin) in the restaurant. They want a snatch and will break off rather than fight in front of the Volkspolizei.",
+        "Volkspolizei patrol at Michendorf (2 Beat Cops), reinforced in 5 minutes by a Stasi car (3 KGB/Stasi Officers) if anything goes loud",
+        "Marienborn: passport control, inspection lane, guard dog (Guard Dog), and Lieutenant-Colonel Klaus Henning (KGB/Stasi Officer) with his offer"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Hanne Vogt, 33",
+      "role": "Escape helper, mechanic; companion",
+      "description": "Peroxide crop, grease, broken tooth, Berlin mouth, the best car-hider in the city. Full sheet in the companion files.",
+      "motivation": "Get people out. Get her brother Jens out of Bautzen. Never be owned by anyone."
+    },
+    {
+      "name": "Vera Tarasova (KESTREL)",
+      "role": "Defector; becomes a companion from this scenario",
+      "description": "In Karlshorst under polite arrest until Wednesday night, then two hours in a felt-lined box above a fuel tank. She does not complain. She critiques the compartment's ventilation.",
+      "motivation": "Reach the West. Then, and only then, negotiate."
+    },
+    {
+      "name": "Captain Lev Danilov, 28",
+      "role": "KGB minder",
+      "description": "Broad, earnest, from Leningrad, likes poetry and the colonel. A good man in a bad job, who has noticed more than he says. If the team handles him decently, he will later say that the colonel 'went to bed early with a headache', buying her five hours.",
+      "motivation": "Not to be blamed. Not to see the colonel hurt."
+    },
+    {
+      "name": "Uwe Kranz, 19",
+      "role": "Hanne's apprentice; Stasi informal collaborator 'Kolben'",
+      "description": "Cheerful, skinny, a Nena fan, good with engines, recruited by the Stasi a year ago after an arrest for a stolen moped while visiting his grandmother in the East. Reports on Hanne weekly. Hates himself, a little.",
+      "motivation": "Keep his grandmother's pension and his own record clean. Will break down and confess if confronted kindly; will run if confronted roughly."
+    },
+    {
+      "name": "Lieutenant-Colonel Klaus Henning, 50",
+      "role": "Stasi Main Department VI (passport control and transit)",
+      "description": "Grey, courteous, unhurried, a career official who has spent nine years trying to roll up West Berlin's escape-helper networks and regards Hanne Vogt as his white whale. Not a sadist. A bureaucrat with a release order in an envelope.",
+      "motivation": "Hanne's network. He neither knows nor cares that a KGB colonel is in the car, and if he found out he might, out of spite toward the KGB, let it go."
+    },
+    {
+      "name": "Major Stanislav Rybak, 'the Fisherman', 45",
+      "role": "KGB clean-up officer; primary antagonist",
+      "description": "Lean, grey-eyed, soft-spoken, with a fisherman's weathered hands and a Directorate S career of disappearances. He prefers sedatives to bullets and patience to both. He eats slowly. He is very, very good.",
+      "motivation": "Bring KESTREL back to Moscow alive if possible, dead if necessary, and do it without embarrassing anyone. He takes the team's interference personally after tonight."
+    },
+    {
+      "name": "Frau Elke Rother, 74",
+      "role": "Retired schoolteacher; KESTREL's private asset",
+      "description": "Thin, white-haired, absolutely composed, in a good coat and sensible shoes, with a toothbrush in her handbag because she expects to be arrested. Vera kept her son out of prison in 1966.",
+      "motivation": "Repay a debt. She will not come West."
+    },
+    {
+      "name": "Hal Brennan",
+      "role": "CIA officer; rival",
+      "description": "Follows the team to Berlin and offers a US Army staff car through Checkpoint Charlie. A viable, legal, deeply tempting plan.",
+      "motivation": "KESTREL for Langley."
+    },
+    {
+      "name": "Lionel Pryce",
+      "role": "Annex comms officer; GARDENER",
+      "description": "On the phone from Vienna, sorry about Sunday, offering to clear the car with the liaison office. Entirely sincere in his sympathy.",
+      "motivation": "He needs the plates for Golovkin. He also genuinely wants nobody hurt."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "$1,500 per agent in hazard pay, from the station if the team still uses it or from the Controller's emergency fund via a Frankfurt bank if not; Hanne's fee ($3,000 or $4,000) comes out of the operational float.",
+    "items": [
+      "KESTREL, alive, in West Germany",
+      "KESTREL's information: the film is with Dimitar Kolev, a Bulgarian TIR driver, on a truck that left Sofia on Sunday 30 October and is due at the Hotel Ipek in Laleli, Istanbul, on Saturday 5 November; recognition phrase 'Is the road from Plovdiv still closed?', answer 'Only to people without cigarettes'",
+      "Clue M4 (if the team telexed the car details): Rybak knew the car but not the rest stop",
+      "Uwe's Praktica and film, if found: photographs of the team and the car, and the name of his Stasi handler",
+      "Hanne Vogt as a companion, if she wants to come (her yard is burned by Thursday regardless)",
+      "Possibly a release for Jens Vogt, if Hanne and the team find a way to make Henning's offer work for them without opening the back seat; this is hard and should feel earned"
+    ]
+  },
+  "twists": [
+    "Rybak only knows what GARDENER sent. If the team telexed the car's plates and colour to Vienna, Rybak is at Michendorf; if they did not, he is not, and the night is tense but clean. Either way, the difference is a clue. A team that sees Rybak at Michendorf and realises he knew the car but not the rest stop (which they never sent) has the mole's shadow in its hand (Clue M4).",
+    "The Stasi and the KGB are not on speaking terms. The Stasi think this is an ordinary escape and want Hanne's network; the KGB has not told the Stasi it has lost a colonel, out of embarrassment. A clever team can play one against the other: tell the Vopos at Michendorf that the Lada is full of Westerners trying to pick someone up, and the GDR will arrest Rybak's men for you.",
+    "Henning's offer to Hanne is sincere. Jens really would be released. The Stasi does keep these bargains, because they are useful. The team should feel the weight of asking Hanne to refuse it, and the table that finds a way for her to have both (a forged second offer, a substitute, a trade KESTREL can broker from what she knows of the Stasi) has earned something.",
+    "Hal Brennan's plan through Checkpoint Charlie would work. Allied vehicles are not searched. Taking it costs the team KESTREL (she goes to Langley, and the mole hunt becomes the CIA's, slower and louder) and trades Michendorf for a different climax: Rybak, knowing about the staff car through Frau Lindner's gossip, tries to stop it in East Berlin before it reaches the checkpoint. Do not punish the choice; make it interesting.",
+    "KESTREL tells the team where the film is, at Helmstedt, at four in the morning, wrapped in a blanket and drinking terrible coffee from a vending machine. She still will not give the mole's name. 'It is in the film. Get the film. Then we talk about America.'"
+  ],
+  "dmTips": [
+    "Berlin is two scenarios' worth of atmosphere in one; spend it. The Wall, the Palace of Tears, the Ishtar Gate, the transit slabs and Marienborn's floodlights are all real and all extraordinary. Describe them with care.",
+    "No guns in the East. Nobody takes a weapon through Friedrichstrasse; the team crosses unarmed. On the transit autobahn the Mercedes may carry Callum's tennis bag, but a gunfight at Michendorf ends with the GDR stopping every Western car on the route and the team in a Stasi prison. Make that clear before anyone reaches for the Uzi, and then let them choose.",
+    "Track the clock: day visa until midnight, Michendorf at 23:00 (so the day-visa team must be back West by about 21:30 to drive out through Dreilinden), Marienborn around 01:30, and KESTREL's Aeroflot flight on Thursday at 16:00 as the hard deadline for the fallback (the Hotel Stadt Berlin breakfast meeting).",
+    "The compartment is cramped and frightening. Ask KESTREL's CON save (DC 12) after the second hour if Marienborn is slow. A level of exhaustion is a cost the table will remember.",
+    "Hanne's choice at Marienborn should be decided by how the table has treated her, not by a roll. If she has been trusted and told the truth, she tells Henning to go to hell, or tells the team and lets them help. If she has been treated as a hired car, she hesitates long enough to make everyone sweat, and the GM decides.",
+    "Dogs, horses and other animals are handled with Survival in this category; there is no separate animal skill.",
+    "Level-up note: 3800 XP per character takes the team from 4th to 5th level (6,500 XP). Award it at Helmstedt.",
+    "If everything goes wrong, the Thursday fallback is the Hotel Stadt Berlin breakfast room at 07:00, and then a desperate dash to intercept the Aeroflot flight's car at Schonefeld. It is a different, louder scenario. Let it happen if it must."
+  ]
+}

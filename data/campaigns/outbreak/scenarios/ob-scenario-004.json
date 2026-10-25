@@ -1,0 +1,467 @@
+{
+  "id": "ob-scenario-004",
+  "title": "Low Water",
+  "subtitle": "Days 22–30: the river herd, the dam, the radio, and Colleen Marsh's last piece of arithmetic",
+  "levelRange": "5-6",
+  "estimatedSessions": 4,
+  "setting": {
+    "name": "The Tamarack Valley, Days 22–30",
+    "description": "Early October, cold nights, the first frost on the soybeans. Upriver, the cities on the I-70 corridor emptied weeks ago, and what came out of them has been walking downhill ever since: the river herd, four thousand dead or more, moving down the Tamarack valley at about a mile an hour, following the water, the roads and every sound they hear. It reaches Haskett County on the morning of Day 26. Left alone it would come down the south bank, straight through Harmon Siding and the Co-op. Colleen Marsh does not intend to leave it alone. She means to put a siren on the north bank and ring the herd across the low-water shoals below Lock and Dam No. 14 and through Corbin's Ferry — two hundred people there, eleven hundred at the Co-op — and she has told her Board it is the only arithmetic that works. The party has four days, a lock and dam with nine gates that can flood the shoals, a towboat with two empty barges, a radio station that reaches every AM radio in the county, and whatever they took from the Co-op in ob-scenario-003.",
+    "atmosphere": "Scale and silence. The herd is not a monster: it is a weather front, a slow tide of people coming down a valley, and the sound of it — a low, endless murmur under the wind, carrying for miles across water — arrives a day before it does. The county empties ahead of it: deer crossing the river at noon, geese gone, dogs howling all night. The last days have a terrible clarity. Everyone the party has met is somewhere in this scenario, and every choice they make lands on a name. Keep the dead on screen as a mass seen from a height — the dam walkway, the radio tower, the elevator — and keep the close-up horror human: a woman with a ledger, a lockmaster who will not leave his post, a soldier telling the truth at last.",
+    "keyLocations": [
+      {
+        "name": "Lock and Dam No. 14",
+        "description": "A 1930s Army Corps of Engineers lock and dam two miles below Corbin's Ferry: a 600-foot concrete lock chamber along the north bank, a dam of nine steel tainter gates between massive concrete piers, a walkway across the top, and a two-storey control house on the lock wall. Lockmaster Bert Lindqvist has not left it since Day 1.",
+        "features": [
+          "THE GATES: opening all nine at once drops the pool above the dam by about four feet and raises the river below it by about five within two hours, and holds it high for roughly twelve. The shoals vanish: nothing can wade them. Each gate needs its hoist motor powered (the control house generator, 2 hours of diesel left unless someone brings more) and a Mechanics DC 15 check, or a hand crank and an hour of three people's work per gate",
+          "The lock chamber: an emptied chamber is a concrete canyon 30 feet deep — the Drowned that came downriver are standing in the bottom",
+          "The control house: concrete, steel shutters, a single steel stair from the lock wall — the most defensible building in the county (Security 4 on its own)"
+        ],
+        "encounters": [
+          "Bert Lindqvist (Civilian), 67, who knows the gates and will open them for anyone who can tell him why",
+          "The Co-op strike team sent to stop the gates being opened, on the night of Day 25",
+          "Drowned in the lock chamber (see ob-scenario-002 for the statblock)"
+        ],
+        "secrets": [
+          "Opening the gates saves Corbin's Ferry and turns the herd down the south bank — toward Harmon Siding. It is the same arithmetic as Colleen's, run the other way, unless the party also warns the Co-op's people",
+          "Bert has the original 1938 operating manual in the control house. It says the gates can be opened in sequence from the far pier by hand if the control house is lost. That is a long, exposed walk across the dam walkway with the herd on both banks"
+        ]
+      },
+      {
+        "name": "The Mary Delaine",
+        "description": "A 3,200-horsepower towboat tied up in the lock approach, with two empty open-hopper barges still lashed in front of her and a full fuel bunker. Her captain died on Day 2; her deck engineer did not, and is in the party (Ray Dobbins) or is a hand named Lonnie Cass hiding aboard.",
+        "features": [
+          "The barges are 195 feet long and steel-sided. Two of them can carry three hundred people standing, out in the middle of the pool above the dam, where the dead cannot follow with any purpose",
+          "The towboat's air horns are audible for five miles — the loudest thing in the county after the Bell (+5 Attention per round, the dead follow it)",
+          "Starting her takes an hour and a Mechanics DC 13; moving her through the lock takes Bert"
+        ],
+        "encounters": [
+          "Evacuating Corbin's Ferry onto the barges on Day 25: a logistics problem, two hundred frightened people, and the herd's sound already in the air",
+          "Three Zombie Shamblers in the crew quarters — the captain and two deckhands"
+        ],
+        "secrets": [
+          "The Mary Delaine's horns can lead the herd too. A towboat moving slowly down the middle of the river sounding her horns would pull the dead along both banks after her — downriver, past both towns, into the empty bottomlands of Shiloh Bend twelve miles away",
+          "Her fuel bunker holds 9,000 gallons of diesel. Whoever has the Mary Delaine after this scenario has the second-largest fuel supply in the county"
+        ]
+      },
+      {
+        "name": "KHCF 1340 AM",
+        "description": "The county's one radio station, a cinder-block building under a 300-foot tower on the bluff above Corbin's Ferry: a studio, a transmitter room, a record library, a coffee machine and a 1970s emergency-broadcast cart machine. Off air since the power went on Day 6.",
+        "features": [
+          "The transmitter needs a generator (the safehouse's 5,500-watt unit will do, or the Bell's) and an hour's work (Mechanics DC 14, or Jury-Rig)",
+          "At 1,000 watts KHCF reaches every AM radio in Haskett County. The Co-op hands out battery radios to its members for its own announcements. Every one of them can hear KHCF",
+          "From the top of the tower (Athletics DC 12 to climb, 300 feet) you can see the whole valley: the herd, the dam, the elevator, the football field"
+        ],
+        "encounters": [
+          "A Co-op team (Mercenary and 3 Gang Enforcer) sent to silence the station once it goes on air",
+          "The climb itself, in wind"
+        ],
+        "secrets": [
+          "Cory Vance's morning-show voice is the most trusted voice in the county; most of the Co-op's members have woken up to it for years",
+          "A broadcast that reads the green ledger's 'Rung' entries on air, with Wade Pruitt or Travis Kemper confirming them, splits the Co-op: the Board holds, but the members stop obeying it (see Act 3)"
+        ]
+      },
+      {
+        "name": "Corbin's Ferry High School",
+        "description": "The flattest open ground on the north bank: a football field with bleachers and light towers, a school building, a gym that has been the town's second shelter since Day 2. This is where Colleen means to park the Bell (or its replacement) and run it for eight hours.",
+        "features": [
+          "Line of sight from the bleachers' press box across the whole field and down to the river",
+          "The light towers: 80 feet, steel, climbable — a superb Sniper nest",
+          "The gym: about forty townspeople still shelter here, a quarter-mile from where the siren will sound"
+        ],
+        "encounters": [
+          "The Second Bell (or the Bell itself, if the party did not take it) and its crew on the night of Day 25",
+          "Colleen Marsh, if she rides with it"
+        ],
+        "secrets": [
+          "If the party captured the Bell in ob-scenario-003, Colleen has spent a week building a second one from the Haskett High School siren on a flatbed trailer: THE SECOND BELL (AC 12, HP 40, siren unit AC 14 HP 15, towed by a pickup; its switch is on the trailer itself, not in a cab)",
+          "Colleen means to ride with it. She will not send anyone to do something she will not do herself; it is the most honourable thing about her and it is how the party gets to face her"
+        ]
+      },
+      {
+        "name": "The Shoals and Harmon Siding",
+        "description": "Below the dam, the low-water shoals where the herd would cross; across the river, the Co-op's fortress at Harmon Siding — the elevator, the bins, the fuel depot, eleven hundred people, and Colleen's office.",
+        "features": [
+          "The shoals: the herd's crossing point if the Bell sounds on the north bank and the gates stay closed",
+          "The elevator: a 140-foot concrete tower with a head house, a man-lift and a stair. Its concrete bins are full cover from anything. Eleven hundred people can survive in and on the elevator complex if they are told in time and the herd is not drawn to them",
+          "The fuel depot: 40,000 gallons. A spark in the wrong place turns the herd's passage into a fire nobody can stop"
+        ],
+        "encounters": [
+          "The herd's passage, if it comes down the south bank",
+          "Co-op members who have heard KHCF and are deciding what to do"
+        ],
+        "secrets": [
+          "Most of the eleven hundred do not know about Operation Low Water. Colleen told the Board, not the members",
+          "The elevator can shelter everyone. The Co-op's people only have to go up and stay quiet for eight hours — and someone has to tell them"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Day 22. Bert Lindqvist, the lockmaster at Lock and Dam No. 14, comes on the hospital band to say that the river upstream is full of the dead — floating, wading, walking the banks — and that the Corps gauge station forty miles up has stopped answering. From the KHCF tower the party sees it: the river herd, four thousand or more, coming down the valley at a mile an hour, due on the morning of Day 26. The Co-op channel (or Wade Pruitt, if he is the party's prisoner) gives them the rest: Operation Low Water. Colleen Marsh will park a siren on the Corbin's Ferry football field on the night of Day 25 and ring the herd across the low-water shoals and through the north bank — two hundred people, to save eleven hundred. The party has four days and four tools: the dam's nine gates, which can flood the shoals for twelve hours but will turn the herd down the south bank onto the Co-op; the towboat Mary Delaine and two empty barges, which can carry Corbin's Ferry out onto the pool where the dead cannot follow, and whose horns can lead the dead; KHCF, which can reach every Co-op member's radio; and whatever they took in ob-scenario-003 — the Bell, the ledger, Wade. On the night of Day 25 everything happens at once: the herd's front edge arrives, the Co-op's strike team hits the dam, a second team goes for the radio station, and Colleen Marsh rides out with her siren. The campaign ends on Day 30 with the county that the party's choices have made.",
+  "hook": "Day 22, 7 p.m., the hospital band: 'This is Bert Lindqvist at Lock and Dam Fourteen, if anybody's on this. I've been watching the river for two days. Yesterday it was ten or twenty of them, coming down in the current. Today it's hundreds. They're walking in the shallows along both banks, and they're on the levee road, and they don't stop. I called the gauge station at Hartsburg on the Corps line every hour since noon and nobody answers. I've got the gates. I've got the lock. I'm seventy miles from anyone I know. I think you'd better come and look at this. Lindqvist out.' Before anyone can answer him, the Co-op channel on the captured radio clicks, and a calm woman's voice says, to someone else: 'Board meeting at eight. Bring the river map. It's Low Water.'",
+  "acts": [
+    {
+      "title": "Act 1: Upriver",
+      "description": "Days 22–23. See the herd, understand its timing, learn Colleen's plan, and hear what the party's companions have been carrying. Ends when the party knows what is coming and what each of its tools would cost.",
+      "objectives": [
+        "Reach Lock and Dam No. 14 and meet Bert Lindqvist",
+        "See the herd (from the KHCF tower, the dam walkway or the Mary Delaine's wheelhouse) and estimate its arrival",
+        "Learn Operation Low Water from the Co-op channel, from Wade Pruitt or from Travis Kemper",
+        "Hear Eli Sandoval's confession (if he is with the party)"
+      ],
+      "encounters": [
+        "The Drowned in the lock chamber",
+        "The herd's outriders: 2d4 Zombie Runners and Zombie Shamblers ranging ahead along the levee road"
+      ],
+      "scenes": [
+        {
+          "name": "The Lockmaster",
+          "description": "Bert Lindqvist and the dam. The engineering is the puzzle; Bert is the conscience.",
+          "readAloud": "\"The control house sits on the lock wall like a pillbox, concrete and green steel shutters, with a light burning in the upper window. Bert Lindqvist lets you up the stair himself: sixty-seven, stooped, in a Corps of Engineers windbreaker older than some of you, with a thermos and a pair of navy binoculars round his neck. He walks you out onto the dam walkway without saying much and hands you the binoculars. Upstream, the pool is flat and brown and wide. A long way up it, where the river bends, the banks look wrong — darker, textured, moving — as if the tree line has come down to the water and is walking. 'That's four, five miles,' Bert says. 'They're doing a mile an hour, steady. Comes to Monday morning.' He takes the binoculars back. 'You want to know about the gates.'\"",
+          "skillChecks": [
+            {
+              "skill": "Science",
+              "dc": 13,
+              "success": "You follow Bert's explanation completely: all nine gates open floods the shoals for about twelve hours and starts within two. The herd cannot cross on the north side. It will keep coming down the south bank — through Harmon Siding.",
+              "failure": "You understand that the gates flood the shoals. You do not see, until Bert says it, which way that sends the herd."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 14,
+              "success": "The hoists are sound. The generator has two hours of diesel; each gate takes ten minutes of motor time. Bring 10 gallons of diesel and you can open all nine with power. Without it, it is a hand crank, an hour a gate, three people per crank.",
+              "failure": "It is a lot of old machinery. Bert will have to walk you through it on the night, and that takes him out of the control house when it matters."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Bert will open the gates for anyone who can tell him the people at Harmon Siding will be warned. He will not do it to drown somebody else's town.",
+              "failure": "Bert is a quiet man. He is listening."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "4 Drowned in the lock chamber (only if someone goes down)",
+                "2d4 herd outriders on the levee road (Zombie Shamblers, with 1d4 Zombie Runners)"
+              ],
+              "difficulty": "Medium",
+              "tactics": "The outriders are a taste of the herd: they come along the levee road toward the dam at any noise, and they keep coming. Fight them quietly; a gunshot here carries across the water to both banks. The Drowned in the lock chamber are only a threat to anyone who goes down the ladders to clear the lock — which Bert needs done if the Mary Delaine is to pass through.",
+              "terrain": "The dam walkway (8 feet wide, rails, a 40-foot drop to the spillway on the downstream side), the lock wall (concrete, full cover), the levee road (open), the lock chamber (30-foot ladders; the floor is slick mud and 2 feet of water)."
+            }
+          ],
+          "roleplayNotes": "Bert is the campaign's last good man in a place, as Arlo was its first. He is a widower who has not left his post because nobody relieved him and because the dam is the only thing in his life that ever needed him. He should be the one who says out loud that opening the gates is the same as Colleen's plan run backwards — unless a player says it first.",
+          "loot": [
+            "Control house: Diesel (10 gallons) in the generator tank (2 hours' running), the 1938 operating manual, a Corps marine radio, binoculars, MREs (12 person-days)"
+          ]
+        },
+        {
+          "name": "Low Water",
+          "description": "The plan, revealed. Choose the source that fits the party's history.",
+          "readAloud": "\"(If from Wade Pruitt, in the safehouse storeroom where the party is keeping him:) Wade has not slept. He sits on the feed sacks with his hands between his knees and looks at the floor for a long time before he says it. 'She'll put it on the football field. The high school. North side. Run it all night. They'll come down the river and they'll hear it and they'll cross at the shoals below the dam like it was a road, and they'll go through your town and out the other side, and the Co-op'll just — sit there, quiet, and let them go by.' He looks up. 'She showed us the numbers. She's right about the numbers. She's always right about the numbers.'\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Whoever tells you is telling the truth, and is ashamed. The Co-op's ordinary members have not been told. Only the Board knows.",
+              "failure": "You know the plan. You do not know who else knows it."
+            },
+            {
+              "skill": "Computers",
+              "dc": 13,
+              "success": "(If listening to the Co-op channel:) You log the Co-op's channel traffic for two days and work out the strike-team call-signs, the Second Bell's crew and the timing: siren on at 10 p.m. on Day 25. Every Co-op radio check-in now gives the party advantage on initiative against those teams on the night.",
+              "failure": "You get the outline and not the timing."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Sources, in order of preference: Wade (captured in ob-scenario-003), Travis Kemper (who walks to the safehouse on Day 23 and asks to talk), the Co-op channel (via a captured radio). If none applies, Kemper comes. This is also the moment for Eli Sandoval's confession if he is with the party: on the afternoon of Day 2, on orders, he fired on a car that tried to run the Guard checkpoint from the south, and a child in it died. He tells it plainly, and then says: 'She's doing the same thing. The numbers. I know what that is.' If he has the party's trust, he will volunteer for the worst job on Day 25.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Four Days",
+      "description": "Days 23–25. Preparation. The party chooses among (and probably combines) four plans, and does the work. Each plan below lists its tasks, its checks and its cost. Run it as a planning session with real scenes for each task.",
+      "objectives": [
+        "PLAN A — THE GATES: bring diesel to the dam, clear the lock wall, hold the control house on the night",
+        "PLAN B — THE BARGES: start the Mary Delaine, bring the barges through the lock, load Corbin's Ferry onto them and get them out onto the pool",
+        "PLAN C — THE RADIO: power KHCF and tell the Co-op's members the truth — and, if the gates are going to open, tell them to go up the elevator",
+        "PLAN D — THE DECOY: lead the herd away from both towns with the captured Bell or the Mary Delaine's horns, twelve miles down to Shiloh Bend",
+        "Recruit help: Prairie Hill (wagons, horses), Dr. Brooks's clinic, Travis Kemper and any Co-op members who will listen"
+      ],
+      "encounters": [
+        "Evacuating Corbin's Ferry: social, logistical, and the town's own holdouts who will not leave",
+        "Powering KHCF: technical, and once on air, a target",
+        "A Co-op scouting party (Mercenary and 2 Gang Enforcer) watching the dam on Day 24"
+      ],
+      "scenes": [
+        {
+          "name": "The Town Meeting",
+          "description": "The Methodist church, Day 23 evening. Corbin's Ferry has to be told and has to decide.",
+          "readAloud": "\"The Methodist church on Second Street has been the town's second shelter since Day 2, and tonight every pew is full and people are standing at the back: the families from the gym, the townspeople from the safehouse, Dr. Brooks and her nurses, old men who have held their houses alone for three weeks with deer rifles and have come in, blinking, because somebody knocked on their door and said there was a meeting. Maddie Kettering is in the front row with her notebook open on her knee. It has a column for every person in the room. When you stand up, the room goes quiet the way a room does when it has already guessed.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "The town agrees to the plan, whatever it is, and to go where they are told when they are told. Every evacuation check in this scenario is made with advantage.",
+              "failure": "The room splits. About a third of the town will not leave their homes whatever happens, and the party has to decide what to do about that."
+            },
+            {
+              "skill": "Performance",
+              "dc": 14,
+              "success": "(Cory Vance, or any speaker:) You make them laugh once, in the middle of it, and after that they will follow you anywhere.",
+              "failure": "Frightened people, frightened talk."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the scenario's emotional set-piece and a reckoning with the safehouse: everyone the party has taken in, kept alive and argued over is in this room. Let NPCs from every scenario speak. Ben Tully, the last cop. Curt Haynes's widow, if that is how it went. Caleb Voss. Rosa Jimenez. The town decides with the party, not for it.",
+          "loot": []
+        },
+        {
+          "name": "Getting Ready",
+          "description": "The work of each plan, one scene per task. Use these checks; set the stakes at the table.",
+          "readAloud": "\"Day 24 is the last ordinary day. It is cold and bright. The murmur from upriver is audible now even in town, under the wind, like traffic on a highway that is not there any more. Everyone has a job. Nobody is sleeping much.\"",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 13,
+              "success": "THE BARGES: the Mary Delaine starts in an hour and takes the barges through the lock with Bert at the controls. Two hundred people can be aboard and out on the pool by noon on Day 25.",
+              "failure": "She starts, but it takes all day; the barges are loading as the herd's front edge reaches the town."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 14,
+              "success": "THE RADIO: KHCF's transmitter warms up, the needle swings, and the cart machine plays the old station ident. You are on the air across the whole county.",
+              "failure": "An hour of work and then a burned-out tube; another hour and a part from the Dollar General's electronics shelf."
+            },
+            {
+              "skill": "Piloting",
+              "dc": 14,
+              "success": "THE DECOY: you drive the route to Shiloh Bend by daylight, mark the washouts, clear two jackknifed trucks, and know the road well enough to drive it at night at 10 miles an hour with four thousand dead behind you.",
+              "failure": "The route has a washout at Cane Creek you do not find until the night. On the night, it is a Piloting DC 16 or the Bell stops."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "PRAIRIE HILL: Bishop Weaver sends six wagons, twelve horses and twenty men who will not fight but will carry anything. If the party saved Prairie Hill in ob-scenario-003, this succeeds automatically.",
+              "failure": "The bishop sends what he can spare: two wagons."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Co-op scouting party: 1 Mercenary, 2 Gang Enforcer, watching the dam from a duck blind on the south bank"
+              ],
+              "difficulty": "Easy",
+              "tactics": "They are watching, not fighting, and will retreat by boat if spotted. If they get away, Colleen knows which of the party's plans is in motion and the strike team on Day 25 is reinforced by a Sniper. If they are captured, they know the strike team's timing.",
+              "terrain": "Bottomland timber, a duck blind (wooden, half cover vs. pistols), a jon boat."
+            }
+          ],
+          "roleplayNotes": "Let the players split up. Every plan is a team job and the GM should run them as short, sharp scenes rather than one long montage. Make the cost of each plain: the gates send the herd at the Co-op; the barges leave the holdouts who will not go; the radio makes the station a target; the decoy puts someone in a truck at night with the dead behind them for twelve miles. The best ending combines them.",
+          "loot": [
+            "The Dollar General's electronics shelf: batteries (40 AA), 6 AM/FM radios",
+            "Corbin's Ferry Casey's fuel station: Gasoline (40 gallons) by hand pump, Diesel (25 gallons)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Night of Low Water",
+      "description": "The night of Day 25 into the morning of Day 26. The herd arrives. Colleen's siren sounds at 10 p.m. The Co-op hits the dam and the radio station. The party has to be in several places at once — which is what the companions are for.",
+      "objectives": [
+        "Hold the dam control house and open the gates (Plan A)",
+        "Keep the barges on the pool and quiet (Plan B)",
+        "Stay on the air (Plan C)",
+        "Lead the herd to Shiloh Bend (Plan D)",
+        "Silence Colleen's siren, and face her"
+      ],
+      "encounters": [
+        "The Co-op strike team at the dam: 1 Mercenary leader (Travis Kemper's replacement, a former Guard sergeant named Lyle Danner), 4 Soldier (Infantry), 1 Sniper",
+        "The Co-op team at KHCF: 1 Mercenary, 3 Gang Enforcer",
+        "Colleen Marsh (unique, below) and the Second Bell (or the Bell) on the football field, with 4 Gang Enforcer",
+        "The river herd: see THE HERD below"
+      ],
+      "scenes": [
+        {
+          "name": "The Herd",
+          "description": "Rules for the river herd, then the night itself.",
+          "readAloud": "\"It arrives at dusk. First the sound, which has been in the air for a day, gets close enough to have parts: shuffling, splashing, a thousand small groans that are not quite in time with each other. Then the levee road upstream fills from side to side, and the shallows along both banks, and the water itself, which is suddenly full of heads. In the last light from the dam walkway you can see two miles of it and no end. They walk past the end of Front Street. They walk past the hardware store, where the boards are up and the lanterns are out and nobody breathes. They keep coming. And at ten o'clock, from the high school on the bluff, a siren begins to wind up into the dark, and four thousand heads turn toward it at once.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "Whatever you are guarding — the barges, the safehouse, the gym — stays dark and silent as the edge of the herd goes by.",
+              "failure": "A child cries, a dog barks, a door bangs: one Horde peels off the herd toward the sound. Fight it quietly or lose the place."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "THE RIVER HERD (environmental, this campaign only)"
+              ],
+              "difficulty": "Not a fight",
+              "tactics": "THE HERD is not a statblock and cannot be fought; the GM should say so the first time anyone raises a gun at it. It is a moving area roughly a quarter mile wide and four miles long, travelling at 1 mile an hour (about 90 feet a minute) toward the loudest sound it can hear, which by default is downstream. Any creature caught in it is attacked by a Horde every round. Any building in its path at Security 3+ survives if it stays silent; at Security 2 or less the dead get in within 10 minutes. Anything that makes noise within half a mile of its edge (Attention 3 or more) pulls one Horde off it per round of noise. The Bell, the Second Bell, the Mary Delaine's horns or a tornado siren pull the WHOLE herd, from up to three miles, and it follows at its own pace. If two such sounds compete, the herd goes to the nearer. The herd takes about 4 hours to pass any point. When it has passed, it leaves 2d4 Hordes of stragglers behind it for days.",
+              "terrain": "Everything. The herd is the terrain."
+            }
+          ],
+          "roleplayNotes": "Make the players feel scale and helplessness — and then show them that every tool they prepared works. The herd is a puzzle of sound, not a battle. The GM should track where it is on the mapLocations map and say so every 30 minutes of game time.",
+          "loot": []
+        },
+        {
+          "name": "The Control House",
+          "description": "Plan A's fight. The Co-op strike team comes up the lock wall to stop the gates, with the herd on both banks.",
+          "readAloud": "\"At 10:40 there are headlights on the levee road below the dam — not driving, parked, killed — and then figures on the lock wall, moving the way trained people move, low and in pairs, with a laser dot sweeping the control-house shutters. Bert is at the panel with gate four's hoist whining and the manual open in front of him. Five gates to go. Below you on both banks, in the dark, the herd is walking toward the siren on the bluff, and the shoals below the dam are still just shallow enough to wade.\"",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 15,
+              "success": "One gate opens (ten minutes of motor time; one success per gate, nine needed). Each success while the river rises makes the shoals less passable: after five, the herd's crossing slows; after nine, it stops.",
+              "failure": "A hoist sticks: the next attempt on this gate is at disadvantage, or someone goes out on the walkway with a hand crank."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 14,
+              "success": "(Hand-cranking a gate on the exposed walkway) Thirty minutes of cranking does what a gate's motor would; three people needed, and they are in the open.",
+              "failure": "The crank slips, and the cranker is prone on a walkway with a 40-foot drop on one side."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Lyle Danner (Mercenary) and 4 Soldier (Infantry) on the lock wall",
+                "1 Sniper on the levee 300 yards off",
+                "If Attention reaches 6: a Horde off the herd, up the lock wall from the levee road"
+              ],
+              "difficulty": "Hard",
+              "tactics": "The strike team's job is to stop the gates, not to win a firefight: they try to cut the generator's fuel line from outside, suppress the control-house windows, and send two men up the steel stair. They know about Noise and they use it: Danner will order a full-auto burst into the herd on the north bank to pull a Horde onto the lock wall behind the party. They break when Danner is down or when the river starts visibly rising; their trucks are on the levee and the herd is coming. Any of them who dies rises in 2d6 minutes.",
+              "terrain": "The control house (concrete: full cover through the shutters, three-quarters through firing slits), the lock wall (a 600-foot concrete walkway, no cover except bollards — half cover), the steel stair (one at a time), the dam walkway (8 feet wide, rails, 40-foot drop), the levee road below (the herd)."
+            }
+          ],
+          "roleplayNotes": "This is the most straightforward combat in the finale and the most mechanically heavy; run the gates as a clock (one success per 10 minutes, 9 needed) that the players can see. If Bert is killed, the party can still finish with the manual (Mechanics at disadvantage). Remember Bert rises.",
+          "loot": [
+            "The strike team: 5.56mm rounds (2d6 × 10 across the team), .308 rounds (15), 2 plate carriers, a Co-op radio with the Board's channel"
+          ]
+        },
+        {
+          "name": "Colleen",
+          "description": "The football field. The siren. The woman with the ledger.",
+          "readAloud": "\"The football field is lit by a single work light on the trailer, and the siren on its post is winding up and down, up and down, so loud that you feel it in your teeth from the end of the bleachers. Colleen Marsh is standing beside the trailer in her barn coat with a rifle slung and a radio in her hand, reading out times to someone on the other end in a perfectly level voice. Below the bluff, down by the river, the herd is turning toward her like a field of grain in the wind. She sees you. She does not reach for the rifle. She lifts the radio, says 'Stand by,' and lowers it. 'I wondered if it would be you,' she says, over the siren. 'Go on, then. Tell me the numbers are wrong.'\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 20,
+              "success": "She switches the siren off herself. Not because the numbers are wrong, but because she hears — on her own radio, from her own members, after the KHCF broadcast — that the Co-op will not follow her any more, and she has always known what a quartermaster is without a supply line. (DC 15 if KHCF has broadcast the ledger; DC 12 if the gates are open and the shoals are flooded so the plan cannot work anyway.)",
+              "failure": "'Then we're done talking,' she says, and lifts the radio. 'All units. Execute.'"
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Colleen is not going to run, and is not going to beg, and has been expecting to die since about Day 4. She has never once in her life done anything she could not write down in a ledger.",
+              "failure": "She is as calm as she was in her office. That is the frightening thing."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "COLLEEN MARSH (unique, human, Medium): AC 15 (tactical vest); HP 58; speed 30; STR 12 DEX 14 CON 14 INT 16 WIS 15 CHA 16; saves INT +6, WIS +5; skills Insight +8, Intimidation +6, Persuasion +6, Perception +5; proficiency +3. Quartermaster: at the start of each of her turns, one ally within 60 ft who can hear her may reload as a free action, or regain 1d6 HP from a stim she hands out. Command: bonus action, one ally within 60 ft makes an attack as a reaction. Unshakeable: immune to Shaken and frightened; advantage on saves against being Suppressed. Actions — Scoped rifle (.308): +5 to hit, range 300/1200, 2d10+2 piercing, magazine 5. 9mm pistol: +5 to hit, range 30/120, 1d8+2 piercing, magazine 15. Reaction — Called It: when an enemy she can see misses an ally, that ally may move 10 ft without provoking.",
+                "4 Co-op guards (Gang Enforcer) on the trailer and the bleachers",
+                "THE SECOND BELL (or the Bell): AC 12, HP 40 (trailer) / 80 (truck); siren unit AC 14, HP 15 / 20. The switch silences it in one round."
+              ],
+              "difficulty": "Hard",
+              "tactics": "Colleen fights like the officer she was: she stays behind the trailer's generator (full cover), uses Command and Quartermaster every round, and spends her own action on the rifle only if a target is in the open. Her guards will not fight to the death; two of them have families in the gym a quarter-mile away and have only just worked out what the siren means. Anyone who reaches the switch ends the siren in one round, and the herd — already on the move — goes to the next-loudest thing. If Colleen is reduced to 0 HP she does not ask for anything. If she is taken alive, she gives the party the combination to her safe and the keys to the fuel depot, and asks only that the ledger be kept, because it is accurate.",
+              "terrain": "The football field (open, lit by the work light — anyone in the light is visible from anywhere), the bleachers (aluminium: half cover vs. pistols, none vs. rifles), the press box (wood and glass), the light towers (80 feet, climbable, a Sniper nest), the trailer and its generator (full cover)."
+            }
+          ],
+          "roleplayNotes": "Do not let Colleen become a monologue. She asks one question — tell me the numbers are wrong — and the players either answer it or do not. The honest answer is that her numbers are right and her choice was still wrong; a player who says that, in any words, should get the DC reduction for being right. Whatever happens, the siren must stop or be replaced by something louder somewhere else, and the GM should keep the herd's position on the table the whole time.",
+          "loot": [
+            "Colleen's rifle, .308 rounds (25), pistol, 9mm rounds (30), tactical vest",
+            "Her radio, with the Board's channel",
+            "The keys to the scale-house safe and the fuel depot"
+          ]
+        },
+        {
+          "name": "Day 30",
+          "description": "The epilogue. Choose the paragraphs that fit and read them.",
+          "readAloud": "\"(Read the parts that are true.) Day 30. It is the first hard frost. The herd went by — down the south bank and past the elevator, where eleven hundred people sat in the dark in the concrete bins and the head house and did not make a sound for eight hours / across the shoals and through Corbin's Ferry, and the town on the barges watched it from the middle of the pool / twelve miles down the river road behind a siren truck and a towboat's horns, into the empty bottomlands of Shiloh Bend, where it is still milling in the fog. Front Street is still standing. Kettering Hardware & Feed is still standing. On the counter, Maddie Kettering's notebook is open to a new page with a new heading in careful capitals: WINTER. Across the river, at Harmon Siding, someone is painting over CO-OP CHECKPOINT on the first grain truck. On the radio, every morning at seven, a familiar voice reads the names of everyone in the county who is still alive and where they are, so people can find each other. It takes a long time. It is getting shorter every week. It is not getting shorter as fast as it was.\"",
+          "skillChecks": [],
+          "combatEncounters": [],
+          "roleplayNotes": "ENDINGS. The campaign does not have a single right ending; it has the one the party's choices made. Gates + radio (the Co-op warned, the elevator sheltering): the best ending — both towns survive, the Co-op's members take the Co-op back, and the county has a winter. Gates without the radio: Corbin's Ferry survives and Harmon Siding takes the herd with no warning; hundreds die, and the party has done Colleen's arithmetic in reverse — say so gently, and let them live with it. Barges without gates: the town survives on the water and loses its houses. Decoy: the bravest ending — someone drives twelve miles at night with four thousand dead behind them; if they make it (three Piloting checks, DC 14, 16 and 18, with the Shiloh Bend washout), both towns are untouched. Colleen alive: she is tried by her own members and the party is asked to speak. Colleen dead: she rises, and someone has to. Wade Pruitt alive: he asks to be the one who drives the next Bell, if there is ever a next one, away from people instead of toward them. Award the final XP. The party is level 6.",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Bert Lindqvist, 67",
+      "role": "Lockmaster, Lock and Dam No. 14",
+      "description": "Stooped, careful, a Corps of Engineers windbreaker older than the players; a widower who has not left his post because nobody relieved him. Speaks in short sentences, explains machinery perfectly, and will not drown anyone's town on purpose.",
+      "motivation": "Do his job right. That has always been enough and he would like it to be enough one more time."
+    },
+    {
+      "name": "Colleen Marsh, 54",
+      "role": "Co-op general manager / the antagonist",
+      "description": "See ob-scenario-003. In the finale she rides with her siren because she will not order anyone to do what she will not do.",
+      "motivation": "Twelve hundred alive at next harvest. She is right about the numbers. That is the whole problem."
+    },
+    {
+      "name": "Lyle Danner, 44",
+      "role": "Co-op strike-team leader",
+      "description": "A former Guard sergeant who left his unit on Day 3 and joined the Co-op for the food. Professional, unsentimental, not cruel; uses the dead as artillery without hesitation.",
+      "motivation": "The job. After that, his own skin."
+    },
+    {
+      "name": "Wade Pruitt, 33",
+      "role": "Prisoner, witness, or ally",
+      "description": "If captured in ob-scenario-003, the party's best source on Operation Low Water. Ashamed, honest, and willing to help if Shay asks him to.",
+      "motivation": "To be able to look at his sister."
+    },
+    {
+      "name": "Travis Kemper, 39",
+      "role": "Co-op dissident",
+      "description": "If the party dealt fairly with him at St. Agnes, he defects on Day 23 with the plan and the strike-team timing, and will confirm the ledger on air.",
+      "motivation": "His kids, and never driving behind the Bell."
+    },
+    {
+      "name": "Maddie Kettering, 9",
+      "role": "The safehouse's notebook",
+      "description": "Now nearly ten, insulin-stable, and the keeper of every name in Corbin's Ferry. At the town meeting her notebook is the town's census — the honest version of the Co-op's.",
+      "motivation": "That the list of names does not get shorter."
+    },
+    {
+      "name": "Dr. Imani Brooks, Bishop Amos Weaver, Ben Tully, Caleb Voss, Rosa Jimenez",
+      "role": "Everyone the party saved",
+      "description": "Bring them all back for the town meeting and the night. Each has a job: the clinic in the gym, the wagons from Prairie Hill, the last cop on the barges, the boy in the KHCF tower with binoculars, the nurse with her son.",
+      "motivation": "To be counted."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "About $11,000 in Colleen Marsh's scale-house safe, in banded stacks, with a note in her handwriting: 'Kindling. Keep dry.' It is the funniest thing she ever wrote and nobody laughs.",
+    "items": [
+      "The Mary Delaine: a working towboat with Diesel (9,000 gallons) in her bunker and two barges",
+      "Lock and Dam No. 14 control house: a Security 4 position on the river, and Bert, if he lives",
+      "KHCF 1340 AM: the county's voice, on the air",
+      "The Co-op's fuel depot keys and safe combination (if Colleen is taken alive or the Co-op's members hand them over): Diesel and gasoline (40,000 gallons) and 1.8 million bushels of grain, under whatever governance the county now chooses",
+      "Strike team and Colleen's kit: .308 rounds (40), 5.56mm rounds (2d6 × 10), 9mm rounds (30), 2 plate carriers, scoped .308 rifle, Co-op Board radio",
+      "Casey's fuel station: Gasoline (40 gallons), Diesel (25 gallons); Dollar General: batteries (40 AA), 6 AM/FM radios"
+    ],
+    "story": "The county has a winter. How many people are in it, and who runs the grain, and whether anyone ever rings a siren at a holdout again, is whatever the party made it. The dead are still out there and will be for years; nobody has a cure and nobody is coming. But at seven every morning someone reads the names of the living on KHCF, and the list is getting longer than the GM expected."
+  },
+  "twists": [
+    "Opening the dam gates is Colleen Marsh's plan run in reverse: it saves Corbin's Ferry by sending the herd at Harmon Siding. It is only a good plan if the Co-op's people are warned — which means the radio.",
+    "Most of the Co-op's eleven hundred members do not know about Operation Low Water. A KHCF broadcast reading the green ledger — confirmed by Wade Pruitt or Travis Kemper — turns them against the Board in a single night.",
+    "Colleen rides with the siren herself. She will not order anyone to do what she will not do, and it is how the party gets to face her rather than her strike teams.",
+    "Eli Sandoval's confession: on Day 2, on orders, he fired on a car running the Guard checkpoint, and a child died. He recognises Colleen's arithmetic because he has done it, and he asks for the worst job on the night.",
+    "The Mary Delaine's horns can lead the herd as well as any siren. A towboat sounding her horns down the middle of the river pulls the dead along both banks and away from both towns — the decoy plan nobody at the Co-op thought of, because the Co-op does not have a boat."
+  ],
+  "dmTips": [
+    "Say the herd's arrival time out loud on Day 22 and honour it: dusk on Day 25 for the front edge, the siren at 10 p.m., the herd past by dawn on Day 26.",
+    "The herd is not a statblock. Tell the players so the first time someone raises a gun at it. It is a sound puzzle on the scale of a valley, and every one of the party's tools is a sound.",
+    "Run Act 2 as a planning session. Put the four plans on the table with their costs and let the players combine them. Do not hide any of the costs.",
+    "The night of Day 25 happens in several places at once. That is what the companion NPCs are for: Eli at the dam, Shay on the radio-station roof, Walt on the barges, Nadine in the gym. Cut between scenes every few rounds and let the companions' scenes be short, decisive and theirs.",
+    "Colleen is not a boss fight. She is a question. The best version of the finale ends with her switching the siren off herself, or being taken alive and tried by her own people. A gunfight is allowed; it is not the point.",
+    "Nobody comes back from death, and everybody rises. A companion or PC who dies on the last night should have their ending, and someone they loved should be the one who takes care of them afterwards. Keep it off-camera and on the faces.",
+    "The epilogue should be honest about cost and generous about hope. The county is wrecked, the dead are not going anywhere, and people are reading out names on the radio. That is what the party saved.",
+    "By the end the party should be level 6. Award XP after each act. If the campaign is to continue, winter in Haskett County is a whole new set of problems: cold, fuel, sickness, and whoever comes down the river next."
+  ]
+}

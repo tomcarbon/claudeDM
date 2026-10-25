@@ -1,0 +1,131 @@
+{
+  "id": "84ab131f-9eaa-42cb-bc54-a3c45dea2c8d",
+  "name": "Isaac Merriweather",
+  "status": "alive",
+  "race": "Ex-Soldier",
+  "subrace": "",
+  "class": "Lawman",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Wisdom"
+  ],
+  "skills": [
+    "Athletics",
+    "Survival",
+    "Insight",
+    "Investigation"
+  ],
+  "languages": [
+    "English",
+    "Spanish (border Spanish, learned on the Rio Grande mail escorts)"
+  ],
+  "equipment": [
+    "Iron vest, two plates of boiler iron sewn into canvas, worn under a blue wool frock coat he cut the brass buttons off",
+    "Army revolver (Colt Single Action, a cavalry issue he bought from the quartermaster on discharge), 6 loaded, butt forward on the left hip",
+    ".45 cartridges (24)",
+    "Double-barrel shotgun (a Parker 10-gauge borrowed from the Continental Express Company, with a brass plate that says so)",
+    "Shotgun shells (12)",
+    "Cavalry saber, 1860 pattern, from ten years in the 10th Cavalry; he keeps it sharp and rarely draws it",
+    "Deputy U.S. Marshal's badge, District of Colorado, and his commission, folded in oilcloth",
+    "Two pairs of handcuffs and a ring of keys",
+    "A Post Office Department letter assigning him to the U.S. mail aboard the first through train from Argent",
+    "A pocket notebook with a pencil on a string, a pocket watch that loses four minutes a day, and field glasses",
+    "Bedroll, slicker, canteen and a tin cup",
+    "Riding horse: a tall bay mare called Sergeant, stabled at the Argent livery",
+    "Wallet containing $38"
+  ],
+  "weapons": [
+    {
+      "name": "Army revolver",
+      "attackBonus": 4,
+      "damage": "1d10+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 4,
+      "damage": "2d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Cavalry saber",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Iron vest",
+    "type": "medium"
+  },
+  "features": [
+    "Under Fire (Ex-Soldier origin: advantage on saving throws against being frightened and against the Shaken condition; the first time in each combat he is hit by a firearm, he keeps his readied action and his reaction; he reads rank, unit and bearing at a glance and can find a meal and a talker on any army post)",
+    "The Star (Lawman: his office is Deputy U.S. Marshal for the District of Colorado. He can arrest on a warrant or for a crime he witnesses, enter a business, hold a prisoner for the U.S. Commissioner, and deputize a posse equal to his proficiency bonus; advantage on Intimidation and Persuasion against anyone who respects the law. Misusing the star costs Reputation, and Sheriff Burl Riggs does not respect it)",
+    "Keep the Peace: Peace Officer (Lawman: as a bonus action he orders a creature that can hear him to drop its weapon; it makes a WIS save, DC 8 + proficiency + WIS, or drops one held weapon at its feet; a creature that has already attacked in the fight has advantage)",
+    "Take Him Alive (Lawman, 2nd level: when he hits with a melee attack he can grapple as a bonus action, and he manacles a grappled creature as an action without a check; when he drops a creature to 0 with any attack he can leave it stable and unconscious: he shot to wound)",
+    "Office: Deputy U.S. Marshal (Lawman, 3rd level: his jurisdiction is the whole state and every federal crime in it, including the mails and the railroads; once per case he can telegraph for a federal warrant and have it within a day)",
+    "Old Regiment (Veteran background: ten years in the 10th Cavalry; former troopers of the 9th and 10th, and many old soldiers of any regiment, will feed him, hide him or tell him the truth)"
+  ],
+  "traits": [
+    "Under Fire",
+    "The Star",
+    "Peace Officer",
+    "Take Him Alive",
+    "Deputy U.S. Marshal"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say little and I write everything down. I call a man by the name he gives me until he gives me a reason not to. I check my horse's feet before my own breakfast.",
+    "ideals": "The law is a promise made to people who are not in the room. A badge that only works for men who can pay for it is a tin plate.",
+    "bonds": "Ten years in the 10th Cavalry, and the men I served with, living and dead. My sister Ruth and her children in Denver, who think I should have taken the job at the post office.",
+    "flaws": "I trust paper too much. If a man shows me a properly signed document I want to believe it, and I am slow to understand that some men sign their lies."
+  },
+  "appearance": "A tall, rangy Black man of thirty-six with a close-cropped grey-shot beard, a long patient face and a cavalryman's bowed legs. He wears a blue frock coat with the buttons cut off, a grey hat with the brim pinned up on the left, and a star he polishes on Sundays. He stands very straight and moves only when he means to.",
+  "backstory": "Isaac Merriweather was born in Tennessee in 1843, freed in the war, and enlisted in the 10th Cavalry in 1867 because it was the first offer of steady wages, a horse and a rifle anyone had ever made him. He served ten years in Kansas and Texas, most of it escorting the mail, guarding survey parties and chasing horse thieves on the Rio Grande, and he made sergeant and does not talk about the rest. He mustered out in 1877, came to Denver to be near his sister, and was hired by a United States Marshal who needed one deputy that nobody in the Denver saloons could buy. The first through train out of Argent will carry United States mail as well as silver, and the Marshal has sent Isaac to ride with it, because the Continental Express Company has had a tip that someone means to rob it, and because the county sheriff in Argent, Burl Riggs, has not answered a federal letter since June. Isaac arrived on Monday's stage with a commission, a borrowed shotgun and no friends in the basin."
+}

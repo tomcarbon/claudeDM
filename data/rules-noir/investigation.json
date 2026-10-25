@@ -1,0 +1,205 @@
+{
+  "_meta": {
+    "category": "noir",
+    "source": "Written for claudeDM (Noir category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Running a case in a Noir campaign. New to the Noir category (no Sci-Fi equivalent). It is written for the GM first and the players second, and it is authoritative: where a scenario is silent, these rules decide. The single most important rule is in 'leads': core clues are found without a roll, and a failed roll never dead-ends a case. Heat is one number per campaign city, 0-10, kept in world state and told to the players whenever it changes. Prices are 1940s dollars."
+  },
+  "leads": {
+    "principle": "A mystery game fails at the table in one way above all others: the players miss the one clue, and the case stops. Noir cases in claudeDM are built so that can't happen.",
+    "three_clue_rule": "Every conclusion the players must reach to finish the case (who the client really is, where the girl went, who pulled the trigger) has at least three clues pointing to it, in different places: a body, a document, a witness, a place, an object. Finding any one is enough to move on; finding two lets the players be sure. When a scenario names its conclusions, it names the clues for each.",
+    "core_clues": "A core clue is found automatically by anyone who looks in the right place with a sensible skill: search the dead man's desk with Investigation and you find the pawn ticket; ask the elevator operator with Persuasion and he tells you who rode up at midnight. No roll. The GM never asks for a check to find a core clue, and never hides one behind a die.",
+    "rolls_add_detail": "Rolls exist to add, not to gate. A successful check on a core clue gives extra detail (the pawn ticket is from a shop on Kearny Street, and it is dated the day before the murder), saves time (an hour instead of an afternoon), or buys leverage for later (the elevator man also says he was paid to forget). A great success (beating the DC by 5 or more) can reveal a non-core bonus clue or a second conclusion early.",
+    "failure_costs": "A failed roll never dead-ends a case. It costs something instead: time (the scene takes all night, and the clock moves), Heat (the clerk remembers the face that asked), money (the witness now wants $10), a favor, a complication (somebody else shows up), or a worse version of the clue (you get the name but not the address). Then the player has the core clue.",
+    "lead_types": {
+      "a body": "Forensics and Medicine: how, when, with what, and what the victim was doing before.",
+      "a scene": "Investigation and Perception: what is missing, what was moved, who was here.",
+      "a document": "Research and Investigation: who owns, who paid, who signed, who lied on paper.",
+      "a witness": "Insight, Persuasion, Intimidation and Deception: what they saw, and what they are hiding (see interrogation).",
+      "a place": "Streetwise and Society: who drinks there, who owns it, who goes in the back.",
+      "a person to follow": "Stealth, Perception and Driving: where they go when they think nobody is watching (see tailing_and_stakeouts)."
+    },
+    "when_they_go_the_wrong_way": "Players who chase a wrong conclusion aren't wrong to chase it. Let the false lead cost them time and give them something (a second crime, a character, a piece of the city), then let a clue for the real conclusion find them: a phone call, a note under the door, a body.",
+    "proactive_clues": "If the players are stuck for more than a scene, the case comes to them. Someone they spoke to calls back; someone they frightened makes a move; the person they are looking for finds them. Somebody in this city always wants something, and wanting things is a clue."
+  },
+  "searching": {
+    "how": "Searching a place is INT (Investigation) for what is hidden and what it means, or WIS (Perception) for what is in plain sight but easy to miss. Searching a room properly takes about 10 minutes; an apartment or an office, 30 minutes; a house or a warehouse, a couple of hours. The core clue in a place is found by the search, without a roll.",
+    "sample_dcs": {
+      "something in plain sight that matters (a matchbook, a second glass, a wet umbrella)": 10,
+      "a thing put out of sight casually (letters in a drawer, a gun under a pillow)": 10,
+      "a thing hidden on purpose (a false bottom, a loose floorboard, a key taped under a drawer)": 15,
+      "a professional hiding place (a safe behind a painting, papers sewn into a coat lining)": 20,
+      "noticing what is missing from a room (a photograph taken down, a typewriter gone from its cover)": 15,
+      "reading a staged scene for what it is (a struggle arranged after the fact)": 15
+    },
+    "tossing_a_place": "Searching fast (one minute for a room) is possible: roll at disadvantage, and the place looks searched afterward. Anyone who comes back knows someone was there.",
+    "breaking_in": "Getting in is not searching. Picking a lock is Mechanics or Sleight of Hand with lock picks (gear.json); a door can be forced with STR (DC 12 a cheap door, 15 an office door, 20 a good one). Being seen going in raises Heat by 1.",
+    "what_a_search_is_not": "A search finds things, not truths. A forged letter found in a drawer is still a forged letter; reading it for what it is takes Forensics, Research or Insight."
+  },
+  "forensics": {
+    "how": "INT (Forensics) reads physical evidence: a body, a wound, a bullet, a fingerprint, a stain, a powder burn, a typewritten page. The core forensic clue on a body (how the victim died, roughly when) is found without a roll by anyone who looks; the check adds what a coroner would add. A Doctor's Diagnosis does this without a check.",
+    "sample_dcs": {
+      "cause of death, if it isn't obvious (a shot in the back vs. a fall)": 10,
+      "time of death to within a couple of hours (lividity, stiffness, the coffee on the table)": 12,
+      "the body was moved after death": 12,
+      "two bullets came from the same gun (needs both bullets and a magnifying glass, or the police lab)": 15,
+      "lifting a usable fingerprint from glass or polished wood (fingerprint kit)": 10,
+      "matching a print to a known print (fingerprint kit, 1 hour)": 12,
+      "a wound was made by a left-handed man, or by a man taller than the victim": 15,
+      "a typewritten page came from a particular machine": 15,
+      "the poison in the glass (it smells of almonds; it was in the sherry, not the whisky)": 15,
+      "the angle and distance of a shot from powder burns and the hole": 15
+    },
+    "the_police_lab": "The city has a police laboratory and a coroner. A friendly cop, a coroner's report ($50, bribes_and_favors) or the Reporter's Press Pass gets its findings in a day; the players don't have to do it themselves. Federal agents can send to the Bureau laboratory, which takes a week.",
+    "evidence_and_juries": "Knowing is not proving. A clue convinces the players; to convince a district attorney or a jury, the evidence must be kept (a photograph, a recording, a bullet in an envelope) and a witness must swear to it. Some cases end with the truth known and nothing provable. That is a Noir ending, not a failure."
+  },
+  "research": {
+    "how": "INT (Research) works paper: the newspaper morgue, the Hall of Records, the county recorder, the city directory, the phone book, court dockets, marriage and death certificates, ship manifests, the society pages, the public library's reading room. Each source takes time; the check decides how much and how much extra you find. The core clue in a record is found by looking in the right record, without a roll.",
+    "sources": {
+      "telephone book and city directory": "Name, address, occupation, sometimes who else lives there. 10 minutes.",
+      "newspaper morgue (clipping files)": "Everything the paper printed about a person, business or address, with photographs. 1 hour; the Reporter's The Morgue does it in a call.",
+      "Hall of Records / county recorder": "Who owns a building or a lot, who owned it before, mortgages, liens, and when the deed changed hands. Half a day.",
+      "court clerk": "Lawsuits, divorces, bankruptcies, criminal convictions. Half a day.",
+      "vital records": "Births, marriages and deaths. A day, longer from another county.",
+      "state corporation filings": "Who the officers of a company are. A dummy corporation names a lawyer; the lawyer is the next lead. A day.",
+      "harbor master and shipping offices": "Which ship came in when, with what manifest. A morning, and maybe a dollar."
+    },
+    "sample_dcs": {
+      "find a listed person or business": 5,
+      "find who owns a building": 10,
+      "find who owned it before, and what they paid": 12,
+      "follow a dummy corporation one step back to a real name": 15,
+      "find a record someone tried to have removed (it was filed twice; the copy is in another office)": 20
+    },
+    "time_is_the_cost": "Research is never a dead end, but it is slow, and the clock keeps running while the players read. Success by 5 or more halves the time; failure doubles it (and the players still find the core clue).",
+    "people_are_records_too": "A clerk, a librarian or a society editor who likes you is a shortcut: a Persuasion or Society check (DC 12) or a couple of dollars turns a day's research into an hour."
+  },
+  "interrogation": {
+    "how": "Talking to a witness or a suspect is a conversation, played out. When it matters whether they are lying, their Deception is contested by the questioner's WIS (Insight): on a success the questioner knows they are lying (not what the truth is). What a witness knows that is a core clue, they tell anyone who asks the right question in a reasonable way, without a roll; the approaches below are for what they are holding back.",
+    "leverage": "Leverage gives advantage on any check to get a witness to talk: something you know about them (an affair, a debt, an old arrest), something you have that they want, or someone they are more afraid of than they are of you. A Fixer's Insurance or a clue that catches them in a lie counts. Leverage used is leverage spent; the witness won't forget.",
+    "approaches": {
+      "sweet_talk": {
+        "skill": "Persuasion (or Society, uptown; Streetwise, downtown).",
+        "dc": "10 for someone with no stake, 15 for someone protecting a friend, 20 for someone protecting themselves.",
+        "cost": "Time. A sweet-talk takes a drink, a meal or an hour, and you have to give something of yourself: a true story, a sympathetic ear, a promise. Break the promise and the witness never talks to you again."
+      },
+      "lean_on_them": {
+        "skill": "Intimidation.",
+        "dc": "10 for a frightened clerk, 15 for a man with backup, 20 for a man with a bigger backer than you.",
+        "cost": "Heat. Every lean raises Heat by 1 if the person has friends, by 2 if you lean on the wrong man (connected, powerful or both). A witness who talked because they were scared tells someone afterward, and their testimony is worthless in court."
+      },
+      "make_a_deal": {
+        "skill": "Persuasion or Deception (if you don't mean it), with the offer on the table.",
+        "dc": "10 if the offer is good, 15 if it is fair, 20 if it is thin.",
+        "cost": "Whatever you offered: money (see bribes_and_favors), a favor, protection, a promise to keep their name out of it, or something worse. The GM holds you to it."
+      }
+    },
+    "sample_dcs": {
+      "get a frightened witness to tell what they saw": 10,
+      "get a hotel clerk to show you the register": 10,
+      "get a gangster's girlfriend to say where he sleeps": 15,
+      "get a cop to tell you what the department is sitting on": 15,
+      "get a man to give up his employer": 20
+    },
+    "failure": "A failed interrogation check doesn't end the conversation. The witness gives the core clue (if they have one) and nothing more, and the failure costs something: they clam up for the night, they call someone after you leave, or they want money now."
+  },
+  "tailing_and_stakeouts": {
+    "tail": "Following someone who doesn't know they are being followed is a tail. It is resolved as a series of DEX (Stealth) checks by the tail against the quarry's passive Perception, one check per leg of the trip (a few blocks, a streetcar ride, a lobby, a change of cars). Three successes before three failures and the tail reaches the quarry's destination unseen. In a car, use DEX (Driving) in place of Stealth for legs driven.",
+    "tail_failure": "Three failures and the quarry has made the tail. The quarry chooses: lose them (a chase, combat.json chases), lead them somewhere wrong (a false lead that costs time), or turn and confront them. A tail that is blown also raises Heat by 1.",
+    "tail_modifiers": {
+      "crowded street, rush hour, a busy hotel": "Advantage on the tail's checks.",
+      "empty street at night, a small town": "Disadvantage on the tail's checks.",
+      "two tails swapping": "Each leg, the two tails choose who rolls; one can use the Help action to give advantage.",
+      "the quarry is expecting a tail": "The quarry makes an active Perception check instead of using passive Perception.",
+      "Private Eye with the Shadow specialty": "Needs only two successes."
+    },
+    "stakeout": "Watching a place for someone to come or go is a stakeout. It costs time: the GM decides how long it takes for something to happen (an hour, a night, two days), and the players decide whether to keep watching. It always gives a scene: something happens, someone comes, a light goes on, a car pulls up, and the players see it.",
+    "stakeout_rules": {
+      "time": "Each night of stakeout costs a long rest's worth of sleep for the watchers (no long rest unless they take shifts), and the case clock moves.",
+      "noticing": "The watchers use passive Perception to notice who comes and goes; binoculars (gear.json) let them see faces across a street.",
+      "being noticed": "A stakeout is noticed if someone checks: the watched party's active Perception against the watchers' Stealth, once per night. A parked car with two men in it at 3 a.m. is noticed at advantage.",
+      "what it yields": "A stakeout yields one clue or one scene per stint, never nothing. If the GM's story says no one comes, then someone else is watching too, and the players see them."
+    }
+  },
+  "heat": {
+    "what_it_is": "Heat is a single score per campaign city, from 0 to 10, measuring how much attention the players have drawn from the police, the press and the people who really run the town. The GM tracks it openly in world state and tells the players whenever it changes (\"Heat is 4: somebody downtown is asking about you\").",
+    "starting_heat": "Heat starts at 0 at the beginning of a campaign, unless the campaign's rules say otherwise.",
+    "rises_for": {
+      "being seen somewhere you shouldn't be (a break-in, a crime scene, the wrong party)": 1,
+      "gunfire in the city (the third loud exchange in a scene, or any shooting in public)": 1,
+      "a body the police find (each one)": 1,
+      "leaning on someone with friends": 1,
+      "leaning on the wrong man (connected, powerful or both)": 2,
+      "an explosion or a fire you set": 2,
+      "attacking a police officer where anyone can see (more for killing one; see adversaries.json Badge)": "1-3",
+      "a blown tail, a blown cover, a botched break-in": 1,
+      "a story about you in the paper": 2
+    },
+    "falls_with": {
+      "a quiet day (no Heat gained, no trouble started)": -1,
+      "a Fixer favor spent to quiet things down": -1,
+      "a Studio Fixer's cleanup, or a Reporter's Byline pointing the city elsewhere": -2,
+      "leaving town for a week": -3
+    },
+    "thresholds": {
+      "3": "The cops start asking. A detective drops by the office; a beat cop knows your face; landladies and desk clerks have been told to call if they see you. Persuasion with police is at disadvantage.",
+      "6": "Someone is told to take care of you. The GM sends trouble: a tail, a warning, a beating, a torpedo, a frame. It arrives within the next day of play. Witnesses connected to the case are frightened before you get to them (their DCs rise by 2).",
+      "9": "The city is closed to you. Every cop has your description, the people who run the town want you gone or dead, and nobody connected to anything will talk to you at all. Clients drop you; doors close. The players need to leave town, go to ground or end the case tonight.",
+      "10": "The maximum. At 10, something final happens within the day: an arrest on a charge that sticks, a contract that is carried out, or a raid on wherever the players are sleeping.",
+      "0-2": "Nobody is paying attention. The players are just more people in the rain."
+    },
+    "gm_guidance": "Heat is a clock the players can see. Use it to make consequences real without dead-ending the case: high Heat changes how the city treats the players, it doesn't hide clues. When the players gain Heat, say why in a line of fiction (\"the night clerk is going to remember your face\"). Heat doesn't carry from one city to another."
+  },
+  "bribes_and_favors": {
+    "how": "Money talks in this city. Offering a bribe is a Persuasion check (DC 10 if the price is right and the risk is small; 15 if the risk is real); offering the going rate in the table below to someone who takes bribes succeeds without a roll. Offering a bribe to someone who doesn't take them is a Heat 1 mistake.",
+    "price_table": {
+      "doorman, bellhop, shoeshine, newsboy: a name or a room number": "$1",
+      "hat-check girl, bartender, elevator operator: who came and went": "$2",
+      "hotel desk clerk: a look at the register": "$5",
+      "cabbie: where he took a fare last night": "$2",
+      "beat cop: look the other way for ten minutes": "$5",
+      "desk sergeant: who's in the cells, what's on a sheet, who caught the case": "$10",
+      "night watchman: an hour in the building": "$10",
+      "court clerk or records clerk: a file pulled, after hours": "$10",
+      "telephone operator: who called a number": "$10",
+      "morgue attendant: a look at a body before the coroner": "$20",
+      "crooked cop: a report lost": "$50",
+      "coroner's report, before it is filed": "$50",
+      "doctor who treats a gunshot and doesn't report it": "$25",
+      "city inspector: a building closed (or opened)": "$100",
+      "a judge's favor": "not for sale for money; see favors"
+    },
+    "era_note": "Prices are 1940s dollars. In the Depression 1930s money goes further and people are hungrier (the same price, at advantage); in the 1950s add about a third.",
+    "favors": {
+      "what_a_favor_is": "A favor is an obligation from someone with power: a cop, a councilman, a mob lieutenant, a studio executive, an editor. The Fixer's Favors Owed is a pool of them; anyone else earns a favor by doing one (saving a man's son, keeping a secret, finding a lost thing).",
+      "what_one_favor_buys": "A name, a released prisoner on a minor charge, a car, a room, a doctor who doesn't ask, a meeting, a file for an hour, an hour's warning, a story held a day, a Heat reduction of 1.",
+      "what_two_favors_buy": "A continuance from a judge, a story killed, a contract postponed a week, a gun permit, a license restored, a man moved to another precinct.",
+      "what_favors_cant_buy": "A favor can't make someone act against their own life or freedom, kill for you, or bring back the dead. And every favor is owed back; the GM keeps a list of who."
+    },
+    "other_prices": {
+      "diner meal": "$0.50",
+      "a drink in a good bar": "$0.50",
+      "a hotel room, flophouse to good hotel, per night": "$0.50-$5",
+      "a private eye's day rate": "$25 plus expenses",
+      "a month's office rent downtown": "$40",
+      "a used sedan": "$300-$800",
+      "a hit, arranged through the right people": "$500 and up"
+    }
+  },
+  "the_case_board": {
+    "purpose": "When the players are stuck, confused or have been away from the table, the GM lays out the case board: a short in-character summary of where the case stands. It is the detective's wall of photographs and string, said aloud.",
+    "when_to_use": "Use it when the players ask \"what do we know?\", when they have spent a scene going in circles, at the start of a session, or when a player who missed the last session needs to catch up. Offer it once; don't force it.",
+    "format": {
+      "suspects": "Each person of interest in one line: name, what ties them to the case, and the one thing the players know they lied about or hid.",
+      "leads": "Each unfollowed lead in one line: a place, a person or a document the players have heard of but haven't checked, and the skill that would work it.",
+      "open_questions": "The two or three questions the case is really about, in plain words: \"Who was the client meeting at the Excelsior?\" \"Why was the package in the purser's safe and not the hold?\"",
+      "heat_and_clock": "Current Heat, and what the players know is coming (the funeral is Thursday; the ship sails Saturday)."
+    },
+    "voice": "Do it in character, in the hard-boiled voice: a detective talking to himself over a glass of rye at 2 a.m., or a partner reading off a notepad. Keep it to a few lines per heading. In claudeDM's GM prompt this is summarized as two lines when the players are stuck.",
+    "rules": [
+      "Never put a clue on the board that the players haven't found. The board organizes; it doesn't solve.",
+      "Always put every unfollowed lead on it: a stuck table is usually a table that forgot a lead.",
+      "If there are no unfollowed leads, the case comes to the players (leads.proactive_clues) before the board is needed again.",
+      "Let the players draw the string between the pins. The GM says what is on the wall; the players say what it means."
+    ]
+  }
+}

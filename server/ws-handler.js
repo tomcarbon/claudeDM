@@ -4,8 +4,8 @@ const fsp = fs.promises;
 const path = require('path');
 const { DmEngine, summarizeArc } = require('./dm-engine');
 const { maybeCompact } = require('./compaction');
-const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, snapshotToSession, updateSessionFile } = require('./player-data');
-const { auditDmTurn, auditPlayerTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt } = require('./dm-audit');
+const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionCharactersDir, getSessionNpcsDir, snapshotToSession, updateSessionFile, SAFE_CAMPAIGN_ID } = require('./player-data');
+const { auditDmTurn, auditPlayerTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt, buildMechanicalCorrection } = require('./dm-audit');
 const { slugify, verifySessionIntegrity } = require('./entity-resolver');
 const { writeJsonAtomic } = require('./json-recovery');
 
@@ -38,13 +38,44 @@ const engineCleanupTimers = new Map();
 const sessionFirstFireTimers = new Map(); // sessionDbId -> setTimeout handle for first-turn grace period
 let nextConnectionId = 1;
 
+// Which visible system notices have already been shown for a session during the turn now in
+// flight. Condition M4 (ETHICS.md Review 3): the mechanical correction message must not stack
+// with "⚠️ Session integrity:" in the same turn — one machine voice interrupting the story is a
+// correction, two is the app talking over the table.
+const turnNotices = new Map();
+
+// Fire-and-forget work that is deliberately not awaited by the request path, kept so that
+// something else can await it. See scheduleSessionIntegrityCheck.
+const backgroundWork = new Map();
+
+/**
+ * Resolve once no deliberately-un-awaited session work is still in flight.
+ * For tests and shutdown; production never calls this. With no argument, waits on every session.
+ */
+async function whenSessionWorkSettled(sessionDbId) {
+  const pending = sessionDbId
+    ? [backgroundWork.get(sessionDbId)].filter(Boolean)
+    : Array.from(backgroundWork.values());
+  await Promise.allSettled(pending);
+}
+function beginTurnNotices(key) { turnNotices.set(key || '__local__', new Set()); }
+function noteTurnNotice(key, kind) {
+  const k = key || '__local__';
+  if (!turnNotices.has(k)) turnNotices.set(k, new Set());
+  turnNotices.get(k).add(kind);
+}
+function hasTurnNotice(key, kind) {
+  const set = turnNotices.get(key || '__local__');
+  return !!set && set.has(kind);
+}
+
 // Post-turn enforcement: if the audit flagged narrated-but-unsaved stat changes, resume the
 // turn's Claude session and have the DM apply the missing file edits before the turn ends.
 // Runs only when needed (clean turns return immediately), is bounded to MAX_RECONCILE_ATTEMPTS,
 // suppresses any narrative the pass produces, and never throws — the caller must still reach its
 // `finally` and emit the 'idle'/Ready status. Shared by the single-player and multiplayer paths.
 const MAX_RECONCILE_ATTEMPTS = 2;
-async function reconcileTurnIfNeeded({ engine, warnings, auditDmText, auditToolCalls, runOpts }) {
+async function reconcileTurnIfNeeded({ engine, warnings, auditDmText, auditPlayerText, auditToolCalls, auditOutcomes, knownEntities, speakers, runOpts }) {
   if (!needsReconcile(warnings)) return; // fast path: nothing to fix, zero added latency
 
   const sessionDbId = runOpts.sessionDbId;
@@ -56,24 +87,50 @@ async function reconcileTurnIfNeeded({ engine, warnings, auditDmText, auditToolC
     : `data/defaults/${cid}/npcs`;
 
   const allToolCalls = Array.isArray(auditToolCalls) ? [...auditToolCalls] : [];
+  const allOutcomes = Array.isArray(auditOutcomes) ? [...auditOutcomes] : [];
   let current = warnings;
+  // A warning raised only by the player scan is the loosest signal this system produces — the
+  // patterns are deliberately wide and the entity gate is the only thing behind them. One attempt
+  // is enough for it: each attempt is a full resumed model query against a budget line of 0, and
+  // the player can provoke this class on demand by naming a rostered NPC beside a coin phrase
+  // (WO-0032 S3).
+  const playerOnly = (warnings || []).every(w => w && w.source === 'player');
+  const maxAttempts = playerOnly ? 1 : MAX_RECONCILE_ATTEMPTS;
   try {
-    for (let attempt = 1; attempt <= MAX_RECONCILE_ATTEMPTS; attempt++) {
-      console.warn(`[DM:RECONCILE] session=${sessionDbId} attempt=${attempt}/${MAX_RECONCILE_ATTEMPTS} applying missed edits`);
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      console.warn(`[DM:RECONCILE] session=${sessionDbId} attempt=${attempt}/${maxAttempts} applying missed edits`);
       const prompt = buildReconcilePrompt(current, charPathPrefix, npcPathPrefix);
       for await (const event of engine.runReconcile(prompt, runOpts)) {
         if (event.type === 'tool_use') allToolCalls.push({ name: event.name, input: event.input });
+        if (event.type === 'mechanical_outcome') allOutcomes.push(event);
         // Intentionally suppress dm_partial/dm_response/dm_warmup — this is an internal pass and
         // must not surface as a second DM message to the player.
       }
-      current = auditDmTurn(auditDmText, allToolCalls);
+      // Re-audit BOTH sides, with the same roster as the first pass.
+      //
+      // The roster matters because without it the re-audit falls back to the write-count rule and
+      // would declare a still-one-sided transfer resolved — the bug surviving inside its own fix.
+      // Both sides matter for the same reason one step further out (WO-0032 S4): revision 0
+      // re-audited the DM narration only, and `auditPlayerTurn` exists precisely because the DM
+      // "paraphrases qualitatively and never restates a number", so on the turns where the player
+      // scan is the only thing that fired, the re-audit had nothing to look at and logged
+      // "resolved" having verified nothing. A guard that reports success it did not measure is
+      // worse than no guard, because it is evidence.
+      // The speakers travel with the re-audit too: without them the re-audit would apply the
+      // weaker any-character rule and could declare resolved a transfer whose player side was
+      // written on somebody else's sheet (revision 2, Security R3 / QC N1).
+      const auditOpts = { speakers, outcomes: allOutcomes };
+      current = dedupeWarningsByCategory([
+        ...auditDmTurn(auditDmText, allToolCalls, allOutcomes, knownEntities, auditOpts),
+        ...auditPlayerTurn(auditPlayerText, allToolCalls, knownEntities, auditOpts),
+      ]);
       if (!needsReconcile(current)) {
         console.log(`[DM:RECONCILE] session=${sessionDbId} resolved after attempt=${attempt}`);
         return;
       }
     }
     const formatted = formatWarnings(current, sessionDbId);
-    console.warn(`[DM:RECONCILE_GIVEUP] session=${sessionDbId} still unbacked after ${MAX_RECONCILE_ATTEMPTS} attempts\n${formatted || ''}`);
+    console.warn(`[DM:RECONCILE_GIVEUP] session=${sessionDbId} still unbacked after ${maxAttempts} attempt(s)\n${formatted || ''}`);
   } catch (e) {
     console.error('[DM:RECONCILE] error:', e);
   }
@@ -154,7 +211,7 @@ function getOrCreateSessionEngine(sessionDbId, dataDir, opts) {
     if (opts.companionConfig) ctx.companionConfig = opts.companionConfig;
     return ctx;
   }
-  const engine = new DmEngine(dataDir);
+  const engine = _createEngine(dataDir);
   engine.sessionId = opts.claudeSessionId || null;
   const ctx = {
     engine,
@@ -314,7 +371,14 @@ async function clearPendingTurns(sessionDbId) {
 // Module-level file path helper (set inside attachWebSocket)
 let _findSessionFilePath = async () => null;
 
-function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
+// Module-level engine factory (set inside attachWebSocket, same pattern as the helpers above).
+// Production passes nothing and gets a real DmEngine. Tests pass `createEngine` so the suite can
+// never construct one — a real DmEngine's query() runs with cwd = PROJECT_ROOT and Edit
+// auto-allowed, i.e. a billable agent with write access to the live data/ directory.
+const defaultCreateEngine = (dir) => new DmEngine(dir);
+let _createEngine = defaultCreateEngine;
+
+function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, summarize } = {}) {
   const wss = new WebSocketServer({ server, path: '/ws' });
   _wss = wss;
   const playersDir = path.join(dataDir, 'players');
@@ -323,6 +387,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   _findSessionFilePath = (id) => findSessionFilePathAsync(id);
   _findAndReadSession = (id) => readSessionByDbIdAsync(id);
   _dataDir = dataDir;
+  _createEngine = createEngine || defaultCreateEngine;
+  const summarizeFn = summarize || summarizeArc;
 
   function broadcastChatParticipants(chatKey) {
     const participants = getRoomParticipants(chatKey);
@@ -341,7 +407,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
 
   function findSessionFilePath(sessionDbId) {
     if (!sessionDbId) return null;
-    const fp = getSessionFilePath(dataDir, sessionDbId);
+    // A non-id is refused by the path helper (WO-0041); here that is simply no such session.
+    let fp;
+    try { fp = getSessionFilePath(dataDir, sessionDbId); } catch { return null; }
     if (fs.existsSync(fp)) return fp;
     return null;
   }
@@ -350,7 +418,46 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   // three safe anchors — session watch, resume, and turn fire — never mid-turn.
   // Unresolvable bindings surface as a visible system message instead of failing
   // silently (a dangling characterId is how sheets stopped updating in production).
-  async function runSessionIntegrityCheck(sessionDbId) {
+  //
+  // ── Why two of the four call sites await this and two do not ────────────────────────────
+  // The asymmetry is deliberate, and it is safe for a reason that lives in another file, which
+  // is why it has now been read as a race twice (WO-0015.5, and the review of it).
+  //
+  //   awaited      the two pre-turn checks. A turn must not start against a broken binding, so
+  //                the DM's first Read has to see a healed session.
+  //   not awaited  the two handshake checks (session_watch, session_resume). Awaiting them
+  //                would put a file read, a directory scan and possibly a file copy in front of
+  //                the session_access / turn_status frames the client is waiting on.
+  //
+  // **The writes are sequenced even though the calls are not — under a condition worth stating
+  // exactly, because the first version of this comment claimed it unconditionally and was
+  // wrong.** The claim that holds:
+  //
+  //     Two session.json writers cannot lose each other's update PROVIDED both go through
+  //     updateSessionFile, the per-session serialised read-modify-write queue in
+  //     player-data.js.
+  //
+  // Verified, not assumed: two concurrent updateSessionFile calls, the first deliberately slow
+  // inside its mutator, both land. So a handshake check still in flight when a turn fires
+  // cannot clobber the turn's write, and the mutation is idempotent besides
+  // (heal-if-different, copy-if-absent, append-if-not-already-present).
+  //
+  // The condition is not free. A writer that calls writeJsonAtomic on session.json directly is
+  // NOT sequenced against the queue, and loses: `routes/sessions.js` had five such writers on
+  // live sessions and a route write during an in-flight queued update was lost 200 times out
+  // of 200 (WO-0015.4). They now go through the queue; the only direct writes left in that
+  // file are inside POST /sessions, on an id no client can hold yet, and they say so where
+  // they are. `server/__tests__/mechanical-tools.test.js` scans every server file for new
+  // ones, because this condition is invisible from the call site and has now had to be
+  // rediscovered three times.
+  //
+  // If you are about to add `await` to the two handshake calls: it is not needed for
+  // correctness, and it costs the handshake.
+  //
+  // `partOfTurn` says this call is the turn's own pre-turn check. Only such a call may mark the
+  // per-turn notice flag — a handshake straggler settling mid-turn must not silence the
+  // mechanical correction, which is the message built to catch the chair's original bug.
+  async function runSessionIntegrityCheck(sessionDbId, { partOfTurn = false } = {}) {
     if (!sessionDbId) return;
     try {
       let appendedWarning = null;
@@ -371,6 +478,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         if (!changed) return false;
       });
       if (appendedWarning) {
+        // Only the turn's own check may suppress this turn's mechanical correction. A handshake
+        // check that lands mid-turn and shows a binding warning may therefore stack with a
+        // correction — rare (it needs a broken binding), and the right way round: losing the
+        // correction is worse than showing two system lines.
+        if (partOfTurn) noteTurnNotice(sessionDbId, 'integrity');
         console.error(`[WS] ${appendedWarning} (session ${sessionDbId})`);
         broadcastSessionMessage(sessionDbId, 'session_player_message', {
           text: appendedWarning,
@@ -383,9 +495,111 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     }
   }
 
+  // The handshake checks are fire-and-forget on purpose (see runSessionIntegrityCheck), but
+  // "nobody awaits it" and "nobody CAN await it" are different things. The promise is kept here
+  // so a caller that needs quiescence — a test tearing down its tmp directory, a future
+  // shutdown path — has something to wait on. Production behaviour is unchanged: nothing in the
+  // request path awaits this.
+  function scheduleSessionIntegrityCheck(sessionDbId) {
+    if (!sessionDbId) return Promise.resolve();
+    const pending = runSessionIntegrityCheck(sessionDbId).catch((e) => {
+      console.error('[WS] Background session integrity check failed:', e && e.message);
+    });
+    const previous = backgroundWork.get(sessionDbId) || Promise.resolve();
+    const chained = previous.then(() => pending);
+    backgroundWork.set(sessionDbId, chained);
+    chained.then(() => {
+      if (backgroundWork.get(sessionDbId) === chained) backgroundWork.delete(sessionDbId);
+    });
+    return pending;
+  }
+
+  // A visible system message in the transcript, on the same channel runSessionIntegrityCheck
+  // uses. Persisted into session.json so it survives a reload and is still there when the chair
+  // scrolls back, then broadcast to everyone watching.
+  async function emitSessionNotice(sessionDbId, text, kind, excludedEntry) {
+    if (!text) return false;
+    if (kind && hasTurnNotice(sessionDbId, 'integrity')) {
+      console.warn(`[DM:INTEGRITY] ${kind} suppressed (an integrity message was already shown this turn): ${text}`);
+      return false;
+    }
+    const message = { type: 'system', text, timestamp: new Date().toISOString(), sessionId: sessionDbId || null };
+    if (sessionDbId) {
+      try {
+        await updateSessionFile(dataDir, sessionDbId, (sess) => {
+          if (!Array.isArray(sess.messages)) sess.messages = [];
+          sess.messages.push(message);
+        });
+      } catch (e) {
+        console.error('[WS] Failed to persist session notice:', e.message);
+      }
+      broadcastSessionMessage(sessionDbId, 'session_player_message', message, excludedEntry || null);
+    }
+    if (kind) {
+      noteTurnNotice(sessionDbId, kind);
+      // Anything on the integrity channel counts as the integrity message for this turn, so a
+      // permission notice and a mechanical correction cannot both interrupt the same scene.
+      if (text.startsWith('⚠️ Session integrity:')) noteTurnNotice(sessionDbId, 'integrity');
+    }
+    return true;
+  }
+
+  // Every creature this session holds a sheet for — the party and its NPCs — as { name, file }.
+  //
+  // Two consumers, both in dm-audit:
+  //   - buildMechanicalCorrection uses the NAMES to scope the in-transcript death correction: a
+  //     death claim about a name on this list is a claim we can check; a death claim about a
+  //     goblin is not, and the correction stays out of it.
+  //   - the transfer check (WO-0032) uses the FILE to decide whether the sheet a narrated
+  //     transfer implicates was actually written this turn. The file name is read off disk
+  //     rather than derived from the name, so a sheet whose file name does not follow the
+  //     slug convention is still matched correctly.
+  //
+  // Passed as a function so these two readdirs happen only on a turn that mentions a death or
+  // narrates a transfer — which is not most turns.
+  function sessionRosterSheets(sessionDbId) {
+    if (!sessionDbId) return [];
+    const sheets = [];
+    const tiers = [
+      { dir: getSessionCharactersDir(dataDir, sessionDbId), kind: 'character' },
+      { dir: getSessionNpcsDir(dataDir, sessionDbId), kind: 'npc' },
+    ];
+    for (const { dir, kind } of tiers) {
+      // Session-relative ("sessions/<id>/npcs"), so the audit can tell an Edit to THIS sheet from
+      // an Edit to the player-library copy of the same creature, or to /tmp (WO-0032 S7).
+      const rel = path.relative(dataDir, dir).split(path.sep).join('/');
+      let files;
+      try {
+        files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+      } catch {
+        continue; // no such tier in this session
+      }
+      for (const file of files) {
+        try {
+          const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf-8'));
+          // `kind` is what lets the audit resolve a pronoun: "you hand Eldon a coin" implicates a
+          // player character, and a player character is a sheet under characters/ (WO-0032 S2).
+          // `id` (WO-0032 revision 2) is what lets the audit tell the turn's SPEAKER from any
+          // other player character: ws-handler holds the speaker's characterId, and without a
+          // way to match it to a sheet, "you hand Eldon a coin" was satisfied by a write to any
+          // of the six characters on this session's roster (Security R3 / QC N1).
+          if (data && typeof data.name === 'string' && data.name.trim()) {
+            sheets.push({ name: data.name.trim(), file, dir: rel, kind, id: typeof data.id === 'string' ? data.id : null });
+          }
+        } catch {
+          // A sheet that will not parse is json-recovery's problem, not this function's. A name
+          // we cannot read means one fewer name to check, never a wrong correction.
+        }
+      }
+    }
+    return sheets;
+  }
+
   async function findSessionFilePathAsync(sessionDbId) {
     if (!sessionDbId) return null;
-    const fp = getSessionFilePath(dataDir, sessionDbId);
+    // A non-id is refused by the path helper (WO-0041); here that is simply no such session.
+    let fp;
+    try { fp = getSessionFilePath(dataDir, sessionDbId); } catch { return null; }
     try { await fsp.access(fp); return fp; } catch { return null; }
   }
 
@@ -401,20 +615,17 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
     try { return JSON.parse(await fsp.readFile(fp, 'utf-8')); } catch { return null; }
   }
 
+  // Kept as a closure-local name because ~30 call sites in here use it. The implementation moved
+  // to module scope (broadcastToSessionRoom, below) so that an HTTP route can reach it too; there
+  // is one implementation, and one place that decides who is watching a session.
   function broadcastSessionMessage(sessionDbId, type, payload = {}, excludedEntry = null) {
-    if (!sessionDbId || !sessionRooms.has(sessionDbId)) return;
-    for (const entry of sessionRooms.get(sessionDbId)) {
-      if (entry === excludedEntry) continue;
-      if (entry.ws.readyState === entry.ws.OPEN) {
-        entry.ws.send(JSON.stringify({ type, sessionDbId, ...payload }));
-      }
-    }
+    broadcastToSessionRoom(sessionDbId, type, payload, excludedEntry);
   }
 
   wss.on('connection', (ws) => {
     console.log('[WS] Client connected');
 
-    const engine = new DmEngine(dataDir);
+    const engine = _createEngine(dataDir);
     let characterId = null;
     let scenarioId = null;
     let campaignId = null;
@@ -763,7 +974,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         // Snapshot session data dir if needed
         const cid = engineCtx.campaignId || 'demo';
         try { snapshotToSession(dataDir, sessionDbId, ownerEmail, cid); } catch (e) { console.error('[WS] Snapshot error:', e); }
-        await runSessionIntegrityCheck(sessionDbId);
+        beginTurnNotices(sessionDbId);
+        await runSessionIntegrityCheck(sessionDbId, { partOfTurn: true });
 
         // Load world state and summary counter from session for context persistence
         const sessionForState = await readSessionByDbIdAsync(sessionDbId);
@@ -776,6 +988,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           scenarioId: engineCtx.scenarioId,
           campaignId: engineCtx.campaignId,
           messageHistory: engineCtx.messageHistory,
+          // No onPermissionRequest on this path — there is no single player to ask, so a tool
+          // that needs approval is declined. onSessionNotice is what makes that audible
+          // (condition M6(b), ETHICS.md Review 3 §M2.2). A real host-facing modal for
+          // multiplayer is a recommendation, not a condition, and is not in this work order.
+          onSessionNotice: (text) => { emitSessionNotice(sessionDbId, text, 'permission').catch(() => {}); },
           playerEmail: ownerEmail,
           companionPlayers: activeCompanions.length > 0 ? activeCompanions : undefined,
           sessionDbId,
@@ -787,8 +1004,14 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         });
 
         const auditToolCalls = [];
+        const auditOutcomes = [];
         let auditDmText = '';
+        // The player side of the turn, kept in the same scope as auditDmText so the reconcile
+        // loop can re-audit it (WO-0032 S4) rather than re-checking the DM narration alone.
+        let auditPlayerText = '';
         let auditWarnings = [];
+        // The player character(s) whose turn this is, in the same scope for the same reason.
+        let turnSpeakers = [];
         // Ordered record of every renderable event emitted during this turn (DM narration chunks
         // and dice rolls, in stream order). Used at dm_complete to persist the canonical full
         // turn — the previous code only saved the final dm_response and no dice rolls, so a host
@@ -829,6 +1052,11 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             case 'tool_use':
               auditToolCalls.push({ name: event.name, input: event.input });
               break;
+            case 'mechanical_outcome':
+              // The ledger of what the server computed (ADR 0005 §10). Not shown to players —
+              // the audit compares it against what the DM said happened.
+              auditOutcomes.push(event);
+              break;
             case 'dm_response':
               engineCtx.messageHistory.push({ type: 'dm', text: event.text, sessionId: sessionDbId });
               auditDmText += (auditDmText ? '\n\n' : '') + event.text;
@@ -840,15 +1068,43 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               try {
                 // Scan raw host + companion turn texts (not the assembled playerText, which embeds
                 // character sheets whose equipment can contain "X gp" and would false-positive).
-                const playerTurnText = [hostTurn.text, ...companionTurnsArr.map(t => t.text)]
+                auditPlayerText = [hostTurn.text, ...companionTurnsArr.map(t => t.text)]
                   .filter(Boolean).join('\n');
+                // The roster is passed to both scans so a transfer that writes only one of its
+                // two sides is caught (WO-0032). Lazy: resolved only if a transfer is narrated.
+                const rosterSheets = () => sessionRosterSheets(sessionDbId);
+                // Who spoke this turn: the host's character plus any companion player's. A
+                // pronoun or an elided party in a transfer must be matched against one of THESE
+                // sheets, not against any character on the roster (revision 2).
+                //
+                // REVISION 3 (Security R2-1). The companion half used to read
+                // `t.characterId || t.characterName`, and `t.characterId` came straight off the
+                // wire: `companion_turn_submit` takes `msg.characterId` unvalidated, and the
+                // host-character rejection at `companion_set_character` does not cover the
+                // per-turn field. A companion could therefore nominate any of the session's
+                // character sheets as a speaker and widen this check to include it — executed:
+                // speakers `[Zephyr, Thorin]` is silent where `[Zephyr]` warns, and a VALID other
+                // character's id widens it without even producing the `speaker-unresolved` log a
+                // bogus one would. It is now `t.speakerCharacterId`, which the submit handler
+                // takes from `wsEntry.companionCharacterId` — the claim the server persisted and
+                // broadcast — and the display-name fallback is gone, because a label a client
+                // chooses should not decide a check. Ceiling was revision 1's any-character rule,
+                // so this closed a widening, not an escalation.
+                turnSpeakers = [engineCtx.characterId, ...companionTurnsArr.map(t => t.speakerCharacterId)]
+                  .filter(Boolean);
+                const auditOpts = { speakers: turnSpeakers, outcomes: auditOutcomes };
                 auditWarnings = dedupeWarningsByCategory([
-                  ...auditDmTurn(auditDmText, auditToolCalls),
-                  ...auditPlayerTurn(playerTurnText, auditToolCalls),
+                  ...auditDmTurn(auditDmText, auditToolCalls, auditOutcomes, rosterSheets, auditOpts),
+                  ...auditPlayerTurn(auditPlayerText, auditToolCalls, rosterSheets, auditOpts),
                 ]);
                 logAuditTrace(sessionDbId, auditDmText, auditToolCalls, auditWarnings);
                 const formatted = formatWarnings(auditWarnings, sessionDbId);
                 if (formatted) console.warn(formatted);
+                const correction = buildMechanicalCorrection(auditDmText, auditOutcomes, rosterSheets);
+                if (correction) {
+                  console.warn(`[DM:INTEGRITY] ${correction.kind} session=${sessionDbId} ${correction.text}`);
+                  await emitSessionNotice(sessionDbId, correction.text, correction.kind);
+                }
               } catch (e) { console.error('[DM:AUDIT] error:', e); }
               // Persist the full ordered turn (player + companions + every DM chunk + every
               // dice roll) to the session JSON, reconciling against whatever partial fragment
@@ -899,8 +1155,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           engine,
           warnings: auditWarnings,
           auditDmText,
+          auditPlayerText,
           auditToolCalls,
+          auditOutcomes,
+          knownEntities: () => sessionRosterSheets(sessionDbId),
+          speakers: turnSpeakers,
           runOpts: {
+            onSessionNotice: (text) => { emitSessionNotice(sessionDbId, text, 'permission').catch(() => {}); },
             characterId: engineCtx.characterId,
             scenarioId: engineCtx.scenarioId,
             campaignId: engineCtx.campaignId,
@@ -968,7 +1229,17 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
       console.log(`[WS] Chat joined — key: ${chatKey}, player: ${playerEmail}, room size: ${chatRooms.get(chatKey).size}`);
     }
 
-    ws.on('message', async (raw) => {
+    // One failing message must cost that message, not the process: the switch below is async and
+    // a throw inside it (e.g. a refused session id reaching a guarded path helper, WO-0041) would
+    // otherwise be an unhandled rejection, and Node exits on those.
+    ws.on('message', (raw) => {
+      handleWsMessage(raw).catch((err) => {
+        console.error('[WS] message handler failed:', err && err.message);
+        try { send('error', { error: 'That request could not be processed.' }); } catch { /* socket gone */ }
+      });
+    });
+
+    const handleWsMessage = async (raw) => {
       let msg;
       try {
         msg = JSON.parse(raw.toString());
@@ -989,6 +1260,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           messageHistory = [];
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
+          if (msg.campaignId != null && !SAFE_CAMPAIGN_ID.test(String(msg.campaignId))) {
+            send('error', { error: 'Invalid campaignId.' });
+            break;
+          }
           campaignId = msg.campaignId || null;
           companionConfig = msg.companionConfig || null;
           dmPersonality = msg.dmPersonality || null;
@@ -1040,6 +1315,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           const prevClaudeId = engine.sessionId;
           const newClaudeId = msg.claudeSessionId || null;
           const prevCampaignId = campaignId;
+          if (msg.campaignId != null && !SAFE_CAMPAIGN_ID.test(String(msg.campaignId))) {
+            send('error', { error: 'Invalid campaignId.' });
+            break;
+          }
           const newCampaignId = msg.campaignId || null;
           const isSameClaudeSession = prevClaudeId && newClaudeId && prevClaudeId === newClaudeId;
           const isCampaignSwitch = prevCampaignId && newCampaignId && prevCampaignId !== newCampaignId;
@@ -1095,7 +1374,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           if (currentSessionDbId && messageHistory.length > 0) {
             try {
               const result = await maybeCompact(dataDir, currentSessionDbId, {
-                summarize: (text) => summarizeArc(text, { dataDir, playerEmail: wsEntry.playerEmail }),
+                summarize: (text) => summarizeFn(text, { dataDir, playerEmail: wsEntry.playerEmail }),
               });
               if (result && result.compacted) {
                 messageHistory = result.liveMessages;
@@ -1112,8 +1391,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               console.error('[WS] Resume compaction error:', e);
             }
           }
-          // Fire-and-forget (see session_watch note); the pre-turn check is blocking.
-          runSessionIntegrityCheck(currentSessionDbId);
+          // Fire-and-forget (see runSessionIntegrityCheck); the pre-turn check is blocking.
+          scheduleSessionIntegrityCheck(currentSessionDbId);
           send('session_status', { status: 'idle' });
           console.log(`[WS] Session resumed — claude: ${engine.sessionId}, character: ${characterId}, scenario: ${scenarioId}, campaign: ${campaignId}, player: ${wsEntry.playerEmail}, history: ${messageHistory.length} messages`);
           break;
@@ -1235,7 +1514,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             try { snapshotToSession(dataDir, requestedSessionId, ownerEmail, session.campaignId || campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
             // Fire-and-forget: must not delay the watch handshake (session_access /
             // turn_status ordering). The blocking check runs before each DM turn fires.
-            runSessionIntegrityCheck(requestedSessionId);
+            scheduleSessionIntegrityCheck(requestedSessionId);
           }
 
           // Restore pending turns from session JSON into in-memory map (reconnect support)
@@ -1352,7 +1631,8 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             // Snapshot session data if we have a saved session
             if (currentSessionDbId && wsEntry.playerEmail) {
               try { snapshotToSession(dataDir, currentSessionDbId, wsEntry.playerEmail, campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
-              await runSessionIntegrityCheck(currentSessionDbId);
+              beginTurnNotices(currentSessionDbId);
+              await runSessionIntegrityCheck(currentSessionDbId, { partOfTurn: true });
             }
 
             // Load world state and summary counter from session for context persistence
@@ -1382,19 +1662,32 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               worldState: singlePlayerWorldState,
               dmMessagesSinceLastSummary: singlePlayerSummaryCount,
               arcSummaries: singlePlayerArcSummaries,
-              onPermissionRequest: (toolName, input, toolUseID) => {
+              onPermissionRequest: (toolName, input, toolUseID, context) => {
                 return new Promise((resolve) => {
-                  const description = describeToolUse(toolName, input);
+                  const description = describeToolUse(toolName, input, context);
                   pendingPermissions.set(toolUseID, { resolve });
-                  send('permission_request', { toolUseID, toolName, description, input });
+                  send('permission_request', {
+                    toolUseID,
+                    toolName,
+                    description,
+                    input,
+                    // Structured fields so the modal can lay the question out rather than
+                    // print a blob. Absent for every tool but the override (condition M1).
+                    details: context || null,
+                  });
                   send('session_status', { status: 'awaiting_permission' });
                 });
               },
+              // Condition M6(b): when a tool needs a player's approval and nobody can be asked,
+              // say so at the table instead of failing silently.
+              onSessionNotice: (text) => { emitSessionNotice(currentSessionDbId, text, 'permission').catch(() => {}); },
             });
 
             const auditToolCalls = [];
+            const auditOutcomes = [];
             let auditDmText = '';
             let auditWarnings = [];
+            let turnSpeakers = [];
             // Ordered record of renderable events this turn (DM chunks + dice rolls),
             // persisted server-side at dm_complete so a crash before the client's
             // auto-save can no longer lose the turn (the stale-resume bug).
@@ -1412,6 +1705,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                   break;
                 case 'tool_use':
                   auditToolCalls.push({ name: event.name, input: event.input });
+                  break;
+                case 'mechanical_outcome':
+                  // The ledger of what the server computed (ADR 0005 §10).
+                  auditOutcomes.push(event);
                   break;
                 case 'dice_roll':
                   send('dice_roll', {
@@ -1483,13 +1780,32 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
                     // Audit the DM's narration AND the player's own turn text — a transfer the
                     // player declared ("I give everyone 1 gp") is often paraphrased qualitatively by
                     // the DM and never restated as a number, so the narration scan alone misses it.
+                    const rosterSheets = () => sessionRosterSheets(currentSessionDbId);
+                    // This path is single-player: the one speaker is the connection's own
+                    // character (revision 2, Security R3 / QC N1).
+                    turnSpeakers = characterId ? [characterId] : [];
+                    const auditOpts = { speakers: turnSpeakers, outcomes: auditOutcomes };
                     auditWarnings = dedupeWarningsByCategory([
-                      ...auditDmTurn(auditDmText, auditToolCalls),
-                      ...auditPlayerTurn(playerText, auditToolCalls),
+                      ...auditDmTurn(auditDmText, auditToolCalls, auditOutcomes, rosterSheets, auditOpts),
+                      ...auditPlayerTurn(playerText, auditToolCalls, rosterSheets, auditOpts),
                     ]);
                     logAuditTrace(currentSessionDbId, auditDmText, auditToolCalls, auditWarnings);
                     const formatted = formatWarnings(auditWarnings, currentSessionDbId);
                     if (formatted) console.warn(formatted);
+                    // The only correction this app puts in front of the table (ADR 0005 §10):
+                    // it fires when the narration and the server's ledger disagree about
+                    // whether somebody died, and it states the fact without blaming anyone.
+                    const correction = buildMechanicalCorrection(auditDmText, auditOutcomes, rosterSheets);
+                    if (correction) {
+                      console.warn(`[DM:INTEGRITY] ${correction.kind} session=${currentSessionDbId || 'none'} ${correction.text}`);
+                      // Broadcast to the other watchers with this connection excluded, then
+                      // echo to the player themselves — the same pairing every other
+                      // session message in this file uses.
+                      const shown = await emitSessionNotice(currentSessionDbId, correction.text, correction.kind, wsEntry);
+                      if (shown) {
+                        send('session_player_message', { text: correction.text, timestamp: new Date().toISOString(), sessionId: currentSessionDbId || undefined });
+                      }
+                    }
                   } catch (e) { console.error('[DM:AUDIT] error:', e); }
                   break;
                 case 'session_id':
@@ -1509,8 +1825,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
               engine,
               warnings: auditWarnings,
               auditDmText,
+              auditPlayerText: playerText,
               auditToolCalls,
+              auditOutcomes,
+              knownEntities: () => sessionRosterSheets(currentSessionDbId),
+              speakers: turnSpeakers,
               runOpts: {
+                onSessionNotice: (text) => { emitSessionNotice(currentSessionDbId, text, 'permission').catch(() => {}); },
                 characterId,
                 scenarioId,
                 campaignId,
@@ -1644,6 +1965,19 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
           }
           if (!sessionTurns.has(currentSessionDbId)) sessionTurns.set(currentSessionDbId, new Map());
           const npcName = msg.npcName || wsEntry.companionNpcId;
+          // WO-0032 revision 3, Security R2-1. `characterId` below is the wire value and keeps its
+          // existing meaning (display label, character-sheet-sent key). `speakerCharacterId` is a
+          // SEPARATE field that only the transfer audit reads, and it is the server's own record
+          // of what this companion claimed via `companion_set_character` — never `msg`. The two
+          // are kept apart rather than merged so that tightening the security check cannot change
+          // unrelated presentation behaviour, and so that a reader of either line can see which
+          // one is trusted. A disagreement is logged: a companion whose per-turn character is not
+          // the one they registered is worth a line.
+          if (msg.characterId && msg.characterId !== wsEntry.companionCharacterId) {
+            console.warn(`[WS] companion_turn_submit carried characterId=${String(msg.characterId).slice(0, 64)} `
+              + `but the registered companion character is ${wsEntry.companionCharacterId || 'none'} — `
+              + 'the registered one is used for the transfer audit (WO-0032 R2-1)');
+          }
           sessionTurns.get(currentSessionDbId).set(wsEntry.playerEmail, {
             playerEmail: wsEntry.playerEmail,
             playerName: wsEntry.playerName || wsEntry.playerEmail,
@@ -1651,6 +1985,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
             npcName,
             characterName: msg.characterName || wsEntry.companionCharacterName || null,
             characterId: msg.characterId || wsEntry.companionCharacterId || null,
+            speakerCharacterId: wsEntry.companionCharacterId || null,
             characterData: wsEntry.companionCharacterData || null,
             text: turnText,
             isHost: false,
@@ -1790,7 +2125,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
         default:
           send('error', { error: `Unknown message type: ${msg.type}` });
       }
-    });
+    };
 
     ws.on('close', () => {
       console.log('[WS] Client disconnected');
@@ -1813,7 +2148,21 @@ function attachWebSocket(server, dataDir, { appendChatMessage } = {}) {
   return wss;
 }
 
-function describeToolUse(toolName, input) {
+// What the player is actually asked to approve.
+//
+// Condition M1 (ETHICS.md Review 3 §M2.1, §M2.4): this used to fall through to
+// "Use tool: mcp__dnd-tools__OverrideMechanicalState" and nothing else — not the character, not
+// the field, not either value, not the DM's reason. That is not a consent surface; it is a
+// dialog box that trains people to click Allow. This is the application's first consent prompt
+// and the path has never run in production, so there is no habit to lean on.
+//
+// `context` is built server-side by vitals-utils.describeOverrideRequest, which is the only
+// place that can read the sheet to state the current value. Five things in the text are
+// load-bearing: the entity by name and never by slug; the field in the player's words and never
+// as a JSON pointer; both values, so the question is a comparison and not an assertion; the
+// reason quoted and attributed to the DM so a player may disbelieve it; and an explicit
+// statement that nothing has happened yet and that declining is safe — which it is.
+function describeToolUse(toolName, input, context) {
   switch (toolName) {
     case 'Edit':
       return `Edit file: ${input.file_path || 'unknown'}`;
@@ -1821,8 +2170,31 @@ function describeToolUse(toolName, input) {
       return `Write file: ${input.file_path || 'unknown'}`;
     case 'Bash':
       return `Run command: ${(input.command || '').substring(0, 100)}`;
+    case 'mcp__dnd-tools__OverrideMechanicalState':
+      if (context && context.description) return context.description;
+      return `The GM wants to change ${(input && input.characterId) || 'a character'} outside the rules. Nothing has changed yet; declining is safe.`;
     default:
-      return `Use tool: ${toolName}`;
+      return context && context.description ? context.description : `Use tool: ${toolName}`;
+  }
+}
+
+// Broadcast to everyone watching one session.
+//
+// Module-level, and exported, because a session event no longer arrives only over the WebSocket:
+// POST /sessions/:id/restore-character (WO-0016) is an HTTP route, triggered by the player whose
+// character died, and the rest of the table has to see it happen. Routing it through the same
+// function the turn loop uses means the restore notice reaches watchers on exactly the channel
+// every other system notice does, rather than through a second path that could drift from it.
+//
+// Silent when nobody is watching that session — a restore performed by the only player in a
+// single-player game has no room to broadcast to, and that is not an error.
+function broadcastToSessionRoom(sessionDbId, type, payload = {}, excludedEntry = null) {
+  if (!sessionDbId || !sessionRooms.has(sessionDbId)) return;
+  for (const entry of sessionRooms.get(sessionDbId)) {
+    if (entry === excludedEntry) continue;
+    if (entry.ws.readyState === entry.ws.OPEN) {
+      entry.ws.send(JSON.stringify({ type, sessionDbId, ...payload }));
+    }
   }
 }
 
@@ -1838,4 +2210,4 @@ function broadcastToAll(type, payload = {}) {
   }
 }
 
-module.exports = { attachWebSocket, broadcastToAll };
+module.exports = { attachWebSocket, broadcastToAll, broadcastToSessionRoom, whenSessionWorkSettled };

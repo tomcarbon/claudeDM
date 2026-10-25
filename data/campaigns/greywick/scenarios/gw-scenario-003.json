@@ -1,0 +1,524 @@
+{
+  "id": "gw-scenario-003",
+  "title": "The Night the House Closes",
+  "subtitle": "Friday 20 October 1893: A Nor'easter, a Fallen Bridge, the Gas Machine Stopped, the River Lamp Out, and Linus's Seventh Night",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Greywick House in the storm, night 6",
+    "description": "One day and one long night. Friday is Linus Greywick's seventh night in the river room; at dawn on Saturday he will be found at the foot of the north stair unless someone opens her door with her own key. It is also the night Leonora Greywick moves. A nor'easter comes up the river all afternoon; at four it takes out the timber bridge over the Greywick Kill, and with it the telegraph wire up from the station, so the house is cut off from the village except by the bluff path, which nobody named in the will may take after sunset. Leonora has had Jem gather up every iron door wedge on the south corridor 'for polishing'. She has watered the kerosene in the scullery can that fills the river lamp. At half past ten she puts chloral in Mr. Strick's toddy. At eleven she stops the gas machine in the cellar, and the whole house goes dark but for candles and hand lamps. At midnight the river lamp gutters out. With the lamp dark, the Juffrouw walks the whole house, and every door she passes swings shut and will not open; anyone shut in a room at three o'clock is taken. At one Leonora takes the codicil from the drugged lawyer's box, and at half past one she sits down by her own fire to read it before she burns it. The siege is from inside. The enemy is a rule.",
+    "atmosphere": "Storm and dark. The wind comes up the river from the sea, hits the bluff and climbs the house, howling in the chimneys and thrumming the leads of the tall windows; rain comes in sheets against the glass, then hail, then rain; the elms on the drive thrash; the river is white below, and no boat is on it. Indoors, after eleven, there is no gas: only candles, hand lamps, firelight, the lightning, and the darkness between. Corridors that were long are endless. Doors move. They do not slam; they swing, slowly, quietly, all the way shut, and click, and after that they do not open for anything. The clock in the hall ticks through it all and strikes every hour, and everyone counts toward three. The house is not angry. It is doing what it was taught. The GM should keep the living in the foreground: a widow with a candle and a long envelope, a son with a revolver in a library he will not leave, a housekeeper who sees her father on the cellar stair, a lawyer asleep behind a closed door, and Linus, somewhere above, very quiet now.",
+    "keyLocations": [
+      {
+        "name": "The Great Hall and the South Corridor",
+        "description": "The hall is the one place in the house with no door that can shut on anyone: open to the stair, the gallery and the arches. The south corridor runs off the gallery to the guest bedrooms, the Blue Room first, Strick's room at the end. From Friday afternoon the iron wedges are gone from every threshold on the corridor; Jem took them to the scullery on Mrs. Greywick's orders 'to be blacked'. Any wedge a player kept in their own room is still there.",
+        "features": [
+          "The hall fire and the long-case clock, and room for the whole household on the settles and the stairs",
+          "The register on its stand, with a candle beside it",
+          "The south corridor: eleven doors, all of them open when the lamp goes out, all of them closing one by one after",
+          "In the scullery, a coal box full of iron wedges, freshly blacked"
+        ],
+        "encounters": [
+          "The household gathering, or failing to gather, as the house goes dark",
+          "The doors closing (see The Lamp Goes Out)"
+        ],
+        "secrets": [
+          "CLUE B6 (core, by demonstration): with the lamp out, every door the Juffrouw passes swings shut and holds (Athletics DC 18 to force, each try a round). A door held open with iron does not move. The hall has no doors and is safe. This is Rule 2, shown.",
+          "The scullery coal box: thirty wedges. Anyone who thinks to fetch them can wedge every door on the corridor in ten minutes, or the doors of whichever rooms matter.",
+          "Jem will admit, Persuasion DC 10, that Mrs. Greywick told him to gather the wedges. Mrs. Quell, told, goes grey."
+        ]
+      },
+      {
+        "name": "The Cellar and the Gas Machine",
+        "description": "Below the service wing: the coal hole, the wine vaults, and the gas room, where a cast-iron gas machine (a carburettor of gasoline and air, the kind country houses used where there was no town gas) feeds the whole house's pipes from a weighted bellows and a pump. Its stopcock and its weight-chain are by the door. A passage leads on, past the wine vaults, to the old door into the north wing's cellar kitchen.",
+        "features": [
+          "The gas machine, with its stopcock shut and its weight lifted off the chain and set on the floor",
+          "The service stair down from the kitchen passage, steep, with a candle shelf halfway",
+          "The passage to the north wing's cellar door, locked by day, and on its far side the hearth"
+        ],
+        "encounters": [
+          "The Shade of Jotham Quell on the cellar stair after midnight: a heavy man in an old-fashioned steward's coat, standing very still with his back to the north wing door, who beckons whoever comes down toward the wine vault and its heavy door (Shade; it cannot touch iron, and vanishes when called by its name)"
+        ],
+        "secrets": [
+          "Restarting the gas: Mechanics DC 13 (Ellis Callender has advantage; it is a pump and a valve), the weight back on its chain and the stopcock open; then every jet in the house must be relit by hand, and the GM should let this take a while. Gas light does not bar her; only the river lamp does. But a lit house lowers the fear check DCs back to normal (dread.json light_and_dark) and makes the siege survivable.",
+          "Who stopped it: Leonora's black silk glove, dropped behind the machine (Investigation DC 12), and candle wax on the stopcock. She did not expect anyone to come down.",
+          "The Shade of Jotham Quell wants company behind a door: he beckons toward the wine vault, whose heavy door will swing shut on anyone who follows him in. Mrs. Quell, if present, sees her father (fear check DC 20) and says his name, 'Father', which is not his name; 'Jotham Quell' sends him away. She then says, to nobody, 'I put her lamp out. On the thirtieth. I thought if she walked the house she'd let him go.' (The wrong rite of 30 September, and CLUE F6, if she has not already given it.)"
+        ]
+      },
+      {
+        "name": "Strick's Room and the Library",
+        "description": "Strick sleeps at the end of the south corridor with the dispatch box under his bed and its key on his watch chain on the night table. The library is below, with its gallery, its strongroom and its tall windows streaming with rain; if Conrad was not talked down on Thursday, he has barricaded himself in it with the decanter and his revolver, believing he can guard the box from there, though the box is upstairs.",
+        "features": [
+          "Strick's room: a toddy glass on the night table with a bitter smell, the watch chain, the box under the bed with its lid unlocked and the codicil gone (after one o'clock)",
+          "The library: double doors, a gallery, the strongroom's steel door standing open, the gasoliers dark"
+        ],
+        "encounters": [
+          "Strick, drugged, asleep behind a door that has swung shut (he will be taken at three unless someone gets him out)",
+          "Conrad in the library, if he was not talked down: drunk, armed and convinced that whoever comes through the doors wants the box; the library's double doors close at a quarter past twelve and he cannot get out"
+        ],
+        "secrets": [
+          "The toddy: chloral (Medicine DC 11, or Dr. Wyle by smell). Strick cannot be woken before morning. If he is carried out of his room before three he lives and is not kept; if not, he is in the river room by three and must be brought out with the others.",
+          "The box: after one o'clock it is unlocked and the long sealed envelope is gone. The lock was opened with its own key, which is back on Strick's chain. Nobody but someone in the house could have done it, and the drugging shows it was planned.",
+          "Conrad: if trapped in the library, he can be talked to through the doors (Persuasion DC 13) into the one thing that saves him, which is to help: wedge the strongroom's iron door bar under the library doors from the inside so they can be forced from outside (Athletics DC 14 with the bar in). If he is still shut in at three, he is taken."
+        ]
+      },
+      {
+        "name": "Leonora's Sitting Room",
+        "description": "The warm room, the canary, the fire built up high. At half past one Leonora sits by it in her grey wrapper with the codicil on her knee, the seal broken, reading it, because she cannot bear not to know what he said. The iron key is on the chatelaine at her waist. Her door is open; she has wedged it open herself, with one of the wedges she had Jem gather. She knows Rule 2.",
+        "features": [
+          "The fire, high and hot",
+          "The codicil: four pages in Strick's clerk's hand, signed by Jasper on 9 September, witnessed by Strick and Cyprian Tunstall",
+          "The chatelaine and the iron key",
+          "An iron wedge holding her own door open"
+        ],
+        "encounters": [
+          "Leonora Greywick, alone, reading, with the fire and the key; she has never in her life been confronted, and she does not know how to be"
+        ],
+        "secrets": [
+          "The codicil, if anyone reads it (CLUE H5 and F7, early): Jasper's confession: that his father kept Sabina Roelofs seven nights in her own house to record a deed she never signed, that she died there and lies under the hearth, that he himself carried her meals and did not open the door; that the Landing yards, their lease and the river frontage are to be returned to her heirs, Dorothea Oudekerk and her brothers; that the sinking fund of the Haverkill & Berkshire is to be audited (Conrad); and that 'my children are to open her door with her own key, and say her name in her room, and give back what we took, in her hearing, for I never could.' It says nothing about Leonora, except that she is to have the house for her life.",
+          "If the party reaches her before she burns it, she does not fight. She offers. 'There is a million dollars in this estate, and that paper gives half of it to a farm woman because of a ghost story. Burn it and it is yours to divide; nobody will ever know.' Insight DC 12: she means it. If refused, she puts it in the fire, and the GM should let a quick player try to snatch it out (DEX check DC 13, 1d4 fire damage either way; on a success, the codicil is scorched and legible).",
+          "If accused of Jasper's death, she says only, 'He walked in his sleep. I kept him safe.' Then, if the evidence is laid out in front of her (Fanny, Tuttle, the key on her chatelaine, the Blue Room key), she stops pretending and becomes very practical: 'Then what will you do? Lock me in?' She knows exactly what a locked door means in this house.",
+          "She will not give up the key. She can be made to (Intimidation DC 15, or Athletics against her: she is a Frightened Townsman in a fight, and the GM should make a fight with a grieving widow feel like what it is) or it can be taken (Sleight of Hand DC 18). Whoever takes it holds the only way into the river room."
+        ]
+      },
+      {
+        "name": "The River Room, at Night (the Kept Rooms)",
+        "description": "Up the north stair, the oak door with the box lock, locked from the other side since sunset and furred with frost at the keyhole. When it is opened with her own key between midnight and dawn, it opens on the river room as it was in October 1852: a narrow bed with a patchwork quilt, the sea chest, a chair, a fire laid in the hearth and never lit, a jug and basin, a tray on the floor by the door with a cold supper on it, rain streaming on the window whatever the weather outside, and a darkness beyond the window that is not the river. Sabina Roelofs sits in the chair by the window with her back to the door: a woman in a grey wool dress and a man's pea jacket, her hair wet. Whoever she has taken is in the room, on the floor or the bed, cold, starved and very weak, and when the door opens they can walk, or be carried, out.",
+        "features": [
+          "The box lock and her key: the key turns only for a hand that is not afraid (WIS save DC 15; on a failure it will not turn this hour, and the turner gains a point of Dread; an Occultist has advantage)",
+          "The doorframe: the tallies, seven of them now in Linus's row by the small hours",
+          "The window: the rain, and on the inside of the glass, written in frost, MIJN NAAM. GEEF TERUG",
+          "Her chair, her back, her wet hair; she does not turn round unless someone says her name"
+        ],
+        "encounters": [
+          "Linus Greywick, on the floor by the door, alive and nearly gone (five levels of exhaustion from six nights' cold and hunger: he cannot walk without help)",
+          "Anyone else taken tonight at three: Strick, Conrad, a player",
+          "The Juffrouw (Bound Spirit), who does not attack anyone who comes for the kept, and does not stop them going; but if the door swings shut behind a rescuer (it will, unless it is held with iron), that rescuer is kept too"
+        ],
+        "secrets": [
+          "Entering the river room is entering 1852. The first time anyone sees it, fear check DC 20. Seeing her face (only if her name is spoken, and she turns): DC 20, and the GM describes no more than a square plain face, very tired, and wet with rain.",
+          "Rule 2 in the room: the door must be held open with iron or it swings shut on everyone inside. A fire iron, a crowbar, a wedge, Gerrit's poker. Rule 1 in the room: the kept can be brought out only through the door, and only while it stands open.",
+          "Speaking her name, Sabina Roelofs, to her (vulnerable to her true name): she turns, looks at the speaker, and is gone from the room until the next night, and the rain stops on the window. This makes the rescue easier and is a terrible thing to see. It does not lay her.",
+          "Speaking her name and saying the truth (that Abram kept her and took the Landing) gives the speaker the one true impression of the Thin Place whether or not they are a Sensitive: she was not angry, at the end. She was waiting for someone to open the door. That is all she has ever wanted from the living. (Points to Rule 4.)",
+          "CLUE H4 and G7 (core, from Linus once he is out, by the hall fire): 'She never spoke to me. Only one word, at the window, over and over: terug, terug. Back.' And: 'I came up the hill on Saturday in the rain. Leonora met me in the hall, in her wrapper, and put me in the Blue Room, and kissed my cheek. I was asleep before I heard it, and then I heard the key turn, and her voice through the door, quite kind: Goodnight, Linus.'"
+        ]
+      },
+      {
+        "name": "The River Window from Outside",
+        "description": "The north wing's river face: the stone house's gable wall, thirty feet of rough fieldstone from the bluff path below to the upper window, the bluff falling away another hundred feet beneath it to the Landing, the whole face streaming with rain in a gale. The window has a deep outer sill. Gerrit's longest ladder is in the coach house, across the stable yard.",
+        "features": [
+          "Gerrit's forty-foot orchard ladder, two men to carry it in the wind",
+          "The outer sill: broad and deep, a foot of flat stone under the window",
+          "The coach house's stable lanterns, filled with good kerosene that Leonora did not touch"
+        ],
+        "encounters": [
+          "The storm itself: wind, rain, a ladder on wet stone at the edge of a bluff in the dark (combat.json and dread.json; falling is 1d6 per 10 feet)"
+        ],
+        "secrets": [
+          "Rule 2's own words, as Annetje gave them: a lit window for the boatmen, seen from the river. A lamp burning on the outer sill counts. Clever players who remember B4 can relight the river lamp without the key: carry a stable lantern up the ladder in the gale (Athletics DC 15 to raise and steady the ladder, two may help; Acrobatics or Athletics DC 13 to climb it with a lit lantern; the lantern must be shielded or relit at the top, Sleight of Hand DC 12). The moment it burns on the sill, the doors in the main house stop moving; any door already shut can be opened again with an ordinary hand. She keeps to her own house.",
+          "This is not a combat. It is the most dangerous thing anyone does all night, and it must be done outside the roof after sunset: the GM should rule that the bluff path below the wall and the wall itself are not 'beneath the roof', and that Strick, if he is awake, would have to record it. A player who goes up the ladder forfeits under the will. Let them decide whether to. (Gerrit and Mrs. Quell are not named in the will's condition and can go; Gerrit is seventy.)"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Friday, the sixth night of the will and the seventh of Linus's keeping. The players know, or should, that Leonora has the key and Linus has until dawn. The day is a chance to take the key, or to plan; Mrs. Quell, if turned, is with them. A nor'easter comes up the river, and at four the carriage bridge over the Greywick Kill goes into the ravine with the telegraph wire, cutting the house off. Leonora has had the iron wedges gathered up and the lamp oil watered. At half past ten Strick is drugged. At eleven the gas machine stops and the house goes dark. At midnight the river lamp gutters out, and the Juffrouw walks the whole house: every door she passes swings shut and will not open again, and anyone shut in a room at three will be taken. The siege is from inside: keep the household in the hall or in rooms held open with iron, get the drugged lawyer out of his room and Conrad out of the library, restart the gas, deal with the Shade of the steward on the cellar stair, and, if anyone remembers that the lamp was for the boatmen, carry a lantern up a ladder in the gale to the river window and forfeit to do it. At half past one Leonora sits by her fire reading the stolen codicil before she burns it, and the party must find her, stop her or fail to, and take the iron key from her chatelaine. Then up the north stair, the key in the box lock, a steady hand, iron in the jamb, and into the river room as it was in 1852, where a woman sits with her back to the door and Linus Greywick lies on the floor with seven marks in the frame above him. If he is out before dawn, he lives and names Leonora; if not, he is found at the foot of the stair. Either way, the seventh night is tomorrow.",
+  "hook": "Friday morning, half past seven, the north stair in the grey light, and the sixth fresh mark in the doorframe, the fibres still standing up from the wood. Gerrit Brouwer stands beside you with his cap in his hands, looking at it. 'That's six,' he says. 'Tonight's his last.' The wind is getting up; the elms on the drive are already roaring, and the river below the bluff has gone the colour of slate and is running whitecaps against the tide. 'Storm by dark,' says Gerrit. 'Big one. And the missus has had Jem take up all the iron off the floors this morning, to be blacked, she says. I never heard of blacking door wedges in my life.'",
+  "cluesAvailable": [
+    "B6",
+    "C4",
+    "C5",
+    "F6",
+    "F7",
+    "G5",
+    "G7",
+    "H3",
+    "H4",
+    "H5"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "G. Leonora Greywick killed her husband and kept Linus",
+      "clues": [
+        "G7: Linus's word: 'Goodnight, Linus' through the Blue Room door (the hall, after his rescue)",
+        "G5: the iron key on her chatelaine and the Blue Room key in her workbasket (her sitting room)",
+        "The wedges gathered, the oil watered, the gas stopped (Jem, the scullery, her glove behind the gas machine), and Strick drugged and the codicil in her hand (Strick's room, her fire)",
+        "Her own words when confronted: 'Then what will you do? Lock me in?' (her sitting room)"
+      ]
+    },
+    {
+      "conclusion": "H. How to lay her (Rule 4)",
+      "clues": [
+        "H3: MIJN NAAM. GEEF TERUG in the frost on the river window (the river room)",
+        "H4: Linus: 'terug, terug. Back.' (the hall)",
+        "H5: the codicil: 'open her door with her own key, and say her name in her room, and give back what we took, in her hearing' (Leonora's fire)",
+        "The impression in the room when her name and the truth are spoken: she was waiting for the door to be opened (the river room)"
+      ]
+    },
+    {
+      "conclusion": "B. The lamp keeps her in the stone house; iron holds a door (Rule 2, demonstrated)",
+      "clues": [
+        "B6: the doors closing everywhere once the lamp is out, and not the wedged ones (the corridor)",
+        "The hall, with no doors, is safe (the hall)",
+        "A lantern on the outer sill stops the doors (the river window)",
+        "Mrs. Quell's confession that she put the lamp out on 30 September (the cellar stair)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Friday: The Storm Comes Up",
+      "description": "The last day before Linus's last night. The point of this act is the plan and the isolation: the players know what they need (the key, iron, the lamp, everyone out of shut rooms by three) and the house takes away their safety nets one at a time. Let them try to get the key by day. Leonora will not give it up and will not be caught alone with it; she is never out of sight of a servant from breakfast on, and she wears it. The bridge goes at four.",
+      "objectives": [
+        "Count the sixth mark; decide how to get the key before tonight",
+        "Notice the wedges gone and the lamp oil watered, and put them right",
+        "Turn Mrs. Quell, if she has not turned",
+        "Get everyone under the roof by sunset with the bridge down"
+      ],
+      "scenes": [
+        {
+          "name": "Six Marks",
+          "description": "Morning council. The players may confront Leonora now, at breakfast, in front of the household: she denies everything, gently, and asks whether they have been sleeping; Conrad, if talked down on Thursday, backs them, which nobody expected. They may go to the constable in Haverkill (the bridge is still up until four): Gilbert Mabie listens, believes them about the murder if they bring Fanny and Tuttle's ledger, and says he cannot arrest a widow in her own house on a maid's word and an undertaker's note, but he will come up on Saturday morning with a warrant if Judge Hallock in Poughkeepsie will sign one; the bridge goes before he can get back. They may try to steal the key (Sleight of Hand DC 18; failure means she knows, and moves it to her bodice). Mrs. Quell, if turned, can tell them what they need and do not know: that the lamp oil in the scullery can is half water (she smelled it this morning and thought she had been careless), and where the wedges went.",
+          "readAloud": "The breakfast room with the wind booming in the chimney and the windows streaming, and the household round the table pretending to eat. Leonora pours coffee. Conrad has not shaved. Strick reads yesterday's paper upside down. The widow passes the toast to you with a little smile and asks if you slept, and the iron key on her chatelaine, among her scissors and her vinaigrette and her thimble case, knocks once against the table's edge as she leans forward. Everyone at the table hears it. Nobody looks at it. 'Such a wind,' says Leonora Greywick. 'Gerrit says the bridge may not hold. We shall be quite cut off. Isn't it cosy.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "She knows you know. She has decided it does not matter, because after tonight there will be nothing anyone can prove: Linus will be at the foot of the stair, the codicil will be ash, and the rest is a maid's word and a ghost story. She is calm because she has a plan. Look at what she has already done: the wedges, the oil. What else?",
+              "failure": "The widow is composed, and tired. If she knows anything, she hides it perfectly."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "In Haverkill, with Fanny beside you and a copy of Tuttle's entry: Constable Mabie believes you. He cannot take a widow from her house today, but he gives you his word he will be up the bluff path at first light on Saturday with Judge Hallock's warrant or without it. 'Keep her in the house,' he says, 'and keep everyone alive till I get there.' (And he lends you his bull's-eye lantern: a good one, full of kerosene, with a shutter.)",
+              "failure": "Mabie listens, scratches his jaw, and says he will 'look into it after the storm'. He means it kindly. It is not enough."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The scullery: the kerosene can that fills the river lamp sloshes wrong; tip a little into a saucer and it separates, oil on water. Half water. A lamp filled from it will burn an hour, perhaps two, and go out around midnight. And in the coal box by the scullery door, thirty iron wedges, freshly blacked.",
+              "failure": "The scullery: cans, brushes, blacking, coal. You are not sure what you are looking for."
+            }
+          ]
+        },
+        {
+          "name": "The Bridge Goes",
+          "description": "Four o'clock. The storm is at full strength. Gerrit comes up from the drive soaked to the waist: the Greywick Kill is in spate, the timber bridge has gone into the ravine and taken the telegraph wire with it. The house is an island until the water drops. The bluff path to the Landing is open, but it is a goat track in a gale, and after sunset nobody named in the will can take it without forfeiting. Conrad's two guards, if still employed, are in the coach house and cannot leave either. Use this scene to let the players set up for the night: fetch the wedges, choose where the household sleeps (the hall is the only room with no door), decide who watches Strick and who watches Leonora, find good kerosene (the coach house's stable lanterns), and get back under the roof before 5:12. Mrs. Quell lights the river lamp at dusk from the watered can unless someone stops her; if they give her good oil, the lamp does not go out at midnight, and Leonora finds another way (she goes up the north stair at midnight, unseen if no one is watching the gallery door, and pinches out the wick with her fingers; Mrs. Quell's key board has the gallery key).",
+          "readAloud": "Gerrit Brouwer comes in through the kitchen door with the storm behind him, water streaming from his hat and his coat and his beard, and stands dripping on Mrs. Jansen's clean floor, and for a moment cannot get his breath. 'Bridge is gone,' he says. 'The Kill come down the ravine like a train and took it, timbers and all, and the telegraph pole with it. There's no road down. Nothing till the water drops, tomorrow, maybe Sunday.' He looks round the kitchen at all of you, and then up, at the ceiling, toward the north end of the house, the way everyone in this house has started to look. 'Just us, then,' he says. 'Just us and her.'",
+          "skillChecks": [
+            {
+              "skill": "Survival",
+              "dc": 12,
+              "success": "You read the storm: it will blow all night and blow itself out by morning. The bluff path is passable for someone careful and roped, in daylight; at night in this, it is a death trap. Gerrit's forty-foot ladder is in the coach house, and the coach house is forty yards across an open yard.",
+              "failure": "Wind and water and dark coming early. You cannot tell how long it will last."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "You get the whole household to agree to sleep in the hall tonight: mattresses on the floor, the fire built up, every candle and hand lamp in the house collected, Mrs. Jansen's coffee. Only Leonora demurs ('I shall sleep in my own bed, with my door open, thank you') and Strick, who is in pain from his gout and wants his own room. You know who is likely to be in trouble.",
+              "failure": "The household thinks you are hysterical. Each goes to their own room. You will have to watch eleven doors."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "You see Strick's toddy at half past ten before he drinks it, and smell it: chloral, a strong dose, enough to put him out till morning. Leonora sent it up. If you take it away, he stays awake, and he will sit up all night with his box on his knees in the hall, swearing; and Leonora will have to find another way to the codicil.",
+              "failure": "Strick drinks his toddy and goes to bed, and by eleven nothing will wake him."
+            }
+          ]
+        },
+        {
+          "name": "Dinner by Gaslight",
+          "description": "The last meal with the gas on. Leonora at the head of the table proposes a toast to Jasper and drinks it. The storm shakes the windows. This is the GM's chance to let the household talk, which they have not done all week: Conrad about his father, Honora (or the NPC Honora) about the lamp she saw from her nursery window as a child, Ellis about his mother, Strick about the will he advised against, Dory about her grandmother's Bible, Linus's empty chair. Everyone knows, now, what is in the north wing; nobody says her name. If a player says it at the table, the gas sinks to blue in every bracket, and rises, and Leonora sets down her glass.",
+          "readAloud": "The dining room with every jet blazing and the curtains drawn against the storm, and still the wind gets in somewhere and makes the candle flames on the table lean all one way, toward the north. Silver, crystal, Mrs. Jansen's roast, a chair left empty at the widow's right hand. Leonora rises with her glass. 'To my husband,' she says, 'who loved this house, and was afraid of it, and asked us all to keep it seven nights. We have kept six.' She drinks. Outside, a gust hits the house so hard that the chandelier sways, and every flame in the room ducks and comes back, and in the silence after it, faintly, from the far north end of the house, a long way off and very high up, somebody knocks on a door. Twice. Softly.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Conrad is ready to be on your side; he says, when the knock comes, 'That's Linus, isn't it. God help me, it's Linus,' and puts his face in his hands. Honora (if an NPC) has been crying in the conservatory. Strick has not slept since Thursday. And Leonora's hand, when she set her glass down, was perfectly steady.",
+              "failure": "A grim, polite family dinner in a storm. Everyone is frightened. That is all you can be sure of."
+            },
+            {
+              "skill": "Performance",
+              "dc": 13,
+              "success": "You hold the table: a story, a toast, a song, anything to get them through the meal and agree to the plan for the night. Everyone at the table recovers a point of Dread (a laugh, once a day). Mrs. Jansen, in the doorway, crosses her arms and nods.",
+              "failure": "Nobody laughs. The knocking does not come again, which is worse."
+            },
+            {
+              "skill": "Occult",
+              "dc": 13,
+              "success": "Two knocks, softly, at the north end: the young man with the tray, knocking at her door, tonight for the last time. The house is replaying the seventh night of 1852 alongside Linus's. Tonight is the night she died. Whatever happens at three, the house will be at its worst.",
+              "failure": "Knocking. Somewhere in the house. You count the doors and lose count."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The storm: isolation (dread.json isolation); the bridge gone; the bluff path forfeit after dark",
+        "Conrad's two guards in the coach house (Night Watchman) if still employed; they can be sent for the ladder before sunset"
+      ]
+    },
+    {
+      "title": "Midnight: The Lamp Goes Out",
+      "description": "The light goes out at the worst moment, once this scenario, and this is it. At eleven the gas machine stops; at midnight the river lamp gutters (or Leonora pinches it). From then until the lamp is relit, the Juffrouw walks the whole house and closes every door she passes. Run it as a siege from inside: the players have three hours until three o'clock, a house in the dark, a household to keep out of shut rooms, a drugged lawyer and a trapped son to get out, a Shade on the cellar stair, and, if they think of it, a ladder and a lantern and a forfeit.",
+      "objectives": [
+        "Restart the gas or work in the dark",
+        "Keep every living person out of shut rooms, or hold their doors with iron",
+        "Get Strick out of his room and Conrad out of the library before three",
+        "Relight the river lamp, from inside with the key or from outside by the ladder"
+      ],
+      "scenes": [
+        {
+          "name": "The Gas Fails",
+          "description": "Eleven o'clock. Every gas jet in the house sinks, flutters and goes out together, and the house is dark but for candles, hand lamps and firelight. Darkness adds 2 to fear check DCs and imposes disadvantage on sight-based Perception beyond a lamp's reach (dread.json light_and_dark). The gas machine is in the cellar; restarting it (Mechanics DC 13, Ellis with advantage) means going down the service stair, and after midnight the Shade of Jotham Quell is there. Leonora's glove is behind the machine. If Mrs. Quell goes down, she sees her father and confesses the wrong rite of 30 September.",
+          "readAloud": "It begins in the dining room, where Jem is clearing: the gas jets in the brackets shrink to blue beads, all together, flutter, and go out, and in the second before your eyes adjust you hear it happen all through the house, a long soft sigh in the pipes from cellar to attic, and then nothing but the storm. Candles. Somebody fumbles matches. The firelight jumps up red on faces. Out in the hall the long-case clock ticks on in the dark like a heart. Somewhere below, under your feet, something metal clanks once, quite deliberately, and stops.",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 13,
+              "success": "The gas machine's weight has been lifted off its chain and the stopcock shut: deliberate, and neat. You hang the weight, open the cock, hear the bellows begin to fall and the gas whisper back into the pipes. Now someone has to go round the house relighting every jet. Fear check DCs return to normal in any room with gas lit.",
+              "failure": "You cannot see what has been done to it by candlelight; it will take an hour, or Ellis Callender, or both."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "Behind the gas machine, on the damp brick floor, a lady's black silk glove, and on the brass stopcock a smear of candle wax with the print of a thumb. Somebody came down here with a candle, alone, at eleven, in her mourning gloves.",
+              "failure": "Brick, iron, the smell of gasoline. Nobody here."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "On the cellar stair, with the Shade of the steward beckoning from the dark toward the wine vault's open door: you get Mrs. Quell to say his whole name, 'Jotham Quell', and he is gone. She sits down on the step. 'I put her lamp out,' she says. 'The night of the thirtieth. I thought if she walked the house she'd come out of that room, and let him go. Mr. Jasper. She didn't. I killed him as much as anyone.' Then, steadily: 'My father put her under the hearth. Whatever you mean to do, I'll help you do it.'",
+              "failure": "Mrs. Quell sees her father on the stair and cannot speak or move (fear, DC 20, failed). Someone must lead her back up; the Shade follows as far as the kitchen door."
+            }
+          ]
+        },
+        {
+          "name": "The Doors",
+          "description": "Midnight. The river lamp goes out. Rule 2 lifts. Now the Juffrouw walks the house, unseen except, once, at the far end of a corridor, a grey figure with wet hair standing with her back to the watchers (fear check DC 15, +2 in the dark): and every door she passes swings shut, slowly, quietly, and clicks, and after that it will not open (Athletics DC 18 to force; each try a round; a crowbar gives advantage). A door held open with iron does not move. In the dark, the house's own violence wakes too (use the Poltergeist entry's numbers for the house, not its rules: pictures falling, the gasolier swinging, a coal scuttle flung down the back stairs, the long-case clock crashing face down in the hall at half past two; salt does nothing to it here, and it stops the moment the river lamp burns again). Keep the clock: every quarter hour, say which doors have closed and who is behind them. Strick (if drugged) is behind his. Conrad (if in the library) is behind his at a quarter past twelve. Any player alone in a room without iron is behind theirs. At three, everyone shut in is taken.",
+          "readAloud": "You are halfway along the south corridor with a candle when the first door moves. It is the Rose Room's, on your left, standing open as you left it; and it swings, slowly, smoothly, as if on a breath of air you cannot feel, across the gap, and meets its frame, and the latch goes click. Then the next one. And the next. All the way down the corridor ahead of you, one after another, in order, unhurried, as if someone were walking down the corridor away from you closing each door as she passes, the way a housekeeper does at night. You lift the candle. At the far end of the corridor, where the light just reaches, a woman is standing with her back to you, in grey, with her hair down and wet. Then the candle gutters, and when it steadies she is not there, and the last door at the end of the corridor, Mr. Strick's, closes, and clicks.",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 18,
+              "success": "The door gives under your shoulder (or the crowbar) and the cold goes out of the doorway; you get the person inside out and the door wedged with iron behind you. One saved. How many more doors?",
+              "failure": "It does not give, as if the door has become part of the wall. You can try again; each try is a round, and the clock is striking the quarter."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "In the middle of the corridor, an iron wedge someone set this evening has held the Tower Room's door open six inches, and it has not moved. She passed it. She could not shut it. Iron works.",
+              "failure": "Doors closing, everywhere, in the dark. You cannot see which ones held."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "You get the drugged Strick out of his room before his door closes, or out through the forced door after, and carry him down to the hall fire: he will sleep till morning, and he will not be kept. (The dispatch box is under his bed; if Leonora has already been in, it is unlocked and the codicil is gone.)",
+              "failure": "He is a dead weight and you cannot wake him; it takes two of you and a quarter of an hour to get him down the stairs."
+            }
+          ]
+        },
+        {
+          "name": "The Ladder at the River Window",
+          "description": "The lateral solution, if the players think of it (Annetje's words, B4: a lit window, for the boatmen, seen from the river). A stable lantern with good oil, Gerrit's forty-foot ladder from the coach house, the river face of the stone house, the gale. The ladder must be carried across the yard, set on wet rock at the edge of the bluff and held; someone must climb it with a lit, shielded lantern and set it on the outer sill. Anyone named in the will who goes outside after sunset forfeits under the will; Gerrit, Mrs. Quell, Fanny, Jem, the Reverend and Constable Mabie are not named and can go. The moment the lantern burns on the sill, the doors in the main house stop moving, and any door shut on a person can be opened by an ordinary hand. She keeps to her own house, where Linus still is.",
+          "readAloud": "Out of the kitchen door and into the night, and the storm takes your breath and your hat and very nearly your lantern before you have gone ten feet. Rain comes sideways, stinging. The stable yard is a lake. Somewhere ahead in the roaring dark is the coach house and the ladder, and beyond the end of the house, past the corner of the old stone wall, is the edge of the bluff, and nothing, a hundred feet of nothing, and the river white at the bottom of it. You get the ladder up against the stone wall of the north wing and lean on it, two of you, while the wind tries to tear it off the house, and above, thirty feet up, a small black window with a deep stone sill waits for a light.",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 15,
+              "success": "You raise the ladder and hold it against the wind while the climber goes up. It shudders and slides and holds. (Two may help.)",
+              "failure": "The ladder skids on the wet rock and comes down with a crash; the climber, if already on it, falls (1d6 per 10 ft; DEX save DC 13 to catch the wall and take half). Try again."
+            },
+            {
+              "skill": "Acrobatics",
+              "dc": 13,
+              "success": "Up thirty feet of wet rungs in a gale with a lit lantern inside your coat, and onto the sill; you set it down in the angle of the stone, out of the worst of the wind, and it burns. Through the glass, for a moment, you see the room as it was: a chair by the window, a woman in it, her face a foot from yours with only the glass between, looking past you at the light. Fear check DC 20.",
+              "failure": "The lantern goes out halfway up. You will have to relight it at the top (Sleight of Hand DC 12 in the wind) or come down and start again."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 12,
+              "success": "Matches under your coat, the shutter open a crack, the wick catching: the lantern burns on the sill. Behind you, in the house, every door that was moving stops.",
+              "failure": "Three matches gone in the wind. One left."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The Shade of Jotham Quell on the cellar stair (the Shade entry's numbers, CR 1/4; in this house its rules are the Juffrouw's: it cannot pass iron, it goes when called by its whole name, and it lures the living toward a door that will shut)",
+        "The house's violence in the dark (the Poltergeist entry's numbers, CR 1, not its rules: thrown objects, falling fixtures; salt does nothing; it stops when the river lamp burns)",
+        "The doors: Athletics DC 18 to force a held door; iron holds them open",
+        "Conrad, if trapped in the library and frightened: he fires at whatever opens the door (Night Watchman, pocket revolver), unless someone has talked to him through it first",
+        "The storm and the ladder (falling damage; no combat)"
+      ]
+    },
+    {
+      "title": "Three O'Clock",
+      "description": "The codicil and the key, then the door. The point of this act is the confrontation with Leonora and the rescue of Linus, in either order. At half past one she is reading the codicil by her fire; at three, everyone shut in is taken; at dawn, Linus is found on the stair unless someone has opened her door. The players cannot do everything. Let them choose.",
+      "objectives": [
+        "Find Leonora with the codicil, and save it or watch it burn",
+        "Take the iron key from her",
+        "Open the river room with her key, hold the door with iron, and bring Linus out",
+        "Bring out anyone else taken at three"
+      ],
+      "scenes": [
+        {
+          "name": "The Codicil in the Grate",
+          "description": "Half past one, Leonora's sitting room, the fire high, the door wedged open with iron, the widow in her grey wrapper with four pages on her knee and the iron key at her waist. She has read it. She is not surprised. When the party comes in she does not stand up. Play the confrontation as the campaign's living climax: the offer (half a million, divided among fewer heirs, and nobody ever knows), the denial ('He walked in his sleep'), the evidence laid out, and then her calm practical question, 'Then what will you do? Lock me in?' The codicil goes in the fire the moment she believes she has lost; a quick hand can snatch it (DEX check DC 13, 1d4 fire damage). The key: given up only to Intimidation DC 15 or taken by force or stealth. She does not fight beyond a struggle; she is a Frightened Townsman, and the GM should make it ugly to wrestle a widow for a key in her own sitting room by firelight.",
+          "readAloud": "The door of the widow's sitting room stands open, held by a black iron wedge, and inside it is warm and red with firelight and smells of coal and lavender water. The canary is asleep under its cloth. Leonora Greywick sits in her low chair by the fire in a grey wrapper with her silver hair down her back, like a girl's, and on her knee are four long pages, the broken red seal still hanging from the last of them by a ribbon. She has been reading. She looks up at you, not startled, and folds the pages once along their crease, and lays her hand flat on them. The iron key on her chatelaine catches the firelight. 'He wanted to give it away,' she says. 'All of it that's worth anything. To a farm girl from Claverack. Because of a woman who's been dead for forty years.' She looks at the fire. 'Sit down. Let's talk about what is going to happen to this.'",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "You lay it out: Fanny on the back stair, Tuttle's ledger, the key on her chatelaine, the Blue Room key in her basket, the glove behind the gas machine, the chloral in Strick's toddy. She hears it all with her hands folded on the codicil. Then she unhooks the key from her chatelaine and holds it out to you on her palm, and says, quite gently, 'Then go and get him. If you can turn it.' She does not burn the codicil. She has nothing left to burn it for.",
+              "failure": "She listens, and says, 'He walked in his sleep. I kept him safe,' and puts the codicil on the fire. (DEX check DC 13 to snatch it out, scorched and legible, taking 1d4 fire damage; if no one does, it is gone, and Strick must swear to it as a lost codicil.)"
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 18,
+              "success": "While another of you keeps her talking, you unhook the key from the chatelaine at her waist as she leans to the fire. She feels it go a moment later and puts her hand to her side and closes it on nothing, and looks at you, and for the first time all week she is afraid.",
+              "failure": "She feels your fingers and catches your wrist with a grip like a trap. 'No,' she says. Now it is a struggle, or a conversation."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "She is not wicked in any way she recognises. She is a doctor's daughter who married money at thirty-two and has been afraid every day since of going back to nothing, and when her husband told her he would give it away for a ghost, she did the one thing this house taught her. When she asks, 'Will you lock me in?', she is not threatening. She is asking.",
+              "failure": "A cold, composed woman you cannot read at all."
+            }
+          ]
+        },
+        {
+          "name": "Her Door",
+          "description": "The rescue and the campaign's first entry into the Kept Rooms. Up the north stair with the iron key; the oak door with frost at its keyhole; the key into the box lock between midnight and dawn; the turner's WIS save DC 15 (an Occultist has advantage; failure, it will not turn this hour, Dread +1, try again next hour); iron in the jamb, or the door swings shut on everyone who goes in. Then the river room as it was in 1852 (fear check DC 20): the bed, the chest, the cold supper on its tray, the rain on the window, the frost writing MIJN NAAM. GEEF TERUG, Sabina in her chair with her back to the door, and Linus on the floor beneath the seventh mark, alive. Getting him out: he cannot walk (Athletics DC 10 to carry him, or two people). She does not stop them. If anyone says her name, she turns (DC 20) and is gone till tomorrow night, and the rain stops. If anyone says her name and the truth, the room gives them the one true impression: she was waiting for someone to open the door. Anyone taken at three (Strick, Conrad, a player) is here too and comes out the same way. Out on the stair, the lamp on the sill behind them is burning, and she is in her own house, and the house is quiet.",
+          "readAloud": "The stair is so cold that the brass of your lantern burns your fingers, and the old oak door at the top is white with frost from the keyhole outward like a spider's web. The iron key is heavy and very cold. It goes into the great Dutch lock all the way, and stops, and you have to turn it, and for a long moment it will not turn, and you understand that it is waiting to see if you are afraid. Then it turns, with a sound like a bone, and the door swings inward on its own weight. Inside it is raining. Rain on the window, streaming, though the storm outside has a different voice. A narrow bed, a sea chest, a chair; a fire laid in the grate and never lit; a tray on the floor by your feet with a cold supper on it, untouched. And in the chair by the window, with her back to you, a woman sits with her hands in her lap and her wet hair down her back, looking out at a dark that is not the river. On the floor by the door, under seven fresh marks in the black oak, a young man lifts his head and says, in a voice like paper, 'Is it morning?'",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 10,
+              "success": "You get Linus up and over your shoulder, light as a sack of meal, and out through the door past the iron in the jamb and onto the stair, and he is out. The cold on the stair is only cold.",
+              "failure": "He is a dead weight and you stumble; it takes two of you, and every second in the room is another fear check (DC 15)."
+            },
+            {
+              "skill": "Occult",
+              "dc": 14,
+              "success": "You understand the room: it is the seventh night of October 1852, every night, and she has been sitting in that chair waiting for the door to open for forty-one years. Everyone she has taken came through the door while she waited. None of them was the one she was waiting for. Rule 4 is not about driving her out: it is about opening her door, saying her name, and giving her back what was taken, in her hearing.",
+              "failure": "A room in the past, a woman with her back to you, rain. You want to leave. You should."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "You speak to her, not loudly: her name, Sabina Roelofs, and the truth, that Abram Greywick kept her here and took the Landing. She turns her head. Not all the way. Enough. Fear check DC 20. Then she is not in the chair, and the rain has stopped on the window, and the frost on the glass is running into water, and in the second before it goes you read in it: TERUG. Back. She is gone till tomorrow night. The room is a dusty room with a lamp on the sill.",
+              "failure": "Your voice will not come. She does not turn. The rain goes on."
+            }
+          ]
+        },
+        {
+          "name": "Dawn, Saturday",
+          "description": "The storm blows itself out before sunrise. In the hall, by the fire, with the gas relit and everyone who lived through the night wrapped in blankets: Linus, if he is out, weak and lucid, says what he heard (CLUE G7) and what she said (CLUE H4), and asks for his father. Strick, waking, learns the codicil is gone or scorched, and says, with great dignity, that he remembers every word of it and will swear to them. Mrs. Quell, turned, puts out the lantern on the sill at sunrise as she always has, and comes down and stands in front of Leonora. Constable Mabie comes up the bluff path at half past seven, soaked, with or without a warrant, and the players must say what they want done with the widow. Do not let them lock her in. Or do, and make them live with it. If Linus was not freed, he is found at seven, at the foot of the north stair, and Honora (or the Reverend) has to tell Conrad. The register is signed: six nights. One more.",
+          "readAloud": "The storm goes out with the night as if someone had shut a door on it. By half past six the wind has dropped to nothing and the rain to a drip from the eaves, and in the grey light through the hall windows the lawn is strewn with branches and leaves and slates, and the river below the bluff is high and brown and very quiet. Inside, the gas is lit again and the fire is roaring and the hall is full of people asleep on mattresses and settles and the stairs, wrapped in blankets and coats. The long-case clock lies face down on the floor where it fell, and nobody has had the strength to lift it. At seven ten the sun comes up behind the house. Somebody has to go and look at the north stair. You find you are all looking at each other, waiting to see who will.",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "Linus will live: warmth, broth, sugar water, sleep, and no stairs for a week. He has five levels of exhaustion and lost twenty pounds. He can talk now, and wants to, and should be allowed to say it once and then sleep. (A Physician's Steady Hands can also lower his Dread.)",
+              "failure": "He is very weak and slips in and out of sleep; you get his story in pieces over the morning."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Constable Mabie, dripping on the hall floor, hears it all from you, from Fanny, from Linus, and from Mrs. Quell, and looks at the widow sitting very straight on the hall settle with her hands folded, and says: 'Mrs. Greywick, you'll not leave this house until Judge Hallock sees you Monday. I'll sit with you myself.' He does not lock her door. Mrs. Quell has told him why.",
+              "failure": "Mabie is out of his depth with a lady in her own house and a story about a ghost. He takes notes, says he will speak to the judge, and leaves her at liberty in the house till Monday. She thanks him."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Everyone in the hall is thinking the same thing and nobody is saying it: the will has one more night to run, the codicil is gone or burned, and whatever the Juffrouw wants, it was in those pages. Tonight is the seventh. Linus's seventh was last night. Hers is every night.",
+              "failure": "Exhaustion. Relief. Grief. You need sleep before you can think."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Leonora by her fire: a confrontation, not a fight; if it comes to a struggle she uses Frightened Townsman stats",
+        "The river room at night (the Kept Rooms): the Juffrouw (Bound Spirit) does not attack rescuers; the danger is the door, the cold and the fear (fear check DC 20 on entering; DC 15 each round inside; anyone inside when the door shuts is kept)",
+        "Anyone taken at three, to be brought out with Linus"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Leonora Greywick, 52",
+      "role": "The widow; the murderer; tonight she moves",
+      "description": "In a grey wrapper with her silver hair down, by her own fire, with the codicil on her knee and the iron key on her chatelaine. Composed to the end.",
+      "motivation": "To burn the codicil and let Linus die and keep the house and the money; failing that, to be asked what she is, and to answer."
+    },
+    {
+      "name": "Linus Greywick, 31",
+      "role": "The kept son; the witness",
+      "description": "Thin, fair, his father's grey eyes, a bridge engineer's careful hands; six nights in the river room have taken twenty pounds off him and left him lucid, polite and very cold.",
+      "motivation": "To be warm. Then to know why. Then to see his father's wishes done."
+    },
+    {
+      "name": "Mrs. Judith Quell, 61",
+      "role": "Housekeeper; turned",
+      "description": "Grey, upright, shaking only once, on the cellar stair, when she sees her father.",
+      "motivation": "To undo what her father did and what she did on 30 September; to light the lamp for the last time."
+    },
+    {
+      "name": "Conrad Greywick, 38",
+      "role": "The elder son; trapped in the library, or on the party's side",
+      "description": "Drunk or sober depending on Thursday night, armed either way.",
+      "motivation": "To live through the night; then, if his brother lives, to be a better man than he has been."
+    },
+    {
+      "name": "Lemuel Strick, 64",
+      "role": "Executor; drugged",
+      "description": "Asleep behind a door that closes by itself; the dispatch box under his bed unlocked and empty.",
+      "motivation": "When he wakes: to swear to every word of the codicil before any court in the state."
+    },
+    {
+      "name": "Gerrit Brouwer, 70",
+      "role": "Groundskeeper; the ladder's owner",
+      "description": "Wet through, with a lantern and a forty-foot ladder and no intention of letting anyone else go up it first.",
+      "motivation": "Mr. Linus out, as Mr. Jasper let him out."
+    },
+    {
+      "name": "Constable Gilbert Mabie, 48",
+      "role": "Haverkill's constable; comes up the bluff path at dawn",
+      "description": "Big, slow, steady, a former river lighthouse keeper; a bull's-eye lantern and a shotgun.",
+      "motivation": "To do this by the law, and keep everyone alive till the judge."
+    },
+    {
+      "name": "The Juffrouw (Sabina Roelofs)",
+      "role": "The bound one",
+      "description": "A woman in a grey wool dress and a captain's pea jacket, wet-haired, seen from behind; in the chair by the window, or at the end of a corridor closing doors.",
+      "motivation": "To have her door opened, her name said, and what was hers given back. She has been waiting forty-one years."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "None, tonight. Linus, if saved, gives his rescuers the gold hunter watch his father left him (it is in the crypt; he will send for it) and his hand. Conrad, if saved, quietly writes off whatever any player owes him and makes them a promise he keeps.",
+    "items": [
+      "The iron key of the river room (if taken from Leonora): the one way through her door",
+      "The codicil (CLUE H5), whole, scorched or ash",
+      "Gerrit's ladder and the coach-house lanterns",
+      "Constable Mabie's bull's-eye lantern",
+      "A pocketful of blacked iron wedges"
+    ]
+  },
+  "twists": [
+    "If the players took the key from Leonora on Friday by day, she changes her plan: at midnight with the lamp out she tries to shut the key-holder into the strongroom behind its steel door (she lures them there with a lie: 'the codicil is in the strongroom'), and the steel door will close and hold. Anyone shut in there at three is taken, key and all, and the key is in the river room with them. The rest of the party must get the door open before three (iron in the jamb; Athletics DC 18 with the crowbar).",
+    "If the players feed Mrs. Quell good oil at dusk, the lamp does not gutter; Leonora goes up the north stair at midnight with the gallery key and pinches out the wick. Anyone watching the gallery door catches her at it. Caught in the north wing at midnight with the lamp out, she is terrified, and that is when she will tell the truth.",
+    "The ladder costs a forfeit. The players will find out whose share they are willing to give up to light a window for a dead woman. Gerrit and Mrs. Quell can do it instead, at their own risk. Let them.",
+    "Conrad in the library, if he was not talked down on Thursday, is the most dangerous living person in the house tonight: drunk, armed and shut in. Talk him into helping, or he fires at the first thing through the door.",
+    "If a player was taken at three, they are in the river room with Linus, and it is their first night: hungry, cold, frightened (fear check DC 20) and absolutely sure that nobody is coming. Play a few minutes with them alone with her back. Then the key turns."
+  ],
+  "dmTips": [
+    "This is the siege. Budget an hour for Friday's day, an hour and a half for midnight to three, and an hour for the codicil, the door and dawn. Keep a clock on the table and move it every quarter hour.",
+    "The light goes out at the worst moment once this scenario, and it is the river lamp at midnight. Do not have any other light fail for supernatural reasons tonight. The gas is Leonora's doing, and the players can find that out.",
+    "The Juffrouw's rules are exact and the players should be able to use them: the hall has no doors; iron holds a door; a lantern on the outer sill keeps her to her house; her key opens her door; her name drives her from the room. Reward them for using what they learned in gw-scenario-002.",
+    "Run Leonora as the climax of the living story and the river room as the climax of the dead one. Do not make Leonora fight. Make her ask what they will do with her.",
+    "The Kept Rooms are the campaign's big reveal. Fear check DC 20 on entry. Describe the rain, the supper tray, the fire laid and never lit, the frost writing on the window, her back. Do not describe her face unless someone says her name.",
+    "If the table is split between rescuing Linus and stopping the codicil, let them split. Both can be done. If neither can, Linus matters more, and the codicil can be sworn to.",
+    "Track Dread hard tonight: darkness adds 2 to every fear check. The hall with the fire and company is the place to recover, and the players should have to leave it.",
+    "End on Saturday dawn with the seventh night still to come, Linus alive or dead, the codicil whole or ash, and the players knowing the fourth rule."
+  ]
+}

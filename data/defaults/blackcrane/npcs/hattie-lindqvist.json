@@ -1,0 +1,124 @@
+{
+  "id": "03d27a19-dd4f-4fb6-9961-5cdfef831e38",
+  "name": "Dr. Hattie Lindqvist",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Doctor",
+  "level": 5,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 6500,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 10,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 32,
+    "current": 32
+  },
+  "armorClass": 10,
+  "speed": 30,
+  "proficiencyBonus": 3,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Forensics",
+    "Athletics",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Swedish"
+  ],
+  "equipment": [
+    "A rubber apron, a tweed suit and a man's overcoat she bought in 1919 and sees no reason to replace (no armor)",
+    "Scalpel, which she can use faster than most men can draw",
+    "Doctor's bag: sutures, clamps, morphine, ether, gauze, splints, stethoscope (8 uses of Patch Job)",
+    "Comparison microscope at the city morgue, and a pocket lens everywhere else",
+    "Envelopes, tweezers, glass slides and a box of evidence tags",
+    "Chesterfields, two packets, and a brass lighter made from a 1918 shell casing",
+    "Discharge papers: Contract Surgeon, Base Hospital No. 30, A.E.F.",
+    "Bandage roll (2)",
+    "Wallet containing $20"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 4,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: once per long rest, advantage on an Insight check to tell whether someone is lying, and learn whether it protects the liar or someone else; working people start one step friendlier)",
+    "Patch Job (action, with a doctor's bag: the patient spends up to 3 Hit Dice as on a short rest and regains +3 extra hit points once; stabilizes and ends Bleeding; 5 uses per long rest)",
+    "Diagnosis (bonus action: a creature's hit points and conditions; 10 minutes with a body gives cause and time of death without a check, plus one detail on DC 12 Forensics)",
+    "Steady Hands (advantage on Medicine checks; a creature she stabilizes regains 1 hit point and can act)",
+    "Practice: Coroner (proficiency bonus doubled for Forensics; when she examines a body she learns one fact the killer would rather she did not, such as size, handedness or knowledge)",
+    "Bedside Manner (5th level: one extra use of Patch Job, and she can move to a creature at 0 hit points without provoking opportunity attacks)",
+    "Ability Score Improvement (4th level: +2 Intelligence)",
+    "Old Outfit (Veteran background: the nurses and doctors of Base Hospital No. 30 are scattered all over California, and every one of them would answer her call)"
+  ],
+  "traits": [
+    "Plain Dealing",
+    "Patch Job",
+    "Diagnosis",
+    "Steady Hands",
+    "Coroner"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say exactly what I mean, in as few words as possible, and I smoke under the sign. I am rude to people who waste my time and gentle with the dead.",
+    "ideals": "The dead cannot speak for themselves. That is my job. I do it the same for a millionaire and a man nobody claims.",
+    "bonds": "The two hundred boys I could not save at Base Hospital No. 30 in 1918, whom I still dream about, and Ned Corrigan, who used to bring me a bag of cinnamon buns from the Swedish bakery on Polk Street whenever he wanted a favour, which was always.",
+    "flaws": "I have no patience at all with officialdom, and I have been one bad week away from being fired for twenty years."
+  },
+  "appearance": "A big, broad, grey-haired woman of fifty-two in a rubber apron over a tweed suit, with half-moon glasses, forearms like a farmer's and a cigarette in the corner of her mouth. Her voice is a Minnesota foghorn.",
+  "backstory": "Harriet Lindqvist grew up on a dairy farm outside Lindstrom, Minnesota, went to medical school in Minneapolis against the wishes of everybody, and went to France in 1918 as a contract surgeon, one of very few women in uniform who held a scalpel, at an Army base hospital outside Paris. She came to San Francisco in 1921, could not get a hospital to hire a woman surgeon, and took the job nobody wanted, autopsy surgeon at the city morgue, which she has held for seventeen years against three coroners who wanted her gone. She is the best forensic pathologist on the Pacific coast and almost nobody knows it.",
+  "dmNotes": {
+    "roleplaying": "Hattie is the party's forensics and its doctor: she reads Ned's body in bc-scenario-001, the gloves in bc-scenario-003, and matches the pistol to the casings in bc-scenario-004. She will patch up anyone the party brings her, quietly, without a report, if they are honest with her. She is a companion who stays mostly at the Hall of Justice; she can come out on a job if someone asks her nicely and there is a body or a wound at the end of it. Use her to confirm clues the party has found, never to hand them clues they have not earned.",
+    "voice": "Flat Minnesota vowels, short sentences, no small talk. \"Two shots. Four feet. He knew her. Sit down before you fall down.\" Swears in Swedish. Calls men \"son\" regardless of age, including Dolan.",
+    "motivations": "Primary: the truth about the dead, told plainly, to someone who will act on it. Secondary: keep her job, which means not being caught helping private detectives, which she does constantly. Tertiary: one more bag of cinnamon buns, from anybody, for Ned's sake.",
+    "secrets": "She knows Sergeant Kerrigan has twice taken evidence envelopes out of her morgue and returned them resealed, and has been keeping a private list since 1936. She will give it to Dolan, or to the party, once she trusts them. She also has a comparison microscope she bought with her own money because the department would not.",
+    "attitude": "Toward the party: brusque, then protective. She likes Anton Weisz at once (a real surgeon; she will help him study for the State Board) and Cass Delaney, whom she has known for years. Toward Dolan: affectionate contempt; she taught him everything he knows about bodies. Toward Kerrigan: dislike so complete she will not stay in a room with him."
+  }
+}

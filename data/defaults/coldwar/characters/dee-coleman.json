@@ -1,0 +1,133 @@
+{
+  "id": "1df5344e-c1da-43e7-a59d-e63d1214e223",
+  "name": "Dee Coleman",
+  "status": "alive",
+  "race": "Human (Specialist)",
+  "subrace": "",
+  "class": "Tech",
+  "level": 3,
+  "background": "Blue-Collar Worker",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Dexterity"
+  ],
+  "skills": [
+    "Mechanics",
+    "Athletics",
+    "Computers",
+    "Science",
+    "Perception",
+    "Investigation"
+  ],
+  "languages": [
+    "English",
+    "German"
+  ],
+  "equipment": [
+    "Leather jacket, brown, Army surplus lining",
+    ".38 revolver (Smith & Wesson Model 10), 6 rounds loaded",
+    ".38 Special rounds (18)",
+    "Stun gun, single-shot dart unit",
+    "Stun gun cartridges (3)",
+    "Lineman's butt-set telephone handset with alligator clips (taps any phone line he can reach)",
+    "Bug detector (RF sweeper, 1982 model, reads to 1 GHz, eats 9-volt batteries)",
+    "9-volt batteries (6)",
+    "Three miniature transmitter bugs (VHF, 200 m range, 48-hour battery)",
+    "Reel-to-reel pocket recorder (Nagra SN) and four tapes",
+    "Tool roll: screwdrivers, side cutters, soldering iron, crimpers, meter",
+    "Lineman's wrench, 14 inch",
+    "Acoustic-coupler modem (300 baud) in a hard case, with cradle for a standard handset",
+    "Cover passport: Dwayne Collins, American, field engineer for a Siemens telex contractor (thin legend: holds up to a phone call, not to a visit)",
+    "A thermos, always",
+    "Wallet containing $85"
+  ],
+  "weapons": [
+    {
+      "name": ".38 revolver (Smith & Wesson Model 10)",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Stun gun (15/30, nonlethal, CON save DC 13 or stunned until end of next turn)",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "lightning"
+    },
+    {
+      "name": "Lineman's wrench",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Specialist (Human (Specialist) origin: +2 Intelligence, +1 Dexterity, one extra skill proficiency: Investigation)",
+    "Jury-Rig (10 minutes and a Mechanics check to build, repair or bypass a device; DC by complexity)",
+    "Gadgets (2 uses per long rest: Spoof a camera, lock or alarm for 1 minute; Overclock an ally's weapon or device for +1d4 on its next roll; Patch 1d8+3 to a vehicle or machine)",
+    "Intrusion (Computers checks against a network or exchange made with advantage when he has physical access to the line or terminal)",
+    "Union Card (Blue-Collar Worker background: in any phone exchange, garage or depot in the West, the people in overalls will talk to him before they talk to a man in a suit)"
+  ],
+  "traits": [
+    "Jury-Rig",
+    "Gadgets (2/long rest)",
+    "Intrusion"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I would rather fix it than talk about it. I hum Motown while I work and I do not notice I am doing it. I read the manual, always, all of it, and I bring it with me.",
+    "ideals": "A wire does exactly what you tell it to. People ought to try it.",
+    "bonds": "My wife Lorraine and two girls in Columbus, Ohio, who think I install telex machines in Austria. I write every Sunday. I send the letters through the Army post office so the postmark says Frankfurt.",
+    "flaws": "When I can hear a line I can't leave it alone. I will sit on a tap for six hours past the point it is safe, because the next word might be the one."
+  },
+  "appearance": "A broad, unhurried Black American of thirty-six with reading glasses on a cord, a moustache he is quietly proud of, and a lineman's thick forearms. He looks like exactly what his legend says he is: a contractor who fixes telex machines and would like his lunch. In a room full of spies he is the only person who is visibly relaxed, because in his opinion most problems are wiring.",
+  "backstory": "Dwight 'Dee' Coleman climbed telephone poles for Ohio Bell for six years, then joined the Army Signal Corps to see the world and saw mostly the inside of a listening post at Field Station Berlin on the Teufelsberg. He can splice a trunk line in the dark, find a bug by the hum it puts on a lamp, and he knows the Vienna central exchange the way other men know a bar. The Annex borrowed him from an American technical service in 1981 and never gave him back. He built the station's telex room himself, and he trained Lionel Pryce, the station comms officer, on the new Siemens machines. He has one private worry he has not voiced: twice this year the station's outbound telex counter has been a few characters higher than the log Pryce keeps, and Dee has assumed, as engineers do, that the counter is wrong."
+}

@@ -1,0 +1,456 @@
+{
+  "id": "bc-scenario-002",
+  "title": "The Serra da Estrela",
+  "subtitle": "A Freighter in the Fog, a Dead Man's Trunk, and a Bird Full of Somebody's Life",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The Embarcadero and downtown San Francisco, Monday 7 to Wednesday 9 November 1938",
+    "description": "Three days on the waterfront and in the offices that rule it. The Portuguese freighter Serra da Estrela, eleven weeks out of Lisbon by way of Panama and Los Angeles, comes in through the Golden Gate at dusk on Monday and ties up at Pier 32, just south of the new bridge, where Mick Larrabee's stevedores work and Mick Larrabee's word is law. Its cargo is cork, sardines, port wine, olive oil, a consignment of tiles for the Exposition's Portuguese-style garden, and one crate addressed to Marsh Pacific Trading. Anything declared as art goes under federal seal to the U.S. Appraiser's Stores on Sansome Street for valuation and duty. Tuesday is Election Day; Wednesday the crate is released to its legal owner. In between, the party can learn what is in the crane and whose it is, and catch Corinne Marsh in her second lie.",
+    "atmosphere": "Foghorns from Alcatraz and Point Bonita, the clank of Belt Line switch engines, gulls, wet planking, the smell of tar, fish oil, coffee from the roasting plants on Folsom Street and the sweetness of cork bales. The bridge overhead is a line of lights going up into the fog and disappearing. The waterfront is a working place with its own law, and the party are visitors in it; longshoremen size them up from the hiring hall steps. Aboard the ship everything is Portuguese, polite and tired: bacalhau on the galley stove, a radio playing fado, a captain who wants no trouble in an American port. This scenario is the turn from suspicion to understanding. It should end with the players knowing exactly what is at stake and for whom.",
+    "keyLocations": [
+      {
+        "name": "Pier 32 and the Anchor Grill",
+        "description": "A long timber pier with a corrugated shed, a rail spur along its apron, and a two-storey office at the shore end with LARRABEE STEVEDORING & HAULING on the windows. Across the Embarcadero and the Belt Line tracks is the Anchor Grill, where Larrabee's gangs drink, eat, and get their work.",
+        "features": [
+          "The Serra da Estrela's berth on the north side, with the Bay Bridge's first towers looming through the fog beyond",
+          "Larrabee's office upstairs: a roll-top desk, a window over the berth, a calendar from a Treasure Island concrete supplier, a bottle of Canadian whisky",
+          "Cargo nets, hand trucks, a steam crane on rails, and a gang of twenty men working the ship by floodlight"
+        ],
+        "encounters": [
+          "Mick Larrabee (Waterfront Boss) and his lieutenant Tiny Mulcahy (Mob Lieutenant)",
+          "Larrabee's dock gang (Dockside Goon), who do not want trouble from strangers but will make it if told to",
+          "A Customs inspector, Mr. Herbert Wilcox, with his seal press and a clipboard, who is honest, slow and rule-bound"
+        ],
+        "secrets": [
+          "Larrabee believes the crane is 'a bird full of ice': Carlton Marsh, who owed him $6,000 on a cork contract that went bad, told him so in June over a bottle at the Anchor to buy time. Larrabee says so to anyone he thinks is beneath him.",
+          "Augie Brodzinski worked Pier 32 in 1934 and was on the line in the strike; Larrabee's men broke his partner's arm. Old longshoremen in the Anchor will talk to Augie, and not to anyone else.",
+          "Sergeant Kerrigan's car, a green Plymouth, is parked behind Larrabee's office on Monday night. Perception DC 12 from the Anchor's window, or anyone watching the office for an hour, sees him go up the outside stairs."
+        ]
+      },
+      {
+        "name": "The Serra da Estrela",
+        "description": "A rust-streaked 4,000-ton Portuguese freighter with a tall black funnel, a white band and a red cross on it, three holds, eleven passengers' cabins, and a crew of thirty-four who have not been ashore since Los Angeles.",
+        "features": [
+          "The purser's office amidships: ledgers, a strongbox, a tin trunk stencilled C. J. MARSH — S. FRANCISCO, which the purser has carried for the company since Lisbon to hand to the widow",
+          "The mate's cabin: a photograph of a wife in Setúbal, a bottle of aguardente, a chessboard",
+          "Number two hold, where the Marsh Pacific crate sits under a tarpaulin with a Portuguese customs wax seal and a fresh American one once Wilcox has been aboard"
+        ],
+        "encounters": [
+          "The purser, Senhor Albano Teixeira, fussy and correct, who will hand the trunk only to Mrs. Marsh or to her written agent",
+          "The first mate, Joaquim Lobo, who knew Carlton and liked him",
+          "Four of Larrabee's men (Dockside Goon) and Tiny Mulcahy, coming over the offshore side in a launch at two in the morning"
+        ],
+        "secrets": [
+          "CLUE D1 and E2: in Carlton's trunk, among shirts, cork samples and a portable Remington typewriter, is a folder of carbons. The last is a letter to Corinne dated 16 August 1938: 'The bird is theirs, Viv, and what's in her belly is theirs. Thirty-eight thousand in Treasury paper, a doctor's whole savings, his name is Ehrlich, his girl will come for it. I'm only the porter. Do this one decent thing with me.' And, lower: 'I left the Colt in the bedside drawer for you. The house is too big with me away.'",
+          "CLUE E1: the purser's inventory of Carlton's effects, signed and stamped by the Lisbon police: clothes, typewriter, papers, a gold watch, $42 in escudos. No pistol. The purser is sure: 'The Senhor never carried a gun. He said a pistol in Lisbon was an invitation.'",
+          "CLUE D2: Joaquim Lobo, over aguardente (Persuasion DC 12, advantage in Portuguese): 'Senhor Marsh drank with me the night before we sailed. He said he was carrying a whole family's life in a wooden bird, and that it was the first honest cargo he ever shipped. Then he laughed, and two days later his heart stopped on the stairs of the Alfama. The doctor said it was his heart. I believe the doctor.'"
+        ]
+      },
+      {
+        "name": "The U.S. Appraiser's Stores",
+        "description": "A grim brick federal warehouse at Sansome and Washington, built in the 1870s, where Customs examines, values and holds anything that comes into the port with a declared value over a hundred dollars. Bonded cages on four floors, an examiner's room with a skylight, a loading dock, and a federal guard.",
+        "features": [
+          "The examiner's room: a long oak table, a lamp on a swing arm, a magnifying glass, and the crate opened under supervision on Tuesday morning",
+          "Bonded cage 4-C, where the crane sits under seal on Tuesday night",
+          "A public counter where an owner, or her lawyer, files the entry and pays the duty"
+        ],
+        "encounters": [
+          "Mr. Wilcox again, and the senior examiner, Mrs. Grace Holloway, who knows Japanese lacquer from twenty years of Gump's consignments",
+          "Corinne Marsh and her lawyer, Mr. Oliver Strand of Montgomery Street, filing the entry on Tuesday afternoon",
+          "A federal guard (Federal Agent stats, but he is a watchman with a badge), who will arrest anyone who touches a sealed cage"
+        ],
+        "secrets": [
+          "Mrs. Holloway values the crane at $11,500 ('Edo, late seventeenth century, hinoki core, first-rate urushi') and remarks that the base 'has been opened and resealed at some point, very neatly, with shellac rather than lacquer. European work.' She does not open it; she is not paid to.",
+          "Corinne's lawyer is called Strand. The client chose 'Mrs. Helen Strand' because it was the name on the Marsh Pacific letterhead she saw in Lisbon, as Carlton's lawyer. It is a coincidence with a reason, and an Insight DC 14 on Magda, when told, gets a rueful smile.",
+          "The duty and storage come to $1,150. Corinne pays it with a cheque that clears on Wednesday morning only because Oliver Strand covers it from his own account. Research at her bank (Society DC 14) finds she has $63 of her own."
+        ]
+      },
+      {
+        "name": "The Hall of Justice and the Western Union Office",
+        "description": "Two places to check a story. The Bureau of Identification next to Homicide keeps the pistol register: carbon slips from every licensed dealer in the city for every handgun sold since 1923, filed by purchaser. The Western Union main office on Market Street keeps a time-stamped copy of every cable sent.",
+        "features": [
+          "The pistol register: forty wooden drawers of yellow carbons and a clerk, Miss Pruitt (no relation to Lonnie, as she will say), who is lonely and likes to talk",
+          "Western Union: a long counter, pads of blanks, telegraph keys clacking behind a partition, and a night manager who keeps his files very tidy"
+        ],
+        "encounters": [
+          "Dolan, who hears within the hour that the party has been in the pistol register, and comes to ask why",
+          "The night manager at Western Union, who will show a sent cable to its sender, to the police, or to anyone with $5 and a good reason"
+        ],
+        "secrets": [
+          "CLUE E3: a dealer's carbon from Golden Gate Arms Co., Market Street, 14 March 1931: one Colt .32 automatic pistol, Model 1903, serial 482117, sold to Carlton J. Marsh, Vallejo Street. Research DC 10, or $2 to Miss Pruitt.",
+          "CLUE H1 (clears the client): a cable sent from the Market Street counter at 11:02 pm on Thursday 3 November, to Dr. O. Ehrlich, Pensão Flor da Baixa, Rua dos Fanqueiros, Lisboa: 'AGENCY ENGAGED STOP SHIP DUE MONDAY STOP TELL MAMA STOP LOVE M.' The counter clerk remembers the young lady in grey because she cried while she wrote it. Western Union is seventeen blocks from Tallow Alley."
+        ]
+      },
+      {
+        "name": "The Hotel Grant and a North Beach Café",
+        "description": "Magda's room at the Hotel Grant, if she is still there, or a small espresso bar on upper Grant Avenue in North Beach where she goes because it is the only place in the city that makes coffee the way they do in Vienna.",
+        "features": [
+          "Room 3C: two cowhide suitcases, a hot plate, a German-English dictionary, and a photograph of four people on a terrace in Grinzing",
+          "The café: a marble counter, an espresso machine like a locomotive, old men arguing about Mussolini in Genoese"
+        ],
+        "encounters": [
+          "Magda Ehrlich, who will tell the truth once she is shown that the party already knows most of it",
+          "One of Larrabee's men (Street Tough) watching the Hotel Grant from the lunch counter opposite, if the party left one standing on Sunday"
+        ],
+        "secrets": [
+          "CLUE D3: Magda's third and true account, given when she is confronted with the letter, the Western Union cable, her real name or the bonds. See the scene 'The Third Name'.",
+          "Her passport is a German Reich passport issued in Vienna in June 1938, with a red 'J' stamped on the first page in October by the consulate in Lisbon. She carries it in an envelope inside her dictionary, and she will show it to someone she trusts, once, without saying anything."
+        ]
+      }
+    ]
+  },
+  "synopsis": "The Serra da Estrela comes in through the Gate at dusk on Monday and ties up at Pier 32, Mick Larrabee's pier, where Larrabee is waiting for what he thinks is a bird full of diamonds. The party has three days, the fog, and a ship full of tired Portuguese sailors. Aboard they can find Carlton Marsh's effects, carried home by the purser, and in them the carbon of Carlton's last letter to his wife, which says exactly what is in the crane and whose it is: thirty-eight thousand dollars in bearer bonds belonging to a Viennese doctor named Ehrlich. They can fight Larrabee's men in a fogbound hold at two in the morning, watch a customs examiner value the crane on Election Day, find the pistol Corinne Marsh said was lost in Lisbon in the police register, and clear their client with a Western Union time-stamp. By Wednesday they should know her real name, the deadline her family faces, that Corinne lied about her husband's gun, and that Corinne has the crane and has just announced she will sell it at auction on Thursday night.",
+  "hook": "Monday, a quarter to five, and the fog is coming in under the Golden Gate Bridge like a white wall rolling down a hallway. From the end of Pier 32 you can hear the Serra da Estrela before you can see her: two long blasts on her whistle, answered by the foghorn on Alcatraz, then the thud of her engine slowing. The bridge overhead is just a row of lights climbing into nothing. Behind you, on the shore end of the pier, the windows of LARRABEE STEVEDORING are lit, and a big man in shirtsleeves is standing in one of them with a glass in his hand, watching the same piece of fog you are. When the ship's bow comes out of it, rust-streaked and enormous, he raises the glass to her.",
+  "cluesAvailable": [
+    "D1",
+    "D2",
+    "D3",
+    "E1",
+    "E2",
+    "E3",
+    "H1"
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Through the Gate",
+      "description": "Monday 7 November, dusk to the small hours. The ship, the pier, the trunk and the hold. This act plants the conclusion 'the crane carries a refugee family's savings, not diamonds' with its first two clues (D1 Carlton's letter, D2 the mate's account), and the first two clues that Corinne lied about the pistol (E1 the inventory, E2 the letter). It introduces Larrabee and the waterfront, and ends in a fight in the hold.",
+      "objectives": [
+        "Get aboard the Serra da Estrela, legitimately or otherwise",
+        "Find Carlton Marsh's effects and read what is in them",
+        "Talk to the mate, Joaquim Lobo",
+        "Learn what Larrabee thinks is in the crane and who is feeding him",
+        "Keep Larrabee's men from breaking the crate open before Customs seals it"
+      ],
+      "scenes": [
+        {
+          "name": "The Anchor Grill",
+          "description": "Before the ship docks, the party can work the waterfront: the hiring hall, the Anchor Grill, Larrabee himself. Larrabee is happy to talk, because he thinks nobody can stop him.",
+          "readAloud": "The Anchor Grill is a long room full of smoke and longshoremen in caps and hickory shirts, with a counter down one side, a juke box playing Bing Crosby, and a hand-lettered sign over the coffee urn that says NO POLITICS NO CREDIT. When you come in the noise drops by about half. A few of the older men look at Augie, if Augie is with you, and one of them says his name. Upstairs across the tracks, Mick Larrabee's window is still lit.",
+          "skillChecks": [
+            {
+              "skill": "Streetwise",
+              "dc": 13,
+              "success": "The old hands tell you Larrabee has had four men on the pier since Saturday 'for one crate', that he says it is full of diamonds, and that a cop comes to see him most nights in a green Plymouth. (Advantage for Augie Brodzinski, who was on this pier in '34.)",
+              "failure": "Nobody here talks to strangers about Mick Larrabee. Someone goes across the tracks to tell him you asked. Heat +1."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Larrabee receives you upstairs, pours you Canadian whisky, and tells you he is owed $6,000 by a dead man and means to collect it from a bird. 'Carlton told me himself. A bird full of ice.' He offers the party $500 to stay off his pier. He means it kindly, by his lights.",
+              "failure": "Larrabee receives you upstairs and tells you to stay off his pier. Tiny Mulcahy walks you to the stairs."
+            },
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "From the Anchor's window you watch a green Plymouth pull in behind Larrabee's office, and Sergeant Wally Kerrigan go up the outside stairs two at a time.",
+              "failure": "Cars come and go. You will see the Plymouth again, though."
+            }
+          ]
+        },
+        {
+          "name": "A Dead Man's Trunk",
+          "description": "Aboard, after the ship is tied up and the gangway is down. The purser has Carlton's trunk and will give it only to the widow. The mate has a bottle and a memory. The party needs a reason to be aboard: a Portuguese speaker, a story, a bribe, or the truth.",
+          "readAloud": "The purser's office smells of ink and the bacalhau on the galley stove. Senhor Teixeira is a small grey man with sleeve garters and a pen behind each ear, and the tin trunk at his feet has C. J. MARSH — S. FRANCISCO stencilled on its lid in white. He puts one polished shoe on it when you look at it. 'For the widow,' he says, in careful English. 'Only for the widow. I have carried it eleven weeks. I will carry it eleven more if I must.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Teixeira lets you see the trunk opened, in his presence, 'for the inventory'. In Carlton's folder of carbons is his last letter to Corinne (Clues D1 and E2), and on the lid is the Lisbon police inventory: no pistol (Clue E1). Advantage for a Portuguese speaker, or for anyone who tells him the truth about Ned. Nothing is removed; he insists on that.",
+              "failure": "Teixeira will not open it. But he reads you the Lisbon police inventory from his ledger, because that is public (Clue E1), and the letter can be had later from Corinne's house or from the trunk once she collects it (D1 and E2 remain available at the Marsh house in Act 3)."
+            },
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "A forged note from 'Mrs. Marsh' authorising her agent satisfies Teixeira. You may take the trunk ashore. Corinne will know by Wednesday, and Heat +1 when she complains to Dolan.",
+              "failure": "Teixeira knows Corinne's handwriting from her letters to the company. He sends for the captain."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "In his cabin, over aguardente and a game of chess, Joaquim Lobo tells you about Carlton's last night ashore: 'a whole family's life in a wooden bird'. (Clue D2.) He also says a young woman with a Viennese accent came to the ship in Lisbon twice, to look at the crate, 'like a mother at a hospital window'.",
+              "failure": "Lobo is polite and tired and has nothing to say to strangers. Come back with a Portuguese speaker or a better bottle."
+            }
+          ]
+        },
+        {
+          "name": "Number Two Hold",
+          "description": "Two in the morning, fog so thick the floodlights make no more than a glow. Larrabee's men come up the offshore side in a launch to break open the Marsh Pacific crate before Customs seals it in the morning. If the party is aboard or watching, this is a fight among cargo nets and cork bales in a hold forty feet deep.",
+          "readAloud": "Down in number two hold the only light is the yellow glow of a cargo cluster hung from the hatch, and the fog has come down through the hatch with it and lies on the cork bales like smoke. Water slaps the hull. Somewhere above you a rope creaks, then another, and five shapes come down the offshore ladder one after another, quick and quiet, carrying pry bars. The last one is very big. 'Tarp,' he whispers. 'Third from the bulkhead. Mick says don't scratch it.'",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "The party is in position among the bales before the launch ties up, and has surprise.",
+              "failure": "Tiny Mulcahy sees a cigarette end, or a shoe. The fight starts with everyone aware."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 14,
+              "success": "A character can climb the cargo net, swing a loose bale, or pull the hatch-cluster lamp down into darkness, changing the fight: Larrabee's men fight blind for a round and their nerve breaks.",
+              "failure": "The net gives way and the character drops ten feet onto cork bales: 1d6 bludgeoning, prone, and very loud."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 13,
+              "success": "With two of them down, Mulcahy calls it off and the rest go back up the ladder to the launch. No shots fired, no Heat.",
+              "failure": "Somebody fires. A gunshot aboard a foreign ship in port is +2 Heat, and the harbour police launch arrives in eight minutes."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Tiny Mulcahy (Mob Lieutenant) and four of Larrabee's men (Dockside Goon) in number two hold at two in the morning, armed with pry bars and one .38; they want the crate, not a killing",
+        "Mick Larrabee (Waterfront Boss) in his office, not a fight: he fights through other people, and has a good many of them",
+        "The harbour police (Beat Cop) if shots are fired"
+      ]
+    },
+    {
+      "title": "Act 2: Election Day",
+      "description": "Tuesday 8 November. The crate goes under federal seal to the Appraiser's Stores, Corinne files the entry with her lawyer, and the party checks stories: the pistol register and the Western Union office. This act completes the conclusion 'Corinne lied about the pistol' (E3, the register) and clears the client (H1, the Western Union cable). It ends when the party confronts Magda with what they know and she gives them the third name and the truth (D3).",
+      "objectives": [
+        "Watch the crane examined and valued at the Appraiser's Stores",
+        "Find Carlton Marsh's pistol in the register",
+        "Check where the client was at eleven on Thursday night",
+        "Get Magda Ehrlich's true account and learn the family's deadline"
+      ],
+      "scenes": [
+        {
+          "name": "The Examiner's Table",
+          "description": "Ten in the morning at the Appraiser's Stores. The crate is opened under supervision. The crane comes out of its straw, and everyone in the room stops talking. Pellingham is there, as a 'consulting expert' Mrs. Holloway has asked in; so is Corinne, with her lawyer, at two.",
+          "readAloud": "The crate is opened with a claw hammer and the straw comes out in handfuls, and then Mrs. Holloway lifts it out with both hands and sets it on the oak table under the lamp. It is smaller than you expected, fourteen inches, a crane standing on one leg on a black rock, its neck bent in a long curve and its beak almost touching its breast, and it is so black that the lamp seems to sink into it. Only the crown of its head is red, a small bright vermilion cap, like a drop of blood on ink. Nobody says anything. Across the table, Mr. Pellingham lets out a long breath, and you realise he has been holding it since the hammer.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "Mrs. Holloway, turning the crane over, frowns at the base: a hairline round the bottom of the rock where it has been opened and resealed, 'with shellac, not lacquer; European work; neat'. Pellingham sees it too, and his face does not change at all.",
+              "failure": "Mrs. Holloway mutters something about the base and writes it in her ledger. You can ask her about it later."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "When Corinne arrives at two and sees the crane, she does not look at the bird at all. She looks at the base.",
+              "failure": "Corinne is cool, polite and businesslike with the examiner, and pays the duty by cheque."
+            },
+            {
+              "skill": "Society",
+              "dc": 14,
+              "success": "A quiet word at Corinne's bank on Montgomery Street (or Kit Vandermeer's father's) establishes that her cheque for $1,150 was covered by her lawyer, and that she has $63 of her own. She is broke.",
+              "failure": "Banks do not discuss their depositors with strangers."
+            }
+          ]
+        },
+        {
+          "name": "Yellow Carbons",
+          "description": "The pistol register at the Hall of Justice and the Western Union office on Market Street. Two counters, two clerks, two facts. Dolan hears about the register visit within the hour.",
+          "readAloud": "Miss Pruitt of the Bureau of Identification has forty wooden drawers of yellow carbon slips and nobody to talk to about them, and she is thrilled to see you. 'Every pistol sold in this city since 1923,' she says, 'by purchaser, alphabetical. People think it's dull. It's the most interesting room in the building.' She pulls open MA–ME without being asked.",
+          "skillChecks": [
+            {
+              "skill": "Research",
+              "dc": 10,
+              "success": "Golden Gate Arms Co., 14 March 1931: one Colt .32 automatic, Model 1903, serial 482117, to Carlton J. Marsh, Vallejo Street. (Clue E3.) Corinne told the party, and has told Dolan, that Carlton took it to Lisbon.",
+              "failure": "Miss Pruitt finds it for you in four minutes while telling you about her sister's wedding (Clue E3 is still found)."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "At Western Union, the night manager finds the client's Thursday cable: 11:02 pm, Market Street counter, to Dr. O. Ehrlich in Lisbon, signed M. (Clue H1.) The counter clerk remembers she cried. She could not have been in Tallow Alley at 11:05.",
+              "failure": "The manager wants $5, or a policeman. Dolan would get it for you, if you told him why."
+            },
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "When Dolan comes to ask why the party was in the pistol register, they can put him off without giving him the Marsh name yet, if they choose.",
+              "failure": "Dolan works it out from Miss Pruitt. He is not pleased that the party is investigating a Nob Hill widow on his case without telling him, and he is not pleased that it might be right. Heat +1, but he writes 'Marsh, Colt .32' in his notebook."
+            }
+          ]
+        },
+        {
+          "name": "The Third Name",
+          "description": "Magda, confronted at the Hotel Grant or in the North Beach café with any two of: the letter, the Western Union cable, the name Ehrlich, the bonds. She tells the truth, all of it, in one long quiet speech. This is the emotional turn of the campaign. Let her talk.",
+          "readAloud": "She listens to all of it without moving, with her coffee going cold in front of her, and when you have finished she takes an envelope out of the dictionary in her bag and puts it on the marble between you. It is a passport, German, with an eagle on it, and when she opens it to the first page there is a red letter J stamped beside her photograph, crooked, as if someone did it in a hurry. 'My name is Magdalena Ehrlich,' she says. 'I am sorry I lied to you. I am sorry I lied to Mr. Corrigan. Since March I lie to everyone who has a desk. I will tell you now, and then you will decide whether to help me.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "She is telling the whole truth now (Clue D3): her father's collection, the crane carried out of Vienna in May, the bonds in the base, Carlton's offer, his death, her sixty-day visa, the consulate interview on Monday 21 November, the proof-of-funds cable needed by Friday 18 November. She also admits she asked Ned to help her take the crane, and that Cass was right to say she was lying.",
+              "failure": "You believe her, and you are right to."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Magda agrees to work with the party openly, and offers what she has: the $5,000 finder's fee her father authorised, to the agency, if the bonds reach a bank in her name by the 18th. She also says, unprompted, that she wants the person who killed Mr. Corrigan to pay for it. 'He was kind to me. He made a joke about the elevator.'",
+              "failure": "She will help, but she is frightened of what the party might do with her name, and she will not go near the police."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "None planned. If the party tries to take the crane from the Appraiser's Stores, the federal guard (Federal Agent) and a second guard intervene, it is a federal crime, and Heat +4"
+      ]
+    },
+    {
+      "title": "Act 3: Release",
+      "description": "Wednesday 9 November. Customs releases the crate to its legal owner. Corinne takes it home to Vallejo Street in a hired car with her lawyer. The party can confront Corinne with what they know and hear her second account, face Larrabee and learn that Kerrigan is his, and see the Thursday auction notice appear in the late edition. Behind the scenes, Corinne visits a bond dealer on Montgomery Street in the afternoon, and that night opens the base of the crane at her kitchen stove. The party should not see this; they will find the traces in bc-scenario-003.",
+      "objectives": [
+        "Confront Corinne Marsh with the letter and the pistol register",
+        "Decide what to tell Dolan",
+        "Face Larrabee, or Kerrigan, with what the party knows about them",
+        "Learn of the auction"
+      ],
+      "scenes": [
+        {
+          "name": "The Second Account",
+          "description": "Vallejo Street, Wednesday afternoon, an hour after the crane comes home. Corinne receives the party in the front room again, with her lawyer present if she has warning. Confronted with the letter, she does not deny it. She changes her story.",
+          "readAloud": "The crane is not in the front room. The tags on the furniture are, and so is Corinne, at the window, smoking. She has read the carbon you gave her twice; it lies on the piano with her lighter on top of it as a weight. 'Carlton wrote me a great many letters,' she says, without turning round. 'In most of them he was about to make his fortune.' Then she turns, and her eyes are perfectly dry. 'Very well. There are some bonds. Carlton's savings, which are mine. Whatever story he told some refugee in a boarding house, the law says what was in my husband's shipment is my husband's estate. Mr. Strand is quite clear about it.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "This is her second account, and she has rehearsed it. She is not surprised by the letter: she has her own copy, the original, and has had it since September. When you mention the pistol register, her hand goes to the lighter and stays there. She says the Colt 'must have been stolen, then; the house was empty all summer.' That is her third story about the gun.",
+              "failure": "She sounds like a woman who has been talking to a lawyer. She has."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "For one moment she wavers: 'Do you know what it's like to be forty-two and have sixty-three dollars?' Then it passes. She will not give up the bonds, but you have seen that there is a person in there who knows what she is doing, and the GM should remember it in bc-scenario-004.",
+              "failure": "She has Concepción show you out. Mr. Strand writes to the agency the next morning about harassment. Heat +1."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "On the hall table on the way out: a card from Harlan Fitch & Co., Bonds and Securities, Montgomery Street, with 'Thurs. 10 a.m.?' pencilled on it.",
+              "failure": "A hall table, a mirror, a silver tray of unpaid bills."
+            }
+          ]
+        },
+        {
+          "name": "The Man in the Green Plymouth",
+          "description": "Larrabee's office or Kerrigan himself. The party may confront Larrabee about the attack in the hold, or Kerrigan about the Plymouth. Either way they learn Kerrigan is Larrabee's, and must decide whether to tell Dolan, which will hurt him and help them.",
+          "readAloud": "Kerrigan meets you, if you ask him to, at a lunch counter on Kearny Street where every cop in the Hall of Justice eats, and he is cheerful and loud and buys the coffee. 'Pal,' he says, 'whatever you think you saw. A man visits a friend. Mick's an old friend. I grew up on Third Street.' He stirs four sugars into his cup. 'Here's a tip, free. Stay away from that widow. She's got friends, and you've got a lieutenant who thinks you shot your partner.'",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "Kerrigan, leaned on hard with the Plymouth and the hold, folds: he gave Larrabee the client's name and the Hotel Grant, and he told Larrabee about the bill of lading. He did not kill anyone and does not know who did. He begs the party not to tell Dolan.",
+              "failure": "Kerrigan stops smiling and tells you to watch your step. Larrabee hears within the hour, and Heat +1."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Kerrigan genuinely does not know who killed Ned, and is a little afraid it was Larrabee. It was not, and Larrabee has forty witnesses, which Kerrigan knows.",
+              "failure": "He is a liar. What about, you cannot tell."
+            }
+          ]
+        },
+        {
+          "name": "Lot Seven",
+          "description": "Wednesday evening, the late edition, and the calls that follow. Gilchrist & Lowe, the Sutter Street auction rooms, announce a private evening sale on Thursday at eight: 'Property of a San Francisco estate. Lot 7: an important Japanese lacquer figure of a crane, Edo period.' Pellingham telephones the agency. Larrabee telephones the agency. Magda telephones the agency. Dolan comes in person.",
+          "readAloud": "Dot reads it out from the late edition with her glasses on the end of her nose: 'Gilchrist and Lowe, Sutter Street, private evening sale, Thursday tenth November at eight o'clock. Property of a San Francisco estate. Lot Seven, an important Japanese lacquer figure of a crane, Edo period. By invitation.' She lowers the paper. 'By invitation,' she says. 'Well. I'll get the coffee on.' Then all four telephone lines light up at once.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Pellingham, on the telephone, is not surprised; he says 'Mrs. Marsh and I have an understanding, and the sale is a formality.' He is lying about being calm: he is angry, because an auction is not what Corinne promised him. (He means to have it anyway; he holds the pistol.)",
+              "failure": "Pellingham says he looks forward to seeing the party there, and rings off."
+            },
+            {
+              "skill": "Society",
+              "dc": 12,
+              "success": "Kit, or anyone with an entrée, can get the party invitations through Gilchrist & Lowe: as Magda's agents, as press, as a bidder with Kit's father's name behind them.",
+              "failure": "No invitations. The party will have to get in as staff, guests of a guest, or through the loading door in Maiden Lane."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "None planned. If the party breaks into the Marsh house on Wednesday night to take the crane, they arrive at about one in the morning to find the kitchen light on and Corinne at the stove with a knife heating over the gas; she has just finished. She screams for Concepción and the police; the bonds are in her dressing-gown pocket. Run it as a tense scene, not a fight: the party can take the bonds by force, which makes them thieves in Dolan's eyes and Heat +3, or leave and use what they saw."
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Mick Larrabee, 50",
+      "role": "Waterfront Boss: Pier 32, Larrabee Stevedoring & Hauling",
+      "description": "Barrel-chested, grey crewcut, in shirtsleeves and red braces in all weathers, with a voice that carries across a pier without being raised. Came up on the Third Street docks, broke strikes in '34, now hauls fill and timber to Treasure Island on night contracts. Generous to his men and pitiless to everyone else. Thinks the crane is full of diamonds.",
+      "motivation": "His $6,000, and anything else in the bird. Respect on the waterfront. Never to look like a fool."
+    },
+    {
+      "name": "Tiny Mulcahy, 34",
+      "role": "Larrabee's lieutenant",
+      "description": "Six foot six, soft-spoken, a former heavyweight with a ruined ear. Does exactly what Larrabee says and nothing more, and stops when it is no longer worth it.",
+      "motivation": "Keep his job, keep his men out of jail, go home to his wife in Daly City."
+    },
+    {
+      "name": "Senhor Albano Teixeira, 61",
+      "role": "Purser of the Serra da Estrela",
+      "description": "Small, grey, exact, with sleeve garters and two pens. Has carried a dead man's trunk eleven weeks out of a sense of duty to the company and to the dead.",
+      "motivation": "Deliver the trunk to the widow, correctly, with a signature."
+    },
+    {
+      "name": "Joaquim Lobo, 45",
+      "role": "First mate of the Serra da Estrela",
+      "description": "Weathered, humorous, a chess player and a widower's friend. Liked Carlton Marsh because Carlton lost at chess cheerfully.",
+      "motivation": "Shore leave, a letter home, and to see that the young woman who looked at the crate like a mother at a hospital window gets what Carlton meant her to have."
+    },
+    {
+      "name": "Mrs. Grace Holloway, 58",
+      "role": "Senior examiner, U.S. Appraiser's Stores",
+      "description": "Tweed, pince-nez, twenty years valuing the Orient's art for the Treasury. Knows lacquer better than Pellingham does, which annoys him.",
+      "motivation": "A correct valuation and no fuss in her examiner's room."
+    },
+    {
+      "name": "Magdalena (Magda) Ehrlich, 27",
+      "role": "The client, under her own name at last",
+      "description": "The daughter of a Viennese physician, a trained pianist who has not touched a piano since March. Clever, tired, proud, and finished with lying to the party once she has told them the truth. Her family is in a pension in Lisbon on the Rua dos Fanqueiros; her brother Felix is fifteen.",
+      "motivation": "The bonds in a San Francisco bank in her name by Friday 18 November. Justice for Ned Corrigan. Not to be deported."
+    },
+    {
+      "name": "Corinne Marsh, 42",
+      "role": "The widow; legal owner of the crane",
+      "description": "In this scenario she gives her second account ('Carlton's savings, which are mine') and her third story about the pistol ('it must have been stolen'). She is broke, frightened and determined, and her lawyer is the only thing between her and the street.",
+      "motivation": "The bonds. A boat. A new name somewhere warm."
+    },
+    {
+      "name": "Sergeant Wally Kerrigan, 39",
+      "role": "Bent Detective: Dolan's sergeant, Larrabee's man",
+      "description": "Friendly, loud, four sugars in his coffee. In this scenario the party can catch him at Larrabee's and decide what to do with it.",
+      "motivation": "Not to lose his pension, his house in the Sunset, or Dolan's good opinion, in roughly that order."
+    },
+    {
+      "name": "Lieutenant Frank Dolan, 47",
+      "role": "Homicide",
+      "description": "In this scenario he learns the name Marsh, either from the party or from the pistol register, and is torn between his suspicion of the agency and a growing suspicion of a woman with very good friends.",
+      "motivation": "The truth, and a case that will stand up."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "Larrabee's standing offer of $500 to stay off his pier. Magda's promise of a $5,000 finder's fee to the agency if the bonds reach a bank in her name by 18 November. Larrabee's men in the hold carry about $40 between them.",
+    "items": [
+      "Clues D1–D3, E1–E3 and H1",
+      "A copy, or the carbon itself, of Carlton Marsh's last letter to Corinne",
+      "The Lisbon police inventory of Carlton's effects (a copy made by Teixeira, stamped and signed)",
+      "Mrs. Holloway's valuation slip: $11,500, base opened and resealed with shellac",
+      "A pry bar, a sap and a .38 revolver with .38 rounds (5) from the fight in the hold",
+      "Invitations to the Gilchrist & Lowe sale, if earned",
+      "Joaquim Lobo's friendship: a berth, a boat or a message carried to Lisbon if the party ever needs one"
+    ]
+  },
+  "twists": [
+    "The crane holds no jewels, no relic and no gold. It holds a refugee family's way out, and everyone who knows that and still wants it is choosing to steal from people with nothing. Let the letter land. This is where the story stops being about a statuette.",
+    "Magda's alibi (H1) clears her completely. A table that has been sure she is the killer since Friday should be allowed the pleasure of being wrong about the obvious suspect.",
+    "Corinne does not deny the letter: she has the original. Her second account is not a lie about what the bonds are; it is a claim about whose they are, and it is legally arguable. That is what makes her dangerous. The lie that will hang her is the small one, about the gun.",
+    "Kerrigan is Larrabee's man. Telling Dolan will cost Dolan something real; he trusted Kerrigan for nine years. It will also make Dolan trust the party, and the GM should let that trade be felt.",
+    "The auction announcement surprises Pellingham, who believes he had Corinne's promise. Corinne is playing everyone against everyone: Pellingham, who has the gun; Larrabee, who has the muscle; and the party, who have the truth. On Wednesday night, after the party has gone, she opens the base."
+  ],
+  "dmTips": [
+    "Run the ship's arrival as a set piece: whistles, foghorns, the bow coming out of the fog, the gangway coming down, the Portuguese crew lining the rail, Larrabee raising his glass. Slow down. Let the players feel the size of it.",
+    "Carlton Marsh's letter is the most important document in the campaign. Read it aloud in full when it is found. If the party fails to open the trunk aboard, the letter is still available at the Marsh house (Corinne has the original) and from Magda, who has the copy Carlton gave her father. Never let one failed roll hide it.",
+    "The fight in the hold should be a brawl, not a shoot-out: pry bars, cargo hooks, fists, a swinging bale, a forty-foot hold, a ladder, and fog. Larrabee's men stop when it stops being worth $20 a night. If nobody fires, award the full XP and keep Heat flat.",
+    "Election Day is real: 8 November 1938, the governor's race. Give it texture: campaign trucks with loudspeakers on Market Street, a polling place in a garage, Dot going out to vote at lunch and coming back with an opinion.",
+    "If the party steals the crane from the Appraiser's Stores (a federal crime, Heat +4) or from the Marsh house on Wednesday night, do not punish them by voiding the story: the base is intact (from the Stores) or freshly empty (from the house), and bc-scenario-003 becomes a hunt for the bonds and a fight for the bird, with Corinne, Larrabee and Pellingham all coming for the party. The killer and the clues do not change.",
+    "Level-up note: the 3,800 XP in this file is per character and takes each character from 4th to 5th level (6,500 XP). Award it when the party learns of the auction.",
+    "Period texture: Portuguese sailors' fado on a cabin radio, salt cod soaking in a bucket, Belt Line switch engines, a Key System train rumbling over the bridge's lower deck, longshoremen's white caps and hickory shirts, Bull Durham, the Exposition's floodlights seen across the water from the end of the pier."
+  ]
+}

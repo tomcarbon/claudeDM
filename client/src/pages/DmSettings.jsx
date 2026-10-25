@@ -36,8 +36,8 @@ const NARRATION_OPTIONS = [
 const AGENCY_OPTIONS = [
   { value: 'railroaded', label: 'On Rails', desc: 'Tight narrative, less deviation, cinematic experience' },
   { value: 'guided', label: 'Guided', desc: 'Clear objectives and plot hooks, gentle steering' },
-  { value: 'collaborative', label: 'Collaborative', desc: 'DM and players shape the story together' },
-  { value: 'freeform', label: 'Freeform', desc: 'Player leads the story, DM enriches and responds' },
+  { value: 'collaborative', label: 'Collaborative', desc: 'GM and players shape the story together' },
+  { value: 'freeform', label: 'Freeform', desc: 'Player leads the story, GM enriches and responds' },
   { value: 'sandbox', label: 'Sandbox', desc: 'Total freedom — the world reacts to your choices' },
 ];
 
@@ -217,11 +217,11 @@ function DmSettings() {
     setLoading(false);
   };
 
-  if (loading) return <div className="loading">Loading DM settings...</div>;
+  if (loading) return <div className="loading">Loading GM settings...</div>;
 
   return (
     <div>
-      <h2>DM Personality Defaults</h2>
+      <h2>GM Personality Defaults</h2>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 1.5rem' }}>
         These settings are used as defaults when you create new sessions.
         <br />
@@ -245,12 +245,12 @@ function DmSettings() {
       )}
       {!isLoggedIn && (
         <p style={{ color: 'var(--text-muted)', margin: '0 0 1.5rem' }}>
-          Log in to customize your DM Personality defaults.
+          Log in to customize your GM Personality defaults.
         </p>
       )}
       {isLoggedIn && viewMode === 'mySettings' && (
         <p style={{ color: isPersonalized ? '#27ae60' : 'var(--text-muted)', margin: '0 0 1.5rem' }}>
-          {isPersonalized ? '🎨 Your personal DM settings' : '🌐 Using global defaults'}
+          {isPersonalized ? '🎨 Your personal GM settings' : '🌐 Using global defaults'}
         </p>
       )}
       {viewMode === 'baseDefaults' && (
@@ -379,7 +379,7 @@ function DmSettings() {
               <span className="slider-value">{settings.playerAutonomy}%</span>
             </div>
             <div className="slider-track-container">
-              <span className="slider-end-label">DM Drives Story</span>
+              <span className="slider-end-label">GM Drives Story</span>
               <input
                 type="range" min="0" max="100" step="5"
                 value={settings.playerAutonomy}
@@ -397,7 +397,7 @@ function DmSettings() {
         <h3>📜 Large Campaigns</h3>
         <p className="settings-help" style={{ fontSize: '0.85em', opacity: 0.8 }}>
           Once a session grows past this many messages, the older story (up to the last chapter
-          summary) is archived and condensed into a compact "arc summary" the DM and you see in
+          summary) is archived and condensed into a compact "arc summary" the GM and you see in
           its place. Condensing happens when you resume a session. Set to 0 to disable.
         </p>
         <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.5rem' }}>

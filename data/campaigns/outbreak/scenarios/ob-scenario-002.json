@@ -1,0 +1,471 @@
+{
+  "id": "ob-scenario-002",
+  "title": "St. Agnes",
+  "subtitle": "Days 5–7: insulin, a hospital full of the dead, and the thing in the morgue drawers",
+  "levelRange": "2-3",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "St. Agnes Regional Medical Center, Haskett",
+    "description": "Four storeys of 1990s brick and glass on the north edge of Haskett, eight miles south of the river: an emergency department and ambulance bay, a ground-floor pharmacy, a basement morgue and plant room, a surgical floor, an ICU on the fourth floor, a helipad on the roof, and a three-level parking garage connected by a skybridge on the second floor. St. Agnes was where every bitten person in three counties was brought on Saturday, and it fell by Saturday midnight. The backup generator is still running on Day 5 — the hospital is the only lit building in Haskett, its hum audible for blocks — and it will run dry at about 6 p.m. on Day 7. When it does, the lights, the elevators, the door locks and the pharmacy fridges all go at once. Getting there means crossing the river through the Co-op's census, or wading the shoals below the dam and walking eight miles of county road.",
+    "atmosphere": "Fluorescent light, overhead pages that still play on a loop ('Code Blue, Emergency Department'), wheelchairs in corridors, curtains around beds that nobody wants to pull back. The hospital is the place where everyone in the county went to be helped, and it should feel like that: get-well balloons, a cafeteria menu board for Saturday, a chapel with candles burned down to nothing. The dead here wear hospital gowns, scrubs and visitor badges. The living here are exhausted, filthy, heroic and out of everything. The generator hum is the constant baseline: when it stops, everyone in the building hears the silence, and so does everything else.",
+    "keyLocations": [
+      {
+        "name": "The Co-op Census Table",
+        "description": "The south end of the Route 9 bridge at Harmon Siding, where grain trucks are parked nose to tail, a deer stand is welded on top of a combine, and a folding table under a pop-up canopy is staffed by former Haskett County deputy Wade Pruitt and a teenage girl with a laptop running on a car battery.",
+        "features": [
+          "Everyone crossing gives a name, a skill and an inventory. The girl types it all in. The Co-op wants a 'crossing contribution': 10 rounds of ammunition per person, or $200 cash per person (on Day 5 the Co-op still takes cash)",
+          "Behind the trucks: the Co-op works. Kids in a school bus being taught in the scale house, a chow line, a water truck, a dozen people in hi-vis vests clearing the rail spur. It looks like the best-run place in the county, because it is",
+          "On the elevator's head house, 140 feet up, a man with a scoped rifle watches the bridge all day"
+        ],
+        "encounters": [
+          "Wade Pruitt: friendly, sharp, very interested in medics and mechanics. Uses the Gang Boss statblock if it comes to it, which it should not",
+          "Six Co-op checkpoint guards (Gang Enforcer) and one Sniper on the elevator"
+        ],
+        "secrets": [
+          "The census laptop already has a spreadsheet with a column headed PRIORITY: A, B, C. Doctors, nurses, mechanics, electricians and farmers are A. A Persuasion or Deception DC 15 (or Sleight of Hand DC 15) gets a look at it. Most of the party are A or B. Maddie is C",
+          "Wade asks every crossing party whether they know Shay Pruitt. She is his sister. He has been looking for her since Day 1"
+        ]
+      },
+      {
+        "name": "The Emergency Department and Ambulance Bay",
+        "description": "The ground-floor ED, where it all came in on Saturday: a covered ambulance bay with three ambulances still parked, sliding doors jammed half open, a triage desk, twenty curtained bays and a locked trauma room.",
+        "features": [
+          "The automatic doors are stuck at two feet open — one creature at a time, squeezing",
+          "The ambulances: one has keys and half a tank. Its siren works. Using it is +5 Attention per round, and the dead follow it for miles (see the twist)",
+          "The overhead page system loops 'Code Blue, Emergency Department' every ninety seconds until the generator dies"
+        ],
+        "encounters": [
+          "A Horde in the ED waiting room and bays — the people who were waiting to be seen on Saturday night",
+          "A Zombie Brute in a security-guard uniform in the trauma room (Dennis Ogle, St. Agnes security, 6 foot 6), behind a door marked AUTHORIZED PERSONNEL"
+        ],
+        "secrets": [
+          "The security office behind the triage desk: 2 Glock 9mm pistols, 9mm rounds (60), a Stun gun with 4 cartridges, a ring of master keys, and the access badge of the head of security (opens the pharmacy and the stairwell doors while the power lasts)",
+          "The ED is the way in that everybody tries first. The parking-garage skybridge is quieter, and a Perception or Survival DC 12 from the garage roof spots it"
+        ]
+      },
+      {
+        "name": "The Pharmacy",
+        "description": "Ground floor, off the main corridor, behind a security-glass window and a steel door: shelves of stock, a walk-in drug fridge, two automated dispensing cabinets and a locked narcotics vault.",
+        "features": [
+          "The steel door opens with the head of security's badge or a pharmacist's code while the power is on. Without either: Mechanics DC 18, or Jury-Rig and 10 minutes, or the hinges and 30 minutes and +2 Attention",
+          "The drug fridge is full while the generator runs: Insulin (14 vials), plus everything a nine-year-old with Type 1 diabetes needs for months",
+          "The dispensing cabinets need a Computers DC 15 check (Tech Intrusion applies: physical access) or a staff code; inside are the antibiotics and painkillers"
+        ],
+        "encounters": [
+          "Two Zombie Shamblers in white coats behind the glass — the pharmacists, who locked themselves in on Saturday",
+          "The Co-op scavenging team arrives at the pharmacy during Act 2 (see The Parking Garage)"
+        ],
+        "secrets": [
+          "Full haul if the party gets it all: Insulin (14 vials), Antibiotics (10 courses), Morphine (6 doses), Painkillers (40 doses), Epinephrine pens (4), IV fluids (12 bags), 2 trauma kits, and the hospital's entire stock of bandages",
+          "The narcotics vault holds nothing anybody needs to survive, and the Co-op team will fight for it anyway, because it trades"
+        ]
+      },
+      {
+        "name": "The Basement Morgue",
+        "description": "Down the service stairs from the pharmacy corridor: the plant room (the generator, the fuel tank and its gauge), the laundry, and the morgue — a cold room of twelve steel drawers, an autopsy table, and a desk with a clipboard of intake sheets.",
+        "features": [
+          "The generator's fuel gauge reads just under one-eighth. Anyone who reads it knows exactly how long they have: until about 6 p.m. on Day 7",
+          "Eleven of the twelve morgue drawers are banging. Softly, steadily, from inside",
+          "The intake clipboard lists the eleven: two car accidents, a stroke, three heart attacks, a fall, an overdose, a hospice patient, a gunshot wound and a drowning. None of them were bitten"
+        ],
+        "encounters": [
+          "A Bloater in the laundry, wedged among the linen carts — a patient who was put there by staff on Saturday and swelled. Do not shoot it at close range in a confined space",
+          "The morgue drawers: eleven Zombie Shamblers, each locked in. Opening a drawer releases one"
+        ],
+        "secrets": [
+          "THIS IS WHERE THE PARTY LEARNS THE 'EVERYONE RISES' RULE. Dr. Walt Hennessey has been coming down here to watch. He can explain it, if they find him; if not, the clipboard does",
+          "The laundry chute runs from every floor to the basement. A person can climb it with an Athletics DC 13 check — it is the one route from the basement to the fourth floor that the dead cannot use"
+        ]
+      },
+      {
+        "name": "The Fourth Floor ICU and the Parking Garage",
+        "description": "The survivors' redoubt: the ICU on the fourth floor, barricaded at both stairwells and the elevator lobby with beds, and the three-level parking garage next door, connected to the second floor by a glass skybridge.",
+        "features": [
+          "In the ICU: Dr. Imani Brooks, two nurses, an orderly, Dr. Walt Hennessey, and four patients who cannot walk — a post-surgical man, a woman on oxygen, a teenage boy with a broken pelvis, and a premature baby in an incubator that runs on the generator",
+          "The roof helipad above the ICU. No helicopter has come since Saturday",
+          "The parking garage: three ramped levels, cars, a box truck backed up to the skybridge door on level 2, and the only vehicle exit onto Haskett's north road"
+        ],
+        "encounters": [
+          "The Co-op scavenging team: Travis Kemper (Mercenary) and five Co-op scavengers (Gang Enforcer), with a box truck, bolt cutters and a list",
+          "Zombie Shamblers on every floor between 1 and 4, in ones and twos, in corridors and patient rooms"
+        ],
+        "secrets": [
+          "The Co-op came to St. Agnes once already, on Day 3, and took two surgeons and an anaesthetist who were on Colleen Marsh's list. They offered to take Dr. Brooks too. She refused to leave patients who could not walk, and the Co-op would not take them",
+          "Travis Kemper's orders are to bring back the pharmacy and 'any A-list staff'. They are not to bring back anyone who cannot walk"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Day 5. Maddie Kettering has a day of insulin left, the phones are gone, and one of the police handheld radios picks up a woman on the hospital emergency band: Dr. Imani Brooks, at St. Agnes, saying she has four patients who cannot walk, a generator running out, a pharmacy she cannot get to, and nobody coming. The party crosses the river — through Wade Pruitt's census table, or across the shoals below the dam — and walks or drives eight miles into Haskett, the county seat, which lost almost everyone. The hospital is the only lit building in town. Getting in means the ED and its Horde, or the garage skybridge. Getting the insulin means the pharmacy; getting the antibiotics means the dispensing cabinets; finding out why the morgue drawers are banging means learning the campaign's second great rule: everyone rises, bitten or not. On the fourth floor are Dr. Brooks, two exhausted nurses, an orderly, a county veterinarian named Walt Hennessey who has been studying the dead with terrible calm, and four patients — one of them a premature baby in an incubator. Then the Co-op's scavenging team arrives in a box truck with a list: they want the pharmacy, they want Dr. Brooks, and they will not take anyone who cannot walk. The party has until the generator dies at 6 p.m. on Day 7 to decide who gets the medicine, who gets carried out, and whether the Co-op is a partner, a rival or something worse.",
+  "hook": "Day 5, 7:10 a.m. The handheld radio on the counter at Kettering's, which has carried nothing but static for two days, clicks. A woman's voice, low and very tired: 'This is Dr. Imani Brooks at St. Agnes Regional in Haskett, on the hospital emergency band. If anyone can hear this. We are on the fourth floor. We have four patients who cannot be moved without help, two nurses, a veterinarian and me. We have a generator with about two days of fuel. The pharmacy is on the ground floor and we cannot get to it. If you have a vehicle and a way across the river, we need you. I will be on this channel at seven a.m. and seven p.m. until the generator goes.' Maddie, who is sitting on the counter checking her blood sugar, looks at her meter, then at the radio, then at you.",
+  "acts": [
+    {
+      "title": "Act 1: Across the River",
+      "description": "Getting to Haskett. Two ways across: Wade Pruitt's census table at the bridge, or the low-water shoals below Lock and Dam No. 14. Either way, eight miles of county road and a dead town.",
+      "objectives": [
+        "Choose a crossing and make it",
+        "Meet Wade Pruitt and the Co-op, or avoid them",
+        "Travel to Haskett and reach St. Agnes before dark on Day 5"
+      ],
+      "encounters": [
+        "The census table: social, with a price",
+        "The shoals: Zombie Shamblers in the shallows (Drowned: see below) and a 200-yard wade with no cover",
+        "Route 9 south: a car pile-up with a Horde around it, and an overturned school bus"
+      ],
+      "scenes": [
+        {
+          "name": "The Census",
+          "description": "Wade Pruitt's table at Harmon Siding. The Co-op as it presents itself: organised, generous, hungry for skilled people, with a price.",
+          "readAloud": "\"You walk the quarter mile of the Route 9 bridge with your hands where people can see them. The grain trucks at the south end have had their windows covered in plywood, and somebody has spray-painted on the first one, neatly, CO-OP CHECKPOINT — HAVE NAMES READY. Behind the trucks there is a folding table under a blue canopy, a teenage girl with a laptop wired to a car battery, and a big, easy-going man in a Haskett County deputy's jacket with the patches unpicked. He is eating sunflower seeds out of the bag. 'Morning,' he says. 'Wade Pruitt. Names, what you do, what you're carrying. Nobody's taking anything off you but the contribution. Anybody here a nurse?'\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Wade waives the contribution for a party going to St. Agnes — 'Doc Brooks is good people' — and offers them a ride as far as Haskett's north road in a Co-op pickup, if they will bring the Co-op word of what is there.",
+              "failure": "The contribution stands: 10 rounds or $200 per person. Wade is pleasant about it."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Wade likes people and is not lying about anything he has said. He is also very carefully not saying something whenever the word 'list' comes up.",
+              "failure": "A good guy doing a hard job."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 15,
+              "success": "While the girl types, you see the screen: a spreadsheet with a PRIORITY column. A, B, C. Medic: A. Mechanic: A. Nine-year-old, insulin-dependent: C.",
+              "failure": "The girl angles the laptop away, politely."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This should be the most pleasant scene in the scenario. Wade is warm, funny, competent and genuinely relieved to see living people. He asks about his sister Shay: dark hair, a lip ring, 'probably stole something from you'. If Shay Pruitt is with the party, play the reunion — or her hiding from it — for all it is worth. Do not show the Bell. Do not say the word 'tithe' yet.",
+          "loot": []
+        },
+        {
+          "name": "The Shoals",
+          "description": "The alternative: wade the low-water shoals below Lock and Dam No. 14, two miles downstream. Quiet, unregistered, and with things in the water.",
+          "readAloud": "\"Below the dam the Tamarack has broken into channels — brown water a foot or two deep running fast between long, pale sandbars and gravel bars, with drowned trees lodged against them. You can see the far bank. You can also see, here and there in the shallower water, shapes that are not driftwood: a shoulder, a sleeve, a head turned to face the noise of the spillway. They are under the water and they are not floating. They are standing up.\"",
+          "skillChecks": [
+            {
+              "skill": "Survival",
+              "dc": 13,
+              "success": "You read the bars and find a route that stays on sand or in ankle-deep water for all but forty yards.",
+              "failure": "The route takes you through two channels of thigh-deep water, where you cannot see what is underneath you."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 12,
+              "success": "You keep your feet in the current.",
+              "failure": "The current takes you down: prone in the water, Bleeding from the gravel, and anything nearby gets a grab."
+            },
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "You spot the Drowned before they spot you, and route around them.",
+              "failure": "The first you know of the Drowned is a hand on your ankle."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "1d4+1 Drowned (campaign-unique, below)"
+              ],
+              "difficulty": "Medium",
+              "tactics": "DROWNED (undead, Medium; this campaign only): AC 8; HP 22 (4d8+4); speed 10, swim 20; STR 14 DEX 6 CON 12 INT 1 WIS 6 CHA 1; immune to poison, Shaken and frightened. Submerged: while in water 2 or more feet deep, a Drowned is heavily obscured and has advantage on its first attack. Waterlogged: takes half damage from bludgeoning. Actions — Grab: +4 to hit, reach 5 ft, the target is grappled (escape DC 12) and pulled 5 ft toward deeper water. Bite: only against a creature it is grappling, or one that is prone or restrained, +4 to hit, 1d6+2 piercing, and the Infection rule applies. The Drowned are the dead who walked into the river and were carried down; they wait in the channels and they do not move until something enters the water. Shooting at them is at disadvantage (they are under the water) and noisy (+1 per round, +2 for rifles and shotguns).",
+              "terrain": "Sandbars (normal ground), channels 1–2 feet deep (difficult terrain), and two 3-to-4-foot channels (swimming; STR (Athletics) DC 12 to cross against the current or be carried 10 feet downstream). No cover anywhere. The spillway's roar means Attention rises by half (round down) — it is the only place in the county where you can fire a gun almost for free."
+            }
+          ],
+          "roleplayNotes": "This route avoids the Co-op entirely, and is the quiet way the party might cross again in ob-scenario-003 and 004. If they use it, the Co-op notices later: the census has no record of them, which Wade will mention, mildly, when they meet.",
+          "loot": []
+        },
+        {
+          "name": "Haskett",
+          "description": "Eight miles of Route 9, the edge of the county seat, and the first sight of the hospital, lit up like a ship.",
+          "readAloud": "\"Haskett is the county seat, and on Day 5 it is quiet the way only a town that used to be loud can be quiet. There are cars across both lanes at the Walmart turn, doors open, alarms long dead. A school bus is on its side in the ditch by the Sonic. The courthouse clock has stopped at 11:52. Everything is dark except, half a mile north of the square, St. Agnes Regional Medical Center: four storeys with every window lit, the red EMERGENCY sign still glowing, and a sound you can hear from here — the long steady hum of a generator — and, under it, very faint, a recorded voice paging Code Blue to the Emergency Department over and over again.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "You come in through backyards and the Methodist cemetery, and nothing in Haskett notices you.",
+              "failure": "+2 Attention. Something has noticed you, and it is coming along Main Street behind you."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The overturned school bus was a Haskett Elementary field-trip bus. It is empty. Its first-aid kit is under the driver's seat (medkit, 5 uses) and there are four cases of bottled water (8 person-days) in the back.",
+              "failure": "You find the bus. You find it is empty. You do not find the kit."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "A Horde around the pile-up at the Walmart turn, which the party can go around or through"
+              ],
+              "difficulty": "Hard (if fought); Easy (if avoided)",
+              "tactics": "The Horde is standing among the cars, drawn by the hospital's generator hum and doing nothing. A party that goes around it loses half an hour; a party that drives through it (Piloting DC 13) risks the vehicle and Attention.",
+              "terrain": "Thirty cars across four lanes (engine blocks full cover; car doors half cover vs. pistols), a Walmart parking lot, the Sonic drive-in canopy."
+            }
+          ],
+          "roleplayNotes": "Let the hospital's lights be a lure for the players as they are for the dead. Point out that every zombie in Haskett within earshot of the generator has been drifting toward it for four days.",
+          "loot": [
+            "Overturned school bus: medkit (5 uses), bottled water (8 person-days)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Inside St. Agnes",
+      "description": "Getting in, getting the pharmacy, and the basement. Find the survivors, learn that everyone rises, and meet the Co-op's scavenging team in a building where every gunshot is heard on every floor.",
+      "objectives": [
+        "Get into the hospital (ED or skybridge)",
+        "Reach the fourth floor and Dr. Brooks",
+        "Open the pharmacy and secure the insulin",
+        "Learn what the morgue drawers mean",
+        "Deal with the Co-op scavenging team"
+      ],
+      "encounters": [
+        "The ED Horde and the Zombie Brute in the trauma room",
+        "The pharmacists (2 Zombie Shamblers) and the dispensing cabinets",
+        "The Bloater in the laundry; the eleven morgue drawers",
+        "Travis Kemper and five Co-op scavengers"
+      ],
+      "scenes": [
+        {
+          "name": "The Fourth Floor",
+          "description": "Dr. Brooks, her staff and patients, and Walt Hennessey.",
+          "readAloud": "\"The ICU has been turned into a fort out of hospital beds, stacked three high and zip-tied across the stairwell doors and the elevator lobby, with a gap at one end just big enough for a person sideways. Behind it, under fluorescent light, a tall woman in surgical scrubs and a fleece is changing an IV bag with hands that shake slightly and stop shaking when she notices. 'You came,' Dr. Imani Brooks says, as if she had not really believed it. Behind her, in a corner bay, an older man in a barn coat with a stethoscope round his neck looks up from a notebook full of tiny handwriting. In the next bay an incubator glows blue, and inside it something very small is breathing.\"",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "Triage: the post-surgical man can walk with help after a long rest; the woman on oxygen needs a portable tank (the respiratory store on 2 has three); the boy with the broken pelvis must be carried on a backboard; the baby needs warmth, feeding and the incubator or a skin-to-skin carrier. All four can survive the trip. None of them survive staying.",
+              "failure": "It looks impossible. Dr. Brooks tells you what is possible, and she is right."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Walt Hennessey is a kind man who has not slept, and when anyone mentions his wife his face closes like a door.",
+              "failure": "A country vet. Helpful, odd, very calm."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Dr. Brooks is the moral centre of this scenario: she will not leave her patients and she will not hand her pharmacy to anyone who will not take them. Walt is the campaign's Scientist companion (see his NPC file). He has been going down to the morgue twice a day to watch, and will tell the party, if asked, what he has learned: nobody he has watched has stayed dead, and nobody he has watched was bitten.",
+          "loot": [
+            "Respiratory store (2nd floor): 3 portable oxygen tanks",
+            "Supply closets on 4: IV fluids (6 bags), bandages, a backboard and two folding stretchers"
+          ]
+        },
+        {
+          "name": "The Morgue",
+          "description": "The reveal. Eleven banging drawers, a clipboard, and a Bloater in the laundry next door.",
+          "readAloud": "\"The basement is warm and loud with the generator, and it smells of diesel and bleach. The morgue door is steel with a little window. Inside, under a single strip light, there is a wall of twelve stainless-steel drawers, and eleven of them are moving. Not much. A soft, steady knock, knock from inside, like someone at a door who has been knocking a long time and expects to keep knocking. On the desk is a clipboard with eleven intake sheets, in a clerk's tidy hand. You read the first one. Cause of death: myocardial infarction. You read the second. Motor vehicle accident. Third: CVA. You keep reading. You keep looking for the word bite, and it is not there.\"",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "None of the eleven were bitten. All of them rose. Whatever this is, everyone already has it; the bite only decides when.",
+              "failure": "You can see they are all dead and all moving; the shape of it does not come together until Walt — or someone — says it out loud."
+            },
+            {
+              "skill": "Science",
+              "dc": 13,
+              "success": "The time-of-death notes and the clerk's hourly checks agree: each one rose between five and twenty minutes after death. (The rule: 2d6 minutes.)",
+              "failure": "You know they rose. You do not know how fast."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Bloater (in the laundry)",
+                "Up to 11 Zombie Shamblers (only if drawers are opened)"
+              ],
+              "difficulty": "Medium",
+              "tactics": "The Bloater is wedged among the linen carts and moves only when something living comes within 15 feet. Fight it at range, and not in the laundry: in a confined space, its burst counts as fluid in the eyes and mouth for everyone within 10 feet (DC 12 CON save or Infected — read the rule before anyone pulls a trigger). The drawers stay shut unless someone opens them.",
+              "terrain": "The laundry: linen carts (difficult terrain, half cover vs. pistols and nothing vs. rifles), a concrete floor, the laundry chute up to every floor. The plant room: the generator (full cover; shooting it is a terrible idea), the fuel tank."
+            }
+          ],
+          "roleplayNotes": "Give this scene room. It changes the campaign: now every death in the party's presence — a Co-op guard they shoot, a patient who does not make it, an old man in his sleep — is a thing that gets up in two to twelve minutes. Remind them, once, kindly, and then let them carry it.",
+          "loot": [
+            "Plant room: a 5-gallon jerry can of diesel (5 gallons) by the generator, and a fuel-transfer pump"
+          ]
+        },
+        {
+          "name": "The Co-op Arrives",
+          "description": "Travis Kemper and five scavengers back a box truck up to the garage skybridge. They have bolt cutters, a list, and orders.",
+          "readAloud": "\"The skybridge door opens with a bang that carries down every corridor in the building, and six people in hi-vis vests come through with rifles and shotguns and a pallet jack. The man in front is lean, sunburnt, in a Co-op cap and a plate carrier, and he has a sheet of paper in a plastic sleeve that he consults before he speaks. 'Haskett Farmers Co-op,' he says. 'We're here for the pharmacy and Dr. Brooks. Anybody else on the A-list comes too.' He looks past you, through the ICU barricade, at the incubator and the boy on the bed and the woman on oxygen, and for a second something crosses his face. Then he looks at his list again. 'Just the walking,' he says.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "Kemper agrees to split the pharmacy — insulin and half the antibiotics for the party; the rest for the Co-op — and to put the boy and the baby in the box truck 'and I'll answer for it'. He will, and it will cost him in ob-scenario-003.",
+              "failure": "Kemper will take what he came for and leave the rest. He is not going to start a gunfight in a building full of the dead, but he is not leaving empty-handed."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "Kemper backs off. He takes the narcotics vault and nothing else, and he remembers your faces.",
+              "failure": "One of Kemper's people panics and fires. +2 Attention, and it is a gunfight inside St. Agnes."
+            },
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "You convince Kemper that the pharmacy has already been cleaned out and that the Bloater in the laundry is between him and the rest. He searches the floor he is on, finds nothing, and leaves.",
+              "failure": "He checks. He finds the insulin. He is not happy."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Travis Kemper (Mercenary)",
+                "5 Co-op scavengers (Gang Enforcer)",
+                "Whatever Attention brings: a Horde up the stairwells at 6"
+              ],
+              "difficulty": "Hard",
+              "tactics": "If it comes to a fight, the Co-op team fights like people who know the rules: they take cover behind nurses' stations and laundry carts, they suppress, and once Attention reaches 6 they retreat to the skybridge and let the dead come up the stairs between them and the party. Two of the scavengers are teenagers and will surrender if called on to (Intimidation DC 10). Any Co-op scavenger who dies rises in 2d6 minutes. Kemper retreats when two of his people are down.",
+              "terrain": "Hospital corridors (10 ft wide, long sightlines), nurses' stations (half cover vs. pistols, none vs. rifles), fire doors (full cover when shut; one action to open), patient rooms with drywall walls (no cover vs. rifles, half vs. pistols)."
+            }
+          ],
+          "roleplayNotes": "Travis Kemper is not a monster. He is a Co-op truck driver with three kids at Harmon Siding and a list Colleen Marsh wrote, and he has already done two things this week he will not tell his wife about. The best outcome is a deal, and the players should feel that the Co-op is ruthless but reasonable — for now. Whatever happens here, Kemper reports it to Colleen, and the party becomes a name in her ledger.",
+          "loot": [
+            "Co-op scavengers, if it comes to it: each carries a Gang Enforcer's weapon with 2d6 rounds of 9mm, 12-gauge or .308; Kemper carries an AR-15, 5.56mm rounds (28) and a plate carrier (tactical vest)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Generator",
+      "description": "Day 7, 6 p.m.: the generator dies, and every lock, light and elevator in the building with it. Get everyone out — patients, staff, Walt, and the medicine — to a vehicle and home.",
+      "objectives": [
+        "Move four non-ambulatory patients down four floors in the dark",
+        "Get them and the medicine into vehicles",
+        "Get back across the river",
+        "Decide whether to take the ambulance — and whether to use its siren"
+      ],
+      "encounters": [
+        "The stairwells in the dark: Zombie Shamblers on every landing",
+        "The ED Horde, roused by the silence and the movement",
+        "Optional: the ambulance siren as a lure"
+      ],
+      "scenes": [
+        {
+          "name": "Lights Out",
+          "description": "The generator coughs, and stops. The page system stops mid-word. The hum that has been the background of the whole scenario is gone, and the building hears everything.",
+          "readAloud": "\"It happens at 6:04 p.m. The lights in the ICU dip, come back, dip again, and go out, and the hum you stopped hearing two days ago stops. The page system says 'Code Blue, Emer—' and is silent. The incubator's display goes black and its fan winds down with a little sigh. For a moment, in the dark, the only sounds are the woman on oxygen breathing and Dr. Brooks saying, very calmly, 'All right. All right.' Then, from four floors down, from every floor down, comes the sound of the dead noticing the quiet: doors, shuffling, the long rising moan of a building full of people who were waiting for something and have just been told it is time to move.\"",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "The baby goes skin-to-skin inside a nurse's fleece, and will be fine for hours. The woman on oxygen is switched to a portable tank without a hitch.",
+              "failure": "The switchover is fumbled in the dark; a patient loses 1d4 hit points' worth of strength and the party loses five minutes."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 13,
+              "success": "The backboard goes down four flights of stairs, level and steady, carried by two people.",
+              "failure": "The bearers stumble on a landing; everyone on the stairs gains +1 Attention and the boy cries out."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "Down the north stairwell to the skybridge level, quietly, with the dead moving up the south stairwell past you on the other side of the building.",
+              "failure": "The dead meet you on the second-floor landing."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "1d4 Zombie Shamblers per landing",
+                "The ED Horde, coming up the south stairwell",
+                "A Zombie Runner (a nurse who died on Day 6) on the skybridge"
+              ],
+              "difficulty": "Hard",
+              "tactics": "This is an escort mission in the dark. Bearers carrying a stretcher can't attack or use a shield; a dropped patient is prone (and a prone creature can be bitten). Flashlights are a choice: light lets you see (otherwise everything is heavily obscured in the stairwells) and lets the dead see you (+1 Attention per round). The ambulance siren can be used as a lure: if someone starts it in the ambulance bay and leaves it running, the ED Horde turns toward it and the stairwells empty for 10 minutes. Walt Hennessey will point this out.",
+              "terrain": "Concrete stairwells (full cover around the turns; only two abreast), fire doors, the glass skybridge (no cover at all, and visible from the street), the garage ramps."
+            }
+          ],
+          "roleplayNotes": "This is the scenario's climax and it should be hard and hopeful. Every patient who makes it out is a victory the players should feel. If someone does not make it, remember 'Everyone Rises' — and let Dr. Brooks be the one who does what has to be done, so the players see what it costs a doctor. If Kemper made a deal in Act 2, his box truck is waiting in the garage with its engine running, and he helps.",
+          "loot": []
+        },
+        {
+          "name": "The Siren",
+          "description": "The coda and the foreshadowing: the dead follow the ambulance siren for miles.",
+          "readAloud": "\"If you used the ambulance siren, you see it from the garage roof as you leave: the ambulance bay, the siren still wailing on the abandoned ambulance, and the dead of Haskett coming to it. Not just from the hospital — from Main Street, from the Walmart turn, from the dark streets on every side, more than you thought were left in the town, filling the lot under the sodium lights, all facing the same way. Walt Hennessey watches it with you for a long time. 'They'd follow that anywhere,' he says, finally, in a voice that has gone very quiet. 'Anywhere at all.'\"",
+          "skillChecks": [],
+          "combatEncounters": [],
+          "roleplayNotes": "Plant this and do not explain it. In ob-scenario-003 the party learns somebody else worked this out first. If the party did not use the siren, have Walt mention that on Day 2 he watched the dead follow a fire engine with its siren stuck on for two miles down the Haskett road.",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Dr. Imani Brooks, 45",
+      "role": "Emergency physician / the last doctor at St. Agnes",
+      "description": "Tall, close-cropped hair, surgical scrubs under a fleece, four days without real sleep. Precise, dry, funny in a way that sneaks up on people. Refused to go with the Co-op on Day 3 because it would not take the patients who could not walk.",
+      "motivation": "Every patient out alive. After that, she does not know, and she will move to wherever the patients go — which means the party's safehouse, if they take her, and a working clinic there."
+    },
+    {
+      "name": "Dr. Walt Hennessey, 64",
+      "role": "County large-animal vet / companion",
+      "description": "See his NPC file. Has been studying the dead in the morgue with a notebook.",
+      "motivation": "Understand it. And something about his wife he will not say."
+    },
+    {
+      "name": "Wade Pruitt, 33",
+      "role": "Co-op checkpoint chief / the friendly face of the Co-op",
+      "description": "Big, easy, sunflower seeds, a deputy's jacket with the patches picked off. Six years a Haskett County deputy; joined the Co-op on Day 2 because Colleen Marsh was the only person giving orders that made sense. Looking for his sister Shay.",
+      "motivation": "Keep the bridge, keep his people fed, find Shay. Revealed more fully in ob-scenario-003."
+    },
+    {
+      "name": "Travis Kemper, 39",
+      "role": "Co-op scavenging team leader",
+      "description": "Lean, sunburnt, a long-haul truck driver with three kids at Harmon Siding and a list in a plastic sleeve. Honest, tired, follows orders because orders are keeping his kids alive.",
+      "motivation": "Bring back what he was sent for. He would like very much not to have to leave a baby behind, and the players can give him a way not to."
+    },
+    {
+      "name": "Nurse Rosa Jimenez and Nurse Kyle Ostrander; orderly Marcus Dee",
+      "role": "St. Agnes survivors",
+      "description": "Two ICU nurses and an orderly who stayed. Rosa is fierce and practical; Kyle is twenty-six and close to breaking; Marcus is a former linebacker who has carried every patient up four flights since Saturday.",
+      "motivation": "Get out. Get home. Rosa has a son in Corbin's Ferry she has not been able to reach."
+    },
+    {
+      "name": "The four patients",
+      "role": "Who the party is carrying",
+      "description": "Ray Kowal (58, post-surgical, can walk after rest), Delia Simms (71, COPD, on oxygen), Tanner Bright (15, broken pelvis, on a backboard) and Baby Girl Lyle (born Saturday at 32 weeks, mother did not survive).",
+      "motivation": "To live. The baby is the one the players will remember."
+    }
+  ],
+  "rewards": {
+    "xp": 1500,
+    "money": "About $3,100 in the cafeteria and gift-shop tills and the cashier's office strongbox, if the party bothers. On Day 5 the Co-op census table still takes cash at $200 a crossing; by Day 10 nobody takes it at all. Tell the players.",
+    "items": [
+      "Pharmacy (full haul): Insulin (14 vials), Antibiotics (10 courses), Morphine (6 doses), Painkillers (40 doses), Epinephrine pens (4), IV fluids (12 bags), 2 trauma kits — less whatever the Co-op takes under any deal",
+      "Security office: 2 Glock 9mm pistols, 9mm rounds (60), Stun gun with Stun gun cartridges (4), master keys",
+      "Respiratory store: 3 portable oxygen tanks",
+      "Plant room: Diesel (5 gallons), fuel-transfer pump",
+      "The ambulance, if driven out (half a tank; working siren; a full jump bag counts as a medkit with 10 uses)",
+      "Overturned school bus: medkit (5 uses), bottled water (8 person-days)",
+      "Dr. Brooks, her staff and up to four patients — a working clinic at the safehouse, and 9 more Occupants to feed"
+    ],
+    "story": "Maddie has insulin for months. The safehouse has a doctor, a clinic and too many mouths. The party knows the second rule — everyone rises — and knows the Co-op keeps a list with a PRIORITY column. They have met Wade Pruitt and liked him, and met Travis Kemper and understood him. Walt Hennessey has seen what a siren does to the dead, and so, maybe, have they."
+  },
+  "twists": [
+    "Everyone rises. None of the eleven in the morgue drawers were bitten. This is the campaign's second great rule and it lands here, in a cold room, from a clerk's clipboard.",
+    "The Co-op has been to St. Agnes before, on Day 3, and took the surgeons and the anaesthetist who were on Colleen Marsh's list. Dr. Brooks stayed because they would not take the patients who could not walk.",
+    "The Co-op's census sorts people into A, B and C. The party's medic and tech are A. Maddie is C. Nobody at the Co-op will say what C means.",
+    "Walt Hennessey's wife Ellen died of a stroke at St. Agnes on Saturday night, and rose. He drove her home to his farm in the back of his truck and she is locked in his barn. He has told no one. (See his NPC file; it pays off in ob-scenario-003.)",
+    "The ambulance siren draws every zombie in Haskett. Walt notices. So, on Day 2, did someone at the Co-op."
+  ],
+  "dmTips": [
+    "The generator is a clock. Tell the players when they read the fuel gauge exactly when it dies (6 p.m., Day 7) and then honour it.",
+    "Attention inside a hospital: one gunshot is heard on every floor. A fight on the second floor brings the dead from the first and third up and down the stairwells. Run it that way and let melee weapons from the hardware store shine.",
+    "Run the morgue reveal slowly and do not have an NPC say it if a player gets there first. Let the player say it.",
+    "Read the Bloater's burst rule out loud before anyone fires at it at close range. It is the scenario's one 'gotcha' and it must not be a gotcha.",
+    "Travis Kemper should be a negotiation, not a boss fight. If the players make a deal with him, they have a friend inside the Co-op for ob-scenario-003.",
+    "The four patients are the scenario's reward and its weight. Track them as people, not cargo. Use Medicine and Athletics checks for carrying, and let a dropped stretcher be terrifying.",
+    "After this scenario the safehouse's Supplies get tight. Recount Occupants. If Dr. Brooks comes, Security can rise faster (more hands) and Supplies drain faster. That tension is ob-scenario-003's engine.",
+    "Use the Drowned at the shoals if the party avoids the census. It is the river telling them it is not a free road either.",
+    "Gore: hospital horror is easy to overdo. Keep it to fluorescent flicker, empty wheelchairs, gowns and visitor badges. The baby is in danger; the baby does not come to harm unless the players' choices make it so, and even then, off-screen."
+  ]
+}

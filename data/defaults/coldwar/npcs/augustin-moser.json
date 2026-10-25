@@ -1,0 +1,130 @@
+{
+  "id": "dfc45f2a-d70c-484f-abea-fdb9888c09e1",
+  "name": "Augustin Moser",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Scientist",
+  "level": 4,
+  "background": "Criminal",
+  "alignment": "Neutral",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 9,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 18,
+    "current": 18
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Science",
+    "Mechanics",
+    "Investigation",
+    "Sleight of Hand",
+    "Deception"
+  ],
+  "languages": [
+    "German",
+    "English",
+    "Czech",
+    "Hungarian",
+    "Yiddish"
+  ],
+  "equipment": [
+    "A three-piece tweed suit, a homburg, and a blackthorn walking stick",
+    "9mm pistol (Walther P38), wartime manufacture, 8 rounds loaded, kept in a cigar box he has to be reminded to bring",
+    "9mm rounds (16)",
+    "Forger's case: inks, nibs, embossing dies for nine countries' passport stamps, photo paper, a loupe, and a tiny letterpress",
+    "Blank passports: two Austrian, one Swiss, one West German, and one Irish 'for emergencies of an Irish kind'",
+    "Secret-ink kit: three invisible inks and their reagents, in perfume bottles",
+    "A microdot camera of his own design and a microfilm reader that folds into a cigar box",
+    "A stamp album that is, in fact, a ledger of every document he has ever forged",
+    "Keys to the stamp shop on the Josefstadter Strasse and to a cellar under it",
+    "Wallet containing $160"
+  ],
+  "weapons": [
+    {
+      "name": "9mm pistol (Walther P38, wartime)",
+      "attackBonus": 3,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Walking stick, blackthorn",
+      "attackBonus": 1,
+      "damage": "1d4-1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Tweed suit (no armor)",
+    "type": "none"
+  },
+  "features": [
+    "Versatility (Human origin: +1 to all ability scores)",
+    "Analyze (bonus action: study a creature, device or document; the next attack roll or check an ally makes against it before his next turn has advantage; 3 uses per short rest)",
+    "Polymath (proficient in Science, Mechanics and Investigation; adds +1, half proficiency, to any Intelligence check he is not proficient in)",
+    "Eureka (once per long rest, after a failed Intelligence check, reroll it with a +5 bonus)",
+    "Underworld Paper (Criminal background: he can produce a convincing passport in 24 hours, a visa stamp in 2, and knows every fence and black-market currency man between Linz and Bratislava)"
+  ],
+  "traits": [
+    "Analyze (3/short rest)",
+    "Polymath",
+    "Eureka"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am a fussy, kind, slightly deaf old man who talks to his tools, offers everyone cake, and does not trust a document until he has smelt it. I am offended by bad forgery as a musician is offended by a wrong note.",
+    "ideals": "Paper is the only thing that stands between a person and a border guard. Making good paper is the most moral work I know.",
+    "bonds": "My wife Edith and I got out of Vienna in 1938 on papers forged by a man in Leopoldstadt whose name I never knew. She is buried in Dobling. I have been paying him back, one passport at a time, for forty-five years.",
+    "flaws": "I do not take sides. I have made papers for the Czechs, too, and for a man I later learned was very bad, and I tell myself that the paper does not know who carries it."
+  },
+  "appearance": "A small, round, pink-cheeked Viennese of sixty-two with white hair combed straight back, half-moon spectacles, and a magnifying loupe hanging on a ribbon round his neck. He wears tweed in all weathers and smells of ink, pipe tobacco and Sachertorte. His hands shake until he picks up a pen, at which point they become perfectly, eerily still.",
+  "backstory": "Augustin 'Gus' Moser was a seventeen-year-old printer's apprentice when the Anschluss came, a refugee in London by 1939, a forger for the British wartime services by 1942, and back in Vienna by 1946 with a stamp shop, a cellar, and a talent the occupation powers all wanted. He has made passports for the British, the Americans, the Austrians, Hungarian refugees in 1956, Czech ones in 1968, and, quietly, now and then, anyone with a sad enough story and cash. The Annex uses him as its forger and its microfilm man. He has a soft spot for Sofia, whose first Austrian papers he made in 1957 when she was eight, and he still calls her 'die Kleine'. He has never liked Lionel Pryce, for the simple reason that Pryce once asked him how one would go about getting a Soviet visa quickly, and then laughed and said it was a joke.",
+  "dmNotes": {
+    "roleplaying": "Gus is the Annex's Q-in-a-cardigan, and the party's base of operations in Vienna once the station can no longer be trusted. Use him to make tradecraft tactile: he develops the microfilm in his cellar while the party watches, he forges the canary-trap documents in cw-scenario-004, he notices that a stamp is the wrong shade. He is a companion in cw-scenario-001 and cw-scenario-004 and can be consulted by telephone (payphone to payphone, code words about stamps) in between. He is frail; he does not go on operations, and if the party takes him on one, he should slow them down and be in real danger. He is the warmest person in the campaign. Let the party come back to his kitchen after bad days.",
+    "voice": "Old-fashioned Viennese German-English, gentle and digressive, full of 'na ja' and 'mein Lieber' and stories that start in 1938 and arrive, eventually, at the point. He talks to documents: 'Na, and who made you, hm? Not a professional.' Becomes precise, brief and completely lucid when the work begins. Hard of hearing in his left ear; he turns his head to listen, which people find disarming.",
+    "motivations": "Primary: keep making paper that gets people across borders, which he regards as a debt he can never finish repaying. Secondary: protect 'die Kleine', Sofia. Tertiary: be useful one more time before the work becomes too much for his hands.",
+    "secrets": "He forged a set of Austrian papers for the Czech StB in 1979, for money, for a man he later realised was an StB illegal operating in Vienna. The StB still has the work, and his ledger records it. If the opposition ever wants to burn him, they can, and in cw-scenario-004 Major Rybak may try to use it to buy Gus's silence about the canary trap. Gus will confess it to Sofia if the party is kind to him; he will not confess it to anyone else. Second, smaller secret: he has a microfilm copy of everything he has ever developed for the Annex, in his stamp album, including a 1982 roll that has Lionel Pryce's handwriting on a duplicate log sheet. He has never looked at it closely. It is a clue the party can find.",
+    "attitude": "Toward the party: grandfatherly and fussing, and absolutely unflappable once a job begins. Toward Sofia: fierce, protective affection. Toward Vera Tarasova: wary courtesy, then, once she compliments a forged visa correctly, real respect; they discover they were in Prague in the same week in 1968 on opposite sides. Toward Martin Vell: fond exasperation. Toward Lionel Pryce: a faint, never-explained distaste he dismisses as an old man's prejudice."
+  }
+}

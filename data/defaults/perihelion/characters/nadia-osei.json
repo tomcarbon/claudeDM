@@ -1,0 +1,132 @@
+{
+  "id": "36c582dc-d59b-4fb3-b5e1-31f2118f6bca",
+  "name": "Nadia Osei",
+  "status": "alive",
+  "race": "Spacer",
+  "subrace": "",
+  "class": "Operative",
+  "level": 4,
+  "background": "Spacer Crew",
+  "alignment": "Chaotic Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 27,
+    "current": 27
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Stealth",
+    "Acrobatics",
+    "Sleight of Hand",
+    "Perception",
+    "Piloting",
+    "Mechanics"
+  ],
+  "languages": [
+    "Common",
+    "Belter Cant",
+    "Hand-Sign (vacuum crew)"
+  ],
+  "equipment": [
+    "Ballistic weave bodysuit, worn under whatever she's pretending to be",
+    "Laser pistol",
+    "Stun pistol",
+    "Laser pistol cells (40)",
+    "Stun pistol cells (20)",
+    "Ceramic knife, scanner-invisible, in a sleeve sheath",
+    "Intrusion kit: electronic lockpicks, a seal-breaker and a roll of pressure tape",
+    "Vacuum suit, skin-fit, patched at both knees",
+    "Tether line (30 m) with a magnetic grapple",
+    "A refinery crew tag from Halcyon Skimmer 6 on a lanyard, which is where the nickname comes from",
+    "Credit chit: 210 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Laser pistol",
+      "attackBonus": 5,
+      "damage": "2d6+3",
+      "damageType": "radiant"
+    },
+    {
+      "name": "Stun pistol (nonlethal)",
+      "attackBonus": 5,
+      "damage": "2d6+3",
+      "damageType": "lightning"
+    },
+    {
+      "name": "Ceramic knife",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave bodysuit (Light)",
+    "type": "light"
+  },
+  "features": [
+    "Zero-G Adapted (Spacer: no penalties in microgravity)",
+    "Thin Bones (Spacer: disadvantage on saves against being knocked prone in full gravity)",
+    "Expertise (double proficiency in Stealth and Acrobatics)",
+    "Precision Strike (once per turn, +2d6 damage with a finesse melee or sidearm/longarm attack when she has advantage or an ally is within 5 ft of the target)",
+    "Cunning Action (bonus action: Dash, Disengage or Hide)",
+    "Ship's Hand (Spacer Crew feature: any spacer crew will give her a berth, a meal and the gossip, and she can read a ship's condition from its noises)"
+  ],
+  "traits": [
+    "Zero-G Adapted",
+    "Thin Bones",
+    "Expertise",
+    "Precision Strike",
+    "Cunning Action"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "In zero-g I am graceful, and in gravity I am a disaster who trips over doorsills and I'll tell you about it. I narrate my own break-ins under my breath like a sports commentator.",
+    "ideals": "Anything locked up was locked up by someone who could afford to. I take it back out.",
+    "bonds": "Tuck Halloran taught me to fly when I was eleven. If he freezes in that shadow, I'm taking the stick, and if he won't let me I'm taking it anyway.",
+    "flaws": "I can't leave a lock alone. If there's a door I wasn't asked to open, I'm already opening it."
+  },
+  "appearance": "A slight, long-limbed woman of twenty-six with the elongated frame of someone raised at a fifth of a gravity. Close-cropped hair, a constellation of tiny burn scars on her hands from refinery work, and a slight stoop under full gravity that she straightens with visible effort. She wears a scarlet lanyard everywhere, which is how she got her crew name, 'Lanyard'.",
+  "backstory": "Nadia Osei grew up on Halcyon Skimmer 6, a sun-skimmer refinery that dips into the corona to harvest ions and has the inner system's highest rate of fatal accidents. She was a vent-crawler at nine, a hull tech at fourteen and a thief by sixteen, when she discovered that the people who owned the refinery kept their safes in the only parts of it that didn't leak. She has cracked strongrooms on three stations and a yacht, and she has never been caught, partly because nobody suspects the girl who keeps falling over in the corridor. She's here because Tuck asked. He hasn't flown a shadow run in twenty-two years, and she wants to be in the cockpit when he does."
+}

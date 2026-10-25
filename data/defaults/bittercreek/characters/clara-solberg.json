@@ -1,0 +1,122 @@
+{
+  "id": "2b8a903c-594a-49e6-8f60-23c37a905845",
+  "name": "Clara Solberg",
+  "status": "alive",
+  "race": "Frontier-Born",
+  "subrace": "",
+  "class": "Scout",
+  "level": 2,
+  "background": "Homesteader",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 11,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 9,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Perception",
+    "Stealth",
+    "Survival",
+    "Animal Handling",
+    "Nature"
+  ],
+  "languages": [
+    "English",
+    "Norwegian"
+  ],
+  "equipment": [
+    "Buckskin coat, fringed, that she tanned and sewed herself the winter she was fifteen",
+    "Repeating rifle (Winchester, .44), 12 rounds in the magazine, in a fringed scabbard",
+    ".44 cartridges (30)",
+    "Bowie knife on her belt",
+    "Horse: Loki, a wiry dun cow pony who can smell water at two miles and hates the Company's horses",
+    "Saddle, bridle, saddlebags, bedroll, a slicker and a canteen",
+    "Lariat",
+    "A tin of matches, a fishing line and hooks, and a sack of her mother's flatbread",
+    "A small pair of field glasses her father brought from Norway",
+    "A folded note in a cowboy's terrible spelling, signed 'H.', which she keeps in her coat and would die rather than show anyone",
+    "Wallet containing $9"
+  ],
+  "weapons": [
+    {
+      "name": "Repeating rifle",
+      "attackBonus": 4,
+      "damage": "2d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Bowie knife",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Buckskin coat",
+    "type": "light"
+  },
+  "features": [
+    "Hard Country (Frontier-Born origin: advantage on saving throws against exhaustion from heat, cold, thirst and hard travel; half the usual water to avoid thirst one day in three; once per long rest, shrug off a level of exhaustion gained on the trail; rations packed last a day longer)",
+    "Trailcraft (Scout: never lost on terrain she has crossed before; finds water for herself, her companions and their horses each day without a check wherever any lies within a day's travel; follows a trail at a normal pace with a Survival check, learning how many riders, how long ago, and whether the horses were shod, loaded or lame)",
+    "Long Shot (Scout: attacking at long range with a Longarm doesn't impose disadvantage if she Aimed first this turn; her proficiency bonus is doubled for Perception checks to spot something more than 300 ft away)",
+    "Ghost on the Range (Scout, 2nd level: in natural terrain she can Hide as a bonus action and can hide when only lightly obscured; travel pace doesn't impose disadvantage on her Stealth, and she leaves no trail that anyone without Trailcraft can follow unless she chooses)",
+    "Proving Up (Homesteader background: farm and ranch families anywhere give her a meal and a place in the barn and tell her who has been threatening whom; she knows the land office, claim law and water rights better than most lawyers)"
+  ],
+  "traits": [
+    "Trailcraft",
+    "Long Shot",
+    "Ghost on the Range",
+    "Proving Up"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I would rather be on a horse than anywhere else in the world. I say exactly what I think, too early, to the wrong people. I can be silent for a whole day on the trail and talk all night at a fire.",
+    "ideals": "The land does not care who owns it. It only cares who knows it. I mean to know every foot of this valley before I die.",
+    "bonds": "My mother, Margit, who built the Bend with her hands. My brother Nils, who is going to get himself killed. And a Company cowboy called Hy Tolliver, whom nobody knows I have been meeting at the Narrows ford on Sunday afternoons.",
+    "flaws": "I keep secrets badly and the one I am keeping now is the worst one I could have. If my mother knew about Hy, or his uncle knew about me, I do not know what either of them would do."
+  },
+  "appearance": "A tall, rangy girl of nineteen with a sunburned nose, straw-fair hair cut short as a boy's under a battered hat, grey eyes that are always looking at the horizon, and the hands of someone who has milked cows every morning of her life. Buckskin coat, a divided skirt over trousers, boots too big for her.",
+  "backstory": "Clara Solberg was born in a sod house in Dakota Territory in the blizzard winter of 1867, and her parents brought her to Bitter Creek in a wagon in 1879, when there was nothing on the creek but the Company's cattle and the wind. Her father, Anders, died of pneumonia in 1880; her mother, Margit, proved up the claim alone, and then a second one, and built the Bend into the strongest homestead on the creek and the grange into the strongest voice. Clara grew up riding: herding the family's cattle, carrying messages between homesteads, hunting antelope for the table, and learning the valley from the Forks to the Platte better than any Company rider. She knew Owen Lasker as a friend of her brother's and the man who taught her to read a survey map. Since last autumn she has been secretly meeting Hy Tolliver, the Company's range boss's nephew, at the Narrows ford on Sunday afternoons. On Sunday 18 April she was there until dusk, and on the way home she passed two riders on the creek road coming from Gilead, too far off to see their faces in the twilight; one of their horses was moving short on the near fore. She has told no one, because to tell anyone she would have to say what she was doing at the Narrows. (Suggested employer: the grange, or Thea Lasker. Hooks into the Company: Hy Tolliver. She is the first witness to the hangmen, if she will admit it.)"
+}

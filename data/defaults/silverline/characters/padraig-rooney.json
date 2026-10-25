@@ -1,0 +1,132 @@
+{
+  "id": "c80886bf-360a-4e26-b670-3a4a25152398",
+  "name": "Padraig 'Paddy' Rooney",
+  "status": "alive",
+  "race": "Immigrant",
+  "subrace": "",
+  "class": "Outlaw",
+  "level": 3,
+  "background": "Railroad Man",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Constitution"
+  ],
+  "skills": [
+    "Mechanics",
+    "Perception",
+    "Stealth",
+    "Sleight of Hand",
+    "Deception"
+  ],
+  "languages": [
+    "Irish",
+    "English",
+    "Spanish (a grading-camp Spanish, good for work and arguments)"
+  ],
+  "equipment": [
+    "Leather duster, black, too long for him, patched at both elbows",
+    "Army revolver (Colt Single Action, bought second-hand in Cheyenne, the serial filed off by somebody before him), 6 loaded",
+    ".45 cartridges (18)",
+    "Coach gun (a sawn-down Greener, 12-gauge, the barrels shortened by his own hacksaw)",
+    "Shotgun shells (10)",
+    "Dynamite (4 sticks of DA&P stores, signed for in the powder book, with caps and two yards of fuse kept apart in a tin)",
+    "A DA&P powder man's brass tag, number 14, and a pass for any train on the line",
+    "Crimping pliers, a fuse knife, a coil of fuse and a box of safety matches in a tobacco tin",
+    "A set of lock picks rolled in a handkerchief, which he swears he has not used since 1872",
+    "A rosary from his mother in Mayo and a letter from the Nevada State Prison releasing him, which he would rather die than show anyone",
+    "A tin whistle",
+    "Wallet containing $14"
+  ],
+  "weapons": [
+    {
+      "name": "Army revolver",
+      "attackBonus": 5,
+      "damage": "1d10+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Coach gun",
+      "attackBonus": 5,
+      "damage": "2d8+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Dynamite",
+      "attackBonus": 5,
+      "damage": "3d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Two Tongues (Immigrant origin: he speaks Irish and English fluently and Spanish well; he has advantage on Insight and Perception to follow a conversation in a language the speakers think he does not know, and among Irish crews, boarding houses and parishes he finds a meal, a bed, work and the news without a check)",
+    "Dirty Fighting (Outlaw: once per turn, extra 1d6 damage when he hits a creature that is not ready: surprised, not yet acted, unable to see him, prone, grappled, restrained or on a spooked horse; not part of the damage on his sheet)",
+    "Hard Riding (Outlaw: advantage on Riding checks in a chase he is fleeing; he mounts or dismounts with 5 ft of movement and can Dash, Disengage or Hide as a bonus action)",
+    "Powder Man (Outlaw, 2nd level: lighting a fuse is part of the throw, his thrown explosives use DC 8 + proficiency + DEX, he sets and fuses a charge in 1 minute with no chance of it going off early, and he cuts a fuse to burn for any time from 1 round to an hour)",
+    "Trade: Train Robber (Outlaw, 3rd level: he uncouples a car, stops a train or cracks an express-car safe in a tenth of the usual time, and has advantage on Athletics and Acrobatics checks on a moving train. He did all three in 1872 and served six years for it)",
+    "Riding the Rails (Railroad Man background: every section house, water tank and roundhouse on a line he has worked will feed him, and he can ride any DA&P train on his pass)"
+  ],
+  "traits": [
+    "Two Tongues",
+    "Dirty Fighting",
+    "Hard Riding",
+    "Powder Man",
+    "Train Robber"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk too much and sing when I am frightened. I am the first to laugh and the first to buy a round, and I count the doors in every room I walk into.",
+    "ideals": "A man can change. I have to believe that, because the other thing is that he cannot.",
+    "bonds": "Bridget Cahill, who runs the tracklayers' boarding tent at the Cut, and who knows exactly who I was and does not care. And Winfield Coburn, who hired me knowing it, and gave me my name back.",
+    "flaws": "I am still, God forgive me, very good at robbing trains, and part of me misses it. When something goes wrong I lie first and think afterwards."
+  },
+  "appearance": "A lean, sandy, freckled Irishman of thirty-four with a crooked grin, missing the top of his left little finger, a prison-cropped head of hair that is only just growing back, and quick nervous green eyes. He moves like a cat on loose rock and smells of fuse and pipe tobacco.",
+  "backstory": "Paddy Rooney came from County Mayo in 1866 at twenty-one, laid track on the Union Pacific across Nebraska and Wyoming, and learned to blast rock in the Wasatch, where he lost the top of his finger and gained a reputation. In 1872, broke in Nevada, he fell in with a gang that robbed a Central Pacific express car near Verdi, and he was the man who blew the safe. He was caught a week later, and he served six years in the Nevada State Prison at Carson City, where he shared a cell block with a quiet, clever horse thief from Missouri named Rafe Gorham. He came out in 1878 and went to Denver to start again. Winfield Coburn, the DA&P's chief engineer, hired him as a powder man knowing every word of it, because he needed the best man with dynamite he could find and because, he said, he had read the prison letter and liked the handwriting. On Sunday night in Argent, Paddy saw Rafe Gorham's right-hand man, Asa Varley, at the faro table at the Silver Dollar. He has told Coburn. Coburn told Mrs. Ruane. Mrs. Ruane, who believes in hiring a thief to catch one, has asked him to ride the train."
+}

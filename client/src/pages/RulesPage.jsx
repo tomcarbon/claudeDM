@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { api } from '../api/client';
+import { useCampaign } from '../context/CampaignContext';
+import { CATEGORIES, categoryOf } from '../utils/gameCategories';
 
 // SRD 5.1 attribution. The wording below is fixed — see NOTICE at the project root.
 // Do not reword, shorten or "improve" it: it is what satisfies CC BY 4.0 section 3(a).
@@ -46,53 +48,91 @@ function SrdNotice() {
   );
 }
 
+// What each ruleset is, in a sentence. Fantasy carries the SRD notice; Sci-Fi is original content.
+const RULESET_BLURB = {
+  fantasy: 'Fantasy rules database (SRD 5.1). Select a category below.',
+  scifi: 'Sci-Fi rules database — the same d20 core with gunplay, technology and no magic. Original content. Select a category below.',
+  noir: 'Noir rules database — the same d20 core with fists, period firearms and the rules for working a case. Original content. Select a category below.',
+  western: 'Western rules database — the same d20 core with six-guns, horses, showdowns and the trail. Original content. Select a category below.',
+  horror: 'Horror rules database — the same d20 core with fear, Dread, creatures that follow rules, and no magic for the characters. Original content. Select a category below.',
+};
+
 function RulesPage() {
+  const { campaign } = useCampaign();
+  // Opens on the ruleset of the campaign the player is in; the tabs switch freely after that.
+  const [ruleset, setRuleset] = useState(() => categoryOf(campaign));
   const [categories, setCategories] = useState([]);
   const [selected, setSelected] = useState(null);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadingRule, setLoadingRule] = useState(false);
 
-  useEffect(() => {
-    api.getRuleCategories()
-      .then(cats => {
-        setCategories(cats);
-        if (cats.length > 0) selectCategory(cats[0]);
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
-
-  const selectCategory = (cat) => {
+  // Only the latest request may land: switching rulesets quickly must not paint the previous
+  // ruleset's file under the new tab.
+  const latestRequest = useRef(0);
+  const selectCategory = useCallback((cat, set) => {
+    const ticket = ++latestRequest.current;
     setSelected(cat);
     setLoadingRule(true);
-    api.getRule(cat)
-      .then(setData)
-      .catch(() => setData(null))
-      .finally(() => setLoadingRule(false));
-  };
+    api.getRule(cat, set)
+      .then(d => { if (ticket === latestRequest.current) setData(d); })
+      .catch(() => { if (ticket === latestRequest.current) setData(null); })
+      .finally(() => { if (ticket === latestRequest.current) setLoadingRule(false); });
+  }, []);
 
-  const formatLabel = (s) => s.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  useEffect(() => {
+    let cancelled = false;
+    api.getRuleCategories(ruleset)
+      .then(cats => {
+        if (cancelled) return;
+        setCategories(cats);
+        if (cats.length > 0) selectCategory(cats[0], ruleset);
+        else { setSelected(null); setData(null); }
+      })
+      .catch(() => { if (!cancelled) setCategories([]); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  }, [ruleset, selectCategory]);
+
+  // The Sci-Fi ruleset keeps the Fantasy file names so one reader serves both; label them for what they hold.
+  const MODERN_LABELS = { races: 'Origins', adversaries: 'Adversaries' };
+  const formatLabel = (s) => (ruleset !== 'fantasy' && MODERN_LABELS[s]) || s.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  const isFantasy = ruleset === 'fantasy';
 
   if (loading) return <div className="loading">Loading rules...</div>;
 
   return (
     <div>
       <h2>Rules Reference</h2>
+      <div className="rules-nav ruleset-tabs" role="tablist" aria-label="Ruleset" style={{ marginTop: '0.75rem' }}>
+        {CATEGORIES.map(cat => (
+          <button
+            key={cat.id}
+            role="tab"
+            aria-selected={ruleset === cat.id}
+            className={ruleset === cat.id ? 'active' : ''}
+            onClick={() => setRuleset(cat.id)}
+          >
+            {cat.icon} {cat.label}
+          </button>
+        ))}
+      </div>
       <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 0.5rem' }}>
-        D&D 5th Edition rules database. Select a category below.
+        {RULESET_BLURB[ruleset] || RULESET_BLURB.fantasy}
       </p>
-      <p style={{ color: 'var(--text-muted)', fontSize: '0.85em', margin: '0 0 1rem' }}>
-        {SHORT_NOTICE}
-        <a href="#srd-notice">below on this page</a>
-      </p>
+      {isFantasy && (
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.85em', margin: '0 0 1rem' }}>
+          {SHORT_NOTICE}
+          <a href="#srd-notice">below on this page</a>
+        </p>
+      )}
 
       <div className="rules-nav">
         {categories.map(cat => (
           <button
             key={cat}
             className={selected === cat ? 'active' : ''}
-            onClick={() => selectCategory(cat)}
+            onClick={() => selectCategory(cat, ruleset)}
           >
             {formatLabel(cat)}
           </button>
@@ -109,6 +149,8 @@ function RulesPage() {
         )}
       </div>
 
+      {/* The SRD 5.1 notice is owed by the Fantasy rules. It stays on the page whichever tab is
+          open, because the Fantasy rules are still served by this app either way. */}
       <SrdNotice />
     </div>
   );

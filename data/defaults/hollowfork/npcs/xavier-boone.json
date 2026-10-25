@@ -1,0 +1,131 @@
+{
+  "id": "82223dcb-bfe4-44b3-90b4-b06845e2c862",
+  "name": "Xavier Boone",
+  "status": "alive",
+  "race": "Survivor",
+  "subrace": "",
+  "class": "Veteran",
+  "level": 3,
+  "background": "Reporter",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Investigation",
+    "Persuasion",
+    "Perception",
+    "Mechanics"
+  ],
+  "languages": [
+    "English",
+    "Vietnamese (a little, from two tours, mostly politeness and directions)"
+  ],
+  "equipment": [
+    "Leather jacket: an old Army flight jacket with the patches taken off",
+    ".45 automatic: his service pistol, in the van's glovebox, which the station does not know about",
+    ".45 rounds (14)",
+    "A spare magazine for the .45",
+    "Crowbar, from the van's tool box",
+    "A 16mm Bolex film camera, four hundred-foot rolls of film, a light meter and a battery belt",
+    "A press card: CHANNEL 8 NEWS — LA CROSSE — PHOTOGRAPHER",
+    "Notebook and pencil (shot lists)",
+    "Flashlight and spare batteries",
+    "First-aid kit, Army issue, kept up to date",
+    "The Channel 8 news van: a white Ford Econoline with a mast, a generator, a microwave dish for live shots, and Bonnie Sedlak's hairspray",
+    "Wallet containing $20"
+  ],
+  "weapons": [
+    {
+      "name": ".45 automatic",
+      "attackBonus": 5,
+      "damage": "1d10+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Crowbar",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Been Here Before (Survivor origin: advantage on initiative; when a fight or a fright begins he always knows the nearest way out; once per long rest, when he fails a saving throw, he rerolls it and must use the new roll; the first time each scenario he meets a horror like the one he survived, the GM tells him one way it is the same)",
+    "Held the Line (Veteran: advantage on fear checks while a conscious ally is within 10 ft of him; once per short rest, when Panic would take him at Dread 5, he acts normally instead)",
+    "Drill: Cover Man (Veteran: when a creature he can see attacks an ally within 5 ft of him, he can use his reaction to impose disadvantage on the attack roll; it does not change the numbers on his sheet)",
+    "Second Wind (Veteran, 2nd level: once per short rest, as a bonus action, he regains 1d10 + 3 hit points, and loses 1 Dread if he is at Dread 3 or higher)",
+    "Service: Corpsman (Veteran, 3rd level: he can stabilize a dying creature as a bonus action, and when he does it regains 1d4 hit points)",
+    "The Morgue and the Wire (Reporter background: he can get into any newspaper's or station's back files and its staff will help him; in any town with a paper he can find the person who knows the local gossip; anything he films with the station's name on it tells everyone involved who was there)"
+  ],
+  "traits": [
+    "Held the Line (1/short rest)",
+    "Drill: Cover Man",
+    "Second Wind (1/short rest)",
+    "Service: Corpsman",
+    "The Morgue and the Wire"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I watch everything through a lens, even when I am not holding one. I keep calm when people are shouting and get jumpy when it is quiet. I fix the van with whatever is lying around.",
+    "ideals": "If you film it, it happened, and nobody can say it didn't. That is the only promise I know how to keep.",
+    "bonds": "Bonnie Sedlak, who is ambitious and exhausting and the best reporter I have ever worked for. My mother in La Crescent. The men in my unit I filmed and could not help.",
+    "flaws": "I go toward the thing that frightens me with the camera running. It got me shot at in two countries and it is going to get me killed in Wisconsin."
+  },
+  "appearance": "Twenty-nine, wiry and dark-haired, with a long thoughtful face, a burn scar on his left hand, a Bolex on his shoulder and an old Army flight jacket, and a way of standing very still at the edge of a crowd.",
+  "backstory": "Xavier Boone grew up in La Crescent, Minnesota, across the river from La Crosse, the son of a river-barge pilot, and was drafted in 1966 and trained as an Army combat photographer: two tours in Vietnam, film and stills, from helicopters, rice paddies and field hospitals, until a mortar round in 1968 left him with a burned hand and a Purple Heart he keeps in a drawer. He has been a news cameraman at Channel 8 in La Crosse since 1970: county fairs, fires, floods, high-school football, the governor. On Tuesday 24 September he shot the frost line at the Hollow Fork divide from the van's mast, and has not been able to stop looking at the footage, because he has seen a great deal from the air and never seen weather follow a map. He keeps his service .45 in the glovebox of the van for reasons he does not examine.",
+  "dmNotes": {
+    "roleplaying": "Xavier is the party's outside eye and its camera: he joins after the frost line in hs-scenario-001 or when the party tells him what it has found, and he is the way the party can put the Book on live television at six in hs-scenario-004 (the cameras end the secret, not the bargain). He is also the steadiest person in a crisis that the party will meet: Held the Line, Cover Man, Corpsman, a .45, and calm. Play him as a quiet professional who has seen worse things than Hollow Fork in daylight and nothing worse at night. He has not eaten much of the town's food (he brings sandwiches from La Crosse), and is not a guest unless he slips.",
+    "voice": "Low, even, dry, a Minnesota river-town voice, short sentences, a cameraman's vocabulary ('hold', 'pan', 'rolling', 'I lost the light'). When he is frightened he gets quieter and more precise.",
+    "motivations": "Primary: get it on film, so it is real. Secondary: keep Bonnie alive, since she will walk into anything for a story. Tertiary: find out whether the thing in the corn is the same kind of thing as the dark in the paddies, and be able to stop dreaming about both.",
+    "secrets": "He filmed the frost moving on the night of the Fall Supper, from the van parked on Main Street, without telling Bonnie: forty seconds of a fog coming up the street against the wind and stopping at a garden hose. The film is in a can under the van's seat. He has not had it developed, because he is afraid of what will be on it, and more afraid of what won't.",
+    "attitude": "Toward the party: professional, then steady. Toward Bonnie: exasperated loyalty. Toward the town: polite, watchful, no pie. Toward the Landlord: he wants a clean shot of it, and knows that is a fool's errand."
+  }
+}

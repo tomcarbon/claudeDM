@@ -1,0 +1,125 @@
+{
+  "id": "8f761135-c571-465c-ae56-32aac090b3c7",
+  "name": "Dr. Mirela Constantin",
+  "status": "alive",
+  "race": "New Arrival",
+  "subrace": "",
+  "class": "Doctor",
+  "level": 3,
+  "background": "Night Nurse",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 17,
+    "current": 17
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Forensics",
+    "Insight",
+    "Medicine",
+    "Perception"
+  ],
+  "languages": [
+    "Romanian",
+    "English",
+    "French",
+    "German",
+    "Latin (medical)"
+  ],
+  "equipment": [
+    "A black doctor's bag, Bucharest-made, with her initials worn off the clasp: stethoscope, sutures, scalpels, forceps, morphine syrettes (3), sulfa powder, a tourniquet, smelling salts",
+    "Scalpel, in a leather sleeve in her coat pocket",
+    ".32 pocket pistol (Walther PP, from a German officer in 1944; she does not say how), 8 rounds loaded, in the bottom of the bag",
+    ".32 rounds (8)",
+    "A first-aid kit, a good one, for the agency",
+    "A hand lens, a set of fingerprint powders and brushes, and a box of glass slides, for the agency's forensic work",
+    "Her St. Brendan's Hospital night-nurse uniform and badge, which get her into any ward in the city",
+    "Her medical diploma from the University of Bucharest, 1938, in a cardboard tube, not recognised by the state of anywhere in America",
+    "A small icon of St. Pantaleon and a photograph of a man and a little boy",
+    "A tin of Romanian tea and a tin of American cigarettes",
+    "Wallet containing $31"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    },
+    {
+      "name": ".32 pocket pistol",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Two Languages (New Arrival origin: Romanian and English fluently, French and German well; advantage on Perception and Insight checks to follow a conversation held in a language the speakers think she does not know; in any community that speaks one of her languages she can find a meal, a bed and a rumour without a check)",
+    "Patch Job (Doctor: as an action with her doctor's bag, a creature she touches gets a short rest's worth of healing at once: it spends up to two of its Hit Dice, adding its CON modifier, and regains 3 extra hit points (her INT modifier) once; it also stabilizes the dying and ends Bleeding; 4 uses per long rest)",
+    "Diagnosis (Doctor: as a bonus action, learn a visible creature's current and maximum hit points and every condition affecting it, including drugs and drink; ten minutes with a body gives the cause and approximate time of death without a check, and one more detail on a DC 12 Forensics check)",
+    "Steady Hands (Doctor, 2nd level: advantage on Medicine checks; a creature she stabilizes regains 1 hit point and can act on its next turn)",
+    "Practice: Coroner (Doctor, 3rd level: proficiency bonus doubled for Forensics checks, and when she examines a body she also learns one fact the killer would rather she did not, such as their size, their handedness or what they knew)",
+    "Night Shift (Night Nurse background: she knows every hospital, clinic and morgue in Port Calloway at night, the orderlies, the ambulance men and the doctors who drink, and can get a patient admitted or a record read without a name on the paperwork)"
+  ],
+  "traits": [
+    "Patch Job (4/long rest)",
+    "Diagnosis",
+    "Steady Hands",
+    "Coroner"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am precise, dry, and very polite, and I correct people's grammar when I am frightened. I drink my tea black and very strong and offer it to patients, who regret accepting. I do not raise my voice. I do not need to.",
+    "ideals": "The body does not lie. People lie about bodies all the time. My work is to tell the truth about what was done to a person, even when everyone in the room would prefer I did not.",
+    "bonds": "My husband, Andrei, a surgeon, who was arrested in Bucharest in 1948 for treating the wrong patient, and whom I have not seen since. My son, Tudor, who died of diphtheria in the camp in Austria while we waited for papers. I am still waiting for papers. I am licensed to be a nurse.",
+    "flaws": "I have seen what happens when a state decides who is guilty before the trial, and I cannot stop seeing it here. I trust no policeman, no prosecutor and no court, and that makes me unfair to the honest ones."
+  },
+  "appearance": "A tall, thin, dark woman of thirty-eight with black hair pinned up severely, deep-set grey eyes behind steel spectacles, a long elegant face that looks older when she is tired, and beautiful, red, scrubbed hands. She wears a dark wool suit or a nurse's uniform under a navy cape. She smells of carbolic soap and Romanian tea.",
+  "backstory": "Mirela Constantin was a surgeon at the Colentina Hospital in Bucharest, one of the few women in the city who were. She survived the war, the earthquake and the Iron Guard, and in 1948, after the new government arrested her husband for treating a patient the government wanted dead, she walked out of Romania across the Hungarian border with her son, a medical bag and the clothes she wore. Her son died in a displaced persons' camp in Austria. She came to Port Calloway in 1950 on a church sponsorship, discovered that the state does not recognise a Romanian medical degree, and went to work as a night nurse at St. Brendan's Hospital while she studies for the American examinations she has failed twice because of the English. Walt Embry met her when she stitched up Isaiah Bell's eyebrow in the emergency ward and then, unasked, told Walt that the man in the next bed had not fallen down the stairs as the police said but had been held down and kicked by three men, one of them left-footed. He has paid her cash for her opinion on bodies ever since. She takes the Sloane case because Walt asks her, and because on Tuesday she reads in the Ledger morgue how the state of the people of Port Calloway executed a man named Kessling on the testimony of a man who had a reason to lie, and she recognises the shape."
+}

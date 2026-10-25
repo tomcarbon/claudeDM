@@ -1,0 +1,223 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Running fear in a Horror campaign. New to the Horror category (it takes the place of Western's frontier.json). Written for the GM first and the players second, and authoritative: where a scenario is silent, these rules decide. Dread is one number per character, 0 to 6, kept by the GM in world state and told to the player whenever it changes. A fear check is a WIS saving throw. Dread is temporary fright, never illness: there are no disorders, diagnoses or institutions in this ruleset. Every supernatural creature follows rules (the_unknown) the players can learn by investigation; rites and wards work only because those rules say so. Table safety (running_horror.table_safety) applies to every Horror campaign."
+  },
+  "fear_checks": {
+    "what_it_is": "A fear check is a Wisdom saving throw the GM calls for when a character meets a horror: something that should not be. It is not a skill check, and proficiency in WIS saves applies.",
+    "dc": {
+      "sign": {
+        "dc": 10,
+        "examples": "The sign of it: a wet footprint on a dry floor, a voice from an empty room, a door that was locked and is now open, the dog that will not go into the barn."
+      },
+      "seen": {
+        "dc": 15,
+        "examples": "Seeing it: the figure at the end of the hall, the drowned man on the jetty, the thing in the corn looking back."
+      },
+      "truth": {
+        "dc": 20,
+        "examples": "The truth of it: what the house is, what the town did, who is in the coffin, what you have been talking to all week."
+      }
+    },
+    "failure": "On a failed fear check, the character gains 1 Dread.",
+    "natural_1": "On a natural 1, the character gains 2 Dread.",
+    "success": "On a success, nothing is lost: the character is frightened but holds together. A success never removes Dread.",
+    "once_per_scene": "The same horror can only cost a character Dread once per scene. Seeing the figure at the end of the hall again in the same scene costs nothing more; seeing it again tomorrow night, or seeing something new, is a new check. A horror's sign, sight and truth are three different horrors.",
+    "knowing_its_rules": "Knowing one of a creature's rules (the_unknown) lowers the DC of every fear check against that creature by 2, for every character who knows it. Knowledge is the best protection there is. The reduction does not stack: knowing three rules is still -2.",
+    "darkness": "In darkness (light_and_dark), fear check DCs are 2 higher.",
+    "who_rolls": "Every character who perceives the horror makes their own check. A character who looks away, shuts their eyes or is told about it later is not checked for seeing it (though a told truth can still be the truth of it).",
+    "what_is_not_a_horror": "Ordinary danger is not a fear check: a man with a gun, a fire, a bad fall. Those are frightening, and the GM can describe them as such, but they cost no Dread. Neither does an ordinary corpse in an ordinary death, unless the scenario says otherwise. Fear checks are for the wrongness.",
+    "features": "Features that change fear checks: Skeptic There's an Explanation and Calm Explanation, Occultist Steeped in It, Veteran Held the Line, Hunter Cold Focus, Roughneck Bull-Headed, Physician Clinical Detachment, Chaplain Stand Firm, origins Faithful (Something to Hold On To) and Survivor (Been Here Before), Lighthouse Keeper background (classes.json, races.json, backgrounds.json)."
+  },
+  "dread": {
+    "what_it_is": "Dread is a per-character track from 0 to 6: how frightened the character is right now. The GM keeps it in world state for each character and tells the player when it changes (\"Dread 3: Rattled. Your hands are not quite steady.\"). Its effects are cumulative: a character at Dread 4 suffers the effects of 2, 3 and 4.",
+    "track": [
+      {
+        "dread": 0,
+        "name": "Steady",
+        "effect": "No effect."
+      },
+      {
+        "dread": 1,
+        "name": "Uneasy",
+        "effect": "No mechanical effect, but the player is told: something is wrong, and their character knows it."
+      },
+      {
+        "dread": 2,
+        "name": "Shaken",
+        "effect": "After each new fright (each fear check, passed or failed), disadvantage on the next ability check the character makes."
+      },
+      {
+        "dread": 3,
+        "name": "Rattled",
+        "effect": "Disadvantage on concentration-like tasks: performing a rite, an aimed shot (combat.json gunplay.aim and called shots), Mechanics or Medicine under pressure, picking a lock with something on the other side of the door, striking a match in a draught."
+      },
+      {
+        "dread": 4,
+        "name": "Frayed",
+        "effect": "No short-rest recovery of Dread (recovery). To approach the source of the fear (move toward it, enter the room it is in, open its door), the character must first pass a WIS save, DC 10; on a failure they can't make themselves do it this turn."
+      },
+      {
+        "dread": 5,
+        "name": "Panicked",
+        "effect": "On a failed fear check, the character flees, freezes or lashes out for one round. The player chooses which. Flee: the character uses their next turn to move away from the source by the fastest route, taking the Dash action. Freeze: the character is incapacitated until the end of their next turn. Lash out: the character attacks the nearest creature or object (never a fellow character unless the player wishes it) with whatever is in hand."
+      },
+      {
+        "dread": 6,
+        "name": "Breaking point",
+        "effect": "The character leaves the scene by the safest route: running out into the night, locking themselves in a room, driving away, hiding in the cellar. They are out of play until the party regroups (a new scene in which the others find them, or they find the others). They come back at Dread 4. The GM never kills or maims a character at breaking point while they are out of play; the scene is about getting away."
+      }
+    ],
+    "not_illness": "Dread is temporary fear, not illness. There are no named disorders, no diagnoses and no institutions in the Horror ruleset, and a character at breaking point is frightened, not ill. A character can be grieving, haunted, sleepless or afraid of the dark for a week; they recover, as people do. Never describe Dread as damage to a mind.",
+    "telling_the_player": "Always tell the player the number and its name when it changes, and describe it in the body: cold hands, a dry mouth, a voice that won't stay level, the wish to run. The player decides how their character shows it.",
+    "world_state": "Record Dread per character in world state (e.g. \"Dread: Ada 3 (Rattled), Hal 1\") whenever it changes, with UpdateWorldState pendingEffects or keyFacts, so that it survives the session.",
+    "frightened_condition": "Dread and the frightened condition (combat.json conditions) are different things. Frightened is a short combat effect caused by a creature's ability or a feature; it ends at the end of the effect. Dread is the accumulated fear of the whole night. A creature's frightening ability can do both."
+  },
+  "recovery": {
+    "short_rest": "A short rest somewhere lit and safe with company: -1 Dread. A rest in the dark, alone, or somewhere the thing can reach gives no Dread recovery. A character at Dread 4 or more (Frayed) recovers no Dread on a short rest, except through the Physician's Treat Shock or the Chaplain's Light in a Dark House.",
+    "long_rest": "A long rest: -2 Dread. A long rest in the place that is haunted is still a long rest, if it is not interrupted, but the GM may rule the night interrupted if the thing comes.",
+    "comfort": "A drink, a prayer, a cigarette, a laugh, a song, a letter from home: once per day, a character who takes a moment for the comfort that fits them and makes a fitting check can lose 1 Dread. The check is the player's suggestion, DC 10: Performance for a song, Persuasion for a joke that lands with the others, a WIS check for a prayer or a quiet cigarette, CON for a drink. On a failure, the comfort is spent for the day.",
+    "laying_it_to_rest": "Laying a haunting to rest or destroying a creature: every character present drops to Dread 0. This is the reward of the genre. It is what makes the next door bearable.",
+    "features": "Features that lower Dread: Chaplain Steady Now (an action, 1 Dread), Physician Treat Shock (short rest), Veteran Second Wind, Occultist Steeped in It (learning a rule), Roughneck Unbreakable (classes.json).",
+    "leaving": "Leaving for good also works. A character who leaves the place, the town or the island and does not come back drops to Dread 0 within a day. That is a real choice, and sometimes the right one (combat.json fleeing)."
+  },
+  "the_unknown": {
+    "creature_rules": "Every supernatural thing follows rules: what calls it, what bars it, what hurts it, what lays it to rest, and what it wants. A creature in adversaries.json lists them in its 'rules' field, and a campaign may add its own. The rules are not suggestions: they are what the creature is. A ghost that must answer when asked its name three times answers, every time.",
+    "the_five_questions": {
+      "what_calls_it": "What brings it, wakes it or draws it: a date, a sound, a name spoken, a death in the house, a light in a particular window, the tide.",
+      "what_bars_it": "What it cannot cross, enter or touch: salt, iron, running water, a threshold it was not invited over, daylight, a line someone draws.",
+      "what_hurts_it": "What does it real harm: silver, iron, fire, salt, daylight, running water, its true name (adversaries.json vulnerable_to).",
+      "what_lays_it_to_rest": "What ends it for good: a proper burial, a confession, a returned object, a name restored, a binding broken, its body burned.",
+      "what_it_wants": "What it is trying to do, and why: almost always the key to the rest."
+    },
+    "three_clues": "The rules are discoverable. Use the three-clue habit (investigation): at least three clues to each rule a scenario needs the players to learn, in different places, found by different means. Core clues are found by anyone who looks in the right place; rolls only add detail or speed. A failed roll never hides a rule for good.",
+    "the_rules_do_not_change": "The GM never changes a creature's rules once the players have learned them, and never invents a new rule to save a creature the players have fairly beaten. If the salt line holds in the first scenario it holds in the last. Fairness is what lets the players be brave.",
+    "learning_a_rule": "A rule is learned when the players have it from a reliable source (a record, a witness, an Occultist's Old Lore, a Skeptic's Pattern Recognition, a Sensitive's impression) or have seen it work. Record learned rules in world state. Each learned rule lowers fear check DCs against the creature by 2 (fear_checks.knowing_its_rules).",
+    "getting_it_wrong": "Players will guess wrong. A wrong guess costs them time, a resource or a scare, never a character's life on the first mistake: the creature shows them, clearly, that it was wrong.",
+    "ordinary_people": "People are not creatures and have no rules. A human villain can be lied to, bargained with, arrested or shot."
+  },
+  "rites_and_wards": {
+    "principle": "Rites are not magic. A salt line across a sill, an iron nail in a door frame, saying the dead woman's name at her grave, ringing a bell three times at midnight: they work only because a creature's rules say so, and only against that creature. The same salt line that stops a shade does nothing to a man with a crowbar.",
+    "who_can": "Anyone can perform a rite or set a ward. The Occultist does it better: advantage, in half the time (classes.json Old Lore), and the Chaplain has advantage on rites of burial and laying to rest.",
+    "the_check": "An INT (Occult) check. DC 10 for a simple ward done properly (a salt line, nails in a frame), DC 15 for a rite with steps and words (a name spoken three times at the right grave at the right hour), DC 20 for something long, half-remembered or done under attack. Disadvantage at Dread 3 or higher (dread: Rattled).",
+    "time": "From 1 minute (a salt line across one door) to an hour (a proper burial, a long rite). Under attack, a ward that normally takes a minute can be rushed as an action at disadvantage.",
+    "wrong_rite": "Wrong rite, nothing happens, and the thing knows you tried. The GM may treat a wrong rite as calling it, angering it, or simply showing it that you are afraid; it never makes it stronger than its stat block.",
+    "wards_break": "A ward lasts until it is broken: a salt line by a draught, a mop, a foot or a dog; nails by being pulled; a chalk line by being scuffed. Creatures can't break a ward that bars them, but they can frighten, trick or persuade a person into breaking it, and that is what they usually try.",
+    "objects": "Holy water is water: what it does depends on the creature. A family Bible, prayer beads, a crucifix, a mezuzah, a charm from a grandmother: they are comfort and memory, and they bar or harm a creature only if its rules say they do. No real faith is stronger or weaker than another in the rules; a creature's rules speak of things (salt, iron, a name, a threshold), not of churches.",
+    "no_dark_rites": "Creatures may be called or bargained with by rites the campaign invents, but no rite is pinned on a real religion, culture or people, and nothing in the rules is borrowed from a living tradition or from any Indigenous people."
+  },
+  "light_and_dark": {
+    "principle": "Light is a resource. Count it like ammunition.",
+    "sources": [
+      {
+        "source": "Match",
+        "light": "Dim light, 5-ft radius",
+        "duration": "1 round",
+        "notes": "Striking one in wind, rain or at Dread 3+: DC 10 DEX check."
+      },
+      {
+        "source": "Candle",
+        "light": "Dim light, 10-ft radius",
+        "duration": "1 hour",
+        "notes": "Out in a draught, a fall or a breath."
+      },
+      {
+        "source": "Torch",
+        "light": "Bright 20 ft, dim 20 ft beyond",
+        "duration": "1 hour",
+        "notes": "Also a weapon (equipment.json). Smoky."
+      },
+      {
+        "source": "Lantern",
+        "light": "Bright 30 ft, dim 30 ft beyond",
+        "duration": "6 hours on a pint of kerosene",
+        "notes": "Can be shuttered. Breaks and burns if dropped (combat.json fire)."
+      },
+      {
+        "source": "Flashlight (1970s)",
+        "light": "Bright 60-ft cone, dim 60 ft beyond",
+        "duration": "4 hours on a set of batteries",
+        "notes": "Cold halves battery life."
+      },
+      {
+        "source": "Flashlight (1920s)",
+        "light": "Dim 30-ft cone",
+        "duration": "2 hours on a set of batteries",
+        "notes": "Flickers. Better than nothing."
+      },
+      {
+        "source": "Flare",
+        "light": "Bright 200 ft",
+        "duration": "1 minute",
+        "notes": "Fired from a flare pistol; seen for miles."
+      },
+      {
+        "source": "Car headlights",
+        "light": "Bright 60-ft cone ahead",
+        "duration": "While the engine (or the battery, for an hour) runs",
+        "notes": "1920s and 1970s. A car with its lights on can be seen from a long way off."
+      },
+      {
+        "source": "Electric house lights",
+        "light": "Bright light in the room",
+        "duration": "While the power holds",
+        "notes": "Most town houses by the 1920s; farms by the 1950s. Wires can be cut, fuses can blow, a storm can take the line down."
+      }
+    ],
+    "darkness": "In darkness, a creature is effectively blinded for anything that needs sight: Perception checks that rely on sight automatically fail, attack rolls against targets it can't see have disadvantage (and it can't target what it can't locate), and fear check DCs are 2 higher. Dim light is lightly obscured: disadvantage on Perception checks that rely on sight. Many supernatural creatures see in the dark (adversaries.json senses); people do not.",
+    "tracking_light": "Track light sources on the sheet like ammunition: \"Candle (4)\", \"Kerosene (pint) (1)\", \"Batteries (1)\". The GM deducts time as it passes and says when a light is getting low.",
+    "the_light_goes_out": "The light always goes out at the worst moment, once per scenario, not more. The GM chooses the moment: the lantern gutters, the flashlight dies, the power fails, the candle blows out on the stair. Then it is dark until someone does something about it. The GM should not do this to the same light twice, and never to a light the players have deliberately protected (a lantern in a sealed room, a spare set of batteries in hand) without a cause in the fiction.",
+    "muzzle_flash": "A gunshot in the dark lights the shooter for an instant (anything watching knows where you are) and ruins the shooter's night sight: after firing in darkness, the shooter has disadvantage on sight-based Perception checks until the end of their next turn (combat.json darkness_and_light)."
+  },
+  "isolation": {
+    "principle": "Horror needs the party cut off: no help is coming, and nobody will believe them if it did. Cut them off fairly, so the players feel trapped by the situation and not by the GM.",
+    "means": {
+      "cut_wires": "The telephone line goes dead; the telegraph is \"down for repair\"; the CB fills with static. A wire is cut somewhere a character could go and find it.",
+      "washed_out_roads": "The bridge is out, the road is flooded, a tree is down across the only lane. The 1890s road was mud anyway.",
+      "the_last_boat": "The ferry or the mail boat runs on a timetable and the weather; the last one leaves before dark, and in a storm none run at all.",
+      "the_storm": "Snow, a gale, fog that makes driving or sailing a crawl. A storm has a forecast: let the players hear it coming.",
+      "the_car_that_wont_start": "A car that won't start is a rule, not an accident (combat.json vehicles): it happens for a reason the players can find and fix, once.",
+      "the_town_that_wont_help": "The sheriff went to school with everyone involved, the doctor is away, the neighbors close their shutters. A town that won't help has reasons, and the reasons are a clue.",
+      "the_bargain": "The will says seven nights or no inheritance; the job pays only on completion; the person they came for is still out there. The best isolation is a reason to stay."
+    },
+    "fairness": "Tell the players, before the trap closes, that it is closing: the forecast, the timetable, the warning from the station master. Let them choose to stay. Never take away a way out the players have specifically prepared without giving them a way to discover what happened to it.",
+    "getting_out": "Every isolation has at least one way out the players can find: a second boat, a road through the woods, a radio that can be fixed, a person in town who will drive them. Getting out may cost something (time, a friend left behind, the inheritance, the truth). Running away is always allowed (combat.json fleeing)."
+  },
+  "investigation": {
+    "principle": "Horror is investigation with consequences: the players learn what the thing is and what its rules are before it learns enough about them. Use the three-clue habit for every conclusion the players need.",
+    "leads": {
+      "three_clue_rule": "Every conclusion the players must reach, including every creature rule a scenario depends on, has at least three clues pointing to it, in different places and found by different means.",
+      "core_clues": "Core clues are found automatically by anyone who looks in the right place with the right skill: no roll. Rolls only add extra detail or speed.",
+      "failure": "A failed roll never dead-ends a scenario. It costs time (the tide turns, the night falls), attention (someone notices the questions) or Dread (you found it, and you wish you hadn't)."
+    },
+    "research": {
+      "where": "Archives and libraries; church and parish registers (baptisms, marriages, burials); old newspapers and the newspaper morgue; the county recorder (deeds, probate, wills, mortgages); the courthouse; ship and railroad manifests; a family Bible's front pages; gravestones.",
+      "checks": "INT (Research). DC 10 to find a record that exists where you are looking, DC 15 to find it fast (an hour instead of a day) or in a poorly kept archive, DC 20 for a record someone has tried to hide or remove (and the fact that it was removed is a clue).",
+      "time": "An hour for a quick look, a day for a thorough one. A library or archive is lit, warm and full of people: one of the few places a long rest's worth of work feels safe."
+    },
+    "interviews": {
+      "approach": "Insight against Deception to tell a lie; Persuasion to get someone to talk; Intimidation to make them, at a price (they tell others, and they remember).",
+      "the_oldest_person_in_town": "Every place has someone who remembers, and who will talk to anyone who listens properly and stays for the second cup. A Persuasion check (DC 12) gets the story; the story contains at least one true clue to a creature's rule, wrapped in a great deal else.",
+      "frightened_witnesses": "People who have seen it often won't say so. Insight (DC 12) tells you they are frightened, not lying; a reason to trust you (a shared fright, a kindness, the Chaplain) gets the truth.",
+      "the_town_that_knows": "In a town that is keeping a secret, everyone knows a little and no one tells all of it. Three different people each give one piece."
+    },
+    "searching": "INT (Investigation) to find what is hidden in a room (DC 10 for something put away, DC 15 for something hidden, DC 20 for something hidden well); WIS (Perception) to notice what is out of place. Searching a haunted room takes time, and time in a haunted room is never free.",
+    "the_case_notes": "When the players are stuck, the GM summarizes what they know: the creature's rules learned so far, the clues they have that point to unlearned ones, the open questions and the places they have not yet looked. In character, this is a character going over their notebook by lamplight."
+  },
+  "running_horror": {
+    "dread_before_gore": "Fear comes before violence. A sound, a smell, a wrong detail; then a glimpse; then, much later, the thing itself. Most of the horror in a session should happen without a single attack roll.",
+    "show_less_later": "Show less, and show it later. Describe the edges: a wet hem dragging round a corner, a hand on the banister, the light from the window that should be dark. The players will imagine worse than you can describe, so let them.",
+    "the_slow_reveal": "Structure each scenario as a reveal: the sign of it (DC 10 fear checks), then the sight of it (DC 15), then the truth of it (DC 20). The truth belongs at the end of a scenario or a campaign.",
+    "let_them_choose": "Let the players be brave or run. A character who opens the cellar door should know they are choosing to; a character who runs should be allowed to get away (combat.json fleeing). Both are good play.",
+    "the_rules_are_the_hope": "The creature's rules are what make it a game rather than a slaughter: the players can learn them, use them and win. Make sure every scenario gives them a fair chance to.",
+    "ordinary_people": "The living are as important as the dead: the heirs, the townspeople, the boat's crew. Give them reasons. The people who keep a horror's secret do so for understandable reasons (fear, love, money, shame), and they are not monsters for it.",
+    "gore_level": "Gore at the level of a paperback ghost story: dread over detail. A body can be found; it does not need to be described.",
+    "limits": "No harm to minors, on or off the page. No sexual violence. No animal cruelty dwelt on. Self-harm is never a plot device or a creature's lure: a compulsion is a compulsion, not despair. No illness of the mind as a game effect; fear is temporary.",
+    "table_safety": {
+      "lines_and_veils": "At the start of a campaign, the GM asks the players what they do not want in the game at all (lines) and what may happen but should not be shown (veils), and keeps to it.",
+      "skip_that": "Any player can say \"skip that\" at any time, about anything. The GM honours it at once, without question and without asking why: cut away, fade out, or move the scene on. Nobody has to explain.",
+      "check_in": "After an intense scene, the GM can step out of the story for a moment and ask if everyone is all right. It costs nothing and is part of running horror well."
+    }
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "id": "lf-scenario-004",
+  "title": "The Last Ferry",
+  "subtitle": "Thursday, 3:45 P.M., Pier Point to Calder Point",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "The Whole Island, Converging on Pier Point",
+    "description": "Tuesday to Thursday — Days 6, 7 and 8 — ending at 4:12 P.M. on Thursday, one week to the second after the Arrival. Every way off Merriwick but one is closed. What is left on the island is what the party could not move before: nine ventilated patients on Unit 4 of Mercy Eastgate; Peg Odinga's Library; Ottilie Branch's Sleepwalkers; Noor Abadi's Choir; whatever the Holloway and the Kill could not take; a crew of armed men in the old Customs House at the foot of the island who believe the ferry is theirs; and the party. The Margaret Duane still runs her timetable from Pier Point every thirty minutes. The last boat before 4:12 is the 3:45. On Wednesday at midnight the Set walk out of the Greensward in their thousands and go back to where they were taken, and by Thursday morning the city is full again — of people standing in their moments — and the Visitors' frame is nearly complete.",
+    "atmosphere": "The finale is a heist run on a timetable with the whole city as the vault. It should feel like the most dangerous and most beautiful day of the campaign: the Meridian full of Set office workers frozen mid-step on the sidewalks, the Lower Ward's canyons crowded with people who are not there, the Margaret Duane's decks lined with three hundred Set passengers standing in their own shoes, and above the harbor the Lantern turning very slowly to face the Point. Every clock on the island agrees to the second. Time is the enemy now, and the players should be able to hear it. And the Visitors are, at the very end, simply finishing — not cruel, not even interested — and what they finish will be, in its way, a marvel.",
+    "keyLocations": [
+      {
+        "name": "Mercy Eastgate Hospital, Unit 4",
+        "description": "A big public hospital on the Tidewater in Eastgate. Most of it emptied on Days 1 and 2. Unit 4, the medical ICU on the sixth floor, did not: nine patients on ventilators who cannot be moved without power, three nurses who would not leave them (charge nurse Bettina Ruiz, Abena's friend), a respiratory therapist and a generator in the basement that runs out of diesel on Wednesday afternoon.",
+        "features": [
+          "Nine ventilated patients (two of them could be weaned with Abena's skill and a day; seven cannot) — portable transport ventilators with about four hours of battery each",
+          "The ambulance bay: four Mercy ambulances, fuelled, keys in the dispatch office",
+          "The generator room: about 30 hours of diesel on Tuesday morning",
+          "The transfer log on the charge desk: every Thursday at 2:15, Mercy sends its dialysis transfers by ambulance to Calder Point Medical Center on the Margaret Duane's vehicle deck, under a hospital contract that is forty years old"
+        ],
+        "encounters": [
+          "Unit 4 (Act 1)",
+          "The generator (a clock)",
+          "The ambulance run (Act 3)"
+        ],
+        "secrets": [
+          "An ambulance with lights and siren on a weekday is In Pattern on Merriwick — the city's sirens are part of its sound. Four ambulances in convoy, sirens on, going to Pier Point at 2:00 on a Thursday for the 2:15 transfer, is the most ordinary thing in the world",
+          "Bettina Ruiz has decided to stay with the seven who cannot be moved if it comes to that. Abena will have to talk her out of it, or not"
+        ]
+      },
+      {
+        "name": "The Deep Freight Tunnel",
+        "description": "An abandoned freight tunnel in the bedrock under the island's spine, built in 1919 to carry goods from the Union Terminal yards to the Lower Ward piers and closed in 1961. Three and a half miles of dark, a single track, ventilation shafts every half mile up to grates in the sidewalk, and two forgotten stations. Lo knows where it starts; Calla has been in it.",
+        "features": [
+          "Access from a locked door on the lowest level of Union Terminal (Lo's drop key opens it) and from a disused loading dock below the Customs House at the foot of the island",
+          "Glitter drifting down the ventilation shafts like slow snow, settling on the track",
+          "Calla's signal room at the halfway point: a dry, hidden, furnished room with a mattress, candles, two hundred cans of paint and the best mural on the island",
+          "Darkness, water underfoot, rats, and sound that carries for a mile"
+        ],
+        "encounters": [
+          "Moving Groups to the Lower Ward under the city on Wednesday night (Act 2)"
+        ],
+        "secrets": [
+          "Underground, Attention rises at half rate and the Visitors do not come down — but what they hear at a shaft-head grate they wait at, and the Lower Ward end comes up very near the Customs House"
+        ]
+      },
+      {
+        "name": "The Old Customs House",
+        "description": "A vast granite Beaux-Arts customs house at the foot of the Lower Ward, facing Admiralty Green and, beyond it, Pier Point and the ferry terminal two hundred yards away. Dale Rourke and six armed men — the late Anton Wexley's private security team, left behind when their employer's helicopter came back Set — have held it since Saturday. They have rifles, a stolen speedboat (it was turned back on Sunday with one of them Set at the wheel) and a plan to take the 3:45 at gunpoint.",
+        "features": [
+          "The rotunda: a domed hall with murals of ships, where the Rourke crew sleeps",
+          "Windows overlooking Admiralty Green and the terminal: a field of fire over the whole approach to the ferry",
+          "The disused freight dock in the basement, where the deep freight tunnel comes up",
+          "A man in a Wexley Security fleece, Set, at the wheel of a speedboat pulled up on the Green"
+        ],
+        "encounters": [
+          "The Rourke crew (Act 2 and Act 3: negotiation, trickery or a fight)"
+        ],
+        "secrets": [
+          "Rourke does not understand the rule and does not believe in it. His men are less sure: two of them, Pak and Dominguez, watched the 8:15 on Sunday and have not slept since",
+          "Rourke has a marine VHF radio and has been talking to a mainland fixer about a 'payment on delivery' for getting Wexley's daughter's Set body off the island, which is the only reason he has not tried something already"
+        ]
+      },
+      {
+        "name": "Pier Point Terminal and Slip 2",
+        "description": "The ferry terminal, its waiting hall, its three slips and its ramps, Admiralty Green in front of it and the stone fort to one side. On Thursday the waiting hall is full of the Set — the three hundred from the 8:15, who walked back here at midnight on Wednesday and stand in the hall and on the Margaret Duane's decks in their own shoes — and the boat comes and goes every thirty minutes with them aboard.",
+        "features": [
+          "The departure board, blank white since Thursday, which flips at 3:00 P.M. on Thursday to show a single line: 3:45 CALDER POINT — ON TIME",
+          "Slip 2 and the Margaret Duane: passenger decks above, a vehicle deck below (ambulance transfers on Thursdays at 2:15)",
+          "The Set crew: Captain Akers at the wheel, Ocampo at the ramp, Fitz and Little Joe on the lines, Brandt in the engine room",
+          "The Harbor Lantern, a mile out, turning very slowly toward the Point all day"
+        ],
+        "encounters": [
+          "The afternoon boats (Act 3)",
+          "The 3:45"
+        ],
+        "secrets": [
+          "A boat's crossing gets harder the more frightened people are aboard it (see Act 3). The party's best plan spreads its Groups across the afternoon's boats — 1:15, 1:45, 2:15, 2:45, 3:15 — and keeps the 3:45 for the last and the hardest",
+          "The 3:45 was 'the light boat'. On the real Thursday it carried eleven passengers. Every Group aboard it beyond that is novel"
+        ]
+      },
+      {
+        "name": "Lower Bay and the Hem",
+        "description": "Three miles of grey harbor from Pier Point to Calder Point, with the Hem a quarter-mile out as a faint shimmer across the water, the Harbor Lantern a mile off the Point, and the mainland beyond — lit, ordinary, full of people watching through binoculars from the Calder Point esplanade.",
+        "features": [
+          "The Hem, six minutes out from Pier Point at the Margaret Duane's service speed",
+          "The Harbor Lantern: Dread DC 15 within 300 ft, which the ferry passes within at the Hem",
+          "At 3:30 on Thursday, a Joint Task Force precision missile, launched from the mainland at the Lantern (see Castellane)"
+        ],
+        "encounters": [
+          "The crossing (Act 3)",
+          "The missile",
+          "The Performance"
+        ],
+        "secrets": [
+          "Anything structured and new held the Reservoir Lantern's attention (lf-scenario-002). A sustained performance aimed at the Harbor Lantern will hold its attention too — and it will keep whoever performs it"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The finale: Tuesday to Thursday, Days 6 to 8. The Holloway and the Kill are closed. Haddad has worked out what the Visitors are doing — keeping the island as a perfect copy of itself, one week to the second after the Arrival, at 4:12 on Thursday — and every clock on Merriwick now agrees to the second. What is left to move is the hardest: nine ventilated patients on a hospital ward whose generator is running out, Peg Odinga's Library, Ottilie Branch's Sleepwalkers, Noor Abadi's Choir, whoever the earlier routes could not take, and the party themselves. The Margaret Duane's Thursday afternoon timetable is the plan: Groups of commuters on the 1:15, 1:45, 2:15, 2:45 and 3:15; Mercy's ambulances on the 2:15, as Mercy's dialysis transfers have gone every Thursday for forty years; and the 3:45, the light boat, for the last. On Wednesday at midnight the Set walk out of the Greensward and back to the places they were taken, and the city fills up again with people standing in their moments; the party moves its Groups south under the island through a 1919 freight tunnel. On Thursday they must get every Group to Slip 2 on time and across the Hem in pattern, while a crew of armed private-security men in the Customs House plan to take the 3:45 at gunpoint, and a federal missile strike that Lt. Castellane has been ordered to keep secret is due to hit the Harbor Lantern at 3:30. And at the very end, if the last boat is too full of frightened people to cross, someone can stand on the deck and sing to the Lantern, and be kept. At 4:12 the Hem goes the colour of pearl. When it clears, Merriwick is there, exactly as it was at 4:11 on the Thursday before, bridges and all, forever, and nobody can ever go back.",
+  "hook": "Tuesday, 6:00 A.M., the Library roof, or the fan room at the Holloway, or wherever the party slept. Haddad has been up all night with every clock he could find laid out on a reading-room table — a dozen wristwatches, the Library's wall clock, a church's mechanical timer, the party's phones. At dawn, they all agree. To the second. With each other, and with nothing on the mainland radio. He looks at the party with his eyes red and something like wonder in them. 'They are not taking us,' he says. 'They have never been taking us. They are keeping us. A city, on an ordinary Thursday. They have been recording it all week — learning it, filing it, closing the frame from the biggest gaps to the smallest — and at 4:12 this Thursday, one week to the second, they will be finished. Everything inside the frame will be in it. Forever.' Walt Kubiak unfolds his timetable on the table, very carefully, and smooths it flat with both hands, and puts one thick finger on the last line before the gap. 'Three forty-five,' he says. 'The light boat.'",
+  "acts": [
+    {
+      "title": "Act 1: What Is Left",
+      "description": "Tuesday and Wednesday daytime. The party takes stock of who is still on the island, makes the plan — the Thursday afternoon timetable — and goes to Mercy Eastgate, where Abena's patients are running out of generator. Castellane's secret comes out, or does not.",
+      "objectives": [
+        "Make the list: every Group still on the island, and where they are",
+        "Make the plan with Walt: which Groups go on which Thursday boat, and how they reach Pier Point",
+        "Reach Mercy Eastgate's Unit 4 before the generator dies, and find a way to move nine ventilated patients",
+        "Learn about the 3:30 missile strike, and decide what to do about it"
+      ],
+      "encounters": [
+        "The war room (social; planning)",
+        "Unit 4 and the generator (skill challenge)",
+        "Castellane's sat phone (social)"
+      ],
+      "scenes": [
+        {
+          "name": "The List",
+          "description": "Planning. Lay out every Group still on the island — with numbers — and let the players build the schedule with Walt. A sample list (adjust from earlier scenarios): Mercy Unit 4 (9 patients, 5 staff); the Library (Peg Odinga and about 60); the Sleepwalkers (Ottilie Branch and about 150, in three Groups); the Choir (Noor Abadi and 19); Castellane's four hundred if the Holloway failed; Gansevoort's two hundred if the 11:40 failed; anyone who stayed at the Kill; the party and their companions and families. Each boat's crossing difficulty rises with each frightened Group aboard (see Act 3), so the plan is about spreading them.",
+          "readAloud": "“Walt’s timetable is open on a reading-room table between a dozen stopped-and-started clocks, and the whole of the rest of the campaign is on it in tiny print: Pier Point–Calder Point, Weekdays. One fifteen. One forty-five. Two fifteen. Two forty-five. Three fifteen. Three forty-five. And then a gap, because nobody ever needed a boat at four-fifteen on a weekday afternoon; the next one was the rush hour boat at four-thirty. ‘Six boats,’ Walt says. ‘Each one she’s full of the Set from Sunday — they’ll be aboard, they’ll be calm, they won’t mind you. You put a few dozen frightened people in amongst them, sitting nice with a paper, she crosses. You put two hundred on one boat —’ He doesn’t finish. He doesn’t have to. Everybody at the table was at Pier Point on Sunday.”",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "A good plan: no boat carries more than two Groups, the hardest Groups (the patients, the children, the Choir) get the boats with the most help, and the 3:45 carries only the party, its companions and the last stragglers. Every boat's crossing check is made with advantage on the first Group.",
+              "failure": "A workable plan with one boat overloaded. Which one is the GM's choice, and the players will find out on Thursday."
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 13,
+              "success": "Lo, Calla or Teo works out the route for each Group: the Sleepwalkers walk to Pier Point as the Thursday afternoon commute (they are good at it); the Library and the Choir go under the city through the deep freight tunnel on Wednesday night; the patients go by ambulance on Thursday at 2:00.",
+              "failure": "The routes are the GM's to complicate."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Give the players the timetable and the list and let them plan for real; it is their reward for four scenarios of learning the rule. Then, during the plan, Castellane's sat phone buzzes (see next scene), and Ottilie Branch sends a message by a Sleepwalker runner: she will come, but only on the 3:15, because 'that's when I always left early on Thursdays, for the hairdresser'.",
+          "loot": [
+            "The Plan: a boat-by-boat schedule (record it)"
+          ]
+        },
+        {
+          "name": "Unit 4",
+          "description": "Mercy Eastgate's sixth floor. Nine ventilated patients, three nurses, a respiratory therapist, a doctor who is a second-year resident, and a basement generator with thirty hours of diesel on Tuesday morning. Abena's friend Bettina Ruiz is charge nurse and has decided she is staying with the seven who cannot be weaned. Mercy's transfer log has the answer, if someone reads it: the Thursday 2:15 ambulance transfer to Calder Point.",
+          "readAloud": "“The sixth floor is the only lit place in Eastgate. You can hear it from the stairwell: the generator in the basement, six floors down, thudding like a heart, and then, as you open the door to the unit, the other sound — nine ventilators, breathing for nine people, each in its own slow rhythm, soft and mechanical and absolutely relentless. A nurse in navy scrubs comes out of the nearest room with an empty IV bag in her hand and stops, and looks at Abena, and her face does something complicated. ‘Oh, thank God,’ she says. ‘Oh, thank God, Abena. We’ve got thirty hours of diesel. And I’m not leaving them.’”",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 15,
+              "success": "Abena weans two of the nine off their ventilators in a day of careful work: they will be able to sit in a wheelchair and breathe on oxygen. Seven still need transport ventilators (four hours of battery each).",
+              "failure": "None can be weaned in time. Nine transport ventilators, and four hours."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 14,
+              "success": "Walt or a Tech siphons diesel from the ambulances' reserve and the parked cars in the bay and stretches the generator to Thursday noon. (This is noisy: +1 Attention in the bay.)",
+              "failure": "The generator dies on Wednesday at 4 P.M., and the next thirty hours are hand-bagging, in shifts. Every character who takes a shift starts Thursday with one level of exhaustion."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 11,
+              "success": "The transfer log: 'THURS 14:15 PIER PT — CALDER PT MED. DIALYSIS TRANSFERS x2-4. VEHICLE DECK.' Forty years of Thursdays. An ambulance convoy to the 2:15 is In Pattern.",
+              "failure": "Abena knows about the transfers; she has sent patients on them. Make her player remember it (Medicine or Insight DC 10, or the GM simply asks: 'Abena, what happens at Mercy on Thursday afternoons?')."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "Bettina agrees to come on the ambulances with the patients instead of staying with them. Without her, Abena must ride the 2:15 herself.",
+              "failure": "Bettina will stay with the seven if anything goes wrong, and she means it."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is Abena's scenario. Make the ward vivid and specific: names on the whiteboards, the patient in bed 3 whose daughter left a drawing taped to the window. The ambulance plan is In Pattern, and the risk is not the Visitors but the timing, the batteries and the crossing itself.",
+          "loot": [
+            "Four Mercy ambulances, fuelled, and their keys",
+            "Nine transport ventilators, oxygen, a crash cart, a hospital trauma kit"
+          ]
+        },
+        {
+          "name": "Harbor Actual",
+          "description": "Castellane's sat phone. On Tuesday (or whenever the party is with her), Harbor Actual calls with the time of the strike: a precision missile at the Harbor Lantern at 15:30 Thursday, 'to test the Hem's response to kinetic force'. She has been ordered to tell nobody. When she hears the ferry plan she goes very still, and has to choose.",
+          "readAloud": "“The sat phone on her vest buzzes and she steps away to take it, and stands at the window with her back to you, and says ‘Copy,’ and ‘Copy,’ and ‘Understood,’ and then nothing for a long time. When she turns round her face is the face she had at the Holloway fence on Sunday, before the demonstration. ‘When,’ she says, very quietly, ‘does the last boat sail?’ You tell her. She closes her eyes. ‘Fifteen-thirty,’ she says. ‘They’re going to hit the Lantern at fifteen-thirty Thursday. Precision munition. They want to see what it does.’ She looks at the phone in her hand as if she has never seen it before. ‘I was ordered not to tell anyone.’”",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 18,
+              "success": "Castellane calls Harbor Actual back and, with a precise eyewitness account of the Holloway convoy and the 8:15, gets the strike delayed to 16:30 — after the last boat. (DC 13 if the party demonstrated the rule to her in lf-scenario-003 and she saw the convoy.)",
+              "failure": "Harbor Actual does not take requests from a lieutenant. The strike stands. She will tell the party exactly when it will land, and she will be at the gangway."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "You see that this is the moment her chain of command breaks. Whatever happens, from now on she follows the party.",
+              "failure": "She is hard to read."
+            },
+            {
+              "skill": "Science",
+              "dc": 15,
+              "success": "Haddad or June sees the terrible use: the missile will hold the Lantern's attention for as long as it takes to catch it — about three rounds. If a boat is at the Hem at 3:30 exactly, everyone aboard gets advantage on the crossing. It is the 3:15 boat, not the 3:45. Or the 3:45 sails late — which is impossible.",
+              "failure": "A missile at a thing that catches everything."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Do not let the players resolve this cheaply. The strike, if it happens, lands at 3:30 — eighteen minutes before the Last Ferry reaches the Hem — and the Attention at Pier Point goes to 6 for an hour afterwards (the 3:45 crossing check is then at disadvantage). Delaying it is the clean answer; using it for the 3:15 is the clever one; ignoring it is a disaster. Castellane's secondary secret — her brother Paul, Set in the 4:20 rows — matters here: on Wednesday night he walks back to the corner where he was taken, and she can go and see him, and wake him, and bring him. Offer it.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Rows Walk",
+      "description": "Wednesday night. At midnight the Set walk out of the Greensward in their thousands and go back to the places they were taken, and the city fills up again. The party moves the Library and the Choir south under the island through the deep freight tunnel, and comes up at the Customs House, where Dale Rourke and his men have other plans for the ferry.",
+      "objectives": [
+        "See the Set leave the Greensward, and understand it",
+        "Move the Library and the Choir (and anyone else) three and a half miles south through the deep freight tunnel overnight",
+        "Deal with the Rourke crew at the Customs House before Thursday afternoon"
+      ],
+      "encounters": [
+        "The deep freight tunnel (skill challenge; Glitter)",
+        "The Rourke crew (social, trickery or a fight)"
+      ],
+      "scenes": [
+        {
+          "name": "Midnight",
+          "description": "At midnight on Wednesday, as every clock on the island strikes twelve together, the Set in the Greensward turn as one and walk out of the park — thousands of them, at a walking pace, without speaking — back down the avenues to the corners, lobbies, cabs, kitchens and ferry decks where they were taken. By dawn every one of them is back in place, standing in their moment. The city is full again.",
+          "readAloud": "“All the clocks strike at once. You did not know there were so many clocks: church bells, a clock tower, a grandfather clock somewhere in a lobby, every watch on every wrist, chiming midnight together to the second. And from the north, from the Greensward, comes a sound like a tide coming in: footsteps. Thousands of them. You watch from the Library steps as they come down Bramwell Avenue in the light of the Lanterns — the Set, walking, all of them, not hurrying, faces calm — and they split at every corner, one here, two there, a man in a suit stopping on the kerb opposite you and turning to face the road and lifting his arm to hail a cab. A woman in a green raincoat goes past you up Forty-Third Street, phone already in her hand. By the time the clocks strike one, the Meridian is full of people who are not there.”",
+          "skillChecks": [
+            {
+              "skill": "Science",
+              "dc": 12,
+              "success": "You understand: the frame is filling. Everyone is going back to their place for the last take. On Thursday the city will be exactly as it was at 4:12 last Thursday, except for the people who are not in it — which is you.",
+              "failure": "It is beautiful and you cannot stand to look at it."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "Among the walkers you see faces you know — the woman in the green raincoat, Hal, Elaine Barre, the three hundred from the 8:15 heading south toward Pier Point, and Officer Paul Castellane walking to the corner of Eighth and Holloway. You know where they will all be on Thursday.",
+              "failure": "Thousands of strangers."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the campaign's most uncanny image; let it be quiet and long. It also changes the board: on Thursday the streets are crowded with Set people in place, which makes walking In Pattern easier (you are in a crowd) and anything out of place more conspicuous. Waking someone on Thursday is now possible anywhere on the island — at a cost.",
+          "loot": []
+        },
+        {
+          "name": "Under the City",
+          "description": "The deep freight tunnel, three and a half miles from the lowest level of Union Terminal to the old freight dock under the Customs House. Lo's drop key opens the door; Calla knows the way and has a room halfway. The Library's sixty and the Choir's twenty (and whoever else) must walk it in the dark, carrying children and the elderly, with the Glitter drifting down the ventilation shafts and settling on the track like snow.",
+          "readAloud": "“The door at the bottom of Union Terminal has not been opened since before most of you were born, and Lo Pruitt’s key turns in it like it was waiting. Behind it is a single track running into a dark so complete it has weight. Your torches make it smaller and somehow worse. The air is cold and smells of iron and old water, and far ahead, where a ventilation shaft comes down from a grate in some sidewalk eighty feet above, there is a faint slow glitter falling through the beam of light, like snow in a streetlight. Calla is already walking. ‘Three and a half miles,’ she says. ‘Halfway there’s my room. Don’t touch the walls by the second station, they’re live. Joking. Probably.’”",
+          "skillChecks": [
+            {
+              "skill": "Keep Walking (Group, underground: Attention rises at half rate)",
+              "dc": 12,
+              "success": "A long dark walk, a child carried, an old man helped, nobody making a sound beyond footsteps. Each Group through.",
+              "failure": "A Group panics in the dark — someone falls, a child screams. +1 Attention (half rate); the Glitter at the next shaft comes down onto the track and must be waited out (one hour lost) or passed through (Static)."
+            },
+            {
+              "skill": "Survival or Streetwise",
+              "dc": 13,
+              "success": "Calla (or Teo) finds the route around the flooded section past the second station, through a cross-passage. Saves an hour.",
+              "failure": "Through the flood: waist deep, cold, and loud (+1 Attention)."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "At Calla's signal room, halfway, the Groups rest for an hour (+1 Calm each) among candles and her mural, and she shows somebody — Lo, probably — what she has made. It is the whole island, on four walls, in silver and black, with every bridge.",
+              "failure": "No time to rest."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "1 Glitter swarm per shaft where the Attention reaches 2"
+              ],
+              "difficulty": "Medium",
+              "tactics": "The Glitter comes down a shaft and hangs over the track; it uses Static on anyone who strikes it or shouts inside it. Waiting it out costs an hour; fire disperses it (+1 Attention at half rate); a fire extinguisher deals it 2d6 cold.",
+              "terrain": "Single-track tunnel, ballast and water underfoot, total darkness, ventilation shafts every half mile.",
+              "statblock": "GLITTER (Medium swarm of Tiny aberrations, CR 1). AC 12. HP 22 (5d8). Speed 0 ft, fly 30 ft (hover). STR 3 (-4) DEX 15 (+2) CON 10 (+0) INT 1 (-5) WIS 12 (+1) CHA 1 (-5). Resistances bludgeoning, piercing, slashing. Immunities grappled, paralyzed, prone, restrained, frightened. Senses blindsight 60 ft. Swarm: it can occupy another creature's space and move through openings an inch wide; it cannot regain HP. Record: the Glitter remembers every sound made within 30 ft of it. It replays them later, elsewhere, at random — a dead man's voice, the party's names, a gunshot — and each replay in a scene is +1 Attention. Harmless in Pattern: a Glitter swarm does not attack anything unless it is struck, sprayed, burned or shouted at from inside it. Actions — Static: every creature in the swarm's space makes a CON save DC 12, 2d6 lightning damage on a failure, half on a success (1d6 if the swarm is at half HP or less). Behaviour: drifts like dust in a sunbeam, towards novelty. It is the Visitors' ears. Fire disperses it (a burning swarm takes double damage), and a fire extinguisher's cone deals it 2d6 cold."
+            }
+          ],
+          "roleplayNotes": "A quiet, intimate, frightening night. Give Calla and Lo their moment in the signal room. And plant the end of the tunnel: the freight dock under the Customs House is where the Rourke crew keeps its gear.",
+          "loot": []
+        },
+        {
+          "name": "Rourke",
+          "description": "Dale Rourke, forty-eight, former contractor, head of Anton Wexley's private security, and six of his men hold the Customs House. They have rifles, body armour and a clear field of fire over Admiralty Green and the terminal. They tried a speedboat on Sunday and it came back with one of them Set. Rourke's plan for Thursday is to put his men and Wexley's Set daughter on the 3:45 at gunpoint. He does not believe in the rule. Two of his men — Pak and Dominguez — watched the 8:15 and do.",
+          "readAloud": "“The freight dock at the end of the tunnel opens into a basement full of crates, and the crates are full of rifles. You have about four seconds to absorb that before the lights come on — battery work lights, very bright — and a man’s voice says, ‘Don’t.’ There are three of them at the top of the loading ramp with rifles up. Behind them, a fourth man comes down the stairs, not hurrying: forty-eight, grey crew cut, a Wexley Security fleece over body armour, and the expression of a man who has been in charge of things for a long time. ‘Well,’ he says, looking past you at sixty people from a library and twenty from a choir in the tunnel mouth. ‘Well. Who are all you, then?’”",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Rourke is calm, competent and wrong. Pak and Dominguez are terrified and looking for a reason to stand down. The man at the end, Hollis, is the one who will shoot.",
+              "failure": "Seven armed men."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 18,
+              "success": "You split the crew: Pak and Dominguez (and one more) will take the 2:45 as commuters, unarmed, with you; Rourke and the rest stay. (DC 14 if the party shows them the shoes on the Margaret Duane, or if Castellane is present and speaks.)",
+              "failure": "Rourke lets you through — he has no quarrel with you — and tells you that on Thursday his people board the 3:45 first and nobody gets in the way."
+            },
+            {
+              "skill": "Deception",
+              "dc": 16,
+              "success": "You convince Rourke that the 3:15, not the 3:45, is the last boat. He and his men board it at gunpoint, Out of Pattern, and the Lantern takes them at the Hem. It is the cruellest successful plan in the campaign and it works. (Make the players choose it knowingly.)",
+              "failure": "He knows the timetable. He has a copy."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 20,
+              "success": "With Castellane and her officers at your back, he stands down. He will not forgive it.",
+              "failure": "Somebody's finger tightens."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Dale Rourke (use LookupMonster 'Special Forces Operator')",
+                "6 Wexley security men (use LookupMonster 'Mercenary'); Pak and Dominguez surrender on the first round if they can"
+              ],
+              "difficulty": "Deadly (for a level 4 party, and catastrophic for the plan)",
+              "tactics": "They are professionals: cover, crossfire, suppressive fire from the rotunda windows over the Green. Every exchange of gunfire is +1 Attention after the first +3, two hundred yards from Pier Point and inside the Harbor Lantern's Hush (Attention never falls below 2 here). At Attention 6 the Harbor Lantern turns to face the Point for an hour, and any boat crossing in that hour does so at disadvantage. A fight here on Wednesday night is survivable; a fight on Thursday afternoon may cost a boat.",
+              "terrain": "The Customs House basement (crates, half or full cover depending on contents — the rifle crates are wood, the ammunition crates are steel), the rotunda above (marble columns, full cover), the windows over Admiralty Green.",
+              "statblock": "Use LookupMonster 'Special Forces Operator' for Rourke and 'Mercenary' for his men (assault rifles 2d6 piercing, 120/360, magazine 30, single/burst/auto; body armour)."
+            }
+          ],
+          "roleplayNotes": "Rourke is the last human obstacle and the campaign's last argument about force. He is not evil; he is a man with a client and a contract and rifles, and he has decided the rules of the world still apply. The best solutions are social or clever. A fight is possible and has consequences for Thursday that the GM should honour. If Castellane is with the party she will try to arrest him, which is brave and probably wrong.",
+          "loot": [
+            "Rifles, ammunition and body armour, if the party wants them (they should think hard about why)",
+            "Rourke's marine VHF radio (useful on Thursday to talk to Calder Point)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The 3:45",
+      "description": "Thursday afternoon: Day 8, one week to the second. The city is full of the Set in their places and every clock agrees. The Margaret Duane runs her afternoon boats. The party gets every Group to Slip 2 on time and across the Hem in pattern: the Sleepwalkers' commute, the 2:15 ambulances, the Choir, the Library, Ottilie on the 3:15, the strike at 3:30 if it was not stopped, Rourke if he was not dealt with, and finally the 3:45 — the light boat — with the party aboard. Then 4:12.",
+      "objectives": [
+        "Run the afternoon timetable: every Group on its boat, every boat across",
+        "Get the ambulances and the patients onto the 2:15's vehicle deck",
+        "Survive the 3:30 strike, or have stopped it",
+        "Get the party and its companions onto the 3:45 and across the Hem",
+        "Decide, if it comes to it, who sings"
+      ],
+      "encounters": [
+        "The afternoon boats (a skill challenge per boat)",
+        "The 2:15 ambulances",
+        "The missile (if not delayed)",
+        "The 3:45, and the Performance",
+        "4:12"
+      ],
+      "scenes": [
+        {
+          "name": "Crossing Rules",
+          "description": "How a boat crosses. Each boat is a scene of about six rounds from the ramp to the Hem. Each Group aboard makes a Keep Walking check, led by whoever is with it, against the boat's Crossing DC: 12, +1 for every frightened Group aboard beyond the first (the Set do not count), +2 if the Harbor Lantern is facing the Point (Attention 6 at the Point in the last hour), and −2 if a Lullaby recorded aboard the Margaret Duane is playing in that Group's cabin. A Group that fails is Out of Pattern at the Hem: if it is the only failure, its leader may spend a Rally, a Silver Tongue reroll or a Eureka to try again; if it fails again, the Lantern's light lifts that Group off the deck. If two or more Groups fail on the same boat, the Lantern lifts everyone frightened aboard. Groups that pass go on to Calder Point, where the Margaret Duane docks, the ramp goes down, and the National Guard is waiting.",
+          "readAloud": "“Three-quarters of a mile of grey water, and then the shimmer, low on the waves like heat over a summer road. The boat’s engines thrum under your feet. The Set passengers stand at the rail in their own shoes, calm, looking at a view they have looked at since Sunday. Around you, in the cabin, frightened people sit on the benches with newspapers open on their knees, not reading them. The Lantern, a mile off the bow, is very tall and very still and you can feel it the way you feel somebody standing behind you. Six minutes to the Hem. Five. Somebody’s phone, somewhere, plays a note, and is silenced.”",
+          "skillChecks": [
+            {
+              "skill": "Keep Walking (each Group aboard)",
+              "dc": 12,
+              "success": "Through the Hem, and on to Calder Point.",
+              "failure": "Out of Pattern at the Hem — see the crossing rules above."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Run each boat as a short, tense scene, and run the dice openly. Not every boat needs a full scene: the GM may resolve an easy boat with a single roll and narrate it, and spend the time on the hard ones. Keep the tally. Track who is aboard each boat by name where you can.",
+          "loot": []
+        },
+        {
+          "name": "The 2:15",
+          "description": "Mercy's ambulances. At 2:00 the four ambulances leave Mercy Eastgate's bay with lights and sirens — In Pattern on a Thursday — and drive down the East Side to Pier Point, a mile and a half through streets full of the Set. At 2:10 they roll down Slip 2's vehicle ramp onto the Margaret Duane's lower deck. The transport ventilators have about four hours of battery. Abena (or Bettina) rides with them.",
+          "readAloud": "“The sirens are the sound of the city. That is the strangest thing. Four ambulances in a line down Eastgate Avenue with their lights going and their sirens wailing, the most ordinary sound on Merriwick, and the Set on the sidewalks do not turn their heads, and a Stilt standing at the corner of Twenty-Third does not turn its body, and you go past it at forty miles an hour with seven ventilators breathing in the back. At the slip, a Set deckhand waves you down the vehicle ramp exactly the way he has waved down the Thursday transfers for twenty years.”",
+          "skillChecks": [
+            {
+              "skill": "Piloting (each ambulance driver)",
+              "dc": 13,
+              "success": "Lights and sirens, the right speed, the right route. In Pattern.",
+              "failure": "A turn too fast, a kerb. +1 Attention, and the ventilators in that ambulance take a jolt (Medicine DC 12 to keep the patient stable)."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 13,
+              "success": "Every patient arrives at Calder Point alive. Bettina cries on the ramp.",
+              "failure": "One patient (the GM's choice; not the one with the drawing on the window) crashes on the crossing. Abena or Bettina can work the code — Medicine DC 15 — but working a code is loud and frantic, and it is Out of Pattern. Let the player choose."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "The patients' crossing is the campaign's quietest climax and should be one of its best scenes. The dilemma at the Hem — work the code, or sit still — is the whole campaign in one choice. Do not make it for the player.",
+          "loot": []
+        },
+        {
+          "name": "Three-Thirty",
+          "description": "If the strike was not delayed, at 3:30 a precision missile comes in low from the mainland toward the Harbor Lantern. The Lantern catches it: the missile slows, slows, stops in the air, turns once — the way the bridge did — and drifts down onto Admiralty Green and lies on the grass, unexploded. It is the most novel thing that has happened all week. The Attention at Pier Point goes to 6 and the Lantern faces the Point for the next hour: the 3:45's crossing DC is +2. If the 3:15 is at the Hem at 3:30 exactly, its Groups have advantage.",
+          "readAloud": "“You hear it before you see it: a rising tearing roar from the west, over the mainland, coming in low and fast across the water toward the Lantern, and every frightened person on Admiralty Green throws themselves flat. It does not hit. A hundred yards from the Lantern the missile slows. It slows the way a leaf slows when it lands on a pond. It stops, in the air, perfectly still, a white shape the length of a car, and turns once — slowly, as if being shown to you — and drifts in over the harbor and down onto the grass of Admiralty Green, and lies there, with its fins in the grass, ticking as it cools. And the Lantern turns. All of it. Toward the Point.”",
+          "skillChecks": [
+            {
+              "skill": "WIS save (Alien Dread)",
+              "dc": 15,
+              "success": "You keep your feet and your head.",
+              "failure": "Shaken (if you were not already)."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Castellane, if she is here, watches the missile land and says nothing for a long moment, and then, very quietly, 'Okay,' and takes the sat phone off her vest and puts it face down on the grass. Then she goes to the gangway.",
+          "loot": []
+        },
+        {
+          "name": "The Light Boat",
+          "description": "At 3:40 the departure board in the waiting hall, blank since Thursday, flips to a single line: 3:45 CALDER POINT — ON TIME. The Margaret Duane comes in at 3:38 with the three hundred Set aboard. Aboard her must go the party and its companions and families, Ottilie if she missed the 3:15, Peg Odinga if the party can get her out of the Library, the stragglers, and anyone who failed an earlier boat and was not taken. This is the last boat. Walt's scheduled horn at 3:45 is the departure. Calla is at the gangway and cannot move. And if the boat is too full of frightened people to cross — if the Crossing DC is beyond anyone's reach — there is one more thing that can be done.",
+          "readAloud": "“The board flips with a clatter like applause, every tile at once, and there it is: 3:45 CALDER POINT — ON TIME. Out past the slip the Margaret Duane is coming in, big and orange and absolutely ordinary, three hundred calm people at her rails in their own shoes, Captain Akers at the wheel with her coffee. Behind you the Lower Ward is full of the Set standing in their moments, and above it, very high, every clock on the island says 3:38. Walt Kubiak has his hand on the horn lanyard in the wheelhouse door. He looks at you. ‘Last one,’ he says. ‘Light boat. Never ran full in her life.’ Calla is at the top of the gangway and has stopped there, both hands on the rail, staring at the water. She is not breathing.”",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Someone she trusts (Lo, Hector, whoever has earned it) gets Calla up the gangway — a hand, a joke, the life jacket Walt quietly put on the bench for her on Sunday. She sits in the cabin with her eyes shut and Nico on her lap.",
+              "failure": "She will not move. She is Out of Pattern on the gangway at 3:45. Someone must carry her aboard (Athletics DC 12, and that is Out of Pattern for both of them for a round), or she stays."
+            },
+            {
+              "skill": "Performance (Walt's horn)",
+              "dc": 10,
+              "success": "Two long blasts at 3:45:00 by every clock on the island: the scheduled departure, exactly right. Walt lets go of the lanyard and his hands are steady, and the horn he blew on Sunday is answered. Advantage on the first Group's crossing check.",
+              "failure": "A second early. Nobody but Walt notices. He notices."
+            },
+            {
+              "skill": "Keep Walking (each Group, at the boat's Crossing DC)",
+              "dc": 12,
+              "success": "Through.",
+              "failure": "See the crossing rules. And see The Song."
+            }
+          ],
+          "combatEncounters": [
+            {
+              "enemies": [
+                "Dale Rourke and up to 6 Wexley security men (only if not dealt with in Act 2)"
+              ],
+              "difficulty": "Deadly, and it costs the boat",
+              "tactics": "Rourke's crew comes across Admiralty Green at 3:42 with rifles up to take the gangway. They are Out of Pattern from the first step and the Attention goes to 6 the moment the first one shouts. The Lantern turns. If they board, the 3:45's Crossing DC is +4 and the Lantern will lift everything frightened aboard at the Hem. The only good outcomes are stopping them before the gangway without a shot (Castellane, a flashbang and a tackle, Persuasion DC 15 on Pak and Dominguez to turn on their boss) or leaving them on the Green when the ramp goes up. A gunfight on the Green at 3:42 may end the campaign on the wrong shore.",
+              "terrain": "Admiralty Green (open lawn, a missile in the grass, a speedboat on a trailer, park benches), the terminal façade (stone, full cover), Slip 2's gangway and ramp.",
+              "statblock": "Use LookupMonster 'Special Forces Operator' for Rourke and 'Mercenary' for his men."
+            }
+          ],
+          "roleplayNotes": "Slow everything down. This is the last boat. Name everyone on it. If the party has done its work, the 3:45 carries a dozen frightened people among three hundred calm Set and it crosses on a good roll. If not, the Song is the way through.",
+          "loot": []
+        },
+        {
+          "name": "The Song",
+          "description": "The Performance ending. Anything structured and new holds a Lantern's attention (lf-scenario-002). A performer who stands at the Margaret Duane's bow rail as she approaches the Hem and gives the Harbor Lantern something it has never heard — a song, sustained, structured, true — holds its attention for the six rounds of the approach: each round, a Performance check DC 15 (Noor Abadi has +7; the Choir with her gives advantage). While the performance holds, every Group aboard makes its crossing check with advantage and may ignore one failure. When the boat crosses the Hem, the Lantern takes the performer — gently, a single figure rising off the bow in a stream of light — and keeps them. They are Set, in the Lantern, at the moment of their song, forever. The performer may be Noor (who wants to go), Benny (who has been narrating for four scenarios and could narrate this), Hal (woken, a cellist, with Haddad's cello in his hands), or any player character.",
+          "readAloud": "“The shimmer is two hundred yards off the bow and the Lantern is looking at the boat now — not at the Point, at the boat — and you can feel every frightened person in the cabin behind you about to break. And somebody walks to the bow rail, and stands there, and opens their mouth. It is not loud. It does not need to be. It is a song nobody on this boat has ever heard, because it has never been sung before, and it goes out across the grey water to the Lantern like a thread being thrown, and the Lantern — six hundred feet of folded light — leans toward it. Toward the voice. You can see it happen. And the boat goes on, and on, under its attention, the way you would walk under a sleeping dog, and the shimmer passes down the length of the deck like cold water, and nobody in the cabin moves, nobody, and the voice at the bow holds the last note, and holds it, and rises.”",
+          "skillChecks": [
+            {
+              "skill": "Performance (the performer, each of six rounds)",
+              "dc": 15,
+              "success": "The song holds. Advantage for every Group's crossing; each may ignore one failure.",
+              "failure": "A crack in the song. That round, the Groups roll normally. Two consecutive failures and the Lantern's attention returns to the boat."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is optional and it should never be forced. It is there for a table that has overloaded the last boat, or that wants it. If a player character sings, give the player the last word of the campaign, and let the epilogue tell what the Lantern kept. If Noor sings, she goes up smiling. If Benny sings, he narrates — the history of the harbor, the islands, the bridges, the ferry, the people on the boat by name — and it is the best tour he ever gave.",
+          "loot": []
+        },
+        {
+          "name": "4:12",
+          "description": "The Margaret Duane docks at Calder Point at 4:10. The ramp goes down. The survivors walk off her into the arms of the National Guard and their families on the esplanade — Abena's boys, Walt's wife Teresa, who has met every boat for a week. At 4:12, every phone on the mainland plays one long low tone. Across three miles of water the Hem goes the colour of pearl, all the way round the island, and for a full minute nobody can see Merriwick at all. When it clears, the island is there: lit, whole, with the Kingsgate and the Concord and the Sutter Street and the Harrow Bridges back on their towers and the evening traffic moving on them, every window lit, the Margaret Duane loading at Pier Point for the 4:15, exactly as it was at 4:11 on the Thursday before. The Lanterns are gone. The Hem is still there. Nothing can cross it. Nobody ever will.",
+          "readAloud": "“The tone comes out of every phone on the esplanade at once, and a thousand people look up. Across the harbor, the shimmer on the water rises — just rises, all the way round the island, like a curtain going up the wrong way — and goes milky, and then white, and then the colour of the inside of a shell, and Merriwick is gone behind it. A full minute. Nobody on the esplanade says a word. Then it clears. And there it is. The whole of it, lit up gold in the late sun: the towers of the Meridian, the green of the Greensward, the Kingsgate Bridge — the Kingsgate Bridge, back on its towers, with the evening traffic crawling across it — and the Concord, and the Sutter Street, and at the foot of the island, the Margaret Duane, loading at Pier Point for the 4:15. The Margaret Duane, which is tied up at the slip beside you, empty, with her crew gone. Over there it is 4:11 on a Thursday. It always will be. Somewhere on that island, a busker on the east stair of Union Terminal is playing Bach on a saxophone, and a woman with a coffee is walking to the subway, and a tour-bus driver is about to tell fourteen strangers about the ceiling.”",
+          "skillChecks": [],
+          "combatEncounters": [],
+          "roleplayNotes": "End here, and then give each player character an epilogue line from the tally: who they brought, who they lost, who was kept. Haddad's hydrophones on the mainland side pick up the Visitors' tone that night, very faint, receding, going wherever such things go, with a copy of a city. The Set are alive in there — the GM truth is that they are living their moment, unhurt and unafraid, forever — and whether that is a death or a kind of heaven is for the table to argue about on the way home. So is the other question: whether the figures moving on the island are the Set themselves, living inside that minute, or the Visitors' recording of everyone who was there at 4:11 — including, somewhere on Kestrel Avenue, a bike messenger, a tour bus and a retired transit cop with a coffee. Do not answer it. The party reaches level 5.",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Walt Kubiak, 58",
+      "role": "Companion NPC / the Margaret Duane's engineer",
+      "description": "The timetable is his. He blows the 3:45's departure horn — scheduled, exactly right — which is the redemption for Sunday's. He may want to stay aboard as she returns to Pier Point, to be with his crew; she does not return. Let him go home to Teresa.",
+      "motivation": "The boat runs. On time."
+    },
+    {
+      "name": "Lt. Dana Castellane, 41",
+      "role": "Companion NPC / the gangway",
+      "description": "The strike is her secret and her chain of command's last order; this is where she breaks it or does not. On the Green at 3:42 she is the person between Rourke and the boat.",
+      "motivation": "Get them off. All of them. And her brother Paul, if the party offered."
+    },
+    {
+      "name": "Yusuf Haddad, 44",
+      "role": "Companion NPC / the one who understood",
+      "description": "Works out on Tuesday what the Visitors are doing. On Thursday he must decide whether to wake Hal, who wants to stay, or let him stay, or let him sing.",
+      "motivation": "To have understood them, and to have done one good thing with it."
+    },
+    {
+      "name": "Calla Moreno, 16",
+      "role": "Companion NPC / the gangway",
+      "description": "Cannot swim, cannot board, will not say so. Her brother is with her. Her tag is on two hundred walls of a city that will now never change.",
+      "motivation": "Nico. And to not be the reason the last boat fails."
+    },
+    {
+      "name": "Bettina Ruiz, 44",
+      "role": "Charge nurse of Unit 4, Mercy Eastgate",
+      "description": "Abena's friend and her mirror: staying with the seven who cannot be weaned unless someone gives her a way to bring them.",
+      "motivation": "Her patients."
+    },
+    {
+      "name": "Dale Rourke, 48",
+      "role": "Head of the late Anton Wexley's private security / last human obstacle",
+      "description": "Competent, calm, wrong. Holds the Customs House with six men and rifles and intends to take the 3:45 at gunpoint. Pak and Dominguez, two of his men, saw the 8:15 and will turn if given a reason.",
+      "motivation": "His contract, his client's Set daughter, and a payment on delivery."
+    },
+    {
+      "name": "Ottilie Branch, 71",
+      "role": "Sleepwalker",
+      "description": "Will take the 3:15, because on Thursdays she always left early for the hairdresser. If anyone needs to be told how to sit on a ferry, she will tell them.",
+      "motivation": "Not to be late."
+    },
+    {
+      "name": "Noor Abadi, 58",
+      "role": "Leader of the Choir / the Song",
+      "description": "Wants to be kept. Can sing for the last boat, and will, if asked — or if not asked.",
+      "motivation": "To be heard by something that will never forget."
+    },
+    {
+      "name": "Peg Odinga, 60",
+      "role": "Night librarian",
+      "description": "Will not leave the Library while anyone is still in it. On Thursday morning there is one person still in it: a Set man in the Rose Reading Room, reading the same page. Someone must persuade her (Persuasion DC 14) that he is in good hands.",
+      "motivation": "Somebody has to be here when people come."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "Each survivor walks off the Margaret Duane at Calder Point with whatever they carried, and the Federal Emergency Management Agency issues every Merriwick evacuee a debit card loaded with $1,500 within the week. Abena's, if anyone asks, goes on two birthday cards.",
+    "items": [
+      "Every person the party brought across the water, by name where possible",
+      "Whatever the party carried off the island: Haddad's laptop with nine years of the harbor and the only recording of the Visitors; Calla's photographs of her mural; Walt's timetable; June's notebook; a parrot, possibly",
+      "The epilogue"
+    ],
+    "story": "Merriwick is gone, and it is there, forever, on the other side of the water. The party is on the mainland with the people they saved. The xp figure is per character: it takes each from level 4 to level 5, the campaign's end."
+  },
+  "twists": [
+    "THEY WERE KEEPING IT. The Visitors were never invading, never hunting and never killing. They were making a perfect copy of an ordinary Thursday in a great city, and they have taken it with them — or they have left it here, sealed, which from the outside is the same thing. The people they kept are alive, and happy, and never coming back.",
+    "THURSDAY IS THE KEY. The final scenario's solutions are all Thursday things: the 2:15 ambulance transfers, Ottilie's hairdresser's appointment, the 3:45 light boat. The Visitors kept a Thursday. The party gets out by being Thursday.",
+    "THE BOAT IS FULL OF THE SET. On Thursday the three hundred from Sunday's 8:15 are back on the Margaret Duane's decks in their own shoes. They are not a danger. They are cover. And they are going back to Pier Point at 4:12, and staying.",
+    "THE MISSILE IS CAUGHT. The mainland's only answer to the Visitors is force, and force is caught, turned once, and set down on the grass like the bridge. It changes nothing except the Attention — which, at 3:30 on Thursday, is everything.",
+    "SOMEONE CAN BE KEPT ON PURPOSE. The Song is the only time in the campaign the Visitors take something they are given rather than something they notice, and it buys the last boat its crossing."
+  ],
+  "dmTips": [
+    "THIS IS A HEIST ON A TIMETABLE. Put the timetable and the list on the table (or in the chat) and keep it updated. Every boat is a scene or a roll; spend the session's time on the hard ones. The players should feel every minute.",
+    "THE CROSSING DC IS THE PUZZLE. 12, +1 per frightened Group beyond the first, +2 if the Lantern faces the Point, −2 for an onboard Lullaby. A party that spreads its people across six boats and uses the 2:15 for the ambulances can get almost everyone across on honest rolls. A party that puts everyone on the 3:45 cannot, without the Song. Both are good endings.",
+    "THE STRIKE AND ROURKE ARE THE WILD CARDS. Either can raise the Attention at the Point to 6 and turn the Lantern for an hour. A party that dealt with both on Tuesday and Wednesday earns a quiet Thursday. A party that did not earns a frightening one. Honour both.",
+    "NOBODY DIES TO THE VISITORS. Even now. Failure means being kept. Death in this finale can only come from humans with rifles, a ventilator battery, a crashed ambulance or a cold harbor — and the GM should make each of those a real possibility only when the players have chosen the risk.",
+    "THE EPILOGUE IS THE TALLY. Read it back: how many through the Holloway, on the 11:40, on each afternoon boat; who sang; who stayed; who was kept. Name names. Give every player character a last line — where they are a year later, on the mainland, looking across the water at a city where it is always 4:11 on a Thursday.",
+    "LEVEL 5. The party reaches level 5 at 4:12. Tell them. Then let the table sit in it for a minute before anyone says anything."
+  ]
+}

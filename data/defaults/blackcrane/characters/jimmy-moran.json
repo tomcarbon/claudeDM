@@ -1,0 +1,123 @@
+{
+  "id": "57b368c5-adc8-4a49-813f-5a079304236e",
+  "name": "Jimmy Moran",
+  "status": "alive",
+  "race": "City-Born",
+  "subrace": "",
+  "class": "Cop",
+  "level": 3,
+  "background": "Prizefighter",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "Insight"
+  ],
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "equipment": [
+    "Heavy overcoat: his blue uniform greatcoat on duty, a brown tweed one off it",
+    ".38 revolver (Smith & Wesson Military & Police, department issue), 6 rounds loaded",
+    ".38 rounds (18)",
+    "Nightstick, locust wood, with a leather thong",
+    "Badge: San Francisco Police Department, Patrolman, Central Station, No. 1142",
+    "Handcuffs and a police whistle",
+    "Call-box key for the Kearny Street beat",
+    "Hand wraps and a gym bag",
+    "A clipping from the Examiner: MORAN TAKES GOLDEN GLOVES MIDDLEWEIGHT, 1930",
+    "A rosary his mother gave him, which he carries and does not use",
+    "Wallet containing $20"
+  ],
+  "weapons": [
+    {
+      "name": ".38 revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Nightstick",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Heavy overcoat",
+    "type": "light"
+  },
+  "features": [
+    "Knows the Block (City-Born origin, San Francisco: advantage on Streetwise checks to find a person, place or service in the city; he knows every alley on his beat)",
+    "The Badge (lawful authority: enter crime scenes, demand identification, detain for questioning; advantage on Intimidation and Persuasion with anyone who respects the law; it has a chain of command, and unsanctioned use raises Heat by 1; disadvantage on Streetwise with people who will not talk to cops)",
+    "Academy Training: Riot Squad (+1 AC while wearing medium armor, not currently worn; he can shove as a bonus action when he takes the Attack action)",
+    "Collar (when he hits in melee, a bonus action to grapple; he can cuff a grappled creature as an action with no check)",
+    "Assignment: Patrolman (advantage on Driving checks in a police vehicle; once per long rest, \"officer needs assistance\" brings 1d4 Beat Cops at the start of the third round)",
+    "Fight Crowd (Prizefighter background: every gym, fight club and cornerman in the city knows his face, and the betting men will tell him who has been paid to lose)"
+  ],
+  "traits": [
+    "Knows the Block",
+    "The Badge",
+    "Riot Squad",
+    "Collar",
+    "Patrolman"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am cheerful, polite and a little slow to see the angle, and I make up for it by being quick with my hands. I say \"yes, sir\" to lieutenants and \"yes, ma'am\" to everybody's mother.",
+    "ideals": "The badge is supposed to mean the same thing on Nob Hill as it does on Kearny Street. Mostly it does not. I would like to be one of the reasons it does.",
+    "bonds": "Ned Corrigan was my father's partner on the force and my godfather. He got me into the academy when my old man died. I was the first cop into Tallow Alley on Thursday night, and I knew him by his shoes.",
+    "flaws": "I do what I am told by men with stripes, even when I should not, and on Thursday night I did, and I have not slept since."
+  },
+  "appearance": "Twenty-nine, black-haired, blue-eyed, a middleweight's shoulders and a nose broken twice and set once. He looks younger than he is, which old ladies like and hoods mistake for softness.",
+  "backstory": "Eamon Moran grew up in the Mission District, the youngest of six, the son of a patrolman who walked a beat with Ned Corrigan for eleven years before Ned made detective. He boxed at the Olympic Club gym, won the Golden Gloves at middleweight in 1930, turned down a manager from Los Angeles, and joined the department in 1932 because his father had just died and Ned said the city needed at least one honest Moran on the payroll. He walks the Kearny Street beat out of Central Station, from Market to Broadway, and knows the grocers, the cooks, the Western Union boys and the drunks by name. At 11:12 on Thursday night he was the first officer into Tallow Alley. He saw a hatless young man in a brown suit running up Jackson toward Grant, chased him three blocks, and lost him in the crowd coming out of a late show at the Mandarin Theatre. When Sergeant Kerrigan arrived, Kerrigan told him not to complicate his report with a kid who was probably running from his own shadow. Jimmy did as he was told. He has not told Dolan, and it is eating him alive."
+}

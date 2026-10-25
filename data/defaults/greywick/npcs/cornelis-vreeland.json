@@ -1,0 +1,129 @@
+{
+  "id": "927a110c-5484-479e-b968-aa9955a8eba5",
+  "name": "Rev. Cornelis Vreeland",
+  "status": "alive",
+  "race": "Faithful",
+  "subrace": "",
+  "class": "Chaplain",
+  "level": 3,
+  "background": "Schoolteacher",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Persuasion",
+    "Research",
+    "Insight",
+    "Occult"
+  ],
+  "languages": [
+    "English",
+    "Dutch (the pulpit kind and the kitchen kind)",
+    "Latin"
+  ],
+  "equipment": [
+    "A black clerical coat, a broad-brimmed black hat and a muffler his housekeeper knitted",
+    "Walking stick: a blackthorn he bought in Kingston market in 1868 and has leaned on ever since",
+    "Service revolver (.38), his brother's, from the war, kept in a drawer for thirty years and brought out now because he does not know what else to do",
+    ".38 rounds (12)",
+    "A Dutch psalter and an English Bible, both worn soft",
+    "The key to the register chest of the Old Stone Church",
+    "A pocket whist-score and a pencil",
+    "A small flask of Holland gin, for the bereaved and himself",
+    "Wallet containing $9"
+  ],
+  "weapons": [
+    {
+      "name": "Walking stick",
+      "attackBonus": 2,
+      "damage": "1d4",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Service revolver",
+      "attackBonus": 3,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Steady Now (Chaplain: as an action, speak to an ally within 30 ft who can hear and trusts you; they lose 1 Dread and stop being frightened. Uses equal to WIS modifier + 1 per long rest. There is no miracle in it)",
+    "Graveside (Chaplain: stabilize the dying as a bonus action with Medicine DC 10; advantage on Occult checks for rites of burial, blessing and laying to rest when a creature's rules call for one, and on Persuasion with the bereaved)",
+    "Hold On to Me (Chaplain, 2nd level: once per short rest, as a reaction, keep an ally who can hear you at Dread 5 when they would reach the breaking point)",
+    "Calling: Parish (Chaplain, 3rd level: in any community you serve for a week, people bring you their troubles; once per scenario a parishioner tells you one true thing they have kept from everyone else)",
+    "Something to Hold On To (Faithful origin: once per long rest, when you would gain Dread, gain 1 fewer; advantage on saves against being charmed or compelled by a creature; no miracle in it)",
+    "Every Family's Teacher (Schoolteacher background: he taught the district school before he was ordained, so half of Haverkill's grown people were once his pupils and still answer his questions; he knows where every record in town is kept, and the town assumes him respectable)"
+  ],
+  "traits": [
+    "Steady Now",
+    "Graveside",
+    "Hold On to Me",
+    "Calling: Parish",
+    "Every Family's Teacher"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I listen more than I preach, which my consistory finds disappointing. I like a good argument and a bad pun. I quote the psalms in Dutch when I am moved and in English when I am cross.",
+    "ideals": "The dead deserve the truth and the living deserve mercy, and it is my job to find a way to give both. A record is a kind of prayer.",
+    "bonds": "The Old Stone Church and its three centuries of registers. My people in Haverkill, all of them, including the ones who never come. Jasper Greywick, whom I buried on 4 October with a feeling I could not name.",
+    "flaws": "I see the best in everyone, and I have been seeing it in Leonora Greywick for nineteen years. I am not brave, and I have a revolver in my pocket I would not know how to use."
+  },
+  "appearance": "A lean, stooped, long-faced man of fifty-three with thinning sandy hair, a scholar's squint behind gold spectacles, a long nose usually red with cold, and a black coat with a rubbed shine. His voice is surprisingly big and warm.",
+  "backstory": "Cornelis Vreeland was born in Kingston in 1840 to a Dutch-speaking family of river pilots, taught the Haverkill district school for six years, went to the seminary at thirty, and has been dominie of the Old Stone Church since 1874. He keeps the registers as if they were holy, which he thinks they are, and has read every page back to 1717. He knows the river men's tablet to Captain Sabina Roelofs on his church wall and the Roelofs graves along the north wall; he has never connected them with Greywick House, because nobody ever told him there was anything to connect. Leonora Greywick is his most devoted parishioner. After Jasper's funeral she asked him whether a sin that God has not been told about can be punished in this world, and he has not been easy since.",
+  "dmNotes": {
+    "roleplaying": "Vreeland is the party's key to the church registers (CLUE D2), the river men's tablet and its custom (speaking the drowned captain's name), and Dutch: he can read MIJN NAAM. GEEF TERUG. He is a steady presence in a frightened house: Steady Now is his gift, and the GM should use it generously in gw-scenario-003. He can be asked to come up to the house from Wednesday; he will sleep in the hall with the household on Friday. Calling: Parish gives the party one true secret from a parishioner per scenario: Annetje Vedder's knocking at the window in 1852, or what Leonora said after the funeral. He buries Sabina in gw-scenario-004. He cannot perform the rite: he is not Greywick blood, and he knows that a prayer is not what she asks for, though he will pray anyway.",
+    "voice": "Big, warm, slightly professorial; a soft Hudson Dutch roll on his r's; psalms in Dutch when moved. Calls everyone 'my friend'. Laughs at his own jokes before the end.",
+    "motivations": "Primary: help the frightened and do right by the dead. Secondary: learn what troubled Leonora. Tertiary: give a lost parishioner a Christian grave.",
+    "secrets": "He has a letter from Jasper Greywick dated 10 September 1893, which he did not understand and put in the register chest: 'Dominie, if my children come to you asking about a woman called Roelofs, show them everything, and pray for me.' He will produce it once someone asks about Roelofs.",
+    "attitude": "Toward the party: warm, curious, a little starstruck by anyone who knows Latin. Toward Leonora: loyal until shown proof, then grief-stricken. Toward Annetje Vedder: affectionate; she is the only parishioner who scolds him. Toward the Juffrouw: pity, once he understands."
+  }
+}

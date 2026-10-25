@@ -1,0 +1,128 @@
+{
+  "id": "0fb07556-f5b3-4e43-9224-41566f043f76",
+  "name": "Hanne Vogt",
+  "status": "alive",
+  "race": "Human (Specialist)",
+  "subrace": "",
+  "class": "Tech",
+  "level": 4,
+  "background": "Blue-Collar Worker",
+  "alignment": "Chaotic Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 14,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 27,
+    "current": 27
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Dexterity"
+  ],
+  "skills": [
+    "Athletics",
+    "Mechanics",
+    "Piloting",
+    "Perception",
+    "Streetwise"
+  ],
+  "languages": [
+    "German",
+    "English"
+  ],
+  "equipment": [
+    "Leather biker jacket over oil-stained overalls",
+    ".38 revolver (Smith & Wesson Model 10), 6 rounds loaded, in the glovebox more often than on her",
+    ".38 Special rounds (12)",
+    "Tyre iron",
+    "The Mercedes: a 1976 W123 240D diesel, cream, Hamburg plates, with a hidden compartment behind the rear seat and above the fuel tank that holds one adult lying curled, built by her and found by no border guard yet",
+    "A second car: a 1971 VW Beetle with a false floor, 'for the small ones'",
+    "Mechanic's tool roll, jack, two jerrycans, spare tyre with a hollow rim",
+    "Transit visa forms for the Berlin-Helmstedt autobahn, blank, and a stamp collection of GDR border-stamp variants",
+    "A Blaupunkt radio-cassette in the Mercedes with a scanner she fitted to hear Volkspolizei frequencies",
+    "A pack of Juno cigarettes and a lighter shaped like a spark plug",
+    "Wallet containing $120"
+  ],
+  "weapons": [
+    {
+      "name": ".38 revolver (Smith & Wesson Model 10)",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Tyre iron",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Specialist (Human (Specialist) origin: +2 Intelligence, +1 Strength, one extra skill proficiency: Streetwise)",
+    "Jury-Rig (10 minutes and a Mechanics check to build, repair or bypass a device; DC by complexity)",
+    "Gadgets (2 uses per long rest: Spoof a camera, lock or alarm for 1 minute; Overclock an ally's weapon or device for +1d4 on its next roll; Patch 1d8+3 to a vehicle or machine)",
+    "Intrusion (Computers checks against a network or exchange made with advantage when she has physical access to the line or terminal)",
+    "Escape Helper (Blue-Collar Worker background: she knows every transit-route rest stop, every lazy border guard shift and every West Berlin garage that will hide a car overnight)"
+  ],
+  "traits": [
+    "Jury-Rig",
+    "Gadgets (2/long rest)",
+    "Intrusion"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I swear in Berlinerisch, I drive like the car is stolen, and I fix things by hitting them precisely. I do not like spies, I do not like the Americans, and I like the Stasi least of all.",
+    "ideals": "A wall is just a very large badly made thing. Everything badly made has a gap.",
+    "bonds": "My brother Jens tried to cross at the Teltow canal in 1979 and has been in Bautzen prison ever since. I have brought thirty-one people out. None of them was him.",
+    "flaws": "If someone offered me Jens, I would sell almost anyone for him, and the Stasi knows it, and I know they know it, and I still do not know what I would say."
+  },
+  "appearance": "A wiry, fierce woman of thirty-three with a cropped peroxide-blonde punk haircut growing out at the roots, grease to the elbows, three earrings in one ear, and a broken front tooth she never had fixed. She looks like she would bite you and occasionally does. Her garage in Kreuzberg has a Ton Steine Scherben poster and a Mercedes on a ramp at all hours.",
+  "backstory": "Hanne Vogt was born in West Berlin in 1950, the daughter of a mechanic who stayed when his brother's family in the East did not. Her younger brother Jens moved to the East for love in 1975, regretted it by 1977, and tried to swim the Teltow canal in 1979; he was pulled out alive and given seven years. Since then Hanne has been a Fluchthelfer, an escape helper, building hidden compartments in transit-route cars and collecting people from autobahn rest stops in the GDR for whoever pays and some who cannot. She has worked with the Annex twice before, both times for money, and once for the Americans, which she regrets. She does it for Jens. Everyone who works with her understands that and nobody says it.",
+  "dmNotes": {
+    "roleplaying": "Hanne is the engine of cw-scenario-002: the car, the route, and the local knowledge, and a companion for the whole Berlin operation. She should feel like the only real professional in a city of amateurs and bureaucrats, and she should be visibly, loudly unimpressed by the Annex until one of the party earns it (usually Dee, by understanding the car). Give her the best lines. She can stay with the party after Berlin if they ask, because she likes them and because her garage is burned by the end of the scenario.",
+    "voice": "Fast, profane Berlin German-English, heavy on 'Mensch', 'Scheisse' and 'Na, und?'. Short sentences. Talks to engines. Calls the GDR 'over there' and the Stasi 'the firm', with real hatred. When she is being careful she goes completely quiet; the party should learn that quiet Hanne means danger.",
+    "motivations": "Primary: get people out. Secondary: get Jens out, one day, somehow. Tertiary: never be owned by a government again, any government.",
+    "secrets": "THE APPROACH. Six weeks ago a Stasi officer from Main Department VI (passport control and transit) sat down next to her in a Kreuzberg Kneipe and said Jens could be released on a 'humanitarian' basis if she would tell them, just once, which car and which night. She threw her beer at him. She has not told anyone, and she does not know that her apprentice, Uwe Kranz, 19, is a Stasi informal collaborator (IM 'Kolben') who has been reporting on her garage for a year. In cw-scenario-002 the Stasi will renew the offer at the worst possible moment, with a photograph of Jens and a release order already signed. What Hanne does is up to the party: if they have trusted her and been honest with her, she tells them and they plan around it; if they have treated her like a hired car, she wavers, and the GM should roll nothing and simply decide based on how the table has treated her.",
+    "attitude": "Toward the party: brusque, mercenary, and testing; if they pass, fiercely loyal and very funny. Toward Vera Tarasova: open hostility at first ('I bring out people, not KGB colonels'), then grudging respect after Vera, unasked, tells her exactly which Stasi department holds her brother's file and how such releases are actually bought. Toward Dee Coleman: instant mechanic-to-mechanic rapport. Toward Uwe the apprentice: big-sisterly affection, which makes the truth about him worse."
+  }
+}

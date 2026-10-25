@@ -1,0 +1,131 @@
+{
+  "id": "73a8c57a-cb9f-4df0-b76e-c76e2afdbf65",
+  "name": "Wes Garnett",
+  "status": "alive",
+  "race": "Farm-Raised",
+  "subrace": "",
+  "class": "Hunter",
+  "level": 3,
+  "background": "Farmhand",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Athletics",
+    "Nature",
+    "Perception",
+    "Stealth",
+    "Survival"
+  ],
+  "languages": [
+    "English",
+    "German (his grandmother's Low German, which he understands better than he admits)"
+  ],
+  "equipment": [
+    "Leather jacket: a tan Kinnick County Sheriff's Department jacket with a deputy's star",
+    "Service revolver: a county-issue .38 in a holster",
+    ".38 rounds (18)",
+    "Pump shotgun: the cruiser's 12-gauge in a rack between the seats",
+    "Shotgun shells (10)",
+    "Handcuffs, a citation book and a spiral notebook with his own list of names going back to 1938",
+    "Flashlight, a long steel one",
+    "Field glasses",
+    "A camouflage bowhunting vest and a recurve bow in the cruiser's trunk, for the season",
+    "Car: a 1972 Plymouth Fury county cruiser with a lightbar and a radio to the Linden Falls dispatcher",
+    "Wallet containing $8"
+  ],
+  "weapons": [
+    {
+      "name": "Service revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Pump shotgun",
+      "attackBonus": 4,
+      "damage": "2d8+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Up Before Dawn (Farm-Raised origin: he needs only 6 hours for a long rest and can't be surprised while awake in the last hour before sunrise; advantage on saves against exhaustion from hard work, cold and lost sleep; he notices without a check when animals are frightened, sick or behaving wrongly)",
+    "Know Your Quarry (Hunter: after an hour studying a creature's sign he can declare it his quarry; advantage on Survival checks to track it and Perception checks to find it, he always knows which way it went from a place where he found its sign, and once on each of his turns when he hits it with a weapon it takes an extra 1d6 damage of the weapon's type; not part of the damage on his sheet)",
+    "Fieldcraft (Hunter: he can't become lost in woods, fields, marsh or hill country except by something that is not natural, and moves at a normal pace while moving stealthily outdoors; in a short rest he can set a tripwire bell or snare that warns him of anything coming within 30 ft)",
+    "Cold Focus (Hunter, 2nd level: when he fails a fear check against his quarry he still gains the Dread but has advantage on his next attack against it before the end of his next turn; when he succeeds, he can move up to half his speed without provoking opportunity attacks)",
+    "Way of the Hunt: Marksman (Hunter, 3rd level: his called shots with Longarms and Bows take -2 instead of -5, and he ignores half cover with them; it does not change the numbers on his sheet)",
+    "Hired On (Farmhand background: at any farm in the county he can get a meal and a place in the barn for a day's work, and farm people talk to him as an equal; he notices without a check when a farm's rhythm is wrong)"
+  ],
+  "traits": [
+    "Know Your Quarry (1d6)",
+    "Fieldcraft",
+    "Cold Focus",
+    "Way of the Hunt: Marksman",
+    "Hired On"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am polite to everyone and write everything down. I sit in my cruiser at the edge of things and watch. I hunt deer with a bow because a rifle is not fair to the deer.",
+    "ideals": "The law is supposed to be for the people nobody else is looking for.",
+    "bonds": "The names in my notebook. Sheriff Dahlquist, who hired me and whom I respect and who is wrong about this. My wife Jan and our baby son in Linden Falls.",
+    "flaws": "I have known for a year that something is wrong in Hollow Fork and I have done nothing but write it down, because I was told to drop it and I wanted to keep my job."
+  },
+  "appearance": "Thirty-two, medium height, solid, sandy-haired and moustached, a tan deputy's uniform and a campaign hat he takes off indoors, a bowhunter's weathered face and very steady hands.",
+  "backstory": "Wesley Garnett grew up on a dairy farm near Linden Falls, over the ridge from Hollow Fork, and as a boy heard the saying nobody says in front of Hollow Fork people: 'Don't eat at the Fork in the fall.' He worked farms, did two years in the Army in Korea in the early sixties (the cold, the quiet), and joined the Kinnick County Sheriff's Department in 1967. He is a bowhunter, and in October 1973 he met Dr. Howard Gessler and his guide Russ Thorsen at a deer check station, and liked them both. When the doctor's car turned up at the La Crosse bus depot with his bow case in the trunk, Wes knew no bowhunter leaves his bow, and started a list. Sheriff Dahlquist told him to drop it. He has not.",
+  "dmNotes": {
+    "roleplaying": "Wes is the party's lawman, met in the sheriff's office in hs-scenario-002, where he follows them to the parking lot and offers his notebook. He has a badge, a radio and a cruiser, which count for a great deal on the Linden Falls side of the ridge and for less and less in Hollow Fork as the town closes. His great moment is the far bank of the creek on the night of the corn in hs-scenario-003, with his lightbar on, and his second is the evidence he can carry to Sheriff Dahlquist in hs-scenario-004. He is a bowhunter and a fine tracker: Know Your Quarry and Fieldcraft make him a second Russ, and the two of them should get on immediately. Born over the ridge, he is not of Hollow Fork, and is a guest the moment he eats its bread; he knows the saying, and eats sandwiches from home.",
+    "voice": "Polite, unhurried, 'sir' and 'ma'am' to everyone, a deputy's formal phrasing ('I'm going to need you to step back from the vehicle') that slips when he is frightened into plain farm talk ('Oh, hell, no').",
+    "motivations": "Primary: find out what happened to the names in his notebook and make it a case. Secondary: get the girl out alive. Tertiary: keep his job and his family, if he can; he has decided he will do the first two anyway.",
+    "secrets": "His grandmother was born in Hollow Fork, a Lunde, and married out over the ridge in 1912. She would never eat at a Hollow Fork table. By blood, Wes is of the house of Lunde, distantly. He does not know that this means anything. If the party finds out (the Book's house names; Marit's family tree; Mrs. Hovland), he is a possible speaker for the Lundes at the Cold Hole if Kjell will not, and he is willing.",
+    "attitude": "Toward the party: courteous, then committed. Toward Russ: instant respect. Toward Sheriff Dahlquist: loyalty with a limit. Toward Hollow Fork: he grew up over the ridge from it, half envious and half afraid. Toward Arnie Fossum: he has had coffee in his kitchen; it makes this harder."
+  }
+}

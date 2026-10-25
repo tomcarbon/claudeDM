@@ -1,0 +1,591 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Horror weapons and armor, 1890s, 1920s and 1970s. 'weapons' is a flat array in the Western shape; every weapon lists its 'eras' from 1890s, 1920s and 1970s (the three decades are not contiguous: each campaign sits in one). Every firearm and bow also carries 'ammo_name', the counted equipment line its ammunition is recorded under on a sheet (e.g. \".38 rounds (18)\", \"Shotgun shells (10)\", \"Arrows (20)\"); melee weapons and the two Improvised weapons have none (a kerosene bottle or a stick of dynamite is itself the counted item, e.g. \"Kerosene bottle (2)\"). Costs are period dollars in a 'cost' string, by era where they differ. There are no automatic weapons and no fanning: every firearm fires single shots, and the double-barrel shotgun can fire both barrels. The properties silver, iron and fire matter because adversaries can be vulnerable to them (adversaries.json vulnerable_to; combat.json fighting_the_supernatural). Armor keeps the Western 'armor' object shape: two light coats and one medium vest, and the heavy, powered and shields lists are deliberately empty. Most people wear no armor: AC 10 + DEX. Gear and ammunition boxes are in gear.json.",
+    "weapon_count": 22,
+    "armor_count": 3
+  },
+  "weapons": [
+    {
+      "name": "Kitchen knife",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d4",
+      "damageType": "piercing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": "$0.25 (1890s) / $2 (1970s)",
+      "notes": "A carving or butcher's knife from any kitchen drawer. Everyone has one within reach, which is why it turns up in so many stories."
+    },
+    {
+      "name": "Scalpel",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d4",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "concealable"
+      ],
+      "cost": "$0.50 (1890s) / $3 (1970s)",
+      "notes": "A surgeon's blade from a doctor's bag or an embalmer's kit. Very sharp, very small, and not meant for this."
+    },
+    {
+      "name": "Silver knife",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d4",
+      "damageType": "piercing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "finesse",
+        "silver"
+      ],
+      "cost": "$3 (1890s) / $25 (1970s)",
+      "notes": "A silver fruit knife, letter opener or dagger from a family service, kept sharp by someone who knew why. Silver: a creature vulnerable to silver takes double damage from it, and it ignores a resistance that does not apply to silver (combat.json fighting_the_supernatural). Soft metal: on a natural 1 the blade bends and is useless until straightened (a short rest and a vise)."
+    },
+    {
+      "name": "Walking stick",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": "$0.50 (1890s) / $5 (1970s)",
+      "notes": "A cane or blackthorn stick. Nobody asks why a guest carries one indoors."
+    },
+    {
+      "name": "Fire iron",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "iron"
+      ],
+      "cost": "$0.75 (1890s) / $8 (1970s)",
+      "notes": "A poker from beside the hearth, cold iron with a hooked end. Iron: a creature vulnerable to iron takes double damage from it, and it ignores a resistance that does not apply to iron (combat.json fighting_the_supernatural). Every house with a fireplace has one."
+    },
+    {
+      "name": "Crowbar",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "versatile (1d8)",
+        "iron"
+      ],
+      "cost": "$0.60 (1890s) / $6 (1970s)",
+      "notes": "A forged iron pry bar for crates, boards, coffin lids and doors. Iron (as the fire iron). Versatile: 1d8 when swung in two hands, applied at the table; the sheet records the one-handed 1d6. Gives advantage on STR checks to force or pry something open (gear.json)."
+    },
+    {
+      "name": "Hatchet",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d6",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "thrown (20/60)"
+      ],
+      "cost": "$0.75 (1890s) / $6 (1970s)",
+      "notes": "A camp or kindling hatchet. Can be thrown as a ranged attack (normal range 20 ft, long range 60 ft) using STR, and picked up again afterward. The head is steel, not iron: it does not count as iron."
+    },
+    {
+      "name": "Wood axe",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d10",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "two-handed",
+        "heavy"
+      ],
+      "cost": "$1.25 (1890s) / $12 (1970s)",
+      "notes": "A felling axe from the woodpile. Heavy: a wielder with STR below 13 has disadvantage on attack rolls with it. It goes through a door in three turns (combat.json cover.destroying_cover)."
+    },
+    {
+      "name": "Machete",
+      "group": "Melee",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d8",
+      "damageType": "slashing",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [],
+      "cost": "$2 (1920s) / $8 (1970s)",
+      "notes": "A long brush knife for clearing scrub and cane, sold in farm and hardware stores from the 1920s. Cuts through corn stalks, brush and rope as part of a move."
+    },
+    {
+      "name": "Torch",
+      "group": "Melee",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d4",
+      "damageType": "fire",
+      "range": "melee",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [],
+      "properties": [
+        "light-source",
+        "fire"
+      ],
+      "cost": "$0.05",
+      "notes": "A stick wrapped in oil-soaked rag, or a burning branch from the fire. Bright light in a 20-ft radius and dim light 20 ft beyond for 1 hour (dread.json light_and_dark). Fire: deals fire damage, and a creature vulnerable to fire takes double. Can set flammable things alight (combat.json fire). Dropped in water, it goes out."
+    },
+    {
+      "name": "Pocket revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d6",
+      "damageType": "piercing",
+      "range": "20/60",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "concealable",
+        "loud"
+      ],
+      "cost": "$4 (1890s) / $15 (1920s) / $60 (1970s)",
+      "notes": "A small five-shot .32 revolver for a coat pocket, a handbag or a doctor's bag. Reloading the cylinder takes an action (combat.json ammunition.reload).",
+      "ammo_name": ".32 rounds"
+    },
+    {
+      "name": "Service revolver",
+      "group": "Sidearms",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 6,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": "$12 (1890s) / $28 (1920s) / $110 (1970s)",
+      "notes": "A six-shot .38 revolver of the kind carried by police, soldiers and night watchmen in every era. Reloading the cylinder takes an action.",
+      "ammo_name": ".38 rounds"
+    },
+    {
+      "name": ".45 automatic",
+      "group": "Sidearms",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 7,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "loud"
+      ],
+      "cost": "$30 (1920s) / $150 (1970s)",
+      "notes": "A heavy semi-automatic pistol with a seven-round magazine, army issue since before the Great War. Swapping a magazine is a bonus action, if you have a loaded one: spare magazines are gear.json items and are filled from your .45 rounds.",
+      "ammo_name": ".45 rounds"
+    },
+    {
+      "name": "Flare pistol",
+      "group": "Sidearms",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d6",
+      "damageType": "fire",
+      "range": "30/90",
+      "magazine": 1,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "fire",
+        "light-source",
+        "loud"
+      ],
+      "cost": "$8 (1920s) / $35 (1970s)",
+      "notes": "A wide-bore signal pistol from a boat or a lifeboat locker. Fired upward, a flare lights a 200-ft radius as bright light for 1 minute and is seen for miles (the boat may come). Fired at a creature, it is a ranged attack dealing 1d6 fire damage, and the target catches fire (combat.json fire) on a hit; a creature vulnerable to fire takes double.",
+      "ammo_name": "Flares"
+    },
+    {
+      "name": "Lever-action rifle",
+      "group": "Longarms",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "2d6",
+      "damageType": "piercing",
+      "range": "120/360",
+      "magazine": 10,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": "$15 (1890s) / $35 (1920s) / $150 (1970s)",
+      "notes": "A tube-fed lever rifle in .30 calibre: farm gun, deer gun, a gun that has been in a hall closet for forty years. An action loads four rounds through the side gate (combat.json ammunition.reload).",
+      "ammo_name": ".30 cartridges"
+    },
+    {
+      "name": "Hunting rifle",
+      "group": "Longarms",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "150/600",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "loud"
+      ],
+      "cost": "$40 (1920s) / $180 (1970s)",
+      "notes": "A bolt-action deer and elk rifle, often with a telescopic sight in the 1970s. An action loads all five rounds from a stripper clip or by hand.",
+      "ammo_name": "Rifle cartridges"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "group": "Longarms",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 2,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "two-handed",
+        "loud"
+      ],
+      "cost": "$10 (1890s) / $25 (1920s) / $120 (1970s)",
+      "notes": "A side-by-side 12-gauge: bird gun, varmint gun, the gun over the farmhouse door. Firing both barrels at once is one attack as an action (combat.json fire_modes.both_barrels). Breaking it open and loading both shells takes an action.",
+      "ammo_name": "Shotgun shells"
+    },
+    {
+      "name": "Pump shotgun",
+      "group": "Longarms",
+      "eras": [
+        "1920s",
+        "1970s"
+      ],
+      "damage": "2d8",
+      "damageType": "piercing",
+      "range": "30/90",
+      "magazine": 5,
+      "reload": "action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "scatter",
+        "two-handed",
+        "loud"
+      ],
+      "cost": "$30 (1920s) / $130 (1970s)",
+      "notes": "A slide-action 12-gauge with a tube magazine. An action loads two shells into the tube.",
+      "ammo_name": "Shotgun shells"
+    },
+    {
+      "name": "Crossbow",
+      "group": "Bows",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d10",
+      "damageType": "piercing",
+      "range": "80/320",
+      "magazine": 1,
+      "reload": "bonus action",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "quiet"
+      ],
+      "cost": "$6 (1890s) / $20 (1920s) / $90 (1970s)",
+      "notes": "A hunting or target crossbow with a cranked or levered string. Drawing and loading a bolt is a bonus action. Quiet: heard only within 30 ft (combat.json noise). A bolt can be tipped with silver (gear.json) to count as silver.",
+      "ammo_name": "Crossbow bolts"
+    },
+    {
+      "name": "Hunting bow",
+      "group": "Bows",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "1d8",
+      "damageType": "piercing",
+      "range": "80/320",
+      "magazine": 1,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "two-handed",
+        "quiet"
+      ],
+      "cost": "$3 (1890s) / $12 (1920s) / $60 (1970s)",
+      "notes": "A wood or fiberglass hunting bow. It is drawn, not loaded: nocking an arrow is part of the attack, and its magazine of 1 means each shot spends one counted arrow. Quiet, as the crossbow. An arrow can be tipped with silver (gear.json) to count as silver.",
+      "ammo_name": "Arrows"
+    },
+    {
+      "name": "Kerosene bottle",
+      "group": "Improvised",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "2d6",
+      "damageType": "fire",
+      "range": "20/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "fire"
+      ],
+      "cost": "$0.10 (a bottle, a rag and a pint of kerosene)",
+      "notes": "A bottle of lamp oil with a burning rag in the neck. Lighting it is a bonus action. Thrown at a point within range, it bursts in a 5-ft radius: each creature there makes a DEX save (DC 12, no proficiency needed), taking 2d6 fire damage on a failure or half on a success, and the area burns for 1 minute (combat.json fire). A creature vulnerable to fire takes double. Carry it as a counted equipment item, e.g. \"Kerosene bottle (2)\"; it is not written in a sheet's weapons list."
+    },
+    {
+      "name": "Dynamite",
+      "group": "Improvised",
+      "eras": [
+        "1890s",
+        "1920s",
+        "1970s"
+      ],
+      "damage": "3d6",
+      "damageType": "bludgeoning",
+      "range": "20/60",
+      "magazine": null,
+      "reload": "n/a",
+      "fireModes": [
+        "single"
+      ],
+      "properties": [
+        "thrown",
+        "loud"
+      ],
+      "cost": "$0.25 a stick (1890s) / $2 (1970s, and questions asked)",
+      "notes": "One stick of dynamite from a quarry, a farm (for stumps) or a construction site. Lighting the fuse is a bonus action; it goes off at the start of your next turn. 10-ft radius: each creature makes a DEX save (DC 12, or 8 + proficiency + DEX if the thrower is proficient in Mechanics), taking 3d6 bludgeoning on a failure or half on a success. It brings down a doorway, a ceiling or a crypt mouth (combat.json explosives). Carry it as a counted equipment item, e.g. \"Dynamite (2)\"; it is not written in a sheet's weapons list."
+    }
+  ],
+  "weapon_groups": {
+    "Melee": "Knives, sticks, fire irons, crowbars, hatchets, axes, a machete, a torch, fists and anything else in reach. Everyone is proficient.",
+    "Sidearms": "Revolvers, the .45 automatic and the flare pistol: the guns that fit in a pocket, a holster, a glove box or a nightstand drawer.",
+    "Longarms": "Rifles and shotguns: the lever-action, the hunting rifle and the two shotguns. Two-handed.",
+    "Bows": "The hunting bow and the crossbow: quiet, slow and good for silver-tipped shafts. Only the Hunter starts proficient.",
+    "Improvised": "The kerosene bottle and dynamite. Throwing one needs no proficiency, because it is a DEX save, not an attack roll; no class lists this group, and these items are carried as counted equipment, not written in a sheet's weapons list (combat.json explosives, fire)."
+  },
+  "weapon_properties": {
+    "concealable": "Small enough to hide in a pocket, a handbag, a boot or a sleeve. Spotting it takes a pat-down or a Perception check against the carrier's Sleight of Hand.",
+    "finesse": "Use STR or DEX for attack and damage rolls (the same for both).",
+    "heavy": "Big and hard to swing. A wielder with STR below 13 has disadvantage on attack rolls with it.",
+    "loud": "A gunshot is heard all through a house, across a farm and half a mile over water at night. Everything in the dark knows where you are (combat.json noise), and the muzzle flash ruins your night sight for a moment (combat.json darkness_and_light).",
+    "quiet": "Heard only within 30 ft, and not through a closed door.",
+    "scatter": "Fires a spread of shot. +2 to hit targets within 30 ft. At long range you have disadvantage and lose the +2. Apply the +2 at the table; it is not part of the attack bonus written on a sheet.",
+    "two-handed": "Requires two hands to fire or swing. You can't hold a lantern and fire it; a light-source in the other hand means one-handed use at disadvantage.",
+    "versatile (1d8)": "Can be used in one or two hands. In two hands it deals 1d8 instead of its listed die. The sheet records the listed (one-handed) die; apply the versatile die at the table.",
+    "thrown (20/60)": "A melee weapon that can also be thrown as a ranged attack: normal range 20 ft, long range 60 ft (disadvantage), using the same ability as its melee attack. The hatchet.",
+    "thrown": "Thrown at a point rather than a creature, using the listed range; creatures in the area make a DEX save (combat.json explosives, fire).",
+    "silver": "Made of silver. A creature vulnerable to silver takes double damage from it, and a creature that resists ordinary weapons takes full damage from it unless its resistance says otherwise (combat.json fighting_the_supernatural).",
+    "iron": "Cold iron. A creature vulnerable to iron takes double damage from it, and a creature that resists ordinary weapons takes full damage from it unless its resistance says otherwise.",
+    "fire": "Deals or starts fire. A creature vulnerable to fire takes double damage. Fire spreads (combat.json fire).",
+    "light-source": "Gives light: the torch while it burns (bright light 20 ft, dim 20 ft beyond), the flare pistol when fired (dread.json light_and_dark)."
+  },
+  "armor": {
+    "light": [
+      {
+        "name": "Heavy coat",
+        "type": "Light",
+        "cost": "$6 (1890s) / $25 (1920s) / $60 (1970s)",
+        "ac": "11 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "6 lb.",
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ],
+        "notes": "A thick wool overcoat, a sheepskin-lined work coat, a pea coat or a farm jacket: whatever keeps out the cold where you come from. It turns a knife, blunts a bite and takes the worst out of a fall; against a bullet it is only a coat. Pockets hold a revolver, a flashlight, a box of shells and a fistful of salt. The coat a generated character wears by default."
+      },
+      {
+        "name": "Leather jacket",
+        "type": "Light",
+        "cost": "$5 (1890s) / $15 (1920s) / $45 (1970s)",
+        "ac": "11 + Dex modifier",
+        "strength_requirement": null,
+        "stealth_disadvantage": false,
+        "weight": "5 lb.",
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ],
+        "notes": "A leather work or driving coat in the 1890s, a flyer's or motorcyclist's jacket in the 1920s, a biker's or a farmhand's in the 1970s. Tough, quiet and waterproof enough. In a good parlor it marks you as someone who works with their hands."
+      }
+    ],
+    "medium": [
+      {
+        "name": "Padded vest",
+        "type": "Medium",
+        "cost": "$15 (1890s) / $30 (1920s) / $90 (1970s)",
+        "ac": "13 + Dex modifier (max 2)",
+        "strength_requirement": null,
+        "stealth_disadvantage": true,
+        "weight": "15 lb.",
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ],
+        "notes": "A thick quilted vest: a fencing or baseball catcher's pad, a layered canvas vest a smith stitched with metal plates, a 1970s police flak vest. It stops a dog's teeth and a slashing claw and slows a pistol bullet. Stiff and loud: disadvantage on Stealth checks. Obvious under a coat to anyone who touches you."
+      }
+    ],
+    "heavy": [],
+    "powered": [],
+    "shields": [],
+    "donning_and_doffing": {
+      "light_armor": {
+        "don": "1 action (it's a coat)",
+        "doff": "1 action"
+      },
+      "medium_armor": {
+        "don": "5 minutes",
+        "doff": "1 minute"
+      }
+    }
+  },
+  "currency": {
+    "note": "Horror campaigns use dollars and cents. Money on a character sheet is a single equipment line written exactly as shown in 'sheet_format'. Prices are period dollars and differ by era: a meal 25 cents in 1893, 50 cents in 1924, $2 in 1974; a night in a hotel $1 / $3 / $15; a .38 revolver $12 / $28 / $110. Cost strings give each era's price where it differs.",
+    "dollars": {
+      "name": "dollars",
+      "symbol": "$",
+      "abbrev": "USD",
+      "sheet_format": "Wallet containing $20"
+    }
+  }
+}

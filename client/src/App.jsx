@@ -19,12 +19,14 @@ import Eli5 from './pages/Eli5';
 import WorldMapPage from './pages/WorldMapPage';
 import MyGames from './pages/MyGames';
 import useWebSocket from './hooks/useWebSocket';
+import useSceneLighting from './hooks/useSceneLighting';
 import { PlayerProvider, usePlayer } from './context/PlayerContext';
 import { CampaignProvider, useCampaign } from './context/CampaignContext';
 import PlayerLogin from './components/PlayerLogin';
 import PlayerChat from './components/PlayerChat';
 import { api } from './api/client';
 import { CURRENT_VERSION } from './data/changelog';
+import { APP_NAME } from './utils/brand';
 import './App.css';
 
 function AppContent() {
@@ -41,6 +43,13 @@ function AppContent() {
   const crossCampaignLoadRef = useRef(false);
   const [pendingLoadSessionId, setPendingLoadSessionId] = useState(null);
   const [activeSessionLabel, setActiveSessionLabel] = useState('');
+
+  // Campaign palette + scene mood (WO-0037). Mounted HERE, once, rather than in Adventure,
+  // because a campaign's colour belongs to the campaign and the sidebar names the campaign on
+  // every page. The switcher and the Freeze button live in the adventure header and drive it
+  // through this object. `campaign` is passed so that the day a `palette` key lands in
+  // campaign.json it is preferred over the client-side table with no change here.
+  const lighting = useSceneLighting(campaignId, campaign);
 
   const onAdventure = location.pathname === '/adventure';
   const isAdmin = player?.role === 'admin';
@@ -100,7 +109,7 @@ function AppContent() {
     <div className="app">
       <nav className="sidebar">
         <img src="/coat-of-arms.png" alt="Coat of Arms" className="sidebar-crest" />
-        <h1 className="logo">D&D Companion<span className="logo-sub">{campaignLabel}</span></h1>
+        <h1 className="logo">{APP_NAME}<span className="logo-sub">{campaignLabel}</span></h1>
         <div className="currently-playing">Playing: {sessionActive && activeSessionLabel ? activeSessionLabel : 'None'}</div>
         <div className="sidebar-divider" />
         <ul>
@@ -120,7 +129,7 @@ function AppContent() {
             <li><NavLink to="/world-map" className="nav-sub">World Map</NavLink></li>
             <li><NavLink to="/scenarios" className="nav-sub">Scenarios (spoilers!)</NavLink></li>
           </>}
-          <li><NavLink to="/dm-settings">DM Personality</NavLink></li>
+          <li><NavLink to="/dm-settings">GM Personality</NavLink></li>
         </ul>
         <div className="sidebar-divider" />
         <ul>
@@ -150,6 +159,7 @@ function AppContent() {
             setPendingLoadSessionId={setPendingLoadSessionId}
             activeSessionLabel={activeSessionLabel}
             setActiveSessionLabel={setActiveSessionLabel}
+            lighting={lighting}
           />
         </div>
         <Routes>

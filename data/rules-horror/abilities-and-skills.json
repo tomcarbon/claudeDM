@@ -1,0 +1,248 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Six abilities and the 18 Horror skills. Use ONLY these skill names on Horror character sheets. Same ability modifier, passive check and DC rules as the shared d20 chassis. Occult (INT) is folklore, superstition, old rites and knowing which stories are true; Research (INT) is archives, libraries, church registers, newspapers and the county recorder; Driving (DEX) is buggies and wagons in the 1890s, cars and trucks later; Mechanics (INT) is locks, engines, wiring, generators and radios. A fear check is a Wisdom saving throw, not a skill (dread.json fear_checks). The characters have no magic."
+  },
+  "abilities": [
+    {
+      "name": "Strength",
+      "abbreviation": "STR",
+      "description": "Strength is the shoulder against the door that will not stay shut, the arms that drag a friend out of the cellar water, the grip on a crowbar under a coffin lid. Most of the things in the dark are stronger than you. Strength is how long you can hold on anyway.",
+      "common_uses": [
+        "Melee attack and damage rolls (most), including unarmed strikes, the fire iron, the crowbar and the wood axe",
+        "Grappling, shoving, wrestling free of something that has hold of you",
+        "Forcing a door, prying boards off a window, lifting a slab in a crypt",
+        "Lifting, hauling and carrying (a grown man is dead weight on a staircase)",
+        "Climbing a trellis, a cliff path or the inside of a well"
+      ],
+      "skills": [
+        "Athletics"
+      ]
+    },
+    {
+      "name": "Dexterity",
+      "abbreviation": "DEX",
+      "description": "Dexterity is a steady hand and quick feet: a match struck first time in a draught, a shot that goes where you meant it, a sprint down a dark hallway without falling, a car kept on the road with something on the roof. When it is time to run, Dexterity decides who gets out first.",
+      "common_uses": [
+        "Ranged attack rolls with every firearm and bow, and their damage",
+        "Finesse melee weapons (kitchen knife, scalpel, silver knife)",
+        "Initiative",
+        "Armor Class (10 + DEX with no armor; a heavy coat or leather jacket adds DEX in full, the padded vest up to +2)",
+        "Driving a buggy or a car under pressure (Driving), hiding (Stealth), and dodging a falling beam or a burning floor (DEX saves)"
+      ],
+      "skills": [
+        "Acrobatics",
+        "Driving",
+        "Sleight of Hand",
+        "Stealth"
+      ]
+    },
+    {
+      "name": "Constitution",
+      "abbreviation": "CON",
+      "description": "Constitution is how much a body can take: a night in a cold house without a fire, smoke in the lungs, a wound you carry to the next town, three days with no proper sleep. It does not make you braver. It keeps you on your feet long enough to be brave.",
+      "common_uses": [
+        "Hit points per level",
+        "Holding your breath under water or in smoke (combat.json fire)",
+        "Resisting cold, exhaustion, poison and drink",
+        "Staying conscious after a blow to the head",
+        "Running for a long time (combat.json fleeing)"
+      ],
+      "skills": []
+    },
+    {
+      "name": "Intelligence",
+      "abbreviation": "INT",
+      "description": "Intelligence is reasoning and memory: the date in the parish register that does not match the gravestone, the wiring that should not be warm, the old story your grandmother told that turns out to be a set of instructions. Horror is often a puzzle with teeth, and Intelligence is how you solve it before it solves you.",
+      "common_uses": [
+        "Working out what happened in a room (Investigation)",
+        "Old stories, rites and the rules a creature follows (Occult; dread.json the_unknown)",
+        "Archives, libraries, registers and newspapers (Research; dread.json investigation)",
+        "Locks, engines, wiring, generators and radios (Mechanics)",
+        "Weather, tides, plants and animals (Nature)"
+      ],
+      "skills": [
+        "Investigation",
+        "Mechanics",
+        "Nature",
+        "Occult",
+        "Research"
+      ]
+    },
+    {
+      "name": "Wisdom",
+      "abbreviation": "WIS",
+      "description": "Wisdom is attention and nerve. It hears the footstep that stopped a moment after yours did, reads the fear in a neighbor's smile, keeps the woods from turning you around, and holds you in place when every part of you wants to run. Every fear check is a Wisdom saving throw.",
+      "common_uses": [
+        "Fear checks: Wisdom saving throws against what you see (dread.json fear_checks)",
+        "Noticing things (Perception, passive Perception, the night watch)",
+        "Reading people (Insight)",
+        "First aid and doctoring (Medicine)",
+        "Tracking, finding your way and living outdoors (Survival)"
+      ],
+      "skills": [
+        "Insight",
+        "Medicine",
+        "Perception",
+        "Survival"
+      ]
+    },
+    {
+      "name": "Charisma",
+      "abbreviation": "CHA",
+      "description": "Charisma is presence: the voice that keeps a frightened room together, the charm that gets the town clerk to open the old ledgers, the lie that gets you past the man at the gate. Small places run on who trusts whom, and Charisma decides whether anyone will tell you the truth.",
+      "common_uses": [
+        "Lying, persuading and threatening",
+        "Holding a room, a séance or a congregation (Performance)",
+        "Getting the oldest person in town to talk (Persuasion; dread.json investigation)",
+        "Resisting a compulsion, a voice in the head or a thing that wants to wear you (CHA saves)"
+      ],
+      "skills": [
+        "Deception",
+        "Intimidation",
+        "Performance",
+        "Persuasion"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "ability": "Dexterity",
+      "description": "Balance, tumbling and falling well: keeping your feet on a rotten staircase, jumping from a porch roof, rolling clear when the floor gives way, slipping out of a grip that is colder than a hand should be."
+    },
+    {
+      "name": "Athletics",
+      "ability": "Strength",
+      "description": "Climbing, jumping, swimming and wrestling: swimming for the boat in a running sea, climbing out of a grave cut, holding a door shut against something pushing, winning a desperate struggle on the floor (combat.json brawling)."
+    },
+    {
+      "name": "Deception",
+      "ability": "Charisma",
+      "description": "Lying with a straight face: a story for the night porter, a cover for why you were in the churchyard, a calm voice that says everything is fine when it is not. A stage medium lives on it."
+    },
+    {
+      "name": "Driving",
+      "ability": "Dexterity",
+      "description": "Handling a vehicle under pressure: a buggy or a wagon in the 1890s, a car or a truck in the 1920s and 1970s. Keeping the team from bolting, taking a corner at night with no lights, getting a stalled engine onto the road before the thing in the corn reaches it (combat.json vehicles). Fixing the engine is Mechanics."
+    },
+    {
+      "name": "Insight",
+      "ability": "Wisdom",
+      "description": "Reading people: telling a lie from the truth, seeing the fear under a neighbor's friendliness, knowing a rehearsed story, noticing that someone you love is not quite themselves. Contested by Deception."
+    },
+    {
+      "name": "Intimidation",
+      "ability": "Charisma",
+      "description": "Getting your way with menace: making the caretaker hand over the keys, backing down a grave robber, telling a room of frightened people that nobody leaves until morning. It works, and it is remembered."
+    },
+    {
+      "name": "Investigation",
+      "ability": "Intelligence",
+      "description": "Searching and reasoning: going through a dead man's desk, finding the hollow behind the wainscot, working out from the scratches on the inside of a door what happened in the room, spotting a stage medium's wires (dread.json investigation)."
+    },
+    {
+      "name": "Mechanics",
+      "ability": "Intelligence",
+      "description": "Locks, engines, wiring, generators and radios: picking a lock, getting a car or a generator running, rewiring a fuse box in the dark, fixing a lighthouse lamp, setting and disarming dynamite (combat.json explosives)."
+    },
+    {
+      "name": "Medicine",
+      "ability": "Wisdom",
+      "description": "First aid and doctoring: stabilizing the dying (DC 10), stopping bleeding, setting a bone, treating burns and smoke, telling how a person died and how long ago. The Physician's Steady Hands does more (classes.json)."
+    },
+    {
+      "name": "Nature",
+      "ability": "Intelligence",
+      "description": "Knowing the natural world: weather and tides, what animal made a track or a sound, which plants are poison, why the birds have gone quiet. Nature also tells you when something is wrong with the natural world: a crop that should have failed, a dog that will not cross a field."
+    },
+    {
+      "name": "Occult",
+      "ability": "Intelligence",
+      "description": "Folklore, superstition and old rites, and knowing which stories are true: what the salt on the sills is for, why the mirrors in an old house are covered, what a particular haunting is likely to want. Occult recalls and performs rites and learns a creature's rules (dread.json the_unknown, rites_and_wards). It is knowledge, not power: a rite works only because a creature's rules say it does."
+    },
+    {
+      "name": "Perception",
+      "ability": "Wisdom",
+      "description": "Using your senses: the footstep on the floor above, the smell of lake water in a dry room, the light in the window of the closed wing, the shape standing at the edge of the corn. Passive Perception is how alert you are on a night watch."
+    },
+    {
+      "name": "Performance",
+      "ability": "Charisma",
+      "description": "Holding an audience: a sermon, a eulogy, a song to keep spirits up, a stage séance, a story told by the fire so well that the whole household stops asking questions. Also playing a part well enough to be invited back."
+    },
+    {
+      "name": "Persuasion",
+      "ability": "Charisma",
+      "description": "Honest influence: talking a widow into letting you see her husband's papers, the sheriff into sending a car, the town into helping, a frightened friend back into the house. The oldest people in town talk to those who listen properly."
+    },
+    {
+      "name": "Research",
+      "ability": "Intelligence",
+      "description": "Records and paper: archives, libraries, church and parish registers, old newspapers, the county recorder's deeds and probate files, ship manifests, a family Bible's front pages. Research turns up names, dates and the shape of the past (dread.json investigation)."
+    },
+    {
+      "name": "Sleight of Hand",
+      "ability": "Dexterity",
+      "description": "Quick fingers: palming a key from a housekeeper's ring, slipping a page out of a ledger, pocketing an iron nail while the host watches, a stage medium's knock under the table."
+    },
+    {
+      "name": "Stealth",
+      "ability": "Dexterity",
+      "description": "Not being noticed: creeping past a room where someone is talking, hiding in a wardrobe or a corn row while something walks by, following a townsman to a meeting he swore he would not attend. Contested by passive Perception; some things hunt by other senses (adversaries.json)."
+    },
+    {
+      "name": "Survival",
+      "ability": "Wisdom",
+      "description": "Living outdoors and finding your way: following a trail, not getting lost in the woods or the fog, finding shelter in a storm, reading animal sign, keeping a fire going all night because you must."
+    }
+  ],
+  "ability_score_modifiers": {
+    "description": "To find an ability modifier, subtract 10 from the score, divide by 2 and round down.",
+    "table": {
+      "1": -5,
+      "2": -4,
+      "3": -4,
+      "4": -3,
+      "5": -3,
+      "6": -2,
+      "7": -2,
+      "8": -1,
+      "9": -1,
+      "10": 0,
+      "11": 0,
+      "12": 1,
+      "13": 1,
+      "14": 2,
+      "15": 2,
+      "16": 3,
+      "17": 3,
+      "18": 4,
+      "19": 4,
+      "20": 5,
+      "21": 5,
+      "22": 6,
+      "23": 6,
+      "24": 7,
+      "25": 7,
+      "26": 8,
+      "27": 8,
+      "28": 9,
+      "29": 9,
+      "30": 10
+    }
+  },
+  "passive_checks": {
+    "description": "A passive check is a check made without rolling, representing a character's steady, background level of competence (for example, noticing a sound on night watch, or spotting that a portrait has been moved). The GM uses it to decide secretly whether a character notices or achieves something. A creature creeping up on a sleeping house makes its Stealth checks against the watch's passive Perception.",
+    "formula": "10 + all modifiers that normally apply to the check. If the character has advantage on the check, add 5. For disadvantage, subtract 5."
+  },
+  "difficulty_classes": {
+    "very_easy": 5,
+    "easy": 10,
+    "medium": 15,
+    "hard": 20,
+    "very_hard": 25,
+    "nearly_impossible": 30
+  }
+}

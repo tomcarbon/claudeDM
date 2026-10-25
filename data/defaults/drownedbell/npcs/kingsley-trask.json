@@ -1,0 +1,120 @@
+{
+  "id": "9e04f1e8-0d06-437a-9d9c-5e6e73a19114",
+  "name": "Rev. Kingsley Trask",
+  "status": "alive",
+  "race": "Faithful",
+  "subrace": "",
+  "class": "Chaplain",
+  "level": 3,
+  "background": "Schoolteacher",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 11,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Insight",
+    "Performance",
+    "Persuasion",
+    "Research"
+  ],
+  "languages": [
+    "English",
+    "Greek and Hebrew (seminary, rusty)"
+  ],
+  "equipment": [
+    "A black clerical suit gone green at the seams, a muffler his mother knitted, and a borrowed oilskin he has not learned to wear",
+    "Fire iron, the poker from the parsonage stove, which he finds he has been carrying around the house since September",
+    "A pocket Bible, a hymnal, and the Union Church's register of baptisms, marriages and burials, 1873 to 1924",
+    "The church's deed box, containing the 1873 deed, the Reverend Joel Vining's bequest of $400 'for the ringing', and Zeb Lunt's ringing book, which he has read twice and not understood",
+    "The subscription list for the recast bell: $212 raised from the island, $5 of it from Orpha Sprague with the note 'Ring it'",
+    "A lantern, a box of matches and a pair of rubber overshoes",
+    "Wallet containing $12"
+  ],
+  "weapons": [
+    {
+      "name": "Fire iron",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Something to Hold On To (Faithful origin: once per long rest, when gaining Dread, gain 1 fewer; advantage on saves against being charmed or compelled by a creature; no miracle in it, only staying yourself)",
+    "Steady Now (Chaplain, using Wisdom: as an action, he speaks to one ally within 30 ft who can hear him, a prayer, a hand on the shoulder, 'Look at me. Breathe.'; the ally loses 1 Dread and stops being frightened; 4 times per long rest; it works only because the ally trusts him, and there is no miracle in it)",
+    "Graveside (Chaplain: he stabilises a dying creature as a bonus action with a Medicine check, DC 10; advantage on Occult checks for rites of burial, blessing and laying to rest when a creature's rules call for one, and on Persuasion checks with the bereaved)",
+    "Hold On to Me (Chaplain, 2nd level: once per short rest, when an ally within 30 ft who can hear him would reach Dread 6, he uses his reaction to call them back to Dread 5)",
+    "Calling: Parish (Chaplain, 3rd level: in any community he has served for a week, people bring him their troubles; once per scenario a parishioner tells him one true thing they have kept from everyone else)",
+    "Every Family's Teacher (Schoolteacher background: he taught a lumber-camp school before seminary; school boards, ministers and parents talk to him, the town assumes him respectable, he knows how to find school registers and town minutes, and grown people still answer a teacher's questions)"
+  ],
+  "traits": [
+    "Steady Now",
+    "Graveside",
+    "Hold On to Me",
+    "Parish",
+    "Every Family's Teacher"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am earnest and I know it, and I try to be funny to make up for it, and fail. I visit everyone on the island every week, in order, whether they want me or not. I apologise too much.",
+    "ideals": "A church is its people, not its customs. I used to believe that meant the customs did not matter. I am learning, too late, that sometimes the custom is the only part of the people's memory that is still telling the truth.",
+    "bonds": "The Union Church and its forty-one members. Peleg Sprague, the only man on the island my own age who talks to me as a friend. The four people who have walked into the sea since I stopped the ringing.",
+    "flaws": "I stopped the ringing in July, because nobody would tell me why it was done and I thought it was a superstition that woke the island at three in the morning. I asked the First Selectman, and he said do as you think best. I did. I would give anything to have been less sure of myself."
+  },
+  "appearance": "A tall, thin, stooped young man of twenty-nine with a long earnest face, a shock of fair hair that will not lie flat, red chapped hands, and wire spectacles that steam up whenever he comes indoors. Black suit, white collar, a muffler, overshoes, a lantern.",
+  "backstory": "Kingsley Trask was a schoolteacher's son from Dover-Foxcroft, taught school himself in a lumber settlement on the Allagash at eighteen, and went to seminary at twenty-two, because a minister had once sat with his dying father all night and he wanted to be the kind of man who does that. Carrow Island's Union Church, which belongs to no denomination in particular and has had six ministers in thirty years, called him in January 1924 for $700 a year and the parsonage. He has worked hard at it: he visits everyone, he started a reading circle, he raised the money to recast the cracked bell. In June the old sexton, Zeb Lunt, died, and Kingsley found in the deed box a bequest from a minister of the 1870s paying the sexton to ring the bell 'at the lowest night low water of every spring tide, by hand, so long as the old bell shall ring under the sea'. Nobody could tell him what it meant. In July he stopped it. On 1 August the drowned bell rang and Enoch Farr walked into the sea. He has not slept properly since.",
+  "dmNotes": {
+    "roleplaying": "Kingsley is the party's way into the church, its records and the island's grief, and he carries CLUE C1 (the bequest) and CLUE A3 (Zeb's ringing book) in the deed box, which he will hand over to anyone who seems to understand them. He wants the recast bell hung in time for 14 October and will work all night to do it, badly; he is no mechanic. He is the obvious person to ring it and the wrong person to ring it alone: he is not strong, and the Constitution saves will beat him by the second half hour. His Steady Now and Shepherd make him invaluable in the drowned church and the storm. He has a terrible, honest courage: he will go out onto the Shelf, and into the storm, because he thinks he owes it. Clergy are people like anyone else; play his faith as quiet, practical and real, never as the answer to the bell, which does not care what anyone believes.",
+    "voice": "Educated, gentle, a little formal, with a Piscataquis County accent that comes out when he is upset. Quotes scripture and then apologises for quoting scripture. Says 'I'm so sorry' as punctuation.",
+    "motivations": "Primary: stop the bell, and make amends for stopping the ringing. Secondary: hold his congregation together through whatever the truth turns out to be. Tertiary: find out who Joel Vining was and what he knew.",
+    "secrets": "In August, after Enoch Farr, Orpha Sprague sent for him and told him, 'Ring it again, young man, and don't ask me why.' He did not, because the bell was cracked and he had already sent for the foundry, and because he was angry at being told what to do without a reason. Two people have died since. He has told no one. He also does not know that Peleg rang it on 16 August, and would be both relieved and wounded to learn it.",
+    "attitude": "Toward the party: grateful, eager, too trusting. Toward Pearl Haverty: polite disapproval of spiritualism that turns to fascination. Toward Galen Coombs: he knows what Sculpin Cove is, preaches against it, and married Galen's sister to a Vinalhaven man last spring. Toward Ellery Wyman: hurt. Toward Orpha Sprague: awe, and fear."
+  }
+}

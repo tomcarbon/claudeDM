@@ -1,0 +1,741 @@
+{
+  "_meta": {
+    "category": "western",
+    "source": "Written for claudeDM (Western category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Gear for Western campaigns, 1860s-1880s, era-tagged; costs are 1870s dollars and may be fractional (0.05 = a nickel). Ammunition is recorded on character sheets as a counted equipment line named by the weapon's ammo_name in equipment.json, such as \".45 cartridges (18)\", \".36 rounds (18)\" or \"Shotgun shells (10)\", and deducted shot by shot (combat.json ammunition); each ammo_name has a box here named \"<ammo_name> (N)\". Items with 'uses' are consumables. Mounts and conveyances are priced here; horse statistics are in frontier.json horses_and_mounts and wagon, stagecoach and train statistics in combat.json vehicles. Medical items implement the no-magic healing rules in combat.json healing. The lariat is gear, not a weapon.",
+    "total_items": 60
+  },
+  "gear": [
+    {
+      "name": "Saddle and tack",
+      "category": "tack",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 40,
+      "weight": "35 lb.",
+      "description": "A stock saddle with a horn for dallying a rope, bridle, bit, saddle blanket and cinch. A horse can be ridden bareback, but not far and not fast: without a saddle, Riding checks have disadvantage and a rider can't use a lariat from horseback. A good saddle is worth more than many horses, and a man who sells his saddle is said to be finished."
+    },
+    {
+      "name": "Saddlebags",
+      "category": "tack",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 3,
+      "weight": "5 lb.",
+      "description": "A pair of leather bags slung behind the saddle. Hold about 30 lb. of gear: rations, a box of cartridges, a change of shirt, letters, stolen bank notes."
+    },
+    {
+      "name": "Saddle scabbard",
+      "category": "tack",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 2,
+      "weight": "2 lb.",
+      "description": "A leather boot that hangs a carbine, repeating rifle or shotgun under the rider's leg. Drawing a Longarm from a scabbard while mounted is your free interaction; from the ground beside the horse it is too."
+    },
+    {
+      "name": "Spurs",
+      "category": "tack",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1.5,
+      "weight": "1 lb.",
+      "description": "Rowel spurs. A rider wearing them can ask a horse for one more burst: once per chase, reroll a failed Riding check. They jingle: disadvantage on Stealth checks on foot unless you take them off or tie the rowels."
+    },
+    {
+      "name": "Lariat",
+      "category": "tack",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1.5,
+      "weight": "3 lb.",
+      "description": "Forty feet of braided rawhide or grass rope with a running loop. Throwing a loop is an action against a creature within 20 ft: a DEX check, adding your proficiency bonus if you are proficient with the lariat, contested by the target's STR (Athletics) or DEX (Acrobatics). On a win the target is grappled (Large or smaller); a mounted roper who dallies the rope round the horn can drag a grappled Medium creature at the horse's speed or throw it prone. Full rules in combat.json grappling.lariat. A lariat is gear, not a weapon: it never goes in a sheet's weapons list. Also an ordinary 40-ft rope."
+    },
+    {
+      "name": "Grain (1 week)",
+      "category": "tack",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 2,
+      "weight": "40 lb.",
+      "description": "Oats or corn for one horse or mule for a week. Where there is no grass (desert, winter, a played-out trail), a horse without grain loses condition (frontier.json horses_and_mounts.care).",
+      "uses": 7
+    },
+    {
+      "name": "Bedroll",
+      "category": "camp",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 3,
+      "weight": "8 lb.",
+      "description": "Two blankets and a canvas tarp rolled and tied behind the saddle. Sleeping out without one in cold weather risks exhaustion (frontier.json weather_and_water)."
+    },
+    {
+      "name": "Canteen",
+      "category": "camp",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "5 lb. full",
+      "description": "A cloth-covered tin canteen holding half a gallon: half a day's water for a person in hot country. Record extra canteens as \"Canteen (2)\". Thirst rules are in frontier.json weather_and_water."
+    },
+    {
+      "name": "Coffee (1 lb)",
+      "category": "camp",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.35,
+      "weight": "1 lb.",
+      "description": "Roasted beans in a paper sack, ground in the pan with a pistol butt. About twenty pots. A cup of coffee at a cold dawn camp ends the Shaken condition at the end of a short rest, as a stiff drink does."
+    },
+    {
+      "name": "Beans (5 lb)",
+      "category": "camp",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.4,
+      "weight": "5 lb.",
+      "description": "Dried pinto or navy beans. Ten meals, if someone soaks them overnight and there is fuel to cook them."
+    },
+    {
+      "name": "Trail rations (1 week)",
+      "category": "camp",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 3,
+      "weight": "15 lb.",
+      "description": "Flour, bacon, beans, coffee, sugar and salt for one person for a week: the cowhand's groceries. Each use is a day's food.",
+      "uses": 7
+    },
+    {
+      "name": "Lantern",
+      "category": "camp",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1.5,
+      "weight": "3 lb.",
+      "description": "A tin kerosene lantern with a glass chimney. Bright light in a 30-ft radius and dim light 30 ft beyond for 6 hours on a filling. Dropped or shot (AC 12), it breaks and spills burning oil in a 5-ft square (1d4 fire to anyone in it, and the barn goes up)."
+    },
+    {
+      "name": "Matches (box)",
+      "category": "camp",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.1,
+      "weight": "-",
+      "description": "A box of fifty sulfur matches. Damp matches do not strike (a DC 12 Survival check to get a fire going in rain without dry tinder). Also lights fuses."
+    },
+    {
+      "name": "Rope (50 ft)",
+      "category": "camp",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "10 lb.",
+      "description": "Hemp rope. Holds 600 lb. Ties up a prisoner (restrained; escape DC 15 Acrobatics or Athletics, or 20 if the knots were tied by someone proficient in Survival or Riding), hauls a wagon out of a wash, or makes a picket line."
+    },
+    {
+      "name": "Hat",
+      "category": "clothing",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 5,
+      "weight": "-",
+      "description": "A wide-brimmed felt hat. It shades the eyes (no disadvantage on Perception checks from looking into the sun with it on), waters a horse in a pinch and is the last thing anyone takes off. A good hat costs a week's wages."
+    },
+    {
+      "name": "Chaps",
+      "category": "clothing",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 6,
+      "weight": "5 lb.",
+      "description": "Leather leggings worn over trousers for brush, cactus and horns. In thick brush or cactus country you take no damage from riding through it, and they give advantage on saves against being knocked from the saddle in brush. Not armor: they don't change AC."
+    },
+    {
+      "name": "Slicker",
+      "category": "clothing",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 3,
+      "weight": "3 lb.",
+      "description": "An oiled yellow canvas rain coat tied behind the cantle. In rain, sleet or a river crossing it keeps you and your powder dry: advantage on saves against cold and wet exposure, and your cartridges stay dry (combat.json ammunition). Not armor."
+    },
+    {
+      "name": "Gun belt and holster",
+      "category": "clothing",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 3,
+      "weight": "2 lb.",
+      "description": "A cartridge belt with loops for 24 rounds and a holster for one revolver (two holsters for $2 more). Drawing from a holster is a free interaction, and the draw in a showdown assumes one (frontier.json showdowns). Cartridges in the loops count toward your counted ammunition, not in addition to it."
+    },
+    {
+      "name": "Good suit",
+      "category": "clothing",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 20,
+      "weight": "4 lb.",
+      "description": "A black frock coat, waistcoat, white shirt and string tie: what a banker, a gambler, a preacher and a man at his own trial all wear. In a bank, a courtroom, a church or a railroad office you are taken seriously."
+    },
+    {
+      "name": "Pick and pan",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 4,
+      "weight": "12 lb.",
+      "description": "A prospector's pick, a short shovel and a steel gold pan. Panning a creek for a day with a Nature check finds color if there is any: DC 10 for a rich creek, 15 for an ordinary one, 20 for a worked-out one. A day's success is worth 1d4 dollars, and the claim is worth whatever someone will kill for."
+    },
+    {
+      "name": "Field glasses",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 15,
+      "weight": "2 lb.",
+      "description": "Brass binoculars, army surplus or a rancher's pride. Advantage on Perception checks to see things more than 300 ft away; they flash in the sun (a watcher on a ridge with field glasses can be spotted with a DC 15 Perception check in daylight)."
+    },
+    {
+      "name": "Manacles",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 3,
+      "weight": "2 lb.",
+      "description": "Iron wrist cuffs on a short chain, with a key. Manacling a grappled, incapacitated or willing creature takes an action; a manacled creature is restrained for hand-to-hand purposes (it can still walk and ride) and can escape only with a key, lockpicks (DC 15 Mechanics or Sleight of Hand) or a DC 20 STR check."
+    },
+    {
+      "name": "Lockpicks",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 5,
+      "weight": "-",
+      "description": "A ring of picks and tension wires. Needed to pick a lock with Mechanics or Sleight of Hand: DC 10 a padlock or a cheap door, 15 a jail cell or manacles, 20 a bank or express-car safe (which also takes 10 minutes)."
+    },
+    {
+      "name": "Gunsmith's tools",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 10,
+      "weight": "5 lb.",
+      "description": "Screwdrivers, a mainspring vise, punches, files and spare springs in a roll. With them, a Mechanics check (DC 10) and an hour, you can repair a damaged firearm, convert a cap-and-ball revolver to cartridges (a day, DC 15) or tune a revolver's action for fanning. Proficiency adds your proficiency bonus to such checks."
+    },
+    {
+      "name": "Tool roll",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 8,
+      "weight": "15 lb.",
+      "description": "Wrenches, a hammer, a cold chisel, a pry bar and a coil of wire: the railroad man's and the blacksmith's kit. Needed to repair a wagon wheel, a locomotive fitting or a pump, to uncouple a rail car in a hurry (Mechanics DC 12 as an action) or to force a strongbox (STR DC 15)."
+    },
+    {
+      "name": "Spare cylinder",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 4,
+      "weight": "1 lb.",
+      "description": "A second loaded cylinder for a Navy, Army or pocket revolver. Swapping it in is an action and refills the revolver completely (combat.json ammunition.reload). Loading the spare cylinder itself takes a short rest's worth of quiet minutes. The rounds in it count toward your counted ammunition."
+    },
+    {
+      "name": "Loading tube",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "1 lb.",
+      "description": "A tin tube pre-filled with seven rounds for the carbine's butt magazine. Emptying a full tube into the carbine is an action that loads all seven. Record pre-filled tubes as \"Loading tube (3)\"; their rounds count toward your counted .56 rounds."
+    },
+    {
+      "name": "Fuse and blasting caps",
+      "category": "tools",
+      "eras": [
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "1 lb.",
+      "description": "Twenty feet of safety fuse (it burns about a foot a minute) and a tin of copper blasting caps. Needed to set a timed charge with Mechanics (combat.json explosives). Caps are touchy: a cap tin hit by a bullet or dropped in a fire goes off (1d6 to the carrier)."
+    },
+    {
+      "name": "Running iron",
+      "category": "tools",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "2 lb.",
+      "description": "A straight iron rod with a hooked end, for drawing a brand freehand. Ranchers use stamp irons; a man caught carrying a running iron on the range is presumed to be a rustler, and in some territories it is hanging evidence. Altering a brand convincingly is a Mechanics or Animal Handling check (DC 15); spotting an altered brand is Investigation (DC equal to the alterer's check)."
+    },
+    {
+      "name": "Doctor's bag",
+      "category": "medical",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 30,
+      "weight": "10 lb.",
+      "description": "Scalpels, probes and bullet forceps, needle and silk, carbolic acid, chloroform, laudanum and a stethoscope in a leather bag. Required for the Doc's Sawbones. Gives advantage on Medicine checks to stabilize, and proficiency with it adds your proficiency bonus to Medicine checks to treat wounds. 10 uses.",
+      "uses": 10
+    },
+    {
+      "name": "Bandage roll",
+      "category": "medical",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.1,
+      "weight": "-",
+      "description": "Clean linen strips. One use ends Bleeding on a creature without a check. Record as \"Bandage roll (4)\".",
+      "uses": 1
+    },
+    {
+      "name": "Laudanum (bottle)",
+      "category": "medical",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.5,
+      "weight": "-",
+      "description": "Tincture of opium in alcohol, sold at every drugstore and most saloons. A dose gives 1d6 + 2 temporary hit points for 1 hour and ends the Shaken condition, but the creature is poisoned for that hour. A second dose within 8 hours: DC 13 CON save or unconscious for 1d4 hours. Five doses.",
+      "uses": 5
+    },
+    {
+      "name": "Snakebite kit",
+      "category": "medical",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "-",
+      "description": "A lancet, a rubber suction cup, a tourniquet and a flask of whiskey. Used within a minute of a venomous bite (an action), it gives the victim advantage on the CON save against the venom and halves the poison damage already taken (round down). Three uses.",
+      "uses": 3
+    },
+    {
+      "name": "Whiskey (bottle)",
+      "category": "vice",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "2 lb.",
+      "description": "Trade whiskey, rotgut or the good stuff from back East at three times the price. A stiff drink at the end of a short rest ends the Shaken condition. Each drink after the third in an evening: DC 10 CON save (+2 per drink after) or poisoned until you sleep. A shot at the bar is 10 cents."
+    },
+    {
+      "name": "Tobacco (pouch)",
+      "category": "vice",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "Loose tobacco and papers, or a plug for chewing. Offering a smoke to a stranger on the trail is the start of most conversations; it gives advantage on the first Persuasion check with someone who has run out."
+    },
+    {
+      "name": "Playing cards",
+      "category": "vice",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "An honest deck. Needed for poker, faro and monte (frontier.json gambling)."
+    },
+    {
+      "name": "Marked deck",
+      "category": "vice",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 3,
+      "weight": "-",
+      "description": "A deck with the backs pricked, shaded or trimmed so a trained eye can read the cards. Gives advantage on Gambling checks for someone who knows the marks, and is a Sleight of Hand cheat if it is swapped into a game (frontier.json gambling.cheating). Spotting it: Investigation DC 15 if anyone thinks to look at the backs. Being found with one at a table is a shooting matter."
+    },
+    {
+      "name": "Telegram (per word)",
+      "category": "communications",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.05,
+      "weight": "-",
+      "description": "Telegraph rates run about five cents a word for nearby offices, with a ten-word minimum, and twice that across the country. Telegraph offices sit at railroad depots and county seats; a message arrives in hours. The operator reads every word, and some operators talk.",
+      "uses": 1
+    },
+    {
+      "name": "Notebook and pencil",
+      "category": "documents",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "A pocket memorandum book. For copying a wanted poster, a brand, a deed number or a confession."
+    },
+    {
+      "name": "Stage fare (per 10 miles)",
+      "category": "services",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "-",
+      "description": "A seat on a mail or passenger coach, about ten cents a mile, fifty pounds of baggage free. Coaches make 60 to 100 miles a day changing teams at swing stations (frontier.json trail_travel). Rough, dusty and the favorite target of road agents.",
+      "uses": 1
+    },
+    {
+      "name": "Train ticket (per 100 miles)",
+      "category": "services",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 3,
+      "weight": "-",
+      "description": "Coach class, about three cents a mile; a Pullman sleeper berth is $2 a night more. Trains make 20-30 miles an hour including stops: a day by rail is a week on horseback. A horse rides in a stock car for $5 a hundred miles.",
+      "uses": 1
+    },
+    {
+      "name": "Hotel room (night)",
+      "category": "services",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "-",
+      "description": "A room with a bed, a washstand and a door that locks, from 50 cents in a cow town to $3 in a Denver hotel. A long rest in a hotel bed removes one extra level of exhaustion.",
+      "uses": 1
+    },
+    {
+      "name": "Bath",
+      "category": "services",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "A tub of hot water behind the barber shop, clean water extra. After a long ride it ends the first level of exhaustion gained from the trail when combined with a long rest, and it makes you presentable (no disadvantage on Persuasion with townsfolk because you smell of horse).",
+      "uses": 1
+    },
+    {
+      "name": "Shave",
+      "category": "services",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.1,
+      "weight": "-",
+      "description": "A shave and a haircut at the barber's. The barber's chair is also where a town's gossip is told: a shave comes with one rumor, true or not.",
+      "uses": 1
+    },
+    {
+      "name": "Meal",
+      "category": "services",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.25,
+      "weight": "-",
+      "description": "Steak, beans, bread and coffee at a cafe, a hotel table or a stage station. Pie extra.",
+      "uses": 1
+    },
+    {
+      "name": ".41 rounds (20)",
+      "category": "ammunition",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 0.75,
+      "weight": "-",
+      "description": "Short rimfire cartridges for the Derringer. Record as \".41 rounds (N)\"."
+    },
+    {
+      "name": ".32 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "1 lb.",
+      "description": "Rimfire cartridges for the Pocket revolver. Record as \".32 rounds (N)\"."
+    },
+    {
+      "name": ".36 rounds (50)",
+      "category": "ammunition",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1.25,
+      "weight": "1 lb.",
+      "description": "For the Navy revolver: paper or linen cartridges with percussion caps for a cap-and-ball cylinder, or metallic cartridges for a converted one. One box serves either. Record as \".36 rounds (N)\"."
+    },
+    {
+      "name": ".45 cartridges (50)",
+      "category": "ammunition",
+      "eras": [
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1.5,
+      "weight": "2 lb.",
+      "description": "Center-fire cartridges for the Army revolver. Record as \".45 cartridges (N)\"."
+    },
+    {
+      "name": ".56 rounds (20)",
+      "category": "ammunition",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1,
+      "weight": "2 lb.",
+      "description": "Rimfire cartridges for the Carbine. Record as \".56 rounds (N)\"."
+    },
+    {
+      "name": ".44 cartridges (50)",
+      "category": "ammunition",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1.5,
+      "weight": "2 lb.",
+      "description": "Rimfire (later center-fire) cartridges for the Repeating rifle. Record as \".44 cartridges (N)\"."
+    },
+    {
+      "name": ".50 rounds (20)",
+      "category": "ammunition",
+      "eras": [
+        "1870s",
+        "1880s"
+      ],
+      "cost": 2,
+      "weight": "3 lb.",
+      "description": "Long, heavy center-fire cartridges for the Buffalo rifle; hide hunters reload their own. Record as \".50 rounds (N)\"."
+    },
+    {
+      "name": "Shotgun shells (25)",
+      "category": "ammunition",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 1.25,
+      "weight": "3 lb.",
+      "description": "Brass or paper shells loaded with buckshot for the Double-barrel shotgun and the Coach gun. Record as \"Shotgun shells (N)\"."
+    },
+    {
+      "name": "Riding horse",
+      "category": "mounts and conveyances",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 75,
+      "weight": "-",
+      "description": "A sound saddle horse, $50 for a plain one to $150 for a good one. Statistics, care and travel in frontier.json horses_and_mounts. Saddle and tack are extra. Record on the sheet as \"Horse: <name>\"."
+    },
+    {
+      "name": "Cow pony",
+      "category": "mounts and conveyances",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 40,
+      "weight": "-",
+      "description": "A small, quick, cow-wise horse, the working mount of the range: $30-$60. Advantage on Riding checks to cut, turn and rope cattle. Statistics in frontier.json horses_and_mounts."
+    },
+    {
+      "name": "Draft horse",
+      "category": "mounts and conveyances",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 100,
+      "weight": "-",
+      "description": "A big, slow, strong horse for wagons and plows, $80-$150. Can be ridden, badly. Statistics in frontier.json horses_and_mounts."
+    },
+    {
+      "name": "Mule",
+      "category": "mounts and conveyances",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 60,
+      "weight": "-",
+      "description": "Stubborn, sure-footed and tougher than any horse in rough country, $40-$90. Packs 250 lb. Statistics in frontier.json horses_and_mounts."
+    },
+    {
+      "name": "Buckboard",
+      "category": "mounts and conveyances",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 60,
+      "weight": "-",
+      "description": "A light open four-wheeled wagon with a spring seat, pulled by one or two horses. Carries two people and half a ton. Statistics in combat.json vehicles."
+    },
+    {
+      "name": "Covered wagon",
+      "category": "mounts and conveyances",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 100,
+      "weight": "-",
+      "description": "A farm or emigrant wagon with a canvas top on hoops, pulled by four oxen, mules or horses (not included). Carries a family and a ton and a half. Statistics in combat.json vehicles."
+    },
+    {
+      "name": "Stagecoach seat",
+      "category": "mounts and conveyances",
+      "eras": [
+        "1860s",
+        "1870s",
+        "1880s"
+      ],
+      "cost": 8,
+      "weight": "-",
+      "description": "A through seat on a stagecoach for one day's run (60-100 miles), meals at stations extra. Nine passengers inside, more on the roof, the driver and the man riding shotgun on the box. Statistics in combat.json vehicles; fares by the mile under Stage fare.",
+      "uses": 1
+    }
+  ]
+}

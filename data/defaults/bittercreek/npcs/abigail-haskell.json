@@ -1,0 +1,130 @@
+{
+  "id": "8b027555-388f-49d9-a63a-1c8b950e1d0b",
+  "name": "Dr. Abigail Haskell",
+  "status": "alive",
+  "race": "Back East",
+  "subrace": "",
+  "class": "Doc",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 17,
+    "current": 17
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Investigation",
+    "Athletics",
+    "Survival"
+  ],
+  "languages": [
+    "English",
+    "Latin (medical)",
+    "German (enough to take a history from a Bavarian farm wife)"
+  ],
+  "equipment": [
+    "A black bombazine dress, a grey wool cape, steel spectacles and sensible boots",
+    "Pocket revolver (Smith & Wesson, .32), 5 rounds loaded, in her medical bag, which she has fired twice, both times at men who deserved it",
+    ".32 rounds (10)",
+    "Boot knife, which she calls her 'letter opener' and uses for stitches",
+    "Doctor's bag (10 uses): scalpels, probes and bullet forceps, needle and silk, carbolic acid, chloroform, laudanum, quinine and a stethoscope",
+    "A brass monocular microscope in a wooden case, freighted from Philadelphia at great expense, of which she is very proud",
+    "The Ransom County coroner's book, and a commission as acting coroner signed by the county commissioners because nobody else would take it",
+    "Horse: Florence, an elderly grey mare, and a one-horse buggy",
+    "A diploma from the Woman's Medical College of Pennsylvania, class of 1871, framed, on the wall of her surgery behind the Plainsman",
+    "Wallet containing $45"
+  ],
+  "weapons": [
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Boot knife",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Book Learning (Back East origin: advantage on Investigation checks to read documents such as deeds, contracts, ledgers, telegrams and forged papers; once per long rest, recall one useful fact about a law, process, science or history without a check; disadvantage on the first Riding or Survival check in front of strangers each day)",
+    "Sawbones (Doc, INT: as an action with her doctor's bag she patches a creature she touches; it can spend up to 2 unspent Hit Dice, rolling each and adding its CON modifier, and regains an extra 3 hit points once; Sawbones also stabilises a dying creature and ends Bleeding; 4 uses per long rest; Dig Out a Bullet: during a short rest she cuts out a lodged bullet and the patient regains an extra 6 hit points)",
+    "Diagnosis (Doc: as a bonus action, she learns a creature's current and maximum hit points and every condition affecting it; examining a body for 10 minutes, she learns the cause and approximate time of death without a check, what gun or blade did it and from how far, and one extra detail on a DC 12 Medicine check)",
+    "Steady Hands (Doc, 2nd level: advantage on Medicine checks; a creature she stabilises regains 1 hit point and can act on its next turn; she identifies any drug, poison, disease or bad water by its symptoms without a check)",
+    "Practice: Country Doctor (Doc, 3rd level: every homestead and ranch for a day's ride knows her; she finds shelter, a fresh horse and the local news without a check, and once per case a patient owes her a favour)",
+    "Old Regiment (Veteran background: she nursed in the Union army's hospitals from 1862 to 1865; on any army post or among old soldiers of either side she gets a meal, the news and a straight answer about a man who wore a uniform)"
+  ],
+  "traits": [
+    "Sawbones (4/long rest)",
+    "Diagnosis",
+    "Steady Hands",
+    "Country Doctor",
+    "Old Regiment"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say exactly what I mean, in as few words as possible, and I do not repeat myself. I wash my hands more often than anyone in Wyoming thinks necessary. I am kind in deeds and unkind in speech and I have stopped apologising for either.",
+    "ideals": "A body does not lie. People do. The truth on the record matters even when nobody acts on it, because one day somebody might.",
+    "bonds": "My patients, who are everyone in Ransom County, cowboys, homesteaders, Company men, their wives and their children. The coroner's book, which I keep honestly. And Thea Lasker, whose son I delivered.",
+    "flaws": "I have seen too many dead young men to be patient with the live ones who make more of them. My contempt shows, and it costs me friends I need."
+  },
+  "appearance": "A spare, straight woman of forty-eight with iron-grey hair pulled back hard, steel spectacles, a long, sharp, intelligent face and thin, scrubbed, chapped hands. Black dress, grey cape, a faded Sanitary Commission badge pinned at her throat. She smells of carbolic.",
+  "backstory": "Abigail Haskell was a Vermont schoolmaster's daughter who went to Washington in 1862 to nurse in the Union army's hospitals, saw everything a nurse could see in three years of war, and came home determined to be a doctor. The Woman's Medical College of Pennsylvania graduated her in 1871; nobody in Vermont would consult her, so she practised in Philadelphia's poorest wards for nine years and came west in 1880, a widow, after her husband, a railroad engineer, was killed at Rawlins. She stayed in Wyoming because nobody there asked whether a doctor ought to be a woman, only whether she could set a leg. She has been Gilead's only physician since 1882 and Ransom County's acting coroner since the county was organised, and she treats Company men and grangers in the same surgery at the same price. She delivered half the children on the creek, including Thea Lasker's boy. On Tuesday 20 April she holds the inquest on Owen Lasker, and she means to put the truth on the record whatever the jury says.",
+  "dmNotes": {
+    "roleplaying": "Haskell is the party's medic, forensic expert and conscience. Use her to read bodies (Owen's at the inquest; Ira Pettit's if he dies in the stampede: she finds the bullet), to stitch up the party after fights, and to say the hard thing nobody else will. She travels by buggy and does not ride hard or fight willingly, but she will go anywhere there are wounded, including the middle of the siege at Solberg's Bend. She works on Company men and grangers alike, and will refuse to treat nobody, which makes her the one person both sides trust in bk-scenario-003. She is the best person to explain law to the party: the void warrants (bk-scenario-003), a widow's right to continue a homestead claim (CLUE F3), and how to lay evidence before Judge Kittle.",
+    "voice": "Dry, clipped, New England, few words. Uses medical terms when she wants to keep people at a distance and plain blunt English when she wants them to understand. Calls everyone by their surname. Never swears; does not need to.",
+    "motivations": "Primary: keep people alive. Secondary: get the truth into the coroner's book and, if possible, into a court. Tertiary: be left alone with her microscope on Sunday afternoons.",
+    "secrets": "In 1884 she treated Gideon Sayre for a bad burn on his right hand that he said came from a lamp. It came from a paper fire in his office stove the night after a homesteader named Lund, who had sold his claim cheap to one of Sayre's entrymen, came to accuse him of something; Lund left the valley the next week. She has never connected it to anything. If the party ever asks her about Sayre, or if she sees the sign's handwriting and thinks about it, she will remember the burn and the date, and wonder. Second secret: she knows from her practice that Sheriff Quinlan has a bad heart and has perhaps two years; she has told nobody, including him.",
+    "attitude": "Toward the party: brusque, watchful, and quietly loyal once they prove they want the truth rather than a scalp. Toward Thea Lasker: protective. Toward Ballantine: polite contempt. Toward Margit Solberg: respect between equals. Toward Stroud: she has dug two of his bullets out of men in other counties and regards him as a disease. Toward Gideon Sayre: until she remembers the burn, mild liking; he always pays his bill on the day."
+  }
+}

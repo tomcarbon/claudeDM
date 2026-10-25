@@ -1,0 +1,124 @@
+{
+  "id": "8be7fe47-fc52-431e-8190-193b3edae002",
+  "name": "Cass Delaney",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Private Eye",
+  "level": 3,
+  "background": "Ex-Cop",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 11,
+      "modifier": 0
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 18,
+    "current": 18
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Investigation",
+    "Insight",
+    "Perception",
+    "Intimidation",
+    "Streetwise"
+  ],
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "equipment": [
+    "Heavy overcoat, navy gabardine, lined, with deep pockets",
+    ".38 revolver (Colt Official Police, one of the agency's set of four), 6 rounds loaded, shoulder holster",
+    ".38 rounds (18)",
+    "Blackjack, leather, in the right-hand coat pocket",
+    "Handcuffs",
+    "Old badge: San Francisco Police Department, Women's Protective Bureau, No. 9, in a drawer at home and lately in her pocket",
+    "Notebook and pencil",
+    "Flashlight",
+    "Key to Room 611, the Monadnock Building, and the combination to the agency safe",
+    "A photograph of Ned Corrigan and Cass outside the Hall of Justice in 1930, the day she quit",
+    "Wallet containing $25"
+  ],
+  "weapons": [
+    {
+      "name": ".38 revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Blackjack",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Heavy overcoat",
+    "type": "light"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: once per long rest, advantage on an Insight check to tell whether someone is lying, and learn whether they lie to protect themselves or someone else; working people start one step friendlier)",
+    "Hunch (once per short or long rest, ask the GM one yes-or-no question about a lead and get a true answer)",
+    "Gumshoe (proficiency bonus doubled for Investigation and Insight checks)",
+    "Size Them Up (bonus action: advantage on her next attack against a creature and +1d6 damage on a hit; 3 uses per short rest, WIS)",
+    "Specialty: Shamus (Hunch twice per short rest; once per long rest she can ask \"who?\" about a single event instead)",
+    "Old Precinct (Ex-Cop background: the desk sergeants and matrons at Central Station remember her, and a few of them still think she was right)"
+  ],
+  "traits": [
+    "Plain Dealing",
+    "Hunch",
+    "Gumshoe",
+    "Size Them Up",
+    "Shamus"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I listen more than I talk, and when I talk it is usually a question. I have a dry voice and a drier sense of humour, and I write everything down in a notebook nobody else can read.",
+    "ideals": "The truth is the only thing a detective has to sell. Shade it once for a client and you never get your price for it again.",
+    "bonds": "Ned Corrigan took me on in 1930 when the department would not let a woman near a homicide, and put my name on the door in 1935. I told him the client was lying. He laughed. Now he is dead in an alley, and I will find who did it if it costs me the license.",
+    "flaws": "I am right more often than I am kind about it, and I would rather be proved right than be liked. Frank Dolan learned that from me, and it is why he thinks I could have done it."
+  },
+  "appearance": "A tall, angular woman of forty-one with prematurely grey hair cut short under a dark fedora, a long navy overcoat and flat shoes she can run in. Lines at the corners of her eyes from squinting at people. A Eureka accent that comes back when she is tired.",
+  "backstory": "Cassandra Delaney grew up in Eureka, a lumber-mill town on the redwood coast, where her father was the county sheriff and her mother the only person who ever beat him at checkers. She came to San Francisco in 1921 and joined the police department's Women's Protective Bureau, which meant runaways, wayward girls and dance-hall inspections, and she was good enough at it that by 1929 she had solved two murders the Homicide squad had given up on and been told, twice, to stop. Ned Corrigan, who had left Homicide himself the year before, was the only detective who said she was right. She quit in 1930 and went to work for him; in 1935 he made her a partner and they took out the insurance policies that Frank Dolan now carries round in his head. Frank was a young detective in 1929 who used to bring her coffee and ask her how she knew things. On Thursday afternoon she told Ned the woman on the client bench was lying, and they shouted at each other through the door, and that was the last thing she said to him."
+}

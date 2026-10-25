@@ -1,0 +1,122 @@
+{
+  "id": "259e3967-a7f0-4c0f-949b-78348d7a018c",
+  "name": "Ezra Langford",
+  "status": "alive",
+  "race": "Ex-Soldier",
+  "subrace": "",
+  "class": "Lawman",
+  "level": 2,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Wisdom"
+  ],
+  "skills": [
+    "Insight",
+    "Investigation",
+    "Athletics",
+    "Survival"
+  ],
+  "languages": [
+    "English",
+    "German (from his mother, enough for a Lutheran funeral and a Saturday market)"
+  ],
+  "equipment": [
+    "Iron vest, a boiler-plate breastplate a Rawlins blacksmith made for a stage guard who died of pneumonia, worn under a brown wool coat; heavy, hot, and obvious when he sits down",
+    "Army revolver (Colt single-action, .45), 6 rounds loaded, in a flap holster from his railroad days",
+    ".45 cartridges (18)",
+    "Double-barrel shotgun (10-gauge, county property), both barrels loaded, in a saddle scabbard",
+    "Shotgun shells (12)",
+    "A deputy sheriff's star of Ransom County, nickel-plated, a week old, and the oath he swore on Silas Quinlan's own Bible",
+    "Manacles, iron, with a key that sticks",
+    "Horse: Colonel, a big bay gelding, seventeen years old, gun-steady and impossible to hurry",
+    "Saddle, saddlebags, bedroll, slicker, a canteen and a coffee pot",
+    "A pocket notebook in which he writes down everything anyone tells him, with the date",
+    "A tintype of a company of Ohio infantry, 1863, with eleven of the faces crossed out in pencil",
+    "Wallet containing $22"
+  ],
+  "weapons": [
+    {
+      "name": "Army revolver",
+      "attackBonus": 3,
+      "damage": "1d10+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 3,
+      "damage": "2d8+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Iron vest",
+    "type": "medium"
+  },
+  "features": [
+    "Under Fire (Ex-Soldier origin: advantage on saving throws against being frightened and against the Shaken condition; the first time each combat he is hit by a firearm, he keeps his readied action and his reaction; reads rank, unit and bearing at a glance)",
+    "The Star (Lawman: sworn deputy sheriff of Ransom County; within the county he can arrest on a warrant or for a crime he witnesses, enter a business, hold a prisoner until the circuit judge comes, and raise a posse of willing citizens equal to his proficiency bonus for one pursuit or one day; advantage on Intimidation and Persuasion against anyone who respects the law; misusing the star costs 1 Reputation when it comes out, and the judge can take it back)",
+    "Keep the Peace: Peace Officer (Lawman: as a bonus action, he orders a creature that can hear him to drop its weapon; it makes a WIS save, DC 12, and on a failure drops one held weapon at its feet; a creature that has already attacked anyone in this fight has advantage on the save)",
+    "Take Him Alive (Lawman, 2nd level: when he hits with a melee attack he can use a bonus action to try to grapple; he can manacle a grappled creature as an action without a check; when he reduces a creature to 0 hit points with any attack he can leave it stable and unconscious instead of dying)",
+    "Old Regiment (Veteran background: on any army post or among old soldiers of either side he gets a meal, the news and a straight answer about a man who wore a uniform; he reads rank, drill and bearing at a glance)"
+  ],
+  "traits": [
+    "The Star",
+    "Keep the Peace: Peace Officer",
+    "Take Him Alive",
+    "Old Regiment"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I move slowly and think slowly and I am almost never wrong twice. I write everything down. I call every man 'mister' until he gives me reason not to, and then I call him by his full name, which is worse.",
+    "ideals": "The law is the only thing that stands between a poor man and a rich one. It does not do it well. It is all we have.",
+    "bonds": "This star. Silas Quinlan pinned it on me because nobody else would take it, and I swore an oath, and I will keep it whether he does or not.",
+    "flaws": "I have seen men hanged by a court and men hanged by a mob and I have never been able to tell the families the difference. I am afraid that one day I will choose the law over what is right and not notice."
+  },
+  "appearance": "A big, slow, square man of forty-four with a heavy grey moustache, a broken nose, close-cropped grey hair and pale blue eyes in a face like a weathered fence post. He wears a brown wool coat over the iron vest whatever the weather, a grey hat, and a nickel star that he polishes when he is thinking.",
+  "backstory": "Ezra Langford was a farm boy from Holmes County, Ohio, who enlisted in an Ohio infantry regiment in 1861 at nineteen and came home in 1865 with a minié ball still in his hip and no wish to talk about any of it. He came west in 1868 as a guard on the Union Pacific's construction trains, stayed on as a railroad policeman at Rawlins for fifteen years, and learned there that most trouble is drink, debt or a woman, and that most of it can be talked down by a big man who does not raise his voice. In 1885 he bought a few acres on the Rawlins road to keep bees. When Ransom County was organised that year, Silas Quinlan, an old friend, asked him to be deputy; he said no. A week before the hanging, Quinlan's last deputy quit, and Quinlan asked again, with tears in his eyes, and Ezra said yes. He has been a lawman for eight days when Owen Lasker is found at the Narrows, and he already knows that the sheriff owes money to everyone in the county, that the Company expects the law to be on its side, and that the grange expects it to be on theirs. He intends it to be on neither. (Suggested employer: the sheriff. Hooks into both sides: the badge, and the fact that both the Company and the grange voted for the man who gave it to him.)"
+}

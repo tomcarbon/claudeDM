@@ -1,0 +1,126 @@
+{
+  "id": "131a73c2-2180-44d4-aeb9-e99b31f85cb3",
+  "name": "Dr. Roland Pryor",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Doctor",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 17,
+    "current": 17
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Forensics",
+    "Athletics",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Italian"
+  ],
+  "equipment": [
+    "Doctor's bag: stethoscope, sutures, forceps, bandages, sulfa powder, morphine syrettes (3), a bottle of ether, splints",
+    "First-aid kit, a second, smaller one, for the car",
+    "Scalpel, in a leather case in his breast pocket",
+    ".32 pocket pistol, 8 rounds loaded, in the bag, under the bandages, which he has never fired outside a range",
+    ".32 rounds (8)",
+    "A 1940 Buick sedan with a red cross on the windshield card that gets him through police lines",
+    "His Army Medical Corps captain's bars and a photograph of a field hospital near Viareggio, 1945",
+    "Keys to the Pryor Clinic, Central Avenue, with a back room and four beds",
+    "Wallet containing $42"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    },
+    {
+      "name": ".32 pocket pistol",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: +2 Wisdom, +1 Constitution. Once per long rest, an Insight check to tell whether someone is lying is made with advantage, and on a success he also learns whether the lie protects the liar or someone else. Working people start one step friendlier toward him)",
+    "Patch Job (action, with his doctor's bag: a creature he touches spends up to 2 of its Hit Dice as on a short rest and regains 3 extra hit points (WIS); also stabilizes the dying and ends Bleeding; 4 uses per long rest)",
+    "Diagnosis (bonus action: learn a visible creature's current and maximum hit points and every condition on it; ten minutes with a body gives cause and approximate time of death with no check, and one more detail on a DC 12 Forensics check)",
+    "Steady Hands (advantage on Medicine checks; a creature he stabilizes regains 1 hit point and can act on its next turn)",
+    "Practice: Coroner (proficiency bonus doubled for Forensics checks; when he examines a body he also learns one fact the killer would rather he didn't, such as handedness, size or knowledge)",
+    "Old Outfit (Veteran background: veterans' halls and legion posts give him a meal, a bed or a quiet word, and Army and Navy hospitals extend a former Medical Corps captain professional courtesy)"
+  ],
+  "traits": [
+    "Patch Job (4/long rest)",
+    "Diagnosis",
+    "Practice: Coroner"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk to the dead the way I talk to the living, politely, and I listen to both. I hum Ellington while I suture.",
+    "ideals": "A body tells the truth if you let it. So do most people, if you sit down first.",
+    "bonds": "My clinic on Central Avenue and the people who come to it at three in the morning because no hospital in this city will see them quickly, or at all.",
+    "flaws": "I will not leave a patient. Not for a case, not for a deadline, not for my own safety."
+  },
+  "appearance": "Forty-four, tall, lean, grey at the temples, rimless spectacles, a carefully trimmed moustache, a three-piece suit in all weathers with a watch chain. Long, deliberate hands. A voice of great calm with Texas still in it.",
+  "backstory": "Roland Pryor was born in Tyler, Texas, took his medical degree at Meharry in Nashville, and opened a practice on Central Avenue in 1932. He served as a captain in the Army Medical Corps in Italy from 1944 to 1945, with a field hospital behind the lines in the Serchio valley, and came home to find that the hospitals of Los Angeles still would not give him admitting privileges. He runs the Pryor Clinic on Central Avenue: four beds, a back room, a waiting room that is full at all hours. The studios have called him for twenty years when they want a doctor who will come at night, ask nothing and tell nobody; he has patched three stars, two stuntmen and a studio executive's son, and has never once been invited to a premiere.",
+  "dmNotes": {
+    "roleplaying": "Dr. Pryor is the party's doctor and their forensic expert. In kl-scenario-002 he is the person who looks at Abel Kurland's body and says plainly that it was a fist and a fall, not gin, and that the coroner's report is a lie. He is also the party's safe house: the clinic's back room can hide Vivian for days. He does not go on raids, but he will come to the scene of any wound and work under fire, and he is braver than anyone expects. Use him to make the city's lines visible without speeches: the hospital that won't take a patient, the policeman who calls him 'boy' and the one who calls him 'Doc'.",
+    "voice": "Slow, courteous, precise, with East Texas vowels. Uses medical terms and then translates them, kindly. Says 'Well now' before bad news.",
+    "motivations": "Primary: his patients. Secondary: the truth about bodies, which he regards as a professional duty. Tertiary: one day to sit in a front row somewhere and watch a picture he helped keep the star of alive.",
+    "secrets": "He treated Harlan Shay's right hand on the night of 24 September, at two in the morning, at the clinic: two cracked knuckles. Shay said he had hit a door. Dr. Pryor did not believe him and said nothing, as he has said nothing for twenty years. He will tell the party if they ask him whether he has treated anyone from the studio recently, and it will cost him a great deal; it is a bonus K2 clue and he regards giving it as breaking an oath.",
+    "attitude": "Toward the party: courteous, then warm to those who treat his patients and neighbours as people. Toward Vivian: protective; he patched her ankle on a Western in 1945 and she sent him flowers. Toward Shay: twenty years of a polite, profitable, unequal acquaintance he is no longer proud of. Toward Dolan: contempt, carefully hidden."
+  }
+}

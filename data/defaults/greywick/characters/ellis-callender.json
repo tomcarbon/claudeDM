@@ -1,0 +1,119 @@
+{
+  "id": "a186d3bc-6212-4e42-93ed-00954564718c",
+  "name": "Ellis Callender",
+  "status": "alive",
+  "race": "Survivor",
+  "subrace": "",
+  "class": "Veteran",
+  "level": 2,
+  "background": "Mechanic",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Mechanics",
+    "Driving",
+    "Athletics",
+    "Medicine"
+  ],
+  "languages": [
+    "English",
+    "Irish (enough for the firehouse and his father's songs)"
+  ],
+  "equipment": [
+    "Heavy coat: a navy pea coat over a red fireman's shirt, the brass buttons of Engine Company 40 still on the cuffs",
+    "Service revolver (.38), his father's, carried home from the war",
+    ".38 rounds (18)",
+    "Wood axe: his own fire axe, a long-handled pick-head axe, in a canvas sling, which he brought because he goes nowhere without it",
+    "A brass hand lantern with a bull's-eye, filled",
+    "Fifty feet of manila rope, a set of spanners and a coil of wire",
+    "A pocket knife, a tin of tobacco, a clay pipe",
+    "His mother's last letter to him, written in 1890 from her sickbed, which he has read until he knows it by heart",
+    "Wallet containing $26"
+  ],
+  "weapons": [
+    {
+      "name": "Service revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Wood axe",
+      "attackBonus": 4,
+      "damage": "1d10+2",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Held the Line (Veteran: advantage on fear checks while a conscious ally is within 10 ft; once per short rest, act normally instead of Panicking)",
+    "Drill: Cover Man (Veteran: when a creature you can see attacks an ally within 5 ft of you, use your reaction to impose disadvantage on the attack roll; changes no number on the sheet)",
+    "Second Wind (Veteran, 2nd level: once per short rest, as a bonus action, regain 1d10 + your Veteran level hit points, and lose 1 Dread if you are at Dread 3 or higher)",
+    "Been Here Before (Survivor origin: advantage on initiative; when a fight or fright begins you know the nearest way out; once per long rest reroll a failed saving throw, including a fear check; the first time each scenario you meet a horror like the one you survived, the GM tells you one way it is the same)",
+    "Grease Under the Nails (Mechanic background: in any town he can find work at the smithy, the engine house or the mill, and engineers and drivers talk to him as one of their own; given a few minutes with an engine, pump or machine he can tell what is wrong with it without a check, including whether someone made it go wrong)"
+  ],
+  "traits": [
+    "Held the Line",
+    "Drill: Cover Man",
+    "Second Wind",
+    "Grease Under the Nails"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am calm in a fire and useless at a dinner party. I go first through doors because somebody has to. I laugh loudly and too often, and I say 'Ma'am' to everyone, including the parlourmaid, who finds it hilarious.",
+    "ideals": "You go in for people. You do not go in for property. Every man on the engine knows the difference and every rich man I ever met has forgotten it.",
+    "bonds": "The men of Engine Company 40. My father, Michael, dead under a wall on Water Street. My mother, Margaret, who was a Greywick and never spoke to one again after 1859. Whatever she meant in that letter.",
+    "flaws": "I do not trust the family and I do not hide it. I lose my temper with men who give orders from the back. I have been suspended from the department for thirty days for knocking down a battalion chief, and the family does not know."
+  },
+  "appearance": "A big, broad-shouldered man of thirty-three with black Irish hair, his mother's grey Greywick eyes, a nose broken twice, a burn scar shining across the back of his left hand, and a navy pea coat that has seen a great deal of smoke. He moves very carefully in rooms full of ornaments.",
+  "backstory": "Ellis Callender is the son of Margaret Greywick, Abram's daughter and Jasper's elder sister, who in 1859 married Michael Callender, an Irish-born New York fireman she met when his company put out a fire at the family's city warehouse; Abram cut her off without a cent and never spoke her name again. Ellis grew up in a tenement on Cherry Street, ran with his father's engine company as a boy, joined the department at twenty, and is now engineer of Engine Company 40's steam pumper. In 1889 he was inside the Water Street warehouse when the wall came down that killed his father and two other men, and dug himself out. His uncle Jasper sent his mother money every quarter for thirty years without his grandfather knowing; Ellis did not know either until he found the letters after she died. Her last letter to him, from her sickbed in 1890, says: 'There was a lady in the stone house at home who never came out. I took up her tray once, the autumn I was twenty, one night when Jasper could not bear to, and she spoke to me through the door in Dutch, and I did not open it, because Father had the key. I think of her every day. If they ever send for you, find out what became of her.' The will leaves him a fifth of the residue, 'my sister Margaret's son, to whom this family owes more than money'. He does not want the money. He wants to know what his mother meant. (Hooks: he is Greywick blood and can say the name in the rite; he knows fire and machines, the gas machine in gw-scenario-003 and the fire in gw-scenario-004; his mother carried a tray to the river room in 1852.)"
+}

@@ -10,12 +10,13 @@ import {
 import { usePlayer } from '../context/PlayerContext';
 import RichText from '../components/RichText';
 import { getCollapseThreshold } from '../utils/displaySettings';
-import { parseGold } from '../utils/gold';
+import { parseMoney, formatMoney, moneyLabel } from '../utils/money';
+import { useCampaign } from '../context/CampaignContext';
 import { getLeveledSpells, spellName, ORDINALS as ORDINAL_LABELS } from '../components/SpellList';
 
 const STATUS_CONFIG = {
   idle: { label: 'Ready', className: 'status-idle' },
-  thinking: { label: 'DM is thinking...', className: 'status-thinking' },
+  thinking: { label: 'GM is thinking...', className: 'status-thinking' },
   awaiting_permission: { label: 'Awaiting approval', className: 'status-permission' },
   disconnected: { label: 'Disconnected', className: 'status-disconnected' },
   error: { label: 'Error', className: 'status-error' },
@@ -26,6 +27,43 @@ function hpColor(current, max) {
   if (pct >= 75) return '#27ae60';
   if (pct >= 40) return '#f1c40f';
   return '#e74c3c';
+}
+
+// Condition M5 (ETHICS.md Review 3): a character three-quarters of the way through dying is a
+// durable fact on the sheet, and a durable fact only a file read surfaces is lost in practice.
+// Renders nothing at all unless the creature is down or has death saves recorded, so an
+// ordinary party list is unchanged.
+function DeathSaveBadge({ entity }) {
+  if (!entity || !entity.hitPoints) return null;
+  const dead = String(entity.status || 'alive').toLowerCase() === 'dead';
+  const saves = entity.deathSaves || {};
+  const successes = Number(saves.successes) || 0;
+  const failures = Number(saves.failures) || 0;
+  const stable = saves.stable === true;
+  const down = !dead && Number(entity.hitPoints.current) === 0;
+  if (dead || (!down && successes === 0 && failures === 0)) return null;
+  const label = stable ? 'stable' : `${successes}✓ ${failures}✗`;
+  return (
+    <span
+      className="party-death-saves"
+      title={stable
+        ? 'At 0 HP, unconscious but stable — no death saving throws'
+        : `Unconscious and dying — ${successes} death save success${successes === 1 ? '' : 'es'}, ${failures} failure${failures === 1 ? '' : 's'} of 3`}
+    >
+      {stable ? '🛡 ' : '💀 '}{label}
+    </span>
+  );
+}
+
+// WO-0016. The same derivation the server makes in routes/sessions.js: ADR 0005 §7.3 keeps
+// `status` to "alive" and "dead" and derives being down from the hit points, so there is no third
+// value to look for. Both ends have to agree about this or the button appears when the route will
+// refuse it, which is the worst possible moment to discover a disagreement.
+function isDownOrDead(entity) {
+  if (!entity) return false;
+  if (String(entity.status || 'alive').toLowerCase() === 'dead') return true;
+  const current = Number(entity.hitPoints?.current);
+  return Number.isFinite(current) && current <= 0;
 }
 
 // Scene imagery (docs/adr/0002-scene-imagery.md §7). The transcript never receives a path or a
@@ -119,6 +157,10 @@ function Adventure({
   setPendingLoadSessionId,
   activeSessionLabel,
   setActiveSessionLabel,
+  // Campaign palette + scene mood (WO-0037). Created once in App.jsx by useSceneLighting; this
+  // page owns the two controls, not the state. Defaulted to null so the component still renders
+  // if a future caller forgets it — the controls simply do not appear.
+  lighting = null,
 }) {
   const {
     messages,
@@ -149,6 +191,7 @@ function Adventure({
     sendTypingStatus,
     typingPlayers,
     sessionsChanged,
+    partyChanged,
     arcSummaries,
     setArcSummaries,
     archiveSeq,
@@ -168,6 +211,8 @@ function Adventure({
   const [reserveDropdownNpc, setReserveDropdownNpc] = useState(null); // npcId currently showing dropdown
   const [scenarios, setScenarios] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
+  const { campaign: currentCampaign } = useCampaign();
+  const currency = currentCampaign?.currency || null;
   const [mode, setMode] = useState('campaigns'); // 'campaigns' | 'scenarios'
   const [sessionLabel, setSessionLabel] = useState('');
   const [selectedCampaign, setSelectedCampaign] = useState(null);
@@ -183,6 +228,10 @@ function Adventure({
   const [pendingOpeningPrompt, setPendingOpeningPrompt] = useState(null); // held until host clicks "Start Adventure"
   const [loadingSessionId, setLoadingSessionId] = useState(null);
   const [partyData, setPartyData] = useState(null); // Session party data from /sessions/:id/party
+  const [restorePrompt, setRestorePrompt] = useState(null); // Character awaiting a restore confirmation
+  const [restoreBusy, setRestoreBusy] = useState(false);
+  const [restoreError, setRestoreError] = useState(null);
+  const [restoreResult, setRestoreResult] = useState(null); // Local confirmation line after a restore
   const [sessionCompanionPlayers, setSessionCompanionPlayers] = useState({}); // Persistent claim map: npcId → {email, name, characterId, characterName}
   const storyRef = useRef(null);
   const inputRef = useRef(null);
@@ -519,8 +568,28 @@ function Adventure({
       api.getSessionParty(savedSessionDbId).then(setPartyData).catch(() => setPartyData(null));
     } else {
       setPartyData(null);
+      // Leaving the session takes the restore affordance with it: a banner or a half-answered
+      // confirmation about a character from the last game has no business surviving into the next.
+      setRestorePrompt(null);
+      setRestoreError(null);
+      setRestoreResult(null);
     }
   }, [sessionActive, savedSessionDbId, status]);
+
+  // A restore happens outside the turn cycle (WO-0016), and both roster refreshes above are keyed
+  // on the DM's turn finishing — so without this, every client at the table, including the one
+  // that pressed the button, goes on showing the hit points of a character who is alive again.
+  useEffect(() => {
+    if (!partyChanged || !sessionActive) return;
+    if (savedSessionDbId) {
+      api.getSessionParty(savedSessionDbId).then(setPartyData).catch(() => {});
+    }
+    api.getCharacters().then(result => {
+      if (Array.isArray(result)) setCharacters(result);
+      else setCharacters(result.characters || []);
+    }).catch(() => {});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [partyChanged]);
 
   // Auto-save when messages change (throttled — at most once per 5s, plus flush on dm_complete)
   useEffect(() => {
@@ -599,11 +668,11 @@ function Adventure({
       lines.push(`These NPCs are NOT in the party and should not appear: ${removedCompanions.map(n => n.name).join(', ')}.`);
     }
     if (openSlots.length > 0) {
-      lines.push(`${openSlots.length} open player slot(s) (${openSlots.map(n => n.name).join(', ')}). Until a player joins, the DM controls these as NPCs.`);
+      lines.push(`${openSlots.length} open player slot(s) (${openSlots.map(n => n.name).join(', ')}). Until a player joins, the GM controls these as NPCs.`);
     }
     if (reservedSlots.length > 0) {
       const details = reservedSlots.map(n => `${n.name} (reserved for ${companionReservations[n.id]})`).join(', ');
-      lines.push(`Reserved player slot(s): ${details}. Until the reserved player joins, the DM controls these as NPCs.`);
+      lines.push(`Reserved player slot(s): ${details}. Until the reserved player joins, the GM controls these as NPCs.`);
     }
     if (activeCompanions.length === 0 && openSlots.length === 0 && reservedSlots.length === 0) {
       lines.push('The player is adventuring solo — no NPC companions in the party.');
@@ -688,7 +757,7 @@ This is a free-exploration campaign, not a linear scenario. Here's how to run it
 - When the party approaches a scenario location, run its associated storyline organically
 - Between locations, improvise events: random encounters, environmental hazards, foraging, ruins, travelers, wildlife, and environmental storytelling
 - Use the exploration rules: ${explorationRules}
-- Let the player drive the direction — be a sandbox DM
+- Let the player drive the direction — be a sandbox GM
 
 Set the opening scene now. Describe where the party wakes up, what they see, and what choices lie before them.`;
 
@@ -1383,6 +1452,49 @@ Set the scene and begin the story.`;
   const activeScenario = scenarios.find(s => s.id === selectedScenario);
   const activeCampaign = campaigns.find(c => c.id === selectedScenario);
 
+  // ── Restore from library (WO-0016) ──────────────────────────────────────────────────────────
+  // Which character is mine: the host plays activeCharacter; a companion plays the character they
+  // chose for their slot. partyData is preferred over the local `characters` list because it is
+  // read straight from the session directory, which is where the death was written.
+  const myCharacterId = isCompanion
+    ? (companionCharacterId || sessionAccess.companionCharacterId || null)
+    : (selectedCharacter || activeCharacterIdRef.current || null);
+  const myCharacter = myCharacterId
+    ? ((partyData?.characters || []).find(c => c.id === myCharacterId)
+      || characters.find(c => c.id === myCharacterId)
+      || null)
+    : null;
+  // The affordance appears on its own, without being looked for, and only for your own character.
+  // The player who needs it has never seen it before and is in no state to go exploring: in
+  // several hours of the chair's real play nobody came within reach of dying, so there has been no
+  // calm evening on which anyone could have discovered it.
+  const canOfferRestore = !isGuest && !!savedSessionDbId && !isObserver && isDownOrDead(myCharacter);
+  const firstName = (name) => String(name || 'your character').trim().split(/\s+/)[0];
+  const restoreFirstName = firstName(restorePrompt?.name);
+
+  async function confirmRestore() {
+    if (!restorePrompt || restoreBusy) return;
+    setRestoreBusy(true);
+    setRestoreError(null);
+    try {
+      const result = await api.restoreCharacter(savedSessionDbId, restorePrompt.id);
+      setRestorePrompt(null);
+      // The transcript line arrives over the WebSocket, for this client and for everyone else
+      // watching, so it is deliberately not added here — one restore, one line. This is the local
+      // acknowledgement that the click did something, for the case where it is the party board
+      // rather than the story that the player is staring at.
+      setRestoreResult(result.notice);
+      if (savedSessionDbId) api.getSessionParty(savedSessionDbId).then(setPartyData).catch(() => {});
+      api.getCharacters().then(r => setCharacters(Array.isArray(r) ? r : (r.characters || []))).catch(() => {});
+    } catch (err) {
+      // The server's refusals are written to be read by the player, so they are shown verbatim
+      // rather than replaced with something vaguer.
+      setRestoreError(err.message || 'The restore did not happen, and nothing has been changed.');
+    } finally {
+      setRestoreBusy(false);
+    }
+  }
+
   return (
     <div className="adventure-container">
         {/* Session info bar */}
@@ -1433,6 +1545,44 @@ Set the scene and begin the story.`;
           >
             Settings
           </button>
+          {/* Scene lighting (WO-0037 §5). Rendered only for a campaign that HAS a palette:
+              with no palette the feature is inert and a dead control is noise. Both controls are
+              native elements, so they are keyboard-reachable, and they are HERE rather than
+              inside a menu on purpose — Settings is a page away, and someone who is being
+              bothered by the page needs one click where they already are. */}
+          {lighting?.hasPalette && (
+            <div className="lighting-controls">
+              <select
+                aria-label="Scene lighting"
+                value={lighting.mood}
+                disabled={lighting.frozen}
+                title={lighting.frozen
+                  ? 'Lighting is frozen — unfreeze to change the scene'
+                  : 'Scene lighting for this campaign'}
+                onChange={e => lighting.setMood(e.target.value)}
+              >
+                {lighting.moods.map(m => (
+                  <option key={m} value={m}>
+                    {/* A mood this campaign has not authored falls back to its base family, so
+                        it is offered and labelled rather than hidden: the player can see that the
+                        mood exists and that this campaign treats it as its resting colour. */}
+                    {m}{lighting.authoredMoods.has(m) ? '' : ' \u2014 base'}
+                  </option>
+                ))}
+              </select>
+              <button
+                type="button"
+                className="btn-save btn-freeze"
+                aria-pressed={lighting.frozen}
+                title={lighting.frozen
+                  ? 'Lighting is frozen. The page will not change colour.'
+                  : 'Freeze the lighting. The page stops changing colour, on this device only.'}
+                onClick={() => lighting.setFrozen(!lighting.frozen)}
+              >
+                {lighting.frozen ? 'Frozen' : 'Freeze lighting'}
+              </button>
+            </div>
+          )}
           <div className={`status-indicator ${statusInfo.className}`}>
             <span className="status-dot" />
             <span className="status-label">{statusInfo.label}</span>
@@ -1541,6 +1691,7 @@ Set the scene and begin the story.`;
                   <span className="party-status-hp">
                     <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (activeCharacter.hitPoints.current / activeCharacter.hitPoints.max) * 100))}%`, background: hpColor(activeCharacter.hitPoints.current, activeCharacter.hitPoints.max) }} /></span>
                     <span className="party-hp-text">{activeCharacter.hitPoints.current}/{activeCharacter.hitPoints.max}</span>
+                    <DeathSaveBadge entity={activeCharacter} />
                     <span className="party-ac">AC={activeCharacter.armorClass ?? '?'}</span>
                   </span>
                 )}
@@ -1566,6 +1717,7 @@ Set the scene and begin the story.`;
                     <span className="party-status-hp">
                       <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (c.hitPoints.current / c.hitPoints.max) * 100))}%`, background: hpColor(c.hitPoints.current, c.hitPoints.max) }} /></span>
                       <span className="party-hp-text">{c.hitPoints.current}/{c.hitPoints.max}</span>
+                      <DeathSaveBadge entity={c} />
                       <span className="party-ac">AC={c.armorClass ?? '?'}</span>
                     </span>
                   )}
@@ -1584,6 +1736,7 @@ Set the scene and begin the story.`;
                     <span className="party-status-hp">
                       <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (n.hitPoints.current / n.hitPoints.max) * 100))}%`, background: hpColor(n.hitPoints.current, n.hitPoints.max) }} /></span>
                       <span className="party-hp-text">{n.hitPoints.current}/{n.hitPoints.max}</span>
+                      <DeathSaveBadge entity={n} />
                       <span className="party-ac">AC={n.armorClass ?? '?'}</span>
                     </span>
                   )}
@@ -1632,6 +1785,7 @@ Set the scene and begin the story.`;
                   <span className="party-status-hp">
                     <span className="party-hp-bar"><span className="party-hp-fill" style={{ width: `${Math.max(0, Math.min(100, (displayEntity.hitPoints.current / displayEntity.hitPoints.max) * 100))}%`, background: hpColor(displayEntity.hitPoints.current, displayEntity.hitPoints.max) }} /></span>
                     <span className="party-hp-text">{displayEntity.hitPoints.current}/{displayEntity.hitPoints.max}</span>
+                    <DeathSaveBadge entity={displayEntity} />
                     <span className="party-ac">AC={displayEntity.armorClass ?? '?'}</span>
                   </span>
                 )}
@@ -1679,7 +1833,7 @@ Set the scene and begin the story.`;
               </div>
               <div className="party-detail-stats">
                 <span>Level {entry.level} {entry.subrace ? (entry.subrace.toLowerCase().includes(entry.race.toLowerCase()) ? entry.subrace : `${entry.subrace} ${entry.race}`) : entry.race} {entry.class}</span>
-                <span>HP: {entry.hitPoints?.current ?? '?'}/{entry.hitPoints?.max ?? '?'} · AC: {entry.armorClass ?? '?'} · Gold: {parseGold(entry.equipment)} gp</span>
+                <span>HP: {entry.hitPoints?.current ?? '?'}/{entry.hitPoints?.max ?? '?'} · AC: {entry.armorClass ?? '?'} · {moneyLabel(currency)}: {formatMoney(parseMoney(entry.equipment, currency), currency)}</span>
                 {entry.abilities && (
                   <span className="party-detail-abilities">
                     STR {entry.abilities.strength?.score} · DEX {entry.abilities.dexterity?.score} · CON {entry.abilities.constitution?.score} · INT {entry.abilities.intelligence?.score} · WIS {entry.abilities.wisdom?.score} · CHA {entry.abilities.charisma?.score}
@@ -1786,7 +1940,7 @@ Set the scene and begin the story.`;
               )}
               {(msg.type === 'dm' || msg.type === 'dm_partial') && (
                 <div className="message-dm">
-                  <span className="message-sender">Dungeon Master</span>
+                  <span className="message-sender">Game Master</span>
                   <RichText as="div" className="dm-narration" text={msg.text} />
                   {msg.type === 'dm_partial' && <span className="typing-cursor" />}
                 </div>
@@ -1841,6 +1995,40 @@ Set the scene and begin the story.`;
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* Restore-from-library banner (WO-0016).
+            Rendered by itself, directly above the box the player is already typing into, the
+            moment their own character is dead or down. Not in a menu, not behind Settings, and
+            not requiring anyone to have read anything: the death machinery this sits on top of
+            has 375 tests and no live executions, so the first person to see this banner will be
+            meeting it on the worst evening of their campaign rather than a quiet one. */}
+        {canOfferRestore && (
+          <div className="restore-banner">
+            <div className="restore-banner-text">
+              <strong>
+                {myCharacter.name} {String(myCharacter.status || '').toLowerCase() === 'dead'
+                  ? 'is dead.'
+                  : `is down at 0/${myCharacter.hitPoints?.max ?? '?'} hit points.`}
+              </strong>
+              <span>
+                You can bring {firstName(myCharacter.name)} back as they were when this session began.
+                Everything that has happened to them tonight would be lost.
+              </span>
+            </div>
+            <button
+              className="btn-restore"
+              onClick={() => { setRestoreError(null); setRestoreResult(null); setRestorePrompt(myCharacter); }}
+            >
+              Bring {firstName(myCharacter.name)} back…
+            </button>
+          </div>
+        )}
+        {restoreResult && (
+          <div className="restore-banner restore-banner-done">
+            <div className="restore-banner-text"><span>{restoreResult}</span></div>
+            <button className="btn-restore" onClick={() => setRestoreResult(null)}>Dismiss</button>
           </div>
         )}
 
@@ -1924,7 +2112,7 @@ Set the scene and begin the story.`;
                         }
                       }
                     }}
-                    placeholder={status === 'thinking' ? 'The DM is narrating...' : `What does ${companionCharacter?.name || companionNpc?.name || 'your character'} do?`}
+                    placeholder={status === 'thinking' ? 'The GM is narrating...' : `What does ${companionCharacter?.name || companionNpc?.name || 'your character'} do?`}
                     disabled={status === 'thinking'}
                     rows={1}
                   />
@@ -1991,7 +2179,7 @@ Set the scene and begin the story.`;
               value={input}
               onChange={e => { setInput(e.target.value); handleTypingInput(e.target.value); }}
               onKeyDown={handleKeyDown}
-              placeholder={sessionReadOnly ? 'Viewing live session (read-only)' : (status === 'thinking' ? 'The DM is narrating...' : 'What do you do?')}
+              placeholder={sessionReadOnly ? 'Viewing live session (read-only)' : (status === 'thinking' ? 'The GM is narrating...' : 'What do you do?')}
               disabled={sessionReadOnly || status === 'thinking' || status === 'awaiting_permission'}
               rows={1}
             />
@@ -2005,33 +2193,122 @@ Set the scene and begin the story.`;
           </div>
         )}
 
-        {/* Permission modal */}
+        {/* The restore confirmation (WO-0016).
+            The same category as the permission modal below, and written on the same assumption:
+            the chair's friend will meet this for the first time in a real emergency. So it says
+            what will happen, what it costs, who will see it, and that nothing has happened yet —
+            and the button that does nothing is the one on the left. */}
+        {restorePrompt && (
+          <div className="permission-overlay">
+            <div className="permission-modal">
+              <h3>Bring {restorePrompt.name} back?</h3>
+              <p className="permission-change">
+                {restorePrompt.name} will return exactly as they were when this session began, with{' '}
+                <strong>{restorePrompt.hitPoints?.max ?? '?'} hit points</strong> and whatever they were
+                carrying then.
+              </p>
+              <p className="permission-reason">
+                <strong>Everything that has happened to {restoreFirstName} since this session started is lost.</strong>{' '}
+                Experience earned tonight, anything found or spent, spells cast, wounds taken. The story stays in
+                the transcript — it is the character sheet that goes back to the saved copy.
+              </p>
+              <p className="permission-reason">
+                The rest of the party will be told that this happened. Someone coming back from the dead is not a
+                private matter.
+              </p>
+              <p className="permission-safe">
+                Nothing has happened yet. Closing this changes nothing, and the option stays where it is for as long
+                as {restoreFirstName} is down — you do not have to decide now.
+              </p>
+              {restoreError && <p className="restore-error">{restoreError}</p>}
+              <div className="permission-actions">
+                <button
+                  className="btn-deny"
+                  disabled={restoreBusy}
+                  onClick={() => { setRestorePrompt(null); setRestoreError(null); }}
+                >
+                  Leave {restoreFirstName} as they are
+                </button>
+                <button
+                  className="btn-allow"
+                  disabled={restoreBusy}
+                  onClick={confirmRestore}
+                >
+                  {restoreBusy ? 'Restoring…' : `Bring ${restoreFirstName} back`}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Permission modal.
+            When the server sends `details` (currently only for a mechanical override), the
+            question is laid out: who, which field in plain English, both values, and the DM's
+            reason attributed to the DM. Declining is stated as safe, and it is — the turn
+            continues from the current numbers. ETHICS.md Review 3 condition M1. */}
         {permissionRequest && (
           <div className="permission-overlay">
             <div className="permission-modal">
-              <h3>The DM Requests Permission</h3>
-              <p className="permission-description">{permissionRequest.description}</p>
-              <p className="permission-tool">Tool: <code>{permissionRequest.toolName}</code></p>
-              {permissionRequest.input?.file_path && (
-                <p className="permission-detail">File: <code>{permissionRequest.input.file_path}</code></p>
+              {permissionRequest.details ? (
+                <>
+                  <h3>{permissionRequest.details.entity
+                    ? `The GM wants to change ${permissionRequest.details.entity}'s ${permissionRequest.details.field}`
+                    : 'The GM Requests Permission'}</h3>
+                  <p className="permission-change">
+                    <strong>{permissionRequest.details.field}</strong> now:{' '}
+                    <strong>{permissionRequest.details.currentValue}</strong>
+                    {' → proposed: '}
+                    <strong>{permissionRequest.details.proposedValue}</strong>
+                  </p>
+                  {permissionRequest.details.reason && (
+                    <p className="permission-reason">The GM's reason: <em>“{permissionRequest.details.reason}”</em></p>
+                  )}
+                  <p className="permission-safe">
+                    Nothing has changed yet. If you decline, the game continues with the current
+                    numbers and the GM will narrate what the rules produced.
+                  </p>
+                  <div className="permission-actions">
+                    <button
+                      className="btn-deny"
+                      onClick={() => sendPermission(permissionRequest.toolUseID, false)}
+                    >
+                      No — keep the rules
+                    </button>
+                    <button
+                      className="btn-allow"
+                      onClick={() => sendPermission(permissionRequest.toolUseID, true)}
+                    >
+                      Yes, allow this change
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h3>The GM Requests Permission</h3>
+                  <p className="permission-description">{permissionRequest.description}</p>
+                  <p className="permission-tool">Tool: <code>{permissionRequest.toolName}</code></p>
+                  {permissionRequest.input?.file_path && (
+                    <p className="permission-detail">File: <code>{permissionRequest.input.file_path}</code></p>
+                  )}
+                  {permissionRequest.input?.command && (
+                    <p className="permission-detail">Command: <code>{permissionRequest.input.command}</code></p>
+                  )}
+                  <div className="permission-actions">
+                    <button
+                      className="btn-allow"
+                      onClick={() => sendPermission(permissionRequest.toolUseID, true)}
+                    >
+                      Allow
+                    </button>
+                    <button
+                      className="btn-deny"
+                      onClick={() => sendPermission(permissionRequest.toolUseID, false)}
+                    >
+                      Deny
+                    </button>
+                  </div>
+                </>
               )}
-              {permissionRequest.input?.command && (
-                <p className="permission-detail">Command: <code>{permissionRequest.input.command}</code></p>
-              )}
-              <div className="permission-actions">
-                <button
-                  className="btn-allow"
-                  onClick={() => sendPermission(permissionRequest.toolUseID, true)}
-                >
-                  Allow
-                </button>
-                <button
-                  className="btn-deny"
-                  onClick={() => sendPermission(permissionRequest.toolUseID, false)}
-                >
-                  Deny
-                </button>
-              </div>
             </div>
           </div>
         )}

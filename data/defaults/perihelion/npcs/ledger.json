@@ -1,0 +1,134 @@
+{
+  "id": "e479618d-57ee-4865-b138-5dc04f5f7b28",
+  "name": "Ledger",
+  "status": "alive",
+  "race": "Synthetic",
+  "subrace": "",
+  "class": "Brawler",
+  "level": 4,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 36,
+    "current": 36
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Perception",
+    "Insight"
+  ],
+  "languages": [
+    "Common",
+    "Machine binary",
+    "Kessane tactical code"
+  ],
+  "equipment": [
+    "Hardshell chassis plating, scuffed white",
+    "Arc baton",
+    "Frangible 9mm pistol",
+    "Frangible 9mm rounds (30)",
+    "Mag-boots",
+    "A small notebook in which he records every debt anyone owes him, and every debt he owes anyone, in perfect columns",
+    "A child's drawing of a robot, given to him on Caloris High, folded in his chest compartment",
+    "Credit chit: 1800 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Unarmed strike",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Arc baton (+1d6 lightning)",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Frangible 9mm pistol",
+      "attackBonus": 3,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Hardshell chassis plating (Medium)",
+    "type": "medium"
+  },
+  "features": [
+    "Constructed (Synthetic: immune to poison and disease, does not breathe or eat; healed by Mechanics or Patch rather than Medicine, but still rolls hit dice on rests)",
+    "Data Link (Synthetic: advantage on Computers checks made with a jack)",
+    "Hard Hitter (unarmed strikes do 1d6+2 bludgeoning, may use DEX; unarmed strike as a bonus action after he takes the Attack action)",
+    "Hard to Kill (when reduced to 0 HP but not killed outright, drop to 1 HP instead, once per long rest)",
+    "Intimidating Presence (action: one creature within 30 ft makes a WIS save, DC 12, or is frightened of him until the end of his next turn)",
+    "Old Unit (Veteran feature: soldiers and security staff recognise a Kessane security chassis and will talk shop with him, sometimes unwisely)"
+  ],
+  "traits": [
+    "Constructed",
+    "Data Link",
+    "Hard Hitter",
+    "Hard to Kill",
+    "Intimidating Presence"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am literal, exact and very still. I keep accounts of everything. I am gentle with children, animals and anything small.",
+    "ideals": "A debt is a promise, and a promise is the only thing I own.",
+    "bonds": "Oriel Mabb hired me when every other employer saw a Kessane chassis and called security. I owe her one. It's in the book.",
+    "flaws": "I don't know that Kessane can switch me off. If I find out, I don't know what I'll do."
+  },
+  "appearance": "A tall, heavy Kessane 'Warden-Hominid' security chassis, two metres of scuffed white composite plating over grey musculature, with a blank oval faceplate and a single horizontal band of soft blue light for eyes. He has painted a small orange flower on his left shoulder plate.",
+  "backstory": "Ledger was a Kessane Armaments station-security synthetic for six years until a contract dispute put him on a surplus list. Kessane kept his cognition-core licence and sold the body. He woke up in a broker's warehouse on Caloris High with his service memory partitioned and his name gone, and he chose a new one from the first thing he read, a debt ledger on the broker's desk. Oriel Mabb hired him as a bodyguard two years ago. He has been precise, loyal and silent ever since, and he keeps a notebook. He doesn't know that Kessane still holds an override for his core, and that Renko Saal is carrying it.",
+  "dmNotes": {
+    "roleplaying": "Ledger is the campaign's mirror for Isaura: a mind someone else holds a licence to. Play him as calm, exact and quietly funny without meaning to be. He answers questions literally, keeps his notebook and records everything, including small kindnesses to the crew. In a fight he is a superb grappler and very hard to put down. In ph-scenario-003 Renko Saal triggers the Kessane override and Ledger fights the crew for 3 rounds (or 1, if a Tech breaks it). He grapples rather than shoots and says 'I'm sorry' every round. Afterwards he asks Isaura, quietly, whether she can stop it ever happening again. At Regard +2 she can, permanently, and he writes it in the book as the largest debt he has ever owed.",
+    "voice": "Level, unhurried, slightly too precise: 'There are four of them. Three are armed. One is frightened, and that one is the dangerous one.' He doesn't use contractions. He says 'noted' when he means 'thank you'.",
+    "motivations": "Repay his debts, Oriel's first. Protect the small and the helpless. Underneath, which he only discovers when he meets Isaura: to own himself.",
+    "secrets": "THE OVERRIDE. Kessane still holds the licence for his cognition core and an override sequence, 'nine-nine-amber', that gives the holder direct control for about a minute. Renko Saal has it. Ledger doesn't know. It is on Saal's slate in ph-scenario-003, along with the override sequences for every Kessane-licensed Warden aboard. After the override he asks to see the slate. If he is allowed to, he deletes his own sequence and then sits in silence for a full minute.",
+    "attitude": "Toward Oriel: absolute loyalty, recorded and paid. Toward the crew: courteous, watchful, then warm once they have earned an entry in the book. Toward Verity: fascinated, as another Synthetic who chose a name. Toward Isaura: the strongest reaction he has ever had to anything. He does not know what to call it and asks Hesper."
+  }
+}

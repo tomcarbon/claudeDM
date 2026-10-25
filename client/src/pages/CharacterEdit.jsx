@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { api } from '../api/client';
+import { useCampaign } from '../context/CampaignContext';
+import { termsFor } from '../utils/gameCategories';
 
 const ABILITIES = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'];
 const SHORT = { strength: 'STR', dexterity: 'DEX', constitution: 'CON', intelligence: 'INT', wisdom: 'WIS', charisma: 'CHA' };
 
 function CharacterEdit() {
   const { id } = useParams();
+  const { campaign } = useCampaign();
+  const terms = termsFor(campaign);
   const navigate = useNavigate();
   const [char, setChar] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -71,7 +75,7 @@ function CharacterEdit() {
           <input value={char.name} onChange={e => updateField('name', e.target.value)} />
         </div>
         <div className="form-group">
-          <label>Race</label>
+          <label>{terms.race}</label>
           <input value={char.race} onChange={e => updateField('race', e.target.value)} />
         </div>
         <div className="form-group">

@@ -1,0 +1,2759 @@
+{
+  "_meta": {
+    "category": "horror",
+    "source": "Written for claudeDM (Horror category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Horror adversaries in the same schema as data/rules/monsters.json and the Western adversaries.json, so LookupMonster can read them. Weapon actions follow combat.json: ranged attacks list range and magazine; shotguns scatter. Humans are type 'humanoid', subtype 'human'; animals are 'beast'; the supernatural are 'spirit', 'undead', 'construct' or 'monstrosity'. Every spirit, undead, construct and monstrosity carries 'vulnerable_to' (from silver, iron, fire, salt, daylight, running water, its true name; may be empty) and 'rules' (its creature rules, dread.json the_unknown: what calls, bars, hurts and lays it to rest, and what it wants); a few others carry them too. Vulnerable means double damage from that thing, or no resistance to it (combat.json fighting_the_supernatural). 'resistances' (repeated as 'damage_resistances' for the monster schema) says what a creature halves; spirits resist bludgeoning, piercing and slashing from ordinary weapons, meaning weapons that aren't of a material it is vulnerable to. Each supernatural entry has a Fear Check special ability giving its sign (DC 10), sight (DC 15) and truth (DC 20) for dread.json fear_checks. Every adversary is a type, not a person: campaign villains are written in the campaigns. No adversary is a member of any real people, nation, faith or ethnic group. XP follows the standard XP-by-CR table.",
+    "total_monsters": 30,
+    "organized_by": "challenge_rating"
+  },
+  "monsters_by_cr": {
+    "0": [
+      {
+        "name": "Frightened Townsman",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 10,
+        "ac_type": "dex",
+        "hp": 4,
+        "hit_dice": "1d8",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 10,
+          "DEX": 10,
+          "CON": 10,
+          "INT": 10,
+          "WIS": 9,
+          "CHA": 10
+        },
+        "cr": "0",
+        "xp": 10,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 9
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Fire Iron",
+            "desc": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage. Or whatever was by the door.",
+            "attack_bonus": 2,
+            "damage": [
+              {
+                "dice": "1d6",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Pocket Revolver",
+            "desc": "Ranged Weapon Attack: +2 to hit, range 20/60 ft., one target. Hit: 3 (1d6) piercing damage. Cylinder 5. It shoots at shadows: see Jumpy.",
+            "attack_bonus": 2,
+            "damage": [
+              {
+                "dice": "1d6",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Perception": 1
+        },
+        "special_abilities": [
+          {
+            "name": "Jumpy",
+            "desc": "When it hears a sudden noise or sees something move in the dark, it fires at it. If anyone else is in the direction it fires, roll a d6: on a 1-2 the shot targets the nearest person instead (it rolls normally)."
+          },
+          {
+            "name": "Run for It",
+            "desc": "The townsman flees from the first supernatural thing it sees, and from any fight in which someone has fallen. A DC 10 Persuasion or Intimidation check keeps it in place for one round, with a light in its hand."
+          },
+          {
+            "name": "Somebody's Neighbor",
+            "desc": "It is an ordinary person: a clerk, a farmer, a fisherman, a mother of three, out of its depth. It may know a piece of the truth and be too scared to say it. Use it for crowds, search parties and the people who won't open the door."
+          }
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Echo",
+        "size": "Medium",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 10,
+        "ac_type": "dex",
+        "hp": 3,
+        "hit_dice": "1d6",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 1,
+          "DEX": 10,
+          "CON": 10,
+          "INT": 6,
+          "WIS": 10,
+          "CHA": 10
+        },
+        "cr": "0",
+        "xp": 10,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 10
+        },
+        "languages": "the language it spoke in life (it does not speak to the living)",
+        "actions": [
+          {
+            "name": "Replay",
+            "desc": "The echo plays out the same few moments it always plays: a woman on the stair calling a name, a man at a desk writing a letter and tearing it up, footsteps to the door and back. It takes no other action and can't affect anything."
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (footsteps, a voice, a door opening by itself at the same hour). Seen: DC 15 (the figure walking through its moment). The truth: DC 20 (what the moment was: the last thing someone did before they died). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Imprint",
+            "desc": "An echo is not a mind, only a moment soaked into a place. It doesn't see, hear or react to the living, and it can't be talked to, hurt or harmed. Damage passes through it and it fades, only to return at the same hour the next night. It is a clue: what it repeats is always something the investigation needs."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_immunities": [
+          "cold",
+          "fire",
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Poisoned",
+          "Prone",
+          "Restrained"
+        ],
+        "vulnerable_to": [],
+        "rules": [
+          "Repeats the same few moments, at the same hour, in the same place",
+          "Can't see, hear or touch the living",
+          "Ends for good when someone speaks aloud, in that place, the truth of what it is repeating"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ],
+    "1": [
+      {
+        "name": "Poltergeist",
+        "size": "Medium",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "dex",
+        "hp": 27,
+        "hit_dice": "6d8",
+        "speed": {
+          "walk": "0 ft.",
+          "fly": "40 ft.",
+          "hover": true
+        },
+        "abilities": {
+          "STR": 1,
+          "DEX": 14,
+          "CON": 11,
+          "INT": 10,
+          "WIS": 10,
+          "CHA": 14
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 10
+        },
+        "languages": "understands the languages spoken in its house; it speaks only in knocks",
+        "actions": [
+          {
+            "name": "Hurl Object",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 30/60 ft., one target. Hit: 7 (2d6) bludgeoning damage. Anything loose in the room: a plate, a candlestick, a chair, a drawer full of knives.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d6",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Rattle the House (Recharge 5-6)",
+            "desc": "Doors slam, pictures fall, every light in the room goes out. Each creature in the room makes a DC 12 WIS save or is frightened until the end of its next turn."
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (knocks in the walls, objects moved overnight, a door that won't stay shut). Seen: DC 15 (a chair sliding across the floor toward you). The truth: DC 20 (what it is angry about). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Unseen",
+            "desc": "The poltergeist is invisible. Flour on the floor, dust in a beam of light or a photograph may show where it is."
+          },
+          {
+            "name": "Fed by Anger",
+            "desc": "While anyone in the house has quarreled in the last hour, the poltergeist has advantage on attack rolls and Rattle the House recharges on a 4-6."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_immunities": [
+          "cold",
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Poisoned",
+          "Prone",
+          "Restrained"
+        ],
+        "vulnerable_to": [
+          "salt",
+          "its true name"
+        ],
+        "rules": [
+          "Bound to one house: it can't follow anyone past the property line",
+          "Can't move or throw anything inside a ring of salt",
+          "Answers questions in knocks, once for yes and twice for no, and can't lie in knocks",
+          "Quiets for good when what it wants is done: a stolen thing returned, a wrong confessed, a quarrel ended"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Hound of the Lane",
+        "size": "Large",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "natural",
+        "hp": 30,
+        "hit_dice": "4d10+8",
+        "speed": {
+          "walk": "50 ft."
+        },
+        "abilities": {
+          "STR": 16,
+          "DEX": 14,
+          "CON": 14,
+          "INT": 6,
+          "WIS": 13,
+          "CHA": 10
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "120 ft.",
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 STR save or be knocked prone.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "2d6+3",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3,
+          "Stealth": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a howl on the lane after dark, huge prints that end in the middle of the road). Seen: DC 15 (a black dog the size of a calf with eyes like coals). The truth: DC 20 (whom it follows, and why). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Silent Tread",
+            "desc": "It makes no sound when it moves. It can be heard only when it chooses to howl."
+          },
+          {
+            "name": "Keeps to the Lane",
+            "desc": "It walks one road, lane or path and can't leave it, though it can follow anyone the length of it."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_immunities": [
+          "poison"
+        ],
+        "condition_immunities": [
+          "Exhaustion",
+          "Frightened",
+          "Poisoned"
+        ],
+        "vulnerable_to": [
+          "iron",
+          "running water"
+        ],
+        "rules": [
+          "Walks only its one lane, and can't step off it",
+          "Can't cross running water: a ford or a bridge over a stream is safety",
+          "Won't pass an iron gate, or a door with iron over it",
+          "Follows anyone who walks its lane alone after dark; it was set there long ago to guard something buried by the road"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Drowned One",
+        "size": "Medium",
+        "type": "undead",
+        "alignment": "any",
+        "ac": 10,
+        "ac_type": "dex",
+        "hp": 32,
+        "hit_dice": "5d8+10",
+        "speed": {
+          "walk": "20 ft.",
+          "swim": "30 ft."
+        },
+        "abilities": {
+          "STR": 15,
+          "DEX": 10,
+          "CON": 14,
+          "INT": 6,
+          "WIS": 10,
+          "CHA": 6
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 10
+        },
+        "languages": "understands the languages it knew in life; it speaks only in a gurgle",
+        "actions": [
+          {
+            "name": "Drowning Grip",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) bludgeoning damage. Plus 3 (1d6) cold damage. The target is grappled (escape DC 12). A creature grappled in water is pulled under (combat.json grappling.pulled_under).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d8+2",
+                "type": "Bludgeoning"
+              }
+            ]
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (wet footprints on a dry floor, the smell of the sea in a closed room, weed on the doorstep). Seen: DC 15 (a dead man standing on the jetty in the rain). The truth: DC 20 (that it drowned because someone let it). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Water-Bound",
+            "desc": "It can go no more than a hundred yards from the water it drowned in, and must be back in that water before sunrise."
+          },
+          {
+            "name": "Heavy as the Sea",
+            "desc": "It is waterlogged and dead: it has advantage on STR checks to hold a grapple, and it does not need to breathe."
+          }
+        ],
+        "resistances": [
+          "cold"
+        ],
+        "damage_resistances": [
+          "cold"
+        ],
+        "damage_immunities": [
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Poisoned"
+        ],
+        "vulnerable_to": [
+          "fire",
+          "its true name"
+        ],
+        "rules": [
+          "Can go no more than a hundred yards from the water it drowned in",
+          "Must return to that water before sunrise",
+          "Comes ashore when its name is spoken on the water, or on the anniversary of its drowning",
+          "Rests when its body is brought out of the water and buried in dry ground under its own name"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Possessed Neighbor",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 32,
+        "hit_dice": "5d8+10",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 14,
+          "DEX": 12,
+          "CON": 14,
+          "INT": 10,
+          "WIS": 8,
+          "CHA": 14
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 9
+        },
+        "languages": "English, and sometimes a voice and words that are not its own",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The neighbor makes two attacks with its Grip.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Grip",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Grip",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage. The target is grappled (escape DC 12) if it is not already.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Knows Your Name",
+            "desc": "It speaks to one creature it can see, in a voice it should not have, about something it should not know (a secret, a dead relative's words). The creature makes a fear check (DC 15) if it has not already this scene."
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Deception": 4
+        },
+        "special_abilities": [
+          {
+            "name": "The Person Inside",
+            "desc": "The neighbor is a victim. When it drops to 0 hit points from anything but a killing blow, whatever is inside leaves it, and it falls unconscious and stable, and wakes as itself, remembering little. Killing it kills an innocent person. Knocking it out (combat.json nonlethal) is the kind thing to do."
+          },
+          {
+            "name": "Unnatural Strength",
+            "desc": "It is stronger than it should be and feels no pain: it has advantage on STR checks and saves, and isn't knocked out by a knockout blow."
+          },
+          {
+            "name": "Not Themselves",
+            "desc": "A creature who knows the neighbor well can tell something is wrong with a DC 12 Insight check; the thing inside imitates them badly with people who loved them."
+          }
+        ],
+        "vulnerable_to": [
+          "its true name"
+        ],
+        "rules": [
+          "The thing inside is not the neighbor; hurting the body only hurts the neighbor",
+          "It leaves the body when the neighbor's own name is spoken three times by someone who loves them, while holding their hand",
+          "It can't take a person who is holding cold iron"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Waxwork",
+        "size": "Medium",
+        "type": "construct",
+        "alignment": "unaligned",
+        "ac": 10,
+        "ac_type": "natural",
+        "hp": 32,
+        "hit_dice": "5d8+10",
+        "speed": {
+          "walk": "25 ft."
+        },
+        "abilities": {
+          "STR": 14,
+          "DEX": 8,
+          "CON": 14,
+          "INT": 5,
+          "WIS": 10,
+          "CHA": 3
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 10
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The waxwork makes two attacks with its Waxen Hands.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Waxen Hands",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Waxen Hands",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage. Cold and smooth.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Bludgeoning"
+              }
+            ]
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a figure that is not quite where it stood, a smell of warm wax). Seen: DC 15 (its glass eyes turning to follow the lamp). The truth: DC 20 (whose face it was made in). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Still as a Figure",
+            "desc": "While it is motionless it is indistinguishable from an ordinary wax figure, dressmaker's dummy or display mannequin."
+          },
+          {
+            "name": "Only in the Dark",
+            "desc": "It moves only in darkness. In dim or bright light it can't move or act, and stands as it is, wherever it was when the light came."
+          }
+        ],
+        "resistances": [
+          "piercing"
+        ],
+        "damage_resistances": [
+          "piercing"
+        ],
+        "damage_immunities": [
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Paralyzed",
+          "Poisoned"
+        ],
+        "vulnerable_to": [
+          "fire"
+        ],
+        "rules": [
+          "Moves only in darkness; in any light it stands where it is",
+          "Made in the likeness of someone dead, it goes in the dark where that person used to go",
+          "Melted down, it is ended for good",
+          "Wants to be put back in its place, in the room it was made for"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Black Bear",
+        "size": "Medium",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 11,
+        "ac_type": "natural",
+        "hp": 19,
+        "hit_dice": "3d8+6",
+        "speed": {
+          "walk": "40 ft.",
+          "climb": "30 ft."
+        },
+        "abilities": {
+          "STR": 15,
+          "DEX": 10,
+          "CON": 14,
+          "INT": 2,
+          "WIS": 12,
+          "CHA": 7
+        },
+        "cr": "1",
+        "xp": 200,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The bear makes two attacks: one with its bite and one with its claws.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Bite",
+                "count": 1
+              },
+              {
+                "name": "Claws",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Claws",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d4+2",
+                "type": "Slashing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Keen Smell",
+            "desc": "The bear has advantage on Wisdom (Perception) checks that rely on smell."
+          },
+          {
+            "name": "Only a Bear",
+            "desc": "An ordinary animal, and sometimes the explanation: the thing in the woods that ate the chickens and scratched the door. It is wary of fire and of people, and leaves a fight once it has taken half its hit points."
+          }
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "name": "Revenant",
+        "size": "Medium",
+        "type": "undead",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "natural",
+        "hp": 52,
+        "hit_dice": "7d8+21",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 16,
+          "DEX": 12,
+          "CON": 16,
+          "INT": 10,
+          "WIS": 12,
+          "CHA": 12
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 13
+        },
+        "languages": "the languages it knew in life",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The revenant makes two attacks with its Grave Fists.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Grave Fist",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Grave Fist",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) bludgeoning damage.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d8+3",
+                "type": "Bludgeoning"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3,
+          "Intimidation": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a grave found open from the inside, a name scratched on a door). Seen: DC 15 (a dead man walking down the main street at dusk). The truth: DC 20 (what was done to it, and by whom). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Knows Where They Are",
+            "desc": "It always knows the direction and distance to the person who wronged it, anywhere in the county."
+          },
+          {
+            "name": "Single Purpose",
+            "desc": "It ignores everyone except the one it came for, unless they stand between it and its quarry, or attack it."
+          },
+          {
+            "name": "Comes Back",
+            "desc": "At 0 hit points the revenant's body falls. Twenty-four hours later it rises again in its grave, unless its body was burned or its purpose was fulfilled."
+          }
+        ],
+        "resistances": [
+          "piercing"
+        ],
+        "damage_resistances": [
+          "piercing"
+        ],
+        "damage_immunities": [
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Poisoned"
+        ],
+        "vulnerable_to": [
+          "fire",
+          "its true name"
+        ],
+        "rules": [
+          "Returned for one purpose: the person who wronged it in life",
+          "Can't be stopped for good while that person lives unpunished, but it ends at once if they confess the wrong aloud before witnesses",
+          "Must lie in its own grave between midnight and dawn on the night after it falls",
+          "A body burned on its own grave stays down"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Straw Man",
+        "size": "Medium",
+        "type": "construct",
+        "alignment": "unaligned",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 45,
+        "hit_dice": "7d8+14",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 15,
+          "DEX": 13,
+          "CON": 14,
+          "INT": 6,
+          "WIS": 10,
+          "CHA": 8
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 12
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The straw man makes two attacks with its Twig Fingers.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Twig Fingers",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Twig Fingers",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) slashing damage.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d8+2",
+                "type": "Slashing"
+              }
+            ]
+          },
+          {
+            "name": "Stare (Recharge 5-6)",
+            "desc": "It turns its sackcloth face on one creature within 30 ft that can see it. The creature makes a DC 12 WIS save or is frightened of it for 1 minute (it can repeat the save at the end of each of its turns)."
+          }
+        ],
+        "skills": {
+          "Stealth": 3,
+          "Perception": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a scarecrow that is in a different part of the field each morning). Seen: DC 15 (it climbing down off its post). The truth: DC 20 (what it was made to guard, and who made it). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Just a Scarecrow",
+            "desc": "While it is motionless on its post or lying in the stubble, it is indistinguishable from an ordinary scarecrow."
+          },
+          {
+            "name": "Straw All Through",
+            "desc": "Bullets pass through it, and blunt blows only flatten it: it resists bludgeoning and piercing damage."
+          }
+        ],
+        "resistances": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "damage_resistances": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "damage_immunities": [
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Paralyzed",
+          "Poisoned"
+        ],
+        "vulnerable_to": [
+          "fire",
+          "iron"
+        ],
+        "rules": [
+          "Walks only between sunset and first light; by day it is straw, wherever it stopped",
+          "Can't leave the land it was set to watch while its post stands",
+          "A cut with an iron blade to the cord at its neck drops it as straw until the next sunset",
+          "Wants to keep anyone from taking what it watches over; it is ended for good when that thing is given up by the one who set it there"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Body Snatcher",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 45,
+        "hit_dice": "7d8+14",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 14,
+          "DEX": 15,
+          "CON": 14,
+          "INT": 13,
+          "WIS": 12,
+          "CHA": 10
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The body snatcher makes two Scalpel attacks, or one Chloroform Rag attack and one Scalpel attack.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Scalpel",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Scalpel",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage. The target is Bleeding (combat.json conditions).",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d4+2",
+                "type": "Slashing"
+              }
+            ]
+          },
+          {
+            "name": "Chloroform Rag",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 2 (1d4) poison damage. If the target is grappled, surprised or prone, it must succeed on a DC 12 CON save or fall unconscious for 1d4 x 10 minutes.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d4",
+                "type": "Poison"
+              }
+            ]
+          },
+          {
+            "name": "Pocket Revolver",
+            "desc": "Ranged Weapon Attack: +4 to hit, range 20/60 ft., one target. Hit: 5 (1d6 + 2) piercing damage. Cylinder 5.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Medicine": 3,
+          "Stealth": 4,
+          "Deception": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Resurrection Man",
+            "desc": "It steals the newly buried for sale, and sometimes those not yet buried. It knows anatomy, the cemetery's hours and which doctor pays without asking. It is a person, not a monster, and it can be arrested."
+          },
+          {
+            "name": "Quiet Work",
+            "desc": "It has advantage on Stealth checks at night, and its wagon or truck is always waiting within a few hundred yards."
+          }
+        ],
+        "ac_armor": "Leather jacket",
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Thing in the Walls",
+        "size": "Medium",
+        "type": "monstrosity",
+        "alignment": "any",
+        "ac": 14,
+        "ac_type": "natural",
+        "hp": 45,
+        "hit_dice": "7d8+14",
+        "speed": {
+          "walk": "30 ft.",
+          "climb": "30 ft."
+        },
+        "abilities": {
+          "STR": 14,
+          "DEX": 17,
+          "CON": 14,
+          "INT": 6,
+          "WIS": 12,
+          "CHA": 5
+        },
+        "cr": "2",
+        "xp": 450,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "120 ft.",
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The thing makes two attacks with its Long Fingers.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Long Fingers",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Long Fingers",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 7 (1d8 + 3) slashing damage. The target is grappled (escape DC 13) and pulled 5 ft toward the gap the thing came out of.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d8+3",
+                "type": "Slashing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Stealth": 5,
+          "Perception": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (knocking that answers your knocking, food going missing, a vent cover unscrewed from the inside). Seen: DC 15 (long grey fingers coming out from under the stairs). The truth: DC 20 (how long it has been living in the house, and what it eats). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "In the Walls",
+            "desc": "It moves through crawlspaces, ducts, chimneys and gaps as narrow as 4 inches without squeezing, and is usually behind total cover."
+          },
+          {
+            "name": "Copies Sounds",
+            "desc": "It can imitate any sound it has heard in the house: a voice calling a name, the family dog barking, a key in the lock. A DC 14 Insight check tells the imitation from the real thing."
+          },
+          {
+            "name": "Light-Shy",
+            "desc": "In bright light it has disadvantage on attack rolls and Perception checks."
+          }
+        ],
+        "vulnerable_to": [
+          "fire"
+        ],
+        "rules": [
+          "Can come out only where the house has a gap: board up, nail or plaster every opening in a room and it can't enter that room",
+          "Answers knocks: knock three times and it knocks back from where it is",
+          "Hates light, and won't come into a room where a lamp is burning unless it is starving",
+          "Wants the house to itself; it leaves for good if the house is left empty for a whole winter"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "name": "The Hungry Dark",
+        "size": "Large",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "dex",
+        "hp": 60,
+        "hit_dice": "8d10+16",
+        "speed": {
+          "walk": "0 ft.",
+          "fly": "40 ft.",
+          "hover": true
+        },
+        "abilities": {
+          "STR": 14,
+          "DEX": 16,
+          "CON": 14,
+          "INT": 8,
+          "WIS": 14,
+          "CHA": 16
+        },
+        "cr": "3",
+        "xp": 700,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "120 ft.",
+          "passive_perception": 14
+        },
+        "languages": "understands every language; it speaks, rarely, in the voice of the last person it took",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The dark makes two Swallowing Touch attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Swallowing Touch",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Swallowing Touch",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 10 (2d6 + 3) cold damage. A creature reduced to 0 hit points by this attack is taken: it vanishes into the dark and is found at dawn, unconscious and stable, somewhere in the house it should not be.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "2d6+3",
+                "type": "Cold"
+              }
+            ]
+          },
+          {
+            "name": "Drink the Light (Recharge 5-6)",
+            "desc": "Every flame within 30 ft of the dark goes out (candles, lanterns, torches, matches), unless a creature holding one succeeds on a DC 13 DEX save to shield it. Electric lights flicker and dim to dim light for 1 minute."
+          }
+        ],
+        "skills": {
+          "Stealth": 7
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a room the lamp doesn't seem to reach, a draft that blows out candles one by one). Seen: DC 15 (the dark in the corner moving toward the light). The truth: DC 20 (that it has always been here, and the house was built to feed it). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Only in the Dark",
+            "desc": "It can exist only in darkness. In dim light it is a moving shape and has disadvantage on attack rolls. In bright light it takes 10 damage at the start of each of its turns and must use its movement to leave the light."
+          },
+          {
+            "name": "Shapeless",
+            "desc": "It can move through any space that is dark, including under doors and through keyholes, and is invisible in darkness."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons",
+          "cold"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons",
+          "cold"
+        ],
+        "damage_immunities": [
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Poisoned",
+          "Prone",
+          "Restrained"
+        ],
+        "vulnerable_to": [
+          "fire",
+          "daylight"
+        ],
+        "rules": [
+          "Can't enter bright light, and bright light burns it",
+          "Takes only those who are alone in the dark",
+          "Is called when a light that has always been kept burning in the place is put out",
+          "Is laid to rest when the room where it began is opened to the sun"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Wraith",
+        "size": "Medium",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "dex",
+        "hp": 58,
+        "hit_dice": "9d8+18",
+        "speed": {
+          "walk": "0 ft.",
+          "fly": "60 ft.",
+          "hover": true
+        },
+        "abilities": {
+          "STR": 6,
+          "DEX": 16,
+          "CON": 14,
+          "INT": 12,
+          "WIS": 14,
+          "CHA": 15
+        },
+        "cr": "3",
+        "xp": 700,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 12
+        },
+        "languages": "the languages it knew in life",
+        "actions": [
+          {
+            "name": "Grave Touch",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 13 (3d6 + 3) cold damage. The target's hit point maximum is reduced by the damage taken until it finishes a long rest. It does not die if this reduces its maximum to 0; it falls unconscious instead.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "3d6+3",
+                "type": "Cold"
+              }
+            ]
+          },
+          {
+            "name": "The Look of the Grave",
+            "desc": "Once per scene, it turns its face on the living: each creature within 30 ft that can see it makes a DC 13 WIS save or is frightened of it for 1 minute (repeat the save at the end of each turn)."
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (frost on the inside of a window in summer, a voice repeating a promise). Seen: DC 15 (a tall shape in grey, its face the face of someone long dead). The truth: DC 20 (the vow it died with, and who broke it). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Through the Walls",
+            "desc": "The wraith can move through objects and other creatures as if they were difficult terrain. It can't end its turn inside an object."
+          },
+          {
+            "name": "Scattered by Day",
+            "desc": "In daylight the wraith is scattered: it can't act and takes 10 damage at the start of each of its turns until it leaves the light. It re-forms at nightfall."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_immunities": [
+          "cold",
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Poisoned",
+          "Prone",
+          "Restrained"
+        ],
+        "vulnerable_to": [
+          "silver",
+          "daylight"
+        ],
+        "rules": [
+          "What is left of someone who died with a vow unkept; it walks where the vow was made",
+          "Will not touch silver, and silver wounds it",
+          "Daylight scatters it until nightfall",
+          "Laid to rest when someone living keeps the vow for it"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Masked Killer",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "armor",
+        "hp": 75,
+        "hit_dice": "10d8+30",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 16,
+          "DEX": 14,
+          "CON": 16,
+          "INT": 10,
+          "WIS": 14,
+          "CHA": 8
+        },
+        "cr": "3",
+        "xp": 700,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 14
+        },
+        "languages": "English (it never speaks)",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The killer makes two Blade attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Blade",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Blade",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage. A hatchet, a cleaver, a long knife: whatever it brought. The target is Bleeding.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d8+3",
+                "type": "Slashing"
+              }
+            ]
+          },
+          {
+            "name": "Thrown Hatchet",
+            "desc": "Ranged Weapon Attack: +5 to hit, range 20/60 ft., one target. Hit: 6 (1d6 + 3) slashing damage.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d6+3",
+                "type": "Slashing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Stealth": 6,
+          "Perception": 4,
+          "Athletics": 5
+        },
+        "special_abilities": [
+          {
+            "name": "Gets Back Up",
+            "desc": "Once per scene, when it drops to 0 hit points, it drops to 1 instead, lies still, and is gone the next time no one is looking at it."
+          },
+          {
+            "name": "Always Ahead",
+            "desc": "It knows the place better than its victims: once per scene it appears from a door, a closet or a dark window the party passed, as if it had been waiting there."
+          },
+          {
+            "name": "A Person",
+            "desc": "Under the mask is a person with a history and a reason, and it can be stopped like one: arrested, shot, or talked down by the one person who knows who it is. It has nothing to do with illness, and it never escaped from anywhere."
+          }
+        ],
+        "ac_armor": "Leather jacket",
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "The Fetch",
+        "size": "Medium",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "dex",
+        "hp": 55,
+        "hit_dice": "10d8+10",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 10,
+          "DEX": 14,
+          "CON": 12,
+          "INT": 14,
+          "WIS": 14,
+          "CHA": 18
+        },
+        "cr": "3",
+        "xp": 700,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 12
+        },
+        "languages": "whatever the person it copies speaks",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The fetch makes two Cold Hand attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Cold Hand",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Cold Hand",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) cold damage.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d6+2",
+                "type": "Cold"
+              }
+            ]
+          },
+          {
+            "name": "Wear Their Face",
+            "desc": "The fetch takes the appearance and voice of a living person it has seen within the last day. Creatures who know that person must succeed on a DC 14 Insight check to see that something is wrong; one who does makes a fear check against the truth of it (DC 20)."
+          }
+        ],
+        "skills": {
+          "Deception": 6,
+          "Insight": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (someone seen in two places at once, a voice on the stairs when they are asleep upstairs). Seen: DC 15 (yourself, or your friend, standing at the end of the hall). The truth: DC 20 (that it wants to take their place). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Wrong in the Mirror",
+            "desc": "A mirror, a window at night or a photograph shows the fetch as it really is: a grey thing with no face of its own."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_immunities": [
+          "cold",
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Poisoned",
+          "Prone",
+          "Restrained"
+        ],
+        "vulnerable_to": [
+          "iron",
+          "its true name"
+        ],
+        "rules": [
+          "Wears the face of a living person near it, and can't speak that person's name",
+          "A mirror shows it as it really is",
+          "Can't cross a threshold with iron in it unless the person it copies invites it in",
+          "Ends when the person it copies looks it in the eyes and tells it their own name"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ],
+    "4": [
+      {
+        "name": "Werewolf",
+        "size": "Medium",
+        "type": "monstrosity",
+        "alignment": "any",
+        "ac": 13,
+        "ac_type": "natural",
+        "hp": 75,
+        "hit_dice": "10d8+30",
+        "speed": {
+          "walk": "40 ft."
+        },
+        "abilities": {
+          "STR": 17,
+          "DEX": 15,
+          "CON": 16,
+          "INT": 10,
+          "WIS": 13,
+          "CHA": 10
+        },
+        "cr": "4",
+        "xp": 1100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 14
+        },
+        "languages": "English in human form; none in wolf form, though it understands",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "In wolf form, the werewolf makes two attacks: one with its bite and one with its claws.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Bite",
+                "count": 1
+              },
+              {
+                "name": "Claws",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d10 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 STR save or be knocked prone.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "1d10+3",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Claws",
+            "desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage.",
+            "attack_bonus": 5,
+            "damage": [
+              {
+                "dice": "2d6+3",
+                "type": "Slashing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 4,
+          "Stealth": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (livestock torn open, prints that change from foot to paw halfway across the yard). Seen: DC 15 (a wolf too big, standing up). The truth: DC 20 (whose face it has by day). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Keen Hearing and Smell",
+            "desc": "The werewolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+          },
+          {
+            "name": "Knits Back Together",
+            "desc": "The werewolf regains 10 hit points at the start of its turn if it has at least 1 hit point and was not damaged by silver since its last turn. At 0 hit points from anything but silver, it falls, and rises at the next moonrise."
+          },
+          {
+            "name": "Two Lives",
+            "desc": "By day and for most of the month it is a person, with no special abilities and the stat block of a Frightened Townsman or a Deputy Sheriff. Killing that person in human form is murder."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from weapons that aren't silver"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from weapons that aren't silver"
+        ],
+        "vulnerable_to": [
+          "silver"
+        ],
+        "rules": [
+          "Changes only on the three nights of the full moon, from moonrise to moonset; the rest of the month it is a person",
+          "Its human self remembers nothing of the nights, and is afraid of what it finds in the morning",
+          "Silver wounds it and stops it knitting back together",
+          "It goes first for the people its human self is angry with"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ],
+    "5": [
+      {
+        "name": "Bound Spirit",
+        "size": "Medium",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 14,
+        "ac_type": "dex",
+        "hp": 90,
+        "hit_dice": "12d8+36",
+        "speed": {
+          "walk": "0 ft.",
+          "fly": "40 ft.",
+          "hover": true
+        },
+        "abilities": {
+          "STR": 10,
+          "DEX": 18,
+          "CON": 16,
+          "INT": 14,
+          "WIS": 16,
+          "CHA": 20
+        },
+        "cr": "5",
+        "xp": 1800,
+        "proficiency_bonus": 3,
+        "senses": {
+          "darkvision": "120 ft.",
+          "passive_perception": 16
+        },
+        "languages": "the languages it knew in life",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The spirit makes two Grasp of the House attacks.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Grasp of the House",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Grasp of the House",
+            "desc": "Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 17 (3d8 + 4) cold damage. The house itself joins in: a banister, a door, a hand from the wall.",
+            "attack_bonus": 7,
+            "damage": [
+              {
+                "dice": "3d8+4",
+                "type": "Cold"
+              }
+            ]
+          },
+          {
+            "name": "The House Obeys (Recharge 5-6)",
+            "desc": "Within the bounds, every door within 60 ft slams and locks, every light goes out and the furniture moves. Each creature in a room the spirit chooses makes a DC 15 DEX save, taking 14 (4d6) bludgeoning damage on a failure or half as much on a success."
+          },
+          {
+            "name": "Take Hold (1/Day)",
+            "desc": "One creature within 30 ft makes a DC 15 CHA save. On a failure it is charmed for 1 minute: on each of its turns it must use its movement to go where the spirit wants (deeper into the house, toward a locked room, away from the others). It repeats the save at the end of each turn and whenever an ally speaks its name to it. It is never made to harm itself or its friends."
+          }
+        ],
+        "skills": {
+          "Perception": 6,
+          "Insight": 6,
+          "Deception": 8
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a house that rearranges itself, a locked room with fresh flowers in it, a voice that knows your family). Seen: DC 15 (the one who was bound here, at the top of the stairs). The truth: DC 20 (what was done to bind it, and who profited). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Heart of the House",
+            "desc": "Within its bounds it knows where every creature is, and can be anywhere: it moves through walls, floors and doors as if they were not there."
+          },
+          {
+            "name": "Bound",
+            "desc": "It can't go beyond the bounds of its place (a house and its grounds, an island's churchyard, a farm). At 0 hit points it is driven off for a night, not ended."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_immunities": [
+          "cold",
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Poisoned",
+          "Prone",
+          "Restrained"
+        ],
+        "vulnerable_to": [
+          "salt",
+          "its true name"
+        ],
+        "rules": [
+          "Bound to one place by something (its bones in the walls, a contract, a nail driven through its written name); it can't go beyond the bounds",
+          "Can't cross an unbroken line of salt",
+          "Freed or ended when what binds it is broken",
+          "Wants what it was bound to do finished, or what was taken from it returned"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ],
+    "6": [
+      {
+        "name": "Vampire",
+        "size": "Medium",
+        "type": "undead",
+        "alignment": "any",
+        "ac": 15,
+        "ac_type": "natural",
+        "hp": 110,
+        "hit_dice": "13d8+52",
+        "speed": {
+          "walk": "30 ft.",
+          "climb": "30 ft."
+        },
+        "abilities": {
+          "STR": 18,
+          "DEX": 16,
+          "CON": 18,
+          "INT": 16,
+          "WIS": 14,
+          "CHA": 18
+        },
+        "cr": "6",
+        "xp": 2300,
+        "proficiency_bonus": 3,
+        "senses": {
+          "darkvision": "120 ft.",
+          "passive_perception": 15
+        },
+        "languages": "English and the languages it learned in a long life",
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The vampire makes two attacks: two with its Claws, or one with its Claws and one Bite.",
+            "multiattack": true,
+            "attacks": [
+              {
+                "name": "Claws",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "name": "Claws",
+            "desc": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage. Instead of dealing damage, the vampire can grapple the target (escape DC 15).",
+            "attack_bonus": 7,
+            "damage": [
+              {
+                "dice": "2d6+4",
+                "type": "Slashing"
+              }
+            ]
+          },
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 8 (1d8 + 4) piercing damage. Only against a creature that is grappled, unconscious or charmed. The vampire regains hit points equal to the damage, and the target's hit point maximum is reduced by the same amount until it finishes a long rest.",
+            "attack_bonus": 7,
+            "damage": [
+              {
+                "dice": "1d8+4",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Hold the Eye",
+            "desc": "One creature within 30 ft that can see the vampire makes a DC 15 WIS save or is charmed by it for 1 minute, or until it takes damage. A charmed creature will not run from the vampire."
+          }
+        ],
+        "skills": {
+          "Perception": 5,
+          "Stealth": 6,
+          "Deception": 7,
+          "Persuasion": 7
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a neighbor grown pale and tired, a window left open in winter, no reflection in the hall glass). Seen: DC 15 (a charming guest at the table, who does not eat). The truth: DC 20 (how long it has been here, and how many it has taken). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Knits Back Together",
+            "desc": "The vampire regains 10 hit points at the start of its turn if it has at least 1 hit point and isn't in daylight or running water, and wasn't damaged by fire since its last turn. At 0 hit points it isn't destroyed: it flees as a shadow to its resting place, and is helpless there until it regains a hit point an hour later."
+          },
+          {
+            "name": "Daylight",
+            "desc": "In direct sunlight the vampire takes 20 damage at the start of each of its turns and has disadvantage on attack rolls and ability checks."
+          },
+          {
+            "name": "No Reflection",
+            "desc": "It casts no reflection and shows in no photograph."
+          }
+        ],
+        "resistances": [
+          "piercing"
+        ],
+        "damage_resistances": [
+          "piercing"
+        ],
+        "damage_immunities": [
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Poisoned"
+        ],
+        "vulnerable_to": [
+          "daylight",
+          "fire",
+          "running water"
+        ],
+        "rules": [
+          "Can't enter a home unless someone who lives there invites it in; one invitation lasts until the house changes hands",
+          "Can't cross running water unless it is carried, and takes 20 damage for each turn it ends in it",
+          "Must lie by day in earth from its own grave; destroy that earth and it has nowhere to rest",
+          "Ended for good by fire, or by daylight on it in its resting place"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ],
+    "1/8": [
+      {
+        "name": "Feral Dog",
+        "size": "Medium",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 12,
+        "ac_type": "dex",
+        "hp": 9,
+        "hit_dice": "2d8",
+        "speed": {
+          "walk": "40 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 14,
+          "CON": 11,
+          "INT": 3,
+          "WIS": 12,
+          "CHA": 6
+        },
+        "cr": "1/8",
+        "xp": 25,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d6+1",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Keen Smell",
+            "desc": "The dog has advantage on Wisdom (Perception) checks that rely on smell."
+          },
+          {
+            "name": "Runs in a Pack",
+            "desc": "The dog has advantage on attack rolls against a creature if at least one of its pack is within 5 ft of the creature and isn't incapacitated."
+          },
+          {
+            "name": "Knows Before You Do",
+            "desc": "Dogs sense the supernatural first: a dog that won't go into a room, or that stares and growls at an empty corner, is a sign (fear check DC 10). Fire or a loud noise makes a pack of feral dogs back off on a failed DC 10 WIS save."
+          }
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Grave Robber",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "armor",
+        "hp": 11,
+        "hit_dice": "2d8+2",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 12,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 10,
+          "CHA": 9
+        },
+        "cr": "1/8",
+        "xp": 25,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 12
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Shovel",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d4+1",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Pocket Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage. Cylinder 5.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d6+1",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Stealth": 3,
+          "Perception": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Night Work",
+            "desc": "The grave robber has advantage on Stealth checks in a cemetery or churchyard at night, and works by a shuttered lantern."
+          },
+          {
+            "name": "Not Paid Enough for This",
+            "desc": "At the first sign of anything supernatural it drops what it is doing and runs. Caught, it bargains: it knows which graves are empty, which were dug up before, and who paid for the last body."
+          }
+        ],
+        "ac_armor": "Leather jacket",
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ],
+    "1/4": [
+      {
+        "name": "Rat Swarm",
+        "size": "Medium",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 10,
+        "ac_type": "dex",
+        "hp": 24,
+        "hit_dice": "7d8-7",
+        "speed": {
+          "walk": "30 ft.",
+          "climb": "30 ft."
+        },
+        "abilities": {
+          "STR": 9,
+          "DEX": 11,
+          "CON": 9,
+          "INT": 2,
+          "WIS": 10,
+          "CHA": 3
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "30 ft.",
+          "passive_perception": 10
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Bites",
+            "desc": "Melee Weapon Attack: +2 to hit, reach 0 ft., one target. Hit: 7 (2d6) piercing damage. Reach 0 ft.: one target in the swarm's space. 3 (1d6) piercing damage instead if the swarm has half its hit points or fewer.",
+            "attack_bonus": 2,
+            "damage": [
+              {
+                "dice": "2d6",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Swarm",
+            "desc": "A swarm of rats in the walls, the cellar or the hold of a ship. It can occupy another creature's space and move through any opening large enough for a Tiny rat. It can't regain hit points."
+          },
+          {
+            "name": "Keen Smell",
+            "desc": "The swarm has advantage on Wisdom (Perception) checks that rely on smell."
+          },
+          {
+            "name": "Afraid of Fire",
+            "desc": "The swarm won't willingly enter bright light cast by fire, and takes double damage from fire. A torch swept at it is a fine way to clear a passage."
+          },
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (scratching in the walls, droppings on the bread, nothing living in the cellar but them). Seen: DC 15 (the floor moving). The truth: DC 20 (that the rats came because something died here and nobody buried it). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          }
+        ],
+        "resistances": [
+          "bludgeoning",
+          "piercing",
+          "slashing"
+        ],
+        "damage_resistances": [
+          "bludgeoning",
+          "piercing",
+          "slashing"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Prone",
+          "Restrained",
+          "Stunned"
+        ],
+        "vulnerable_to": [
+          "fire"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Hollow-Eyed Follower",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 11,
+        "ac_type": "dex",
+        "hp": 16,
+        "hit_dice": "3d8+3",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 11,
+          "DEX": 12,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 8,
+          "CHA": 10
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 9
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Kitchen Knife",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d4+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Thrown Hatchet",
+            "desc": "Ranged Weapon Attack: +2 to hit, range 20/60 ft., one target. Hit: 3 (1d6) slashing damage.",
+            "attack_bonus": 2,
+            "damage": [
+              {
+                "dice": "1d6",
+                "type": "Slashing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Deception": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Devoted",
+            "desc": "The follower serves something it believes in: a bargain, a master, the thing in the house. It has advantage on saving throws against being frightened or charmed, and never makes fear checks against the thing it serves."
+          },
+          {
+            "name": "Raise the Alarm",
+            "desc": "As a bonus action, it shouts or rings a bell: every other follower within 300 ft knows where it is."
+          },
+          {
+            "name": "Still a Person",
+            "desc": "Followers are ordinary people with understandable reasons: grief, fear, a promise, a good harvest, a family kept safe. Shown clear proof that what they serve has lied to them, a follower can be talked down (DC 15 Persuasion), and some will help. It is never a member of any real faith or people."
+          }
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Shade",
+        "size": "Medium",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "dex",
+        "hp": 13,
+        "hit_dice": "3d8",
+        "speed": {
+          "walk": "0 ft.",
+          "fly": "30 ft.",
+          "hover": true
+        },
+        "abilities": {
+          "STR": 6,
+          "DEX": 14,
+          "CON": 10,
+          "INT": 8,
+          "WIS": 10,
+          "CHA": 12
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 10
+        },
+        "languages": "the languages it knew in life",
+        "actions": [
+          {
+            "name": "Cold Touch",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) cold damage. The target is chilled to the bone: it can't take reactions until the start of its next turn.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "1d6+2",
+                "type": "Cold"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Stealth": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a cold spot, breath that fogs in a warm room, a whisper with no source). Seen: DC 15 (a grey figure at the edge of the light). The truth: DC 20 (whose shade it is, and how they died). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Through the Walls",
+            "desc": "The shade can move through objects and other creatures as if they were difficult terrain. It can't end its turn inside an object."
+          },
+          {
+            "name": "Fades by Day",
+            "desc": "In daylight the shade is invisible and can't attack, and it takes 5 damage at the start of each of its turns. At dawn it returns to the place it died."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_immunities": [
+          "cold",
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Poisoned",
+          "Prone",
+          "Restrained"
+        ],
+        "vulnerable_to": [
+          "salt",
+          "daylight"
+        ],
+        "rules": [
+          "Can't cross an unbroken line of salt",
+          "Returns at dawn to the place it died, and rises from there at dusk",
+          "Wants to be remembered: it follows whoever has something of its own",
+          "Lays to rest when its name is spoken at its grave by someone who knows who it was"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Wolf",
+        "size": "Medium",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 13,
+        "ac_type": "natural",
+        "hp": 11,
+        "hit_dice": "2d8+2",
+        "speed": {
+          "walk": "40 ft."
+        },
+        "abilities": {
+          "STR": 12,
+          "DEX": 15,
+          "CON": 12,
+          "INT": 3,
+          "WIS": 12,
+          "CHA": 6
+        },
+        "cr": "1/4",
+        "xp": 50,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d4+2",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3,
+          "Stealth": 4
+        },
+        "special_abilities": [
+          {
+            "name": "Keen Hearing and Smell",
+            "desc": "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+          },
+          {
+            "name": "Runs in a Pack",
+            "desc": "The wolf has advantage on attack rolls against a creature if at least one of its pack is within 5 ft of the creature and isn't incapacitated."
+          },
+          {
+            "name": "Only a Wolf",
+            "desc": "An ordinary animal, wary of people and of fire. It attacks people only in hard winters, when cornered, or when something has driven it out of its woods; that something is often the story."
+          }
+        ],
+        "eras": [
+          "1890s",
+          "1920s"
+        ]
+      }
+    ],
+    "1/2": [
+      {
+        "name": "Crow Swarm",
+        "size": "Medium",
+        "type": "beast",
+        "alignment": "unaligned",
+        "ac": 12,
+        "ac_type": "dex",
+        "hp": 22,
+        "hit_dice": "5d8",
+        "speed": {
+          "walk": "10 ft.",
+          "fly": "50 ft."
+        },
+        "abilities": {
+          "STR": 6,
+          "DEX": 14,
+          "CON": 10,
+          "INT": 3,
+          "WIS": 12,
+          "CHA": 6
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Beaks",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d6) piercing damage. Reach 5 ft.: one target in the swarm's space. 3 (1d6) piercing damage instead if the swarm has half its hit points or fewer.",
+            "attack_bonus": 4,
+            "damage": [
+              {
+                "dice": "2d6",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "skills": {
+          "Perception": 3
+        },
+        "special_abilities": [
+          {
+            "name": "Swarm",
+            "desc": "A storm of crows. It can occupy another creature's space and move through any opening large enough for a crow. It can't regain hit points."
+          },
+          {
+            "name": "Go for the Eyes",
+            "desc": "A creature the swarm hits with a roll of 19 or 20 is blinded until the end of its next turn."
+          },
+          {
+            "name": "Omen",
+            "desc": "Crows gathering on a roof, a fence line or a steeple are a sign (fear check DC 10) when the GM says they are. A shotgun blast or a fire disperses a swarm that fails a DC 10 WIS save, for an hour."
+          }
+        ],
+        "resistances": [
+          "bludgeoning",
+          "piercing",
+          "slashing"
+        ],
+        "damage_resistances": [
+          "bludgeoning",
+          "piercing",
+          "slashing"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Prone",
+          "Restrained",
+          "Stunned"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Risen Dead",
+        "size": "Medium",
+        "type": "undead",
+        "alignment": "any",
+        "ac": 8,
+        "ac_type": "dex",
+        "hp": 22,
+        "hit_dice": "3d8+9",
+        "speed": {
+          "walk": "20 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 6,
+          "CON": 16,
+          "INT": 3,
+          "WIS": 6,
+          "CHA": 5
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "60 ft.",
+          "passive_perception": 8
+        },
+        "languages": "understands the languages it knew in life but can't speak",
+        "actions": [
+          {
+            "name": "Grasping Hands",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage. The target is grappled (escape DC 11). A creature grappled by two risen dead at once is restrained.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d6+1",
+                "type": "Bludgeoning"
+              }
+            ]
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (turned earth over a fresh grave, a smell on the wind, scratching under a floor). Seen: DC 15 (someone you knew, walking). The truth: DC 20 (what called them up). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Hard to Put Down",
+            "desc": "If damage reduces it to 0 hit points, it makes a CON save with a DC of 5 + the damage taken, unless the damage is fire or from a critical hit. On a success it drops to 1 hit point instead. Shooting the dead slows them; it rarely stops them (combat.json fighting_the_supernatural)."
+          },
+          {
+            "name": "Follows the Sound",
+            "desc": "It hunts by sound: it has advantage on Perception checks that rely on hearing and moves toward the loudest noise it heard in the last minute."
+          }
+        ],
+        "damage_immunities": [
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Poisoned"
+        ],
+        "vulnerable_to": [
+          "fire"
+        ],
+        "rules": [
+          "Rises because something calls it: lay or destroy what calls it, and every corpse it raised falls",
+          "Follows the living by sound, not by sight",
+          "A body burned to ash can't rise again",
+          "Can't pass a threshold sprinkled with earth from its own grave"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Night Watchman",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "armor",
+        "hp": 22,
+        "hit_dice": "4d8+4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 12,
+          "CON": 13,
+          "INT": 10,
+          "WIS": 12,
+          "CHA": 10
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Club",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage. On a hit against a surprised target, a knockout blow: DC 11 CON save or unconscious for 1d4 x 10 minutes (combat.json brawling).",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d6+1",
+                "type": "Bludgeoning"
+              }
+            ]
+          },
+          {
+            "name": "Service Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 5 (1d8 + 1) piercing damage. Cylinder 6, reloads in an action.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d8+1",
+                "type": "Piercing"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Perception": 3,
+          "Intimidation": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Lantern and Whistle",
+            "desc": "The watchman carries a lantern (or a flashlight in the 1970s) and a whistle; blowing it is a bonus action that brings another watchman, the police or the house in 1d4 + 2 rounds."
+          },
+          {
+            "name": "Seen Things on the Night Shift",
+            "desc": "It has advantage on fear checks against signs (DC 10). It knows the building, the grounds and the hours, and it may know more than it has ever said."
+          }
+        ],
+        "ac_armor": "Heavy coat",
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Deputy Sheriff",
+        "size": "Medium",
+        "type": "humanoid",
+        "alignment": "any",
+        "ac": 12,
+        "ac_type": "armor",
+        "hp": 22,
+        "hit_dice": "4d8+4",
+        "speed": {
+          "walk": "30 ft."
+        },
+        "abilities": {
+          "STR": 13,
+          "DEX": 13,
+          "CON": 12,
+          "INT": 10,
+          "WIS": 12,
+          "CHA": 11
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "passive_perception": 13
+        },
+        "languages": "English and sometimes one other language",
+        "actions": [
+          {
+            "name": "Service Revolver",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 5 (1d8 + 1) piercing damage. Cylinder 6, reloads in an action.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d8+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Shotgun",
+            "desc": "Ranged Weapon Attack: +3 to hit, range 30/90 ft., one target. Hit: 10 (2d8 + 1) piercing damage. A double-barrel in the 1890s, a pump in the car in the 1920s and 1970s. Scatter: +2 to hit within 30 ft.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "2d8+1",
+                "type": "Piercing"
+              }
+            ]
+          },
+          {
+            "name": "Baton",
+            "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.",
+            "attack_bonus": 3,
+            "damage": [
+              {
+                "dice": "1d4+1",
+                "type": "Bludgeoning"
+              }
+            ]
+          }
+        ],
+        "subtype": "human",
+        "skills": {
+          "Insight": 3,
+          "Driving": 3,
+          "Intimidation": 2
+        },
+        "special_abilities": [
+          {
+            "name": "The Badge",
+            "desc": "The deputy can arrest, search, and order people off a road or out of a house. Defying one is a crime, and the sheriff and the county stand behind the badge."
+          },
+          {
+            "name": "Knows Everyone",
+            "desc": "In its own county the deputy knows every family, every road and every story, including the ones it has been told not to repeat. Whether it helps strangers or the town depends on what the town is hiding; it is never simply a villain."
+          }
+        ],
+        "ac_armor": "Heavy coat",
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      },
+      {
+        "name": "Corpse Light",
+        "size": "Tiny",
+        "type": "spirit",
+        "alignment": "any",
+        "ac": 15,
+        "ac_type": "dex",
+        "hp": 10,
+        "hit_dice": "4d4",
+        "speed": {
+          "walk": "0 ft.",
+          "fly": "50 ft.",
+          "hover": true
+        },
+        "abilities": {
+          "STR": 1,
+          "DEX": 20,
+          "CON": 10,
+          "INT": 6,
+          "WIS": 12,
+          "CHA": 10
+        },
+        "cr": "1/2",
+        "xp": 100,
+        "proficiency_bonus": 2,
+        "senses": {
+          "darkvision": "120 ft.",
+          "passive_perception": 11
+        },
+        "languages": "",
+        "actions": [
+          {
+            "name": "Cold Flicker",
+            "desc": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 7 (2d6) cold damage. The light swells and touches the target.",
+            "attack_bonus": 7,
+            "damage": [
+              {
+                "dice": "2d6",
+                "type": "Cold"
+              }
+            ]
+          }
+        ],
+        "skills": {},
+        "special_abilities": [
+          {
+            "name": "Fear Check",
+            "desc": "Sign: DC 10 (a pale light out on the marsh or in the woods where no one lives). Seen: DC 15 (the light coming closer, and nobody holding it). The truth: DC 20 (whose body lies where it burns). Each costs Dread once per scene (dread.json fear_checks); knowing one of its rules lowers each DC by 2, and darkness raises it by 2."
+          },
+          {
+            "name": "Glow",
+            "desc": "It sheds dim light in a 10-ft radius. As a bonus action it can go dark and become invisible until it moves or attacks."
+          },
+          {
+            "name": "Lead Astray",
+            "desc": "A creature that follows the light for a minute must succeed on a DC 12 WIS save or lose its way: it wanders toward water, bog or a drop, and is lost (dread.json isolation) until someone finds it or the dawn comes. It is a lure toward a place, never toward harm the creature chooses."
+          }
+        ],
+        "resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_resistances": [
+          "bludgeoning, piercing, and slashing from ordinary weapons"
+        ],
+        "damage_immunities": [
+          "cold",
+          "poison"
+        ],
+        "condition_immunities": [
+          "Charmed",
+          "Exhaustion",
+          "Frightened",
+          "Grappled",
+          "Paralyzed",
+          "Poisoned",
+          "Prone",
+          "Restrained"
+        ],
+        "vulnerable_to": [
+          "running water",
+          "salt"
+        ],
+        "rules": [
+          "Burns over the place where a body lies unburied, and leads toward it at night",
+          "Can't cross running water",
+          "Goes out for good when the body it marks is found and buried",
+          "Wants to be followed"
+        ],
+        "eras": [
+          "1890s",
+          "1920s",
+          "1970s"
+        ]
+      }
+    ]
+  }
+}

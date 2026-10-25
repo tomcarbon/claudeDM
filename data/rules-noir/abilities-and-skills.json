@@ -1,0 +1,247 @@
+{
+  "_meta": {
+    "category": "noir",
+    "source": "Written for claudeDM (Noir category). Original content; a few general-mechanics sentences (opportunity attacks, death saves, conditions) are adapted from SRD 5.1, licensed CC BY 4.0 — see NOTICE.",
+    "notes": "Six abilities and the 18 Noir skills. Use ONLY these skill names on Noir character sheets. Same ability modifier, passive check and DC rules as the shared d20 chassis. Driving replaces Sci-Fi Piloting; Forensics, Research, Society and Streetwise (CHA, not WIS) are the investigator's skills. There is no magic."
+  },
+  "abilities": [
+    {
+      "name": "Strength",
+      "abbreviation": "STR",
+      "description": "Strength is muscle and leverage: the shoulder that takes a door off its hinges, the arm that holds a man over the rail of a pier, the fist that ends an argument in a back alley. In this town it is also the fastest way to be believed.",
+      "common_uses": [
+        "Melee attack and damage rolls (most), including unarmed strikes",
+        "Grappling, shoving and holding a man down long enough to cuff him",
+        "Forcing doors, windows and padlocked gates",
+        "Carrying, dragging and lifting (a body weighs what it weighs)",
+        "Climbing a fire escape or a drainpipe in the rain"
+      ],
+      "skills": [
+        "Athletics"
+      ]
+    },
+    {
+      "name": "Dexterity",
+      "abbreviation": "DEX",
+      "description": "Dexterity is quick hands, quick feet and a steady aim. Every pistol, shotgun and Tommy gun is aimed with it; so is the wheel of a coupe doing sixty down a wet street, and so are the fingers that lift a wallet without the owner feeling a thing.",
+      "common_uses": [
+        "Ranged attack rolls with every firearm, and damage on single shots",
+        "Finesse melee weapons (switchblade, straight razor, scalpel, ice pick, sword cane)",
+        "Initiative",
+        "Armor Class (10 + DEX with no armor; light armor adds DEX in full, the steel vest up to +2)",
+        "Dodging a burst of automatic fire, a stick of dynamite or a car (DEX saves)"
+      ],
+      "skills": [
+        "Acrobatics",
+        "Driving",
+        "Sleight of Hand",
+        "Stealth"
+      ]
+    },
+    {
+      "name": "Constitution",
+      "abbreviation": "CON",
+      "description": "Constitution is how much a body can take: a beating, a bullet, a week without sleep, a bottle of rye on an empty stomach, a knockout drop in the coffee. The detectives who last in this business are not the smart ones. They are the ones who keep getting up.",
+      "common_uses": [
+        "Hit points per level",
+        "Staying conscious after a knockout blow (CON saves)",
+        "Resisting drugs, knockout drops, poison and gas",
+        "Drinking with a witness and keeping your head",
+        "Running, swimming and staying on your feet with exhaustion"
+      ],
+      "skills": []
+    },
+    {
+      "name": "Intelligence",
+      "abbreviation": "INT",
+      "description": "Intelligence is memory, reasoning and education. It reads a ledger that has been cooked, a bullet that has been fired, a fingerprint on a highball glass and the paper trail behind a dummy corporation. It is what puts the pieces together after everyone else has gone home.",
+      "common_uses": [
+        "Working a scene and drawing conclusions (Investigation)",
+        "Reading a body, a wound or a bullet (Forensics)",
+        "Digging through records, newspapers and the phone book (Research)",
+        "Fixing a car, picking a lock, cracking a safe (Mechanics)",
+        "Remembering a face, a name or a license plate from three days ago"
+      ],
+      "skills": [
+        "Forensics",
+        "Investigation",
+        "Mechanics",
+        "Research"
+      ]
+    },
+    {
+      "name": "Wisdom",
+      "abbreviation": "WIS",
+      "description": "Wisdom is attention, instinct and judgment. It notices the car that has been behind you since Third Street, hears the lie in a widow's voice and knows when to stop asking questions. It also keeps a man's nerve when the shooting starts.",
+      "common_uses": [
+        "Noticing things (Perception, passive Perception)",
+        "Reading people (Insight)",
+        "First aid and doctoring (Medicine)",
+        "Keeping your nerve under fire and in a bad room (WIS saves)"
+      ],
+      "skills": [
+        "Insight",
+        "Medicine",
+        "Perception"
+      ]
+    },
+    {
+      "name": "Charisma",
+      "abbreviation": "CHA",
+      "description": "Charisma is presence and nerve: the voice that talks a desk sergeant into a favor, the smile that gets past a doorman, the stare that makes a hood think twice. In a city that runs on who-you-know, it is also knowing who to know, on both sides of the tracks.",
+      "common_uses": [
+        "Lying, persuading and threatening",
+        "Knowing who is who uptown (Society) and downtown (Streetwise)",
+        "Holding a room, on stage or in a cover identity (Performance)",
+        "Resisting being shaken or talked into something (CHA saves)"
+      ],
+      "skills": [
+        "Deception",
+        "Intimidation",
+        "Performance",
+        "Persuasion",
+        "Society",
+        "Streetwise"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "ability": "Dexterity",
+      "description": "Balance, agility and falling well: jumping from one fire escape to the next, keeping your feet on a pitching ferry deck, rolling off the running board of a moving car or wriggling out of a man's grip."
+    },
+    {
+      "name": "Athletics",
+      "ability": "Strength",
+      "description": "Climbing, jumping, swimming, running and wrestling. Shinning up a drainpipe, swimming out from under a pier in your clothes, kicking in a hotel door or winning a foot chase down an alley."
+    },
+    {
+      "name": "Deception",
+      "ability": "Charisma",
+      "description": "Lying with a straight face: a false name to a desk clerk, a cover story under questioning, a bluff about the gun in your pocket, a forged letter delivered as if it were real."
+    },
+    {
+      "name": "Driving",
+      "ability": "Dexterity",
+      "description": "Handling a car or truck under pressure: chases, tight turns on wet cobbles, losing a tail, ramming, bootleggers' turns and keeping a shot-up sedan on the road long enough to reach the county line. Also covers motorcycles and small motorboats."
+    },
+    {
+      "name": "Forensics",
+      "ability": "Intelligence",
+      "description": "Reading physical evidence: a body, a wound, a bullet, a fingerprint, a bloodstain, a powder burn. How long has he been dead? Was the knife-wound made by a left-handed man? Did both shots come from the same gun? Core forensic clues are found without a roll by anyone who looks; the check buys detail."
+    },
+    {
+      "name": "Insight",
+      "ability": "Wisdom",
+      "description": "Reading people: spotting a lie, a nervous tell, a story that has been rehearsed, the moment a witness decides to stop talking. Contested by Deception when someone is lying to you."
+    },
+    {
+      "name": "Intimidation",
+      "ability": "Charisma",
+      "description": "Getting what you want with menace: leaning on a bookie, staring down a hood, making a clerk believe the trouble you could cause is worse than the trouble his boss could. It works. It also gets remembered (see investigation.json heat)."
+    },
+    {
+      "name": "Investigation",
+      "ability": "Intelligence",
+      "description": "Searching a place and drawing conclusions from what you find: tossing an apartment, finding the false bottom in a drawer, reconstructing what happened in a room from what was moved, spotting that the alibi and the timetable don't fit."
+    },
+    {
+      "name": "Mechanics",
+      "ability": "Intelligence",
+      "description": "Machines and locks: fixing an engine, hot-wiring a car, picking a lock (with lock picks), cracking a safe, tapping a telephone line, rigging or disarming a bomb, unjamming an automatic."
+    },
+    {
+      "name": "Medicine",
+      "ability": "Wisdom",
+      "description": "First aid and doctoring: stabilizing the dying (DC 10), stopping bleeding, setting a bone, recognizing an overdose or a poisoning, knowing whether a man needs a hospital or just a drink."
+    },
+    {
+      "name": "Perception",
+      "ability": "Wisdom",
+      "description": "Using your senses: the cigarette glowing in a parked car, footsteps on the stairs, the smell of gas in the hallway, the tail two cars back. Passive Perception is how alert you are when you aren't looking."
+    },
+    {
+      "name": "Performance",
+      "ability": "Charisma",
+      "description": "Holding an audience: singing in a club, playing the piano, giving a speech, playing a drunk well enough to be thrown out the right door, or making a cover identity look lived-in at a party."
+    },
+    {
+      "name": "Persuasion",
+      "ability": "Charisma",
+      "description": "Honest influence: tact, reason, sympathy and a good offer. Talking a witness into testifying, a landlady into opening a door, a cop into giving you an hour before he calls it in."
+    },
+    {
+      "name": "Research",
+      "ability": "Intelligence",
+      "description": "Records and paper: the newspaper morgue, the Hall of Records, the county recorder, the city directory, the phone book, a library's reading room, a court docket, a ship's manifest. Finding out who owns a building takes Research; so does finding out who owned it before."
+    },
+    {
+      "name": "Sleight of Hand",
+      "ability": "Dexterity",
+      "description": "Quick fingers: lifting a wallet, palming a key, planting a letter in a coat pocket, slipping a pistol past a pat-down, dealing from the bottom of the deck."
+    },
+    {
+      "name": "Society",
+      "ability": "Charisma",
+      "description": "Who's who, and how they like to be treated: manners, the right fork, the right club, which family isn't speaking to which, how to get past a doorman at the Fairmont, and how to talk to a city councilman's wife so she keeps talking."
+    },
+    {
+      "name": "Stealth",
+      "ability": "Dexterity",
+      "description": "Not being noticed: tailing a man through a crowd, slipping up a back stair, waiting in a dark office while someone goes through the files. Contested by passive Perception (see investigation.json tailing_and_stakeouts)."
+    },
+    {
+      "name": "Streetwise",
+      "ability": "Charisma",
+      "description": "The other half of town: finding a fence, a bookie, an after-hours doctor or a man who sells guns out of a laundry van; knowing whose territory you are standing in; hearing what the bartenders and shoeshine men heard; knowing which questions get you hurt."
+    }
+  ],
+  "ability_score_modifiers": {
+    "description": "To find an ability modifier, subtract 10 from the score, divide by 2 and round down.",
+    "table": {
+      "1": -5,
+      "2": -4,
+      "3": -4,
+      "4": -3,
+      "5": -3,
+      "6": -2,
+      "7": -2,
+      "8": -1,
+      "9": -1,
+      "10": 0,
+      "11": 0,
+      "12": 1,
+      "13": 1,
+      "14": 2,
+      "15": 2,
+      "16": 3,
+      "17": 3,
+      "18": 4,
+      "19": 4,
+      "20": 5,
+      "21": 5,
+      "22": 6,
+      "23": 6,
+      "24": 7,
+      "25": 7,
+      "26": 8,
+      "27": 8,
+      "28": 9,
+      "29": 9,
+      "30": 10
+    }
+  },
+  "passive_checks": {
+    "description": "A passive check is a check made without rolling, representing a character's steady, background level of competence (for example, noticing a tail while walking home, or spotting a man in a parked car during a stakeout). The GM uses it to decide secretly whether a character notices or achieves something. A tail's Stealth checks are made against the quarry's passive Perception.",
+    "formula": "10 + all modifiers that normally apply to the check. If the character has advantage on the check, add 5. For disadvantage, subtract 5."
+  },
+  "difficulty_classes": {
+    "very_easy": 5,
+    "easy": 10,
+    "medium": 15,
+    "hard": 20,
+    "very_hard": 25,
+    "nearly_impossible": 30
+  }
+}

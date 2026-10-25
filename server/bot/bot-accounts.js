@@ -112,6 +112,11 @@ function deleteAllBotAccounts(dataDir) {
 }
 
 module.exports = {
+  // Exported for WO-0036 revision 2 (SR-36-2): `bot-orchestrator.cleanup()` needs the set of
+  // addresses that currently hold an account, so a kept session whose bot owner has NO account
+  // can be reported as an orphan rather than as "a bot that is not being removed". Read-only
+  // use; it authorises no deletion.
+  readPlayers,
   listBotAccounts,
   createBotAccount,
   deleteBotAccount,

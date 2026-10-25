@@ -1,0 +1,116 @@
+{
+  "id": "e1f1ebd3-2932-40cb-ad80-55e9ad75d434",
+  "name": "Cyprian Tunstall",
+  "status": "alive",
+  "race": "Educated",
+  "subrace": "",
+  "class": "Occultist",
+  "level": 2,
+  "background": "Antiquarian",
+  "alignment": "Neutral Good",
+  "experience": 300,
+  "abilities": {
+    "strength": {
+      "score": 9,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 12,
+    "current": 12
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Research",
+    "Occult",
+    "Investigation",
+    "Insight",
+    "Sleight of Hand"
+  ],
+  "languages": [
+    "English",
+    "Latin",
+    "Dutch (river Dutch, learned from old women in Poughkeepsie kitchens, and the book kind)"
+  ],
+  "equipment": [
+    "A clerk's black frock coat, a little shiny at the elbows, and a celluloid collar",
+    "Silver knife: a sterling paper-knife from his own desk, a christening present, which he has quietly sharpened",
+    "The register of the seven nights, in a ledger bound in green cloth, ruled in his own hand",
+    "A manuscript notebook, Tales of the River Dutch, Collected from Life, three hundred pages of ghost stories, charms and customs gathered in Dutchess and Ulster Counties",
+    "A pocket Dutch-English dictionary, much annotated",
+    "A stick of chalk, two candle ends, a ball of red thread, a tin of iron tacks and a pinch of churchyard earth in a twist of paper (The Right Things in the Bag)",
+    "Pencils, a penknife, a bottle of ink, a pen-wiper",
+    "A fair copy of the will in his own hand",
+    "A note in Conrad Greywick's writing: '$25 on account, the rest when you tell me what is in the box'",
+    "Wallet containing $14"
+  ],
+  "weapons": [
+    {
+      "name": "Silver knife",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Old Lore (Occultist: once the party has seen a creature or clear sign of it, an action and an INT (Occult) check, DC 10 + its CR, tells you one of its rules the party has not yet learned, once per creature per long rest; advantage on Occult checks to perform a rite or set a ward, in half the usual time)",
+    "The Right Things in the Bag (Occultist: once per scenario, a common object a rite or ward needs that you could plausibly have packed, a candle, a nail, red thread, chalk, is in your bag)",
+    "Steeped in It (Occultist, 2nd level: advantage on fear checks against the sign of a horror; whenever the party learns one of a creature's rules, you lose 1 Dread)",
+    "Seen It in a Book (Educated origin: once per long rest recall one useful true fact about history, science, law or geography without a check; advantage on Research in a library, archive or registry; reads old handwriting, Latin and legal language without a check)",
+    "Provenance (Antiquarian background: dealers, auctioneers, collectors and librarians know of him and will tell him who owned a thing before; given an hour with an old object, he can date it and say where it was made without a check; Strick & Garnet send him to catalogue dead clients' houses, so he is often the first stranger in a house after a death)"
+  ],
+  "traits": [
+    "Old Lore",
+    "The Right Things in the Bag",
+    "Steeped in It",
+    "Provenance"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk too fast when I am interested and I am always interested. I collect ghost stories the way other men collect stamps, and I have never once believed one. I apologise for things that are not my fault.",
+    "ideals": "Old stories are true about something, even when they are not true about ghosts. Knowing the rules is what keeps people alive, in law and in everything else.",
+    "bonds": "My mother, a seamstress in Poughkeepsie, who went without to put me through the academy. Mr. Strick, who took me on at sixteen and has never once raised his voice. The manuscript, which will be a book one day.",
+    "flaws": "I took Conrad Greywick's twenty-five dollars for my mother's rent and I have been sick about it ever since. I am frightened of nearly everything and pretend it is curiosity."
+  },
+  "appearance": "A slight, pale, quick young man of twenty-four with fair hair that will not stay flat, ink on his cuffs, large ears, round steel spectacles and an eager, anxious face. Always carrying a book or a ledger, often both.",
+  "backstory": "Cyprian Tunstall is the son of a Poughkeepsie seamstress and a river pilot who drowned when he was two. He was a scholarship boy at the academy, the best Latinist in his year, and at sixteen Mr. Strick took him on as a copying clerk at Strick & Garnet; he has been there eight years, reads law at night, catalogues estates for the firm, and in his own time walks the river towns collecting Dutch ghost stories and charms from old women in kitchens, for a book. On 9 September 1893 he witnessed Jasper Greywick's will and the sealed codicil in the Greywick library. He did not read the codicil. He did see the docket Strick wrote on its envelope before sealing it, in pencil, and later rubbed out: 're: the Roelofs Landing'. He has no idea what it means and has been wondering ever since. The will leaves him $500 for keeping the register of the seven nights, and requires him to keep them himself. Before the reading, Conrad Greywick took him aside in Poughkeepsie and paid him $25 on account to report anything Strick said about the codicil, with the rest to come. He has told Conrad nothing yet. (Hooks: he keeps the register; he speaks Dutch and knows river lore, so he can translate the Juffrouw's words and knows why the lamp and the iron matter; he knows the word Roelofs; Conrad thinks he owns him.)"
+}
