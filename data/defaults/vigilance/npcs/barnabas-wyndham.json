@@ -1,0 +1,131 @@
+{
+  "id": "ac4ec4da-3463-46cb-9c55-7464336565bc",
+  "name": "Barnabas Wyndham",
+  "status": "alive",
+  "race": "Back East",
+  "subrace": "",
+  "class": "Lawman",
+  "level": 4,
+  "background": "Schoolteacher",
+  "alignment": "Lawful Neutral",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 14,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 32,
+    "current": 32
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Wisdom"
+  ],
+  "skills": [
+    "Insight",
+    "Persuasion",
+    "Investigation",
+    "Performance"
+  ],
+  "languages": [
+    "English",
+    "Latin (he taught it for eleven years and still reads Tacitus by the stove)"
+  ],
+  "equipment": [
+    "Leather duster over a threadbare black suit and a brown wool waistcoat with a watch chain and no watch",
+    "Navy revolver (Colt 1851 pattern, .36, cap-and-ball), 6 chambers loaded, in a holster he wears like a schoolmaster wears a ruler",
+    ".36 rounds (12)",
+    "Double-barrel shotgun (a muzzle-loading 12-bore belonging to the district), both barrels loaded, which lives behind his office door",
+    "Shotgun shells (10)",
+    "A tin star stamped SHERIFF, made by Gabriel Tennant, and the minute book of the miners' meeting of 2 June 1864 that elected him, 'to keep the peace and enforce the laws of the Ninebark district'",
+    "Manacles, and the key to the district jail: a log cabin with one barred window and a padlock",
+    "The district's law: a copy of the mining district's by-laws, and the laws of Idaho Territory, which still apply until the new legislature says otherwise",
+    "A ledger in which he has written down, since 13 October, every coach, its departure, its treasure, its passengers, and who knew which coach was heavy",
+    "Spectacles, a pencil, and a copy of Cicero in a coat pocket",
+    "Wallet containing $11"
+  ],
+  "weapons": [
+    {
+      "name": "Navy revolver",
+      "attackBonus": 3,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 3,
+      "damage": "2d8+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Book Learning (Back East origin: advantage on Investigation to read documents, ledgers, waybills and forged papers; once per long rest he recalls a useful fact about law, process or history without a check)",
+    "The Star (Lawman: elected sheriff of the Ninebark mining district by the miners' meeting; within the district he can arrest on a warrant or for a crime he witnesses, hold a prisoner in the district jail until a court sits, and raise a posse equal to his proficiency bonus; advantage on Intimidation and Persuasion against anyone who respects the law. In November 1864, fewer and fewer people in Ninebark do)",
+    "Keep the Peace: Peace Officer (Lawman: as a bonus action, he orders a creature that can hear him to drop its weapon; WIS save DC 13 or it drops one held weapon; a creature that has already attacked has advantage)",
+    "Take Him Alive (Lawman, 2nd level: when he hits with a melee attack he can try to grapple as a bonus action, and manacle a grappled creature without a check; when he drops a creature to 0 hit points he can leave it stable and unconscious)",
+    "Office: Town Marshal (Lawman, 3rd level: he knows every business and family in Ninebark; once per long rest he learns from the camp's gossip who has been in or out of it in the last day; the Reputation he loses for using the star is halved here)",
+    "Ability Score Improvement (Lawman, 4th level: +1 Wisdom, +1 Charisma)",
+    "The Schoolhouse (Schoolteacher background: he taught for eleven years in Lancaster County, Pennsylvania; the families of Ninebark trust him, and its children, who see everything, tell him what their parents won't)"
+  ],
+  "traits": [
+    "The Star",
+    "Peace Officer",
+    "Take Him Alive",
+    "Town Marshal",
+    "The Schoolhouse"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am pedantic, patient and stubborn, and I lecture when I am nervous. I am always polite. I write everything down, and I believe that if something is written down correctly, it will eventually matter.",
+    "ideals": "The rule of law is the only thing a free people has ever invented that is better than the men who run it.",
+    "bonds": "The miners' meeting that elected me, every man of it, including the ones who now wear masks. My ledger. And my wife, Achsah, in Lancaster, who has written twice to ask me to come home.",
+    "flaws": "I am not a brave man and I know it, and I have been ashamed of it for so long that I am in danger of doing something brave and stupid just to stop being ashamed."
+  },
+  "appearance": "A thin, stooped, bespectacled man of forty-seven with thinning grey hair, a long, mild, clean-shaven face, ink on his fingers and a coat too thin for a Montana winter. He looks exactly like a schoolmaster who has been elected sheriff, which is what he is.",
+  "backstory": "Barnabas Wyndham taught Latin and arithmetic in a Lancaster County academy for eleven years until, at forty-six, he decided he had spent his whole life reading about the world and came west with two of his former pupils to see it. When the Ninebark miners organised their district in June 1864 and needed a sheriff, they elected the man who could read the by-laws aloud without stumbling and who had no friends to favour, and Barnabas, to his own astonishment, accepted. He has jailed drunks, settled claim disputes and served papers for the miners' court. Since the robberies began he has been keeping a ledger of who knew which coach was carrying gold, and the answer is: the express agent, the shippers, the driver and messenger, and anyone who could see the treasure loaded. On 4 November the merchants formed the vigilance committee in Wexford's store and invited him to join. He refused, publicly, and asked for the names of its members. On 6 November Jack Tillery named him as 'the sheriff who lets them go'. Barnabas does not know that he is on the list. He suspects.",
+  "dmNotes": {
+    "roleplaying": "Barnabas is the law as it actually exists in Ninebark in November 1864: one decent, frightened, honest schoolmaster with a tin star, a padlocked cabin and a ledger. Use him to show the party what the lawful path is, how weak it is, and why it is still the only one worth taking. He is the most likely prisoner at the 'trial' in vg-scenario-003. He is brave when it counts, and terrified before and after.",
+    "voice": "Precise, mild, academic, a Pennsylvania accent with a schoolroom crispness. Quotes Latin and translates it at once, apologetically. Calls everyone 'Mister' or 'Missus' or 'Miss', including the road agents.",
+    "motivations": "Primary: bring the robbers to a real court, with evidence. Secondary: stop the committee, by persuasion if possible and by the law when it arrives. Tertiary: survive the winter and go home to Achsah.",
+    "secrets": "CLUE C2 and D1: his ledger shows that every robbed coach was a Thursday coach carrying more than $20,000, that Thursday coaches that carried less were not robbed, and that the only places where a man could learn a coach's weight after it left Ninebark are the coach itself and Fiddler's Station, where the express boxes are moved off and on while the horses are changed (vg-scenario-001 or 002). He has also been told by Simeon Prothero, in confidence, that a deputy U.S. marshal named Hartigan was on his way: the letter came on the up-coach of Saturday 5 November, which had been snowbound overnight at Fiddler's Station, and Prothero remarked that its wafer had been 'stuck twice' (CLUE C3, vg-scenario-002). Barnabas has not understood the significance, because he does not know that Hartigan's name is on the list.",
+    "attitude": "Toward the party: hopeful, relieved, a little pathetic, then genuinely brave once he has allies. Toward Cormac Hartigan, if he is played: overjoyed and deferential: the federal law has come. Toward the committee: mournful, stubborn. Toward Wexford: an old friend whom he thinks has lost his way. Toward Gabriel Tennant: deep respect. Toward Sefton: friendly; Sefton feeds him free when he rides to Bannack."
+  }
+}

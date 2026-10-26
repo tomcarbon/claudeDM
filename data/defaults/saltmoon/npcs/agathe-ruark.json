@@ -1,0 +1,127 @@
+{
+  "id": "3d8a6f20-1c54-4e9b-b7a3-5e0f2d9c6a17",
+  "name": "Agathe Ruark",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Face",
+  "level": 3,
+  "background": "Blue-Collar Worker",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 11,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 11,
+      "modifier": 0
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 10,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Charisma",
+    "Wisdom"
+  ],
+  "skills": [
+    "Persuasion",
+    "Intimidation",
+    "Insight",
+    "Mechanics",
+    "Athletics"
+  ],
+  "languages": [
+    "Common",
+    "Brinehold cant (she invented a fair amount of it)"
+  ],
+  "equipment": [
+    "A drill boss's quilted jacket forty years old, re-stitched with every colour of thread in Brinehold",
+    "Flare gun",
+    "Flares (3)",
+    "Crowbar",
+    "The Article 9 register: a paper book, because paper can't be wiped, with 140 signatures and counting",
+    "Keys to the Gallery hall",
+    "Inhaler (prescription, nearly empty)",
+    "Credit chit: 55 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Flare gun",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "fire"
+    },
+    {
+      "name": "Crowbar",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Silver Tongue (expertise in Persuasion and Intimidation)",
+    "Rally (bonus action: an ally who can hear her gains 1d6 + 3 temporary HP and may end being frightened; 3 uses per long rest)",
+    "Read the Room (after 1 minute of conversation, learn one goal, fear or lie of a person she is talking to)",
+    "Leader (her Rally also grants the ally +1d4 to their next attack or save)",
+    "Union Card (Blue-Collar Worker feature: every drill hand, tech and cook in Brinehold will answer her questions and let her through any service door)"
+  ],
+  "traits": [
+    "Silver Tongue",
+    "Rally",
+    "Read the Room",
+    "Leader"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Loud, blunt and funny, and she knows the name of everyone's grandmother. She chairs meetings by banging a rod coupling on the table.",
+    "ideals": "We dug this place. We heated it. We buried our dead in it. That makes it ours, whatever the paper says.",
+    "bonds": "Brinehold, all of it. And Adaeze Rask, whom she trained, and who was meant to chair the council after her.",
+    "flaws": "She has decided what the colony wants, and she treats doubt as betrayal. People who want the buyout have stopped telling her."
+  },
+  "appearance": "A short, barrel-shaped woman of sixty-six with a cloud of white hair, a drill boss's forearms and a laugh you can hear through a pressure door. She wheezes after stairs and pretends she doesn't.",
+  "backstory": "Agathe Ruark came to Esker at twenty-two as a drill hand on the Combine's third rotation and never left. She ran the deep bores for thirty years, raised three children under the ice, and has chaired the colonists' council since before most of the Stayers were born. She knew the Article 9 clause existed, because she was there the year the Board made the Combine add it, and she has spent the last six months filling a paper book with signatures.",
+  "dmNotes": {
+    "roleplaying": "Agathe is the heart of the strike in sm-scenario-002 and the colony's voice throughout. She is warm, funny and stubborn, and she will hug a PC and bully them in the same breath. She wants the party on the colony's side and she will ask them outright. Let her be wrong sometimes: she wants to break the Sling's coils in sm-scenario-002, which would strand the Combine and risk everyone's way out, and someone should talk her down. In a fight she stands in front of the youngest person present and swings a crowbar.",
+    "voice": "Big, rough, a smoker's rasp though nobody has smoked on Esker in sixty years. She calls everyone 'pet' or by their last name. She swears in Brinehold cant: 'cold-cracked', 'brine it'.",
+    "motivations": "Get a hundred names in the book and keep them there. See the truth about Adaeze said out loud in the Gallery. Hand the colony to someone younger before she has to.",
+    "secrets": "SHE IS DYING, slowly. Thirty years of brine dust in the deep bores have scarred her lungs, and the treatment that would give her ten more years exists only at a hospital on a station seven weeks away. Odalys Quarrie knows. The Combine's relocation package includes it, and Rook has offered it to her personally, in writing, in exchange for one thing: that she closes the register at C-14. She hasn't told anyone. If she takes the offer, the Stayers lose 2d6 the day it's known. If she refuses in public, the Stayers gain 2d6. If a PC finds out (Insight DC 17 on her wheezing, Medicine DC 13, or Odalys tells them), the conversation they have with her is one of the campaign's most important scenes.",
+    "attitude": "Toward the party: hopeful, demanding, quick to call them family and quicker to call them traitors. Toward Rook: contempt, and a suspicion that he's better at this than she is. Toward Morrow: old, complicated respect. They have known each other eleven years and Agathe thinks Morrow is a decent woman on the wrong side. Toward Lisbet Rask: fierce protectiveness."
+  }
+}

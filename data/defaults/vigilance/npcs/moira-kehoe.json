@@ -1,0 +1,130 @@
+{
+  "id": "65b4764a-edc6-4a43-b5dc-67a5ae87bcd8",
+  "name": "Moira Kehoe",
+  "status": "alive",
+  "race": "Immigrant",
+  "subrace": "",
+  "class": "Doc",
+  "level": 3,
+  "background": "Saloon Keeper",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Investigation",
+    "Insight",
+    "Persuasion"
+  ],
+  "languages": [
+    "English",
+    "Irish (her first language, from County Clare)",
+    "Some French, from a Montreal convent hospital"
+  ],
+  "equipment": [
+    "A black wool dress she dyed herself on 11 November, a grey shawl and a heavy man's coat that was Patrick's",
+    "Pocket revolver (Smith & Wesson, .32 rimfire), 5 loaded, which Patrick bought her in Salt Lake City and which she has never fired",
+    ".32 rounds (10)",
+    "Boot knife",
+    "A midwife's and nurse's bag: forceps, scissors, needles and silk, a stethoscope of turned wood, carbolic, quinine, laudanum and bandages",
+    "Bandage roll (6)",
+    "The deed to the Kehoe boarding house on Water Street: eight rooms, a kitchen, a parlour with a piano nobody can play, and a bar of three bottles",
+    "The account book of the boarding house, with Davy Renner's name in it: 'room 6, 31 Oct to 4 Nov, paid in advance by Mr W. Sefton, fell on a pick'",
+    "Patrick's rosary, and the warning card that was pushed under her door on 12 November: LEAVE THIS CAMP. THE COMMITTEE.",
+    "Wallet containing $40"
+  ],
+  "weapons": [
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Boot knife",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Two Tongues (Immigrant origin: she speaks Irish and English fluently and French a little; advantage on Insight and Perception to follow a conversation in a language the speakers think she does not know; among the Irish of the gulch, who are many, she finds a meal, a bed and the news without a check)",
+    "Sawbones (Doc, using WIS: as an action with her bag she patches a creature's wounds; it spends up to 2 Hit Dice and regains 3 extra hit points once; also stabilizes and ends Bleeding; 4 uses per long rest. Dig Out a Bullet: during a short rest she cuts out a lodged bullet; the creature regains 6 extra hit points and a lingering wound heals)",
+    "Diagnosis (Doc: as a bonus action she learns a visible creature's current and maximum hit points and every condition affecting it; examining a body for 10 minutes she learns the cause and approximate time of death, the kind of weapon and from how far)",
+    "Steady Hands (Doc, 2nd level: advantage on Medicine; a creature she stabilizes regains 1 hit point and can act on its next turn; she identifies any drug, poison, disease or bad water by its symptoms)",
+    "Practice: Country Doctor (Doc, 3rd level: every family in the gulch knows her, because she delivered their children or nursed their fevers; she finds shelter, a fresh horse and the news without a check, and once per case a patient owes her a favour)",
+    "Behind the Bar (Saloon Keeper background: she and Patrick kept the boarding house and its bar; she gets the week's gossip from any bartender in one drink, and knows who drinks on credit, who is winning, and who has been asking about whom)"
+  ],
+  "traits": [
+    "Sawbones (4/long rest)",
+    "Diagnosis",
+    "Steady Hands",
+    "Country Doctor",
+    "Behind the Bar"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am quiet, and I watch, and I do not cry in front of people. I am kind to everyone who comes through my door, because that is the trade, and I keep the account book honestly, because that is the law.",
+    "ideals": "Everyone who is sick gets nursed. Everyone. I did not ask Davy Renner how he came by a ball in his arm, and God forgive me, I would not ask him now.",
+    "bonds": "Patrick. Patrick, who was on the night shift at the Number Three shaft with six other men until dawn on the third of November and asleep in his own bed when Will Danforth was shot, and whom they hanged anyway. I will have his name cleared in front of the whole camp, in a court, written down.",
+    "flaws": "I have been told to leave the camp in twenty-four hours. That was thirteen days ago. I am not leaving, and I may get somebody killed by staying, and I do not care as much as I should."
+  },
+  "appearance": "A small, straight, dark-haired Irishwoman of thirty with a pale, freckled, very still face, red-rimmed grey eyes, work-roughened hands and a soft Clare voice. Black dress, grey shawl, her husband's coat with the sleeves rolled. People lower their voices around her without knowing why.",
+  "backstory": "Moira Kehoe was born Moira Hehir in 1834 in County Clare; the Famine took her parents and two brothers in 1847. She came to Montreal in 1849 as a girl of fifteen and was taken in and trained by the nursing nuns of a convent hospital, where she nursed typhus and cholera patients for six years, and in 1856 married Patrick Kehoe, a canal labourer from Clare with a laugh like a door banging. They went west together, to Colorado in 1860 and Ninebark in the spring of 1864, where Patrick worked the night shift at the Number Three claim and Moira kept a boarding house and nursed the gulch. On 31 October a young man called Davy Renner took a room, with a festering pistol ball in his upper arm that he said was a fall on a pick, and Warrick Sefton of Fiddler's Station paid for the room out of kindness. She dug it out and asked no questions. On 10 November the committee took Patrick from the kitchen at midnight, saying that Jack Tillery had named him as a road agent, and hanged him from the slaughter corral gate at two in the morning. He had been on the night shift at the Number Three shaft with six other men until six on the morning of 3 November, and asleep in his own bed when Will Danforth was shot fourteen miles away, and he had told them so, and they had not listened. On 12 November a card under her door told her to leave the camp. She is still here.",
+  "dmNotes": {
+    "roleplaying": "Moira is grief that has turned into resolve. She is not a victim to be rescued; she is the person who will not let the camp forget, and her boarding house is the party's base if they want it (rooms $10 a week with board, free to anyone who will help clear Patrick's name). Play her as quiet, exact and immovable. The committee's BANISH column has her name in it, and she is the companion most likely to be dragged into the street in vg-scenario-003.",
+    "voice": "Soft, low, a Clare lilt; precise, a nurse's habit of telling bad news plainly. Never raises her voice. Prays in Irish under her breath.",
+    "motivations": "Primary: clear Patrick's name in a court, in writing. Secondary: keep the boarding house and stay in the camp. Tertiary: stop it happening to anyone else.",
+    "secrets": "CLUE A1 and A2: Patrick was on the night shift at the Number Three claim until six on the morning of 3 November with six men whose names she knows, and asleep in the boarding house from seven until noon (vg-scenario-001 or 002); and Patrick told her on 4 November that he had seen 'Judd Ferrier and the Brill fellow' leading two blown, sweating horses into the back of Fiddler's Station's corral in the early afternoon of the 3rd, when he rode up to buy hay; he meant to tell the sheriff, and told Mordecai Pottinger in the Union Saloon instead, loudly (CLUE D4). CLUE E3: her account book, room 6, Davy Renner, 31 October to 4 November, a ball in the arm, paid in advance by Warrick Sefton, who visited on 2 November with a basket of food; she thought it was kindness, and it was the only kindness anyone showed the boy. She has not told anyone about Renner, because she nursed him and because she knows the committee would hang him; she will tell the party if they promise that he will be taken alive and tried.",
+    "attitude": "Toward the party: tired, guarded, hospitable; deeply grateful to anyone who treats Patrick as a man rather than a name on a list. Toward Ada Brockway, if she is played: a close friend. Toward Leonie Fairbairn, if she is played: her lodger, whom she likes. Toward Gabriel Tennant: her class leader and friend. Toward the committee: cold, with a fury underneath that frightens her. Toward Davy Renner: complicated; he is a boy, and he cried when she dug the ball out."
+  }
+}

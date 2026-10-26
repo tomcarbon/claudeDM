@@ -1,0 +1,499 @@
+{
+  "id": "bn-scenario-002",
+  "title": "Precinct Fourteen",
+  "subtitle": "Wednesday to Halloween: a Clerk on the Pavement, a Precinct of Ghosts, a Writ and a Drum Trunk",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Kansas City, Tuesday night 27 October to dawn on Saturday 31 October 1936",
+    "description": "The middle of the calendar and the heart of the case. It opens on Tuesday night, when Zora Lattimore comes alone to Matthias Hartsell's office, and on Wednesday morning, when a Health Department clerk is found dead under a fire escape at the old City Hall. Over three days the party walks Precinct 14 with the dead man's pastor and an honest election judge and counts the ghosts; follows the death certificates to the man who sold them and the man who bought them; works out that Jules is on the merry-go-round and finds the station and the name; gets a writ from a judge who does not like being lied to; and learns, from three directions, that the book is in a drum trunk in the basement of the musicians' union hall. Everything converges on Saturday 31 October, Halloween, at three in the morning, when Lt. Voyles means to hand Jules out of the back door of Number Two District to Harvey Gleason's men, and at five, when those men mean to be in the union hall basement. By dawn on Saturday the party should have Jules alive, the book in their hands, and a very good idea what is in it.",
+    "atmosphere": "The weather turns. Wednesday is grey and raw with a wind off the river that finds every gap in a coat; Thursday rains; Friday is clear and very cold, with the first frost on the cars. Downtown is limestone, marble lobbies, elevator men, typewriters, the new City Hall's steel frame against the sky. Eighteenth Street is wet brick, coal smoke, church bells, children in sheets and paper masks getting ready for Halloween. The union hall at four in the morning is the warmest place in the city: forty musicians, a coffee urn, a piano, smoke you could lean on, and a cutting contest that will not end. Let the precinct walk be quiet and sad and specific: the names of the dead, the people who loved them, a coal yard where forty-four voters live.",
+    "keyLocations": [
+      {
+        "name": "The Old City Hall: the Health Department and the Election Board",
+        "description": "A big Victorian building downtown, soon to be abandoned for the new tower on Twelfth Street, its corridors already half-packed into crates. On the second floor, the Health Department's Bureau of Vital Statistics: oak drawers of death certificates by year and, on every certificate, a box for race. On the fourth floor, the Board of Election Commissioners: the registration books, a counter, clerks, and Virgil Strode's office with a frosted-glass door. An iron fire escape zigzags down the building's back wall into a brick areaway where the janitors keep the ash cans.",
+        "features": [
+          "The areaway below the fire escape, roped off on Wednesday morning, with a chalk outline and a patrolman stamping his feet",
+          "The fourth-floor fire-escape landing, outside the window at the end of the Election Board corridor",
+          "The Bureau of Vital Statistics' copying room and its logbook",
+          "Strode's office: a desk with nothing on it, a photograph of a woman, a radio, and a stack of new registration cards"
+        ],
+        "encounters": [
+          "A Homicide detective, Det. Sgt. Emil Kreutz (Crooked Cop), who has already decided it was suicide",
+          "Mr. Odell Swann, night janitor, sixty, who was sent home early on Tuesday",
+          "Miss Lorna Pruden, Ogden Fry's supervisor at Vital Statistics, who liked him",
+          "Virgil Strode, who on Wednesday morning is at his desk, grey-faced, and has not been told anything"
+        ],
+        "secrets": [
+          "CLUE E1 (core, automatic for anyone who goes up to the fourth-floor landing): Fry's hat and his reading glasses are on the iron landing, the glasses folded inside the hat, and the corridor window behind the landing is latched from inside. A man who jumps does not fold his glasses; a man who goes out of a window cannot latch it behind him. Forensics DC 12 adds: scuff marks of two pairs of shoes on the rusty landing, and a long smear where a heel dragged.",
+          "CLUE E2 (core, from Mr. Swann, if found at his home on Woodland, or if Lem Castle or anyone from Eighteenth Street asks): at 10:30 on Tuesday a white detective in a grey hat with a gold tooth told him to go home early, 'the building's being looked over', and gave him a dollar. Mr. Swann went, and has not slept since. He has never been asked anything by the police and expects never to be.",
+          "CLUE C5 (core, for Research at Vital Statistics, or from Miss Pruden if asked kindly): the drawers for 1928 to 1936 have been gone through: certificates marked 'colored' were taken out and put back out of order. The copying-room log shows O. Fry working late twenty-two nights between May and September. Miss Pruden: 'He said he was reconciling the colored files for the Board. Mr. Strode sent a note. I thought it was regular.' She has the note, on Election Board stationery, signed V.S.",
+          "Strode, if the party gets to him (he will see anyone who says they are from the Monitor or have news of Jules Ransom): he is frightened, polite, and trying very hard to seem bored. Insight DC 12: he did not know Fry was going to die, and the news has shaken him worse than anything since his wife's funeral. He will say nothing useful in this scenario, but if the party is kind to him rather than threatening, he remembers it in bn-scenario-004."
+        ]
+      },
+      {
+        "name": "Precinct 14 on Foot",
+        "description": "Twelve blocks of Eighteenth Street, Woodland, Vine, Highland and the streets between: frame houses and brick flats, churches, a coal yard, a funeral home, a school, empty lots where houses burned. The party walks it with Rev. Zebulon Pettus and with Mrs. Pauline Whitaker, a Lincoln High School English teacher who has been the honest Republican judge at Precinct 14 for three elections and been threatened at every one.",
+        "features": [
+          "Hargrove's coal yard on Woodland, a fenced lot of coal heaps and a scale house, registered address of forty-four voters",
+          "Mount Gilead Baptist, registered address of nineteen voters",
+          "1712 Woodland, a weed lot with a chimney standing in it, registered address of Lavinia Ransom and six others",
+          "Mrs. Whitaker's front parlour, where she keeps a notebook of every voter she saw challenged or turned away in 1932 and 1934"
+        ],
+        "encounters": [
+          "Rev. Zebulon Pettus, the burial book under his arm",
+          "Mrs. Pauline Whitaker, 47, schoolteacher and election judge, who has a back like a ramrod",
+          "Mr. Josiah Hargrove, the coal-yard owner, who did not know he had forty-four tenants",
+          "Families: the people who loved the dead, and who are, every one of them, angry"
+        ],
+        "secrets": [
+          "CLUE C4 (core, automatic for anyone who walks the addresses with the register and Rev. Pettus's book): every voter registered at the coal yard, the church and 1712 Woodland is someone Rev. Pettus buried between 1928 and 1936. Every one was Black. The registrations are all dated between June and September 1936 and all bear the same registrar's stamp, number 7: Virgil Strode's.",
+          "Mrs. Whitaker: in 1934 she saw men she did not know vote all day at Precinct 14, 'white men, from the river, in work clothes, with slips of paper', and when she challenged them a policeman stood behind her chair. Her notebook lists thirty-eight living neighbours who were told in 1934 that they had 'already voted'. She will be judge again on Tuesday. She is afraid and she is going to do it anyway. She is the key witness of bn-scenario-003, and her notebook is clue F4's forerunner.",
+          "The families: let the party meet two or three. Mrs. Lula Sims, whose husband died in 1931 and is registered at the church; she says, 'Leonard never voted in his life, because when he tried in 1912 they asked him to recite the Constitution and laughed at him. And now he votes for them dead.' The case is about these people. Their anger is the scene.",
+          "If the party asks who drives the floater cars on election day, Mrs. Whitaker or Rev. Pettus names Amos Fairley, nineteen, 'a good boy in a bad job', who drives for Quarterman's club for five dollars a day. CLUE F5 starts here."
+        ]
+      },
+      {
+        "name": "Number Six, Number Two and Judge Stanfield's Courtroom",
+        "description": "Number Six District in Westport: newer, cleaner, white. Number Two by the river: old, damp, two blocks from the bluff and the railroad tracks, with a back door onto an alley that runs down to the river road. The Jackson County Courthouse, new and Art Deco, where Judge Orville Stanfield of the circuit court hears writs of habeas corpus. Hezekiah Wilburn, Esq., Black attorney and Republican committeeman, has an office on Vine and a reputation for writs.",
+        "features": [
+          "The booking-card files at Number Six and Number Two, each in the same pigeonhole system",
+          "Number Two's back door, its alley, and the bluff above the river where the old wagon road goes down through the trees",
+          "Judge Stanfield's courtroom: walnut, a flag, a judge who was a Republican before he was appointed and has never forgiven anyone for it"
+        ],
+        "encounters": [
+          "Hezekiah Wilburn, Esq., 55, thin, precise, a pince-nez on a ribbon, who has filed forty writs for Black prisoners held 'for investigation' and won eleven",
+          "Judge Orville Stanfield, 66, who dislikes the machine, the police, lawyers and being lied to in roughly that order",
+          "The desk sergeants at Number Six and Number Two, and the Number Two trusties"
+        ],
+        "secrets": [
+          "CLUE A5 (core, for anyone who sees the booking cards at either station: a $10 bribe, Lem Castle with a pretext, or a Grifter with a story): Number Six, Monday 11:50 p.m., 'J. Rand, colored, hold for invest., Lt. V.', released Wednesday 6 a.m.; Number Two, Wednesday 6:40 a.m., 'Julian Rance, colored, hold for invest., Lt. V.'. The same desk sergeant's handwriting, carried from station to station on a slip in the van. A writ needs the right station and the right name.",
+          "CLUE D2 (core, if the party passed Jules a pencil in bn-scenario-001, or if they find the Number Six trusty, a young man called Junius Toombs, who will carry a note out for a dollar): a cigarette paper in Jules's hand: 'Tell Lucky to wash my shirt before Thursday. Tell G I'm sorry. J.' He is telling Lucky to get rid of the book or hide it better, and he does not dare write more.",
+          "The writ: Hezekiah Wilburn will draw a writ of habeas corpus naming 'Julius Ransom, alias J. Rand, alias Julian Rance' and the station, if the party brings him A5 and pays his fee ($15, or nothing if Rev. Pettus asks). Judge Stanfield signs it on Thursday afternoon (Persuasion DC 12 to get it heard that day, automatic with Wilburn) and makes it returnable at 10 a.m. Saturday. Voyles hears of it within the hour. His answer is to release Jules at 3 a.m. on Saturday, 'for lack of evidence', out of the back door, to Gleason's men, so that at ten there is no prisoner. The writ does not save Jules by itself. It sets the hour.",
+          "Judge Stanfield, if shown A5 and told about the merry-go-round, says privately: 'If that man is not in my courtroom at ten, alive, I shall want to know why from Lieutenant Voyles under oath.' He means it, and in bn-scenario-004 that matters."
+        ]
+      },
+      {
+        "name": "The Musicians' Hall on Highland",
+        "description": "The home of Local 627, the Black musicians' union, because the white local will not admit them: a two-storey house on Highland with a bar, a hall, a battered piano, a coffee urn, and a basement where bands store trunks between dates. From four in the morning, after the clubs close, the musicians come here to play for each other: jam sessions that can last until noon and cutting contests where a tenor saxophonist plays forty choruses to see who quits first.",
+        "features": [
+          "The basement: thirty trunks with band names stencilled on them, a furnace, a single bulb on a chain",
+          "Lucky Bowden's bass-drum trunk: black fibre, brass corners, RANSOM ORCH. DRUMS stencilled on the lid, padlocked with a lock Lucky has the key to and anyone could open",
+          "The hall upstairs at four in the morning: forty musicians, smoke, coffee, the piano and three saxophones going at once",
+          "The back stairs to the alley, and the coal chute"
+        ],
+        "encounters": [
+          "Leander 'Lucky' Bowden, drummer (full sheet in the companion files)",
+          "Pete Greenlee, 15, the band boy",
+          "Mr. Eustace Bramlett, the hall's steward, seventy, who decides who goes downstairs",
+          "Three of Gleason's men (Street Tough x2, Hired Gun) on Saturday at 5 a.m., if Jules was made to talk or if they followed Pete"
+        ],
+        "secrets": [
+          "CLUE D3 (core, from Pete Greenlee, who sets up and carries for the band, if asked about the trunks): on Sunday morning Lucky's drum trunk was 'heavy as a Bible' going down the stairs, and Lucky said it was Jules's laundry.",
+          "THE BOOK (in the trunk, under the bass-drum pedal and the cymbal stands, rolled in a white band shirt with a lipstick mark on the collar): a black clothbound account book, eight inches by five, ninety-six pages ruled for accounts, the Board's stationery-store stamp inside the cover. Pages 1 to 74: the Second and Fourth Wards, precinct by precinct, in Strode's small upright hand: ghost name, false address, the registrar's card number, and a crew letter and number (B-3, C-1, F-2) for the repeater crew assigned. 1,108 names. Page 11 is Precinct 14: Lavinia Ransom is the fourth line. Pages 75 to 80: the crews: 212 first names and surnames, nearly all of them with the address Burnham Hotel, Fifth Street, and the floater drivers, with Amos Fairley's name among them. Pages 90 to 96, at the back: seven cash entries since June totalling $11,400, each 'recd. of N.V.' with the initials N.V. in a different hand and ink. Research DC 12: Varnum Bonding's treasurer is Norbert Varnum, Big Sid's nephew. That is clue H1, and the party may not grasp its weight until bn-scenario-004.",
+          "Lucky does not know what he has. When he finds out he is terrified: he was beaten by police in 1932 for being on the wrong side of Troost Avenue after dark, and he has a mother and three younger sisters on his wages. He will still not give it to anyone but Jules, Geneva or the party."
+        ]
+      },
+      {
+        "name": "The Vine Street Democratic Club and the Federal Building",
+        "description": "Horace Quarterman's ward club over the furniture store on Vine, and, downtown, the Federal Building, where Special Agent Thomas Merriwether of the Federal Bureau of Investigation has a borrowed desk on the fifth floor and no friends in the city.",
+        "features": [
+          "Quarterman's glass office, his three telephones, and the club's telephone log, kept by his secretary because the machine audits his calls",
+          "The coal-ticket window and the benches of men waiting",
+          "Merriwether's borrowed desk: a typewriter, a file on the 1934 spring election, and Fry's telephone message on a spike"
+        ],
+        "encounters": [
+          "Horace Quarterman",
+          "Miss Adeline Mercer, Quarterman's secretary for nine years, who keeps the log and her own counsel",
+          "Special Agent Thomas Merriwether, 34, from Philadelphia, earnest, out of his depth, and not as naive as he looks"
+        ],
+        "secrets": [
+          "CLUE G2 (core, if the party sees the club's telephone log: Miss Mercer will show it to Geneva or Rev. Pettus, or for a direct appeal about Jules's injuries, Persuasion DC 14; or a burglary, Heat +2): 'Sun. 25th, 4:02 a.m., H.Q. to Police HQ, Lt. Voyles, 6 min.' Quarterman made the call from his own club at four in the morning.",
+          "CLUE G4 (core, if Quarterman is confronted with what has been done to Jules: A4, Dr. Mayhew's description, or Jules himself): he breaks, quietly, in his glass office with the door shut. He gave Voyles Jules's name to save Zora, who was being leaned on in the back room of the Gold Leaf, and Voyles swore Jules would be held only until after Tuesday. 'He swore it. On his mother. He's a deacon.' He did not know about the beatings. He did not know about Fry. He will, from this moment, help the party: he can tell them which station Jules is in if they do not know (he has a man at Number Two), and on Saturday morning he can get a car and two of his own men to the river road. He will not turn on the machine. He wants the book burned, because his own precinct captains are in it, and he will say so.",
+          "CLUE E3 (core, from Merriwether, if the party approaches him honestly, or from Mrs. Velma Rountree, a telephone-exchange operator who lives on Eighteenth Street and connected the call): on Tuesday at 6:15 p.m. Ogden Fry telephoned Merriwether from the drugstore at Twelfth and Oak and asked to meet on Thursday, 'about death certificates and the Board'. The City Hall switchboard man, Mr. Riordan, routinely listens to that drugstore's line for Lt. Voyles; Mrs. Lathrop knows it and says so.",
+          "Merriwether wants the book. He will say he wants the men at the top. He means it, and he also has a superior in Washington who wants convictions before Christmas, and the easy convictions are the men closest to the polling places. If the party tells him about the book now, he asks for it now. Whether to give it is the question of bn-scenario-004; let him plant it."
+        ]
+      }
+    ]
+  },
+  "synopsis": "On Tuesday night Zora Lattimore, the Gold Leaf's coat-check girl, comes to the office alone and tells the party that detectives held her for an hour on Sunday morning and that her uncle, Horace Quarterman, told her to say nothing and he would fix it. On Wednesday morning Ogden Fry, a clerk at the Health Department's Bureau of Vital Statistics, is found dead in the areaway under the old City Hall's fire escape; Homicide calls it suicide. His hat and folded glasses on the fourth-floor landing, a latched window, a night janitor sent home by a detective with a gold tooth, and a telephone call he made to a federal agent the night before say otherwise, and the copying-room log shows Fry spent the summer copying the city's death certificates for the Black wards on a note from Virgil Strode. Walking Precinct 14 with Rev. Zebulon Pettus and Mrs. Pauline Whitaker, the honest election judge, the party counts the ghosts: a coal yard with forty-four voters, a church with nineteen, a weed lot with seven, every one of them someone the pastor buried, every registration stamped by Strode. Booking cards at Number Six and Number Two give the names Jules has been held under; Hezekiah Wilburn, Esq., draws a writ and Judge Orville Stanfield signs it, returnable at ten on Saturday; and Lt. Voyles, hearing of it, decides there will be no prisoner at ten. From the club's telephone log and from Quarterman himself the party learns who gave Jules up and why. From a note smuggled out on a cigarette paper, the band boy's memory of a heavy trunk and Geneva's memory of a rolled shirt, they learn where the book is. Everything converges on Saturday 31 October, Halloween: at three in the morning, Jules goes out of the back door of Number Two to Harvey Gleason's men on the river road, and at five those men, or others, come for Lucky's drum trunk in the basement of the musicians' union hall while forty musicians play upstairs. The scenario ends at dawn with Jules alive or dead, and the book in someone's hands.",
+  "hook": "Tuesday 27 October, a quarter to eleven at night. The office over Dandridge's is dark except for the desk lamp. Somebody comes up the stairs very lightly, stops, comes up again. It is Zora Lattimore from the Gold Leaf's coat check, in her coat with the collar up, and she has been crying and has stopped. 'I'm the one told them,' she says. 'Sunday. I'm the one said it was the band. And then Uncle Horace said hush and he'd fix it, and it's Tuesday, and nobody's fixed anything.'",
+  "cluesAvailable": [
+    "A5",
+    "C4",
+    "C5",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "F5",
+    "G1",
+    "G2",
+    "G4",
+    "H1"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "E. Ogden Fry was murdered, and Lt. Voyles did it",
+      "clues": [
+        "E1: the folded glasses and the latched window (the fourth-floor landing)",
+        "E2: Mr. Swann sent home by the man with the gold tooth (Woodland Avenue)",
+        "E3: Fry's call to Merriwether and the switchboard man who listens (the drugstore, the Federal Building)",
+        "E4: Voyles's skinned knuckles and rust on his cuff (wherever the party meets him on Wednesday)"
+      ]
+    },
+    {
+      "conclusion": "C. The ghosts are the dead of the Black wards, taken from the city's own death certificates",
+      "clues": [
+        "C4: walking the precinct with Rev. Pettus's burial book (Precinct 14)",
+        "C5: the copying-room log and Strode's note (Vital Statistics)",
+        "Registrar's stamp number 7, Strode's, on every one (the Election Board counter or Mrs. Whitaker)",
+        "C1 to C3 from bn-scenario-001"
+      ]
+    },
+    {
+      "conclusion": "A. Jules is at Number Two under the name Julian Rance, and Voyles means him to die on Saturday",
+      "clues": [
+        "A5: the booking cards (Number Six and Number Two)",
+        "Quarterman's man at Number Two (once G4 is reached)",
+        "Voyles's reaction to the writ: a release order for 3 a.m. Saturday, seen by a trusty or Lem Castle (Number Two)",
+        "Gleason's men parking a car on the river road at 2:30 a.m. (the bluff)"
+      ]
+    },
+    {
+      "conclusion": "D. The book is in Lucky Bowden's drum trunk at the union hall",
+      "clues": [
+        "D1: Geneva saw the rolled shirt (bn-scenario-001)",
+        "D2: Jules's cigarette-paper note (Number Six)",
+        "D3: Pete Greenlee and the heavy trunk (the union hall)",
+        "D4: Jules himself, once free"
+      ]
+    },
+    {
+      "conclusion": "G. Horace Quarterman gave Jules up to save Zora",
+      "clues": [
+        "G1: Zora's confession (the office, Tuesday night)",
+        "G2: the club's telephone log, 4:02 a.m. (the Vine Street Democratic Club)",
+        "G3: the numbers rumour started at his club (bn-scenario-001)",
+        "G4: Quarterman himself, confronted"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: The Fire Escape",
+      "description": "Tuesday night and Wednesday. Zora's visit (G1). Fry's body under the fire escape (E1, E2, C5) and Detective Sergeant Kreutz's suicide verdict. Strode at his desk. Agent Merriwether (E3). Lt. Voyles, met anywhere on Wednesday, with his right hand bandaged (E4). By Wednesday night the party should know that the ghost vote is built from the city's own death certificates, and that the machine kills people over it.",
+      "objectives": [
+        "Hear Zora out and decide how to protect her",
+        "Look at Ogden Fry's death with honest eyes",
+        "Follow the death certificates to Virgil Strode",
+        "Meet the federal man and decide how far to trust him"
+      ],
+      "scenes": [
+        {
+          "name": "Zora",
+          "description": "Zora's confession (G1): Strode lost his book, she said only the band had been near the rail, the detectives kept her in the back room, she telephoned her uncle, and her uncle told her to hush. She does not know her uncle gave them Jules's name; she suspects. She is terrified for Jules, for herself, and for her uncle, whom she loves. She wants the party to promise not to hurt him. The green Ford followed her here; it is parked outside.",
+          "readAloud": "She sits on the very edge of the client's chair with her handbag on her knees and both hands on the clasp, as if somebody might take it. She is very young. Under the coat she is still wearing the Gold Leaf's black dress with the white collar, and she has a nurse's-school prospectus in the bag, because you can see the corner of it, Wheatley-Provident Training School for Nurses, and she sees you see it and pushes it down. 'Uncle Horace has done everything for me,' she says. 'Everything. And he said hush. And I've hushed for three days and I can't do it any more.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 11,
+              "success": "She is telling the truth, and she believes her uncle made a deal with the police. She is trying not to say so. If you say it gently for her, she nods and cries and says 'I think he gave them Jules to get them off me.'",
+              "failure": "She tells you what happened and not what she fears. The party has G1 but not the shape of it."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "Getting Zora out of the building past the green Ford: down through the barbershop, out the back, through Mrs. Templeton's kitchen. The Ford never knows. Mr. Dandridge or Willa Templeton will keep her for the week.",
+              "failure": "The Ford's men see her leave with the party. On Wednesday Voyles knows she has talked, and Quarterman gets a telephone call he does not enjoy. Heat +1."
+            }
+          ]
+        },
+        {
+          "name": "The Areaway",
+          "description": "Wednesday, 7 a.m. Fry's body was found by the day janitor at 6:40. By the time the party arrives (any time before noon), Det. Sgt. Kreutz has called it suicide, the body has gone to the morgue and the areaway is being hosed. The fire escape is not guarded. The landing (E1) is right there. Mr. Swann (E2) is at home on Woodland. Miss Pruden at Vital Statistics, two floors down, is crying at her desk (C5). Strode is at his, on the fourth floor, not crying.",
+          "readAloud": "The areaway is a brick well at the back of the old building, ash cans and a drain and a rope across the entrance, and a patrolman with a hose is washing something dark down the drain while another stands smoking under the fire escape. The fire escape goes up the back wall in black iron zigzags, four floors, five, to the roof. A pigeon is sitting on the fourth-floor landing. Next to it, very neat on the iron grating, is something that from down here looks like a brown felt hat.",
+          "skillChecks": [
+            {
+              "skill": "Forensics",
+              "dc": 12,
+              "success": "At the landing: two sets of scuff marks in the rust, one of them big, a heel drag to the rail, and on the rail a few threads of dark grey wool. Fry was wearing brown. At the city morgue (a $20 look before the coroner, or Dr. Mayhew's professional courtesy): bruising on both upper arms in the shape of hands. He was held, and then he went over.",
+              "failure": "The hat and the glasses (E1) are enough to doubt suicide. The rest takes the coroner's report, which will say what Kreutz wants."
+            },
+            {
+              "skill": "Research",
+              "dc": 12,
+              "success": "Vital Statistics: C5 in full, with Strode's note on Board stationery. Miss Pruden adds that a federal man came asking about 'the colored files' on Monday and Ogden went white.",
+              "failure": "Miss Pruden is too upset to talk today. The copying-room log is on a hook by the door; anyone who looks gets the dates (C5) anyway."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Strode sees you. He is ashen, polite, and says Fry was 'a temporary clerk on a reconciliation project, very sad, a nervous man'. As you leave he says, too fast, 'If anybody were to come across a book of mine, there would be a substantial reward, no questions,' and then looks as if he wishes he had not.",
+              "failure": "Strode's clerk says Mr. Strode is not seeing anyone. Through the frosted glass you see his shape sitting very still."
+            }
+          ]
+        },
+        {
+          "name": "The Federal Man",
+          "description": "Special Agent Thomas Merriwether has a borrowed desk in the Federal Building and nobody in the city will return his calls. He is investigating the 1934 spring election, in which people died at polling places, and the registration rolls for 1936. He will meet the party if they say Fry's name. He gives E3, says he thinks Fry was killed, and asks what they know. If they mention a book, he wants it, badly. Play him as decent and careerist at once.",
+          "readAloud": "He is younger than you expected, thirty-four or so, in a grey suit that looks like it came on a train from somewhere with better tailors, and his desk is a borrowed desk in a borrowed office with somebody else's calendar on the wall. He stands up, shakes hands with everyone in the same order he would anywhere, which some of you notice, and sits down again and turns a pencil end over end. 'Ogden Fry called me Tuesday night,' he says. 'He was frightened and he wanted to meet Thursday. I said Thursday was fine. I've been thinking about that all morning.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "He means what he says about Fry. He also has a superior in Washington, and when he says 'convictions' he means numbers. He has not yet thought about who the easiest convictions would be. Somebody will have to make him.",
+              "failure": "He seems straightforward. He is, mostly."
+            },
+            {
+              "skill": "Deception",
+              "dc": 14,
+              "success": "You find out what he has without telling him what you have: the 1934 file, an informant in the river wards who says the Burnham Hotel will 'move two hundred men' on Tuesday, and nothing on the Second and Fourth Wards except Fry's call. He needs the party more than they need him.",
+              "failure": "He realises you are holding something back and says, mildly, that withholding evidence of a federal crime is itself a federal crime, and that he would rather be friends. Heat does not rise; his interest does."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Det. Sgt. Emil Kreutz (Crooked Cop), at the areaway and then wherever the party goes; he is Voyles's partner and the man with the gold tooth",
+        "Lt. Conrad Voyles (Bent Detective), met by appointment or by accident on Wednesday afternoon, his right hand in a fresh bandage: CLUE E4 (Forensics DC 13, or Diagnosis, or Insight DC 15 to notice the rust on his cuff and that he lies about the hand, 'caught it in a car door')"
+      ]
+    },
+    {
+      "title": "Act 2: Walking the Precinct",
+      "description": "Thursday, in the rain. The precinct walk with Rev. Pettus and Mrs. Whitaker (C4, F5). The booking cards (A5) and Jules's note (D2). Hezekiah Wilburn and Judge Stanfield's writ. Quarterman, the telephone log and the confrontation (G2, G4). That night the band plays the Gold Leaf without Jules, and Strode's men search Geneva's room. By Thursday night the party should know where Jules is, that he will be released at 3 a.m. Saturday to men who will kill him, and very probably where the book is.",
+      "objectives": [
+        "Count the ghosts in Precinct 14 and meet the people they belonged to",
+        "Find the station and the name Jules is held under",
+        "Get a writ signed, knowing what it will provoke",
+        "Confront Horace Quarterman",
+        "Work out where the book is"
+      ],
+      "scenes": [
+        {
+          "name": "Forty-Four Voters at the Coal Yard",
+          "description": "The walk. Rev. Pettus with his book, Mrs. Whitaker with her notebook and her umbrella, the party with the register. Hargrove's coal yard, the church, 1712 Woodland, three or four houses where widows and sons answer the door. C4 is automatic. Let the players meet the families (Mrs. Lula Sims and her husband Leonard, who never voted alive). Mrs. Whitaker names Amos Fairley (F5's start). At the end, Mrs. Whitaker says she will be at the table on Tuesday. 'They put a policeman behind my chair in 1934. They can put two.'",
+          "readAloud": "Hargrove's coal yard is a fenced half-acre of black heaps glistening in the rain, a scale house with a tin roof, and a mule standing patiently in harness with water running off its ears. Mr. Hargrove, a heavy man in an oilskin, reads down the register with a forefinger, his lips moving. 'Forty-four,' he says at last. 'Forty-four people live in my coal yard.' He looks at the mule. 'That's more than I pay.' Rev. Pettus has opened his leather book on the scale-house counter, out of the rain, and is turning pages very slowly, and every few names he says one aloud, quietly, as if reading it into the record: 'Esther Coleridge. I buried her in 1933. Her son is a Pullman porter. Thomas Overby, 1930, the influenza. Alma Dukes.' He stops. 'Alma Dukes was nine years old.'",
+          "skillChecks": [
+            {
+              "skill": "Research",
+              "dc": 12,
+              "success": "With the register and the burial book side by side: of the 1,412 voters in Precinct 14, at least 263 are dead people, all Black, all registered between June and September with registrar's stamp 7 (Strode's). One of them is a child, registered as twenty-two. The ghost vote is not a scattering. It is a third of the precinct.",
+              "failure": "You confirm the coal yard, the church and the lot (C4). The full count needs another afternoon or the book itself."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 11,
+              "success": "Mrs. Whitaker trusts the party with her 1934 notebook: thirty-eight living neighbours turned away as 'already voted', with times and the names of the clerks who said it. She will keep a new list on Tuesday, if someone she trusts will keep it safe at the end of the day.",
+              "failure": "Mrs. Whitaker is polite and guarded and says she will do her duty on Tuesday. She will, without the party's help, and she will be in more danger."
+            }
+          ]
+        },
+        {
+          "name": "Alias Julian Rance",
+          "description": "A5 at Number Six or Number Two; D2 from the Number Six trusty Junius Toombs. Hezekiah Wilburn's office on Vine; the writ; Judge Stanfield. Within an hour of the writ's signing, Voyles knows, and orders the release for 3 a.m. Saturday out of the back of Number Two. Lem Castle (if played) or Quarterman's man at Number Two, or the Number Two trusties, can see the release order on the sergeant's spike on Friday: 'Rance, J. Release 3 a.m. 10/31. No charge. Lt. V.' The party knows the hour.",
+          "readAloud": "Hezekiah Wilburn's office is one room over a funeral home on Vine, lined to the ceiling with law reports, and Mr. Wilburn is a thin man with a pince-nez on a black ribbon who reads the booking cards you have brought him twice, once quickly and once slowly, and then takes off the pince-nez and polishes it with great care. 'Rand,' he says. 'Rance. Ransome. They cannot even be bothered to misspell him consistently.' He puts the glasses back on. 'I shall need the station, the date and fifteen dollars, and if the Reverend asks me, I shall not need the fifteen dollars. Judge Stanfield sits until four. He dislikes the police department. He also dislikes me. We shall see which he dislikes more.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Judge Stanfield hears the writ on Thursday afternoon and signs it, returnable Saturday at 10 a.m. He adds, to the party or Wilburn, privately, the line about wanting Voyles under oath if the prisoner is not produced alive.",
+              "failure": "Judge Stanfield makes Wilburn wait until Friday morning. The writ is still returnable Saturday at ten; the party has a day less warning."
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 13,
+              "success": "On Friday, from the Number Two trusties or a Black patrolman at the station: the release order on the spike, the hour, and that a Burnham Hotel car has been asking where the river road comes out.",
+              "failure": "You learn only that 'something's going on Saturday early'. Quarterman, if the party has reached him, can tell you the hour."
+            }
+          ]
+        },
+        {
+          "name": "The Glass Office",
+          "description": "Quarterman again, with what the party now knows: Zora (G1), the telephone log (G2, from Miss Mercer), the rumour (G3), and above all what has been done to Jules (A4). G4: he breaks. This is one of the campaign's best scenes; give it time. A proud man discovering that the bargain he made was never a bargain. He becomes an uneasy ally: a car and two men for the river road, his man inside Number Two, and his word that Zora is safe. He wants the book burned. He will say: 'Every precinct captain in that book is a man I put there. Every one of them has children. You think the government's going to put Big Sid Varnum in a cell? It's going to put my people in a cell, and the newspapers are going to say colored men stole the election, and nobody's going to vote on Eighteenth Street again for twenty years.' He is not wrong about the risk. He is wrong about the answer.",
+          "readAloud": "He listens to all of it without interrupting, the ribs, the eyebrow, the rubber hose, the trusty's extra plate, and when it is over he gets up and closes the door of the glass office and draws the little blind on it, and sits down again behind his desk, and for a while he looks at the photograph of the girl in the graduation dress. 'He swore to me,' he says at last. 'Voyles. He swore on his mother he would sit Jules in a cell till Wednesday and let him out with an apology. He's a deacon. I've known him fifteen years.' His big hands are flat on the blotter. 'I gave them that boy to get them off my sister's child. I'd do it again. God help me, I would. But I didn't give them leave to do this.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Quarterman commits: his car, two of his men (Bodyguard), and his man at Number Two will open the back gate of the yard. He also tells the party that Strode will pay anything to get the book back before Monday, 'because without it he can't hand out the slips, and if he can't hand out the slips, Big Sid will want to know why'.",
+              "failure": "Quarterman gives the party the hour and the place and nothing else, and asks them to leave him alone. On Saturday morning his car is on the river road anyway, at a distance."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "You frighten him into help, and he gives it, and he never forgives you. In bn-scenario-003 and 004 he is an enemy who keeps his word.",
+              "failure": "He has been threatened by better. He shows you the door, and his men walk you down the stairs."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Thursday night: two of Gleason's men (Street Tough) searching Geneva's room on Highland while the band plays; if the party is with her when she goes home, a short fight or a chase",
+        "Det. Sgt. Kreutz (Crooked Cop) tailing the party from the courthouse (Heat 3 or more)"
+      ]
+    },
+    {
+      "title": "Act 3: Three in the Morning",
+      "description": "Friday night to dawn on Saturday 31 October, Halloween. Two places, two hours apart: the back door of Number Two District at 3 a.m., and the union hall basement at 5 a.m. The party may do them in either order, or split. If they go for the trunk first (D1 to D3 are enough to know), they have the book before Gleason's men come; if they go for Jules first, they must get to the hall before men who may have beaten its location out of him, or followed Pete. The Gold Leaf's band, Geneva singing, is at the hall's jam session from four, and forty musicians are upstairs when the shooting starts, if it starts.",
+      "objectives": [
+        "Be at the back of Number Two at 3 a.m., or on the river road, and get Jules away alive",
+        "Get to the drum trunk before Gleason's men do",
+        "Get the book, Jules and the band out without a massacre in the musicians' hall",
+        "Decide where the book sleeps tonight"
+      ],
+      "scenes": [
+        {
+          "name": "The River Road",
+          "description": "At 3 a.m. Number Two's back door opens and a patrolman pushes Jules into the alley with his coat over his arm and says 'You're free, boy, go on home.' Fifty yards down the alley, where it meets the river road, Gleason's car waits with three men (Street Tough x2 and Hired Gun, Sonny Moss among them). They mean to drive him to the bluff above the river, beat the book's location out of him, and shoot him 'trying to run'. The party can intercept in the alley (fast, loud, Heat +2 for gunfire within a block of a station), take the car on the river road (a chase, combat.json chases; Cleve Marchbanks's cab or Quarterman's sedan), or be waiting on the bluff (quiet, dark, the river below, and the party chooses the ground). Lem Castle, by the department's unwritten rule, may not lay hands on these white men except to save a life; it is to save a life. He knows what it will cost him and does it anyway, or does not; it is his choice, and a scene.",
+          "readAloud": "The alley behind Number Two runs downhill between a warehouse and a coal shed toward the river, and at the bottom, where it meets the river road, there is a car with its lights off and its engine running, and three cigarette ends glowing in it like coals in a grate. It is very cold. Frost is on the cobbles. Somewhere a long way off a freight train is crossing the river on the Hannibal Bridge, slowly, a hundred cars, and its whistle comes up the bluff like somebody calling a name. At three exactly, a door opens in the back wall of the station and a man is pushed out into the alley, and the door shuts behind him. He stands there for a moment holding his coat, looking down the hill at the car. Then he starts to walk toward it, very straight, because he has nowhere else to go.",
+          "skillChecks": [
+            {
+              "skill": "Driving",
+              "dc": 14,
+              "success": "If it comes to a chase on the river road: you box the Burnham car against the bluff wall, or run it into the produce-market loading docks, and get Jules into your car. Gleason's men are on foot and furious.",
+              "failure": "The Burnham car gets away with Jules in it, heading for the bluff road. The party has one more chance, on the bluff itself, before anyone fires."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "On the bluff, waiting in the trees by the old wagon road: the party has surprise when the car stops and the men get out with Jules. Knockout blows from surprise are on the table (combat.json brawling).",
+              "failure": "One of Gleason's men sees a match or hears a foot on frozen leaves. The fight starts with everyone ready."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "Jules is in bad shape (half his hit points, two cracked ribs, a concussion). Patched, he can walk, talk and, by Saturday night, play, badly. He says D4 at once: 'Lucky's drum trunk. At the hall. Is Lucky all right?'",
+              "failure": "He needs a bed and a doctor today, and he will not be able to play until Tuesday. He still says D4."
+            }
+          ]
+        },
+        {
+          "name": "Forty Choruses",
+          "description": "The union hall at 4 to 5 a.m.: the jam session at full heat upstairs, a cutting contest between two tenor saxophonists that has been going for fifty minutes, Geneva singing a blues between their choruses to give them a breath. Downstairs, the trunk (THE BOOK). Mr. Bramlett, the steward, lets musicians and their friends downstairs, and nobody else. At 5 a.m., if Jules was made to talk, or if Pete was followed, or simply because Kreutz has guessed, three of Gleason's men come in the back by the coal chute, or two by the front with guns under their coats. The musicians upstairs are forty people who have been beaten by the police their whole lives and know exactly what three white men with guns coming into their hall means. Do not let it become a massacre: the musicians will shout, scatter, close doors, hide the band boy, and, if the party is fighting, turn off the lights and shut the stair door on the gunmen. Lucky Bowden, if present, is a Heavy and very angry.",
+          "readAloud": "You can hear the hall from a block away: a saxophone climbing and climbing as if it had decided to leave the earth, and under it a piano and a bass walking, and forty people shouting at it to go on. Inside it is hot as July. The air is blue with smoke. Two tenor players are standing face to face in the middle of the floor, sweat running down into their collars, trading choruses, and neither will stop, and Geneva Hollins is standing on a chair at the side with her hat off, waiting to sing the next one. The basement door is behind the coffee urn. An old man with a white moustache is sitting on a stool in front of it with a walking stick across his knees, and he looks up at you, and then at the door behind you, as if he expects someone else.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 11,
+              "success": "Mr. Bramlett lets you down (automatic if Lucky, Geneva or any musician vouches). The trunk is where Pete said. The book is in Jules's band shirt under the cymbal stands.",
+              "failure": "Mr. Bramlett will not let strangers into the basement. Geneva comes down off her chair and makes him, which costs a scene."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "You hear the coal chute rattle at 4:58 and have a round of warning. You choose the ground: the basement is a maze of trunks with one bulb on a chain.",
+              "failure": "The first you know is a man at the top of the basement stairs with a pistol, and the bulb swinging."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "Facing Gleason's men in the hall in front of forty witnesses, the book already in your hands: they decide it is not worth it, back out and drive to tell Gleason. Heat +1, no bodies.",
+              "failure": "They decide it is. A short, savage fight in the basement among the trunks. Heat +2 for gunfire, +3 for a body."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "On the river road: Sonny Moss and another Burnham man (Street Tough x2) and a Hired Gun, Gleason's best, called Shaw",
+        "At the union hall at 5 a.m.: three of Gleason's men (Street Tough x2, Hired Gun), unless the party already beat them on the river road, in which case two fresh ones led by Det. Sgt. Kreutz (Crooked Cop), who does not want a shooting in front of forty witnesses and will try to talk first"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Zora Lattimore, 19",
+      "role": "Coat-check girl; Quarterman's niece; the witness who started it",
+      "description": "Small, quick, proper, frightened, braver than she knows. Wants to be a nurse.",
+      "motivation": "To undo what she said, and to keep her uncle safe from what he did."
+    },
+    {
+      "name": "Ogden Fry, 41 (dead)",
+      "role": "Clerk at the Bureau of Vital Statistics; sold Strode the death certificates",
+      "description": "Thin, bald, nervous, a Methodist, $10 a hundred and a daughter with polio. Met only as a body, a hat and a log book.",
+      "motivation": "He wanted, at the end, to tell somebody. He called the wrong telephone."
+    },
+    {
+      "name": "Rev. Zebulon Pettus, 64",
+      "role": "Pastor of Mount Gilead Baptist; the burial book",
+      "description": "A big, slow, resonant man who reads the names of the dead aloud as if into a record.",
+      "motivation": "That the dead rest and the living vote."
+    },
+    {
+      "name": "Mrs. Pauline Whitaker, 47",
+      "role": "Lincoln High School English teacher; the honest election judge at Precinct 14",
+      "description": "Small, upright, an umbrella like a sword, a notebook of everyone turned away in 1932 and 1934.",
+      "motivation": "To keep an honest count in her precinct once, and to live through it."
+    },
+    {
+      "name": "Hezekiah Wilburn, Esq., 55",
+      "role": "Attorney; Republican committeeman; the writ",
+      "description": "Thin, precise, pince-nez on a ribbon, a room of law reports over a funeral home. Forty writs, eleven won.",
+      "motivation": "To beat the machine in a courtroom, which is the only place he can, and to remind Eighteenth Street that the Republicans were here first (a view the neighbourhood is abandoning this year, and he knows it)."
+    },
+    {
+      "name": "Judge Orville Stanfield, 66",
+      "role": "Circuit judge; hears the writ",
+      "description": "White-haired, sharp, a Republican appointed before the machine took the courts, who has outlived his friends and none of his grudges.",
+      "motivation": "Not to be lied to in his own courtroom."
+    },
+    {
+      "name": "Horace Quarterman, 58",
+      "role": "Second Ward leader",
+      "description": "As in bn-scenario-001; this is the scenario where he breaks.",
+      "motivation": "Zora safe; Jules alive; the book burned; the ward's jobs kept."
+    },
+    {
+      "name": "Special Agent Thomas Merriwether, 34",
+      "role": "Federal Bureau of Investigation, on loan to the city from Philadelphia",
+      "description": "Earnest, well-tailored, out of his depth, sharper than he lets on. Shakes hands with everyone in the same order.",
+      "motivation": "A real case against real wrongdoers, and convictions his superiors can count. He has not yet seen that the two may be different people."
+    },
+    {
+      "name": "Virgil Strode, 47",
+      "role": "Deputy chief clerk, Board of Election Commissioners; the book's author",
+      "description": "Narrow, balding, a camel coat, rimless spectacles, a photograph of his late wife on his empty desk. Shaken by Fry's death.",
+      "motivation": "Get the book back by Monday, or be destroyed by the man who pays him."
+    },
+    {
+      "name": "Harvey Gleason, 44",
+      "role": "First Ward precinct captain; manager of the Burnham Hotel",
+      "description": "Not met in person this scenario unless the party goes to the Burnham. Short, wide, a bowler hat, a voice like a hinge. Use Mob Lieutenant.",
+      "motivation": "Two hundred men on the road Tuesday, and his fee."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "Willa Templeton pays the band's debt to Matthias in full when Jules comes home ($30), and Quarterman, if allied, sends an envelope of $50 'for expenses' which the party may take or refuse (refusing is remembered on Eighteenth Street and by Quarterman, differently). Gleason's men carry about $20 between them. Strode, if the party went to him, has offered a 'substantial reward' for the book: $500, and he means it.",
+    "items": [
+      "THE BOOK: Strode's black clothbound account book, 96 pages, the ghost vote of the Second and Fourth Wards and the cash at the back (Clue H1)",
+      "Jules's band shirt with the lipstick on the collar",
+      "Fry's hat and folded glasses, if the party took them from the landing (evidence; Clue E1)",
+      "A note of the booking cards and the release order (Clue A5)",
+      "Mrs. Whitaker's 1934 notebook, or a copy",
+      "Judge Stanfield's writ, returnable Saturday 10 a.m.; if Jules is produced alive, Judge Stanfield's very particular interest in Lt. Voyles"
+    ]
+  },
+  "twists": [
+    "The writ does not save Jules. It makes Voyles move. The party's legal victory on Thursday sets the hour of his attempted murder on Saturday, and the players should feel the trap close as soon as they understand it.",
+    "Horace Quarterman gave Jules up. He did it to save his niece, and he believed a promise. When he breaks, he becomes an ally who wants exactly the wrong thing: the book burned, to protect his precinct captains and his ward from the federal government and the newspapers. He is not wrong that the government and the papers will go for Eighteenth Street first. Let the players argue with him and not win outright.",
+    "The book's back pages carry the initials N.V.: Norbert Varnum, Big Sid's nephew and treasurer. That is what makes the book dangerous to the very top, and what will, in bn-scenario-004, make Big Sid send for a professional. A sharp table may see it now. Let them.",
+    "The ghosts are Black; the hands that vote them, per pages 75 to 80, are white men from the river wards. A federal case built from what is visible at the polling places will look like a crime committed by Eighteenth Street. The book is the only document that says otherwise.",
+    "Fry was killed because Voyles's man listens to a drugstore payphone. The party will be using payphones too. Let a sharp table realise it and change how they make calls."
+  ],
+  "dmTips": [
+    "This scenario has three acts and two climaxes two hours apart on the same night. Budget an hour for Act 1, ninety minutes for Act 2, and up to ninety minutes for Act 3. If the party is strong and organised, let them split; if not, let Quarterman's men or the band hold one site while the party takes the other.",
+    "Core clues are automatic: anyone who goes up to the fire-escape landing sees the hat and glasses (E1); anyone who walks the addresses with the burial book gets C4; anyone who sees a booking card gets the alias (A5); anyone who asks Pete about the trunks gets D3. Rolls add detail, save time, avoid Heat.",
+    "The precinct walk is the emotional centre of the campaign. Read some of the names aloud. Let the families be specific and angry and not grateful. Mrs. Lula Sims, Mr. Hargrove and his mule, Alma Dukes who was nine.",
+    "Lem Castle on the river road: the department's unwritten rule says he may not lay hands on a white man except to save a life. It is to save a life. Whatever he does, there will be a reckoning at Number Four on Monday; let it be a scene in bn-scenario-003, not a punishment the player did not choose.",
+    "Do not let the union hall become a massacre. The musicians have lived with police violence their whole lives and know what to do: shout, scatter, close doors, turn off lights. They are not victims waiting to happen; they are people defending their hall. Forty witnesses are also the best protection the party has.",
+    "If the party misses the 3 a.m. release, Jules is on the bluff by 3:20 and shot by 3:40; the GM may give them one last chance on the bluff if they are on their way. If Jules dies, the campaign continues and is darker: Geneva leads the band, and the book matters more. Do not undo it.",
+    "If the party has not found the book by Saturday morning, Gleason's men have it by 5:30 a.m., and bn-scenario-003 runs with the machine fully supplied: the party must catch the ghosts in the act without the script. It is harder, and it is still winnable.",
+    "Period texture: Halloween on Eighteenth Street, children in sheets and paper masks; the Thursday rain; a Landon sound truck parked on Vine to provoke people; the World Series replayed in barbershop arguments; the Hannibal Bridge freight at 3 a.m.; coffee at the hall from an urn that has not been washed since 1931.",
+    "Level-up note: the 3800 XP in this file is per character and takes each 4th-level character to 5th (6,500 XP). Award it at dawn on Saturday, whatever happened."
+  ]
+}

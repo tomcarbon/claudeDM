@@ -1,0 +1,519 @@
+{
+  "id": "cs-scenario-002",
+  "title": "The Shipyard",
+  "subtitle": "Sunday and Lundi Gras: Sixty-One Envelopes, Two Pay Windows, a Sea Serpent in the Mold Loft",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "New Orleans, Sunday 3 and Lundi Gras, Monday 4 March 1946",
+    "description": "The second and third days. Sunday belongs to the Seventh Ward: the hall of the Equity Benevolent Association on North Roman Street, where Theo Dorsainville's laid-off welders meet after the noon meal; the Crescent Statesman's office and morgue on North Claiborne Avenue; and Anatole Pichon's plaster shop on Annette Street. Lundi Gras belongs to the yard: Ste. Claire Marine Ways on Jourdan Avenue, where the Navy's auditor walks the ways at 10 a.m. with Commander Pruett and Lucien Ste. Claire, the pay windows and the pay office, and the mold loft, where the eighteen floats of the Krewe of Oneiros are being finished and will be drawn out by mule teams at 4 p.m.; and, after dark, the Navy cost office on the third floor of the U.S. Custom House on Canal Street. Lundi Gras night ends with fire on North Roman Street.",
+    "atmosphere": "Sunday: church bells somewhere else, red beans on every stove, a brass band rehearsing three streets over, men in their good suits on the hall steps, children chasing each other in Carnival masks made of paper plates. The hall smells of floor wax and coffee and cigars. Monday: a shipyard nearly asleep, staging rusting on empty ways, the smell of red lead and river mud, gulls on the crane; and in the mold loft a cathedral of a shed full of plaster dust, wet paste, gold leaf and enormous papier-mâché gods and sea monsters, with Creole plasterers on ladders and a white designer shouting. At night the Custom House is marble corridors and a single lit office. The tone tightens: the party learns what the money was, and the people who stole it learn the party is looking.",
+    "keyLocations": [
+      {
+        "name": "The Equity Benevolent Association Hall, North Roman Street",
+        "description": "A two-storey frame hall of 1889 in the Seventh Ward, built by the association's founders (Theo Dorsainville's grandfather among them) to bury their dead, nurse their sick and meet as citizens when the city would not let them meet anywhere else. Downstairs, a meeting room with folding chairs, a piano and a portrait gallery of past presidents; upstairs, the office, with a safe that does not lock and a filing cabinet that does. Theo Dorsainville is its recording secretary. Sixty-one laid-off welders and their families meet here on Sundays.",
+        "features": [
+          "Theo's cigar boxes in the office cabinet: three years of pay envelopes for sixty-one welders, a box per man, every envelope stamped HELPER .78 in purple ink",
+          "A blackboard with a column of figures in Theo's hand: what each welder is owed, to the penny",
+          "A voter registration chart on the wall: forty-three names, and thirty more pencilled in",
+          "The front steps, where the men sit, and across the street a parked Ford truck from Sunday noon (Gravier's watchers)"
+        ],
+        "encounters": [
+          "Theo Dorsainville and about forty welders and family members, Sunday from 1 p.m.",
+          "Mrs. Leontine Gaspard, welder, who does not like strangers",
+          "Gravier's watchers in the Ford across the street, Sunday afternoon (two Street Toughs, who leave if confronted)",
+          "Lundi Gras 10 p.m.: Gravier's arson party (see Act 3)"
+        ],
+        "secrets": [
+          "CLUE D1 (core, automatic once Theo shows them): the envelopes. Sixty-one welders, three years, every one HELPER .78, each with the man's yard number and hours. Follow the Money or Investigation DC 10: these men worked fifty-hour weeks at seventy-eight cents and were never paid an hour of overtime at a welder's rate.",
+          "CLUE D5, Theo's half (core, automatic if Theo trusts the party): in 1944 a clerk left a pay sheet on the colored window's counter and Theo copied the list of 'colored labor gang No. 9', a hundred and forty names. He knew every Black worker on the yard by sight and name, and not one of those hundred and forty ever worked there. Some of the names he knew from elsewhere: men from the hiring hall on Poland Avenue, men who went overseas, a man who died.",
+          "What Marcel said here on Monday 25 February (Theo tells it once he trusts the party): that he had 'the other half', the Navy copies, which showed the same welders by name billed at a dollar-twenty; that he would bring them on Friday; and that first he would meet 'a Navy commander who can make them listen'. Theo told him not to trust an officer he had not met. That is a burden he carries."
+        ]
+      },
+      {
+        "name": "The Crescent Statesman, North Claiborne Avenue",
+        "description": "A weekly Black newspaper in a narrow brick building with the press in the back and the morgue, a room of cabinets and bound volumes, upstairs. Its publisher, Mrs. Celestine Barthé, has kept it alive since 1921 through a depression, a war and the advertisers' boycotts that follow every story the white city dislikes. The Statesman printed the name of every Black serviceman from Louisiana killed in the war, with a photograph when the family had one.",
+        "features": [
+          "Bound volumes, 1941 to 1946, and the casualty files, one card per man",
+          "Octave Mercier's desk, with his sixty-one names and his drafts",
+          "A telephone, which Mrs. Barthé suspects the telephone company listens to, and a back door onto an alley"
+        ],
+        "encounters": [
+          "Mrs. Celestine Barthé, 63, publisher, Sunday after church and Monday",
+          "Octave Mercier, if he is played"
+        ],
+        "secrets": [
+          "CLUE D5, the Statesman's half (core, automatic with Theo's list in hand, or with Octave's The Morgue): six of the names on gang No. 9 are in the casualty and service files. Private Alphonse Sylvain of Desire Street, 'killed when his transport was torpedoed in the Mediterranean, November 1943', with a photograph of a grinning young man in a garrison cap; five others served overseas from 1942 or 1943 to 1945. Their names drew pay at the Ste. Claire colored window every Friday while they were in Italy and France and at the bottom of the sea.",
+          "Mrs. Barthé's price for running the story: proof she can print without being sued out of existence, and the party's word that the welders, not the Navy's refund, will be the headline. She has buried two stories about the yards since 1943 because the proof was a Black man's word against a white man's. 'In this city that is not proof. It is a lynching waiting for an excuse.'",
+          "Alphonse Sylvain's father, Joseph Sylvain, was found in the Industrial Canal near the Ste. Claire yard in March 1944, three weeks after he went to the yard office to ask why his dead son's name was on its pay list. The coroner ruled it a drowning. He is one of Dr. Toussaint's forty-one."
+        ]
+      },
+      {
+        "name": "Ste. Claire Marine Ways: the Ways, the Pay Office and the Pay Windows",
+        "description": "The yard by day: a gatehouse and turnstile on Jourdan Avenue, a two-storey office building of yellow brick with the pay office on the ground floor and two pay windows set into its end wall, three building ways with rusting staging and one half-finished lighter nobody will finish, a fitting-out pier with a crane, a burned-out welding shed, and the long timber mold loft by the water. Two hundred men still work here, down from two thousand. On Lundi Gras morning the Navy's auditor walks it with the yard's president and the yard's consultant.",
+        "features": [
+          "The two pay windows: the left painted WHITE in black letters, the right painted COLORED, with a rail in the yard to keep two lines apart; behind them, one pay office and one vault",
+          "The pay office: Marcel's empty desk, a clerk named Miss Clothilde Dupré who is terrified, the paymaster (on leave until Thursday 'for his nerves') and the vault, whose Navy-copy shelf is empty",
+          "The yard's own internal pay books, in the vault, 1942 to 1945: the books the yard paid from, not the copies it billed from",
+          "The president's office upstairs: Lucien Ste. Claire's desk, a Carnival king's scepter from 1937 in a case, and a filing cabinet labelled CONSULTANTS",
+          "The river gate at the end of the fitting-out pier: a padlock rusted solid"
+        ],
+        "encounters": [
+          "Lt. Whitcombe, Commander Pruett and Lucien Ste. Claire on the walk-through, Monday 10 a.m. to noon",
+          "Hippolyte 'Polo' Landry, the yard messenger, all day",
+          "Clovis Pinac at the gatehouse from 6 p.m.; Gravier's men as 'krewe watchmen' at the mold loft all day"
+        ],
+        "secrets": [
+          "CLUE D2 (core, automatic for anyone who compares the yard's internal pay books with the Navy's vouchers, or for Follow the Money): the internal books list the Black welders by name as Helper, $0.78, and show no gang No. 9 at all; the Navy vouchers (Whitcombe's file) bill the same names, by yard number, as Welder First Class, $1.20, and bill a hundred and forty men on gang No. 9. Yvonne's thesis notes give a third, public version: the yard's State wage filings report 412 'colored helpers' and no Black welders. If Mrs. Hingle's photostat reprints were ordered, they show Marcel's Navy copies with every name.",
+          "CLUE D3 (core, automatic if Polo Landry trusts the person asking; he trusts Theo and Octave at once, others after a conversation in which they listen): 'Every Friday since 1943, I carried the colored window's trays. A hundred and forty envelopes for Gang Nine went to one man, a white man, a Gravier man, Mouton or Haydel, and I never saw one man of Gang Nine in that line, not one, not in three years. I asked Mr. Marcel once. He said, Polo, don't ask.' He has been promised a pension and a house by Mr. Honoré. Telling this may cost him both.",
+          "CLUE D4, the river gate (core, automatic for anyone who walks to the end of the fitting-out pier): Pruett's explanation of the turnstile gap is that gang No. 9 worked nights and came in by the river gate. The river gate's padlock has rusted solid; a Mechanics check DC 10 says it has not been opened in five years.",
+          "CLUE E2 (core, automatic for anyone who opens the CONSULTANTS file): T. W. Pruett, Government Relations Consultant, $800 per month from 1 September 1945, approved L. Ste. C., and a note of a 'special fee, $25,000, on Navy settlement', unsigned.",
+          "CLUE F3 (core, automatic on reading the gatehouse night-pass log): Wednesday 27 February, FONTENOT IN 22:50 MOLD LOFT, OUT 23:20.",
+          "Lucien Ste. Claire, met on the walk-through, is charming, frightened and drinking at 11 a.m. Insight DC 12: he looks at Pruett the way a man looks at someone he owes money."
+        ]
+      },
+      {
+        "name": "The Mold Loft and the Floats of the Krewe of Oneiros",
+        "description": "A shed three hundred feet long with a timber floor marked out in chalk with the full-size lines of ships nobody will build now. Since November Lucien has lent it to the Krewe of Oneiros, and it holds the krewe's eighteen floats for 1946, theme A Voyage to the Bottom of Dreams: Neptune's court, a drowned city, a kraken, a mermaid queen's grotto, and float fourteen, The Leviathan, a sea serpent forty feet long coiled over a wagon bed, with three hundred papier-mâché scales in silver and green leaf, each the size of a dinner plate. The floats are secret until the parade and the krewe posts watchmen. Anatole Pichon and his plasterers sculpt the figures from designs by Telesphore Arnaud, the krewe's designer for thirty-four years.",
+        "features": [
+          "Float fourteen, The Leviathan: the tail section was attached on Thursday; the scales are glued and tacked over a lath frame; each could hide a flat packet",
+          "Ladders, paste buckets, gold leaf books, horsehair, plaster of Paris, a stove where the plasterers warm their coffee",
+          "Mule teams arriving at 3:30 p.m.; at 4 the floats are drawn out one by one, across the St. Claude bridge, to the krewe's den on Tchoupitoulas Street, where they stand under guard until Tuesday evening",
+          "The Krewe of Oneiros's watchmen: four of Gravier's men in krewe armbands, and Pinac"
+        ],
+        "encounters": [
+          "Anatole Pichon, 62, master plasterer, and six of his men",
+          "Telesphore Arnaud, 68, float designer, who shouts at everyone",
+          "Four krewe watchmen (Dockside Goons with armbands)",
+          "Commander Pruett, who comes in at noon after the walk-through to 'see how his float is getting on'"
+        ],
+        "secrets": [
+          "CLUE F2 (core, automatic if Pichon is asked about Wednesday night, and he will tell Zélie or Theo at once and anyone else they vouch for): 'Wednesday, eleven at night, the pay clerk, Mr. Fontenot, came in here with a flat package in oilcloth and walked down to the end where the sea monsters were. I thought he was after my gold leaf; people steal it. He stood by the serpent a while and then he went away. Afterwards I counted my books of leaf and none was gone, so I thought no more of it.' Which float? 'Down that end. The serpent, the kraken, the grotto. I didn't watch him close.' (Pichon cannot say exactly where. The notebook, Clue F1, can.)",
+          "Bonus, Sunday at Pichon's shop on Annette Street (no roll, for Zélie or anyone she brings): Pichon has done this work for thirty years for men who would not shake his hand, and he says so: 'They pay me for the faces of their gods and they would not let me sit in their ballroom. That serpent is the best thing I ever made. It will be on St. Charles Avenue on Tuesday and everybody will clap and nobody will know my name.' He is proud and furious and wants the party to know both.",
+          "CLUE E4, the krewe's half (core, automatic from Yvonne or the krewe's float list, which Arnaud has on a clipboard): on Monday at noon Commander Pruett asked Arnaud to move him from float three, Neptune's court, to float fourteen, The Leviathan, 'for the view'. Arnaud complained and did it. (Pruett has worked out that the papers are in one of the sea monsters; he does not yet know which, or where.)"
+        ]
+      },
+      {
+        "name": "The 5th District Station House and Property Room",
+        "description": "Captain Lebeau's brick station house ten minutes from the yard: a front desk with a switchboard sergeant, a squad room, the captain's office, and in the basement a caged property room run by an elderly civilian clerk, Mr. Dagobert Lirette, who closed it at noon Saturday for the Carnival weekend and reopens it at 8 a.m. on Lundi Gras.",
+        "features": [
+          "The property room's ledger: 'FONTENOT, L. (accid. drowning) 3/1: wallet, keys, yard pass, pocket notebook (wet), wristwatch strap'",
+          "The switchboard sergeant's log book on the front desk, one line per call",
+          "Det. Lamarque's desk in the squad room, with the unsigned accident report in the drawer"
+        ],
+        "encounters": [
+          "Mr. Dagobert Lirette, property clerk, Monday from 8 a.m.",
+          "Captain Lebeau, in and out all day with Carnival business",
+          "At 6 p.m., a plainclothesman sent by Lebeau to collect the notebook"
+        ],
+        "secrets": [
+          "CLUE F1 (core, automatic for anyone who reads the notebook): Marcel's pocket notebook, dried stiff and wavy. Most of it is figures. The last two entries, in pencil that survived the water: 'Cmdr — Thurs 9 — fitting-out pier' and 'Wed — Lev. 3rd scale fr. tail, port'. Det. Lamarque can sign it out (no roll, Heat +1, and Lebeau knows by noon); anyone else needs Lirette's goodwill ($25, a favor, or Persuasion DC 15). At 6 p.m. Lebeau's man takes it to Esplanade Avenue, and by 9 Pruett has read it.",
+          "A bonus route to Clue H1 (for cs-scenario-003 and 004): the switchboard log for Friday 1 March, 6:10 a.m., 'Capt. at home, call from Esplanade 4-1902' (the Ste. Claire house's number), before the body was identified at 8:30."
+        ]
+      },
+      {
+        "name": "The Navy Cost Office, Third Floor, U.S. Custom House",
+        "description": "The granite Custom House at the river end of Canal Street, a federal building of the 1840s with marble halls and a great hall of columns. The Navy Cost Inspection Service has two borrowed rooms on the third floor: Lt. Whitcombe's office and an outer office where Chief Yeoman Albert Sallis sits at a typewriter with a message pad. The building has a white waiting bench and a colored waiting bench in its corridors, by federal habit rather than federal law.",
+        "features": [
+          "Whitcombe's files on contracts NObs-1147, NObs-2290 and NObs-3318: three years of vouchers, each certified by the resident inspector",
+          "His turnstile analysis, in red and black ink on graph paper",
+          "Sallis's message pad and his drawer, which locks",
+          "The draft final settlement: $38,000, to be signed at noon on Ash Wednesday"
+        ],
+        "encounters": [
+          "Lt. Pierce Whitcombe, day and late into the night",
+          "Chief Yeoman Albert Sallis, by day; he goes home at 5",
+          "A federal building guard at the Canal Street door"
+        ],
+        "secrets": [
+          "CLUE D4 (core, automatic once Whitcombe trusts the party, or with Research DC 13 on his files): the yard billed about a hundred and forty more men per shift than passed its turnstiles, every week from September 1943 to August 1945. Pruett explained it as a night gang at the river gate.",
+          "CLUE E1 (core, automatic on reading any voucher): every padded voucher is certified 'T. W. Pruett, Comdr. USNR, Resident Inspector', in the same green ink.",
+          "CLUE E3 (core, automatic if anyone reads Sallis's message pad, which needs Whitcombe's permission, Sleight of Hand DC 13 by day, or the drawer opened after hours, Investigation or lock picks DC 12): 'Tues 2/26, 3:40 p.m. Man from St. C. yard, would not give name, wants whoever is honest, will call back Wed', and under it in pencil 'T.P. advised 4:05'. Whitcombe never saw it, and when he does he says 'I see' in a voice nobody has heard from him before.",
+          "Sallis has been taking $50 a month from Pruett since 1943 to pass him the office's traffic. Leaned on (Intimidation DC 13, or Whitcombe ordering him), he confesses that much and nothing else, and telephones Pruett as soon as the party leaves."
+        ]
+      }
+    ]
+  },
+  "synopsis": "On Sunday the case moves to the Seventh Ward, where the party must earn the trust of Theo Dorsainville and sixty-one laid-off Black welders who have kept every pay envelope for three years, each stamped HELPER .78; who know that 'colored labor gang No. 9' never existed; and who have been let down by every white man who promised to help. With the Statesman's casualty files they learn that the ghost gang drew pay in the names of men who were overseas and dead. On Lundi Gras the party gets inside Ste. Claire Marine Ways, by the Navy's walk-through, Yvonne Ste. Claire's key, a rigger's knowledge or a welder's: two pay windows, the yard's own books against the Navy's vouchers, an old messenger who carried the trays, a river gate rusted shut, and the name on every voucher, Commander Thaddeus Pruett, the Navy's own inspector, now on the yard's payroll. In the mold loft over the pay vault, the floats of the Krewe of Oneiros are being finished, and the master plasterer saw Marcel carry an oilcloth packet to the sea monsters on Wednesday night; Marcel's notebook, in the police property room until Captain Lebeau takes it at six, says exactly where. At 4 p.m. the floats are drawn away under guard. That night, at the Custom House, the Navy's message pad shows who Marcel called and who was told. And at ten, Gravier's men come to burn the hall on North Roman Street and the envelopes in it.",
+  "hook": "Sunday 3 March 1946, half past one in the afternoon, North Roman Street. The noon meal is over and the men are on the hall steps in their good suits, smoking, and the children are in paper-plate masks chasing each other round the lamppost. Three streets over a brass band is rehearsing for Tuesday and getting the same eight bars wrong. The Equity Benevolent Association hall is a tall, plain, white frame building with a carved name over the door and a date, 1889, and when you come down the banquette the talk on the steps stops, all at once, the way a room goes quiet. A big grey-templed man in reading glasses stands up from the top step, takes the glasses off, and looks at you for a long moment. 'You will be the people asking about Mr. Fontenot,' he says. 'He sat in that hall on Monday and told me he would come back on Friday. Come in, then. But understand, before you sit down, that the last four white men who came through that door wanted something from us, and every one of them got it, and we got nothing.'",
+  "cluesAvailable": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "F1",
+    "F2",
+    "F3"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "D. The Navy contracts were padded two ways: Black welders billed at $1.20 and paid 78 cents, and a ghost gang that never existed",
+      "clues": [
+        "D1: sixty-one welders' envelopes, HELPER .78 (the Equity hall)",
+        "D2: the yard's own books against the Navy vouchers; Yvonne's State wage filings (the pay office, the Custom House)",
+        "D3: Polo Landry: a hundred and forty envelopes a week to a Gravier man, and no gang in the line (the pay windows)",
+        "D4: the turnstile gap and the rusted river gate (the Custom House, the fitting-out pier)",
+        "D5: dead and overseas men on gang No. 9 (the Statesman morgue and Theo's list)"
+      ]
+    },
+    {
+      "conclusion": "E. Commander Thaddeus Pruett, the Navy's resident inspector, certified it and is in it",
+      "clues": [
+        "E1: his certification in green ink on every padded voucher (the Custom House)",
+        "E2: on the yard's payroll at $800 a month and a $25,000 'special fee on Navy settlement' (the president's office)",
+        "E3: Marcel's call to the Navy, 'T.P. advised' (the yeoman's message pad)",
+        "E4: he moved himself onto float fourteen, the Leviathan, on Monday; everyone at the yard calls him 'the Commander' (the mold loft, Yvonne)",
+        "B2 from cs-scenario-001: CMDR PRUETT on foot, in at 18:30 on the night of the murder (the gate log)"
+      ]
+    },
+    {
+      "conclusion": "F. Marcel hid the originals in the Leviathan, float fourteen of the Krewe of Oneiros",
+      "clues": [
+        "F1: Marcel's notebook: 'Wed — Lev. 3rd scale fr. tail, port' (the 5th District property room, before 6 p.m. Monday)",
+        "F2: Anatole Pichon saw him at the sea monsters with an oilcloth packet (the mold loft, Annette Street)",
+        "F3: the night-pass log: FONTENOT IN 22:50 MOLD LOFT (the gatehouse)",
+        "F4 from cs-scenario-001: paste and gold paint on his sleeve (the Fontenot house)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Sunday in the Seventh Ward",
+      "description": "Sunday afternoon and evening. The party must win the trust of people who have every reason to withhold it. The core of the act is a negotiation at the Equity hall: Theo will show the envelopes (D1) and his gang No. 9 list (D5) to people who tell him honestly what they will do with them and who will be in the room when they are used. He does not want to be thanked and he does not want to be rescued. He wants to know: 'When this is over, who gets paid?' The Statesman (D5) and Pichon's shop (F2) are short scenes. Yvonne Ste. Claire may find the party on Sunday evening, having tracked them through Vidrine's appointment book: she is frightened her father is a murderer, and she has a key to the yard.",
+      "objectives": [
+        "Earn Theo Dorsainville's trust and see the envelopes",
+        "Learn that gang No. 9 never existed, and whose names it used",
+        "Learn what Marcel told Theo on Monday 25 February",
+        "Learn from Anatole Pichon that Marcel went to the floats",
+        "Meet Yvonne Ste. Claire, and decide whether to trust her"
+      ],
+      "scenes": [
+        {
+          "name": "The Hall on North Roman Street",
+          "description": "The welders' meeting. Theo, at the front, with forty men and women and their children on folding chairs. He asks the party to say who they are, who is paying them, and what they want. If they lie, Read the Room tells him (and Leontine Gaspard, a welder of thirty-one with burn-scarred forearms, says it aloud). If someone took Vidrine's money, Theo knows by the end of the afternoon. If they tell the truth and ask what the welders want before asking what they have, he opens the office. Mrs. Gaspard asks the hardest question in the scene: 'If you find those papers, who are you going to give them to?' Let the players answer; the room will hold them to it.",
+          "readAloud": "The hall is bigger inside than out: a long room with a pressed-tin ceiling, a piano, a flag, and along one wall the framed photographs of every president of the Equity Benevolent Association since 1889, grave men in high collars. Forty people on folding chairs turn to look at you: men with welders' burn scars on their hands and forearms, three women in work trousers, wives in church hats, a dozen children who have been told to be quiet and are not. On a blackboard at the front someone has written a column of sixty-one names and, beside each, a figure in dollars and cents. The total at the bottom is underlined twice: $187,412.60. 'That is what we are owed,' the big man says. 'Not what we are asking. What we are owed. Sit down, and tell me what you are.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Theo opens the office and the cigar boxes (D1), and, when the room has cleared, tells you about Marcel's visit and the commander, and shows you his 1944 copy of the gang No. 9 list (D5). He joins the party. (Advantage if Octave vouches for you; automatic success if the party has asked what the welders want before asking for anything, and meant it.)",
+              "failure": "Theo shows you one envelope, his own, and tells you to come back when you know what you will do with the rest. The core clues are still here: Leontine Gaspard, unimpressed, shows you hers and tells you about gang No. 9 on the steps, because she wants it known. Theo's trust comes later, after you have done something that costs you."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Theo is not only angry. He is grieving and guilty: he thinks he should have stopped Marcel from going to meet the commander.",
+              "failure": "A hard, proud man who does not trust you."
+            },
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "The Ford truck across the street has had two men in it since you arrived, and one of them is writing down the plate of your car.",
+              "failure": "You notice the Ford only when you leave, and it follows you to Esplanade Avenue before turning off."
+            }
+          ]
+        },
+        {
+          "name": "The Casualty Files",
+          "description": "The Statesman, Sunday evening or Monday morning. Mrs. Barthé lets the party into the morgue if Octave or Theo brings them. With Theo's list, the casualty cards give D5 automatically: Private Alphonse Sylvain, torpedoed 1943, and five others overseas. Mrs. Barthé tells them, flatly, what happened to Alphonse's father in 1944, and what she wants (see the location's secrets). This is where the party should feel the weight of the ghost gang: it was not a clerical trick, it was a theft in dead men's names, and it may have killed a man before it killed Marcel.",
+          "readAloud": "The morgue is a room under the roof with a skylight painted over for the blackout and never scraped, and the light comes through it brown. Mrs. Barthé, a stout woman in a black dress with a gold watch pinned to it, pulls a long drawer and walks her fingers through the cards without looking, and stops. She lays one on the table. A photograph pasted to it: a young man of nineteen in a garrison cap, grinning as if someone had just told him a joke. PVT. ALPHONSE SYLVAIN, DESIRE ST., LOST AT SEA WHEN HIS TRANSPORT WAS TORPEDOED, MEDITERRANEAN, NOVEMBER 1943. 'He was paid by Ste. Claire Marine Ways,' Mrs. Barthé says, 'every Friday, for two years after he drowned. Somebody stood in the colored line and collected his wages. I should like to know who.'",
+          "skillChecks": [
+            {
+              "skill": "Research",
+              "dc": 10,
+              "success": "Core clue D5 is automatic with the list; the check adds: the five others are all men who were registered at Gravier's hiring hall on Poland Avenue before they enlisted. Gravier supplied the names.",
+              "failure": "You find the six men. The hiring-hall link waits for someone who knows the waterfront (Wade, Theo, or a Dockworker)."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Mrs. Barthé agrees to hold the front page of Thursday's Statesman for the story, if you bring her proof she can print: papers, not word of mouth.",
+              "failure": "She says she will believe in a front page when she sees the papers. 'I have buried two of these already.'"
+            }
+          ]
+        },
+        {
+          "name": "The Queen Comes Downtown",
+          "description": "Sunday evening, wherever the party is. Yvonne Ste. Claire, twenty, in a grey Newcomb suit, finds them: at the agency, at the Statesman's door, or at the Café Isabeau where Solange sings. She has come alone in her father's second car, which a white girl from Esplanade Avenue should not be driving in the Seventh Ward at night, and she knows it. She tells them what she overheard on Saturday (Clue H3) but believes it means her father did it and her grandfather is protecting him. She has a key to the yard office and her thesis notes (part of D2). She wants to help and she wants to be told her father is innocent. The Seventh Ward characters should be polite and unimpressed; Solange should be icily amused; Vincent Lamarque has known her since she was six. Let her be useful and let her be naive, and let both be true.",
+          "readAloud": "She is younger than you expected, and very pale, in a grey suit with ink on her second finger, and she is gripping her handbag the way people do when there is something heavy in it. 'My name is Yvonne Ste. Claire,' she says, as if confessing. 'My grandfather owns the yard. On Tuesday night I am to be Queen of Carnival of the Krewe of Oneiros, and I am going to wave a scepter at the whole city from a float on St. Charles Avenue.' She takes a breath. 'On Saturday I heard my father say on the telephone that he never told anyone to touch him. And then I heard my grandfather tell a police captain that his son is a fool and not a murderer.' Her voice shakes, and she makes it stop. 'I would like you to find out which of them is lying. I have a key.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 11,
+              "success": "She is telling the whole truth as she understands it, and she has misunderstood it: the two calls do not mean what she thinks. Her father sounded frightened; her grandfather sounded certain. It is possible each of them thinks the other did it.",
+              "failure": "A frightened rich girl who thinks her father is a murderer."
+            },
+            {
+              "skill": "Society",
+              "dc": 10,
+              "success": "She tells you how the krewe works: the captain is secret, the riders are masked, nine to a float, and her father has been 'very busy with the krewe' since 1943 in a way that cost a great deal of money the family did not seem to have.",
+              "failure": "She talks about the ball, and it is all you can do to steer her back."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Gravier's watchers in the Ford truck (two Street Toughs; they leave rather than fight, and report back)",
+        "Theo Dorsainville, Leontine Gaspard and the welders (no combat; the party is in their hall)"
+      ]
+    },
+    {
+      "title": "Act 2: Lundi Gras at the Yard",
+      "description": "Monday, 8 a.m. to 4 p.m. The day the floats leave the yard. The party can enter Ste. Claire Marine Ways in several ways: with Lt. Whitcombe on the Navy walk-through at 10 (if he is persuaded at the Custom House at 8:30, or if Lamarque or Yvonne vouches for them); with Yvonne's key to the office building; with Wade Robichaux or Theo through the workers' turnstile (Hiring Hall: 'I'm here about the rigging job'); or over the fence. Inside are the pay windows and Polo Landry (D3), the pay office and the internal books (D2), the CONSULTANTS file (E2), the river gate (D4), the gatehouse log (F3), and the mold loft (F2, E4). Meanwhile, at the 5th District, Marcel's notebook (F1) is in the property room from 8 a.m., when the property clerk reopens after the Carnival weekend, until 6 p.m., when Lebeau's man takes it: Det. Lamarque can sign it out (Heat +1, and Lebeau hears by noon); anyone else needs a bribe ($25 to the clerk) or a favor. At noon Pruett comes to the mold loft and moves himself onto float fourteen (E4). At 3:30 the mules arrive; at 4 the floats go.",
+      "objectives": [
+        "Compare the yard's books with the Navy's",
+        "Find the man who carried the pay trays",
+        "Meet Commander Pruett, and learn what he is",
+        "Get Marcel's notebook out of the property room before 6 p.m.",
+        "Find out which float, and where on it, before the floats go"
+      ],
+      "scenes": [
+        {
+          "name": "The Navy Walks the Yard",
+          "description": "10 a.m. to noon. Lt. Whitcombe, Commander Pruett and Lucien Ste. Claire walk the ways, the pier and the pay office. Whitcombe asks about the turnstile gap; Pruett explains the night gang and the river gate; Lucien agrees too quickly. The party, if present, can watch Pruett manage both men: charming, patient, a big hand on Whitcombe's shoulder, a look at Lucien that shuts him up. At the end of the pier, the river gate's padlock is rusted solid (D4). Pruett notices the party noticing and introduces himself warmly. This is the party's first good look at the killer, and he should be likeable. Lucien, drinking from a flask at 11, should be pitiable.",
+          "readAloud": "They come down the fitting-out pier three abreast: a round-faced young Navy officer in a pressed uniform with a briefcase under his arm, a handsome tired man in a camel overcoat with a Carnival pin in his lapel who keeps touching his breast pocket, and between them, a head taller than either, a big, easy, iron-haired man of fifty-odd in a navy-blue serge suit with a heavy gold Navy ring on his right hand, who is doing all the talking. He has a pleasant, gravelly Gulf Coast voice, and he laughs at something the young officer says, and puts a hand on his shoulder, and steers him gently past the crane. 'And that,' he says, 'is the river gate, Pierce, where the night gangs came in. Nineteen forty-three, you never saw anything like it. Every hour God sent.' He turns, and sees you, and smiles as if you were exactly who he was hoping to meet. 'Thaddeus Pruett,' he says. 'Commander, retired. Folks here call me the Commander. What can I do for you?'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Pruett is entirely at ease, and that is what is wrong with him: a man with nothing to hide would be a little bored by a Navy walk-through, and he is enjoying it. He is watching Lucien the whole time, and Lucien is afraid of him.",
+              "failure": "A genial old Navy man, proud of his war work, helping a young officer. You like him."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 10,
+              "success": "The river gate's padlock has rusted into one solid lump; the hasp is rusted to the post. Nobody has opened this gate since before the war (D4).",
+              "failure": "It looks old and locked; you would have to get closer."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "Pruett's navy-blue serge suit is the same cloth as the fibre under Marcel's thumbnail, if anyone saw it in the morgue. He is right-handed and taller than Marcel by four inches.",
+              "failure": "A good blue suit, a Navy ring, a firm handshake."
+            }
+          ]
+        },
+        {
+          "name": "Two Pay Windows",
+          "description": "Any time Monday in the office building. The two windows, the rail, the pay office and Miss Clothilde Dupré, the terrified clerk who has been told to tell nobody anything. Polo Landry, the yard's Black messenger since 1919, is sweeping the yard in front of the colored window, as he has every morning for twenty-seven years. He gives D3 to Theo or Octave at once, to others if they listen and do not hurry him. With Yvonne's key or a distracted Miss Dupré (Deception DC 12), the vault yields the internal pay books (D2). Upstairs, the CONSULTANTS file (E2). The scene should make the color line concrete and physical: the paint on the wall, the rail, the man who has carried the trays for one window for twenty-seven years.",
+          "readAloud": "The pay windows are two arched openings in the end wall of the office building, side by side, with brass grilles and wooden counters worn into hollows by twenty years of elbows. Over the left one, in black letters on white paint, WHITE. Over the right, COLORED. A pipe rail runs out from the wall between them across the yard for thirty feet, so that two lines of men could stand an arm's length apart on payday and never mix. An old Black man in a clean grey work coat is sweeping the yard in front of the right-hand window with long, slow strokes. He looks up as you come, and goes on sweeping. 'Nobody's paid on Monday,' he says.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Polo Landry knows something and is deciding whether you are worth his pension. Ask him about Mr. Marcel, not about the yard, and let him talk.",
+              "failure": "He tells you that Mr. Marcel was a good man and goes back to sweeping. (He tells Theo or Octave everything without a roll.)"
+            },
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "The internal books are in the vault, 1942 to 1945, in green cloth bindings: every Black welder by name and yard number as Helper, $0.78, and no gang No. 9 anywhere (D2, with Whitcombe's vouchers). Follow the Money sees it in ten minutes.",
+              "failure": "You find the books but need an hour with them, or someone who can read a pay ledger, to be sure."
+            },
+            {
+              "skill": "Deception",
+              "dc": 12,
+              "success": "Miss Dupré believes you are from the Navy or the insurance and lets you into the vault while she 'fetches the paymaster's key', and then does not come back for twenty minutes, on purpose.",
+              "failure": "Miss Dupré bursts into tears and runs upstairs to Mr. Lucien. You have ten minutes before he comes down."
+            }
+          ]
+        },
+        {
+          "name": "The Mold Loft",
+          "description": "Monday, until the floats leave at 4. Eighteen floats, Pichon's plasterers on ladders, Arnaud shouting, four krewe watchmen in armbands. Pichon tells his story (F2) to Zélie or Theo, or anyone vouched for. At noon Pruett arrives and has himself moved to float fourteen (E4); Arnaud complains to anyone who will listen. If the party has the notebook (F1) by now and can get to the Leviathan's tail unwatched (a distraction, a bribe to the watchmen of $10 each, Pichon's help, or a fight that raises Heat by 2), they can find the packet under the third scale from the tail on the port side: Investigation DC 10, or no roll with the notebook's directions. If they do, cs-scenario-003 becomes a night of keeping it, not finding it, and Pruett learns by evening that it is gone. If they do not, the floats leave at 4 and the packet goes with them.",
+          "readAloud": "It is like walking into the belly of a whale that has swallowed a dream. The shed is three hundred feet long and full of light from high windows, and under the light stand eighteen great wagons crowded with gods and monsters taller than houses: a bearded sea king on a throne of shells, a drowned city of pale towers, a kraken with arms like tree trunks, a grotto of pink coral with a mermaid queen. Men on ladders are laying gold leaf onto the coral with soft brushes, and the air is white with plaster dust and smells of flour paste and turpentine. At the far end, coiled three times over its wagon bed, rises a serpent forty feet long, green and silver, every one of its scales the size of a dinner plate, its painted eye as big as a cartwheel. An old man in a plaster-white apron is standing on a ladder against its neck, touching up the eye, and talking to it in Creole French as if it were his child.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You reach the Leviathan's tail without the watchmen seeing you. With the notebook, you find the packet (see the scene description). Without it, you have time to check about twenty scales before someone shouts.",
+              "failure": "A watchman sees you on the wagon and shouts for Pinac; Heat +1, and you are walked out of the yard by four men in armbands. (Pruett hears of it within the hour.)"
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Pichon agrees to help: his men can make a distraction (a ladder dropped, a bucket of paste on Arnaud's shoes) long enough for one person to search, and he can tell you which scales were glued fresh this week. (Automatic for Zélie, his daughter.)",
+              "failure": "Pichon tells you what he saw and says it is not his business who stole what from whom, and goes back to his serpent."
+            },
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "Near the serpent's tail a scale on the port side sits a quarter-inch proud of its neighbours, as if something flat were under it. You will need to come back for it.",
+              "failure": "Three hundred scales, all the same."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Four krewe watchmen (Dockside Goons with armbands) in the mold loft, Monday",
+        "Clovis Pinac (Night Watchman) and Bijou (Guard Dog), if the party comes over the fence",
+        "Commander Pruett, Lt. Whitcombe and Lucien Ste. Claire on the walk-through (no combat)"
+      ]
+    },
+    {
+      "title": "Act 3: Lundi Gras Night",
+      "description": "Monday evening and night. Three things happen whether the party is there or not. At 6 p.m. Lebeau's man takes Marcel's notebook from the property room and gives it to Lucien, who shows it to Pruett: from now on, Pruett knows exactly where the packet is (unless the party has it). At the Custom House, Whitcombe works late, and the yeoman's message pad (E3) is in a locked drawer. At the Municipal Auditorium, the Queen's court rehearses for Tuesday night, and Yvonne can confirm Pruett's move to float fourteen (E4) and get the party invitations to the ball. And at 10 p.m. Emile Gravier's men come to North Roman Street with bottles of kerosene to burn the Equity hall and the envelopes in it.",
+      "objectives": [
+        "Show Whitcombe what the party has, and read the message pad",
+        "Get into the Oneiros ball for Tuesday night",
+        "Defend the Equity hall and the envelopes"
+      ],
+      "scenes": [
+        {
+          "name": "The Cost Office After Hours",
+          "description": "The Custom House, 7 to 9 p.m. Whitcombe is alone in his office with the draft settlement and a cold supper. If the party brings him the envelopes, the books and the river gate, he goes very quiet and then very fast: he shows them the vouchers (E1) and the turnstile analysis (D4), and when someone thinks to ask about the anonymous call Marcel made on Tuesday, he takes them to Sallis's drawer (E3). He reads 'T.P. advised' and sits down. He says he cannot refuse to sign the settlement without the originals: the envelopes and a Black messenger's word will be called 'hearsay from interested parties' by a Navy board in Washington, and he is right that they will, and he is ashamed of it, and the party should be angry about it. He asks the party to find the originals by noon Wednesday. He is now a companion. If the party has Black characters, the guard at the door stops them on the colored bench and Whitcombe has to come down: let him see it, and let it be the first time he sees it.",
+          "readAloud": "The Custom House at night is a granite tomb full of echoes. Your footsteps go up the marble stairs ahead of you and come back. On the third floor one door has light under it and a card on it: U.S. NAVY, COST INSPECTION SERVICE. Inside, a pink young man in shirtsleeves and spectacles is sitting at a desk under a green lamp with a document in front of him and a sandwich he has forgotten, and when you show him what you have brought, he reads every page twice, and then he takes off his spectacles and polishes them for a long time. 'I see,' he says. And then, in a different voice, 'I see.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Whitcombe opens Sallis's drawer himself (E3) and gives you a copy of the turnstile analysis and the list of padded vouchers. He agrees not to tell Pruett anything, and asks you, quietly, whether you think the Commander is dangerous.",
+              "failure": "Whitcombe is shaken but by the book: he will not open another man's drawer without cause. Give him one more piece (the CONSULTANTS file, Polo's account), or open it yourself later (Investigation DC 12, Heat +1)."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Whitcombe already suspected Pruett, a little, and did not let himself think it. He remembers now that on Wednesday Pruett asked him whether anyone from the yard had 'been in touch with complaints'.",
+              "failure": "Whitcombe is shocked and frightened and no help with anything but paper tonight."
+            }
+          ]
+        },
+        {
+          "name": "The Queen's Rehearsal",
+          "description": "The Municipal Auditorium, 8 p.m. The Queen of Oneiros and her maids rehearse their entrance under the eye of the ball committee. Yvonne can get three invitations for Tuesday's ball for white party members (Doors Open and Family Name: no roll) and can take Black party members in only as staff, waiters or band, which she offers awkwardly and which they may refuse, and she does not understand at first why it is an insult; somebody should tell her. She confirms E4: at the krewe supper tonight Pruett was seated with the riders of float fourteen. A ball committee man asks who the party are; Solange's cover or Vincent's family name gets them past. Optional: Lucien comes to watch his daughter rehearse, drunk, and says something to Yvonne in French that she translates later (Clue H4 in another form): 'Your grandfather has always cleaned up after me, chérie. Even this.'",
+          "readAloud": "The auditorium is a great dim cavern with a dance floor the size of a city block, gilded boxes going up in tiers into the dark, and at one end a stage hung with sea-green curtains and a throne of silver shells. A dozen girls in day dresses are walking across the floor in a line, practicing a curtsey, while an old man with a cane counts out loud and an orchestra plays the same sixteen bars again. The tallest girl stops when she sees you, and comes over, and for a moment she is just Yvonne, a student with ink on her finger, and then the old man raps his cane on the floor and she is a queen again. 'Tomorrow night,' she says under her breath. 'Float fourteen. He moved himself onto it today. Papa says he asked particularly.'",
+          "skillChecks": [
+            {
+              "skill": "Society",
+              "dc": 12,
+              "success": "From the ball committee's seating chart: the riders of float fourteen will sit in the krewe's box on the left after the parade, and the captain's room is behind the stage, where the masked krewe men unmask. (Useful for cs-scenario-003.)",
+              "failure": "You get the invitations and nothing else; the committee man watches you leave."
+            }
+          ]
+        },
+        {
+          "name": "Fire on North Roman Street",
+          "description": "10 p.m. Five of Gravier's men (Dutch Haydel, if he is still free, three Dockside Goons and a Street Tough who has done this before) come in two cars to burn the Equity hall: two Molotov cocktails through the front windows, kerosene on the back stairs. Theo, Leontine Gaspard and a dozen welders are inside or nearby, because the welders have been guarding the hall in shifts since Marcel died, and they do not wait to be rescued: they fight the fire with buckets and a hose from the cistern while the party and Theo deal with the men. If the party is not there, the welders save the hall but lose the downstairs, and two men are hurt; the envelopes, upstairs, are saved, singed. A captured arsonist (Intimidation DC 12) says Gravier sent them, that 'the boss' (Lucien) does not know, and that 'the Commander' told Gravier the envelopes had to go before Wednesday. The police, called, take forty minutes to come and then arrest two welders for disturbing the peace. Play it as what it is: an attack on a Black institution by white men who expected nobody to stop them, and a community that has defended itself before.",
+          "readAloud": "The first bottle comes through the front window of the hall in a burst of glass and a soft, terrible whump, and suddenly there is fire running across the floor under the photographs of the presidents. Somebody inside shouts in French and somebody else is already moving: men coming out of the dark with buckets, a woman in work trousers dragging a hose from the cistern, children being pulled back from the banquette. In the street two cars with their engines running and men beside them, and one of them is lighting a rag in the neck of another bottle and laughing.",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 12,
+              "success": "You reach the man with the second bottle before he throws it. (Otherwise it hits the hall's side wall: DEX save DC 12 for anyone within 10 ft, 2d6 fire on a failure, half on a success.)",
+              "failure": "The second bottle hits the side wall and the fire is in two places."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 12,
+              "success": "A caught arsonist gives you Gravier, the Commander's order and the Wednesday deadline. He also says, frightened, that Gravier 'didn't kill nobody' and is scared of the Commander himself.",
+              "failure": "He says nothing until the police come, and then they take him away and release him in an hour."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Gravier's arson party, North Roman Street, 10 p.m.: Dutch Haydel (Street Tough, 15 hp) or a Street Tough, three Dockside Goons, two Molotov cocktails and a can of kerosene",
+        "Theo Dorsainville, Leontine Gaspard and the welders fight on the party's side; they are not under the GM's protection, they are under their own",
+        "Two Beat Cops arriving at 10:40 who arrest the wrong men unless a white character with standing (Lamarque's badge, Yvonne's name) stops them"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Theophile 'Theo' Dorsainville, 38",
+      "role": "Leaderman of the laid-off Black welders; recording secretary of the Equity Benevolent Association",
+      "description": "Big, grey-templed, burn-scarred hands, reading glasses, slow exact speech. A first-class welder paid as a helper for three years, an Army staff sergeant, a voter registration organizer. Companion (see his sheet).",
+      "motivation": "The $187,412.60 his people are owed and a written promise they will be rated as welders."
+    },
+    {
+      "name": "Mrs. Leontine Gaspard, 31",
+      "role": "Welder; one of three women in Theo's gang",
+      "description": "Small, fierce, burn-scarred forearms, work trousers, a widow with two children. Says what Theo is too careful to say.",
+      "motivation": "Her wages, and that nobody in that hall is ever again promised something by a white man for nothing."
+    },
+    {
+      "name": "Mrs. Celestine Barthé, 63",
+      "role": "Publisher of the Crescent Statesman",
+      "description": "Stout, gold watch pinned to a black dress, has kept a Black newspaper alive for twenty-five years through boycotts and threats. Dry, formidable, patient.",
+      "motivation": "A story she can print without being destroyed, with the welders as the headline."
+    },
+    {
+      "name": "Anatole Pichon, 62",
+      "role": "Master plasterer; sculptor of the Oneiros floats; Zélie's father",
+      "description": "Small, white with plaster dust, strong hands, speaks Creole French by preference, proud of his craft and furious about who gets credit for it.",
+      "motivation": "His work, his name on it, and his daughter's safety."
+    },
+    {
+      "name": "Hippolyte 'Polo' Landry, 70",
+      "role": "Messenger at Ste. Claire Marine Ways since 1919",
+      "description": "Tall, thin, clean grey work coat, a broom, a long memory. Carried the colored window's pay trays every Friday for twenty-seven years. Promised a pension and a house by Honoré.",
+      "motivation": "To be left in peace, and his pension; and, if someone listens, to have it known that he saw."
+    },
+    {
+      "name": "Commander Thaddeus Pruett, USNR (ret.), 54",
+      "role": "The yard's consultant; formerly the Navy's resident inspector; the killer",
+      "description": "Big, easy, iron-haired, a pleasant gravelly Gulf Coast voice, a navy-blue serge suit, a heavy gold Navy ring on his right hand. A marine surveyor from Mobile in civil life. Likeable and patient; never in a hurry. Use Federal Agent stats with a sap (Blackjack) and a .45 automatic.",
+      "motivation": "Burn the originals, sell the photostats, see the settlement signed and leave town on Wednesday."
+    },
+    {
+      "name": "Lucien Ste. Claire, 47",
+      "role": "President of Ste. Claire Marine Ways; secret captain of the Krewe of Oneiros",
+      "description": "Handsome, tired, a camel coat and a Carnival pin, a flask by eleven. Charming, frightened, kind to his daughter. Use Mob Boss stats if it ever comes to a fight, which it should not: he fights through other men.",
+      "motivation": "Get the papers back, close the sale, keep his krewe, stay out of prison."
+    },
+    {
+      "name": "Lt. Pierce Whitcombe, 27",
+      "role": "Navy Cost Inspection Service; the auditor with the noon deadline",
+      "description": "Round-faced, pink, pressed, honest and green. Companion (see his sheet).",
+      "motivation": "An honest settlement, signed or refused by noon on Ash Wednesday."
+    },
+    {
+      "name": "Chief Yeoman Albert Sallis, 45",
+      "role": "Clerk in the Navy cost office; Pruett's informant",
+      "description": "Grey, neat, nervous, smells of hair tonic. Has taken $50 a month from Pruett since 1943.",
+      "motivation": "His pension, and not being found out."
+    },
+    {
+      "name": "Emile Gravier, 52",
+      "role": "Stevedore contractor; supplier of the ghost gang",
+      "description": "Broad, bald, shirtsleeves and braces, an office over his wharf at the foot of Poland Avenue. Lends money to half the Ninth Ward. Seen in this scenario only through his men, or in his office if the party goes there. Use Waterfront Boss.",
+      "motivation": "His third of the ghost money, and nobody looking at his hiring hall."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "No one pays the party in this scenario. Theo will not take money from them and will not offer any; Whitcombe has no budget for informants. Gravier's arsonists carry about $30 between them. If the party took Vidrine's $500 in cs-scenario-001, Vidrine telephones on Monday evening to ask, politely, when he may expect the records.",
+    "items": [
+      "Theo's gang No. 9 list (1944 copy) and, if he trusts the party, a selection of welders' envelopes (Clues D1, D5)",
+      "A note of the six dead and overseas names from the Statesman's files (Clue D5)",
+      "Copies of the turnstile analysis and the padded vouchers (Clues D4, E1)",
+      "Sallis's message pad page (Clue E3), if taken",
+      "Marcel's notebook (Clue F1), if signed out before 6 p.m.",
+      "The CONSULTANTS file entry for Pruett (Clue E2)",
+      "Invitations to the Oneiros ball for Tuesday night, from Yvonne",
+      "Possibly the oilcloth packet itself, if the party got to the Leviathan before 4 p.m."
+    ]
+  },
+  "twists": [
+    "The Navy's own inspector is the man behind the ghost gang, and he is also the 'honest commander' Marcel went to meet. The party should meet him as a genial helper before they read his name on every voucher.",
+    "The welders' envelopes are not enough on their own, and the reason is the color line itself: a Navy board will call sixty-one Black welders' envelopes and a Black messenger's word 'interested hearsay'. Whitcombe knows it and is ashamed. The originals are needed because the city will not believe the people who were robbed.",
+    "Gang No. 9 was paid in the names of dead men, including a nineteen-year-old soldier who drowned at sea in 1943, whose father went to the yard to ask about it and was found in the canal. Marcel was not the first.",
+    "The floats of the Krewe of Oneiros were built in the shipyard, over the pay vault, partly with the ghost gang's money, by Creole craftsmen the krewe would not admit to its ball. The proof is now inside one of them.",
+    "Pruett moved himself onto float fourteen at noon. By 6 p.m., when Lebeau delivers Marcel's notebook, he knows exactly where the packet is. On Tuesday night the killer will be riding, masked, on top of the evidence."
+  ],
+  "dmTips": [
+    "This scenario has two halves: a negotiation in the Seventh Ward and an infiltration at the yard. Budget about an hour and a half for Act 1, an hour and a half for Act 2 and an hour for Act 3. The only expected fight is the fire on Monday night.",
+    "Play the Equity hall scene straight and give it time. The welders are the people the whole fraud was done to, and they are smarter about it than the party. Theo's question, 'When this is over, who gets paid?', is the campaign's real question; make sure it is asked aloud, and remember the answer the party gives.",
+    "Never let the welders be rescued. In the fire, they fight it themselves; the party helps. If the party does nothing, the welders still save the envelopes. The party's presence changes how many men are hurt and who is arrested.",
+    "The notebook (F1) and the floats leaving at 4 p.m. make Lundi Gras a race. If the party is fast and clever and gets the packet before the floats go, let them have it: cs-scenario-003 becomes the night Pruett and Gravier try to take it back, on the parade route and at the ball, and the GM should move Pruett's attempt onto the party. If they miss it, they know exactly where it will be on Tuesday night, and so does the killer.",
+    "Let Pruett be likeable. He is courteous, funny, generous with his time, kind to Whitcombe. The players should enjoy him until they read his name on the vouchers, and then feel foolish for enjoying him.",
+    "Yvonne is a useful, naive, brave young woman, and the Seventh Ward characters owe her nothing. Let her be corrected when she is wrong (the staff invitations), and let her learn. Do not let her take over scenes that belong to Theo or Octave.",
+    "Whitcombe needs the originals, not because the welders' evidence is weak, but because the system that will judge it discounts them. Say so through him, plainly.",
+    "Heat: the likeliest rises are the property room (+1 for Lamarque), the mold loft (+1 or +2), Sallis's drawer (+1) and the fire (+3 if anyone is killed, which the GM should avoid unless the party chooses it)."
+  ]
+}

@@ -61,8 +61,8 @@ describe('categories on disk', () => {
     for (const c of campaigns) expect(c.listing?.badge, c.id).toBe(c.id === 'demo' ? 'Free' : 'Premium');
   });
 
-  it('ships the four Sci-Fi campaigns', () => {
-    expect(scifiCampaigns.map(c => c.id).sort()).toEqual(['coldwar', 'lastferry', 'outbreak', 'perihelion']);
+  it('ships the five Sci-Fi campaigns', () => {
+    expect(scifiCampaigns.map(c => c.id).sort()).toEqual(['coldwar', 'lastferry', 'outbreak', 'perihelion', 'saltmoon']);
   });
 });
 

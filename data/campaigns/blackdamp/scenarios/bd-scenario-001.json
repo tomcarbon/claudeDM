@@ -1,0 +1,490 @@
+{
+  "id": "bd-scenario-001",
+  "title": "Payday",
+  "subtitle": "Friday 8 to Monday 11 April 1927: The Mixed Train, Settlement Day, a Meeting on the Hill, and Knocking at the Seal",
+  "levelRange": "3-4",
+  "estimatedSessions": "3",
+  "setting": {
+    "name": "Ottway, the first weekend in April 1927",
+    "description": "The party come up the Kettle Run branch on Friday afternoon's mixed train, three days before the company's settlement day falls due and two weeks after Ironwood guard Lester Gaither vanished from the tipple. The camp is tight as a drum: two union men are in the Gale jail for Gaither's murder, there is no body, the Ironwood men are walking in pairs and the miners are going home in groups, and nobody will say why. The weekend runs Friday arrival, Saturday payday, Sunday night's secret meeting of Local 5512 at Mount Moriah, Dewey Spradlin taken on the creek path at about eleven that night, the camp searching all night with lamps, and at ten past three on Monday morning the fire boss hearing knocking behind the 7 North seal.",
+    "atmosphere": "Rain on Friday, a clear cold Saturday with the sun in the hollow from ten till three and frost on the ridge at dawn, a grey Sunday and a black Sunday night with no moon showing through the cloud. The coke ovens glow along the creek all night. On Saturday the store porch is full of men in clean shirts and women with baskets, children on the steps with a penny for the fountain, and everyone very careful who they are seen talking to. Underground it is fifty-four degrees, summer and winter, and silent but for dripping water, the creak of timbers taking weight, and the far-off whine of the motor.",
+    "keyLocations": [
+      {
+        "name": "The Depot and the Company Store",
+        "description": "The branch line ends at a water tank, a coal siding and a board depot painted company grey. Across the road is the store: two storeys of brick with a long porch, a post office window, a soda fountain, a pharmacy counter, dry goods, hardware, blasting powder and carbide in the back, a meat cooler, furniture on the upper floor, and coffins, discreetly, in a room behind the furniture. Upstairs at the front is the scrip office, where a clerk issues brass and paper scrip against a man's earnings to date; at the back, behind a locked door, the ledger room. Store manager Vinton Plumley has a glass-walled office at the head of the stairs from which he can see the whole floor.",
+        "features": [
+          "Prices: a pound of coffee is 48 cents in scrip at the store and 35 cents cash in Gale; a sack of flour $1.40 against $1.05; carbide, powder and fuse only here. Scrip is worth 80 cents on the dollar outside the camp, if you can find someone to take it",
+          "The pay window on Saturday: each man gets an envelope with a statement of tonnage, rate, deductions and balance; a man whose deductions are more than his earnings gets a bobtail, an envelope with a line through it, and there are a great many bobtails this April",
+          "The bulletin board on the porch: a printed notice that every employee will be asked to sign the company's new contract by Monday 18 April; a reward of $200 for information on the whereabouts of L. Gaither; a ball game Sunday afternoon",
+          "The fountain, where Plumley's soda jerk knows everything and sells it for a dime"
+        ],
+        "encounters": [
+          "Two Ironwood men with pump shotguns at the depot, checking everyone off the train against a list (Night Watchman stats); they are polite, thorough and very interested in cameras",
+          "Plumley on the porch, welcoming Dr. Ketterly with a handshake and Miss Lowry with a smile and the words 'the modern mining town, yes, we had your letter'"
+        ],
+        "secrets": [
+          "The company knew Frankie Lowry was coming from the moment she wrote, and Kincaid has had her paper's file from a Pittsburgh agency since Wednesday: Company Suspicion starts at 1 for the whole party if she is with them when they arrive, and 0 if she comes alone",
+          "Plumley keeps the 1919 ledgers in the ledger room and knows exactly what is in them (CLUE E2 is in bd-scenario-002; here, only that he flinches when anyone says '7 North' at his counter)"
+        ]
+      },
+      {
+        "name": "The Lamp House and the Drift Mouth",
+        "description": "At the head of the hollow, where Kettle Run comes down out of the laurel, the track runs into the black mouth of Ottway No. 3, timbered and whitewashed for the first fifty feet. Beside it is the lamp house, a long shed with a counter, a charging rack of new Edison electric cap lamps humming on the wall in rows, and a board of brass hooks where every man hangs one of his two numbered brass checks before he goes in and takes it down when he comes out: the board is how the company knows who is underground. On the end wall, beside the new board, is a paler rectangle of whitewash where an older board hung for sixteen years, with two rows of seven nail holes in it and a small scorched patch below. Beyond the lamp house are the guards' shanty, the powder magazine dug into the bank, and the tipple.",
+        "features": [
+          "The pale rectangle with its fourteen nail holes and the scorch mark below it, where something burned in one place for a very long time (CLUE C2, part)",
+          "The new lamp man, Harley Mabe, twenty-two, who was the Ironwood guards' errand boy until March, knows nothing about lamps and is frightened of the place at night",
+          "The man-trip, a string of low cars behind an electric motor, which takes the day shift in at six and the night shift at six, and the fire boss's own small car at three in the morning",
+          "The drift mouth at night, lit by two bulbs on the timbers; beyond the whitewash, the dark goes straight back into the mountain"
+        ],
+        "encounters": [
+          "Saturday night, after the night shift has gone in: two or three grey men standing just inside the drift mouth with unlit lamps on their caps, gone when anyone brings a light (Shades, adversaries.json; fear check DC 10 for the sign; they do nothing, and are there because Imre Halász walked past with their checks in a bucket three weeks ago and they have been looking for them since)",
+          "Captain Arliss Kincaid, who comes to the lamp house at every shift change and counts the board himself"
+        ],
+        "secrets": [
+          "CLUE C2 (part, automatic for anyone who asks Harley Mabe about the mark on the wall): 'That was the old board. Old Hungarian fella had a lamp burning under it, them old flame lamps, been burning since the war, they said. Captain said no open flame in here now with the new lamps. I put it out myself. First of March.' He laughs, and then he doesn't",
+          "The full order book entry is in the guards' shanty (bd-scenario-002)"
+        ]
+      },
+      {
+        "name": "The Tipple",
+        "description": "A tall black tower of timber and corrugated iron over the railroad siding, where the loaded cars come out of the mine, are weighed, tipped and screened, and the coal runs down the chutes into the hoppers by size. At night it is silent and the guards walk it in pairs, or are supposed to: a catwalk round the screens, ladders, the weigh house with its great beam scale, and the coal bins at the far end, where the electric light from the drift mouth does not reach.",
+        "features": [
+          "The weigh house, where the company's weighman weighs every car; the union's first demand is a check-weighman of its own, because the miners believe, correctly, that they are shorted a hundredweight a car",
+          "The coal bins: a dark gap of thirty feet between the last bulb and the first bin, where Garland Hensley stood to smoke on 25 March",
+          "A smudge on the boards near the bins where a flashlight lay for three hours with its beam on, pointing at the drift mouth"
+        ],
+        "encounters": [
+          "Two Ironwood men on the night walk, frightened and refusing to split up, who will shoot at anything that moves in the dark (Night Watchman, with the Frightened Townsman's Jumpy trait)"
+        ],
+        "secrets": [
+          "CLUE B2 (Garland Hensley, if he tells it, or anyone who asks the night guards who walked with Gaither): Garland and Lester split up at the bins for ten minutes. Lester's flashlight was on the boards, switched on, pointing at the drift mouth. Garland heard nothing at all, which is the worst part",
+          "CLUE B1 (part): Gaither was alone and out of the light. With Dewey Spradlin's disappearance on Sunday, the pattern is there to see"
+        ]
+      },
+      {
+        "name": "Number Two Bottom and Lettie Burchett's Kitchen",
+        "description": "The row nearest the creek and the drift mouth: forty grey houses on posts with their coal houses and privies behind, gardens dug and planted with onions and early peas, washing lines, dogs, a pump at each end. The creek path runs behind the row and across a footbridge to the Hill. Lettie Burchett's house is the last on the row, a hundred yards from the drift mouth, with a kitchen that is the warmest room in Ottway and a coffee pot that is never empty, a quilt frame on the ceiling hoist, a Bible on the shelf, and a rag rug on the floor that she has started to move aside at night to listen.",
+        "features": [
+          "Lettie's kitchen floor: at night, under the boards, very faint, as if a long way down, knocking: four, a pause, two. It has come every night since the first of March",
+          "Dovie Hensley's house, three doors up, where Garland's mother sits on the porch and will not look at his badge",
+          "Vesta and Dewey Spradlin's house at the head of the row by the footbridge, newly papered inside with catalogue pages, a wedding photograph on the wall"
+        ],
+        "encounters": [
+          "The knocking under the floor, after midnight (fear check DC 10 for the sign; Lettie has stopped failing it)",
+          "A procession of women with sick children and bad backs who come to Lettie's door when they hear a doctor is in the camp, to ask her whether he is any good"
+        ],
+        "secrets": [
+          "CLUE A2 (core, for anyone who sits in Lettie's kitchen after midnight): the knocking is real, it is four and two, and Lettie or Morris knows the signal: men alive. On Monday morning it changes: knock back on the floor with a poker, four and two, and it answers, faint, from very far down",
+          "CLUE E4 (Lettie, when she trusts the party, Union Trust 2 or a Persuasion check DC 15 after someone has heard the floor): Wash Burchett's deathbed words, 'We heard them, Lettie. Fourteen of them, knocking on the rail. Bledsoe said it was the mountain. We kept on laying block. Then they capped the air shaft on Shumate's, and the knocking went on six more days, and then it quit.' And the unspent $50 scrip slip in her Bible"
+        ]
+      },
+      {
+        "name": "Mount Moriah Church on the Hill",
+        "description": "A white frame church with a square bell tower at the head of the Black miners' row across the creek, built by its own members in 1905 on a company lot, with a new roof the company paid for in 1919, a pot-bellied stove, oak pews and a pump organ. The Colored School is a one-room building beside it. On Sunday nights after the evening service, the Reverend Augustus Greer leaves the door unlocked and goes home, and forty or fifty men from every row in the camp, Black and white and foreign, come in by twos and threes in the dark to the meeting of Local 5512, which does not exist.",
+        "features": [
+          "Pickets at the footbridge and on the Hill path, young union men with lanterns, in pairs, who whistle when anyone comes",
+          "The union's business: the check-weighman, the store prices, the new contract, the men in jail, and the question nobody has put to a vote yet: whether to demand that the company open 7 North and bring out the dead",
+          "A memorial window on the east side, plain glass, with fourteen names lettered on a board beneath it (CLUE D4 is in the register, bd-scenario-002, but the board is visible to anyone who comes in)"
+        ],
+        "encounters": [
+          "Della Marchetti running the meeting from the back while a miner named Rad Hensley chairs it from the front; when Garland Hensley's brother sees his badge, there will be a scene",
+          "An Ironwood man in the laurel above the church, alone, writing down faces by the light of the door when it opens"
+        ],
+        "secrets": [
+          "Dewey Spradlin, 24, a loader from the head of the hollow, gets up at half past ten, says he promised Vesta, and goes out alone down the Hill path to the footbridge and the creek path. If anyone offers to walk with him, he laughs and says it's three hundred yards. If anyone goes with him, the Dark does not take him; it takes somebody else that night, the Ironwood man alone in the laurel above the church, Elbert Toler, and the nine-day clock runs for him instead (Rule 2; the GM should never punish the party for being kind)",
+          "The meeting is the camp's first sight of the whole party together, and the Local decides, that night, whether it trusts them: Union Trust +1 for anyone who comes and keeps their mouth shut, +1 more for anyone who stands up and says something true"
+        ]
+      },
+      {
+        "name": "The Creek Path",
+        "description": "Three hundred yards of cinder path between the Hill footbridge and the head of Number Two Bottom, along the bank of Kettle Run behind the coal houses. There is no light on it at all: the coke ovens are on the far side of the tipple, and the houses turn their backs on it. On a cloudy night you can hear the creek and nothing else, and see nothing.",
+        "features": [
+          "Dewey Spradlin's carbide lamp, found at first light on Monday by the search, lying on the path halfway along, the flame out, the water valve still open and the carbide in it still damp: it was put out, it did not burn out",
+          "Vesta Spradlin's doorway at the end of the path, where she and her neighbour Dovie Hensley stood with a lamp at eleven waiting for him"
+        ],
+        "encounters": [
+          "The Hungry Dark (adversaries.json), on Sunday night at about eleven, passing down the creek path toward the drift mouth with Dewey: a darkness that a lantern does not light, moving along the path faster than a man walks, and the creek's sound gone for a moment as it passes. Fear check DC 15 for anyone who sees it; anyone alone on the path with no light is taken (Rule 2). It does not fight; it takes, and goes",
+          "The search: half the camp out all night with lanterns, in groups, calling his name, and a frightened man in one group who fires at a sound in the laurel (Frightened Townsman; Jumpy)"
+        ],
+        "secrets": [
+          "CLUE B3 (Vesta Spradlin or Dovie Hensley, asked what they saw): at eleven they stood together in Vesta's doorway with a lamp and something came down the path out of the dark, 'like the dark had got thicker and was walking', and it went past them and on, and the lamp went blue and small and came back. Dewey's voice, out in the dark beyond the light, said 'Vesta?' once, puzzled. Then nothing",
+          "CLUE B1 (core, automatic once anyone puts Gaither and Dewey side by side, or asks Della): both men were alone, out of any light, at night, and both lights were found switched off or put out but unharmed. Neither was dragged; there are no tracks"
+        ]
+      },
+      {
+        "name": "The 7 North Seal",
+        "description": "A mile into the mountain, where 7 North turns off the main heading, the two entries of the old section end at two walls of grey concrete block, mortared, three feet thick, with a pipe through each for sampling the air and a board nailed up: DANGER. SEALED FIRE AREA. NO ADMITTANCE. O.S.C.Co. The haulage track runs right up to the left-hand seal and through it, the rails cut flush with the block. The air in front of the seals is still and close and smells of wet rock and something sour.",
+        "features": [
+          "The fire boss's chalk on the block: L.C. and a date, every morning for eight years",
+          "The track rail running into the wall: put your ear to it, or a hand, and you can feel anything that touches the rail on the other side",
+          "The sampling pipe: Lonzo's safety lamp held to it shows the flame dwindling: blackdamp behind the seal, and no firedamp to speak of"
+        ],
+        "encounters": [
+          "Monday 11 April, 3:10 a.m.: the knocking on the rail, four and two (CLUE A1)",
+          "6 a.m.: Captain Kincaid and two Ironwood men, posted at the seal by Bledsoe's order, with instructions that nobody touches it"
+        ],
+        "secrets": [
+          "CLUE A1 (core, for anyone at the seal at 3:10 a.m. on Monday, with Lonzo or with Morris, who arranges to be there): four and two on the rail, close and strong, and when someone answers, it answers back. It is Dewey Spradlin, at the barricade room a mile and a quarter in, unconscious most of the time and knocking when he comes to. Fear check DC 15: the sound of a man alive behind three feet of concrete in a place the company says is a fire",
+          "CLUE A3 (Lonzo, if he trusts the party, or his fire-boss book, which he carries): 'knocking, 7N seal' in his hand every morning from 28 March to 3 April, and then nothing. Nine days. 'That was the guard,' he says, and then he will not say anything more today"
+        ]
+      },
+      {
+        "name": "Shumate's Upper Pasture",
+        "description": "An hour's climb up the ridge road, or forty minutes straight up through the laurel behind Mavis Shumate: the Shumate farm on the broad top of the ridge, a log house with a frame addition and a porch, an orchard just coming into blossom, a spring house, a barn, forty acres of steep pasture and a view across six ridges into Kentucky. In the upper pasture, inside a fallen fence of company wire, is a slab of grey concrete fourteen feet square, cracked at one corner and grown round with dead grass.",
+        "features": [
+          "Stamped into the surface of the concrete, as if with a board: O.S.C.Co. 10-17-19",
+          "At dawn, in April, a ring of white frost on the grass round the cap, a yard wide, when there is no frost anywhere else on the ridge",
+          "Verlie Shumate, 66, Mavis's mother, who will feed anyone who comes up the ridge and does not go into the upper pasture any more"
+        ],
+        "encounters": [
+          "At night, a pale light walking slowly back and forth over the cap (Corpse Light, adversaries.json; fear check DC 10 for the sign, 15 if it comes toward you); it is burning over Lester Gaither, who lies unburied two hundred feet below. It leads toward the shaft, and nowhere else"
+        ],
+        "secrets": [
+          "CLUE E1 (core, for anyone who sees the cap and knows the date of the explosion): 10-17-19 is three days after the explosion and two after the seal. Nobody caps an air shaft over a fire area two days after sealing unless they are starving the fire of air: and anyone who was breathing that air with it. Mavis tells her father's story if asked: he heard them knocking through the old timbers and saw grey light in the cracks at noon, and was walked home at gunpoint the morning they poured it",
+          "Saturday 9 April is one of the four clear noons of the campaign. Nobody at the table knows yet that it matters"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party come up the branch on Friday's train, meet the camp and its two armed camps, and learn the shape of Ottway: scrip, the store, the guards, the jailed union men, and a missing guard everyone has an explanation for. Saturday is payday, with its bobtail envelopes and its careful conversations, and the chance to see the tipple where Lester Gaither vanished, the pale square on the lamp-house wall where a lamp burned for seven years, and, if Mavis brings anyone home, the concrete cap on her pasture with its date. Sunday night, Local 5512 meets at Mount Moriah, and Dewey Spradlin walks home alone along the creek path and is taken: his wife and her neighbour see something dark pass their door, and the camp searches all night. At ten past three on Monday morning, the fire boss, Lonzo Cutright, hears knocking on the rail behind the 7 North seal: four and two, men alive. By six the superintendent has called it squeeze and posted guards on the seal. The scenario ends with the party knowing that a man is alive behind three feet of concrete, that both men taken were alone in the dark, and that the company is lying about something it did in 1919.",
+  "hook": "Friday 8 April, 4:40 in the afternoon. The mixed train's whistle bounces off both walls of the hollow and comes back twice, and the engine sighs to a stop at a water tank. Ottway is a long grey smear up a valley floor under a lid of smoke: the store, the rows of houses on their posts climbing both slopes, the tipple black against the ridge, and along the creek a hundred and twenty coke ovens glowing orange in the rain like a street of open doors. Two men in khaki with shotguns and Ironwood badges come down the platform with a list. Everyone gets off. Everyone is going somewhere in Ottway, and every one of them, the Ironwood men will be glad to know, has a reason.",
+  "cluesAvailable": [
+    "A1",
+    "A2",
+    "A3",
+    "A5",
+    "B1",
+    "B2",
+    "B3",
+    "C2",
+    "D1",
+    "E1",
+    "E4"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "A. A man is alive behind the 7 North seal, knocking the old signal for men alive, and the last one taken knocked for nine days before he stopped (Rule 4).",
+      "clues": [
+        "A1: the knocking on the rail at the seal, Monday 3:10 a.m. (the 7 North seal)",
+        "A2: the knocking under Lettie Burchett's floor, answering from Monday on (Number Two Bottom)",
+        "A3: Lonzo's fire-boss book, 28 March to 3 April (the 7 North seal)",
+        "A5: Morris Pettaway on the rail, night shift (the drift mouth)"
+      ]
+    },
+    {
+      "conclusion": "B. Both men were taken alone, in the dark, with their lights put out but unharmed, and the women who stood together with a lamp were passed by (Rule 2).",
+      "clues": [
+        "B1: Gaither and Dewey side by side (the tipple and the creek path)",
+        "B2: Garland Hensley's ten minutes (the tipple)",
+        "B3: Vesta Spradlin and Dovie Hensley in the doorway (the creek path)"
+      ]
+    },
+    {
+      "conclusion": "Toward E. The company did something in October 1919 that it has hidden: it capped the air shaft over men it knew were alive, it left a man off its list, and it put out a lamp that had been burning for them.",
+      "clues": [
+        "E1: the cap's date (Shumate's upper pasture)",
+        "E4: Wash Burchett's words (Lettie's kitchen)",
+        "D1: Morris Pettaway's brother, who was 'no such man' (anywhere)",
+        "C2: the pale square and the scorch mark (the lamp house)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Friday: The End of the Line",
+      "description": "The arrival and the first night. The point of this act is to put the six pregens into Ottway with their reasons colliding, show the camp as people with a weight on them rather than as scenery, and introduce the company's grip and the camp's fear before anything supernatural happens. Lodgings: Dr. Ketterly in the doctor's house behind the store, with Frankie Lowry given the company boarding house's one room for ladies at the company's insistence; Morris Pettaway in his company house on the Hill, with Rev. Greer next door; Garland Hensley in the guards' bunkhouse by the shanty, or at his mother's if he dares; Lettie at home; Mavis at Lettie's, because it is too late to climb the ridge. Anyone can change.",
+      "objectives": [
+        "Get off the train past the Ironwood men, and decide what to tell them",
+        "Meet the camp: the store, Plumley, Bledsoe's welcome, the guards, the rows",
+        "Learn about Lester Gaither and the two jailed men, and that the camp does not believe the company's story",
+        "Hear the knocking under Lettie's floor"
+      ],
+      "scenes": [
+        {
+          "name": "The Mixed Train",
+          "description": "An hour's climb up the Kettle Run branch in a coach with cracked green plush seats, a stove at one end, and a conductor who knows everyone. The pregens can meet here: Lettie knows Garland from the day he was born and says so loudly; Morris and Garland recognise each other from the morning of 14 October 1919, when they carried burned men out together; Dr. Ketterly introduces himself to everyone; Frankie asks questions and writes down the answers; Mavis sits with Lettie and her seed potatoes and says nothing until someone asks her about the ridge. The train passes six camps on the way up, and in each the coke ovens are glowing and the houses are grey and there are men on the store porch, and the conductor names them and says 'non-union' after each like a sort of grace.",
+          "readAloud": "The coach smells of coal smoke, wet wool and oranges. Rain runs down the windows. The hollow is so narrow here that the dogwood on one bank nearly brushes the glass, and the creek goes by below, brown and fast, and every few miles the walls open out and there is a camp: a tipple like a black gallows over the track, a row of coke ovens burning orange, a store with a porch full of men who watch the train go by without waving, and grey houses climbing the slopes on stilts. 'Laurel Fork,' the conductor says. 'Non-union. Bright Star. Non-union. Ottway's the end of the line, folks. Mind your step. They'll want to see your papers.' He says it kindly, as if he were telling you it might rain.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Everyone on this train who lives in Ottway is frightened of something, and it is not the guards; they talk about the guards freely. They stop talking whenever the train goes into a cut and the coach goes dark.",
+              "failure": "A quiet, tired crowd, going home from a day in Gale."
+            },
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "As the train slows for Ottway, you see the drift mouth at the head of the hollow, lit by two bulbs, and in the black beyond the whitewash, for a moment, the small blue sparks of lamps that are not moving. Then the train goes behind the tipple.",
+              "failure": "The tipple, the ovens, the rain."
+            }
+          ]
+        },
+        {
+          "name": "The Dead Line at the Depot",
+          "description": "Two Ironwood men check everyone off the train against a typed list. They are courteous and thorough. They know Garland and call him 'Corporal'. They know who the doctor is and carry his bags. They have Frankie Lowry's name and her paper's, and ask to see her camera and look through it for film, and give it back. Morris Pettaway they search for a weapon, and do not find the shotgun, which is in the rafters at home. They ask Mavis what she is doing down off the ridge, and Lettie whose baby she caught, and they write it down. Plumley meets the train for the doctor, and Bledsoe's car comes down for him, and the superintendent himself, a grey-haired, soft-spoken man with an engineer's hands, shakes Clement's hand and says he knew his father when Clement was in short trousers.",
+          "readAloud": "The man with the list has a pleasant face and a raincoat buttoned over his khaki, and a pump shotgun held like a walking stick. 'Evening. Ironwood Agency, for the company. Just a formality, folks, we get some agitators up the branch this time of year. Name? Business in Ottway?' He writes in a small careful hand. Behind him the other man is looking at each of you in turn, very steadily, the way you would look at a horse you were thinking of buying. Up the hollow the coke ovens burn, and the rain hisses on them.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 13,
+              "success": "They write down whatever you tell them and let you through. Frankie's 'modern mining town' gets a smile that means they did not believe it, and a nod that means they will let her try.",
+              "failure": "Company Suspicion +1. The man with the list says, 'We'll want to talk to you again, miss,' and means it."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "They back off a step and remember the doctor's father; you are let alone for the evening.",
+              "failure": "Company Suspicion +1, and a guard follows you home."
+            }
+          ]
+        },
+        {
+          "name": "Lettie's Kitchen After Midnight",
+          "description": "Whoever ends the evening at Lettie Burchett's, for coffee, a bed, a bandaged hand or Mavis's company, hears it: past midnight, when the camp is quiet but for the creek and the tipple's distant clank, a knocking from under the kitchen floor, very faint and very far down, four, then a pause, then two. Lettie rolls back the rag rug without a word. Morris, if present, goes grey: it is the old signal. Lettie says nothing for a long time, then that it has come every night since the first of March. She will not say yet what Wash told her.",
+          "readAloud": "The stove ticks. The kettle is at the back, just singing. Lettie Burchett has stopped talking in the middle of a sentence, with her head on one side, and after a moment you hear it too. Under the floor. Not in the floor: under it, a long way under, as if something were knocking on the bottom of the world. Four knocks. A pause, long enough to count. Two. Then nothing but the stove. 'There,' Lettie says quietly, and gets down on her knees, slowly, and rolls back the rug, and puts her hand flat on the boards like a woman feeling for a baby's heartbeat. 'Every night,' she says. 'Since the first of March.'",
+          "skillChecks": [
+            {
+              "skill": "Wisdom save (fear check)",
+              "dc": 10,
+              "success": "A pump, a car on a track somewhere under the mountain, settling rock. The mine runs right under the camp. There will be an explanation.",
+              "failure": "Somebody is knocking on the underside of the floor of the world, and they want to be let in. Gain 1 Dread."
+            },
+            {
+              "skill": "Mechanics or Investigation",
+              "dc": 12,
+              "success": "It is not a pump: pumps keep time, and this does not; it is four and two, irregular, by hand. Morris or Lonzo, or anyone who has worked a mine, knows the signal: men alive.",
+              "failure": "Some sort of machinery, very far away."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "No fights: the camp at its most watchful",
+        "The Ironwood men at the depot (Night Watchman; they will not start anything on the first evening)"
+      ]
+    },
+    {
+      "title": "Saturday: Settlement Day",
+      "description": "Payday and the camp in daylight. The point of this act is to give the party the camp's daily life and the company's grip on it, the story of Lester Gaither from everyone's side, and the first physical evidence of 1919, the pale square on the lamp-house wall and the cap on Shumate's pasture. Saturday is a clear day: the sun gets into the hollow at ten, the store porch is full, there is a ball game in the afternoon between the Hill and Number One, and at night the single men drink in the woods and the Hungarian families dance in the hall behind St. Stephen's.",
+      "objectives": [
+        "See payday at the store window: scrip, deductions and bobtails",
+        "Hear the Gaither story from the company, the union and Garland",
+        "Find the pale square in the lamp house, and learn that a lamp was put out there on 1 March",
+        "Go up to the Shumate farm and see the cap, if Mavis takes anyone"
+      ],
+      "scenes": [
+        {
+          "name": "The Pay Window",
+          "description": "A line of three hundred men down the store porch and along the road, in clean shirts, each going up the stairs to the pay window and coming down with an envelope and then going straight to the counter to pay something off. Bobtail envelopes are common enough that men show them to each other and laugh. Here the party can talk to anyone, about anything except the union, which no one will discuss in daylight. Morris's brother's name gets a blank look from the pay clerk, who has never heard of him; Dr. Ketterly learns that his salary comes from a dollar a month stopped from every man in the line; Frankie can count bobtails, if she stands where Plumley can see her doing it.",
+          "readAloud": "The line goes down the store steps, along the porch, down into the road and up the road out of sight. Men in clean collars and Sunday hats, some with wives, a few with children holding their hands. At the top of the stairs a clerk behind a barred window slides out brown envelopes one at a time and calls a number, and each man takes his, opens it on the landing, reads it, and folds it up. Some put it in a pocket. Some laugh, a short hard laugh, and show the man behind them: an envelope with a line drawn through it. 'Bobtail,' says the man next to you, cheerful. 'Owe the store more'n I dug. Third one this year.' Then he looks round to see who heard him.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "A miner tells you, low, about the weighman: a hundredweight short on every car, and no man may check the scale. And then that Hobart Lilly said so to Lester Gaither's face on 25 March, here on this porch, which is why Hobart is in jail.",
+              "failure": "Polite answers about the weather and the ball game."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "Count the bobtails in an hour: about one envelope in four. The company is paying a quarter of its men nothing at all, and the store is holding their debts.",
+              "failure": "A lot of men owe a lot of money."
+            }
+          ]
+        },
+        {
+          "name": "The Tipple at Night",
+          "description": "Garland Hensley is on the night walk of the tipple from ten until two, with a guard named Elbert Toler who will not leave his side. Anyone who comes up the catwalk to talk to him can get the story of 25 March, if Garland decides to tell it, and see the place. The pale smudge on the boards; the thirty feet of dark between the last bulb and the bins; the drift mouth below, two bulbs and the black. At about midnight, the night shift's lamps, far back in the main heading, go small and blue, one after another, all down the line as far as anyone can see, and come back; Toler crosses himself and says it is gas, and there is no gas. Shades at the drift mouth may be glimpsed (DC 10).",
+          "readAloud": "Up on the catwalk the wind comes down the hollow off the ridge and the whole tipple creaks like a ship. Below you the track runs into the drift mouth, two bulbs on the timbers, and beyond them the mountain is open, black, going back forever. Far down in it you can see the night shift's lamps, little sparks spaced along the heading. As you watch, the farthest one goes blue. Then the next. Then the next, coming toward you down the line like someone walking past a row of candles and pinching each one, until the nearest, just inside the whitewash, gutters blue and small. Then, all at once, they are yellow again. Toler says 'gas' through his teeth. Garland says nothing. He has his flashlight in both hands.",
+          "skillChecks": [
+            {
+              "skill": "Wisdom save (fear check)",
+              "dc": 10,
+              "success": "Gas. A draught in the heading. Something ordinary with a long name.",
+              "failure": "Something walked down the mine toward you, and every light it passed went small, and it stopped at the whitewash. Gain 1 Dread."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "(On Garland, for the other players, or on Toler.) He knows something about the night Lester Gaither vanished and it is eating him. Toler is frightened of being alone, and not of the union.",
+              "failure": "Two guards on a cold night."
+            }
+          ]
+        },
+        {
+          "name": "Shumate's Upper Pasture",
+          "description": "If Mavis takes anyone home on Saturday, it is a clear blue afternoon on the ridge, the orchard in blossom, Verlie Shumate's cornbread and beans and fried ramps on the table, and a view into Kentucky. Mavis takes them to the upper pasture and shows them the cap. The stamped date is the clue. If they stay till dark, the Corpse Light walks over the cap; if they stay till dawn, the frost ring. Mavis tells her father's story on the walk back, unasked, if anyone has been decent to her mother.",
+          "readAloud": "The upper pasture runs up under the last of the oaks, steep and stony, the grass coming in green. Inside a sagging fence of rusted company wire there is a slab of grey concrete, fourteen feet square, flat as a grave, with dead grass all round it in a ring and new grass beyond that. Mavis stops at the wire. 'That's it,' she says. 'Number Two. Two hundred and some feet straight down into 7 North.' She doesn't go closer. In the concrete, near one edge, somebody pressed letters with a board while it was wet, and they have weathered but you can read them. O.S.C.Co. 10-17-19.",
+          "skillChecks": [
+            {
+              "skill": "Investigation or Mechanics",
+              "dc": 10,
+              "success": "The explosion was on the 14th, the seal on the 15th. You do not cap a ventilating shaft over a sealed fire two days later unless you are starving the fire of air, and you would only need to if the fire was still getting air from this shaft: which means there was air in 7 North, and anyone in 7 North was breathing it.",
+              "failure": "A company cap on an old shaft, dated the week of the explosion."
+            },
+            {
+              "skill": "Survival or Nature",
+              "dc": 12,
+              "success": "The ring of dead grass is dead to the root, as if from frost, a yard wide round the slab; nothing else on the ridge is touched. Something cold comes up through the concrete.",
+              "failure": "The grass round it is dead. Something leaking, maybe."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The ball game (no fight; a chance for the party to be seen being ordinary, Company Suspicion -1 for anyone who plays)",
+        "Shades at the drift mouth at night (adversaries.json; sign only, DC 10)",
+        "The Corpse Light over the cap, if anyone is on the ridge after dark (adversaries.json; it does not attack unless touched)"
+      ]
+    },
+    {
+      "title": "Sunday Night and Monday Morning",
+      "description": "The meeting, the taking, the search and the knocking. The point of this act is to show the party the Dark's first rule in action, to give them a missing man and a clock, and to end on the company's refusal. If a pregen ever walks alone in the dark in this act without a light, the GM should first let them hear Dewey's voice calling from the dark behind them (or Gaither's, before Sunday), and then, if they go on alone, let them be taken: they wake, cold and stiff, in the barricade room, and the scenario becomes their rescue; this is fair, because Rule 2 has been shown three times by then.",
+      "objectives": [
+        "Get into Local 5512's meeting at Mount Moriah, and be trusted, or not",
+        "Witness, or nearly witness, Dewey Spradlin taken on the creek path",
+        "Join the search, and find the lamp",
+        "Be at the 7 North seal at 3:10 a.m. on Monday, or hear about it from Lonzo, and hear Bledsoe say 'squeeze'"
+      ],
+      "scenes": [
+        {
+          "name": "Mount Moriah, After the Evening Service",
+          "description": "Forty-odd men and a dozen women in the pews of a Black Baptist church, from every row in the camp, with a lantern on the pulpit and a young man on the door. Rad Hensley in the chair, Della at the back with a notebook, Rev. Greer gone home on principle. Business: the check-weighman, the store, the contract, Angelo and Hobart, and a motion from Moses Hairston's widow's son-in-law that the Local demand the company open 7 North and bring out the dead, which is tabled for Thursday. Strangers are noticed at once. If Garland comes, wearing his badge or not, his brother Rad stands up and says 'There's a gun thug in here,' and the party has about thirty seconds to make that not be the end of the meeting. At half past ten Dewey Spradlin leaves, alone, laughing, for Vesta.",
+          "readAloud": "The church is full and the stove is lit and nobody is singing. A lantern stands on the pulpit; the windows have been hung with feed sacks. Men sit in the pews in their pit clothes and their Sunday clothes, Black and white and the Hungarians together at the back, caps on their knees, and a young man with a hard red face stands at the front holding a sheet of paper and reading out the store's price of flour in a voice like a judge reading a sentence. When the door opens to let you in, the reading stops and every head in the church turns, and nobody says anything at all.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Union Trust +1. They let you stay, and at the end Della comes over and asks you, sharp and friendly, what you want.",
+              "failure": "You are asked, very politely, to wait outside on the step, where the Ironwood man in the laurel can see you very well. Company Suspicion +1."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Half the men in this room were in No. 3 on 14 October 1919, and when someone says '7 North' some of them look at the floor and some of them look at each other.",
+              "failure": "An angry, frightened meeting."
+            }
+          ]
+        },
+        {
+          "name": "The Creek Path",
+          "description": "At about eleven, the Dark passes along the creek path with Dewey, if he went alone (see Mount Moriah's secrets). Anyone on the path with a light sees it pass, a thickening of the dark that the light does not reach, and their light goes blue and small and comes back; anyone alone without a light is taken. Vesta and Dovie in their doorway see it pass. Then Vesta's scream, and the camp turning out. The search runs all night: groups of men with lanterns, calling, down the creek, up the laurel, round the tipple and the slate dump. Dewey's lamp is found on the path at first light (CLUE B1). The Ironwood men search too, separately; Kincaid sends a car to the dead line in case the union has spirited him away.",
+          "readAloud": "The creek path is black. The creek is loud, swollen with rain, and your lantern makes a little room of light around your feet and nothing more. Then the creek goes quiet. Not quiet: gone, as if a door had closed on it. The flame in your lantern shrinks and goes blue, a little cold bead on the wick, and in the dark ahead of you the dark gets darker, the way a room does when someone stands in the doorway. It comes along the path. It does not come into your light. It goes by, a yard away, on the creek side, and you feel it go by the way you feel a train go by, in your chest, and then the creek is roaring again and your lamp is yellow. Behind you, up the path where it went, a young man's voice says, puzzled, 'Vesta?'",
+          "skillChecks": [
+            {
+              "skill": "Wisdom save (fear check)",
+              "dc": 15,
+              "success": "You hold the lamp up and stand your ground, and whatever it was went past you and did not touch you.",
+              "failure": "You were sure, absolutely sure, that if your lamp went out it would turn round. Gain 1 Dread."
+            },
+            {
+              "skill": "Survival or Investigation",
+              "dc": 10,
+              "success": "(At first light.) Dewey's carbide lamp on the path, cold, the water valve open and the carbide still damp: it did not burn out, it was put out. No tracks off the path. Nothing dragged. He simply stopped.",
+              "failure": "His lamp, and no sign of him."
+            }
+          ]
+        },
+        {
+          "name": "Four and Two",
+          "description": "At three every morning Lonzo Cutright rides the fire boss's car into No. 3 alone to test every working place before the day shift. Anyone who has made friends with him, or with Morris, who can get onto the motor crew, or Garland, whom Kincaid sends to watch the fire boss after the night's trouble, can be with him at the 7 North seal at 3:10 a.m. on Monday. The knocking on the rail, close and strong. Answer it, and it answers. Lonzo stands with his hand on the rail and his face like paper. He goes up and tells Bledsoe at four. At six Bledsoe comes down himself, listens for a long minute with his ear to the block, straightens, and says: 'Squeeze. It's the mountain working on the old fire area. I've heard it before. The seal stays, gentlemen. Nobody touches it.' And he posts Kincaid's men on it.",
+          "readAloud": "A mile under the mountain the air is still and cool and smells of wet stone, and your lamps make a little yellow cave in the dark. Two grey walls of concrete block close off the entries ahead, with a board nailed across one: DANGER. SEALED FIRE AREA. The fire boss holds his safety lamp to a pipe in the block and watches the flame dwindle, and nods, and writes in his book. Then he stops writing. Through the soles of your boots, through the rail under your hand, through the concrete itself, there is a knock. Three more. A pause. Two. The fire boss puts his hand flat on the rail, very slowly, as if it might burn him. 'That's four and two,' he says. 'That's men alive.' He looks at you. 'That's what they knocked in nineteen and nineteen.' And then, very far away, through three feet of concrete and a mile of mountain, it comes again.",
+          "skillChecks": [
+            {
+              "skill": "Wisdom save (fear check)",
+              "dc": 15,
+              "success": "A man is alive in there. That is a reason to act, not to be afraid.",
+              "failure": "A man is alive behind three feet of concrete in a place the company says is a fire, and nobody is going to let him out. Gain 1 Dread."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "(On Bledsoe at six.) He knows it is not squeeze. He knew before he put his ear to the wall. He is a man who has rehearsed this sentence for eight years.",
+              "failure": "An engineer's confident judgment."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The Hungry Dark on the creek path (adversaries.json; it takes and goes, and does not fight unless a light is pushed into it, when it uses Drink the Light and retreats)",
+        "The search: Frightened Townsmen firing at shadows in the laurel, and a near-shooting of the party's own search group unless someone calls out first",
+        "Captain Kincaid and two Ironwood men at the seal at six (Deputy Sheriff stats for Kincaid, Night Watchman for the men; they are posted to keep people off the seal and will not fight unless the seal is touched)"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Superintendent Elwood Bledsoe, 56",
+      "role": "Superintendent of Ottway No. 3 for the Ottway Smokeless Coal Company",
+      "description": "Grey, soft-spoken, courteous, a Pennsylvania mining engineer with a face that has learned to stay still, and blunt hands with an old blue scar across one palm. He lives alone in the first house on Silk Stocking Row since his wife went back to Altoona. He is good at his job, kind to children, scrupulous about safety in every section of the mine but one, and he has been waiting eight years for 7 North to knock again.",
+      "motivation": "Keep 7 North sealed until he can go in first, alone, and wash the timbers; keep the mine running; keep Philadelphia satisfied. Underneath: not to have done it twice."
+    },
+    {
+      "name": "Captain Arliss Kincaid, 44",
+      "role": "Commander of the Ironwood Detective Agency's guards at Ottway",
+      "description": "Medium height, neat moustache, steel spectacles, a good raincoat, a quiet voice, a careful notebook and twenty-two armed men. Former Army provost sergeant. He never threatens anyone; he explains.",
+      "motivation": "Break Local 5512 before the strike reaches the southern field; keep order; follow his orders from Philadelphia exactly."
+    },
+    {
+      "name": "Vinton Plumley, 50",
+      "role": "Manager of the Ottway company store",
+      "description": "Plump, pink, bald, pince-nez, a gold watch chain, a glass office at the head of the stairs, and a ledger for every family in the camp. He calls every woman 'Mother' and every man by his check number.",
+      "motivation": "Keep his books balanced, his job, and his daughter's position at the white school; stay on the right side of Kincaid."
+    },
+    {
+      "name": "Dewey Spradlin, 24",
+      "role": "A loader and Local man, taken on Sunday night",
+      "description": "A cheerful, gangling, red-headed young man from the head of the hollow, married last June to Vesta, who left the meeting early to get home to her and laughed when anyone offered to walk with him.",
+      "motivation": "(Behind the seal.) To be found. He knocks whenever he comes to."
+    },
+    {
+      "name": "Vesta Spradlin, 22",
+      "role": "Dewey's wife",
+      "description": "Small, fair, freckled, fierce, a company-store clerk until she married; she stood in her doorway with a lamp at eleven and saw something pass her and heard her husband say her name in the dark.",
+      "motivation": "Get Dewey back. She will go to the office on Monday and stand in front of Bledsoe's desk until someone carries her out."
+    },
+    {
+      "name": "Dovie Hensley, 61",
+      "role": "Garland's mother, Vesta's neighbour on Number Two Bottom",
+      "description": "A tall, rawboned widow in a man's coat, with a pipe, who has buried a husband and two babies in Ottway and will not take a penny of her son's guard pay.",
+      "motivation": "Her sons, both of them, alive and speaking to each other. Her house."
+    },
+    {
+      "name": "Harley Mabe, 22",
+      "role": "The new lamp man",
+      "description": "A thin, pimpled young man from Gale in a guard's cast-off coat, who got the lamp house because Kincaid needed someone he could trust there, and who put out the Kept Light with his thumb on 1 March and has not slept well since.",
+      "motivation": "Keep his job; not be in the lamp house alone after dark, which he arranges by bringing a girl from the store."
+    },
+    {
+      "name": "Elbert Toler, 26",
+      "role": "Ironwood guard",
+      "description": "A broad, nervous farm boy from Pocahontas County who signed on with Ironwood for the pay and is the guard most frightened of the dark in Ottway. He walks the tipple with Garland and will not leave his side.",
+      "motivation": "Not to be alone. If Dewey is walked home on Sunday, Toler, alone in the laurel above Mount Moriah writing down faces, is the one taken."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "money": "None from the company, which pays the doctor his salary and Garland his five dollars a day and nothing else. Frankie's editor wires $20 on Monday if she wires him a story first. The camp has no money, but a party that searched all night with it will find a pie on the step on Monday, and Union Trust +1.",
+    "items": [
+      "Dewey Spradlin's carbide lamp, put out on the creek path",
+      "A copy of Lonzo Cutright's fire-boss book entries for 28 March to 3 April, if he trusts the party, or the knowledge that they exist",
+      "Wash Burchett's unspent $50 scrip slip, 'special work, 7N, 18 Oct 1919', if Lettie gives it to them",
+      "A photograph of the cap's stamped date, if Frankie took her camera up the ridge",
+      "Vesta Spradlin's trust, and her wedding photograph of Dewey, which she presses on whoever promises to bring him back"
+    ]
+  },
+  "twists": [
+    "If someone walks Dewey home, he is safe, and the Dark takes Elbert Toler, the Ironwood man alone in the laurel above the church; the knocking on Monday is a guard, Kincaid's own man, and Kincaid's face when he hears it is the first crack in the company's wall. The nine days run for Toler instead, and the rest of the campaign is the same, with the camp's anger turned a different way.",
+    "Garland Hensley knows that Angelo Marchetti and Hobart Lilly could not have killed Lester Gaither, because Gaither vanished from beside him. If Garland says so at the meeting, or to Della, Union Trust +2 at once and Company Suspicion +2; Kincaid moves Garland to the day shift and has him watched.",
+    "The Ironwood men at the depot check the party's papers against a list that already has six names on it, all of theirs. Kincaid has been told who every one of them is: Frankie's paper, the doctor's father, Morris's brother, Garland's war record, Lettie's husband's testimony, the Shumates' deed. He is not hiding it. It is meant to be the first thing they notice.",
+    "Bledsoe's 'squeeze' on Monday morning is word for word what he said on 16 October 1919, and Lonzo, standing beside him, hears it, and so does anyone who has heard Lettie's story of what Wash said."
+  ],
+  "dmTips": [
+    "This scenario is about learning one rule (only the alone) and one fact (a man is alive behind the seal) in three days, and caring about the camp before the horror arrives. Spend Friday and Saturday on people: the pay window, the ball game, Lettie's kitchen, the ridge. The Dark appears once, on Sunday night, and it should be the most frightening thing the players have seen because it does nothing but pass by.",
+    "Every core clue is found by anyone who looks in the right place; rolls add detail and speed, never gate the truth. If the party miss the creek path entirely, Vesta tells them on Monday, crying, what she saw; if they miss the seal at 3:10, Lonzo comes to Lettie's kitchen at five in the morning white as his chalk and tells them himself.",
+    "Play the company as reasonable. Bledsoe is kind, Kincaid explains, Plumley is jolly; the threat is in the lists, the envelopes and the guns held like walking sticks, never in a sneer. The camp's people are proud, funny and frightened, and none of them is a joke or a menace; nobody's accent is the gag.",
+    "The Dark's voice is the last person it took, which on Sunday night is Dewey. Use it sparingly: once on the creek path, once if a player is alone. It never says anything a person would not say: 'Vesta?', 'Hello?', 'Is somebody there? I can't see.'",
+    "Light is a resource here from the first scene. Ask who is carrying a lamp whenever the party goes outdoors at night, and how much oil is in it. A pregen who says 'I stay close to Lettie' is playing the game exactly right, and should feel clever, not cautious.",
+    "Track Company Suspicion and Union Trust from Friday. By Monday morning the party should know both scores, and that they cannot keep both low for long."
+  ]
+}

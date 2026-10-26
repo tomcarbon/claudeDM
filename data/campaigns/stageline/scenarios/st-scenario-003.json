@@ -1,0 +1,526 @@
+{
+  "id": "st-scenario-003",
+  "title": "The Election",
+  "subtitle": "Saturday 9 to Tuesday 12 July 1881: Forty Men off the Saturday Train, a Schoolroom Full of Miners, Yellow Tickets and a Count by Lamplight",
+  "levelRange": "5-6",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Paragon, Plata Vieja and Santa Teresita, the last four days before the vote and election day",
+    "description": "Four days and an election. On Saturday forty repeaters arrive on the train from Albuquerque, and the Plata Vieja miners' committee meets in Thomasina Bevan's schoolroom to decide what to do about the Company's envelopes. On Sunday night Cade Rendell comes for Jethro Petree. On Monday the Company's wagons go up the mountain, the Mercantile's clerks stuff four hundred envelopes in the back room, and the plaza women sit up all night with the People's tickets. On Tuesday 12 July the county votes, by printed ticket, in public, in five precincts. The miners come down to Paragon in the Company's wagons to be paid their own stolen wages and voted in a precinct where they have no right to vote, unless somebody shows them what is in the envelopes. By lamplight that night the judges count. The party can change the result by hundreds of votes, and The Vote (campaignRules) tells the GM how many.",
+    "atmosphere": "Heat, noise and nerves. Paragon is flags, the band, wagons and men with Progress ribbons in their hats, beer at nine in the morning, and the train whistle every few hours. Plata Vieja is a crooked street up a canyon, the stamp mill silent because the men won't work unpaid, women in doorways with their arms folded, children, dogs and the smell of the dead furnaces. The plaza is quiet and grim and very well organised. Everyone has a ticket in their pocket and an opinion, and every afternoon the thunderheads come over the Sierra Prieta and dump their twenty minutes of rain. On election night the counts go on by lamplight in five rooms in five places, and riders come and go between them on wet roads. The tone is political thriller with guns: everything is done in public, and everyone is watching everyone else's hands.",
+    "keyLocations": [
+      {
+        "name": "Plata Vieja",
+        "description": "The silver camp in a steep canyon of the Sierra Prieta, twenty-six miles south-west of the plaza: one crooked street of adobe and plank, the Consolidated's ten-stamp mill and offices at the canyon's head, the Company's new branch of the Paragon Mercantile, four saloons, a Catholic chapel, a Methodist meeting room, Zadok Morgenstern's surgery and drugstore, and the miners' school, a long room of stone with benches, a stove, a slate board and Thomasina Bevan's harmonium. Three hundred and eighty men work the mines: Mexican, Hispano, Irish, Welsh, German, Cornish, Black and Swedish. About two hundred and forty of them are citizens who can vote.",
+        "features": [
+          "Thomasina's schoolroom, where the miners' committee meets on Saturday night by lamplight, sixty men standing",
+          "The Company branch store, its windows papered with yellow handbills, its credit closed since 1 July",
+          "Hamish Gow's office at the mill, with the bank's and the express company's letters about the payroll on his desk",
+          "The road down the canyon, where the Company's six wagons arrive on Monday evening to carry the miners to Paragon at dawn"
+        ],
+        "encounters": [
+          "No set combat. The miners' meeting can go three ways: home, Paragon, or a riot at the Company store",
+          "Two Company men (Railroad Enforcer) with the wagons on Monday night, to see that the miners get in them"
+        ],
+        "secrets": [
+          "The miners' committee is Thomasina Bevan, a Mexican shift boss from Chihuahua named Ruperto Varela, an Irish timberman named Con Hurley and a Black miner from Missouri, Lysander Tolbert, who was a sergeant in the Twenty-fifth Infantry. They don't agree about much. Varela's men are mostly Mexican nationals who can't vote anywhere, and he is furious that the Company means to vote them anyway: 'They want us to commit a crime in a country that will jail us for it, for our own wages.' Hurley wants to burn the Company store. Tolbert wants to see the evidence. Thomasina wants them all to go home and vote where they live.",
+          "Hamish Gow can't pay. The bank won't release a second payroll until the express company settles, which takes six weeks. He gave Celestino $300 on 15 June because a Company county seat would tax his road and his ore. He'll admit it if asked and say he'd do it again. The miners don't know, and if they find out from the Paragon Pioneer instead of from Celestino or Gow, they'll think the plaza bought them first.",
+          "Lysander Tolbert is the man the miners will believe. Show him the serial numbers and a stolen note side by side and he'll stand up in the schoolroom and say it: 'This is our pay. They robbed us, and now they're going to give it back to us to buy our votes.' Insight DC 13 to see that he is the one to convince. Thomasina knows it without a roll.",
+          "If Zadok Morgenstern is played, his surgery is where the miners come for the truth. He has treated half of them, and he can say plainly that two children on the canyon have scurvy since the store closed its credit. That is not a clue, and it is the strongest argument in the camp."
+        ]
+      },
+      {
+        "name": "The Paragon Mercantile and Coldiron's office",
+        "description": "The Company store: two storeys of new brick, the only brick in Paragon, on the corner of Coldiron Avenue and the depot. Downstairs is everything from coffins to canned oysters, a long counter, a credit ledger, a back room with a safe, and from Saturday a table where three clerks stuff four hundred envelopes with $12 in notes and a printed ticket each. Upstairs is the Company's office: Coldiron's desk, a letterpress copybook, a map of Paragon framed on the wall, and a window on the street.",
+        "features": [
+          "The back room's envelope table: stacks of PARAGON MERCANTILE — ADVANCE ON WAGES envelopes, bundles of new notes, a stack of yellow tickets",
+          "The Mercantile's safe, an iron Hall's safe, Mechanics DC 18 to open without the combination",
+          "Coldiron's letterpress copybook on his desk, where every letter he writes is copied in purple ink on tissue",
+          "The Mercantile's file of paid bills, including one from Cazenove & Son, Printers, Albuquerque"
+        ],
+        "encounters": [
+          "At night, a watchman (Deputy) and a dog, and Constable Ebner (Crooked Sheriff) on his rounds every hour",
+          "By day, the clerks, and Rusk, who looks in every hour to count the envelopes"
+        ],
+        "secrets": [
+          "CLUE C3 (Investigation DC 13 in the file of paid bills, or automatic if Theodora has already named the printer): Cazenove & Son's bill, dated 20 June 1881. 'To printing 400 envelopes, PARAGON MERCANTILE — ADVANCE ON WAGES, buff, with window: $6.00. 1,200 tickets, yellow card, as per sample: $14.00. Ordered by Mr. F. Rusk.' The envelopes were ordered ten days before the robbery, for an advance on wages that nobody needed until the payroll was stolen.",
+          "CLUE C5 (Investigation DC 14 in the copybook, which has five hundred pages and no index; Book Learning gives advantage): Coldiron to the Company's directors in St. Louis, 21 June 1881: 'Mr. Rusk assures me that the miners' payroll difficulty will be settled to our advantage before the 12th, and that the Plata Vieja vote, which we cannot otherwise carry, will be cast at Paragon. I have not inquired into his methods and do not propose to.' It is the only thing in the county that ties Coldiron to it, and he has forgotten that the copybook keeps it.",
+          "CLUE D2 (Investigation DC 12 with the Paragon poll list, which the Mercantile's chief clerk is copying for the judges): 260 names. A hundred and twenty are River Line men who came in February, four months short of the six months' residence. Twenty are at lot numbers on Coldiron Avenue that are still sagebrush. Venancio or Sheriff Jaramillo can swear to the residence law.",
+          "The envelope table: $12 in stolen notes, a yellow ticket, and a paper slip to be stamped by the poll clerk 'VOTED — PARAGON PCT. 3'. The envelope is handed over only when the slip is shown. Rusk has thought of everything except the serial numbers. Every note in the envelopes is in the stolen ranges, except where he has changed them for old notes from the safe, which is about one in five if the party let him know about the schedule."
+        ]
+      },
+      {
+        "name": "The Silver Rail and the Paragon House",
+        "description": "Rusk's headquarters. The Silver Rail is a long room with a mahogany bar, a faro table, a piano, and a back room where the Committee meets and the repeaters are paid. The Paragon House across the street has Rusk in room 2 and, from Saturday, forty repeaters sleeping six to a room. Cade Rendell has room 4 and the buffalo rifle in its case under the bed.",
+        "features": [
+          "The faro table, dealt by a Kansas City sharper the Committee pays to lose to the right men",
+          "The back room, where every evening Rusk pays the repeaters $5 a day in new notes",
+          "Room 4, Rendell's, locked, with the buffalo rifle under the bed and a box of .50 cartridges",
+          "The hotel register, still open on the counter"
+        ],
+        "encounters": [
+          "Forty repeaters (use Saloon Brawler for most, and four Hired Guns among them), mostly drunk by evening",
+          "Cade Rendell (Fast Gun), who drinks alone at the end of the bar and is waiting to be famous"
+        ],
+        "secrets": [
+          "CLUE D4 (Theodora Quayle or Venancio Chávez knows several of the repeaters by sight from Albuquerque's New Town; Insight DC 13 otherwise to see that they have never seen a sheep in their lives): forty men off the Saturday train, paid $5 a day in stolen notes, with names to vote under written on cards. They vote in Paragon in the morning, then ride to Los Ranchitos in the Company's buckboards and vote again in the afternoon under other names.",
+          "CLUE F4 (Perception DC 14 at the bar on Saturday, or from the barkeep for $10): Rendell asks the barkeep, idly, which house on the plaza the old driver sleeps in. He's going on Sunday night.",
+          "The faro dealer is a sharper named Lucky Delacroix who is paid to let the Committee's friends win. A Gambler sees it in three hands. He has no loyalty to anybody and will tell anyone who beats him at his own table which of the Committee's friends are repeaters and which are real.",
+          "Rendell's buffalo rifle is the murder weapon. A .50 ball from Lon's body, kept by Doña Paz or Zadok, matches a cartridge from the box under his bed. With the rifle and the ball, A4 is no longer just a doctor's opinion."
+        ]
+      },
+      {
+        "name": "The Paragon poll",
+        "description": "Precinct 3 votes on the Mercantile's long porch on Coldiron Avenue, with a table, a ballot box with a glass panel, three judges (all Company men), two clerks with the poll list, Constable Ebner, and the band. The envelopes are paid out from a window at the side of the store, once a man's slip is stamped VOTED. On election day the miners' wagons are due at nine.",
+        "features": [
+          "The porch, the ballot box with its glass panel, the judges' table and the poll list",
+          "The side window where the envelopes are paid out, guarded by two Company men",
+          "The street, wide enough for six wagons, and the depot platform across it, where the band plays",
+          "The water tank, where a crowd will want to hang somebody by evening"
+        ],
+        "encounters": [
+          "Constable Ebner (Crooked Sheriff), two Company men (Railroad Enforcer) at the window, the forty repeaters, a crowd of Paragon voters, and three hundred and eighty miners",
+          "Cade Rendell (Fast Gun), at sunset, in the street"
+        ],
+        "secrets": [
+          "CLUE D5 (Investigation DC 11 to compare them, or automatic if the party has seen the Cazenove bill): the Progress tickets are yellow card printed in the same type as the People's tickets, with SANTA TERESITA — COUNTY SEAT across the top in large letters and the Company's names in small type below. A man who can't read English, or can't read, votes Progress thinking he has voted to keep the county seat at the plaza. The People's tickets were printed in Albuquerque by the same printer from the sample Celestino carried on the coach, and somebody copied it.",
+          "A challenge is the law's own remedy. Any voter can challenge any other at the poll, and the challenged man must swear to his residence and age before the judges will take his ticket. The judges are Company men and will take the oath and the ticket, but a false oath is perjury. The names of men who swore one are written in the poll book, which goes to the county clerk at the plaza, and then to the canvass on Friday. Sheriff Jaramillo, or a deputy, can arrest a man who swears falsely in front of him.",
+          "The moment the miners see a stolen note matched against the bank's schedule, the poll is in danger. Hurley's men want to burn the store, and a crowd will turn on Rusk with a rope. A party that has exposed him must now keep him alive for a judge, against the miners and against Coldiron, who will be happy to see Rusk dead and silent."
+        ]
+      },
+      {
+        "name": "Santa Teresita on election day",
+        "description": "Precinct 1 votes in the courthouse's long room, before three judges: Don Policarpio Maestas, a Progress man named Hilario Benavídez, and Venancio Chávez. The clerks are Celestino's schoolboys. Outside, on the plaza, both parties have tables under the cottonwood, ticket peddlers, and a man from Paragon with a cigar box of two-dollar notes. That evening, the count is by lamplight in the long room with the doors open and the plaza watching.",
+        "features": [
+          "The long room's table, with the ballot box, the poll book and the tally sheets",
+          "The two party tables under the cottonwood, and the cigar box",
+          "The plaza women's table, where all Monday night they stamped every People's ticket with a red cross in Don Policarpio's ink",
+          "The church tower, where a boy watches the Paragon road and rings the bell if riders come"
+        ],
+        "encounters": [
+          "The cigar-box man (Cardsharp) and two Company toughs (Hired Gun) buying votes, who will fight if their box is taken",
+          "If Tiburcio has been taken to Paragon: a rider at dusk with word that the crowd at the water tank has a rope"
+        ],
+        "secrets": [
+          "Venancio Chávez decides the plaza's count. Rusk's letter says that if Progress carries the plaza by sixty more than the honest count, the Company will forgive his $600. If he does it, it's done with the tally sheets, not the box: a sixty-vote slip of the pencil between the box and the sheet, read out loud by a man the plaza trusts. Watching the count (Perception DC 14, or Insight DC 13 on Venancio while he reads) catches it. Freeing him from the note, by paying it, exposing it, or just telling him you know and asking him who he wants to be, prevents it.",
+          "The two-dollar votes. A cigar box of stolen notes buys about forty votes on the plaza, mostly from men in debt to the Company store. Taking the box, in public, with the sheriff's say, is worth more than the forty votes: it's stolen money buying votes in front of the courthouse, and everybody sees it.",
+          "The red cross on the People's tickets is the plaza's answer to the yellow tickets, if the party thought of it or helped Celestino think of it. A voter is told: if your ticket has no red cross, it's the Company's. It works for every man on the plaza who is told, and most are.",
+          "Election night is when the Committee will act if it has Tiburcio. At about nine the crowd at the Paragon water tank has a rope. Constable Ebner is drunk and is not going to stop it. Someone must ride eighteen miles in the dark, or already be there."
+        ]
+      }
+    ]
+  },
+  "synopsis": "The vote. On Saturday forty repeaters get off the train at Paragon and are paid in stolen notes. At Plata Vieja the miners' committee meets in Thomasina Bevan's schoolroom: a Mexican shift boss whose men can't vote and are going to be voted anyway, an Irish timberman who wants to burn the Company store, and a Black ex-sergeant who wants to see the evidence. If the party can show them the serial numbers next to a stolen note, the miners know whose money is in the envelopes. That night, too, the Paragon Pioneer may print that Celestino Trujillo took $300 from the mine. On Sunday night Cade Rendell comes for Jethro Petree. On Monday the party can get into the Mercantile and Coldiron's office, where the printer's bill for the envelopes is dated ten days before the robbery and Coldiron's own copybook says he didn't inquire into Rusk's methods. The plaza women sit up all night putting a red cross on every People's ticket, because the Company's tickets are printed to look like theirs. On Tuesday 12 July the miners come down the mountain in the Company's wagons. At the Paragon poll the party can challenge the railroad men, unmask the repeaters, and put the bank's schedule in front of three hundred and eighty men holding their own stolen wages. Then they must keep the crowd from hanging Rusk, and meet Cade Rendell in the street at sunset, because he has decided it is time to be famous. In the plaza, Venancio Chávez reads the count by lamplight with Rusk's letter in his pocket. By midnight the county knows its result, and Rusk is on the night train to Albuquerque, or in irons, or dead.",
+  "hook": "Saturday 9 July, eleven in the morning, the Paragon depot. The westbound train comes in an hour late, steaming, and forty men get off it who are not railroad men, miners, ranchers or anything else that belongs here: city hats, city shoes, a carpet bag between six of them. Fenton Rusk is on the platform to meet them, with a list. Across the street, in the shade of the Silver Rail's awning, Cade Rendell watches them with no expression at all. And a Mexican boy on a burro comes up the street with a note for the party, in Thomasina Bevan's square hand: 'Tonight, eight, the schoolroom. Bring your proof or don't come.'",
+  "cluesAvailable": [
+    "B1",
+    "B2",
+    "C2",
+    "C3",
+    "C5",
+    "C6",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "E2",
+    "F4"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "C. The Company paid for it",
+      "clues": [
+        "C2: the envelopes full of stolen notes (the Mercantile, the Paragon poll)",
+        "C3: Cazenove's bill for four hundred envelopes, 20 June (the Mercantile's files)",
+        "C5: Coldiron's copybook, 21 June: 'I have not inquired into his methods' (his office)",
+        "C6: Jethro Petree's word, or Rendell's if he talks (the plaza, the street)"
+      ]
+    },
+    {
+      "conclusion": "D. The Company means to buy the election",
+      "clues": [
+        "D2: 120 railroad men short of residence and twenty phantom lots (the poll list)",
+        "D3: the Company's wagons and the VOTED slips (Plata Vieja, the envelope table)",
+        "D4: forty repeaters off the Saturday train (the Silver Rail, the Paragon House)",
+        "D5: yellow tickets made to look like the People's (the Paragon poll)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Saturday and Sunday: The Train and the Schoolroom",
+      "description": "The Company's last preparations, and the party's best chance to turn the miners before the wagons come. The schoolroom on Saturday night is the scenario's most important scene: if the miners believe the party, the election changes by four hundred votes. Sunday night is the attempt on Jethro. A party that heard F4 on Saturday can be waiting. A party that didn't can still be there if they left someone with the old man, which a party that heard his confession should have done.",
+      "objectives": [
+        "Identify the repeaters and learn the plan for them",
+        "Convince the miners' committee that the Company's advance is their own stolen pay",
+        "Get ahead of the Paragon Pioneer on Celestino's $300",
+        "Keep Jethro Petree alive on Sunday night"
+      ],
+      "scenes": [
+        {
+          "name": "The Saturday Train",
+          "description": "Forty men off the train, Rusk with a list, and the Silver Rail's back room by evening. The party can watch, follow, count and recognise them. Theodora Quayle, if played, knows six of them from New Town's saloons, and Venancio knows the type. The repeaters are paid $5 a day in new notes, which puts stolen money in forty men's pockets in one room. Rendell watches from the end of the bar and asks the barkeep, idly, about an old man on the plaza.",
+          "readAloud": "The train comes in out of the white glare from the east, bell ringing, steam drifting across the platform, and the band strikes up something brave and out of tune. Forty men get down from the second car. They wear city hats and city shoes, celluloid collars or no collars at all, and they stand on the platform squinting at the llano as if it had insulted them. A plump man in a straw boater moves among them with a paper in his hand, shaking hands, saying a name to each and writing it down. Across the street, in the shade of the Silver Rail's awning, a tall fair man in a white shirt leans on a post and watches the whole thing, and when the plump man looks over at him he touches his hat brim, once.",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "These are repeaters, men hired to vote and vote again (CLUE D4). Two you'd swear are New Town saloon toughs, and a third is a faro dealer you've seen in Albuquerque. Rusk gives each a card with a name on it. That evening in the Silver Rail's back room he pays them $5 each in new notes, which, if you have the schedule, are stolen.",
+              "failure": "Men off a train for the election. There are always some."
+            },
+            {
+              "skill": "Gambling",
+              "dc": 14,
+              "success": "At the Silver Rail's faro table you beat Lucky Delacroix at his own crooked game, and he decides he likes you better than the Committee. Over a drink he tells you the plan: Paragon in the morning, Los Ranchitos in the afternoon under other names, the Company's buckboards between. He also tells you which four of the forty are hired guns, not voters.",
+              "failure": "Lucky Delacroix takes $20 of your money with a smile and tells you nothing."
+            },
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "Rendell, at the end of the bar, asks the barkeep which house on the plaza 'the old coach driver' sleeps in (CLUE F4). The barkeep doesn't know. Rendell says it doesn't matter, he'll find it, and finishes his drink. He's going on Sunday night.",
+              "failure": "The Texan at the end of the bar drinks alone and speaks to nobody. Then he leaves."
+            }
+          ]
+        },
+        {
+          "name": "The Schoolroom",
+          "description": "Plata Vieja, Saturday at eight, Thomasina's schoolroom, sixty men standing and more at the windows, a lamp on the harmonium. Ruperto Varela speaks for the Mexican miners, Con Hurley for the Irish, Lysander Tolbert for himself, and Thomasina keeps order. The party must say what they know and show what they have. The best proof is a stolen note held up beside the bank's schedule. If Celestino's $300 is still a secret, someone will ask about it, and the party should tell the truth. The miners' decision decides Tuesday: go home and vote where they live, go to Paragon and take the envelopes, or go down the canyon tonight and burn the Company store.",
+          "readAloud": "The schoolroom is long and low, stone-walled, with benches pushed to the walls and a slate board still chalked with the morning's sums. Sixty men stand shoulder to shoulder in the lamplight, more at every window, smelling of tallow and powder smoke and the dust of the dead mill. Faces: Mexican, Irish, Welsh, Black, German, Swedish, all of them tired and all of them hungry. At the front, a small woman in a black bonnet stands beside a harmonium with her hands folded. 'You all know me,' Thomasina Bevan says. 'These people say the bandits came out of Paragon and the money is in the Company's store. I've asked them to prove it to you, and I've told them that if they can't, you'll throw them down the canyon. Mr. Varela, Mr. Hurley, Sergeant Tolbert: they're yours.' A big grey Black man by the stove folds his arms. 'Show me,' he says.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "With a stolen note beside the schedule in Lysander Tolbert's hands, you convince them. Tolbert holds it up to the room: 'This is our pay. They robbed us, and they mean to give it back to us so we'll vote for them.' The miners will take the wagons to Paragon, because it's their money, but they won't vote there. They'll demand it as stolen property in front of the sheriff. Miners' attitude: trusting. (Advantage with Thomasina speaking for you; disadvantage if Celestino's $300 comes out from anyone but Celestino.)",
+              "failure": "They half believe you. About half the miners will vote in Paragon anyway, because their children are hungry and twelve dollars is twelve dollars. Count it as half the swing in The Vote."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "Con Hurley and twenty men want to go down the canyon tonight and burn the Company branch store. You stop them, by force of personality or by pointing out that a burned store is exactly the 'miners' riot' the Company would love to telegraph to Santa Fe. They wait for Tuesday.",
+              "failure": "Hurley's men burn the branch store at midnight. Nobody is killed, but the Pioneer prints 'MINERS RIOT' and the territorial governor's office wires the sheriff to keep order. Reputation in Paragon -1, and the miners have something to answer for on Tuesday."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Ruperto Varela's men can't vote and don't want to: a Mexican national who votes is committing a crime, and the Company is asking them to do it in front of its own judges. Varela will testify that Company men told his crews they 'could vote and would'. That's evidence of the Company procuring illegal votes, and it gives the Mexican miners a reason to stay home that has nothing to do with the plaza.",
+              "failure": "Varela is angry about something, but he says it in Spanish, fast, and you miss the point."
+            }
+          ]
+        },
+        {
+          "name": "Sunday Night at the Corrals",
+          "description": "Cade Rendell comes for Jethro Petree at about eleven on Sunday night, alone, on foot, through the corrals behind Ludlow's station. He means to shoot the old man in his bed through the window and walk away. If the party is waiting, it is a fight in the dark among horses, corral poles, the smithy and la Doña. Rendell will not stay to lose it. If nobody is waiting and Jethro is home, Jethro dies, and Doña Luz finds him. If Jethro is somewhere safe, Rendell finds the house empty and shoots the dog, which tells everyone he was there.",
+          "readAloud": "The plaza sleeps. One lamp in the church, the cottonwood whispering, frogs along the acequia, and from the corrals behind the station the shift and stamp of horses who aren't sure about something. A shape moves along the corral fence, keeping to the shadow of the coach, and stops by la Doña's rear wheel. It is a man, tall, hatless, in his shirtsleeves so as not to show against the dark, with a revolver held down along his leg. He stands there for a long moment, listening. Then he moves, quickly and quietly, toward the little house behind the corrals, where an old man's boots stand outside the door.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 15,
+              "success": "You see him first, before he reaches the window. Initiative, and whoever saw him acts in a surprise round. Rendell doesn't like being surprised. He fires once at the nearest of you and goes for the corral fence.",
+              "failure": "The first you know of him is a shot through the window of the old man's house. Whether Jethro is in the bed depends on what you did with him."
+            },
+            {
+              "skill": "Animal Handling",
+              "dc": 13,
+              "success": "You throw open the corral gate and send forty horses through the yard between Rendell and the fence. He has to go the long way round, past the smithy, and you have a round of open shots at a man on foot in the moonlight.",
+              "failure": "The horses break the wrong way and cover his retreat instead."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "If you have him cornered, against the smithy wall or under la Doña's wheels, Rendell says, quite calmly, 'Not here. Not in the dark. I'll meet you in Paragon, Tuesday, sunset, in front of the town. That's a better story for both of us.' And he means it. If you let him go, he will keep the appointment. If you take him instead, the gang has no leader for Tuesday, and Rusk has no one to stop the coach in st-scenario-004 but Shad Sorrel.",
+              "failure": "He's out over the fence and gone before you can close."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The Silver Rail on Saturday night: forty repeaters (mostly Saloon Brawler, four Hired Gun) and Rendell (Fast Gun) at the bar. A brawl here is easy to start and pointless to finish",
+        "Sunday night at the corrals: Cade Rendell (Fast Gun), alone, in the dark, among horses and corral poles. He wants Jethro, not a fight, and will break off if the fight goes against him"
+      ]
+    },
+    {
+      "title": "Monday: Paper",
+      "description": "The day before. The party can get the documents that will hang the Company in court: the printer's bill, Coldiron's copybook and the poll list. They can see the envelope table with their own eyes. Meanwhile the plaza answers the yellow tickets with a red cross, and Venancio Chávez decides who he is. Monday evening the Company's six wagons go up the canyon to Plata Vieja, and everyone knows tomorrow will decide it.",
+      "objectives": [
+        "Get into the Mercantile and Coldiron's office, lawfully or not",
+        "Find the printer's bill, the copybook letter and the poll list",
+        "Answer the yellow tickets",
+        "Find out what Rusk has on Venancio, and free him from it"
+      ],
+      "scenes": [
+        {
+          "name": "The Mercantile After Dark",
+          "description": "The Company store. By day the party can walk in, buy cartridges, look at the envelope table through the back-room door, and try to get upstairs on a pretext. By night there is a watchman, a dog and Constable Ebner every hour. Lawful ways in: a search warrant from Justice Lovato, served by Sheriff Jaramillo, which the Company will fight and which tips Rusk; a Deputy U.S. Marshal's federal warrant for the mail robbery, which Patricio Gurulé can swear out if he has enough evidence (two of B1, B2, B6, C2). Unlawful ways: the back window, the coal chute, a clerk who can be bribed or frightened.",
+          "readAloud": "The Mercantile at night is a dark brick block with one lamp in the back, where three clerks in sleeve garters sit at a long table under a hanging lamp, counting. Notes from a pile into a buff envelope, twelve dollars each. A yellow card on top. A lick and a fold, and the envelope goes onto a stack, and the stack is already the height of a man's knee. A watchman sits by the back door with a shotgun across his knees and a yellow dog asleep against his boots. Upstairs, behind the window with COLDIRON in gilt letters on it, a lamp is burning, and a man's shadow moves across the blind and stops, as if he were reading.",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 15,
+              "success": "You get in, by the coal chute or the back window or a clerk you've paid, and up the back stairs while Coldiron is at supper. In half an hour you can search the paid bills (C3), the copybook (C5), and the chief clerk's copy of the poll list (D2). Book Learning or Investigation gives advantage on the copybook.",
+              "failure": "The yellow dog wakes up. You have a round to get out before the watchman fires both barrels into the dark."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "Coldiron's copybook, 21 June: 'Mr. Rusk assures me that the miners' payroll difficulty will be settled to our advantage before the 12th… I have not inquired into his methods and do not propose to' (CLUE C5). And in the file of paid bills, Cazenove & Son's bill of 20 June for four hundred ADVANCE ON WAGES envelopes and twelve hundred yellow tickets 'as per sample', ordered by Mr. F. Rusk (CLUE C3). Tear the tissue page out and the copybook shows it. Copy it in front of a witness instead and it's evidence.",
+              "failure": "Five hundred pages of tissue and purple ink, and no index. You need another hour, or someone who reads business letters for a living."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "If you go to Coldiron openly, with what you know, he listens with real attention. He says he knows nothing of any robbery, and he believes it, because he made sure of it. He offers to 'look into Mr. Rusk's conduct after the election'. Insight DC 13: he will sacrifice Rusk tomorrow if he has to, and the copybook letter is the only thing he has forgotten.",
+              "failure": "Coldiron listens politely and has you shown out. Within the hour Rusk knows everything you said."
+            }
+          ]
+        },
+        {
+          "name": "Yellow Tickets",
+          "description": "The ticket trick. Somebody, the party, Celestino, Venancio or Ascensión Lucero, compares a Company ticket with a People's ticket and sees that they look the same from three feet away: SANTA TERESITA — COUNTY SEAT in big letters, the names in small. A man who can't read English votes for the Company thinking he's voting for the plaza. The plaza has one night to fix it. The answer is old and simple: mark every People's ticket by hand. If the party suggests it, or helps Celestino see it, the women of the plaza sit up all Monday night at Doña Eufemia's tables stamping a red cross in Don Policarpio's ink on twelve hundred tickets, while the men ride out to every sheep camp with the word.",
+          "readAloud": "Two tickets side by side on Doña Eufemia's table under the lamp: two little cards of yellow pasteboard, the same size, the same colour, the same black type. Across the top of each, in letters half an inch high, SANTA TERESITA — COUNTY SEAT. Below, in small type, the names. On one: for keeping the seat at Santa Teresita, and Celestino Trujillo for probate judge. On the other: for removal to Paragon, and Fermín Lucero for probate judge, and whether or not the old man has withdrawn, the Company has printed his name. Celestino stares at them for a long moment. Then he says, very quietly, 'Most of the men on the commons cannot read English. Many cannot read at all. They will look at the big letters.'",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 11,
+              "success": "They were made from the same sample by the same printer: the Cazenove bill's '1,200 tickets, yellow card, as per sample' (CLUE D5, and C3 if you haven't found it). The sample was the People's ticket Celestino carried on the coach, which he showed in Albuquerque to anyone who asked.",
+              "failure": "They look alike. That's all you can tell."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "The plaza takes up the red cross. Doña Eufemia and Doña Tomasa Lucero sit up all night with forty women and Don Policarpio's ink, and riders go to every camp: if your ticket has no red cross, it's the Company's. This takes back nearly all the votes the yellow tickets would have stolen, and it brings the plaza's women into the election in the only way the law allows them.",
+              "failure": "The plaza argues about it until midnight and does half the tickets. The yellow tickets steal about thirty votes on the commons."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Don Fermín's name is still on the Company ticket after he withdrew. Tell him, and he'll stand under the cottonwood all election day with his hat off, telling every voter who comes that the Lucero name on the yellow ticket was printed without his leave. That's worth more than the red cross with his own partidarios.",
+              "failure": "It doesn't strike anyone as important that a withdrawn candidate's name is still printed."
+            }
+          ]
+        },
+        {
+          "name": "Venancio's Note",
+          "description": "Venancio Chávez owes the Paragon Mercantile $600, and in June the Company bought his note. Rusk's friendly letter says that if Progress carries the plaza precinct by sixty votes more than the honest count, the note will be torn up. If not, it will be called on 15 July, and La Golondrina will be the Company's. Venancio hasn't decided. He's bought votes with whiskey and favours for twenty years and doesn't think that's a crime. He thinks this is. He'll tell the party if they come to him as friends, at the monte table after closing, and don't preach.",
+          "readAloud": "After closing, La Golondrina is a low room of whitewash and lamplight, with a monte table in the back and a guitar hanging on a nail, and Venancio Chávez alone at the table shuffling a Spanish deck over and over without dealing it. He doesn't look up when you come in. 'Sit,' he says. 'Have a drink. It's on the house, while it is still my house.' He takes a folded letter out of his waistcoat and puts it on the table between you, face down, and keeps his hand on it. 'Twenty years I've counted this plaza. Twenty years. I gave men a drink, I gave them a dollar, I found their sons work. That's politics, that's how it is done, everybody does it. But this.' He turns the letter over with one finger. 'This is something else.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "He decides to count honestly, and gives you Rusk's letter, which is an offer to procure a false count from an election judge, in Rusk's hand. It's a crime, and it's evidence. If the party can find $600 in time, from the Committee's own stolen notes if they've seized any, from Don Fermín, or from Ludlow's last silver, he weeps. If not, he does it anyway. The People's party's attitude improves by one step.",
+              "failure": "Venancio says he'll think about it, and he counts by lamplight on Tuesday night with the letter in his pocket."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "He doesn't want to do it. He wants someone to tell him that he doesn't have to, and that losing the cantina won't be the end of him. Telling him what he means to the plaza does more than any argument.",
+              "failure": "He's frightened and proud, and you can't tell which way he'll go."
+            },
+            {
+              "skill": "Gambling",
+              "dc": 13,
+              "success": "You play him for it, a hand of monte for the letter, and he lets you win and knows he's letting you. It saves his pride, and he'll count honestly. A Gambler pregen gets advantage, and a Gambler's Read the Table tells you he means to lose before he deals.",
+              "failure": "He wins, and laughs for the first time in a week, and keeps the letter. He'll decide on Tuesday."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "At the Mercantile by night: a watchman (Deputy) with a shotgun and a dog, and Constable Ebner (Crooked Sheriff) on his hourly round",
+        "No set combat in the plaza on Monday. If Rendell escaped on Sunday, Shad Sorrel (Bandit Sharpshooter) watches the plaza from the church hill all day, and reports who goes in and out of La Golondrina"
+      ]
+    },
+    {
+      "title": "Tuesday 12 July: Election Day",
+      "description": "The vote. Polls open at nine and close at six in five precincts. The miners come down in the Company's wagons at dawn and reach Paragon at about nine. The plaza votes under the cottonwood, the repeaters vote in Paragon and ride to Los Ranchitos, and the counts are by lamplight. The party can be in only one or two places, so let them plan the day and send companions where they can't go. Keep the tally in world state (campaignRules, The Vote) and tell the players what each thing they do is worth in votes.",
+      "objectives": [
+        "Be at the Paragon poll when the miners arrive, with the proof",
+        "Challenge the railroad men and unmask the repeaters",
+        "Keep the crowd from hanging Rusk, Tiburcio, or anyone",
+        "Meet Cade Rendell at sunset, or make sure someone does, or doesn't"
+      ],
+      "scenes": [
+        {
+          "name": "The Wagons",
+          "description": "Dawn on the Plata Vieja road. The Company's six wagons, each with two Company men and a keg, carry three hundred miners down the mountain, with eighty more walking or riding behind. If the schoolroom went well, the miners are coming to Paragon to claim their money as stolen property, not to vote. If it went badly, many of them mean to vote and be paid. Either way, the party can ride out to meet them on the road, and Thomasina and Lysander Tolbert will ride with the party into Paragon at the head of the column.",
+          "readAloud": "They come down out of the hills at sunrise in a long line of dust: six big freight wagons, each drawn by eight mules, each with a flag on a pole and a keg of beer in the bed. On every wagon thirty or forty men stand packed together, holding on to each other and the sideboards, and behind them come scores more on foot and on burros and mules. It's the whole of Plata Vieja's mining population, singing in four languages. At the head of it, on a mule, rides a small woman in a black bonnet, and beside her a grey Black man on a borrowed horse with an old army rifle across his saddle and a slate from the schoolroom under his arm. Thomasina Bevan raises a hand to you. 'Well,' she says. 'Here we all are.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "If the schoolroom half-failed, you have one more chance on the road. Talk to the wagons one by one, with Thomasina and Tolbert beside you, and the stolen note held up. Most of the doubters come round. Count the full miners' swing in The Vote.",
+              "failure": "About half the doubters still mean to vote in Paragon. They're hungry, and you're strangers."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "The two Company men on each wagon are paid to see the miners voted. Face them down, all twelve, in front of their wagons, and they climb off and walk. The miners cheer. The Company has lost control of its own column before it reaches town.",
+              "failure": "The Company men stay on the wagons, and one of them (a Railroad Enforcer) fires a shot over the party's heads to make a point. Someone will have to answer it."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 11,
+              "success": "One of the wagons has a sick child in it, brought by a mother who wouldn't leave her behind. Scurvy, from the closed credit. You treat her on the road (Zadok has the medicine). It's not a clue, but every miner in that wagon will swear to anything you ask of them, and they'll tell the rest.",
+              "failure": "You notice the sick child too late to help on the road. Zadok, or the plaza, will have to."
+            }
+          ]
+        },
+        {
+          "name": "The Paragon Poll",
+          "description": "The climax of the election. The Mercantile's porch, the ballot box with its glass panel, three Company judges, the poll list, the side window where the envelopes are paid, the band, Paragon's own voters, forty repeaters, and three hundred and eighty miners arriving. The party can challenge the railroad men with the residence list, make the repeaters swear before witnesses, and, at the right moment, put a stolen note and the bank's schedule in front of the whole street. When the miners see it, the poll stops. Hurley's men want the store. A crowd wants Rusk on the water tank, and Coldiron, on his balcony, will be glad to let them. The party must keep Rusk alive for a judge. Rusk will try for the 6:40 train.",
+          "readAloud": "Coldiron Avenue is packed from the depot to the Mercantile: flags, the band, wagons, mules, men in Progress ribbons, men in miners' boots, women on the hotel balcony with parasols, children on the water tank's ladder. On the Mercantile's long porch three judges sit behind a table with a ballot box on it, a glass-sided box with a slot, and a clerk reads names from a long list in a high voice. At the side of the store a window is open, and through it a clerk is passing buff envelopes to men who show a slip of paper. The plump man in the straw boater stands at the top of the porch steps with his thumbs in his waistcoat, smiling at the miners as they climb down from the wagons. Then he sees who is riding at the head of them, and with whom, and the smile stays exactly where it is while the rest of his face goes still.",
+          "skillChecks": [
+            {
+              "skill": "Performance",
+              "dc": 15,
+              "success": "You stand up on a wagon bed in the middle of the street with the bank's schedule in one hand and a note from an envelope in the other, and read the numbers out loud, slowly, so that three hundred and eighty men can hear them. Then you hand them to Lysander Tolbert and let him read them again. The street goes silent. The miners stop at the porch steps. Not one of them votes. They want their wages, here, now, as stolen property, in front of the county sheriff, and there is nothing the judges can say. Count the full miners' swing. Reputation in Paragon drops by 2, because you have shamed it, and the miners' attitude becomes trusting.",
+              "failure": "You don't get the whole street's attention. Some of the miners hear you and stop; others are already in line. Count half the swing, and the crowd round the porch turns ugly."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "You challenge the railroad men one by one with the residence list, with Sheriff Jaramillo or a deputy beside you to arrest anyone who swears falsely. After the first three are taken away in irons, the rest go back to the depot (worth 120 in The Vote). With Lucky Delacroix's list or Theodora's eye, you do the same to the repeaters (worth 60).",
+              "failure": "The judges take every oath and every ticket. The challenges are in the poll book, which is evidence for a contest, but they don't stop the votes today."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "When the crowd turns on Rusk with a rope from the livery, you put yourself between it and him: 'He goes to Albuquerque, to a judge, alive.' It works, barely. Rusk, white and shaking, asks to be arrested, and means it. He knows Coldiron wants him dead. In irons he's the best witness against the Company, if he can be kept alive until 18 July (CLUE C6).",
+              "failure": "The crowd surges. Unless someone draws and fires, Rusk is dragged to the water tank. If he's hanged, the party has lost the man who could name Coldiron, and Paragon has done the thing it meant to do to Tiburcio. If he escapes in the confusion, he's on the 6:40 train."
+            }
+          ]
+        },
+        {
+          "name": "Sunset and the Count",
+          "description": "Two things at the end of the day. At sunset Cade Rendell walks out into Coldiron Avenue in front of the whole town and calls for whoever in the party has the biggest name, the star or the fastest gun. It is the showdown he came west for (frontier.json showdowns). The party can refuse, which costs Reputation and leaves him alive, accept, or take him some other way, which costs Reputation and is probably wise. Meanwhile, by lamplight, the judges count in five rooms. Riders bring the precinct tallies to the plaza through the night. The GM adds up the tally from everything the party did. If Tiburcio was taken, the Paragon crowd is at the water tank with a rope at nine, and somebody has to be there.",
+          "readAloud": "The sun goes down behind the Cerro Colorado in a smear of red and gold, and the long shadows of the false fronts stretch all the way across Coldiron Avenue. The street has gone quiet. The band has stopped. Out of the Silver Rail, without hurrying, comes the tall fair man in the white shirt, his hat in his left hand and his right hand loose at his side, and he walks out into the middle of the street and stops with the sun at his back. He puts his hat on. 'I've been in this territory three weeks,' Cade Rendell says, not loudly, but the whole street hears him, 'and nobody's asked me my name. I'd like somebody to ask it now.' He looks at the party, one by one, and stops at one of you. 'You'll do.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "The stare-down. Rendell has the sun at his back and a crowd that wants a show, but he wants to be remembered more than he wants to live. A Lawman who tells him he's under arrest for the murder of Lon Brisbane, in front of everyone, takes his story away from him. If he draws on a man who's arresting him, he dies a murderer, not a gunfighter. The stare-down is Intimidation or Insight against his; win it and he has disadvantage on the draw, or he takes the arrest.",
+              "failure": "He has you. You'll draw at disadvantage, or back down in front of the whole town."
+            },
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "On the hotel roof behind you, Shad Sorrel is lying with a rifle. Rendell arranged it in case the fair fight went wrong. Spot him, and the town sees it too, and Rendell's showdown is ruined before it starts. Reputation in Paragon +1, the first good thing Paragon has thought of you all day.",
+              "failure": "You don't see the rifle on the roof. If you win the draw, Sorrel fires."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "The counts. With watchers in the right rooms, the tallies come in true: Plata Vieja, the sheep camps, Los Ranchitos, the plaza, Paragon. The GM adds it up from The Vote. If Venancio counted honestly, if the red cross worked, if the miners didn't vote and the challenges held, the county seat stays at Santa Teresita. Riders bring the result at two in the morning, and the church bell rings until dawn.",
+              "failure": "One room went uncounted by friends. A precinct's return shows sixty more votes than voters, or a box is lost on the road. The canvass on Friday will be a fight."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The Paragon poll: Constable Ebner (Crooked Sheriff), two Company men at the envelope window (Railroad Enforcer), four hired guns among the repeaters (Hired Gun), and a crowd that becomes a Lynch Mob when Rusk is exposed. Combat here kills miners; the party should know it",
+        "Sunset: Cade Rendell (Fast Gun) in a showdown in Coldiron Avenue, with Shad Sorrel (Bandit Sharpshooter) on the hotel roof behind the party in case it goes wrong. If Rendell was taken on Sunday, Sorrel calls the showdown himself, and he's not as good"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Thomasina Bevan, 41",
+      "role": "Schoolmistress at Plata Vieja; the miners' voice (companion)",
+      "description": "See her sheet. She runs the schoolroom meeting like a chapel and the miners like a school.",
+      "motivation": "Her miners paid and their children fed, and nobody voted like cattle."
+    },
+    {
+      "name": "Lysander Tolbert, 47",
+      "role": "Miner; ex-sergeant, 25th Infantry; the man the miners believe",
+      "description": "Tall, broad, grey, deliberate, with an old army rifle and a slate. A Missouri-born veteran of ten years in the Twenty-fifth Infantry in Texas. He reads aloud to the men who can't, and they trust him because he has never told them anything he couldn't prove.",
+      "motivation": "Proof, and his pay. He has never in his life been told the truth by a company, and he'll believe the party only when he can hold it in his hand."
+    },
+    {
+      "name": "Ruperto Varela, 39",
+      "role": "Shift boss, from Chihuahua; speaks for the Mexican miners",
+      "description": "Short, quick and fierce, with a black moustache and a crucifix on a bootlace. He has brought eighty men up from Chihuahua and is responsible for all of them.",
+      "motivation": "His men paid, and his men kept out of an American jail for voting where they have no right to."
+    },
+    {
+      "name": "Con Hurley, 33",
+      "role": "Timberman, from County Cork; the hothead",
+      "description": "Red-bearded, enormous, cheerful, and ready to burn anything owned by any company anywhere.",
+      "motivation": "Justice, quickly, by fire if necessary."
+    },
+    {
+      "name": "Hamish Gow, 48",
+      "role": "Superintendent, Plata Vieja Consolidated",
+      "description": "A dour Aberdonian in a black suit, honest, tight-fisted and out of money. Gave Celestino $300 for the People's ticket.",
+      "motivation": "His mine, his road, and his payroll, in that order. He'll testify to anything that gets the express company to pay."
+    },
+    {
+      "name": "Venancio Chávez, 45",
+      "role": "Precinct boss and election judge on the plaza (companion)",
+      "description": "See his sheet. On Tuesday night he reads the plaza count aloud by lamplight.",
+      "motivation": "To keep La Golondrina, and to keep being the man the plaza trusts. He has just found out those are different things."
+    },
+    {
+      "name": "Fenton Rusk, 50",
+      "role": "The Company's election agent",
+      "description": "As before. On Tuesday, for the first time in his life, things go wrong in public, and he finds out that the Company will let him hang.",
+      "motivation": "To win; then, to live. Arrested, he'll trade Coldiron for his neck, and he has the copybook's twin, his own letters, in his room."
+    },
+    {
+      "name": "Everard Coldiron, 44",
+      "role": "Manager of the Company",
+      "description": "As before. On election day he watches from the balcony over the Mercantile in a white suit. When Rusk is exposed, he says, loudly, that the Company knew nothing, and watches the rope come out without a word.",
+      "motivation": "Paragon, the Company and himself, and none of them can afford Rusk alive."
+    },
+    {
+      "name": "Cade Rendell, 38",
+      "role": "Texas gunman",
+      "description": "As before. On Sunday night he is an assassin. On Tuesday at sunset he wants to be a legend.",
+      "motivation": "A showdown in front of a town, with the sun behind him and Sorrel on a roof, just in case."
+    },
+    {
+      "name": "Constable Ott Ebner, 40",
+      "role": "Paragon's constable",
+      "description": "As before. By Tuesday night he's drunk, frightened and beginning to understand what his Committee has been for.",
+      "motivation": "To keep his star. He'll take an arrest from the sheriff, if the sheriff gives him a way to save face."
+    },
+    {
+      "name": "Lucky Delacroix, 36",
+      "role": "Faro dealer at the Silver Rail; a hired sharper",
+      "description": "Thin, pale, beautifully dressed, from Kansas City, with soft hands and no loyalties.",
+      "motivation": "Money, and respect from anyone who can beat him. He'll sell the Committee to someone who does."
+    },
+    {
+      "name": "Sheriff Florencio Jaramillo, 56",
+      "role": "Sheriff of Rio Seco County",
+      "description": "As before. On election day he rides between the plaza and Paragon with his two deputies, arresting false swearers and trying to be in two places.",
+      "motivation": "An honest count and no hangings, and he'll deputize anyone who helps with either."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "If the miners are paid their stolen wages as recovered property, under the sheriff's eye, at the Paragon poll, Thomasina's committee takes up a collection of a dollar a man for the party, which is $380 in their own money and the most valuable money the party will ever be given. The Southwestern Express Company's reward, $250 a head for each robber taken and $500 for the box's contents recovered, is now within reach. Venancio, if freed of his note, gives the party free drinks at La Golondrina for life. Coldiron, if approached, offers $1,000 each to leave the territory before Monday.",
+    "items": [
+      "Cazenove & Son's bill for the envelopes and tickets (CLUE C3)",
+      "A copy, witnessed, of Coldiron's copybook letter of 21 June, or the tissue page itself (CLUE C5)",
+      "The Paragon poll list with the railroad men and phantom lots marked (CLUE D2)",
+      "A stack of ADVANCE ON WAGES envelopes with stolen notes and yellow tickets inside (CLUES C2, D3, D5)",
+      "Rusk's letter to Venancio Chávez offering to forgive his note for a false count",
+      "Cade Rendell's buffalo rifle, if he is taken, and the .50 ball from Lon Brisbane (CLUE A4, made certain)",
+      "Fenton Rusk, alive, in irons, if the party kept him from the water tank"
+    ]
+  },
+  "twists": [
+    "If the Paragon Pioneer prints Celestino's $300 before he does, the miners hear it at the schoolroom on Saturday from Con Hurley, who has a copy, and the meeting turns against the plaza. Celestino can still save it by riding to Plata Vieja on Sunday and saying it himself, from the schoolroom door, with the receipt and an apology. It costs him something to do it. He's a better man afterwards, and a better candidate.",
+    "When Rusk is exposed at the poll, Coldiron says loudly from his balcony that the Company knew nothing, and that Mr. Rusk had no authority to act for it. He means for the crowd to hang Rusk. If the party saves Rusk, Rusk knows exactly who wanted him dead, and his own room at the Paragon House holds his copies of every letter he exchanged with Coldiron. He'll give them up for his life.",
+    "If Rusk gets onto the 6:40 train, he reaches Albuquerque at midnight. There, with the Company's lawyers, he will be ready on Monday 18 July to swear that the party, the plaza and the miners conspired to steal the election. The last run (st-scenario-004) becomes a race to put the truth in front of the court before his version.",
+    "If the election is lost anyway, it isn't over. A contest can be filed in the district court at Albuquerque by Monday 18 July, with the poll book, the challenges, the repeaters, the envelopes and Venancio's letter. The Company will try to stop it from getting there."
+  ],
+  "dmTips": [
+    "The schoolroom is the scenario's most important scene. Give it time, give the miners voices, and let them argue with each other in their own languages. Lysander Tolbert is the man the party has to convince, and he should be hard to convince.",
+    "Keep the vote tally in world state from Saturday on, and tell the players what each thing they do is worth: 'That's sixty votes.' The election should feel like a heist in reverse, with every success a number.",
+    "The Paragon poll is not a battle. Three hundred and eighty miners, forty repeaters, a band and a town full of women and children are in that street. A gunfight there kills bystanders. The party wins it with paper, voices and nerve, and the GM should make that plain.",
+    "Keeping Rusk alive is the hardest and best thing the party can do on election day. A party that lets the crowd hang him has done Paragon's justice on Paragon's terms, and should feel it.",
+    "Rendell's showdown at sunset is the genre's promise, and it should be kept. It is also a trap: Sorrel on the roof. A Lawman who arrests him in front of the town instead of drawing has the best of it. A Gunslinger who wants the fight should get one, and it should be terrifying.",
+    "Budget an hour for Saturday and Sunday, an hour for Monday, and an hour and a half for election day. If time is short, run Monday as a montage: the Mercantile break-in in one scene, the red cross and Venancio in a second.",
+    "End at two in the morning on the plaza with the result, the church bell (or silence), and the news that the canvass is on Friday and the court sits on Monday. Then tell the party what is still in danger: Jethro, Tiburcio, Rusk if he's alive, the grant's papers, and the long road to Albuquerque that the Company's men know as well as they do."
+  ]
+}

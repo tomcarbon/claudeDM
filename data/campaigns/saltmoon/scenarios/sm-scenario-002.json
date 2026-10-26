@@ -1,0 +1,323 @@
+{
+  "id": "sm-scenario-002",
+  "title": "Minimum Survivable",
+  "subtitle": "A Strike in the Pumphouse, Hired Guns on Pad Row, and Six Hours a Machine Was Told to Forget",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Brinehold under siege, C-26 to C-13",
+    "description": "The colonists hold the Pumphouse: heat, water and air. The Combine holds everything else: the Ledger House, the store, Pad Row, the Sling, the Mast and both crawlers. Halberd Services lands thirty contractors at C-26 under Commander Ivette Varnholt. Rook doesn't want a fight. He wants the colony to get cold, hungry and tired until the buyout queue is longer than the register. Every day both sides lose a little and the clock runs.",
+    "atmosphere": "Two weeks of cold. Breath frosting in the Warrens, families in coats at the canteen, children sleeping three to a bunk for warmth. Picket lines and pots of soup. Contractors in grey armour at every junction, bored and dangerous. Rook on the Gallery screens every morning, kind and reasonable, reading out the number of people who boarded yesterday. This is a labour fight, not a war. Most of the drama is in negotiations, small acts of sabotage and kindness, and the moment someone nearly does something that can't be undone.",
+    "keyLocations": [
+      {
+        "name": "The Pumphouse",
+        "description": "The colony's fortress: the reactor hall, the heat exchangers, the water works and the air plant, behind two sets of pressure doors. Sixty colonists hold it in shifts, led by Agathe Ruark. Severin Haake's wife Mireille is one of the reactor techs.",
+        "features": [
+          "The reactor control room, which Agathe has sworn no one will touch (if the party got that promise in sm-scenario-001)",
+          "The coolant crawl, a pipe tunnel that runs under the Gallery to the Warrens: the only way in or out that the Combine doesn't watch",
+          "The heat valves to the Warrens, which the Combine can override from the Ledger House, and the colony can override back from here, by hand",
+          "A canteen set up on the turbine floor, the warmest place in Brinehold"
+        ],
+        "encounters": [
+          "The heat war (see Act 1)",
+          "Agathe's plan to wreck the Sling coil feed (see Act 2)",
+          "Halberd's attempt to retake the Pumphouse at C-15 (see Act 3)"
+        ],
+        "secrets": [
+          "The reactor's emergency shutdown can be tripped from two places: the control room here, and a hardwired panel in the Ledger House security post. Severin Haake has the key to the second. Mechanics DC 15 here to notice the remote line, which matters in sm-scenario-004",
+          "A full reactor shutdown makes Brinehold uninhabitable within 36 hours: air, heat and water all fail, and the only way out is up"
+        ]
+      },
+      {
+        "name": "Pad Row and the Halberd Camp",
+        "description": "Halberd has set up in the empty staff barracks beside Pad Row, with a fenced compound, floodlights and two Security Drones on patrol. Commander Varnholt runs it like a forward base. Both crawlers are parked inside the fence.",
+        "features": [
+          "Two crawlers: the old six-seat Mule and the new four-seat Fulmar. The Fulmar is faster and has the better navigation; the Mule is tougher and can carry a cold case",
+          "Halberd's armoury container, caseless rifles and stun gear",
+          "An Industrial exo-frame from the ore yards that Halberd has requisitioned and fitted with a cargo-bay floodlight"
+        ],
+        "encounters": [
+          "Stealing, borrowing or bargaining for a crawler (needed for sm-scenario-003)",
+          "Halberd patrols: 2 Mercenaries and a Security Drone, every two hours"
+        ],
+        "secrets": [
+          "Varnholt's contract pays a bonus per head boarded, not per day of peace. She has every reason to make Brinehold frightening",
+          "Her contract also forbids 'lethal force against registered residents' without Rook's written order. Insight DC 15 on her, or Computers DC 16 on her slate, shows she doesn't have one yet"
+        ]
+      },
+      {
+        "name": "The Survey Lab",
+        "description": "Wystan Corrie's workplace in the Ledger House, now locked under a close-out seal. Its systems hold the backup of every survey analysis, including, somewhere, the six hours Wystan can't remember.",
+        "features": [
+          "The analysis bench and a deep-cold sample freezer, empty since C-31",
+          "The lab backup slate, a sealed physical drive in a wall safe, scheduled to go up the Sling in the cold case",
+          "A terminal with Wystan's personal partition key, which he has never been allowed to use"
+        ],
+        "encounters": [
+          "Opening the partition (see Act 2)"
+        ],
+        "secrets": [
+          "The partition holds Wystan's analysis of the Bore Nine core from 1,840 m, the ice just above the ocean: entrained living saltlace, mineral-bound microbial colonies, metabolically active at minus 2 degrees in brine, with a cold-stable protein structure Wystan described at 0611 as 'the most important thing I will ever see'. At 0642 he flagged it for the Claims Board as required under the Living Find Statute. At 0644 the partition began. The flag was never sent",
+          "Rook's close-out order, attached to the partition, names the operation: STILLWATER. Collect live specimens from Bore Nine at target depth, ship them in the cold case on the last canister, and file a bioprospecting claim from head office after the lapse, when the moon is empty"
+        ]
+      },
+      {
+        "name": "The Gallery Screens and the Buyout Desk",
+        "description": "Rook's morning briefings play on every screen in Brinehold at 0700. The buyout desk is in the Ledger House lobby, warm, with hot drinks and a queue.",
+        "features": [
+          "The daily number: people boarded, people signed off the register",
+          "A big printed sign: 18,000 cr per adult, 6,000 per child, relocation and medical, all paid on boarding"
+        ],
+        "encounters": [
+          "Talking a family out of the queue, or into it, because the party may decide they should go",
+          "Rook's personal visits to wavering Stayers"
+        ],
+        "secrets": [
+          "Rook has a list of the twenty Stayers most likely to break, ranked, with notes. Agathe Ruark is at the top, with the note: 'Lungs. Offer treatment. Ask for C-14 register closure.'"
+        ]
+      }
+    ]
+  },
+  "synopsis": "Two weeks of strike and siege. Halberd lands thirty contractors at C-26, and Rook starts squeezing: he cuts heat to the Warrens at C-22, freezes the colony's store accounts and runs the buyout desk all day. The colonists hold the Pumphouse, and the Stayers count starts to fall. The party's job is to keep the colony together without a massacre. They have to win the heat war, stop Agathe from wrecking the Sling (it is everyone's way home), and find out why the Combine wants Bore Nine so badly. The answer is in Wystan Corrie's partitioned memory in the survey lab. Saltlace is alive, it is worth more than the moon, and Operation Stillwater means to take it. It also turns out that Adaeze Rask put a core segment in her thigh pocket before she died, and her suit recorder was never found. The Combine recovery team is going back to Bore Nine as soon as the Shear's storm season breaks at C-8. Halberd tries to retake the Pumphouse at C-15. By C-13 the party must get a crawler and head south before the recovery team.",
+  "hook": "At 0700 on C-26 every screen in Brinehold shows the same thing: Caspian Rook, in a warm room, holding a cup of tea. 'Good morning, Brinehold. Yesterday, nineteen of you made the brave decision to go home. To those of you in the Pumphouse: I understand. I do. I've asked Commander Varnholt and her team to help keep everyone safe while we finish. Nobody needs to be cold.' Behind him, through the window, you can see Pad Row, where a second shuttle is landing, and thirty people in grey armour are walking down its ramp.",
+  "acts": [
+    {
+      "title": "Act 1: The Heat War (C-26 to C-20)",
+      "description": "Halberd lands and Rook tightens the screws. At C-22 the Ledger House overrides the Warrens' heat valves to 'minimum survivable', which in practice means about minus eight degrees indoors. The colony fights back by hand.",
+      "objectives": [
+        "Keep the Warrens warm enough that families don't break and board",
+        "Keep Halberd and the strikers from shooting at each other",
+        "Open a channel to Severin Haake"
+      ],
+      "encounters": [
+        "The valve fight: overriding the overrides, by hand in the Pumphouse or by spoof in the Ledger House",
+        "A Halberd patrol harassing a soup line at the Gallery",
+        "A cold night in the Warrens: an elderly Stayer collapses, and a child has a fever"
+      ],
+      "scenes": [
+        {
+          "name": "Minus Eight",
+          "description": "The night of C-22, in the Warrens, the first night after the heat cut.",
+          "readAloud": "\"The Warrens at night sound like a ship: the hum of the reclaimers, ice creaking as it shifts in the walls, and tonight, coughing. Doors are open so heat can travel. Families have moved into the old drill-crew hall to sleep together in a heap of coats and blankets, and someone has hung lamps inside a frame of foil to make a fire with no flame. Breath hangs in the air. A little boy asleep on his mother's lap has frost on his eyelashes. In the corridor outside, an old man sits very straight on a crate and tells you he is quite all right, thank you, and his lips are blue.\"",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 14,
+              "success": "In the Pumphouse you reroute the Warrens' feed through the turbine-floor bypass by hand. Heat comes back to minus two, survivable and nearly comfortable. The Ledger House sees it in 1d4 hours and reverses it, unless someone spoofs the sensor.",
+              "failure": "The bypass vents steam into the hall and someone gets scalded (1d6 fire). Try again in an hour."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 13,
+              "success": "The old man is hypothermic and his heart is struggling. You warm him slowly and he lives. Stayers +1 if this happens in front of people.",
+              "failure": "He goes to the clinic. Dr. Quarrie saves him, but his family takes him to the buyout desk in the morning: Stayers -1d4."
+            },
+            {
+              "skill": "Computers",
+              "dc": 15,
+              "success": "With a Tech's Spoof or physical access to a Ledger House terminal, you lock the Warrens' heat sensors to read 'minimum' while the valves stay open. It holds for 3 days.",
+              "failure": "The spoof trips an alert. Notice +1, and Rook mentions it, sadly, at 0700."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This scene should hurt. The heat war is how the Combine wins without firing a shot. Every failed night is Stayers -1d6. Every warm night the colony holds is a morale win; give the Face a Rally speech at breakfast. If the party wins three nights out of five, Rook gives up on the heat and tries the buyout harder.",
+          "loot": []
+        },
+        {
+          "name": "The Soup Line",
+          "description": "Midday, C-24. Four Halberd contractors stop the colony's soup cart at the Gallery and want to see everyone's ID.",
+          "readAloud": "\"The soup cart is a drill-casing barrel on wheels, steaming, pushed by two saltborn teenagers. The contractors are bored and big in their grey armour, and one of them puts his boot on the cart's wheel. 'IDs. Everybody. Close-out census.' A woman in the queue says she has lived here forty years, and he says, 'Then you'll know where your ID is.' Lisbet Rask is very quietly taking off her jacket.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "You talk the contractors down, and their sergeant, embarrassed, waves the cart through. Varnholt hears and is annoyed.",
+              "failure": "They take three names and the soup cart. Stayers -1."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "Thorvald or Severin can do this. The sergeant backs off and doesn't come back to the Gallery. Notice +1.",
+              "failure": "The sergeant puts his hand on his rifle and the queue scatters. Notice +1, Stayers -1d4."
+            }
+          ],
+          "combatEncounters": [
+            "If it turns into a fight: 4 Mercenaries (caseless rifles, they won't fire first in a crowd unless someone draws a gun; stun gear otherwise). Lisbet goes for the nearest one's knees. Severin arrives on round 3 with 4 Security Guards and stands between both sides. Any ballistic shot: Guns Under Pressure, Notice +2, Stayers -1d6"
+          ],
+          "roleplayNotes": "Halberd are workers too, a long way from home and paid to be frightening. Some of them are ashamed. If a PC talks to one alone, they might learn about the per-head bonus. Severin will meet the party privately after this scene if they kept it from becoming a fight.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 2: What the Machine Forgot (C-20 to C-16)",
+      "description": "The party learns why. Wystan Corrie's partition, in the sealed survey lab, holds the analysis of the Bore Nine core and the Combine's plan. Meanwhile Agathe, losing people every day, decides the only leverage left is to wreck the Sling.",
+      "objectives": [
+        "Get into the survey lab and open Wystan's partition (or copy the lab backup slate)",
+        "Learn about saltlace, Operation Stillwater and the missing core segment",
+        "Stop Agathe's crew from wrecking the Sling's coil feed"
+      ],
+      "encounters": [
+        "The survey lab break-in",
+        "The Sling coil feed at the ore yards, at night",
+        "Ferrant Venn, who knows about the thigh pocket"
+      ],
+      "scenes": [
+        {
+          "name": "The Partition",
+          "description": "The survey lab, under close-out seal, at night.",
+          "readAloud": "\"The survey lab is dark, cold and very tidy. Every surface has been wiped. The deep-cold freezer stands open and empty, and its seal is still frosted. On the bench terminal a single icon blinks: PARTITION W.CORRIE / PROPRIETARY / LOCKED. If Wystan is here, he stands in front of it for a long time without speaking. Then he says, 'I would like to know what I saw. I think I am allowed to know what I saw.'\"",
+          "skillChecks": [
+            {
+              "skill": "Computers",
+              "dc": 18,
+              "success": "The partition opens. Wystan (or the party, from the slate) relives 0210 to 0817 on C-32: the core from 1,840 metres, the blue glow in the ice, living saltlace under the microscope, his flag to the Claims Board at 0642, and at 0644 Rook's voice on the lab speaker: 'Thank you, Wystan. That will be all. Partition now.' Attached: the Stillwater order.",
+              "failure": "The lock holds. A Synthetic with Data Link has advantage. Eureka can reroll. Two failures and the lab's alarm sounds (Notice +2)."
+            },
+            {
+              "skill": "Science",
+              "dc": 15,
+              "success": "From the analysis you understand what saltlace is: a living lattice of brine microbes bound into mineral, from an ocean that has been dark for four billion years. Its antifreeze proteins could keep a human organ alive at minus forty for a year. Every cold-sleep ship and every transplant ward in the system would want it. It is worth more than every ton of ore the Combine ever shipped. Under the Living Find Statute, nobody can own it if it is reported.",
+              "failure": "It's alive, it's valuable, and the Combine is hiding it. The details escape you."
+            }
+          ],
+          "combatEncounters": [
+            "If the alarm goes: 2 Corporate Security Officers (Combine, not Halberd) and 1 Security Drone. Severin, if the party has reached him, delays his response by 5 minutes and says so"
+          ],
+          "roleplayNotes": "THIS IS WYSTAN'S SCENE if he is a PC. He discovers that he did his duty: he found life, he flagged it, and the Combine silenced him. Give his player time with that. If nobody plays Wystan, the lab backup slate (in the wall safe, Mechanics DC 16) holds the same thing, and an NPC Wystan, who still works in the Ledger House, can be persuaded to help (Persuasion DC 14). He is quietly devastated either way.",
+          "loot": [
+            "The core analysis (evidence for the find)",
+            "The Stillwater order (evidence of intent, which makes Sabeen go very pale)",
+            "The knowledge that the recovery team leaves when the storms break at C-8"
+          ]
+        },
+        {
+          "name": "The Coil Feed",
+          "description": "The night of C-17, the ore yards. Agathe has sent a crew to cut the Sling's coil feed.",
+          "readAloud": "\"The Sling's coil feed runs in a covered trench beside the rail, a river of cable as thick as your body, frosted and humming. Six saltborn in surface suits are crouched over it with a plasma cutter, and Agathe's voice is in your helmet: 'One cut, pets. One cut and they're stuck here like us. Then they'll listen.' Tomaso Osterkamp, if he is here, swears very quietly. He knows what a cut feed does: it takes eight days to replace, and the Plainsong won't wait eight days.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "You talk the crew down, or talk Agathe down on the channel. If a PC points out that a stranded Plainsong means no lifeboat for anyone, at DC 12. Agathe is furious and then, a minute later, quietly grateful.",
+              "failure": "They cut it. See the twist."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 14,
+              "success": "You show them a cut that looks catastrophic and takes Tomaso four hours to repair. It frightens Rook for a day without stranding anyone. Notice +1.",
+              "failure": "The cutter slips and the feed arcs: everyone within 10 feet takes 2d6 lightning, DEX save DC 13 for half."
+            }
+          ],
+          "combatEncounters": [
+            "Halberd perimeter: 2 Mercenaries and a Security Drone patrol the ore yards on a 40-minute loop. Fighting them here is in vacuum: suit breach rules apply to everyone"
+          ],
+          "roleplayNotes": "If the feed is cut, the Plainsong can't take the last canisters, and Captain Halvik threatens to leave at C-0 without them, with or without the people who want to board. That makes the endgame much harder and much more desperate. It is not the end of the campaign, but the party should understand what Agathe almost did. If Tomaso is a PC, this is the moment his promise to Halvik comes due.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Pumphouse Doors (C-15 to C-13)",
+      "description": "Rook loses patience. At C-15, after the Stayers fail to fall below 110, he signs Varnholt's order to 'secure the Pumphouse for safety reasons'. Nobody is to be killed. Halberd isn't good at that.",
+      "objectives": [
+        "Hold the Pumphouse, or hand it over without bloodshed",
+        "Keep Severin Haake on the right side",
+        "Get a crawler for the trip to Bore Nine"
+      ],
+      "encounters": [
+        "The Halberd assault on the Pumphouse doors",
+        "The crawler: stolen from Pad Row in the confusion, bargained from Varnholt, or handed over by Severin"
+      ],
+      "scenes": [
+        {
+          "name": "The Doors",
+          "description": "0400, C-15. Halberd cuts the Pumphouse's outer door.",
+          "readAloud": "\"The sound comes first: a high whine through the walls, then a smell of burning foam. A line of white-hot light crawls up the seam of the outer pressure door. On the other side of the turbine floor sixty people in coats stand up from their blankets. Agathe bangs her coupling on a pipe, once, twice. 'Kids to the coolant crawl. Everyone else, with me.' Mireille Haake, a reactor tech, is crying and holding a wrench. Over the intercom, very calmly, a woman's voice: 'This is Commander Varnholt. Step away from the doors. Nobody needs to get hurt.'\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "On the intercom you persuade Varnholt to pause and parley; she has no lethal-force order and doesn't want one on her record. A Face's Negotiator specialty makes it DC 12. She gives you one hour.",
+              "failure": "The cutting goes on."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 15,
+              "success": "You rig the inner door's pressure lock so that cutting the outer door seals the inner one for 12 hours, and the cut becomes pointless.",
+              "failure": "The lock jams open. Now there's only one door."
+            }
+          ],
+          "combatEncounters": [
+            "Halberd assault: Commander Ivette Varnholt (Mercenary Commander), 6 Mercenaries (stun loads first; they switch to caseless rounds if one of them goes down), 1 Mech/Exo-frame Pilot in the requisitioned Industrial exo-frame to tear the inner door open. Pressure halls on all sides: Guns Under Pressure applies in full and the turbine floor has an outer wall",
+            "Severin Haake: if the party opened a channel to him in Act 1, he arrives on round 2 with 4 Security Guards and orders Halberd to stand down under charter safety regulations. Varnholt hesitates for one round, which is enough. If they didn't, he arrives on round 4 and stops the fight wherever it is"
+          ],
+          "roleplayNotes": "This is the climax of the strike and it should be terrifying and confusing: steam, screams, children in the crawl, the exo-frame's arms tearing at a door. The best outcome is one where no one dies: Varnholt backs off, Rook loses face, and the Stayers gain 1d6. The worst is a dead colonist, Stayers -2d6, and Severin turning away. Afterwards, whatever happens, Rook announces at 0700 that Halberd will 'withdraw to Pad Row for everyone's safety'. He has decided to win the last week another way.",
+          "loot": [
+            "One of the crawlers, if the party takes or is given it"
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Commander Ivette Varnholt",
+      "role": "Halberd Services commander",
+      "description": "Fifties, compact, scarred, professional and paid per head. Not cruel, but she doesn't care. She can be bargained with because she cares about her contract and her record."
+    },
+    {
+      "name": "Caspian Rook",
+      "role": "Combine close-out officer",
+      "description": "Runs the siege from the Ledger House with warmth and data. Visits wavering families in person. Has a ranked list of who will break."
+    },
+    {
+      "name": "Agathe Ruark",
+      "role": "Strike leader / companion",
+      "description": "Holds the Pumphouse, nearly wrecks the Sling, carries a secret about her lungs."
+    },
+    {
+      "name": "Severin Haake",
+      "role": "Security chief / companion",
+      "description": "Between Halberd and the colony, with his wife on the strikers' side of the door."
+    },
+    {
+      "name": "Mireille Haake",
+      "role": "Reactor tech, Severin's wife",
+      "description": "Saltborn, steady, frightened, loves her husband and won't leave the Pumphouse."
+    },
+    {
+      "name": "Wystan Corrie",
+      "role": "Survey geochemist",
+      "description": "A pregen. If no one plays him, he is an NPC who will help open his own partition once asked."
+    },
+    {
+      "name": "Captain Ottoline Halvik",
+      "role": "Master of the Plainsong",
+      "description": "On the comm from orbit. Practical, dry, wants his canisters and his crew paid. Leaves at C-0 regardless."
+    }
+  ],
+  "rewards": {
+    "xp": 3800,
+    "money": "None. The colony feeds and houses anyone on its side. Rook offers any PC who leaves the Pumphouse 5,000 cr and a senior berth",
+    "items": [
+      "The core analysis from Wystan's partition (evidence for the find)",
+      "The Stillwater order",
+      "A crawler (the Mule or the Fulmar)",
+      "Severin Haake's trust, if earned",
+      "Agathe's promise to leave the Sling alone"
+    ],
+    "story": "The strike survives, battered. The party knows what saltlace is, what Stillwater is, and that the Combine's recovery team leaves for Bore Nine as soon as the storm season breaks. They have a crawler, or know where one is. The Stayers are somewhere around 110. The Shear is waiting."
+  },
+  "twists": [
+    "If the coil feed was cut, Captain Halvik gets on the open channel at C-16 and says the Plainsong will leave at C-0 on schedule, full or not. The Plainsong doesn't have the fuel to wait. It is true. It makes Rook the reasonable man again, and it makes some Stayers board early to make sure of a seat (-2d6).",
+    "Rook visits Agathe in the Pumphouse during a parley and leaves a sealed letter with her. It is his offer for the hospital treatment in exchange for closing the register at C-14. If she hasn't confided in anyone by C-14, she nearly takes it; Odalys Quarrie, or any PC who has noticed her cough, is the only thing in the way.",
+    "Ferrant Venn, if someone asks him about the core while he is sober (Persuasion DC 14), remembers that Adaeze pulled a core segment from the rack and put it in her thigh pocket, and that she wore her suit recorder, 'the black puck', on her left shoulder. Neither was on the body. 'The shack collapsed,' he says. 'If they're anywhere, they're in the ice.'"
+  ],
+  "dmTips": [
+    "IT'S A STRIKE, NOT A SIEGE. Most of the scenario is talking: meetings in the Pumphouse, parleys on the intercom, quiet chats with contractors, families deciding whether to go. Use fights to punctuate decisions, not to replace them.",
+    "THE STAYERS ARE THE SCORE. Say the number at the start of every session. The party should feel every family that boards and celebrate every one that comes back.",
+    "LET THE COMBINE BE RIGHT SOMETIMES. Brinehold really is running out of money. Esker really is dangerous. Some colonists really would be better off going. A PC who wants to help families leave safely is playing the game properly.",
+    "THE CRAWLER IS A PRIZE. The party needs one for sm-scenario-003. Steal it, earn it, or have Severin hand it over. The Mule is tougher (AC 14, 90 HP, six seats, 72 hours of air). The Fulmar is faster (AC 13, 60 HP, four seats, cuts the journey to 2 hours on a good day) but its navigation reports to the Ledger House unless a Tech disables it."
+  ]
+}

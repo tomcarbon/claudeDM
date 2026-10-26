@@ -1,0 +1,132 @@
+{
+  "id": "85899db6-2720-4a30-ad61-7717572a9b75",
+  "name": "Roscoe Talmadge",
+  "status": "alive",
+  "race": "Farm-Raised",
+  "subrace": "",
+  "class": "Hunter",
+  "level": 3,
+  "background": "Groundskeeper",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Dexterity"
+  ],
+  "skills": [
+    "Perception",
+    "Nature",
+    "Survival",
+    "Stealth",
+    "Athletics"
+  ],
+  "languages": [
+    "English"
+  ],
+  "equipment": [
+    "Heavy coat: the green wool uniform jacket of the Pennsylvania Game Commission",
+    "Service revolver: a .38 in a flap holster",
+    ".38 rounds (12)",
+    "Pump shotgun: in the rack of the Game Commission truck",
+    "Shotgun shells (10)",
+    "Field glasses",
+    "Ring of keys (to state game lands gates from here to the Delaware)",
+    "Shovel and a coil of rope in the truck",
+    "Lantern and a pint of kerosene",
+    "Work clothes, a pocket knife and a citation book",
+    "A cardboard box of bear-proof can lids for the Dining Hall",
+    "Car: a 1973 Ford F-100 with the Game Commission seal on the doors",
+    "Wallet containing $10"
+  ],
+  "weapons": [
+    {
+      "name": "Service revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Pump shotgun",
+      "attackBonus": 4,
+      "damage": "2d8+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Up Before Dawn (Farm-Raised origin: he needs only 6 hours for a long rest and can't be surprised while awake in the last hour before sunrise; advantage on saves against exhaustion from hard work, cold and lost sleep; he notices without a check when animals are frightened, sick or behaving wrongly)",
+    "Know Your Quarry (Hunter: after an hour studying a creature's sign he can declare it his quarry; advantage on Survival to track it and Perception to find it, he always knows which way it went from its sign, and once per turn when he hits it with a weapon it takes an extra 1d6 damage, applied at the table)",
+    "Fieldcraft (Hunter: he can't become lost in woods, fields, marsh or hill country except by something unnatural, and moves at a normal pace while moving stealthily outdoors; in a short rest he can set a tripwire bell that warns of anything within 30 ft)",
+    "Cold Focus (Hunter, 2nd level: when he fails a fear check against his quarry he still gains the Dread, but has advantage on his next attack against it before the end of his next turn; when he succeeds, he can move half his speed without provoking opportunity attacks)",
+    "Way of the Hunt: Trapper (Hunter, 3rd level: in 10 minutes he sets a trap; a creature walking into it makes a DEX save, DC 12, or is restrained until it uses an action to break free; one at a time)",
+    "Every Path and Gate (Groundskeeper background: given a day on any grounds he knows every path, outbuilding, gate and gap, where the drains run and where the ground has been disturbed; other caretakers and gatekeepers talk to him)"
+  ],
+  "traits": [
+    "Know Your Quarry",
+    "Fieldcraft",
+    "Cold Focus",
+    "Way of the Hunt: Trapper",
+    "Every Path and Gate"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I move slow and talk slower. I would rather be outdoors in the rain than indoors in an argument. I know every animal on the Neck by its tracks.",
+    "ideals": "You leave a place the way you found it. You leave a creature alone if it leaves you alone.",
+    "bonds": "The state game lands from the Lehigh to the Delaware, which I have walked for twenty-two years. My wife, Maxine, who keeps supper warm. Winnie Szot's apple crumb pie.",
+    "flaws": "I know the woods so well I think I know everything in them. There is something on this lake that is not in any book the Commission ever gave me."
+  },
+  "appearance": "Fifty, lean and weathered, a long jaw, greying hair under a Commission campaign hat, green wool uniform jacket, a slow smile and eyes that never stop looking at the ground.",
+  "backstory": "Roscoe Talmadge grew up on a farm in the Lehigh valley and has been a district game protector for the Pennsylvania Game Commission for twenty-two years, covering a district of state game lands, private woods and summer camps in the eastern Poconos. He has known Pinecrest for most of them: deer in the tennis courts, a beaver in the Outlet, and this week a two-year-old black bear in the Dining Hall's garbage. He drove up Friday afternoon with bear-proof lids for Winnie's cans, gave a folklorist a lift from Larkin Corners, and was asked to stay for pie. By Saturday morning the Outlet is over the bridge and he is the second officer of the Commonwealth on the Neck. He knows rivers, tracks and weather better than anyone there, and he is the first to say that the bare wet footprints coming up out of the lake belong to no animal he has ever seen.",
+  "dmNotes": {
+    "roleplaying": "Roscoe is the party's tracker and river man: he reads the flood and says when the bridge will clear (Monday at five), tracks Alvin to the Cutters' Ground (pc-scenario-002), and reads the bare wet prints. He is a second officer if Nolan is not played, and backs Nolan if he is. He joins at once on Saturday and stays steady; he will not believe in Old Glass until he has tracked it into the lake, and then he will treat it as an animal with habits, which is not far wrong. He will not shoot Alvin unless Alvin is about to kill someone.",
+    "voice": "Slow, low, Lehigh valley; \"I'd say\", \"might be\", long pauses; talks about animals as if they were neighbours.",
+    "motivations": "Primary: keep these people alive until the water drops. Secondary: get Alvin in without anybody shooting him. Tertiary: the bear.",
+    "secrets": "He has written up four 'unexplained drownings' on Pocono lakes in twenty-two years and none on Lantern Lake, and he once asked Rudolph Dreher's son why the cutters' old channels were marked on his map with crosses. Alvin said, 'Ask me when you're older,' and Roscoe was forty.",
+    "attitude": "Toward the party: easy and dependable. Toward Alvin: respect for a fellow outdoorsman, and wariness. Toward Coach: polite; he has never liked a man who won't go near the water he owns. Toward Winnie: devoted to her pie."
+  }
+}

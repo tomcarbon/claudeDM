@@ -11,7 +11,7 @@ describePeriodCategory({ describe, it, expect }, {
   id: 'noir',
   label: 'Noir',
   rulesDir: 'rules-noir',
-  campaignIds: ['blackcrane', 'calloway', 'klieglight'],
+  campaignIds: ['blackcrane', 'bluenote', 'calloway', 'crescent', 'klieglight'],
   skills: ['Acrobatics', 'Athletics', 'Deception', 'Driving', 'Forensics', 'Insight', 'Intimidation', 'Investigation',
     'Mechanics', 'Medicine', 'Perception', 'Performance', 'Persuasion', 'Research', 'Sleight of Hand', 'Society', 'Stealth', 'Streetwise'],
   origins: ['City-Born', 'Ex-Service', 'New Arrival', 'Old Money', 'Small-Town'],

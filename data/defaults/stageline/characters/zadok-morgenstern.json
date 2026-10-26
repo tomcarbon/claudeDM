@@ -1,0 +1,127 @@
+{
+  "id": "46726031-c5cf-40c8-aaa7-ff7a266829c8",
+  "name": "Dr. Zadok Morgenstern",
+  "status": "alive",
+  "race": "Immigrant",
+  "subrace": "",
+  "class": "Doc",
+  "level": 3,
+  "background": "Prospector",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Investigation",
+    "Nature",
+    "Survival"
+  ],
+  "languages": [
+    "German",
+    "English",
+    "Spanish",
+    "Yiddish"
+  ],
+  "equipment": [
+    "Leather duster, brown, too long for him, with a pocket for every kind of bottle",
+    "Pocket revolver (Smith & Wesson, .32), 5 rounds loaded, in the doctor's bag, which he forgets is there",
+    ".32 rounds (15)",
+    "Boot knife, which he uses for cutting bandages",
+    "A doctor's bag (Sawbones, 5 uses before restocking): instruments, catgut, carbolic, laudanum, quinine, a bullet probe and forceps",
+    "A crate of medicines from Albuquerque for the Plata Vieja surgery: lime juice, quinine, iodide of potassium, and a gross of bandages",
+    "An assayer's blowpipe kit and a magnifying lens, from the days when he looked for silver",
+    "A claim paper for the Morgenstern Lode at Plata Vieja, which assayed at two ounces to the ton and was never worth working",
+    "A Hebrew prayer book that was his father's, and a pair of brass Sabbath candlesticks wrapped in a shirt",
+    "Mule: Bismarck, grey, opinionated, and the only thing in the territory more stubborn than its owner",
+    "Wallet containing $27"
+  ],
+  "weapons": [
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Boot knife",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Two Tongues (Immigrant origin: speaks, reads and writes German and English, and Spanish and Yiddish well; advantage on Insight and Perception checks to follow a conversation held in a language the speakers think he does not know; in any camp or neighbourhood of people who share one of his languages he finds a meal, a bed and the news without a check)",
+    "Sawbones (Doc, WIS: as an action with his bag, patches a creature at 1 or more hit points, or at 0 and stable or dying, letting it spend up to 2 Hit Dice and regain 3 extra hit points; stabilizes and ends Bleeding; 4 uses per long rest. Dig Out a Bullet: during a short rest, cuts out a lodged ball or buckshot; the creature regains 6 extra hit points and any lingering wound heals at the end of the rest)",
+    "Diagnosis (Doc: as a bonus action, learns a creature's current and maximum hit points and every condition on it; examining a body for 10 minutes learns the cause and time of death, what weapon did it and from how far, and one more detail on a DC 12 Medicine check)",
+    "Steady Hands (Doc, 2nd level: advantage on Medicine checks; a creature he stabilizes regains 1 hit point and acts on its next turn; identifies any drug, poison, disease or bad water by its symptoms, and treats snakebite, fever, scurvy or poisoning during a short rest)",
+    "Practice: Apothecary (Doc, 3rd level: as an action, mixes a draught from his bag; a creature that drinks it has advantage on CON saves for an hour, or falls asleep for 1d4 hours if it fails a DC 13 CON save)",
+    "Color in the Creek (Prospector background: tells good ore from bad and a salted claim from an honest one without a check; finds a camp's assay office, claims clerk and claim jumpers within an hour; mining men share a fire and a rumour with him)"
+  ],
+  "traits": [
+    "Two Tongues",
+    "Sawbones (4/long rest)",
+    "Dig Out a Bullet",
+    "Diagnosis",
+    "Steady Hands",
+    "Apothecary",
+    "Color in the Creek"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk to my patients, my mule and myself, in four languages, and I listen to only one of them. I am gentle with the sick and rude to the healthy. I keep the Sabbath when I can and apologise to God when I can't.",
+    "ideals": "A man's body does not know whether he is a Mexican or an Irishman or a Jew. Neither does a bullet. Neither should a doctor.",
+    "bonds": "The miners of Plata Vieja and their children, who are my patients and the nearest thing I have to a congregation. The merchant family in Santa Fe who took me in when I came west with nothing, and whose children I still write to.",
+    "flaws": "I came here to be rich, and for ten years I believed every assay. I still cannot pass a promising outcrop without stopping, which is how I nearly died twice."
+  },
+  "appearance": "A short, round, bald man of forty-six with a magnificent grey-shot beard, gold spectacles pushed up on his forehead, bright black eyes and very clean small hands. A brown duster over a black waistcoat with a watch-chain, a wide-brimmed hat with a dent in it, and the smell of carbolic.",
+  "backstory": "Zadok Morgenstern was born in 1835 in a village in Bavaria, studied medicine at Würzburg for three years until the money ran out, and came to America in 1858 to be a doctor and, if possible, rich. He worked as a druggist in St. Louis, and in 1866 went down the Santa Fe Trail to a merchant family he had letters for, and from Santa Fe he went looking for silver for ten years in every range in the territory. He found nothing worth working. In 1879, at Plata Vieja, he gave it up and opened a surgery and drugstore in a plank building with a sign in four languages, and he has set bones, dug out bullets, delivered babies and buried miners there ever since. He is the Consolidated's contract doctor and the only one for forty miles. On 29 June he is riding home on the last coach with a crate of medicines, because the miners' children are getting scurvy now that the Company store has closed their credit, and he has been worrying about the payroll in the boot under the driver's feet for seventy miles. (Suggested employer: the miners, and the mine's payroll. Hooks: Lon Brisbane's body and the ball that killed him; the hungry children at Plata Vieja; the miners who trust him.)"
+}

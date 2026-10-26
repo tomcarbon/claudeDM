@@ -1,0 +1,378 @@
+{
+  "id": "bd-scenario-003",
+  "title": "Seven North",
+  "subtitle": "Sunday 17 to Tuesday 19 April 1927: Through the Seal or Through the Ridge, the Burned Entries, the Barricade Room, and What Lafe Combs Wrote",
+  "levelRange": "5",
+  "estimatedSessions": "3",
+  "setting": {
+    "name": "7 North, Ottway No. 3, under the northern shoulder of Shumate Ridge",
+    "description": "A mile and a quarter of entries, rooms and pillars driven north under the ridge in 1917 to 1919, sealed since 15 October 1919 and dark since. The first half mile beyond the seals is the old fire area, burned black, the roof bad, the air dead. Beyond it the workings are as the fourteen left them: track, cars, tools, a dinner bucket on a ledge, timbers chalked with dates. At the far north end, at the foot of the Number Two air shaft, a cross-cut walled off with brattice cloth and gob is the barricade room, where the fourteen waited nine days and where the Dark lies by day. Dewey Spradlin is in it, alive until midnight on Tuesday. So is Lester Gaither, who was not. The party go in by one of two ways: through the left-hand seal from the main heading, past Kincaid's guards or with Bledsoe's help; or through the Shumate country bank on the far side of the ridge and the old hole-through that is on nobody's map.",
+    "atmosphere": "Fifty-four degrees and utterly still. The only light is what you carry. Sounds: water dripping, timbers ticking as they take weight, the scrape of your own boots, your own breath, rats, and from time to time, far ahead, four knocks and two. Smells: wet rock, old smoke, sulphur, rot, carbide. The roof is five feet up and you walk bent; in the fire area it is lower where it has come down. The dark beyond the lamp is not like the dark of a room. It has no far wall. Time underground is counted in lamp hours, and the party should feel every one.",
+    "keyLocations": [
+      {
+        "name": "The Left-Hand Seal",
+        "description": "The 7 North seal on the main heading, a mile in: two walls of concrete block across the two entries, the track running into the left one, the DANGER board, Lonzo's chalk, a sampling pipe. Since Monday, four Ironwood men on each shift, a lantern on a nail, a stool and a thermos. Behind the block is eight years of still air.",
+        "features": [
+          "Breaking a stopping: four hours with bars and sledges for four people (Heavy Work advantage on the checks), or an hour with a Sapper's charge",
+          "The sampling pipe: the safety lamp's flame dies at the pipe mouth (blackdamp) and, held high, shows a thin blue cap (a little firedamp at the roof)",
+          "The main fan's air: once the seal is open, a line of brattice hung across the entry will turn the fan's current into 7 North and clear the dead air in about two hours"
+        ],
+        "encounters": [
+          "Four Ironwood guards (Night Watchman) with orders to let nobody touch the seal; with Bledsoe present and giving orders, they stand aside; with Garland, they hesitate; with neither, it is a fight in a mine, with gunfire, a mile from daylight",
+          "The first three hundred yards beyond the seal: blackdamp (the Underground rule) until the air is turned in"
+        ],
+        "secrets": [
+          "If Bledsoe went in alone on Saturday night with a bucket and a wire brush to wash the timbers, sending his crew back at the fire area because he would not let them see, the seal is already open, the guards have been sent up to the drift mouth, and he is in the barricade room: taken (see twists)",
+          "Firing a charge at the seal without venting the firedamp at the roof first (Mechanics DC 12 to know, DC 10 with Lonzo or Garland's Sapper) sets off an explosion: 8d6 fire to everyone within 30 feet, DEX save DC 15 for half, and twenty feet of roof down behind the party. Lonzo will not allow it if he is there"
+        ]
+      },
+      {
+        "name": "The Shumate Country Bank and the Hole-Through",
+        "description": "On the far side of Shumate Ridge, in a laurel thicket below the orchard, a black square mouth four feet high, timbered with locust posts, where Mavis's grandfather dug house coal in the 1880s and her father after him. It runs in three hundred feet to a little face. Low on the left side, behind a pile of gob, is a brick wall three bricks thick that the company put up in 1916, when its miners robbing pillars at the north end of 7 North broke through into the Shumates' bank and had to pay for it. Beyond the bricks is four hundred yards of old pillar-robbed workings, low and half caved, two feet high in places, that come out in old rooms at the north end of 7 North, a hundred yards from the barricade room.",
+        "features": [
+          "The brick wall: an hour with a cold chisel and a hammer, or ten minutes with Morris's crowbar and Heavy Work; nobody on the main heading will hear it",
+          "The crawl: three hours on hands and knees, lamp hours counted; a squeeze two feet high for forty yards where anyone with a pack must push it ahead",
+          "The flooded dip: fifteen feet of black water to the roof in a swag of the seam; an Athletics check DC 12 to swim and pull through on a rope, carbide lamps out, electric lamps held up and kept dry (Mechanics DC 10 to waterproof one with oilcloth beforehand)"
+        ],
+        "encounters": [
+          "A Rat Swarm in the crawl, in the old workings where the rats came up from 7 North in March (adversaries.json; fire-afraid; a torch clears it)",
+          "The Shades, if anyone carries their checks, following behind, single file, in the crawl: you only see them when you look back"
+        ],
+        "secrets": [
+          "Nobody but Mavis and Lonzo knows this way exists, and the company's seal plan does not show it: a party that comes this way is not expected by anyone, including Bledsoe",
+          "It is a way in, not a good way out: carrying an unconscious man back through the squeeze and the dip is a skill challenge of six Athletics checks DC 13 before three failures, and each failure costs the carried man 1d6 cold damage and the carriers one level of exhaustion. The better way out may be through the seal, from inside"
+        ]
+      },
+      {
+        "name": "The Burned Entries",
+        "description": "The first half mile of 7 North beyond the seals: the old fire area. The coal of the ribs is burned to a grey crust that flakes at a touch; the timbers are charcoal, some still standing, some down; the roof has come down in places into heaps of slate the party must climb over, crawling between the heap and the roof. A trip of cars stands on the track, burned to the iron. A man's dinner bucket sits on a ledge where he put it before the fire, untouched.",
+        "features": [
+          "Drummy roof: a sounding rod tells good from bad (Mechanics or Perception DC 12); a fall is 4d6 bludgeoning, DEX save DC 13 for half, and a trapped person needs Heavy Work or four people",
+          "The face where it began: a cave of blackened coal, a cutting machine on its side, a scatter of picks and shovels",
+          "Chalk on a burned timber, in a fire boss's hand: L.C. 10-14-19, the morning of the explosion, and nothing after"
+        ],
+        "encounters": [
+          "A roof fall triggered by the party's passage (Rule: the light goes out at the worst moment, here, if not used yet: the fall knocks a lamp out of someone's hand, and in the moment of darkness the voice of the last person taken says, close, 'Is that you? I can't see')",
+          "Blackdamp lying in a swag of the entry, putting lamps out, which the GM never distinguishes from the Dark until someone tests it with a safety lamp"
+        ],
+        "secrets": [
+          "Lonzo, at the face, if he is with the party, stops for a long moment at his own chalk mark of 14 October 1919 and puts his hand over it. He tested this face at six that morning and passed it. He has never forgiven himself for that either, and there was nothing he could have done",
+          "Dr. Ketterly's Diagnosis or Coroner practice, or any Investigation DC 13 at the face: the explosion was firedamp set off by an open carbide flame at the face, as the inquest said. The fire was real. It burned out within three days: there is no sign of fire past the fourth cross-cut. The company's eight-year 'sealed fire area' was a fire for three days"
+        ]
+      },
+      {
+        "name": "The North Rooms and the Dip",
+        "description": "Beyond the fire area the workings are whole: dry entries, rooms turned off on both sides, pillars, track, a few loaded cars standing where they stopped in 1919, picks and shovels leaning against the ribs, a powder keg, timbers chalked with work marks. At a swag in the entry, two hundred yards short of the shaft, water lies in a black pool across the track, and a man's lamp and a dinner bucket stand at its edge.",
+        "features": [
+          "Coy Odum's carbide lamp and dinner bucket by the water, where he came for water alone on 19 October 1919; and, just beyond the reach of the lamp, under a pit coat someone laid over him, what is left of him. It is not described, and the GM should say so: a coat, a pair of boots",
+          "Work marks on the timbers in a dozen hands: tallies, initials, a heart, a little drawing of a mule"
+        ],
+        "encounters": [
+          "Coy Odum's Shade at the water, if anyone carries check No. 203, or if anyone stands at the water alone: a young man in pit clothes, looking back toward the shaft, who says 'Pap?' (fear check DC 15; he does nothing else)",
+          "The Hungry Dark, by night, if it is in 7 North (if the Kept Light has been relit, or if the party come at dusk as it rises): along the entry ahead, a dark their lamps do not reach, and every flame going blue"
+        ],
+        "secrets": [
+          "CLUE B5 (part): Coy went for water alone, and here is where it took him; Lafe's notes (the barricade room) say so",
+          "Lettie's Listener, here: the last words in this place are a young man's, puzzled, 'Pap? I can't see the light,' and then nothing"
+        ]
+      },
+      {
+        "name": "The Barricade Room",
+        "description": "At the foot of the Number Two air shaft, a cross-cut twenty feet long between two pillars, walled off at each end with brattice cloth nailed to timbers and banked with gob, and a door of brattice at one end. Inside, the shaft goes up from the middle of the roof: a black square, eight feet across, timbered, going up two hundred and twelve feet to a concrete lid that lets no light at all. The fourteen are here. They lie along one wall, under their coats, side by side, as the last of them laid them, and the GM does not describe them further than that. There is a bucket, empty lamps in a row, a Bible. On the timbers and the post by the door is chalk. In the middle of the floor, under the shaft, on the bare coal, Dewey Spradlin lies curled on his side, alive. Near the door, on his back, his Ironwood badge still pinned to his coat and his hands folded by someone, is Lester Gaither, who is not.",
+        "features": [
+          "Lafe Combs's notes (CLUE E6, B5, F1): Lafe Combs's chalk on the barricade timbers, in a big careful miner's hand, each dated: 'Oct 14 1919. 14 of us at No 2 shaft, fire behind. Air good here. Brattice up. L. Combs.' 'Oct 15. Knocked on rail. Can hear them building.' 'Oct 16. They heard us. Somebody knocked back once. Then the building went on.' 'Oct 17. Noon. Something poured on the shaft. The grey light quit and the air is going.' 'Oct 18. Before they covered the shaft we had the grey light at dinner time and there was nothing in the dark but us. Now there is something in the dark with us. It don't come while we are all close. Keep together boys.' 'Oct 19. Coy went for water to the dip by himself. We heard him say Pap. He did not come back. Held Marion.' 'Oct 20. Lamps near gone. Ezell sang. Names on the post so they will know there was 14.' 'Oct 21. Joe and Vic in the night, the air.' 'Oct 22. Four of us. Cold. Tell Effie I am sorry about the money.' 'Oct 23. All gone but me. It is waiting for me to be by myself and I am. Somebody open it. L.C.'",
+          "The names (CLUE D5): On the post beside the brattice door, fourteen names in chalk, one under another, with check numbers: Lafe Combs 104. Vito Palermo 112. Jozsef Kertesz 207. Vic Wojcik 118. Moses Hairston 230. Ezell Pettaway (on 230). Marion Odum 156. Coy Odum 203. Arvel Keene 219. Gentry Absher 131. Joe Arcuri 241. Pal Szucs 266. Ennis Mullins 251. Delbert Ratliff 288. And under them, newer, in a different, shakier hand, in pencil on the timber: L. Gaither, I.D.A. No. 19. Mar 27 1927.",
+          "Looking up the shaft: utter black, and at the very top, at one corner, if it is a clear noon (it is not, from 17 to 19 April), a crack you could put a knife in. Lonzo, beside you, says what it means: the light came down here once",
+          "Dewey Spradlin: unconscious, very cold, lips cracked, alive; Diagnosis shows 4 hit points of a normal 22, two levels of exhaustion, no wound at all. He wakes for a moment when lifted, at Dread 6, and says 'Vesta?' and 'it's still here'"
+        ],
+        "encounters": [
+          "The Hungry Dark, by day (Rule 6: by day it lies in the room where it began): the room is full of a dark the party's lamps cannot reach, and Dewey is lying in the middle of it. It cannot take anyone in company. It can fight to keep what it has: Drink the Light, then Swallowing Touch on whoever comes nearest, trying to drive them apart; a person it drops to 0 hit points in company is not taken but falls unconscious and cold and must be carried. Electric lamps at full make bright light it cannot enter until Drink the Light dims them. Reduced to 0 it breaks apart into ordinary darkness, and the room is only a room, until nightfall",
+          "By night, the room is empty of it, unless the Kept Light has been relit (then it is somewhere in 7 North, and comes back when the party have been in the room ten minutes). It returns at dawn, wherever it is",
+          "The fourteen Shades, standing round the walls in a ring as soon as anyone carrying their checks comes in, and knocking, softly, on the timbers, four and two. They do not attack. They are waiting (fear check DC 15)"
+        ],
+        "secrets": [
+          "CLUE F3 (Lettie's Listener, or any Sensitive's Thin Place here, at the cost of a Dread): the last words in this room were Lafe Combs's, alone, in the dark, said to the shaft: 'Somebody open it. Let some light in here.' And the strongest feeling soaked into the room is not fear and not anger. It is being left",
+          "CLUE F1 (Lafe's note of 18 October, read with the cap's date): before the cap, a grey light came down at noon and there was nothing in the dark but them. Light from the shaft is what it cannot abide; the room where it began must be opened to the sun (Rule 6). Lonzo, reading it, does the arithmetic aloud: two hundred and twelve feet, eight feet square, the sun never overhead in April; 'you'd want a glass at the top to throw it down' (CLUE F5)",
+          "Lester Gaither (Dr. Ketterly, Diagnosis): died about 3 April of cold and thirst, no wound. He wrote his own name on the post under the fourteen in pencil on 27 March. Bringing his body out clears Angelo Marchetti and Hobart Lilly",
+          "What to take: Dewey, first. Lester's body, if they can. The notes, by Frankie's photograph with the flash lamp (which burns the Dark for 2d6 fire damage if it is in the room, and blinds everyone for a moment), or by copying them, or by cutting out the timbers (an hour with a saw, and the notes are evidence that cannot be argued with). The fourteen must stay, for now: there is no way to carry fourteen men out through a mile and a quarter of mine tonight, and the party should feel that"
+        ]
+      },
+      {
+        "name": "The Way Out",
+        "description": "Whichever way the party came, the way out with an unconscious man and a body is the hardest part. Through the seal from inside: the party can break the left-hand seal from the 7 North side, which nobody on the main heading expects, and come out among Kincaid's guards with Dewey in their arms. Through the hole-through: the squeeze and the dip, a skill challenge. Either way the lamps are failing, and if it is near dusk, the Dark is rising behind them.",
+        "features": [
+          "Breaking out from the inside: the same four hours, or a charge; but the guards on the far side hear the work from the first blow, and by the time the block comes through, Kincaid is there with a dozen men, Bledsoe has been sent for, and so, by Della, has half the camp",
+          "Lamp hours: count them; a party that went in at six in the morning through the hole-through is out of carbide by two in the afternoon and running on electric lamps by four"
+        ],
+        "encounters": [
+          "The Hungry Dark pursuing at nightfall, if the party are still underground after dark and it is not held by the Kept Light: it comes up the entry behind them, putting out every flame, and the only safety is staying together and keeping one bright light; anyone who falls behind is alone",
+          "Kincaid and a dozen Ironwood men at the seal (Night Watchman x12, Kincaid as Deputy Sheriff with 30 HP), who have orders to arrest anyone coming out of 7 North, and who must decide what to do when the first thing through the hole in the block is the company doctor carrying a living man"
+        ],
+        "secrets": [
+          "If the party come out through the seal with Dewey alive, in front of the camp, Kincaid does not arrest them. He looks at Dewey for a long moment, and then at the hole, and says to his men, 'Stretcher.' Company Suspicion does not rise; it is past mattering. Union Trust +2",
+          "The light goes out at the worst moment once in this scenario: if it was not used in the burned entries, use it here, in the squeeze or at the dip, with the voice of whoever the Dark took last calling from behind"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party go into 7 North to bring Dewey Spradlin out before midnight on Tuesday. They choose a way: through the left-hand seal, with Bledsoe's authority or past Kincaid's guards, breaking three feet of block and turning the fan's air into eight years of dead air; or through Mavis Shumate's grandfather's country bank on the far side of the ridge and four hundred yards of crawl and a flooded dip, unseen. They cross the burned entries of the old fire area, where the fire turns out to have burned for three days of the company's eight years, and the north rooms where the fourteen worked, past Coy Odum's lamp at the water where he went alone. In the barricade room at the foot of the Number Two air shaft they find what they came for and what they feared: the fourteen, side by side under their coats; Lester Gaither, who wrote his own name under theirs; Dewey, alive; Lafe Combs's chalk notes, nine days of them, dated; and, by day, the Dark itself, in the room where it began, which will fight to keep what it has. The notes tell them what nobody alive could: that before the company capped the shaft there was a grey light at noon and nothing in the dark but the men; that it came when the light went; and that the last man alive wrote 'Somebody open it.' They must get a living man, a dead one and the evidence out through a mile and a quarter of mine with their lamps failing and, after dark, the Dark behind them, and come out in front of the company, or not.",
+  "hook": "Sunday 17 April. Two days and a half left. Lonzo Cutright's map is open on Lettie's kitchen table under the lamp, held flat with four brass checks and a coffee cup, and everyone who is going is in the room, and some who are not. Morris has his crowbar across his knees. Mavis has a coil of rope on each shoulder. Imre is packing a lamp man's bag: spare glasses, wicks, gauzes, a can of naphtha, and, wrapped in a clean handkerchief, fourteen brass checks. Lettie has filled every canteen in the house. Lonzo looks at each of you, slowly, the way he looks at a roof. 'Six hours in, if nothing's down,' he says. 'Six out, carrying. We don't split. Not for nothing. Not for a minute. If you have to make water, somebody holds your lamp.' Nobody laughs. Under the kitchen floor, very faint, very far down, somebody knocks four times, and twice.",
+  "cluesAvailable": [
+    "B5",
+    "D5",
+    "E6",
+    "F1",
+    "F3",
+    "F5"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "E (proved). The fourteen were alive behind the seal from 14 to 23 October 1919, knocking, and heard; their air and light were cut off by the company's cap on the 17th; and they died over the next six days.",
+      "clues": [
+        "E6: Lafe Combs's dated notes (the barricade room)",
+        "The burned entries: no fire past the fourth cross-cut (the burned entries)",
+        "D5: the fourteen names on the post (the barricade room)"
+      ]
+    },
+    {
+      "conclusion": "F. The Dark came into the room when the light was capped out of it, and it ends when that room is opened to the sun: the cap broken, and the sun thrown down the shaft at noon with a glass (Rule 6).",
+      "clues": [
+        "F1: 'before they covered the shaft we had the grey light at dinner time and there was nothing in the dark but us' (the barricade room)",
+        "F3: Lafe's last words, 'Somebody open it. Let some light in here.' (Lettie, the barricade room)",
+        "F5: Lonzo's arithmetic at the shaft foot (the barricade room)",
+        "B5: it took the one who went alone (the north rooms and the notes)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "The Way In",
+      "description": "Preparation and the choice of route. The point of this act is to make the descent a plan the players own: who goes, who stays, what they carry, which way, and what they do about the guards, the Kept Light and the company. It should feel like a rescue party, because it is one. Lonzo's rules: nobody alone, ever; count lamp hours; test the air at every swag. Anyone who stays on the surface has jobs: keeping the Kept Light if it is lit, watching the cap at noon and dusk, keeping Kincaid busy, or holding the hole-through's mouth.",
+      "objectives": [
+        "Choose a route: the seal or the hole-through",
+        "Equip: lamps (electric and flame), carbide, rope, brattice, tools, water, a stretcher, salt, the checks",
+        "Deal with Kincaid's guards, or Bledsoe, or both",
+        "Get into 7 North with time to spare"
+      ],
+      "scenes": [
+        {
+          "name": "Through the Seal",
+          "description": "The man-trip to the main heading, or a long walk in; the guards at the seal; four hours of breaking block, or a charge; the dead air behind it; brattice hung to turn the fan's current; two hours' wait while the air comes in, with Lonzo's lamp held at the hole every quarter hour. With Bledsoe, the guards stand aside and the company's own men help break the block; without him, there is a confrontation in a mine entry that can end in gunfire, and the party must decide whether to shoot company guards a mile from daylight.",
+          "readAloud": "The first blow of the sledge on the block is the loudest sound you have ever heard. It goes away down the heading and comes back from the dark in pieces. Grey dust sifts from the joints. The second blow cracks a block across. By the twentieth there is a hole the size of a fist, and out of it comes a breath of air like the inside of a tomb, cold and sour and still, and Lonzo holds his safety lamp up to it, and the flame shrinks to a bead and goes out. 'Dead air,' he says. 'Eight years of it. Hang the brattice. We wait.' And through the hole, from far back in the dark, four knocks, and two.",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 12,
+              "success": "Four hours becomes three; the block comes down in big pieces and the hole is wide enough to carry a stretcher through.",
+              "failure": "Four hours becomes five, and everyone working is at one level of exhaustion."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "The brattice is hung right and the fan's air comes into 7 North in an hour and a half; the lamp burns clean at the hole.",
+              "failure": "The air takes three hours, and the first two hundred yards are still bad: CON saves for anyone who goes in early."
+            }
+          ]
+        },
+        {
+          "name": "Through the Ridge",
+          "description": "Up Shumate Ridge before dawn, through the orchard and down through the laurel to the country bank's black mouth. Verlie Shumate gives everyone coffee and a biscuit and says nothing about where they are going. The bank, the brick wall, the hole-through; three hours of crawl, the squeeze, the dip, rats. The Shades follow, if anyone carries their checks. Nobody knows the party are here. Mavis leads, Lonzo second.",
+          "readAloud": "The bricks come away one at a time under Morris's bar, and behind them is a hole two feet high and black as a pocket, breathing cold air out at you. Mavis lies down on her belly in front of it with her lamp held out ahead of her, and looks at it for a long time. 'Granddaddy said he could hear them working, in sixteen,' she says. 'Picks. Right on the other side. Said it was like having neighbours.' Then she goes in, and her boots go in after her, and then there is only a light moving away in the rock, getting smaller, and you are next.",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 12,
+              "success": "Through the squeeze and the dip, on the rope, lamps dry; on the far side you are wet, cold and together.",
+              "failure": "Someone sticks in the squeeze, or loses the rope in the dip: one level of exhaustion, and their carbide lamp is out for good."
+            },
+            {
+              "skill": "Wisdom save (fear check)",
+              "dc": 15,
+              "success": "You look back once, in the crawl, and see the grey men following in single file with their lamps unlit, and you understand that they are following their checks home, and you keep crawling.",
+              "failure": "You look back once, in the crawl, and there are men behind you in the rock, dead men, a line of them, close enough to touch. Gain 1 Dread."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Ironwood guards at the seal (Night Watchman x4), unless Bledsoe or Garland handles them",
+        "A Rat Swarm in the hole-through (adversaries.json)",
+        "Blackdamp at the seal and in the dip (the Underground rule)"
+      ]
+    },
+    {
+      "title": "Seven North",
+      "description": "The journey through. The point of this act is the slow approach: the burned entries, the fire that was out in three days, Lonzo's own chalk from the morning it blew, the roof, the dark, the north rooms where the fourteen worked, Coy Odum's lamp at the water. It is quiet and should be played quiet. Count lamp hours. Make them test the air. Let the Shades walk behind. Use the light going out once, here or later.",
+      "objectives": [
+        "Cross the burned entries without losing anyone to the roof or the air",
+        "Learn that the fire burned three days",
+        "Find Coy Odum's lamp at the dip",
+        "Reach the barricade room with light to spare"
+      ],
+      "scenes": [
+        {
+          "name": "The Burned Entries",
+          "description": "Half a mile of black. The ribs are burned to a grey crust; the timbers are charcoal; the roof has come down in places. A trip of cars burned to the iron. The face where it began. Lonzo's chalk on a timber, 10-14-19. A dinner bucket on a ledge. The roof works: a tick, a trickle of grit, a slab that comes down behind the party with a sound like a door slammed in a cathedral.",
+          "readAloud": "It is like walking through the inside of a stove that went out a long time ago. Your lamps light black walls that drink the light, black timbers standing like the trunks of a burned forest, black slate heaped on the floor where the roof came down, and the air smells of old smoke and sulphur and wet ash. Nothing moves. Your footsteps have no echo at all. Ahead, on a ledge cut in the rib at shoulder height, there is a dinner bucket, the kind with a tray for pie in the lid, sitting neatly where a man put it on a Tuesday morning eight years ago, before the fire, meaning to come back for it at noon.",
+          "skillChecks": [
+            {
+              "skill": "Mechanics or Perception",
+              "dc": 12,
+              "success": "You hear the roof working before it goes, and everyone is clear when it comes down.",
+              "failure": "The roof comes down: 4d6 bludgeoning, DEX save DC 13 for half, for whoever was under it, and a lamp is knocked out."
+            },
+            {
+              "skill": "Wisdom save (fear check)",
+              "dc": 10,
+              "success": "A burned mine. Lonzo is quiet and steady; you can be too.",
+              "failure": "Every shadow beyond the lamp is a man standing very still. Gain 1 Dread."
+            }
+          ]
+        },
+        {
+          "name": "The Water",
+          "description": "The north rooms, whole and dry and terribly ordinary: track, cars, picks, chalk tallies, a drawing of a mule. Then the swag, the black pool across the track, a lamp and a bucket at its edge, and a coat and a pair of boots beyond. Coy Odum's Shade, if anyone carries No. 203 or stands at the water alone. Lettie's Listener. Then the brattice ahead, a grey curtain across a cross-cut, and four knocks, and two, very close.",
+          "readAloud": "The water lies across the track in a black sheet, perfectly still, reflecting your lamps back up at you so that there seem to be two of everything. At the edge of it, on the rail, side by side, someone left a carbide lamp and a dinner bucket, as if he had set them down to cup his hands and drink. Just past them, where the lamp only half reaches, there is a dark coat lying on the floor of the entry with a pair of boots under the hem of it, and you do not need to go any closer, and nobody does. A hundred yards on, the light catches a wall of grey cloth across the entry, nailed to timbers. And from behind it, so close now that you feel it in the rail under your feet, somebody knocks: four times, and twice.",
+          "skillChecks": [
+            {
+              "skill": "Wisdom save (fear check)",
+              "dc": 15,
+              "success": "A man came for water and didn't go back. You know why. You stay close.",
+              "failure": "He came for water alone, and it was waiting for him, right here, where you are standing. Gain 1 Dread."
+            },
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "(On Lonzo.) He is counting the yards to the brattice under his breath, the way a man counts steps in the dark.",
+              "failure": "The fire boss is very quiet."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Roof fall in the burned entries (the Underground rule)",
+        "Blackdamp in the swag, if the party came early through the seal",
+        "Coy Odum's Shade at the water (adversaries.json: Shade; it does nothing but speak)",
+        "The Hungry Dark in the entries, by night, if it is in 7 North"
+      ]
+    },
+    {
+      "title": "The Barricade Room",
+      "description": "The room where it began. The point of this act is the horror the whole campaign has been walking toward, played with restraint: the fourteen under their coats, the notes, Lester, Dewey alive in the middle of the floor, and, by day, the Dark. Then the decision what to carry and the long way out. If it is day, the party must take Dewey out of the middle of the Dark's own room; if it is night, the room is empty and the clock is the Dark coming home at dawn, or coming back up the entry if it is held below. Lettie's Listener and the notes give them Rule 6. Frankie's flash, Clement's hands and Morris's back are the three things the room needs most.",
+      "objectives": [
+        "Get Dewey Spradlin out of the barricade room alive",
+        "Find and keep the notes and the names: photograph, copy or cut out the timbers",
+        "Bring out Lester Gaither's body, if they can",
+        "Learn Rule 6, and get home"
+      ],
+      "scenes": [
+        {
+          "name": "The Brattice Door",
+          "description": "The party open the brattice. By day, the room is full of a darkness their lamps do not reach, and the Shades are round the walls knocking, and somewhere in the middle of it Dewey is lying on the coal; by night, it is only a room, lit by their lamps for the first time in eight years. Either way: the fourteen, the notes, the names, Lester, Dewey. Fear check DC 20 for the truth of it. Then the work: Dewey onto a stretcher, the notes, the decision about Lester and the fourteen. If the Dark is here, it fights to keep Dewey (see the barricade room's encounters): bright light, staying together, and a flare or a flash lamp in its face are what work.",
+          "readAloud": "Morris lifts the brattice aside with the end of his bar. The lamps go in ahead of you. A room the length of a railroad car between two black pillars of coal, a roof you can touch, and in the middle of the roof a square hole going straight up into nothing. Chalk on every timber. A row of empty lamps on a ledge, fourteen of them, set out neatly in a line. Along the far wall, men lying side by side under their coats, a long row of them, the way men lie in a bunkhouse, and you look once and then you look at the chalk instead, because the chalk is easier. Near the door, a man in a khaki coat with a badge on it lies on his back with his hands folded on his chest. And in the middle of the floor, right under the shaft, curled on his side on the bare coal like a man asleep, a red-headed young man in a Sunday jacket is breathing.",
+          "skillChecks": [
+            {
+              "skill": "Wisdom save (fear check)",
+              "dc": 20,
+              "success": "You look, and you see them, all of it, and you do what you came to do. Somebody has to get Dewey on the stretcher. You do.",
+              "failure": "The truth of it: they were alive here, nine days, and they could hear the company working on the other side, and they wrote it down for you. Gain 1 Dread."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "Dewey: very cold, very dry, two levels of exhaustion, 4 hit points; warm him, give him water slowly, and he will live to see Vesta if you get him up today. Steady Hands helps.",
+              "failure": "He is alive and very cold; you do what you can."
+            }
+          ]
+        },
+        {
+          "name": "Somebody Open It",
+          "description": "The notes, read aloud by whoever can bear to; Lettie's Listener; Lonzo at the shaft foot looking up into the black and doing the arithmetic. This is where the party learn Rule 6. Then the way out, with Dewey on a stretcher, Lester under a blanket if they bring him, the notes in Frankie's camera or on a cut timber, the fourteen left in the dark with their checks hung on a nail by the door and a lamp lit under them, if anyone thinks of it, and a promise.",
+          "readAloud": "The last note is lower down than the others, as if the man who wrote it was sitting on the floor. The letters are big and shaky and the chalk had nearly run out. Oct 23. All gone but me. It is waiting for me to be by myself and I am. Somebody open it. L.C. Above you, two hundred feet of black shaft goes up to a lid of concrete that has not let in a thread of light for eight years. Lonzo stands under it with his head back and his lamp held up, as if he could make it reach. 'They had the light at noon,' he says. 'Through the timbers. Before we poured.' He doesn't look down. 'That's what it can't abide. Not lamps. The sun.'",
+          "skillChecks": [
+            {
+              "skill": "Occult",
+              "dc": 13,
+              "success": "(Or Old Lore, or Hunter of the Uncanny.) It began when the sun was shut out of this room. It will end when the sun is let back in. Not a lamp, not a flare: the sun, here, on this floor.",
+              "failure": "The light mattered to them. That much is plain."
+            },
+            {
+              "skill": "Mechanics or Nature",
+              "dc": 12,
+              "success": "Two hundred and twelve feet, eight feet square, the sun at its highest in late April about sixty-five degrees above the horizon: it will never shine straight down. A mirror at the collar, held at the right angle at noon on a clear day, will throw it down onto this floor.",
+              "failure": "You would need the sun straight overhead, and you won't get it."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "The Hungry Dark in the barricade room, by day (adversaries.json; see the barricade room's encounters)",
+        "The fourteen Shades round the walls (adversaries.json: Shade x14; they do not attack; if their checks are hung on a nail by the door with a lamp lit under them before the party leave, they stand round it and are quiet)",
+        "The way out: the Dark pursuing at nightfall, the skill challenge in the hole-through, or Kincaid's men at the seal"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Lonzo Cutright, 49",
+      "role": "Fire boss and guide",
+      "description": "The party's best companion underground, who goes first, tests everything, counts everything, and stops at his own chalk mark from the morning of 14 October 1919.",
+      "motivation": "To bring Dewey out, which would undo one thing."
+    },
+    {
+      "name": "Dewey Spradlin, 24",
+      "role": "The taken man",
+      "description": "Unconscious, frozen, alive; wakes once, at Dread 6, to say 'Vesta?' and 'it's still here'.",
+      "motivation": "To go home."
+    },
+    {
+      "name": "Superintendent Elwood Bledsoe, 56",
+      "role": "The man who wants to go in first",
+      "description": "Either at the seal with the party, giving the guards their orders and swinging a sledge himself, or already in the barricade room, taken, beside Dewey, with a bucket and a wire brush dropped by the door and the first of Lafe Combs's notes half scrubbed away.",
+      "motivation": "To wash the timbers; underneath, to be found out."
+    },
+    {
+      "name": "Captain Arliss Kincaid, 44",
+      "role": "At the seal",
+      "description": "Waiting on the main heading side of the seal with a dozen men and an order to arrest, when the party come out, if they come that way.",
+      "motivation": "His orders, until he sees Dewey."
+    },
+    {
+      "name": "Lester Gaither, 31",
+      "role": "The guard who was taken first",
+      "description": "A Navy man from Huntington, the only Ironwood guard Garland liked, who wrote his own name under the fourteen in pencil on 27 March and died about 3 April, alone in the dark.",
+      "motivation": "(None any more. His body clears two men.)"
+    },
+    {
+      "name": "Lafe Combs, 52 (in 1919)",
+      "role": "The last of the fourteen",
+      "description": "Known only by his chalk: the oldest man in 7 North, who led them to the shaft for the air, kept the record, laid the others side by side, and died alone on 23 October 1919.",
+      "motivation": "'Somebody open it.'"
+    }
+  ],
+  "rewards": {
+    "xp": 3750,
+    "money": "Vesta Spradlin has nothing to give, and gives it. The Local passes the hat: $38.40 in cash and scrip for the rescue party's 'lamp oil'. Frankie's editor, sent the photographs of the notes, wires $100 and the single word 'RUNNING'. If Kincaid's men stretchered Dewey out, the company sends Dr. Ketterly a bill for the seal.",
+    "items": [
+      "Dewey Spradlin, alive (if before midnight on 19 April)",
+      "Lester Gaither's body and badge, which clear Angelo Marchetti and Hobart Lilly",
+      "Lafe Combs's notes: Frankie's photographs, a careful copy, or the cut timbers themselves",
+      "Lonzo's measurements of the shaft, and the knowledge of Rule 6",
+      "Bledsoe's bucket and wire brush, if he went in first, and Bledsoe"
+    ]
+  },
+  "twists": [
+    "If Bledsoe went in alone on Saturday night to wash the timbers, the party find him in the barricade room beside Dewey, unconscious and cold: taken, because he sent his men back at the fire area so they would not see what he was doing, and was alone. The first note is half scrubbed off. His nine days begin. Carrying the superintendent out of 7 North on a stretcher in front of the camp is a different campaign from leaving him there, and both are possible.",
+    "Somebody knocked back once on 16 October 1919, Lafe wrote. It was Hobart Lilly, on the seal crew, with a hammer on the rail, before Bledsoe stopped him. He has never told anyone. Telling him, in the Gale jail, that the men heard him is the kindest thing anyone can do in the campaign.",
+    "The Dark speaks in the voice of the last person it took. In the barricade room, by day, with Dewey lying at the party's feet, it calls from the dark in Dewey's voice, 'Vesta? Is somebody there?', while Dewey's lips do not move.",
+    "If the party relit the Kept Light before going down, the Dark is held in 7 North by night as well as by day; the night is no safer underground than the day, and it is waiting for them in the north rooms. But no one on the surface is taken while they are below."
+  ],
+  "dmTips": [
+    "This is the scenario the campaign has been promising. Play it slow and quiet. The horror is the ordinary things: a dinner bucket, a drawing of a mule on a timber, empty lamps in a row, a coat and a pair of boots. Never describe the dead. The table should be silent when the brattice opens.",
+    "Count lamp hours out loud. Ask who is carrying what light every time the party move. Darkness raises fear DCs by 2, and underground it is always dark outside the lamp.",
+    "The Dark in its room is a fight the party can win if they stay together, keep a bright light, and use fire or the flash lamp, and can lose if they split up to do several things at once. Reward the party that sends two people for the stretcher and two for the notes and keeps them in sight of each other.",
+    "Do not let them lay it here. They cannot: the cap is two hundred feet up and it is not a clear noon. What they bring out of this room is the rule and the evidence, and Dewey. Bringing out the fourteen is bd-scenario-004's work, after the sun.",
+    "Coming out through the seal from inside, with Dewey, in front of Kincaid and the camp, is the best possible ending to this scenario, and the party should be steered toward its possibility by Lonzo once they have Dewey, without being forced into it.",
+    "If Dewey's clock runs out before they reach him, he is the fifteenth name. Do not soften it. Let them write his name on the post under Lester's, and let that be the reason for the last scenario."
+  ]
+}

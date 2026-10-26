@@ -1,0 +1,134 @@
+{
+  "id": "4f7b2c06-9e38-4a1d-8c65-d0a3e9f1b2c4",
+  "name": "Lisbet Rask",
+  "status": "alive",
+  "race": "Spacer",
+  "subrace": "",
+  "class": "Operative",
+  "level": 3,
+  "background": "Street Kid",
+  "alignment": "Chaotic Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 14,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Intelligence"
+  ],
+  "skills": [
+    "Streetwise",
+    "Sleight of Hand",
+    "Stealth",
+    "Acrobatics",
+    "Perception",
+    "Computers"
+  ],
+  "languages": [
+    "Common",
+    "Brinehold cant",
+    "Spacer cant (hand signs)"
+  ],
+  "equipment": [
+    "Her mother's drill-crew jacket, three sizes too big, sleeves rolled",
+    "Knife",
+    "Flare gun",
+    "Flares (2)",
+    "Lockpicks",
+    "A hand-drawn map of the Warrens' crawlways, with forty years of saltborn kids' additions",
+    "Her mother's personal slate, taken from her locker before security sealed it",
+    "Surface suit (8 hours of air), a hand-me-down with someone else's name scratched out",
+    "Chemical light stick (4)",
+    "Credit chit: 12 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Knife",
+      "attackBonus": 5,
+      "damage": "1d4+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Flare gun",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Zero-G Adapted (Spacer: no penalties in microgravity)",
+    "Thin Bones (Spacer: disadvantage to avoid being knocked prone in full gravity; never applies on Esker)",
+    "Expertise (double proficiency in Stealth and Acrobatics)",
+    "Precision Strike (once per turn, +2d6 damage with a finesse melee weapon, a Sidearm or a Longarm when she has advantage or an ally is within 5 ft of the target)",
+    "Cunning Action (bonus action: Dash, Disengage or Hide)",
+    "Infiltrator (climb speed equal to walking speed; advantage on Stealth in dim light)",
+    "City Secrets (Street Kid feature: in Brinehold she and her companions travel anywhere twice as fast, and she can always find a hidden way in)"
+  ],
+  "traits": [
+    "Zero-G Adapted",
+    "Thin Bones",
+    "Expertise",
+    "Precision Strike",
+    "Cunning Action",
+    "Infiltrator"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Fast, angry and funny about it. She climbs things instead of using doors. She talks to her mother in her head and sometimes out loud.",
+    "ideals": "Nobody gets to decide what my mother was except the people who loved her.",
+    "bonds": "Her mother, Adaeze. Thorvald Kirov, who taught her to fight. Agathe, who is the nearest thing she has to a grandmother, and who keeps trying to send her to bed.",
+    "flaws": "She will do the dangerous thing first and tell people afterwards, and she thinks grief is something you can outrun."
+  },
+  "appearance": "A thin, long-limbed girl of seventeen with her mother's dark skin and a shaved-sides crop dyed the blue of saltlace, which she did the day after the death without knowing why the colour mattered. Bitten nails, scraped knuckles and a stare that makes adults stop talking.",
+  "backstory": "Lisbet Rask was born in the Warrens and has never been anywhere else. Her father died on the Sling's coil crew when she was four. Her mother, Adaeze, was the best drill lead on Esker. Lisbet knows every crawlway, maintenance duct and service shaft in Brinehold, because saltborn kids have mapped them for forty years. She has been told she will be put on the Plainsong as an orphaned minor at C-0 whether or not she signs the register, because minors can't sign. She has no intention of going.",
+  "dmNotes": {
+    "roleplaying": "Lisbet is the campaign's grief and its fury, and she's a very capable infiltrator. She gets the party into places: the Ledger House by the air ducts, the Pumphouse by the coolant crawl, the security post by the ceiling. She will run off alone if nobody stops her. Play her as a real seventeen-year-old: sharp, sarcastic, brave beyond sense, and suddenly a child when someone is kind to her. Don't let her die without the table choosing it. If she is hurt badly, the Stayers lose 1d6.",
+    "voice": "Fast, clipped, full of Brinehold cant. 'Cold-cracked company men.' She calls Thorvald 'Kirov' to his face and 'Uncle Thor' behind his back.",
+    "motivations": "Make the Combine say what happened to her mother. Stay on Esker. Find out what her mother's last message means.",
+    "secrets": "HER MOTHER'S SLATE. The last message on it, recorded at Bore Nine eleven minutes before the death and never sent because the shack had no uplink, is meant for Lisbet: 'Lis. We hit the ocean. It's alive, love, the core is alive, it's glowing. Ops released the interlock. Tell Agathe. Tell her not to let them take it. I'm going to cap it. Love you. Back by second shift.' Lisbet has listened to it two hundred times. She doesn't know what 'alive' means, she hasn't told anyone, and she thinks that if she says it out loud the Combine will take the slate. A PC who earns her trust (Persuasion DC 16, or real kindness in play) gets to hear it. It is one piece of evidence for the death and a strong clue for the find, though not proof of it.",
+    "attitude": "Toward the party: suspicious of the arrivals, protective of the saltborn PCs, won over by anyone who takes her seriously. Toward Rook: pure hatred. Toward Ferrant Venn: she knows he was there and ran, and she has not spoken to him since."
+  }
+}

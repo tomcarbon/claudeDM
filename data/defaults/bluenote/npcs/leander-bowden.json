@@ -1,0 +1,122 @@
+{
+  "id": "b6b63c5a-0191-43cf-8e2c-350fb7eca273",
+  "name": "Leander 'Lucky' Bowden",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Heavy",
+  "level": 4,
+  "background": "Dockworker",
+  "alignment": "Lawful Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 18,
+      "modifier": 4
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 41,
+    "current": 41
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Streetwise",
+    "Intimidation",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Drum (he insists it is a language, and other drummers agree)"
+  ],
+  "equipment": [
+    "Leather jacket, brown, with a union pin from Local 627 on the lapel",
+    "Brass knuckles, in the trap case, which he has not worn outside a ring since 1931 and carries because his mother made him",
+    "Drumsticks (two pair) and wire brushes, in his back pocket at all times",
+    "The key to the bass-drum trunk in the union hall basement",
+    "Union card, Local 627, American Federation of Musicians, and an old card from the freight docks at Union Station",
+    "A photograph of his mother and his three younger sisters on the porch on Garfield Avenue",
+    "Hand wraps, kept out of habit",
+    "Wool cap and work gloves",
+    "Wallet containing $4"
+  ],
+  "weapons": [
+    {
+      "name": "Brass knuckles",
+      "attackBonus": 6,
+      "damage": "1d4+4",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: once per long rest, advantage on an Insight check to tell whether someone is lying, and on a success, whether they lie to protect themselves or someone else; ordinary working people start one step friendlier)",
+    "Hard Knocks (Heavy: unarmed strikes deal 1d6 + STR; once per turn +1d4 bludgeoning with an unarmed strike or bludgeoning melee weapon; a creature he drops with one is knocked out unless he chooses otherwise; knockout blows with fists)",
+    "Thick Skull (Heavy: advantage on CON saves against knockout blows and being stunned; once per long rest, drop to 1 hit point instead of 0)",
+    "The Look (Heavy, 2nd level: as an action, a creature within 30 ft that can see him makes a WIS save, DC 14, or is frightened of him until the end of his next turn; outside combat, a failed save means it answers one question truthfully or does one reasonable thing he says. He hates using it)",
+    "Style: Enforcer (Heavy, 3rd level: when he hits with a melee attack he can push the target 10 ft or knock it prone on a failed STR save, DC 14)",
+    "Ability Score Improvement (Heavy, 4th level: +2 Strength)",
+    "Hiring Hall (Dockworker background: he knows the freight docks at Union Station and the river warehouses, which foreman picks men and why; working men there talk to him, and he can get onto any loading dock as if he belonged)"
+  ],
+  "traits": [
+    "Hard Knocks (+1d4)",
+    "Thick Skull (1/long rest)",
+    "The Look (DC 14)",
+    "Enforcer"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am very gentle with small things: children, dogs, cymbals. I say 'yes, ma'am' to every woman over fifty. I keep time on any surface with my fingers without knowing I am doing it.",
+    "ideals": "Keep the time. Whatever else falls apart, somebody has to keep the time steady so everyone else can find their way back.",
+    "bonds": "My mother and my three sisters on Garfield Avenue, who eat on what I make. And the band, which I keep together from the back row.",
+    "flaws": "In 1932 four policemen beat me in an alley on the wrong side of Troost Avenue for walking home after dark, and I did not lift a hand, because if I had they would have killed me. I have been afraid of a uniform ever since, and I am the biggest man on Eighteenth Street, and I am ashamed of being afraid."
+  },
+  "appearance": "A huge, heavy-shouldered, very dark-skinned man of thirty with a broad gentle face, one cauliflowered ear, a boxer's flattened nose and small, shy, watchful eyes. He moves carefully, as if the world were made of glass. Leather jacket, wool cap, drumsticks in his back pocket.",
+  "backstory": "Leander Bowden was born in Boley, Oklahoma, a town founded by Black families in Indian Territory, in 1906, and came to Kansas City at fifteen when his father found work on the freight docks at Union Station. He worked beside him, grew to six foot four, and boxed as a heavyweight from 1925 to 1930, when promoters still put Black and white fighters on the same card here if not in the same dressing room; he won a ten-round decision over a Polish heavyweight called Kid Casimir at the Convention Hall in 1929, the best night of his life. His father died in 1930 and he quit the ring because his mother asked him to. He had always drummed, on crates, on tables, on the dock, and in 1931 Jules Ransom heard him keeping time on a lunch-counter at four in the morning and gave him a chair. He has kept time for the Jules Ransom Orchestra ever since, the steadiest drummer on Eighteenth Street. At five past four on Sunday morning Jules handed him a rolled-up shirt and said 'Hold my laundry, Lucky, I'll get it Thursday', and he put it in the bass-drum trunk and took the trunk to the union hall. He does not know what is in it.",
+  "dmNotes": {
+    "roleplaying": "Lucky is the band's quiet strength and, without knowing it, the keeper of the book. He is gentle, shy and very strong, and his fear of the police is not cowardice but memory, and the GM should treat it with respect. He should be met at the noon rehearsal in bn-scenario-001 playing brushes very softly, become important in bn-scenario-002 when the trunk is found, and in bn-scenario-004 sit on a kitchen chair outside room 3F all night guarding the man who stole the names of the dead, without speaking to him once.",
+    "voice": "Deep, slow, soft, a little Oklahoma. Very few words. Says 'Well now' before anything important. When he is angry he goes completely silent, and that is the moment to worry.",
+    "motivations": "Primary: Jules home. Secondary: his mother and sisters fed and safe. Tertiary: never again to stand still while someone is beaten.",
+    "secrets": "He has the book and does not know it (clue D1, D3). Second: he and Casey Dudek fought in 1929 and shook hands in the ring, and when he sees Casey on Eighteenth Street working for Gleason he will be hurt rather than angry. Third: in 1932, in that alley, one of the four policemen was a young detective named Kreutz, with a gold tooth. If Lucky sees Kreutz in this campaign he will know him.",
+    "attitude": "Toward the party: polite reserve, then a slow, total loyalty. Toward Jules: a younger brother's devotion. Toward Geneva: he does what she says. Toward Casey Dudek: an old respect, wounded. Toward Kreutz: if they meet, he will have to decide, in that moment, whether 1932 happens again, and which way."
+  }
+}

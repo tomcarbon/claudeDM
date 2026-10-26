@@ -1,0 +1,124 @@
+{
+  "id": "a1d8f4c7-6e2b-4093-b7a5-3f9c1e8d6b52",
+  "name": "Dr. Philomène Toussaint",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Doctor",
+  "level": 4,
+  "background": "Night Nurse",
+  "alignment": "Neutral Good",
+  "experience": 2700,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 22,
+    "current": 22
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Forensics",
+    "Insight",
+    "Medicine",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Louisiana French (the Opelousas kind)"
+  ],
+  "equipment": [
+    "Doctor's bag, black, her own, bought with her first year's salary at Flint-Goodridge Hospital",
+    "Scalpel, in the bag",
+    "First-aid kit",
+    "Bottle of aspirin",
+    "Morphine syrette (2)",
+    "Wristwatch with a second hand",
+    "Good suit, navy, and a white coat in the car",
+    "A notebook of cases: every Black death in Orleans Parish since 1944 that the coroner's office ruled an accident without an autopsy, with her own notes, forty-one of them",
+    "A Kodak camera with flashbulbs, borrowed from the hospital, for photographing bodies the coroner did not look at",
+    "Medical license, State of Louisiana, framed and left on her office wall",
+    "Wallet containing $33"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: once per long rest, an Insight check against a lie with advantage, and on a success she learns whether they lie to protect themselves or someone else; ordinary working people start one step friendlier toward her)",
+    "Patch Job (Doctor: as an action with her doctor's bag, a creature she touches spends up to 2 Hit Dice as on a short rest and regains 3 extra hit points; it also stabilizes a dying creature and ends Bleeding; four uses per long rest)",
+    "Diagnosis (Doctor: as a bonus action, she learns a creature's current and maximum hit points and every condition affecting it, including drink and drugs; examining a body for 10 minutes, she learns the cause and approximate time of death without a check, and one more detail on a DC 12 Forensics check)",
+    "Steady Hands (Doctor, 2nd level: advantage on Medicine checks; when she stabilizes a creature, it regains 1 hit point and can act on its next turn)",
+    "Practice: Coroner (Doctor, 3rd level: proficiency bonus doubled for Forensics checks, and when she examines a body she also learns one fact the killer would rather she did not, such as a detail of their size, handedness or knowledge)",
+    "Ability Score Improvement (Doctor, 4th level: +2 Intelligence)",
+    "Night Shift (Night Nurse background: nurses, orderlies, porters and ambulance men talk to her, so she can learn who was brought into any hospital or the parish morgue, with what injuries and who came, and she can get onto a ward after hours)"
+  ],
+  "traits": [
+    "Patch Job (4/long rest)",
+    "Diagnosis",
+    "Steady Hands",
+    "Coroner"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am calm in a crisis and impatient with everything else. I speak to the dead as if they could hear me, which my brother finds alarming. I keep exact records. I never accept a cigarette from a policeman.",
+    "ideals": "A body tells the truth to anyone who will look at it. In this parish, nobody official looks at ours. I do.",
+    "bonds": "My brother Alcée, who works nights at the parish morgue in the basement of the Criminal Courts Building because it is the only job a Dillard graduate in chemistry could get there. Flint-Goodridge Hospital. My forty-one cases.",
+    "flaws": "I am angrier than I let anyone see, and when I finally let it out I do not choose my moment. I trust records more than people, and I sometimes treat the living as if they were cases."
+  },
+  "appearance": "A small, compact woman of thirty-six with dark brown skin, high cheekbones, her hair pressed and pinned in a low knot, steel-rimmed spectacles and a level, measuring gaze. She wears navy suits, low heels and no jewellery but a watch, and her hands are always very clean.",
+  "backstory": "Philomène Toussaint grew up in Opelousas, the daughter of a schoolteacher and a Pullman porter, and was a night nurse at Flint-Goodridge Hospital, the city's hospital for Black patients on Louisiana Avenue, for six years before she had saved enough to go to Meharry Medical College in Nashville. She came back in 1943 as one of a handful of Black women physicians in Louisiana, to the same hospital, and to a city where the coroner's office routinely signs Black deaths as accidents without opening the body. She began keeping a list. Her brother Alcée, a porter at the parish morgue in the basement of the Criminal Courts Building at Tulane and Broad, brings her the ones that are wrong. On Friday 1 March, Alcée telephones her at the hospital and says, in French, that for the first time since he has worked there, the coroner has signed a white man's death as an accidental drowning without an autopsy, and that the white man was dead before he went in the water. She is interested in the white man. She is far more interested in the coroner.",
+  "dmNotes": {
+    "roleplaying": "Philomène is the party's forensic eye, and she is in the case for her own reason: if she can prove that the coroner's office signed a white man's murder as an accident on a captain's word, then every one of her forty-one Black cases becomes a question a newspaper must ask. She examines Marcel Fontenot's body after hours with Alcée's help (Clues A1, A2, B1), which is dangerous for both of them, and she will not do it for nothing: she wants the party's word that her findings will be used and her forty-one cases published with them. She does not go on fights; she patches people up after them. Use her as the voice who notices what the white characters do not, in the precise terms of a physician.",
+    "voice": "Low, precise, unhurried, with a faint Opelousas music under it. Medical vocabulary used exactly and then translated, briefly, for laymen. She calls the dead \"the patient\".",
+    "motivations": "Primary: expose the coroner's practice of signing deaths unseen. Secondary: protect Alcée, whose job and freedom she is risking. Tertiary: see Marcel Fontenot's killer named, because she has examined him, and she considers him her patient now.",
+    "secrets": "One of her forty-one cases is Private Alphonse Sylvain's father, Joseph Sylvain, a laborer found in the Industrial Canal in 1944 near the Ste. Claire yard and ruled drowned; she believes he was beaten. Alphonse Sylvain's name appears on the ghost gang (Clue D5). She does not know this until the party tells her, and when she learns it, she is frightening. Second: Alcée kept Marcel Fontenot's shirt collar, which the coroner's man threw away; it has red-lead primer and a smear of brown leather dye on it from the sap (Clue G2's physical half).",
+    "attitude": "Toward the party: professional, sceptical, then loyal to those who keep their word. Toward Octave: an old acquaintance; she reads the Statesman and corrects his medical terms by post. Toward Det. Lamarque: icy, because he is a policeman, and then, if he backs her findings against his captain, startled respect. Toward Lt. Whitcombe: she thinks he is very young. Toward Theo: deep respect."
+  }
+}

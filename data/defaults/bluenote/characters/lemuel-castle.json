@@ -1,0 +1,125 @@
+{
+  "id": "ab095d6c-5295-4542-a7e0-ccf91f64ba3f",
+  "name": "Lemuel 'Lem' Castle",
+  "status": "alive",
+  "race": "Ex-Service",
+  "subrace": "",
+  "class": "Cop",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 31,
+    "current": 31
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Perception",
+    "Insight",
+    "Streetwise",
+    "Investigation"
+  ],
+  "languages": [
+    "English",
+    "French (a soldier's French, from 1918, mostly for apologising)"
+  ],
+  "equipment": [
+    "Heavy overcoat, Kansas City Police Department issue, navy blue with brass buttons",
+    ".38 revolver (Smith & Wesson Military & Police, department issue), 6 rounds loaded, in a flap holster",
+    ".38 rounds (24)",
+    "Nightstick, hickory, with a leather thong worn smooth",
+    "Badge and warrant card, Patrolman, Number Four District",
+    "Handcuffs",
+    "Police whistle",
+    "Notebook and pencil",
+    "Flashlight",
+    "Discharge papers, 92nd Division, and a service medal in a box at home that he has never worn",
+    "A call-box key for the Eighteenth Street beat",
+    "Nickel for the payphone (2)",
+    "Wallet containing $14"
+  ],
+  "weapons": [
+    {
+      "name": ".38 revolver",
+      "attackBonus": 3,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Nightstick",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Heavy overcoat",
+    "type": "light"
+  },
+  "features": [
+    "Seen Worse (Ex-Service origin: advantage on saves against being frightened and against the Shaken condition; the first time each combat he is hit by a firearm, he keeps his reaction and any readied action)",
+    "The Badge (Cop: lawful authority on his beat; enter a crime scene, demand identification, detain for questioning, advantage on Intimidation and Persuasion against anyone who respects the law. The department's unwritten rule is that a Black patrolman does not lay hands on a white man except to save a life; crossing it raises Heat and the question of his badge. People who won't talk to cops won't talk to him: disadvantage on Streetwise with them unless they don't know he is one)",
+    "Academy Training: Riot Squad (Cop: +1 AC while wearing medium armor, not counted in his overcoat AC; he can shove a creature as a bonus action when he takes the Attack action)",
+    "Collar (Cop, 2nd level: when he hits with a melee attack, a bonus action to grapple; he can handcuff a grappled creature as an action with no check)",
+    "Assignment: Detective (Cop, 3rd level: proficiency in Investigation, already counted; once per long rest, examining a scene, the GM tells him which of the people he knows had the best opportunity). He is not a detective by rank and never will be in this department. He has taught himself.",
+    "Old Outfit (Veteran background: in any veterans' hall or legion post he can get a meal, a bed and a quiet word about a man who served; the Black American Legion post on Vine knows him well)"
+  ],
+  "traits": [
+    "The Badge",
+    "Riot Squad",
+    "Collar",
+    "Detective"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I walk the same beat every night at the same pace and I say good evening to everybody on it by name. I write everything down in a notebook I do not show my sergeant. I do not raise my voice; I have never needed to.",
+    "ideals": "The law ought to mean the same thing on both sides of Troost Avenue. It doesn't. I wear the badge anyway, so that somebody wearing it does.",
+    "bonds": "The people on my beat, who trust me more than they trust the department and less than they should trust anybody. And the men of my old company, half of whom came home to the same city that sent them.",
+    "flaws": "I have stood still while white officers did things on my beat that I will not write down, because if I moved I would lose the badge, and then there would be nobody. I have told myself that for eleven years. I am not sure any more it is true."
+  },
+  "appearance": "A tall, broad, dark-skinned man of forty-one with a soldier's straight back, close-cropped hair going white at the temples, a long patient face and large careful hands. In uniform he is immaculate. Out of it he wears a brown suit and looks like a deacon, which he also is.",
+  "backstory": "Lemuel Castle was born in Kansas City, Kansas, in 1895, enlisted in 1917 and went to France with the 92nd Division, where he carried a rifle through the Meuse-Argonne, was gassed once and decorated once, and came home in 1919 to a country that had not changed its mind about him. He worked the freight docks at Union Station and married, and in 1925 joined the Kansas City police as one of a handful of Black patrolmen, assigned, like all of them, to the Eighteenth Street beats and nowhere else. He buried his wife in 1929. He has walked the same twelve blocks for eleven years. He knows every family, every club, every numbers runner and every child, and they know him, and on the nights when a white detective from downtown comes looking for 'a colored suspect', it is Lem they come to before and after. On Sunday morning the Gold Leaf's doorman told him that Jules Ransom had been taken, and on Sunday afternoon his sergeant told him that there was no complaint and he should leave it. He is not going to leave it. He would like very much not to lose his badge doing it, and he does not expect to be that lucky."
+}

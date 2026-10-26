@@ -1,0 +1,463 @@
+{
+  "id": "vg-scenario-002",
+  "title": "The List",
+  "subtitle": "Sunday 20 November to Saturday 3 December 1864: A Missourian at Dawn, Thanksgiving, Lincoln's News, Twelve Names and a Pencil Line",
+  "levelRange": "3-4",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Ninebark, the two weeks before the storm, and the storm",
+    "description": "The committee's next name is a loud Missouri teamster called Tobiah Corder, and on Tuesday night it comes for him. The party can save him, or be there when he dies. Then Thanksgiving, with the committee's men marching in the street, and on Friday the news of Lincoln's re-election, which turns the Union Saloon and the Missourians on each other. Somewhere in the middle of it the party gets hold of the list: from the committee's president, from the lawyer's safe, or by joining the committee. It has twelve names, and the last one is in pencil, in a different hand, and names a man nobody in Ninebark could have known was coming. On Tuesday 29 November the great storm closes the road for four days, and the party is shut in a camp with the committee, the list and the truth, with nothing to do but follow it.",
+    "atmosphere": "Grey cold, then white. The sun stops reaching the bottom of the gulch at all. The creek freezes over and the sluices stop; men drift underground by candlelight and come up blinking. Wood is scarce and dear and everyone is short-tempered. Thanksgiving brings a parade, a band of two fiddles and a cornet, and forty men marching four abreast in the snow with rifles, not masked, in the full light of day, which is the most frightening thing anyone has seen yet. The storm comes in from the northwest on the 29th with a wind that takes the roof off a saloon, and for four days the world is the inside of a house, the stove, the lamp, the people in the room, and the sound of the snow.",
+    "keyLocations": [
+      {
+        "name": "The Union Saloon",
+        "description": "Mordecai Pottinger's saloon: the biggest in camp, a long bar, a stove at each end, a Stars and Stripes over the door and a portrait of Lincoln over the bar, a hurdy-gurdy dance hall upstairs, and Leonie Fairbairn's faro bank in the corner. It is the Union men's saloon and the committee's unofficial headquarters; the Missourians drink at the Shamrock down the street and the two crowds watch each other through the windows. Clancy, Pottinger's bartender, is a big, slow, sad Irishman who hears everything and wishes he did not.",
+        "features": [
+          "Lincoln's portrait, draped in bunting on Friday 25 November",
+          "Leonie Fairbairn's faro layout, and the case-keeper's abacus, and Pottinger's stool beside it",
+          "The back room, where the committee's Executive met on 9 November over a bottle of Pottinger's best"
+        ],
+        "encounters": [
+          "Clancy the bartender",
+          "Lincoln night (act 2)"
+        ],
+        "secrets": [
+          "CLUE A4 and D4 (from Clancy, Persuasion DC 13 in private, or automatic if Moira Kehoe asks him): on the evening of 4 November Patrick Kehoe stood at this bar and told the room, loudly, that he had seen Judd Ferrier and 'the Brill fellow' leading two blown, sweating horses into the back of Fiddler's corral on the afternoon of the 3rd, when he rode up for hay. Pottinger told him to shut up. Six days later he was hanged.",
+          "CLUE B3 (Clancy, or anyone who asks who Jack Tillery drank with): Tillery drank here every night for a month. He never once spoke to the sheriff, never went to the Beaverhead Crossing, and did not know that Pottinger owed the faro woman a penny. 'How would Jack know a thing like that? I didn't know it till Miss Fairbairn told me.'",
+          "Pottinger owes Leonie Fairbairn $1,100. He did not put her on the list; he did not need to. Tillery named her, the name came from Sefton, and Pottinger was glad. Insight DC 14 when Pottinger looks at Leonie: guilt, and relief."
+        ]
+      },
+      {
+        "name": "Horatio Grimsby's office and the safe",
+        "description": "Grimsby's office on Water Street: Turkey carpet, law books, a fire, and a Herring's patent safe that came over the mountains on its own wagon. The list is in the safe, in a folder marked PROCEEDINGS, with Grimsby's notes of Tillery's confession and the minutes of the Executive. Grimsby lives above the office and is at home most nights; on Thursday 24 November he marches in the Thanksgiving parade and dines at Wexford's, and the office is empty from noon until ten.",
+        "features": [
+          "The safe: Mechanics DC 16 with lockpicks (Micah Garrick's, or a locksmith's tools), or the combination, which Grimsby has written on the flyleaf of his Blackstone's Commentaries, volume four (Investigation DC 15)",
+          "The PROCEEDINGS folder: the list; Grimsby's notes of Tillery's confession on 6 November, in his own hand; the Executive's minutes of 9 and 11 November",
+          "His wastepaper basket, where Konrad Kranzler's torn certificate for Patrick Kehoe still lies crumpled (CLUE A3, if not found in vg-scenario-001)"
+        ],
+        "encounters": [
+          "Horatio Grimsby, at home most nights",
+          "A committee man set to watch the office, if the party's WATCH is 2 or more (Vigilante)"
+        ],
+        "secrets": [
+          "CLUE C1 (core, for anyone who reads the list): twelve names in two columns; names 1 to 11 in Grimsby's clear ink hand; below a ruled line, in pencil, in a different, rounder, cramped hand, misspelling 'federal' as 'federel': 'C. Hartigan. Federel man. Comes on the coach. In it with them.' (The full list is in campaignRules: The List.)",
+          "The Executive's minutes of 9 November: 'No. 23 reported that the prisoner T. informed him privately, while under guard on the night of the 5th, that a federal officer named Hartigan is to arrive in mid-November and is in league with the robbers. Resolved: that the name be added.' The minutes do not name number 23. Grimsby knows who he is.",
+          "Grimsby's notes of the confession: Tillery 'gave the names freely and in order, as though reciting'. Grimsby thought this showed sincerity. Insight DC 12 for anyone reading it: a frightened man reciting a list he had learned."
+        ]
+      },
+      {
+        "name": "The express office and the sheriff's cabin",
+        "description": "Simeon Prothero's office and, two doors down, Barnabas Wyndham's sheriff's cabin with its one barred window, its stove, a desk made from a packing crate and a ledger. Prothero keeps his correspondence in a pigeonhole desk; Barnabas keeps his ledger in a tin box under the floor, since 4 November.",
+        "features": [
+          "Prothero's pigeonholes, and in one of them the territorial marshal's letter of 1 October announcing Deputy Marshal C. Hartigan, its wafer seal intact but doubled",
+          "Barnabas's ledger: every coach since June, its treasure, its passengers, who knew; and since 4 November, every committee warning card he has been shown, with the date and the person's name",
+          "The district jail, with or without Davy Renner in it"
+        ],
+        "encounters": [
+          "Barnabas Wyndham and Simeon Prothero, who meet every evening now to share what they know, which is very little"
+        ],
+        "secrets": [
+          "CLUE C2 (core, from Barnabas's ledger, which he will read aloud): Jack Tillery was arrested in the Union Saloon and locked in Wexford's root cellar at three in the afternoon of Friday 4 November. The up coach was snowbound overnight at Fiddler's Station that night and reached Ninebark at four on the afternoon of Saturday 5 November. Prothero opened the marshal's letter at five, and told Barnabas, and nobody else.",
+          "CLUE C3 (core, for anyone who asks Prothero to see the letter): the letter's red wafer is doubled: a second wafer pressed down over the broken remains of the first, so neatly that he only noticed because the seal stood proud of the paper. He remarked on it to Barnabas at the time and they thought it was the cold. Investigation DC 12: the first wafer was broken, the letter opened and read, and resealed.",
+          "CLUE D1 (complete, from the ledger and the waybill book together): every robbed coach carried more than $20,000 and changed horses at Fiddler's; every unrobbed coach carried less. The coach's weight could be known after it left Ninebark only by the people on it, or at Fiddler's, where the boxes are carried off and on."
+        ]
+      },
+      {
+        "name": "The Slaughter Corral",
+        "description": "At the foot of the gulch where the Bannack road comes in: a corral of peeled lodgepole rails, a log gateway twelve feet high with a crossbeam, and the board the committee nailed to it on 6 November, painted WARNED. The butcher, a German named Bader, has stopped using it; his cattle are killed behind his shop now. The snow round the gate is trampled.",
+        "features": [
+          "The crossbeam, with two rope-burns in the bark",
+          "The board: WARNED",
+          "A view up the whole gulch, so that the lanterns can be seen coming from a mile off"
+        ],
+        "encounters": [
+          "Dawn on Wednesday 23 November (act 1)"
+        ],
+        "secrets": [
+          "The committee hangs at first light because Grimsby believes executions should be done at dawn. The men who come are fewer each time: forty for Tillery, thirty for Kehoe, twenty-two for Corder, if it happens. They hate the place. Insight DC 11 on any of them in daylight."
+        ]
+      },
+      {
+        "name": "The packers' corrals and the forge",
+        "description": "Behind Wexford's warehouse, Chelo Arvizu's fourteen mules and bell mare winter in a corral with a three-sided shed, and her tally books are kept in a tin trunk in the packers' cabin, where five Sonoran and Californio packers play monte by the stove. Across the street is Gabriel Tennant's forge.",
+        "features": [
+          "Chelo's tally book, with an entry for the night of Wednesday 19 October: 'up from Bannack late, 9 loads flour, 3 nails, arr. 11 pm'",
+          "The packers' stove and the monte game, where nobody speaks English if a committee man comes in",
+          "Gabriel's account book: Fiddler's Station string shod 2 November, toe-clip pattern"
+        ],
+        "encounters": [
+          "Chelo Arvizu and her packers",
+          "Gabriel Tennant"
+        ],
+        "secrets": [
+          "CLUE D3 (from Chelo, when she trusts the party and has their promise that her word will not stand alone: Persuasion DC 14, or automatic if they saved Tobiah Corder or have shown they will not hand anyone to the committee): on the night of 19 October, coming up the Bannack road at about ten o'clock, she saw five riders lead their horses out of the timber above the Rattlesnake Grade, cross the road, and go up the slope to Fiddler's barn, and the barn door open to let them in, and close. The Thursday coach was robbed the next morning. 'Five horses, Mister. In the barn of the station. At night. And in the morning, the coach.'"
+        ]
+      }
+    ]
+  },
+  "synopsis": "On Sunday after the class meeting in Moira Kehoe's parlour, Gabriel Tennant tells the party what Jack Tillery said to him the night before he was hanged: that 'the man' had given him the names. On Monday and Tuesday a loud, harmless Missouri teamster called Tobiah Corder drinks to Jefferson Davis in the Shamrock and refuses to leave camp, and at midnight on Tuesday twenty-two masked men take him from his cabin. The party can stop them at the cabin, at the corral, or not at all. On Thanksgiving forty committee men march in daylight, and Grimsby and Pottinger invite the party to join them: 'men who can shoot are wanted'. On Friday a rider from Bannack brings the Salt Lake City papers and the news that Lincoln has been re-elected, and the Union Saloon's celebration becomes a riot with the Missourians. In the middle of it the party can get the list: from Obadiah Wexford, who is beginning to doubt; from Grimsby's safe while Grimsby marches; or from inside the committee. There are twelve names, two columns, HANG and BANISH, and the twelfth is in pencil: 'C. Hartigan, federal man, comes on the coach, in it with them.' Then the storm closes the road for four days, and the party has time to ask the question that cracks the case: how did anyone know that name? Tillery was locked up the day before the letter arrived. The letter spent the night at Fiddler's Station, and its seal has been opened and stuck down again. Meanwhile Clancy the bartender, Moira's account book and Chelo Arvizu each put Fiddler's Station at the centre of the robberies, and the most generous man on the road begins to look like something else.",
+  "hook": "The class meeting in Moira Kehoe's parlour, Sunday evening: eleven people on borrowed chairs, a hymn without a piano, a big Black blacksmith reading from Micah in a voice that makes the lamp flame shiver, and afterwards, when the others have gone, the blacksmith closing the Bible on his finger and saying, quietly, 'I promised that boy I'd tell the truth for him. I've waited three weeks for somebody I could tell it to.'",
+  "cluesAvailable": [
+    "A3",
+    "A4",
+    "B1",
+    "B3",
+    "C1",
+    "C2",
+    "C3",
+    "C5",
+    "D1",
+    "D3",
+    "D4",
+    "D5",
+    "E3"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "B. Tillery's confession was coached",
+      "clues": [
+        "B1: Tillery's last words to Gabriel Tennant (the parlour, Sunday)",
+        "B3: Tillery could not have known half the names he gave (Clancy, the Union Saloon)",
+        "Grimsby's notes: 'as though reciting' (the safe)"
+      ]
+    },
+    {
+      "conclusion": "C. The twelfth name came from the mail, and the mail lay at Fiddler's",
+      "clues": [
+        "C1: the pencil name, in a different hand (the list)",
+        "C2: Tillery was locked up before the letter arrived (Barnabas's ledger)",
+        "C3: the doubled wafer (Prothero's pigeonholes)",
+        "C5: the mail sack was carried into Sefton's house for the night of 4 November (Ike Leach, or Jemmy)"
+      ]
+    },
+    {
+      "conclusion": "D. The road agents work out of Fiddler's Station",
+      "clues": [
+        "D1: every robbed coach was heavy and changed horses at Fiddler's (ledger and waybills)",
+        "D3: Chelo saw five riders go into Fiddler's barn the night before a robbery (the packers' corral)",
+        "D4: Patrick Kehoe saw Ferrier and Brill with blown horses at Fiddler's (Clancy, Moira)",
+        "D5: the washing, remembered by Benicio Aranda or Ike Leach"
+      ]
+    },
+    {
+      "conclusion": "A. Patrick Kehoe was innocent, and was killed for what he saw",
+      "clues": [
+        "A3: the torn certificate (Grimsby's wastepaper basket, if not already found)",
+        "A4: what Patrick told the Union Saloon on 4 November (Clancy)",
+        "E3: Sefton paid for Davy Renner's room at the Kehoes' (Moira's account book)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Sunday to Wednesday: The Next Name",
+      "description": "Gabriel Tennant's account of Tillery's last night opens the second half of the mystery: the list was coached. Then the committee acts, on a man who is easy to dislike and innocent of these robberies, and the party has two days to decide what they will do about it. The point of this act is the first real choice about the rope: Tobiah Corder is rude, drunk, a secessionist and nobody's friend, and if the party does not save him, nobody will.",
+      "objectives": [
+        "Hear Gabriel Tennant's account of Tillery's last night (CLUE B1)",
+        "Warn Tobiah Corder, and protect him on Tuesday night, or stop the hanging at the corral on Wednesday at dawn",
+        "Find out who in the committee pushed for Corder's name"
+      ],
+      "encounters": [
+        "Tuesday midnight at Corder's cabin: eight committee men (Vigilantes) with lanterns, led by Pottinger's foreman; if they get Corder out, twenty-two men take him to the corral (Lynch Mob, half-strength: 30 hit points, Pottinger as ringleader)",
+        "Tobiah Corder himself, who is drunk, armed and quite likely to shoot the first man through his door, which would get him killed and a committee man killed with him"
+      ],
+      "scenes": [
+        {
+          "name": "Class Meeting in the Parlour",
+          "description": "Gabriel tells the party everything he knows about Tillery's last night (CLUE B1): that Sefton was standing guard alone and let him in, that Tillery said 'the man said I'd live if I gave the names he gave me', and that Wexford told him to keep it quiet. He does not suggest that 'the man' was Sefton; he says, 'There was only one man in that cellar with him all night, and I don't believe it, and I can't stop thinking it.' If the party has the cast shoe, he connects it too, slowly and unhappily. He will repeat it in a court. He will not repeat it to the committee, and he asks the party not to make him.",
+          "readAloud": "When the others have gone, he sits with the closed Bible on his knee and looks at the lamp for a long time. 'They sent for me the night before, because none of the other preachers would come, and the priest wasn't due till the fifteenth. Mister Sefton was on the door. He was kind to me; he gave me coffee. He went up the steps and left us. That boy talked all night. About his mother, about Kansas. About dying. Near dawn he took hold of my coat, here.' He touches his lapel. 'And he said, \"The man said I'd live if I gave the names he gave me. He lied, didn't he, Reverend.\" And I said I didn't know what he meant. And at noon they hanged him.' He looks up. 'There was one man in that cellar with him all night.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 11,
+              "success": "He is telling the truth exactly, and he is more frightened of what it means than of the committee.",
+              "failure": "A preacher's story, told with feeling."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "He agrees to swear to it before a judge, if there ever is one, and asks you to see that there is.",
+              "failure": "He will tell it to you. He is not ready to tell it to anyone else."
+            }
+          ]
+        },
+        {
+          "name": "The Missourian",
+          "description": "Tobiah Corder is a teamster from Clay County, Missouri: thirty, loud, red-bearded, quick-tempered, a secessionist who drinks to Jefferson Davis in the Shamrock to annoy the Union men across the street, and the owner of a fast bay horse. He has had a warning card and laughed at it. He did nothing to anyone, and on the morning of 3 November he was in Barnabas's jail sleeping off a drunk, which Barnabas's ledger shows. On Monday the camp's talk turns to him (helped along by anything the party told Grimsby about Southern voices). The party can warn him, guard him, hide him, get him out of camp, or ignore him. He will not leave willingly: 'Nobody runs me out of nowhere.' Persuasion DC 15 (advantage if the party shows him the ledger page that proves his alibi, or brings Barnabas) gets him to hole up somewhere other than his cabin, which is all that is needed.",
+          "readAloud": "The Shamrock is the Missourians' saloon: smaller and smokier than the Union, with a stuffed elk's head and a Bonnie Blue flag nailed up over the bar where everyone pretends not to see it. Tobiah Corder is standing on a chair. He is big, red-bearded, very drunk and very happy, and he has a glass up. 'Gentlemen! To President Davis, and to the poor damned Yankees across the street, who'll be needing our prayers!' Half the room cheers and half of it looks at the window, where three men in the Union Saloon are looking back. Corder sees you. 'Strangers! Come and drink. I've had a letter from the committee,' and he laughs and slaps his coat pocket. 'They want me gone in a day. Well, that was Sunday.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "He grumbles and swears and agrees to sleep at the packers' cabin, or the boarding house, or the jail, for 'a night or two, to oblige the sheriff'. He is saved, unless the committee learns where he is.",
+              "failure": "He tells you to go to the devil, cheerfully, and goes home to his cabin, and loads his shotgun."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Underneath the noise he is terrified. Kehoe was a friend of his; they worked the same shift for a month in the summer.",
+              "failure": "A drunk, and a fool."
+            }
+          ]
+        },
+        {
+          "name": "Dawn at the Slaughter Corral",
+          "description": "If the committee took Corder, they walk him down the gulch at five in the morning on Wednesday 23 November, hands tied, to the corral gate, where a rope is already over the beam. Twenty-two masked men; Pottinger in a sack, unmistakable by his size; Grimsby unmasked, with a paper, to 'read the sentence'. Sefton is not there: he never attends. The party can stop it with words (Mob Mind), with the ledger (Barnabas's page proving Corder's alibi, read aloud: advantage on the Persuasion check, and Grimsby himself hesitates), with the law (Cormac Hartigan's commission and Barnabas's star together: advantage), or with guns, which will kill townsmen. If they stop it without killing anyone, the committee loses twelve members who never come out again, and Wexford sends for the party that afternoon. If Corder hangs, narrate it plainly and briefly: it is not quick, and the men who did it walk home without speaking.",
+          "readAloud": "There is just enough light to see the gate against the sky, and the rope hanging from the beam, and the lanterns coming down the gulch like a slow string of beads. They come in silence. Twenty, twenty-two of them, masked, with a big red-bearded man in the middle with his hands tied behind him, who has stopped shouting and is only breathing now, hard, in clouds. At the gate a slim man without a mask unfolds a paper and holds it up to a lantern. 'Tobiah Corder,' he reads, in a soft, clear voice, 'the citizens of this camp, having considered the evidence against you...' Behind him, a heavy man in a flour sack is testing the rope.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "Mob Mind: the mob loses 2d10 hit points (it has 30). Read Barnabas's ledger aloud, the page for 3 November, and Grimsby lowers his paper; the check has advantage.",
+              "failure": "'The evidence has been considered,' Grimsby says, and folds the paper."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "Pull the sack off Pottinger's head, or put a hand on his arm and a star in his face, and the mob breaks: men melt back up the gulch in the half-dark, and Pottinger is left standing at the gate with a rope in his hands and his face showing.",
+              "failure": "Somebody fires a rifle and the crowd surges toward the gate."
+            },
+            {
+              "skill": "Performance",
+              "dc": 14,
+              "success": "Gabriel Tennant, or a Preacher among the party, begins the Twenty-Third Psalm aloud and does not stop. One by one, men in the crowd stop moving. The mob loses 1d10 hit points at the end of each round it listens.",
+              "failure": "The words are lost in the noise."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Thursday and Friday: Thanksgiving and the News",
+      "description": "The committee shows itself in daylight, invites the party to join, and then loses control of its own saloon. This act is where the party gets hold of the list, by one of three roads: Wexford, the safe, or the committee itself. Let them choose; every road works, and every road costs something.",
+      "objectives": [
+        "Decide what to say to the committee's invitation",
+        "Get hold of the list, or a true copy",
+        "Keep Lincoln night from becoming a massacre"
+      ],
+      "encounters": [
+        "Lincoln night, Friday 25 November: the Union Saloon's celebration spills into the street and meets the Shamrock's crowd; a riot of forty men with fists, bottles and a few guns (two Lynch Mobs, one each side, used as brawling crowds; Saloon Brawlers inside). Nobody need die. Someone will, if a gun goes off in the crowd and nobody stops the next one"
+      ],
+      "scenes": [
+        {
+          "name": "An Invitation",
+          "description": "After the Thanksgiving parade, Grimsby and Pottinger invite the party (or the most capable-looking of them) to the back room of the Union Saloon. They are recruiting: the committee needs men who can shoot, and the guards who fought at the Elbow are the talk of the camp. If the party saved Corder, the invitation is colder and becomes a warning: 'Some of the citizens feel you have taken sides.' Joining means swearing an oath on Wexford's Bible, taking a number (41 onward), and wearing a sack: Reputation -1, and the party gains access to the Executive's minutes, the list and the committee's roll of numbers (not names) at the next meeting, in vg-scenario-003. A party that joins in order to destroy it from inside is playing a dangerous and legitimate game; tell them plainly that a hanging they attend as members costs -2 Reputation each, and that Sefton will be watching the new members very carefully.",
+          "readAloud": "The back room of the Union Saloon has a table with a green cloth, six chairs, a bottle of the good whiskey and a framed engraving of the signing of the Declaration of Independence. Pottinger pours. Grimsby does the talking. 'You've seen what this camp is,' he says, 'and what the road is. You were on that coach. You know there is no law here worth the name: a schoolmaster with a tin star and a log hut. The citizens have done what free men do when the law fails them. They need men like you.' He lays a Bible on the green cloth, and beside it a square of folded flour sacking with two holes cut in it. 'It's a simple oath. We take the guilty and we let the innocent alone.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Grimsby believes every word. Pottinger believes about half and wants the rest to be true. Neither of them knows who wrote the twelfth name; both of them think they do.",
+              "failure": "Two serious men, and a serious offer."
+            },
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "You take the oath and they believe it. You have a number, a sack and a seat at the next meeting.",
+              "failure": "You take the oath and Grimsby does not quite believe it. WATCH +1."
+            }
+          ]
+        },
+        {
+          "name": "Lincoln Night",
+          "description": "On Friday 25 November a rider from Bannack brings the Salt Lake City papers: Lincoln has been re-elected. Pottinger opens the bar free and drapes the portrait in bunting; by nine the Union men are singing 'John Brown's Body' in the street outside the Shamrock, and by ten someone has thrown a bottle through the Shamrock's window. Let it be a brawl the party can wade into, separate, or use: in the chaos the Union Saloon's back room and Grimsby's office are both empty, Grimsby and Pottinger are both in the street, and Leonie Fairbairn's faro bank is unattended. If the party keeps the riot from becoming a shooting, Reputation +1, and the miners' meeting is called for Saturday 3 December to 'consider the peace of the camp'.",
+          "readAloud": "By ten o'clock Water Street is full of men from one side to the other, under a sky full of stars and a cold that makes the breath stand up off the crowd like steam off a herd. Somebody has lit a bonfire of packing crates in front of the Union. Somebody has a fiddle. Somebody has a flag. The Union men are singing about John Brown, and the Shamrock men are singing about the Bonnie Blue, and the two songs meet in the middle of the street in a roar, and then a bottle goes over the heads of the crowd, turning in the firelight, and comes down through the Shamrock's front window in a burst of glass.",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "You stop the first man who draws a pistol, and the crowd sees you do it. The riot stays a riot.",
+              "failure": "A shot is fired into the air, and a second one is not into the air. Someone is down in the snow; Konrad Kranzler or Moira Kehoe will be needed."
+            },
+            {
+              "skill": "Athletics",
+              "dc": 13,
+              "success": "You wade into the middle and put the two loudest men on their backs in the snow, one of each, and the crowd laughs, and the moment passes.",
+              "failure": "You are in the middle of forty men throwing punches. Brawling rules."
+            }
+          ]
+        },
+        {
+          "name": "The Sheet of Foolscap",
+          "description": "Three roads to the list. WEXFORD: if the party saved Corder without bloodshed, or if Cormac Hartigan is played and has introduced himself, Obadiah Wexford sends for them, after dark, to his warehouse office, and shows them the list himself, shaking: 'I have to know if that man is what they say he is.' He does not know who wrote the pencil name; he was not at the 9 November meeting, being in bed with the grippe. THE SAFE: Grimsby's office, empty on Thanksgiving afternoon and Lincoln night; the safe can be opened with lockpicks (Mechanics DC 16) or the combination in Blackstone's (Investigation DC 15). THE COMMITTEE: a party member who joined sees it read aloud at the next meeting (vg-scenario-003) but not the hand it is written in, unless they ask to see the paper (Deception DC 14). However they get it, give the players the whole sheet, all twelve names, and let them find their own names on it.",
+          "readAloud": "It is one sheet of ruled foolscap, a little greasy at the folds. At the top, in a clear, sloping, lawyer's hand in black ink: PROCEEDINGS, 6th Nov. 1864. NAMES GIVEN BY THE PRISONER T. Two columns, HANG and BANISH, and names under each, numbered: some written out in full, some only described, the sheriff who lets them go, the Swede at Ruhl's, the faro woman at the Union. Number three has been struck through with a single neat line, and in the margin beside it, a date: 10th. Below the eleventh name someone has ruled a line across the page. And below the line, in pencil, in a different hand altogether, round and cramped and pressing hard enough to dent the paper: C. Hartigan. Federel man. Comes on the coach. In it with them.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "CLUE C1. The pencil line is in a different hand from the rest, and 'federal' is misspelt. Whoever wrote it heard the name; he did not read it from anything Grimsby wrote.",
+              "failure": "A list of names. Some of them are yours."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "The names in the HANG column are not the names a lookout would know. A horse-holder from Kansas does not know who keeps a roadhouse below the ford, or what the sheriff has been asking. Somebody who knew the road and the camp chose these.",
+              "failure": "A frightened man's names."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Storm: Tuesday 29 November to Saturday 3 December",
+      "description": "The road is shut, the coaches stop, and the camp turns inward. For four days nobody can come or go except on snowshoes, and the committee does not ride. This is the investigation act: give the players time, a stove and their companions, and let them walk the list. Every name leads somewhere; the pencil line leads to Fiddler's Station. End the act with the miners' meeting on Saturday 3 December, where the party can, if they choose, say some of what they know in public, and find out what that costs.",
+      "objectives": [
+        "Find out how anyone in Ninebark could have known the name Hartigan",
+        "Prove that the road agents use Fiddler's Station",
+        "Learn why Patrick Kehoe was really killed",
+        "Decide what to say, and to whom, at the miners' meeting"
+      ],
+      "encounters": [
+        "Snowshoe travel: anyone going beyond the camp makes DC 15 Survival checks to stay on a trail and a DC 12 CON save at night against exhaustion (campaignRules: Snow and the Road)",
+        "On Thursday 1 December, if the party's WATCH is 2 or more, four committee men (Vigilantes) waylay a lone party member on Water Street after dark with pick handles, to 'warn' them; they run if one goes down"
+      ],
+      "scenes": [
+        {
+          "name": "Twelve Names by Lamplight",
+          "description": "Moira Kehoe's kitchen, the storm outside, the list on the table. Let the companions react, each in character: Barnabas finds his own name and laughs, shakily, and then reads it again; Moira finds hers under Patrick's and says nothing; Gabriel reads it twice and asks who in camp knew a Hartigan was coming; Chelo says, 'Nobody knew. I would have heard.' If Cormac Hartigan is played, this is his moment. The question the players must reach: how could Tillery, locked up on 4 November, have known on 6 November (or how could anyone have known by 9 November) the name of a federal officer whose appointment had been read by two men in camp? If they are slow to it, Barnabas gets there: 'Simeon told me about the marshal's letter on the Saturday evening. Saturday. Tillery had been in the cellar since Friday afternoon.' (CLUE C2)",
+          "readAloud": "The wind has been going for six hours and it has found every crack in the house. The lamp gutters every time the door to the yard shifts in its frame. Outside there is nothing, no gulch, no camp, no lights, only white going past the window sideways, and the sound, which is like a train that never arrives. Inside there is the stove, and the coffee, and the six or seven of you round the kitchen table with the list in the middle of it, flattened under the sugar tin and a candlestick, and nobody has said anything for some time.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "Laid out on the table with Barnabas's ledger: Tillery taken Friday 4 November at three; letter arrives Saturday 5 November at four; confession Sunday morning, ten names, and the widow's added by the Executive on the 11th; pencil name added on 9 November (from the minutes, if the party has them). The twelfth name was not Tillery's at all, whatever the man who wrote it says.",
+              "failure": "A list and a ledger, and too many dates."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Look at who is on it and who is not. Every road agent the camp has any reason to suspect is on it; so is every man who has asked the right questions. Nobody from the stations is on it. Nobody from the road.",
+              "failure": "Twelve names. Too many to hold in the head."
+            }
+          ]
+        },
+        {
+          "name": "The Doubled Wafer",
+          "description": "Simeon Prothero, asked about the marshal's letter, finds it in his pigeonholes and shows it, and the party sees the doubled wafer (CLUE C3). Ike Leach the driver, snowbound in camp and drinking at the Union, remembers the night of 4 November: they were stuck at Fiddler's by snow on the grade, and Sefton had the mail sack carried into his house 'to keep it dry', and gave it back in the morning (CLUE C5). Benicio Aranda, or Ike, also remembers the washing on the line on robbery mornings (CLUE D5). Put together, it is an accusation against the most respected man on the road, and nobody in the room wants to say it first.",
+          "readAloud": "Prothero takes the letter out of its pigeonhole as if it might bite him and lays it on the counter under the lamp. It is a single folded sheet, addressed in a clerk's hand to S. Prothero Esq., Agent, Beaverhead Express, Ninebark, by favour of the up coach. The seal is a red wafer, pressed with a thumb. Look closely, and there are two of them: a second red wafer pressed down neatly over the broken edges of the first, so that a thin crescent of older, darker red shows round one side. 'I thought it was the cold,' Prothero says. 'Wax cracks in the cold.' Nobody answers him.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "CLUE C3. The first wafer was broken and the letter opened; the second was pressed over it afterwards. The letter was read by somebody before it reached Prothero.",
+              "failure": "A letter with a fat seal."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "CLUE C5. Ike Leach, with a drink in front of him: 'Snowed in at Fiddler's, Friday the fourth. Warrick had the sack took in the house to keep it dry. Always does, if we lie over. Good man, Warrick.' Then, after a moment: 'Why?'",
+              "failure": "Ike talks about horses for an hour."
+            }
+          ]
+        },
+        {
+          "name": "What the Packer Saw, and What Patrick Saw",
+          "description": "Three witnesses, each holding one piece. Chelo Arvizu (CLUE D3) saw five riders go into Fiddler's barn at night before the 20 October robbery; she tells the party when she trusts them, and on condition that her word will not stand alone. Clancy the bartender (CLUE A4, D4) heard Patrick Kehoe tell the Union Saloon on 4 November that he had seen Ferrier and Brill leading blown horses into Fiddler's corral on the afternoon of the 3rd. Moira Kehoe confirms it (Patrick told her the same night) and, if the party has promised that Davy Renner will be taken alive and tried, shows them her account book: Davy's room, 31 October to 4 November, paid in advance by Warrick Sefton (CLUE E3). Each witness is frightened, and each one is safer the more of the others there are. The party should end the storm knowing, if not able to prove, that the road agents ride out of Fiddler's Station, that Patrick Kehoe died for seeing it, and that the man who stood guard on Tillery is the man who keeps it.",
+          "readAloud": "The packers' cabin is so full of tobacco smoke you can barely see the stove. Five men in serapes are playing monte on an upturned crate and stop when you come in, and look at the door, and then at the woman by the stove, who is mending a pack saddle with an awl and a strip of rawhide and does not look up. 'Sit,' she says. 'Close the door. You want to know about the station.' The awl goes in and out. 'I will tell you one time. And then you will find somebody else who saw it too, a white man, because I am not going to hang at that gate for being the only one.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "CLUE D3, in full: five riders, the timber above the grade, Fiddler's barn door opening and closing, the night of 19 October, and the robbery the next morning. She adds, 'There is a cabin in Deadfall Canyon, where I wintered mules last year. There is a way in from the top. If you need it, I know it.'",
+              "failure": "'Come back when you have someone else,' she says. 'Then I'll talk.'"
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Moira is holding back the account book because of the boy in it, not the man. Promise the boy a court and she will show you.",
+              "failure": "The widow is tired and wants you gone."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Tobiah Corder, 30",
+      "role": "Missouri teamster; name 6 on the list",
+      "description": "Big, red-bearded, loud, quick-tempered and kind to horses; drinks to Jefferson Davis in the Shamrock to annoy the Union men. In the district jail sleeping off a drunk from the evening of 2 November until noon on the 3rd.",
+      "motivation": "Not to be run out of anywhere, by anyone. Underneath, not to die."
+    },
+    {
+      "name": "Clancy, 40s",
+      "role": "Bartender at the Union Saloon",
+      "description": "Big, slow, sad, from Cork; hears everything; was fond of Patrick Kehoe and is ashamed of having said nothing.",
+      "motivation": "To stop being ashamed, if someone gives him a safe way."
+    },
+    {
+      "name": "Jonas Fenley, 33",
+      "role": "Editor and printer of the Ninebark Sentinel",
+      "description": "A thin, nervous, ink-stained New Englander who prints whatever the committee orders because they told him, politely, what happens to editors who will not. Keeps copies of everything.",
+      "motivation": "To print the truth once without being hanged for it. He will, in vg-scenario-004, if the party gives him proof and protection."
+    },
+    {
+      "name": "Obadiah Wexford, 58",
+      "role": "President of the committee; beginning to doubt",
+      "description": "As vg-scenario-001. Missed the 9 November Executive with the grippe; does not know who added the pencil name.",
+      "motivation": "To be told he was right. Failing that, to make it right."
+    },
+    {
+      "name": "Horatio Grimsby, 39",
+      "role": "Keeper of the list",
+      "description": "As vg-scenario-001. Reads the sentence at dawn. Keeps the list in his safe with the combination in Blackstone.",
+      "motivation": "To be the author of order."
+    },
+    {
+      "name": "Mordecai Pottinger, 50",
+      "role": "Ringleader; owner of the Union Saloon",
+      "description": "As vg-scenario-001. On Lincoln night he is drunk, happy and dangerous.",
+      "motivation": "To win something."
+    },
+    {
+      "name": "Ike Leach, 52",
+      "role": "Coach driver, snowbound in camp",
+      "description": "As vg-scenario-001. Remembers the mail sack, the washing, and every horse.",
+      "motivation": "To drink the storm out."
+    },
+    {
+      "name": "Nels Eklund, 25",
+      "role": "Road agent; August Ruhl's hired hand; 'the Swede at Ruhl's' (he is Norwegian)",
+      "description": "Fair, quiet, polite, a good worker. The gang's eyes in camp: he carries news to Fiddler's. Ruhl has a second Scandinavian hand, Torvald Fjeld, 22, who is innocent and whom the committee will take for 'the Swede'.",
+      "motivation": "His share, and to be gone by spring."
+    },
+    {
+      "name": "August Ruhl, 46",
+      "role": "Claim owner; name 7 on the list",
+      "description": "A stout, stubborn Bavarian who owns three claims above town and sacked a hand in October for 'riding off nights'; the hand was Eklund, whom he then rehired when Sefton recommended him. He does not know he is on the list.",
+      "motivation": "His claims; his wages; to be left alone."
+    },
+    {
+      "name": "Warrick Sefton, 44",
+      "role": "Committee number 23",
+      "description": "As vg-scenario-001. He is in camp on Wednesday 23 November for the committee's meeting about Corder, whatever happened at the corral, and again from Monday 28 November, when he rides up for supplies and is caught by the storm, until Saturday 3 December: at the Union Saloon, cheerful, generous, buying drinks. He is in the room for much of the storm.",
+      "motivation": "To learn what the party knows."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "money": "Prothero keeps the party on at $5 a day each while the road is open. Tobiah Corder, if saved, gives them his fast bay horse, Brigadier, worth $150, and the Shamrock's free drinks for life; this is a mixed blessing (Reputation with the Union men -0, with the Missourians +1, at the GM's discretion). Leonie Fairbairn's bank, if played, earns its 1d6 x 5 dollars a night on any night she sits at it.",
+    "items": [
+      "The list, or a true copy of it (CLUE C1)",
+      "The Executive's minutes of 9 November (from the safe, or from Wexford in vg-scenario-003)",
+      "The marshal's letter with the doubled wafer (CLUE C3), which Prothero will hand only to a judge or to Deputy Marshal Hartigan",
+      "Barnabas Wyndham's ledger, read aloud, or a copy in his hand (CLUES C2, D1)",
+      "Moira Kehoe's account book page for room 6 (CLUE E3)",
+      "Tobiah Corder's horse, if he lived"
+    ]
+  },
+  "twists": [
+    "Warrick Sefton is snowbound in camp for the whole of the storm, at the Union Saloon, cheerful and buying drinks. He sits with the party if they let him; he asks about their investigation with real interest, and offers to help 'keep an eye on the road'. If the party reveals that they suspect the station, he reacts with hurt surprise, and then, the same night, the list gains a mark: a small pencil tick beside the name of whichever party member said it (WATCH 3 for that character in vg-scenario-003).",
+    "Torvald Fjeld, Ruhl's other Scandinavian hand, is the committee's choice for 'the Swede at Ruhl's'; Nels Eklund, the real road agent, has already said so in the Union, sadly, as a fellow countryman. If the party asks Ruhl which of his hands rides off at night, Ruhl says 'Nels, but Mister Sefton spoke for him.'",
+    "If any party member joined the committee in act 2, the committee's next meeting (vg-scenario-003) reads the list aloud, including their own names if they are on it. Grimsby notices any reaction.",
+    "The miners' meeting on Saturday 3 December is called to 'consider the peace of the camp'. If the party speaks there, they can win the camp's ear, and Reputation +1 if they speak well, but anything they say in public about Fiddler's reaches Sefton by nightfall."
+  ],
+  "dmTips": [
+    "This scenario is the heart of the investigation, and the storm is there so that the players have time. Budget an hour for Sunday to Wednesday and Corder, an hour and a half for Thanksgiving, Lincoln night and getting the list, and an hour or more for the storm.",
+    "Tobiah Corder is the test the campaign sets the players: a man who is easy to dislike and innocent. If they save him, the committee's grip starts to slip and Wexford sends for them. If they do not, the GM narrates his death plainly, and the players will remember it. Do not make it easy either way.",
+    "When the players get the list, hand it over whole. Let them find their own names. Then let them stare at the pencil line. Do not explain it; Barnabas's dates and Prothero's seal will do that if they ask the companions.",
+    "The case is now four-fifths solved, but none of it is evidence a court would hang a man on: a preacher's memory of a dead man's words, a packer's sighting, a bartender's story, a cracked seal, a ledger. That is deliberate. Vg-scenario-003 supplies the committee's own records and a living road agent's testimony; vg-scenario-004 supplies the cache.",
+    "Chelo Arvizu's condition, that her word not stand alone, is real history: a Sonoran woman's testimony against a white station keeper would not be believed by the camp on its own, and might get her killed. Respect it. It is also a mechanical nudge to find a second witness.",
+    "Play the storm. Let the companions talk about their lives by the stove. This is where the players come to care who is on the list."
+  ]
+}

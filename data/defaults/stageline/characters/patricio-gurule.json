@@ -1,0 +1,131 @@
+{
+  "id": "347393d7-46f9-440a-bb0d-bcc9651c15d7",
+  "name": "Patricio Gurulé",
+  "status": "alive",
+  "race": "Ex-Soldier",
+  "subrace": "",
+  "class": "Lawman",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 16,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Wisdom"
+  ],
+  "skills": [
+    "Insight",
+    "Investigation",
+    "Athletics",
+    "Survival"
+  ],
+  "languages": [
+    "Spanish",
+    "English"
+  ],
+  "equipment": [
+    "Leather duster, black, over a grey suit that has been to court many times",
+    "Army revolver (Colt single-action, .45), 6 rounds loaded, in a flap holster",
+    ".45 cartridges (24)",
+    "Double-barrel shotgun (10-gauge), in a saddle boot",
+    "Shotgun shells (12)",
+    "Cavalry saber, the one he carried at Valverde, which he wears on a horse and leaves at home in town",
+    "The badge of a Deputy United States Marshal for the Territory of New Mexico, and his commission, signed in Santa Fe in 1879",
+    "A letter from the United States Marshal instructing him to inquire into the sureties on the new Paragon and Plata Vieja mail contract, which are said to be men who do not exist",
+    "Manacles, a notebook, two pencils, and a copy of the federal statute on robbery of the mails",
+    "Horse: Soldado, a big bay gelding, steady and slow to start and impossible to stop",
+    "His discharge from the 1st New Mexico Volunteers, 1864, and a tintype of his wife Tránsito",
+    "Wallet containing $36"
+  ],
+  "weapons": [
+    {
+      "name": "Army revolver",
+      "attackBonus": 4,
+      "damage": "1d10+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 4,
+      "damage": "2d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Cavalry saber",
+      "attackBonus": 5,
+      "damage": "1d8+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Under Fire (Ex-Soldier origin: advantage on saving throws against being frightened and against the Shaken condition; the first time each combat he is hit by a firearm, he keeps his readied action and his reaction; reads rank, unit and bearing at a glance, and on any army post finds a meal and a man who will talk)",
+    "The Star (Lawman: a Deputy United States Marshal; within the territory he can arrest on a federal warrant or for a federal crime he witnesses, including robbery of the mails, hold a prisoner for the United States Commissioner, and raise a posse of willing citizens equal to his proficiency bonus; law-abiding people comply, and he has advantage on Intimidation and Persuasion against anyone who respects the law; misuse costs 1 Reputation in that town and the Marshal can take the star back)",
+    "Keep the Peace: Buffaloing (Lawman: when he hits with a Sidearm used as a club or with a Melee weapon, he can make it a knockout blow even if the target is not surprised, once per creature per scene)",
+    "Take Him Alive (Lawman, 2nd level: after a melee hit he can grapple as a bonus action; manacles a grappled creature as an action without a check; can leave any creature he drops at 0 hit points alive and stable, even with a firearm)",
+    "Office: Deputy U.S. Marshal (Lawman, 3rd level: his jurisdiction is the whole territory and every federal crime in it, including the mails and the railroads; once per case he can telegraph for a federal warrant and have it within a day)",
+    "Old Regiment (Veteran background: soldiers look after soldiers; on any post or in any town he can find a man who served, on either side, and get a straight answer about a man who wore a uniform; he knows how the army moves and fights)"
+  ],
+  "traits": [
+    "Under Fire",
+    "The Star (Deputy U.S. Marshal)",
+    "Buffaloing",
+    "Take Him Alive",
+    "Office: Deputy U.S. Marshal",
+    "Old Regiment"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am patient, deliberate and very hard to hurry. I say \"we will see\" when I mean no and \"that is so\" when I mean yes. I take off my hat in every house, including a jail.",
+    "ideals": "The law belongs to the people of this territory, Hispano and Anglo alike. When it is used against them, it is not the law, it is a man with a paper, and I will take the paper from him.",
+    "bonds": "My wife Tránsito, whose family lives on the plaza at Santa Teresita. The men of my company who did not come home from Valverde. Don Fermín Lucero, who was my captain there, and whom I have not seen in fifteen years.",
+    "flaws": "I am a federal officer, and I cannot lift a finger in a territorial election. I will have to watch things happen that I would give anything to stop, and I am not sure I can."
+  },
+  "appearance": "A broad, heavy, grave man of forty-one with grey at his temples, a thick black moustache, a face burned dark by twenty years of riding, and a soldier's carriage that has thickened but not bent. Black duster, grey suit, a good black hat, and the star on his waistcoat where he can cover it with a lapel if he chooses.",
+  "backstory": "Patricio Gurulé was born in 1840 at Atrisco, across the river from Albuquerque, the son of a farmer and freighter on the Chihuahua road. In 1861 he enlisted in the 1st New Mexico Volunteers, and in February 1862 he stood in the line at Valverde under a young captain named Fermín Lucero, and then at Glorieta, and he saw what war does to boys from the plazas. After the war he freighted, served as a deputy sheriff in Bernalillo County, married Tránsito Maestas of Santa Teresita, and in 1879 was commissioned a Deputy United States Marshal, one of the few Hispano deputies in the territory, which the Marshal finds useful and some of his colleagues do not. In June 1881 the Marshal sent him to look into the new star-route mail contract between Paragon and Plata Vieja, whose sureties are said to be names nobody can find, and to ride the old line's last coach west, since it carries the United States mail. If anyone robs that coach, it is a federal crime, and it is his. (Suggested employer: the United States, already; the robbery is his case. Hooks: Don Fermín, his old captain, now the Company's candidate; his wife's family on the plaza; the forged sureties.)"
+}

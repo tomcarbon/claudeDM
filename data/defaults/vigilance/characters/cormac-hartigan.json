@@ -1,0 +1,132 @@
+{
+  "id": "806975b2-a378-4263-83d4-6cfa4bf89d9b",
+  "name": "Cormac Hartigan",
+  "status": "alive",
+  "race": "Ex-Soldier",
+  "subrace": "",
+  "class": "Lawman",
+  "level": 3,
+  "background": "Railroad Man",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 17,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Wisdom"
+  ],
+  "skills": [
+    "Insight",
+    "Investigation",
+    "Mechanics",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Irish (from his grandmother in Bridgeport, Chicago; he understands more than he speaks)"
+  ],
+  "equipment": [
+    "Iron vest: a 'soldier's bullet-proof vest' of the kind sold to Union volunteers in 1862, two steel plates sewn into a blue cloth waistcoat; he bought it after Shiloh, which is the wrong way round",
+    "Navy revolver (Colt 1851 pattern, .36, cap-and-ball), 6 chambers loaded, in a flap holster",
+    ".36 rounds (18)",
+    "Double-barrel shotgun (a muzzle-loading 10-bore fowling piece he bought in Salt Lake City), both barrels loaded",
+    "Shotgun shells (10)",
+    "The shells are paper cartridges of powder and buckshot for a muzzle-loader, with a tin of percussion caps",
+    "Pick handle, hickory, carried in a saddle loop: an old railroad policeman's habit",
+    "A deputy United States marshal's commission for the Territory of Montana, dated at Bannack on 1 October 1864, with the territorial seal; and a nickel star that came with it, which he has not yet pinned on",
+    "Manacles and a key",
+    "A sealed letter of introduction to Simeon Prothero, agent of the Beaverhead Express Company at Ninebark, and Barnabas Wyndham, sheriff of the Ninebark mining district",
+    "A discharge certificate from his Illinois infantry regiment, 'wounded at Shiloh, unfit for further service', and a minie ball on his watch chain that a surgeon took out of his shoulder",
+    "Horse: Dulcie, a short-coupled brown mare from the Salt Lake road, who hates snow and goes through it anyway",
+    "Saddle, saddlebags, bedroll, a buffalo coat, a notebook and pencil",
+    "Wallet containing $26"
+  ],
+  "weapons": [
+    {
+      "name": "Navy revolver",
+      "attackBonus": 3,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 3,
+      "damage": "2d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Pick handle",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Iron vest",
+    "type": "medium"
+  },
+  "features": [
+    "Under Fire (Ex-Soldier origin: advantage on saves against being frightened and against the Shaken condition; the first time each combat he is hit by a firearm he keeps his readied action and his reaction; he reads rank, unit and bearing at a glance)",
+    "The Star (Lawman: a deputy U.S. marshal's commission for the whole territory; he can arrest on a warrant or for a crime he witnesses, hold a prisoner for the court, and raise a posse of willing citizens equal to his proficiency bonus; advantage on Intimidation and Persuasion against anyone who respects the law. In Ninebark in November 1864 there is no federal court sitting yet and the committee does not respect the law; misusing the star costs 1 Reputation, and the U.S. Marshal can take it back)",
+    "Keep the Peace: Peace Officer (Lawman: as a bonus action, he orders a creature that can hear him to drop its weapon; WIS save DC 12 or it drops one held weapon; a creature that has already attacked in this fight has advantage)",
+    "Take Him Alive (Lawman, 2nd level: when he hits with a melee attack he can try to grapple as a bonus action, and manacle a grappled creature as an action without a check; when he drops a creature to 0 hit points with any attack he can leave it stable and unconscious instead)",
+    "Office: Deputy U.S. Marshal (Lawman, 3rd level: his jurisdiction is the whole territory and every federal crime in it, including robbery of the United States mails, which every coach on the Bannack road carries; once per case he can send for a federal warrant, which in 1864 means a rider to Bannack and back, two days in good weather)",
+    "Riding the Rails (Railroad Man background: he braked freight on the Illinois Central before the war and policed its Chicago yards after it; he knows how schedules, waybills and freight rooms work, and men who handle shipments for a living talk to him as one of their own)"
+  ],
+  "traits": [
+    "The Star",
+    "Peace Officer",
+    "Take Him Alive",
+    "Deputy U.S. Marshal",
+    "Riding the Rails"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say what I mean in as few words as will carry it. I write down names, dates and times, and I read them back to the man who told me. I do not drink in public while I am working, and I am always working.",
+    "ideals": "A court is slow, and stupid, and it hangs the wrong man sometimes. A committee does that every time and calls it quick. I would rather be slow.",
+    "bonds": "The commission in my coat. I asked for this work after two years of lying in a Chicago boarding house wondering what the shoulder was for. The territory is four months old. Somebody has to be the law in it before somebody else decides they are.",
+    "flaws": "I have been told I am too stubborn to be frightened, and I believe it, which is a dangerous thing to believe about yourself in a camp where nobody knows who is on the list."
+  },
+  "appearance": "A big, broad, plain-faced man of thirty-one with red-brown hair cut short, a short beard, a nose broken twice in Chicago freight yards, and a right shoulder he holds a little high. A buffalo coat over a blue waistcoat that is heavier than it looks. He has not pinned the star on yet; he is waiting to see what it means in Ninebark.",
+  "backstory": "Cormac Hartigan was born in Bridgeport, Chicago, in 1833, the son of an Irish canal labourer, and went to work on the Illinois Central at eighteen, the year it was chartered. He enlisted in an Illinois infantry regiment in 1861 with half the Irish of Bridgeport, and was shot through the right shoulder at Shiloh in April 1862 and discharged. He spent two years as a railroad policeman in the Chicago yards, where he learned that freight goes missing from the inside more often than the outside, and in the summer of 1864, when Congress made Montana a territory, he took his discharge papers and a letter from his old colonel to the new territory's United States marshal and asked for work. He was given a deputy's commission and sent to Ninebark, where the Beaverhead Express Company's coaches had been robbed three times and a messenger killed, and where, the marshal said, 'some of the merchants have taken it into their own hands, which is the other thing you're there to stop.' A letter announcing him went up on the mail coach in early November. He arrives in Ninebark on Monday 14 November 1864, with the party, and does not know that his name is already on the committee's list. (Suggested hook: Simeon Prothero and Sheriff Wyndham. If no one plays Cormac, he travels as an NPC with the party and the GM uses this sheet for him.)"
+}

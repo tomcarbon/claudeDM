@@ -1,0 +1,122 @@
+{
+  "id": "6e0b3a58-9f1c-4d2e-a8b7-5c4d2f1e9a86",
+  "name": "Lt. Pierce Whitcombe",
+  "status": "alive",
+  "race": "Ex-Service",
+  "subrace": "",
+  "class": "Private Eye",
+  "level": 3,
+  "background": "Bookkeeper",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 11,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Insight",
+    "Perception",
+    "Forensics",
+    "Research",
+    "Investigation"
+  ],
+  "languages": [
+    "English",
+    "A little Navy Spanish, from a year at the Canal Zone"
+  ],
+  "equipment": [
+    "Heavy overcoat: a Navy bridge coat, navy blue, with a lieutenant (junior grade)'s stripe and a half on the sleeves",
+    ".45 automatic (Navy issue, which he has fired twice, both times at a target), 7 rounds loaded, in a holster he wears only because regulations say so",
+    ".45 rounds (14)",
+    "A government-issue briefcase with the Navy Cost Inspection Service's file on Ste. Claire Marine Ways: contracts NObs-1147, NObs-2290 and NObs-3318, cost-plus-fixed-fee, and the draft final settlement",
+    "A slide rule, two fountain pens (red and black), and a mechanical pencil",
+    "Notebook and pencil",
+    "His Navy ID card and travel orders, Eighth Naval District, New Orleans, until 15 March 1946",
+    "A room key to the Hotel Vauclain on Baronne Street, room 611, where Commander Pruett also has a room, on the ninth floor",
+    "Wallet containing $40"
+  ],
+  "weapons": [
+    {
+      "name": ".45 automatic",
+      "attackBonus": 3,
+      "damage": "1d10+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy overcoat",
+    "type": "light"
+  },
+  "features": [
+    "Seen Worse (Ex-Service origin: advantage on saves against being frightened and against the Shaken condition; the first time each combat he is hit by a firearm, he keeps his reaction and any readied action)",
+    "Hunch (Private Eye: once per short or long rest, ask the GM one yes-or-no question about a lead he has personally encountered and get a true answer. In his case it is an auditor's instinct: he feels a number is wrong before he can say why)",
+    "Gumshoe (Private Eye: proficiency bonus doubled for Research and Investigation checks)",
+    "Size Them Up (Private Eye, 2nd level: as a bonus action, study one creature within 60 ft; his next attack against it this turn has advantage and deals an extra 1d6 damage; twice per short rest, his INT modifier)",
+    "Specialty: Shamus (Private Eye, 3rd level: Hunch twice per short rest, and once per long rest he can ask \"who?\" about a single event and get a name or \"nobody you've met\")",
+    "Follow the Money (Bookkeeper background: given a ledger, a pay sheet or an invoice and an hour, he finds any falsified entry, double set of books or dummy company without a check if the evidence is in front of him)"
+  ],
+  "traits": [
+    "Hunch (2/short rest)",
+    "Gumshoe",
+    "Size Them Up (2/short rest)",
+    "Shamus"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am polite, punctual and pink, and people underestimate me, which I have learned to use. I eat the same lunch every day. I say \"I see\" when I do not, and \"I see\" in a different voice when I do.",
+    "ideals": "A government that spends its people's money owes them an honest account of where it went. I am that account, for three contracts, for nine more days.",
+    "bonds": "My mother and sisters in St. Johnsbury, Vermont. The Navy, which sent me to accounting school and the Canal Zone and gave me a stripe and a half. Commander Pruett, who has been kind to me since I arrived, and whose fifteen years of service I admire.",
+    "flaws": "I have never been south of Washington before last year and I do not understand what I am looking at in this city until someone explains it, and sometimes not then. I trust rank. I want, very badly, to be finished by Ash Wednesday and go home."
+  },
+  "appearance": "A round-faced, fair, freckled young man of twenty-seven with thinning sandy hair, rimless spectacles and a Navy uniform that is always perfectly pressed. He blushes easily and looks about nineteen until he is reading a set of books, when he looks about fifty.",
+  "backstory": "Pierce Whitcombe was a bank teller's son from St. Johnsbury, Vermont, a certified public accountant at twenty-three, and a Navy officer at twenty-four, a lieutenant (junior grade) by twenty-six, commissioned straight into the Cost Inspection Service, which audits what the Navy paid its contractors. He spent the war checking the books of a dry dock in the Canal Zone, and in January 1946 was sent to the Eighth Naval District in New Orleans to close out three Ste. Claire Marine Ways contracts so that the yard could be sold. His task is to sign a final settlement by noon on Ash Wednesday, 6 March, which will close the contracts for good. He has been helped from the first day by Commander Thaddeus Pruett, USNR, retired, who was the Navy's resident inspector at Ste. Claire through the war and now consults for the yard, and who has explained every oddity in the books with patience and charm. There is one oddity Pruett has not explained to Pierce's satisfaction: the yard billed the Navy for about a hundred and forty more men on each shift than ever went through its turnstiles. Pruett says it was a night gang that used the river gate. Pierce wants to believe him. On Tuesday 26 February a man telephoned the cost office asking for 'whoever is honest' and would not leave a name; the chief yeoman took the message, and Pierce never saw it.",
+  "dmNotes": {
+    "roleplaying": "Whitcombe is the federal clock in human form: he must sign or refuse to sign the final settlement at noon on Ash Wednesday, and if he signs, the contracts are closed and the padding is buried. He is honest, green and dazzled by Commander Pruett, and his arc is learning that the man he admires is a fraud and a murderer. He gives the party Clue D4 (the turnstile gap) and, once he trusts them, access to the cost office files and the yeoman's message log (Clue E3). He cannot do anything about the welders' wages: the Navy's claim is against the yard for overbilling, and back pay to workers is not his department. When someone points out that the Navy was billed $1.20 an hour for men paid 78 cents, and that the difference went somewhere, he says \"I see\" in his second voice. He is a companion who can go into the yard, the Custom House and the Hotel Vauclain, and who is no use at all in a fight in the Seventh Ward.",
+    "voice": "Flat New England vowels, careful, precise, a little prim, with \"I see\" and \"That would be irregular\" doing a great deal of work. When he is excited he talks faster and quotes contract clause numbers.",
+    "motivations": "Primary: get the numbers right and sign, or refuse to sign, an honest settlement by noon on Ash Wednesday. Secondary: his career, which a refusal to sign would complicate. Tertiary: be thought well of by Commander Pruett, until he learns what Pruett is.",
+    "secrets": "He does not know that Chief Yeoman Albert Sallis passes the cost office's messages to Pruett, or that Marcel Fontenot's Tuesday call was one of them. He does know, and has not told anyone, that Pruett asked him on Wednesday 27 February whether anyone from the yard had \"been in touch with complaints\", and that he thought nothing of it. When he hears that Fontenot is dead, he begins to think of it.",
+    "attitude": "Toward the party: polite, cautious, by the book, then grateful. Toward Det. Lamarque: relief at a fellow officer. Toward Theo, Octave and Philomène: polite, faintly bewildered by the city's rules, which he dislikes and has not questioned; he learns. Toward Yvonne: he is in awe of her and blushes. Toward Commander Pruett: admiration, then the coldest anger of his life."
+  }
+}

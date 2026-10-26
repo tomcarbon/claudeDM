@@ -1,0 +1,135 @@
+{
+  "id": "b6e1d4a9-73f2-4c80-9e5b-1a2f8c3d0e74",
+  "name": "Severin Haake",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Soldier",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 11,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 18,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Survival",
+    "Perception",
+    "Intimidation"
+  ],
+  "languages": [
+    "Common",
+    "Brinehold cant (from his wife and kids)"
+  ],
+  "equipment": [
+    "Hardshell security plate in Combine blue",
+    "Stun pistol",
+    "Stun pistol cells (24)",
+    "Arc baton",
+    "Caseless pulse rifle, kept locked in the security post",
+    "Caseless pulse rifle rounds (60)",
+    "Handcuffs (4)",
+    "Earpiece comm on the security channel",
+    "Security master card for the Ledger House",
+    "A sealed envelope from C. Rook marked FOR C-1, which he has not opened",
+    "Credit chit: 310 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Stun pistol",
+      "attackBonus": 5,
+      "damage": "2d6+3",
+      "damageType": "lightning"
+    },
+    {
+      "name": "Arc baton",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Caseless pulse rifle",
+      "attackBonus": 5,
+      "damage": "2d6+3",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Hardshell",
+    "type": "medium"
+  },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Combat Training: Close Quarters (no disadvantage firing a Longarm or Automatic with a hostile within 5 ft; +1 AC while not in heavy armor, included)",
+    "Adrenaline (bonus action: regain 1d10 + 3 HP; once per short rest)",
+    "Tactical Surge (one additional action on his turn; once per short rest)",
+    "Squad Leader (allies within 30 ft gain +1 to initiative; once per short rest, as a reaction, impose disadvantage on an attack against an ally he can see)",
+    "Old Unit (Veteran feature: other veterans and security staff will share a drink, a rumour or a spare magazine with him)"
+  ],
+  "traits": [
+    "Close Quarters",
+    "Adrenaline",
+    "Tactical Surge",
+    "Squad Leader"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Quiet, correct, tired. He does his job by the book because the book is the only thing that has ever kept anyone safe. He calls the colonists 'sir' and 'ma'am', even the children.",
+    "ideals": "Order is what stops a frightened crowd from killing itself.",
+    "bonds": "His wife Mireille, saltborn, a reactor tech in the Pumphouse; their twins, nine years old, who have never seen a sky with a sun in it bigger than a coin.",
+    "flaws": "He will follow an order he hates rather than be the one who decided. He has never yet had to find out where that ends."
+  },
+  "appearance": "A lean, square man of forty-five in Combine blue, grey at the temples, with a jaw scar from an old posting and the slight hunch of a big man who has spent fifteen years under low ceilings. He keeps his visor up indoors so people can see his face.",
+  "backstory": "Lieutenant Severin Haake commands Brinehold's eight-person security post. He came out on a two-year posting after a war he doesn't talk about, met a reactor tech in the Pumphouse canteen and stayed. He is a Combine employee with fifteen years on Esker, which makes him an eligible Stayer, and his name is not in Agathe's book because Rook made it clear that security staff who sign will be in breach of contract. His family's names are. He has been told that the Halberd contractors arriving on the next shuttle answer to Rook, not to him.",
+  "dmNotes": {
+    "roleplaying": "Severin is the Combine's face of the law in Brinehold, and he can become the party's most valuable ally or a reluctant enemy. Start him correct and distant: he enforces curfews, takes statements at the inquest, stands between the strikers and the Ledger House. Show his decency in small things: he lets a child through a cordon, and he turns his stun pistol to its lowest setting. His turn comes when Halberd arrives and Rook starts giving orders over his head. In a fight he is excellent, he fights to stop things, and he never fires a ballistic round inside a hall.",
+    "voice": "Low, flat, careful, a soldier's economy. 'Sir. Step back, please. I won't ask twice. I will ask a third time, but I'd rather not.'",
+    "motivations": "Keep everyone in Brinehold alive through the close-out. Keep his job until his family is safe. Not be the man who did the thing in the envelope.",
+    "secrets": "THE ENVELOPE. Rook gave it to him at C-28 with an order not to open it before C-1. It contains the Clean Lapse order: at C-1, 1800, security is to trip the Pumphouse reactor's emergency shutdown, declaring a 'safety failure' that makes Brinehold uninhabitable and forces every remaining person onto the last shuttles to the Plainsong before the lapse, so that whatever the register says, nobody is resident on Esker at C-0. He hasn't opened it. If a PC persuades him to open it early (Persuasion DC 18, or DC 13 if they have shown him proof about Adaeze), he reads it in silence, hands it to them and says, 'My wife works in the Pumphouse.' From then on he is theirs. If nobody does, at C-1 he opens it, reads it, and the GM decides with the table's history what he does. He also knows that Bore Nine's recovery team was ordered by Rook to search the drill shack for 'a personal recording device' and did not find it.",
+    "attitude": "Toward the party: professional suspicion that turns slowly into trust. Toward Rook: obedience with growing disgust. Toward Commander Varnholt and Halberd: professional contempt. 'They're hired guns. They go home on the first ship. I live here.' Toward Agathe: respect; she was at his wedding."
+  }
+}

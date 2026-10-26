@@ -1,0 +1,124 @@
+{
+  "id": "501c444f-feec-4d52-8663-f98cb99446be",
+  "name": "Victor Zelinsky",
+  "status": "alive",
+  "race": "Farm-Raised",
+  "subrace": "",
+  "class": "Roughneck",
+  "level": 3,
+  "background": "Mechanic",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 15,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 13,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 31,
+    "current": 31
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Perception",
+    "Mechanics",
+    "Driving"
+  ],
+  "languages": [
+    "English",
+    "Polish (his father's; he understands more than he speaks)"
+  ],
+  "equipment": [
+    "Heavy coat: a brown canvas work coat with a blanket lining and a torn pocket",
+    "Crowbar: a three-foot pinch bar from the toolbox in the Ridgeview truck",
+    "Double-barrel shotgun: his father's old Stevens, which Ridgeview told him to bring for the watchman job",
+    "Shotgun shells (8)",
+    "Tool kit: sockets, wrenches, a timing light, a feeler gauge",
+    "Work clothes or coveralls: green work pants, a Penn State sweatshirt from his sister",
+    "Leather gloves",
+    "A rag that is never clean",
+    "Flashlight and Batteries (2)",
+    "A thermos of coffee and a lunch pail",
+    "A letter from Ridgeview Leisure Communities: 'Off-Season Watchman, Lantern Lake Estates, commencing Monday 19 September 1977, $3.10 per hour'",
+    "Wallet containing $18"
+  ],
+  "weapons": [
+    {
+      "name": "Crowbar",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Double-barrel shotgun",
+      "attackBonus": 3,
+      "damage": "2d8+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Up Before Dawn (Farm-Raised origin: he needs only 6 hours for a long rest and can't be surprised while awake in the last hour before sunrise; advantage on saves against exhaustion from hard work, cold and lost sleep; he notices without a check when animals are frightened, sick or behaving wrongly)",
+    "Hard to Kill (Roughneck: once per long rest, when reduced to 0 hit points but not killed outright, he drops to 1 instead; he ignores his first level of exhaustion and has advantage on CON saves against exhaustion, cold and hard labor)",
+    "Heavy Work (Roughneck: advantage on STR checks to lift, push, pull, break or force something; he counts as one size larger for what he can carry, drag or lift, and can carry an unconscious adult at full speed)",
+    "Bull-Headed (Roughneck, 2nd level: once per short rest, when he fails a fear check he gains no Dread, but on his next turn must move toward the source and attack it, or break what stands between them, or smash something nearby)",
+    "Trade: Longshoreman (Roughneck, 3rd level: advantage on Athletics checks to grapple, shove or hold a door, and a creature he grapples has disadvantage on checks to escape)",
+    "Grease Under the Nails (Mechanic background: he can find work at any garage and mechanics talk to him as one of their own; given a few minutes with a vehicle, generator or engine he can tell what is wrong with it, and whether someone made it that way)"
+  ],
+  "traits": [
+    "Hard to Kill (1/long rest)",
+    "Heavy Work",
+    "Bull-Headed (1/short rest)",
+    "Trade: Longshoreman",
+    "Grease Under the Nails"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I fix things. I say what I think, once, and then I shut up. I eat when there is food, because sometimes there isn't.",
+    "ideals": "A man who works should be able to live on it. Most of them can't, any more.",
+    "bonds": "My sister Halina in Nanticoke, who took me in when the shop closed. The farm in Wyoming County my father lost in 1958. My own two hands.",
+    "flaws": "I don't like rich men or their camps, and I came here ready to dislike everyone. I am going to be wrong about some of them, and slow to admit it."
+  },
+  "appearance": "Forty-four, thick through the shoulders and the middle, a broken-veined farm face, grey crew cut, hands like shovels with grease in every crack, a brown canvas work coat.",
+  "backstory": "Victor Zelinsky grew up on a hill farm in Wyoming County, the son of a Polish miner who quit the anthracite to farm and lost the farm to the bank in 1958. Victor went into the mines himself at seventeen, came out after a roof fall in 1959, and has fixed engines ever since: a Wilkes-Barre Chevrolet dealer's service bay for sixteen years, until the dealership closed in May. Ridgeview Leisure Communities hired him through an ad in the Scranton paper as off-season watchman for Lantern Lake Estates, to start Monday, $3.10 an hour and a trailer by the gate when the trailer comes; Gene Marcotte brought him up on Friday to see the place. He thinks the camp is a rich man's toy and the development is worse, and he needs the job. He can tell what is wrong with any engine on the Neck by its sound. (Hook: work. He is the one who will know, at once, exactly what was done to the cars, and what it would take to undo it.)"
+}

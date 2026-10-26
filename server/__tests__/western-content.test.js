@@ -11,7 +11,7 @@ describePeriodCategory({ describe, it, expect }, {
   id: 'western',
   label: 'Western',
   rulesDir: 'rules-western',
-  campaignIds: ['bittercreek', 'longbounty', 'silverline'],
+  campaignIds: ['bittercreek', 'longbounty', 'silverline', 'stageline', 'vigilance'],
   skills: ['Acrobatics', 'Animal Handling', 'Athletics', 'Deception', 'Gambling', 'Insight', 'Intimidation', 'Investigation',
     'Mechanics', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Riding', 'Sleight of Hand', 'Stealth', 'Survival'],
   origins: ['Back East', 'Borderlands', 'Ex-Soldier', 'Frontier-Born', 'Immigrant'],

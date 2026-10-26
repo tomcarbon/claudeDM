@@ -1,0 +1,121 @@
+{
+  "id": "e5242d1e-39b2-4e68-9515-3a26065ec69a",
+  "name": "Rev. Augustus Greer",
+  "status": "alive",
+  "race": "Faithful",
+  "subrace": "",
+  "class": "Chaplain",
+  "level": 3,
+  "background": "Schoolteacher",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 8,
+      "modifier": -1
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 17,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 15,
+      "modifier": 2
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 10,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Insight",
+    "Medicine",
+    "Persuasion",
+    "Research"
+  ],
+  "languages": [
+    "English",
+    "Greek (the New Testament, slowly)"
+  ],
+  "equipment": [
+    "Heavy coat: a black frock coat, well brushed, over a grey wool vest",
+    "Fire iron, the poker from the church stove, which has been beside his chair at night since Dewey Spradlin vanished",
+    "A Bible, a hymnal, and the Mount Moriah church register: births, baptisms, marriages and burials since 1903",
+    "A memorial page in the register for October 1919, with fourteen names written in his own hand, two of them his deacons",
+    "The roll book of the Ottway Colored School, where he teaches six days a week for $60 a month paid by the county",
+    "A box of chalk and a pair of spectacles",
+    "A key to the church, where Local 5512 meets on Sunday nights after the evening service",
+    "Wallet containing $14"
+  ],
+  "weapons": [
+    {
+      "name": "Fire iron",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Something to Hold On To (Faithful origin: once per long rest, when he would gain Dread, he gains 1 fewer; advantage on saves against being charmed or compelled; there is no miracle in it)",
+    "Steady Now (Chaplain, using Wisdom: as an action, he speaks to one ally within 30 ft who can hear him, a verse, a hand on the shoulder, 'Look at me, son. Breathe.'; the ally loses 1 Dread and stops being frightened; 4 times per long rest; it works because the ally trusts him)",
+    "Graveside (Chaplain: he stabilizes a dying creature as a bonus action with a Medicine check, DC 10; advantage on Occult checks for rites of burial and laying to rest when a creature's rules call for one, and on Persuasion checks with the bereaved)",
+    "Hold On to Me (Chaplain, 2nd level: once per short rest, when an ally within 30 ft who can hear him would reach Dread 6, he uses his reaction to call them back to Dread 5)",
+    "Calling: Parish (Chaplain, 3rd level: in a community he has served for a week, people bring him their troubles; once per scenario a member of his church, or of the camp, tells him one true thing they have kept from everyone else)",
+    "Every Family's Teacher (Schoolteacher background: the school board, the ministers and every parent in the camp talk to him; he knows how to find a town's records, and grown men who sat in his schoolroom still answer his questions)"
+  ],
+  "traits": [
+    "Steady Now",
+    "Graveside",
+    "Hold On to Me",
+    "Parish",
+    "Every Family's Teacher"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I speak slowly and I have never once been interrupted twice. I am a very good listener and a very bad liar. I laugh like a much younger man.",
+    "ideals": "The church is where people are not alone. That is what it is for, before anything else. If the union needs a room where nobody is alone, it can have mine.",
+    "bonds": "Mount Moriah and its sixty-two members, and the forty children in my school. Moses Hairston, my deacon, and Ezell Pettaway, whom I baptised in Kettle Run in 1918. Morris Pettaway, whom I wrote to in February and asked to come back.",
+    "flaws": "I am proud, and the company's insults stay with me longer than they should. I wrote to Morris because I wanted 7 North opened, and I did not think what it would cost him to come. I am afraid, for the first time in my ministry, of my own church after dark."
+  },
+  "appearance": "A tall, dignified Black man of fifty-five with a grey beard trimmed close, a high forehead, steady dark eyes behind wire spectacles and a deep, unhurried voice that fills any room without being raised. A black frock coat, a starched collar, polished boots that he cleans every night on the church step.",
+  "backstory": "Augustus Greer was born in Lynchburg, Virginia, in 1872, the son of a freedman blacksmith and a laundress, and went to a normal school to teach and to a seminary to preach, and came to the West Virginia coalfields in 1903 because the Black miners the companies were bringing up from the South had no church and no school. He has been pastor of Mount Moriah Baptist Church and teacher at the county's Colored School in Ottway for twenty-four years: he has married, baptised and buried a generation of the camp's Black families, and he has buried two generations of his own deacons. Moses Hairston and Ezell Pettaway are on the memorial page of his register for October 1919, with twelve other names he wrote there himself because he could not bear for the church's book to agree with the company's. The company tolerates him because he keeps his people sober and out of the union, or did until this winter, when he gave Local 5512 the key to the church on Sunday nights and told the Ironwood men who came to ask about it that the house of God was open to anyone who wanted to pray. Dewey Spradlin, a young white loader from the head of the hollow, left that meeting early on Sunday 10 April to get home to his wife, and nobody has seen him since.",
+  "dmNotes": {
+    "roleplaying": "Rev. Greer is the moral centre of the camp, and the place where the union meets, and therefore the place where nobody is alone. Mount Moriah is where the camp gathers on the last night (bd-scenario-004, Act 2). He carries CLUE D4 (the register's memorial page: fourteen names) and C4 (Imre told him once, years ago, that he kept 'a light for the ones not counted up'). His Steady Now and Hold On to Me are the party's best protection in 7 North and on the last night. His faith is quiet, practical and his own; it does not bar the Dark and he never pretends it does. Clergy are people like anyone else.",
+    "voice": "Deep, measured, grammatical, Virginian; scripture used like a tool and never as a weapon. Calls younger men 'son' and every woman by her surname with Mrs. or Miss in front of it, as a point of honour.",
+    "motivations": "Primary: bring the fourteen out and bury them properly, with their names. Secondary: keep his people alive and together through the strike. Tertiary: keep his school open, which the county could close tomorrow.",
+    "secrets": "In 1919 Superintendent Bledsoe came to him privately and offered the church a new roof, paid by the company, 'in memory of the colored men lost', and asked him to preach a sermon on accepting God's will. He took the roof. He preached the sermon. He has regretted it every Sunday since.",
+    "attitude": "Toward the party: courteous, measuring, generous once they have shown they mean well. Toward Morris Pettaway: fatherly and guilty. Toward Captain Kincaid: icy civility. Toward Bledsoe: he knows exactly what Bledsoe is, and prays for him, and means it."
+  }
+}

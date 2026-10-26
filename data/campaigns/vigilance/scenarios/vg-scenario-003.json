@@ -1,0 +1,458 @@
+{
+  "id": "vg-scenario-003",
+  "title": "The Trial That Isn't",
+  "subtitle": "Sunday 4 to Saturday 10 December 1864: The Executive Decides, a Court of Masks, Twenty-Four Hours, and a Judge on the Up Coach",
+  "levelRange": "4-5",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Ninebark, the week after the storm",
+    "description": "The road is open again and the committee has had four days shut in with its fear. On Sunday night its Executive decides to 'try' two names: Sheriff Barnabas Wyndham, 'the sheriff who lets them go', and 'the Swede at Ruhl's', for which it has chosen the wrong man, an innocent young Norwegian called Torvald Fjeld. At midnight on Tuesday they are taken, and in Wexford's warehouse, under lanterns, before twelve masked jurors and a lawyer reading from a paper, they are tried by a court whose verdict was written on Sunday. The party can stand up in that court, break it, or watch it. On Wednesday the committee banishes two women into the snow. On Thursday the law arrives on the up coach: an appointed justice, Elihu Marten, with the governor's commission to hold an examining court until the legislature organises the counties. By Saturday the party can lay everything they know before a real court for the first time, and the man who wrote the list will know it.",
+    "atmosphere": "Deep snow and hard blue cold after the storm. Drifts to the eaves on the north side of every building; paths dug between them like trenches. The sun comes over the ridge at ten and goes at two. The camp is short of everything: flour is $40 a sack, wood is $20 a cord, and men are going hungry on good claims. Everyone is tired and everyone is afraid. Wexford's warehouse at night is a cavern: a long, cold, high-roofed building of sawn plank, stacked to the rafters with flour sacks, nail kegs, whiskey barrels and crates of canned oysters, lit by a dozen lanterns hung from the beams, with a trestle table at one end and twelve chairs in two rows, and men in flour sacks sitting in them.",
+    "keyLocations": [
+      {
+        "name": "Wexford's warehouse",
+        "description": "Behind the store, a long plank building sixty feet by thirty, with double doors onto the back lot, a loft along one side reached by a ladder, a small office at the far end with Wexford's safe, and, under a trapdoor in the floor, the root cellar where Jack Tillery spent his last two nights. The committee was founded here and meets here. On Tuesday night it becomes a courtroom.",
+        "features": [
+          "The loft: dark, stacked with sacks of oats, with gaps between the boards through which a quiet person can see and hear everything below (Stealth DC 13 to get there unseen and stay)",
+          "Wexford's office and his safe, with the committee's roll: forty-three numbers, and a name against each, in Wexford's own hand",
+          "The guard roster for the root cellar, pinned to the office wall since 4 November and never taken down",
+          "The trestle table where Grimsby sits as 'presiding officer', with the list, his notes and a Bible"
+        ],
+        "encounters": [
+          "The Executive's meeting, Sunday night (act 1)",
+          "The court of masks, Tuesday midnight (act 2)"
+        ],
+        "secrets": [
+          "CLUE E1 (from Wexford, if turned: Persuasion DC 15, or automatic if the party saved Tobiah Corder without bloodshed, or brings him the doubled wafer, or if Cormac Hartigan sits down with him; or from his safe, Mechanics DC 15): the committee's roll. Number 23 is Warrick Sefton, sworn on Saturday 5 November at noon, 'proposed by O.W.'.",
+          "CLUE B2 (from the office wall, Investigation DC 10 for anyone who looks): the guard roster for the root cellar: '4 Nov, night, Nos. 7 and 15. 5 Nov, night, No. 23 (volunteered), alone.' No other night has a single guard.",
+          "CLUE C4 (from Wexford or Grimsby, if either is turned): 'Number 23 brought us the Hartigan name at the Executive on the ninth. He said Tillery told him in the cellar.' Wexford adds, sick: 'I proposed Warrick myself. I've eaten at his table a hundred times.'"
+        ]
+      },
+      {
+        "name": "The district jail and the sheriff's cabin",
+        "description": "Barnabas Wyndham's office and the log jail beside it. If the party took Davy Renner alive in vg-scenario-001 and kept him alive, he is still in the cell, thinner, sick with fear, and beginning to trust the people who brought him food. Barnabas sleeps in the office now, with the shotgun.",
+        "features": [
+          "The cell, with Davy Renner in it, or empty",
+          "Barnabas's cot, his ledger in its tin box under the floor, and his copy of Cicero",
+          "A back window that does not latch, which Barnabas has been meaning to fix"
+        ],
+        "encounters": [
+          "Davy Renner (act 1)",
+          "Twelve committee men at midnight on Tuesday, who come through the front door and the back window together to take Barnabas (Vigilantes, two groups of six)"
+        ],
+        "secrets": [
+          "CLUE B4 and E2 (from Davy Renner, if he is alive, has been treated decently, and is promised by a Lawman or the judge that he will be tried and not hanged by the committee: Persuasion DC 14, advantage if Moira Kehoe is there, because she nursed him): 'Warrick runs it. Warrick never rides. He hangs the washing when the coach is heavy and Nels watches from the ridge. Warrick told Jack he'd get him out if he said the names Warrick gave him. Warrick gave him the names.' Davy also knows the gang winters in Deadfall Canyon and that 'the dust is under the barn till it goes up the canyon'.",
+          "If Davy Renner died, or was never taken, the same testimony can come from Nels Eklund, if the party takes him alive at Ruhl's claims (act 1), but Eklund is harder: he wants a deal, and only a judge can give him one (act 3)."
+        ]
+      },
+      {
+        "name": "Ruhl's claims",
+        "description": "Three claims above town, a cabin, a windlass house and a bunkhouse where August Ruhl's four hired hands live, two of them Scandinavian: Nels Eklund, a fair, quiet Norwegian who rides off at night, and Torvald Fjeld, a big, shy Norwegian boy of twenty-two who came over in 1862 and sends half his wages to his mother in Telemark. The committee has decided Torvald is 'the Swede at Ruhl's'. Nels Eklund helped it decide.",
+        "features": [
+          "The bunkhouse, with Torvald's Norwegian Bible and his mother's letters on the shelf over his bunk",
+          "Eklund's bunk, with a pair of French field glasses wrapped in a shirt under the mattress, the twin of the pair on the nail at Fiddler's Station",
+          "Eklund's horse, a bay, shod with toe clips"
+        ],
+        "encounters": [
+          "August Ruhl, stubborn and outraged at any suggestion that his men are road agents",
+          "Nels Eklund (Road Agent), who runs for Fiddler's if he thinks he is suspected"
+        ],
+        "secrets": [
+          "Ruhl, asked which hand rides off at night, says 'Nels. I sacked him for it in October, and Mister Sefton spoke for him, so I took him back.'",
+          "Eklund's field glasses and toe-clipped horse, found together, tie him to the ridge above the grade and to Fiddler's string (CLUE D2, D5).",
+          "If the party warns Torvald Fjeld and hides him, the committee seizes Eklund instead on Tuesday night, by mistake, as 'the Swede'; Sefton, at the trial, must then either let one of his own men hang or speak for him. He lets him hang. This is a horrible outcome and a revealing one."
+        ]
+      },
+      {
+        "name": "The Ninebark Hotel dining room",
+        "description": "The best room in camp: a long table, a sheet-iron stove, a carpet, and a portrait of the proprietor's late wife. From Friday 9 December it is the examining court of Justice Elihu Marten, who sits at the head of the table in a black coat with his commission from the governor in front of him, a clerk at his elbow, and a Bible. It is the first real court Ninebark has seen.",
+        "features": [
+          "The judge's commission, signed by the territorial governor at Bannack, authorising him to hold examining courts, take sworn statements, issue warrants and bind over prisoners for the territorial court in the spring",
+          "Twelve chairs for witnesses and the public, and two hundred people trying to get into a room built for forty"
+        ],
+        "encounters": [
+          "The examining court, Friday 9 and Saturday 10 December (act 3)"
+        ],
+        "secrets": [
+          "Judge Marten is honest, careful, slow, and has seen the Bannack hangings with his own eyes; he despises the committees and is afraid of them. He will issue a warrant on sworn evidence from two credible witnesses, or one witness and a document. He will clear Patrick Kehoe's name in his record if A1 to A3 are put before him."
+        ]
+      },
+      {
+        "name": "Moira Kehoe's boarding house",
+        "description": "As before. On Wednesday 7 December, at noon, a committee delegation of six men comes, unmasked and in daylight, to escort 'the widow Kehoe' and 'the faro woman' out of camp on foot, down the Bannack road, in the snow. This is the committee's notion of mercy.",
+        "features": [
+          "The front porch, where the delegation stands",
+          "Leonie's trunk, packed or not, at the foot of the stairs"
+        ],
+        "encounters": [
+          "The delegation: six committee men (Vigilantes), unmasked, ashamed, led by Pottinger's foreman, Amon Pickering, a Union veteran"
+        ],
+        "secrets": [
+          "The men in the delegation are a grocer, a miner, two clerks, a carpenter and Pottinger's foreman. In daylight, without sacks, every one of them is known to Moira, who has nursed three of their children. Naming each to his face (Persuasion DC 12 each, or Intimidation DC 13) sends him home. If four go, the delegation is over."
+        ]
+      }
+    ]
+  },
+  "synopsis": "On Sunday night the committee's Executive, Wexford, Grimsby, Pottinger, a mine owner called Lazarus Ridgeway and Warrick Sefton, meets in Wexford's warehouse and decides, at Sefton's urging and Pottinger's, to try the sheriff and 'the Swede at Ruhl's' on Tuesday at midnight; Wexford votes against and is outvoted. A party member who joined the committee is there; a party member in the loft can hear it. Before Tuesday, the party can turn Wexford, who shows them the committee's roll and the guard roster (number 23 is Sefton, and number 23 guarded Tillery alone), and can turn Davy Renner, if he lives, who tells them everything: Sefton runs the gang, hangs the washing and gave Tillery the names. At midnight on Tuesday the committee takes Barnabas Wyndham from his office and Torvald Fjeld from Ruhl's bunkhouse, and tries them in the warehouse before twelve masked jurors, with Grimsby presiding and the verdict written. The party can speak for the accused, put evidence before the masks, unmask number 23 in front of the room, break the court, or fight; or watch two innocent men walked to the corral. On Wednesday a delegation in daylight tries to march Moira Kehoe and Leonie Fairbairn out of camp. On Thursday Justice Elihu Marten arrives on the up coach with the governor's commission, and on Friday and Saturday the party can bring their witnesses and documents before him. If they do, he issues warrants for Warrick Sefton, Judd Ferrier, Wick Brill, Hank Crewe and Nels Eklund, and clears Patrick Kehoe's name in his record. But Sefton is at Fiddler's Station with his gang, the last coach of the season runs on the 22nd, and he knows they are coming.",
+  "hook": "Sunday night, Wexford's warehouse, the loft, in the dark between the oat sacks, with the cold coming up through the boards and five men at a table below you under a single lantern. One of them is laughing, the big easy laugh you have heard across Fiddler's yard. 'Obadiah,' he says, 'it's not a pleasant thing. Nobody says it is. But that schoolmaster has had every chance. And the Swede was named. Named, by a dying man.' And the white-whiskered man at the head of the table says, very quietly, 'He wasn't dying, Warrick. We killed him.'",
+  "cluesAvailable": [
+    "B2",
+    "B4",
+    "C4",
+    "E1",
+    "E2",
+    "A1",
+    "A2",
+    "A3",
+    "C1",
+    "C2",
+    "C3",
+    "D1",
+    "D2",
+    "D3"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "E. Warrick Sefton is number 23 and the road agents' chief",
+      "clues": [
+        "E1: the committee's roll, number 23 (Wexford's safe)",
+        "E2: Davy Renner's or Nels Eklund's testimony (the jail, or Ruhl's claims and the court)",
+        "B2: number 23 guarded Tillery alone (the roster on Wexford's office wall)",
+        "C4: number 23 brought the Hartigan name (Wexford or Grimsby)"
+      ]
+    },
+    {
+      "conclusion": "Evidence a court can hear (the examining court)",
+      "clues": [
+        "Two credible sworn witnesses, or one witness and a document: Gabriel Tennant (B1), Davy Renner or Eklund (E2), Prothero and the doubled wafer (C3), Barnabas's ledger (C2, D1), Wexford's roll (E1), Chelo Arvizu with a second witness (D3), Moira Kehoe and the Number Three men (A1, A2)"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Sunday to Tuesday: The Executive Decides",
+      "description": "The committee's leaders decide who to try. The party can learn the decision, turn the committee's president, and turn the gang's youngest member. The point of this act is to give the party the inside of both conspiracies before the trial: the committee's roll and the gang's confession. Whether they get either depends on what they have done so far: kindness to Davy, restraint at Corder's hanging, and Cormac Hartigan's presence all pay off here.",
+      "objectives": [
+        "Learn what the Executive has decided, and when",
+        "Turn Obadiah Wexford, and see the committee's roll and the guard roster",
+        "Hear Davy Renner's confession, if he lives",
+        "Warn Barnabas Wyndham and Torvald Fjeld, or decide not to"
+      ],
+      "encounters": [
+        "If the party tries to take Nels Eklund at Ruhl's: he runs for his horse and the road to Fiddler's; a chase in snow (combat.json chases, on horseback, Riding contests; the Elbow-style hairpins on the pass road at DC 13); taken alive, he says nothing without a judge's deal"
+      ],
+      "scenes": [
+        {
+          "name": "The Executive Meets",
+          "description": "Sunday night, the warehouse, five men at the trestle table, one lantern. The party can be in the loft (Stealth DC 13), or a party member who joined the committee can be at the door as a guard, or Wexford, if already turned, can tell them afterwards. Run the meeting as a scene the players overhear: Sefton is reasonable, regretful and relentless; Pottinger wants blood; Grimsby wants procedure; Lazarus Ridgeway, a mine owner who says little, wants it over; Wexford wants to stop and cannot find the words. The vote is four to one: Barnabas Wyndham and 'the Swede at Ruhl's' to be tried on Tuesday at midnight. If the party listens, they know the time, the place and the names, and they have heard Sefton's voice argue for it.",
+          "readAloud": "Below you the lantern makes a small yellow room in the great dark of the warehouse: a table, five men, a bottle, a sheet of foolscap. You know four of the faces. The slim lawyer, writing. The heavy saloon keeper with his rosette. A thin grey man in a fur collar you have not met. The station keeper, Sefton, leaning back in his chair with his thumbs in his waistcoat, easy, warm, reasonable. And at the head of the table, with his hands flat on the cloth, the white-whiskered merchant who welcomed you to Ninebark, looking older than he did a month ago. 'The question before us,' the lawyer says, 'is the sheriff.'",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 13,
+              "success": "You hear all of it, and you see Sefton's hand on the table when the vote is taken: his is the second raised, after Pottinger's, and he raises it slowly, as if it cost him something.",
+              "failure": "A board creaks under you. Below, every head turns. Sefton laughs: 'Rats in the oats, Obadiah.' He is looking straight at the loft. WATCH +1, and Sefton sends a man up the ladder after the meeting; you must get out before he reaches the top."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Sefton is the one steering. Pottinger is the noise and Grimsby is the procedure, but every time the meeting wavers, it is Sefton's quiet word that brings it back. Wexford knows it too, and is frightened of him, and does not know why.",
+              "failure": "Five frightened men, voting."
+            }
+          ]
+        },
+        {
+          "name": "Wexford's Roll",
+          "description": "Obadiah Wexford can be turned: the party saved Corder without bloodshed, or brings him the doubled wafer or Barnabas's dates, or Cormac Hartigan comes to him as a federal officer and talks to him man to man, or anyone simply shows him the list and asks him who wrote the pencil line. Turned, he takes them to his office at the end of the warehouse, opens the safe and shows them the roll (CLUE E1), the roster on the wall (CLUE B2), and tells them what was said at the Executive of 9 November (CLUE C4). He will testify before Judge Marten. He will not, yet, stand up in front of the committee; that takes the trial.",
+          "readAloud": "He sits down heavily in his office chair, among the invoices and the bills of lading, and for a while he only looks at the list in his hands, at the pencil line, at the misspelt word. 'I proposed him,' he says at last. 'Warrick. Saturday the fifth, at noon, in this room. He rode in from the station and said he'd heard about the watch and the boy and he wanted to help. I swore him in myself. Number twenty-three.' He unlocks the safe, takes out a narrow ledger and opens it on the desk, and puts his finger on a line. 'And he asked to stand the guard. The Saturday night. Alone, he said, so the boy would talk to him.' His finger is shaking. 'I thought that was kind.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "He gives you the roll, or a copy in his own hand, signed, and agrees to swear to it before the judge, and to the committee too, if it comes to that.",
+              "failure": "He shows you the roll and then locks it away again. 'I need to think. I need to think.' He will come round if something else breaks the committee: the trial, or the judge."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "He is not afraid of the road agents or of the committee. He is afraid of what he has done, and that it cannot be undone.",
+              "failure": "An old man, frightened."
+            }
+          ]
+        },
+        {
+          "name": "What Davy Renner Knows",
+          "description": "If Davy Renner is alive in the district jail, he has been there for two weeks and a half, fed by the party, Moira Kehoe and Barnabas, and he has watched the committee come once and be turned away. He breaks if he is promised, by a Lawman or the judge, a court and not a rope, and if Moira is there. Give the players the whole truth from his mouth, in a frightened boy's words (CLUE B4, E2): Sefton runs it, never rides, hangs the washing, Nels watches from the ridge, the dust goes under the barn and up to Deadfall Canyon, and Sefton gave Jack Tillery the names. He also knows that Sefton is planning 'something big at Christmas, the last coach, and then we all go to Idaho'. He does not know about the fire.",
+          "readAloud": "He is sitting on the cot with his knees drawn up and a blanket round him, a freckled boy with a bad arm and a man's growth of reddish beard that does not suit him. He looks at the widow, and at you, and at the barred window, through which you can just see the corner of the slaughter corral at the foot of the gulch, and he starts to cry, without making any noise about it. 'Jack thought Warrick was going to get him out,' he says. 'He was sure. He told me in October, \"Warrick looks after his own.\" And then he named all those men, the ones Warrick told him to, and then they hanged him anyway. And Warrick voted.' He wipes his face with the blanket. 'Warrick never rides. He hangs out the wash.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "CLUE B4 and E2, in full, and he will swear to it before a judge. He also tells you where the gang's cabin is in Deadfall Canyon and that the way in is past the station.",
+              "failure": "'They'll kill me. They'll kill my ma in Leavenworth.' He will try again if the judge himself comes to the cell (act 3)."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "His arm has gone bad again. Treat it, and he trusts you; advantage on the Persuasion check.",
+              "failure": "The arm is hot and swollen and he will not let you touch it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tuesday Midnight: The Trial",
+      "description": "The committee takes its two prisoners and tries them. This is the scenario's set piece, and it is a courtroom drama with a mob outside the door. Grimsby has written the verdict already. The jurors are masked. But they are ordinary men, they can hear, and some of them are wavering. Run the trial as a contest: the party needs 5 successes before 3 failures to turn the room, and each piece of real evidence they lay before it is an automatic success. Sefton is there in a mask, as number 23, because he cannot afford for this to go wrong.",
+      "objectives": [
+        "Stop the committee taking Barnabas Wyndham and Torvald Fjeld, or follow them to the warehouse",
+        "Stand up in the court and speak for the accused",
+        "Turn the jury, break the court, or unmask number 23",
+        "Keep everyone alive, including the committee"
+      ],
+      "encounters": [
+        "The seizure: six committee men at the sheriff's office (front door and back window together) and six at Ruhl's bunkhouse (Vigilantes)",
+        "The court: Grimsby presiding, twelve masked jurors, about thirty more committee men standing (a Lynch Mob, 60 hit points, with Pottinger as ringleader), and Sefton, masked, among the jurors as number 23"
+      ],
+      "scenes": [
+        {
+          "name": "Lanterns on Water Street",
+          "description": "At midnight the committee comes for Barnabas and Torvald. If the party warned them, the sheriff is not in his office (or is, with the party, and the committee must decide whether to fight for him) and Torvald is hidden at the packers' cabin or the forge; the committee, finding Torvald gone, takes Nels Eklund instead as 'the Swede' (see the twist). If the party fights the seizure, they can save the prisoners outright, at the cost of a street fight with townsmen. If they let it happen, or follow, they can enter the warehouse behind the prisoners: Grimsby, who believes in procedure, allows that 'any citizen may speak for the accused'.",
+          "readAloud": "The lanterns come down Water Street in two lines, one toward the sheriff's cabin and one up the hill toward Ruhl's, and the snow squeaks under the boots, the only sound in the gulch. At the sheriff's door they knock. They actually knock. Then there is the sound of the back window going in, and a shout, and the thin grey figure of the sheriff is brought out between two men in flour sacks, in his shirtsleeves, without his spectacles, blinking in the light, and saying in a perfectly steady voice, 'Gentlemen, I do not consent to this, and I would like it noted that I do not consent.'",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "Six men in sacks with pick handles and rifles are not prepared for you. They let the sheriff go and fall back to the warehouse to tell Grimsby. The trial will go on without him, in absentia, which Grimsby says is lawful.",
+              "failure": "They have him in the street and a rifle in your face. Fight, or follow."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "You follow the lanterns to the warehouse and slip in among the standing men at the back in the crush, and nobody stops you.",
+              "failure": "At the warehouse door a man in a sack stops you: 'Members only.' Grimsby, hearing, calls: 'Let them in. Let them see it done properly.'"
+            }
+          ]
+        },
+        {
+          "name": "The Court of Masks",
+          "description": "Grimsby reads the charge: that Barnabas Wyndham, 'by refusing to cooperate with the citizens, has given aid and comfort to the road agents', and that 'the Swede at Ruhl's' was named by Jack Tillery. He calls no witnesses, because 'the confession is the evidence'. He allows the accused to speak and 'any citizen' to speak for them. The party needs 5 successes before 3 failures. Automatic successes, one each, for laying before the room: Barnabas's ledger page proving Corder's or Kehoe's alibi; the doubled wafer and the dates (Tillery could not have known Hartigan's name); the guard roster (number 23 alone with Tillery); Davy Renner's testimony, or the boy himself brought in; Wexford standing up from his chair at the head of the room. Skill checks for everything else (DC 14): Persuasion to appeal to the jurors as neighbours, Insight to read which mask is wavering and address him by name, Intimidation to name the members by their boots, Deception to bluff evidence the party does not have (a failure here is two failures). Sefton, masked, speaks once, warmly, for the verdict; anyone who has heard his laugh knows his voice (Insight DC 12). On 5 successes the jury will not vote; Grimsby, shaken, adjourns 'to consider the evidence', and the prisoners walk out free. On 3 failures, the verdict is read: guilty. See 'The Verdict'.",
+          "readAloud": "Twelve chairs in two rows under the lanterns, and twelve men in them in flour sacks, sitting very straight with their hands on their knees, like a jury in a picture. Thirty more standing behind them among the crates, masked and unmasked, their breath smoking. At the trestle table, the slim lawyer with his steel pen and his sheet of foolscap and a Bible. And in front of the table, on two kitchen chairs, with their hands tied behind them, a thin grey schoolmaster in his shirtsleeves, and a big fair boy who is staring round him and asking, over and over, in Norwegian and then in English, 'What have I done? What is it I have done?' The lawyer lifts his paper. 'This court,' he says, 'is in session.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "One success. A juror takes his hands off his knees and looks at the man beside him.",
+              "failure": "One failure. 'Sit down,' someone shouts from the back, and others take it up."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "One success. You find the wavering mask, second row, third from the left, by the way his hands are shaking, and you know the boots: the grocer whose child Moira nursed. You say his name. He takes the sack off.",
+              "failure": "One failure. You name the wrong man, and the room laughs."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "Not a success by itself, but you see it: the big masked juror at the end of the front row, number 23 chalked on his chair, is the only one whose boots are clean of camp mud. They are wet with snow from a long ride. He came from the station tonight.",
+              "failure": "Twelve masks, twelve pairs of boots."
+            }
+          ]
+        },
+        {
+          "name": "Number Twenty-Three",
+          "description": "If the party has the roll, the roster or Davy's testimony, they can name number 23 in front of the court and demand that he take off his mask. This is the most dramatic thing in the campaign and should feel it. Sefton does not deny it. He takes off the sack, smiling, and says that he is proud to serve, that he guarded the prisoner because nobody else would, and that strangers who arrive on the coach and defend road agents are exactly what the list warned of. Then he looks at the party and says, gently, 'I'd be careful, friends. You're on a list too, now.' He leaves, unhurried; nobody stops him, because nobody in that room is ready to believe it yet. That night he rides for Fiddler's, and vg-scenario-004 begins with him knowing that they know. The court is broken: if the party unmasked Sefton with evidence, count it as 2 automatic successes.",
+          "readAloud": "He takes the sack off slowly, the way a man takes off his hat in church, and folds it, and puts it in his coat pocket. In the lantern light his face is ruddy and kind and a little tired, and he is smiling at you as though you were a favourite nephew who has said something foolish at dinner. 'Warrick Sefton,' he says to the room, 'number twenty-three, and proud of it. I stood the guard on that boy because nobody else would do it, and I'd do it again.' He looks round at the masks, one by one, and some of them look away. 'Friends, I've fed every one of you at my table. These people came on the coach a month ago.' Then, to you, quietly, almost fondly: 'I'd be careful. There's a list for everyone.'",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "You make him stop at the door. He turns, still smiling, and for one moment the smile slips and you see what is behind it, and so do the three jurors nearest him. Then he goes.",
+              "failure": "He walks out through the double doors into the snow, and the room lets him."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "He is not afraid. He is calculating. He has already decided what to do about you, and it is not here.",
+              "failure": "A respected man, insulted."
+            }
+          ]
+        },
+        {
+          "name": "The Verdict",
+          "description": "If the party failed to turn the room, Grimsby reads the verdict, guilty, and the sentence, death at dawn, and thirty men walk the prisoners down the gulch to the slaughter corral at first light. There is one last chance at the gate (Mob Mind, as Corder's hanging in vg-scenario-002; Gabriel Tennant will be there, singing; Wexford, if turned, will be there too, and will take off his own mask at the gate and order them to stop, which counts as unmasking a ringleader for half of them). If the party does nothing, or fails, the two men are hanged. Narrate it briefly and without spectacle, and let the camp's silence afterward be the loudest thing in the scenario.",
+          "readAloud": "'The court finds,' Grimsby says, and stops, and clears his throat, and finds his place on the paper. 'The court finds the accused guilty. Sentence to be carried out at first light.' Nobody cheers. In the silence, very clearly, the Norwegian boy says, 'Mother,' in his own language, and the schoolmaster sitting beside him, with his hands tied behind his back, leans his shoulder against the boy's shoulder and begins, in Latin, quite steadily, to recite something, as if he were in front of a class.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "At the gate: Mob Mind, 2d10 hit points of men slinking away. With Wexford there, unmasked and calling it off, the mob is at half strength before you begin.",
+              "failure": "The mob closes round the gate."
+            },
+            {
+              "skill": "Performance",
+              "dc": 13,
+              "success": "Gabriel's psalm carries over the crowd and you join it, and men stop to listen. The mob loses 1d10 hit points a round while it listens.",
+              "failure": "The hymn is lost in the shouting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wednesday to Saturday: The Law Arrives",
+      "description": "Whatever happened at the trial, the committee's next act is in daylight: it marches two women out of camp. Then the law comes up the road. The point of this act is to give the party their first real court, and with it the warrants that take them to Fiddler's Station in vg-scenario-004, and to clear Patrick Kehoe's name, which is the one thing Moira asked for.",
+      "objectives": [
+        "Stop the banishment of Moira Kehoe and Leonie Fairbairn",
+        "Meet Justice Elihu Marten off the up coach and keep him alive",
+        "Put sworn evidence before the examining court and obtain warrants",
+        "Clear Patrick Kehoe's name in the court's record"
+      ],
+      "encounters": [
+        "The banishment delegation at Moira's: six unmasked committee men (Vigilantes), ashamed",
+        "On the Thursday up coach, Wick Brill and Hank Crewe wait at the Elbow to stop the coach and kill the judge, on Sefton's order, if the party has unmasked Sefton or if their WATCH is 3; Bandit Sharpshooter and Road Agent, and a felled tree again"
+      ],
+      "scenes": [
+        {
+          "name": "Twenty-Four Hours",
+          "description": "Wednesday noon. Six men, unmasked, on Moira's porch, with Pottinger's foreman, Amon Pickering, holding a paper. They have come to 'see the women safely out of camp' on foot, down the Bannack road, in two feet of snow. They are ashamed, and they know Moira. Name each man to his face (Persuasion DC 12, or Intimidation DC 13 each); when four have gone home, Pickering goes with them. Leonie Fairbairn, if played, can do it better than anyone: she knows every man's debts. If the trial was broken, the delegation is three men and Pickering, and one of them is crying.",
+          "readAloud": "They stand on the porch in a huddle in the cold, six men in their own coats and their own faces, which is somehow worse than the sacks. You know some of them. The grocer from the corner of Water Street. Two clerks from Wexford's. A carpenter who mended the kitchen chair the committee broke on the night they took Patrick. In front of them a bull-necked man in a blue army overcoat holds out a paper. 'Missus Kehoe. Miss Fairbairn. The committee has asked us to see you safely out of camp.' Behind you, in the doorway, the widow says nothing at all. She is looking at the carpenter.",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "You say his name, and his children's names, and the name of the woman who nursed them, and he takes off his hat and goes down the steps without a word.",
+              "failure": "He looks at the floor, and stays."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 13,
+              "success": "As Persuasion; he goes, faster.",
+              "failure": "Pickering steps forward with his hand on his gun. 'Don't make this hard.'"
+            }
+          ]
+        },
+        {
+          "name": "The Judge on the Up Coach",
+          "description": "Thursday 8 December. Justice Elihu Marten, a lean, grey, careful man of sixty from Ohio, a lawyer and once a judge there, appointed by the territorial governor to hold examining courts in the mining districts until the legislature organises the counties, comes up on the coach from Bannack. If the party unmasked Sefton, or their WATCH is 3, Sefton has sent Brill and Crewe to the Elbow to stop the coach and kill him: the party should hear of it (from Jemmy the hostler, who is terrified, or from Davy Renner, who knows the plan) and ride down to meet the coach. Otherwise he arrives safely, and Sefton gives him stew at Fiddler's and asks him all about himself. Cormac Hartigan, if played, has written to him. He is the law, at last, and he is one tired old man with a commission and a Bible.",
+          "readAloud": "The coach comes round the last bend into the gulch an hour late, the team blowing, snow to the hubs, and the man who climbs down from it stiffly and looks round at Ninebark is thin and grey and very tired, in a black coat and a beaver hat and a muffler, with a carpetbag in one hand and a tin dispatch box under his arm. He sees the board on the slaughter corral gate. He reads it. He looks at it for a long time. Then he turns to whoever has come to meet him, and says, in a dry Ohio voice, 'I was at Bannack last January. I watched them do it there. I said at the time that I would rather be shot than see it again.' He shifts the dispatch box under his arm. 'Where do I hold court?'",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 14,
+              "success": "(At the Elbow, if Brill and Crewe are waiting.) You see the new-felled spruce from the bend above and stop the coach before the trap closes.",
+              "failure": "The coach comes round the Elbow into the trap. Fight."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "He is afraid, and he is going to hold court anyway.",
+              "failure": "An old lawyer."
+            }
+          ]
+        },
+        {
+          "name": "The Examining Court",
+          "description": "Friday and Saturday, the hotel dining room, two hundred people. Judge Marten takes sworn statements. Let the players marshal their witnesses and documents and present them, one at a time, and let each witness's courage be a scene: Gabriel Tennant swearing to Tillery's last words in front of the camp; Chelo Arvizu, with a second witness beside her, swearing to five riders in the barn; Moira and the Number Three men swearing to Patrick's night; Prothero laying the doubled wafer on the table; Wexford, if turned, reading out the roll and saying 'number 23' aloud; Davy Renner, brought from the jail in manacles, telling it all. The judge needs two credible sworn witnesses, or one witness and a document, for each warrant. Then he issues them: for Warrick Sefton, Judd Ferrier, Wick Brill, Hank Crewe and Nels Eklund, for robbery of the United States mails and the murder of William Danforth, to be served by Deputy Marshal Hartigan and Sheriff Wyndham and any posse they raise. He also enters in his record that Patrick Kehoe was 'killed by persons unknown, and was at the time of the robbery of 3 November at his work and at his home, as sworn by seven witnesses'. Moira reads it, and goes outside, and the party should let her be. Reputation +2 if the court is held with the party's witnesses. Grimsby attends both days, in the back row, and on Saturday evening he burns the list in his stove.",
+          "readAloud": "The dining room is so full that men are standing on the sideboard and the windows are crowded with faces from the street. The stove roars. At the head of the long table the old judge sits with a Bible and a sheet of paper and a pen, and a clerk beside him, and looks over his spectacles at the crowd until it is quiet. Then he says, without raising his voice at all: 'This is an examining court of the Territory of Montana, under the governor's commission. It will hear sworn evidence. It will not hear rumour, and it will not hear a confession taken under a rope.' He looks at the back row, where a slim lawyer in a very good coat is sitting very still. 'Call your first witness.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "Your witness, frightened, gets through it, and the room believes them. Each witness who testifies costs the committee members: by the end of Saturday it is twelve men and Pottinger.",
+              "failure": "Your witness falters, and the judge asks for more. Bring another."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 12,
+              "success": "You lay out the documents in order, the dates and the seal and the roll and the roster, and the judge follows you, nodding, and writes.",
+              "failure": "The documents are in the wrong order and the judge must ask you to begin again."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Torvald Fjeld, 22",
+      "role": "Ruhl's hired hand; the committee's 'Swede'",
+      "description": "A big, fair, shy Norwegian boy from Telemark who sends half his wages home and reads his mother's letters every night. Speaks careful English. Innocent of everything.",
+      "motivation": "To work, and to go home rich enough to buy his mother a farm."
+    },
+    {
+      "name": "Nels Eklund, 25",
+      "role": "Road agent; the gang's eyes in camp",
+      "description": "As vg-scenario-002. Under arrest he says nothing without a deal, and only the judge can give him one.",
+      "motivation": "His share; his neck."
+    },
+    {
+      "name": "Davy Renner, 19",
+      "role": "Road agent; witness",
+      "description": "As vg-scenario-001. Two and a half weeks in a cell, a bad arm, and the beginnings of trust.",
+      "motivation": "To live and go home to his mother in Leavenworth."
+    },
+    {
+      "name": "Lazarus Ridgeway, 55",
+      "role": "Mine owner; committee Executive",
+      "description": "A thin grey man in a fur collar who owns the Discovery claim and says little. Joined to protect his gold. Votes with the majority and goes home.",
+      "motivation": "To have it over."
+    },
+    {
+      "name": "Amon Pickering, 38",
+      "role": "Pottinger's foreman; leader of the banishment delegation",
+      "description": "Bull-necked, in a blue army overcoat, a Union veteran of Fort Donelson, decent enough sober and frightened of Pottinger.",
+      "motivation": "To do his job and not be ashamed of it, which is impossible."
+    },
+    {
+      "name": "Justice Elihu Marten, 60",
+      "role": "Examining justice appointed by the territorial governor",
+      "description": "A lean, grey, careful Ohio lawyer and former judge who came west for his lungs. Saw the Bannack hangings of January 1864 and despises the committees. Slow, honest, afraid and stubborn.",
+      "motivation": "To hold one real court in a place that has not had one, and not be shot doing it."
+    },
+    {
+      "name": "Warrick Sefton, 44",
+      "role": "Number 23",
+      "description": "As before. If unmasked, entirely calm: he leaves, and he plans.",
+      "motivation": "Now: to finish it on 22 December and leave no witnesses behind."
+    },
+    {
+      "name": "Obadiah Wexford, 58",
+      "role": "President of the committee",
+      "description": "As before. Turned, he becomes the party's most useful and most broken ally.",
+      "motivation": "To undo what cannot be undone."
+    },
+    {
+      "name": "Horatio Grimsby, 39",
+      "role": "Presiding officer of the court of masks",
+      "description": "As before. The examining court destroys him quietly; he burns the list on Saturday night.",
+      "motivation": "To have been right. He was not."
+    }
+  ],
+  "rewards": {
+    "xp": 3600,
+    "money": "Prothero, if the judge's warrants are issued, puts up the Beaverhead Express Company's standing reward: $500 for each of the men who robbed its coaches, taken alive and delivered to the law, and $1,000 for the recovery of the stolen dust, payable in Bannack. The judge pays sworn witnesses $1 a day, in greenbacks, which makes everyone laugh. Torvald Fjeld, if saved, gives the party his mother's last letter to read, and a share of nothing, because he has nothing; it is worth a great deal.",
+    "items": [
+      "The committee's roll, or Wexford's signed copy (CLUE E1)",
+      "The guard roster from Wexford's office wall (CLUE B2)",
+      "Davy Renner's sworn statement, or Nels Eklund's (CLUE E2)",
+      "Judge Marten's warrants for Sefton, Ferrier, Brill, Crewe and Eklund",
+      "The court's entry clearing Patrick Kehoe, in the clerk's hand, which Moira asks to have copied and framed",
+      "Eklund's French field glasses, the twin of Sefton's"
+    ]
+  },
+  "twists": [
+    "If the party hides Torvald Fjeld, the committee seizes Nels Eklund as 'the Swede', because Eklund is the only other Scandinavian at Ruhl's. At the trial Sefton, masked, must either let one of his own men be condemned or speak for him and draw attention. He lets him be condemned, warmly, and votes. Eklund, hearing Sefton's voice, understands, and will tell the whole room everything if anyone asks him the right question (Persuasion DC 12): the best and worst way for the truth to come out.",
+    "If a party member joined the committee in vg-scenario-002, they are one of the masked jurors, chosen by Grimsby to show that 'the newcomers are with us'. They can break the court from inside by taking off their mask and voting no, which counts as 2 successes and costs them their WATCH (it goes to 3 at once).",
+    "If Sefton is unmasked at the trial, he goes back to Fiddler's that night and moves his whole plan up: the judge's coach is ambushed on Thursday, Jemmy the hostler is sent away, and on 22 December he means to kill Davy Renner, Wexford and the party's witnesses in camp as well as rob the coach. Vg-scenario-004 becomes a race.",
+    "Grimsby never admits he was wrong. On Saturday night he burns the list. If the party wants it as evidence, they must get it before then, or rely on their copy."
+  ],
+  "dmTips": [
+    "This scenario is a courtroom drama in two parts: a false court on Tuesday and a true one on Friday. Contrast them on purpose. The committee's court has masks, a written verdict and no witnesses; the judge's has faces, an oath and nothing else. Budget an hour for the Executive and the two turnings, an hour and a half for the trial, and an hour for the banishment, the judge and the examining court.",
+    "The trial's skill contest is there to reward the evidence the players have gathered. Count automatic successes generously for real clues; a party that has done the work should win the room. A party that has not done the work can still win it with courage, at the gate.",
+    "Do not let Sefton be arrested in this scenario. If the party tries to seize him at the trial, the committee's men stand between him and the party (they do not yet believe it), and he walks out. His arrest belongs to vg-scenario-004, at his own station, in a blizzard, with a warrant.",
+    "If Barnabas Wyndham or Torvald Fjeld hang, the campaign continues, darker. Barnabas's star passes to Cormac Hartigan or to whichever party member the miners' meeting chooses. Moira's grief has company.",
+    "The examining court is a reward scene. Let every witness have their moment, and let the players feel the difference between a court and a committee. Judge Marten is not a hero; he is an old man doing his job, and that is the point.",
+    "Davy Renner's mother lives in Leavenworth, Kansas. If the players want to write to her for him, let them; the letter will go on the next coach, which is the last one of the year."
+  ]
+}

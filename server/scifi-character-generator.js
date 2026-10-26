@@ -234,6 +234,23 @@ const FUTURE_SWAPS = {
   'Baseball bat': 'Arc baton',
 };
 
+// A class's declared weapon can be newer than the campaign's era (the Western Army revolver is
+// 1870s; WO-0048's 1860s campaign is the first to notice). Prefer the named period equivalent;
+// otherwise the first era-legal weapon of the same group in the table.
+const PERIOD_SWAPS = {
+  'Army revolver': 'Navy revolver',
+  'Buffalo rifle': 'Repeating rifle',
+  'Dynamite': 'Black-powder charge',
+};
+
+function eraLegalSwap(name, era, table) {
+  const row = table.get(name);
+  if (!row || eraAllows(row, era)) return null;
+  const named = table.get(PERIOD_SWAPS[name]);
+  if (named && eraAllows(named, era)) return named;
+  return [...table.values()].find(w => w.group === row.group && eraAllows(w, era)) || null;
+}
+
 // Counted ammunition for the sheet, three magazines' worth, named the way authored sheets name it.
 const AMMO_NAMES = {
   '9mm pistol': '9mm rounds',
@@ -266,6 +283,8 @@ function buildWeapons(charClass, abilities, profBonus, { era, table = new Map() 
     if (swapped && (swapped.group !== 'Energy Weapons' || energyTrained)) {
       w = { ...w, name: swapped.name, damage: swapped.damage, damageType: swapped.damageType };
     }
+    const period = eraLegalSwap(w.name, era, table);
+    if (period) w = { ...w, name: period.name, damage: period.damage, damageType: period.damageType, ammo: undefined };
     const row = table.get(w.name);
     const ability = ABILITY_BY_ABBREV[String(w.attackAbility || 'DEX').toUpperCase()] || 'dexterity';
     // A finesse weapon in the table uses the better of STR and DEX, whatever the class declared.

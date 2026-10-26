@@ -1,0 +1,125 @@
+{
+  "id": "6ff66d3b-d3bf-4c90-9e3c-fbe61e9a24e5",
+  "name": "Nolan Pomeroy",
+  "status": "alive",
+  "race": "Faithful",
+  "subrace": "",
+  "class": "Veteran",
+  "level": 3,
+  "background": "Drifter",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 14,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 9,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Perception",
+    "Survival",
+    "Stealth"
+  ],
+  "languages": [
+    "English",
+    "Vietnamese (enough to order a meal and ask the way, from 1967)"
+  ],
+  "equipment": [
+    "Leather jacket: the township's brown uniform jacket with a cloth badge, LARKIN TWP. POLICE",
+    "Service revolver: a Smith & Wesson Model 10 in a belt holster",
+    ".38 rounds (18)",
+    "Pump shotgun: a Remington 870 in the rack of the township Fury",
+    "Shotgun shells (10)",
+    "Padded vest: a 1970s flak vest in the trunk of the Fury, which he never wears",
+    "Flashlight and Batteries (2)",
+    "Notebook and pencil, and a book of blank incident reports",
+    "Handcuffs and a key",
+    "A St. Christopher medal on a chain, his mother's",
+    "Car: the township's 1974 Plymouth Fury with a light bar and a radio that does not reach out from under the ridge",
+    "Cigarettes",
+    "Wallet containing $40"
+  ],
+  "weapons": [
+    {
+      "name": "Service revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Pump shotgun",
+      "attackBonus": 4,
+      "damage": "2d8+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Something to Hold On To (Faithful origin: once per long rest, when he would gain Dread, he gains 1 fewer, so a failed fear check costs nothing and a natural 1 costs 1; advantage on saving throws against being charmed or compelled by a creature; no miracle in it, it only keeps he himself)",
+    "Held the Line (Veteran: advantage on fear checks while a conscious ally is within 10 ft; once per short rest, when Panic would take him at Dread 5, he acts normally instead)",
+    "Drill: Close Quarters (Veteran: no disadvantage on ranged attacks with a Sidearm or a shotgun against a creature within 5 ft; it does not change the numbers on his sheet)",
+    "Second Wind (Veteran, 2nd level: once per short rest, as a bonus action, he regains 1d10 + 3 hit points, and loses 1 Dread if he is at Dread 3 or higher)",
+    "Service: Sergeant (Veteran, 3rd level: as a bonus action he gives an ally who can hear him an order; it can use its reaction to move half its speed without provoking opportunity attacks, or make one weapon attack; once per short rest)",
+    "Nobody's Business (Drifter background: he knows how to travel for almost nothing and where strangers are fed or run off; drifters and hitchhikers share news with him; and he remembers what it is to be the stranger nobody believes)"
+  ],
+  "traits": [
+    "Held the Line (1/short rest)",
+    "Drill: Close Quarters",
+    "Second Wind (1/short rest)",
+    "Service: Sergeant (1/short rest)",
+    "Nobody's Business"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I listen more than I talk. I write everything down, in order, with the time. I call women ma'am and men sir until they tell me not to, and then I keep doing it.",
+    "ideals": "The law is a promise that somebody will come when you call. I am the one who comes.",
+    "bonds": "Larkin Township, every one of its eleven hundred people, and my mother in the house on Church Road. The men in my company in 1967, two of whom I could not carry.",
+    "flaws": "I don't believe in anything I can't write in a report. When I have to, I'm going to need somebody to tell me it's all right."
+  },
+  "appearance": "Thirty-one, tall and rangy, a fair, open farm face gone careful, short sandy hair, a brown township uniform jacket, a holster he wears as if it were heavy.",
+  "backstory": "Nolan Pomeroy grew up on a dairy farm on Church Road in Larkin Township, was drafted in 1966, and spent 1967 as an infantryman in the Central Highlands, where he learned to keep his post and to go on when he could not carry somebody. He came home in 1968 and drifted for three years: freight yards in Ohio, the oil fields in Oklahoma, a winter on a fishing boat out of Gloucester, anywhere that was not a farm. In 1971 his mother wrote that the township needed a policeman and nobody wanted the job, and he came home and took it. He is the Larkin Township Police Department: one man, a 1974 Fury, a desk in the firehouse. He knows the Neck from the outside: he has been called out to Pinecrest four times in six years, for a drunk, a fender-bender and two lost guests. This morning Opal Seeley called about a man in a carved mask on the dock on Thursday night, and he drove out after supper to take a statement. He meant to be home by ten. (Hook: the law. He is the only officer on the Neck when it is cut off, and the murder is his case.)"
+}

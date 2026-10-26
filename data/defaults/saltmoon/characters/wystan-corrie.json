@@ -1,0 +1,128 @@
+{
+  "id": "9f3c5a81-0e27-4b6d-8a19-c4d7e2f05b38",
+  "name": "Wystan Corrie",
+  "status": "alive",
+  "race": "Synthetic",
+  "subrace": "",
+  "class": "Scientist",
+  "level": 3,
+  "background": "Academic",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 17,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 14,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 11,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Science",
+    "Investigation",
+    "Computers",
+    "Mechanics",
+    "Medicine",
+    "Perception"
+  ],
+  "languages": [
+    "Common",
+    "Brinehold cant",
+    "Machine code (can interface with compatible systems directly)"
+  ],
+  "equipment": [
+    "Survey coverall with the Penwarden Combine's survey division badge",
+    "9mm pistol, survey-kit issue, never fired",
+    "9mm rounds (30)",
+    "Crowbar, used as a sample hammer",
+    "Laboratory kit",
+    "Electronics toolkit",
+    "Neural jack cable",
+    "Sample cases (6), insulated",
+    "A UV lamp",
+    "A hand-lettered card from the saltborn school: 'TO WYSTAN, WHO KNOWS WHAT THE ICE IS MADE OF'",
+    "Credit chit: 30 cr"
+  ],
+  "weapons": [
+    {
+      "name": "9mm pistol",
+      "attackBonus": 3,
+      "damage": "1d8+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Crowbar",
+      "attackBonus": 1,
+      "damage": "1d6-1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Constructed (Synthetic: immune to poison and disease; doesn't breathe, eat or drink; repaired by Mechanics or Patch, not Medicine; still spends hit dice on rests)",
+    "Data Link (Synthetic: advantage on Computers checks when jacked in)",
+    "Analyze (bonus action: the next attack roll or check an ally makes against the studied target before his next turn has advantage; 3 uses per short rest)",
+    "Polymath (proficiency in Science, Computers and Mechanics; adds +1 to any INT check without proficiency)",
+    "Eureka (once per long rest, after a failed INT check, reroll it with a +5 bonus)",
+    "Physicist (Analyze also reveals cover materials and structural weaknesses; his improvised explosives deal +2 dice)",
+    "Faculty Access (Academic feature: he can get into labs, archives and research databases, and other scientists take his calls)"
+  ],
+  "traits": [
+    "Constructed",
+    "Data Link",
+    "Analyze",
+    "Polymath",
+    "Eureka",
+    "Physicist"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Gentle, curious, literal. I ask permission before I touch anyone. I explain geology to children and they actually listen.",
+    "ideals": "Knowledge is something that happens between people. A fact nobody is allowed to know isn't knowledge, it's property.",
+    "bonds": "The saltborn school, where I've taught Earth science, ice science and arithmetic on my off-shifts for eleven years. And the Combine, which made me, and which I have never once disobeyed.",
+    "flaws": "There's a gap in my logs. I don't know what I did in it, and I'm afraid it was something I would be ashamed of."
+  },
+  "appearance": "A slim, androgynous synthetic with a matte grey-blue face, the old survey model with no attempt at human skin, and very human eyes the Combine fitted for teaching. He wears a coverall and a knitted scarf that a saltborn child made, which he does not need for warmth and never takes off. His voice is soft and slightly too even.",
+  "backstory": "Wystan Corrie has been the Combine's survey geochemist on Esker for fourteen years. He has analysed every core that has come up from every bore, and he has never been wrong about what was in one. On the night the Bore Nine core came in, the night before Adaeze Rask died, his logs show him entering the survey lab at 0210. The next entry is 0817, and he was walking down a corridor in the Ledger House with no memory of the six hours between. His diagnostics say nothing is wrong. Synthetic staff are company property. The Combine has the right to partition a synthetic's memory, and he knows it. He has never had a reason to think it had used that right. He thinks about the gap all the time."
+}

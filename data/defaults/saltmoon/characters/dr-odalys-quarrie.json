@@ -1,0 +1,123 @@
+{
+  "id": "1e9d6b38-72c4-4a5f-9e03-8f2a1c5d7b96",
+  "name": "Dr. Odalys Quarrie",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Medic",
+  "level": 3,
+  "background": "Medical Professional",
+  "alignment": "Lawful Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 9,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Insight",
+    "Investigation",
+    "Science"
+  ],
+  "languages": [
+    "Common",
+    "Brinehold cant (enough to take a history)"
+  ],
+  "equipment": [
+    "Ballistic weave under a clinic coat (security issued it to medical staff after the ration riot of C-60)",
+    "Medkit",
+    "Trauma kit",
+    "Pharmacology kit",
+    "Med-stim (3)",
+    "Stun gun",
+    "Stun gun cartridges (6)",
+    "Knife (a scalpel-sharp utility blade)",
+    "Penlight",
+    "Clinic ID and the Brinehold clinic's master key",
+    "A copy of the death certificate for Adaeze Rask, signed by her, which she reads every night",
+    "Credit chit: 340 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Stun gun",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "lightning"
+    },
+    {
+      "name": "Knife",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave",
+    "type": "light"
+  },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Field Medicine (action, with a medkit: restore 1d6 + WIS + level HP, or stabilize at 0 HP as a bonus action; 4 uses per long rest)",
+    "Triage (bonus action: Medicine check DC 10 on a creature within 30 ft reveals its exact HP and every condition)",
+    "Steady Hands (the first time each short rest she heals someone, they also gain 2 temporary HP)",
+    "Surgeon (during a short rest, patients she treats regain the maximum on each hit die they spend)",
+    "Hospital Privileges (Medical Professional feature: she can enter any clinic, read any chart and obtain supplies through normal channels)"
+  ],
+  "traits": [
+    "Field Medicine",
+    "Triage",
+    "Steady Hands",
+    "Surgeon"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I'm precise, dry and a little cold, and I apologise for none of it. When I'm frightened I start listing things.",
+    "ideals": "A death certificate is the last true thing anyone writes about a person. It has to be true.",
+    "bonds": "The Brinehold clinic. I've delivered sixty-one saltborn children in it, and I know every one of them by their scars.",
+    "flaws": "I signed something I hadn't checked because a director I respected asked me to. I don't trust my own judgement now, and I hide that behind procedure."
+  },
+  "appearance": "A small, upright woman of fifty-two with steel-rimmed lenses, grey hair pinned flat, and a clinic coat that is always buttoned. Her hands are very steady. She has the outer-system pallor of someone who hasn't seen a sun bigger than a coin in twenty years.",
+  "backstory": "Dr. Odalys Quarrie came to Esker on a five-year Combine contract twenty-one years ago and never took the shuttle home. She is the colony's only doctor. When the recovery team brought Adaeze Rask's body back, Director Evadne Morrow met Odalys at the clinic door and told her the body was badly damaged, the family had been spared enough, and the suit-seal finding was already confirmed by the recovery team. Odalys signed the certificate after a ten-minute external exam. That night she couldn't sleep, and she remembered what she'd seen: frost burns in a fan pattern across the chest and face, brine crystals in the nostrils, ice packed into the suit's collar from the outside. That is not what a seal failure looks like. It looks like someone was hit by a blast of brine. The body is still in the clinic cold room. The Combine wants it shipped up on the Plainsong at the end."
+}

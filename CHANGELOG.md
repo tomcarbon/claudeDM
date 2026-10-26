@@ -2,6 +2,24 @@
 
 All notable changes to this project are documented here.
 
+## [1.0.27] - 2026-10-25
+Changes since `1.0.26` (public `demo_1.0.26` = `13bee42`, tree identical to `projects/claudeDM` at `b37d6e1`). Work order: WO-0048. Published as `demo_1.0.27`, one commit on top of `demo_1.0.26`.
+
+**Not in this release:** WO-0039 (closing the GM toolset; its Scope addition A). SEC-2026-10-03-1 stands as described in `[1.0.26]` below. The production halt (INC-0003; VP Cyber Security, 2026-10-25) is unchanged by this release: only the chair may reach claudeDM until WO-0039 ships and is re-verified, and the service no longer runs as a user with passwordless sudo.
+
+
+**Seven new campaigns: Sci-Fi, Noir, Western and Horror now have five each** (WO-0048)
+- Sci-Fi: `saltmoon`, *Charter's End* (future; an ice-moon mining colony in its last thirty days).
+- Noir: `bluenote`, *Dead Men Vote Tuesday* (Kansas City, 1936); `crescent`, *Ash Wednesday* (New Orleans, Carnival 1946).
+- Western: `vigilance`, *The Winter List* (Montana Territory, 1864, the category's first 1860s campaign); `stageline`, *Star Route* (New Mexico Territory, 1881).
+- Horror: `blackdamp`, *Blackdamp* (a West Virginia coal camp, 1927); `pinecrest`, *Lantern Night* (an adults-only camp in the Poconos, 1977).
+- Each has four scenarios, six pregens and four companions. They were written in staging by one author per campaign and merged by the CEO after a cross-campaign name check.
+- **The generator now respects era on weapons.** `buildWeapons` (`server/scifi-character-generator.js`) only swapped weapons for the `future` era, so a character rolled for an 1860s campaign got the 1870s Army revolver and .45 cartridges. An out-of-era weapon is now swapped for its period equivalent (`PERIOD_SWAPS`), or failing that for the first era-legal weapon of the same group. `period-content.js`'s sheet check now fails any authored or generated sheet that carries a weapon outside its campaign's era. **Not fixed:** ten Western adversary stat blocks tagged for the 1860s still attack with the Army revolver. `vigilance`'s campaign rule "The 1864 Armory" names five of them; the other five are uncovered (QC, WO-0048). Out-of-era stray ammunition on a sheet is not tested, and the Sci-Fi sheet check has no era test.
+- Tests: 1129 → 1169 (40 files), all passing. Client build passes.
+- **Repeated-name cleanup** (WO-0048 Log, 2026-10-25). Renamed story-only NPCs (and three newspapers) so no surname in the seven is shared with any campaign, no first name is shared between two of the seven, and no distinctive first name is shared within a category. Character-sheet names (pregens and companions) are unchanged; three sheet clashes are recorded exceptions (Marchbanks, Ada, Rafael). Also fixed: stageline's two all-caps "ENOS PETREE" now read "JETHRO PETREE", matching the character. Evidence: `records/reports/2026-10-25-qc-tester-ceo-wo0048-rename-evidence.md`.
+- `package.json` version → `1.0.27`; `client/src/data/changelog.js` gets a 1.0.27 entry. `package-lock.json` still reads `1.0.24` (pre-existing; not changed).
+- **Known, not fixed:** stageline's `setting.name` is 125 characters against an 80-character limit; GM-only campaign fields are served without login; per-turn state fields are unbounded (Security Reviewer, WO-0048, all low and pre-existing in kind).
+
 ## [1.0.26] - 2026-10-23
 Changes since `1.0.25` (starting after commit `5132420`, "v1.0.25"), reconciled against `git log 5132420..e30e584 -- projects/claudeDM` (six commits: `a51711c`, `88bb53c`, `a01ce00`, `79f3c67`, `628b9a7`, `5f013fc`) plus the uncommitted rebrand of WO-0047. Work orders: WO-0026, WO-0032–WO-0038, WO-0040–WO-0045, WO-0047. Referenced as still open: WO-0030, WO-0039.
 

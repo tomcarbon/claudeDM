@@ -1,0 +1,129 @@
+{
+  "id": "c83f2a17-4d6b-4e09-a5f1-2b7d0c9e8a64",
+  "name": "Imke Saranova",
+  "status": "alive",
+  "race": "Spacer",
+  "subrace": "",
+  "class": "Scout",
+  "level": 3,
+  "background": "Colonist",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Perception",
+    "Piloting",
+    "Stealth",
+    "Survival",
+    "Science"
+  ],
+  "languages": [
+    "Common",
+    "Brinehold cant",
+    "Spacer cant (hand signs for vacuum work)"
+  ],
+  "equipment": [
+    "Ballistic weave surface liner, worn under her suit",
+    "Laser rifle, Combine survey issue, used to cut ice anchors and burn through crust",
+    "Laser rifle cells (30)",
+    "Combat knife",
+    "Surface suit (8 hours of air) with a hand-painted blue band on the helmet",
+    "Navigation kit with her own hand-drawn ice maps of the Shear",
+    "Climbing harness and gear",
+    "Rope (50 ft) x2",
+    "Ice pitons (10)",
+    "Binoculars",
+    "Colony ID bracelet",
+    "Rebreather mask",
+    "Credit chit: 120 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Laser rifle",
+      "attackBonus": 5,
+      "damage": "2d8+3",
+      "damageType": "radiant"
+    },
+    {
+      "name": "Combat knife",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave",
+    "type": "light"
+  },
+  "features": [
+    "Zero-G Adapted (Spacer: no penalties in microgravity)",
+    "Thin Bones (Spacer: disadvantage to avoid being knocked prone in full gravity; never applies on Esker)",
+    "Overwatch (reaction: when an enemy she can see moves within her weapon's normal range, make one ranged attack against it; once per short rest)",
+    "Trailwise (advantage on Survival to track and navigate; the party can't be surprised while she is on watch and conscious)",
+    "Steady Aim (bonus action, if she hasn't moved this turn: advantage on her next ranged attack; speed 0 until the end of the turn)",
+    "Ranger (difficult terrain doesn't slow her group; advantage on initiative in the wilderness)",
+    "Frontier Grit (Colonist feature: colonists everywhere offer her food, shelter and honest help)"
+  ],
+  "traits": [
+    "Zero-G Adapted",
+    "Thin Bones",
+    "Overwatch",
+    "Trailwise",
+    "Steady Aim",
+    "Ranger"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I talk to the ice. Out loud, by name. 'Easy, Oxbow Ridge.' I'm only half joking. I'm calmest when everything is trying to kill us.",
+    "ideals": "The Shear doesn't care who you work for. Out there you help whoever's in the crevasse.",
+    "bonds": "My ice maps. Twenty years of routes nobody else knows, the Combine never paid for and I'll never sell. And my brother Joss, who took the buyout and wants me on the shuttle with him.",
+    "flaws": "I don't trust anyone who learned the ice from a screen, and I let them know it."
+  },
+  "appearance": "A tall, narrow woman of thirty-one with the long saltborn frame: arms like rope, hands like a climber's, a face burned brown and peeling around the eyes by the glare off the ice through her visor. Her hair is cropped short for the helmet and bleached almost white. She moves very fast and very quietly, and she never steps where she hasn't looked first.",
+  "backstory": "Imke Saranova is the best surface guide on Esker, and there are only four. Her parents were both surveyors who walked the Shear before there were crawlers, and they died there when she was twelve, in a crevasse she can find blindfolded. She has guided every survey and recovery team to Bore Nine for ten years. When the Combine sent its own team to recover Adaeze Rask's body, they didn't ask her. They took the newer crawler and a Halberd contractor with a screen map. They came back with the body and nothing else, and they won't say what they looked for in the shack. Imke wants to know why they didn't want a guide who might look too."
+}

@@ -1,0 +1,123 @@
+{
+  "id": "f5784e76-9584-4e90-8321-9a02f175be5c",
+  "name": "Amos Fairley",
+  "status": "alive",
+  "race": "City-Born",
+  "subrace": "",
+  "class": "Wheelman",
+  "level": 3,
+  "background": "Bootlegger",
+  "alignment": "Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 17,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 11,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Driving",
+    "Stealth",
+    "Mechanics",
+    "Perception",
+    "Sleight of Hand"
+  ],
+  "languages": [
+    "English",
+    "Railroad (the hand signals of the yard men, which he learned at twelve)"
+  ],
+  "equipment": [
+    "Leather jacket, black, too big, his late uncle's",
+    "Tire iron, under the seat",
+    "Car: 1929 Chevrolet sedan, 'the Deacon', rebuilt by himself from three wrecks, with a compartment under the back seat that nobody has ever found",
+    "Mechanic's tools",
+    "Road map with marks on it: every back road out of Jackson County, from the old days",
+    "A library book from the Lincoln branch: an engineering text on internal-combustion engines, overdue",
+    "A wedding ring in a box, for Miss Eula Coates, which he cannot afford to give her until he has forty dollars put by",
+    "Driving gloves",
+    "Hip flask (coffee)",
+    "Wallet containing $31"
+  ],
+  "weapons": [
+    {
+      "name": "Tire iron",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather jacket",
+    "type": "light"
+  },
+  "features": [
+    "Knows the Block (City-Born origin: Kansas City, every alley and back road; advantage on Streetwise checks to find a person, place or service in the city; once per foot chase, the GM gives his pursuer the next complication)",
+    "Behind the Wheel (Wheelman: advantage on Driving checks in chases and to avoid crashing. In the Deacon: +15 hit points to the car, his proficiency bonus to its AC while he drives, and once per long rest it drops to 1 instead of 0; he repairs it on a short rest with no check)",
+    "Smooth Ride (Wheelman: passengers have no disadvantage firing from the moving car, and advantage on saves in a crash or ram)",
+    "Lead Foot (Wheelman, 2nd level: a bonus action each turn to Dash, Disengage or Hide on foot, or, driving, one extra maneuver)",
+    "Style: Rumrunner (Wheelman, 3rd level: the Deacon has a hidden compartment big enough for a person or a crate, found only with a DC 20 Investigation check, and he has advantage on Deception checks at roadblocks)",
+    "Old Routes (Bootlegger background: he ran liquor at fourteen and knows the back roads in and out of the city, the farm lanes across the county line, the garages that hide a car for a night and the roadhouses that buy without asking)"
+  ],
+  "traits": [
+    "Behind the Wheel",
+    "Smooth Ride",
+    "Lead Foot",
+    "Rumrunner"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am always fixing something. I read engineering books at red lights. I talk fast when I'm nervous and not at all when I'm scared.",
+    "ideals": "A man should be paid for what he does and be able to look at what he does. I can do the first one.",
+    "bonds": "Miss Eula Coates, who is going to marry me at Mount Gilead in the spring if her daddy says yes, and my mother, who raised five of us on Highland and thinks I drive for a funeral home.",
+    "flaws": "I drive for Mr. Quarterman's club on election day for five dollars, and I know exactly what the men in my back seat are doing, and I take the five dollars. I tell myself if I don't, somebody else will. That's true. It doesn't help."
+  },
+  "appearance": "A lean, quick, brown-skinned young man of nineteen with an open, eager face, a fresh scar on one knuckle, grease ground into the creases of his hands, and an oversized black leather jacket. He stands with his weight on his toes, as if he were about to go somewhere fast.",
+  "backstory": "Amos Fairley was born on Highland Avenue in 1917, the third of five children of a widow who takes in sewing. At twelve he was carrying messages for the rail yards and at fourteen running cases of whisky for a bootlegger on the Blue River road in a stripped-down Ford, because he could drive anything and was too young to be worth arresting. Repeal ended that, and since 1934 he has done whatever paid: garage work, deliveries, and on election days, driving a floater car for Horace Quarterman's Vine Street Democratic Club, five dollars and a lunch. He has rebuilt a 1929 Chevrolet from three wrecks and named it the Deacon. He wants to go to the engineering school at Lincoln University in Jefferson City and has no way to pay for it. On Tuesday 3 November he is to report to the back lot of the Burnham Hotel at 4:30 in the morning to drive Crew B-3, five white men from the river wards, around the Second Ward all day, and his name is on page 79 of Virgil Strode's book.",
+  "dmNotes": {
+    "roleplaying": "Amos is the insider of election day and the person the federal case is most likely to land on. He should be met through Mrs. Whitaker or Rev. Pettus in bn-scenario-002, become the party's eyes on the floater routes in bn-scenario-003, and be the human face of the question in bn-scenario-004: whose names in the book go to court? He is sharp, ambitious and not a victim; he sees the trap before anyone else ('If anybody goes to jail for this, it'll be me and the other drivers'). Do not make him a lesson. Make him a young man with a ring in a box who would like to get married.",
+    "voice": "Quick, bright, full of engine words; slips into the rhythm of the yard men when excited. Says 'I'm just saying' after saying something true and dangerous. Goes completely quiet when he is frightened, and the party should notice when he stops talking.",
+    "motivations": "Primary: forty dollars put by, and Eula at Mount Gilead in the spring. Secondary: not to be the man who goes to prison for Big Sid Varnum. Tertiary, and he would never say it: to be able to look at what he does.",
+    "secrets": "He knows every floater route in the Second Ward and which Burnham men are in which crew, and he has kept a list in the back of his engineering book since 1934, out of a mechanic's habit of writing things down (an extra source for F5). Second: the Deacon's hidden compartment is the best place in the city to hide a book on election day, and he will offer it if he trusts the party. Third: Eula's father is Rev. Pettus's deacon, and if Amos is named in court, there will be no wedding.",
+    "attitude": "Toward the party: wary, then eager, then very loyal to anyone who treats him as more than a driver. Toward Quarterman: respect and resentment. Toward the repeaters in his back seat: a careful, angry pity. Toward Casey Dudek, if they meet at the Burnham lot: he knows exactly who Casey is and says nothing."
+  }
+}

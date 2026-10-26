@@ -1,0 +1,450 @@
+{
+  "id": "bn-scenario-003",
+  "title": "Dead Men Vote Tuesday",
+  "subtitle": "Monday Night and Election Day: Floater Cars at Dawn, a Barbershop Polling Place, a Count Nobody Means to Be Honest",
+  "levelRange": "5-6",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Kansas City, Monday 2 November to 2 a.m. Wednesday 4 November 1936",
+    "description": "Election day, and the night before. If the party holds the book, the machine is half-blind: Strode has spent the weekend at the Board with two clerks rebuilding his slips from the registration cards stamped 7, and has slips for about half his ghosts, written in a hurry, some of them wrong. The repeaters will still come. If the machine recovered the book on Saturday, the day runs on schedule and the party must catch it without the script. Either way the machine will win; it is 1936, and the margin would be real enough without a single ghost. The question is what can be proved, by whom, against whom, and whether Mrs. Pauline Whitaker gets home on Tuesday night. The day centres on Precinct 14, Dandridge's Barber Shop, under the party's own office, and reaches out along the floater-car routes to the river wards, the Burnham Hotel and the count downtown.",
+    "atmosphere": "Monday is blue and cold, the last day of the campaign, sound trucks everywhere, a torchlight parade for the machine on Main Street, Eighteenth Street quiet and watchful. Tuesday dawns hard and bright, with frost; by noon there are lines at every polling place, men in good overcoats handing out sample ballots and two-dollar bills on the corners, and policemen leaning on lampposts. The barbershop is a polling place: the chairs pushed back, two booths of plywood and curtain, a ballot box with a padlock, four judges and two clerks at a card table, and Mr. Dandridge sitting on his own shoeshine stand watching the strangers come in. At night the radios: returns from every state, Roosevelt carrying everything, a crowd outside the Gold Leaf listening through the door, and inside, the count. It should feel like a holiday and a robbery at once.",
+    "keyLocations": [
+      {
+        "name": "Precinct 14: Dandridge's Barber Shop",
+        "description": "The polling place: the three barber chairs pushed to the wall, two curtained plywood booths, a steel ballot box padlocked on a stool, the poll book and the register on a card table, four judges (two 'Democratic', two 'Republican'), two clerks, and, from 6 a.m., a white patrolman from Number Four standing behind Mrs. Whitaker's chair. Matthias's office upstairs looks straight down through a stovepipe hole in the floor that Mr. Dandridge has never fixed.",
+        "features": [
+          "The poll book: every voter signs or makes a mark beside their name",
+          "The stovepipe hole in the office floor, a perfect view of the card table and the box",
+          "The back door into the alley and Mrs. Templeton's kitchen",
+          "The line outside, all day, and the men on the corner with sample ballots and dollar bills"
+        ],
+        "encounters": [
+          "Mrs. Pauline Whitaker, the honest Republican judge",
+          "Mr. Lamar Biggers, the other 'Republican' judge, a machine man in a Republican's chair",
+          "Two machine judges and two clerks, Quarterman's precinct captain Mr. Ferris Bland among them",
+          "Patrolman Ed Kavanagh (Beat Cop), behind Mrs. Whitaker's chair, who does not much like his job today",
+          "Repeater crews in work clothes, five at a time, from 7 a.m."
+        ],
+        "secrets": [
+          "CLUE F3 (core, for anyone who sees the poll book after noon: an election judge, a watcher, Lem Castle on duty, or Mrs. Whitaker turning it toward the party): 'Lavinia M. Ransom, 1712 Woodland' is signed for at 9:40 a.m. in a large round hand, and the same hand has signed for six other dead women in the next half hour. Forensics DC 11: the same pen, the same pressure, the same backward-sloping d.",
+          "CLUE F4 (core, Mrs. Whitaker's list, kept on her knee in a school exercise book): by 3 p.m., fourteen living voters of Precinct 14 have come in and been told by the machine clerk 'You've already voted'. Among them: Rev. Zebulon Pettus at 11:15, who stands at the table and reads the Fifteenth Amendment aloud in a voice that stops traffic outside, and Mr. Dandridge himself, in his own shop, at 1:30. Each challenge goes in her book with the time and the clerk's name.",
+          "If the party holds the book: the crews come in with hurried slips (F2) and get names wrong. One repeater signs for 'Alma Dukes, 22', who was nine. A crew turns up at 10 a.m. for names already voted at 9. The machine clerks cover it as well as they can, and it is visible to anyone watching from the stovepipe hole.",
+          "At 6:58 p.m. a crew of five comes in for the last ghosts and Mr. Biggers tries to keep the doors open past seven 'for those still in line'. Mrs. Whitaker says no. That is the moment the day turns ugly."
+        ]
+      },
+      {
+        "name": "The Burnham Hotel and the Floater Cars",
+        "description": "Fifth Street in the river wards: four floors of fifteen-cent cots, a lobby with a spittoon and a coal stove, and a back lot of cinders where, from 4:30 a.m. on Tuesday, twenty cars line up: Fords, Chevrolets, two Packards with the machine's own club stickers on the windscreens. Harvey Gleason in a bowler hat and a sheepskin coat, a list on a clipboard, an envelope of dollar bills. The drivers are mostly Black men from the Second and Fourth Wards, hired through Quarterman's club at five dollars a day; the passengers are white men from the cots.",
+        "features": [
+          "The back lot at 5 a.m.: engines running, breath steaming, men in caps drinking coffee from a can",
+          "Gleason's clipboard: crew letters and numbers, routes, precinct lists",
+          "The lobby radio, playing hymns at dawn and returns at night"
+        ],
+        "encounters": [
+          "Harvey Gleason (Mob Lieutenant)",
+          "Sonny Moss and other Burnham men (Street Tough), if they survived the river road",
+          "Amos Fairley, floater driver, Crew B-3, if he is not already with the party (full sheet in the companion files)",
+          "Two hundred white men, broke, hungry and not interested in politics, who will vote for anyone for two dollars and a breakfast"
+        ],
+        "secrets": [
+          "CLUE F1 (core, automatic for anyone who watches the back lot between 4:30 and 6 a.m.): twenty floater cars leave with five men each, white passengers, mostly Black drivers, every car heading east toward the Second and Fourth Wards. Gleason's clipboard (Sleight of Hand DC 14 to read it, or Casey Dudek simply asks) lists the crews by letter and number, the same letters and numbers as pages 75 to 80 of the book.",
+          "CLUE F5 (core, from Amos Fairley if the party has met him and he trusts them, or from any floater driver persuaded, Persuasion DC 13): Crew B-3's route: Precinct 14 at 7 a.m., Precinct 12 at 8:15, Precinct 9 at 9:30, back to 14 at 9:40 with fresh slips, and so on all day, eight stops. Five men, eight stops, forty ghosts. Amos is paid at the end of the day; the repeaters at the car door after every stop, two dollars each.",
+          "The repeaters themselves are not villains, and the party should meet at least one: a white man in his fifties called Ira Rennick, a laid-off packing-house worker, who has not eaten since Sunday and who says, if asked, 'Mister, I don't even know what ward I'm in.' He will give up his slip (F2) for a meal and a dollar, or for nothing to anyone who treats him like a person.",
+          "Gleason pays the drivers last and least. Amos Fairley's real grievance is not the fraud: it is that the drivers carry all the risk on Eighteenth Street and get five dollars, and that the newspapers will say the Black wards stole the election."
+        ]
+      },
+      {
+        "name": "Number Four District, Monday",
+        "description": "Lem Castle's own station house. If Lem laid hands on white men on the river road on Saturday, there is a reckoning on Monday morning at 8 a.m. in the captain's office. If he did not play or did not act, the party may still be called in for questioning by Voyles, who wants the book and has stopped being charming.",
+        "features": [
+          "The captain's office: a flag, a framed commission, Captain Hugh Darrow and Lt. Voyles",
+          "The squad room, where the four Black patrolmen of Number Four have been put on election-day duty at four different polling places, all of them in the Second Ward"
+        ],
+        "encounters": [
+          "Captain Hugh Darrow, commander of Number Four, a tired man who does as he is told",
+          "Lt. Conrad Voyles (Bent Detective), polite again, and worse for it"
+        ],
+        "secrets": [
+          "If Lem Castle is played and acted on Saturday: he is suspended without pay 'pending inquiry' and told to turn in his badge after election day, and assigned, for Tuesday, to the polling place at Precinct 14, because Voyles wants to know where he is. Captain Darrow, alone with him, says: 'You did right, and it's going to cost you your badge, and I can't do a thing about either.' The Badge still works on Tuesday; by Wednesday it does not, unless the party can change that in bn-scenario-004 (Judge Stanfield is the way).",
+          "Voyles, to anyone: he knows the party has the book, or suspects it. He offers a trade: the book for no charges against anyone for Saturday, and Jules's life left alone. He gives them until 6 a.m. Tuesday. He does not expect them to take it. He is telling them that he will be at Precinct 14 tomorrow."
+        ]
+      },
+      {
+        "name": "The Gold Leaf on Election Night",
+        "description": "Mrs. Templeton has a radio on the bar and the doors open, and by nine o'clock there are two hundred people inside and a crowd outside on Eighteenth Street listening to the returns through the door. 1936 is the year Black Kansas City votes for Roosevelt in its majority for the first time, and the room is full of argument and something like joy, and some people are furious that the dead voted beside them. If Jules is alive he is at the piano, bandaged, playing with his left hand and two fingers of his right.",
+        "features": [
+          "The radio on the bar and a blackboard where Willa Templeton chalks up the states",
+          "The bandstand and the band, playing between bulletins",
+          "Strode's empty table by the bandstand"
+        ],
+        "encounters": [
+          "The whole neighbourhood, more or less",
+          "Virgil Strode, at 1 a.m., who comes in alone, sits at his usual table, orders a ginger ale and asks the band for a ballad"
+        ],
+        "secrets": [
+          "At 1 a.m. Strode comes to the Gold Leaf, alone, sits at his table, and asks the band for 'Woodland Avenue' if he has heard of it, or for any slow blues. He has spent the night at the Board watching Norbert Varnum initial the delivery of the Second and Fourth Ward tallies, and he has understood that on Wednesday he is going to be made to disappear. He wants to talk to the party. He is not ready to say it. He says only: 'I would like very much to stay alive until Christmas. Do you think that is possible?' and leaves a card with the Hotel Savoy's telephone number and his room, 612. This is the hook for bn-scenario-004."
+        ]
+      }
+    ]
+  },
+  "synopsis": "On Monday the last day of the campaign closes in. Lt. Voyles offers the party a trade (the book for their safety and Jules's) with a deadline of 6 a.m.; Lem Castle, if he laid hands on Gleason's men on Saturday, is suspended and posted, for one last day, to the polling place at Precinct 14; Amos Fairley, a floater driver for Quarterman's club, is told to report to the Burnham Hotel at 4:30 a.m. If the party holds the book, Strode and two clerks spend the weekend rebuilding slips from the Board's registration cards and get about half of them, in a hurry. Election day: at dawn the party can watch twenty floater cars leave the Burnham's back lot with white repeaters from the flophouses and Black drivers from the Second Ward; follow Crew B-3's route; take a slip from a hungry man who does not know what ward he is in; and stand at Precinct 14, the barbershop under their own office, while a dead woman signs the poll book seven times in one round hand, fourteen living neighbours are told they have already voted, Rev. Pettus reads the Fifteenth Amendment aloud to the machine clerks, and a patrolman stands behind the one honest judge's chair. After seven, the count. The machine judges try to bring in a bundle of pre-marked ballots and swap the tally sheet; Mrs. Whitaker refuses to sign; Voyles and Kreutz come to arrest her for disturbing the count; Gleason's men come for the box. The party must keep her, her notebook and the evidence alive. On the radio Roosevelt carries the country and the machine carries the city by the biggest margin in its history. At 1 a.m. Virgil Strode walks alone into the Gold Leaf, asks the band for a ballad, and says he would like to stay alive until Christmas.",
+  "hook": "Monday 2 November 1936, eight in the morning. A torchlight parade is being rehearsed on Main Street, a Landon sound truck has been turned over on the Paseo in the night, and somebody has slid an envelope under the office door. Inside is a typed card, no signature: 'For the return of a black account book, no questions, $500. Or six o'clock tomorrow morning is the last time anybody asks nicely. C.V.'",
+  "cluesAvailable": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "G4",
+    "H1"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "F. The ghosts are voted by white repeaters from the river wards, and the living are turned away",
+      "clues": [
+        "F1: the floater cars at dawn (the Burnham lot)",
+        "F2: a repeater's slip with a ghost's name (Ira Rennick, or any repeater)",
+        "F3: Lavinia Ransom's signature, and six others in the same hand (the poll book)",
+        "F4: Mrs. Whitaker's list of living voters turned away (Precinct 14)",
+        "F5: Crew B-3's route (Amos Fairley)"
+      ]
+    },
+    {
+      "conclusion": "The count at Precinct 14 is being falsified",
+      "clues": [
+        "The bundle of pre-marked ballots brought in at 7:20 p.m. under a clerk's coat (Precinct 14, the stovepipe hole)",
+        "Mrs. Whitaker's own running count of ballots cast, against the tally sheet the machine judges write (Precinct 14)",
+        "The tally sheet carried downtown is not the one signed at the table: Lem Castle or anyone following the runner sees the switch in the car (the runner's car)",
+        "Patrolman Kavanagh, afterwards, ashamed, if anyone asks him what he was told to do"
+      ]
+    },
+    {
+      "conclusion": "Strode knows the machine is going to kill him",
+      "clues": [
+        "The machine has stopped asking him for anything: the clerks at the Board say Norbert Varnum took the Second Ward tallies out of Strode's hands at midnight (the Board, election night)",
+        "Quarterman: 'Big Sid doesn't keep a man who loses things' (anywhere, election night)",
+        "Strode himself, at the Gold Leaf at 1 a.m., and his card for room 612 at the Savoy",
+        "H1, if the party holds the book: N.V.'s initials make Strode the only man who can explain them"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: The Last Day of the Campaign",
+      "description": "Monday. Voyles's card and his trade. Lem Castle's reckoning at Number Four, if it applies. Amos Fairley. Planning: if the party has the book, they can read Crew B-3's route and the precinct pages and decide where to be; if not, they need Amos. Mrs. Whitaker needs someone with her. Quarterman, if allied, says he will be working Precinct 14 tomorrow as he does every election, and that the party should stay out of his way. The torchlight parade on Main Street at night.",
+      "objectives": [
+        "Decide what to do about Voyles's deadline",
+        "Get the floater routes, from the book or from a driver",
+        "Make a plan for Precinct 14, and for Mrs. Whitaker's safety",
+        "Decide where the book is safest on election day"
+      ],
+      "scenes": [
+        {
+          "name": "C.V.",
+          "description": "The card under the door is from Voyles. He follows it with a telephone call to the barbershop at noon, asking for whoever is in charge, and offers the trade in person if they want it, at the Union Station lunch counter at three, a public place. He is polite. He says he knows about Saturday and has not yet decided what it was. He says Jules would be safer out of town. He says Mrs. Whitaker is a fine woman, 'and fine women ought to stay home on election day'. He does not threaten anyone in words.",
+          "readAloud": "He is sitting at the end of the long marble counter at Union Station with a cup of coffee and a piece of pie he has not touched, his hat on the stool beside him to keep it for you, and under the station's great ceiling, with the trains being called and a thousand people walking past, he looks like any businessman waiting for the 3:40 to St. Louis. He moves the hat when you come. The bandage on his right hand is smaller. 'I like this place,' he says. 'Everyone in it is going somewhere else. Sit down. Have some pie. Let's see if we can all be going somewhere else by tomorrow.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "He does not have the book, and it frightens him; Varnum is asking him where it is. He will be at Precinct 14 tomorrow, personally. And he does not know where Jules is now, which means the party has hidden him well.",
+              "failure": "He is perfectly calm. You leave with the sense of having been weighed, and with no idea what he knows."
+            },
+            {
+              "skill": "Deception",
+              "dc": 15,
+              "success": "You persuade him the book has gone to the federal man already. He believes it for a day, which means he spends Tuesday morning watching the Federal Building and not Precinct 14. He will be very angry on Tuesday afternoon.",
+              "failure": "He smiles and says 'No, it hasn't,' and puts a dime on the counter for the pie."
+            }
+          ]
+        },
+        {
+          "name": "The Driver",
+          "description": "Amos Fairley, nineteen, floater driver for Quarterman's club, has been told to be at the Burnham lot at 4:30 tomorrow. If the party has met him (Mrs. Whitaker named him) he comes to them, or they find him at his mother's on Highland, fixing a carburettor. His name is on page 79 of the book. He does not want to go to prison and he does not want to lose five dollars a day, and he is engaged to be married. He will drive Tuesday whatever the party says, because if he does not, someone else will and he will never drive for the club again. But he can carry someone: a party member in the back of his car as 'a repeater', or a route written on a matchbook, or he can be the party's eyes all day.",
+          "readAloud": "He is under the hood of a 1929 Chevrolet in his mother's back yard on Highland with a wrench in one hand and a library book open on the fender, and he looks up when you come round the side of the house and does not stop working. 'If this is about tomorrow,' he says, 'I'm driving. My girl's daddy says I can't marry her without forty dollars put by, and I've got thirty-one.' He tightens something. 'You want to know where I'm going, I'll tell you where I'm going. You want me not to go, you better have nine dollars and a better idea.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Amos agrees to carry one party member in his car as a repeater all day (Deception DC 12 at the lot to pass with Gleason, automatic for Casey Dudek), and to give the party his route (F5) and the times.",
+              "failure": "Amos gives you the route on a matchbook and nothing more. 'I don't know you. I know Mr. Quarterman.'"
+            },
+            {
+              "skill": "Streetwise",
+              "dc": 13,
+              "success": "Amos explains how it works from the driver's seat: the slips are handed out at the car by Gleason's man, not by the drivers; the drivers never touch the money except their own five; and the drivers are the ones the police know by name, because they live on Eighteenth Street. 'If anybody goes to jail for this,' he says, 'it'll be me and the other drivers. You watch.'",
+              "failure": "Amos says it is a job, like any job."
+            }
+          ]
+        },
+        {
+          "name": "Torchlight",
+          "description": "Monday night the machine's parade goes down Main Street: brass bands, torches, floats, a mile of marchers, Big Sid Varnum on the reviewing stand outside the Muehlebach in a black overcoat. The party may go to look at him. He is sixty-three, heavy, bald, with a quiet face and very small eyes, and he never raises his hand above his shoulder when he waves. Beatrice Albright's father, the bond lawyer, is on the stand beside him. If Beatrice is played, her father sees her in the crowd and comes down to talk to her: he knows she has been 'running around on Eighteenth Street with some detective', and Big Sid has asked him about it. 'Whatever it is,' he says, 'give it back.'",
+          "readAloud": "The parade comes down Main Street like a river on fire: torches in a double line, a brass band playing 'Happy Days Are Here Again' for the ninth time, a float of girls in white dresses throwing paper roses, men with banners for every ward, and at the head of the Second Ward's contingent, under a banner that says VINE STREET DEMOCRATIC CLUB, Horace Quarterman in a silk hat, waving, with Zora beside him in a new coat. On the reviewing stand outside the Muehlebach, among a dozen men in black overcoats, there is one who does not wave at all. He stands with his hands folded on the head of a cane and watches the parade go past him the way a man watches his own money being counted.",
+          "skillChecks": [
+            {
+              "skill": "Society",
+              "dc": 13,
+              "success": "Beatrice, or anyone with Old Money manners on the reviewing stand: Norbert Varnum, the nephew, is the one standing behind Big Sid's right shoulder, forty, soft, anxious, a fountain pen in his breast pocket. Big Sid speaks to him once, briefly, and Norbert goes pale.",
+              "failure": "The faces on the stand are a row of overcoats. You know the one in the middle."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Beatrice's father, privately, under the noise of the band: Big Sid has asked him to 'draw up something' for Strode's resignation from the Board, dated Wednesday. 'Sid doesn't ask for resignations. He arranges them.'",
+              "failure": "Her father tells her to go home and stay there until Wednesday, and means it kindly, and she can see he is afraid."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "No fights expected on Monday. If the party is careless with the book, two of Gleason's men try to take it from wherever it is kept (Street Tough x2), at night"
+      ]
+    },
+    {
+      "title": "Act 2: The Polls Are Open",
+      "description": "Tuesday 3 November, 4:30 a.m. to 7 p.m. The Burnham lot at dawn (F1). Crew B-3's day (F5, F2). Precinct 14 all day: the ghosts signing (F3), the living turned away (F4), Rev. Pettus and the Fifteenth Amendment, Mr. Dandridge in his own shop, the patrolman behind Mrs. Whitaker's chair, Quarterman working the line outside with a face like stone. Voyles at noon. The party may split along the color line here, because some places only some of them can stand without being noticed, and that is the day's tactical puzzle.",
+      "objectives": [
+        "Witness the floater cars and the crews",
+        "Get a repeater's slip, or a repeater, as evidence",
+        "Keep a watch on Precinct 14's poll book and Mrs. Whitaker",
+        "Keep the living voters of Precinct 14 from being turned away, or at least recorded"
+      ],
+      "scenes": [
+        {
+          "name": "Five A.M.",
+          "description": "The Burnham's back lot (F1). Gleason with his clipboard. Twenty cars, a hundred men. Casey Dudek, if played, is expected here and can walk straight in. Anyone else needs to be a repeater (in Amos's car), a driver, or a watcher in a doorway across Fifth Street. A Black party member in the lot not driving a car is noticed at once. Ira Rennick, the hungry repeater, is in Crew B-3.",
+          "readAloud": "The lot behind the Burnham is cinders and frost and the breath of a hundred men going up in the light from the kitchen door. Cars are lined up nose to tail with their engines running, and men in caps and patched coats are standing in fives beside them, stamping their feet, drinking coffee out of a tin can that goes from hand to hand. At the kitchen door a short wide man in a bowler hat and a sheepskin coat is reading names off a clipboard in a voice like a door that needs oil, and as each five is called a man beside him hands each of them a slip of paper and a doughnut, and they get into a car, and a Black man in a cap behind the wheel looks straight ahead and pulls out into Fifth Street, and the next car moves up.",
+          "skillChecks": [
+            {
+              "skill": "Deception",
+              "dc": 12,
+              "success": "You pass as a repeater (or Casey simply belongs). You are in Crew B-3, Amos driving, with Ira Rennick and three others, and a slip in your pocket with a dead man's name on it: F2 in your own hand.",
+              "failure": "Gleason looks at you twice and says 'You ain't from upstairs.' You can bluff (Deception DC 15) or walk. If you walk, he remembers your face. Heat +1."
+            },
+            {
+              "skill": "Sleight of Hand",
+              "dc": 14,
+              "success": "Gleason's clipboard, read over his shoulder or lifted for thirty seconds: crews, routes, precincts. With the book, it is a match; without it, it is the route map of the day.",
+              "failure": "You see that there is a clipboard. You do not get close enough to read it."
+            }
+          ]
+        },
+        {
+          "name": "Already Voted",
+          "description": "Precinct 14, from 6 a.m. Run it as a series of short beats through the day, cutting to the party wherever they are. 7:05, Crew B-3's first visit: five white men in work clothes sign for five dead Black people, and the machine clerk does not look up. 9:40, Lavinia Ransom votes (F3). 11:15, Rev. Pettus is told he has already voted, and reads the Fifteenth Amendment to the room (F4). 12:00, Voyles comes in, nods to Patrolman Kavanagh, and stands by the stove for ten minutes watching Mrs. Whitaker. 1:30, Mr. Dandridge is told he has already voted, in his own shop. 3:00, the line is around the block, and Quarterman, outside, is shaking every hand in it. 6:58, the last crew, and Mr. Biggers's attempt to keep the doors open. Each beat is a chance for the party to witness, record, challenge, or help a voter cast a challenged ballot (Mrs. Whitaker knows the procedure for a sworn challenge and insists on it).",
+          "readAloud": "Rev. Zebulon Pettus stands at the card table in his black coat with his hat in his hand, and the clerk, a young man with a pencil moustache who has just told him that he voted at eight o'clock this morning, has begun to wish he had said something else. The reverend does not raise his voice at first. 'I am Zebulon Pettus,' he says. 'I have lived on Woodland Avenue for thirty-one years. I have buried four hundred people in this precinct and baptised six hundred, and I have voted in every election since I was twenty-one, and I did not vote at eight o'clock this morning, because at eight o'clock this morning I was burying Mrs. Lucinda Harper.' Then he takes a small book out of his coat, and opens it, and does raise his voice, and the line outside goes quiet to listen. 'The right of citizens of the United States to vote,' he reads, 'shall not be denied or abridged by the United States or by any State on account of race, color, or previous condition of servitude.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "You help a turned-away voter swear an affidavit and cast a challenged ballot. Mrs. Whitaker records it; the machine clerks cannot refuse it in front of witnesses. Each success is a living vote that counts, and each is in her book.",
+              "failure": "The clerks stall, Mr. Biggers calls the challenge 'out of order', and Patrolman Kavanagh is told to clear the table. The voter goes home. Mrs. Whitaker writes the name down anyway."
+            },
+            {
+              "skill": "Forensics",
+              "dc": 11,
+              "success": "From the stovepipe hole or at the table: the same round hand has signed for Lavinia Ransom and six other dead women (F3), and, by afternoon, nineteen more. Photographs through the hole with a camera and flashbulbs (a Reporter's Photographer beat, or anyone with the camera and Performance or Stealth DC 13 to do it unseen) are evidence a jury will accept.",
+              "failure": "You see the signatures and cannot prove they are the same hand. Mrs. Whitaker can, under oath, later."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "Patrolman Kavanagh does not like what he is doing. If someone speaks to him privately, he says he was told to 'stand behind the teacher and see she don't make trouble', and that if she is arrested tonight it will not be his doing. He will not stop it. He might stand in the wrong place.",
+              "failure": "The patrolman is a uniform with a face in it."
+            }
+          ]
+        },
+        {
+          "name": "Two Dollars and a Breakfast",
+          "description": "Crew B-3's day, from inside Amos's car or following it. Eight stops. At each one, five men go in with slips, come out, are paid two dollars each at the car door by Gleason's man, and are handed five more slips. Ira Rennick, at the third stop, is sick in the gutter from hunger. If the party treats him decently, he gives up his slips (F2) and, if asked, will tell a federal agent what he did, 'if they'll feed me'. At the fifth stop a Black woman voter in line recognises Amos and says 'Shame on you, Amos Fairley,' and he does not answer, and his hands shake on the wheel.",
+          "readAloud": "Ira Rennick is fifty-four, he tells you, and he worked at the Armour plant for nineteen years before they laid him off in '33, and he has a daughter in Topeka who does not write. He is holding his two dollars in his fist as if somebody might take them, and at the corner of Twelfth and Highland, while the others are inside, he gets out of the car and is sick in the gutter, very quietly, and gets back in, and wipes his mouth with the back of his hand. 'Ain't eaten since Sunday,' he says. 'Doughnut don't sit.' He looks at the slip in his other hand. 'Who's this fella, anyway? Thornton Medlin. Who's Thornton Medlin?'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 10,
+              "success": "Walt gives you his slips (F2: in Strode's hurried hand, or copied from the book, a dead man's name, address and precinct). He will testify for a meal. He asks you, ashamed, whether Thornton Medlin had family.",
+              "failure": "Walt is frightened of Gleason and keeps his slips. He will change his mind for a hot meal and a dollar."
+            },
+            {
+              "skill": "Driving",
+              "dc": 12,
+              "success": "Following Crew B-3 in another car without being spotted by Gleason's roving man in a Packard: you see every stop, and the payments at the car door.",
+              "failure": "The Packard notices you at the fourth stop and follows you instead. Heat +1, and Gleason's men know which car you are in."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Patrolman Ed Kavanagh (Beat Cop), behind Mrs. Whitaker's chair all day",
+        "Gleason's roving Packard: Sonny Moss and a Hired Gun, checking on the crews",
+        "Lt. Voyles (Bent Detective) at Precinct 14 at noon, ten minutes by the stove"
+      ]
+    },
+    {
+      "title": "Act 3: The Count",
+      "description": "Tuesday 7 p.m. to 2 a.m. Wednesday. The doors close at Precinct 14. The count begins at the card table under the bulb, with the radio next door at the Gold Leaf bringing the returns across the street. At 7:20 a machine clerk brings in a bundle of pre-marked ballots under his coat. Mrs. Whitaker has kept her own running count of ballots cast. The tally sheet the machine judges write is wrong by 212. She refuses to sign. At 9:30 Voyles and Kreutz arrive to arrest her for 'obstructing an election officer'; Gleason's men wait outside for the box. The party has to keep her, her notebook, the evidence and themselves alive, and choose what to fight for. At 1 a.m., Strode at the Gold Leaf.",
+      "objectives": [
+        "Witness and record the falsified count",
+        "Keep Mrs. Whitaker from being arrested, or get her notebook out if she is",
+        "Decide whether to fight for the ballot box (and what it costs)",
+        "Hear what Strode has to say at 1 a.m."
+      ],
+      "scenes": [
+        {
+          "name": "The Bundle",
+          "description": "The count. The judges open the box and count ballots aloud onto the table in piles. At 7:20 the machine clerk with the pencil moustache comes back from 'the washroom' with his coat buttoned over something square. Anyone watching from the stovepipe hole or at the table (Perception DC 12) sees him slide two hundred and twelve pre-marked ballots into the count. Mrs. Whitaker's own tally is 1,031 ballots cast. The machine tally sheet says 1,243. She lays her pencil down and says she will not sign. Mr. Biggers signs for the Republicans in her place. A runner is sent downtown with the sheet.",
+          "readAloud": "The count goes on under the single bulb, the judges calling the names in a drone, 'Roosevelt, Roosevelt, Roosevelt, Landon, Roosevelt', and the clerk making marks in fives on a long sheet, and through the barbershop window you can hear the radio across the street at the Gold Leaf and the crowd cheering every state. Mrs. Whitaker has a small school exercise book on her knee in which she has made a pencil mark for every person who went behind the curtain today. She has not looked up from it in an hour. When the clerk with the pencil moustache reads out the total, she looks up. She closes the exercise book. She puts her pencil down on the card table very carefully, parallel to the edge. 'No,' she says.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 12,
+              "success": "You see the bundle go in. With a camera through the stovepipe hole (Stealth DC 13), you have a photograph of it.",
+              "failure": "You see the clerk come back with his coat buttoned and the count go up. You cannot swear to more."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 15,
+              "success": "In front of witnesses, with Lem Castle's badge or a Reporter's notebook or a Heavy's shoulders, you make the machine judges count the bundle separately and write it on the sheet. They do, sullenly, and the sheet that goes downtown has a line on it that will hang them. Heat +2.",
+              "failure": "The judges call the policeman. Patrolman Kavanagh comes forward, slowly. The party can back down or start something in a polling place on election night, which is Heat +3 and a cell."
+            }
+          ]
+        },
+        {
+          "name": "Obstructing an Election Officer",
+          "description": "9:30 p.m. Voyles and Kreutz come in with a warrant sworn by Mr. Biggers and arrest Mrs. Whitaker. The party has seconds. Options: get her notebook out of her bag before they take it (Sleight of Hand DC 13, or she passes it to someone she trusts); stand in the doorway (Lem Castle's badge against Voyles's; Patrolman Kavanagh will not help Voyles, and may stand in his way); make the arrest so public that it becomes a story (two hundred people are across the street at the Gold Leaf; a Reporter can bring them over in a minute, and Voyles does not want two hundred witnesses); or go with her to the station with Hezekiah Wilburn and get her out before morning (Judge Stanfield will sign at midnight for this). Gleason's men are in a car outside waiting for Voyles's nod to take the ballot box 'for safe keeping'. The party may let the box go and keep the woman, which is the right choice, or try to keep both.",
+          "readAloud": "The door opens and lets in the cold and the sound of the radio across the street, and Lieutenant Voyles comes in, taking off his hat, with Sergeant Kreutz behind him and a folded paper in his bandaged hand. He nods to the judges. He nods to Mr. Dandridge on his shoeshine stand. He nods to you, each of you, by name. 'Mrs. Whitaker,' he says, 'I have a warrant here sworn by Mr. Biggers for obstructing an election officer in the performance of his duty, and I am sorry to say I shall have to ask you to come with me.' She stands up. She is very small, beside him. She holds her handbag in front of her with both hands, and her eyes go, once, to the nearest of you, and then down to the bag.",
+          "skillChecks": [
+            {
+              "skill": "Sleight of Hand",
+              "dc": 13,
+              "success": "The exercise book goes from her bag to your coat. Voyles takes her and the bag, and the bag has her spectacles and a hymnbook in it. F4 and her count are safe.",
+              "failure": "Kreutz takes the bag. The party will have to get the notebook back from the property room at Number Four (a $25 bribe, a burglary, Heat +2, or Judge Stanfield's order on Wednesday)."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "Two hundred people from the Gold Leaf are suddenly across the street and in the doorway, singing, then silent, then very loud. Voyles looks at them for a long moment and then says he will 'take Mrs. Whitaker's statement in the morning' and leaves without her. The ballot box leaves with Gleason's men by the back. Nobody fires a shot.",
+              "failure": "The crowd comes, but too late: Voyles is already in the car with her. The party must follow to Number Four, where Hezekiah Wilburn and Judge Stanfield can have her out by 2 a.m., if someone wakes them."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "Facing Voyles down in the doorway, with Lem's badge or the whole party between him and her: he decides tonight is not the night, and promises, softly, that there will be another. Heat +2.",
+              "failure": "Voyles signals and Kreutz draws. It is a stand-off in a barbershop full of election judges. The GM should give the party one more chance to step back before anyone fires; if they fire, it is Heat +3 and the worst night of the campaign."
+            }
+          ]
+        },
+        {
+          "name": "A Ballad at One in the Morning",
+          "description": "The Gold Leaf at 1 a.m., the crowd thinning, Roosevelt's victory certain, the machine's own victory announced on the radio at midnight by the biggest margin in the city's history. Virgil Strode comes in alone in his camel coat, sits at his usual table by the bandstand, orders a ginger ale and asks for a ballad. If Jules is at the piano and knows who he is, the scene is extraordinary: the man who stole the names of the dead asks the son of one of them for a song. Jules can refuse, or play 'Woodland Avenue' at him, or play him exactly what he asked for. Then Strode speaks to whoever comes to his table. He has spent the night at the Board watching Norbert Varnum take the Second and Fourth Ward tallies out of his hands. He has been told to sign a resignation dated Wednesday. He knows what that means. 'I would like very much to stay alive until Christmas,' he says. 'Do you think that is possible?' He leaves his card: Hotel Savoy, room 612.",
+          "readAloud": "He sits at the table he always sits at, by the bandstand, in the camel coat he does not take off, and orders a ginger ale, and when it comes he does not drink it. Up close he is older than you thought and very tired, and his hands, folded on the table, are perfectly still in the way of a man who has practised keeping them still. The band is playing something slow for the last few couples. He listens with his eyes closed, all the way through. When it ends he opens them and finds you looking at him, and he does not seem surprised. 'I have always thought,' he says, 'that this is the only room in Kansas City where nobody is lying while the music is playing.' He turns the glass a quarter turn on the tablecloth. 'Afterwards, of course, we all start again.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 11,
+              "success": "He is terrified and he is telling the truth. He has worked out what he is worth to the federal government and what he is worth to Big Sid, and the second number is lower. He will talk on Wednesday, somewhere safe, if the party can promise him he will be alive on Thursday.",
+              "failure": "He seems like a man who has had a long day. His card says room 612, and he wants you to have it."
+            },
+            {
+              "skill": "Performance",
+              "dc": 13,
+              "success": "If Jules (or any musician) plays 'Woodland Avenue' and Strode understands what it is: he weeps, without moving, and when it is done he says, 'Lavinia Ransom, 1712 Woodland, page eleven, fourth line,' and gets up and goes out. The next day he is a different witness: he wants, a little, to be forgiven, which no one owes him.",
+              "failure": "He listens politely and says it was very fine, and the party never knows whether he understood."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "Lt. Voyles (Bent Detective) and Det. Sgt. Kreutz (Crooked Cop) at Precinct 14 at 9:30 p.m.",
+        "Gleason's men in a car outside (Street Tough x3), waiting for the ballot box",
+        "If the party holds the book and it is known, two Hired Guns sent by Gleason to wherever they think it is, at midnight, while the city celebrates"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Mrs. Pauline Whitaker, 47",
+      "role": "The honest Republican judge at Precinct 14",
+      "description": "Small, upright, a school exercise book on her knee, a pencil she lays down parallel to the table edge. Afraid all day and does it anyway.",
+      "motivation": "One honest count, and to get home."
+    },
+    {
+      "name": "Amos Fairley, 19",
+      "role": "Floater driver, Crew B-3; a companion (full sheet in the companion files)",
+      "description": "Lean, quick, grease under his nails, a library book on the fender, engaged to be married and nine dollars short.",
+      "motivation": "Forty dollars put by, a wedding at Mount Gilead in the spring, and not to be the man who goes to prison for Big Sid Varnum."
+    },
+    {
+      "name": "Ira Rennick, 54",
+      "role": "A repeater; a laid-off packing-house worker from the Burnham",
+      "description": "Grey stubble, a cap, a coat with no buttons, sick from hunger. Does not know what ward he is in.",
+      "motivation": "Breakfast. Then, if anyone asks him decently, to know who Thornton Medlin was."
+    },
+    {
+      "name": "Harvey Gleason, 44",
+      "role": "First Ward captain; the Burnham Hotel; the repeaters",
+      "description": "Short, wide, a bowler hat and a sheepskin coat, a voice like an oilless hinge. Use Mob Lieutenant.",
+      "motivation": "Two hundred men on the road, two dollars a vote, and his fee."
+    },
+    {
+      "name": "Lt. Conrad Voyles, 51",
+      "role": "Homicide; the machine's man in the police",
+      "description": "As before, courteous and patient and worse for it. The bandage on his hand gets smaller every day.",
+      "motivation": "The book, and an end to the party, before Varnum's patience runs out."
+    },
+    {
+      "name": "Patrolman Ed Kavanagh, 29",
+      "role": "Beat cop from Number Four, posted behind Mrs. Whitaker's chair",
+      "description": "Big, young, Irish, a decent man in an indecent job. Use Beat Cop.",
+      "motivation": "Keep his job, and not be the one who does the worst thing."
+    },
+    {
+      "name": "Sidney 'Big Sid' Varnum, 63",
+      "role": "The boss",
+      "description": "Seen once, on the reviewing stand: heavy, bald, quiet, very small eyes, hands folded on a cane. Never waves above his shoulder. Use Mob Boss.",
+      "motivation": "The biggest margin in the city's history, and on Wednesday, tidiness."
+    },
+    {
+      "name": "Norbert Varnum, 40",
+      "role": "Big Sid's nephew; treasurer of Varnum Bonding and Surety; N.V.",
+      "description": "Soft, anxious, a fountain pen in his breast pocket, always one step behind his uncle's right shoulder.",
+      "motivation": "To be trusted by his uncle, and not to be the man whose initials are in a book."
+    },
+    {
+      "name": "Virgil Strode, 47",
+      "role": "The book's author; at 1 a.m., a man asking for his life",
+      "description": "Camel coat, ginger ale, perfectly still hands.",
+      "motivation": "To be alive at Christmas."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "Nobody pays the party for election day. Amos Fairley's five dollars is his own. If Voyles's $500 was refused, it is not offered again. The Gold Leaf's election-night door takings are good, and Willa Templeton presses $10 on each party member 'for the doorway' whether they want it or not.",
+    "items": [
+      "A repeater's slip, or several, with dead people's names (Clue F2)",
+      "Mrs. Whitaker's exercise book: her running count, 1,031, and every living voter turned away (Clue F4)",
+      "Photographs through the stovepipe hole, if taken: the signatures, the bundle",
+      "Crew B-3's route on a matchbook, and Ira Rennick's willingness to testify for a meal (Clues F2, F5)",
+      "Virgil Strode's card: Hotel Savoy, room 612"
+    ]
+  },
+  "twists": [
+    "The machine wins anyway, by its biggest margin ever, and the party should feel the weight of that on the radio at midnight. It is 1936, and much of the margin is real: Eighteenth Street voted for Roosevelt, in its majority for the first time, for its own reasons. The ghost vote was never about winning. It was about the size of the win, and Big Sid's standing in Jefferson City and Washington.",
+    "The hands that vote the Black dead are white, and the drivers who carry them are Black, and the drivers are the ones the police know by name. Amos Fairley sees it before anyone: 'If anybody goes to jail for this, it'll be me.' This is the trap the federal case will fall into in bn-scenario-004 unless the party prevents it.",
+    "The repeaters are not villains. They are the poorest white men in the city, and they are being used too. Ira Rennick asking who Thornton Medlin was should land.",
+    "Virgil Strode, at 1 a.m., asks the son of one of his ghosts to play him a ballad. Let the players decide what that means.",
+    "Mrs. Whitaker's arrest is meant to frighten every honest judge in the city for the next election. Keeping her free, and her notebook safe, matters more than the ballot box, which will be 'recounted' downtown whatever happens."
+  ],
+  "dmTips": [
+    "Run election day as cuts between the party's positions: the Burnham lot at dawn, Amos's car, the stovepipe hole, the card table, the line outside. Keep each cut short and give each a time stamp. Precinct 14's beats (7:05, 9:40, 11:15, 12:00, 1:30, 3:00, 6:58) are the spine; hang the rest on them.",
+    "The color line is the day's tactical puzzle, not a penalty. A white party member can stand in the Burnham lot or ride as a repeater; a Black party member can stand in the Precinct 14 line or talk to the drivers as one of the neighbourhood; neither can easily do the other. Make the split the party's choice, and make it matter.",
+    "Core clues are automatic: anyone at the Burnham lot at dawn sees F1; anyone who looks at the poll book after 9:40 sees Lavinia's signature (F3); Mrs. Whitaker's list (F4) exists whether or not the party helps her keep it. Rolls add detail, protect people and avoid Heat.",
+    "Rev. Pettus reading the Fifteenth Amendment should be the scene of the day. Let it run. Let the line outside go quiet. It is a real amendment, and in 1936 it was being broken in plain sight across the country.",
+    "Do not let the count become a shoot-out unless the players insist. The best result is a public one: two hundred witnesses in the doorway, a tally sheet with the bundle written on it, Mrs. Whitaker's notebook in a safe pocket, and Voyles walking out without her.",
+    "If the machine recovered the book on Saturday, the day runs perfectly for them: no wrong names, no repeated ghosts. The party can still get F1, F2, F3, F4 and F5, and with Strode's testimony in bn-scenario-004 those are enough.",
+    "Lem Castle's suspension is a scene, not a punishment. If his player wants to fight it, the road runs through Judge Stanfield in bn-scenario-004.",
+    "Period texture: the returns on the radio state by state (Roosevelt carries every state but two), Landon's concession late, 'Happy Days Are Here Again' everywhere, election-night crowds downtown, a torchlight parade, frost, the new City Hall's steel frame lit up, men with two-dollar bills in their fists.",
+    "Level-up note: the 7500 XP in this file is per character and takes each 5th-level character to 6th (14,000 XP). Award it at 2 a.m. when the count is over."
+  ]
+}

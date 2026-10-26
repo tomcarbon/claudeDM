@@ -1,0 +1,132 @@
+{
+  "id": "4cdcf88a-5518-4713-a166-99ce4f2f5b99",
+  "name": "Micah Garrick",
+  "status": "alive",
+  "race": "Frontier-Born",
+  "subrace": "",
+  "class": "Outlaw",
+  "level": 3,
+  "background": "Cattle Drover",
+  "alignment": "Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 15,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 16,
+      "modifier": 3
+    },
+    "intelligence": {
+      "score": 8,
+      "modifier": -1
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 31,
+    "current": 31
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Constitution"
+  ],
+  "skills": [
+    "Stealth",
+    "Survival",
+    "Mechanics",
+    "Animal Handling",
+    "Riding"
+  ],
+  "languages": [
+    "English",
+    "Spanish (from the vaqueros on two drives up from California)"
+  ],
+  "equipment": [
+    "Leather duster, patched at the elbows, over a red wool shirt and a quilted vest",
+    "Navy revolver (Colt 1851 pattern, .36, cap-and-ball), 6 chambers loaded, worn low on the right",
+    ".36 rounds (12)",
+    "Coach gun (muzzle-loading double, 12-bore, barrels cut to eighteen inches), both barrels loaded",
+    "Shotgun shells (10)",
+    "The shells are paper cartridges of powder and buckshot for a muzzle-loader, with a tin of percussion caps",
+    "A keg of blasting powder (5 lb) and twenty feet of safety fuse, from the time he worked a hard-rock claim; enough for two black-powder charges",
+    "Lockpicks in a leather roll that he tells people are for his saddle",
+    "A black silk bandanna he has not worn over his face since August 1863",
+    "Lariat (forty feet of braided rawhide), a pair of Mexican spurs",
+    "Horse: Shadrach, a big, ugly, very fast blue roan gelding with a Boise Basin livery brand under the mane",
+    "Saddle, saddlebags, bedroll, slicker, a canteen and a coffee pot",
+    "Wallet containing $16"
+  ],
+  "weapons": [
+    {
+      "name": "Navy revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Coach gun",
+      "attackBonus": 4,
+      "damage": "2d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Black-powder charge",
+      "attackBonus": 4,
+      "damage": "2d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Hard Country (Frontier-Born origin: advantage on saves against exhaustion from heat, cold, thirst and hard travel; once per long rest he can shrug off a level of exhaustion gained on the trail)",
+    "Dirty Fighting (Outlaw: once per turn, an extra 1d6 damage of the weapon's type to a creature that isn't ready: surprised, not yet acted this combat, unable to see him, prone, grappled, restrained or on a spooked horse; not part of the damage on his sheet)",
+    "Hard Riding (Outlaw: advantage on Riding checks in a chase he is fleeing; mounts and dismounts with 5 ft of movement; a bonus action each turn to Dash, Disengage or Hide)",
+    "Powder Man (Outlaw, 2nd level: lighting a fuse is part of the throw; his thrown charges use DC 8 + proficiency + DEX; he sets and fuses a charge in 1 minute with no chance of it going off early, and cuts a fuse to burn any time from a round to an hour. Black powder only: dynamite has not been invented yet)",
+    "Trade: Road Agent (Outlaw, 3rd level: when he calls 'stand and deliver' with a gun drawn on a coach, a rider or a room, every creature that can see and hear him makes a WIS save, DC 10, or raises its hands and does nothing hostile until attacked or until he looks away. He learned it on the Boise road in 1863 and has used it once since, to stop a fight)",
+    "The Trail Outfit (Cattle Drover background: any trail crew, ranch or packers' camp takes him in for a night; he knows the trails, river crossings and cattle markets from the Sacramento to the Snake, and who cheats drovers)"
+  ],
+  "traits": [
+    "Dirty Fighting (1d6)",
+    "Hard Riding",
+    "Powder Man",
+    "Road Agent",
+    "The Trail Outfit"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am easy company and I tell good stories, none of them about myself. I sit with my back to the wall and I know where the horses are. I pay my debts the same day, every time.",
+    "ideals": "A man is what he does next. I have to believe that, because of what I did last.",
+    "bonds": "Shadrach, who carried me out of the Boise Basin. My sister in Lexington, Missouri, who thinks I am driving cattle. And the stage driver on the Boise road, Pleas Keddle, whose name I never knew until I read it in the paper.",
+    "flaws": "In August 1863 I rode with road agents on the Idaho City road. On the second coach a man reached under his coat for his spectacles and one of my partners shot him. I rode away and kept riding. I have never told a living soul, and I will lie to anyone, including you, to keep from hanging for it."
+  },
+  "appearance": "A loose-limbed, sandy-haired man of twenty-seven with a sunburnt, freckled, friendly face, a gap in his front teeth, pale blue eyes that don't miss anything, and a laugh you can hear across a saloon. Dresses like the drover he was. Carries his gun a little lower than a drover does.",
+  "backstory": "Micah Garrick was born in 1837 on a hemp farm near Lexington, Missouri, and left at sixteen to drive cattle to California, where he rode for Californio ranchos and learned the vaqueros' trade. In 1861 Missouri went to war with itself and Micah stayed away from it, which some men in Ninebark hold against him and some men hold in his favour, depending on which side they would have had him on. In 1863 he was in the Boise Basin, broke, and fell in with three men who robbed coaches on the Idaho City road. He rode with them twice. On the second job a passenger was shot dead, and Micah left the territory that night and has not been back. He came to Ninebark in the spring of 1864, works as a hostler and teamster and sometimes as a powder man on the hard-rock claims, and has lived quietly. On 6 November Jack Tillery, under the rope, named him: Tillery had been in Idaho City in 1863 and had seen him. Micah is on the list. The worst of it is that he did ride with road agents once; the rest of it is that he has had nothing to do with these. (Suggested hook: he recognises the road agents' method on Thursday's robbery as one he has seen before. The GM should agree with the player how much of the past is known, and to whom; it is the player's secret to reveal.)"
+}

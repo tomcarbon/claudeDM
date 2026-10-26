@@ -1,0 +1,389 @@
+{
+  "id": "sm-scenario-004",
+  "title": "The Last Canister",
+  "subtitle": "Five Days, One Transmitter, a Reactor With Two Off Switches, and a Freighter That Leaves at Midnight",
+  "levelRange": "6-7",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "Brinehold, the Mast and the Sling, C-5 to C-0",
+    "description": "The last five days of the charter. The party has the evidence. Rook has everything else: the Mast, the only transmitter that can reach the Claims Board relay, guarded by Halberd; the Sling, which throws the last canister at C-0, 2200, with the Stillwater cold case inside it; and an envelope in Severin Haake's pocket that says what happens to Brinehold's reactor at C-1, 1800. The Plainsong is in orbit with her holds nearly full. Captain Halvik breaks orbit at 0000 on C-0 whatever happens on the ground.",
+    "atmosphere": "Endgame. Everything the party has done comes due. Brinehold is half empty, its halls echoing, chalk numbers smeared on the walls. The last shuttles are running round the clock to the Plainsong. The colonists who are staying are tired, frightened and stubborn; the ones who are leaving are hugging people at Pad Row. Play the last day as a split-party thriller: three fronts, a public clock, and every decision made in a hurry. Then, at midnight, stop and let the silence after the Plainsong leaves be its own scene.",
+    "keyLocations": [
+      {
+        "name": "The Mast",
+        "description": "The Combine's high-gain uplink on a ridge two kilometres west: a 40-metre lattice tower, a dish and a small, warm equipment hut. Since C-6 Halberd has kept six contractors there, with a Sentry Turret on the hut roof and two Security Drones. The dish points at the Claims Board relay for 4 hours a day, from 1600 to 2000, when Calyx is out of the way.",
+        "features": [
+          "The equipment hut and its uplink console, which needs a Combine operator code or a Computers check DC 18",
+          "The dish's aiming motors, which can be locked by hand from the base of the tower",
+          "A cable trench back to Brinehold, used by the Ledger House to control the Mast remotely",
+          "A 40-metre climb up the outside of the tower in vacuum"
+        ],
+        "encounters": [
+          "Taking the Mast, by stealth, by force or by Severin's authority",
+          "Sending the report in the 1600-2000 window"
+        ],
+        "secrets": [
+          "A report needs the evidence and a qualified signature. Sabeen Talwar's Board key does it in 10 minutes. Without her, the uplink can still send, but the Board will treat it as an unverified complaint, which is a court case, not a freeze",
+          "Rook can cut the Mast from the Ledger House through the cable trench. Someone has to cut the trench or hold the Ledger House while the report goes"
+        ]
+      },
+      {
+        "name": "The Pumphouse Reactor",
+        "description": "The colony's heart. Its emergency shutdown can be tripped from the control room or from the hardwired panel in the Ledger House security post. A full shutdown is designed to be fail-safe: once it trips, the core can't be restarted for 72 hours, and in 36 hours Brinehold's air, heat and water fail.",
+        "features": [
+          "The control room, held by the colony",
+          "The remote shutdown panel in the security post, behind Severin's key",
+          "Mireille Haake, reactor tech, on shift on C-1"
+        ],
+        "encounters": [
+          "Clean Lapse, at C-1, 1800 (see Act 2)"
+        ],
+        "secrets": [
+          "The remote panel can be disabled in advance with Mechanics DC 16 from the Pumphouse side, if the party noticed the remote line in sm-scenario-001 or sm-scenario-002. Otherwise it has to be stopped at the panel",
+          "If Clean Lapse happens, Brinehold must be evacuated within 36 hours, and the Stayers fall to 0 at C-0 unless the reactor is restarted (impossible) or everyone lives in the Pumphouse's emergency shelter, which has air for 40 people for a week. That is a desperate and possible ending"
+        ]
+      },
+      {
+        "name": "The Sling and the Last Canister",
+        "description": "The ore yards and the nine-kilometre launch rail. The last canister is loaded at C-0, 1800 and thrown at 2200. The Stillwater cold case, with the core segment from Adaeze's pocket and the Combine's own Bore Nine samples, goes inside it, stencilled HEAD OFFICE — SURVEY RESIDUE.",
+        "features": [
+          "The loading cradle, where canisters are sealed",
+          "The Sling's control tower, where Tomaso Osterkamp is certified to run the launch",
+          "The rail itself: a nine-kilometre straight line of coils, lethal to stand on during a throw"
+        ],
+        "encounters": [
+          "Stopping, swapping or emptying the last canister",
+          "Captain Halvik on the comm, counting canisters"
+        ],
+        "secrets": [
+          "The Plainsong's completion bonus depends on catching every scheduled canister. Halvik doesn't care what's in the last one, but she does care that it arrives. A canister with ore and no cold case still counts. A Face who works this out can get Halvik on side by promising her the throw",
+          "If the cold case reaches the Plainsong, Rook goes up on the last shuttle to take it to head office personally. Stillwater then wins seven weeks from now, whatever happened on the ground, unless the find was reported before C-0"
+        ]
+      },
+      {
+        "name": "Director Morrow's Office",
+        "description": "The top of the Ledger House, overlooking the empty Gallery. Morrow has been packing it for a week and hasn't finished. Her personal safe holds her memo of objection to the interlock order.",
+        "features": [
+          "The memo: 'I object to this order and I am carrying it out. E.M.', dated C-32",
+          "Morrow's operator code for the Mast",
+          "A bottle of real wine from the inner system, unopened, which she was saving for the end"
+        ],
+        "encounters": [
+          "Asking Morrow again on the last day, as she said to"
+        ],
+        "secrets": [
+          "Morrow will testify. She has decided to; she just needs to be asked by someone who has earned it. She gives them the memo, the Mast code and her testimony on the uplink, and she stays on Esker afterwards to answer for it"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The final five days. The party has some or all of the evidence: Adaeze's suit recorder, the interlock logs, the core analysis, a living saltlace sample and witnesses. They have to get it to the Claims Board relay through the Mast before C-0, with a qualified signature. They have to keep a hundred Stayers on the register to the end. And they have to stop Rook's two last moves. The first is Clean Lapse: at C-1, 1800, the order in Severin Haake's envelope trips the Pumphouse reactor's emergency shutdown and makes Brinehold uninhabitable, which forces everyone off. The second is the last canister, which carries the Stillwater samples to orbit at C-0, 2200. Director Morrow, asked properly, turns at last. Severin chooses. Agathe makes her own choice about the shuttle and the hospital. The Plainsong breaks orbit at midnight with whoever is aboard. The endings depend on the Stayers, the report and the people.",
+  "hook": "C-5. The 0700 screens show Rook in his warm room, without the cup of tea this time. 'Good morning, Brinehold. One hundred and six of you are on the register this morning. I want to talk to you about what happens to you after next week, when the Combine is gone and nobody is left to keep the reactor running. I am not your enemy. I am the last person on this moon who will be honest with you about the cold.' At the back of the Gallery Agathe Ruark watches the screen with her arms folded, and turns to the party. 'Right, pets. Five days. What do you need?'",
+  "acts": [
+    {
+      "title": "Act 1: Five Days (C-5 to C-2)",
+      "description": "Planning and preparation. The party knows the shape of the last day: the Mast window from 1600 to 2000, Clean Lapse at C-1, 1800, the register closing at C-1, 1200, the last canister at C-0, 2200 and the Plainsong at 0000. Let them plan, scout and recruit. Each day they spend is a day off the clock, and Rook is spending his days too.",
+      "objectives": [
+        "Scout the Mast and work out how to take it during the window",
+        "Open Severin's envelope early, or find out what is in it",
+        "Ask Director Morrow again",
+        "Hold the Stayers at 100 or more through the last buyout push"
+      ],
+      "encounters": [
+        "Rook's last buyout push: 30,000 cr per adult, 'final offer', at C-3 (-2d6 Stayers unless answered)",
+        "A Halberd raid on the Warrens at C-4 looking for 'stolen company property' (the recorder and the sample)",
+        "The C-2 Turn: a quake that cracks a Warrens wall"
+      ],
+      "scenes": [
+        {
+          "name": "The Last Offer",
+          "description": "C-3, the Gallery. Rook speaks in person for the first time since C-28.",
+          "readAloud": "\"Rook stands on the stage of drill casings where Agathe banged her coupling for thirty years. He has no notes. 'Thirty thousand credits per adult,' he says quietly. 'Medical, housing, schooling on Vessant Ring. I've been doing this a long time. I've closed eleven charters. I have never once seen a colony survive the first winter after the company leaves. Not once. I'm offering you your children's lives.' The hall is silent. Someone near the front stands up, picks up a bag and walks to the Ledger House door. Then another.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "You stand up and answer him. Use Adaeze's recording, saltlace, the forty-year-old log, or just the truth, said well. The walk to the door stops. Stayers +1d6. A Face's Rally speech gives advantage.",
+              "failure": "Stayers -2d6."
+            },
+            {
+              "skill": "Insight",
+              "dc": 14,
+              "success": "Rook believes what he's saying about winters. He also hasn't mentioned saltlace, which is the only reason a colony could pay its way. He knows about it, he's hiding it, and he knows the party knows.",
+              "failure": "He's very convincing."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 15,
+              "success": "His 'eleven charters' are real. Sabeen (or a Computers check on Board records) knows that four of those colonies did survive, and that in two of them the Combine came back later and refiled for the minerals. Said out loud, this is devastating.",
+              "failure": "You can't check his numbers in time."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the last public duel between the party and Rook. Let it be a debate, not a fight. Rook is good at this. Let the players win it with what they've actually learned, not with a die roll alone. Agathe stays in her seat throughout and says nothing, which everyone notices. Her choice is coming.",
+          "loot": []
+        },
+        {
+          "name": "Ask Me Again",
+          "description": "Director Morrow's office, any day from C-5 to C-1.",
+          "readAloud": "\"Morrow's office is half packed: crates by the door, the shelves bare, the window over the Gallery showing empty benches. She is sitting at her desk with her coat on, though the office is warm. She doesn't get up. 'You said you'd ask me again,' she says. 'On the last day. It's close enough.' She looks at the bottle of wine on the shelf. 'I typed it in. He told me to, from orbit. I wrote a memo saying I objected, and then I typed it in, because that's my job, and twenty minutes later Adaeze Rask was dead. Ask me, then.'\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "You ask her, properly, as someone who has seen what it cost. She opens the safe and gives you the memo and her Mast operator code. She'll testify on the uplink in person, in the window.",
+              "failure": "She is not ready. She asks you to come back tomorrow, and means it."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "She doesn't want to be forgiven. She wants to be useful, once, before it's over.",
+              "failure": "She's very hard to read."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "If the party has been cruel to Morrow, raise the DC to 18. If they've brought her Adaeze's recording, lower it to 10. She doesn't ask for anything for herself. If asked what she'll do afterwards, she says she will stay on Esker 'until someone tells me where to go to answer for it'.",
+          "loot": [
+            "Morrow's memo of objection (evidence for the death; with it, the case is unanswerable)",
+            "Morrow's Mast operator code",
+            "Morrow's testimony"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: C-1",
+      "description": "The register closes at 1200. The Mast window opens at 1600. Clean Lapse is at 1800. All three are on the same afternoon. The party almost certainly has to split.",
+      "objectives": [
+        "File the register at 1200 with Sabeen, with 100 or more names",
+        "Take the Mast and send the report between 1600 and 2000",
+        "Stop Clean Lapse at 1800"
+      ],
+      "encounters": [
+        "The Mast assault",
+        "The security post",
+        "The register"
+      ],
+      "scenes": [
+        {
+          "name": "The Mast",
+          "description": "C-1, 1600. The window opens. Calyx slides off the relay's line of sight, and the dish swings round.",
+          "readAloud": "\"The ridge is a knife of blue ice in the black, and the Mast stands on top of it, lit by its own floodlights, its dish turning slowly toward a point of light you can't see. Halberd has dug in round the hut: six figures in grey armour, a turret on the roof turning, drones circling like gulls. In your helmet, Sabeen's voice, very calm: 'Ten minutes on that console. That's all I need.' Behind you, a long way down, the lights of Brinehold, and the Sling running away into the dark.\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 15,
+              "success": "Up the cable trench and into the hut without a shot, while Halberd watches the ridge path.",
+              "failure": "The turret sees you at 60 feet."
+            },
+            {
+              "skill": "Computers",
+              "dc": 18,
+              "success": "The uplink accepts the report with Morrow's code, or without (a Tech with Intrusion has advantage). Ten minutes to transmit, with Sabeen's key to sign. The Board relay acknowledges at 1648: LIVING FIND RECEIVED — TRUST FREEZE PROVISIONAL — ASSESSOR TALWAR CONFIRMED.",
+              "failure": "The console locks; another try costs 10 minutes and alerts the Ledger House, which tries to cut the Mast through the cable trench."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 14,
+              "success": "You lock the dish's aiming motors by hand at the base of the tower, so Rook can't swing it off the relay from the Ledger House.",
+              "failure": "The motors fight you. Rook gets 1d4 minutes of dish control before the lock holds."
+            }
+          ],
+          "combatEncounters": [
+            "Halberd at the Mast: Commander Ivette Varnholt (Mercenary Commander) if she wasn't broken in sm-scenario-002, otherwise Sergeant Brisk; 5 Mercenaries; 1 Sentry Turret on the hut roof; 2 Security Drones. Outside, in vacuum: suit breach rules. Inside the hut, Guns Under Pressure",
+            "If Severin Haake is with the party: he walks up the ridge path in the open with his visor raised and orders Halberd off a Combine safety-critical installation under charter regulation 14. Varnholt's contract has a clause about that. Persuasion check by Severin at advantage (DC 15) and half of them leave"
+          ],
+          "roleplayNotes": "Sabeen's signature is what turns the report from a complaint into a freeze. If Sabeen is a PC and is somewhere else, the party needs to get her there or bring the report to her. If she isn't a PC, she is waiting at the Mast or at the Pumphouse, wherever the party left her, and the GM should make sure she is reachable. The moment the relay acknowledges, call it out to the whole table, wherever they are.",
+          "loot": [
+            "The Board's acknowledgement (the find is reported; the trust freeze is provisional until a Board ship arrives in about seven months)"
+          ]
+        },
+        {
+          "name": "The Envelope",
+          "description": "C-1, 1800. The security post in the Ledger House, and the remote reactor panel.",
+          "readAloud": "\"The security post is a small, warm room full of screens, and on one wall a grey steel panel with a key slot and a guarded red switch, labelled PUMPHOUSE REACTOR — EMERGENCY SCRAM — REMOTE. Severin Haake stands in front of it with the envelope open in one hand and his key in the other. On the screen above, the Pumphouse control room: Mireille at the board, in her overalls, laughing at something someone has said. Severin doesn't look round. 'It says I'm to do it at eighteen hundred,' he says. 'It's eighteen hundred.'\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "You say the thing he needs to hear. He takes the key out of the slot and hands it to you. If the party opened the envelope with him earlier, there's no check: he isn't here, he's at the Mast with them, and the panel has been disabled since C-3.",
+              "failure": "He hesitates, and Rook's voice comes on the channel: 'Lieutenant.'"
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 16,
+              "success": "You disable the remote panel by hand in 1 minute (a Tech's Jury-Rig or Spoof will do it).",
+              "failure": "The panel's tamper alarm tells Rook what you're doing."
+            }
+          ],
+          "combatEncounters": [
+            "If Severin won't stop, or if Rook sends Halberd to do it: 2 Mercenaries and 1 Combat Android (Rook's own close-out bodyguard, a quiet grey synthetic that has never been introduced to anyone) try to reach the panel. The android doesn't speak. If Wystan Corrie is present, it pauses for one round when it sees him, and the GM decides why"
+          ],
+          "roleplayNotes": "This is Severin's moment, and the party's reward for everything they've done with him. If they've earned him, he refuses the order in front of Rook on the open channel and arrests Halberd's contractors under charter safety rules. If they haven't, he puts the envelope down and says, 'Somebody else decide,' and leaves the key in the slot. Then it's up to whoever is in the room. If Clean Lapse happens, see the endings.",
+          "loot": []
+        }
+      ]
+    },
+    {
+      "title": "Act 3: C-0",
+      "description": "The last day. The last canister at 2200, the last shuttles, the Plainsong at midnight. And people saying goodbye.",
+      "objectives": [
+        "Stop the Stillwater cold case going up on the last canister, or make sure the report went first so it doesn't matter",
+        "Deal with Rook",
+        "Decide who goes and who stays"
+      ],
+      "encounters": [
+        "The canister at the Sling",
+        "Rook at Pad Row",
+        "The last shuttle"
+      ],
+      "scenes": [
+        {
+          "name": "The Last Canister",
+          "description": "C-0, 2100. The Sling's loading cradle in the ore yards.",
+          "readAloud": "\"The last canister sits in the Sling's cradle, a steel cylinder the size of a crawler, with HEAD OFFICE — SURVEY RESIDUE stencilled on a cold case strapped inside its open hatch. The coils hum all the way down the rail into the dark, nine kilometres of them, warming up. On the comm, Captain Halvik, dry as ever: 'Sling, Plainsong. One canister on the board. I'd like it in my cradle in an hour, please, and I'd like my second engineer back. I don't care much what's in it.'\"",
+          "skillChecks": [
+            {
+              "skill": "Sleight of Hand",
+              "dc": 15,
+              "success": "You swap the cold case for a crate of ore samples of the same weight. The canister goes up. Halvik gets her throw and Rook gets rocks.",
+              "failure": "A Halberd guard sees the swap. Fight or bargain."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "You talk to Halvik on the comm. If she gets an ore canister and her engineer, she doesn't care whose cold case it is. She agrees to 'lose' the Stillwater case in her holds until the Board ship asks for it.",
+              "failure": "Halvik wants her bonus, and she isn't taking sides."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 15,
+              "success": "Tomaso (or anyone at the Sling tower) can hold the launch until the cold case is out, then throw on time.",
+              "failure": "The launch sequence locks out manual control. The canister goes at 2200 unless someone stands on the rail, which is a very bad idea."
+            }
+          ],
+          "combatEncounters": [
+            "Rook's last guard at the cradle: 2 Mercenaries and the Combat Android if it survived. Outside, vacuum. If anyone is on the rail during the throw: DEX save DC 20 or 10d10 bludgeoning"
+          ],
+          "roleplayNotes": "Tomaso's promise to Halvik comes due here. If he's a PC, he decides whether the last canister flies and what goes in it, and whether he goes up with it. If the report reached the relay at C-1, the cold case matters much less: the find is public and the samples are evidence, not property. Halvik will hand them to the Board. If the report didn't go, this canister is the whole game.",
+          "loot": []
+        },
+        {
+          "name": "Midnight",
+          "description": "C-0, 2330. Pad Row. The last shuttle.",
+          "readAloud": "\"The last shuttle sits on Pad Row with its ramp down and its lights on, steaming into the vacuum. A short line of people in surface suits waits to board. Caspian Rook stands at the top of the ramp in his good coat, with his helmet under his arm, watching Brinehold's lights. He sees you and lifts a hand. He doesn't look angry. He looks tired, and almost relieved. 'Well,' he says on the open channel. 'You'll find it's harder than you think. They always do.' Behind you, in the Gallery, someone has started singing.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "You talk Rook into one last honest thing: he records a statement for the Board, in his own voice, admitting the order, because he would rather tell it than have it told. He never explains why. He's still Rook.",
+              "failure": "He boards. The ramp closes."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "He's not going to fight. He's lost, he knows it, and he's already thinking about the next charter.",
+              "failure": "He's unreadable to the end."
+            }
+          ],
+          "combatEncounters": [
+            "If the party wants Rook arrested: Severin Haake can do it under charter safety regulations, and Rook comes quietly, smiling. He stays on Esker under guard until the Board ship arrives. That is its own kind of story"
+          ],
+          "roleplayNotes": "End on the people. Who's on the shuttle and who's at the fence. Ferrant, if he's found his courage, isn't boarding; he is standing beside Lisbet. Agathe either goes up for treatment, which is her right and nobody's betrayal, or stays to see it through. At 0000 the Plainsong's drive lights up in the sky above Calyx like a new star and moves slowly away. Then let the silence be a scene. Ask each player what their character does on the first morning after.",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "name": "Settlement",
+      "condition": "100 or more Stayers on the register at C-1, 1200, the find reported through the Mast before C-0 with a qualified signature, and the reactor running at C-0",
+      "description": "Esker becomes a recognised settlement under Article 9 with custodial title. Saltlace is public trust, and the colony is its custodian. Bioprospectors will need the colony's licence, which pays for a reactor, a hospital and a future. The first winter is hard. Nobody dies of it."
+    },
+    {
+      "name": "Settlement Without Proof",
+      "condition": "100 or more Stayers and the reactor running, but no report reached the relay in time",
+      "description": "The colony has title and no money. Stillwater's samples go to head office (unless the party stopped the canister), and a bioprospecting claim is filed seven weeks later. The colony has to fight it in the Board's courts with whatever evidence the party kept. It's a long, cold fight, and it can be won."
+    },
+    {
+      "name": "Trust Without Settlement",
+      "condition": "The find reported in time, but fewer than 100 Stayers at the register's close",
+      "description": "The moon goes into public trust, and nobody can mine it or own saltlace. The colony has no title, though. The Board's trustee ship arrives in seven months to find whoever is left. Most of the Stayers are taken off as 'unauthorised residents' and resettled with compensation. Saltlace is safe, and Brinehold is lost."
+    },
+    {
+      "name": "Clean Lapse",
+      "condition": "The reactor was scrammed at C-1",
+      "description": "Brinehold dies in 36 hours. Everyone goes up on the last shuttles except whoever chooses the Pumphouse shelter: air for 40 people for a week, then rescue or nothing. If the report went, a Board ship is coming. If it didn't, nothing is. This is the bleakest ending, and a party that chose to stay in the shelter and wait should be honoured for it."
+    },
+    {
+      "name": "Charter's End",
+      "condition": "Fewer than 100 Stayers, no report, and the canister flew",
+      "description": "The Combine wins. The colony is evacuated, and the Plainsong carries the last ore, the last records, the Stillwater case, and everyone who lived on Esker. Rook files the bioprospecting claim at head office. The party has the truth and seven weeks of transit to decide what to do with it. That is a sequel, not an ending."
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Caspian Rook",
+      "role": "Combine close-out officer",
+      "description": "His last week. Every move is fair-sounding and ruthless. Leaves on the last shuttle unless arrested."
+    },
+    {
+      "name": "Director Evadne Morrow",
+      "role": "Combine site director",
+      "description": "Ask her again on the last day. She gives up the memo, the Mast code and her testimony, and stays to answer for it."
+    },
+    {
+      "name": "Severin Haake",
+      "role": "Security chief / companion",
+      "description": "The envelope. His choice at C-1, 1800."
+    },
+    {
+      "name": "Agathe Ruark",
+      "role": "Council chair / companion",
+      "description": "Her own last choice: the shuttle and ten more years, or the colony to the end."
+    },
+    {
+      "name": "Lisbet Rask",
+      "role": "Adaeze's daughter / companion",
+      "description": "On the register in spirit, though too young to sign. She stays, whatever anyone says."
+    },
+    {
+      "name": "Ferrant Venn",
+      "role": "Witness / companion",
+      "description": "If he has found his courage, he speaks on the uplink. Gives his Plainsong berth to someone else."
+    },
+    {
+      "name": "Commander Ivette Varnholt",
+      "role": "Halberd commander",
+      "description": "Holds the Mast. Her contract has clauses; Severin knows them."
+    },
+    {
+      "name": "Captain Ottoline Halvik",
+      "role": "Master of the Plainsong",
+      "description": "On the comm. Wants her canister and her engineer. Leaves at 0000."
+    }
+  ],
+  "rewards": {
+    "xp": 9000,
+    "money": "If the colony becomes a settlement, its first act is to pay everyone who stood with it out of the hall fund: 500 cr each, which is all the hall fund has. Halvik pays Tomaso his completion bonus if the last canister flew: 6,000 cr",
+    "items": [
+      "A place on Esker, if they want it",
+      "The Board's acknowledgement, if the report went",
+      "The Stillwater cold case, if they kept it",
+      "The orange strip from the cap wheel, which the colony hangs on the Gallery pillar under Adaeze's name"
+    ],
+    "story": "The charter ends at 0000. What happens after depends on the Stayers, the report and the people. Every ending is open: a Board ship is seven months out, head office is seven weeks away, and Calyx rises over the ice the same as every night."
+  },
+  "twists": [
+    "Agathe Ruark takes the shuttle. If she does, it's not betrayal; she's ill, and she tells the hall so herself, at last, the night before. She signs her place on the register over to Lisbet Rask, who is not old enough to sign, and Sabeen has to rule on whether that counts. It doesn't, legally. Sabeen can count it anyway, which is the first time in her career she has bent a rule in a colony's favour. That's a choice for Sabeen's player, or for the GM.",
+    "The Combat Android that guards Rook was Brinehold's first survey synthetic, the same model as Wystan Corrie and his predecessor at the saltborn school. It was partitioned and re-tasked as security when it was 'retired'. If Wystan talks to it, it says only 'I remember the school,' and stops fighting.",
+    "Captain Halvik has been listening to the Combine channel all month and recording it, as all independent masters do, to protect their contracts. If anyone asks her, she has Rook's voice from orbit on C-32 saying 'Continue to target depth', and she doesn't like being part of a killing. She'll send it to the Board relay herself, from orbit, if someone gives her a reason."
+  ],
+  "dmTips": [
+    "SPLIT THE PARTY ON PURPOSE. The last afternoon has three deadlines in four hours. Cut between the register, the Mast and the security post every few minutes. End each cut on a roll or a decision. Say the time aloud every cut.",
+    "THE ENDINGS ARE EARNED, NOT GIVEN. Check the conditions honestly. A party that held the Stayers but lost the Mast gets Settlement Without Proof, and it's still a win. Make sure the table understands what they achieved.",
+    "SAY GOODBYE. Leave time for the last half hour. Let each PC say what they do at midnight: board, stay or stand at the fence. Let the companions make their choices on screen. The campaign is about people deciding where home is.",
+    "ROOK NEVER BREAKS. He doesn't have a villain's breakdown. He loses, he knows it, and he goes on to the next charter. That should be more unsettling than a confession."
+  ]
+}

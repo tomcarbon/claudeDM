@@ -1,0 +1,125 @@
+{
+  "id": "c3f1a6e2-7b4d-4e18-9a52-1d6e0b9f4a71",
+  "name": "Remy Thériot",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Private Eye",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 12,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 13,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Wisdom"
+  ],
+  "skills": [
+    "Investigation",
+    "Insight",
+    "Stealth",
+    "Athletics",
+    "Perception"
+  ],
+  "languages": [
+    "English",
+    "Louisiana French (the Lafourche kind, which his mother says is the only kind)"
+  ],
+  "equipment": [
+    "Heavy overcoat, olive drab, Army issue, dyed navy at a Decatur Street cleaner and still plainly Army",
+    ".38 revolver (Colt Official Police, bought used on Rampart Street), 6 rounds loaded, in a shoulder holster",
+    ".38 rounds (18)",
+    "Blackjack, braided leather, in the right overcoat pocket",
+    "Fedora, brown, with a GI Bill loan receipt folded in the band because he keeps meaning to frame it",
+    "Notebook and pencil, the notebook a waterproof Army field book",
+    "Flashlight",
+    "Lock picks in a canvas roll",
+    "Private investigator's license, State of Louisiana, issued January 1946, the ink barely dry",
+    "Business cards (100): THÉRIOT INQUIRIES, 1019 DECATUR STREET, UPSTAIRS. DISCREET.",
+    "Nickel for the payphone (4)",
+    "Keys to the office over Broussard's shoe repair, and to a desk he bought from a bankrupt dentist",
+    "Wallet containing $22"
+  ],
+  "weapons": [
+    {
+      "name": ".38 revolver",
+      "attackBonus": 4,
+      "damage": "1d8+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Blackjack",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Heavy overcoat",
+    "type": "light"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: once per long rest, an Insight check against a lie with advantage, and on a success he learns whether they lie to protect themselves or someone else; ordinary working people start one step friendlier toward him)",
+    "Hunch (Private Eye: once per short or long rest, ask the GM one yes-or-no question about a lead he has personally encountered in this case and get a true answer; not in combat)",
+    "Gumshoe (Private Eye: proficiency bonus doubled for Investigation and Insight checks)",
+    "Size Them Up (Private Eye, 2nd level: as a bonus action, study one creature within 60 ft; his next attack against it this turn has advantage and deals an extra 1d6 damage on a hit; three times per short rest, his WIS modifier)",
+    "Specialty: Shadow (Private Eye, 3rd level: advantage on Stealth checks to tail; a tail he runs needs only 2 successes; see investigation.json tailing_and_stakeouts)",
+    "Old Outfit (Veteran background: in any legion post, VFW hall or bar with a flag over the register he can get a meal, a bed, a job lead or a quiet word about a man who served, and he reads rank and bearing at a glance)"
+  ],
+  "traits": [
+    "Hunch (1/short rest)",
+    "Gumshoe",
+    "Size Them Up (3/short rest)",
+    "Shadow"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I sit with my back to the wall, I am polite to everyone until the second lie, and I still wake at five because the Army taught me to. I talk French when I am angry and English when I am careful.",
+    "ideals": "A man ought to be able to come home from a war and find the place he left was worth it. Somebody has to check.",
+    "bonds": "The agency, which is one room and a loan I signed in my own name. My mother in Raceland, who thinks I am a clerk. And the men from my company who did not come home, whose wives I write to at Christmas.",
+    "flaws": "I want to be the man who fixes it, all of it, and I take jobs I cannot afford because someone looked at me the way Mrs. Fontenot did. I also do not see the color line until it is in front of my face, and then I am angry that it surprised me."
+  },
+  "appearance": "A lean, sun-dark man of thirty with black hair cut Army short, a broken nose that healed a little to the left and very steady brown eyes. He wears his navy-dyed Army overcoat in all weathers and a brown fedora he cannot quite wear at the right angle. Moves quietly for a big-handed man; stands at ease without knowing he does it.",
+  "backstory": "Remy Thériot grew up on Bayou Lafourche, the fourth son of a man who trapped muskrat in the winter and cut cane in the fall, and he left at eighteen for New Orleans and a job as a stock clerk at a Canal Street department store. In 1942 he enlisted, and he spent two years with an infantry division in Italy, most of it walking uphill in the rain toward men who were shooting at him. He came home in October 1945 with a Bronze Star he does not mention and a conviction that he would never again take orders from a man he did not respect. In January he took a GI Bill business loan, guaranteed by the government he had walked across Italy for, bought a licence, a desk and a single room over a shoe repair on Decatur Street, and put an advertisement in the Times-Picayune's classifieds. In seven weeks he has found two runaway husbands and one stolen outboard motor. On Friday 1 March 1946, at two in the afternoon, a woman in a borrowed black dress climbs his stairs with his advertisement folded in her glove, and says that the police have told her her husband fell into the Industrial Canal drunk, and that her husband did not drink."
+}

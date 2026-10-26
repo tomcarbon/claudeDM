@@ -1,0 +1,346 @@
+{
+  "id": "sm-scenario-001",
+  "title": "She Didn't Slip",
+  "subtitle": "The Last Shuttle Down, a Body in the Cold Room, and an Inquest the Company Wants Over by Dinner",
+  "levelRange": "3-4",
+  "estimatedSessions": 2,
+  "setting": {
+    "name": "Brinehold, C-30 to C-27",
+    "description": "The colony under the ice in its last month. The Gallery is crowded with packing crates and boarding queues, and its long walls are chalked with evacuation numbers. The Ledger House is warm, bright and busy with Combine staff shredding seventy-five years of records. The clinic cold room holds one body. The inquest into Adaeze Rask's death sits at 1400 on C-29 in the Gallery hall, with the Claims Board's Lapse Assessor presiding and the Combine's close-out officer asking to 'assist'.",
+    "atmosphere": "Grief and logistics. A colony is packing itself into boxes while its people argue about whether to go, and a death sits in the middle of it that everyone has an opinion on and nobody has the facts about. It's cold indoors, voices echo off the ice, Calyx glows weak amber in the dome above Pad Row, and someone keeps writing SHE DIDN'T SLIP on things.",
+    "keyLocations": [
+      {
+        "name": "Pad Row and the Tern",
+        "description": "The landing field beside the Sling's ore yards. The Tern comes down at C-30 with the last group of arrivals: Caspian Rook, Sabeen Talwar, Tomaso Osterkamp and two Halberd advance contractors. Departing staff queue at the other end of the field with their luggage.",
+        "features": [
+          "The Tern's ramp, frosting over the moment it opens",
+          "A crowd of saltborn at the fence, silent, holding hand-lettered signs: WE STAY and SHE DIDN'T SLIP",
+          "The surface tram to Brinehold, 20 minutes, with its heater broken",
+          "A line of ore canisters on the Sling's loading cradle, each stencilled with a C-number"
+        ],
+        "encounters": [
+          "Rook's arrival speech at the tram stop, made to the crowd, warm and well judged",
+          "Agathe Ruark greeting Sabeen Talwar with the paper register under her arm"
+        ],
+        "secrets": [
+          "The two Halberd 'advance contractors' are armed with caseless rifles in their luggage, which is against Brinehold safety rules. Perception DC 15 to spot the cases' shape, Insight DC 13 to see that Severin Haake has noticed and said nothing",
+          "Tomaso can see that the maintenance override which wrote SHE DIDN'T SLIP on the Tern's seat screens came from a surface account, ID prefix BH-DRL, which means the drill crews (Computers DC 12)"
+        ]
+      },
+      {
+        "name": "The Clinic Cold Room",
+        "description": "A small, frost-white room behind Dr. Quarrie's clinic, with four drawers. Adaeze Rask is in the second, still in the lower half of her surface suit. The Combine has scheduled the body to go up on the last shuttle, sealed, 'for repatriation', though she was saltborn and has no other home.",
+        "features": [
+          "The body, with frost burns in a fan pattern across chest and face and brine crystals in the nose and ears",
+          "The suit, cut away above the waist, with ice packed into the collar seal from the outside",
+          "A right thigh pocket on the suit, unzipped and empty",
+          "The Combine's sealed repatriation order taped to the drawer"
+        ],
+        "encounters": [
+          "Dr. Quarrie's second, honest examination, if the party asks or if Odalys is a PC",
+          "A Combine clerk arriving to collect the body 'for preparation' early on C-28 if Notice is 3 or higher"
+        ],
+        "secrets": [
+          "Medicine DC 13: she died of a high-pressure brine blast and flash freezing, not a slow seal failure. The seal is intact. The ice in the collar came from outside",
+          "Investigation DC 14: the empty thigh pocket's lining is stained faint blue and smells of salt. Under a UV lamp the stain glows. Something was carried there and taken",
+          "Science DC 15 on the stain, or Wystan Corrie with a lab kit: organic, structured and not like any mineral residue on Esker. Wystan will say quietly that he has seen this before and cannot remember where"
+        ]
+      },
+      {
+        "name": "The Ledger House",
+        "description": "The Combine's administration block: three warm, lit floors cut into the ice beside the Gallery. Director Morrow's office, the security post, the records vault and the survey lab. Staff are packing files into crates labelled for the Plainsong, and a shredder runs all day.",
+        "features": [
+          "The records vault, card-locked, where operations logs are kept until they are crated",
+          "The survey lab, Wystan Corrie's workplace, with a cold case under seal in the corner",
+          "Director Morrow's office, with a window onto the Gallery and a personal safe",
+          "The security post, Lieutenant Haake's eight officers and their stun pistols"
+        ],
+        "encounters": [
+          "Asking Morrow for the Bore Nine logs, politely, which she can refuse for 'charter confidentiality' until the inquest",
+          "Getting into the records vault the other way: Lisbet's ducts, a Tech's Spoof, or Sabeen's warrant (which works, once, and costs Notice +2)"
+        ],
+        "secrets": [
+          "The Bore Nine operations log for C-32 has been edited. The 1404 to 1420 window is blank, which the system marks as 'telemetry loss'. Computers DC 17 (with physical access, a Tech has advantage) recovers the deleted line: 1406 DEPTH INTERLOCK RELEASE, OPS AUTHORITY E.MORROW, AUTHORISED REMOTE (PLAINSONG RELAY)",
+          "The cold case in the survey lab is sealed with Rook's personal close-out tag and labelled SURVEY RESIDUE — FOR HEAD OFFICE. It is refrigerated at minus 40, not minus 180, which you don't need for rock",
+          "Morrow's safe (Mechanics DC 20, or a Tech's Jury-Rig at DC 18 over 10 minutes) holds a memo in her own hand, dated C-32: 'I object to this order and I am carrying it out. E.M.' This is not used until sm-scenario-004 unless the party gets very lucky"
+        ]
+      },
+      {
+        "name": "The Gallery Hall",
+        "description": "The colonists' long meeting hall at the centre of Brinehold, with benches cut into the ice walls, a stage made of stacked drill casings and seventy-five years of saltborn names carved into the pillars. The inquest sits here at 1400 on C-29.",
+        "features": [
+          "Two hundred people packed onto the benches, and Combine staff standing at the back",
+          "Sabeen Talwar's table, with a Board seal and a slate",
+          "A chair for witnesses, which Ferrant Venn will sit in",
+          "Agathe's paper register on a lectern by the door, with a pen on a string"
+        ],
+        "encounters": [
+          "The inquest itself (see Act 2)",
+          "A scuffle at the doors if Rook's Halberd contractors try to stand at the front"
+        ],
+        "secrets": [
+          "The pillar nearest the stage has Adaeze Rask's name carved at her birth year, beside her husband's death year. Someone has carved a third line overnight, a small blue drop. Lisbet did it and doesn't know why she chose that shape"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party arrives in Brinehold, or is already there, at C-30. A drill lead is dead, the Combine has called it a suit-seal accident, and the inquest is the next afternoon. The Claims Board's assessor has to sign it off, the close-out officer wants it signed quickly, and the colony is sure it's a lie. The scenario is an investigation against a short clock. The party can examine the body and find it was a brine blast and something was taken from it, go after the edited operations log in the Ledger House, find and work on the frightened witness Ferrant Venn, and earn the trust of the dead woman's daughter, Lisbet. At the inquest Ferrant either tells the truth or doesn't. Either way Rook moves first: on C-28 he announces that the close-out is 'accelerating', with heat reductions, buyouts and Halberd security on the next drop. The colonists answer by occupying the Pumphouse. By the end of C-27 the party knows the death was no accident, suspects the core held something the Combine wanted, and has to choose a side.",
+  "hook": "'Lapse Assessor Talwar.' The man in the good coat offers his hand at the tram stop, smiling like an old friend. 'Caspian Rook. You remember me. I'm here to make this easy.' Behind him, two hundred people stand at the fence in the cold and say nothing at all. A teenage girl in a drill jacket three sizes too big walks up to the tram window, breathes on it and writes with one finger: SHE DIDN'T SLIP. Then she's gone into the crowd. Rook watches her go. 'Grief,' he says gently. 'They'll feel better at home.'",
+  "acts": [
+    {
+      "title": "Act 1: Arrival and the Body (C-30 to C-29 morning)",
+      "description": "The arrivals land, the residents gather and everyone meets the death. Let the party introduce themselves in their own scenes, then bring them together around the cold room and the question nobody official will ask.",
+      "objectives": [
+        "Get to Brinehold and meet Agathe, Lisbet, Morrow and Rook",
+        "Examine Adaeze Rask's body before the Combine takes it",
+        "Find Ferrant Venn",
+        "Learn what the inquest needs and what the Combine wants it to find"
+      ],
+      "encounters": [
+        "Rook's speech at the tram stop",
+        "The cold room examination",
+        "Finding Ferrant in the reclaimer-still bar in the Warrens, drunk at noon"
+      ],
+      "scenes": [
+        {
+          "name": "The Tram In",
+          "description": "The surface tram from Pad Row to Brinehold, twenty minutes over the white plain under Calyx.",
+          "readAloud": "\"The tram is a long glass tube on runners, and its heater is broken. Your breath hangs in front of you. Outside, the plain is white and blue and flat to a horizon that is much too close, and above it Calyx fills a fifth of the sky, banded amber and slate, with a storm on its face bigger than a planet. Nobody on the tram is looking at it. A Combine family across the aisle is quietly counting luggage tags. At the back, a saltborn man the size of a door stands with his hand flat against the window, the way you would touch a wall to make sure it was still there.\"",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "The Combine families are relieved and ashamed of it. The saltborn are angry and frightened, and they are watching Rook the way you watch weather.",
+              "failure": "Everyone looks cold and tired."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "The big saltborn man (Thorvald, if not a PC, or one of his crew) tells you: 'She sent me home six hours before. Coupling was cracked. I was asleep when she died. She changed rods for twenty years. She didn't slip.'",
+              "failure": "He turns back to the window."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Use this to let the arrivals and the saltborn PCs meet. Rook rides in the front car with Sabeen if she is a PC and talks to her about old times, warmly, in a way that makes it plain he knows things about her. If no PC is Sabeen, she rides alone and is happy to talk to anyone who asks good questions about Article 9.",
+          "loot": []
+        },
+        {
+          "name": "The Cold Room",
+          "description": "Dr. Quarrie's clinic, the second drawer.",
+          "readAloud": "\"The cold room is white with frost and smells of nothing at all. The drawer slides out with a rattle. Adaeze Rask was forty-four, broad-shouldered and grey at the temples, and the Combine's report says she died slowly, of a seal failure, alone. Her face says otherwise. The frost burns spread across it like a fan, like someone threw something at her very hard. Ice is packed into the collar of her suit in a dirty crust. On the right thigh pocket the zip is open and the pocket is empty.\"",
+          "skillChecks": [
+            {
+              "skill": "Medicine",
+              "dc": 13,
+              "success": "Brine blast and flash freezing. The suit seal is intact; the ice in the collar came from outside, driven in under pressure. Whatever killed her came up out of the ground at her.",
+              "failure": "It's a cold-death. You can't tell more without the full exam the Combine never allowed."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 14,
+              "success": "The empty pocket's lining is stained a faint blue. Under UV it glows like a vein. Something was carried here and has been taken.",
+              "failure": "An empty pocket."
+            },
+            {
+              "skill": "Science",
+              "dc": 15,
+              "success": "The stain is organic and structured, a lattice of mineral and something like cell walls. No rock on Esker does that.",
+              "failure": "A mineral stain of some kind."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "If Odalys is a PC, this is her scene: give her the moment of realising what she signed. If not, she is here as an NPC and will do the honest exam if the party asks her plainly, and will confess what she signed if anyone is kind about it. Notice +1 if the party forces the cold room without her.",
+          "loot": [
+            "A UV photograph of the pocket stain (evidence toward the find, but not proof)",
+            "Dr. Quarrie's revised finding, if she writes it (evidence for the death, once she will say it in public)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: The Inquest (C-29, 1400)",
+      "description": "Sabeen Talwar's inquest in the Gallery hall. It is a public hearing under the charter. The Combine's version is presented by Rook, smoothly. Witnesses can be called by the assessor or by any resident. The colony is watching every word.",
+      "objectives": [
+        "Get the real cause of death on the record, or at least get the hearing adjourned rather than closed",
+        "Get Ferrant Venn to tell the truth, or protect him from Rook if he tries",
+        "Don't hand Rook a reason to call the colonists dangerous"
+      ],
+      "encounters": [
+        "Rook's presentation: the Combine's report, the recovery team's statement, Morrow's signature and Dr. Quarrie's certificate",
+        "Ferrant Venn in the witness chair",
+        "The crowd, which might boil over"
+      ],
+      "scenes": [
+        {
+          "name": "The Witness Chair",
+          "description": "Ferrant Venn sits in front of two hundred people who know he was there.",
+          "readAloud": "\"Ferrant Venn's hands are shaking so badly he holds them between his knees. His drone hovers above his shoulder, very still, as if it's listening too. The Gallery is completely silent. Somewhere at the back a child coughs. Rook is smiling at him kindly. 'Mr. Venn. In your own words. The seal on Drill Lead Rask's suit failed during a rod change, and you were sent to safety. Is that right?' Ferrant looks at the floor. Then he looks at a girl in a drill jacket in the third row, and you see him decide something. You can't tell what.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "Before the hearing, or with a word from the floor, you reach him: he says it. 'The panel said interlock released. Ops authority. She shouted at them. Somebody said continue to target depth. Then the brine came.' The hall erupts.",
+              "failure": "He says, 'Yes. That's right.' And then, much quieter: 'I'm sorry.' The hall goes cold."
+            },
+            {
+              "skill": "Insight",
+              "dc": 13,
+              "success": "Rook is not worried by Ferrant. He is worried by Sabeen's slate, where she is writing down the times.",
+              "failure": "Rook seems completely at ease."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "You can force the question in public: 'Who told you to say that?' Ferrant breaks either way, but this way he flees the hall afterwards and won't speak to the party until they make amends (DC 16 next time).",
+              "failure": "Rook objects smoothly and Sabeen has to sustain him. Notice +1."
+            }
+          ],
+          "combatEncounters": [
+            "If the hall boils over (a PC accuses Rook, or Ferrant breaks and the crowd surges): 4 Security Guards (Combine, stun pistols, arc batons, Severin Haake commanding) form a line at the stage. They don't want to fight. Two Halberd Mercenaries at the back put their hands inside their coats. Any shot fired: Guns Under Pressure applies in full, Notice +2, Stayers -1d6. Haake will order his line to stand down if a PC gives him a reason (Persuasion DC 14)"
+          ],
+          "roleplayNotes": "Sabeen Talwar presides if she is a PC; play her as the hinge of the scene and let her player run the hearing, including whom to call and when. If she isn't a PC, she is fair, cautious and very sharp, and she adjourns rather than closes the inquest if anyone gives her one solid reason. The party wins this scene by keeping the inquest OPEN: an adjournment pending 'further evidence' forces Rook to work in daylight. A closed inquest with 'accident' on it is a loss, though not a final one.",
+          "loot": [
+            "An adjourned inquest (Sabeen keeps it open until C-1, when she must file)",
+            "Ferrant's testimony on the record, if he gave it"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: The Combine Moves (C-28 to C-27)",
+      "description": "Rook doesn't wait. On the morning of C-28 he takes the Gallery stage, thanks everyone for their patience and announces the accelerated close-out. The colony answers within hours.",
+      "objectives": [
+        "Get the Bore Nine log from the Ledger House before it is crated for the Plainsong at C-27",
+        "Decide whether to help the colony take the Pumphouse",
+        "Find out what Wystan Corrie's gap is, or at least that it exists"
+      ],
+      "encounters": [
+        "Rook's announcement: heating in the Warrens to 'minimum survivable' from C-22, a buyout of 18,000 cr per adult who boards before C-14, Halberd security arriving on the C-26 drop",
+        "The vault run in the Ledger House",
+        "The Pumphouse occupation, at 0300 on C-27"
+      ],
+      "scenes": [
+        {
+          "name": "The Vault Run",
+          "description": "The Ledger House records vault, the night of C-28, while the shredders are off.",
+          "readAloud": "\"The Ledger House at night is bright and empty and warm, the only warm place in Brinehold, and it hums. Through the glass of the records vault you can see crates stencilled PLAINSONG — HEAD OFFICE — DO NOT OPEN, and a terminal on a desk, its screen asleep. Somewhere above you, in the ducts, Lisbet Rask whispers, 'Two minutes till the guard comes round. He's always early. He's nice. Don't hurt him.'\"",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 14,
+              "success": "In and out with nobody the wiser. Notice does not rise.",
+              "failure": "A guard sees a shadow. Notice +1, and he comes to look: 1 Security Guard, who would rather be asked to go away than fought."
+            },
+            {
+              "skill": "Computers",
+              "dc": 17,
+              "success": "The edited 1404-1420 window gives up its deleted line: DEPTH INTERLOCK RELEASE, OPS AUTHORITY E.MORROW, AUTHORISED REMOTE (PLAINSONG RELAY). Someone in orbit ordered it on the director's authority.",
+              "failure": "The log shows 'telemetry loss'. Another try takes 10 minutes and trips an alarm on a failure by 5 or more (Notice +2)."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 13,
+              "success": "In the outbound crates you find Wystan Corrie's survey lab logs for C-32, with a six-hour gap marked SYNTHETIC MEMORY PARTITION — PROPRIETARY — AUTH C.ROOK.",
+              "failure": "Crates of accounts."
+            }
+          ],
+          "combatEncounters": [
+            "If the alarm goes: 2 Security Guards and 1 Security Drone, then Severin Haake in person after 3 rounds. Haake asks what they're doing there, listens, and if the answer includes the word 'interlock' he lets them leave, saying, 'I didn't see you. Don't make me see you again.'"
+          ],
+          "roleplayNotes": "A Tech with Intrusion and physical access has advantage on the log. Wystan (if a PC) can jack in with Data Link for advantage too, and if he does, he sees his own partition flag for the first time. Let that land. The partition itself can't be opened here; that comes in sm-scenario-002.",
+          "loot": [
+            "The Bore Nine interlock log (evidence for the death)",
+            "The partition flag on Wystan's memory (a lead, not proof)"
+          ]
+        },
+        {
+          "name": "The Pumphouse",
+          "description": "0300 on C-27. Agathe Ruark leads sixty colonists into the Pumphouse and shuts the doors.",
+          "readAloud": "\"The Pumphouse is the only place in Brinehold that's always warm, a cathedral of pipes and heat exchangers around the low hum of the reactor, and at three in the morning it is full of people in their coats. Agathe Ruark stands on a coolant manifold with a rod coupling in one hand and the register in the other. 'Combine says the heat's theirs,' she says. 'Combine says the water's theirs. My mother poured the foam on these walls. The heat's ours now. Doors shut, pets.' The pressure doors grind closed. Somebody starts singing.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "You talk Agathe into a rule: no one touches the reactor controls and no one touches the Sling. She agrees, grumbling. This matters a great deal in sm-scenario-002.",
+              "failure": "Agathe wants to wreck the Sling's coil feed to 'make them listen'. That fight is now waiting for you."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 12,
+              "success": "You check the Pumphouse doors and the reactor's emergency shutdown. You know exactly where a saboteur would go, which matters in sm-scenario-004.",
+              "failure": "The plant is old and complicated."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "This is the end of the scenario and the start of the strike. If the party joins, they are inside when the doors close. If they stay neutral, Agathe asks them to be the colony's voice at the Ledger House. If they side with the Combine, play it straight. The campaign still works, but the Stayers will be lost unless they change their minds.",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Caspian Rook",
+      "role": "Combine close-out officer / antagonist",
+      "description": "Warm, patient, unflappable, believes completely that he is saving these people from a dying moon. He ordered the interlock released from the Plainsong. Uses kindness as a weapon."
+    },
+    {
+      "name": "Director Evadne Morrow",
+      "role": "Combine site director",
+      "description": "Fifty-eight, grey, exhausted, eleven years running Brinehold. She typed the interlock release on Rook's order and objected in writing. Guilt has made her brittle, formal and very quiet."
+    },
+    {
+      "name": "Agathe Ruark",
+      "role": "Council chair / companion",
+      "description": "Strike leader. Holds the paper register. See her dmNotes."
+    },
+    {
+      "name": "Lisbet Rask",
+      "role": "Adaeze's daughter / companion",
+      "description": "Seventeen, writes SHE DIDN'T SLIP on everything, knows every duct. Has her mother's slate and its last message. See her dmNotes."
+    },
+    {
+      "name": "Ferrant Venn",
+      "role": "Surviving witness / companion",
+      "description": "Adaeze's drill partner. Took the bonus. May tell the truth at the inquest. See his dmNotes."
+    },
+    {
+      "name": "Lieutenant Severin Haake",
+      "role": "Security chief / companion",
+      "description": "Correct, decent, carrying a sealed envelope. See his dmNotes."
+    },
+    {
+      "name": "Sabeen Talwar",
+      "role": "Claims Board Lapse Assessor",
+      "description": "Presides over the inquest. A pregen; if no one plays her, she is a fair, sharp NPC."
+    },
+    {
+      "name": "Dr. Odalys Quarrie",
+      "role": "Colony doctor",
+      "description": "Signed the false certificate. A pregen; if no one plays her, she will tell the truth to anyone who is kind about it."
+    }
+  ],
+  "rewards": {
+    "xp": 1800,
+    "money": "None from the Combine. Agathe's council pays anyone who helps 100 cr from the hall fund. Rook offers each arrival a 2,000 cr 'consultancy' to sign a statement that the inquest was properly conducted",
+    "items": [
+      "The Bore Nine interlock log (if recovered)",
+      "Dr. Quarrie's revised finding (if written)",
+      "Ferrant Venn's testimony (if given)",
+      "A UV photograph of the stain in Adaeze's pocket",
+      "Lisbet Rask's trust"
+    ],
+    "story": "By C-27 the colony holds the Pumphouse, the inquest is open or shut, and the party knows someone in orbit ordered Bore Nine's interlock released on Morrow's authority. They don't yet know why. Halberd lands at C-26."
+  },
+  "twists": [
+    "SHE DIDN'T SLIP isn't Lisbet's alone. The first one, on the Tern's seat screens, came from Thorvald Kirov's drill-crew maintenance account. He didn't write it. Ferrant did, drunk, on the night of C-31, using an account he knew. It was the bravest thing he had done in his life and he is terrified that someone will find out.",
+    "Rook doesn't want the inquest closed as an accident. He wants it closed fast. A slow inquest keeps a Board officer looking at Bore Nine, and Bore Nine is the one place on Esker he cannot afford anyone to look at closely.",
+    "Morrow, alone with the party (Persuasion DC 18, or DC 13 if they hold the interlock log), says only: 'I have done everything I was told to do for eleven years. Ask me again on the last day.' She means it literally."
+  ],
+  "dmTips": [
+    "OPEN WITH PEOPLE, NOT PLOT. Let each PC have a short scene arriving or waking up at C-30. The saltborn PCs should feel the colony's grief, and the arrivals should feel how strange and cold it is.",
+    "THREE ROUTES TO THE TRUTH. The cause of death can be found in the cold room (body), the Ledger House (log) or the witness chair (Ferrant). Any one of them is enough to keep the inquest open. Don't let a failed roll close all three. A failure costs time or Notice.",
+    "ROOK IS NICE. Play him as the most reasonable man in the room. He remembers names, brings hot drinks to the picket line and never raises his voice. When he threatens someone, it sounds like concern. The players should want to like him.",
+    "SHOW THE CLOCK. Write C-30 on the table and cross days off. Mention the Stayers when Rook announces the buyout: 140 signed, and a queue forms at the Ledger House within the hour."
+  ]
+}

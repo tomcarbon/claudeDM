@@ -1,0 +1,124 @@
+{
+  "id": "eafafb89-ae0f-4053-956f-242ee215a8e5",
+  "name": "Konrad Kranzler",
+  "status": "alive",
+  "race": "Immigrant",
+  "subrace": "",
+  "class": "Doc",
+  "level": 3,
+  "background": "Veteran",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 12,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 16,
+      "modifier": 3
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 17,
+    "current": 17
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Investigation",
+    "Athletics",
+    "Survival"
+  ],
+  "languages": [
+    "English",
+    "German (his first language, the German of Baden)",
+    "Latin (enough to write a prescription and read a medical text)"
+  ],
+  "equipment": [
+    "Leather duster over a black frock coat that was good in St. Louis in 1860, a wool muffler his sister knitted, and spectacles",
+    "Doctor's bag: a surgeon's pocket case, bullet forceps, a bone saw, needles and silk, a tourniquet, quinine, calomel, a bottle of chloroform and a bottle of laudanum",
+    "Pocket revolver (Smith & Wesson, .32 rimfire), 5 loaded, in his coat pocket where he usually forgets it",
+    ".32 rounds (10)",
+    "Boot knife, which he uses mostly for cutting bandages",
+    "Bandage roll (6), a bottle of whiskey for the patient and another for washing wounds",
+    "Discharge papers as hospital steward of a German regiment of Missouri Volunteer Infantry (U.S.), 1861 to 1863",
+    "A notebook in which he writes, in German, the name, age, wounds and cause of death of every patient he has lost; it has two Ninebark entries, Will Danforth and Patrick Kehoe, the second written in a different ink",
+    "A small brass microscope in a wooden box, his one extravagance",
+    "Horse: Herr Doktor, a patient old sorrel mare who knows the way to every claim in the gulch",
+    "Wallet containing $18"
+  ],
+  "weapons": [
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Boot knife",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Two Tongues (Immigrant origin: he speaks, reads and writes German and English fluently and Latin well; advantage on Insight and Perception to follow a conversation held in a language the speakers think he does not know; among German miners, brewers and storekeepers he finds a meal, a bed and the news without a check)",
+    "Sawbones (Doc, using INT: as an action with his doctor's bag he patches a creature's wounds; it spends up to 2 Hit Dice and regains 3 extra hit points once; also stabilizes and ends Bleeding; 4 uses per long rest. Dig Out a Bullet: during a short rest he cuts out a lodged bullet or buckshot; the creature regains 6 extra hit points and a lingering wound heals)",
+    "Diagnosis (Doc: as a bonus action he learns a visible creature's current and maximum hit points and every condition affecting it; examining a body for 10 minutes he learns the cause and approximate time of death, the kind of weapon and from how far, and one extra detail on a DC 12 Medicine check)",
+    "Steady Hands (Doc, 2nd level: advantage on Medicine; a creature he stabilizes regains 1 hit point and can act on its next turn; he identifies any drug, poison, disease or bad water by its symptoms)",
+    "Practice: Army Surgeon (Doc, 3rd level: creatures he Sawbones regain the maximum on each Hit Die they spend, and he can use Sawbones on a creature at 0 hit points without provoking opportunity attacks)",
+    "Old Regiment (Veteran background: soldiers of either side give him a meal, the news and a straight answer about a man who wore a uniform; he reads rank, drill and bearing at a glance)"
+  ],
+  "traits": [
+    "Sawbones (4/long rest)",
+    "Diagnosis",
+    "Steady Hands",
+    "Army Surgeon",
+    "Old Regiment"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am precise, mild and pedantic, and I apologise to patients before I hurt them. I cannot help correcting people's Latin. I have a dry joke for most occasions and I tell it whether or not the occasion wants it.",
+    "ideals": "A body tells the truth if you let it. I have no use for opinions that a body contradicts, whosever they are and however many men with lanterns hold them.",
+    "bonds": "My notebook of the dead. I promised myself after Wilson's Creek that every name in it would at least be written down correctly. Two of the Ninebark names, I believe, are written down beside the wrong cause.",
+    "flaws": "I came to this country in 1849 because a revolution failed and I ran. I have been a little afraid of crowds ever since. When the crowd comes for someone, I am afraid I will run again."
+  },
+  "appearance": "A slight, stooped, balding man of forty-one with a neat brown beard going grey, gold spectacles, ink-stained fingers and a careful, slightly formal English with a soft German accent. He smells of carbolic and pipe tobacco and walks as if he were always late.",
+  "backstory": "Konrad Kranzler was born in Freiburg in Baden in 1823 and studied medicine at Heidelberg until 1848, when he left the lecture hall for the barricades of the Baden revolution. When it collapsed in 1849 he escaped across the Rhine with a price on his head and came to St. Louis with thousands of other Germans, where he practised medicine without a diploma he had not been allowed to finish. In 1861, when the German regiments of St. Louis held the city for the Union, he enlisted as hospital steward of one of their regiments and spent two years amputating limbs, from Wilson's Creek to Pea Ridge, until a fever sent him home. In the spring of 1864 he followed a cousin to the new gold camps. In Ninebark he is the only man with any medical training for twenty miles, and the committee has twice asked him to certify the dead. He certified Will Danforth's death honestly: a rifle ball through the chest from above and to the right, at about sixty yards. He was asked to certify Patrick Kehoe's as 'death by hanging, a road agent', and wrote 'death by strangulation, at the hands of persons unknown', and the committee's lawyer Horatio Grimsby tore the page out. (Suggested hook: he examined both bodies, and he has a second opinion about each.)"
+}

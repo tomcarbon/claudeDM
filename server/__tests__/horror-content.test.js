@@ -14,7 +14,7 @@ describePeriodCategory({ describe, it, expect }, {
   id: 'horror',
   label: 'Horror',
   rulesDir: 'rules-horror',
-  campaignIds: ['drownedbell', 'greywick', 'hollowfork'],
+  campaignIds: ['blackdamp', 'drownedbell', 'greywick', 'hollowfork', 'pinecrest'],
   skills: ['Acrobatics', 'Athletics', 'Deception', 'Driving', 'Insight', 'Intimidation', 'Investigation', 'Mechanics',
     'Medicine', 'Nature', 'Occult', 'Perception', 'Performance', 'Persuasion', 'Research', 'Sleight of Hand', 'Stealth', 'Survival'],
   origins: ['Educated', 'Faithful', 'Farm-Raised', 'Old Family', 'Survivor'],

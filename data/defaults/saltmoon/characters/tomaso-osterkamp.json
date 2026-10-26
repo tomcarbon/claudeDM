@@ -1,0 +1,129 @@
+{
+  "id": "7a4c0e95-3b81-4d27-bf6a-0e5d9c2a1f83",
+  "name": "Tomaso Osterkamp",
+  "status": "alive",
+  "race": "Spacer",
+  "subrace": "",
+  "class": "Tech",
+  "level": 3,
+  "background": "Spacer Crew",
+  "alignment": "Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 10,
+      "modifier": 0
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 13,
+      "modifier": 1
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 21,
+    "current": 21
+  },
+  "armorClass": 16,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Dexterity"
+  ],
+  "skills": [
+    "Piloting",
+    "Mechanics",
+    "Computers",
+    "Perception",
+    "Science"
+  ],
+  "languages": [
+    "Common",
+    "Spacer cant",
+    "Freight-net shorthand"
+  ],
+  "equipment": [
+    "Ballistic weave coverall with the Plainsong's patch on the shoulder",
+    "Caseless 10mm pistol",
+    "Caseless 10mm rounds (40)",
+    "Crowbar",
+    "Electronics toolkit",
+    "Mechanic's tools",
+    "Hacking rig",
+    "Vacuum suit, freighter-rated, too warm for the halls and not quite warm enough for the ice",
+    "Mag boots",
+    "Tool belt",
+    "Data slate with the Sling's maintenance schematics",
+    "A certification stamp for the Sling's launch coils, Plainsong authority",
+    "Credit chit: 260 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Caseless 10mm pistol",
+      "attackBonus": 5,
+      "damage": "1d10+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Crowbar",
+      "attackBonus": 2,
+      "damage": "1d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave",
+    "type": "light"
+  },
+  "features": [
+    "Zero-G Adapted (Spacer: no penalties in microgravity)",
+    "Thin Bones (Spacer: disadvantage to avoid being knocked prone in full gravity, including aboard the Plainsong at 0.8 g)",
+    "Jury-Rig (10 minutes and a Mechanics check to build, repair or bypass a device; DC by complexity)",
+    "Gadgets (2 uses per long rest: Spoof, Overclock, Patch)",
+    "Intrusion (advantage on Computers checks against networks he has physical access to)",
+    "Engineer (Jury-Rig takes 1 minute; Patch heals 2d8 + INT)",
+    "Berth Rights (Spacer Crew feature: he can work his passage on most commercial vessels, and ship's crew treat him as one of their own)"
+  ],
+  "traits": [
+    "Zero-G Adapted",
+    "Thin Bones",
+    "Jury-Rig",
+    "Gadgets",
+    "Intrusion",
+    "Engineer"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Cheerful and nosy. I take things apart to see how they work and I narrate it as I go. I count everything: canisters, people, days.",
+    "ideals": "Machines tell the truth if you know how to listen. People are harder.",
+    "bonds": "My sister Benedetta, back on Vessant Ring, owes a debt broker more than I'll earn in four years. My cut of the Plainsong's completion bonus pays it off.",
+    "flaws": "I'll keep a promise to the wrong person rather than break it. I've already made one to Captain Halvik."
+  },
+  "appearance": "A wiry man of twenty-nine with a mop of dark curls and a grin that's always halfway there, raised on freighters at a quarter of a gravity and tall for it. His knuckles are scarred from coil housings and his coverall pockets are full of tools and wire. He walks a little stiffly in anything heavier than ship gravity, which on Esker means he's walking on air.",
+  "backstory": "Tomaso Osterkamp is the Plainsong's second engineer, sent down on the Tern to certify the Sling's launch coils for the last thirty days of throws. The Plainsong is paid by the canister, and her crew's completion bonus depends on every scheduled canister being caught before C-0. Captain Ottoline Halvik told him in private that the bonus is his sister's freedom, and that whatever happens on the surface, the Sling keeps throwing. He arrived thinking this was a maintenance job. Then he saw the colonists' faces at Pad Row, and the scrolled line on the Tern's seat screen. He was the one who noticed, and filed away, that the override that added SHE DIDN'T SLIP came from a maintenance account on the surface, not from the shuttle."
+}

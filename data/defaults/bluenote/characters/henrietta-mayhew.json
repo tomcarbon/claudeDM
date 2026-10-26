@@ -1,0 +1,124 @@
+{
+  "id": "1cb4aca1-40b1-459c-9361-e0495b0712de",
+  "name": "Dr. Henrietta Mayhew",
+  "status": "alive",
+  "race": "Small-Town",
+  "subrace": "",
+  "class": "Doctor",
+  "level": 3,
+  "background": "Night Nurse",
+  "alignment": "Neutral Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Wisdom"
+  ],
+  "skills": [
+    "Medicine",
+    "Perception",
+    "Forensics",
+    "Insight"
+  ],
+  "languages": [
+    "English",
+    "German (enough to read the medical journals, which she does in the bath)"
+  ],
+  "equipment": [
+    "Heavy overcoat, black wool, with a hospital pass in the pocket",
+    "Doctor's bag, black leather, her initials worn almost off the clasp",
+    "Scalpel, in a case in the bag",
+    ".32 pocket pistol (Savage, a gift from her brother in Topeka, who worries), 8 rounds loaded, in the bottom of the doctor's bag",
+    ".32 rounds (16)",
+    "First-aid kit",
+    "Smelling salts",
+    "Bottle of aspirin",
+    "Wristwatch with a second hand",
+    "Stethoscope and a pocket ophthalmoscope",
+    "A Meharry Medical College diploma, framed, left at the hospital",
+    "A key to the Wheatley-Provident records room, which she is not supposed to have",
+    "Wallet containing $19"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    },
+    {
+      "name": ".32 pocket pistol",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy overcoat",
+    "type": "light"
+  },
+  "features": [
+    "Plain Dealing (Small-Town origin: once per long rest, advantage on an Insight check to tell whether someone is lying, and on a success, whether they lie to protect themselves or someone else; ordinary working people start one step friendlier)",
+    "Patch Job (Doctor: as an action with her doctor's bag, a creature spends up to 2 Hit Dice and regains 3 extra hit points once; stabilizes the dying; 4 uses per long rest, WIS modifier + 1)",
+    "Diagnosis (Doctor: as a bonus action, learn a creature's current and maximum hit points and conditions; ten minutes with a body gives cause and approximate time of death without a check)",
+    "Steady Hands (Doctor, 2nd level: advantage on Medicine checks; a creature she stabilizes regains 1 hit point and can act on its next turn)",
+    "Practice: Coroner (Doctor, 3rd level: proficiency bonus doubled for Forensics; examining a body, she also learns one fact the killer would rather she didn't)",
+    "Night Shift (Night Nurse background: nurses, orderlies and ambulance men talk to her; she can learn who was brought into any hospital in town, and knows which doctors treat a gunshot without calling the police. General Hospital Number Two's night staff are her old friends)"
+  ],
+  "traits": [
+    "Patch Job (4/long rest)",
+    "Diagnosis",
+    "Steady Hands",
+    "Coroner"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am brisk with the healthy and endlessly patient with the sick. I say exactly what is wrong with people, including people who are not my patients. I hum hymns while I suture.",
+    "ideals": "A body tells the truth about what was done to it, whoever did it, and somebody with a licence ought to write it down where a court can read it.",
+    "bonds": "Wheatley-Provident, the hospital Black doctors built because this city would not let us practise in its own, and the patients who come in its door at three in the morning because there is nowhere else.",
+    "flaws": "I have signed the death certificates of too many young men who 'fell down the stairs' at a station house, and I have written down what I saw, and nothing has ever happened. Somewhere in me I have stopped expecting it to. I am afraid that is the same as agreeing."
+  },
+  "appearance": "A small, sturdy, brown-skinned woman of thirty-eight with her hair pinned up under a plain black hat, round tortoiseshell spectacles, quick small hands that are always clean, and a low, decided voice. She walks fast. Black coat, black bag, sensible shoes.",
+  "backstory": "Henrietta Mayhew was born in 1898 in Nicodemus, Kansas, a town Black homesteaders founded on the prairie after the war, the daughter of a schoolteacher and a farmer. She came to Kansas City at seventeen and worked eight years as a night nurse at General Hospital Number Two, the city's hospital for Black patients, saving every dollar, and went to Meharry in Nashville at twenty-five because no medical school in Missouri would have her. She came home in 1931 and has practised at Wheatley-Provident ever since, in general medicine, obstetrics and whatever comes through the door, and because the city surgeon will not come out at night for a Black prisoner, the district stations telephone her. She knows what is done in their basements. She signed Lavinia Ransom's death certificate on 12 February 1935, lobar pneumonia, at three in the morning, with Jules holding his mother's hand, and she has had Sunday dinner with him once a month since. On Monday she will read a dead woman's name in a barbershop window, and she will know the handwriting on the certificate it was stolen from, because it is her own."
+}

@@ -1,0 +1,131 @@
+{
+  "id": "a0c9e3f7-26d4-4b51-93e8-7f1b5d2a4c09",
+  "name": "Ferrant Venn",
+  "status": "alive",
+  "race": "Human",
+  "subrace": "",
+  "class": "Tech",
+  "level": 3,
+  "background": "Blue-Collar Worker",
+  "alignment": "Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 14,
+      "modifier": 2
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 10,
+      "modifier": 0
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 15,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Dexterity"
+  ],
+  "skills": [
+    "Mechanics",
+    "Athletics",
+    "Computers",
+    "Piloting",
+    "Science"
+  ],
+  "languages": [
+    "Common",
+    "Brinehold cant"
+  ],
+  "equipment": [
+    "Ballistic weave drill liner",
+    "Stun gun",
+    "Stun gun cartridges (4)",
+    "Crowbar",
+    "Mechanic's tools",
+    "Electronics toolkit",
+    "Skeeter, a battered recon survey drone (Security Drone statblock with no weapons)",
+    "Surface suit (8 hours of air)",
+    "A boarding pass for the Plainsong, senior technician berth, upgraded from steerage at C-31",
+    "A bottle of reclaimer-still spirit, half gone",
+    "A Combine payment receipt: hardship bonus, 1,900 cr, paid C-31",
+    "Credit chit: 1900 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Stun gun",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "lightning"
+    },
+    {
+      "name": "Crowbar",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Ballistic weave",
+    "type": "light"
+  },
+  "features": [
+    "Versatility (Human: +1 to all ability scores)",
+    "Jury-Rig (10 minutes and a Mechanics check to build, repair or bypass a device)",
+    "Gadgets (2 uses per long rest: Spoof, Overclock, Patch)",
+    "Intrusion (advantage on Computers checks against networks he has physical access to)",
+    "Drone Jockey (Skeeter, his recon drone, acts on his initiative)",
+    "Union Card (Blue-Collar Worker feature: working people look out for him, or did)"
+  ],
+  "traits": [
+    "Jury-Rig",
+    "Gadgets",
+    "Intrusion",
+    "Drone Jockey"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "Nervous, kind and ashamed. He makes jokes to fill silences and can't look anyone in the eye for long. Brilliant with machines, hopeless with himself.",
+    "ideals": "He used to think: do your job, go home, don't be a hero. He's not sure what he thinks now.",
+    "bonds": "Adaeze, his drill lead for nine years, who told him to run. Skeeter, his drone, which he talks to like a dog.",
+    "flaws": "He took the money. He'll take the next offer too, unless someone gives him a reason not to."
+  },
+  "appearance": "A rangy, red-bearded man of thirty-four with a frostbitten left ear (the tip is gone) and new, ill-fitting clothes bought with the bonus. He drinks more than he did. Skeeter, a beaten-up recon drone the size of a dinner plate, follows him everywhere at shoulder height.",
+  "backstory": "Ferrant Venn has been a drill tech at Bore Nine for nine years, not quite long enough to be a Stayer. He was on the rod deck when the bore broke into the ocean. Adaeze shoved him toward the crawler and told him to go, and he went. When he got back to Brinehold, Director Morrow was waiting at Pad Row. She said the death was an accident, a seal failure, and that he was in shock and would be given a hardship bonus and a senior berth on the Plainsong. She also said that a technician who was confused about the details at the inquest would find his bonus, and his berth, under review. He has a sister on Vessant Ring and he signed the statement.",
+  "dmNotes": {
+    "roleplaying": "Ferrant is the inquest's key witness in sm-scenario-001 and the party's guide back to Bore Nine in sm-scenario-003, if they can get him there. He is a coward who knows it and hates it. He doesn't need a lecture. He needs one person to tell him he can still choose. If the party treats him with contempt, he goes up on the Plainsong and his testimony is lost. If they treat him like a person, he breaks at the worst possible moment, in public, and it's glorious. Skeeter is useful: it scouts crevasses, records evidence and is braver than its owner.",
+    "voice": "Quick, apologetic, a little slurred after midday. 'I'm sorry, I'm sorry. Look, I'm not, it was very fast, all right? It was very fast.'",
+    "motivations": "Get off Esker without having to think about it. Failing that, find some way to be forgiven, by Lisbet most of all.",
+    "secrets": "HE SAW THE INTERLOCK RELEASE. At 1406 on the day of the death, Bore Nine's rod-deck panel flashed DEPTH INTERLOCK RELEASED — OPS AUTHORITY — E.MORROW, and the drill sped up. Adaeze shouted at Ops on the comm, and a voice he didn't recognise said 'Continue to target depth'. The bore broke into brine at 1419 and the geyser took out the shack wall. Adaeze stayed to close the blowout cap so the brine didn't flood the crawler bay. She sent him out first. He also knows Adaeze took a core segment out of the sample rack and put it in her suit's thigh pocket before the breach, and that the recovery team's report lists no samples found on the body. If he testifies at the inquest it's evidence for the death. If Skeeter's flight log is pulled (Computers DC 14), it has eleven seconds of video of the rod-deck panel.",
+    "attitude": "Toward the party: afraid of them, then grateful, then devoted, if they earn it. Toward Morrow: fear. Toward Rook: he has never met him and he flinches when he hears the voice, because it's the voice on the comm. Toward Lisbet: he can't bear to be in a room with her."
+  }
+}

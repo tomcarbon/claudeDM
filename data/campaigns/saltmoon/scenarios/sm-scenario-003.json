@@ -1,0 +1,320 @@
+{
+  "id": "sm-scenario-003",
+  "title": "The Shear",
+  "subtitle": "Sixty Kilometres of Moving Ice, a Storm of Falling Sea, and What Adaeze Rask Capped With Her Last Breath",
+  "levelRange": "5-6",
+  "estimatedSessions": 2,
+  "setting": {
+    "name": "The Shear and Bore Nine, C-12 to C-6",
+    "description": "South of Brinehold the ice plain breaks up into the Shear, a belt of fractured plates that Calyx's tides grind against each other every three and a half days. Crevasses open and close, pressure ridges rise like walls, and where the ice is thinnest, brine from the ocean below is forced up through fissures and erupts in plumes kilometres high that fall back as snow. Bore Nine sits sixty kilometres in, at the thinnest point the Combine could find: a drill tower, a rod deck, a crew shack and a crawler bay, now half buried in a fan of frozen brine. Storm season on the Shear runs until about C-8. The Combine's recovery team is waiting for it to end. The party isn't.",
+    "atmosphere": "Survival and wonder. The Shear is the most beautiful place in the campaign and the most dangerous. The ice is blue-white and glassy, the sky is black, Calyx is enormous, and the plumes rise silently on the horizon like slow white trees. Inside the crawler it's warm and cramped, with the heater ticking and everyone's breath on the windows. Outside, every step is a decision. At Bore Nine, play the hush of a place where someone died and the strange quiet glow of something that has been alive in the dark for four billion years.",
+    "keyLocations": [
+      {
+        "name": "The Crevasse Field",
+        "description": "Twenty kilometres of plates split by crevasses, some a metre wide, some fifty, some hidden under a crust of fallen plume snow. The Combine's marked route is out of date after a season of quakes. Imke Saranova's hand-drawn maps are not.",
+        "features": [
+          "Snow bridges over crevasses, which hold a person and not a crawler",
+          "Old route flags, half of them leading straight into new cracks",
+          "The wreck of an old survey crawler from forty years ago, stuck nose-down in a crevasse, where Imke's parents died"
+        ],
+        "encounters": [
+          "Crossing the field (see Act 1)",
+          "A crevasse fall"
+        ],
+        "secrets": [
+          "The old wreck's emergency locker still holds four sealed air canisters (8 hours each) and a hand-written survey log. Its last page, in Imke's mother's handwriting, says: 'Bore site sounding, south plate. Brine at 1,900 m. Something in the sample glows. A.R. says report it. Combine says it's mineral. Recheck on return.' They didn't return. The Combine has known for forty years"
+        ]
+      },
+      {
+        "name": "The Ridges and the Stranded Crawler",
+        "description": "A line of pressure ridges that rise and fall with the Turn, forty kilometres in. On C-11 the party finds a colony crawler on its side at the foot of a fresh ridge: the Dunlevy family, five Stayers who borrowed it two days ago to hide at the abandoned Bore Six shelter until the lapse, rather than be loaded onto the Plainsong.",
+        "features": [
+          "The tipped crawler, its air at 6 hours, its heater failing",
+          "Five people: two adults, a grandmother and two children",
+          "A ridge that has closed the route behind them"
+        ],
+        "encounters": [
+          "The rescue (see Act 1)"
+        ],
+        "secrets": [
+          "The Dunlevys have a short-range radio and have been listening to the Combine channel. They heard Rook tell Varnholt, two nights ago: 'If the Assessor's people go south, the recovery team goes the same day, storm or no storm.'"
+        ]
+      },
+      {
+        "name": "Bore Nine",
+        "description": "The drill site: a sixty-metre tower, a rod deck, a crew shack and a crawler bay, all half buried under a frozen fan of brine from the C-32 blowout. The bore head is closed by a blowout cap that someone shut by hand from the rod deck. Frozen spray coats everything in a glassy grey crust.",
+        "features": [
+          "The blowout cap, hand-closed, its locking wheel still wrapped in a scrap of orange suit fabric",
+          "The collapsed crew shack under four metres of frozen brine",
+          "The crawler bay, intact, with power still on a backup cell",
+          "The rod deck panel, still lit, still reading DEPTH INTERLOCK RELEASED — OPS AUTHORITY",
+          "A fissure in the ice beside the bore, where brine is still seeping and freezing, glowing faint blue in the dark"
+        ],
+        "encounters": [
+          "Searching the shack for the suit recorder",
+          "Collecting a living sample",
+          "The Combine recovery team"
+        ],
+        "secrets": [
+          "Adaeze's suit recorder, the black puck, is frozen into the shack floor where she knelt to pull the cap. It recorded everything: the interlock alarm, her argument with Ops, the voice saying 'Continue to target depth', the breach, and her last words, a calm report of the find for the Claims Board, timed and stated in the Board's format. She knew the rules. Investigation DC 15 to find it in the ice, Athletics or Mechanics DC 13 to cut it free without damage",
+          "The fissure's glow is saltlace, living, growing out of the blowout in the brine. A sample collected in an insulated, heated case (Wystan has six) stays alive for about two weeks. In an unheated case it dies within an hour on the surface, and that matters",
+          "The rod deck panel's memory holds its own copy of the interlock release (Computers DC 13 with physical access). It is a third copy, and the hardest to dispute"
+        ]
+      }
+    ]
+  },
+  "synopsis": "The party takes a crawler south onto the Shear at C-12, in storm season, to reach Bore Nine before the Combine's recovery team. The journey is the challenge: a crevasse field with an old wreck that holds proof the Combine has known about saltlace for forty years; a fresh pressure ridge, and a family of Stayers stranded beside it; and a plume storm on the C-9 Turn. At Bore Nine they find Adaeze Rask's last act, the hand-closed blowout cap. They cut her suit recorder out of the ice, and in a fissure they find living saltlace glowing blue in the dark. Then the recovery team arrives: Halberd contractors and a Combine drill crew, sent early by Rook, with orders to reopen the bore to target depth and take live specimens for Operation Stillwater. Reopening the cap risks another blowout. The party has to stop them, bargain with them or outrun them, and then get home through the storm by C-6 with the evidence alive.",
+  "hook": "The crawler's heater ticks. Outside the windscreen the Shear goes on forever, white and blue and broken, and on the horizon a plume is rising: a silent white column, kilometres tall, leaning slowly over as it freezes. Imke Saranova (or whoever is driving) says, 'Turn's in nine hours. Ice is going to move.' In the back, Ferrant Venn's drone Skeeter bumps gently against the roof. Ferrant is looking at the map with the expression of a man who swore he would never go back. 'Sixty kilometres,' he says. 'She walked it once. In a suit. For a bet.' He laughs, and it turns into something else.",
+  "acts": [
+    {
+      "title": "Act 1: Across the Shear (C-12 to C-10)",
+      "description": "The crawler journey south. Track air, hours, the Turn and the crawler's HP. Run the Ice rules on every leg.",
+      "objectives": [
+        "Cross the crevasse field",
+        "Deal with the stranded Dunlevy family",
+        "Get to Bore Nine with the crawler intact and the air holding"
+      ],
+      "encounters": [
+        "The crevasse field and the old wreck",
+        "The stranded crawler at the ridge",
+        "Ice rolls on the Turn at C-12"
+      ],
+      "scenes": [
+        {
+          "name": "The Old Wreck",
+          "description": "Twenty kilometres in: a survey crawler forty years dead, nose-down in a crevasse.",
+          "readAloud": "\"You see it first as a straight line where there should be none: the back of a crawler sticking out of the ice at an angle, its paint stripped to bare metal by forty years of plume snow. A survey marker on its tail reads PWC SURVEY 3. Imke Saranova stops talking. The crevasse it fell into has narrowed since then; the ice has closed around the cab like a fist. Through the frosted rear hatch you can see a locker, still sealed, with a painted blue band on its door.\"",
+          "skillChecks": [
+            {
+              "skill": "Athletics",
+              "dc": 14,
+              "success": "Roped, you climb down into the crevasse and open the rear hatch. The locker holds four air canisters and the survey log with its last page.",
+              "failure": "The ice shifts as you climb: DEX save DC 13 or fall 20 feet (no damage in this gravity, but you are wedged; a STR check DC 13 or an ally's help gets you out). It costs an hour."
+            },
+            {
+              "skill": "Survival",
+              "dc": 13,
+              "success": "Imke's maps (advantage with a Scout's Trailwise) find a line across the field that the crawler can take: 4 hours, no crevasse rolls on this leg.",
+              "failure": "The marked Combine route. Roll the Ice twice on this leg."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "If Imke is a PC, this is her scene: her parents' crawler, and her mother's handwriting saying the Combine knew. Let her player have it. The log is not formal evidence for the Board, since nobody signed it, but it makes Sabeen furious and it shows the Combine has buried this before. If Imke isn't a PC, the blue band on the locker belongs to Joss Saranova's family, and Joss is in the Plainsong boarding queue.",
+          "loot": [
+            "Four air canisters (8 hours each)",
+            "The Survey 3 log: the Combine has known about saltlace for forty years"
+          ]
+        },
+        {
+          "name": "The Dunlevys",
+          "description": "Forty kilometres in. A crawler on its side, its beacon blinking, under a ridge that wasn't there last week.",
+          "readAloud": "\"The tipped crawler is lying on its side like a sleeping animal, its tracks in the air. Frost is thick on every window but one, and in that one, a small face appears and a mittened hand waves at you frantically. Through the hull you hear knocking: three short, three long, three short. Above it, the new pressure ridge is a wall of broken blue ice twenty metres high, creaking. It's still moving.\"",
+          "skillChecks": [
+            {
+              "skill": "Mechanics",
+              "dc": 14,
+              "success": "With your crawler's winch you right theirs (an hour) and it can drive again, slowly. They can follow you to Bore Nine or limp home.",
+              "failure": "Their crawler is finished. You have to take five more people: your air and space get tight (halve the crawler's remaining air hours)."
+            },
+            {
+              "skill": "Medicine",
+              "dc": 12,
+              "success": "The grandmother has a bad cold injury and one child is hypothermic. You stabilise them.",
+              "failure": "The grandmother needs Brinehold's clinic within 48 hours or she dies."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 13,
+              "success": "You talk them into going home to Brinehold, not to the Bore Six shelter. Hiding there would have killed them; the shelter's air plant has been dead for ten years.",
+              "failure": "They insist on going on to Bore Six. If the party lets them, they die there, and the party hears about it at C-6."
+            }
+          ],
+          "combatEncounters": [
+            "The ridge: while the party works, roll a d6 every 20 minutes. On a 1, an ice-fall from the ridge: DEX save DC 13, 3d6 bludgeoning, half on a success; on a fail, a suit breach as well"
+          ],
+          "roleplayNotes": "Rescuing the Dunlevys costs time, air, or both, and that's the point. It is the right thing to do and it puts the party behind the recovery team. If they save the family, Stayers +1d4 when the news gets home, and the Dunlevys' story about Rook's radio order travels. If they leave them, nobody says anything, but Agathe finds out.",
+          "loot": [
+            "The Dunlevys' testimony about Rook's order to Varnholt"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 2: Bore Nine (C-10 to C-9)",
+      "description": "The drill site. The party has a few hours before the recovery team arrives, more if they made good time, less if they stopped for the Dunlevys.",
+      "objectives": [
+        "Find Adaeze's suit recorder in the collapsed shack",
+        "Collect a living saltlace sample and keep it alive",
+        "Copy the rod deck panel's log"
+      ],
+      "encounters": [
+        "The shack",
+        "The fissure",
+        "The recovery team, arriving in the Fulmar or the Mule (whichever the party didn't take) and a Halberd tracked hauler"
+      ],
+      "scenes": [
+        {
+          "name": "The Cap",
+          "description": "The rod deck at Bore Nine, at the foot of the tower.",
+          "readAloud": "\"The tower stands over you, sixty metres of lattice wrapped in frozen spray. Everything has the same glassy grey crust, as if the whole place were dipped in sugar. At the centre of the rod deck is the blowout cap: a squat steel dome with a locking wheel on top. Someone turned it by hand to close it. A strip of orange suit fabric is still wrapped round one spoke of the wheel where she tied it to get a grip. On the panel beside it, still lit after twenty-two days on a backup cell, red letters: DEPTH INTERLOCK RELEASED — OPS AUTHORITY. Beside the deck, in the dark of a crack in the ice, something is glowing a very soft and very definite blue.\"",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 15,
+              "success": "In the collapsed shack, under the frozen brine, you find the place where she knelt, and frozen into the floor beside it, the black puck.",
+              "failure": "Hours of chipping. Each failure costs an hour, and the recovery team is coming."
+            },
+            {
+              "skill": "Mechanics",
+              "dc": 13,
+              "success": "You cut the recorder free without cracking it.",
+              "failure": "It cracks. A Tech can Jury-Rig it back (DC 15) in Brinehold; the audio survives, the video is gone."
+            },
+            {
+              "skill": "Science",
+              "dc": 14,
+              "success": "You collect a living saltlace sample into a heated, insulated case. Under your lamp it pulses slowly, as if it were breathing. It will keep for about two weeks.",
+              "failure": "The sample freezes hard in the transfer and dies. You can try again (another hour), but the fissure is small."
+            },
+            {
+              "skill": "Computers",
+              "dc": 13,
+              "success": "You copy the rod deck panel's memory: the interlock release, timed and signed with Morrow's credentials, from the Plainsong relay.",
+              "failure": "The panel's backup cell dies as you jack in. The memory is still there; it needs a fresh cell (any power cell) and an hour."
+            }
+          ],
+          "combatEncounters": [],
+          "roleplayNotes": "Let this be quiet. The party is standing where Adaeze Rask died, and she died doing the job: capping the bore so her crew could get out, and reporting the find into her recorder in the Board's own format. If Lisbet is with the party, she unties the orange strip from the wheel and keeps it. If anyone plays the recording here, play Adaeze's last report in full: calm, technical, a little breathless, ending with 'Lis, love, back by second shift.' Then the recovery team's lights come over the ridge.",
+          "loot": [
+            "Adaeze Rask's suit recorder (evidence for both the death and the find; with a qualified signature, it's close to unanswerable)",
+            "A living saltlace sample, if kept warm",
+            "The rod deck panel log"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Act 3: Stillwater (C-9 to C-6)",
+      "description": "The recovery team arrives on the C-9 Turn, in a rising storm. Its orders: reopen the cap, drill to target depth, collect live specimens and recover 'personal effects'. Reopening the cap risks another blowout, and the plume storm is coming.",
+      "objectives": [
+        "Stop the Combine from reopening the cap, or survive it if they do",
+        "Keep the evidence and get it home",
+        "Get back to Brinehold by C-6, through the storm"
+      ],
+      "encounters": [
+        "The recovery team at Bore Nine",
+        "The plume storm",
+        "The run home"
+      ],
+      "scenes": [
+        {
+          "name": "The Recovery Team",
+          "description": "The C-9 Turn. Lights over the ridge, and a voice on the open channel.",
+          "readAloud": "\"Two sets of lights come over the ridge and down onto the rod deck: a crawler and a tracked hauler with a drill rig strapped to its back. Figures in grey armour climb out, and three more in Combine orange with drill tools. A woman's voice on the open channel, crisp: 'This is Halberd recovery. You're on a Combine site. You will step away from the bore and hand over any company property you've removed. You have five minutes, then we start the cap.' Under your feet the ice is starting to hum. The Turn is coming.\"",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 15,
+              "success": "You talk to the drill crew, not the contractors. They're saltborn-trained Combine techs who know what reopening a blown cap means. Their foreman, Ancel Brighouse, refuses to touch the wheel. Without them, Halberd can't drill.",
+              "failure": "The drill crew sets up the cap tools while Halberd keeps you covered."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 16,
+              "success": "You tell Halberd's sergeant exactly what happens when the cap opens on a Turn day, with the panel's numbers to prove it. He decides his contract doesn't cover this. Halberd hangs back and the drill crew follows.",
+              "failure": "He has his orders."
+            },
+            {
+              "skill": "Science",
+              "dc": 14,
+              "success": "You calculate it: the Turn peaks in 40 minutes, and if the cap is opened during it, the blowout will be twice C-32's. Everyone on the deck dies. Said aloud on the open channel, this gives advantage on every other check in this scene.",
+              "failure": "You know it's dangerous, but not how dangerous."
+            }
+          ],
+          "combatEncounters": [
+            "Halberd recovery team: 1 Mercenary Commander (Sergeant Oyelade Brisk, Varnholt's second), 4 Mercenaries, 1 Mech/Exo-frame Pilot in an Industrial exo-frame carrying the cap tools. Everything is in vacuum, outside: suit breach rules apply to everyone. Gunfire near the fissure can crack the ice (Ice roll on any miss)",
+            "The Combine drill crew (3 Civilians and foreman Ancel Brighouse) won't fight. If shooting starts they take cover in the crawler bay",
+            "If the cap is opened during the Turn: a blowout. Everyone within 60 feet of the bore makes a DEX save DC 15 or takes 6d10 cold damage and a suit breach, half damage and no breach on a success. The tower may fall (a d6 roll of 1-2: 4d10 bludgeoning in a 30-foot line). The fissure's saltlace is buried. Stillwater gets nothing"
+          ],
+          "roleplayNotes": "This can be a fight, a standoff or a negotiation, and it's best as a mix of all three. Halberd has orders, but they are not stupid, and the Turn is a bigger threat than anyone. The drill crew are the key: they're workers, and they knew Adaeze. Ancel Brighouse trained under her. If the party wins him over, the recovery is over. Halberd may still try to take the evidence by force on the way home, but they won't open the cap.",
+          "loot": []
+        },
+        {
+          "name": "The Storm",
+          "description": "The run home through the C-9 plume storm.",
+          "readAloud": "\"The plume goes up behind you without a sound. It doesn't need one. A white column of sea, kilometres high, rises silently over Bore Nine and starts to lean, and then the sky goes white. The snow falls fast and thick, and it's not snow. It's the ocean freezing as it falls, fine as flour, hissing on the hull. The windscreen goes white. The radio fills with static. The navigation display flickers and draws a line straight across a crevasse you crossed at dawn.\"",
+          "skillChecks": [
+            {
+              "skill": "Survival",
+              "dc": 15,
+              "success": "With Imke's maps or a Scout's Trailwise you navigate blind, by the feel of the ice and the time between ridges. You come out of the storm on the right line.",
+              "failure": "You wander. Roll the Ice twice and lose 1d4 hours of air."
+            },
+            {
+              "skill": "Piloting",
+              "dc": 14,
+              "success": "You keep the crawler on its line through the whiteout and across the crevasse field. At a snow bridge, you feel it give, and floor it.",
+              "failure": "The crawler loses a track at a crevasse lip: Mechanics DC 14 to fix in vacuum, in the storm, or walk the last 20 kilometres in suits (Suits, Cold and Vacuum)."
+            }
+          ],
+          "combatEncounters": [
+            "If Halberd follows: their hauler comes out of the whiteout at 30 feet, trying to ram (the hauler: AC 13, 80 HP; ram 4d10 bludgeoning to the crawler). A Piloting contest across 3 rounds; each round, roll the Ice"
+          ],
+          "roleplayNotes": "Get them home. They should arrive at Brinehold at C-7 or C-6, frozen, exhausted and carrying the truth. A long rest in the Pumphouse's warmth is the best thing that has happened in a week. Then Sabeen, Agathe and Severin look at what they brought back, and someone says: 'Now we have to get it to the Mast.'",
+          "loot": []
+        }
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Ferrant Venn",
+      "role": "Guide back to Bore Nine / companion",
+      "description": "Facing the place he ran from. His drone Skeeter can scout crevasses. If he stays at the cap when the Turn comes, he has found his courage."
+    },
+    {
+      "name": "The Dunlevy family",
+      "role": "Stranded Stayers",
+      "description": "Grandmother Nuala, parents Bram and Hesta, children Elske and Tamsy. Brave, foolish and frightened. Testimony about Rook's radio order."
+    },
+    {
+      "name": "Sergeant Oyelade Brisk",
+      "role": "Halberd recovery team leader",
+      "description": "Big, calm, practical. Takes orders, and also reads numbers. Won't die for a contract."
+    },
+    {
+      "name": "Ancel Brighouse",
+      "role": "Combine drill foreman",
+      "description": "Fifty, trained under Adaeze Rask, sent on this job because Rook thought a familiar face would help. It does, but not Rook."
+    },
+    {
+      "name": "Imke Saranova",
+      "role": "Surface guide",
+      "description": "A pregen. If no one plays her, she is the party's guide and drives the crawler."
+    }
+  ],
+  "rewards": {
+    "xp": 7500,
+    "money": "None. Bore Nine has a crawler bay with a spare backup cell (a Power cell) and a rod-deck emergency locker: four Med-stims and two air canisters",
+    "items": [
+      "Adaeze Rask's suit recorder",
+      "A living saltlace sample in a heated case (if collected and kept warm)",
+      "The rod deck panel log",
+      "The Survey 3 log (forty years of Combine knowledge)",
+      "Ancel Brighouse's crew, as witnesses (if won over)",
+      "The orange strip from the cap wheel"
+    ],
+    "story": "The party gets home to Brinehold at C-7 or C-6 with the evidence. Rook knows they have it. He has five days, the Mast, the last canister, the Plainsong and an envelope in Severin Haake's pocket."
+  },
+  "twists": [
+    "The 'A.R.' in the Survey 3 log, who said to report it, is Agathe Ruark. Forty years ago she was a 26-year-old drill hand on the survey's support crew. She saw the glow, said report it, and was told by a Combine geologist that it was a mineral fluorescence. She believed him and forgot. When she sees the log, she sits down on the crawler floor and says nothing for a long time. Then she says: 'Forty years. We've been sitting on it for forty years.' From that moment she will not take Rook's offer, whatever it costs her.",
+    "If Ferrant Venn is with the party at the cap, he is the one who walks out onto the rod deck, alone and unarmed, and says on the open channel to Ancel Brighouse: 'Ancel. It's Ferrant. I was here. Don't touch the wheel.' If he does, he has found his courage, and he will testify anywhere.",
+    "Sergeant Brisk carries a sealed order of his own from Rook: recover the suit recorder and 'ensure no other copies exist'. He is uneasy about what that means. Insight DC 15. If shown Adaeze's last words, he hands the order to the party and leaves."
+  ],
+  "dmTips": [
+    "TRACK THE AIR. Write the crawler's air hours on the table and count them down. Air is the clock out here, as days are in Brinehold.",
+    "THE SHEAR IS NOT A MONSTER. Ice moves and plumes erupt, but nothing hunts the party. Make it majestic, and make it lethal because it does not care.",
+    "SALTLACE IS A WONDER. The first time the party sees it glow, slow down. It's alive. It has been alive in the dark for longer than there have been animals on Earth. Nobody on this moon will ever see anything more important.",
+    "THE FIGHT AT THE CAP IS OPTIONAL. A party that talks the drill crew off the cap has won more completely than one that shoots Halberd off it. Reward cleverness and courage over firepower."
+  ]
+}

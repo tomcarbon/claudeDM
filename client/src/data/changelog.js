@@ -1,10 +1,23 @@
-export const CURRENT_VERSION = '1.0.26';
+export const CURRENT_VERSION = '1.0.27';
 
 export const CHANGELOG = [
   {
+    version: '1.0.27',
+    date: '2026-10-25',
+    title: 'Current Release',
+    compareFrom: '1.0.26',
+    compareRef: '13bee42 ("demo_1.0.26")',
+    highlights: [
+      'Seven new campaigns, so that Sci-Fi, Noir, Western and Horror now have five each. Sci-Fi: Charter\'s End, the last thirty days of an ice-moon mining colony that the Company wants empty. Noir: Dead Men Vote Tuesday, Kansas City in the election week of 1936; and Ash Wednesday, New Orleans across six days of the first Carnival after the war, 1946. Western: The Winter List, a Montana gold camp in the winter of 1864, the first Western set in the 1860s; and Star Route, a mail-and-stage line in New Mexico Territory in the summer of 1881. Horror: Blackdamp, a West Virginia coal camp in the spring of 1927; and Lantern Night, the closing weekend of a summer camp for grown-ups in the Poconos, September 1977. Each one has four adventures, six ready-made characters to choose from and four companions. No two of the seven share a character\'s name. Their surnames were checked against every other campaign and, with one exception, none is reused; a first name may turn up again in a different kind of game.',
+      'Characters made for an older era now carry that era\'s guns. Until this version, a character rolled for a campaign set in the 1860s could be handed a revolver that was not made until the 1870s, with ammunition to match. The character builder now swaps it for the gun of the right period. One honest limit: some of the Western enemies the Game Master can use in an 1860s game still carry that later revolver. The Winter List tells the Game Master to swap them, but only five of the ten are covered, so you may still meet one.',
+      'What has not changed, and matters. The Game Master\'s tools are still not locked down. Everything the 1.0.26 entry below says about that is still true: the game only listens to your own computer unless you change a setting on purpose, the company\'s security officer advises against changing it, and if a pop-up asks to let the Game Master run a command, or the Game Master asks you to run one yourself, say no. The fix is planned for a later version and has not started.',
+      'Last, what has not been seen yet. The automated checks have grown from 1,129 to 1,169, all passing, and they hold the new campaigns to most of their category\'s rules. One gap: nothing automated checks the weapons in a Sci-Fi campaign, so Charter\'s End\'s were checked by hand. None of the seven has been recorded as played through from start to finish, and no real turn with the Game Master has been run in any of them.',
+    ],
+  },
+  {
     version: '1.0.26',
     date: '2026-10-23',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.25',
     compareRef: '5132420 ("v1.0.25")',
     highlights: [

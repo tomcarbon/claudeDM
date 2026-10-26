@@ -1,0 +1,126 @@
+{
+  "id": "6cb41c4b-1d11-435f-b0b3-e66a63acf04b",
+  "name": "Leonie Fairbairn",
+  "status": "alive",
+  "race": "Back East",
+  "subrace": "",
+  "class": "Gambler",
+  "level": 3,
+  "background": "Card Sharp",
+  "alignment": "Chaotic Neutral",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 14,
+      "modifier": 2
+    },
+    "constitution": {
+      "score": 10,
+      "modifier": 0
+    },
+    "intelligence": {
+      "score": 14,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 13,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 16,
+      "modifier": 3
+    }
+  },
+  "hitPoints": {
+    "max": 18,
+    "current": 18
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Charisma"
+  ],
+  "skills": [
+    "Deception",
+    "Insight",
+    "Persuasion",
+    "Performance",
+    "Gambling",
+    "Sleight of Hand"
+  ],
+  "languages": [
+    "English",
+    "French (from a convent school in Baltimore, which taught her the rest of her trade by accident)"
+  ],
+  "equipment": [
+    "A dark green silk dress for the faro table, a black wool travelling dress for everything else, a fur-lined cloak and a pair of good boots she paid $30 for in Salt Lake City",
+    "Pocket revolver (Smith & Wesson, .32 rimfire, a six-shot cylinder loaded with five), in a pocket sewn into the cloak",
+    ".32 rounds (15)",
+    "Boot knife in her right boot",
+    "A faro layout of enamelled cards on green baize, a dealing box with a mirror she does not use in the Union Saloon, and a case-keeper's abacus",
+    "Playing cards, two decks, and a marked deck she keeps for teaching",
+    "Mordecai Pottinger's IOUs, $1,100 in all, in his own hand, won at her bank since September",
+    "A folded card that was pushed under the door of her room at Moira Kehoe's boarding house on the night of 18 November (if the GM chooses: see vg-scenario-001)",
+    "A pocket watch on a chain, a hand mirror, a bottle of laudanum for headaches she does not touch",
+    "Wallet containing $52"
+  ],
+  "weapons": [
+    {
+      "name": "Pocket revolver",
+      "attackBonus": 4,
+      "damage": "1d6+2",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Boot knife",
+      "attackBonus": 4,
+      "damage": "1d4+2",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "None",
+    "type": "none"
+  },
+  "features": [
+    "Book Learning (Back East origin: advantage on Investigation to read documents, deeds, ledgers and forged papers; once per long rest she recalls a useful fact about law, process, science or history without a check)",
+    "Read the Table (Gambler: proficiency doubled for Gambling and Insight; once per short or long rest, after a minute of watching or talking to a person, she learns one thing they are hiding: a lie, a weapon, the card they need, who they fear or what they want from her)",
+    "Ace in the Hole (Gambler: once per turn, extra 2d6 damage to one creature she hits with a finesse Melee weapon or a Sidearm if she has advantage, if another enemy of the target is within 5 ft of it, or if it believed a bluff or lie she told it within the last minute; not part of the damage on her sheet)",
+    "Lady Luck (Gambler, 2nd level: 3 luck points, her CHA modifier, regained on a long rest; spend one to roll an extra d20 on an attack, check or save, or to make a creature within 30 ft reroll an attack against her)",
+    "Sleeve Gun (Gambler, 2nd level: she draws a concealable weapon as a bonus action unnoticed by anyone not watching her hands, and has advantage on Sleight of Hand to carry one past a search; a bonus action each turn to Dash, Disengage or Hide)",
+    "Game: Faro Dealer (Gambler, 3rd level: she runs a faro bank in the Union Saloon and earns 1d6 x 5 dollars a night; the house always knows who is winning, who is drinking and who is broke, and so does she)",
+    "Know the Games (Card Sharp background: in any camp she finds the best game, the crooked one and the man who runs both within an hour; she knows the house rules and house cheats of faro, poker and monte, and when to leave town)"
+  ],
+  "traits": [
+    "Read the Table (1/short rest)",
+    "Ace in the Hole (2d6)",
+    "Lady Luck (3)",
+    "Sleeve Gun",
+    "Faro Dealer",
+    "Know the Games"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am charming when I choose to be, which is most of the time, and cold when I choose to be, which is when it matters. I never raise my voice. I remember every bet anyone has ever made at my table.",
+    "ideals": "An honest game is the only honest thing in a mining camp. Everyone at my table knows the odds. Nobody on that list was told theirs.",
+    "bonds": "My bank: forty dollars' worth of baize and enamel that has paid for my independence for nine years. Moira Kehoe, who let me a room when the hotel would not. And myself, first, always; I am the only person who has ever looked after me.",
+    "flaws": "I hold grudges like markers and I collect on them. Mordecai Pottinger owes me eleven hundred dollars and sits on the committee, and I want both of those facts to be his problem, not mine, and I may be reckless about how."
+  },
+  "appearance": "A small, straight-backed woman of thirty-two with dark auburn hair pinned up severely, a pale, composed face, very fine hands and a low, amused voice. At the table she wears green silk and no jewellery; off it, black wool and a cloak, and nobody remembers her unless she wants them to.",
+  "backstory": "Leonie Fairbairn was born in Baltimore in 1832, the daughter of a dancing master who drank and a mother who kept the family on her needle, and was educated by nuns on a scholarship she was never meant to repay. At nineteen she married a riverboat gambler who taught her faro and died of cholera at Cairo in 1853, leaving her his layout and his debts. She paid the debts in a year. She has dealt faro in St. Louis, Denver, Virginia City in Nevada, and since September 1864 in Mordecai Pottinger's Union Saloon in Ninebark, where she rents the corner table for a third of the house's take. Pottinger plays at her bank himself, badly, and owes her eleven hundred dollars. On 6 November, at the foot of the gallows, Jack Tillery named names, and somebody wrote down 'the faro woman at the Union' in a column headed BANISH. Leonie does not yet know that. Pottinger does. (Suggested hook: the warning card under her door on Friday night, 18 November. Leonie is the most direct way for the list to become the players' problem; the GM should ask the player before using it.)"
+}

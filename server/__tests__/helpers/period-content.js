@@ -89,7 +89,7 @@ function describePeriodCategory({ describe, it, expect }, spec) {
   const skillNames = new Set(has('abilities-and-skills') ? readRule('abilities-and-skills').skills.map(s => s.name) : []);
   const campaigns = allCampaigns().filter(c => categoryIdOf(c) === spec.id);
 
-  function checkSheet(sheet, label) {
+  function checkSheet(sheet, label, era) {
     expect(sheet.id, label).toMatch(UUID);
     expect(sheet.status, label).toBe('alive');
     expect(spec.classes, `${label}: class`).toContain(sheet.class);
@@ -110,7 +110,10 @@ function describePeriodCategory({ describe, it, expect }, spec) {
     for (const w of sheet.weapons) {
       const row = weaponByName.get(w.name);
       expect(row, `${label}: weapon ${w.name} not in the ${spec.label} table`).toBeTruthy();
-      if (!row || !cls) continue;
+      if (!row) continue;
+      // WO-0048: a weapon newer than the campaign's era (the 1870s Army revolver in an 1860s camp).
+      if (era && Array.isArray(row.eras) && row.eras.length) expect(row.eras, `${label}: ${w.name} is not a ${era} weapon`).toContain(era);
+      if (!cls) continue;
       expect(cls.weapon_proficiencies.some(p => String(p).startsWith(row.group)), `${label}: ${sheet.class} untrained in ${row.group} (${w.name})`).toBe(true);
       if (row.group === 'Explosives') continue; // thrown; the spec leaves the modifier to the author
       const finesse = (row.properties || []).includes('finesse');
@@ -250,9 +253,9 @@ function describePeriodCategory({ describe, it, expect }, spec) {
           expect(npcs).toHaveLength(4);
           expect(new Set(chars.map(([, c]) => c.class)).size).toBeGreaterThanOrEqual(5);
           const ids = new Set();
-          for (const [f, sheet] of chars) { checkSheet(sheet, `${campaign.id}/${f}`); ids.add(sheet.id); }
+          for (const [f, sheet] of chars) { checkSheet(sheet, `${campaign.id}/${f}`, campaign.era); ids.add(sheet.id); }
           for (const [f, sheet] of npcs) {
-            checkSheet(sheet, `${campaign.id}/npcs/${f}`);
+            checkSheet(sheet, `${campaign.id}/npcs/${f}`, campaign.era);
             expect(sheet.dmNotes, f).toBeTruthy();
             ids.add(sheet.id);
           }
@@ -283,7 +286,7 @@ function describePeriodCategory({ describe, it, expect }, spec) {
         it(`rolls a random character of every class from the ${spec.label} ruleset`, () => {
           for (const cls of spec.classes) {
             const c = generateRandomCharacter(DATA, { campaignId: campaign.id, class: cls });
-            checkSheet(c, `${campaign.id}/generated ${cls}`);
+            checkSheet(c, `${campaign.id}/generated ${cls}`, campaign.era);
             expect(spec.generatedArmor).toContain(c.armor.name);
           }
         });

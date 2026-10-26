@@ -1,0 +1,117 @@
+{
+  "id": "3a14acbc-0c72-4bcb-b7d0-50cb46b0518d",
+  "name": "Odessa Grimes",
+  "status": "alive",
+  "race": "Old Family",
+  "subrace": "",
+  "class": "Physician",
+  "level": 3,
+  "background": "Nurse",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 8,
+      "modifier": -1
+    },
+    "dexterity": {
+      "score": 12,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 14,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 15,
+      "modifier": 2
+    },
+    "wisdom": {
+      "score": 15,
+      "modifier": 2
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 20,
+    "current": 20
+  },
+  "armorClass": 12,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Intelligence",
+    "Constitution"
+  ],
+  "skills": [
+    "Medicine",
+    "Insight",
+    "Investigation",
+    "Persuasion"
+  ],
+  "languages": [
+    "English",
+    "Latin (enough for a chart, a prescription and a gravestone)"
+  ],
+  "equipment": [
+    "Heavy coat: a good navy wool coat with a velvet collar",
+    "Scalpel: in a steel case in her bag, from habit",
+    "Doctor's bag: a black leather nurse's bag, fully stocked (6 uses)",
+    "Bandage roll (6)",
+    "Smelling salts",
+    "A nurse's pin: PENNSYLVANIA HOSPITAL SCHOOL OF NURSING, 1946",
+    "A watch pinned to her coat",
+    "A letter of reference from the Philadelphia Medical Examiner's office, 1972",
+    "A Bible, small, her grandmother's, in her handbag",
+    "Car: a 1972 Buick LeSabre, maroon, very clean",
+    "Wallet containing $15"
+  ],
+  "weapons": [
+    {
+      "name": "Scalpel",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "slashing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "The Family Name (Old Family origin: among Philadelphia's old Black families, churches and professional people, and anyone who has trained or worked at a Philadelphia hospital, she is received and told things a stranger would not be: advantage on Persuasion checks with them, and once per scenario an introduction or a meeting with someone of standing without a check; she knows the reputation and the scandals of prominent families in such circles)",
+    "Steady Hands (Physician: as an action, with a doctor's bag, she patches a creature she touches at 1 hit point or more, or at 0 and stable or dying; it spends up to 2 of its Hit Dice as on a short rest and regains 2 extra hit points once; it also stabilizes and ends Bleeding; 3 uses per long rest. Treat Shock: during a short rest each creature she tends loses 1 Dread beyond the rest's own recovery, even at Dread 4)",
+    "Diagnosis (Physician: as a bonus action she learns a creature's current and maximum hit points, its conditions and, for a person, roughly its Dread; 10 minutes with a body gives cause and approximate time of death and whether anything about it is wrong in a way medicine can't account for; one more detail on a Medicine check DC 12)",
+    "Clinical Detachment (Physician, 2nd level: advantage on fear checks against wounds, bodies, blood and the ordinary dead, not against a dead thing that moves; she can examine anything that would cost Dread to see, in a professional frame of mind, with no fear check at all if she does nothing else for that minute)",
+    "Practice: Coroner (Physician, 3rd level: she can request any death record, autopsy report or inquest file in the county, and examining a creature's victim gives one clue toward one of its rules)",
+    "On the Ward (Nurse background: hospital staff, country doctors and midwives treat her as one of their own; she can get into a ward or a sickroom where a stranger would be turned away and read a chart without a check)"
+  ],
+  "traits": [
+    "Steady Hands (3/long rest)",
+    "Diagnosis",
+    "Clinical Detachment",
+    "Practice: Coroner",
+    "On the Ward"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am calm in a crisis and impatient with everything else. I call grown men \"young man\". I have opinions about how a bandage should be wrapped and I share them.",
+    "ideals": "Everybody deserves to be cared for properly, the living and the dead. Especially the dead; nobody else is looking out for them.",
+    "bonds": "My church, Mother Bethel. My late husband, Raymond, a postal clerk, who died in 1969. Pinecrest, the only place in thirteen summers where I was ever on vacation and at work at the same time and liked both. Curtis Seeley, who once carried a guest with a broken ankle a mile through the woods to my infirmary and joked the whole way.",
+    "flaws": "I noticed, in 1965 when he came back as director, that Curtis was not himself, and I wrote it down in the infirmary book as 'shock', and I never asked. I don't forgive people who don't ask."
+  },
+  "appearance": "Fifty-two, tall, straight-backed, a dark-skinned Black woman with silver-streaked hair in a neat roll, gold-rimmed glasses, a good navy coat, and a nurse's watch pinned to it.",
+  "backstory": "Odessa Grimes comes from one of the old Black families of Philadelphia, people who have been doctors, teachers, caterers and ministers in the city since before the Revolution, and she trained at Pennsylvania Hospital in 1946, one of the first Black students admitted to its school. She nursed on its surgical wards for twenty years, and from 1966 to 1976 at the Medical Examiner's office, where she learned that the dead tell you everything if you ask them politely. From 1958 to 1970 she spent every summer as the camp nurse at Pinecrest, in the little infirmary behind the Lodge: sprains, sunburn, hangovers, one heart attack on the tennis court that she brought back. She was in the 1962 staff photograph. When she came back in 1963 Curtis Seeley was gone and Amsel's people would not say where, and when Coach arrived in 1965 she noted in the infirmary book that he had changed and blamed the war and the shock of the canoe. She has always wondered. Opal wrote to her in August; she came. (Hook: 1962 and the dead. She knew Curtis before and Coach after, she can say his name, and she will be the one to examine Gene.)"
+}

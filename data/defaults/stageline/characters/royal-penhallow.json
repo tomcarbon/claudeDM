@@ -1,0 +1,131 @@
+{
+  "id": "52496602-9c0a-4958-80ea-031048a32df5",
+  "name": "Royal Penhallow",
+  "status": "alive",
+  "race": "Frontier-Born",
+  "subrace": "",
+  "class": "Outlaw",
+  "level": 3,
+  "background": "Bounty Hunter",
+  "alignment": "Chaotic Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 16,
+      "modifier": 3
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 12,
+      "modifier": 1
+    },
+    "wisdom": {
+      "score": 11,
+      "modifier": 0
+    },
+    "charisma": {
+      "score": 12,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 14,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Dexterity",
+    "Constitution"
+  ],
+  "skills": [
+    "Deception",
+    "Stealth",
+    "Mechanics",
+    "Intimidation",
+    "Survival"
+  ],
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+  "equipment": [
+    "Leather duster, black, burned in two places from the forge",
+    "Army revolver (Colt single-action, .45), 6 rounds loaded",
+    ".45 cartridges (30)",
+    "Bowie knife, in a sheath on his left hip",
+    "Dynamite (3 sticks), with caps and a coil of fuse in a tobacco tin, which Cyprian Ludlow does not know he keeps in the smithy",
+    "A farrier's apron, a shoeing hammer, rasp and nippers, and a bag of hand-forged horseshoes in four sizes",
+    "A new set of harness for the line's leaders, bought in Albuquerque with Ludlow's last forty dollars",
+    "Manacles, rusty, and a folded reward poster from Kansas, 1877: CADE RENDELL, $1,000, which he has carried for four years",
+    "A pardon from the Governor of Kansas, 1878, for turning state's evidence, in an oilcloth packet",
+    "Horse: Judge, a hammer-headed dun gelding, ugly, sure-footed and devoted",
+    "Wallet containing $14"
+  ],
+  "weapons": [
+    {
+      "name": "Army revolver",
+      "attackBonus": 5,
+      "damage": "1d10+3",
+      "damageType": "piercing"
+    },
+    {
+      "name": "Bowie knife",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "slashing"
+    },
+    {
+      "name": "Dynamite",
+      "attackBonus": 5,
+      "damage": "3d6",
+      "damageType": "bludgeoning"
+    }
+  ],
+  "armor": {
+    "name": "Leather duster",
+    "type": "light"
+  },
+  "features": [
+    "Hard Country (Frontier-Born origin: advantage on saving throws against exhaustion from heat, cold, thirst and hard travel; needs half the usual water one day in three; once per long rest shrugs off a level of trail exhaustion)",
+    "Dirty Fighting (Outlaw: once per turn, +1d6 damage of the weapon's type against a creature that isn't ready: surprised, not yet acted this combat, unable to see him, prone, grappled, restrained or on a spooked horse; not part of the damage on his sheet)",
+    "Hard Riding (Outlaw: advantage on Riding checks in a chase he is fleeing; mounts and dismounts with 5 ft of movement; can Dash, Disengage or Hide as a bonus action)",
+    "Powder Man (Outlaw, 2nd level: lighting a fuse is part of the throw; his explosives use DC 13; sets and fuses a charge in 1 minute with no chance of it going off early; cuts a fuse to burn for any time from a round to an hour)",
+    "Trade: Road Agent (Outlaw, 3rd level: when he calls stand and deliver with a gun drawn, every creature that can see and hear him makes a DC 11 WIS save or raises its hands and does nothing hostile until attacked or he looks away. He has not used it in five years, and he knows exactly how a coach robbery is done)",
+    "Paper on Him (Bounty Hunter background: sheriffs, marshals and express agents in Kansas and Colorado know him as a man who brought outlaws in, and tell him who is wanted and where they were last seen; outlaws, and their kin, know his face too)"
+  ],
+  "traits": [
+    "Hard Country",
+    "Dirty Fighting (1d6)",
+    "Hard Riding",
+    "Powder Man",
+    "Road Agent",
+    "Paper on Him"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I am quiet, wry and good with horses and children, and I expect the worst of everyone, myself first. I do not drink. I work until I drop, because I have found that it keeps the past behind me.",
+    "ideals": "A man can be more than the worst thing he ever did, if he works at it every day and never once pretends he did not do it.",
+    "bonds": "Cyprian and Eufemia Ludlow, who gave a pardoned road agent a job when nobody in two territories would. La Doña, the coach, which I have kept rolling for four years. And Cade Rendell, the one man of my old gang I never caught.",
+    "flaws": "I turned on my friends to save my neck, and I would do it again. Some days I cannot tell whether I am a decent man or only a careful one."
+  },
+  "appearance": "A spare, sandy, freckled man of thirty-two with a broken nose, forearms scarred from the forge, pale blue eyes and a soft voice. Black duster over a farrier's apron, a battered hat, a revolver he wears as if he would prefer not to.",
+  "backstory": "Royal Penhallow was born in 1849 in a mining camp on the South Platte, the son of a Cornish blacksmith who taught him the forge and a mother who taught him to read. At twenty-five, broke and stupid, he fell in with a gang that robbed stagecoaches and an express office across western Kansas, and for two years he was a road agent and a good one. In 1876 the gang shot a driver, and Royal, who had never meant anyone to die, turned state's evidence: four men went to the penitentiary on his word, and the fifth, the cleverest and coldest of them, a young Texan named Cade Rendell, got away. Royal was pardoned in 1878 and spent three years hunting bounties in Kansas and Colorado, looking for Rendell and bringing in other men instead. In 1880 he gave it up and came to New Mexico, and Cyprian Ludlow, who had been told everything, hired him as the line's blacksmith and hostler at the plaza. He shoes every horse on the line by hand. On 29 June he is riding back from Albuquerque on the last coach with a new set of harness. He does not know that Rendell is in the territory, or that he is waiting at the Puerto de Piedra. (Suggested employer: Cyprian Ludlow and the line. Hooks: Rendell's voice, Rendell's methods, and a poster he has carried for four years; the factory horseshoes in the arroyo.)"
+}

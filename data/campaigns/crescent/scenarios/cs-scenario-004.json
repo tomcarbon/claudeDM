@@ -1,0 +1,441 @@
+{
+  "id": "cs-scenario-004",
+  "title": "The Reckoning",
+  "subtitle": "Ash Wednesday: A Man in a Cell, an Old Man's Terms, Noon at the Custom House, the 1:15 to New York",
+  "levelRange": "6-6",
+  "estimatedSessions": 3,
+  "setting": {
+    "name": "New Orleans, Ash Wednesday, 6 March 1946",
+    "description": "The last day. The city is hung over and quiet; Canal Street is swept; the churches are full and the bars are shut. Everything that could not be done yesterday can be done today, and everything must be done by noon, when Lt. Whitcombe signs or refuses the final settlement in the Navy cost office on the third floor of the U.S. Custom House. The morning moves between the 5th District station house, where Theo Dorsainville has been locked up since 7; the Hotel Vauclain on Baronne Street, where Commander Pruett has room 912 and Lt. Whitcombe room 611; Crescent Photostat on Carondelet Street, which opens at 8; and the Ste. Claire house on Esplanade Avenue, where Lucien went to his father at dawn and where Pruett is expected at 10 to collect $50,000. At noon, the Custom House. At 1:15, the Crescent Limited leaves Terminal Station for New York.",
+    "atmosphere": "Grey light, a cool wind off the river, the smell of wet confetti and spilled beer in the gutters. Street sweepers. Shuttered bars. People going quietly to work, tired, ordinary again. The Esplanade house in the morning is dark furniture, shutters half closed, a clock, coffee on a silver tray that nobody drinks. The Custom House is marble and echo and a clock over the door. The tone is a reckoning: no more masks, everyone in the open, and the party holding something that every person in the story wants. The violence, if it comes, is brief and ugly and over quickly; what lasts is the choice.",
+    "keyLocations": [
+      {
+        "name": "The 5th District Station House and Lockup",
+        "description": "Captain Lebeau's station house, with its front desk, switchboard and the lockup in the back: four cells, a bench, a bucket, and a booking sergeant named Dupuy who has worked the desk for twenty years and has opinions. At 7 a.m. two of Lebeau's men pick up Theo Dorsainville on North Roman Street as he leaves for the Custom House, on a charge of 'vagrancy and loitering'.",
+        "features": [
+          "The booking ledger and the sergeant's notes",
+          "The lockup: Theo in the end cell, with two other Black men picked up for walking home from Carnival",
+          "The switchboard log, with a call to Esplanade Avenue at 6:45 a.m.",
+          "Captain Lebeau's office, empty until 10, when he comes in with a hangover"
+        ],
+        "encounters": [
+          "Desk Sergeant Alcide Dupuy",
+          "Two patrolmen (Beat Cops)",
+          "Captain Lebeau, from 10"
+        ],
+        "secrets": [
+          "CLUE J1 (core, automatic for anyone who reads the booking entry, or for Det. Lamarque): 'DORSAINVILLE, T., col., 38, vagrancy and loitering, N. Roman St., 7:05 a.m. HOLD WITHOUT BAIL UNTIL 1 P.M. PER CAPT.' A man with a home on the street he was arrested on, a voter registration card and a yard number cannot be a vagrant. The hold expires an hour after the settlement is signed.",
+          "CLUE J2 (core, automatic on reading the switchboard log): 'Capt. at home, outgoing to Esplanade 4-1902, 6:45 a.m.' Lebeau telephoned the Ste. Claire house fifteen minutes before Theo was picked up. (It was Honoré who answered; Lebeau told him he would keep 'the colored ringleader' out of the way until noon, and Honoré, who had just heard his son's confession, said nothing at all, and Lebeau took it for yes.)",
+          "CLUE J3 (core, automatic for anyone who asks Sergeant Dupuy, who disapproves): 'The captain said hold him till after one o'clock, no lawyer, no telephone, because of some Navy business. I've booked a lot of men for a lot of things. I never booked one so somebody could miss an appointment.'",
+          "Getting Theo out: Det. Lamarque can release him on his own authority (The Badge; Heat +2, and Lebeau will have his badge by Friday); Dr. Toussaint can certify him 'ill and in need of hospital care' (Medicine DC 12, or Patch Job with a straight face); a $25 bail bond is refused under the captain's order unless the sergeant is persuaded (Persuasion DC 14, advantage if J3 is put to him); or Theo's favors (the Seventh Ward) bring a Black attorney, Mr. Firmin Decuir, at 11, whom the sergeant cannot lawfully refuse."
+        ]
+      },
+      {
+        "name": "The Hotel Vauclain, Baronne Street",
+        "description": "A twelve-storey commercial hotel of 1926 in the business district, with a marble lobby, a coffee shop, a house detective named Mr. Boudreaux and elevators with operators. The Navy has rooms here for officers on temporary duty. Pruett has room 912; Whitcombe has 611. Pruett takes breakfast in the coffee shop from 8 to 9 and leaves for Esplanade Avenue at 9:40 by cab.",
+        "features": [
+          "Room 912: a suitcase packed and closed, a Navy greatcoat in the wardrobe, a bottle of rye, and the dresser",
+          "The front desk and its register; the bellhops; the house detective in a chair by the elevators",
+          "Room 611, Whitcombe's, two floors down: a typewriter, the draft settlement, the Navy file"
+        ],
+        "encounters": [
+          "Commander Pruett, in the coffee shop 8 to 9:40",
+          "Mr. Boudreaux, house detective",
+          "Bellhops (a dollar buys a key for ten minutes; two buys forgetting)"
+        ],
+        "secrets": [
+          "CLUE G2, the weapon (core, automatic on searching room 912): in the dresser's top drawer, wrapped in a hotel hand towel, a leather Navy shore-patrol sap of 1918 pattern, nine inches, lead-loaded, with a raised seam down one side, its brown leather freshly rubbed with saddle soap. Pruett means to drop it in the river on the way to the train. Dr. Toussaint, with the collar Alcée kept (brown dye and red lead at the back) and her notes on the wound, matches the seam to the depressed fracture behind Marcel's left ear and the dye to the smear on the collar (Forensics DC 12 for a Doctor; automatic for her). That is the murder weapon.",
+          "In the wastebasket: a torn telegram form, Western Union, drafted and not sent: 'ARRIVING NYC THURSDAY STOP BOOK LISBON PASSAGE SOONEST STOP T'.",
+          "Pruett's wallet, which he carries, holds claim check 4471 for Terminal Station's baggage room."
+        ]
+      },
+      {
+        "name": "Crescent Photostat Co., Carondelet Street",
+        "description": "Mrs. Myrtle Hingle's shop, open at 8 on Ash Wednesday as on every Wednesday. The photostat negatives of Marcel's sixty-one sheets are in a drawer marked CASH CUSTOMERS — HOLD 30 DAYS.",
+        "features": [
+          "The negatives drawer",
+          "The two photostat cameras, which can reprint sixty-one sheets in ninety minutes"
+        ],
+        "encounters": [
+          "Mrs. Myrtle Hingle, 8 a.m. onward",
+          "At 9:15, if nobody has been here first and Pruett has realised the photostats came from somewhere: Chief Yeoman Sallis, sent by Pruett to buy the negatives for $50"
+        ],
+        "secrets": [
+          "The fallback proof (no clue letter; it is the evidence itself): if the originals burned on Mardi Gras night and the party has not got Pruett's valise, Mrs. Hingle's negatives reprint Marcel's Navy copies in ninety minutes ($18.30). If the party ordered reprints in cs-scenario-001 or 002, they are ready and waiting. Whitcombe will accept reprints from a commercial firm's negatives, with Mrs. Hingle's affidavit and Irene's identification of the forms, as evidence enough to refuse to sign; a Navy board will take longer to accept them than the originals, and the GM can make that a cost.",
+          "Sallis arrives at 9:15 only if Pruett has learned (from Mrs. Hingle's caution on Friday, or from the party) that copies came from a shop. Mrs. Hingle does not sell negatives to strangers, but Sallis has a Navy ID and an official-looking letter, and she might."
+        ]
+      },
+      {
+        "name": "The Ste. Claire House, Esplanade Avenue",
+        "description": "A raised Italianate villa of 1858 behind a cast-iron fence and a carriage gate, under live oaks, with a courtyard, a cistern, a cook, a butler and a library: twelve-foot ceilings, books to the cornice, a portrait of Honoré's father, a desk, a telephone and a long window onto the avenue. At dawn on Ash Wednesday Lucien came here and told his father everything: gang No. 9, the money, Pruett, and the captain's room. At 9 Honoré receives the party, if they come. At 10 Pruett arrives to collect $50,000 from Lucien for the photostats.",
+        "features": [
+          "The library, with Honoré at his desk and Lucien, unshaven, by the window",
+          "Honoré's desk drawer, from which Yvonne took his derringer on Saturday; he has noticed",
+          "A cheque book on Pacific & Gulf National Bank and $50,000 in cash in a dispatch case, drawn on Saturday 'for the krewe' by Lucien",
+          "The butler, Mr. Arnold Batiste, sixty, who has run this house for thirty years and sees everything"
+        ],
+        "encounters": [
+          "Honoré and Lucien Ste. Claire, from dawn",
+          "Yvonne Ste. Claire, who comes home at 8 with her mantle over her arm and her grandfather's pistol in her bag",
+          "Commander Pruett, at 10"
+        ],
+        "secrets": [
+          "CLUE G6 (core, automatic for anyone in the library at 10, or on the far side of its door, Stealth DC 12): Pruett, offered coffee, asks for the dispatch case, and when Lucien says his father knows everything, Pruett smiles at Honoré and says, 'Then you'll understand, sir, that your son's clerk was the one problem I couldn't let him have. Fifty thousand, and I take the paper to New York with me, and nobody in this family ever hears of it again.' If he sees the party, he says nothing so useful; Lucien, who has decided, says it for him: 'He killed Marcel Fontenot, Papa. On our pier. He told me last night.'",
+          "Honoré's terms (he makes them to the party at 9, before Pruett arrives, if they come): he will pay the sixty-one welders their $187,412.60 in cash, today, at the Equity hall, and put a clause in the Calumet sale that the yard's Black welders be rated and paid as welders, if the party gives Whitcombe the gang No. 9 pages and the colored-window register, which ruin Lucien and Pruett, and keeps the helper-rate pages out of it, which saves Honoré and the sale. 'My son stole from the Navy and from me. He will answer for it. What I did was the custom of the river, and I will pay for it once, in cash, and not again.' He means it. He has also decided, since dawn, that he will see Pruett hanged, and he will tell the party anything that helps.",
+          "Honoré's secret, which he tells only to Yvonne, if she asks him straight: he had Marcel's car moved and called Lebeau because he believed his son was a murderer, and he would do it again. 'You protect your own, chérie. That is all a family is.' What Yvonne does with that is hers."
+        ]
+      },
+      {
+        "name": "The Navy Cost Office, U.S. Custom House",
+        "description": "The two borrowed rooms on the third floor. At 11:30 the signing party gathers: Lt. Whitcombe at his desk with the settlement; Mr. Harmon Voigt of Calumet Marine, Chicago, with a lawyer; Prosper Vidrine for the yard; and Commander Pruett, 'as the yard's consultant and the Navy's former inspector', who has arranged to witness the signing and then catch his train. Chief Yeoman Sallis in the outer office. A federal guard at the Canal Street door.",
+        "features": [
+          "The settlement on the desk, a fountain pen beside it, the clock over the door",
+          "Sallis's desk, and his nerves",
+          "A telephone to the Eighth Naval District's legal officer and to the U.S. Attorney's office in the Federal Building"
+        ],
+        "encounters": [
+          "Lt. Whitcombe, Harmon Voigt and his lawyer, Prosper Vidrine, Commander Pruett (from 11:40), Chief Yeoman Sallis",
+          "A federal building guard (Beat Cop stats), and, if called, two Federal Agents from the U.S. Attorney's office by 12:30"
+        ],
+        "secrets": [
+          "CLUE G7 (core, automatic once Whitcombe confronts him in front of the party, or under Intimidation DC 12 at any time this morning): Sallis breaks: Pruett paid him $50 a month since 1943; he passed Marcel's Tuesday call to Pruett at 4:05; and on Wednesday 27 February Pruett asked him for 'the clerk's home telephone number, from the yard directory', which he gave him. Pruett telephoned Marcel that evening.",
+          "Whitcombe's decision is the party's to influence and his to make. With the originals or the reprints, he refuses to sign, telephones the district legal officer, and asks the U.S. Attorney's office to send agents for Pruett on the fraud. Without either, he can delay the signing only until 5 p.m. on his own authority, and he will, if the party asks. With only the gang No. 9 pages (Honoré's deal), he refuses to sign on the ghost gang alone, and the helper-rate fraud is never put to the Navy.",
+          "Pruett, if exposed here, smiles, says 'Gentlemen,' and walks out, briskly, for Terminal Station and the 1:15. He is armed with the .45. He will not shoot in a federal building."
+        ]
+      },
+      {
+        "name": "Terminal Station, Canal Street at Basin",
+        "description": "The Southern Railway's terminal: clock tower, a white waiting room and a smaller colored waiting room, a baggage room, and the train shed where the Crescent Limited stands from 12:45, steam up, Pullmans and a dining car, for the 1:15 departure to Atlanta, Washington and New York.",
+        "features": [
+          "The baggage room counter and Mr. Oscar Nunez, who remembers the big man with the Navy ring",
+          "Valise 4471 on a shelf behind the counter",
+          "The platform, the Pullman steps, a baggage cart, a crowd of travellers and redcaps",
+          "The two waiting rooms, which a Black party member and a white one cannot sit in together"
+        ],
+        "encounters": [
+          "Commander Pruett, from about 12:50",
+          "Mr. Oscar Nunez, baggage clerk",
+          "Redcaps, travellers, two railroad police (Beat Cops)"
+        ],
+        "secrets": [
+          "CLUE G3 (core, automatic for anyone who opens valise 4471): the sixty-one photostats Marcel carried in his briefcase to the fitting-out pier on Thursday night, in Crescent Photostat's brown envelope with Marcel's initials pencilled on it in Mrs. Hingle's hand; $9,000 in cash; Pruett's Navy papers. Only the man who took Marcel's briefcase on the pier could have these. With Lucien's account, the sap and the collar, it is enough for a murder charge that even the Orleans Parish district attorney cannot ignore, if someone with a badge makes the arrest.",
+          "Getting the valise: Nunez will not hand it over without the claim check (in Pruett's wallet) except to a police officer with a warrant or a federal officer, which means Det. Lamarque or Lt. Whitcombe (The Badge, or Navy orders and Persuasion DC 12). Or the party can be waiting when Pruett collects it at 12:55.",
+          "Pruett at the station: he collects the valise, walks to the Pullman, and if stopped, tries once to shoot his way out (a single round of fire in the train shed, at whoever is closest to the valise), then, seeing a uniform, raises his hands. He would rather be a fraud before a federal court than a murderer before a parish jury, and he will say so."
+        ]
+      }
+    ]
+  },
+  "synopsis": "Ash Wednesday. Carnival is over, the masks are off, and the books close at noon. At 7 a.m. Captain Lebeau has Theo Dorsainville picked up on North Roman Street for 'vagrancy' and held without bail until an hour after the settlement is signed, so that the welders' evidence cannot reach the Navy; the party must get him out. At the Hotel Vauclain, Commander Pruett eats breakfast while, nine floors up, the sap that killed Marcel Fontenot waits in a dresser drawer to be dropped in the river; at Crescent Photostat the negatives of Marcel's copies wait in a drawer. At dawn Lucien Ste. Claire went to his father and told him everything, and at nine Honoré Ste. Claire, who learned this morning that his son is a thief and not a murderer, offers the party a deal: the welders' wages in cash, today, and a clause that they will be rated as welders, if the helper-rate fraud, his fraud, is kept from the Navy. At ten Pruett comes to the house to collect fifty thousand dollars for the photostats, and says too much. At noon, in the Custom House, Lt. Whitcombe must sign or refuse the settlement in front of the Chicago buyers, the family's lawyer and Pruett himself. At 1:15 the Crescent Limited leaves for New York, and Pruett means to be on it with a valise. Who the proof is for, who is paid, who is arrested and by whom, and whether Marcel Fontenot is buried as a drunk or as a man who did the right thing, is for the party to decide.",
+  "hook": "Ash Wednesday, 6 March 1946, a quarter past seven in the morning. The city is grey and swept and hung over, and very quiet. Wet confetti in the gutters. A street sweeper leaning on his broom on Canal Street, smoking, looking at nothing. The bars are shut and the churches are full. Somewhere a telephone is ringing: it is the Equity hall, and it is Leontine Gaspard, and she says that two policemen took Theo Dorsainville off the banquette in front of his own house at five past seven, in front of his wife, for vagrancy, and that the desk sergeant will not say when he is coming out. The settlement is signed at noon. The train leaves at 1:15. You have the morning.",
+  "cluesAvailable": [
+    "G2",
+    "G3",
+    "G6",
+    "G7",
+    "J1",
+    "J2",
+    "J3"
+  ],
+  "conclusions": [
+    {
+      "conclusion": "G. Commander Thaddeus Pruett killed Marcel Fontenot (proof a court will take)",
+      "clues": [
+        "G2: the sap in room 912, its seam matched to the wound and its dye to Marcel's collar (the Hotel Vauclain, Dr. Toussaint, Alcée)",
+        "G3: Marcel's photostats in Pruett's valise, claim check 4471 (Terminal Station)",
+        "G6: Pruett at the Esplanade house: 'your son's clerk was the one problem I couldn't let him have'; Lucien's statement (the Ste. Claire house)",
+        "G7: Sallis gave Pruett Marcel's home telephone number (the Custom House)",
+        "G1 and G5 from cs-scenario-003: wet cuffs and red lead; 'Your father thinks you did it. Let him.'"
+      ]
+    },
+    {
+      "conclusion": "J. Captain Lebeau jailed Theo Dorsainville to keep the welders' evidence from the Navy",
+      "clues": [
+        "J1: the booking entry: 'hold without bail until 1 p.m. per Capt.' for a man arrested in front of his own house (the station house)",
+        "J2: Lebeau's call to Esplanade Avenue at 6:45 a.m. (the switchboard log)",
+        "J3: Sergeant Dupuy: 'I never booked one so somebody could miss an appointment' (the front desk)",
+        "H1 from cs-scenario-003: the 6:10 a.m. Friday call from Esplanade; Lebeau has been the family's hand from the first hour"
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "title": "Act 1: Ash Wednesday Morning",
+      "description": "7 to 9:30 a.m. Three urgent errands and not enough people for all of them: get Theo out of the 5th District lockup before noon (J1, J2, J3); search Pruett's room at the Vauclain while he is at breakfast, 8 to 9:40 (G2); and secure the proof: the packet, if the party has it, wherever they hid it overnight, or the negatives at Crescent Photostat, before Sallis comes for them at 9:15 (only if Pruett knows to send him). Det. Lamarque's position is the act's sharpest edge: freeing Theo on his own authority, or making any arrest today, costs him his badge by Friday, and he knows it. Companions can split off on errands of their own: Dr. Toussaint to Alcée for the collar, Whitcombe to his own room two floors below Pruett's, Yvonne home to Esplanade Avenue.",
+      "objectives": [
+        "Get Theo Dorsainville out of the lockup",
+        "Find the murder weapon",
+        "Make sure the proof survives the morning"
+      ],
+      "scenes": [
+        {
+          "name": "Vagrancy",
+          "description": "The 5th District station house. Theo sits in the end cell with two young Black men picked up for walking home from Carnival; he is calm, furious, and has been told nothing. Sergeant Dupuy has the booking ledger (J1) and the switchboard log (J2) on the desk and an opinion he will share (J3). Lebeau is not in until 10. The routes out are in the location's secrets. Theo, freed, wants to go straight to the Custom House with the envelopes; if he cannot be freed by noon, the welders' evidence reaches Whitcombe only through the party's hands, and Theo will not forgive anyone who sells it to Honoré while he was in a cell. Play the cell honestly: this is what the city does to Black veterans who register to vote, and Theo has been in this cell before.",
+          "readAloud": "The lockup at the back of the station house is four cells of grey-painted bars, a bench, a bucket and a single window too high to see out of, and it smells of disinfectant and old sweat and yesterday's beer. In the end cell three Black men sit on the bench: two young ones in Carnival suits with their ties pulled loose, who look frightened, and Theo Dorsainville in his work clothes, with his reading glasses folded in his breast pocket and his big burn-scarred hands on his knees, who does not. He stands up when he sees you. 'Vagrancy,' he says. 'In front of my own door. My wife was on the porch.' He looks at the clock over the sergeant's desk. 'Ten minutes to eight. What time does the Navy sign?'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 14,
+              "success": "With J3 put to him, Sergeant Dupuy takes the $25 bail and lets Theo go, and writes in the ledger, 'released on bond, 8:20 a.m., sgt's discretion', and says, 'The captain can have my stripes. He's had everything else.' (Advantage if you show him the booking order is a fraud; Lamarque's badge or Dr. Toussaint's certificate are other routes.)",
+              "failure": "The sergeant will not cross his captain. Theo stays until a lawyer comes (Theo's favors bring Mr. Firmin Decuir at 11) or until someone with a badge takes the risk."
+            },
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "The switchboard log: 'outgoing to Esplanade 4-1902, 6:45 a.m.' (J2), fifteen minutes before the arrest. And on Friday, '6:10 a.m., call from Esplanade' (H1). Lebeau has been the Ste. Claires' hand from the first hour to the last.",
+              "failure": "The sergeant closes the log and asks you whether you are a lawyer."
+            }
+          ]
+        },
+        {
+          "name": "Room 912",
+          "description": "The Hotel Vauclain, 8 to 9:40 a.m., while Pruett eats breakfast in the coffee shop and reads the Times-Picayune. Getting in: a bellhop ($1 for a key for ten minutes), Mr. Boudreaux the house detective (who will not be bribed but will be distracted), Whitcombe's room two floors down and the fire stairs, or Solange's covers. The room gives G2 (the sap) and the unsent telegram. Pruett's wallet, with claim check 4471, is on him. A party member can also simply sit down at Pruett's table in the coffee shop: he is delighted, and polite, and offers them $5,000 each to be on the 1:15 to anywhere they like.",
+          "readAloud": "Room 912 is a tidy man's room. The bed has been made by its occupant before the maid could do it, Navy fashion, the blanket tight enough to bounce a coin. A suitcase stands by the door, packed and strapped. In the wardrobe, a Navy greatcoat and a blue serge suit with the cuffs freshly pressed. On the dresser, a bottle of rye, a glass, a hairbrush, a folded Times-Picayune, and a photograph of a younger Pruett in whites on the deck of a destroyer, squinting into the sun, laughing.",
+          "skillChecks": [
+            {
+              "skill": "Investigation",
+              "dc": 10,
+              "success": "The top drawer: a hotel hand towel wrapped around something heavy. Inside it, a nine-inch leather shore-patrol sap, lead-loaded, with a raised seam, its leather freshly soaped (G2). In the wastebasket, a torn telegram form: LISBON PASSAGE SOONEST.",
+              "failure": "You find the telegram but not the sap: someone is coming down the corridor. A second look, if you dare it, finds it."
+            },
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "You are out of 912 and down the fire stairs before the house detective's round.",
+              "failure": "Mr. Boudreaux meets you in the corridor. Deception DC 12 or Heat +1 and he telephones the coffee shop, and Pruett knows someone was in his room."
+            }
+          ]
+        },
+        {
+          "name": "Negatives",
+          "description": "Crescent Photostat, from 8. If the originals are safe, this is a five-minute scene in which Mrs. Hingle, who has read the Wednesday paper's paragraph about the drowned pay clerk, gives the party an affidavit about the sixty-one sheets and, if asked, the negatives. If the originals burned, this is the scene that saves the case: reprints in ninety minutes, ready by 10, with her affidavit. If Pruett knows about the shop, Chief Yeoman Sallis comes at 9:15 with a Navy letter and $50, and the party can catch him at it, which breaks him early (G7).",
+          "readAloud": "Mrs. Hingle is unlocking the shop as you arrive, with a paper bag of beignets in one hand and the morning paper under her arm, open to a paragraph on page eleven: CANAL DROWNING RULED ACCIDENTAL. She looks at you, and at the paragraph, and at you again. 'That nervous man,' she says. 'Sixty-one sheets. He watched every one go through.' She unlocks the door. 'I kept the negatives. I keep all the negatives thirty days. You'd be amazed what people come back for.'",
+          "skillChecks": [
+            {
+              "skill": "Persuasion",
+              "dc": 10,
+              "success": "Mrs. Hingle reprints all sixty-one sheets, signs an affidavit of when and for whom she made the originals, and refuses payment. 'He paid already.'",
+              "failure": "She will reprint them, for $18.30 and a signed order, and wants to know who you are; it takes ninety minutes either way."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "No planned fight. Lebeau's men at the station house will not fight a detective in their own building; Mr. Boudreaux at the Vauclain is a talker, not a fighter.",
+        "If Heat is 6 or more: two of Gravier's men (Dockside Goons) waiting outside wherever the packet was hidden overnight, at dawn, and a short ugly fight in the street"
+      ]
+    },
+    {
+      "title": "Act 2: Esplanade Avenue",
+      "description": "9 to 11 a.m. The Ste. Claire house. Lucien has told his father everything at dawn. Honoré, who has believed for five days that his son was a murderer and has just learned that he is only a thief, receives the party at 9 in the library and makes his terms (see the house's secrets). At 10 Pruett arrives by cab for his $50,000, and if the party is there, hidden or in the open, Clue G6 is said aloud in that room. Yvonne is home from the ball, with her grandfather's pistol in her bag, and she has her own scene with him: she asks him what he did and why, and he tells her, and she decides what she will do with it. The act is talk, not action, unless Pruett is cornered here, when he leaves fast and armed rather than fight in a drawing room: 'Not in front of the girl.'",
+      "objectives": [
+        "Hear Honoré's terms, and decide whether to take them",
+        "Witness, or be told, what Pruett says when he comes for his money",
+        "Let Yvonne make her own choice"
+      ],
+      "scenes": [
+        {
+          "name": "The Old Man's Terms",
+          "description": "The library, 9 a.m. Honoré, seventy-four, unslept, perfectly dressed, offers coffee and the deal: $187,412.60 in cash to the sixty-one welders today and a re-rating clause in the Calumet sale, in exchange for keeping the helper-rate pages from the Navy. He is not ashamed of the helper rate and says so: it was the custom of the river; every yard on the Gulf did it; the Navy was glad to have the hulls. He is ashamed of his son and does not say so. He tells the party everything he knows about Pruett and Lebeau. He does not beg. He does not threaten, either, until someone is rude to him, and then he is quietly terrifying: he can end Lamarque's career, the Statesman's printer's contract, and Remy's licence with three telephone calls. Let the party argue among themselves in front of him, if they will; he is used to men arguing about his money in his library.",
+          "readAloud": "The library is twelve feet high and lined with books to the cornice, and the shutters are half closed so that the morning comes in in bars across a carpet that came from Paris before the Civil War. Honoré Ste. Claire is at his desk, very upright, in a grey morning suit, with a silver coffee service beside him that nobody has touched. His son stands by the long window with his back to the room, unshaven, in last night's shirt. The old man does not get up. 'You will forgive me,' he says, 'for not rising. I have been told a great many things since five o'clock this morning, and I am seventy-four.' He folds his hands. 'I will tell you what I propose. Then you will tell me what you are.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "He means every word of the offer and he will keep it. He also means to see Pruett hanged, for his son's sake and his own pride, and he would give you Lebeau as a gift if you asked. What he will not give up is the belief that he did nothing wrong.",
+              "failure": "An old man who is very good at this."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 16,
+              "success": "Against all his instincts, Honoré agrees to pay the welders and to let the helper-rate pages go to the Navy too, if the party lets the family make its own statement first, through Vidrine, before the papers have it. He will not survive it as he was, and he chooses it. (Only with Yvonne in the room, on the party's side; otherwise the DC is impossible.)",
+              "failure": "Honoré will not be moved past his terms. 'I am offering your welders more than any court will give them in ten years. Take it, or do not.'"
+            }
+          ]
+        },
+        {
+          "name": "Pruett at Ten",
+          "description": "10 a.m. Arnold Batiste, the butler, announces Commander Pruett. If the party is visible, Pruett takes it in at a glance, bows to Honoré, says he can see this is a bad time, and leaves for the Custom House without his money. If the party is hidden (the butler's pantry, the courtyard under the open window, the next room: Stealth DC 12), he asks for the dispatch case and says what he came to say (G6). Lucien, who has decided, says the rest. Honoré, in a voice nobody has heard from him, tells Pruett to leave his house. Pruett laughs and goes, with or without the case (Honoré will not give it), for the Custom House and his train.",
+          "readAloud": "He comes in like a man coming in out of the rain to a house where he is always welcome, big and easy in a navy-blue suit, with his hat in his hand and a smile for everyone, and he bows to the old man at the desk and sets down a flat brown envelope on the corner of it. 'Mr. Ste. Claire,' he says. 'Lucien. A sorry morning. I won't keep you.' He nods at the dispatch case by the desk. 'Fifty thousand, as we said, and these go to New York with me, and nobody in this family ever hears of them again.'",
+          "skillChecks": [
+            {
+              "skill": "Stealth",
+              "dc": 12,
+              "success": "From the pantry you hear all of it: G6, in Pruett's own words, and Lucien's 'He killed Marcel Fontenot, Papa. On our pier.'",
+              "failure": "Pruett sees the pantry door move, smiles, and says only, 'I'll see myself out.' Lucien says the rest after he goes."
+            },
+            {
+              "skill": "Insight",
+              "dc": 12,
+              "success": "The flat brown envelope on the desk is the yard's own copy of the Navy-copy cover sheets, a decoy. Pruett is not carrying the photostats. They are somewhere he can collect them on the way to his train.",
+              "failure": "You assume the envelope is the photostats."
+            }
+          ]
+        },
+        {
+          "name": "What a Family Is",
+          "description": "Yvonne and her grandfather, alone or with one party member she trusts. She asks him straight what he did on Friday morning. He tells her (see the house's secrets): he called Lebeau and had the car moved because he believed his son a murderer, and he would do it again; 'You protect your own, chérie. That is all a family is.' She answers him. What she says, and what she then does, is hers: she may give the party her testimony to both telephone calls (proving the cover-up and ending Lebeau), she may take the packet to the Custom House herself and put it on Whitcombe's desk in front of the Chicago men, or she may stay with her grandfather. The GM plays her; the players may argue with her; nobody decides for her.",
+          "readAloud": "She is still in the satin dress from the ball under her coat, with the silver mantle folded over her arm like a flag after a funeral, and her grandfather's little silver pistol in her other hand, and she puts the pistol on his desk in front of him, very carefully, as if it might break. 'I took it on Saturday,' she says. 'I didn't know who I meant it for.' The old man looks at the pistol for a long time, and then at her. 'Ask me,' he says. 'You have earned it. Ask me what you want to know.'",
+          "skillChecks": [
+            {
+              "skill": "Insight",
+              "dc": 10,
+              "success": "Yvonne is going to do something brave and probably public, and she wants one of you to tell her it is right. It may not be; tell her what you think.",
+              "failure": "You cannot tell what she will do. Neither can she, yet."
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        "No planned fight. If the party tries to take Pruett in the house, he draws the .45, backs out of the library with his hand on the butler's arm, and is gone in a cab; nobody is shot in front of Yvonne unless the party makes it so"
+      ]
+    },
+    {
+      "title": "Act 3: Noon",
+      "description": "11:30 a.m. to 1:30 p.m. The Custom House and Terminal Station. At 11:30 the signing party gathers in the Navy cost office; Pruett arrives at 11:40 to witness. Whatever the party brings Whitcombe, he decides (see the cost office's secrets); confronted, Sallis breaks (G7); exposed, Pruett walks out for his train. At Terminal Station he collects valise 4471 at 12:55 and walks to the Pullman. The party can be waiting, can get the valise first with a badge, or can follow him in. The confrontation in the train shed is the campaign's last violence and should be quick: one round, maybe two, then a uniform and his hands up. Then the epilogue: who is paid, who is arrested, what the Statesman prints on Thursday, and what Irene Fontenot is told.",
+      "objectives": [
+        "Put the proof in front of Whitcombe before noon",
+        "Stop Pruett leaving on the 1:15, and have someone with authority arrest him",
+        "Decide who the proof is for"
+      ],
+      "scenes": [
+        {
+          "name": "The Closing",
+          "description": "The cost office, 11:30 to noon. Whitcombe at his desk, the settlement in front of him, Harmon Voigt of Calumet impatient, Vidrine sweating, Pruett genial by the window. The party brings what it brings. If Theo is free, he comes up the Custom House stairs with a cigar box under his arm and the guard tells him to wait on the colored bench, and Whitcombe comes out and brings him in himself, past the guard, which is the bravest thing Pierce Whitcombe has ever done. With the originals or the reprints, Whitcombe refuses to sign, says why, in front of everyone, and picks up the telephone. If the party took Honoré's deal, he refuses on gang No. 9 alone and the helper rate is never mentioned; Theo, in the room, knows exactly what he is not hearing. Voigt says Calumet withdraws. Sallis breaks (G7). Pruett says 'Gentlemen,' and leaves.",
+          "readAloud": "The clock over the door says eleven fifty-two. Lieutenant Whitcombe sits at his desk with the settlement in front of him and a fountain pen beside it, uncapped, and he has not touched it. The man from Chicago looks at his watch for the third time. Commander Pruett stands by the window with his hands in his pockets, looking out at the river, easy, a man waiting for a train. Whitcombe looks at what you have put on his desk. He turns the pages one by one, slowly, all the way to the end. Then he caps the pen, and lays it down, very precisely, parallel to the edge of the desk. 'Gentlemen,' he says, in a voice that has stopped being young. 'The United States Navy declines to settle.'",
+          "skillChecks": [
+            {
+              "skill": "Intimidation",
+              "dc": 12,
+              "success": "Sallis, at his desk in the outer office, breaks before Pruett is out of the room: the $50 a month, the call, Marcel's home number (G7). Whitcombe has a yeoman write it down.",
+              "failure": "Sallis says nothing until Pruett is gone, and then breaks anyway, to Whitcombe, in tears."
+            },
+            {
+              "skill": "Persuasion",
+              "dc": 12,
+              "success": "Whitcombe telephones the U.S. Attorney's office and the district legal officer, and two Federal Agents are on their way to Terminal Station for Pruett on the fraud by 12:40. (With Lamarque's word that there is a murder too.)",
+              "failure": "Whitcombe telephones, and the U.S. Attorney's office is short-staffed the day after Carnival; agents will come at two. Someone else must stop the 1:15."
+            }
+          ]
+        },
+        {
+          "name": "The 1:15 to New York",
+          "description": "Terminal Station, 12:50 to 1:15. Pruett collects valise 4471 from Mr. Nunez at 12:55 and walks to the Crescent Limited's Pullman. If the party has the valise already (a badge and Nunez's cooperation), he arrives to find it gone and runs for the train anyway, empty-handed; if not, it is in his hand. Stopped on the platform, he draws and fires once at whoever is nearest the valise, in a train shed full of travellers, redcaps and steam, and then, seeing Det. Lamarque's badge, a federal agent, or a railroad policeman's uniform, he raises his hands. He would rather be a fraud before a federal court than a murderer before a parish jury, and he says so. Who arrests him matters: Lamarque arrests him for murder, at the cost of his badge, and the Orleans Parish DA cannot then refuse to act without being seen to; federal agents arrest him for fraud, and the murder may never be tried. The valise holds G3. Keep it fast: one round of fire, one moment of choice, then quiet.",
+          "readAloud": "The train shed is a long iron vault full of steam and noise, the Crescent Limited standing green and gold along the platform with its Pullman porters at the steps, and redcaps wheeling baggage carts, and a family saying goodbye to a sailor, and a newsboy shouting the afternoon paper. And walking down the platform toward the third Pullman, unhurried, in a navy-blue suit with his hat on and a heavy brown valise in his left hand, a big iron-haired man who looks like somebody's favourite uncle. He sees you. He stops. He sets the valise down very gently on the platform, and his right hand goes inside his coat.",
+          "skillChecks": [
+            {
+              "skill": "Perception",
+              "dc": 13,
+              "success": "You see his hand move first and shout; the travellers scatter and his one shot goes into a baggage cart. (Otherwise he fires at the nearest party member near the valise with the .45 automatic, using the Federal Agent's attack.)",
+              "failure": "His shot is the first thing you know of it."
+            },
+            {
+              "skill": "Intimidation",
+              "dc": 14,
+              "success": "Before he can fire again, someone with a badge, a uniform or simply the right voice tells him it is over, and he believes it. He takes his hand out of his coat empty, and smiles, and says, 'Federal court, please. I'd like that understood.'",
+              "failure": "He backs toward the train with the gun up. One more round, and then the railroad police are on him from behind."
+            }
+          ]
+        },
+        {
+          "name": "What the Papers Say",
+          "description": "Epilogue, Ash Wednesday afternoon to Thursday morning. Play the consequences of the party's choices (see the campaign's controlFile outcomes), one short scene each, with the people they affect: the welders at the Equity hall (paid in cash at a table by Vidrine, or not); Irene Fontenot told that her husband was murdered for doing right, and what she does with it ('Then I know what to do'); Dr. Toussaint's list, printed or not; the Statesman's Thursday front page, if Mrs. Barthé has her proof; a paragraph on page eleven of the Times-Picayune; Det. Lamarque's badge; Yvonne's decision; Honoré alone in his library; Lucien in a federal courthouse or on a boat to Havana; Captain Lebeau at his desk with his Carnival invitations. End on Marcel: the Equity hall, where Theo has written his name on the blackboard under the sixty-one, or the Ninth Ward, where Irene has taken down the ironing board at last.",
+          "readAloud": "On Thursday morning the Crescent Statesman comes off its press on North Claiborne Avenue at five, and by seven it is in every barbershop, church hall and corner grocery in the Seventh Ward and Tremé and the Lower Ninth, and men are reading it aloud on the hall steps on North Roman Street to people who cannot get close enough to see. Across Canal Street the morning paper has a paragraph on page eleven. In a shotgun double on Louisa Street a small woman in a black dress sits at her kitchen table with the Statesman in front of her, reading it twice, slowly, all the way through. Then she gets up, and goes into the front room, and folds up the ironing board, and puts it away.",
+          "skillChecks": []
+        }
+      ],
+      "encounters": [
+        "Commander Thaddeus Pruett at Terminal Station (Federal Agent stats with a .45 automatic; he fires once, perhaps twice, then surrenders to authority)",
+        "Two railroad police (Beat Cops) and, if called in time, two Federal Agents"
+      ]
+    }
+  ],
+  "npcsInvolved": [
+    {
+      "name": "Commander Thaddeus Pruett, 54",
+      "role": "The killer, leaving town",
+      "description": "Unhurried to the end. Breakfast at the Vauclain, a call at Esplanade Avenue, a seat at the signing, a valise and a Pullman. Charming until his hand goes inside his coat. Use Federal Agent stats with a .45 automatic.",
+      "motivation": "The 1:15 to New York, $9,000, and a passage to Lisbon."
+    },
+    {
+      "name": "Honoré Ste. Claire, 74",
+      "role": "Founder of the yard; the man with the terms",
+      "description": "Unslept, perfectly dressed, formidable, devastated and hiding it. Believes the helper rate was no crime. Has decided to see Pruett hanged. Loves his granddaughter more than his name, and is about to find out whether that is true.",
+      "motivation": "His family first, his yard second, his pride third, and his own guilt not at all."
+    },
+    {
+      "name": "Lucien Ste. Claire, 47",
+      "role": "The thief who is not a murderer",
+      "description": "Unshaven, in last night's shirt, sober for the first time in a week. Has told his father everything and will tell the Navy, if asked, and the court, if it comes to that.",
+      "motivation": "To be, for once, the man his daughter thought he was."
+    },
+    {
+      "name": "Captain Achille Lebeau, 58",
+      "role": "The cover-up's hand",
+      "description": "Hung over, frightened, in at 10, ready to deny everything and to destroy anyone who cannot be denied. Use Police Captain.",
+      "motivation": "To survive the Ste. Claires' fall."
+    },
+    {
+      "name": "Desk Sergeant Alcide Dupuy, 50s",
+      "role": "Booking sergeant, 5th District",
+      "description": "Heavy, grey, honest in the way of a man who has watched everything for twenty years and finally been asked to do one thing too many.",
+      "motivation": "His stripes, and, this morning, his self-respect."
+    },
+    {
+      "name": "Mr. Firmin Decuir, 60s",
+      "role": "Attorney at law, North Claiborne Avenue",
+      "description": "One of a handful of Black lawyers in the city, precise, unflappable, wearing a pearl stickpin; comes for Theo at 11 if the Seventh Ward is called on.",
+      "motivation": "His client, and the pleasure of quoting the vagrancy statute to a sergeant."
+    },
+    {
+      "name": "Chief Yeoman Albert Sallis, 45",
+      "role": "Pruett's informant in the Navy office",
+      "description": "Grey, neat, hair tonic, sweating through his collar. Breaks under pressure.",
+      "motivation": "To not go to prison with the Commander."
+    },
+    {
+      "name": "Harmon Voigt, 50s",
+      "role": "Vice-president, Calumet Marine, Chicago",
+      "description": "Brisk, bald, impatient, a Northern businessman who wants a shipyard and not a scandal. Withdraws the moment the Navy declines.",
+      "motivation": "A clean purchase or no purchase."
+    },
+    {
+      "name": "Arnold Batiste, 60",
+      "role": "Butler at the Ste. Claire house",
+      "description": "Tall, silver-haired, dark-skinned, impeccable; has run the house for thirty years and knows every one of its secrets. Will let a party member into the pantry if Yvonne asks him, and says nothing about it then or ever.",
+      "motivation": "Miss Yvonne, whom he has known since she was born."
+    },
+    {
+      "name": "Mr. Oscar Nunez, 60s",
+      "role": "Night and day baggage clerk at Terminal Station",
+      "description": "Small, bespectacled, rule-bound, remembers every face. Will not give up a valise without the check except to the law.",
+      "motivation": "The rules, which have kept him employed since 1922."
+    }
+  ],
+  "rewards": {
+    "xp": 4000,
+    "money": "Irene Fontenot has nothing more to pay, and will try to. If the party took Honoré's deal, the welders are paid and the party is not; Honoré offers the party $1,000 'for your discretion' and Theo will know if they take it. If the U.S. Attorney's office makes a fraud case, there is no reward; there is a subpoena. Pruett's valise holds $9,000, which is evidence, and the GM should make taking any of it a choice with consequences (Heat +3, and Whitcombe's trust).",
+    "items": [
+      "The proof: the originals or Mrs. Hingle's reprints, Theo's envelopes, Dr. Toussaint's findings and her list, the sap, the collar, the photostats from valise 4471",
+      "Claim check 4471, if taken from Pruett",
+      "Honoré Ste. Claire's terms, accepted or refused, in writing if Vidrine was there",
+      "Whitcombe's signed refusal of the settlement, and his card with his St. Johnsbury address on the back",
+      "Thursday's Crescent Statesman"
+    ]
+  },
+  "twists": [
+    "Captain Lebeau's last move is the oldest one in the city: arrest the Black man who holds the evidence on a charge he cannot be guilty of, and hold him until the deadline passes. The booking order says so in ink.",
+    "Honoré Ste. Claire learns at dawn that his son is a thief and not a murderer, and his relief turns him into the party's most useful ally and its most dangerous temptation: he offers the welders their wages, today, in cash, if his own fraud is buried.",
+    "Pruett brings a decoy envelope to Esplanade Avenue. The photostats he took from Marcel's briefcase are in a valise at the station, the last proof only the killer could have.",
+    "The young Navy auditor's bravest act is not refusing to sign. It is walking out of his office to bring a Black welder in off the colored bench in a federal building, in front of the guard.",
+    "There is no ending in which everyone who deserves justice gets it. The party decides who gets it first."
+  ],
+  "dmTips": [
+    "This scenario is a clock and a choice. Budget an hour for Act 1, an hour for Act 2 and an hour and a half for Act 3 including the epilogue. The only expected violence is a shot or two at Terminal Station; keep it brief.",
+    "Run the morning as a juggling act: the party cannot be in the lockup, room 912, Crescent Photostat and Esplanade Avenue at once. Let companions take errands. If the party is small, let Theo's favors or Dr. Toussaint's brother carry one of the errands.",
+    "Honoré's deal is a real offer and should be tempting. Do not make it a trap: he will keep it. The cost is that the injustice that made the fraud possible, the helper rate, is never named to the Navy, and that Theo and Octave and Mrs. Barthé will each have something to say about that. Let the players argue in front of Honoré, and let him enjoy it.",
+    "Yvonne's choice is hers. The GM decides what she does, guided by how the party has treated her and what they say to her this morning, and it should surprise them a little.",
+    "Who arrests Pruett matters more than whether he is arrested. Make sure the players understand, through Lamarque and Whitcombe, that a federal fraud arrest may bury the murder, and that only a parish murder charge, which only Lamarque can make, forces the city to say Marcel Fontenot was killed.",
+    "The epilogue should be short and concrete: a page of a newspaper, a table of cash, a blackboard, an ironing board. Give every companion one line. End on Marcel, not on the party.",
+    "If the party has lost the originals and the reprints and the valise, the settlement is signed and Pruett leaves. Play that ending honestly too. They still know the truth, and Octave can still print it, and Irene can still be told."
+  ]
+}

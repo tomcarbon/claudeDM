@@ -1,0 +1,132 @@
+{
+  "id": "5b1e7c42-9a0d-4f3e-8c21-6d4a9e7f3b10",
+  "name": "Thorvald Kirov",
+  "status": "alive",
+  "race": "Enhanced",
+  "subrace": "",
+  "class": "Brawler",
+  "level": 3,
+  "background": "Colonist",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 17,
+      "modifier": 3
+    },
+    "dexterity": {
+      "score": 13,
+      "modifier": 1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 12,
+      "modifier": 1
+    },
+    "charisma": {
+      "score": 8,
+      "modifier": -1
+    }
+  },
+  "hitPoints": {
+    "max": 28,
+    "current": 28
+  },
+  "armorClass": 17,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Strength",
+    "Constitution"
+  ],
+  "skills": [
+    "Athletics",
+    "Intimidation",
+    "Survival",
+    "Science"
+  ],
+  "languages": [
+    "Common",
+    "Brinehold cant (the saltborn's slang, half drill-crew code)"
+  ],
+  "equipment": [
+    "Hardshell drill-crew plate, scuffed white, with BORE 9 stencilled on the back",
+    "Sledgehammer, the long-handled kind used to break ice off rod couplings",
+    "Flare gun",
+    "Flares (4)",
+    "Surface suit (8 hours of air), patched at the left knee",
+    "Mag boots",
+    "Suit tape (2 rolls)",
+    "Colony ID bracelet",
+    "Rebreather mask",
+    "Multitool",
+    "A drill-crew union card with Adaeze Rask's signature on it as steward",
+    "Credit chit: 85 cr"
+  ],
+  "weapons": [
+    {
+      "name": "Unarmed strike",
+      "attackBonus": 5,
+      "damage": "1d6+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Sledgehammer",
+      "attackBonus": 5,
+      "damage": "2d6+3",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Flare gun",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "fire"
+    }
+  ],
+  "armor": {
+    "name": "Hardshell",
+    "type": "medium"
+  },
+  "features": [
+    "Engineered Physique (Enhanced: +2 STR, +1 CON)",
+    "Augmented: Dermal Plating (Enhanced: +1 AC, included)",
+    "Hard Hitter (unarmed strikes 1d6 + STR bludgeoning; one unarmed strike as a bonus action after taking the Attack action)",
+    "Hard to Kill (when reduced to 0 HP but not killed outright, drop to 1 HP instead; once per long rest)",
+    "Intimidating Presence (action: one creature within 30 ft makes a WIS save DC 13 or is frightened of him until the end of his next turn)",
+    "Enforcer (when he hits with a melee attack, he can push the target 10 ft or knock it prone if it fails a STR save DC 13)",
+    "Frontier Grit (Colonist feature: colonists everywhere offer him food, shelter and honest help, and he knows how to keep pressure halls sealed and reclaimers running)"
+  ],
+  "traits": [
+    "Engineered Physique",
+    "Dermal Plating",
+    "Hard Hitter",
+    "Hard to Kill",
+    "Intimidating Presence",
+    "Enforcer"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I say very little, and when I do it's a fact. I touch every pressure door I walk through, an old drill-crew habit, checking the seal with my palm.",
+    "ideals": "A crew comes home together or the crew stays out together. That's not a rule. It's what a crew is.",
+    "bonds": "Adaeze Rask was my crew lead for twelve years and stood up for me at my wedding. Her daughter Lisbet is seventeen and has nobody now but us.",
+    "flaws": "I'll hit a problem before I understand it. Most of my life the problem was ice, and ice doesn't mind."
+  },
+  "appearance": "A broad, heavy man of thirty-eight, built wrong for a low-gravity moon. The Combine's bone-and-muscle course at sixteen gave every saltborn drill kid the frame for heavy work. Pale, close-shaved head, a faint grey sheen along his forearms and collarbone where the dermal plating sits under the skin. His hands are cracked from cold, and he moves with the long, careful lope of someone who has been told all his life that he could put a fist through a wall.",
+  "backstory": "Thorvald Kirov was born in the Warrens to a reactor tech and a cook, and he has never been off Esker. He has never been more than seventy kilometres from Brinehold. The Combine picked him for the drill crews at sixteen, put him through the enhancement course, and he has worked the deep bores ever since. He was on the day shift at Bore Nine. Adaeze sent him back to Brinehold with a cracked rod coupling six hours before she died, and he was asleep in the Warrens when the alarm went. The Combine's report says her suit seal failed during a rod change. Thorvald has watched Adaeze change rods in her sleep, and he has said aloud, in the Gallery, that the report is a lie. He doesn't know what the truth is. He is going to stand up at the inquest anyway."
+}

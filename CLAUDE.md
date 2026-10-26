@@ -18,7 +18,7 @@ A Node/React application for playing tabletop RPGs with a Game Master. The AI na
 ```
 data/
 ├── defaults/                     # BASELINE templates — pristine source of truth for provisioning & resets
-│   └── <campaign>/               # fantasy: demo, campaign1..5, nihon, wonderland, reckoning, bellwater; scifi: coldwar, lastferry, outbreak, perihelion; noir: blackcrane, klieglight, calloway; western: bittercreek, silverline, longbounty; horror: greywick, drownedbell, hollowfork
+│   └── <campaign>/               # fantasy: demo, campaign1..5, nihon, wonderland, reckoning, bellwater; scifi: coldwar, lastferry, outbreak, perihelion, saltmoon; noir: blackcrane, klieglight, calloway, bluenote, crescent; western: bittercreek, silverline, longbounty, vigilance, stageline; horror: greywick, drownedbell, hollowfork, blackdamp, pinecrest
 │       ├── characters/
 │       └── npcs/
 ├── players/                      # Per-player, per-campaign character LIBRARIES (editable working copies)

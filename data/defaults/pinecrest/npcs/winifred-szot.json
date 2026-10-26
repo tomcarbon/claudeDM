@@ -1,0 +1,131 @@
+{
+  "id": "eabf2466-be28-439b-9be7-f9b7296938cc",
+  "name": "Winifred \"Winnie\" Szot",
+  "status": "alive",
+  "race": "Faithful",
+  "subrace": "",
+  "class": "Chaplain",
+  "level": 3,
+  "background": "Farmhand",
+  "alignment": "Lawful Good",
+  "experience": 900,
+  "abilities": {
+    "strength": {
+      "score": 13,
+      "modifier": 1
+    },
+    "dexterity": {
+      "score": 8,
+      "modifier": -1
+    },
+    "constitution": {
+      "score": 15,
+      "modifier": 2
+    },
+    "intelligence": {
+      "score": 10,
+      "modifier": 0
+    },
+    "wisdom": {
+      "score": 16,
+      "modifier": 3
+    },
+    "charisma": {
+      "score": 13,
+      "modifier": 1
+    }
+  },
+  "hitPoints": {
+    "max": 24,
+    "current": 24
+  },
+  "armorClass": 10,
+  "speed": 30,
+  "proficiencyBonus": 2,
+  "savingThrows": [
+    "Wisdom",
+    "Charisma"
+  ],
+  "skills": [
+    "Athletics",
+    "Nature",
+    "Insight",
+    "Occult"
+  ],
+  "languages": [
+    "English",
+    "Polish (from her mother, for cooking and praying)"
+  ],
+  "equipment": [
+    "Heavy coat: her late husband's barn coat, over a flowered apron",
+    "Fire iron: the cast-iron poker from the Dining Hall stove, which she has carried since Saturday",
+    "Kitchen knife: her own, which goes home with her every September",
+    "Work clothes",
+    "Leather gloves",
+    "Pocket knife",
+    "A letter of reference from Philomena Delamater, 1946",
+    "Philomena Delamater's last letter to her, 1958, in her purse",
+    "Rope (50 ft), from the kitchen storeroom",
+    "Rosary or prayer beads: her mother's, amber",
+    "Coffee (1 lb), and a pie in a basket",
+    "Wallet containing $8"
+  ],
+  "weapons": [
+    {
+      "name": "Fire iron",
+      "attackBonus": 3,
+      "damage": "1d6+1",
+      "damageType": "bludgeoning"
+    },
+    {
+      "name": "Kitchen knife",
+      "attackBonus": 3,
+      "damage": "1d4+1",
+      "damageType": "piercing"
+    }
+  ],
+  "armor": {
+    "name": "Heavy coat",
+    "type": "light"
+  },
+  "features": [
+    "Something to Hold On To (Faithful origin: once per long rest, when she would gain Dread, she gains 1 fewer, so a failed fear check costs nothing and a natural 1 costs 1; advantage on saving throws against being charmed or compelled by a creature; no miracle in it, it only keeps she herself)",
+    "Steady Now (Chaplain: as an action she speaks to one ally within 30 ft who can hear her, 'Look at me. Breathe. Eat something.', and the ally loses 1 Dread and stops being frightened; 4 uses per long rest; it works because they trust her)",
+    "Graveside (Chaplain: she stabilizes a dying creature as a bonus action with a Medicine check DC 10; advantage on Occult checks for rites of laying to rest when a creature's rules call for one, and on Persuasion checks with the bereaved)",
+    "Hold On to Me (Chaplain, 2nd level: when an ally within 30 ft who can hear her would reach Dread 6, she uses her reaction to call them back and they stay at Dread 5; once per short rest)",
+    "Calling: Parish (Chaplain, 3rd level: in any community she serves for a week people bring her their troubles; once per scenario someone at Pinecrest tells her one true thing they have kept from everyone else)",
+    "Hired On (Farmhand background: at any farm she can get a meal and a place for a day's work, farm people talk to her as an equal, and she notices without a check when a place's rhythm is wrong: chores undone, a kitchen nobody has used)"
+  ],
+  "traits": [
+    "Steady Now (4/long rest)",
+    "Graveside",
+    "Hold On to Me (1/short rest)",
+    "Calling: Parish (1/scenario)",
+    "Hired On"
+  ],
+  "spells": {
+    "spellcastingAbility": "",
+    "spellSaveDC": 0,
+    "spellAttackBonus": 0,
+    "cantrips": [],
+    "level1": {
+      "slots": 0,
+      "known": []
+    }
+  },
+  "personality": {
+    "traits": "I feed people. I say what I think and then I say a prayer for having said it. I have never once in thirty-one summers let anybody leave my kitchen hungry.",
+    "ideals": "You look after who is in front of you. God sorts out the rest.",
+    "bonds": "Pinecrest, my kitchen, thirty-one summers. Alvin Dreher, whom I have fed supper three nights a week since 1946. Miss Delamater, who hired a widow from Hazleton when nobody else would. My sister in Hazleton, where I go on Tuesday.",
+    "flaws": "Miss Delamater told me what to do if it ever came, and I thought it was the morphine talking, and I never told anyone. I have been carrying her letter in my purse for nineteen years."
+  },
+  "appearance": "Sixty-three, big, rosy and strong, grey hair in a net, a flowered apron under a man's barn coat, flour to the elbows, an iron poker in one hand like a walking stick.",
+  "backstory": "Winifred Szot was born on a farm outside Hazleton, married a miner, and was widowed at thirty-two when the roof came down at the Number Nine slope in 1946. Miss Delamater hired her that June as cook at Pinecrest, where she has been ever since, summer after summer, winters with her sister: thirty-one seasons of chicken pot pie, apple crumb, pepper cabbage and coffee. She knew Rudolph Dreher in his last year and his son Alvin all his working life, and she knew Miss Delamater, who in 1958, dying, wrote her a letter she still carries: 'If they ever leave off the masks, and you ever see a face on the water that you know, Winnie, call it by its name, poor soul. That is all it wants.' She has never been on the dock on Lantern Night; she watches from the Dining Hall porch. She is the heart of the camp and she knows it.",
+  "dmNotes": {
+    "roleplaying": "Winnie is the party's comfort and its conscience: she rings the bell over Gene's body (pc-scenario-002), says the line about Alvin that frightens Coach, and is one of the two people who can talk Alvin down (campaignRules, The Man in the Mask). Her Steady Now is food, coffee and a hand on the arm. In pc-scenario-003 she remembers Philomena's letter, Rule Five. In pc-scenario-004 she can say Curtis Seeley's name if Opal cannot. She joins at once on Saturday and will not leave the Lodge kitchen unless Alvin or Opal needs her.",
+    "voice": "Warm, loud, Hazleton coal-country, a Polish word now and then; \"Eat.\" \"Sit.\" \"God help us.\" She calls everyone \"honey\" except Coach, whom she calls \"Mister\".",
+    "motivations": "Primary: keep everyone fed and together. Secondary: bring Alvin in alive. Tertiary: do, at last, what Miss Delamater asked her.",
+    "secrets": "She knows Coach is not Curtis. Not how, not what; only that in 1965 he came into her kitchen and ate her pie and did not ask for the second slice Curtis always asked for, and said 'very fine, Mrs. Szot', and Curtis had called her Winnie since 1955. She has called him 'Mister' ever since and he has never asked why.",
+    "attitude": "Toward the party: motherly and bossy. Toward Alvin: fierce, protective love. Toward Coach: cool, polite, watchful. Toward Opal: like family. Toward Roscoe: he gets the big slice."
+  }
+}
