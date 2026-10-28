@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { provisionAllCampaignDefaults } = require('../player-data');
+const { DEFAULT_PREMIUM_ACCESS, resolvePremiumAccess } = require('../player-auth');
 
 function hashPassword(password) {
   return crypto.createHash('sha256').update(password).digest('hex');
@@ -22,7 +23,9 @@ module.exports = function (dataDir) {
   }
 
   function safePlayer(p) {
-    return { email: p.email, name: p.name, role: p.role };
+    // premiumAccess is the RESOLVED value (absent field = the default), so the client never has to
+    // know the default. It is for display only; the server enforces it (WO-0050).
+    return { email: p.email, name: p.name, role: p.role, premiumAccess: resolvePremiumAccess(p) };
   }
 
   // GET /api/players/lookup?emails=a@b.com,c@d.com — resolve emails to names
@@ -70,6 +73,9 @@ module.exports = function (dataDir) {
       name: name.trim(),
       passwordHash: hashPassword(password),
       role: 'player',
+      // Written explicitly so an admin can find it and change it. Never taken from req.body: no
+      // route lets a player set their own access (WO-0050).
+      premiumAccess: DEFAULT_PREMIUM_ACCESS,
       createdAt: new Date().toISOString(),
     };
     writePlayers(players);

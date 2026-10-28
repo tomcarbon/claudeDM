@@ -56,8 +56,10 @@ describe('categories on disk', () => {
   });
 
   it('marks the demo Free and every other campaign Premium (chair, 2026-10-21)', () => {
-    // A label only — no route or component gates on it (client/src/utils/campaignListing.js), so
-    // every campaign stays playable by everyone.
+    // The badge is still a label: nothing gates on the badge itself. Since WO-0050 the Premium
+    // gate is decided by the server's free allowlist (server/premium-gate.js), and
+    // premium-gate.test.js holds these badges to that list. (Until 2026-10-28 this comment said
+    // every campaign stays playable by everyone; with every player at the default, it still does.)
     for (const c of campaigns) expect(c.listing?.badge, c.id).toBe(c.id === 'demo' ? 'Free' : 'Premium');
   });
 

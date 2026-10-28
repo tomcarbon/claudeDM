@@ -1,9 +1,12 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCampaign } from '../context/CampaignContext';
+import { usePlayer } from '../context/PlayerContext';
 import { badgeClassName, boxClassName, cardBadge, cardBlurb, cardTitle, sortCampaigns, findCampaign } from '../utils/campaignListing';
 import { CATEGORIES, categoryOf } from '../utils/gameCategories';
 import { APP_NAME } from '../utils/brand';
+import { CAMPAIGN_CARDS, cardClickTarget } from '../utils/homeCards';
+import { START_UNAVAILABLE_REASON, startUnavailable } from '../utils/premiumAccess';
 
 // Which category tab Home shows. Remembered per browser; a convenience, so every failure to read
 // or write it falls back to the category of the campaign the player last chose.
@@ -38,28 +41,33 @@ function CategoryTabs({ active, counts, onSelect }) {
   );
 }
 
-const CAMPAIGN_CARDS = [
-  { label: 'Start Adventure', desc: 'Begin a text adventure with your Game Master.', path: '/adventure', className: 'card-adventure' },
-  { label: 'Characters', desc: 'View, edit, and manage your player characters.', path: '/characters' },
-  { label: 'NPC Companions', desc: 'Meet the AI-narrated companions who will join your quest.', path: '/npcs' },
-  { label: 'Scenarios (spoilers!)', desc: 'Browse adventure modules for this campaign.', path: '/scenarios' },
-  { label: 'World Map', desc: 'Explore the campaign world map.', path: '/world-map' },
-];
-
-function CampaignCards({ campaignId, locked }) {
+function CampaignCards({ campaignId, locked, startLocked = false }) {
   const navigate = useNavigate();
   const { selectCampaign } = useCampaign();
 
   function handleClick(card) {
-    if (locked) return;
+    const target = cardClickTarget(card, { locked, startLocked });
+    if (!target) return;
     selectCampaign(campaignId);
-    navigate(card.path, card.path === '/adventure' ? { state: { resetSession: true } } : undefined);
+    navigate(target.path, target.state ? { state: target.state } : undefined);
   }
 
   return (
     <div className="card-grid">
-      {CAMPAIGN_CARDS.map(card => (
-        locked ? (
+      {CAMPAIGN_CARDS.filter(card => !card.hidden).map(card => (
+        card.isStart && startLocked && !locked ? (
+          // Grayed out and inert: a <div>, not a link, so there is nothing to click or tab to.
+          // The server refuses the start regardless (WO-0050); this only avoids offering it.
+          <div
+            key={card.label}
+            className="card card-locked card-start-unavailable"
+            aria-disabled="true"
+            title={START_UNAVAILABLE_REASON}
+          >
+            <h3>{card.label}</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>{START_UNAVAILABLE_REASON}</p>
+          </div>
+        ) : locked ? (
           <div key={card.label} className="card card-locked">
             <h3>{card.label}</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>{card.desc}</p>
@@ -81,6 +89,7 @@ function CampaignCards({ campaignId, locked }) {
 }
 
 function CampaignTier({ campaign }) {
+  const { player } = usePlayer();
   const badge = cardBadge(campaign);
   const blurb = cardBlurb(campaign);
   return (
@@ -90,7 +99,7 @@ function CampaignTier({ campaign }) {
         <h3 className="tier-title">{cardTitle(campaign)}</h3>
         {blurb && <p className="tier-subtitle">{blurb}</p>}
       </div>
-      <CampaignCards campaignId={campaign.id} locked={false} />
+      <CampaignCards campaignId={campaign.id} locked={false} startLocked={startUnavailable(player, campaign)} />
     </div>
   );
 }

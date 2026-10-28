@@ -12,6 +12,7 @@ import RichText from '../components/RichText';
 import { getCollapseThreshold } from '../utils/displaySettings';
 import { parseMoney, formatMoney, moneyLabel } from '../utils/money';
 import { useCampaign } from '../context/CampaignContext';
+import { START_UNAVAILABLE_REASON, startUnavailable } from '../utils/premiumAccess';
 import { getLeveledSpells, spellName, ORDINALS as ORDINAL_LABELS } from '../components/SpellList';
 
 const STATUS_CONFIG = {
@@ -244,6 +245,10 @@ function Adventure({
   const lastSaveTimeRef = useRef(0); // Timestamp of last auto-save (for leading-edge throttle)
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const isGuest = !player?.email;
+  // WO-0050: a new adventure in this campaign is not offered to this account. Appearance only —
+  // the server refuses the start regardless, and its message reaches the story pane if this is
+  // ever wrong (a stale cached player). Saved games are unaffected.
+  const startBlocked = startUnavailable(player, currentCampaign);
   const isCompanion = !!sessionAccess.companionNpcId;
   const companionNpc = isCompanion ? npcs.find(n => n.id === sessionAccess.companionNpcId) : null;
   const companionCharacter = companionCharacterId ? characters.find(c => c.id === companionCharacterId) : null;
@@ -683,6 +688,10 @@ function Adventure({
   async function handleStartSession() {
     if (isGuest) {
       alert('Please log in to start a new session.');
+      return;
+    }
+    if (startBlocked) {
+      alert(`${START_UNAVAILABLE_REASON}.`);
       return;
     }
     const character = characters.find(c => c.id === selectedCharacter);
@@ -1266,10 +1275,11 @@ Set the scene and begin the story.`;
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <button
             className="btn-primary begin-btn"
-            disabled={isGuest || !selectedCharacter || (mode === 'scenarios' ? !selectedScenario : !selectedCampaign) || status === 'disconnected'}
+            disabled={isGuest || startBlocked || !selectedCharacter || (mode === 'scenarios' ? !selectedScenario : !selectedCampaign) || status === 'disconnected'}
             onClick={handleStartSession}
+            title={startBlocked ? START_UNAVAILABLE_REASON : undefined}
           >
-            {status === 'disconnected' ? 'Connecting...' : (isGuest ? 'Login Required to Begin' : 'Begin Adventure')}
+            {status === 'disconnected' ? 'Connecting...' : (isGuest ? 'Login Required to Begin' : (startBlocked ? START_UNAVAILABLE_REASON : 'Begin Adventure'))}
           </button>
           <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.05rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
             <input

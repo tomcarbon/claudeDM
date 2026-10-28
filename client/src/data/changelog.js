@@ -1,10 +1,24 @@
-export const CURRENT_VERSION = '1.0.27';
+export const CURRENT_VERSION = '1.0.28';
 
 export const CHANGELOG = [
   {
+    version: '1.0.28',
+    date: '2026-10-28',
+    title: 'Current Release',
+    compareFrom: '1.0.27',
+    compareRef: '63156cf ("demo_1.0.27")',
+    highlights: [
+      'You now need to be logged in to start a new game. A guest can still look around and watch saved games that are open to everyone, but the Begin Adventure button stays off until you log in, and the game itself now refuses a new game from anyone who is not logged in, in every campaign, the free demo included. Carrying on a game you have saved, and joining a friend\'s game, work as they did.',
+      'The Premium badge can now mean something, though for now it changes nothing. Each account has a Premium setting, and every account has it switched on, so every campaign is still open to everyone and there is still nothing to buy. If an account has it switched off, the Start Adventure card on a Premium campaign is grayed out and reads Not available on your account, and the game refuses to start one; the free demo stays open. Games already saved are not affected. One honest limit: logging in asks for your password, but after that the game takes your word for who you are, so anyone who knows an account\'s email address can act as that account. So this is an account setting, not a lock.',
+      'The Scenarios (spoilers!) button is gone from the home page and the side menu, and the World Map no longer opens a scenario\'s page when you click a place on it. Both gave away more of the story than most players want. The map itself still shows each place\'s name and short description, and on the painted fantasy maps the title of the adventure set there, so it can still give away a little.',
+      'A bug fixed. In the last version, if you opened another saved game while the Game Master was still answering you, your message and the Game Master\'s reply could be saved into that other game, even if it belonged to someone else. That can no longer happen, and an automated check makes sure it stays that way.',
+      'Last, what has not been seen yet. The automated checks have grown from 1,169 to 1,268, all passing. Nobody has yet tried any of this in a browser, so the grayed-out cards, the switched-off button and the quieter map have been checked by tests and by reading the code, not by eye. The Game Master\'s tools are still not locked down, and everything the 1.0.26 entry says about that is still true.',
+    ],
+  },
+  {
     version: '1.0.27',
     date: '2026-10-25',
-    title: 'Current Release',
+    title: 'Previous Release',
     compareFrom: '1.0.26',
     compareRef: '13bee42 ("demo_1.0.26")',
     highlights: [

@@ -5,6 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const { getAuthenticatedPlayer } = require('../player-auth');
 const { findReadyAsset, resolveAssetFile, contentTypeFor } = require('../asset-manifest');
 const { categoryIdOf, currencyForCampaign } = require('../game-categories');
+const { isPremiumCampaign } = require('../premium-gate');
 
 function readCampaignEntries(campaignDir) {
   if (!fs.existsSync(campaignDir)) return [];
@@ -53,6 +54,9 @@ function withCampaignAccess(campaign, requester) {
     ownerName,
     canWrite,
     readOnly: !canWrite,
+    // Computed from the server's free allowlist, last, so a `premium` key in a campaign body
+    // cannot override it (WO-0050). Display only; the gate is enforced where sessions start.
+    premium: isPremiumCampaign(campaign.id),
   };
 }
 
@@ -60,7 +64,9 @@ function withCampaignAccess(campaign, requester) {
 // optional too, and the client has a fallback for each (WO-0009, and see
 // client/src/utils/campaignListing.js for the fallbacks). It is presentation only: nothing in
 // this server reads `listing`, and in particular `listing.badge` is a label, not an
-// entitlement — no route gates on it.
+// entitlement — no route gates on it. Since WO-0050 there IS a Premium gate, but it is decided by
+// the server-side allowlist in server/premium-gate.js and surfaced as the computed `premium`
+// field below, never by the badge: POST /api/campaigns lets any logged-in user write a `listing`.
 function summarizeListing(campaign) {
   const listing = campaign.listing;
   if (!listing || typeof listing !== 'object' || Array.isArray(listing)) return null;
@@ -114,6 +120,7 @@ function summarizeCampaign(campaign, requester, dataDir) {
     ownerName,
     canWrite,
     readOnly: !canWrite,
+    premium: isPremiumCampaign(campaign.id), // WO-0050; the allowlist, not the badge
   };
 }
 

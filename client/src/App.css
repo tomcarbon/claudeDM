@@ -742,6 +742,12 @@
   border-color: var(--border);
 }
 
+/* Start Adventure on a campaign this account cannot start (WO-0050). Gray, not gold. */
+.card-start-unavailable {
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
 .locked-label {
   display: inline-block;
   margin-top: 0.5rem;
@@ -2042,6 +2048,11 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 2;
+}
+/* WO-0050 rev 4, Part D: with SHOW_SCENARIO_LINKS false the World Map pins link nowhere, so they
+   must not look clickable. Hover still shows the label. */
+.map-links-off .map-marker {
+  cursor: default;
 }
 .map-marker-dot {
   display: block;

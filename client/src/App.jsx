@@ -27,6 +27,7 @@ import PlayerChat from './components/PlayerChat';
 import { api } from './api/client';
 import { CURRENT_VERSION } from './data/changelog';
 import { APP_NAME } from './utils/brand';
+import { SHOW_SCENARIO_LINKS } from './utils/features';
 import './App.css';
 
 function AppContent() {
@@ -127,7 +128,8 @@ function AppContent() {
             <li><NavLink to="/characters" className="nav-sub">Characters</NavLink></li>
             <li><NavLink to="/npcs" className="nav-sub">Companions</NavLink></li>
             <li><NavLink to="/world-map" className="nav-sub">World Map</NavLink></li>
-            <li><NavLink to="/scenarios" className="nav-sub">Scenarios (spoilers!)</NavLink></li>
+            {/* Hidden, not deleted (WO-0050): flip SHOW_SCENARIO_LINKS in utils/features.js. */}
+            {SHOW_SCENARIO_LINKS && <li><NavLink to="/scenarios" className="nav-sub">Scenarios (spoilers!)</NavLink></li>}
           </>}
           <li><NavLink to="/dm-settings">GM Personality</NavLink></li>
         </ul>

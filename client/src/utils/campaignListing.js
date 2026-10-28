@@ -15,10 +15,21 @@
 // at all still renders: canonical title, canonical subtitle, no badge, sorted to the end. That
 // is the property that matters — adding a campaign must never again mean editing JSX.
 //
-// `badge` is deliberately a free string rather than an enum. It is a label and nothing gates on
-// it: no route, no component and no billing code reads it (there is no billing code). If it ever
-// becomes an entitlement it must stop being carried in data the campaign owner can write, and
-// this comment should be the first thing that changes.
+// `badge` is deliberately a free string rather than an enum. It is a label, and it is still not
+// an entitlement: nothing gates on the badge itself.
+//
+// What changed (WO-0050, 2026-10-28): there is now a Premium gate — a player whose
+// `premiumAccess` is false cannot START a new adventure in a Premium campaign. As this comment
+// said it must, the entitlement is NOT carried in data the campaign owner can write. Which
+// campaigns are Premium is a server-side allowlist of free ids (`FREE_CAMPAIGN_IDS` in
+// server/premium-gate.js, `['demo']`), surfaced to the client as the server-computed
+// `campaign.premium` and read by utils/premiumAccess.js. A test holds the shipped badges to that
+// allowlist, so the label still tells the truth. There is no billing code.
+//
+// Until 2026-10-28 this comment read: "It is a label and nothing gates on it: no route, no
+// component and no billing code reads it (there is no billing code). If it ever becomes an
+// entitlement it must stop being carried in data the campaign owner can write, and this comment
+// should be the first thing that changes."
 
 const BADGE_BOX_CLASS = { Free: 'tier-demo', Premium: 'tier-premium' };
 const BADGE_CHIP_CLASS = { Free: 'tier-badge-demo', Premium: 'tier-badge-premium' };

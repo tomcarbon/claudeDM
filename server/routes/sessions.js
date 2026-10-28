@@ -2,7 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-const { getAuthenticatedPlayer } = require('../player-auth');
+const { getAuthenticatedPlayer, resolvePremiumAccess } = require('../player-auth');
+const { canStartCampaign, PREMIUM_REFUSAL_MESSAGE } = require('../premium-gate');
 const { emailToSlug, getSessionDir, getSessionFilePath, getSessionCharactersDir, getSessionNpcsDir, getPlayerCharactersDir, provisionPlayerDefaults, snapshotToSession, updateSessionFile } = require('../player-data');
 const { broadcastToAll, broadcastToSessionRoom } = require('../ws-handler');
 const { loadDmSettings } = require('../dm-engine');
@@ -425,6 +426,11 @@ module.exports = function (dataDir) {
       const requester = getAuthenticatedPlayer(dataDir, req);
       if (!requester) {
         return res.status(403).json({ error: 'Login required. Guests cannot create sessions.' });
+      }
+      // Premium gate (WO-0050). The campaign is the request's X-Campaign-Id — the same value the
+      // session is written under below — never a body field and never the campaign's badge.
+      if (!canStartCampaign(resolvePremiumAccess(requester), req.campaignId || 'demo')) {
+        return res.status(403).json({ error: PREMIUM_REFUSAL_MESSAGE, code: 'campaign_unavailable' });
       }
       // Enforce per-player session limit
       const maxSessions = requester.maxSessions || DEFAULT_MAX_SESSIONS;

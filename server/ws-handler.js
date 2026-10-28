@@ -8,6 +8,21 @@ const { emailToSlug, getPlayerCharactersDir, getSessionFilePath, getSessionChara
 const { auditDmTurn, auditPlayerTurn, formatWarnings, logAuditTrace, needsReconcile, buildReconcilePrompt, buildMechanicalCorrection } = require('./dm-audit');
 const { slugify, verifySessionIntegrity } = require('./entity-resolver');
 const { writeJsonAtomic } = require('./json-recovery');
+const { getPremiumAccessForEmail, isRegisteredEmail } = require('./player-auth');
+const { canStartCampaign, PREMIUM_REFUSAL_MESSAGE } = require('./premium-gate');
+
+// The two ways a new game can be refused over the WebSocket (WO-0050). Each refusal is sent as the
+// `error` payload and is also what `startRefused` holds, so a user_message after a refused start is
+// refused with the same words and code as the start was.
+const PREMIUM_REFUSAL = Object.freeze({ error: PREMIUM_REFUSAL_MESSAGE, code: 'campaign_unavailable' });
+// Revision 4, Part C: only a logged-in player — an email that names a registered record in
+// players.json, the test REST's getAuthenticatedPlayer applies — may start a new game, in every
+// campaign including `demo`. REST `POST /api/sessions` already refused guests with "Login required.
+// Guests cannot create sessions."; this closes the WebSocket half.
+const LOGIN_REQUIRED_MESSAGE = 'Login required. Guests cannot start a new game.';
+const LOGIN_REFUSAL = Object.freeze({ error: LOGIN_REQUIRED_MESSAGE, code: 'login_required' });
+// An empty playerEmail keeps the message it always had, and gains the code.
+const NO_EMAIL_REFUSAL = Object.freeze({ error: 'playerEmail is required to start a session.', code: 'login_required' });
 
 // Collapse warnings to one per category so a transfer flagged by both the DM-narration scan and the
 // player-intent scan doesn't double-report in the reconcile prompt.
@@ -609,6 +624,15 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
     try { return JSON.parse(fs.readFileSync(fp, 'utf-8')); } catch { return null; }
   }
 
+  // The campaign a saved session.json names, or null when it names none or names something that is
+  // not a well-formed campaign id (SR-50-5, WO-0050 revision 3). session.json is writable by the
+  // GM's Edit tool, so this value is validated before it is trusted; null means "treat the turn as
+  // a start", which the Premium gate then decides.
+  function savedCampaignIdOf(session) {
+    const cid = session && session.campaignId;
+    return typeof cid === 'string' && SAFE_CAMPAIGN_ID.test(cid) ? cid : null;
+  }
+
   async function readSessionByDbIdAsync(sessionDbId) {
     const fp = await findSessionFilePathAsync(sessionDbId);
     if (!fp) return null;
@@ -632,6 +656,14 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
     let companionConfig = null; // Host's NPC slot assignments (removed, open, reserved)
     let dmPersonality = null; // Session-scoped DM personality settings
     let processing = false;
+    // WO-0050 revision 3 (SR-50-4). Set when this connection's last session_start or session_resume
+    // was refused by the Premium gate; cleared by a successful session_start, session_resume, or an
+    // owner's session_watch. While set, user_message is refused. The refusal therefore depends on
+    // this flag, not on connection state the refused message had to mutate first.
+    // Revision 4 (Part C): it holds the refusal payload itself (PREMIUM_REFUSAL, LOGIN_REFUSAL or
+    // NO_EMAIL_REFUSAL) rather than `true`, so the refused user_message carries the start's words
+    // and code. `false` still means "not refused".
+    let startRefused = false;
     let messageHistory = []; // Track conversation for resume fallback
     let currentChatKey = null;
     let currentSessionDbId = null;
@@ -864,12 +896,19 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
       // Get or create session engine
       const session = await readSessionByDbIdAsync(sessionDbId);
       if (!session) return;
+      // SR-50-5 (WO-0050 revision 3): session.json is GM-writable, so a campaignId that is present
+      // but not a well-formed id is refused rather than joined into paths. Absent still means demo.
+      if (session.campaignId != null && !savedCampaignIdOf(session)) {
+        console.error(`[WS] Refusing to fire session ${sessionDbId}: its saved campaignId is not a valid id`);
+        broadcastSessionMessage(sessionDbId, 'error', { error: 'This saved game names an invalid campaign.' });
+        return;
+      }
       const ownerEmail = getSessionOwnerEmail(session);
       const existingCtx = sessionEngines.get(sessionDbId);
       const engineCtx = getOrCreateSessionEngine(sessionDbId, dataDir, {
         characterId: session.characterId,
         scenarioId: session.scenarioId,
-        campaignId: session.campaignId || 'demo',
+        campaignId: savedCampaignIdOf(session) || 'demo',
         ownerEmail,
         claudeSessionId: session.claudeSessionId,
         messageHistory: existingCtx?.messageHistory || [],
@@ -1250,9 +1289,37 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
 
       switch (msg.type) {
         case 'session_start': {
-          if (!msg.playerEmail) {
-            send('error', { error: 'playerEmail is required to start a session.' });
+          // Login gate (WO-0050 revision 4, Part C). Before the Premium gate and, like it, before any
+          // connection state is assigned: a refusal sets only `startRefused` (so the next unbound
+          // user_message is refused with the same payload) and unbinds the session room, as any
+          // start does. Covers empty, `guest` and every email with no record in players.json, in
+          // every campaign. An empty email used to get this message with no code and no
+          // `startRefused`; it now gets both.
+          if (!isRegisteredEmail(dataDir, msg.playerEmail)) {
+            const refusal = msg.playerEmail ? LOGIN_REFUSAL : NO_EMAIL_REFUSAL;
+            startRefused = refusal;
+            leaveCurrentSessionRoom();
+            send('error', refusal);
+            console.log(`[WS] Session start refused (login required) — player: ${msg.playerEmail || '(none)'}`);
             break;
+          }
+          // Premium gate (WO-0050), checked BEFORE any connection state is assigned (revision 3,
+          // SR-50-4). Revisions 1-2 assigned campaign/scenario/character first and refused after,
+          // so a refused start arriving mid-turn swapped the in-flight turn's inputs. Now a refusal
+          // assigns nothing but `startRefused` and unbinds the session room (what any start does;
+          // the in-flight turn has its own pinned session id, so unbinding cannot redirect it).
+          // An ill-formed campaignId is left to the existing "Invalid campaignId." check below.
+          {
+            const requested = msg.campaignId == null ? null
+              : (typeof msg.campaignId === 'string' && SAFE_CAMPAIGN_ID.test(msg.campaignId) ? msg.campaignId : undefined);
+            if (requested !== undefined
+                && !canStartCampaign(getPremiumAccessForEmail(dataDir, msg.playerEmail), requested || 'demo')) {
+              startRefused = PREMIUM_REFUSAL;
+              leaveCurrentSessionRoom();
+              send('error', PREMIUM_REFUSAL);
+              console.log(`[WS] Session start refused (premium gate) — campaign: ${requested || 'demo'}, player: ${msg.playerEmail}`);
+              break;
+            }
           }
           leaveCurrentSessionRoom();
           // Reset engine and history for a clean slate
@@ -1260,7 +1327,9 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
           messageHistory = [];
           characterId = msg.characterId || null;
           scenarioId = msg.scenarioId || null;
-          if (msg.campaignId != null && !SAFE_CAMPAIGN_ID.test(String(msg.campaignId))) {
+          // A campaign id is a string or absent. `String(['demo'])` is 'demo', so without the type check an
+          // array passed the regex and reached the engine and the path helpers (SR-50-3, WO-0050).
+          if (msg.campaignId != null && (typeof msg.campaignId !== 'string' || !SAFE_CAMPAIGN_ID.test(msg.campaignId))) {
             send('error', { error: 'Invalid campaignId.' });
             break;
           }
@@ -1270,6 +1339,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
           wsEntry.playerEmail = msg.playerEmail;
           wsEntry.campaignId = campaignId;
           wsEntry.characterId = characterId;
+          startRefused = false;
           // Clear companion state from previous session
           wsEntry.companionNpcId = null;
           wsEntry.companionCharacterId = null;
@@ -1315,11 +1385,27 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
           const prevClaudeId = engine.sessionId;
           const newClaudeId = msg.claudeSessionId || null;
           const prevCampaignId = campaignId;
-          if (msg.campaignId != null && !SAFE_CAMPAIGN_ID.test(String(msg.campaignId))) {
+          // A campaign id is a string or absent. `String(['demo'])` is 'demo', so without the type check an
+          // array passed the regex and reached the engine and the path helpers (SR-50-3, WO-0050).
+          if (msg.campaignId != null && (typeof msg.campaignId !== 'string' || !SAFE_CAMPAIGN_ID.test(msg.campaignId))) {
             send('error', { error: 'Invalid campaignId.' });
             break;
           }
           const newCampaignId = msg.campaignId || null;
+          // Premium gate (WO-0050). Resuming a SAVED game is not gated. But this message carries
+          // its own campaignId, so with no saved session bound — or a saved session in a different
+          // campaign — it would start a new adventure in any campaign it names. That case is a
+          // start, and is gated like one. Refused before any state changes.
+          if (!canStartCampaign(getPremiumAccessForEmail(dataDir, msg.playerEmail), newCampaignId || 'demo')) {
+            const saved = currentSessionDbId ? readSessionByDbId(currentSessionDbId) : null;
+            const resumesSavedGame = !!savedCampaignIdOf(saved) && savedCampaignIdOf(saved) === (newCampaignId || 'demo');
+            if (!resumesSavedGame) {
+              startRefused = PREMIUM_REFUSAL;
+              send('error', PREMIUM_REFUSAL);
+              console.log(`[WS] Session resume refused (premium gate, no saved game in that campaign) — campaign: ${newCampaignId || 'demo'}, player: ${msg.playerEmail}`);
+              break;
+            }
+          }
           const isSameClaudeSession = prevClaudeId && newClaudeId && prevClaudeId === newClaudeId;
           const isCampaignSwitch = prevCampaignId && newCampaignId && prevCampaignId !== newCampaignId;
 
@@ -1339,6 +1425,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
           // correct system prompt. Claude's old conversation context would
           // have the wrong campaign's characters, NPCs, and scenario.
           engine.sessionId = isCampaignSwitch ? null : newClaudeId;
+          startRefused = false;
           wsEntry.playerEmail = msg.playerEmail;
           wsEntry.campaignId = campaignId;
           wsEntry.characterId = characterId;
@@ -1492,6 +1579,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
             }
           }
           joinSessionRoom(requestedSessionId, canWrite);
+          if (canWrite) startRefused = false; // binding your own save is a fresh, gated-or-resumed context
           const ownerName = getSessionOwnerName(session);
           const accessPayload = {
             sessionDbId: requestedSessionId,
@@ -1511,7 +1599,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
 
           // Snapshot character/NPC files to session-scoped directory (creates if not exists, skips existing)
           if (canWrite && ownerEmail) {
-            try { snapshotToSession(dataDir, requestedSessionId, ownerEmail, session.campaignId || campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
+            try { snapshotToSession(dataDir, requestedSessionId, ownerEmail, savedCampaignIdOf(session) || campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
             // Fire-and-forget: must not delay the watch handshake (session_access /
             // turn_status ordering). The blocking check runs before each DM turn fires.
             scheduleSessionIntegrityCheck(requestedSessionId);
@@ -1542,7 +1630,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
             getOrCreateSessionEngine(requestedSessionId, dataDir, {
               characterId: session.characterId,
               scenarioId: session.scenarioId,
-              campaignId: session.campaignId || campaignId || 'demo',
+              campaignId: savedCampaignIdOf(session) || campaignId || 'demo',
               ownerEmail,
               claudeSessionId: session.claudeSessionId,
               companionConfig: session.companionConfig || null,
@@ -1561,6 +1649,10 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
         }
 
         case 'user_message': {
+          if (startRefused) {
+            send('error', startRefused);
+            return;
+          }
           if (currentSessionDbId && !currentSessionCanWrite) {
             send('error', { error: 'This session is read-only. Only the creator can send messages.' });
             return;
@@ -1575,10 +1667,13 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
           }
 
           // Multiplayer: queue the host's turn instead of firing immediately
-          if (currentSessionDbId && await isMultiplayerSession(currentSessionDbId)) {
+          // Pinned before the first await (WO-0050 revision 3, SR-50-4): a session_start/resume/
+          // watch can land during isMultiplayerSession's await and rebind the connection.
+          const msgSessionDbId = currentSessionDbId;
+          if (msgSessionDbId && await isMultiplayerSession(msgSessionDbId)) {
             const turnText = msg.text.trim();
-            if (!sessionTurns.has(currentSessionDbId)) sessionTurns.set(currentSessionDbId, new Map());
-            sessionTurns.get(currentSessionDbId).set(wsEntry.playerEmail, {
+            if (!sessionTurns.has(msgSessionDbId)) sessionTurns.set(msgSessionDbId, new Map());
+            sessionTurns.get(msgSessionDbId).set(wsEntry.playerEmail, {
               playerEmail: wsEntry.playerEmail,
               playerName: wsEntry.playerName || wsEntry.playerEmail,
               npcId: null,
@@ -1588,7 +1683,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
               text: turnText,
               isHost: true,
             });
-            await persistTurnToSession(currentSessionDbId, {
+            await persistTurnToSession(msgSessionDbId, {
               playerEmail: wsEntry.playerEmail,
               playerName: wsEntry.playerName || wsEntry.playerEmail,
               npcId: null,
@@ -1596,52 +1691,125 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
               isHost: true,
               submittedAt: new Date().toISOString(),
             });
-            console.log(`[WS] Host turn queued — session: ${currentSessionDbId}, player: ${wsEntry.playerEmail}`);
+            console.log(`[WS] Host turn queued — session: ${msgSessionDbId}, player: ${wsEntry.playerEmail}`);
             // Broadcast host's message to all session watchers immediately
-            broadcastSessionMessage(currentSessionDbId, 'session_player_message', {
+            broadcastSessionMessage(msgSessionDbId, 'session_player_message', {
               text: turnText,
               timestamp: new Date().toISOString(),
-              sessionId: currentSessionDbId,
+              sessionId: msgSessionDbId,
             }, wsEntry);
             // Also echo back to the host
-            send('session_player_message', { text: turnText, timestamp: new Date().toISOString(), sessionId: currentSessionDbId });
+            send('session_player_message', { text: turnText, timestamp: new Date().toISOString(), sessionId: msgSessionDbId });
             broadcastToAll('sessions_changed');
-            checkAutoFire(currentSessionDbId);
+            checkAutoFire(msgSessionDbId);
             break;
           }
+
+          // Re-checked after that await: a refusal or a rebind that landed during it wins over this
+          // message (revision 3). Without the first, a refused start arriving in that window was
+          // followed by this turn running unbound; the second only refuses a message whose
+          // session changed under it, which an ordinary client does not do.
+          if (startRefused) {
+            send('error', startRefused);
+            return;
+          }
+          if (currentSessionDbId !== msgSessionDbId) {
+            send('error', { error: 'The session changed while this message was being handled. Please send it again.' });
+            return;
+          }
+
+          // Which campaign this turn runs in (WO-0050 revision 2, SR-50-1). With a saved session
+          // bound, it is THAT SESSION'S saved campaignId — never the connection's `campaignId`,
+          // which is only whatever the last session_start/session_resume named and can disagree
+          // with the bound session. The saved value is trusted only if it is a well-formed id
+          // (revision 3, SR-50-5); otherwise — and with no session bound, or a legacy save with no
+          // campaignId — the turn is gated as a start.
+          //
+          // PINNED (revision 3, SR-50-4). Every input of this turn is captured here, at the gate,
+          // and only these constants are used below — snapshot, engine.run, persistence, audit,
+          // reconcile and broadcasts. handleWsMessage is async and messages are not serialised, so
+          // a session_start/session_resume/session_watch can land at any await below and reassign
+          // the connection's variables; before this, a refused Premium start landing 0-2 ms after
+          // the gate swapped this turn into the refused campaign.
+          const boundAtGate = currentSessionDbId ? readSessionByDbId(currentSessionDbId) : null;
+          const savedCampaignId = savedCampaignIdOf(boundAtGate);
+          if (savedCampaignId) {
+            campaignId = savedCampaignId;
+            wsEntry.campaignId = savedCampaignId;
+          } else if (!isRegisteredEmail(dataDir, wsEntry.playerEmail)) {
+            // Login gate (revision 4, Part C): a turn gated as a start needs a logged-in player,
+            // exactly as session_start does. Synchronous, so `turnPlayerEmail` below pins the same
+            // email this checked. A turn on a bound save with a well-formed campaignId (resuming,
+            // watching-as-owner) does not reach this branch and is unchanged.
+            send('error', LOGIN_REFUSAL);
+            return;
+          } else if (!canStartCampaign(getPremiumAccessForEmail(dataDir, wsEntry.playerEmail), campaignId || 'demo')) {
+            send('error', PREMIUM_REFUSAL);
+            return;
+          }
+          const turnCampaignId = campaignId;
+          const turnCharacterId = characterId;
+          const turnScenarioId = scenarioId;
+          const turnCompanionConfig = companionConfig;
+          const turnDmPersonality = dmPersonality;
+          const turnPlayerEmail = wsEntry.playerEmail;
+          const turnHistory = messageHistory;
+          const turnStartSessionDbId = currentSessionDbId || null;
+          // The session this turn belongs to. Bound at the gate: always that one. Unbound at the
+          // gate (a new, unsaved adventure): the client's first auto-save creates the save and
+          // binds it with session_watch DURING this turn, and the turn has always been persisted
+          // into it — so a save bound later is adopted, but only if it is this connection's own
+          // (canWrite) save in THIS turn's campaign. Memoised per bound id.
+          let adoptCheckedFor = null;
+          let adoptResult = null;
+          const turnSessionDbId = () => {
+            if (turnStartSessionDbId) return turnStartSessionDbId;
+            if (!currentSessionDbId || !currentSessionCanWrite) return null;
+            if (adoptCheckedFor !== currentSessionDbId) {
+              adoptCheckedFor = currentSessionDbId;
+              const later = readSessionByDbId(currentSessionDbId);
+              adoptResult = savedCampaignIdOf(later) === (turnCampaignId || 'demo') ? currentSessionDbId : null;
+            }
+            return adoptResult;
+          };
+          const toWatchers = (type, payload = {}) => {
+            const sid = turnSessionDbId();
+            if (sid) broadcastSessionMessage(sid, type, payload, wsEntry);
+          };
 
           // Single player: fire DM engine immediately
           processing = true;
           send('session_status', { status: 'thinking' });
-          broadcastToSessionWatchers('session_status', { status: 'thinking' });
+          toWatchers('session_status', { status: 'thinking' });
 
           try {
             const playerText = msg.text.trim();
 
             // Send host's player message back to them
-            send('session_player_message', { text: playerText, sessionId: currentSessionDbId || undefined });
+            send('session_player_message', { text: playerText, sessionId: turnSessionDbId() || undefined });
 
-            messageHistory.push({ type: 'player', text: playerText, sessionId: currentSessionDbId || undefined });
-            broadcastToSessionWatchers('session_player_message', {
+            turnHistory.push({ type: 'player', text: playerText, sessionId: turnSessionDbId() || undefined });
+            toWatchers('session_player_message', {
               text: playerText,
               timestamp: new Date().toISOString(),
-              sessionId: currentSessionDbId || undefined,
+              sessionId: turnSessionDbId() || undefined,
             });
 
             // Snapshot session data if we have a saved session
-            if (currentSessionDbId && wsEntry.playerEmail) {
-              try { snapshotToSession(dataDir, currentSessionDbId, wsEntry.playerEmail, campaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
-              beginTurnNotices(currentSessionDbId);
-              await runSessionIntegrityCheck(currentSessionDbId, { partOfTurn: true });
+            const snapshotSid = turnSessionDbId();
+            if (snapshotSid && turnPlayerEmail) {
+              try { snapshotToSession(dataDir, snapshotSid, turnPlayerEmail, turnCampaignId || 'demo'); } catch (e) { console.error('[WS] Snapshot error:', e); }
+              beginTurnNotices(snapshotSid);
+              await runSessionIntegrityCheck(snapshotSid, { partOfTurn: true });
             }
 
             // Load world state and summary counter from session for context persistence
             let singlePlayerWorldState;
             let singlePlayerSummaryCount = 0;
             let singlePlayerArcSummaries;
-            if (currentSessionDbId) {
+            if (turnSessionDbId()) {
               try {
-                const sessData = await readSessionByDbIdAsync(currentSessionDbId);
+                const sessData = await readSessionByDbIdAsync(turnSessionDbId());
                 if (sessData) {
                   singlePlayerWorldState = sessData.worldState || undefined;
                   singlePlayerSummaryCount = sessData.dmMessagesSinceLastSummary || 0;
@@ -1651,14 +1819,14 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
             }
 
             const stream = engine.run(playerText, {
-              characterId,
-              scenarioId,
-              campaignId,
-              messageHistory,
-              playerEmail: wsEntry.playerEmail,
-              sessionDbId: currentSessionDbId || undefined,
-              companionConfig: companionConfig || undefined,
-              dmPersonality: dmPersonality || undefined,
+              characterId: turnCharacterId,
+              scenarioId: turnScenarioId,
+              campaignId: turnCampaignId,
+              messageHistory: turnHistory,
+              playerEmail: turnPlayerEmail,
+              sessionDbId: turnSessionDbId() || undefined,
+              companionConfig: turnCompanionConfig || undefined,
+              dmPersonality: turnDmPersonality || undefined,
               worldState: singlePlayerWorldState,
               dmMessagesSinceLastSummary: singlePlayerSummaryCount,
               arcSummaries: singlePlayerArcSummaries,
@@ -1680,7 +1848,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
               },
               // Condition M6(b): when a tool needs a player's approval and nobody can be asked,
               // say so at the table instead of failing silently.
-              onSessionNotice: (text) => { emitSessionNotice(currentSessionDbId, text, 'permission').catch(() => {}); },
+              onSessionNotice: (text) => { emitSessionNotice(turnSessionDbId(), text, 'permission').catch(() => {}); },
             });
 
             const auditToolCalls = [];
@@ -1696,12 +1864,12 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
               switch (event.type) {
                 case 'dm_partial':
                   send('dm_partial', { text: event.text });
-                  broadcastToSessionWatchers('dm_partial', { text: event.text });
+                  toWatchers('dm_partial', { text: event.text });
                   break;
                 case 'dm_warmup':
                   // Phase 4: Show warm-up status to player and watchers
                   send('dm_warmup', { text: event.text, visible: true });
-                  broadcastToSessionWatchers('dm_warmup', { text: event.text, visible: true });
+                  toWatchers('dm_warmup', { text: event.text, visible: true });
                   break;
                 case 'tool_use':
                   auditToolCalls.push({ name: event.name, input: event.input });
@@ -1718,7 +1886,7 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
                     total: event.total,
                     label: event.label,
                   });
-                  broadcastToSessionWatchers('dice_roll', {
+                  toWatchers('dice_roll', {
                     notation: event.notation,
                     rolls: event.rolls,
                     modifier: event.modifier,
@@ -1738,36 +1906,36 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
                     alt: event.alt, caption: event.caption, text: event.text,
                   };
                   send('scene_image', sceneImage);
-                  broadcastToSessionWatchers('scene_image', sceneImage);
+                  toWatchers('scene_image', sceneImage);
                   turnEvents.push({ type: 'scene_image', ...sceneImage });
                   break;
                 }
                 case 'dm_response':
-                  messageHistory.push({ type: 'dm', text: event.text, sessionId: currentSessionDbId || undefined });
+                  turnHistory.push({ type: 'dm', text: event.text, sessionId: turnSessionDbId() || undefined });
                   auditDmText += (auditDmText ? '\n\n' : '') + event.text;
                   send('dm_response', { text: event.text });
-                  broadcastToSessionWatchers('dm_response', { text: event.text });
+                  toWatchers('dm_response', { text: event.text });
                   turnEvents.push({ type: 'dm', text: event.text });
                   break;
                 case 'dm_complete':
                   send('dm_complete', { sessionId: event.sessionId });
-                  broadcastToSessionWatchers('dm_complete', { sessionId: event.sessionId });
+                  toWatchers('dm_complete', { sessionId: event.sessionId });
                   // Persist the full turn (player message + every DM chunk + every dice
                   // roll) + summary counter + world-state digest, serialized against
                   // other session.json writers. The client auto-save remains; the PUT
                   // handler dedupes against what's persisted here.
-                  if (currentSessionDbId) {
+                  if (turnSessionDbId()) {
                     try {
                       const turnTimestamp = new Date().toISOString();
-                      const playerMsg = { type: 'player', text: playerText, timestamp: turnTimestamp, sessionId: currentSessionDbId };
-                      const stampedTurnEvents = turnEvents.map(te => ({ ...te, timestamp: turnTimestamp, sessionId: currentSessionDbId }));
+                      const playerMsg = { type: 'player', text: playerText, timestamp: turnTimestamp, sessionId: turnSessionDbId() };
+                      const stampedTurnEvents = turnEvents.map(te => ({ ...te, timestamp: turnTimestamp, sessionId: turnSessionDbId() }));
                       let lastDmText = null;
                       for (let i = turnEvents.length - 1; i >= 0; i--) {
                         if (turnEvents[i].type === 'dm') { lastDmText = turnEvents[i].text; break; }
                       }
-                      await updateSessionFile(dataDir, currentSessionDbId, (sess) => {
+                      await updateSessionFile(dataDir, turnSessionDbId(), (sess) => {
                         persistCanonicalTurn(sess, {
-                          sessionDbId: currentSessionDbId,
+                          sessionDbId: turnSessionDbId(),
                           claudeSessionId: event.sessionId,
                           playerMsg,
                           stampedTurnEvents,
@@ -1780,41 +1948,41 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
                     // Audit the DM's narration AND the player's own turn text — a transfer the
                     // player declared ("I give everyone 1 gp") is often paraphrased qualitatively by
                     // the DM and never restated as a number, so the narration scan alone misses it.
-                    const rosterSheets = () => sessionRosterSheets(currentSessionDbId);
+                    const rosterSheets = () => sessionRosterSheets(turnSessionDbId());
                     // This path is single-player: the one speaker is the connection's own
                     // character (revision 2, Security R3 / QC N1).
-                    turnSpeakers = characterId ? [characterId] : [];
+                    turnSpeakers = turnCharacterId ? [turnCharacterId] : [];
                     const auditOpts = { speakers: turnSpeakers, outcomes: auditOutcomes };
                     auditWarnings = dedupeWarningsByCategory([
                       ...auditDmTurn(auditDmText, auditToolCalls, auditOutcomes, rosterSheets, auditOpts),
                       ...auditPlayerTurn(playerText, auditToolCalls, rosterSheets, auditOpts),
                     ]);
-                    logAuditTrace(currentSessionDbId, auditDmText, auditToolCalls, auditWarnings);
-                    const formatted = formatWarnings(auditWarnings, currentSessionDbId);
+                    logAuditTrace(turnSessionDbId(), auditDmText, auditToolCalls, auditWarnings);
+                    const formatted = formatWarnings(auditWarnings, turnSessionDbId());
                     if (formatted) console.warn(formatted);
                     // The only correction this app puts in front of the table (ADR 0005 §10):
                     // it fires when the narration and the server's ledger disagree about
                     // whether somebody died, and it states the fact without blaming anyone.
                     const correction = buildMechanicalCorrection(auditDmText, auditOutcomes, rosterSheets);
                     if (correction) {
-                      console.warn(`[DM:INTEGRITY] ${correction.kind} session=${currentSessionDbId || 'none'} ${correction.text}`);
+                      console.warn(`[DM:INTEGRITY] ${correction.kind} session=${turnSessionDbId() || 'none'} ${correction.text}`);
                       // Broadcast to the other watchers with this connection excluded, then
                       // echo to the player themselves — the same pairing every other
                       // session message in this file uses.
-                      const shown = await emitSessionNotice(currentSessionDbId, correction.text, correction.kind, wsEntry);
+                      const shown = await emitSessionNotice(turnSessionDbId(), correction.text, correction.kind, wsEntry);
                       if (shown) {
-                        send('session_player_message', { text: correction.text, timestamp: new Date().toISOString(), sessionId: currentSessionDbId || undefined });
+                        send('session_player_message', { text: correction.text, timestamp: new Date().toISOString(), sessionId: turnSessionDbId() || undefined });
                       }
                     }
                   } catch (e) { console.error('[DM:AUDIT] error:', e); }
                   break;
                 case 'session_id':
                   send('session_id', { sessionId: event.sessionId });
-                  broadcastToSessionWatchers('session_id', { sessionId: event.sessionId });
+                  toWatchers('session_id', { sessionId: event.sessionId });
                   break;
                 case 'error':
                   send('error', describeEngineError(event.error));
-                  broadcastToSessionWatchers('error', describeEngineError(event.error));
+                  toWatchers('error', describeEngineError(event.error));
                   break;
               }
             }
@@ -1828,28 +1996,28 @@ function attachWebSocket(server, dataDir, { appendChatMessage, createEngine, sum
               auditPlayerText: playerText,
               auditToolCalls,
               auditOutcomes,
-              knownEntities: () => sessionRosterSheets(currentSessionDbId),
+              knownEntities: () => sessionRosterSheets(turnSessionDbId()),
               speakers: turnSpeakers,
               runOpts: {
-                onSessionNotice: (text) => { emitSessionNotice(currentSessionDbId, text, 'permission').catch(() => {}); },
-                characterId,
-                scenarioId,
-                campaignId,
-                playerEmail: wsEntry.playerEmail,
-                sessionDbId: currentSessionDbId || undefined,
-                companionConfig: companionConfig || undefined,
-                dmPersonality: dmPersonality || undefined,
+                onSessionNotice: (text) => { emitSessionNotice(turnSessionDbId(), text, 'permission').catch(() => {}); },
+                characterId: turnCharacterId,
+                scenarioId: turnScenarioId,
+                campaignId: turnCampaignId,
+                playerEmail: turnPlayerEmail,
+                sessionDbId: turnSessionDbId() || undefined,
+                companionConfig: turnCompanionConfig || undefined,
+                dmPersonality: turnDmPersonality || undefined,
                 worldState: singlePlayerWorldState,
               },
             });
           } catch (err) {
             console.error('[WS] Engine error:', err);
             send('error', describeEngineError(err.message));
-            broadcastToSessionWatchers('error', describeEngineError(err.message));
+            toWatchers('error', describeEngineError(err.message));
           } finally {
             processing = false;
             send('session_status', { status: 'idle' });
-            broadcastToSessionWatchers('session_status', { status: 'idle' });
+            toWatchers('session_status', { status: 'idle' });
           }
           break;
         }
